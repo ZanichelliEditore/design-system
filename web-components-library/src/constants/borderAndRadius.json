@@ -1,0 +1,11 @@
+{
+  "border": {
+    "base": "2px",
+    "sizeSmall": "1px"
+  },
+  "radius": {
+    "base": "4px",
+    "min": "0",
+    "max": "100%"
+  }
+}

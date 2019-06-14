@@ -1,0 +1,29 @@
+{
+  "backgroud": {
+    "bg-artboard-gray": "#F6F6F6",
+    "artboardWhite": "#FFFFFF",
+    "bg-artboard-gray-light": "#E6E6E6"
+  },
+  "brand": {
+    "brand-red-normal": "#E2001A",
+    "brand-red-light": "#FF808E",
+    "brand-red-dark": "#80000F"
+  },
+  "myZanichelli": {
+    "blue": "#0056C1",
+    "blueLight": "#63A8FF",
+    "blueDark": "#003476"
+  },
+  "text": {
+    "text-gray-dark": "#424548",
+    "text-gray-medium": "#676B6F",
+    "text-gray-light": "#8D9196",
+    "text-white": "#FFFFFF",
+    "text-myzanichelli-blue": "#0056C1"
+  },
+  "status": {
+    "success-green": "#9CD638",
+    "warning-orange": "#DB9909",
+    "error-red": "#DC3122"
+  }
+}
