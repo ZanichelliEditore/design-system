@@ -14,7 +14,10 @@ export class ZLink {
   render() {
     return (
       <div>
-        <a href={this.url}>{this.label}</a>
+        <a href={this.url}>
+          <icon />
+          {this.label}
+        </a>
       </div>
     );
   }
