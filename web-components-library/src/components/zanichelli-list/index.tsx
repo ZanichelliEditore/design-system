@@ -3,7 +3,8 @@ import { ListItemBean } from "../../beans/index.js";
 
 @Component({
   tag: "zanichelli-list",
-  styleUrls: ["../../global-styles.css", "./styles.css"]
+  styleUrls: ["../../global-styles.css", "./styles.css"],
+  shadow: true
 })
 export class ZanichelliList {
   @Prop() inputrawdata?: string;
@@ -11,7 +12,12 @@ export class ZanichelliList {
   list: ListItemBean[];
 
   constructor() {
-    this.list = JSON.parse(this.inputrawdata);
+    // this.list = JSON.parse(this.inputrawdata);
+    this.updateListItemBean();
+  }
+
+  updateListItemBean() {
+    this.list = this.getnodes();
   }
 
   render() {

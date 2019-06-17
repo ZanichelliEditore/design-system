@@ -23,6 +23,7 @@ export class ListItem {
         ) : (
           <span>{this.text}</span>
         )}
+        <div />
         {this.innernode &&
           this.innernode.map(bean => (
             <list-item
