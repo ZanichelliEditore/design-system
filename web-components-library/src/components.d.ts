@@ -9,6 +9,9 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface BaseComponentLayer {
+    'myProp': string;
+  }
   interface CardBody {
     'myProp': string;
   }
@@ -41,6 +44,12 @@ export namespace Components {
 
 declare global {
 
+
+  interface HTMLBaseComponentLayerElement extends Components.BaseComponentLayer, HTMLStencilElement {}
+  var HTMLBaseComponentLayerElement: {
+    prototype: HTMLBaseComponentLayerElement;
+    new (): HTMLBaseComponentLayerElement;
+  };
 
   interface HTMLCardBodyElement extends Components.CardBody, HTMLStencilElement {}
   var HTMLCardBodyElement: {
@@ -90,6 +99,7 @@ declare global {
     new (): HTMLZanichelliListElement;
   };
   interface HTMLElementTagNameMap {
+    'base-component-layer': HTMLBaseComponentLayerElement;
     'card-body': HTMLCardBodyElement;
     'card-component': HTMLCardComponentElement;
     'card-footer': HTMLCardFooterElement;
@@ -102,6 +112,9 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface BaseComponentLayer extends JSXBase.HTMLAttributes<HTMLBaseComponentLayerElement> {
+    'myProp'?: string;
+  }
   interface CardBody extends JSXBase.HTMLAttributes<HTMLCardBodyElement> {
     'myProp'?: string;
   }
@@ -132,6 +145,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'base-component-layer': BaseComponentLayer;
     'card-body': CardBody;
     'card-component': CardComponent;
     'card-footer': CardFooter;
