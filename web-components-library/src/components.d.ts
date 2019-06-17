@@ -6,6 +6,9 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
+import {
+  ListItemBean,
+} from './beans/index.js';
 
 
 export namespace Components {
@@ -27,8 +30,8 @@ export namespace Components {
   interface FooterIpad {}
   interface ListItem {
     'icon'?: String;
-    'isLeaf': Boolean;
-    'isLink': Boolean;
+    'innernode'?: ListItemBean[];
+    'link'?: string;
     'text': String;
   }
   interface ZanichelliButton {
@@ -38,7 +41,8 @@ export namespace Components {
     'label': string;
   }
   interface ZanichelliList {
-    'inputRawData': string;
+    'getnodes'?: Function;
+    'inputrawdata'?: string;
   }
 }
 
@@ -130,8 +134,8 @@ declare namespace LocalJSX {
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
   interface ListItem extends JSXBase.HTMLAttributes<HTMLListItemElement> {
     'icon'?: String;
-    'isLeaf'?: Boolean;
-    'isLink'?: Boolean;
+    'innernode'?: ListItemBean[];
+    'link'?: string;
     'text'?: String;
   }
   interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
@@ -141,7 +145,8 @@ declare namespace LocalJSX {
     'label'?: string;
   }
   interface ZanichelliList extends JSXBase.HTMLAttributes<HTMLZanichelliListElement> {
-    'inputRawData'?: string;
+    'getnodes'?: Function;
+    'inputrawdata'?: string;
   }
 
   interface IntrinsicElements {
