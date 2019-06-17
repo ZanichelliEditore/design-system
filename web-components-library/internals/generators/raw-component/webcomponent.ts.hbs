@@ -1,20 +1,20 @@
 import {Component, Prop, h} from '@stencil/core';
 
 @Component({
-tag: '{{name}}',
-styleUrls: ['../../global-styles.css', '{{name}}.css'],
-shadow: true
+  tag: '{{name}}',
+  styleUrls: ['../../global-styles.css', '{{name}}.css'],
+  shadow: true
 })
 
 export class {{properCase name}} {
 @Prop() myProp: string;
 
-render() {
-return (
-<div>
-  This is your{{name}}component
-  This is your default prop: {this.myProp}
-</div>
-);
-}
+  render() {
+    return (
+      <div>
+        This is your{{name}}component
+        This is your default prop: {this.myProp}
+      </div>
+    );
+  }
 }
