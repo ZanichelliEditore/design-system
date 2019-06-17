@@ -1,3 +1,10 @@
+/* Css Variables */
+
+@import url("constants/global-border-and-radius.css");
+@import url("constants/global-colors.css");
+@import url("constants/global-grid.css");
+@import url("constants/global-spacing.css");
+
 @font-face {
   font-family: "Proxima Nova Lt";
   src: url("./assets/fonts/ProximaNova-Semibold.woff2") format("woff2"),
@@ -29,13 +36,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
-/* Css Variables */
-
-@import url("constants/global-border-and-radius.css");
-@import url("constants/global-colors.css");
-@import url("constants/global-grid.css");
-@import url("constants/global-spacing.css");
 
 body * {
   box-sizing: border-box;
