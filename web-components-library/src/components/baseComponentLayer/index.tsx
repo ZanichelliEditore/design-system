@@ -10,7 +10,11 @@ export class BaseComponentLayer {
   render() {
     return (
       <div>
-        <z-link url={"https://www.google.it"} label="Prova link" />
+        <z-link
+          url={"https://www.google.it"}
+          label={"Prova link"}
+          hasicon={true}
+        />
       </div>
     );
   }

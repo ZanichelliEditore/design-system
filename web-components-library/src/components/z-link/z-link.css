@@ -2,9 +2,12 @@
   color: black;
 }
 
+a {
+  display: flex;
+}
+
 icon {
   width: 16px;
   height: 16px;
-  background-color: red;
-  
+  background-color: tomato;
 }

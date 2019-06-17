@@ -8,14 +8,14 @@ import { Component, Prop, h } from "@stencil/core";
 export class ZLink {
   @Prop() url: string;
   @Prop() label?: string;
-  @Prop() hasIcon?: boolean;
-  @Prop() iconType?: string;
+  @Prop() hasicon?: boolean;
+  @Prop() icontype?: string;
 
   render() {
     return (
       <div>
         <a href={this.url}>
-          <icon />
+          {this.hasicon && <icon class={this.icontype} />}
           {this.label}
         </a>
       </div>

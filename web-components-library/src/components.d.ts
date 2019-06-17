@@ -26,8 +26,8 @@ export namespace Components {
   }
   interface FooterIpad {}
   interface ZLink {
-    'hasIcon'?: boolean;
-    'iconType'?: string;
+    'hasicon'?: boolean;
+    'icontype'?: string;
     'label'?: string;
     'url': string;
   }
@@ -119,8 +119,8 @@ declare namespace LocalJSX {
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
   interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
-    'hasIcon'?: boolean;
-    'iconType'?: string;
+    'hasicon'?: boolean;
+    'icontype'?: string;
     'label'?: string;
     'url'?: string;
   }
