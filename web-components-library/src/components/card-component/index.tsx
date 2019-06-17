@@ -1,22 +1,34 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, h, Prop, State } from "@stencil/core";
+import { CardBean } from "../../beans";
+import * as cardData from "./card-mock-data.json";
 
 @Component({
   tag: "card-component",
-  styleUrls: [
-    "../../global-styles.css",
-    "../../constants/global-border-and-radius.css",
-    "card-component.css"
-  ],
+  styleUrls: ["../../global-styles.css", "card-component.css"],
   shadow: true
 })
 export class CardComponent {
-  @Prop() myProp: string;
+  @Prop() carddata: CardBean & {} = cardData;
+  @State() isopen: boolean = false;
+
+  constructor() {
+    this.handleCardOpen = this.handleCardOpen.bind(this);
+  }
+
+  handleCardOpen(e): void {
+    e.preventDefault();
+    this.isopen = !this.isopen;
+  }
 
   render() {
     return (
       <div>
-        This is yourcard-componentcomponent This is your default prop:{" "}
-        {this.myProp}
+        <card-header />
+        <card-body />
+        <card-footer
+          carddata={this.carddata}
+          handlecardopen={this.handleCardOpen}
+        />
       </div>
     );
   }

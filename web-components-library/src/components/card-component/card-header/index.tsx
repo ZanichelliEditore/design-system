@@ -6,14 +6,13 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class CardHeader {
-  @Prop() myProp: string;
+  @Prop() titolo: string;
 
   render() {
     return (
-      <div>
-        This is yourcard-headercomponent This is your default prop:{" "}
-        {this.myProp}
-      </div>
+      <header>
+        <h2>{this.titolo}</h2>
+      </header>
     );
   }
 }

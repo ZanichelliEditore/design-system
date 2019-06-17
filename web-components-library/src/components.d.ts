@@ -6,20 +6,24 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
+import {
+  CardBean,
+} from './beans';
 
 
 export namespace Components {
   interface CardBody {
-    'myProp': string;
+    'bookimg': string;
   }
   interface CardComponent {
-    'myProp': string;
+    'carddata': CardBean & {};
   }
   interface CardFooter {
-    'myProp': string;
+    'carddata': CardBean & {};
+    'handlecardopen': Function;
   }
   interface CardHeader {
-    'myProp': string;
+    'titolo': string;
   }
   interface FooterIpad {}
   interface ZanichelliButton {
@@ -80,16 +84,17 @@ declare global {
 
 declare namespace LocalJSX {
   interface CardBody extends JSXBase.HTMLAttributes<HTMLCardBodyElement> {
-    'myProp'?: string;
+    'bookimg'?: string;
   }
   interface CardComponent extends JSXBase.HTMLAttributes<HTMLCardComponentElement> {
-    'myProp'?: string;
+    'carddata'?: CardBean & {};
   }
   interface CardFooter extends JSXBase.HTMLAttributes<HTMLCardFooterElement> {
-    'myProp'?: string;
+    'carddata'?: CardBean & {};
+    'handlecardopen'?: Function;
   }
   interface CardHeader extends JSXBase.HTMLAttributes<HTMLCardHeaderElement> {
-    'myProp'?: string;
+    'titolo'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
   interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {

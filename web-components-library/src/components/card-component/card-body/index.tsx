@@ -6,13 +6,9 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class CardBody {
-  @Prop() myProp: string;
+  @Prop() bookimg: string;
 
   render() {
-    return (
-      <div>
-        This is yourcard-bodycomponent This is your default prop: {this.myProp}
-      </div>
-    );
+    return <img src={this.bookimg} />;
   }
 }
