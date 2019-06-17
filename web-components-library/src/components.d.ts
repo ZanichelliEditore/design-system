@@ -22,11 +22,20 @@ export namespace Components {
     'myProp': string;
   }
   interface FooterIpad {}
+  interface ListItem {
+    'icon'?: String;
+    'isLeaf': Boolean;
+    'isLink': Boolean;
+    'text': String;
+  }
   interface ZanichelliButton {
     'action'?: Function;
     'hasicon': boolean;
     'isprimary': boolean;
     'label': string;
+  }
+  interface ZanichelliList {
+    'inputRawData': string;
   }
 }
 
@@ -63,10 +72,22 @@ declare global {
     new (): HTMLFooterIpadElement;
   };
 
+  interface HTMLListItemElement extends Components.ListItem, HTMLStencilElement {}
+  var HTMLListItemElement: {
+    prototype: HTMLListItemElement;
+    new (): HTMLListItemElement;
+  };
+
   interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
   var HTMLZanichelliButtonElement: {
     prototype: HTMLZanichelliButtonElement;
     new (): HTMLZanichelliButtonElement;
+  };
+
+  interface HTMLZanichelliListElement extends Components.ZanichelliList, HTMLStencilElement {}
+  var HTMLZanichelliListElement: {
+    prototype: HTMLZanichelliListElement;
+    new (): HTMLZanichelliListElement;
   };
   interface HTMLElementTagNameMap {
     'card-body': HTMLCardBodyElement;
@@ -74,7 +95,9 @@ declare global {
     'card-footer': HTMLCardFooterElement;
     'card-header': HTMLCardHeaderElement;
     'footer-ipad': HTMLFooterIpadElement;
+    'list-item': HTMLListItemElement;
     'zanichelli-button': HTMLZanichelliButtonElement;
+    'zanichelli-list': HTMLZanichelliListElement;
   }
 }
 
@@ -92,11 +115,20 @@ declare namespace LocalJSX {
     'myProp'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
+  interface ListItem extends JSXBase.HTMLAttributes<HTMLListItemElement> {
+    'icon'?: String;
+    'isLeaf'?: Boolean;
+    'isLink'?: Boolean;
+    'text'?: String;
+  }
   interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
     'action'?: Function;
     'hasicon'?: boolean;
     'isprimary'?: boolean;
     'label'?: string;
+  }
+  interface ZanichelliList extends JSXBase.HTMLAttributes<HTMLZanichelliListElement> {
+    'inputRawData'?: string;
   }
 
   interface IntrinsicElements {
@@ -105,7 +137,9 @@ declare namespace LocalJSX {
     'card-footer': CardFooter;
     'card-header': CardHeader;
     'footer-ipad': FooterIpad;
+    'list-item': ListItem;
     'zanichelli-button': ZanichelliButton;
+    'zanichelli-list': ZanichelliList;
   }
 }
 
