@@ -12,53 +12,36 @@ import {
 
 
 export namespace Components {
-  interface CardBody {
-    'bookimg': string;
-  }
-  interface CardComponent {
-    'carddata': CardBean & {};
-  }
-  interface CardFooter {
-    'carddata': CardBean & {};
-    'handlecardopen': Function;
-  }
-  interface CardHeader {
-    'titolo': string;
+  interface BaseComponentLayer {
+    'myProp': string;
   }
   interface FooterIpad {}
-  interface ZanichelliButton {
-    'action'?: Function;
-    'hasicon': boolean;
-    'isprimary': boolean;
-    'label': string;
+  interface ZCardBody {
+    'bookimg': string;
+  }
+  interface ZCardComponent {
+    'carddata': CardBean & {};
+  }
+  interface ZCardFooter {
+    'carddata': CardBean & {};
+    'handlecardopen': (e: MouseEvent) => void;
+    'isopen': boolean;
+  }
+  interface ZCardHeader {
+    'titolo': string;
+  }
+  interface ZCardManager {
+    'myProp': string;
   }
 }
 
 declare global {
 
 
-  interface HTMLCardBodyElement extends Components.CardBody, HTMLStencilElement {}
-  var HTMLCardBodyElement: {
-    prototype: HTMLCardBodyElement;
-    new (): HTMLCardBodyElement;
-  };
-
-  interface HTMLCardComponentElement extends Components.CardComponent, HTMLStencilElement {}
-  var HTMLCardComponentElement: {
-    prototype: HTMLCardComponentElement;
-    new (): HTMLCardComponentElement;
-  };
-
-  interface HTMLCardFooterElement extends Components.CardFooter, HTMLStencilElement {}
-  var HTMLCardFooterElement: {
-    prototype: HTMLCardFooterElement;
-    new (): HTMLCardFooterElement;
-  };
-
-  interface HTMLCardHeaderElement extends Components.CardHeader, HTMLStencilElement {}
-  var HTMLCardHeaderElement: {
-    prototype: HTMLCardHeaderElement;
-    new (): HTMLCardHeaderElement;
+  interface HTMLBaseComponentLayerElement extends Components.BaseComponentLayer, HTMLStencilElement {}
+  var HTMLBaseComponentLayerElement: {
+    prototype: HTMLBaseComponentLayerElement;
+    new (): HTMLBaseComponentLayerElement;
   };
 
   interface HTMLFooterIpadElement extends Components.FooterIpad, HTMLStencilElement {}
@@ -67,50 +50,77 @@ declare global {
     new (): HTMLFooterIpadElement;
   };
 
-  interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
-  var HTMLZanichelliButtonElement: {
-    prototype: HTMLZanichelliButtonElement;
-    new (): HTMLZanichelliButtonElement;
+  interface HTMLZCardBodyElement extends Components.ZCardBody, HTMLStencilElement {}
+  var HTMLZCardBodyElement: {
+    prototype: HTMLZCardBodyElement;
+    new (): HTMLZCardBodyElement;
+  };
+
+  interface HTMLZCardComponentElement extends Components.ZCardComponent, HTMLStencilElement {}
+  var HTMLZCardComponentElement: {
+    prototype: HTMLZCardComponentElement;
+    new (): HTMLZCardComponentElement;
+  };
+
+  interface HTMLZCardFooterElement extends Components.ZCardFooter, HTMLStencilElement {}
+  var HTMLZCardFooterElement: {
+    prototype: HTMLZCardFooterElement;
+    new (): HTMLZCardFooterElement;
+  };
+
+  interface HTMLZCardHeaderElement extends Components.ZCardHeader, HTMLStencilElement {}
+  var HTMLZCardHeaderElement: {
+    prototype: HTMLZCardHeaderElement;
+    new (): HTMLZCardHeaderElement;
+  };
+
+  interface HTMLZCardManagerElement extends Components.ZCardManager, HTMLStencilElement {}
+  var HTMLZCardManagerElement: {
+    prototype: HTMLZCardManagerElement;
+    new (): HTMLZCardManagerElement;
   };
   interface HTMLElementTagNameMap {
-    'card-body': HTMLCardBodyElement;
-    'card-component': HTMLCardComponentElement;
-    'card-footer': HTMLCardFooterElement;
-    'card-header': HTMLCardHeaderElement;
+    'base-component-layer': HTMLBaseComponentLayerElement;
     'footer-ipad': HTMLFooterIpadElement;
-    'zanichelli-button': HTMLZanichelliButtonElement;
+    'z-card-body': HTMLZCardBodyElement;
+    'z-card-component': HTMLZCardComponentElement;
+    'z-card-footer': HTMLZCardFooterElement;
+    'z-card-header': HTMLZCardHeaderElement;
+    'z-card-manager': HTMLZCardManagerElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface CardBody extends JSXBase.HTMLAttributes<HTMLCardBodyElement> {
-    'bookimg'?: string;
-  }
-  interface CardComponent extends JSXBase.HTMLAttributes<HTMLCardComponentElement> {
-    'carddata'?: CardBean & {};
-  }
-  interface CardFooter extends JSXBase.HTMLAttributes<HTMLCardFooterElement> {
-    'carddata'?: CardBean & {};
-    'handlecardopen'?: Function;
-  }
-  interface CardHeader extends JSXBase.HTMLAttributes<HTMLCardHeaderElement> {
-    'titolo'?: string;
+  interface BaseComponentLayer extends JSXBase.HTMLAttributes<HTMLBaseComponentLayerElement> {
+    'myProp'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
-  interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
-    'action'?: Function;
-    'hasicon'?: boolean;
-    'isprimary'?: boolean;
-    'label'?: string;
+  interface ZCardBody extends JSXBase.HTMLAttributes<HTMLZCardBodyElement> {
+    'bookimg'?: string;
+  }
+  interface ZCardComponent extends JSXBase.HTMLAttributes<HTMLZCardComponentElement> {
+    'carddata'?: CardBean & {};
+  }
+  interface ZCardFooter extends JSXBase.HTMLAttributes<HTMLZCardFooterElement> {
+    'carddata'?: CardBean & {};
+    'handlecardopen'?: (e: MouseEvent) => void;
+    'isopen'?: boolean;
+  }
+  interface ZCardHeader extends JSXBase.HTMLAttributes<HTMLZCardHeaderElement> {
+    'titolo'?: string;
+  }
+  interface ZCardManager extends JSXBase.HTMLAttributes<HTMLZCardManagerElement> {
+    'myProp'?: string;
   }
 
   interface IntrinsicElements {
-    'card-body': CardBody;
-    'card-component': CardComponent;
-    'card-footer': CardFooter;
-    'card-header': CardHeader;
+    'base-component-layer': BaseComponentLayer;
     'footer-ipad': FooterIpad;
-    'zanichelli-button': ZanichelliButton;
+    'z-card-body': ZCardBody;
+    'z-card-component': ZCardComponent;
+    'z-card-footer': ZCardFooter;
+    'z-card-header': ZCardHeader;
+    'z-card-manager': ZCardManager;
   }
 }
 

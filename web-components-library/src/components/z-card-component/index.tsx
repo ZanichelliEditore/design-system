@@ -1,15 +1,14 @@
 import { Component, h, Prop, State } from "@stencil/core";
 import { CardBean } from "../../beans";
-import * as cardData from "./card-mock-data.json";
 
 @Component({
-  tag: "card-component",
-  styleUrls: ["../../global-styles.css", "card-component.css"],
+  tag: "z-card-component",
+  styleUrls: ["../../global-styles.css", "z-card-component.css"],
   shadow: true
 })
-export class CardComponent {
-  @Prop() carddata: CardBean & {} = cardData;
-  @State() isopen: boolean = false;
+export class ZCardComponent {
+  @Prop() carddata: CardBean & {};
+  @State() isOpen: boolean = false;
 
   constructor() {
     this.handleCardOpen = this.handleCardOpen.bind(this);
@@ -17,15 +16,17 @@ export class CardComponent {
 
   handleCardOpen(e): void {
     e.preventDefault();
-    this.isopen = !this.isopen;
+    this.isOpen = !this.isOpen;
   }
 
   render() {
+    const { titolo } = this.carddata;
     return (
       <div>
-        <card-header />
-        <card-body />
-        <card-footer
+        <z-card-header titolo={titolo} />
+        <z-card-body />
+        <z-card-footer
+          isopen={this.isOpen}
           carddata={this.carddata}
           handlecardopen={this.handleCardOpen}
         />

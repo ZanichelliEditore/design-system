@@ -1,11 +1,11 @@
 import { Component, Prop, h } from "@stencil/core";
 
 @Component({
-  tag: "card-body",
-  styleUrls: ["../../../global-styles.css", "card-body.css"],
+  tag: "z-card-body",
+  styleUrls: ["../../../global-styles.css", "z-card-body.css"],
   shadow: true
 })
-export class CardBody {
+export class ZCardBody {
   @Prop() bookimg: string;
 
   render() {

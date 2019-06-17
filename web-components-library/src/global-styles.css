@@ -8,7 +8,7 @@
 /* Fonts */
 
 @font-face {
-  font-family: "Proxima Nova Lt";
+  font-family: "Proxima Nova Sb";
   src: url("./assets/fonts/ProximaNova-Semibold.woff2") format("woff2"),
     url("./assets/fonts/ProximaNova-Semibold.woff") format("woff");
   font-weight: 600;
