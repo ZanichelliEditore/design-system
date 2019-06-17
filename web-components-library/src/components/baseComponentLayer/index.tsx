@@ -1,17 +1,16 @@
-import {Component, Prop, h} from '@stencil/core';
+import { Component, Prop, h } from "@stencil/core";
 
 @Component({
-  tag: 'base-component-layer',
-  styleUrl: '../../global-styles.css'
+  tag: "base-component-layer",
+  styleUrl: "../../global-styles.css"
 })
-
 export class BaseComponentLayer {
   @Prop() myProp: string;
 
   render() {
     return (
       <div>
-        Inserire il componente in sviluppo come figlio di questo component
+        <z-link url={"https://www.google.it"} label="Prova link" />
       </div>
     );
   }

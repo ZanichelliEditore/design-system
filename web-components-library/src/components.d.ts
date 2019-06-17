@@ -25,6 +25,12 @@ export namespace Components {
     'myProp': string;
   }
   interface FooterIpad {}
+  interface ZLink {
+    'hasIcon'?: boolean;
+    'iconType'?: string;
+    'label'?: string;
+    'url': string;
+  }
   interface ZanichelliButton {
     'action'?: Function;
     'hasicon': boolean;
@@ -72,6 +78,12 @@ declare global {
     new (): HTMLFooterIpadElement;
   };
 
+  interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
+  var HTMLZLinkElement: {
+    prototype: HTMLZLinkElement;
+    new (): HTMLZLinkElement;
+  };
+
   interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
   var HTMLZanichelliButtonElement: {
     prototype: HTMLZanichelliButtonElement;
@@ -84,6 +96,7 @@ declare global {
     'card-footer': HTMLCardFooterElement;
     'card-header': HTMLCardHeaderElement;
     'footer-ipad': HTMLFooterIpadElement;
+    'z-link': HTMLZLinkElement;
     'zanichelli-button': HTMLZanichelliButtonElement;
   }
 }
@@ -105,6 +118,12 @@ declare namespace LocalJSX {
     'myProp'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
+  interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
+    'hasIcon'?: boolean;
+    'iconType'?: string;
+    'label'?: string;
+    'url'?: string;
+  }
   interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
     'action'?: Function;
     'hasicon'?: boolean;
@@ -119,6 +138,7 @@ declare namespace LocalJSX {
     'card-footer': CardFooter;
     'card-header': CardHeader;
     'footer-ipad': FooterIpad;
+    'z-link': ZLink;
     'zanichelli-button': ZanichelliButton;
   }
 }
