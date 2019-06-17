@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, Host, h } from "@stencil/core";
 
 @Component({
   tag: "z-link",
@@ -8,17 +8,23 @@ import { Component, Prop, h } from "@stencil/core";
 export class ZLink {
   @Prop() url: string;
   @Prop() label?: string;
+  @Prop() type?: string = "internal";
   @Prop() hasicon?: boolean;
   @Prop() icontype?: string;
 
   render() {
     return (
-      <div>
-        <a href={this.url}>
+      <Host>
+        <a
+          href={this.url}
+          class={{
+            internal: this.type === "internal"
+          }}
+        >
           {this.hasicon && <icon class={this.icontype} />}
           {this.label}
         </a>
-      </div>
+      </Host>
     );
   }
 }

@@ -29,6 +29,7 @@ export namespace Components {
     'hasicon'?: boolean;
     'icontype'?: string;
     'label'?: string;
+    'type'?: string;
     'url': string;
   }
   interface ZanichelliButton {
@@ -122,6 +123,7 @@ declare namespace LocalJSX {
     'hasicon'?: boolean;
     'icontype'?: string;
     'label'?: string;
+    'type'?: string;
     'url'?: string;
   }
   interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {

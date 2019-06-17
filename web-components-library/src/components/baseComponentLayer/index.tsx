@@ -12,8 +12,14 @@ export class BaseComponentLayer {
       <div>
         <z-link
           url={"https://www.google.it"}
+          hasicon={false}
           label={"Prova link"}
+          type={"external"}
+        />
+        <z-link
+          url={"https://www.google.it"}
           hasicon={true}
+          label={"Prova link"}
         />
       </div>
     );
