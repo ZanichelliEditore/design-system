@@ -2,7 +2,7 @@ import { Component, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "card-header",
-  styleUrls: ["../../global-styles.css", "card-header.css"],
+  styleUrls: ["../../../global-styles.css", "card-header.css"],
   shadow: true
 })
 export class CardHeader {

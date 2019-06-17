@@ -1,20 +1,18 @@
-import {Component, Prop, h} from '@stencil/core';
+import { Component, Prop, h } from "@stencil/core";
 
 @Component({
-tag: 'card-body',
-styleUrls: ['../../global-styles.css', 'card-body.css'],
-shadow: true
+  tag: "card-body",
+  styleUrls: ["../../../global-styles.css", "card-body.css"],
+  shadow: true
 })
-
 export class CardBody {
-@Prop() myProp: string;
+  @Prop() myProp: string;
 
-render() {
-return (
-<div>
-  This is yourcard-bodycomponent
-  This is your default prop: {this.myProp}
-</div>
-);
-}
+  render() {
+    return (
+      <div>
+        This is yourcard-bodycomponent This is your default prop: {this.myProp}
+      </div>
+    );
+  }
 }
