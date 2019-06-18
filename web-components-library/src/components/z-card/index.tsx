@@ -7,7 +7,7 @@ import { Component, h, Prop, State } from "@stencil/core";
 })
 export class ZCardComponent {
   @Prop() headericon: string;
-  @Prop() carddata: {};
+  @Prop() carddata: any;
   @Prop() hasbutton: boolean;
   @Prop() handleiconclick: (e: MouseEvent) => void;
   @State() isOpen: boolean = false;

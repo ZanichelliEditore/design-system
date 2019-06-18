@@ -7,7 +7,7 @@ import { Component, Prop, h } from "@stencil/core";
 })
 export class ZCardFooter {
   @Prop() isopen: boolean;
-  @Prop() carddata: {};
+  @Prop() carddata: any;
   @Prop() hasbutton: boolean;
   @Prop() handlecardopen?: (e: MouseEvent) => void;
 
@@ -20,6 +20,14 @@ export class ZCardFooter {
     ));
   }
 
+  renderAutori(items: string[]): string {
+    let newString = "";
+    items.map((item: string) => {
+      newString = newString.concat(item, ", ");
+    });
+    return newString.substr(0, newString.length - 2);
+  }
+
   displayResourceButton() {
     if (!this.hasbutton) {
       return;
@@ -29,16 +37,12 @@ export class ZCardFooter {
 
   render() {
     // console.log(this.isopen);
-    const { titolo, tags, autori, anno, actions } = this.carddata;
+    const { titolo, autori, anno, actions } = this.carddata;
     return (
       <footer>
         {this.displayResourceButton()}
-        <h2>{titolo}</h2>
-        <div>{this.renderListItem(tags)}</div>
-        <div>
-          Autore:
-          {this.renderListItem(autori)}
-        </div>
+        <h2>{titolo} RICORDIAMOCI L'OVERFLOW!</h2>
+        <div>Autore: {this.renderAutori(autori)}</div>
         <p>
           Edizione: <b>{anno}</b>
         </p>

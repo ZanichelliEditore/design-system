@@ -1,5 +1,27 @@
 :host {
+  font-family: Proxima Nova Sb;
 }
 
-button {
+footer {
+  border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  padding: 8px 16px;
+  position: relative;
+  z-index: 5;
+  transition: height 200ms linear, top 200ms linear;
+}
+
+footer > button {
+  position: absolute;
+  top: -16px;
+  left: 12px;
+  z-index: 10;
+}
+
+footer > h2 {
+  color: var(--text-gray-dark);
+  font-size: 16px;
+  line-height: 1.2;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
 }

@@ -4,55 +4,55 @@
  * It contains typing information for all components that exist in this project.
  */
 
-import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
+
 
 export namespace Components {
   interface BaseComponentLayer {
-    myProp: string;
+    'myProp': string;
   }
   interface FooterIpad {}
   interface ZCard {
-    carddata: {};
-    handleiconclick: (e: MouseEvent) => void;
-    hasbutton: boolean;
-    headericon: string;
+    'carddata': any;
+    'handleiconclick': (e: MouseEvent) => void;
+    'hasbutton': boolean;
+    'headericon': string;
   }
   interface ZCardBody {
-    img: string;
-    titolo: string;
+    'img': string;
+    'titolo': string;
   }
   interface ZCardFooter {
-    carddata: {};
-    handlecardopen?: (e: MouseEvent) => void;
-    hasbutton: boolean;
-    isopen: boolean;
+    'carddata': any;
+    'handlecardopen'?: (e: MouseEvent) => void;
+    'hasbutton': boolean;
+    'isopen': boolean;
   }
   interface ZCardHeader {
-    handleiconclick: (e: MouseEvent) => void;
-    icon: string;
-    titolo: string;
+    'handleiconclick': (e: MouseEvent) => void;
+    'icon': string;
+    'titolo': string;
   }
   interface ZCardManager {}
   interface ZanichelliButton {
-    action?: Function;
-    hasicon: boolean;
-    isprimary: boolean;
-    label: string;
+    'action'?: Function;
+    'hasicon': boolean;
+    'isprimary': boolean;
+    'label': string;
   }
 }
 
 declare global {
-  interface HTMLBaseComponentLayerElement
-    extends Components.BaseComponentLayer,
-      HTMLStencilElement {}
+
+
+  interface HTMLBaseComponentLayerElement extends Components.BaseComponentLayer, HTMLStencilElement {}
   var HTMLBaseComponentLayerElement: {
     prototype: HTMLBaseComponentLayerElement;
     new (): HTMLBaseComponentLayerElement;
   };
 
-  interface HTMLFooterIpadElement
-    extends Components.FooterIpad,
-      HTMLStencilElement {}
+  interface HTMLFooterIpadElement extends Components.FooterIpad, HTMLStencilElement {}
   var HTMLFooterIpadElement: {
     prototype: HTMLFooterIpadElement;
     new (): HTMLFooterIpadElement;
@@ -64,110 +64,100 @@ declare global {
     new (): HTMLZCardElement;
   };
 
-  interface HTMLZCardBodyElement
-    extends Components.ZCardBody,
-      HTMLStencilElement {}
+  interface HTMLZCardBodyElement extends Components.ZCardBody, HTMLStencilElement {}
   var HTMLZCardBodyElement: {
     prototype: HTMLZCardBodyElement;
     new (): HTMLZCardBodyElement;
   };
 
-  interface HTMLZCardFooterElement
-    extends Components.ZCardFooter,
-      HTMLStencilElement {}
+  interface HTMLZCardFooterElement extends Components.ZCardFooter, HTMLStencilElement {}
   var HTMLZCardFooterElement: {
     prototype: HTMLZCardFooterElement;
     new (): HTMLZCardFooterElement;
   };
 
-  interface HTMLZCardHeaderElement
-    extends Components.ZCardHeader,
-      HTMLStencilElement {}
+  interface HTMLZCardHeaderElement extends Components.ZCardHeader, HTMLStencilElement {}
   var HTMLZCardHeaderElement: {
     prototype: HTMLZCardHeaderElement;
     new (): HTMLZCardHeaderElement;
   };
 
-  interface HTMLZCardManagerElement
-    extends Components.ZCardManager,
-      HTMLStencilElement {}
+  interface HTMLZCardManagerElement extends Components.ZCardManager, HTMLStencilElement {}
   var HTMLZCardManagerElement: {
     prototype: HTMLZCardManagerElement;
     new (): HTMLZCardManagerElement;
   };
 
-  interface HTMLZanichelliButtonElement
-    extends Components.ZanichelliButton,
-      HTMLStencilElement {}
+  interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
   var HTMLZanichelliButtonElement: {
     prototype: HTMLZanichelliButtonElement;
     new (): HTMLZanichelliButtonElement;
   };
   interface HTMLElementTagNameMap {
-    "base-component-layer": HTMLBaseComponentLayerElement;
-    "footer-ipad": HTMLFooterIpadElement;
-    "z-card": HTMLZCardElement;
-    "z-card-body": HTMLZCardBodyElement;
-    "z-card-footer": HTMLZCardFooterElement;
-    "z-card-header": HTMLZCardHeaderElement;
-    "z-card-manager": HTMLZCardManagerElement;
-    "zanichelli-button": HTMLZanichelliButtonElement;
+    'base-component-layer': HTMLBaseComponentLayerElement;
+    'footer-ipad': HTMLFooterIpadElement;
+    'z-card': HTMLZCardElement;
+    'z-card-body': HTMLZCardBodyElement;
+    'z-card-footer': HTMLZCardFooterElement;
+    'z-card-header': HTMLZCardHeaderElement;
+    'z-card-manager': HTMLZCardManagerElement;
+    'zanichelli-button': HTMLZanichelliButtonElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface BaseComponentLayer
-    extends JSXBase.HTMLAttributes<HTMLBaseComponentLayerElement> {
-    myProp?: string;
+  interface BaseComponentLayer extends JSXBase.HTMLAttributes<HTMLBaseComponentLayerElement> {
+    'myProp'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
   interface ZCard extends JSXBase.HTMLAttributes<HTMLZCardElement> {
-    carddata?: {};
-    handleiconclick?: (e: MouseEvent) => void;
-    hasbutton?: boolean;
-    headericon?: string;
+    'carddata'?: any;
+    'handleiconclick'?: (e: MouseEvent) => void;
+    'hasbutton'?: boolean;
+    'headericon'?: string;
   }
   interface ZCardBody extends JSXBase.HTMLAttributes<HTMLZCardBodyElement> {
-    img?: string;
-    titolo?: string;
+    'img'?: string;
+    'titolo'?: string;
   }
   interface ZCardFooter extends JSXBase.HTMLAttributes<HTMLZCardFooterElement> {
-    carddata?: {};
-    handlecardopen?: (e: MouseEvent) => void;
-    hasbutton?: boolean;
-    isopen?: boolean;
+    'carddata'?: any;
+    'handlecardopen'?: (e: MouseEvent) => void;
+    'hasbutton'?: boolean;
+    'isopen'?: boolean;
   }
   interface ZCardHeader extends JSXBase.HTMLAttributes<HTMLZCardHeaderElement> {
-    handleiconclick?: (e: MouseEvent) => void;
-    icon?: string;
-    titolo?: string;
+    'handleiconclick'?: (e: MouseEvent) => void;
+    'icon'?: string;
+    'titolo'?: string;
   }
-  interface ZCardManager
-    extends JSXBase.HTMLAttributes<HTMLZCardManagerElement> {}
-  interface ZanichelliButton
-    extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
-    action?: Function;
-    hasicon?: boolean;
-    isprimary?: boolean;
-    label?: string;
+  interface ZCardManager extends JSXBase.HTMLAttributes<HTMLZCardManagerElement> {}
+  interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
+    'action'?: Function;
+    'hasicon'?: boolean;
+    'isprimary'?: boolean;
+    'label'?: string;
   }
 
   interface IntrinsicElements {
-    "base-component-layer": BaseComponentLayer;
-    "footer-ipad": FooterIpad;
-    "z-card": ZCard;
-    "z-card-body": ZCardBody;
-    "z-card-footer": ZCardFooter;
-    "z-card-header": ZCardHeader;
-    "z-card-manager": ZCardManager;
-    "zanichelli-button": ZanichelliButton;
+    'base-component-layer': BaseComponentLayer;
+    'footer-ipad': FooterIpad;
+    'z-card': ZCard;
+    'z-card-body': ZCardBody;
+    'z-card-footer': ZCardFooter;
+    'z-card-header': ZCardHeader;
+    'z-card-manager': ZCardManager;
+    'zanichelli-button': ZanichelliButton;
   }
 }
 
 export { LocalJSX as JSX };
+
 
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
 }
+
+
