@@ -6,7 +6,7 @@ li {
   letter-spacing: 0.23px;
   line-height: 14px;
   list-style-type: none;
-  padding: 8px 8px 8px 8px;
+  --padding: 8px 8px 8px 8px;
   margin: 8px 0px 0px 0px;
 }
 
@@ -21,5 +21,4 @@ li > span {
 li > div {
   border-bottom: 2px solid var(--bg-artboard-gray-light);
   height: 2px;
-  width: 100%;
 }

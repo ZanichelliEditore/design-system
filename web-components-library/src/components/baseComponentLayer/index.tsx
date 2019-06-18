@@ -3,7 +3,7 @@ import { ListItemBean } from "../../beans/index.js";
 
 @Component({
   tag: "base-component-layer",
-  styleUrl: "../../global-styles.css"
+  styleUrls: ["../../global-styles.css", "./styles.css"]
 })
 export class BaseComponentLayer {
   @Prop() myProp: string;
@@ -13,11 +13,32 @@ export class BaseComponentLayer {
     myArray.push({
       text: "level1.1",
       link: "",
-      innernode: [{ text: "level2", link: "", innernode: [] }]
+      separator: true,
+      innernode: [
+        {
+          text: "level2",
+          link: "",
+          separator: true,
+          innernode: [
+            {
+              text: "level3",
+              link: "http://www.google.it",
+              innernode: []
+            },
+            {
+              text: "Separated link",
+              link: "http://www.google.it",
+              separator: true,
+              innernode: []
+            }
+          ]
+        }
+      ]
     });
     myArray.push({
       text: "level1.2",
       link: "",
+      separator: false,
       innernode: []
     });
 
@@ -25,6 +46,10 @@ export class BaseComponentLayer {
   }
 
   render() {
-    return <zanichelli-list getnodes={this.getnodes} />;
+    return (
+      <div>
+        <z-list getnodes={this.getnodes} />
+      </div>
+    );
   }
 }

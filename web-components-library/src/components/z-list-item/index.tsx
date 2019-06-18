@@ -2,14 +2,16 @@ import { Component, Prop, h } from "@stencil/core";
 import { ListItemBean } from "../../beans/index.js";
 
 @Component({
-  tag: "list-item",
+  tag: "z-list-item",
   styleUrls: ["../../global-styles.css", "./styles.css"],
   shadow: true
 })
-export class ListItem {
+export class ZListItem {
   @Prop() text: String;
   @Prop() link?: string;
+  @Prop() separator?: Boolean;
   @Prop() icon?: String;
+
   @Prop() innernode?: ListItemBean[];
 
   constructor() {}
@@ -23,16 +25,20 @@ export class ListItem {
         ) : (
           <span>{this.text}</span>
         )}
-        <div />
-        {this.innernode &&
-          this.innernode.map(bean => (
-            <list-item
-              text={bean.text}
-              link={bean.link}
-              icon={bean.icon}
-              innernode={bean.innernode}
-            />
-          ))}
+        {this.separator && <div />}
+        {this.innernode.length > 0 && (
+          <ul>
+            {this.innernode.map(bean => (
+              <z-list-item
+                text={bean.text}
+                link={bean.link}
+                icon={bean.icon}
+                separator={bean.separator}
+                innernode={bean.innernode}
+              />
+            ))}
+          </ul>
+        )}
       </li>
     );
   }

@@ -2,11 +2,11 @@ import { Component, Prop, h } from "@stencil/core";
 import { ListItemBean } from "../../beans/index.js";
 
 @Component({
-  tag: "zanichelli-list",
+  tag: "z-list",
   styleUrls: ["../../global-styles.css", "./styles.css"],
   shadow: true
 })
-export class ZanichelliList {
+export class ZList {
   @Prop() inputrawdata?: string;
   @Prop() getnodes?: Function;
   list: ListItemBean[];
@@ -24,10 +24,11 @@ export class ZanichelliList {
     return (
       <ul>
         {this.list.map(bean => (
-          <list-item
+          <z-list-item
             text={bean.text}
             link={bean.link}
             icon={bean.icon}
+            separator={bean.separator}
             innernode={bean.innernode}
           />
         ))}
