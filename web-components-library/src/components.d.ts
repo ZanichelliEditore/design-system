@@ -18,6 +18,7 @@ export namespace Components {
   interface FooterIpad {}
   interface ZCard {
     'carddata': CardBean & {};
+    'handlecardremove'?: (e: MouseEvent) => void;
   }
   interface ZCardBody {
     'img': string;
@@ -28,11 +29,11 @@ export namespace Components {
     'isopen': boolean;
   }
   interface ZCardHeader {
+    'handleiconclick'?: (e: MouseEvent) => void;
+    'icon'?: string;
     'titolo': string;
   }
-  interface ZCardManager {
-    'myProp': string;
-  }
+  interface ZCardManager {}
   interface ZanichelliButton {
     'action'?: Function;
     'hasicon': boolean;
@@ -110,6 +111,7 @@ declare namespace LocalJSX {
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
   interface ZCard extends JSXBase.HTMLAttributes<HTMLZCardElement> {
     'carddata'?: CardBean & {};
+    'handlecardremove'?: (e: MouseEvent) => void;
   }
   interface ZCardBody extends JSXBase.HTMLAttributes<HTMLZCardBodyElement> {
     'img'?: string;
@@ -120,11 +122,11 @@ declare namespace LocalJSX {
     'isopen'?: boolean;
   }
   interface ZCardHeader extends JSXBase.HTMLAttributes<HTMLZCardHeaderElement> {
+    'handleiconclick'?: (e: MouseEvent) => void;
+    'icon'?: string;
     'titolo'?: string;
   }
-  interface ZCardManager extends JSXBase.HTMLAttributes<HTMLZCardManagerElement> {
-    'myProp'?: string;
-  }
+  interface ZCardManager extends JSXBase.HTMLAttributes<HTMLZCardManagerElement> {}
   interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
     'action'?: Function;
     'hasicon'?: boolean;

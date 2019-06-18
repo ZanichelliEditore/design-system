@@ -7,12 +7,16 @@ import { Component, Prop, h } from "@stencil/core";
 })
 export class ZCardHeader {
   @Prop() titolo: string;
+  @Prop() icon?: string;
+  @Prop() handleiconclick?: (e: MouseEvent) => void;
 
   render() {
     return (
       <header>
         <h2>{this.titolo}</h2>
-        <icon />
+        <span onClick={this.handleiconclick}>
+          <img src={this.icon} />
+        </span>
       </header>
     );
   }

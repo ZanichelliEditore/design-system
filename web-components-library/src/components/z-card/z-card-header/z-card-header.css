@@ -1,23 +1,38 @@
 :host {
-  color: black;
   font-family: Proxima Nova Sb;
 }
 
 header {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   width: 301px;
   height: 40px;
+  position: relative;
   background: var(--bg-artboard-gray);
-  border: var(--border-base) solid #cad1d8;
+  border-bottom: var(--border-base) solid var(--bg-artboard-gray-very-light);
   border-radius: var(--radius-base) var(--radius-base) var(--radius-min)
     var(--radius-min);
 }
 
-span {
-  /*  */
+header > span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-h2 {
+header > span > img {
+  width: 20px;
+  height: 22px;
+  object-fit: contain;
+}
+
+header > h2 {
   color: var(--text-gray-dark);
   width: 240px;
   height: var(--basex2);
@@ -25,18 +40,10 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.22px;
   line-height: var(--basex2);
-  border-right: var(--border-base) solid #cad1d8;
+  border-right: var(--border-base) solid var(--bg-artboard-gray-very-light);
   margin: 0px;
   padding: var(--half-x3);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-span .icon-opened {
-  color: var(--text-gray-medium);
-}
-
-span .icon-closed {
-  color: var(--text-gray-light);
 }

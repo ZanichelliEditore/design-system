@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, h } from "@stencil/core";
 import * as cardData from "./card-mock-data.json";
 
 @Component({
@@ -7,13 +7,16 @@ import * as cardData from "./card-mock-data.json";
   shadow: true
 })
 export class ZCardManager {
-  @Prop() myProp: string;
+  handleCardRemove(e: MouseEvent): void {
+    e.preventDefault();
+
+    // TODO: chain remove card Action in Redux App
+    alert("card removed");
+  }
 
   render() {
     return (
-      <div>
-        <z-card carddata={cardData} />
-      </div>
+      <z-card handlecardremove={this.handleCardRemove} carddata={cardData} />
     );
   }
 }
