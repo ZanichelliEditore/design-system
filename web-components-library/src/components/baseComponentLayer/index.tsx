@@ -7,10 +7,16 @@ import { ListItemBean } from "../../beans/index.js";
 })
 export class BaseComponentLayer {
   @Prop() myProp: string;
+  list: ListItemBean[];
 
-  getnodes(): ListItemBean[] {
-    var myArray = new Array<ListItemBean>();
-    myArray.push({
+  constructor() {
+    this.populatenodes();
+    this.getnodes = this.getnodes.bind(this);
+  }
+
+  populatenodes() {
+    this.list = new Array<ListItemBean>();
+    this.list.push({
       text: "level1.1",
       link: "",
       separator: true,
@@ -35,14 +41,16 @@ export class BaseComponentLayer {
         }
       ]
     });
-    myArray.push({
+    this.list.push({
       text: "level1.2",
       link: "",
       separator: false,
       innernode: []
     });
+  }
 
-    return myArray;
+  getnodes(): ListItemBean[] {
+    return this.list;
   }
 
   render() {

@@ -11,14 +11,10 @@ export class ZList {
   @Prop() getnodes?: Function;
   @Prop({ mutable: true }) list?: ListItemBean[];
 
-  constructor() {
+  componentDidLoad() {
     if (this.inputrawdata) {
       console.log(this.inputrawdata);
       this.list = JSON.parse(this.inputrawdata);
-    }
-    if (this.getnodes) {
-      console.log(this.getnodes);
-      this.updateListItemBean();
     }
   }
 
@@ -27,6 +23,9 @@ export class ZList {
   }
 
   render() {
+    if (this.getnodes) {
+      this.updateListItemBean();
+    }
     return (
       <ul>
         {this.list.map(bean => (
