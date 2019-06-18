@@ -1,5 +1,4 @@
 import { Component, Prop, h } from "@stencil/core";
-import { CardBean } from "../../../beans";
 
 @Component({
   tag: "z-card-footer",
@@ -8,8 +7,9 @@ import { CardBean } from "../../../beans";
 })
 export class ZCardFooter {
   @Prop() isopen: boolean;
-  @Prop() carddata: CardBean & {};
-  @Prop() handlecardopen: (e: MouseEvent) => void;
+  @Prop() carddata: {};
+  @Prop() hasbutton: boolean;
+  @Prop() handlecardopen?: (e: MouseEvent) => void;
 
   renderListItem(items: string[]): HTMLLIElement[] {
     return items.map((item: string, index: number) => (
@@ -20,12 +20,19 @@ export class ZCardFooter {
     ));
   }
 
+  displayResourceButton() {
+    if (!this.hasbutton) {
+      return;
+    }
+    return <button onClick={this.handlecardopen}>Risorse</button>;
+  }
+
   render() {
     // console.log(this.isopen);
     const { titolo, tags, autori, anno, actions } = this.carddata;
     return (
       <footer>
-        <button onClick={this.handlecardopen}>Risorse</button>
+        {this.displayResourceButton()}
         <h2>{titolo}</h2>
         <div>{this.renderListItem(tags)}</div>
         <div>

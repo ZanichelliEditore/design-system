@@ -7,8 +7,9 @@ import { Component, Prop, h } from "@stencil/core";
 })
 export class ZCardBody {
   @Prop() img: string;
+  @Prop() titolo: string;
 
   render() {
-    return <img src={this.img} />;
+    return <img alt={this.titolo} src={this.img} />;
   }
 }
