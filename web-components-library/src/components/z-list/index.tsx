@@ -9,11 +9,17 @@ import { ListItemBean } from "../../beans/index.js";
 export class ZList {
   @Prop() inputrawdata?: string;
   @Prop() getnodes?: Function;
-  list: ListItemBean[];
+  @Prop({ mutable: true }) list?: ListItemBean[];
 
   constructor() {
-    // this.list = JSON.parse(this.inputrawdata);
-    this.updateListItemBean();
+    if (this.inputrawdata) {
+      console.log(this.inputrawdata);
+      this.list = JSON.parse(this.inputrawdata);
+    }
+    if (this.getnodes) {
+      console.log(this.getnodes);
+      this.updateListItemBean();
+    }
   }
 
   updateListItemBean() {

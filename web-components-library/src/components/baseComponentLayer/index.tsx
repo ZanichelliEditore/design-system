@@ -48,7 +48,26 @@ export class BaseComponentLayer {
   render() {
     return (
       <div>
-        <z-list getnodes={this.getnodes} />
+        <h1> Passing an object</h1>
+        <div>
+          <z-list list={this.getnodes()} />
+        </div>
+        <br />
+
+        <h1> Passing a callback that populate the object</h1>
+        <div>
+          <z-list getnodes={this.getnodes} />
+        </div>
+        <br />
+
+        <h1>
+          {" "}
+          Passing a json string (to be parsed by wc) that represent the object{" "}
+        </h1>
+        <div>
+          <z-list inputrawdata={JSON.stringify(this.getnodes())} />
+        </div>
+        <br />
       </div>
     );
   }

@@ -31,6 +31,7 @@ export namespace Components {
   interface ZList {
     'getnodes'?: Function;
     'inputrawdata'?: string;
+    'list'?: ListItemBean[];
   }
   interface ZListItem {
     'icon'?: String;
@@ -136,6 +137,7 @@ declare namespace LocalJSX {
   interface ZList extends JSXBase.HTMLAttributes<HTMLZListElement> {
     'getnodes'?: Function;
     'inputrawdata'?: string;
+    'list'?: ListItemBean[];
   }
   interface ZListItem extends JSXBase.HTMLAttributes<HTMLZListItemElement> {
     'icon'?: String;
