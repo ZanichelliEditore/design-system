@@ -16,11 +16,11 @@ export namespace Components {
     'myProp': string;
   }
   interface FooterIpad {}
-  interface ZCardBody {
-    'bookimg': string;
-  }
-  interface ZCardComponent {
+  interface ZCard {
     'carddata': CardBean & {};
+  }
+  interface ZCardBody {
+    'img': string;
   }
   interface ZCardFooter {
     'carddata': CardBean & {};
@@ -32,6 +32,12 @@ export namespace Components {
   }
   interface ZCardManager {
     'myProp': string;
+  }
+  interface ZanichelliButton {
+    'action'?: Function;
+    'hasicon': boolean;
+    'isprimary': boolean;
+    'label': string;
   }
 }
 
@@ -50,16 +56,16 @@ declare global {
     new (): HTMLFooterIpadElement;
   };
 
+  interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {}
+  var HTMLZCardElement: {
+    prototype: HTMLZCardElement;
+    new (): HTMLZCardElement;
+  };
+
   interface HTMLZCardBodyElement extends Components.ZCardBody, HTMLStencilElement {}
   var HTMLZCardBodyElement: {
     prototype: HTMLZCardBodyElement;
     new (): HTMLZCardBodyElement;
-  };
-
-  interface HTMLZCardComponentElement extends Components.ZCardComponent, HTMLStencilElement {}
-  var HTMLZCardComponentElement: {
-    prototype: HTMLZCardComponentElement;
-    new (): HTMLZCardComponentElement;
   };
 
   interface HTMLZCardFooterElement extends Components.ZCardFooter, HTMLStencilElement {}
@@ -79,14 +85,21 @@ declare global {
     prototype: HTMLZCardManagerElement;
     new (): HTMLZCardManagerElement;
   };
+
+  interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
+  var HTMLZanichelliButtonElement: {
+    prototype: HTMLZanichelliButtonElement;
+    new (): HTMLZanichelliButtonElement;
+  };
   interface HTMLElementTagNameMap {
     'base-component-layer': HTMLBaseComponentLayerElement;
     'footer-ipad': HTMLFooterIpadElement;
+    'z-card': HTMLZCardElement;
     'z-card-body': HTMLZCardBodyElement;
-    'z-card-component': HTMLZCardComponentElement;
     'z-card-footer': HTMLZCardFooterElement;
     'z-card-header': HTMLZCardHeaderElement;
     'z-card-manager': HTMLZCardManagerElement;
+    'zanichelli-button': HTMLZanichelliButtonElement;
   }
 }
 
@@ -95,11 +108,11 @@ declare namespace LocalJSX {
     'myProp'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
-  interface ZCardBody extends JSXBase.HTMLAttributes<HTMLZCardBodyElement> {
-    'bookimg'?: string;
-  }
-  interface ZCardComponent extends JSXBase.HTMLAttributes<HTMLZCardComponentElement> {
+  interface ZCard extends JSXBase.HTMLAttributes<HTMLZCardElement> {
     'carddata'?: CardBean & {};
+  }
+  interface ZCardBody extends JSXBase.HTMLAttributes<HTMLZCardBodyElement> {
+    'img'?: string;
   }
   interface ZCardFooter extends JSXBase.HTMLAttributes<HTMLZCardFooterElement> {
     'carddata'?: CardBean & {};
@@ -112,15 +125,22 @@ declare namespace LocalJSX {
   interface ZCardManager extends JSXBase.HTMLAttributes<HTMLZCardManagerElement> {
     'myProp'?: string;
   }
+  interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
+    'action'?: Function;
+    'hasicon'?: boolean;
+    'isprimary'?: boolean;
+    'label'?: string;
+  }
 
   interface IntrinsicElements {
     'base-component-layer': BaseComponentLayer;
     'footer-ipad': FooterIpad;
+    'z-card': ZCard;
     'z-card-body': ZCardBody;
-    'z-card-component': ZCardComponent;
     'z-card-footer': ZCardFooter;
     'z-card-header': ZCardHeader;
     'z-card-manager': ZCardManager;
+    'zanichelli-button': ZanichelliButton;
   }
 }
 

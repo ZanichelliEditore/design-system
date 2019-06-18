@@ -6,9 +6,9 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZCardBody {
-  @Prop() bookimg: string;
+  @Prop() img: string;
 
   render() {
-    return <img src={this.bookimg} />;
+    return <img src={this.img} />;
   }
 }

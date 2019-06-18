@@ -12,7 +12,7 @@ export class ZCardManager {
   render() {
     return (
       <div>
-        <z-card-component carddata={cardData} />
+        <z-card carddata={cardData} />
       </div>
     );
   }

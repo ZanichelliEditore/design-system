@@ -2,8 +2,8 @@ import { Component, h, Prop, State } from "@stencil/core";
 import { CardBean } from "../../beans";
 
 @Component({
-  tag: "z-card-component",
-  styleUrls: ["../../global-styles.css", "z-card-component.css"],
+  tag: "z-card",
+  styleUrls: ["../../global-styles.css", "z-card.css"],
   shadow: true
 })
 export class ZCardComponent {
