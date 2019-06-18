@@ -49,12 +49,15 @@ export class BaseComponentLayer {
     return (
       <div>
         <h1> Passing an object</h1>
+        <h3> This is how it should work</h3>
+
         <div>
           <z-list list={this.getnodes()} />
         </div>
         <br />
 
         <h1> Passing a callback that populate the object</h1>
+        <h3> Drawback: cannot listen to property changes</h3>
         <div>
           <z-list getnodes={this.getnodes} />
         </div>
@@ -64,6 +67,8 @@ export class BaseComponentLayer {
           {" "}
           Passing a json string (to be parsed by wc) that represent the object{" "}
         </h1>
+        <h3> Drawback: dirty coding, but render on prop change should work</h3>
+
         <div>
           <z-list inputrawdata={JSON.stringify(this.getnodes())} />
         </div>
