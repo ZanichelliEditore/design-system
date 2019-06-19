@@ -35,6 +35,13 @@ export namespace Components {
     'titolo': string;
   }
   interface ZCardManager {}
+  interface ZLink {
+    'hasicon'?: boolean;
+    'icontype'?: string;
+    'label'?: string;
+    'type'?: string;
+    'url': string;
+  }
   interface ZanichelliButton {
     'action'?: Function;
     'hasicon': boolean;
@@ -88,6 +95,12 @@ declare global {
     new (): HTMLZCardManagerElement;
   };
 
+  interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
+  var HTMLZLinkElement: {
+    prototype: HTMLZLinkElement;
+    new (): HTMLZLinkElement;
+  };
+
   interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
   var HTMLZanichelliButtonElement: {
     prototype: HTMLZanichelliButtonElement;
@@ -101,6 +114,7 @@ declare global {
     'z-card-footer': HTMLZCardFooterElement;
     'z-card-header': HTMLZCardHeaderElement;
     'z-card-manager': HTMLZCardManagerElement;
+    'z-link': HTMLZLinkElement;
     'zanichelli-button': HTMLZanichelliButtonElement;
   }
 }
@@ -132,6 +146,13 @@ declare namespace LocalJSX {
     'titolo'?: string;
   }
   interface ZCardManager extends JSXBase.HTMLAttributes<HTMLZCardManagerElement> {}
+  interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
+    'hasicon'?: boolean;
+    'icontype'?: string;
+    'label'?: string;
+    'type'?: string;
+    'url'?: string;
+  }
   interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
     'action'?: Function;
     'hasicon'?: boolean;
@@ -147,6 +168,7 @@ declare namespace LocalJSX {
     'z-card-footer': ZCardFooter;
     'z-card-header': ZCardHeader;
     'z-card-manager': ZCardManager;
+    'z-link': ZLink;
     'zanichelli-button': ZanichelliButton;
   }
 }
