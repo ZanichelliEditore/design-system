@@ -1,6 +1,10 @@
 {
   "name": "zanichelli-web-components-library",
-  "version": "0.0.14",
+<<<<<<< HEAD
+  "version": "0.0.15",
+=======
+  "version": "0.0.10",
+>>>>>>> 0b881b0411c381cfa600334f1ae82f9cf411d754
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

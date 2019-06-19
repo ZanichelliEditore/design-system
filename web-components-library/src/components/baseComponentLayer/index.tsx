@@ -11,7 +11,7 @@ export class BaseComponentLayer {
   render() {
     return (
       <div>
-        Inserire il componente in sviluppo come figlio di questo component
+        <h1>Zanichelli Web-Component-Library</h1>
       </div>
     );
   }
