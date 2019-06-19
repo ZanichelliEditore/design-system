@@ -11,5 +11,4 @@ export type ListItemBean = {
   link: string;
   icon?: String;
   separator?: Boolean;
-  innernode: ListItemBean[];
 };

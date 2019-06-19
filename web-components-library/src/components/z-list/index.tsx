@@ -34,7 +34,6 @@ export class ZList {
             link={bean.link}
             icon={bean.icon}
             separator={bean.separator}
-            innernode={bean.innernode}
           />
         ))}
       </ul>

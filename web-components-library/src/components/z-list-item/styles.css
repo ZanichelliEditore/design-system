@@ -1,24 +1,26 @@
+:host {
+}
+
 li {
   list-style-type: none;
-  font-family: Proxima Nova Lt;
+  line-height: 14px;
+  width: 308px;
+}
+
+li span,
+li a {
+  height: 14px;
+  margin: 15px 0px 13px 22px;
+  display: block;
+  font-family: Proxima Nova Rg;
   font-size: 16px;
   font-weight: normal;
   letter-spacing: 0.23px;
-  line-height: 14px;
-  list-style-type: none;
-  --padding: 8px 8px 8px 8px;
-  margin: 8px 0px 0px 0px;
 }
 
-li > span {
-  line-height: 1;
-  font-weight: 600;
-  padding: 8px 8px 8px 8px;
-  margin: 8px;
-  height: 14px;
-}
-
-li > div {
+li div {
   border-bottom: 2px solid var(--bg-artboard-gray-light);
   height: 2px;
+  width: 264px;
+  margin: 13px 22px 0px 22px;
 }

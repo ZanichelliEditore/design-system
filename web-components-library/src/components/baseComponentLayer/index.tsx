@@ -6,8 +6,8 @@ import { ListItemBean } from "../../beans/index.js";
   styleUrls: ["../../global-styles.css", "./styles.css"]
 })
 export class BaseComponentLayer {
-  @Prop() myProp: string;
-  list: ListItemBean[];
+  @Prop({ mutable: true }) myProp: string;
+  @Prop({ mutable: true }) list: ListItemBean[];
 
   constructor() {
     this.populatenodes();
@@ -17,36 +17,27 @@ export class BaseComponentLayer {
   populatenodes() {
     this.list = new Array<ListItemBean>();
     this.list.push({
-      text: "level1.1",
-      link: "",
-      separator: true,
-      innernode: [
-        {
-          text: "level2",
-          link: "",
-          separator: true,
-          innernode: [
-            {
-              text: "level3",
-              link: "http://www.google.it",
-              innernode: []
-            },
-            {
-              text: "Separated link",
-              link: "http://www.google.it",
-              separator: true,
-              innernode: []
-            }
-          ]
-        }
-      ]
+      text: "Testo1",
+      link: "http://www.google.it",
+      separator: true
     });
+
     this.list.push({
-      text: "level1.2",
-      link: "",
-      separator: false,
-      innernode: []
+      text: "Testo2",
+      link: "http://www.google.it",
+      separator: true
     });
+  }
+
+  addNode(): void {
+    this.list.push({
+      text: "Testo3",
+      link: "http://www.google.it",
+      separator: false
+    });
+
+    console.log(this.list);
+    this.myProp = "ciao";
   }
 
   getnodes(): ListItemBean[] {
@@ -56,11 +47,12 @@ export class BaseComponentLayer {
   render() {
     return (
       <div>
+        <button onClick={() => this.addNode()}>Cambia il dom</button>
         <h1> Passing an object</h1>
         <h3> This is how it should work</h3>
 
         <div>
-          <z-list list={this.getnodes()} />
+          <z-list list={this.list} />
         </div>
         <br />
 
@@ -78,7 +70,7 @@ export class BaseComponentLayer {
         <h3> Drawback: dirty coding, but render on prop change should work</h3>
 
         <div>
-          <z-list inputrawdata={JSON.stringify(this.getnodes())} />
+          <z-list inputrawdata={JSON.stringify(this.list)} />
         </div>
         <br />
       </div>

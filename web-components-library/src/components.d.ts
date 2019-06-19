@@ -13,6 +13,7 @@ import {
 
 export namespace Components {
   interface BaseComponentLayer {
+    'list': ListItemBean[];
     'myProp': string;
   }
   interface CardBody {
@@ -35,7 +36,6 @@ export namespace Components {
   }
   interface ZListItem {
     'icon'?: String;
-    'innernode'?: ListItemBean[];
     'link'?: string;
     'separator'?: Boolean;
     'text': String;
@@ -119,6 +119,7 @@ declare global {
 
 declare namespace LocalJSX {
   interface BaseComponentLayer extends JSXBase.HTMLAttributes<HTMLBaseComponentLayerElement> {
+    'list'?: ListItemBean[];
     'myProp'?: string;
   }
   interface CardBody extends JSXBase.HTMLAttributes<HTMLCardBodyElement> {
@@ -141,7 +142,6 @@ declare namespace LocalJSX {
   }
   interface ZListItem extends JSXBase.HTMLAttributes<HTMLZListItemElement> {
     'icon'?: String;
-    'innernode'?: ListItemBean[];
     'link'?: string;
     'separator'?: Boolean;
     'text'?: String;
