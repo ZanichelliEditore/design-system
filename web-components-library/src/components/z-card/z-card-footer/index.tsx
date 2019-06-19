@@ -28,27 +28,39 @@ export class ZCardFooter {
     return newString.substr(0, newString.length - 2);
   }
 
-  displayResourceButton() {
+  displayResourceButton(isopen: boolean): HTMLButtonElement | null {
     if (!this.hasbutton) {
       return;
     }
-    return <button onClick={this.handlecardopen}>Risorse</button>;
+    return (
+      <button onClick={this.handlecardopen}>
+        {isopen ? "<" : ">"} Risorse
+      </button>
+    );
+  }
+
+  displayList(isopen: boolean, actions: string[]): HTMLUListElement | null {
+    if (!isopen) {
+      return;
+    }
+    return <ul>{this.renderListItem(actions)}</ul>;
   }
 
   render() {
-    // console.log(this.isopen);
     const { titolo, autori, anno, actions } = this.carddata;
     return (
-      <footer>
-        {this.displayResourceButton()}
-        <h2>{titolo} RICORDIAMOCI L'OVERFLOW!</h2>
-        <div>Autore: {this.renderAutori(autori)}</div>
-        <p>
-          Edizione: <b>{anno}</b>
-        </p>
+      <footer class={this.isopen && "isopen"}>
+        {this.displayResourceButton(this.isopen)}
+        <h2 class={this.isopen && "isopen"}>{titolo}</h2>
         <div>
-          <ul>{this.renderListItem(actions)}</ul>
+          <p>
+            Autore: <b>{this.renderAutori(autori)}</b>
+          </p>
+          <p>
+            Edizione: <b>{anno}</b>
+          </p>
         </div>
+        <section>{this.displayList(this.isopen, actions)}</section>
       </footer>
     );
   }

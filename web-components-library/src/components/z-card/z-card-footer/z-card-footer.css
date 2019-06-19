@@ -1,13 +1,21 @@
 :host {
+  font-family: Proxima Nova Rg;
+  color: var(--text-gray-dark);
+}
+
+:host b {
   font-family: Proxima Nova Sb;
 }
 
 footer {
+  background-color: var(--bg-artboard-white);
   border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
-  padding: 8px 16px;
+  padding: 0px;
   position: relative;
   z-index: 5;
-  transition: height 200ms linear, top 200ms linear;
+  height: 48px;
+  top: 0px;
+  transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
 
 footer > button {
@@ -18,10 +26,51 @@ footer > button {
 }
 
 footer > h2 {
-  color: var(--text-gray-dark);
+  font-family: Proxima Nova Sb;
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 20px;
+  height: 40px;
+  margin: 0px 0px 8px 0px;
+  padding: 8px 12px 0px 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: var(--bg-artboard-white);
+  transition: background-color 200ms linear;
+}
+
+footer > div {
+  padding: 4px 12px 8px 12px;
+  height: 40px;
+  overflow: hidden;
+}
+
+footer > div > p {
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
   margin: 0px;
   padding: 0px;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+footer.isopen {
+  height: 255px;
+  top: -147px;
+  transition: height 500ms ease-in-out, top 500ms ease-in-out;
+  border-radius: var(--border-base);
+}
+
+h2.isopen {
+  background-color: var(--bg-artboard-gray-very-light);
+  transition: background-color 200ms linear;
+}
+
+section > ul {
+  margin: 0px;
+  padding: 8px 12px;
+  height: 131px;
+  overflow: hidden;
+  list-style: none;
 }
