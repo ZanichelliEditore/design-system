@@ -16,18 +16,6 @@ export namespace Components {
     'list': ListItemBean[];
     'myProp': string;
   }
-  interface CardBody {
-    'myProp': string;
-  }
-  interface CardComponent {
-    'myProp': string;
-  }
-  interface CardFooter {
-    'myProp': string;
-  }
-  interface CardHeader {
-    'myProp': string;
-  }
   interface FooterIpad {}
   interface ZList {
     'getnodes'?: Function;
@@ -39,6 +27,13 @@ export namespace Components {
     'link'?: string;
     'separator'?: Boolean;
     'text': String;
+
+  interface ZLink {
+    'hasicon'?: boolean;
+    'icontype'?: string;
+    'label'?: string;
+    'type'?: string;
+    'url': string;
   }
   interface ZanichelliButton {
     'action'?: Function;
@@ -51,41 +46,12 @@ export namespace Components {
 declare global {
 
 
-  interface HTMLBaseComponentLayerElement extends Components.BaseComponentLayer, HTMLStencilElement {}
-  var HTMLBaseComponentLayerElement: {
-    prototype: HTMLBaseComponentLayerElement;
-    new (): HTMLBaseComponentLayerElement;
-  };
-
-  interface HTMLCardBodyElement extends Components.CardBody, HTMLStencilElement {}
-  var HTMLCardBodyElement: {
-    prototype: HTMLCardBodyElement;
-    new (): HTMLCardBodyElement;
-  };
-
-  interface HTMLCardComponentElement extends Components.CardComponent, HTMLStencilElement {}
-  var HTMLCardComponentElement: {
-    prototype: HTMLCardComponentElement;
-    new (): HTMLCardComponentElement;
-  };
-
-  interface HTMLCardFooterElement extends Components.CardFooter, HTMLStencilElement {}
-  var HTMLCardFooterElement: {
-    prototype: HTMLCardFooterElement;
-    new (): HTMLCardFooterElement;
-  };
-
-  interface HTMLCardHeaderElement extends Components.CardHeader, HTMLStencilElement {}
-  var HTMLCardHeaderElement: {
-    prototype: HTMLCardHeaderElement;
-    new (): HTMLCardHeaderElement;
-  };
-
   interface HTMLFooterIpadElement extends Components.FooterIpad, HTMLStencilElement {}
   var HTMLFooterIpadElement: {
     prototype: HTMLFooterIpadElement;
     new (): HTMLFooterIpadElement;
   };
+
 
   interface HTMLZListElement extends Components.ZList, HTMLStencilElement {}
   var HTMLZListElement: {
@@ -97,6 +63,10 @@ declare global {
   var HTMLZListItemElement: {
     prototype: HTMLZListItemElement;
     new (): HTMLZListItemElement;
+  interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
+  var HTMLZLinkElement: {
+    prototype: HTMLZLinkElement;
+    new (): HTMLZLinkElement;
   };
 
   interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
@@ -105,14 +75,10 @@ declare global {
     new (): HTMLZanichelliButtonElement;
   };
   interface HTMLElementTagNameMap {
-    'base-component-layer': HTMLBaseComponentLayerElement;
-    'card-body': HTMLCardBodyElement;
-    'card-component': HTMLCardComponentElement;
-    'card-footer': HTMLCardFooterElement;
-    'card-header': HTMLCardHeaderElement;
     'footer-ipad': HTMLFooterIpadElement;
     'z-list': HTMLZListElement;
     'z-list-item': HTMLZListItemElement;
+    'z-link': HTMLZLinkElement;
     'zanichelli-button': HTMLZanichelliButtonElement;
   }
 }
@@ -120,18 +86,6 @@ declare global {
 declare namespace LocalJSX {
   interface BaseComponentLayer extends JSXBase.HTMLAttributes<HTMLBaseComponentLayerElement> {
     'list'?: ListItemBean[];
-    'myProp'?: string;
-  }
-  interface CardBody extends JSXBase.HTMLAttributes<HTMLCardBodyElement> {
-    'myProp'?: string;
-  }
-  interface CardComponent extends JSXBase.HTMLAttributes<HTMLCardComponentElement> {
-    'myProp'?: string;
-  }
-  interface CardFooter extends JSXBase.HTMLAttributes<HTMLCardFooterElement> {
-    'myProp'?: string;
-  }
-  interface CardHeader extends JSXBase.HTMLAttributes<HTMLCardHeaderElement> {
     'myProp'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
@@ -145,6 +99,12 @@ declare namespace LocalJSX {
     'link'?: string;
     'separator'?: Boolean;
     'text'?: String;
+  interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
+    'hasicon'?: boolean;
+    'icontype'?: string;
+    'label'?: string;
+    'type'?: string;
+    'url'?: string;
   }
   interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
     'action'?: Function;
@@ -154,14 +114,10 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
-    'base-component-layer': BaseComponentLayer;
-    'card-body': CardBody;
-    'card-component': CardComponent;
-    'card-footer': CardFooter;
-    'card-header': CardHeader;
     'footer-ipad': FooterIpad;
     'z-list': ZList;
     'z-list-item': ZListItem;
+    'z-link': ZLink;
     'zanichelli-button': ZanichelliButton;
   }
 }
@@ -174,5 +130,3 @@ declare module "@stencil/core" {
     interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
 }
-
-
