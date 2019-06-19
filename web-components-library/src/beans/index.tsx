@@ -7,8 +7,8 @@ export type FooterGroupBean = {
 };
 
 export type ListItemBean = {
-  text: String;
-  link: string;
-  icon?: String;
+  text: string;
+  link?: string;
+  icon?: string;
   separator?: Boolean;
 };

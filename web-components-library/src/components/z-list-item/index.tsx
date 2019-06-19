@@ -6,23 +6,24 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZListItem {
-  @Prop() text: String;
+  @Prop() text: string;
   @Prop() link?: string;
   @Prop() separator?: Boolean;
-  @Prop() icon?: String;
+  @Prop() icon?: string;
 
   constructor() {}
 
   render() {
     return (
       <li>
-        {this.icon && <icon class={this.icon} />}
-        {this.link ? (
-          <a href={this.link}> {this.text} </a>
-        ) : (
-          <span>{this.text}</span>
-        )}
-        {this.separator && <div />}
+        <span>
+          {this.icon && <icon class={this.icon} />}
+          {this.link ? (
+            <z-link url={this.link} type="internal" label={this.text} />
+          ) : (
+            <span>{this.text}</span>
+          )}
+        </span>
       </li>
     );
   }

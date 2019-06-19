@@ -18,8 +18,8 @@ export class BaseComponentLayer {
     this.list = new Array<ListItemBean>();
     this.list.push({
       text: "Testo1",
-      link: "http://www.google.it",
-      separator: true
+      separator: true,
+      icon: "test"
     });
 
     this.list.push({
