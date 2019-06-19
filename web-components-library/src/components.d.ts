@@ -10,6 +10,13 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface FooterIpad {}
+  interface ZLink {
+    'hasicon'?: boolean;
+    'icontype'?: string;
+    'label'?: string;
+    'type'?: string;
+    'url': string;
+  }
   interface ZanichelliButton {
     'action'?: Function;
     'hasicon': boolean;
@@ -27,6 +34,12 @@ declare global {
     new (): HTMLFooterIpadElement;
   };
 
+  interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
+  var HTMLZLinkElement: {
+    prototype: HTMLZLinkElement;
+    new (): HTMLZLinkElement;
+  };
+
   interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
   var HTMLZanichelliButtonElement: {
     prototype: HTMLZanichelliButtonElement;
@@ -34,12 +47,20 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'footer-ipad': HTMLFooterIpadElement;
+    'z-link': HTMLZLinkElement;
     'zanichelli-button': HTMLZanichelliButtonElement;
   }
 }
 
 declare namespace LocalJSX {
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
+  interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
+    'hasicon'?: boolean;
+    'icontype'?: string;
+    'label'?: string;
+    'type'?: string;
+    'url'?: string;
+  }
   interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
     'action'?: Function;
     'hasicon'?: boolean;
@@ -49,6 +70,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'footer-ipad': FooterIpad;
+    'z-link': ZLink;
     'zanichelli-button': ZanichelliButton;
   }
 }
