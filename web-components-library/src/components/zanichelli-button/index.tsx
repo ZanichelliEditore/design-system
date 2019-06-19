@@ -13,8 +13,6 @@ export class ZanichelliButton {
   @Prop() action?: Function;
 
   render() {
-    console.log(this.action);
-
     return (
       <Wrap isprimary={this.isprimary} onClick={() => this.action()}>
         {this.hasicon && <icon />}
