@@ -16,7 +16,8 @@
   "unpkg": "dist/web-components-library/web-components-library.js",
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "src/assets/"
   ],
   "scripts": {
     "build": "stencil build --docs",
