@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 @Component({
   tag: "z-card-header",
@@ -8,13 +8,19 @@ import { Component, Prop, h } from "@stencil/core";
 export class ZCardHeader {
   @Prop() titolo: string;
   @Prop() icon: string;
-  @Prop() handleiconclick: (e: MouseEvent) => void;
+  // @Prop() handleiconclick: (e: MouseEvent) => void;
+
+  @Event() iconClick: EventEmitter;
+
+  handleIconClick(e: MouseEvent) {
+    this.iconClick.emit(e);
+  }
 
   render() {
     return (
       <header>
         <h2>{this.titolo}</h2>
-        <span onClick={this.handleiconclick}>
+        <span onClick={(e: MouseEvent) => this.handleIconClick(e)}>
           <img src={this.icon} />
         </span>
       </header>

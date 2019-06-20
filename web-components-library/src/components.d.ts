@@ -15,9 +15,9 @@ export namespace Components {
   interface FooterIpad {}
   interface ZCard {
     'carddata': any;
-    'handleiconclick': (e: MouseEvent) => void;
+    'cardtype': string;
     'hasbutton': boolean;
-    'headericon': string;
+    'isremoved'?: boolean;
   }
   interface ZCardBody {
     'img': string;
@@ -30,7 +30,6 @@ export namespace Components {
     'isopen': boolean;
   }
   interface ZCardHeader {
-    'handleiconclick': (e: MouseEvent) => void;
     'icon': string;
     'titolo': string;
   }
@@ -126,9 +125,10 @@ declare namespace LocalJSX {
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
   interface ZCard extends JSXBase.HTMLAttributes<HTMLZCardElement> {
     'carddata'?: any;
-    'handleiconclick'?: (e: MouseEvent) => void;
+    'cardtype'?: string;
     'hasbutton'?: boolean;
-    'headericon'?: string;
+    'isremoved'?: boolean;
+    'onHeaderIconClick'?: (event: CustomEvent<any>) => void;
   }
   interface ZCardBody extends JSXBase.HTMLAttributes<HTMLZCardBodyElement> {
     'img'?: string;
@@ -141,8 +141,8 @@ declare namespace LocalJSX {
     'isopen'?: boolean;
   }
   interface ZCardHeader extends JSXBase.HTMLAttributes<HTMLZCardHeaderElement> {
-    'handleiconclick'?: (e: MouseEvent) => void;
     'icon'?: string;
+    'onIconClick'?: (event: CustomEvent<any>) => void;
     'titolo'?: string;
   }
   interface ZCardManager extends JSXBase.HTMLAttributes<HTMLZCardManagerElement> {}

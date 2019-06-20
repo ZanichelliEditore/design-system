@@ -47,14 +47,15 @@ export class ZCardFooter {
   }
 
   render() {
-    const { titolo, autori, anno, actions } = this.carddata;
+    const { titolo, autori, anno, actions } = JSON.parse(this.carddata);
     return (
       <footer class={this.isopen && "isopen"}>
         {this.displayResourceButton(this.isopen)}
         <h2 class={this.isopen && "isopen"}>{titolo}</h2>
         <div>
           <p>
-            Autore: <b>{this.renderAutori(autori)}</b>
+            Autore:{" "}
+            <b>{this.renderAutori(JSON.parse(JSON.stringify(autori)))}</b>
           </p>
           <p>
             Edizione: <b>{anno}</b>
