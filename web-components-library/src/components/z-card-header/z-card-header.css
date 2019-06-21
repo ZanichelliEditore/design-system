@@ -1,7 +1,3 @@
-:host {
-  font-family: Proxima Nova Sb;
-}
-
 header {
   display: flex;
   flex-direction: row;
@@ -15,24 +11,8 @@ header {
     var(--radius-min);
 }
 
-header > span {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-header > span > img {
-  width: 20px;
-  height: 22px;
-  object-fit: contain;
-}
-
-header > h2 {
+h2 {
+  font-family: Proxima Nova Sb;
   color: var(--text-gray-dark);
   width: 240px;
   height: var(--basex2);

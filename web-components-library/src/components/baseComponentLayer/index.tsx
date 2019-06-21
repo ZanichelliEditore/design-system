@@ -1,36 +1,64 @@
 import { Component, Prop, h } from "@stencil/core";
 
-import * as cardData from "./card-mock-data.json";
+// import * as cardData from "./card-mock-data.json";
+
+const removeBookIcon =
+  "../../../assets/images/png/zanichelli-book-remove-gray@8x.png";
+// const addBookIcon =
+//   "../../../assets/images/png/zanichelli-add-book-gray@8x.png";
 
 @Component({
   tag: "base-component-layer",
-  styleUrl: "../../global-styles.css",
-  styles: `header {
-    display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 301px;
-  height: 40px;
-  position: relative;
-  background: var(--bg-artboard-gray);
-  border-bottom: var(--border-base) solid var(--bg-artboard-gray-very-light);
-  border-radius: var(--radius-base) var(--radius-base) var(--radius-min)
-    var(--radius-min);
-  }`
+  styleUrls: ["../../global-styles.css"],
+  shadow: true
 })
 export class BaseComponentLayer {
   @Prop() myProp: string;
 
+  constructor() {
+    // this.handleIsOpen = this.handleIsOpen.bind(this);
+  }
+
+  // handleHeaderIconClick(e: CustomEvent) {
+  //   this.headerIconClick.emit(e);
+  // }
+
+  // handleIsOpen() {
+  //   if (!this.hasbutton) {
+  //     return false;
+  //   }
+  //   this.isOpen = !this.isOpen;
+
+  //   // TODO: handle card Open internal state change
+  // }
+
+  // handleHeaderIcon() {
+  //   if (this.cardtype === "card") return removeBookIcon;
+  //   if (this.cardtype === "resource" && this.isremoved) return removeBookIcon;
+  //   if (this.cardtype === "resource" && !this.isremoved) return addBookIcon;
+  // }
+
   render() {
     return (
-      <div>
-        <header>
-          <z-card-title titolo="titolo" />
-          <z-card-icon icon="../../assets/images/png/zanichelli-book-remove-gray@8x.png" />
-        </header>
-        <z-card-body titolo="Il nuovo invito alla biologia blu" img="http://media.curtisinvitoblu.bedita.net/a1/40/curti_a140cb3359b7611d84f80e384d2fb49b/curtis_plus-1A_320x_71bc3567ace1ff728caef1b381d7535b.png" />
-        <z-card-footer carddata={JSON.stringify(cardData)} isopen={false} />
-      </div>
+      <z-card>
+        <z-card-header titolo={"titolo"}>
+          <z-icon icon={removeBookIcon} slot="icon" />
+        </z-card-header>
+
+        {/*
+
+        <z-card-body>
+          <z-cover
+            titolo="Il nuovo invito alla biologia blu"
+            img="http://media.curtisinvitoblu.bedita.net/a1/40/curti_a140cb3359b7611d84f80e384d2fb49b/curtis_plus-1A_320x_71bc3567ace1ff728caef1b381d7535b.png"
+          />
+        </z-card-body>
+
+        <z-card-footer titolo={"titolo"} autori={"autori"} anno={"anno"}>
+          <z-button />
+          <z-list listData={"data[]"} />
+        </z-card-footer> */}
+      </z-card>
     );
   }
 }

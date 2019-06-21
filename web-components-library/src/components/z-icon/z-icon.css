@@ -1,15 +1,14 @@
-:host > span {
+span {
   width: 38px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--bg-artboard-gray-very-light);
   border-left: 0px;
   border-radius: 0px 4px 0px 0px;
 }
 
-:host > span > img {
+span > img {
   width: 20px;
   height: 22px;
   object-fit: contain;

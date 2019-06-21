@@ -13,12 +13,7 @@ export namespace Components {
     'myProp': string;
   }
   interface FooterIpad {}
-  interface ZCard {
-    'carddata': any;
-    'cardtype': string;
-    'hasbutton': boolean;
-    'isremoved'?: boolean;
-  }
+  interface ZCard {}
   interface ZCardBody {
     'img': string;
     'titolo': string;
@@ -28,15 +23,13 @@ export namespace Components {
     'isopen': boolean;
   }
   interface ZCardHeader {
-    'icon': string;
     'titolo': string;
   }
-  interface ZCardIcon {
-    'icon': string;
-  }
-  interface ZCardManager {}
   interface ZCardTitle {
     'titolo': string;
+  }
+  interface ZIcon {
+    'icon': string;
   }
   interface ZLink {
     'hasicon'?: boolean;
@@ -92,22 +85,16 @@ declare global {
     new (): HTMLZCardHeaderElement;
   };
 
-  interface HTMLZCardIconElement extends Components.ZCardIcon, HTMLStencilElement {}
-  var HTMLZCardIconElement: {
-    prototype: HTMLZCardIconElement;
-    new (): HTMLZCardIconElement;
-  };
-
-  interface HTMLZCardManagerElement extends Components.ZCardManager, HTMLStencilElement {}
-  var HTMLZCardManagerElement: {
-    prototype: HTMLZCardManagerElement;
-    new (): HTMLZCardManagerElement;
-  };
-
   interface HTMLZCardTitleElement extends Components.ZCardTitle, HTMLStencilElement {}
   var HTMLZCardTitleElement: {
     prototype: HTMLZCardTitleElement;
     new (): HTMLZCardTitleElement;
+  };
+
+  interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {}
+  var HTMLZIconElement: {
+    prototype: HTMLZIconElement;
+    new (): HTMLZIconElement;
   };
 
   interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
@@ -128,9 +115,8 @@ declare global {
     'z-card-body': HTMLZCardBodyElement;
     'z-card-footer': HTMLZCardFooterElement;
     'z-card-header': HTMLZCardHeaderElement;
-    'z-card-icon': HTMLZCardIconElement;
-    'z-card-manager': HTMLZCardManagerElement;
     'z-card-title': HTMLZCardTitleElement;
+    'z-icon': HTMLZIconElement;
     'z-link': HTMLZLinkElement;
     'zanichelli-button': HTMLZanichelliButtonElement;
   }
@@ -141,13 +127,7 @@ declare namespace LocalJSX {
     'myProp'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
-  interface ZCard extends JSXBase.HTMLAttributes<HTMLZCardElement> {
-    'carddata'?: any;
-    'cardtype'?: string;
-    'hasbutton'?: boolean;
-    'isremoved'?: boolean;
-    'onHeaderIconClick'?: (event: CustomEvent<any>) => void;
-  }
+  interface ZCard extends JSXBase.HTMLAttributes<HTMLZCardElement> {}
   interface ZCardBody extends JSXBase.HTMLAttributes<HTMLZCardBodyElement> {
     'img'?: string;
     'titolo'?: string;
@@ -157,16 +137,13 @@ declare namespace LocalJSX {
     'isopen'?: boolean;
   }
   interface ZCardHeader extends JSXBase.HTMLAttributes<HTMLZCardHeaderElement> {
-    'icon'?: string;
-    'onIconClick'?: (event: CustomEvent<any>) => void;
     'titolo'?: string;
   }
-  interface ZCardIcon extends JSXBase.HTMLAttributes<HTMLZCardIconElement> {
-    'icon'?: string;
-  }
-  interface ZCardManager extends JSXBase.HTMLAttributes<HTMLZCardManagerElement> {}
   interface ZCardTitle extends JSXBase.HTMLAttributes<HTMLZCardTitleElement> {
     'titolo'?: string;
+  }
+  interface ZIcon extends JSXBase.HTMLAttributes<HTMLZIconElement> {
+    'icon'?: string;
   }
   interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
     'hasicon'?: boolean;
@@ -189,9 +166,8 @@ declare namespace LocalJSX {
     'z-card-body': ZCardBody;
     'z-card-footer': ZCardFooter;
     'z-card-header': ZCardHeader;
-    'z-card-icon': ZCardIcon;
-    'z-card-manager': ZCardManager;
     'z-card-title': ZCardTitle;
+    'z-icon': ZIcon;
     'z-link': ZLink;
     'zanichelli-button': ZanichelliButton;
   }
