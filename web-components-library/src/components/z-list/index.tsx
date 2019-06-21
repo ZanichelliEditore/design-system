@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Watch } from "@stencil/core";
 import { ListItemBean } from "../../beans/index.js";
 
 @Component({
@@ -14,24 +14,32 @@ export class ZList {
 
   componentDidLoad() {
     if (this.inputrawdata) {
-      console.log(this.inputrawdata);
-      this.list = JSON.parse(this.inputrawdata);
+      this.parseinputrawdata(this.inputrawdata);
     }
-    console.log(this.hasseparator);
+  }
+
+  parseinputrawdata(inputrawdata: string) {
+    this.list = JSON.parse(inputrawdata);
+  }
+
+  @Watch("inputrawdata") //this will run everytime values are changed
+  oninputrawdataChange(newValue: string, oldValue: string) {
+    this.parseinputrawdata(newValue);
   }
 
   render() {
     return (
       <ul>
-        {this.list.map(bean => (
-          <z-list-item
-            text={bean.text}
-            link={bean.link}
-            icon={bean.icon}
-            hasseparator={this.hasseparator ? true : false}
-            isnestedcomponent={this.isnestedcomponent ? true : false}
-          />
-        ))}
+        {this.list &&
+          this.list.map(bean => (
+            <z-list-item
+              text={bean.text}
+              link={bean.link}
+              icon={bean.icon}
+              hasseparator={this.hasseparator ? true : false}
+              isnestedcomponent={this.isnestedcomponent ? true : false}
+            />
+          ))}
       </ul>
     );
   }

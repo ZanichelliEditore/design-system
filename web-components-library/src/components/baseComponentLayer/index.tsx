@@ -18,22 +18,19 @@ export class BaseComponentLayer {
     this.list = new Array<ListItemBean>();
     this.list.push({
       text: "Testo1",
-      separator: true,
       icon: "test"
     });
 
     this.list.push({
       text: "Testo2",
-      link: "http://www.google.it",
-      separator: true
+      link: "http://www.google.it"
     });
   }
 
   addNode(): void {
     this.list.push({
       text: "Testo3",
-      link: "http://www.google.it",
-      separator: false
+      link: "http://www.google.it"
     });
 
     console.log(this.list);
@@ -52,14 +49,11 @@ export class BaseComponentLayer {
         <h3> This is how it should work</h3>
 
         <div>
-          <z-list list={this.list} />
-        </div>
-        <br />
-
-        <h1> Passing a callback that populate the object</h1>
-        <h3> Drawback: cannot listen to property changes</h3>
-        <div>
-          <z-list getnodes={this.getnodes} />
+          <z-list
+            list={this.list}
+            isnestedcomponent={true}
+            hasseparator={false}
+          />
         </div>
         <br />
 
@@ -70,7 +64,11 @@ export class BaseComponentLayer {
         <h3> Drawback: dirty coding, but render on prop change should work</h3>
 
         <div>
-          <z-list inputrawdata={JSON.stringify(this.list)} />
+          <z-list
+            inputrawdata={JSON.stringify(this.list)}
+            isnestedcomponent={false}
+            hasseparator={true}
+          />
         </div>
         <br />
       </div>
