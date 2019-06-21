@@ -19,11 +19,11 @@ export class ZList {
   }
 
   parseinputrawdata(inputrawdata: string) {
-    this.list = JSON.parse(inputrawdata);
+    this.list = [...JSON.parse(inputrawdata)];
   }
 
   @Watch("inputrawdata") //this will run everytime values are changed
-  oninputrawdataChange(newValue: string, oldValue: string) {
+  oninputrawdataChange(newValue: string) {
     this.parseinputrawdata(newValue);
   }
 

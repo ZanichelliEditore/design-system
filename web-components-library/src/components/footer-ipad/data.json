@@ -1,0 +1,130 @@
+[{
+    "id": "zanichelli-it",
+    "title": "Zanichelli.it",
+    "items": [{
+      "label": "Home zanichelli.it",
+      "link": ""
+    }, {
+      "label": "Ricerca in catalogo",
+      "link": ""
+    }, {
+      "label": "Contatti",
+      "link": ""
+    }]
+  },
+  {
+    "id": "zanichelli-scuola",
+    "title": "Scuola",
+    "items": [{
+      "label": "Home scuola",
+      "link": ""
+    }, {
+      "label": "Catalogo scuola",
+      "link": ""
+    }, {
+      "label": "Bisogni Educativi Speciali (BES)",
+      "link": ""
+    }, {
+      "label": "Formazione docenti",
+      "link": ""
+    }]
+  },
+  {
+    "id": "zanichelli-dizionari",
+    "title": "Dizionari",
+    "items": [{
+      "label": "Home dizionari",
+      "link": ""
+    }, {
+      "label": "Catalogo dizionari",
+      "link": ""
+    }, {
+      "label": "Dizionari digitali",
+      "link": ""
+    }, {
+      "label": "Dizionari più",
+      "link": ""
+    }]
+  },
+  {
+    "id": "zanichelli-altro",
+    "title": "Altri Settori",
+    "items": [{
+      "label": "Giuridico",
+      "link": ""
+    }, {
+      "label": "Manuali e saggi",
+      "link": ""
+    }, {
+      "label": "Medico professionale",
+      "link": ""
+    }]
+  },
+  {
+    "id": "zanichelli-università",
+    "title": "Università",
+    "items": [{
+      "label": "Home università",
+      "link": ""
+    }, {
+      "label": "Catalogo università",
+      "link": ""
+    }, {
+      "label": "Area docenti",
+      "link": ""
+    }, {
+      "label": "Area studenti",
+      "link": ""
+    }, {
+      "label": "Preparazione test di ammissione",
+      "link": ""
+    }, {
+      "label": "ZTE università",
+      "link": ""
+    }, {
+      "label": "ZTE UniTutor",
+      "link": ""
+    }]
+  },
+  {
+    "id": "zanichelli-siti",
+    "title": "Siti per la scuola",
+    "items": [{
+      "label": "Siti dei libri di testo",
+      "link": ""
+    }, {
+      "label": "ZTE - Zanichelli Test",
+      "link": ""
+    }, {
+      "label": "Collezioni",
+      "link": ""
+    }, {
+      "label": "Crea Verifiche",
+      "link": ""
+    }, {
+      "label": "Tutte le prove",
+      "link": ""
+    }, {
+      "label": "Verso l'INVALSI ",
+      "link": ""
+    }, {
+      "label": "La Certificazione delle competenze",
+      "link": ""
+    }, {
+      "label": "Il Museo di Itinerario nell'Arte ",
+      "link": ""
+    }, {
+      "label": "Aula di lettere",
+      "link": ""
+    }, {
+      "label": "Aula di lingue",
+      "link": ""
+    }, {
+      "label": "Aula di scienze",
+      "link": ""
+    }, {
+      "label": "Tutti i siti Zanichelli della scuola",
+      "link": ""
+    }]
+  }
+]

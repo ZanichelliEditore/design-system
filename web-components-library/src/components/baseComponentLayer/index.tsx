@@ -6,7 +6,7 @@ import { ListItemBean } from "../../beans/index.js";
   styleUrls: ["../../global-styles.css", "./styles.css"]
 })
 export class BaseComponentLayer {
-  @Prop({ mutable: true }) myProp: string;
+  @Prop({ mutable: true }) rawData: string;
   @Prop({ mutable: true }) list: ListItemBean[];
 
   constructor() {
@@ -25,6 +25,8 @@ export class BaseComponentLayer {
       text: "Testo2",
       link: "http://www.google.it"
     });
+
+    this.rawData = JSON.stringify(this.list);
   }
 
   addNode(): void {
@@ -33,8 +35,9 @@ export class BaseComponentLayer {
       link: "http://www.google.it"
     });
 
-    console.log(this.list);
-    this.myProp = "ciao";
+    this.list = [...this.list];
+
+    this.rawData = JSON.stringify(this.list);
   }
 
   getnodes(): ListItemBean[] {
@@ -65,7 +68,7 @@ export class BaseComponentLayer {
 
         <div>
           <z-list
-            inputrawdata={JSON.stringify(this.list)}
+            inputrawdata={this.rawData}
             isnestedcomponent={false}
             hasseparator={true}
           />

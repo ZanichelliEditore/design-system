@@ -2,7 +2,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZList } from "./index";
 import { ZListItem } from "../z-list-item/index";
 
-describe("Suite test lista", () => {
+describe("Suite test z-list", () => {
   it("Test render lista vuota", async () => {
     const page = await newSpecPage({
       components: [ZList, ZListItem],

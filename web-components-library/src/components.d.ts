@@ -14,8 +14,9 @@ import {
 export namespace Components {
   interface BaseComponentLayer {
     'list': ListItemBean[];
-    'myProp': string;
+    'rawData': string;
   }
+  interface FooterIpad {}
   interface ZLink {
     'hasicon'?: boolean;
     'icontype'?: string;
@@ -36,6 +37,12 @@ export namespace Components {
     'link'?: string;
     'text': string;
   }
+  interface ZanichelliButton {
+    'action'?: Function;
+    'hasicon': boolean;
+    'isprimary': boolean;
+    'label': string;
+  }
 }
 
 declare global {
@@ -45,6 +52,12 @@ declare global {
   var HTMLBaseComponentLayerElement: {
     prototype: HTMLBaseComponentLayerElement;
     new (): HTMLBaseComponentLayerElement;
+  };
+
+  interface HTMLFooterIpadElement extends Components.FooterIpad, HTMLStencilElement {}
+  var HTMLFooterIpadElement: {
+    prototype: HTMLFooterIpadElement;
+    new (): HTMLFooterIpadElement;
   };
 
   interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
@@ -64,19 +77,28 @@ declare global {
     prototype: HTMLZListItemElement;
     new (): HTMLZListItemElement;
   };
+
+  interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
+  var HTMLZanichelliButtonElement: {
+    prototype: HTMLZanichelliButtonElement;
+    new (): HTMLZanichelliButtonElement;
+  };
   interface HTMLElementTagNameMap {
     'base-component-layer': HTMLBaseComponentLayerElement;
+    'footer-ipad': HTMLFooterIpadElement;
     'z-link': HTMLZLinkElement;
     'z-list': HTMLZListElement;
     'z-list-item': HTMLZListItemElement;
+    'zanichelli-button': HTMLZanichelliButtonElement;
   }
 }
 
 declare namespace LocalJSX {
   interface BaseComponentLayer extends JSXBase.HTMLAttributes<HTMLBaseComponentLayerElement> {
     'list'?: ListItemBean[];
-    'myProp'?: string;
+    'rawData'?: string;
   }
+  interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
   interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
     'hasicon'?: boolean;
     'icontype'?: string;
@@ -97,12 +119,20 @@ declare namespace LocalJSX {
     'link'?: string;
     'text'?: string;
   }
+  interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
+    'action'?: Function;
+    'hasicon'?: boolean;
+    'isprimary'?: boolean;
+    'label'?: string;
+  }
 
   interface IntrinsicElements {
     'base-component-layer': BaseComponentLayer;
+    'footer-ipad': FooterIpad;
     'z-link': ZLink;
     'z-list': ZList;
     'z-list-item': ZListItem;
+    'zanichelli-button': ZanichelliButton;
   }
 }
 
