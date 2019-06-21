@@ -8,7 +8,6 @@ import { Component, Prop, h } from "@stencil/core";
 export class ZListItem {
   @Prop() text: string;
   @Prop() link?: string;
-  @Prop() hasseparator: Boolean;
   @Prop() icon?: string;
   @Prop() isnestedcomponent: Boolean;
 
@@ -17,19 +16,9 @@ export class ZListItem {
   render() {
     return (
       <li>
-        <span class={this.hasseparator && "separatedList"}>
+        <span>
           {this.icon && <icon class={this.icon} />}
-          {this.link ? (
-            <z-link
-              url={this.link}
-              type={!this.isnestedcomponent && "internal"}
-              label={this.text}
-            />
-          ) : (
-            <span class={this.isnestedcomponent && "nestedText"}>
-              {this.text}
-            </span>
-          )}
+          {this.link ? <a href={this.link}>{this.text}</a> : this.text}
         </span>
       </li>
     );
