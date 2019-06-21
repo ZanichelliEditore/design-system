@@ -2,14 +2,12 @@ import { Component, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "z-card-footer",
-  styleUrls: ["../../../global-styles.css", "z-card-footer.css"],
+  styleUrls: ["../../global-styles.css", "z-card-footer.css"],
   shadow: true
 })
 export class ZCardFooter {
   @Prop() isopen: boolean;
   @Prop() carddata: any;
-  @Prop() hasbutton: boolean;
-  @Prop() handlecardopen?: (e: MouseEvent) => void;
 
   renderListItem(items: string[]): HTMLLIElement[] {
     return items.map((item: string, index: number) => (
@@ -28,17 +26,6 @@ export class ZCardFooter {
     return newString.substr(0, newString.length - 2);
   }
 
-  displayResourceButton(isopen: boolean): HTMLButtonElement | null {
-    if (!this.hasbutton) {
-      return;
-    }
-    return (
-      <button onClick={this.handlecardopen}>
-        {isopen ? "<" : ">"} Risorse
-      </button>
-    );
-  }
-
   displayList(isopen: boolean, actions: string[]): HTMLUListElement | null {
     if (!isopen) {
       return;
@@ -50,7 +37,6 @@ export class ZCardFooter {
     const { titolo, autori, anno, actions } = JSON.parse(this.carddata);
     return (
       <footer class={this.isopen && "isopen"}>
-        {this.displayResourceButton(this.isopen)}
         <h2 class={this.isopen && "isopen"}>{titolo}</h2>
         <div>
           <p>

@@ -1,0 +1,9 @@
+:host > img {
+  width: 304px;
+  height: 402px;
+  object-fit: cover;
+  border-left: 2px solid var(--bg-artboard-gray-very-light);
+  border-right: 2px solid var(--bg-artboard-gray-very-light);
+  margin: 0px;
+  padding: 0px;
+}

@@ -46,10 +46,10 @@ export class ZCardComponent {
   }
 
   render() {
-    const { titolo, img } = JSON.parse(this.carddata);
+    // const { titolo, img } = JSON.parse(this.carddata);
     return (
       <div>
-        <z-card-header
+        {/* <z-card-header
           onIconClick={(e: CustomEvent) => this.handleHeaderIconClick(e)}
           titolo={titolo}
           icon={this.handleHeaderIcon()}
@@ -61,7 +61,7 @@ export class ZCardComponent {
           carddata={this.carddata}
           hasbutton={this.hasbutton}
           handlecardopen={this.handleIsOpen}
-        />
+        /> */}
       </div>
     );
   }

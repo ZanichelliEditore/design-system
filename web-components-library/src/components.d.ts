@@ -25,15 +25,19 @@ export namespace Components {
   }
   interface ZCardFooter {
     'carddata': any;
-    'handlecardopen'?: (e: MouseEvent) => void;
-    'hasbutton': boolean;
     'isopen': boolean;
   }
   interface ZCardHeader {
     'icon': string;
     'titolo': string;
   }
+  interface ZCardIcon {
+    'icon': string;
+  }
   interface ZCardManager {}
+  interface ZCardTitle {
+    'titolo': string;
+  }
   interface ZLink {
     'hasicon'?: boolean;
     'icontype'?: string;
@@ -88,10 +92,22 @@ declare global {
     new (): HTMLZCardHeaderElement;
   };
 
+  interface HTMLZCardIconElement extends Components.ZCardIcon, HTMLStencilElement {}
+  var HTMLZCardIconElement: {
+    prototype: HTMLZCardIconElement;
+    new (): HTMLZCardIconElement;
+  };
+
   interface HTMLZCardManagerElement extends Components.ZCardManager, HTMLStencilElement {}
   var HTMLZCardManagerElement: {
     prototype: HTMLZCardManagerElement;
     new (): HTMLZCardManagerElement;
+  };
+
+  interface HTMLZCardTitleElement extends Components.ZCardTitle, HTMLStencilElement {}
+  var HTMLZCardTitleElement: {
+    prototype: HTMLZCardTitleElement;
+    new (): HTMLZCardTitleElement;
   };
 
   interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
@@ -112,7 +128,9 @@ declare global {
     'z-card-body': HTMLZCardBodyElement;
     'z-card-footer': HTMLZCardFooterElement;
     'z-card-header': HTMLZCardHeaderElement;
+    'z-card-icon': HTMLZCardIconElement;
     'z-card-manager': HTMLZCardManagerElement;
+    'z-card-title': HTMLZCardTitleElement;
     'z-link': HTMLZLinkElement;
     'zanichelli-button': HTMLZanichelliButtonElement;
   }
@@ -136,8 +154,6 @@ declare namespace LocalJSX {
   }
   interface ZCardFooter extends JSXBase.HTMLAttributes<HTMLZCardFooterElement> {
     'carddata'?: any;
-    'handlecardopen'?: (e: MouseEvent) => void;
-    'hasbutton'?: boolean;
     'isopen'?: boolean;
   }
   interface ZCardHeader extends JSXBase.HTMLAttributes<HTMLZCardHeaderElement> {
@@ -145,7 +161,13 @@ declare namespace LocalJSX {
     'onIconClick'?: (event: CustomEvent<any>) => void;
     'titolo'?: string;
   }
+  interface ZCardIcon extends JSXBase.HTMLAttributes<HTMLZCardIconElement> {
+    'icon'?: string;
+  }
   interface ZCardManager extends JSXBase.HTMLAttributes<HTMLZCardManagerElement> {}
+  interface ZCardTitle extends JSXBase.HTMLAttributes<HTMLZCardTitleElement> {
+    'titolo'?: string;
+  }
   interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
     'hasicon'?: boolean;
     'icontype'?: string;
@@ -167,7 +189,9 @@ declare namespace LocalJSX {
     'z-card-body': ZCardBody;
     'z-card-footer': ZCardFooter;
     'z-card-header': ZCardHeader;
+    'z-card-icon': ZCardIcon;
     'z-card-manager': ZCardManager;
+    'z-card-title': ZCardTitle;
     'z-link': ZLink;
     'zanichelli-button': ZanichelliButton;
   }
