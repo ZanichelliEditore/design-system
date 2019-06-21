@@ -1,4 +1,4 @@
-# z-card-header
+# z-card-icon
 
 
 
@@ -9,7 +9,7 @@
 
 | Property | Attribute | Description | Type     | Default     |
 | -------- | --------- | ----------- | -------- | ----------- |
-| `titolo` | `titolo`  |             | `string` | `undefined` |
+| `icon`   | `icon`    |             | `string` | `undefined` |
 
 
 ## Dependencies
@@ -21,8 +21,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  base-component-layer --> z-card-header
-  style z-card-header fill:#f9f,stroke:#333,stroke-width:4px
+  base-component-layer --> z-card-icon
+  style z-card-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

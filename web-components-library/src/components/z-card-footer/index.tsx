@@ -7,47 +7,24 @@ import { Component, Prop, h } from "@stencil/core";
 })
 export class ZCardFooter {
   @Prop() isopen: boolean;
-  @Prop() carddata: any;
-
-  renderListItem(items: string[]): HTMLLIElement[] {
-    return items.map((item: string, index: number) => (
-      <li key={item}>
-        {item}
-        {index !== items.length - 1 ? `, \u00A0` : `.`}
-      </li>
-    ));
-  }
-
-  renderAutori(items: string[]): string {
-    let newString = "";
-    items.map((item: string) => {
-      newString = newString.concat(item, ", ");
-    });
-    return newString.substr(0, newString.length - 2);
-  }
-
-  displayList(isopen: boolean, actions: string[]): HTMLUListElement | null {
-    if (!isopen) {
-      return;
-    }
-    return <ul>{this.renderListItem(actions)}</ul>;
-  }
+  @Prop() titolo: string;
+  @Prop() autori: string;
+  @Prop() anno: number;
 
   render() {
-    const { titolo, autori, anno, actions } = JSON.parse(this.carddata);
     return (
       <footer class={this.isopen && "isopen"}>
-        <h2 class={this.isopen && "isopen"}>{titolo}</h2>
+        <slot name="button" />
+        <h2 class={this.isopen && "isopen"}>{this.titolo}</h2>
         <div>
           <p>
-            Autore:{" "}
-            <b>{this.renderAutori(JSON.parse(JSON.stringify(autori)))}</b>
+            Autore: <b>{this.autori}</b>
           </p>
           <p>
-            Edizione: <b>{anno}</b>
+            Edizione: <b>{this.anno}</b>
           </p>
         </div>
-        <section>{this.displayList(this.isopen, actions)}</section>
+        <slot name="list" />
       </footer>
     );
   }

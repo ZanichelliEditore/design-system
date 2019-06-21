@@ -20,7 +20,6 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.22px;
   line-height: var(--basex2);
-  border-right: var(--border-base) solid var(--bg-artboard-gray-very-light);
   margin: 0px;
   padding: var(--half-x3);
   white-space: nowrap;

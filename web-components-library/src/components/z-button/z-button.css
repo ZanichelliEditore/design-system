@@ -1,0 +1,8 @@
+:host > button {
+  font-family: Proxima Nova;
+  font-size: 16px;
+  background-color: blue;
+  color: white;
+  border: 2px solid blue;
+  border-radius: 4px;
+}

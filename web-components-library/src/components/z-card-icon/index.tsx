@@ -1,11 +1,11 @@
 import { Component, Prop, h } from "@stencil/core";
 
 @Component({
-  tag: "z-icon",
-  styleUrls: ["../../global-styles.css", "z-icon.css"],
+  tag: "z-card-icon",
+  styleUrls: ["../../global-styles.css", "z-card-icon.css"],
   shadow: true
 })
-export class ZIcon {
+export class ZCardIcon {
   @Prop() icon: string;
 
   render() {

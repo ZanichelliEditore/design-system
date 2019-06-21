@@ -7,24 +7,24 @@
 
 ## Properties
 
-| Property         | Attribute   | Description | Type                      | Default     |
-| ---------------- | ----------- | ----------- | ------------------------- | ----------- |
-| `carddata`       | `carddata`  |             | `any`                     | `undefined` |
-| `handlecardopen` | --          |             | `(e: MouseEvent) => void` | `undefined` |
-| `hasbutton`      | `hasbutton` |             | `boolean`                 | `undefined` |
-| `isopen`         | `isopen`    |             | `boolean`                 | `undefined` |
+| Property | Attribute | Description | Type      | Default     |
+| -------- | --------- | ----------- | --------- | ----------- |
+| `anno`   | `anno`    |             | `number`  | `undefined` |
+| `autori` | `autori`  |             | `string`  | `undefined` |
+| `isopen` | `isopen`  |             | `boolean` | `undefined` |
+| `titolo` | `titolo`  |             | `string`  | `undefined` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [z-card](..)
+ - [base-component-layer](../baseComponentLayer)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-card --> z-card-footer
+  base-component-layer --> z-card-footer
   style z-card-footer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

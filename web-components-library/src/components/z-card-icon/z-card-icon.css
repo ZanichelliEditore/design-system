@@ -4,7 +4,7 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-left: 0px;
+  border-left: var(--border-base) solid var(--bg-artboard-gray-very-light);
   border-radius: 0px 4px 0px 0px;
 }
 

@@ -1,4 +1,4 @@
-# z-card-body
+# z-card-button
 
 
 
@@ -11,11 +11,16 @@
 
  - [base-component-layer](../baseComponentLayer)
 
+### Depends on
+
+- [z-button](../z-button)
+
 ### Graph
 ```mermaid
 graph TD;
-  base-component-layer --> z-card-body
-  style z-card-body fill:#f9f,stroke:#333,stroke-width:4px
+  z-card-button --> z-button
+  base-component-layer --> z-card-button
+  style z-card-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

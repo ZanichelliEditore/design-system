@@ -13,23 +13,30 @@ export namespace Components {
     'myProp': string;
   }
   interface FooterIpad {}
+  interface ZButton {
+    'label': string;
+  }
   interface ZCard {}
-  interface ZCardBody {
+  interface ZCardBody {}
+  interface ZCardButton {}
+  interface ZCardCover {
     'img': string;
     'titolo': string;
   }
   interface ZCardFooter {
-    'carddata': any;
+    'anno': number;
+    'autori': string;
     'isopen': boolean;
+    'titolo': string;
   }
   interface ZCardHeader {
     'titolo': string;
   }
-  interface ZCardTitle {
-    'titolo': string;
-  }
-  interface ZIcon {
+  interface ZCardIcon {
     'icon': string;
+  }
+  interface ZCardList {
+    'listdata': string[];
   }
   interface ZLink {
     'hasicon'?: boolean;
@@ -37,12 +44,6 @@ export namespace Components {
     'label'?: string;
     'type'?: string;
     'url': string;
-  }
-  interface ZanichelliButton {
-    'action'?: Function;
-    'hasicon': boolean;
-    'isprimary': boolean;
-    'label': string;
   }
 }
 
@@ -61,6 +62,12 @@ declare global {
     new (): HTMLFooterIpadElement;
   };
 
+  interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {}
+  var HTMLZButtonElement: {
+    prototype: HTMLZButtonElement;
+    new (): HTMLZButtonElement;
+  };
+
   interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {}
   var HTMLZCardElement: {
     prototype: HTMLZCardElement;
@@ -71,6 +78,18 @@ declare global {
   var HTMLZCardBodyElement: {
     prototype: HTMLZCardBodyElement;
     new (): HTMLZCardBodyElement;
+  };
+
+  interface HTMLZCardButtonElement extends Components.ZCardButton, HTMLStencilElement {}
+  var HTMLZCardButtonElement: {
+    prototype: HTMLZCardButtonElement;
+    new (): HTMLZCardButtonElement;
+  };
+
+  interface HTMLZCardCoverElement extends Components.ZCardCover, HTMLStencilElement {}
+  var HTMLZCardCoverElement: {
+    prototype: HTMLZCardCoverElement;
+    new (): HTMLZCardCoverElement;
   };
 
   interface HTMLZCardFooterElement extends Components.ZCardFooter, HTMLStencilElement {}
@@ -85,16 +104,16 @@ declare global {
     new (): HTMLZCardHeaderElement;
   };
 
-  interface HTMLZCardTitleElement extends Components.ZCardTitle, HTMLStencilElement {}
-  var HTMLZCardTitleElement: {
-    prototype: HTMLZCardTitleElement;
-    new (): HTMLZCardTitleElement;
+  interface HTMLZCardIconElement extends Components.ZCardIcon, HTMLStencilElement {}
+  var HTMLZCardIconElement: {
+    prototype: HTMLZCardIconElement;
+    new (): HTMLZCardIconElement;
   };
 
-  interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {}
-  var HTMLZIconElement: {
-    prototype: HTMLZIconElement;
-    new (): HTMLZIconElement;
+  interface HTMLZCardListElement extends Components.ZCardList, HTMLStencilElement {}
+  var HTMLZCardListElement: {
+    prototype: HTMLZCardListElement;
+    new (): HTMLZCardListElement;
   };
 
   interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
@@ -102,23 +121,19 @@ declare global {
     prototype: HTMLZLinkElement;
     new (): HTMLZLinkElement;
   };
-
-  interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
-  var HTMLZanichelliButtonElement: {
-    prototype: HTMLZanichelliButtonElement;
-    new (): HTMLZanichelliButtonElement;
-  };
   interface HTMLElementTagNameMap {
     'base-component-layer': HTMLBaseComponentLayerElement;
     'footer-ipad': HTMLFooterIpadElement;
+    'z-button': HTMLZButtonElement;
     'z-card': HTMLZCardElement;
     'z-card-body': HTMLZCardBodyElement;
+    'z-card-button': HTMLZCardButtonElement;
+    'z-card-cover': HTMLZCardCoverElement;
     'z-card-footer': HTMLZCardFooterElement;
     'z-card-header': HTMLZCardHeaderElement;
-    'z-card-title': HTMLZCardTitleElement;
-    'z-icon': HTMLZIconElement;
+    'z-card-icon': HTMLZCardIconElement;
+    'z-card-list': HTMLZCardListElement;
     'z-link': HTMLZLinkElement;
-    'zanichelli-button': HTMLZanichelliButtonElement;
   }
 }
 
@@ -127,23 +142,30 @@ declare namespace LocalJSX {
     'myProp'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
+  interface ZButton extends JSXBase.HTMLAttributes<HTMLZButtonElement> {
+    'label'?: string;
+  }
   interface ZCard extends JSXBase.HTMLAttributes<HTMLZCardElement> {}
-  interface ZCardBody extends JSXBase.HTMLAttributes<HTMLZCardBodyElement> {
+  interface ZCardBody extends JSXBase.HTMLAttributes<HTMLZCardBodyElement> {}
+  interface ZCardButton extends JSXBase.HTMLAttributes<HTMLZCardButtonElement> {}
+  interface ZCardCover extends JSXBase.HTMLAttributes<HTMLZCardCoverElement> {
     'img'?: string;
     'titolo'?: string;
   }
   interface ZCardFooter extends JSXBase.HTMLAttributes<HTMLZCardFooterElement> {
-    'carddata'?: any;
+    'anno'?: number;
+    'autori'?: string;
     'isopen'?: boolean;
+    'titolo'?: string;
   }
   interface ZCardHeader extends JSXBase.HTMLAttributes<HTMLZCardHeaderElement> {
     'titolo'?: string;
   }
-  interface ZCardTitle extends JSXBase.HTMLAttributes<HTMLZCardTitleElement> {
-    'titolo'?: string;
-  }
-  interface ZIcon extends JSXBase.HTMLAttributes<HTMLZIconElement> {
+  interface ZCardIcon extends JSXBase.HTMLAttributes<HTMLZCardIconElement> {
     'icon'?: string;
+  }
+  interface ZCardList extends JSXBase.HTMLAttributes<HTMLZCardListElement> {
+    'listdata'?: string[];
   }
   interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
     'hasicon'?: boolean;
@@ -152,24 +174,20 @@ declare namespace LocalJSX {
     'type'?: string;
     'url'?: string;
   }
-  interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
-    'action'?: Function;
-    'hasicon'?: boolean;
-    'isprimary'?: boolean;
-    'label'?: string;
-  }
 
   interface IntrinsicElements {
     'base-component-layer': BaseComponentLayer;
     'footer-ipad': FooterIpad;
+    'z-button': ZButton;
     'z-card': ZCard;
     'z-card-body': ZCardBody;
+    'z-card-button': ZCardButton;
+    'z-card-cover': ZCardCover;
     'z-card-footer': ZCardFooter;
     'z-card-header': ZCardHeader;
-    'z-card-title': ZCardTitle;
-    'z-icon': ZIcon;
+    'z-card-icon': ZCardIcon;
+    'z-card-list': ZCardList;
     'z-link': ZLink;
-    'zanichelli-button': ZanichelliButton;
   }
 }
 

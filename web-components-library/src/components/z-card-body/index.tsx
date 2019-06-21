@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, h } from "@stencil/core";
 
 @Component({
   tag: "z-card-body",
@@ -6,10 +6,11 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZCardBody {
-  @Prop() img: string;
-  @Prop() titolo: string;
-
   render() {
-    return <img alt={this.titolo} src={this.img} />;
+    return (
+      <div>
+        <slot name="cover" />
+      </div>
+    );
   }
 }

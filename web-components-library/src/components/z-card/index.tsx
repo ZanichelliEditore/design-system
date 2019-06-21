@@ -7,6 +7,10 @@ import { Component, h } from "@stencil/core";
 })
 export class ZCardComponent {
   render() {
-    return <slot />;
+    return (
+      <div>
+        <slot />
+      </div>
+    );
   }
 }

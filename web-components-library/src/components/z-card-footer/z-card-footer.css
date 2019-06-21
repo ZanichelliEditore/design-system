@@ -1,13 +1,6 @@
-:host {
+footer {
   font-family: Proxima Nova Rg;
   color: var(--text-gray-dark);
-}
-
-:host b {
-  font-family: Proxima Nova Sb;
-}
-
-footer {
   background-color: var(--bg-artboard-white);
   border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
   margin: 0px;
@@ -18,15 +11,10 @@ footer {
   width: 304px;
   top: 0px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
-  border: 2px solid var(--bg-artboard-gray-very-light);
   border-radius: 0px 0px 4px 4px;
 }
-
-footer > button {
-  position: absolute;
-  top: -16px;
-  left: 12px;
-  z-index: 10;
+footer b {
+  font-family: Proxima Nova Sb;
 }
 
 footer > h2 {
@@ -69,12 +57,4 @@ footer.isopen {
 h2.isopen {
   background-color: var(--bg-artboard-gray-very-light);
   transition: background-color 200ms linear;
-}
-
-section > ul {
-  margin: 0px;
-  padding: 8px 12px;
-  height: 131px;
-  overflow: hidden;
-  list-style: none;
 }
