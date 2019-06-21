@@ -8,24 +8,19 @@ import { ListItemBean } from "../../beans/index.js";
 })
 export class ZList {
   @Prop() inputrawdata?: string;
-  @Prop() getnodes?: Function;
   @Prop({ mutable: true }) list?: ListItemBean[];
+  @Prop() hasseparator?: Boolean;
+  @Prop() isnestedcomponent?: Boolean;
 
   componentDidLoad() {
     if (this.inputrawdata) {
       console.log(this.inputrawdata);
       this.list = JSON.parse(this.inputrawdata);
     }
-  }
-
-  updateListItemBean() {
-    this.list = this.getnodes();
+    console.log(this.hasseparator);
   }
 
   render() {
-    if (this.getnodes) {
-      this.updateListItemBean();
-    }
     return (
       <ul>
         {this.list.map(bean => (
@@ -33,7 +28,8 @@ export class ZList {
             text={bean.text}
             link={bean.link}
             icon={bean.icon}
-            separator={bean.separator}
+            hasseparator={this.hasseparator ? true : false}
+            isnestedcomponent={this.isnestedcomponent ? true : false}
           />
         ))}
       </ul>

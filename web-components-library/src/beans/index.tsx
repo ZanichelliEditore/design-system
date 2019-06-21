@@ -10,5 +10,4 @@ export type ListItemBean = {
   text: string;
   link?: string;
   icon?: string;
-  separator?: Boolean;
 };
