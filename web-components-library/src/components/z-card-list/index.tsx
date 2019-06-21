@@ -6,7 +6,7 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZCardList {
-  @Prop() listdata: string[];
+  @Prop() listdata: string;
 
   constructor() {
     this.renderList = this.renderList.bind(this);
@@ -19,6 +19,6 @@ export class ZCardList {
   }
 
   render() {
-    return <ul>{this.renderList(this.listdata)}</ul>;
+    return <ul>{this.renderList(JSON.parse(this.listdata))}</ul>;
   }
 }

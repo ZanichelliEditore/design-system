@@ -58,3 +58,47 @@ h2.isopen {
   background-color: var(--bg-artboard-gray-very-light);
   transition: background-color 200ms linear;
 }
+
+button {
+  position: absolute;
+  top: -24px;
+  left: 12px;
+  z-index: 10;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-base);
+  background-color: var(--myz-blue);
+  color: var(--bg-artboard-white);
+  text-transform: uppercase;
+  font-family: Proxima Nova;
+  font-size: 14px;
+}
+button > i::before {
+  border-style: solid;
+  border-width: 0.24em 0.24em 0 0;
+  content: " ";
+  display: inline-block;
+  height: 0.42em;
+  left: 0.16em;
+  position: relative;
+  top: 0.16em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 0.42em;
+  margin-top: 2px;
+  margin-left: 4px;
+  margin-right: 6px;
+  transition: all 200ms linear;
+}
+
+button.isopen {
+  color: var(--myz-blue);
+  background-color: var(--bg-artboard-white);
+  box-shadow: 1px 1px 2px var(--myz-blue);
+}
+
+button.isopen > i::before {
+  top: -0.16em;
+  transform: rotate(135deg);
+  transition: all 200ms linear;
+}

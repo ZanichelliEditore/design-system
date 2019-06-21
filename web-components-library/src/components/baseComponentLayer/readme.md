@@ -22,7 +22,6 @@
 - [z-card-body](../z-card-body)
 - [z-card-cover](../z-card-cover)
 - [z-card-footer](../z-card-footer)
-- [z-card-button](../z-card-button)
 - [z-card-list](../z-card-list)
 
 ### Graph
@@ -34,9 +33,7 @@ graph TD;
   base-component-layer --> z-card-body
   base-component-layer --> z-card-cover
   base-component-layer --> z-card-footer
-  base-component-layer --> z-card-button
   base-component-layer --> z-card-list
-  z-card-button --> z-button
   style base-component-layer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

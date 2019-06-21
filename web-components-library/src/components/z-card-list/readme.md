@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property   | Attribute | Description | Type       | Default     |
-| ---------- | --------- | ----------- | ---------- | ----------- |
-| `listdata` | --        |             | `string[]` | `undefined` |
+| Property   | Attribute  | Description | Type     | Default     |
+| ---------- | ---------- | ----------- | -------- | ----------- |
+| `listdata` | `listdata` |             | `string` | `undefined` |
 
 
 ## Dependencies

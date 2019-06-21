@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, State } from "@stencil/core";
 
 @Component({
   tag: "z-card-footer",
@@ -6,16 +6,28 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZCardFooter {
-  @Prop() isopen: boolean;
   @Prop() titolo: string;
   @Prop() autori: string;
   @Prop() anno: number;
 
+  @State() isOpen: boolean = false;
+
+  handleOnButtonClick(e: MouseEvent): void {
+    e.preventDefault();
+    this.isOpen = !this.isOpen;
+  }
+
   render() {
     return (
-      <footer class={this.isopen && "isopen"}>
-        <slot name="button" />
-        <h2 class={this.isopen && "isopen"}>{this.titolo}</h2>
+      <footer class={this.isOpen && "isopen"}>
+        <button
+          class={this.isOpen && "isopen"}
+          onClick={(e: MouseEvent) => this.handleOnButtonClick(e)}
+        >
+          <i /> Risorse
+        </button>
+
+        <h2 class={this.isOpen && "isopen"}>{this.titolo}</h2>
         <div>
           <p>
             Autore: <b>{this.autori}</b>
