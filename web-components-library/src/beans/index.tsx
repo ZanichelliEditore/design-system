@@ -6,12 +6,17 @@ export type FooterGroupBean = {
   items: FooterGroupItemBean[];
 };
 
+export declare type ActionBean = {
+  isLink: boolean,
+  value : string,
+  url?: string   
+}
+
 export type CardBean = {
   id: string;
   titolo: string;
   img: string;
-  tags: string[];
-  autori: string[];
+  autori: string;
   anno: number;
-  actions: string[];
+  actions: ActionBean[];
 };
