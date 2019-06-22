@@ -30,7 +30,7 @@ export class BaseComponentLayer {
           <z-card-cover slot="cover" titolo={titolo} img={img} />
         </z-card-body>
 
-        <z-card-footer titolo={titolo} autori={autori} anno={anno}>
+        <z-card-footer hasbutton titolo={titolo} autori={autori} anno={anno}>
           <z-card-list listdata={JSON.stringify(actions)} slot="list" />
         </z-card-footer>
       </z-card>

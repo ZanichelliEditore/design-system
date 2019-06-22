@@ -9,6 +9,7 @@ export class ZCardFooter {
   @Prop() titolo: string;
   @Prop() autori: string;
   @Prop() anno: number;
+  @Prop() hasbutton: boolean;
 
   @State() isOpen: boolean = false;
 
@@ -17,15 +18,25 @@ export class ZCardFooter {
     this.isOpen = !this.isOpen;
   }
 
+  handleButtonDisplay() {
+    console.log(this.hasbutton)
+    if (!this.hasbutton) {
+      return;
+    }
+    return (
+      <button
+        class={this.isOpen && "isopen"}
+        onClick={(e: MouseEvent) => this.handleOnButtonClick(e)}>
+        <i /> Risorse
+      </button>
+    )
+  }
+
   render() {
     return (
       <footer class={this.isOpen && "isopen"}>
-        <button
-          class={this.isOpen && "isopen"}
-          onClick={(e: MouseEvent) => this.handleOnButtonClick(e)}
-        >
-          <i /> Risorse
-        </button>
+        {this.handleButtonDisplay()}
+
 
         <h2 class={this.isOpen && "isopen"}>{this.titolo}</h2>
         <div>

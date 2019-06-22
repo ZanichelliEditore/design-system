@@ -22,6 +22,7 @@ export namespace Components {
   interface ZCardFooter {
     'anno': number;
     'autori': string;
+    'hasbutton': boolean;
     'titolo': string;
   }
   interface ZCardHeader {
@@ -132,6 +133,7 @@ declare namespace LocalJSX {
   interface ZCardFooter extends JSXBase.HTMLAttributes<HTMLZCardFooterElement> {
     'anno'?: number;
     'autori'?: string;
+    'hasbutton'?: boolean;
     'titolo'?: string;
   }
   interface ZCardHeader extends JSXBase.HTMLAttributes<HTMLZCardHeaderElement> {
