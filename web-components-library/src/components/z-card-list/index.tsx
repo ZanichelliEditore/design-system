@@ -12,9 +12,14 @@ export class ZCardList {
     this.renderList = this.renderList.bind(this);
   }
 
+  formatListContent(data) {
+      if (!data.isLink) return <span>{data.value}</span>
+      return <a href={data.url} target="_blank">• {data.value}</a>
+  }
+
   renderList(dataArray) {
     return dataArray.map(data => {
-      return <li>{data}</li>;
+      return <li>{this.formatListContent(data)}</li>;
     });
   }
 

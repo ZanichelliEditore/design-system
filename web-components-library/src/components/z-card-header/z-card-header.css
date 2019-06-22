@@ -12,7 +12,7 @@ header {
 }
 
 h2 {
-  font-family: Proxima Nova Sb;
+  font-family: var(--proxima-nova-sb);
   color: var(--text-gray-dark);
   width: 240px;
   height: var(--basex2);

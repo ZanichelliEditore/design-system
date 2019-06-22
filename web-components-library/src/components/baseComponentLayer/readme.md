@@ -16,13 +16,13 @@
 
 ### Depends on
 
-- [z-card](../z-card)
-- [z-card-header](../z-card-header)
-- [z-card-icon](../z-card-icon)
-- [z-card-body](../z-card-body)
-- [z-card-cover](../z-card-cover)
-- [z-card-footer](../z-card-footer)
-- [z-card-list](../z-card-list)
+- [z-card](..\z-card)
+- [z-card-header](..\z-card-header)
+- [z-card-icon](..\z-card-icon)
+- [z-card-body](..\z-card-body)
+- [z-card-cover](..\z-card-cover)
+- [z-card-footer](..\z-card-footer)
+- [z-card-list](..\z-card-list)
 
 ### Graph
 ```mermaid

@@ -1,5 +1,5 @@
 footer {
-  font-family: Proxima Nova Rg;
+  font-family: var(--proxima-nova-rg);
   color: var(--text-gray-dark);
   background-color: var(--bg-artboard-white);
   border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
@@ -14,11 +14,11 @@ footer {
   border-radius: 0px 0px 4px 4px;
 }
 footer b {
-  font-family: Proxima Nova Sb;
+  font-family: var(--proxima-nova-sb);
 }
 
 footer > h2 {
-  font-family: Proxima Nova Sb;
+  font-family: var(--proxima-nova-sb);
   font-size: 16px;
   line-height: 20px;
   height: 40px;
@@ -70,9 +70,10 @@ button {
   background-color: var(--myz-blue);
   color: var(--bg-artboard-white);
   text-transform: uppercase;
-  font-family: Proxima Nova;
+  font-family: var(--proxima-nova);
   font-size: 14px;
   outline: none;
+  padding-right: 16px;
 }
 button::-moz-focus-inner {
   border: 0;

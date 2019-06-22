@@ -29,3 +29,11 @@
   font-weight: normal;
   font-style: normal;
 }
+
+:host {
+  --proxima-nova-sb: Proxima Nova Sb;
+  --proxima-nova: Proxima Nova;
+  --proxima-nova-lt: Proxima Nova Lt;
+  --proxima-nova-rg: Proxima Nova Rg;
+
+}
