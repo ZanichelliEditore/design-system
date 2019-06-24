@@ -7,8 +7,8 @@ ul {
   padding: 8px 12px;
   overflow: hidden;
   list-style: none;
-  width: 269px;
-  height: 128px;
+  width: 280px;
+  height: auto;
   letter-spacing: 0.17px;
   line-height: 24px;
 }

@@ -69,8 +69,9 @@ button {
   height: 32px;
   border: none;
   border-radius: var(--radius-base);
-  background-color: var(--myz-blue);
-  color: var(--bg-artboard-white);
+  color: var(--myz-blue);
+  background-color: var(--bg-artboard-white);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   font-family: var(--proxima-nova);
   font-size: 14px;
@@ -102,10 +103,7 @@ button > i::before {
 
 button.isopen {
   top: -20px;
-  color: var(--myz-blue);
-  background-color: var(--bg-artboard-white);
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-  transition: all 200ms linear;
+  transition: top 200ms linear;
 }
 
 button.isopen > i::before {

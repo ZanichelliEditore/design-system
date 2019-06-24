@@ -13,8 +13,12 @@ export class ZCardList {
   }
 
   formatListContent(data) {
-      if (!data.isLink) return <span>{data.value}</span>
-      return <a href={data.url} target="_blank">• {data.value}</a>
+    if (!data.isLink) return <span>{data.value}</span>;
+    return (
+      <a href={data.url} target="_blank">
+        • {data.value}
+      </a>
+    );
   }
 
   renderList(dataArray) {

@@ -19,24 +19,23 @@ export class ZCardFooter {
   }
 
   handleButtonDisplay() {
-    console.log(this.hasbutton)
     if (!this.hasbutton) {
       return;
     }
     return (
       <button
         class={this.isOpen && "isopen"}
-        onClick={(e: MouseEvent) => this.handleOnButtonClick(e)}>
+        onClick={(e: MouseEvent) => this.handleOnButtonClick(e)}
+      >
         <i /> Risorse
       </button>
-    )
+    );
   }
 
   render() {
     return (
       <footer class={this.isOpen && "isopen"}>
         {this.handleButtonDisplay()}
-
 
         <h2 class={this.isOpen && "isopen"}>{this.titolo}</h2>
         <div>
