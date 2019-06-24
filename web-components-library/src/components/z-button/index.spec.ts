@@ -2,7 +2,7 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { ZButton } from '../z-button';
 
-it('should render my component', async () => {
+it('senza attributi', async () => {
   const page = await newSpecPage({
     components: [ZButton],
     html: `<z-button></z-button>`,
@@ -10,13 +10,13 @@ it('should render my component', async () => {
   expect(page.root).toEqualHtml(`
     <z-button>
       <mock:shadow-root>
-        <button></button>
+        <button class="primary"></button>
       </mock:shadow-root>
     </z-button>
   `);
 });
 
-it('should render my component', async () => {
+it('label', async () => {
   const page = await newSpecPage({
     components: [ZButton],
     html: `<z-button label="test"></z-button>`,
@@ -24,13 +24,13 @@ it('should render my component', async () => {
   expect(page.root).toEqualHtml(`
     <z-button label="test">
       <mock:shadow-root>
-        <button>test</button>
+        <button class="primary">test</button>
       </mock:shadow-root>
     </z-button>
   `);
 });
 
-it('should render my component', async () => {
+it('solo label has-icon', async () => {
   const page = await newSpecPage({
     components: [ZButton],
     html: `<z-button label="test" has-icon="true"></z-button>`,
@@ -38,21 +38,36 @@ it('should render my component', async () => {
   expect(page.root).toEqualHtml(`
     <z-button label="test" has-icon="true">
       <mock:shadow-root>
-        <button><icon></icon>test</button>
+        <button class="primary"><icon></icon>test</button>
       </mock:shadow-root>
     </z-button>
   `);
 });
 
-it('should render my component', async () => {
+it('label has-icon is-primary', async () => {
   const page = await newSpecPage({
     components: [ZButton],
-    html: `<z-button label="test" has-icon="true" is-primary=true"></z-button>`,
+    html: `<z-button label="test" has-icon="true" is-primary="true"></z-button>`,
   });
   expect(page.root).toEqualHtml(`
-    <z-button label="test" has-icon="true" is-primary=true">
+    <z-button label="test" has-icon="true" is-primary="true">
       <mock:shadow-root>
-        <button><icon></icon>test</button>
+        <button class="primary"><icon></icon>test</button>
+      </mock:shadow-root>
+    </z-button>
+  `);
+});
+
+
+it('label has-icon is-primary', async () => {
+  const page = await newSpecPage({
+    components: [ZButton],
+    html: `<z-button label="test" has-icon="true" is-primary="false"></z-button>`,
+  });
+  expect(page.root).toEqualHtml(`
+    <z-button label="test" has-icon="true" is-primary="false">
+      <mock:shadow-root>
+        <button class="secondary"><icon></icon>test</button>
       </mock:shadow-root>
     </z-button>
   `);

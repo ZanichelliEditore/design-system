@@ -8,7 +8,7 @@ import {Component, Prop, h} from '@stencil/core';
 export class ZButton {
   @Prop() label: string;
   @Prop() hasIcon: boolean;
-  @Prop() isPrimary: boolean;
+  @Prop() isPrimary: boolean = true;
   @Prop() action?: Function;
 
   render() {
