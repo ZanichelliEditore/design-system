@@ -4,10 +4,9 @@ li {
   width: 308px;
 }
 
-li > span {
+li span {
   height: 14px;
-  margin: var(--basex1);
-  padding: var(--basex1);
+  padding: var(--basex2) 0;
   display: flex;
   font-family: Proxima Nova Rg;
   font-size: 16px;
@@ -17,10 +16,22 @@ li > span {
   color: var(--text-gray-dark);
   border-bottom: 2px solid var(--bg-artboard-gray-light);
 }
-li span {
-  margin: 0 var(--basex1);
+
+li span:hover, a:hover{
+  color: var(--text-my-zanichelli-blue);
 }
 
-.nestedText {
-  font-size: 14px;
+a, a:visited, a:active {
+  color: inherit;
+  text-decoration:none;
+}
+
+
+
+li span img {
+  height: var(--basex2);
+  width: var(--basex2);
+  padding: 0 var(--half-x3) 0 0;
+  background-size: contain;
+  background-repeat: no-repeat;
 }

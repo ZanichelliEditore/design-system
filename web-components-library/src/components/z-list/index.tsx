@@ -9,7 +9,6 @@ import { ListItemBean } from "../../beans/index.js";
 export class ZList {
   @Prop() inputrawdata?: string;
   @Prop({ mutable: true }) list?: ListItemBean[];
-  @Prop() isnestedcomponent?: Boolean;
 
   componentDidLoad() {
     if (this.inputrawdata) {
@@ -31,12 +30,7 @@ export class ZList {
       <ul>
         {this.list &&
           this.list.map(bean => (
-            <z-list-item
-              text={bean.text}
-              link={bean.link}
-              icon={bean.icon}
-              isnestedcomponent={this.isnestedcomponent ? true : false}
-            />
+            <z-list-item text={bean.text} link={bean.link} icon={bean.icon} />
           ))}
       </ul>
     );

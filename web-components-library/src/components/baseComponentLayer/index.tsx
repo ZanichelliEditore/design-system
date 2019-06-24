@@ -18,7 +18,7 @@ export class BaseComponentLayer {
     this.list = new Array<ListItemBean>();
     this.list.push({
       text: "Testo1",
-      icon: "test"
+      icon: "../../assets/images/png/zanichelli-external-link@8x.png"
     });
 
     this.list.push({
@@ -52,11 +52,7 @@ export class BaseComponentLayer {
         <h3> This is how it should work</h3>
 
         <div>
-          <z-list
-            list={this.list}
-            isnestedcomponent={true}
-            hasseparator={false}
-          />
+          <z-list list={this.list} />
         </div>
         <br />
 
@@ -67,11 +63,7 @@ export class BaseComponentLayer {
         <h3> Drawback: dirty coding, but render on prop change should work</h3>
 
         <div>
-          <z-list
-            inputrawdata={this.rawData}
-            isnestedcomponent={false}
-            hasseparator={true}
-          />
+          <z-list inputrawdata={this.rawData} />
         </div>
         <br />
       </div>

@@ -9,15 +9,16 @@ export class ZListItem {
   @Prop() text: string;
   @Prop() link?: string;
   @Prop() icon?: string;
-  @Prop() isnestedcomponent: Boolean;
 
-  constructor() {}
+  constructor() {
+    console.log(this.icon)
+  }
 
   render() {
     return (
       <li>
         <span>
-          {this.icon && <icon class={this.icon} />}
+          {this.icon && <img src={this.icon}/>}
           {this.link ? <a href={this.link}>{this.text}</a> : this.text}
         </span>
       </li>
