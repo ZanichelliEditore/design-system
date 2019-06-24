@@ -16,6 +16,7 @@ export namespace Components {
   interface ZButton {
     'action'?: Function;
     'hasIcon': boolean;
+    'isDisabled': boolean;
     'isPrimary': boolean;
     'label': string;
   }
@@ -70,6 +71,7 @@ declare namespace LocalJSX {
   interface ZButton extends JSXBase.HTMLAttributes<HTMLZButtonElement> {
     'action'?: Function;
     'hasIcon'?: boolean;
+    'isDisabled'?: boolean;
     'isPrimary'?: boolean;
     'label'?: string;
   }

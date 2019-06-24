@@ -42,9 +42,19 @@ button.secondary:hover {
   border-color: var(--myz-blue-dark);
 }
 
+button.disabled, button.disabled:hover {
+  color: var(--text-gray-light);
+  background: var(--bg-artboard-gray-light);
+  border-color: var(--bg-artboard-gray-light);
+}
+
 button > icon {
   width: 16px;
   height: 16px;
   background: tomato;
   margin: 0 var(--basex2) 0 0;
+}
+
+button.disabled > icon {
+  background: var(--text-gray-light);
 }
