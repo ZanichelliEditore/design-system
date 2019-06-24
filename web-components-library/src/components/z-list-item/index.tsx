@@ -10,10 +10,6 @@ export class ZListItem {
   @Prop() link?: string;
   @Prop() icon?: string;
 
-  constructor() {
-    console.log(this.icon)
-  }
-
   render() {
     return (
       <li>
