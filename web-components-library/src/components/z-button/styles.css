@@ -1,3 +1,50 @@
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--basex1);
+  padding: var(--half-x3) var(--half-x5);
+
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: var(--border-base);
+  border: var(--border-base) solid var(--myz-blue);
+
+  user-select: none;
+  cursor: pointer;
+  background: var(--myz-blue);
+  color: var(--bg-artboard-white);
+}
+
+button.primary {
+  background: var(--myz-blue);
+  color: var(--bg-artboard-white);
+}
+
+button.secondary {
+  background: var(--bg-artboard-white);
+  color: var(--myz-blue);
+}
+
+button:active,
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  filter: brightness(0.8);
+}
+
+button > icon {
+  width: 16px;
+  height: 16px;
+  background: tomato;
+  margin: 0 var(--basex2) 0 0;
+}
+
+/*
 import styled from 'styled-stencils';
 
 import * as colors from '../../constants/colors.json';
@@ -53,3 +100,5 @@ export const Wrap = styled.button`
     margin: 0 ${spacing.base.x2} 0 0;
   }
 `;
+
+*/

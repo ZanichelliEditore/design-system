@@ -13,18 +13,18 @@ export namespace Components {
     'myProp': string;
   }
   interface FooterIpad {}
+  interface ZButton {
+    'action'?: Function;
+    'hasIcon': boolean;
+    'isPrimary': boolean;
+    'label': string;
+  }
   interface ZLink {
     'hasicon'?: boolean;
     'icontype'?: string;
     'label'?: string;
     'type'?: string;
     'url': string;
-  }
-  interface ZanichelliButton {
-    'action'?: Function;
-    'hasicon': boolean;
-    'isprimary': boolean;
-    'label': string;
   }
 }
 
@@ -43,22 +43,22 @@ declare global {
     new (): HTMLFooterIpadElement;
   };
 
+  interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {}
+  var HTMLZButtonElement: {
+    prototype: HTMLZButtonElement;
+    new (): HTMLZButtonElement;
+  };
+
   interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
   var HTMLZLinkElement: {
     prototype: HTMLZLinkElement;
     new (): HTMLZLinkElement;
   };
-
-  interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
-  var HTMLZanichelliButtonElement: {
-    prototype: HTMLZanichelliButtonElement;
-    new (): HTMLZanichelliButtonElement;
-  };
   interface HTMLElementTagNameMap {
     'base-component-layer': HTMLBaseComponentLayerElement;
     'footer-ipad': HTMLFooterIpadElement;
+    'z-button': HTMLZButtonElement;
     'z-link': HTMLZLinkElement;
-    'zanichelli-button': HTMLZanichelliButtonElement;
   }
 }
 
@@ -67,6 +67,12 @@ declare namespace LocalJSX {
     'myProp'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
+  interface ZButton extends JSXBase.HTMLAttributes<HTMLZButtonElement> {
+    'action'?: Function;
+    'hasIcon'?: boolean;
+    'isPrimary'?: boolean;
+    'label'?: string;
+  }
   interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
     'hasicon'?: boolean;
     'icontype'?: string;
@@ -74,18 +80,12 @@ declare namespace LocalJSX {
     'type'?: string;
     'url'?: string;
   }
-  interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
-    'action'?: Function;
-    'hasicon'?: boolean;
-    'isprimary'?: boolean;
-    'label'?: string;
-  }
 
   interface IntrinsicElements {
     'base-component-layer': BaseComponentLayer;
     'footer-ipad': FooterIpad;
+    'z-button': ZButton;
     'z-link': ZLink;
-    'zanichelli-button': ZanichelliButton;
   }
 }
 
