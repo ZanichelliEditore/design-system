@@ -1,7 +1,12 @@
+:host {
+  display: inline-block;
+  margin: 10px;
+}
+
 button {
+  /* display: flex; */
   justify-content: center;
   align-items: center;
-  margin: var(--basex1);
   padding: var(--half-x3) var(--half-x5);
 
   font-family: "Proxima Nova";
@@ -10,7 +15,6 @@ button {
   font-size: 14px;
   border-radius: var(--border-base);
   border: var(--border-base) solid var(--myz-blue);
-
   user-select: none;
   cursor: pointer;
   background: var(--myz-blue);
@@ -41,25 +45,17 @@ button.secondary:hover {
   border-color: var(--myz-blue-dark);
 }
 
-button.disabled, button.disabled:hover {
+button.disabled,
+button.disabled:hover {
   color: var(--text-gray-light);
   background: var(--bg-artboard-gray-light);
   border-color: var(--bg-artboard-gray-light);
 }
 
-button > span.icon {
+button > span > img {
   width: 16px;
   height: 16px;
   background-size: 16px 16px;
   margin: 0 var(--basex1) 0 0;
-  display: inline-block;
   vertical-align: bottom;
-}
-
-button.primary > span.icon {
-  background-image: url('../../../assets/images/png/zanichelli-external-link-2@8x.png');
-}
-
-button.secondary > span.icon {
-  background-image: url('../../../assets/images/png/zanichelli-external-link@8x.png');
 }

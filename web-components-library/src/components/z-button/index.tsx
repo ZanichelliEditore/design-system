@@ -1,8 +1,13 @@
-import {Component, Prop, h} from '@stencil/core';
+import { Component, Prop, h } from "@stencil/core";
+
+const primaryIconUrl =
+  "../../../assets/images/png/zanichelli-external-link-2@8x.png";
+const secondaryIconUrl =
+  "../../../assets/images/png/zanichelli-external-link@8x.png";
 
 @Component({
-  tag: 'z-button',
-  styleUrls: ['../../global-styles.css', './styles.css'],
+  tag: "z-button",
+  styleUrls: ["../../global-styles.css", "./styles.css"],
   shadow: true
 })
 export class ZButton {
@@ -16,12 +21,16 @@ export class ZButton {
     const isPrimary = this.isPrimary;
     const isDisabled = this.isDisabled;
 
-    var className = isPrimary ? 'primary' : 'secondary';
-    className += isDisabled ? ' disabled' : '';
+    var className = isPrimary ? "primary" : "secondary";
+    className += isDisabled ? " disabled" : "";
 
     return (
       <button class={className}>
-        {this.hasIcon && <span class="icon"/>}
+        {this.hasIcon && (
+          <span>
+            <img src={isPrimary ? primaryIconUrl : secondaryIconUrl} />
+          </span>
+        )}
         {this.label}
       </button>
     );
