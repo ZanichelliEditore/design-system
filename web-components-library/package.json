@@ -1,6 +1,6 @@
 {
   "name": "zanichelli-web-components-library",
-  "version": "0.0.18",
+  "version": "0.0.11",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -12,16 +12,25 @@
   "unpkg": "dist/web-components-library/web-components-library.js",
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "src/assets/"
   ],
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
-    "generate": "plop --plopfile internals/generators/index.js"
+    "generate": "plop --plopfile internals/generators/index.js",
+    "test": "stencil test --spec",
+    "test.watch": "stencil test --spec --watch",
+    "test.e2e": "stencil test --e2e"
   },
   "devDependencies": {
     "@stencil/core": "1.0.0-beta.8",
-    "plop": "^2.1.0"
+    "@types/jest": "23.3.14",
+    "@types/puppeteer": "1.12.4",
+    "jest": "23.6.0",
+    "jest-cli": "23.6.0",
+    "plop": "^2.1.0",
+    "puppeteer": "1.14.0"
   },
   "license": "MIT",
   "dependencies": {
