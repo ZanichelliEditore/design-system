@@ -7,10 +7,10 @@ export type FooterGroupBean = {
 };
 
 export declare type ActionBean = {
-  isLink: boolean,
-  value : string,
-  url?: string   
-}
+  isLink: boolean;
+  value: string;
+  url?: string;
+};
 
 export type CardBean = {
   id: string;
@@ -19,4 +19,9 @@ export type CardBean = {
   autori: string;
   anno: number;
   actions: ActionBean[];
+};
+export type ListItemBean = {
+  text: string;
+  link?: string;
+  icon?: string;
 };

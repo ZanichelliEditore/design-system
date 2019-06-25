@@ -1,4 +1,5 @@
 import { Component, Prop, h } from "@stencil/core";
+import { ListItemBean } from "../../beans/index.js";
 
 import * as cardData from "./card-mock-data.json";
 
@@ -9,7 +10,7 @@ const removeBookIcon =
 
 @Component({
   tag: "base-component-layer",
-  styleUrls: ["../../global-styles.css"]
+  styleUrls: ["../../global-styles.css", "./styles.css"]
 })
 export class BaseComponentLayer {
   @Prop() myProp: string;

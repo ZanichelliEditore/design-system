@@ -1,1 +1,4 @@
 node_modules/
+_doc/*
+web-components-library/*.tgz
+web-components-library/src/components.d.ts
