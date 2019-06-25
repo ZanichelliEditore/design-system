@@ -1,0 +1,28 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 301px;
+  height: 40px;
+  position: relative;
+  background: var(--bg-artboard-gray);
+  border-bottom: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border-radius: var(--radius-base) var(--radius-base) var(--radius-min)
+    var(--radius-min);
+}
+
+h2 {
+  font-family: var(--proxima-nova-sb);
+  color: var(--text-gray-dark);
+  width: 240px;
+  height: var(--basex2);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.22px;
+  line-height: var(--basex2);
+  margin: 0px;
+  padding: var(--half-x3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

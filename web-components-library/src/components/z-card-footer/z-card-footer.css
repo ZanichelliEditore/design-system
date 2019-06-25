@@ -1,0 +1,113 @@
+footer {
+  font-family: var(--proxima-nova-rg);
+  color: var(--text-gray-dark);
+  background-color: var(--bg-artboard-white);
+  border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  z-index: 5;
+  height: 48px;
+  width: 304px;
+  top: 0px;
+  transition: height 500ms ease-in-out, top 500ms ease-in-out;
+  border-radius: 0px 0px 4px 4px;
+}
+footer b {
+  font-family: var(--proxima-nova-sb);
+}
+
+footer > h2 {
+  font-family: var(--proxima-nova-sb);
+  font-size: 16px;
+  line-height: 20px;
+  height: 40px;
+  margin: 0px 0px 8px 0px;
+  padding: 12px 12px 0px 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: var(--bg-artboard-white);
+  transition: all 200ms linear;
+}
+
+footer > div {
+  padding: 4px 12px 8px 12px;
+  height: 40px;
+  overflow: hidden;
+}
+
+footer > div > p {
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  margin: 0px;
+  padding: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+footer.isopen {
+  height: 255px;
+  top: -147px;
+  transition: height 500ms ease-in-out, top 500ms ease-in-out;
+  border-radius: var(--border-base);
+}
+
+h2.isopen {
+  background-color: var(--bg-artboard-gray-very-light);
+  height: 42px;
+  padding-top: 16px;
+  transition: all 200ms linear;
+}
+
+button {
+  position: absolute;
+  top: -24px;
+  left: 12px;
+  z-index: 10;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-base);
+  color: var(--myz-blue);
+  background-color: var(--bg-artboard-white);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  font-family: var(--proxima-nova);
+  font-size: 14px;
+  outline: none;
+  padding-right: 16px;
+  transition: all 200ms linear;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button > i::before {
+  border-style: solid;
+  border-width: 0.24em 0.24em 0 0;
+  content: " ";
+  display: inline-block;
+  height: 0.42em;
+  left: 0.16em;
+  position: relative;
+  top: 0.16em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 0.42em;
+  margin-top: 2px;
+  margin-left: 4px;
+  margin-right: 6px;
+  transition: all 200ms linear;
+}
+
+button.isopen {
+  top: -20px;
+  transition: top 200ms linear;
+}
+
+button.isopen > i::before {
+  top: -0.16em;
+  transform: rotate(135deg);
+  transition: all 200ms linear;
+}
