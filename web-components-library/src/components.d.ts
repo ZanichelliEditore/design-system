@@ -17,6 +17,13 @@ export namespace Components {
     'rawData': string;
   }
   interface FooterIpad {}
+  interface ZButton {
+    'action'?: Function;
+    'hasIcon': boolean;
+    'isDisabled': boolean;
+    'isPrimary': boolean;
+    'label': string;
+  }
   interface ZLink {
     'hasicon'?: boolean;
     'icontype'?: string;
@@ -25,23 +32,13 @@ export namespace Components {
     'url': string;
   }
   interface ZList {
-    'hasseparator'?: Boolean;
     'inputrawdata'?: string;
-    'isnestedcomponent'?: Boolean;
     'list'?: ListItemBean[];
   }
   interface ZListItem {
-    'hasseparator': Boolean;
     'icon'?: string;
-    'isnestedcomponent': Boolean;
     'link'?: string;
     'text': string;
-  }
-  interface ZanichelliButton {
-    'action'?: Function;
-    'hasicon': boolean;
-    'isprimary': boolean;
-    'label': string;
   }
 }
 
@@ -58,6 +55,12 @@ declare global {
   var HTMLFooterIpadElement: {
     prototype: HTMLFooterIpadElement;
     new (): HTMLFooterIpadElement;
+  };
+
+  interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {}
+  var HTMLZButtonElement: {
+    prototype: HTMLZButtonElement;
+    new (): HTMLZButtonElement;
   };
 
   interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
@@ -77,19 +80,13 @@ declare global {
     prototype: HTMLZListItemElement;
     new (): HTMLZListItemElement;
   };
-
-  interface HTMLZanichelliButtonElement extends Components.ZanichelliButton, HTMLStencilElement {}
-  var HTMLZanichelliButtonElement: {
-    prototype: HTMLZanichelliButtonElement;
-    new (): HTMLZanichelliButtonElement;
-  };
   interface HTMLElementTagNameMap {
     'base-component-layer': HTMLBaseComponentLayerElement;
     'footer-ipad': HTMLFooterIpadElement;
+    'z-button': HTMLZButtonElement;
     'z-link': HTMLZLinkElement;
     'z-list': HTMLZListElement;
     'z-list-item': HTMLZListItemElement;
-    'zanichelli-button': HTMLZanichelliButtonElement;
   }
 }
 
@@ -99,6 +96,13 @@ declare namespace LocalJSX {
     'rawData'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
+  interface ZButton extends JSXBase.HTMLAttributes<HTMLZButtonElement> {
+    'action'?: Function;
+    'hasIcon'?: boolean;
+    'isDisabled'?: boolean;
+    'isPrimary'?: boolean;
+    'label'?: string;
+  }
   interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
     'hasicon'?: boolean;
     'icontype'?: string;
@@ -107,32 +111,22 @@ declare namespace LocalJSX {
     'url'?: string;
   }
   interface ZList extends JSXBase.HTMLAttributes<HTMLZListElement> {
-    'hasseparator'?: Boolean;
     'inputrawdata'?: string;
-    'isnestedcomponent'?: Boolean;
     'list'?: ListItemBean[];
   }
   interface ZListItem extends JSXBase.HTMLAttributes<HTMLZListItemElement> {
-    'hasseparator'?: Boolean;
     'icon'?: string;
-    'isnestedcomponent'?: Boolean;
     'link'?: string;
     'text'?: string;
-  }
-  interface ZanichelliButton extends JSXBase.HTMLAttributes<HTMLZanichelliButtonElement> {
-    'action'?: Function;
-    'hasicon'?: boolean;
-    'isprimary'?: boolean;
-    'label'?: string;
   }
 
   interface IntrinsicElements {
     'base-component-layer': BaseComponentLayer;
     'footer-ipad': FooterIpad;
+    'z-button': ZButton;
     'z-link': ZLink;
     'z-list': ZList;
     'z-list-item': ZListItem;
-    'zanichelli-button': ZanichelliButton;
   }
 }
 
