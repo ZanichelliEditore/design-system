@@ -21,7 +21,7 @@ export class ZButton {
 
     return (
       <button class={className}>
-        {this.hasIcon && <span class="icon" />}
+        {this.hasIcon && <span class="icon"/>}
         {this.label}
       </button>
     );

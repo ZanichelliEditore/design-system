@@ -38,7 +38,7 @@ it('solo label has-icon', async () => {
   expect(page.root).toEqualHtml(`
     <z-button label="test" has-icon="true">
       <mock:shadow-root>
-        <button class="primary"><icon></icon>test</button>
+        <button class="primary"><span class="icon"></span>test</button>
       </mock:shadow-root>
     </z-button>
   `);
@@ -52,7 +52,7 @@ it('label has-icon is-primary', async () => {
   expect(page.root).toEqualHtml(`
     <z-button label="test" has-icon="true" is-primary="true">
       <mock:shadow-root>
-        <button class="primary"><icon></icon>test</button>
+        <button class="primary"><span class="icon"></span>test</button>
       </mock:shadow-root>
     </z-button>
   `);
@@ -67,7 +67,7 @@ it('label has-icon is-primary', async () => {
   expect(page.root).toEqualHtml(`
     <z-button label="test" has-icon="true" is-primary="false">
       <mock:shadow-root>
-        <button class="secondary"><icon></icon>test</button>
+        <button class="secondary"><span class="icon"></span>test</button>
       </mock:shadow-root>
     </z-button>
   `);
