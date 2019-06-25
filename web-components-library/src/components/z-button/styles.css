@@ -49,9 +49,16 @@ button.disabled, button.disabled:hover {
 }
 
 button > span.icon {
-  background: url('../../../assets/images/png/zanichelli-external-link@8x.png');
-  background-size: 16px 16px;
   width: 16px;
   height: 16px;
+  background-size: 16px 16px;
   margin: 0 var(--basex1) 0 0;
+}
+
+button.primary > span.icon {
+  background-image: url('../../../assets/images/png/zanichelli-external-link-2@8x.png');
+}
+
+button.secondary > span.icon {
+  background-image: url('../../../assets/images/png/zanichelli-external-link@8x.png');
 }
