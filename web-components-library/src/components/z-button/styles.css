@@ -48,13 +48,10 @@ button.disabled, button.disabled:hover {
   border-color: var(--bg-artboard-gray-light);
 }
 
-button > icon {
+button > span.icon {
+  background: url('../../../assets/images/png/zanichelli-external-link@8x.png');
+  background-size: 16px 16px;
   width: 16px;
   height: 16px;
-  background: tomato;
-  margin: 0 var(--basex2) 0 0;
-}
-
-button.disabled > icon {
-  background: var(--text-gray-light);
+  margin: 0 var(--basex1) 0 0;
 }
