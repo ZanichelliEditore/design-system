@@ -9,7 +9,7 @@ const removeBookIcon =
 
 @Component({
   tag: "base-component-layer",
-  styleUrls: ["../../global-styles.css", "./styles.css"]
+  styleUrl: "../../global-styles.css"
 })
 export class BaseComponentLayer {
   @Prop() myProp: string;
