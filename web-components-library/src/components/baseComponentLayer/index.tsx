@@ -1,5 +1,4 @@
 import { Component, Prop, h } from "@stencil/core";
-import { ListItemBean } from "../../beans/index.js";
 
 import * as cardData from "./card-mock-data.json";
 

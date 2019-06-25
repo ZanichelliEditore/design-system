@@ -4,77 +4,83 @@
  * It contains typing information for all components that exist in this project.
  */
 
-import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 
-import { ListItemBean } from "./beans/index.js";
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
+import {
+  ListItemBean,
+} from './beans/index.js';
+
 
 export namespace Components {
   interface BaseComponentLayer {
-    list: ListItemBean[];
-    rawData: string;
+    'myProp': string;
   }
   interface FooterIpad {}
+  interface ZButton {
+    'action'?: Function;
+    'hasIcon': boolean;
+    'isDisabled': boolean;
+    'isPrimary': boolean;
+    'label': string;
+  }
   interface ZCard {}
   interface ZCardBody {}
   interface ZCardCover {
-    img: string;
-    titolo: string;
+    'img': string;
+    'titolo': string;
   }
   interface ZCardFooter {
-    anno: number;
-    autori: string;
-    hasbutton: boolean;
-    titolo: string;
+    'anno': number;
+    'autori': string;
+    'hasbutton': boolean;
+    'titolo': string;
   }
   interface ZCardHeader {
-    titolo: string;
+    'titolo': string;
   }
   interface ZCardIcon {
-    icon: string;
+    'icon': string;
   }
   interface ZCardList {
-    listdata: string;
-  }
-  interface ZButton {
-    action?: Function;
-    hasIcon: boolean;
-    isDisabled: boolean;
-    isPrimary: boolean;
-    label: string;
+    'listdata': string;
   }
   interface ZLink {
-    hasicon?: boolean;
-    icontype?: string;
-    label?: string;
-    type?: string;
-    url: string;
+    'hasicon'?: boolean;
+    'icontype'?: string;
+    'label'?: string;
+    'type'?: string;
+    'url': string;
   }
   interface ZList {
-    inputrawdata?: string;
-    list?: ListItemBean[];
+    'inputrawdata'?: string;
+    'list'?: ListItemBean[];
   }
   interface ZListItem {
-    icon?: string;
-    link?: string;
-    text: string;
+    'icon'?: string;
+    'link'?: string;
+    'text': string;
   }
 }
 
 declare global {
-  interface HTMLBaseComponentLayerElement
-    extends Components.BaseComponentLayer,
-      HTMLStencilElement {}
+
+
+  interface HTMLBaseComponentLayerElement extends Components.BaseComponentLayer, HTMLStencilElement {}
   var HTMLBaseComponentLayerElement: {
     prototype: HTMLBaseComponentLayerElement;
     new (): HTMLBaseComponentLayerElement;
   };
 
-  interface HTMLFooterIpadElement
-    extends Components.FooterIpad,
-      HTMLStencilElement {}
+  interface HTMLFooterIpadElement extends Components.FooterIpad, HTMLStencilElement {}
   var HTMLFooterIpadElement: {
     prototype: HTMLFooterIpadElement;
     new (): HTMLFooterIpadElement;
+  };
+
+  interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {}
+  var HTMLZButtonElement: {
+    prototype: HTMLZButtonElement;
+    new (): HTMLZButtonElement;
   };
 
   interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {}
@@ -83,57 +89,40 @@ declare global {
     new (): HTMLZCardElement;
   };
 
-  interface HTMLZCardBodyElement
-    extends Components.ZCardBody,
-      HTMLStencilElement {}
+  interface HTMLZCardBodyElement extends Components.ZCardBody, HTMLStencilElement {}
   var HTMLZCardBodyElement: {
     prototype: HTMLZCardBodyElement;
     new (): HTMLZCardBodyElement;
   };
 
-  interface HTMLZCardCoverElement
-    extends Components.ZCardCover,
-      HTMLStencilElement {}
+  interface HTMLZCardCoverElement extends Components.ZCardCover, HTMLStencilElement {}
   var HTMLZCardCoverElement: {
     prototype: HTMLZCardCoverElement;
     new (): HTMLZCardCoverElement;
   };
 
-  interface HTMLZCardFooterElement
-    extends Components.ZCardFooter,
-      HTMLStencilElement {}
+  interface HTMLZCardFooterElement extends Components.ZCardFooter, HTMLStencilElement {}
   var HTMLZCardFooterElement: {
     prototype: HTMLZCardFooterElement;
     new (): HTMLZCardFooterElement;
   };
 
-  interface HTMLZCardHeaderElement
-    extends Components.ZCardHeader,
-      HTMLStencilElement {}
+  interface HTMLZCardHeaderElement extends Components.ZCardHeader, HTMLStencilElement {}
   var HTMLZCardHeaderElement: {
     prototype: HTMLZCardHeaderElement;
     new (): HTMLZCardHeaderElement;
   };
 
-  interface HTMLZCardIconElement
-    extends Components.ZCardIcon,
-      HTMLStencilElement {}
+  interface HTMLZCardIconElement extends Components.ZCardIcon, HTMLStencilElement {}
   var HTMLZCardIconElement: {
     prototype: HTMLZCardIconElement;
     new (): HTMLZCardIconElement;
   };
 
-  interface HTMLZCardListElement
-    extends Components.ZCardList,
-      HTMLStencilElement {}
+  interface HTMLZCardListElement extends Components.ZCardList, HTMLStencilElement {}
   var HTMLZCardListElement: {
     prototype: HTMLZCardListElement;
     new (): HTMLZCardListElement;
-  };
-  interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {}
-  var HTMLZButtonElement: {
-    prototype: HTMLZButtonElement;
-    new (): HTMLZButtonElement;
   };
 
   interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
@@ -141,114 +130,109 @@ declare global {
     prototype: HTMLZLinkElement;
     new (): HTMLZLinkElement;
   };
-  interface HTMLElementTagNameMap {
-    "base-component-layer": HTMLBaseComponentLayerElement;
-    "footer-ipad": HTMLFooterIpadElement;
-    "z-card": HTMLZCardElement;
-    "z-card-body": HTMLZCardBodyElement;
-    "z-card-cover": HTMLZCardCoverElement;
-    "z-card-footer": HTMLZCardFooterElement;
-    "z-card-header": HTMLZCardHeaderElement;
-    "z-card-icon": HTMLZCardIconElement;
-    "z-card-list": HTMLZCardListElement;
-    "z-link": HTMLZLinkElement;
-  }
+
   interface HTMLZListElement extends Components.ZList, HTMLStencilElement {}
   var HTMLZListElement: {
     prototype: HTMLZListElement;
     new (): HTMLZListElement;
   };
 
-  interface HTMLZListItemElement
-    extends Components.ZListItem,
-      HTMLStencilElement {}
+  interface HTMLZListItemElement extends Components.ZListItem, HTMLStencilElement {}
   var HTMLZListItemElement: {
     prototype: HTMLZListItemElement;
     new (): HTMLZListItemElement;
   };
   interface HTMLElementTagNameMap {
-    "base-component-layer": HTMLBaseComponentLayerElement;
-    "footer-ipad": HTMLFooterIpadElement;
-    "z-button": HTMLZButtonElement;
-    "z-link": HTMLZLinkElement;
-    "z-list": HTMLZListElement;
-    "z-list-item": HTMLZListItemElement;
+    'base-component-layer': HTMLBaseComponentLayerElement;
+    'footer-ipad': HTMLFooterIpadElement;
+    'z-button': HTMLZButtonElement;
+    'z-card': HTMLZCardElement;
+    'z-card-body': HTMLZCardBodyElement;
+    'z-card-cover': HTMLZCardCoverElement;
+    'z-card-footer': HTMLZCardFooterElement;
+    'z-card-header': HTMLZCardHeaderElement;
+    'z-card-icon': HTMLZCardIconElement;
+    'z-card-list': HTMLZCardListElement;
+    'z-link': HTMLZLinkElement;
+    'z-list': HTMLZListElement;
+    'z-list-item': HTMLZListItemElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface BaseComponentLayer
-    extends JSXBase.HTMLAttributes<HTMLBaseComponentLayerElement> {
-    list?: ListItemBean[];
-    rawData?: string;
+  interface BaseComponentLayer extends JSXBase.HTMLAttributes<HTMLBaseComponentLayerElement> {
+    'myProp'?: string;
   }
   interface FooterIpad extends JSXBase.HTMLAttributes<HTMLFooterIpadElement> {}
+  interface ZButton extends JSXBase.HTMLAttributes<HTMLZButtonElement> {
+    'action'?: Function;
+    'hasIcon'?: boolean;
+    'isDisabled'?: boolean;
+    'isPrimary'?: boolean;
+    'label'?: string;
+  }
   interface ZCard extends JSXBase.HTMLAttributes<HTMLZCardElement> {}
   interface ZCardBody extends JSXBase.HTMLAttributes<HTMLZCardBodyElement> {}
   interface ZCardCover extends JSXBase.HTMLAttributes<HTMLZCardCoverElement> {
-    img?: string;
-    titolo?: string;
+    'img'?: string;
+    'titolo'?: string;
   }
   interface ZCardFooter extends JSXBase.HTMLAttributes<HTMLZCardFooterElement> {
-    anno?: number;
-    autori?: string;
-    hasbutton?: boolean;
-    titolo?: string;
+    'anno'?: number;
+    'autori'?: string;
+    'hasbutton'?: boolean;
+    'titolo'?: string;
   }
   interface ZCardHeader extends JSXBase.HTMLAttributes<HTMLZCardHeaderElement> {
-    titolo?: string;
+    'titolo'?: string;
   }
   interface ZCardIcon extends JSXBase.HTMLAttributes<HTMLZCardIconElement> {
-    icon?: string;
+    'icon'?: string;
   }
   interface ZCardList extends JSXBase.HTMLAttributes<HTMLZCardListElement> {
-    listdata?: string;
-  }
-  interface ZButton extends JSXBase.HTMLAttributes<HTMLZButtonElement> {
-    action?: Function;
-    hasIcon?: boolean;
-    isDisabled?: boolean;
-    isPrimary?: boolean;
-    label?: string;
+    'listdata'?: string;
   }
   interface ZLink extends JSXBase.HTMLAttributes<HTMLZLinkElement> {
-    hasicon?: boolean;
-    icontype?: string;
-    label?: string;
-    type?: string;
-    url?: string;
+    'hasicon'?: boolean;
+    'icontype'?: string;
+    'label'?: string;
+    'type'?: string;
+    'url'?: string;
   }
   interface ZList extends JSXBase.HTMLAttributes<HTMLZListElement> {
-    inputrawdata?: string;
-    list?: ListItemBean[];
+    'inputrawdata'?: string;
+    'list'?: ListItemBean[];
   }
   interface ZListItem extends JSXBase.HTMLAttributes<HTMLZListItemElement> {
-    icon?: string;
-    link?: string;
-    text?: string;
+    'icon'?: string;
+    'link'?: string;
+    'text'?: string;
   }
 
   interface IntrinsicElements {
-    "base-component-layer": BaseComponentLayer;
-    "footer-ipad": FooterIpad;
-    "z-card": ZCard;
-    "z-card-body": ZCardBody;
-    "z-card-cover": ZCardCover;
-    "z-card-footer": ZCardFooter;
-    "z-card-header": ZCardHeader;
-    "z-card-icon": ZCardIcon;
-    "z-card-list": ZCardList;
-    "z-link": ZLink;
-    "z-button": ZButton;
-    "z-list": ZList;
-    "z-list-item": ZListItem;
+    'base-component-layer': BaseComponentLayer;
+    'footer-ipad': FooterIpad;
+    'z-button': ZButton;
+    'z-card': ZCard;
+    'z-card-body': ZCardBody;
+    'z-card-cover': ZCardCover;
+    'z-card-footer': ZCardFooter;
+    'z-card-header': ZCardHeader;
+    'z-card-icon': ZCardIcon;
+    'z-card-list': ZCardList;
+    'z-link': ZLink;
+    'z-list': ZList;
+    'z-list-item': ZListItem;
   }
 }
 
 export { LocalJSX as JSX };
+
 
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
 }
+
+
