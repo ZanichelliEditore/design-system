@@ -2,8 +2,6 @@ dist/
 www/
 loader/
 
-src/components/baseComponentLayer/index.tsx
-
 *~
 *.sw[mnpcod]
 *.log
