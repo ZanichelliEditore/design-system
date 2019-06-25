@@ -1,5 +1,4 @@
 button {
-  display: flex;
   justify-content: center;
   align-items: center;
   margin: var(--basex1);
@@ -53,6 +52,8 @@ button > span.icon {
   height: 16px;
   background-size: 16px 16px;
   margin: 0 var(--basex1) 0 0;
+  display: inline-block;
+  vertical-align: bottom;
 }
 
 button.primary > span.icon {
