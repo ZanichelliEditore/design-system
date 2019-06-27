@@ -2,7 +2,7 @@ import { Component, h } from "@stencil/core";
 
 @Component({
   tag: "z-card",
-  styleUrls: ["../../global-styles.css", "z-card.css"],
+  styleUrl: "styles.css",
   shadow: true
 })
 export class ZCardComponent {

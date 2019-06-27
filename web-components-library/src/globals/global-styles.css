@@ -1,0 +1,11 @@
+/* Css Variables */
+
+@import url("./global-fonts.css");
+@import url("./global-grid.css");
+@import url("./global-spacing.css");
+@import url("./global-colors.css");
+@import url("./global-border-and-radius.css");
+
+body * {
+  box-sizing: border-box;
+}

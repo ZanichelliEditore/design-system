@@ -2,7 +2,7 @@ import { Component, Prop, Host, h } from "@stencil/core";
 
 @Component({
   tag: "z-link",
-  styleUrls: ["../../global-styles.css", "z-link.css"],
+  styleUrl: "styles.css",
   shadow: true
 })
 export class ZLink {

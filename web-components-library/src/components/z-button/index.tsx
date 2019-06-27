@@ -7,7 +7,7 @@ const secondaryIconUrl =
 
 @Component({
   tag: "z-button",
-  styleUrls: ["../../global-styles.css", "./styles.css"],
+  styleUrl: "styles.css",
   shadow: true
 })
 export class ZButton {

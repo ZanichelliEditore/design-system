@@ -2,7 +2,7 @@ import { Component, Prop, h, State } from "@stencil/core";
 
 @Component({
   tag: "z-card-footer",
-  styleUrls: ["../../global-styles.css", "z-card-footer.css"],
+  styleUrl: "styles.css",
   shadow: true
 })
 export class ZCardFooter {

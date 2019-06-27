@@ -2,7 +2,7 @@ import { Component, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "z-list-item",
-  styleUrls: ["../../global-styles.css", "./styles.css"],
+  styleUrl: "styles.css",
   shadow: true
 })
 export class ZListItem {
@@ -14,7 +14,7 @@ export class ZListItem {
     return (
       <li>
         <span>
-          {this.icon && <img src={this.icon}/>}
+          {this.icon && <img src={this.icon} />}
           {this.link ? <a href={this.link}>{this.text}</a> : this.text}
         </span>
       </li>

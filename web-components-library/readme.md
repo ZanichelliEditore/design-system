@@ -2,9 +2,9 @@
 
 ---
 
-### Per generare un componente da cli senza Styled-stencil e con shadow dom:
+### Per generare un componente da cli senza Styled-stencil e con shadow dom e file di unit test:
 
-`yarn generate raw-component` + `nome-componente`
+`yarn generate raw` + `nome-componente`
 
 ### Per generare un componente da cli con Styled-stencil:
 

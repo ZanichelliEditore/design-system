@@ -17,13 +17,19 @@ module.exports = {
       {
         type: "add",
         path: "../../src/components/{{name}}/index.tsx",
-        templateFile: "./raw-component/webcomponent.ts.hbs",
+        templateFile: "./raw-component/index.tsx.hbs",
         abortOnFail: true
       },
       {
         type: "add",
+        path: "../../src/components/{{name}}/styles.css",
         templateFile: "./raw-component/styles.css.hbs",
-        path: "../../src/components/{{name}}/{{name}}.css",
+        abortOnFail: true
+      },
+      {
+        type: "add",
+        path: "../../src/components/{{name}}/index.spec.ts",
+        templateFile: "./raw-component/index.spec.ts.hbs",
         abortOnFail: true
       }
     ];
