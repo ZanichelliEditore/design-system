@@ -22,7 +22,7 @@
     "test": "stencil test --spec",
     "test.watch": "stencil test --spec --watch",
     "test.e2e": "stencil test --e2e",
-    "release": "yarn build && yarn pack"
+    "release": "yarn build && yarn pack --filename package/zanichelli-web-components-library-v0.0.1.tgz"
   },
   "devDependencies": {
     "@stencil/core": "1.0.0-beta.8",
@@ -32,6 +32,13 @@
     "jest-cli": "23.6.0",
     "plop": "^2.1.0",
     "puppeteer": "1.14.0"
+  },
+  "pre-commit": {
+    "colors": true,
+    "silent": false,
+    "run": [
+      "release"
+    ]
   },
   "license": "MIT",
   "dependencies": {}
