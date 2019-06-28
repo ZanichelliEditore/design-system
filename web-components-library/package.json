@@ -1,6 +1,6 @@
 {
   "name": "zanichelli-web-components-library",
-  "version": "0.0.41",
+  "version": "0.0.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -22,7 +22,7 @@
     "test": "stencil test --spec",
     "test.watch": "stencil test --spec --watch",
     "test.e2e": "stencil test --e2e",
-    "release": "yarn build && yarn pack --filename package/zanichelli-web-components-library-dev.tgz"
+    "release": "yarn build && yarn pack"
   },
   "devDependencies": {
     "@stencil/core": "1.0.0-beta.8",
