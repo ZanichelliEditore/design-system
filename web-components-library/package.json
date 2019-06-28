@@ -21,7 +21,8 @@
     "generate": "plop --plopfile internals/generators/index.js",
     "test": "stencil test --spec",
     "test.watch": "stencil test --spec --watch",
-    "test.e2e": "stencil test --e2e"
+    "test.e2e": "stencil test --e2e",
+    "release": "yarn build && yarn pack --filename package/zanichelli-web-components-library-dev.tgz"
   },
   "devDependencies": {
     "@stencil/core": "1.0.0-beta.8",
