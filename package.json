@@ -6,8 +6,17 @@
   "repository": {
     "type": "git"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "echo ciao"
+  },
   "author": "Secondini",
+  "pre-commit": {
+    "colors": true,
+    "silent": false,
+    "run": [
+      "test"
+    ]
+  },
   "license": "ISC",
   "devDependencies": {}
 }
