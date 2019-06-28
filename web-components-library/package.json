@@ -1,6 +1,6 @@
 {
   "name": "zanichelli-web-components-library",
-  "version": "0.0.37",
+  "version": "0.0.39",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -13,8 +13,7 @@
   "files": [
     "dist/",
     "loader/",
-    "www/",
-    "src/assets/"
+    "www/"
   ],
   "scripts": {
     "build": "stencil build --docs",
