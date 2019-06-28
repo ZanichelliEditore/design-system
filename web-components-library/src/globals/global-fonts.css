@@ -1,39 +1,9 @@
-@font-face {
-  font-family: "Proxima Nova Sb";
-  src: url("../assets/fonts/ProximaNova-Semibold.woff2") format("woff2"),
-    url("../assets/fonts/ProximaNova-Semibold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Proxima Nova";
-  src: url("../assets/fonts/ProximaNova-Bold.woff2") format("woff2"),
-    url("../assets/fonts/ProximaNova-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Proxima Nova Lt";
-  src: url("../assets/fonts/ProximaNova-Light.woff2") format("woff2"),
-    url("../assets/fonts/ProximaNova-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Proxima Nova Rg";
-  src: url("../assets/fonts/ProximaNova-Regular.woff2") format("woff2"),
-    url("../assets/fonts/ProximaNova-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,600&display=swap');
 
 :root,
 :host {
-  --proxima-nova-sb: Proxima Nova Sb;
-  --proxima-nova: Proxima Nova;
-  --proxima-nova-lt: Proxima Nova Lt;
-  --proxima-nova-rg: Proxima Nova Rg;
+  --dashboard-font: IBM Plex Sans;
+  --font-lt: 300;
+  --font-rg: 400;
+  --font-sb: 600;
 }

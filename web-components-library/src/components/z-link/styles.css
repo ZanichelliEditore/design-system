@@ -1,6 +1,6 @@
 :host {
-  color: black;
-  font-family: "Proxima Nova Rg";
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
   font-size: 14px;
   margin: 0 var(--basex1);
 }

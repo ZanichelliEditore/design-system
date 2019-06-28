@@ -1,24 +1,22 @@
 {
   "name": "web-components-boilerplate",
-  "version": "1.0.3",
+  "version": "0.0.1",
   "description": "",
   "main": "./web-components-library/src/index.ts",
   "repository": {
     "type": "git"
   },
   "scripts": {
-    "update:npm": "node ./web-components-library/internals/scripts/versionUpdate.js  && git add ."
+    "test": "echo ciao"
   },
+  "author": "Secondini",
   "pre-commit": {
     "colors": true,
     "silent": false,
     "run": [
-      "update:npm"
+      "test"
     ]
   },
-  "author": "Nicola Bertelloni",
   "license": "ISC",
-  "devDependencies": {
-    "pre-commit": "^1.2.2"
-  }
+  "devDependencies": {}
 }

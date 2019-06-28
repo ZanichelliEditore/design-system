@@ -1,5 +1,6 @@
 footer {
-  font-family: var(--proxima-nova-rg);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
   color: var(--text-gray-dark);
   background-color: var(--bg-artboard-white);
   border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
@@ -14,11 +15,13 @@ footer {
   border-radius: 0px 0px 4px 4px;
 }
 footer b {
-  font-family: var(--proxima-nova-sb);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
 }
 
 footer > h2 {
-  font-family: var(--proxima-nova-sb);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
   font-size: 16px;
   line-height: 20px;
   height: 40px;
@@ -73,7 +76,8 @@ button {
   background-color: var(--bg-artboard-white);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
-  font-family: var(--proxima-nova);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
   font-size: 14px;
   outline: none;
   padding-right: 16px;
