@@ -1,9 +1,17 @@
-export type FooterGroupItemBean = { label: string; link: string };
+export type FooterGroupItemBean = {
+  label: string;
+  link: string;
+  targetBlank?: boolean;
+};
 
 export type FooterGroupBean = {
-  id: string;
   title: string;
   items: FooterGroupItemBean[];
+};
+
+export type MyzLinkBean = {
+  descr: string;
+  link: string;
 };
 
 export declare type ActionBean = {

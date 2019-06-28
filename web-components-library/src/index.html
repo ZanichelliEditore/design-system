@@ -13,21 +13,15 @@
   </head>
 
   <body>
-    <z-card>
-      <z-card-header titolo="titolo">
-        <z-card-icon
-          icon="../../assets/images/png/zanichelli-book-remove-gray@8x.png"
-          slot="icon"
-        />
-      </z-card-header>
-
-      <z-card-body>
-        <z-card-cover slot="cover" titolo="titolo" img="http://media.curtisinvitoblu.bedita.net/a1/40/curti_a140cb3359b7611d84f80e384d2fb49b/curtis_plus-1A_320x_71bc3567ace1ff728caef1b381d7535b.png" />
-      </z-card-body>
-
-      <z-card-footer hasbutton titolo="titolo" autori="autori" anno="2019">
-        <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
-      </z-card-footer>
-    </z-card>
+    <z-footer zanichelli-links='[{"title":"Zanichelli.it","items":[{"label":"Home zanichelli.it","link":"http://www.zanichelli.it","targetBlank":true},{"label":"Ricerca in catalogo","link":""},{"label":"Contatti","link":""}]},{"title":"Scuola","items":[{"label":"Home scuola","link":""},{"label":"Catalogo scuola","link":""},{"label":"Bisogni Educativi Speciali (BES)","link":""},{"label":"Formazione docenti","link":""}]}]'
+              myz-link='{
+                "descr": "Home MyZanichelli",
+                "link": "https://my.zanichelli.it"
+              }'
+              zanichelli-address="
+                Zanichelli editore S.p.A. via Irnerio 34, 40126 Bologna
+                Fax 051 - 249.782 / 293.224 | Tel. 051 - 293.111 / 245.024
+                Partita IVA 03978000374
+              "/>
   </body>
 </html>
