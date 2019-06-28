@@ -22,7 +22,7 @@
     "test": "stencil test --spec",
     "test.watch": "stencil test --spec --watch",
     "test.e2e": "stencil test --e2e",
-    "release": "yarn build && yarn pack --filename package/zanichelli-web-components-library-v0.0.1.tgz"
+    "release": "yarn build && yarn publish --registry http://localhost:4873"
   },
   "devDependencies": {
     "@stencil/core": "1.0.0-beta.8",
