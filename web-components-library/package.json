@@ -33,7 +33,5 @@
     "puppeteer": "1.14.0"
   },
   "license": "MIT",
-  "dependencies": {
-    "styled-stencils": "^0.1.27"
-  }
+  "dependencies": {}
 }
