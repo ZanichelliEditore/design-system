@@ -1,0 +1,79 @@
+{
+	"name": "zanichelli-web-components-library",
+	"versions": {
+		"0.0.1": {
+			"name": "zanichelli-web-components-library",
+			"version": "0.0.1",
+			"description": "Stencil Component Starter",
+			"main": "dist/index.js",
+			"module": "dist/index.mjs",
+			"es2015": "dist/esm/index.mjs",
+			"es2017": "dist/esm/index.mjs",
+			"types": "dist/types/index.d.ts",
+			"collection": "dist/collection/collection-manifest.json",
+			"collection:main": "dist/collection/index.js",
+			"unpkg": "dist/web-components-library/web-components-library.js",
+			"files": [
+				"dist/",
+				"loader/",
+				"www/"
+			],
+			"scripts": {
+				"build": "stencil build --docs",
+				"start": "stencil build --dev --watch --serve",
+				"generate": "plop --plopfile internals/generators/index.js",
+				"test": "stencil test --spec",
+				"test.watch": "stencil test --spec --watch",
+				"test.e2e": "stencil test --e2e",
+				"release": "yarn build && yarn publish --registry http://localhost:4873",
+				"verdaccio": "docker-compose up --build"
+			},
+			"devDependencies": {
+				"@stencil/core": "1.0.0-beta.8",
+				"@types/jest": "23.3.14",
+				"@types/puppeteer": "1.12.4",
+				"jest": "23.6.0",
+				"jest-cli": "23.6.0",
+				"plop": "^2.1.0",
+				"puppeteer": "1.14.0"
+			},
+			"pre-commit": {
+				"colors": true,
+				"silent": false,
+				"run": [
+					"release"
+				]
+			},
+			"license": "MIT",
+			"dependencies": {},
+			"readmeFilename": "readme.md",
+			"licenseText": "MIT License\n\nCopyright (c) 2018\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+			"_id": "zanichelli-web-components-library@0.0.1",
+			"dist": {
+				"shasum": "5f9c677f634e883ea742e1c416b339995543b4dd",
+				"integrity": "sha512-CyOzvI5y0pjisrtPTFN6b7RA9jsXPhN9xaFVbxMd8SqVZ61/P1X52H9YlnHeG6IeXOFOGN2Vwh5CmFHkK6+F0A==",
+				"tarball": "http://localhost:4873/zanichelli-web-components-library/-/zanichelli-web-components-library-0.0.1.tgz"
+			}
+		}
+	},
+	"time": {
+		"modified": "2019-06-30T21:35:57.452Z",
+		"created": "2019-06-30T21:35:57.452Z",
+		"0.0.1": "2019-06-30T21:35:57.452Z"
+	},
+	"users": {},
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"_uplinks": {},
+	"_distfiles": {},
+	"_attachments": {
+		"zanichelli-web-components-library-0.0.1.tgz": {
+			"shasum": "5f9c677f634e883ea742e1c416b339995543b4dd",
+			"version": "0.0.1"
+		}
+	},
+	"_rev": "4-32ba4fb022df38b1",
+	"_id": "zanichelli-web-components-library",
+	"readme": "# Zanichelli - Web Components Library\n\n---\n\n### Per generare un componente da cli senza Styled-stencil e con shadow dom e file di unit test:\n\n`yarn generate raw` + `nome-componente`\n\n### Per generare un componente da cli con Styled-stencil:\n\n`yarn generate component` + `nome-componente`\n\n##### NB: il nome dei componenti deve contenere un dash (`-`)\n\n---\n\n### Per pubblicare il pacchetto web components:\n\n##### da web comp libs\n\n-   lanciare il container docker di verdaccio: `yarn verdaccio`\n-   aggiungere utente locale: `npm adduser --registry http://localhost:4873` (comando da lanciare solo la prima volta)\n-   pubblicare il package lanciando: `yarn release` (verrà chiesto di aggiornare il numero di versione)\n\n##### da app dashboard\n\n-   settare il registro di yarn su verdaccio: `yarn config set registry http://localhost:4873`\n-   installare tutti pacchetti: `yarn`\n-   (per fare aggiornmento `yarn upgrade`)\n-   avviare l'app: `yarn start`"
+}

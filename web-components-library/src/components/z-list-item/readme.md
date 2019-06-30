@@ -18,7 +18,7 @@
 
 ### Used by
 
- - [z-list](../z-list)
+ - [z-list](..\z-list)
 
 ### Graph
 ```mermaid
