@@ -9,7 +9,6 @@ export class ZCardFooter {
   @Prop() titolo: string;
   @Prop() autori: string;
   @Prop() anno: number;
-  @Prop() hasbutton: boolean;
 
   @State() isOpen: boolean = false;
 
