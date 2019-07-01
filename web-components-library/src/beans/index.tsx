@@ -14,6 +14,11 @@ export type MyzLinkBean = {
   link: string;
 };
 
+export type FooterSocialBean = {
+  icon: string;
+  link: string;
+};
+
 export declare type ActionBean = {
   isLink: boolean;
   value: string;

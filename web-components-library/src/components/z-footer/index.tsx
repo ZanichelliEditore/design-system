@@ -1,6 +1,6 @@
 import { Component, Prop, h } from "@stencil/core";
 
-import { FooterGroupBean, FooterGroupItemBean, MyzLinkBean } from "../../beans/index.js";
+import { FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } from "../../beans/index.js";
 
 @Component({
   tag: "z-footer",
@@ -11,8 +11,9 @@ export class Footer {
   @Prop() zanichelliLinks: string;
   @Prop() myzLink: string;
   @Prop() zanichelliAddress: string;
-  //@Prop() social: SocialBean[];
-  //@Prop() customLinks: CustomLinkBean[];
+  @Prop() social: string;
+  @Prop() bottomLinks: string;
+  @Prop() certification: string;
 
   renderFooterSection(group: FooterGroupBean): HTMLElement {
     return (
@@ -64,6 +65,17 @@ export class Footer {
     );
   }
 
+  renderCertification(): HTMLElement {
+    return (
+      <p>
+        {this.certification.split('\n').map(
+          (item: string): HTMLElement =>
+            <p>{item}</p>
+        )}
+      </p>
+    );
+  }
+
   renderAddress(): HTMLElement {
     const zanichelliAddress = this.zanichelliAddress;
 
@@ -77,12 +89,40 @@ export class Footer {
     );
   }
 
+  renderSocial(): HTMLElement {
+    const social: FooterSocialBean[] = JSON.parse(this.social);
+
+    return (
+      <div>
+        {social.map(
+          (item: FooterSocialBean): HTMLElement =>
+            <a href={item.link}>{item.icon}</a>
+        )}
+      </div>
+    );
+  }
+
+  renderBottomLinks(): HTMLElement {
+    const social: FooterSocialBean[] = JSON.parse(this.social);
+
+    return (
+      <div>
+        {social.map(
+          (item: FooterSocialBean): HTMLElement =>
+            <a href={item.link}>{item.icon}</a>
+        )}
+      </div>
+    );
+  }
+
   renderFooterBottom(): HTMLElement {
     return (
       <section class="bottom">
         {this.renderMyzLink()}
-        {this.renderCopyright()}
         {this.renderAddress()}
+        {this.renderSocial()}
+        {this.renderCopyright()}
+        {this.renderCertification()}
       </section>
     );
   }
