@@ -10,7 +10,8 @@ button {
   text-transform: uppercase;
   font-size: 14px;
   outline: none;
-  padding-right: 16px;
+  padding-left: 0px;
+  padding-right: 8px;
   transition: all 200ms linear;
 }
 button::-moz-focus-inner {
@@ -34,8 +35,8 @@ button > i::before {
   vertical-align: top;
   width: 0.5em;
   margin-top: 2px;
-  margin-left: 4px;
-  margin-right: 6px;
+  margin-left: 16px;
+  margin-right: 16px;
   transition: all 200ms linear;
 }
 
