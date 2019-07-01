@@ -1,61 +1,57 @@
-:host {
-  display: inline-block;
-  margin: 10px;
-}
-
 button {
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  padding: var(--half-x3) var(--half-x5);
-
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
-  text-transform: uppercase;
   font-size: 14px;
-  border-radius: var(--border-base);
-  border: var(--border-base) solid var(--myz-blue);
-  user-select: none;
-  cursor: pointer;
-  background: var(--myz-blue);
-  color: var(--bg-artboard-white);
+  letter-spacing: 0.3px;
+  border-width: var(--border-base);
+  border-style: solid;
+  border-radius: var(--radius-base);
+  height: 44px;
+  text-transform: uppercase;
+  padding: 0px 32px;
+}
+
+button.small {
+  height: 36px;
 }
 
 button.primary {
-  background: var(--myz-blue);
+  background-color: var(--myz-blue);
+  border-color: var(--myz-blue);
   color: var(--bg-artboard-white);
 }
 
+button.primary:hover {
+  background-color: var(--myz-blue-dark);
+  border-color: var(--myz-blue-dark);
+  color: var(--bg-artboard-white);
+}
+
+button.primary:disabled {
+  background-color: var(--bg-artboard-gray-very-light);
+  border-color: var(--bg-artboard-gray-very-light);
+  color: var(--text-gray-dark);
+}
+
 button.secondary {
-  background: var(--bg-artboard-white);
+  background-color: var(--bg-artboard-white);
+  border-color: var(--myz-blue);
   color: var(--myz-blue);
 }
 
-button:active,
-button:focus {
-  outline: none;
-}
-
-button.primary:hover {
-  background: var(--myz-blue-dark);
-}
-
 button.secondary:hover {
-  color: var(--myz-blue-dark);
+  background-color: var(--bg-artboard-white);
   border-color: var(--myz-blue-dark);
+  color: var(--myz-blue-dark);
 }
 
-button.disabled,
-button.disabled:hover {
-  color: var(--text-gray-light);
-  background: var(--bg-artboard-gray-light);
-  border-color: var(--bg-artboard-gray-light);
+button.secondary:disabled {
+  background-color: var(--bg-artboard-white);
+  border-color: var(--bg-artboard-gray-very-light);
+  color: var(--text-gray-dark);
 }
 
-button > span > img {
-  width: 16px;
-  height: 16px;
-  background-size: 16px 16px;
-  margin: 0 var(--basex1) 0 0;
-  vertical-align: bottom;
+button > img {
+  height: 12px;
+  margin-right: 12px;
 }
