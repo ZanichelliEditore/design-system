@@ -1,0 +1,66 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+div {
+  background: var(--bg-artboard-white);
+  border-radius: 4px;
+}
+
+div > div {
+  height: 32px;
+}
+
+.container{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div > img{
+  width: 14px;
+  height: 14px;
+  padding-left: var(--half-x3);
+}
+
+div > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: var(--basex1);
+  padding-right: var(--basex1);
+}
+
+div > a > img{
+  height: var(--basex1);
+  width: var(--half-x3);
+}
+
+div > span{
+  color: var(--text-gray-dark);
+  font-size: 12px;
+  letter-spacing: 0.17px;
+  line-height: 14px;
+  text-align: center;
+  padding-left: var(--half-x1)
+}
+
+ul {
+  list-style: none;
+
+  padding-inline-start: 0px;
+
+}
+
+li{
+    height: 32px;
+    color: var(--text-my-zanichelli-blue);
+    font-size: 12px;
+    letter-spacing: 0.17px;
+    line-height: 14px;
+    text-align: center;
+    padding-left: var(--base-x4)
+
+}
+
