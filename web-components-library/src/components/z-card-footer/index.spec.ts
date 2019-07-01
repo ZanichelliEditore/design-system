@@ -8,17 +8,16 @@ describe("Suite test ZCardFooter", () => {
   it("Test render ZCardFooter con props", async () => {
     const page = await newSpecPage({
       components: [ZCardFooter],
-      html: `<z-card-footer hasbutton titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019"></z-card-footer>`
+      html: `<z-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019"></z-card-footer>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-footer hasbutton titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019">
+    <z-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019">
       <mock:shadow-root>
         <footer >
-          <button>
-            <i></i> Risorse
-          </button>
-
+          <span class="toggle">
+            <slot name="toggle" />
+          </span>
           <h2>titolo</h2>
           <div>
             <p>
@@ -45,7 +44,9 @@ describe("Suite test ZCardFooter", () => {
     <z-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019">
       <mock:shadow-root>
         <footer >
-
+          <span class="toggle">
+            <slot name="toggle" />
+          </span>
           <h2>titolo</h2>
           <div>
             <p>
@@ -72,7 +73,9 @@ describe("Suite test ZCardFooter", () => {
     <z-card-footer>
       <mock:shadow-root>
         <footer >
-
+          <span class="toggle">
+            <slot name="toggle" />
+          </span>
           <h2></h2>
           <div>
             <p>
@@ -93,16 +96,17 @@ describe("Suite test ZCardFooter", () => {
   it("Test click on button resource", async () => {
     const page = await newSpecPage({
       components: [ZCardFooter],
-      html: `<z-card-footer hasbutton ></z-card-footer>`,
+      html: `<z-card-footer></z-card-footer>`,
     });
 
-    let button = page.root.shadowRoot.querySelector('footer').querySelector('button');
+    console.log(page.root.shadowRoot.querySelector('footer').querySelector('z-toggle-button'));
+    /* let button = page.root.shadowRoot.querySelector('footer').querySelector('button');
 
     expect(page.rootInstance.isOpen).toEqual(false);
     button.click();
     await page.waitForChanges();
 
-    expect(page.rootInstance.isOpen).toEqual(true);
+    expect(page.rootInstance.isOpen).toEqual(true); */
 
   });
 });
