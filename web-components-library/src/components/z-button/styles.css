@@ -9,6 +9,10 @@ button {
   height: 44px;
   text-transform: uppercase;
   padding: 0px 32px;
+  outline: none;
+}
+button::-moz-focus-inner {
+  border: 0;
 }
 
 button.small {
