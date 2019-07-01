@@ -88,4 +88,21 @@ describe("Suite test ZCardFooter", () => {
     </z-card-footer>
     `);
   });
+
+
+  it("Test click on button resource", async () => {
+    const page = await newSpecPage({
+      components: [ZCardFooter],
+      html: `<z-card-footer hasbutton ></z-card-footer>`,
+    });
+
+    let button = page.root.shadowRoot.querySelector('footer').querySelector('button');
+
+    expect(page.rootInstance.isOpen).toEqual(false);
+    button.click();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.isOpen).toEqual(true);
+
+  });
 });
