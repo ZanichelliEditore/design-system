@@ -42,15 +42,25 @@ export class ZHeader {
               <div class="subnav">
                 <span class="menu-item">Home</span>
                 <div class={`subnav-content ${this.isSticky && "sticky"}`}>
-                  <a href="#company" class="active">La mia Libreria</a>
-                  <a href="#team">Ambienti Zanichelli</a>
-                  <a href="#careers">Idee per insegnare</a>
+                  <a href="#libreria" class="active">
+                    La mia Libreria
+                  </a>
+                  <a href="#ambienti">Ambienti Zanichelli</a>
+                  <a href="#idee">Idee per insegnare</a>
                 </div>
               </div>
               <span class="menu-item">Dizionari</span>
             </nav>
           </div>
-          <span class="login">
+          <div id="right">
+            <a href="#supporto" class="active">
+              Supporto
+            </a>
+            <a href="#shop">E-shop</a>
+            <a href="#chiedi">Chiedi al tuo responsabile</a>
+          </div>
+
+          <span class={`login ${this.isSticky && "sticky-login"}`}>
             <slot name="login" />
           </span>
         </div>
