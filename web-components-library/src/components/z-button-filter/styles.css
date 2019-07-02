@@ -1,0 +1,72 @@
+div.container {
+  min-width: 88px;
+  display: flex;
+  flex-wrap: wrap;
+
+  background: var(--bg-artboard-white);
+
+  margin: var(--basex1);
+}
+
+div.text-container {
+  width: auto;
+  height: var(--basex2);
+  line-height: var(--basex2);
+
+  padding: 6px 12px;
+
+  color: var(--myz-blue);
+
+  text-align: center;
+
+  border: 1px solid var(--bg-artboard-gray-light);
+  border-radius: 19.5px;
+}
+
+div.text-container > p {
+  min-width: 60px;
+  text-transform: capitalize;
+  margin: 0px;
+  margin-left: 10px;
+  letter-spacing: 0.2px;
+
+  font-family: var(--dashboard-font);
+  font-size: 12px;
+  font-weight: var(--font-sb);
+}
+
+div.container:hover div.text-container {
+  color: var(--myz-blue-dark);
+}
+
+div.close-icon-container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  height: 12px;
+  width: 12px;
+  cursor: pointer;
+}
+
+.close-icon-container:before,
+.close-icon-container:after {
+  position: absolute;
+  left: 4px;
+  top: 9.5px;
+  content: " ";
+  height: 12px;
+  width: 1.5px;
+  margin-left: 20px;
+  background-color: var(--myz-blue);
+}
+.close-icon-container:before {
+  transform: rotate(45deg);
+}
+.close-icon-container:after {
+  transform: rotate(-45deg);
+}
+
+div.container:hover .close-icon-container:before,
+div.container:hover .close-icon-container:after {
+  background-color: var(--myz-blue-dark);
+}
