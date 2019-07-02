@@ -134,15 +134,18 @@ header {
 
 /* Stycky bar style  */
 
-.sticky {
+.main-header.sticky {
   position: fixed;
   top: 0;
+  width: 100%
 }
 
-.subnav-content-wrapper.sticky {
+.dropdown-menu.sticky {
+  position: fixed;
   top: 52px;
 }
 
-.login.sticky-login {
+.login.sticky {
+  position: fixed;
   top: 10px;
 }

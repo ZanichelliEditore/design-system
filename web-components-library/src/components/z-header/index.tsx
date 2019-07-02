@@ -37,7 +37,7 @@ export class ZHeader {
             <span>Testo a caso</span>
           </div>
         </div>
-        <div class="main-header">
+        <div id="main-header" class={`main-header ${this.isSticky && 'sticky'}`}>
           <div class="logo">
             <slot name="logo" />
           </div>
@@ -51,11 +51,11 @@ export class ZHeader {
             <a href="#shop">E-shop</a>
             <a href="#chiedi">Chiedi al tuo responsabile</a>
           </div>
-          <div class="login">
+          <div class={`login ${this.isSticky && 'sticky'}`}>
             <slot name="login" />
           </div>
         </div>
-        <div class="dropdown-menu">
+        <div class={`dropdown-menu ${this.isSticky && 'sticky'}`}>
           <div class="dropdown-links">
             <div class="arrow" />
             <a href="#libreria" class="active">
