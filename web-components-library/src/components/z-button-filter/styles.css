@@ -1,45 +1,42 @@
-div.container {
+button.container {
   min-width: 88px;
-  display: flex;
-
-  background: var(--bg-artboard-white);
-
-  margin: var(--basex1);
-}
-
-div.text-container {
-  width: auto;
   min-height: var(--basex2);
   line-height: var(--basex2);
 
-  padding: 6px 12px;
-
   color: var(--myz-blue);
-
-  text-align: center;
-  user-select: none;
+  background-color: var(--bg-artboard-white);
+  margin: var(--basex1);
 
   border: 1px solid var(--bg-artboard-gray-light);
   border-radius: 19.5px;
-}
 
-div.text-container > p {
-  min-width: 60px;
+  text-align: center;
+
+  padding-top: 0.19em;
+  padding-bottom: 0.19em;
+
+  -webkit-user-select: none; /*INFO: Safari 3.1+ */
+  -moz-user-select: none; /*INFO: Firefox 2+ */
+  -ms-user-select: none; /*INFO: IE 10+ */
+  user-select: none; /*INFO: Standard syntax */
+
   text-transform: capitalize;
-  margin: 0px;
-  margin-left: 10px;
-  letter-spacing: 0.2px;
-
+  letter-spacing: 0.17px;
   font-family: var(--dashboard-font);
   font-size: 12px;
   font-weight: var(--font-sb);
 }
 
-div.container:hover div.text-container {
+button:focus {
+  outline: 0;
+}
+
+button.container:hover .text-container {
   color: var(--myz-blue-dark);
 }
 
-div.close-icon-container {
+span.close-icon-container {
+  display: inline-block;
   position: relative;
   top: 0px;
   left: 0px;
@@ -48,25 +45,26 @@ div.close-icon-container {
   cursor: pointer;
 }
 
-.close-icon-container:before,
-.close-icon-container:after {
+span.close-icon-container:before,
+span.close-icon-container:after {
   position: absolute;
-  left: 4px;
-  top: 9.5px;
+  left: -16px;
+  top: 2px;
   content: " ";
   height: 12px;
   width: 1.5px;
   margin-left: 20px;
   background-color: var(--myz-blue);
+  cursor: pointer;
 }
-.close-icon-container:before {
+span.close-icon-container:before {
   transform: rotate(45deg);
 }
-.close-icon-container:after {
+span.close-icon-container:after {
   transform: rotate(-45deg);
 }
 
-div.container:hover .close-icon-container:before,
-div.container:hover .close-icon-container:after {
+span.container:hover .close-icon-container:before,
+span.container:hover .close-icon-container:after {
   background-color: var(--myz-blue-dark);
 }

@@ -17,15 +17,13 @@ export class ZButtonFilter {
   render() {
     const labeltext = this.labeltext.toLowerCase();
     return (
-      <div class="container">
-        <div
+      <button class="container">
+        <span
           class="close-icon-container"
           onClick={() => this.handleRemovingFilterClick()}
         />{" "}
-        <div class="text-container">
-          <p>{labeltext}</p>
-        </div>
-      </div>
+        <span class="text-container">{labeltext}</span>
+      </button>
     );
   }
 }
