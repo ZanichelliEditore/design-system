@@ -1,23 +1,37 @@
 :host {
   font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-  font-size: 14px;
-  margin: 0 var(--basex1);
+  font-weight: var(--font-sb);
+  font-size: 12px;
 }
 
 a {
-  display: flex;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+a.disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+a > img {
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+}
+
+a.tertiary {
+  color: var(--myz-blue);
   text-decoration: none;
 }
 
-.internal {
-  font-size: 16px;
+a.tertiary:hover {
+  color: var(--myz-blue-dark);
+  text-decoration: none;
 }
 
-icon {
-  width: 16px;
-  height: 16px;
-  background-color: tomato;
-  margin-right: var(--basex1);
+a.tertiary.disabled, a.tertiary.disabled:active, a.tertiary.disabled:visited, a.tertiary.disabled:hover {
+  color: var(--bg-artboard-gray-very-light);
+  text-decoration: none;
 }

@@ -1,4 +1,4 @@
-import { Component, Prop, Host, h } from "@stencil/core";
+import { Component, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "z-link",
@@ -8,23 +8,26 @@ import { Component, Prop, Host, h } from "@stencil/core";
 export class ZLink {
   @Prop() url: string;
   @Prop() label?: string;
-  @Prop() type?: string = "internal";
-  @Prop() hasicon?: boolean;
-  @Prop() icontype?: string;
+  @Prop() icon?: string;
+  @Prop() type?: string
+  @Prop() isdisabled?: boolean = false;
 
   render() {
+    let linkClass = '';
+    if(this.type) {
+      linkClass += this.type;
+    }
+    if(this.isdisabled) {
+      linkClass += ' disabled';
+    }
+
+    const icon = this.icon ? '../../../assets/images/png/' + this.icon : '';
+
     return (
-      <Host>
-        <a
-          href={this.url}
-          class={{
-            internal: this.type === "internal"
-          }}
-        >
-          {this.hasicon && <icon class={this.icontype} />}
-          {this.label}
-        </a>
-      </Host>
+      <a href={this.url} class={linkClass}>
+        {this.icon && <img src={icon} />}
+        {this.label}
+      </a>
     );
   }
 }
