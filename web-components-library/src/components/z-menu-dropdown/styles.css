@@ -1,11 +1,24 @@
 :host {
   font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
+  font-weight: var(--font-sb);
+  font-size: 12px;
+  letter-spacing: 0.17px;
+  line-height: 14px;
 }
 
-div {
+a, a:visited, a:active {
+  color: inherit;
+  text-decoration:none;
+}
+
+:host > div{
   background: var(--bg-artboard-white);
   border-radius: 4px;
+  width:147px;
+}
+
+.menuOpened{
+  padding-bottom: var(--basex2)
 }
 
 div > div {
@@ -13,7 +26,7 @@ div > div {
 }
 
 .container{
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -33,34 +46,31 @@ div > a {
 }
 
 div > a > img{
-  height: var(--basex1);
-  width: var(--half-x3);
+  height: 7px;
+  width: 10px;
 }
 
 div > span{
   color: var(--text-gray-dark);
-  font-size: 12px;
-  letter-spacing: 0.17px;
-  line-height: 14px;
-  text-align: center;
-  padding-left: var(--half-x1)
+  padding-left: var(--half-x1);
+  width:96px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 ul {
   list-style: none;
-
-  padding-inline-start: 0px;
-
+  padding-inline-start: var(--basex4);
+  margin: 0px;
+  display: flex;
+  flex-direction:column;
 }
 
 li{
     height: 32px;
     color: var(--text-my-zanichelli-blue);
-    font-size: 12px;
-    letter-spacing: 0.17px;
-    line-height: 14px;
-    text-align: center;
-    padding-left: var(--base-x4)
-
+    display:flex;
+    align-items: center;
 }
 
