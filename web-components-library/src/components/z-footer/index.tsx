@@ -51,28 +51,11 @@ export class Footer {
     const myzLink : MyzLinkBean = JSON.parse(this.myzLink);
 
     return (
-      <a target="_blank" href={myzLink.link}>
-        <img src="../../assets/images/png/zanichelli-logo-footer.png" />
-      </a>
-    );
-  }
-
-  renderCopyright(): HTMLElement {
-    return (
-      <p>
-        <small>Copyright – {new Date().getFullYear()} Zanichelli All rights reserved</small>
-      </p>
-    );
-  }
-
-  renderCertification(): HTMLElement {
-    return (
-      <p>
-        {this.certification.split('\n').map(
-          (item: string): HTMLElement =>
-            <p>{item}</p>
-        )}
-      </p>
+      <div class="item">
+        <a target="_blank" href={myzLink.link}>
+          <img src="../../assets/images/png/zanichelli-logo-footer.png" />
+        </a>
+      </div>
     );
   }
 
@@ -80,12 +63,12 @@ export class Footer {
     const zanichelliAddress = this.zanichelliAddress;
 
     return (
-      <p>
+      <div class="item">
         {zanichelliAddress.split('\n').map(
           (item: string): HTMLElement =>
             <p>{item}</p>
         )}
-      </p>
+      </div>
     );
   }
 
@@ -93,36 +76,59 @@ export class Footer {
     const social: FooterSocialBean[] = JSON.parse(this.social);
 
     return (
-      <div>
+      <div class="item">
+        <ul>
         {social.map(
           (item: FooterSocialBean): HTMLElement =>
-            <a href={item.link}>{item.icon}</a>
+            <li>
+              <a href={item.link}>{item.icon}</a>
+            </li>
         )}
+        </ul>
       </div>
     );
+  }
+
+  renderCopyright(): HTMLElement {
+    return (
+      <small>Copyright – {new Date().getFullYear()} Zanichelli All rights reserved</small>
+    );
+  }
+
+  renderCertification(): HTMLElement {
+    return (
+      {this.certification.split('\n').map(
+        (item: string): HTMLElement =>
+          <p>{item}</p>
+      )}
+  );
   }
 
   renderBottomLinks(): HTMLElement {
     const social: FooterSocialBean[] = JSON.parse(this.social);
 
     return (
-      <div>
-        {social.map(
-          (item: FooterSocialBean): HTMLElement =>
-            <a href={item.link}>{item.icon}</a>
-        )}
-      </div>
+      {social.map(
+        (item: FooterSocialBean): HTMLElement =>
+          <a href={item.link}>{item.icon}</a>
+      )}
     );
   }
 
   renderFooterBottom(): HTMLElement {
     return (
       <section class="bottom">
-        {this.renderMyzLink()}
-        {this.renderAddress()}
-        {this.renderSocial()}
-        {this.renderCopyright()}
-        {this.renderCertification()}
+        <div class="item">
+          {this.renderMyzLink()}
+          {this.renderCopyright()}
+          {this.renderCertification()}
+        </div>
+        <div class="item">
+          {this.renderAddress()}
+        </div>
+        <div class="item">
+          {this.renderSocial()}
+        </div>
       </section>
     );
   }
