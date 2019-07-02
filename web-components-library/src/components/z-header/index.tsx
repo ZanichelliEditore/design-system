@@ -30,10 +30,10 @@ export class ZHeader {
     return (
       <header>
         <div id="top-header">
-          <span>
-            Testo a caso, Testo a caso,Testo a casoTesto a caso,Testo a
-            caso,Testo a caso
-          </span>
+          <span>Testo a caso</span>
+          <span>Testo a caso</span>
+          <span>Testo a caso</span>
+          <span>Testo a caso</span>
         </div>
         <div id="main-header" class={this.isSticky && "sticky"}>
           <div id="left">
@@ -41,15 +41,18 @@ export class ZHeader {
             <nav>
               <div class="subnav">
                 <span class="menu-item">Home</span>
-                <div class={`subnav-content ${this.isSticky && "sticky"}`}>
-                  <a href="#libreria" class="active">
-                    La mia Libreria
-                  </a>
-                  <a href="#ambienti">Ambienti Zanichelli</a>
-                  <a href="#idee">Idee per insegnare</a>
+                <span class="menu-item">Dizionari</span>
+                <div class={`subnav-content-wrapper ${this.isSticky && "sticky"}`}>
+                  <div class="subnav-content">
+                    <div class="arrow" />
+                    <a href="#libreria" class="active">
+                      La mia Libreria
+                    </a>
+                    <a href="#ambienti">Ambienti Zanichelli</a>
+                    <a href="#idee">Idee per insegnare</a>
+                  </div>
                 </div>
               </div>
-              <span class="menu-item">Dizionari</span>
             </nav>
           </div>
           <div id="right">
