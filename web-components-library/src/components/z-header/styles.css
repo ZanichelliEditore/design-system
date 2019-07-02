@@ -101,6 +101,11 @@ header {
   grid-template-areas: ". dropdown-links . .";
   grid-area: dropdown-menu;
   background: rgb(230, 230, 230);
+  visibility: hidden;
+}
+
+.dropdown-menu.visible {
+  visibility: visible;
 }
 
 .dropdown-links { grid-area: dropdown-links; }

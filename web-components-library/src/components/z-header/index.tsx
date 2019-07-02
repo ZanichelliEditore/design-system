@@ -26,6 +26,11 @@ export class ZHeader {
     }
   }
 
+  handleHomeButtonClick(): void {
+    const dropdown = this.element.shadowRoot.getElementById("dropdown-menu");
+    dropdown.classList.toggle('visible')
+  }
+
   render() {
     return (
       <header>
@@ -42,7 +47,7 @@ export class ZHeader {
             <slot name="logo" />
           </div>
           <div class="link-int">
-            <span class="menu-item">Home</span>
+            <span class="menu-item" onClick={() => this.handleHomeButtonClick()}>Home</span>
             <span class="menu-item">Dizionari</span>
           </div>
           <div class="void"></div>
@@ -55,7 +60,7 @@ export class ZHeader {
             <slot name="login" />
           </div>
         </div>
-        <div class={`dropdown-menu ${this.isSticky && 'sticky'}`}>
+        <div id="dropdown-menu" class={`dropdown-menu ${this.isSticky && 'sticky'}`}>
           <div class="dropdown-links">
             <div class="arrow" />
             <a href="#libreria" class="active">
