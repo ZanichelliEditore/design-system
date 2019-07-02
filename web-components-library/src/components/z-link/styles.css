@@ -2,6 +2,7 @@
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 12px;
+  line-height: 14px;
 }
 
 a {
