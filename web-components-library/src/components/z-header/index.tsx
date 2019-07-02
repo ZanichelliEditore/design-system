@@ -29,43 +29,41 @@ export class ZHeader {
   render() {
     return (
       <header>
-        <div id="top-header">
-          <span>Testo a caso</span>
-          <span>Testo a caso</span>
-          <span>Testo a caso</span>
-          <span>Testo a caso</span>
-        </div>
-        <div id="main-header" class={this.isSticky && "sticky"}>
-          <div id="left">
-            <slot name="logo" />
-            <nav>
-              <div class="subnav">
-                <span class="menu-item">Home</span>
-                <span class="menu-item">Dizionari</span>
-                <div class={`subnav-content-wrapper ${this.isSticky && "sticky"}`}>
-                  <div class="subnav-content">
-                    <div class="arrow" />
-                    <a href="#libreria" class="active">
-                      La mia Libreria
-                    </a>
-                    <a href="#ambienti">Ambienti Zanichelli</a>
-                    <a href="#idee">Idee per insegnare</a>
-                  </div>
-                </div>
-              </div>
-            </nav>
+        <div class="top-header">
+          <div class="editors">
+            <span>Testo a caso</span>
+            <span>Testo a caso</span>
+            <span>Testo a caso</span>
+            <span>Testo a caso</span>
           </div>
-          <div id="right">
-            <a href="#supporto" class="active">
-              Supporto
-            </a>
+        </div>
+        <div class="main-header">
+          <div class="logo">
+            <slot name="logo" />
+          </div>
+          <div class="link-int">
+            <span class="menu-item">Home</span>
+            <span class="menu-item">Dizionari</span>
+          </div>
+          <div class="void"></div>
+          <div class="link-ext">
+            <a href="#supporto">Supporto</a>
             <a href="#shop">E-shop</a>
             <a href="#chiedi">Chiedi al tuo responsabile</a>
           </div>
-
-          <span class={`login ${this.isSticky && "sticky-login"}`}>
+          <div class="login">
             <slot name="login" />
-          </span>
+          </div>
+        </div>
+        <div class="dropdown-menu">
+          <div class="dropdown-links">
+            <div class="arrow" />
+            <a href="#libreria" class="active">
+              La mia Libreria
+            </a>
+            <a href="#ambienti">Ambienti Zanichelli</a>
+            <a href="#idee">Idee per insegnare</a>
+          </div>
         </div>
       </header>
     );

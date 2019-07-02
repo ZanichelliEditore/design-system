@@ -1,58 +1,71 @@
+/* Basic style  */
+
 header {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1.5fr 1.1fr 0.7fr;
+  grid-template-rows: 0.2fr 0.2fr 0.2fr;
+  grid-template-areas: "top-header top-header top-header top-header top-header" "main-header main-header main-header main-header main-header" "dropdown-menu dropdown-menu dropdown-menu dropdown-menu dropdown-menu" ". . . . .";
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  display: flex;
-  flex-direction: column;
-  width: 100%
 }
 
-#top-header {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-end;
-	align-items: center;
-	align-content: flex-end;
+.top-header {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". editors";
+  grid-area: top-header;
   height: 32px;
+  align-items: center;
 }
 
-#top-header > span {
+.editors { grid-area: editors; }
+
+.editors > span {
 	margin: 8px;
 }
 
-#main-header {
-  width: 100%;
-  overflow: hidden;
+.main-header {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1.1fr 1.5fr 0.7fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "logo link-int void link-ext login";
+  grid-area: main-header;
   background-color: rgb(48, 56, 64);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  height: 52px;
   align-items: center;
-  align-content: center;
 }
 
-#left,
-nav {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
+.logo { grid-area: logo; height: 52px;}
+
+.link-int { grid-area: link-int; }
+
+.link-int > .menu-item {
+  width: auto;
+  height: auto;
+  color: rgb(255, 255, 255);
+  letter-spacing: 0.2px;
+  line-height: 14px;
+  font-weight: var(--font-sb);
+  font-size: 16px;
+  margin: 8px;
+  padding: 6px;
 }
 
-#right {
-  margin-right: 182px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: baseline;
-  align-content: flex-end;
+.link-int > .menu-item:focus,
+.link-int > .menu-item:hover {
+  background: rgb(66, 69, 72);
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-#right > a {
+.void { grid-area: void; }
+
+.link-ext { 
+  grid-area: link-ext; 
+}
+
+.link-ext > a {
   width: auto;
   height: auto;
   font-size: 12px;
@@ -65,58 +78,44 @@ nav {
   padding: 8px;
 }
 
-#right > a:hover,
-#right > a:focus {
+.link-ext > a:hover,
+.link-ext > a:focus {
   background: rgb(66, 69, 72);
   border-radius: 4px;
   cursor: pointer;
 }
 
-.menu-item {
-  width: auto;
-  height: auto;
-  color: rgb(255, 255, 255);
-  letter-spacing: 0.2px;
-  line-height: 14px;
-  font-weight: var(--font-sb);
-  font-size: 16px;
-  margin: 8px;
-  padding: 8px;
+.login { 
+  grid-area: login;
+  position: absolute;
+  right: 16px;
+  top: 42px;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
-.arrow {
+.dropdown-menu {
+  display: grid;
+  grid-template-columns: minmax(241px, 1fr) 4.7fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". dropdown-links . .";
+  grid-area: dropdown-menu;
+  background: rgb(230, 230, 230);
+}
+
+.dropdown-links { grid-area: dropdown-links; }
+
+.dropdown-links > .arrow {
   width: 0;
   height: 0;
   margin-top: -8px;
-  margin-left: 30px;
+  margin-left: 34px;
   border-style: solid;
   border-width: 0 8px 8px 8px;
   border-color: transparent transparent #e6e6e6 transparent;
 }
 
-.menu-item:focus,
-.menu-item:hover {
-  background: rgb(66, 69, 72);
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.subnav-content-wrapper {
-  width: 100%;
-  background: rgb(230, 230, 230);
-  border-radius: 0px;
-  position: absolute;
-  left: 0;
-  top: 84px;
-  height: 32px;
-}
-
-.subnav-content {
-  display: block;
-  padding-left: 241px;
-}
-
-.subnav-content > a {
+.dropdown-links > a {
   width: auto;
   height: auto;
   color: rgb(0, 86, 193);
@@ -128,13 +127,12 @@ nav {
   padding-bottom: 4px;
 }
 
-.subnav-content > a:hover {
+.dropdown-links > a:hover {
   color: rgb(66, 69, 72);
-}
-
-.subnav-content > a:hover {
   border-bottom: 2px solid rgb(0, 86, 193);
 }
+
+/* Stycky bar style  */
 
 .sticky {
   position: fixed;
@@ -143,14 +141,6 @@ nav {
 
 .subnav-content-wrapper.sticky {
   top: 52px;
-}
-
-.login {
-  position: absolute;
-  right: 16px;
-  top: 42px;
-  overflow: hidden;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .login.sticky-login {
