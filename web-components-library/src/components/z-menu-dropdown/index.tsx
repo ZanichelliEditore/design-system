@@ -47,7 +47,7 @@ export class ZMenuDropdown {
 
   renderButtonMenu(){
       return(
-        <a onClick={() => this.ismenuopen=!this.ismenuopen}>
+        <a>
           <img src={this.ismenuopen?retrieveAsset(this.icondropdownopened):retrieveAsset(this.icondropdownclosed)}/>
         </a>
       );
@@ -61,7 +61,7 @@ export class ZMenuDropdown {
 
   render() {
     return (
-      <div class={this.retriveMenuClass()}>
+      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen=!this.ismenuopen}>
         <div class="container">
           <img src={retrieveAsset(this.iconuser)}/>
           <span>{this.nomeutente}</span>
