@@ -1,6 +1,8 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, h } from "@stencil/core";
 
 import { FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } from "../../beans/index.js";
+
+var data;
 
 @Component({
   tag: "z-footer",
@@ -8,12 +10,49 @@ import { FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } f
   shadow: true
 })
 export class Footer {
-  @Prop() zanichelliLinks: string;
-  @Prop() myzLink: string;
-  @Prop() zanichelliAddress: string;
-  @Prop() social: string;
-  @Prop() bottomLinks: string;
-  @Prop() certification: string;
+  componentWillLoad() {
+
+    // TODO: fetch from API
+    data = {
+      zanichelliLinks: [{"title":"Zanichelli.it","items":[{"label":"Home zanichelli.it","link":"http://www.zanichelli.it","targetBlank":true},{"label":"Ricerca in catalogo","link":""},{"label":"Contatti","link":""}]},{"title":"Scuola","items":[{"label":"Home scuola","link":""},{"label":"Catalogo scuola","link":""},{"label":"Bisogni Educativi Speciali (BES)","link":""},{"label":"Formazione docenti","link":""}]}],
+      myzLink: {"descr": "Home MyZanichelli", "link": "https://my.zanichelli.it"},
+      zanichelliAddress: `
+        Zanichelli editore S.p.A. via Irnerio 34, 40126 Bologna
+        Fax 051 - 249.782 / 293.224 | Tel. 051 - 293.111 / 245.024
+        Partita IVA 03978000374
+      `,
+      social: [{
+              "icon": "Youtube",
+              "link": "https://www.youtube.com/user/zanichellieditore"
+            },{
+              "icon": "Facebook",
+              "link": "https://it-it.facebook.com/zanichelliscuola"
+            }],
+      certification: `
+        Zanichelli editore S.p.A. opera con sistema qualità certificato CertiCarGraf n. 477
+        secondo la norma UNI EN ISO 9001:2015
+      `,
+      bottomLinks: [{
+        "label": "Chi siamo",
+        "link": "#"
+      },{
+        "label": "Contatti e recapiti",
+        "link": "#"
+      },{
+        "label": "Area stampa",
+        "link": "#"
+      },{
+        "label": "Per acqusti online",
+        "link": "#"
+      },{
+        "label": "Filiali e agenzie",
+        "link": "#"
+      },{
+        "label": "Privacy",
+        "link": "#"
+      }],
+    }
+  }
 
   renderFooterSection(group: FooterGroupBean): HTMLElement {
     return (
@@ -35,7 +74,7 @@ export class Footer {
   }
 
   renderFooterTop(): HTMLElement {
-    const zanichelliLinks: FooterGroupBean[] = JSON.parse(this.zanichelliLinks);
+    const zanichelliLinks: FooterGroupBean[] = data.zanichelliLinks;
 
     return (
       <section class="top">
@@ -48,70 +87,64 @@ export class Footer {
   }
 
   renderMyzLink(): HTMLElement {
-    const myzLink : MyzLinkBean = JSON.parse(this.myzLink);
+    const myzLink : MyzLinkBean = data.myzLink;
 
     return (
-      <div class="item">
-        <a target="_blank" href={myzLink.link}>
-          <img src="../../assets/images/png/zanichelli-logo-footer.png" />
-        </a>
-      </div>
+      <a target="_blank" href={myzLink.link}>
+        <img src="../../assets/images/png/zanichelli-logo-footer.png" />
+      </a>
     );
   }
 
   renderAddress(): HTMLElement {
-    const zanichelliAddress = this.zanichelliAddress;
+    const zanichelliAddress : string =  data.zanichelliAddress;
 
     return (
-      <div class="item">
-        {zanichelliAddress.split('\n').map(
-          (item: string): HTMLElement =>
-            <p>{item}</p>
-        )}
-      </div>
+      <p>{zanichelliAddress}</p>
     );
   }
 
   renderSocial(): HTMLElement {
-    const social: FooterSocialBean[] = JSON.parse(this.social);
+    const social: FooterSocialBean[] = data.social;
 
     return (
-      <div class="item">
-        <ul>
-        {social.map(
-          (item: FooterSocialBean): HTMLElement =>
-            <li>
-              <a href={item.link}>{item.icon}</a>
-            </li>
-        )}
-        </ul>
-      </div>
+      <ul>
+      {social.map(
+        (item: FooterSocialBean): HTMLElement =>
+          <li>
+            <a href={item.link}>{item.icon}</a>
+          </li>
+      )}
+      </ul>
     );
   }
 
   renderCopyright(): HTMLElement {
     return (
-      <small>Copyright – {new Date().getFullYear()} Zanichelli All rights reserved</small>
+      <p>Copyright – {new Date().getFullYear()} Zanichelli All rights reserved></p>
     );
   }
 
   renderCertification(): HTMLElement {
+    const certification : string = data.certification;
+
     return (
-      {this.certification.split('\n').map(
-        (item: string): HTMLElement =>
-          <p>{item}</p>
-      )}
-  );
+      <p><small>{certification}</small></p>
+    );
   }
 
   renderBottomLinks(): HTMLElement {
-    const social: FooterSocialBean[] = JSON.parse(this.social);
+    const bottomLinks: FooterGroupItemBean[] = data.bottomLinks;
 
     return (
-      {social.map(
-        (item: FooterSocialBean): HTMLElement =>
-          <a href={item.link}>{item.icon}</a>
-      )}
+      <ul>
+        {bottomLinks.map(
+          (item: FooterGroupItemBean): HTMLElement =>
+            <li>
+              <a href={item.link}>{item.label}</a>
+            </li>
+        )}
+      </ul>
     );
   }
 
@@ -125,9 +158,10 @@ export class Footer {
         </div>
         <div class="item">
           {this.renderAddress()}
-        </div>
-        <div class="item">
           {this.renderSocial()}
+        </div>
+        <div class="item bottom-links">
+          {this.renderBottomLinks()}
         </div>
       </section>
     );
