@@ -2,7 +2,9 @@ dist/
 www/
 loader/
 
+src/components.d.ts
 src/components/baseComponentLayer/index.tsx
+src/components/baseComponentLayer/styles.css
 
 *~
 *.sw[mnpcod]

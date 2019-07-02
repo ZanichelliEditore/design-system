@@ -3,7 +3,7 @@ import { ListItemBean } from "../../beans/index.js";
 
 @Component({
   tag: "z-list",
-  styleUrls: ["../../global-styles.css", "./styles.css"],
+  styleUrl: "styles.css",
   shadow: true
 })
 export class ZList {

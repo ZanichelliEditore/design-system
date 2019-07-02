@@ -1,0 +1,16 @@
+storage: ../storage
+plugins: ../plugins
+auth:
+  htpasswd:
+    file: ./htpasswd
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+packages:
+  '**':
+    # allow all users (including non-authenticated users) to read and publish all packages
+    access: $all
+    publish: $all
+    proxy: npmjs
+logs:
+  - {type: stdout, format: pretty, level: http}

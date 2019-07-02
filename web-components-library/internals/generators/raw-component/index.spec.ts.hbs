@@ -1,0 +1,25 @@
+import { newSpecPage } from "@stencil/core/testing";
+
+import { {{ properCase name }} } from "./index";
+
+describe("Suite test {{properCase name}}", () => {
+  it("Test render {{properCase name}} vuoto", async () => {
+
+    const page = await newSpecPage({
+      components: [{{ properCase name }}],
+      html: `<{{name}}></{{name}}>`
+    });
+
+    expect(page.root).toEqualHtml(`
+      <{{name}}>
+        <mock:shadow-root>
+          <div>
+            This is your {{name}} component
+            This is your default prop:
+          </div>
+        </mock:shadow-root>
+      </{{name}}>
+    `)
+  });
+});
+

@@ -1,0 +1,25 @@
+ul {
+  font-size: 14px;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
+  color: rgb(0, 86, 193);
+  margin: 0px;
+  padding: 8px 12px;
+  overflow: hidden;
+  list-style: none;
+  width: 280px;
+  height: auto;
+  letter-spacing: 0.17px;
+  line-height: 24px;
+}
+
+ul > li > a {
+  text-decoration: none;
+  color: var(--text-my-zanichelli-blue);
+}
+
+ul > li > span {
+  text-decoration: none;
+  color: var(--text-gray-medium);
+  padding: 8px;
+}

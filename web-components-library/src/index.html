@@ -6,14 +6,28 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-
-     <title>Stencil Component Starter</title>
-
+    <title>Stencil Component Starter</title>
+    <link rel="stylesheet" type="text/css" href="/build/web-components-library.css">
     <script type="module" src="/build/web-components-library.esm.js"></script>
     <script nomodule src="/build/web-components-library.js"></script>
   </head>
 
   <body>
-      <base-component-layer></base-component-layer>
+    <z-card>
+      <z-card-header titolo="titolo">
+        <z-card-icon
+          icon="../../assets/images/png/zanichelli-book-remove-gray@8x.png"
+          slot="icon"
+        />
+      </z-card-header>
+
+      <z-card-body>
+        <z-card-cover slot="cover" titolo="titolo" img="http://media.curtisinvitoblu.bedita.net/a1/40/curti_a140cb3359b7611d84f80e384d2fb49b/curtis_plus-1A_320x_71bc3567ace1ff728caef1b381d7535b.png" />
+      </z-card-body>
+
+      <z-card-footer hasbutton titolo="titolo" autori="autori" anno="2019">
+        <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+      </z-card-footer>
+    </z-card>
   </body>
 </html>

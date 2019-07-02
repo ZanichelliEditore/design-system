@@ -1,6 +1,6 @@
 {
   "name": "zanichelli-web-components-library",
-  "version": "0.0.11",
+  "version": "0.0.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -13,7 +13,7 @@
   "files": [
     "dist/",
     "loader/",
-    "src/assets/"
+    "www/"
   ],
   "scripts": {
     "build": "stencil build --docs",
@@ -21,7 +21,9 @@
     "generate": "plop --plopfile internals/generators/index.js",
     "test": "stencil test --spec",
     "test.watch": "stencil test --spec --watch",
-    "test.e2e": "stencil test --e2e"
+    "test.e2e": "stencil test --e2e",
+    "release": "yarn build && yarn publish --registry http://localhost:4873",
+    "verdaccio": "docker-compose up --build"
   },
   "devDependencies": {
     "@stencil/core": "1.0.0-beta.8",
@@ -32,8 +34,13 @@
     "plop": "^2.1.0",
     "puppeteer": "1.14.0"
   },
+  "pre-commit": {
+    "colors": true,
+    "silent": false,
+    "run": [
+      "release"
+    ]
+  },
   "license": "MIT",
-  "dependencies": {
-    "styled-stencils": "^0.1.27"
-  }
+  "dependencies": {}
 }
