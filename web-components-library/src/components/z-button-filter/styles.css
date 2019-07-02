@@ -25,9 +25,11 @@ button.container {
   font-family: var(--dashboard-font);
   font-size: 12px;
   font-weight: var(--font-sb);
+
+  transition: all 200ms linear;
 }
 
-button:focus {
+button.container:focus {
   outline: 0;
 }
 

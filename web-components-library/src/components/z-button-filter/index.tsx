@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, h } from "@stencil/core";
+import { Component, Prop, Event, EventEmitter, State, h } from "@stencil/core";
 
 @Component({
   tag: "z-button-filter",
@@ -7,23 +7,38 @@ import { Component, Prop, Event, EventEmitter, h } from "@stencil/core";
 })
 export class ZButtonFilter {
   @Prop() labeltext: string;
+  @Prop() componentid: string;
   @Event() disableFilter: EventEmitter;
 
+  @State() isActive: boolean = true;
+
+  constructor() {
+    this.handleRemovingFilterClick = this.handleRemovingFilterClick.bind(this);
+  }
+
   handleRemovingFilterClick(): void {
-    console.log("filtro eliminato");
+    console.log("this.componentid: " + this.componentid);
+    this.isActive = false;
     this.disableFilter.emit();
   }
 
-  render() {
+  renderElement() {
     const labeltext = this.labeltext.toLowerCase();
     return (
       <button class="container">
         <span
           class="close-icon-container"
-          onClick={() => this.handleRemovingFilterClick()}
+          onClick={this.handleRemovingFilterClick}
         />{" "}
         <span class="text-container">{labeltext}</span>
       </button>
+    );
+  }
+
+  render() {
+    const isActive = this.isActive;
+    return (
+      <span id={this.componentid}>{isActive && this.renderElement()}</span>
     );
   }
 }
