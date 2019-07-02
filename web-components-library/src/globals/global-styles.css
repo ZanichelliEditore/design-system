@@ -6,6 +6,9 @@
 @import url("./global-colors.css");
 @import url("./global-border-and-radius.css");
 
+body {
+  margin: 0px;
+}
 body * {
   box-sizing: border-box;
 }
