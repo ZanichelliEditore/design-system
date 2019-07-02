@@ -1,6 +1,8 @@
 import { Component, Prop, h, State, Watch } from '@stencil/core';
 import { MenuDropdownItem } from "../../beans/index.js";
 
+import {retrieveAsset} from "../../utils/utils";
+
 @Component({
   tag: 'z-menu-dropdown',
   styleUrl: 'styles.css',
@@ -46,7 +48,7 @@ export class ZMenuDropdown {
   renderButtonMenu(){
       return(
         <a onClick={() => this.ismenuopen=!this.ismenuopen}>
-          <img src={this.ismenuopen?this.icondropdownopened:this.icondropdownclosed}/>
+          <img src={this.ismenuopen?retrieveAsset(this.icondropdownopened):retrieveAsset(this.icondropdownclosed)}/>
         </a>
       );
   }
@@ -61,7 +63,7 @@ export class ZMenuDropdown {
     return (
       <div class={this.retriveMenuClass()}>
         <div class="container">
-          <img src={this.iconuser}/>
+          <img src={retrieveAsset(this.iconuser)}/>
           <span>{this.nomeutente}</span>
           {this.renderButtonMenu()}
         </div>

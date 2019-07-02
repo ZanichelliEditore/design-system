@@ -37,18 +37,18 @@ describe("Suite test ZMenuDropdown", () => {
   it("Test  ZMenuDropdown con lista ed icone", async () => {
     const page = await newSpecPage({
       components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="../../assets/images/png/user.png" icondropdownclosed="../../assets/images/png/arrowDown.png" icondropdownopened="../../assets/images/png/arrowUp.png"></z-menu-dropdown>`
+      html: `<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="user.png" icondropdownclosed="arrowDown.png" icondropdownopened="arrowUp.png"></z-menu-dropdown>`
     });
-    expect(page.root).toEqualHtml(`<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="../../assets/images/png/user.png" icondropdownclosed="../../assets/images/png/arrowDown.png" icondropdownopened="../../assets/images/png/arrowUp.png">
+    expect(page.root).toEqualHtml(`<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="user.png" icondropdownclosed="arrowDown.png" icondropdownopened="arrowUp.png">
     <mock:shadow-root>
       <div>
         <div class=\"container\">
-          <img src=\"../../assets/images/png/user.png\">
+          <img src=\"../../../assets/images/png/user.png\">
           <span>
             Dario docente
           </span>
           <a>
-            <img src=\"../../assets/images/png/arrowDown.png\">
+            <img src=\"../../../assets/images/png/arrowDown.png\">
           </a>
         </div>
       </div>
@@ -57,27 +57,27 @@ describe("Suite test ZMenuDropdown", () => {
 `);
   });
 
-  it("Test  ZMenuDropdown con lista", async () => {
+  it("Test  ZMenuDropdown con lista on click", async () => {
     const page = await newSpecPage({
       components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`
+      html: `<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="user.png" icondropdownclosed="arrowDown.png" icondropdownopened="arrowUp.png"></z-menu-dropdown>`
     });
     expect(page.root).toEqualHtml(`
-    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
+    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="user.png" icondropdownclosed="arrowDown.png" icondropdownopened="arrowUp.png">
       <mock:shadow-root>
-        <div>
-          <div class=\"container\">
-            <img>
-            <span>
-              Dario docente
-            </span>
-            <a>
-              <img>
-            </a>
-          </div>
+      <div>
+        <div class=\"container\">
+          <img src=\"../../../assets/images/png/user.png\">
+          <span>
+            Dario docente
+          </span>
+          <a>
+            <img src=\"../../../assets/images/png/arrowDown.png\">
+          </a>
         </div>
-      </mock:shadow-root>
-    </z-menu-dropdown>`);
+      </div>
+    </mock:shadow-root>
+  </z-menu-dropdown>`);
     expect(page.rootInstance.ismenuopen).toBeFalsy;
 
     let image = page.root.shadowRoot.querySelector("div").querySelector("div").querySelector("a").querySelector("img");
@@ -87,33 +87,35 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.rootInstance.ismenuopen).toBeTruthy;
 
     expect(page.root).toEqualHtml(`
-    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
+    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="user.png" icondropdownclosed="arrowDown.png" icondropdownopened="arrowUp.png">
       <mock:shadow-root>
-        <div class="menuOpened">
+        <div class=\"menuOpened\">
           <div class=\"container\">
-            <img>
+            <img src=\"../../../assets/images/png/user.png\">
             <span>
               Dario docente
             </span>
             <a>
-              <img>
+              <img src=\"../../../assets/images/png/arrowUp.png\">
             </a>
           </div>
           <ul>
-          <li>
-            <a href=\"http://www.zanichelli.it\">
-              Profilo
-            </a>
-          </li>
-          <li>
-            <a href=\"http://www.google.it\">
-              Esci
-            </a>
-          </li>
-        </ul>
+            <li>
+              <a href=\"http://www.zanichelli.it\">
+                Profilo
+              </a>
+            </li>
+            <li>
+              <a href=\"http://www.google.it\">
+                Esci
+              </a>
+            </li>
+          </ul>
         </div>
       </mock:shadow-root>
-    </z-menu-dropdown>`);
+    </z-menu-dropdown>
+    `);
+
   });
 
 });
