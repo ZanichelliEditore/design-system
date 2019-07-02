@@ -2,3 +2,8 @@
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 }
+
+img {
+  height: 52px;
+  width: 241px;
+}

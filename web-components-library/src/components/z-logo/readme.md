@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type     | Default     |
-| ---------- | ---------- | ----------- | -------- | ----------- |
-| `imagealt` | `imagealt` |             | `string` | `undefined` |
-| `imageurl` | `imageurl` |             | `string` | `undefined` |
-| `link`     | `link`     |             | `string` | `undefined` |
+| Property      | Attribute     | Description | Type      | Default     |
+| ------------- | ------------- | ----------- | --------- | ----------- |
+| `imagealt`    | `imagealt`    |             | `string`  | `undefined` |
+| `imageurl`    | `imageurl`    |             | `string`  | `undefined` |
+| `link`        | `link`        |             | `string`  | `undefined` |
+| `targetblank` | `targetblank` |             | `boolean` | `undefined` |
 
 
 ----------------------------------------------
