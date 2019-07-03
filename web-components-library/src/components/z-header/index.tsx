@@ -82,7 +82,6 @@ export class ZHeader {
               </svg>
             </span>
           </div>
-          <div class="void" />
           <div class="link-ext">
             <a href="#supporto">Supporto</a>
             <a href="#shop">E-shop</a>

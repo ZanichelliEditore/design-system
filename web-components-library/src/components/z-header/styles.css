@@ -11,15 +11,23 @@ header {
 
 .top-header {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: ". editors";
+  grid-template-areas: "editors";
   grid-area: top-header;
   height: 32px;
   align-items: center;
 }
 
-.editors { grid-area: editors; }
+.editors {
+  grid-area: editors;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+}
 
 .editors > span {
 	margin: 8px;
@@ -27,9 +35,9 @@ header {
 
 .main-header {
   display: grid;
-  grid-template-columns: 1fr 0.8fr 1.1fr 1.5fr 0.7fr;
+  grid-template-columns: minmax(241px, 241px) 1fr 2.5fr minmax(180px, 180px);
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: "logo link-int void link-ext login";
+  grid-template-areas: "logo link-int link-ext login";
   grid-area: main-header;
   background-color: rgb(48, 56, 64);
   height: 52px;
@@ -40,7 +48,12 @@ header {
 
 .link-int {
   grid-area: link-int;
-  display: flex;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
 }
 
 .link-int > span {
@@ -80,10 +93,14 @@ header {
   visibility: hidden;
 }
 
-.void { grid-area: void; }
-
 .link-ext {
   grid-area: link-ext;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
 }
 
 .link-ext > a {
@@ -117,7 +134,7 @@ header {
 
 .dropdown-menu {
   display: grid;
-  grid-template-columns: minmax(241px, 1fr) 4.7fr;
+  grid-template-columns: minmax(241px, 241px) 4.7fr;
   grid-template-rows: 1fr;
   grid-template-areas: ". dropdown-links . .";
   grid-area: dropdown-menu;
@@ -164,6 +181,7 @@ header {
 .dropdown-menu.sticky {
   position: fixed;
   top: 52px;
+  width: 100%;
 }
 
 .login.sticky {
