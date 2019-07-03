@@ -22,15 +22,15 @@ header {
 .editors {
   grid-area: editors;
   display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-end;
-	align-items: center;
-	align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
 }
 
 .editors > span {
-	margin: 8px;
+  margin: 8px;
 }
 
 .main-header {
@@ -44,25 +44,28 @@ header {
   align-items: center;
 }
 
-.logo { grid-area: logo; height: 52px;}
+.logo {
+  grid-area: logo;
+  height: 52px;
+}
 
 .link-int {
   grid-area: link-int;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
 }
 
 .link-int > span {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
 }
 
 .link-int > span > .menu-item {
@@ -95,12 +98,12 @@ header {
 
 .link-ext {
   grid-area: link-ext;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-end;
-	align-items: center;
-	align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
 }
 
 .link-ext > a {
@@ -125,7 +128,12 @@ header {
 
 .login {
   grid-area: login;
-  position: absolute;
+  display: flex;
+  flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
   right: 16px;
   top: 42px;
   overflow: hidden;
@@ -146,7 +154,9 @@ header {
   visibility: visible;
 }
 
-.dropdown-links { grid-area: dropdown-links; }
+.dropdown-links {
+  grid-area: dropdown-links;
+}
 
 .arrow {
   fill: #e6e6e6;
