@@ -6,7 +6,8 @@ import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
   shadow: true
 })
 export class ZHeader {
-  @Prop() prop: string;
+  @Prop() editors: string; // lista di immagini del top-nav --> slot
+  @Prop() intlink: string; // json per link interni del main-nav, con possibili sottomenu
   @State() isSticky: boolean = false;
 
   @Element() private element: HTMLElement;
@@ -41,10 +42,7 @@ export class ZHeader {
       <header>
         <div class="top-header">
           <div class="editors">
-            <span>Testo a caso</span>
-            <span>Testo a caso</span>
-            <span>Testo a caso</span>
-            <span>Testo a caso</span>
+            <slot name="editors"></slot>
           </div>
         </div>
         <div
@@ -83,9 +81,7 @@ export class ZHeader {
             </span>
           </div>
           <div class="link-ext">
-            <a href="#supporto">Supporto</a>
-            <a href="#shop">E-shop</a>
-            <a href="#chiedi">Chiedi al tuo responsabile</a>
+            <slot name="extlink" />
           </div>
           <div class={`login ${this.isSticky && "sticky"}`}>
             <slot name="login" />
