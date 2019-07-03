@@ -1,8 +1,7 @@
-import { Component, h } from "@stencil/core";
+import { Component, Prop, h } from "@stencil/core";
 
 import { FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } from "../../beans/index.js";
 
-var data;
 
 @Component({
   tag: "z-footer",
@@ -10,49 +9,7 @@ var data;
   shadow: true
 })
 export class Footer {
-  componentWillLoad() {
-
-    // TODO: fetch from API
-    data = {
-      zanichelliLinks: [{"title":"Zanichelli.it","items":[{"label":"Home zanichelli.it","link":"http://www.zanichelli.it","targetBlank":true},{"label":"Ricerca in catalogo","link":""},{"label":"Contatti","link":""}]},{"title":"Scuola","items":[{"label":"Home scuola","link":""},{"label":"Catalogo scuola","link":""},{"label":"Bisogni Educativi Speciali (BES)","link":""},{"label":"Formazione docenti","link":""}]}],
-      myzLink: {"descr": "Home MyZanichelli", "link": "https://my.zanichelli.it"},
-      zanichelliAddress: `
-        Zanichelli editore S.p.A. via Irnerio 34, 40126 Bologna
-        Fax 051 - 249.782 / 293.224 | Tel. 051 - 293.111 / 245.024
-        Partita IVA 03978000374
-      `,
-      social: [{
-              "icon": "Youtube",
-              "link": "https://www.youtube.com/user/zanichellieditore"
-            },{
-              "icon": "Facebook",
-              "link": "https://it-it.facebook.com/zanichelliscuola"
-            }],
-      certification: `
-        Zanichelli editore S.p.A. opera con sistema qualità certificato CertiCarGraf n. 477
-        secondo la norma UNI EN ISO 9001:2015
-      `,
-      bottomLinks: [{
-        "label": "Chi siamo",
-        "link": "#"
-      },{
-        "label": "Contatti e recapiti",
-        "link": "#"
-      },{
-        "label": "Area stampa",
-        "link": "#"
-      },{
-        "label": "Per acqusti online",
-        "link": "#"
-      },{
-        "label": "Filiali e agenzie",
-        "link": "#"
-      },{
-        "label": "Privacy",
-        "link": "#"
-      }],
-    }
-  }
+  @Prop() data: string;
 
   renderFooterSection(group: FooterGroupBean): HTMLElement {
     return (
@@ -74,7 +31,7 @@ export class Footer {
   }
 
   renderFooterTop(): HTMLElement {
-    const zanichelliLinks: FooterGroupBean[] = data.zanichelliLinks;
+    const zanichelliLinks: FooterGroupBean[] = JSON.parse(this.data).zanichelliLinks;
 
     return (
       <section class="top">
@@ -87,7 +44,7 @@ export class Footer {
   }
 
   renderMyzLink(): HTMLElement {
-    const myzLink : MyzLinkBean = data.myzLink;
+    const myzLink : MyzLinkBean = JSON.parse(this.data).myzLink;
 
     return (
       <a target="_blank" href={myzLink.link}>
@@ -97,36 +54,36 @@ export class Footer {
   }
 
   renderAddress(): HTMLElement {
-    const zanichelliAddress : string =  data.zanichelliAddress;
+    const zanichelliAddress : string = JSON.parse(this.data).zanichelliAddress;
 
     return (
-      <p>{zanichelliAddress}</p>
+      <span>{zanichelliAddress}</span>
     );
   }
 
   renderSocial(): HTMLElement {
-    const social: FooterSocialBean[] = data.social;
+    const social: FooterSocialBean[] = JSON.parse(this.data).social;
 
     return (
       <ul>
-      {social.map(
-        (item: FooterSocialBean): HTMLElement =>
-          <li>
-            <a href={item.link}>{item.icon}</a>
-          </li>
-      )}
+        {social.map(
+          (item: FooterSocialBean): HTMLElement =>
+            <li>
+              <a href={item.link}>{item.icon}</a>
+            </li>
+        )}
       </ul>
     );
   }
 
   renderCopyright(): HTMLElement {
     return (
-      <p>Copyright – {new Date().getFullYear()} Zanichelli All rights reserved></p>
+      <span>Copyright – {new Date().getFullYear()} Zanichelli All rights reserved</span>
     );
   }
 
   renderCertification(): HTMLElement {
-    const certification : string = data.certification;
+    const certification : string = JSON.parse(this.data).certification;
 
     return (
       <p><small>{certification}</small></p>
@@ -134,7 +91,7 @@ export class Footer {
   }
 
   renderBottomLinks(): HTMLElement {
-    const bottomLinks: FooterGroupItemBean[] = data.bottomLinks;
+    const bottomLinks: FooterGroupItemBean[] = JSON.parse(this.data).bottomLinks;
 
     return (
       <ul>
