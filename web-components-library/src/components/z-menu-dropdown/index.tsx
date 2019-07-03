@@ -3,6 +3,7 @@ import { MenuDropdownItem } from "../../beans/index.js";
 
 import {retrieveAsset} from "../../utils/utils";
 
+import  icons from "../../constants/icons";
 @Component({
   tag: 'z-menu-dropdown',
   styleUrl: 'styles.css',
@@ -10,9 +11,6 @@ import {retrieveAsset} from "../../utils/utils";
 })
 
 export class ZMenuDropdown {
-  @Prop() iconuser: string;
-  @Prop() icondropdownclosed: string;
-  @Prop() icondropdownopened: string;
   @Prop() nomeutente: string;
   @Prop() menucontent: string;
 
@@ -48,7 +46,7 @@ export class ZMenuDropdown {
   renderButtonMenu(){
       return(
         <a>
-          <img src={this.ismenuopen?retrieveAsset(this.icondropdownopened):retrieveAsset(this.icondropdownclosed)}/>
+          <img src={this.ismenuopen?retrieveAsset(icons.iconarrowup):retrieveAsset(icons.iconarrowdown)}/>
         </a>
       );
   }
@@ -61,9 +59,9 @@ export class ZMenuDropdown {
 
   render() {
     return (
-      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen=!this.ismenuopen}>
+      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen=!this.ismenuopen}     >
         <div class="container">
-          <img src={retrieveAsset(this.iconuser)}/>
+          <img src={retrieveAsset(icons.iconuserlogo)}/>
           <span>{this.nomeutente}</span>
           {this.renderButtonMenu()}
         </div>
