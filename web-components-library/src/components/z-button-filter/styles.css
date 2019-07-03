@@ -1,5 +1,4 @@
 button.container {
-  min-width: 88px;
   min-height: var(--basex2);
   line-height: var(--basex2);
 
@@ -12,8 +11,7 @@ button.container {
 
   text-align: center;
 
-  padding-top: 0.19em;
-  padding-bottom: 0.19em;
+  padding: 0.19em 8px 0.19em 8px;
 
   -webkit-user-select: none; /*INFO: Safari 3.1+ */
   -moz-user-select: none; /*INFO: Firefox 2+ */
@@ -31,6 +29,10 @@ button.container {
 
 button.container:focus {
   outline: 0;
+}
+
+.text-container {
+  margin-left: 4px;
 }
 
 button.container:hover .text-container {
@@ -66,7 +68,7 @@ span.close-icon-container:after {
   transform: rotate(-45deg);
 }
 
-span.container:hover .close-icon-container:before,
-span.container:hover .close-icon-container:after {
+button.container:hover .close-icon-container:before,
+button.container:hover .close-icon-container:after {
   background-color: var(--myz-blue-dark);
 }

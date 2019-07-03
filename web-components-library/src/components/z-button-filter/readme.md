@@ -7,9 +7,12 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type     | Default     |
-| ----------- | ----------- | ----------- | -------- | ----------- |
-| `labeltext` | `labeltext` |             | `string` | `undefined` |
+| Property      | Attribute     | Description | Type      | Default     |
+| ------------- | ------------- | ----------- | --------- | ----------- |
+| `componentid` | `componentid` |             | `string`  | `undefined` |
+| `fixed`       | `fixed`       |             | `boolean` | `false`     |
+| `icon`        | `icon`        |             | `string`  | `undefined` |
+| `labeltext`   | `labeltext`   |             | `string`  | `undefined` |
 
 
 ## Events
