@@ -9,7 +9,7 @@ it('Test ZCardFooter should receive toggle event', async () => {
     </z-card-footer>
   `);
 
-  const toggleSpy = await page.spyOnEvent('toggle');
+  const toggleSpy = await page.spyOnEvent('toggleClick');
   const button = await page.find('z-toggle-button');
 
   button.click();
