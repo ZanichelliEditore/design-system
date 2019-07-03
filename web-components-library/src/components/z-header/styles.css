@@ -4,7 +4,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 0.8fr 1.5fr 1.1fr 0.7fr;
   grid-template-rows: 0.2fr 0.2fr 0.2fr;
-  grid-template-areas: "top-header top-header top-header top-header top-header" "main-header main-header main-header main-header main-header" "dropdown-menu dropdown-menu dropdown-menu dropdown-menu dropdown-menu" ". . . . .";
+  grid-template-areas: "top-header top-header top-header top-header top-header" "main-header main-header main-header main-header main-header" "dropdown-menu dropdown-menu dropdown-menu dropdown-menu dropdown-menu";
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 }
@@ -28,7 +28,7 @@ header {
 .main-header {
   display: grid;
   grid-template-columns: 1fr 0.8fr 1.1fr 1.5fr 0.7fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas: "logo link-int void link-ext login";
   grid-area: main-header;
   background-color: rgb(48, 56, 64);
@@ -38,9 +38,21 @@ header {
 
 .logo { grid-area: logo; height: 52px;}
 
-.link-int { grid-area: link-int; }
+.link-int {
+  grid-area: link-int;
+  display: flex;
+}
 
-.link-int > .menu-item {
+.link-int > span {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+}
+
+.link-int > span > .menu-item {
   width: auto;
   height: auto;
   color: rgb(255, 255, 255);
@@ -48,21 +60,30 @@ header {
   line-height: 14px;
   font-weight: var(--font-sb);
   font-size: 16px;
-  margin: 8px;
-  padding: 6px;
+  margin: 8px 8px 0 8px;
+  padding: 11px;
+  text-decoration: none;
 }
 
-.link-int > .menu-item:focus,
-.link-int > .menu-item:hover {
+.link-int > span > .menu-item:focus,
+.link-int > span > .menu-item:hover {
   background: rgb(66, 69, 72);
   border-radius: 4px;
   cursor: pointer;
 }
 
+.link-int > span > .menu-item:focus + svg {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
 .void { grid-area: void; }
 
-.link-ext { 
-  grid-area: link-ext; 
+.link-ext {
+  grid-area: link-ext;
 }
 
 .link-ext > a {
@@ -85,7 +106,7 @@ header {
   cursor: pointer;
 }
 
-.login { 
+.login {
   grid-area: login;
   position: absolute;
   right: 16px;
@@ -110,14 +131,8 @@ header {
 
 .dropdown-links { grid-area: dropdown-links; }
 
-.dropdown-links > .arrow {
-  width: 0;
-  height: 0;
-  margin-top: -8px;
-  margin-left: 34px;
-  border-style: solid;
-  border-width: 0 8px 8px 8px;
-  border-color: transparent transparent #e6e6e6 transparent;
+.arrow {
+  fill: #e6e6e6;
 }
 
 .dropdown-links > a {
@@ -142,7 +157,8 @@ header {
 .main-header.sticky {
   position: fixed;
   top: 0;
-  width: 100%
+  width: 100%;
+  z-index: 1;
 }
 
 .dropdown-menu.sticky {
