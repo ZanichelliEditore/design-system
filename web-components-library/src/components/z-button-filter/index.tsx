@@ -12,17 +12,40 @@ export class ZButtonFilter {
   @Prop() componentid: string;
   @Event() disableFilter: EventEmitter;
 
+  //@State() handleRemovingFilterClick: Function;
+
   constructor() {
     this.handleRemovingFilterClick = this.handleRemovingFilterClick.bind(this);
   }
 
+  /* @Method()
+  async settingRemoveFilterExternalHandler(externalFn: Function) {
+    return Promise.resolve((this.handleRemovingFilterClick = externalFn));
+  } */
+
   handleRemovingFilterClick(): void {
     console.log("this.componentid: " + this.componentid);
-    this.disableFilter.emit();
+    this.disableFilter.emit(this.componentid);
   }
 
-  renderElement() {
+  /* renderElement() {
     const labeltext = this.labeltext.toLowerCase();
+    return (
+      <button class="container">
+        <span
+          class="close-icon-container"
+          onClick={() => {
+            this.handleRemovingFilterClick();
+          }}
+        />{" "}
+        <span class="text-container">{labeltext}</span>
+      </button>
+    );
+  } */
+
+  render() {
+    const labeltext = this.labeltext.toLowerCase();
+    //return <span>{this.renderElement()}</span>;
     return (
       <button class="container">
         <span
@@ -32,9 +55,5 @@ export class ZButtonFilter {
         <span class="text-container">{labeltext}</span>
       </button>
     );
-  }
-
-  render() {
-    return <span id={this.componentid}>{this.renderElement()}</span>;
   }
 }
