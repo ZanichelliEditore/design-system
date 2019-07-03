@@ -62,21 +62,32 @@ footer > section.bottom {
   display: grid;
   width: auto;
   height: 180px;
-  padding-top: 32px;
+  margin: 0;
+  padding: 0;
   grid-template-columns: 25% 25% auto;
-  /* grid-template-rows: 20% 20% auto; */
   background-color: var(--text-gray-dark2);
 }
 
 footer > section.bottom > div.item {
   display: grid;
   width: auto;
+  margin: 32px;
+  height: 72px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   grid-column: span 1;
-  margin: 2px;
   color: var(--text-my-zanichelli-white);
   font-size: 12px;
+}
+
+footer > section.bottom > div.item > ul.social {
+  display: flex;
+  width: 136px;
+  padding: 0;
+}
+
+footer > section.bottom > div.item > ul.social img {
+  width: 14px;
 }
 
 footer > section.bottom > div.bottom-links > ul {
@@ -85,7 +96,7 @@ footer > section.bottom > div.bottom-links > ul {
   height: 54px;
 }
 
-footer > section.bottom a > img {
+footer > section.bottom div.logo a > img {
   width: 236px;
 }
 

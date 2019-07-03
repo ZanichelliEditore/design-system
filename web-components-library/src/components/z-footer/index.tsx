@@ -65,11 +65,11 @@ export class Footer {
     const social: FooterSocialBean[] = JSON.parse(this.data).social;
 
     return (
-      <ul>
+      <ul class="social">
         {social.map(
           (item: FooterSocialBean): HTMLElement =>
             <li>
-              <a href={item.link}>{item.icon}</a>
+              <a href={item.link}><img src={item.icon}/></a>
             </li>
         )}
       </ul>
@@ -78,7 +78,7 @@ export class Footer {
 
   renderCopyright(): HTMLElement {
     return (
-      <span>Copyright – {new Date().getFullYear()} Zanichelli All rights reserved</span>
+      <p>Copyright – {new Date().getFullYear()} Zanichelli All rights reserved</p>
     );
   }
 
@@ -86,7 +86,7 @@ export class Footer {
     const certification : string = JSON.parse(this.data).certification;
 
     return (
-      <p><small>{certification}</small></p>
+      <small>{certification}</small>
     );
   }
 
@@ -108,7 +108,7 @@ export class Footer {
   renderFooterBottom(): HTMLElement {
     return (
       <section class="bottom">
-        <div class="item">
+        <div class="item logo">
           {this.renderMyzLink()}
           {this.renderCopyright()}
           {this.renderCertification()}
