@@ -11,15 +11,15 @@ export class ZToggleButton {
 
   @State() isOpen: boolean = false;
 
-  @Event() toggle: EventEmitter;
-  emitToggle() {
+  @Event() toggleClick: EventEmitter;
+  emitToggleClick() {
     this.isOpen = !this.isOpen;
-    this.toggle.emit();
+    this.toggleClick.emit(this.isOpen);
   }
 
   render() {
     return (
-      <button class={this.isOpen && "isopen"} onClick={() => this.emitToggle()}>
+      <button class={this.isOpen && "isopen"} onClick={() => this.emitToggleClick()}>
         <i /> {this.label}
       </button>
     );
