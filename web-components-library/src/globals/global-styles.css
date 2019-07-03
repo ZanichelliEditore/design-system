@@ -5,3 +5,7 @@
 @import url("./global-spacing.css");
 @import url("./global-colors.css");
 @import url("./global-border-and-radius.css");
+
+body * {
+  box-sizing: border-box;
+}
