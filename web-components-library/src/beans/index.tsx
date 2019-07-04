@@ -11,7 +11,9 @@ export type FooterGroupBean = {
 
 export type MyzLinkBean = {
   descr: string;
+  img: string;
   link: string;
+  targetBlank?: boolean;
 };
 
 export type FooterSocialBean = {

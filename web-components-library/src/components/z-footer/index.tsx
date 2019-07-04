@@ -2,7 +2,6 @@ import { Component, Prop, State, h } from "@stencil/core";
 
 import { FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } from "../../beans/index.js";
 
-
 @Component({
   tag: "z-footer",
   styleUrls: ["styles.css"],
@@ -45,13 +44,16 @@ export class Footer {
     );
   }
 
-  renderMyzLink(): HTMLElement {
+  renderZLogo(): HTMLElement {
     const myzLink : MyzLinkBean = this.jsonData.myzLink;
+    console.log(myzLink);
 
     return (
-      <a target="_blank" href={myzLink.link}>
-        <img src="../../assets/images/png/zanichelli-logo-footer.png" />
-      </a>
+      <z-logo
+        link={myzLink.link}
+        imageurl={myzLink.img}
+        imagealt={myzLink.descr}
+        targetblank={myzLink.targetBlank} />
     );
   }
 
@@ -111,7 +113,7 @@ export class Footer {
     return (
       <section class="bottom">
         <div class="item logo">
-          {this.renderMyzLink()}
+          {this.renderZLogo()}
           {this.renderCopyright()}
           {this.renderCertification()}
         </div>
