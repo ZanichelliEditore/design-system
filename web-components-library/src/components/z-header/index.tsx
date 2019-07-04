@@ -52,6 +52,15 @@ export class ZHeader {
           <div class="logo">
             <slot name="logo" />
           </div>
+          <div class="menu" id="mobile-menu">
+            <span>Menu</span>
+            <div class="menu-toggle" id="mobile-menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+
+          </div>
           <div class="link-int">
             <span>
               <a

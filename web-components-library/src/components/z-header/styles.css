@@ -30,15 +30,15 @@ header {
 }
 
 .editors > ::slotted(img) {
-  height: auto;
+  height: 32px;
   width: auto;
-  margin: 0 4px;
-  transform: scale(0.8)
+  margin: 0;
+  transform: scale(0.7, 0.7);
 }
 
 .main-header {
   display: grid;
-  grid-template-columns: minmax(241px, 241px) 1fr 2.5fr minmax(180px, 180px);
+  grid-template-columns: minmax(241px, 294px) 1fr 2.5fr minmax(180px, 180px);
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "logo link-int link-ext login";
   grid-area: main-header;
@@ -51,6 +51,7 @@ header {
 .logo {
   grid-area: logo;
   height: 52px;
+  background-color: #e30613;
 }
 
 .link-int {
@@ -134,10 +135,10 @@ header {
   grid-area: login;
   display: flex;
   flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   right: 16px;
   top: 42px;
   overflow: hidden;
@@ -145,7 +146,7 @@ header {
 
 .dropdown-menu {
   display: grid;
-  grid-template-columns: minmax(241px, 241px) 4.7fr;
+  grid-template-columns: minmax(241px, 294px) 4.7fr;
   grid-template-rows: 1fr;
   grid-template-areas: ". dropdown-links . .";
   grid-area: dropdown-menu;
@@ -182,6 +183,9 @@ header {
   border-bottom: 2px solid rgb(0, 86, 193);
 }
 
+.menu {
+  display: none;
+}
 /* Stycky bar style  */
 
 .main-header.sticky {
@@ -199,4 +203,156 @@ header {
 .login.sticky {
   position: fixed;
   top: 10px;
+}
+
+@media only screen and (max-width: 480px) {
+  header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "main-header";
+  }
+
+  .top-header {
+    display: none;
+  }
+
+  .login {
+    display: none;
+  }
+
+  .dropdown-menu {
+    display: none;
+  }
+
+  .main-header {
+    display: grid;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr;
+    grid-template-areas: "logo menu" "link-int link-int" "link-ext link-ext";
+    grid-area: main-header;
+    background-color: rgb(246, 246, 246);
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .menu {
+    grid-area: menu;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+  }
+
+  .menu-toggle {
+    grid-area: menu-toggle;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* MOBILE MENU & ANIMATION */
+
+  .menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #3f3f3f;
+    margin: 2px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .menu-toggle:hover {
+    cursor: pointer;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+    -ms-transform: translateY(8px) rotate(45deg);
+    -o-transform: translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #mobile-menu.is-active .bar:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+    -ms-transform: translateY(-8px) rotate(-45deg);
+    -o-transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .link-int,
+  .link-ext {
+    padding: 0 46px;
+  }
+
+  .link-int {
+    grid-area: link-int;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    background-color: rgb(48, 56, 64);
+  }
+
+  .link-int > span {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+  }
+
+  .link-int > span > .menu-item {
+    width: 100%;
+    margin: 4px auto;
+    padding: 8px;
+  }
+
+  .link-int > span > svg {
+    display: none;
+  }
+
+  .link-ext {
+    grid-area: link-ext;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    background-color: rgb(48, 56, 64);
+    border-top: 2px solid rgb(230, 230, 230);
+  }
+  .link-ext > ::slotted(a) {
+    width: 100%;
+    margin: 4px auto;
+    padding-left: 12px;
+    border-bottom: 1px solid rgb(202, 209, 216);
+  }
+
+  .link-int > span > .menu-item:hover,
+  .link-int > span > .menu-item:focus,
+  .link-ext > ::slotted(a:hover),
+  .link-ext > ::slotted(a:focus) {
+    border-radius: 0;
+  }
+
+  ::slotted(#last) {
+    border: none;
+  }
 }
