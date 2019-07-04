@@ -11,7 +11,6 @@ footer {
 footer > section {
   display: grid;
   height: 100%;
-  padding: 0 36px;
 }
 
 footer > section.top {
@@ -22,7 +21,11 @@ footer > section.top {
   background-color: var(--text-gray-dark);
 }
 
-footer > section.top > .column > nav {
+footer > section.top > div.column {
+  margin-left: 36px;
+}
+
+footer > section.top > div.column > nav {
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -81,10 +84,6 @@ footer > section.bottom > div.item {
   grid-column: span 1;
   color: var(--text-my-zanichelli-white);
 }
-
-footer > section.bottom > div.item span {
-/*   white-space: pre-line;
- */}
 
 footer > section.bottom > div.item > ul.social {
   display: flex;
