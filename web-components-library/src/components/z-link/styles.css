@@ -7,8 +7,15 @@
 
 a {
   cursor: pointer;
+  color: var(--myz-blue);
   display: inline-flex;
   align-items: center;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--myz-blue-dark);
+  text-decoration: none;
 }
 
 a.disabled {
@@ -16,23 +23,13 @@ a.disabled {
   pointer-events: none;
 }
 
+a.disabled, a.disabled:active, a.disabled:visited, a.disabled:hover {
+  color: var(--bg-artboard-gray-very-light);
+  text-decoration: none;
+}
+
 a > img {
   height: 16px;
   width: 16px;
   margin-right: 8px;
-}
-
-a.tertiary {
-  color: var(--myz-blue);
-  text-decoration: none;
-}
-
-a.tertiary:hover {
-  color: var(--myz-blue-dark);
-  text-decoration: none;
-}
-
-a.tertiary.disabled, a.tertiary.disabled:active, a.tertiary.disabled:visited, a.tertiary.disabled:hover {
-  color: var(--bg-artboard-gray-very-light);
-  text-decoration: none;
 }
