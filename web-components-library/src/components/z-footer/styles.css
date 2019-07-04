@@ -5,6 +5,7 @@ footer {
   margin-right: 10px;
   height: 562px;
   font-family: var(--dashboard-font);
+  font-size: 13px;
 }
 
 footer > section {
@@ -64,8 +65,10 @@ footer > section.bottom {
   height: 180px;
   margin: 0;
   padding: 0;
-  grid-template-columns: 25% 25% auto;
+  grid-template-columns: 25% 28% auto;
   background-color: var(--text-gray-dark2);
+  white-space: pre-line;
+  font-size: 12px;
 }
 
 footer > section.bottom > div.item {
@@ -77,8 +80,11 @@ footer > section.bottom > div.item {
   grid-template-rows: 1fr;
   grid-column: span 1;
   color: var(--text-my-zanichelli-white);
-  font-size: 12px;
 }
+
+footer > section.bottom > div.item span {
+/*   white-space: pre-line;
+ */}
 
 footer > section.bottom > div.item > ul.social {
   display: flex;
@@ -94,6 +100,9 @@ footer > section.bottom > div.bottom-links > ul {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   height: 54px;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
 }
 
 footer > section.bottom div.logo a > img {
