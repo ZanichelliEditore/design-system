@@ -17,7 +17,7 @@
 
 ### Depends on
 
-- [z-list-item](..\z-list-item)
+- [z-list-item](../z-list-item)
 
 ### Graph
 ```mermaid
