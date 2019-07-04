@@ -46,7 +46,6 @@ export class Footer {
 
   renderZLogo(): HTMLElement {
     const myzLink : MyzLinkBean = this.jsonData.myzLink;
-    console.log(myzLink);
 
     return (
       <z-logo
