@@ -128,11 +128,13 @@ export class Footer {
   }
 
   render() {
-    return (
-      <footer>
-        {this.renderFooterTop()}
-        {this.renderFooterBottom()}
-      </footer>
-    );
+    if (this.jsonData) {
+      return (
+        <footer>
+          {this.renderFooterTop()}
+          {this.renderFooterBottom()}
+        </footer>
+      );
+    }
   }
 }
