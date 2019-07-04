@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, State, h } from "@stencil/core";
 
 import { FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } from "../../beans/index.js";
 
@@ -10,6 +10,8 @@ import { FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } f
 })
 export class Footer {
   @Prop() data: string;
+
+  @State() jsonData = JSON.parse(this.data);
 
   renderFooterSection(group: FooterGroupBean): HTMLElement {
     return (
@@ -31,7 +33,7 @@ export class Footer {
   }
 
   renderFooterTop(): HTMLElement {
-    const zanichelliLinks: FooterGroupBean[] = JSON.parse(this.data).zanichelliLinks;
+    const zanichelliLinks: FooterGroupBean[] = this.jsonData.zanichelliLinks;
 
     return (
       <section class="top">
@@ -44,7 +46,7 @@ export class Footer {
   }
 
   renderMyzLink(): HTMLElement {
-    const myzLink : MyzLinkBean = JSON.parse(this.data).myzLink;
+    const myzLink : MyzLinkBean = this.jsonData.myzLink;
 
     return (
       <a target="_blank" href={myzLink.link}>
@@ -54,7 +56,7 @@ export class Footer {
   }
 
   renderAddress(): HTMLElement {
-    const zanichelliAddress : string = JSON.parse(this.data).zanichelliAddress;
+    const zanichelliAddress : string = this.jsonData.zanichelliAddress;
 
     return (
       <span>{zanichelliAddress}</span>
@@ -62,7 +64,7 @@ export class Footer {
   }
 
   renderSocial(): HTMLElement {
-    const social: FooterSocialBean[] = JSON.parse(this.data).social;
+    const social: FooterSocialBean[] = this.jsonData.social;
 
     return (
       <ul class="social">
@@ -83,7 +85,7 @@ export class Footer {
   }
 
   renderCertification(): HTMLElement {
-    const certification : string = JSON.parse(this.data).certification;
+    const certification : string = this.jsonData.certification;
 
     return (
       <small>{certification}</small>
@@ -91,7 +93,7 @@ export class Footer {
   }
 
   renderBottomLinks(): HTMLElement {
-    const bottomLinks: FooterGroupItemBean[] = JSON.parse(this.data).bottomLinks;
+    const bottomLinks: FooterGroupItemBean[] = this.jsonData.bottomLinks;
 
     return (
       <ul>
