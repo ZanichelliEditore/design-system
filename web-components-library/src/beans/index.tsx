@@ -10,7 +10,7 @@ export type FooterGroupBean = {
 };
 
 export type MyzLinkBean = {
-  descr: string;
+  label: string;
   img: string;
   link: string
 };

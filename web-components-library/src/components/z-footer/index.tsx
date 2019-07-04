@@ -51,7 +51,7 @@ export class Footer {
       <z-logo
         link={myzLink.link}
         imageurl={myzLink.img}
-        imagealt={myzLink.descr}
+        imagealt={myzLink.label}
         targetblank={true} />
     );
   }
