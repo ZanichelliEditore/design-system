@@ -1,7 +1,7 @@
 export type FooterGroupItemBean = {
   label: string;
   link: string;
-  targetBlank?: boolean;
+  target?: string;
 };
 
 export type FooterGroupBean = {
@@ -12,8 +12,7 @@ export type FooterGroupBean = {
 export type MyzLinkBean = {
   descr: string;
   img: string;
-  link: string;
-  targetBlank?: boolean;
+  link: string
 };
 
 export type FooterSocialBean = {

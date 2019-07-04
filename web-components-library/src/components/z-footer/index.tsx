@@ -21,7 +21,7 @@ export class Footer {
             {group.items.map(
               (item: FooterGroupItemBean): HTMLElement => (
                 <li>
-                  <a href={item.link} target={item.targetBlank ? '_blank' : undefined}>{item.label}</a>
+                  <a href={item.link} target={item.target ? item.target : '_blank'}>{item.label}</a>
                 </li>
               )
             )}
@@ -52,7 +52,7 @@ export class Footer {
         link={myzLink.link}
         imageurl={myzLink.img}
         imagealt={myzLink.descr}
-        targetblank={myzLink.targetBlank} />
+        targetblank={true} />
     );
   }
 
@@ -72,7 +72,7 @@ export class Footer {
         {social.map(
           (item: FooterSocialBean): HTMLElement =>
             <li>
-              <a href={item.link}><img src={item.icon}/></a>
+              <a href={item.link} target="_blank"><img src={item.icon}/></a>
             </li>
         )}
       </ul>
@@ -101,7 +101,7 @@ export class Footer {
         {bottomLinks.map(
           (item: FooterGroupItemBean): HTMLElement =>
             <li>
-              <a href={item.link}>{item.label}</a>
+              <a href={item.link} target={item.target ? item.target : '_blank'}>{item.label}</a>
             </li>
         )}
       </ul>
