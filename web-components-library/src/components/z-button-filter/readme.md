@@ -10,16 +10,16 @@
 | Property      | Attribute     | Description | Type      | Default     |
 | ------------- | ------------- | ----------- | --------- | ----------- |
 | `componentid` | `componentid` |             | `string`  | `undefined` |
-| `fixed`       | `fixed`       |             | `boolean` | `false`     |
 | `icon`        | `icon`        |             | `string`  | `undefined` |
+| `isfixed`     | `isfixed`     |             | `boolean` | `false`     |
 | `labeltext`   | `labeltext`   |             | `string`  | `undefined` |
 
 
 ## Events
 
-| Event           | Description | Type               |
-| --------------- | ----------- | ------------------ |
-| `disableFilter` |             | `CustomEvent<any>` |
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
+| `removefilter` |             | `CustomEvent<any>` |
 
 
 ----------------------------------------------

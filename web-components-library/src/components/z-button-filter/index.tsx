@@ -7,10 +7,16 @@ import { Component, Prop, Event, EventEmitter, h } from "@stencil/core";
 })
 export class ZButtonFilter {
   @Prop() labeltext: string;
-  @Prop() fixed: boolean = false;
+  @Prop() isfixed: boolean = false;
   @Prop() icon?: string;
   @Prop() componentid: string;
-  @Event() disableFilter: EventEmitter;
+  @Event({
+    eventName: "removefilter",
+    composed: true,
+    cancelable: true,
+    bubbles: true
+  })
+  removefilter: EventEmitter;
 
   //@State() handleRemovingFilterClick: Function;
 
@@ -18,14 +24,18 @@ export class ZButtonFilter {
     this.handleRemovingFilterClick = this.handleRemovingFilterClick.bind(this);
   }
 
-  /* @Method()
-  async settingRemoveFilterExternalHandler(externalFn: Function) {
-    return Promise.resolve((this.handleRemovingFilterClick = externalFn));
-  } */
+  /*
+    @Method()
+    async settingRemoveFilterExternalHandler(externalFn: Function) {
+      return Promise.resolve((this.handleRemovingFilterClick = externalFn));
+    }
+  */
 
   handleRemovingFilterClick(): void {
     console.log("this.componentid: " + this.componentid);
-    this.disableFilter.emit(this.componentid);
+    this.removefilter.emit({
+      componentid: this.componentid
+    });
   }
 
   /* renderElement() {
