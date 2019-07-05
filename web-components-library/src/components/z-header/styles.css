@@ -264,12 +264,10 @@ header {
   /* MOBILE MENU & ANIMATION */
 
   .menu-toggle .bar {
-    width: 25px;
-    height: 3px;
+    width: 20px;
+    height: 2px;
     background-color: #3f3f3f;
     margin: 2px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
 
@@ -282,20 +280,27 @@ header {
   }
 
   #mobile-menu.is-active .bar:nth-child(1) {
-    -webkit-transform: translateY(8px) rotate(45deg);
-    -ms-transform: translateY(8px) rotate(45deg);
-    -o-transform: translateY(8px) rotate(45deg);
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
   }
 
   #mobile-menu.is-active .bar:nth-child(3) {
-    -webkit-transform: translateY(-8px) rotate(-45deg);
-    -ms-transform: translateY(-8px) rotate(-45deg);
-    -o-transform: translateY(-8px) rotate(-45deg);
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
   }
 
-  .link-int {
+  .link-ext, .link-int {
+    overflow: hidden;
+    height: 0;
+    transition: left 0.3s ease;
+  }
+  
+
+  .link-int.open,
+  .link-ext.open {
+    height: fit-content;
+    transition: left 0.3s ease;
+  }
+
+  .link-int.open {
     grid-area: link-int;
     display: flex;
     flex-direction: column;
@@ -336,7 +341,7 @@ header {
     padding: 0 46px 0 46px;
   }
 
-  .link-ext {
+  .link-ext.open {
     grid-area: link-ext;
     display: flex;
     flex-direction: column;

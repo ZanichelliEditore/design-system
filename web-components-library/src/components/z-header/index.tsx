@@ -45,6 +45,15 @@ export class ZHeader {
     dizionariButton.classList.toggle("isopen");
   }
 
+  handleMobileButtonClick(): void {
+    const mobileButton = this.element.shadowRoot.getElementById("mobile-menu");
+    mobileButton.classList.toggle("is-active");
+    const linkEst = this.element.shadowRoot.getElementById("link-ext");
+    linkEst.classList.toggle("open");
+    const linkInt = this.element.shadowRoot.getElementById("link-int");
+    linkInt.classList.toggle("open");
+  }
+
   render() {
     return (
       <header>
@@ -60,7 +69,7 @@ export class ZHeader {
           <div class="logo">
             <slot name="logo" />
           </div>
-          <div class="menu" id="mobile-menu">
+          <div class="menu" id="mobile-menu-wrapper" onClick={() => this.handleMobileButtonClick()}>
             <span>Menu</span>
             <div class="menu-toggle" id="mobile-menu">
               <span class="bar"></span>
@@ -69,7 +78,7 @@ export class ZHeader {
             </div>
 
           </div>
-          <div class="link-int">
+          <div id="link-int" class="link-int">
             <span>
               <a
                 href="#home"
@@ -115,7 +124,7 @@ export class ZHeader {
               <z-button label="Scarica la app BookTab"></z-button>
             </div>
           </div>
-          <div class="link-ext">
+          <div id="link-ext" class="link-ext">
             <slot name="extlink" />
           </div>
           <div class={`login ${this.isSticky && "sticky"}`}>
