@@ -176,3 +176,43 @@ footer > section.bottom > div.item ul li a {
     margin: 0 4px;
   }
 }
+
+
+@media (max-width: 360px) {
+
+  footer {
+    width: 100%;
+  }
+
+  footer > section.top,
+  footer > section.bottom {
+    width: 360px;
+  }
+
+  footer > section.top > nav {
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+    overflow: hidden;
+  }
+
+  footer > section.top > nav > .header {
+    height: 32px;
+  }
+
+  footer > section.top > nav > .content > ul {
+    display: none;
+    height: 0;
+    transition: 0.3s ease;
+  }
+
+  footer > section.top > nav > .content > ul > li {
+    width: 100%
+  }
+
+  footer > section.top > nav > .content > ul.show {
+    display: block;
+    height: 100px;
+    transition: 0.3s ease;
+  }
+}
