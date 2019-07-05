@@ -12,7 +12,7 @@ export class ZCardFooter {
 
   @State() isOpen: boolean = false;
 
-  @Listen('toggle')
+  @Listen('toggleClick')
   handleToggle(): void {
     this.isOpen = !this.isOpen;
   }
