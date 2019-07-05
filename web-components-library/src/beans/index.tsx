@@ -27,7 +27,7 @@ export type ListItemBean = {
 };
 
 export type FilterItem = {
-  filtername: string;
-  filterid: string;
+  name: string;
+  id: string;
   isActive: boolean;
 };

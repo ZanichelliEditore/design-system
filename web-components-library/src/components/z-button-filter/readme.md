@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type      | Default     |
-| ------------- | ------------- | ----------- | --------- | ----------- |
-| `componentid` | `componentid` |             | `string`  | `undefined` |
-| `icon`        | `icon`        |             | `string`  | `undefined` |
-| `isfixed`     | `isfixed`     |             | `boolean` | `false`     |
-| `labeltext`   | `labeltext`   |             | `string`  | `undefined` |
+| Property     | Attribute    | Description | Type      | Default     |
+| ------------ | ------------ | ----------- | --------- | ----------- |
+| `filterid`   | `filterid`   |             | `string`  | `undefined` |
+| `filtername` | `filtername` |             | `string`  | `undefined` |
+| `icon`       | `icon`       |             | `string`  | `undefined` |
+| `isfixed`    | `isfixed`    |             | `boolean` | `false`     |
 
 
 ## Events

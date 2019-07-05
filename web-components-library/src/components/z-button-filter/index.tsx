@@ -6,10 +6,10 @@ import { Component, Prop, Event, EventEmitter, h } from "@stencil/core";
   shadow: true
 })
 export class ZButtonFilter {
-  @Prop() labeltext: string;
+  @Prop() filtername: string;
   @Prop() isfixed: boolean = false;
   @Prop() icon?: string;
-  @Prop() componentid: string;
+  @Prop() filterid: string;
   @Event({
     eventName: "removefilter",
     composed: true,
@@ -18,51 +18,26 @@ export class ZButtonFilter {
   })
   removefilter: EventEmitter;
 
-  //@State() handleRemovingFilterClick: Function;
-
   constructor() {
     this.handleRemovingFilterClick = this.handleRemovingFilterClick.bind(this);
   }
 
-  /*
-    @Method()
-    async settingRemoveFilterExternalHandler(externalFn: Function) {
-      return Promise.resolve((this.handleRemovingFilterClick = externalFn));
-    }
-  */
-
   handleRemovingFilterClick(): void {
-    console.log("this.componentid: " + this.componentid);
+    console.log("this.filterid: " + this.filterid);
     this.removefilter.emit({
-      componentid: this.componentid
+      filterid: this.filterid
     });
   }
 
-  /* renderElement() {
-    const labeltext = this.labeltext.toLowerCase();
-    return (
-      <button class="container">
-        <span
-          class="close-icon-container"
-          onClick={() => {
-            this.handleRemovingFilterClick();
-          }}
-        />{" "}
-        <span class="text-container">{labeltext}</span>
-      </button>
-    );
-  } */
-
   render() {
-    const labeltext = this.labeltext.toLowerCase();
-    //return <span>{this.renderElement()}</span>;
+    const filtername = this.filtername.toLowerCase();
     return (
       <button class="container">
         <span
           class="close-icon-container"
           onClick={this.handleRemovingFilterClick}
-        />{" "}
-        <span class="text-container">{labeltext}</span>
+        />
+        <span class="text-container">{filtername}</span>
       </button>
     );
   }
