@@ -30,11 +30,19 @@ export class ZHeader {
   handleHomeButtonClick(): void {
     const dropdown = this.element.shadowRoot.getElementById("dropdown-menu");
     dropdown.classList.toggle("visible");
+    const mobileDropdown = this.element.shadowRoot.getElementById("mobile-dropdown");
+    mobileDropdown.classList.toggle("visible");
+    const homeButton = this.element.shadowRoot.getElementById("home");
+    homeButton.classList.toggle("isopen");
   }
 
   handleDizionariButtonClick(): void {
     const dropdown = this.element.shadowRoot.getElementById("dropdown-menu");
     dropdown.classList.remove("visible");
+    const mobileDropdown = this.element.shadowRoot.getElementById("mobile-dropdown-d");
+    mobileDropdown.classList.toggle("visible");
+    const dizionariButton = this.element.shadowRoot.getElementById("dizionari");
+    dizionariButton.classList.toggle("isopen");
   }
 
   render() {
@@ -69,12 +77,24 @@ export class ZHeader {
                 class="menu-item"
                 onClick={() => this.handleHomeButtonClick()}
               >
-                Home
+                <span>Home</span><i />
               </a>
               <svg height="8" width="16" class="hidden">
                 <polygon points="8,0 16,8 0,8" class="arrow" />
               </svg>
             </span>
+            <div
+              id="mobile-dropdown"
+              class="mobile-dropdown"
+            >
+              <div class="dropdown-links">
+                <a href="#libreria" class="active">
+                  La mia Libreria
+              </a>
+                <a href="#ambienti">Ambienti Zanichelli</a>
+                <a href="#idee">Idee per insegnare</a>
+              </div>
+            </div>
             <span>
               <a
                 href="#dizionari"
@@ -82,12 +102,18 @@ export class ZHeader {
                 class="menu-item"
                 onClick={() => this.handleDizionariButtonClick()}
               >
-                Dizionari
+                <span>Dizionari</span><i />
               </a>
               <svg height="8" width="16" class="hidden">
                 <polygon points="8,0 16,8 0,8" class="arrow" />
               </svg>
             </span>
+            <div
+              id="mobile-dropdown-d"
+              class="mobile-dropdown"
+            >
+              <z-button label="Scarica la app BookTab"></z-button>
+            </div>
           </div>
           <div class="link-ext">
             <slot name="extlink" />
