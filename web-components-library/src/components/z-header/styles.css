@@ -134,14 +134,7 @@ header {
 .login {
   grid-area: login;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: center;
-  align-items: center;
-  align-content: center;
-  right: 16px;
-  top: 42px;
-  overflow: hidden;
 }
 
 .dropdown-menu {
@@ -292,7 +285,7 @@ header {
     height: 0;
     transition: left 0.3s ease;
   }
-  
+
 
   .link-int.open,
   .link-ext.open {
@@ -367,12 +360,12 @@ header {
   .link-ext > ::slotted(a:focus) {
     border-radius: 0;
   }
- 
+
   .link-ext > ::slotted(a:hover),
   .link-ext > ::slotted(a:focus) {
     background-color: rgb(230, 230, 230);
   }
- 
+
   ::slotted(#last) {
     border: none;
   }
@@ -394,7 +387,7 @@ header {
     margin-right: 2px;
     transition: all 200ms linear;
   }
-  
+
   .menu-item.isopen > i::before {
     top: -0.12em;
     transform: rotate(135deg) scale(1.2);
@@ -408,7 +401,7 @@ header {
     height: 0;
     transition: all 0.3s ease;
   }
-  
+
   .mobile-dropdown.visible {
     height: 80px;
     transition: all 0.3s ease;
@@ -436,7 +429,7 @@ header {
   .dropdown-links > a:last-child {
     border-bottom: none;
   }
-  
+
   .dropdown-links > a:focus {
     color: rgb(66, 69, 72);
     border-bottom: 2px solid rgb(202, 209, 216);

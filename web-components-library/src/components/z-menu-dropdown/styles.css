@@ -2,6 +2,8 @@
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 12px;
+  height: 32px;
+  width: 147px;
   letter-spacing: 0.17px;
   line-height: 14px;
 }
@@ -11,7 +13,7 @@ a, a:visited, a:active {
   text-decoration:none;
 }
 
-:host > div{
+:host > div {
   background: var(--bg-artboard-white);
   border-radius: 4px;
   width:147px;
@@ -21,17 +23,16 @@ a, a:visited, a:active {
   padding-bottom: var(--basex2)
 }
 
-div > div {
-  height: 32px;
-}
-
-.container{
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 147px;
+  height: 32px;
+  position: relative;
 }
 
-div > img{
+div > img {
   width: 14px;
   height: 14px;
   padding-left: var(--half-x3);
@@ -63,14 +64,12 @@ ul {
   list-style: none;
   padding-inline-start: var(--basex4);
   margin: 0px;
-  display: flex;
-  flex-direction:column;
 }
 
-li{
+li {
     height: 32px;
     color: var(--text-my-zanichelli-blue);
-    display:flex;
+    display: flex;
     align-items: center;
 }
 
