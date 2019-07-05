@@ -4,9 +4,8 @@
 
 footer {
   display: grid;
-  grid-template-rows: 450px 112px;
+  grid-template-rows: 4fr 1fr;
   grid-template-columns: 1fr;
-  margin-right: 10px;
   width: auto;
   height: auto;
   font-family: var(--dashboard-font);
@@ -31,13 +30,13 @@ footer > section.top {
 footer > section.top > nav {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 4fr;
+  grid-template-rows: 40px 4fr;
   margin: 0;
   padding: 32px 0 0 0;
 }
 
 footer > section.top > nav > div > h2 {
-  width: 138px;
+  width: auto;
   font-size: 16px;
   line-height: 1;
   font-weight: 600;
@@ -90,7 +89,7 @@ footer > section.bottom > div.item {
 
 footer > section.bottom > div.item > ul.social {
   display: flex;
-  width: 136px;
+  width: auto;
   padding: 0;
 }
 
@@ -118,20 +117,62 @@ footer > section.bottom > div.item small {
 footer > section.bottom > div.item ul li {
   list-style: none;
   height: 24px;
-  width: 137px;
+  width: auto;
 }
 
 footer > section.bottom > div.item ul li a {
   color: var(--text-my-zanichelli-white);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   footer > section.top {
-    grid-template-rows: repeat(5, 1fr);
+    height: 100%;
+    grid-template-columns: 1fr;
+    padding-top: 4px;
   }
-  .item {
-    grid-column: span 4;
-    grid-template-columns: 1fr 4fr;
+
+  footer > section.top > nav {
+    grid-template-columns: 2fr 6fr;
     grid-template-rows: 1fr;
+    grid-column-gap: 18px;
+    padding: 4px;
+    margin: 8px 18px;
+    min-height: 50px;
+    border-bottom: 2px solid #666;
+  }
+
+  footer > section.top > nav:last-child {
+    border-bottom: none;
+  }
+
+  footer > section.top > nav > .header {
+    line-height: 1;
+    border-bottom: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+  }
+
+  footer > section.top > nav > .header > h2 {
+    border: none;
+  }
+
+  footer > section.top > nav > .content > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    border-bottom: none;
+  }
+
+  footer > section.top > nav > .content > ul > li {
+    height: 32px;
+    width: 223px;
+    margin: 0 4px;
   }
 }
