@@ -14,9 +14,11 @@ export class Footer {
 
   renderFooterSection(group: FooterGroupBean): HTMLElement {
     return (
-      <div class="column">
-        <nav>
+      <nav>
+        <div class="header">
           <h2>{group.title}</h2>
+        </div>
+        <div class="content">
           <ul>
             {group.items.map(
               (item: FooterGroupItemBean): HTMLElement => (
@@ -26,8 +28,8 @@ export class Footer {
               )
             )}
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
     );
   }
 

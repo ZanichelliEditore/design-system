@@ -1,39 +1,42 @@
+:host {
+  width: 100%;
+}
+
 footer {
   display: grid;
   grid-template-rows: 450px 112px;
-  width: 100vw;
+  grid-template-columns: 1fr;
   margin-right: 10px;
-  height: 562px;
+  width: auto;
+  height: auto;
   font-family: var(--dashboard-font);
   font-size: 13px;
 }
 
 footer > section {
   display: grid;
-  height: 100%;
+  width: auto;
+  height: auto;
 }
 
 footer > section.top {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr;
+  grid-column-gap: 18px;
   height: 100%;
   background-color: var(--text-gray-dark);
 }
 
-footer > section.top > div.column {
-  margin-left: 36px;
-}
-
-footer > section.top > div.column > nav {
-  display: flex;
-  flex-direction: column;
+footer > section.top > nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 4fr;
   margin: 0;
   padding: 32px 0 0 0;
-  grid-row: 1;
 }
 
-footer > section.top > .column > nav > h2 {
+footer > section.top > nav > div > h2 {
   width: 138px;
   font-size: 16px;
   line-height: 1;
@@ -44,7 +47,7 @@ footer > section.top > .column > nav > h2 {
   margin: 0;
 }
 
-footer > section.top > .column > nav > ul {
+footer > section.top > nav > div > ul {
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -52,7 +55,7 @@ footer > section.top > .column > nav > ul {
   list-style: none;
 }
 
-footer > section.top > .column > nav > ul > li > a {
+footer > section.top > nav > div > ul > li > a {
   color: var(--text-my-zanichelli-white);
   letter-spacing: 0.2px;
   padding: 10px 0;
@@ -120,4 +123,15 @@ footer > section.bottom > div.item ul li {
 
 footer > section.bottom > div.item ul li a {
   color: var(--text-my-zanichelli-white);
+}
+
+@media (max-width: 768px) {
+  footer > section.top {
+    grid-template-rows: repeat(5, 1fr);
+  }
+  .item {
+    grid-column: span 4;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+  }
 }
