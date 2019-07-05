@@ -23,7 +23,6 @@ export class ZButtonFilter {
   }
 
   handleRemovingFilterClick(): void {
-    console.log("this.filterid: " + this.filterid);
     this.removefilter.emit({
       filterid: this.filterid
     });
