@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default     |
-| ---------- | ---------- | ----------- | --------- | ----------- |
-| `disabled` | `disabled` |             | `boolean` | `false`     |
-| `icon`     | `icon`     |             | `string`  | `undefined` |
-| `label`    | `label`    |             | `string`  | `undefined` |
-| `small`    | `small`    |             | `boolean` | `false`     |
-| `type`     | `type`     |             | `string`  | `undefined` |
+| Property     | Attribute    | Description | Type      | Default     |
+| ------------ | ------------ | ----------- | --------- | ----------- |
+| `icon`       | `icon`       |             | `string`  | `undefined` |
+| `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
+| `issmall`    | `issmall`    |             | `boolean` | `false`     |
+| `label`      | `label`      |             | `string`  | `undefined` |
+| `type`       | `type`       |             | `string`  | `undefined` |
 
 
 ----------------------------------------------
