@@ -1,3 +1,13 @@
+
+export type FooterBean = {
+  zanichelliLinks: FooterGroupBean[];
+  myzLink: MyzLinkBean;
+  zanichelliAddress: string;
+  social: FooterSocialBean[];
+  certification: string;
+  bottomLinks: FooterGroupItemBean[];
+};
+
 export type FooterGroupItemBean = {
   label: string;
   link: string;

@@ -1,6 +1,6 @@
 import { Component, Prop, State, h } from "@stencil/core";
 
-import { FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } from "../../beans/index.js";
+import { FooterBean, FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } from "../../beans/index.js";
 
 @Component({
   tag: "z-footer",
@@ -9,17 +9,43 @@ import { FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } f
 })
 export class Footer {
   @Prop() data: string;
+  @State() jsonData: FooterBean;
+  @State() isOpen : boolean[] = [];
+  @State() isMobile : boolean;
 
-  @State() jsonData = JSON.parse(this.data);
+  componentWillLoad() {
+    this.jsonData = JSON.parse(this.data);
+    this.isOpen = Array<boolean>(this.jsonData.zanichelliLinks.length).fill(false);
+  }
 
-  renderFooterSection(group: FooterGroupBean): HTMLElement {
+  componentDidLoad() {
+    window.addEventListener("resize", this.resize.bind(this));
+    this.resize();
+  }
+
+  resize() {
+    this.isMobile = window.innerWidth <= 360;
+  }
+
+  handleOnHeaderClick(id: number): void {
+    // stencil non si accorge delle modifiche su isOpen quindi copio l'array prima
+    var open = this.isOpen.slice(0);
+    open[id] = !open[id];
+    this.isOpen = [...open];
+  }
+
+  renderFooterSection(id: number, group: FooterGroupBean): HTMLElement {
     return (
       <nav>
-        <div class="header">
+        <div class="header" >
           <h2>{group.title}</h2>
+          {this.isMobile &&
+            <img src={this.isOpen[id] ? '../../assets/images/png/down-arrow.png' : '../../assets/images/png/up-arrow.png' }
+                onClick={() => this.handleOnHeaderClick(id)}/>
+          }
         </div>
         <div class="content">
-          <ul>
+          <ul class={this.isOpen[id] ? "show" : ""}>
             {group.items.map(
               (item: FooterGroupItemBean): HTMLElement => (
                 <li>
@@ -39,8 +65,8 @@ export class Footer {
     return (
       <section class="top">
         {zanichelliLinks.map(
-          (item: FooterGroupBean): HTMLElement =>
-            this.renderFooterSection(item)
+          (item: FooterGroupBean, id: number): HTMLElement =>
+            this.renderFooterSection(id, item)
         )}
       </section>
     );

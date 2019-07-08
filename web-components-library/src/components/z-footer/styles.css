@@ -23,6 +23,7 @@ footer > section.top {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 18px;
+  padding-left: 32px;
   height: 100%;
   background-color: var(--text-gray-dark);
 }
@@ -91,6 +92,10 @@ footer > section.bottom > div.item > ul.social {
   display: flex;
   width: auto;
   padding: 0;
+}
+
+footer > section.bottom > div.item > ul.social > li {
+  margin-right: 14px;
 }
 
 footer > section.bottom > div.item > ul.social img {
@@ -189,6 +194,10 @@ footer > section.bottom > div.item ul li a {
     width: 360px;
   }
 
+  footer > section.top {
+    padding-left: 24px;
+  }
+
   footer > section.top > nav {
     display: flex;
     flex-direction: column;
@@ -198,6 +207,15 @@ footer > section.bottom > div.item ul li a {
 
   footer > section.top > nav > .header {
     height: 32px;
+  }
+
+  footer > section.top > nav > .header > h2 {
+    font-size: 22px;
+  }
+
+  footer > section.top > nav > .header > img {
+    position: absolute;
+    right: 24px;
   }
 
   footer > section.top > nav > .content > ul {
@@ -214,5 +232,15 @@ footer > section.bottom > div.item ul li a {
     display: block;
     height: 100px;
     transition: 0.3s ease;
+  }
+
+  footer > section.top > nav > .content > ul > li > a {
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(247, 247, 247);
+  }
+
+  footer > section.bottom {
+    display: flex;
   }
 }
