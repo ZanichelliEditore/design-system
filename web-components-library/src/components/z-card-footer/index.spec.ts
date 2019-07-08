@@ -92,21 +92,4 @@ describe("Suite test ZCardFooter", () => {
     `);
   });
 
-
-  it("Test click on button resource", async () => {
-    const page = await newSpecPage({
-      components: [ZCardFooter],
-      html: `<z-card-footer></z-card-footer>`,
-    });
-
-    console.log(page.root.shadowRoot.querySelector('footer').querySelector('z-toggle-button'));
-    /* let button = page.root.shadowRoot.querySelector('footer').querySelector('button');
-
-    expect(page.rootInstance.isOpen).toEqual(false);
-    button.click();
-    await page.waitForChanges();
-
-    expect(page.rootInstance.isOpen).toEqual(true); */
-
-  });
 });
