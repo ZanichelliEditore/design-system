@@ -111,7 +111,7 @@ footer > section.bottom > div.bottom-links > ul {
   font-size: 13px;
 }
 
-footer > section.bottom div.logo a > img {
+footer > section.bottom > div.logo a > img {
   width: 236px;
 }
 
@@ -180,18 +180,35 @@ footer > section.bottom > div.item ul li a {
     width: 223px;
     margin: 0 4px;
   }
+
+  footer > section.bottom {
+    padding: 24px;
+    grid-column-gap:48px;
+  }
+
+  footer > section.bottom > div.item {
+    margin: 0px;
+  }
+
+  footer > section.bottom > div.logo a > img {
+    height: 39px;
+    width: 220px;
+  }
+
+  footer > section.bottom > div.bottom-links > ul {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  footer > section.bottom > div.item > ul.social img {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 
 @media (max-width: 360px) {
-
   footer {
-    width: 100%;
-  }
-
-  footer > section.top,
-  footer > section.bottom {
-    width: 360px;
+    display: block;
   }
 
   footer > section.top {
@@ -230,7 +247,7 @@ footer > section.bottom > div.item ul li a {
 
   footer > section.top > nav > .content > ul.show {
     display: block;
-    height: 100px;
+    height: auto;
     transition: 0.3s ease;
   }
 
@@ -240,7 +257,18 @@ footer > section.bottom > div.item ul li a {
     color: rgb(247, 247, 247);
   }
 
-  footer > section.bottom {
-    display: flex;
+  footer > section.bottom  {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  footer > section.bottom > div.item  {
+    height: auto;
+    width: 312px;
+  }
+
+  footer > section.bottom > div.item > ul.social img {
+    width: 24px;
   }
 }
