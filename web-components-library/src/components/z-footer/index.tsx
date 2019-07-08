@@ -7,7 +7,7 @@ import { FooterBean, FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSo
   styleUrls: ["styles.css"],
   shadow: true
 })
-export class Footer {
+export class ZFooter {
   @Prop() data: string;
   @State() jsonData: FooterBean;
   @State() isOpen : boolean[] = [];
