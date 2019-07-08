@@ -1,9 +1,6 @@
 button.container {
   min-height: var(--basex2);
   line-height: var(--basex2);
-
-  color: var(--myz-blue);
-  background-color: var(--bg-artboard-white);
   margin: var(--basex1);
 
   border: 1px solid var(--bg-artboard-gray-light);
@@ -24,6 +21,8 @@ button.container {
   font-size: 12px;
   font-weight: var(--font-sb);
 
+  opacity: 100%;
+
   transition: all 200ms linear;
 }
 
@@ -35,8 +34,25 @@ button.container:focus {
   margin-left: 4px;
 }
 
-button.container:hover .text-container {
-  color: var(--myz-blue-dark);
+button.container,
+button.container:focus,
+button.container:hover {
+  background-color: var(--bg-artboard-white);
+}
+
+button.container .text-container,
+button.container:hover .text-container,
+button.container:focus .text-container {
+  color: var(--text-gray-medium);
+}
+
+button.container .close-icon-container:before,
+button.container .close-icon-container:after,
+button.container:focus .close-icon-container:before,
+button.container:focus .close-icon-container:after,
+button.container:hover .close-icon-container:before,
+button.container:hover .close-icon-container:after {
+  background-color: var(--text-gray-medium);
 }
 
 span.close-icon-container {
@@ -46,7 +62,6 @@ span.close-icon-container {
   left: 0px;
   height: 12px;
   width: 12px;
-  cursor: pointer;
 }
 
 span.close-icon-container:before,
@@ -59,7 +74,6 @@ span.close-icon-container:after {
   width: 1.5px;
   margin-left: 20px;
   background-color: var(--myz-blue);
-  cursor: pointer;
 }
 span.close-icon-container:before {
   transform: rotate(45deg);
@@ -68,20 +82,45 @@ span.close-icon-container:after {
   transform: rotate(-45deg);
 }
 
-button.container:hover .close-icon-container:before,
-button.container:hover .close-icon-container:after {
-  background-color: var(--myz-blue-dark);
-}
-
-button.container:focus .close-icon-container:before,
-button.container:focus .close-icon-container:after {
+button.container.isactive {
   background-color: var(--bg-artboard-white);
 }
 
-button.container:focus {
+button.container.isactive .close-icon-container:before,
+button.container.isactive .close-icon-container:after {
+  background-color: var(--myz-blue);
+}
+
+button.container.isactive .text-container {
+  color: var(--myz-blue);
+}
+
+button.container.isactive:hover .text-container {
+  color: var(--myz-blue-dark);
+}
+
+button.container.isactive span.close-icon-container,
+button.container.isactive span.close-icon-container:before,
+button.container.isactive span.close-icon-container:after {
+  cursor: pointer;
+}
+
+button.container.isactive:hover .close-icon-container:before,
+button.container.isactive:hover .close-icon-container:after {
   background-color: var(--myz-blue-dark);
 }
 
-button.container:focus .text-container {
+button.container.isactive:focus .close-icon-container:before,
+button.container.isactive:focus .close-icon-container:after {
+  background-color: var(--bg-artboard-white);
+}
+
+button.container.isactive:focus {
+  background-color: var(--myz-blue-dark);
+  border-color: var(--myz-blue-dark);
+  box-shadow: 0px 0px 4px 0px var(--text-gray-dark);
+}
+
+button.container.isactive:focus .text-container {
   color: var(--bg-artboard-white);
 }

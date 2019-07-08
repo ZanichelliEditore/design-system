@@ -28,10 +28,18 @@ export class ZButtonFilter {
     });
   }
 
-  render() {
-    const filtername = this.filtername.toLowerCase();
+  renderFixedPillow(filtername) {
     return (
       <button class="container">
+        <span class="close-icon-container" />
+        <span class="text-container">{filtername}</span>
+      </button>
+    );
+  }
+
+  renderDynamicPillow(filtername) {
+    return (
+      <button class="container isactive">
         <span
           class="close-icon-container"
           onClick={this.handleRemovingFilterClick}
@@ -39,5 +47,15 @@ export class ZButtonFilter {
         <span class="text-container">{filtername}</span>
       </button>
     );
+  }
+
+  render() {
+    const filtername = this.filtername.toLowerCase();
+
+    if (this.isfixed) {
+      return this.renderFixedPillow(filtername);
+    }
+
+    return this.renderDynamicPillow(filtername);
   }
 }
