@@ -12,7 +12,6 @@
 | `icon`       | `icon`       |             | `string`  | `undefined` |
 | `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
 | `label`      | `label`      |             | `string`  | `undefined` |
-| `type`       | `type`       |             | `string`  | `undefined` |
 | `url`        | `url`        |             | `string`  | `undefined` |
 
 
