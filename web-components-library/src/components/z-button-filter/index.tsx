@@ -8,7 +8,6 @@ import { Component, Prop, Event, EventEmitter, h } from "@stencil/core";
 export class ZButtonFilter {
   @Prop() filtername: string;
   @Prop() isfixed: boolean = false;
-  @Prop() icon?: string;
   @Prop() filterid: string;
   @Event({
     eventName: "removefilter",
