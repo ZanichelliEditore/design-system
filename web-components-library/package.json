@@ -33,6 +33,13 @@
     "plop": "^2.1.0",
     "puppeteer": "1.14.0"
   },
+  "pre-commit": {
+    "colors": true,
+    "silent": false,
+    "run": [
+      "release"
+    ]
+  },
   "license": "MIT",
   "dependencies": {}
 }
