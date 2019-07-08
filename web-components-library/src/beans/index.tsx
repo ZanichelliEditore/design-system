@@ -30,4 +30,5 @@ export type FilterItem = {
   name: string;
   id: string;
   isActive: boolean;
+  isfixed: boolean;
 };
