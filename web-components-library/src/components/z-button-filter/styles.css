@@ -72,3 +72,16 @@ button.container:hover .close-icon-container:before,
 button.container:hover .close-icon-container:after {
   background-color: var(--myz-blue-dark);
 }
+
+button.container:focus .close-icon-container:before,
+button.container:focus .close-icon-container:after {
+  background-color: var(--bg-artboard-white);
+}
+
+button.container:focus {
+  background-color: var(--myz-blue-dark);
+}
+
+button.container:focus .text-container {
+  color: var(--bg-artboard-white);
+}
