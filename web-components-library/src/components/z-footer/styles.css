@@ -20,7 +20,7 @@ footer > section.top {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 18px;
-  padding-left: 32px;
+  padding-left: var(--basex4);
   height: 100%;
   background-color: var(--text-gray-dark);
 }
@@ -30,7 +30,7 @@ footer > section.top > nav {
   grid-template-columns: 1fr;
   grid-template-rows: 40px 4fr;
   margin: 0;
-  padding: 32px 0 0 0;
+  padding: var(--basex4) 0 0 0;
 }
 
 footer > section.top > nav > div > h2 {
@@ -40,7 +40,7 @@ footer > section.top > nav > div > h2 {
   font-weight: 600;
   color: #f7f7f7;
   border-bottom: 2px solid #666;
-  padding: 0 0 8px;
+  padding: 0 0 var(--basex1);
   margin: 0;
 }
 
@@ -77,7 +77,7 @@ footer > section.bottom {
 footer > section.bottom > div.item {
   display: grid;
   width: auto;
-  margin: 32px;
+  margin: var(--basex4);
   height: 72px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -118,7 +118,7 @@ footer > section.bottom > div.item small {
 
 footer > section.bottom > div.item ul li {
   list-style: none;
-  height: 24px;
+  height: var(--basex3);
   width: auto;
 }
 
@@ -133,7 +133,7 @@ footer > section.bottom > div.item ul li a {
   }
   footer > section.top {
     grid-template-columns: 1fr;
-    padding-top: 16px;
+    padding-top: var(--basex2);
     padding-left: 0px;
   }
 
@@ -141,8 +141,8 @@ footer > section.bottom > div.item ul li a {
     grid-template-columns: 2fr 6fr;
     grid-template-rows: 1fr;
     grid-column-gap: 18px;
-    padding: 4px;
-    margin: 8px 18px;
+    padding: var(--half-x1);
+    margin: var(--basex1) 18px;
     min-height: 50px;
     border-bottom: 2px solid #666;
   }
@@ -177,9 +177,9 @@ footer > section.bottom > div.item ul li a {
   }
 
   footer > section.top > nav > .content > ul > li {
-    height: 32px;
+    height: var(--basex4);
     width: 223px;
-    margin: 0 4px;
+    margin: 0 var(--half-x1);
   }
 
   footer > section.top > nav > .content > ul > li > a {
@@ -187,7 +187,7 @@ footer > section.bottom > div.item ul li a {
   }
 
   footer > section.bottom {
-    padding: 16px;
+    padding: var(--basex2);
     grid-template-columns: 1fr 1fr 2fr;
   }
 
@@ -195,7 +195,7 @@ footer > section.bottom > div.item ul li a {
     margin: 0px;
   }
   footer > section.bottom > div:nth-child(2) {
-    margin: 0px 16px 0px 16px ;
+    margin: 0px var(--basex2) 0px var(--basex2);
   }
 
   footer > section.bottom > div.logo a > img {
@@ -205,13 +205,13 @@ footer > section.bottom > div.item ul li a {
 
   footer > section.bottom > div.bottom-links > ul {
     grid-template-columns: repeat(2, 230px);
-    margin: 0px 4px;
+    margin: 0px var(--half-x1);
   }
 
 
   footer > section.bottom > div.item > ul.social img {
-    width: 24px;
-    height: 24px;
+    width: var(--basex3);
+    height: var(--basex3);
   }
 }
 
@@ -220,19 +220,19 @@ footer > section.bottom > div.item ul li a {
 
   footer > section.top {
     padding-left: var(--basex3);
-    padding-right:var(--basex3);
+    padding-right: var(--basex3);
 
   }
 
   footer > section.top > nav {
     display: flex;
     flex-direction: column;
-    margin: 4px;
+    margin: var(--half-x1);
     overflow: hidden;
   }
 
   footer > section.top > nav > .header {
-    height: 32px;
+    height: var(--basex4);
   }
 
   footer > section.top > nav > .header > h2 {
@@ -241,9 +241,9 @@ footer > section.bottom > div.item ul li a {
 
   footer > section.top > nav > .header > img {
     position: absolute;
-    right: 24px;
-    width:14px;
-    height: 8px;
+    right: var(--basex3);
+    width: 14px;
+    height: var(--basex1);
   }
 
   footer > section.top > nav > .content > ul {
@@ -253,7 +253,7 @@ footer > section.bottom > div.item ul li a {
   }
 
   footer > section.top > nav > .content > ul > li {
-    width: 100%
+    width: 100%;
   }
 
   footer > section.top > nav > .content > ul.show {
@@ -263,9 +263,9 @@ footer > section.bottom > div.item ul li a {
   }
 
   footer > section.top > nav > .content > ul > li > a {
-    font-size: 20px;
+    font-size: var(--half-x5);
     font-weight: 300;
-    color: rgb(247, 247, 247);
+    color: var(--text-my-zanichelli-white);
   }
 
   footer > section.bottom  {
@@ -280,7 +280,7 @@ footer > section.bottom > div.item ul li a {
   }
 
   footer > section.bottom > div.item > ul.social img {
-    width: 24px;
+    width: var(--basex3);
   }
 
   footer > section.bottom > div.bottom-links{
