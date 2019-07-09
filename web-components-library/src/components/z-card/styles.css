@@ -1,4 +1,5 @@
 div {
+  background-color: var(--bg-artboard-white);
   display: flex;
   flex-direction: column;
   overflow: hidden;
