@@ -216,7 +216,7 @@ footer > section.bottom > div.item ul li a {
   }
 
   footer > section.bottom > div.bottom-links > ul {
-    grid-template-columns: repeat(2, 230px);
+    grid-template-columns: repeat(2, auto);
     margin: 0px var(--half-x1);
   }
 
