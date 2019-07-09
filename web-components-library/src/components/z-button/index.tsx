@@ -1,10 +1,5 @@
 import { Component, Prop, h } from "@stencil/core";
 
-const primaryIconUrl =
-  "../../../assets/images/png/zanichelli-external-link-2@8x.png";
-const secondaryIconUrl =
-  "../../../assets/images/png/zanichelli-external-link@8x.png";
-
 @Component({
   tag: "z-button",
   styleUrl: "styles.css",
@@ -12,25 +7,22 @@ const secondaryIconUrl =
 })
 export class ZButton {
   @Prop() label: string;
-  @Prop() hasIcon: boolean;
-  @Prop() isPrimary: boolean = true;
-  @Prop() isDisabled: boolean = false;
-  @Prop() action?: Function;
+  @Prop() type: string;
+  @Prop() isdisabled?: boolean = false;
+  @Prop() issmall?: boolean = false;
+  @Prop() icon?: string;
 
   render() {
-    const isPrimary = this.isPrimary;
-    const isDisabled = this.isDisabled;
+    let btnClass = this.type;
+    if(this.issmall) {
+      btnClass += ' small';
+    }
 
-    var className = isPrimary ? "primary" : "secondary";
-    className += isDisabled ? " disabled" : "";
+    const btnIcon = this.icon ? '../../../assets/images/png/' + this.icon : '';
 
     return (
-      <button class={className}>
-        {this.hasIcon && (
-          <span>
-            <img src={isPrimary ? primaryIconUrl : secondaryIconUrl} />
-          </span>
-        )}
+      <button class={btnClass} disabled={this.isdisabled}>
+        {this.icon && <img src={btnIcon} />}
         {this.label}
       </button>
     );
