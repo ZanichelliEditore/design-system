@@ -13,7 +13,7 @@ export class ZFooter {
   @State() isOpen : boolean[] = [];
   @State() isMobile : boolean;
 
-  readonly mobileBreakpoint = 360;
+  readonly mobileBreakpoint = 768;
 
   componentWillLoad() {
     this.jsonData = JSON.parse(this.data);
@@ -26,7 +26,7 @@ export class ZFooter {
   }
 
   resize() {
-    this.isMobile = window.innerWidth <= 360;
+    this.isMobile = window.innerWidth <= this.mobileBreakpoint;
   }
 
   handleOnHeaderClick(id: number): void {
@@ -97,7 +97,7 @@ export class ZFooter {
     const zanichelliAddress : string = this.jsonData.zanichelliAddress;
 
     return (
-      <span>{zanichelliAddress}</span>
+      <p>{zanichelliAddress}</p>
     );
   }
 
@@ -126,7 +126,7 @@ export class ZFooter {
     const certification : string = this.jsonData.certification;
 
     return (
-      <small>{certification}</small>
+      <p>{certification}</p>
     );
   }
 
