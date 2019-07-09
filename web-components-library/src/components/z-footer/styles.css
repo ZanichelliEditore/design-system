@@ -179,9 +179,13 @@ footer > section.bottom > div.item ul li a {
     margin: 0 4px;
   }
 
+  footer > section.top > nav > .content > ul > li > a {
+    font-size: 13px;
+  }
+
   footer > section.bottom {
     padding: 24px 36px;
-    grid-column-gap:48px;
+    grid-column-gap: 48px;
     grid-template-columns: 1fr 1fr 2fr;
   }
 
