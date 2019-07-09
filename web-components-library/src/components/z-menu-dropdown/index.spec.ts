@@ -20,13 +20,13 @@ describe("Suite test ZMenuDropdown", () => {
       <mock:shadow-root>
         <div>
           <div class=\"container\">
-            <img>
-            <span>
+            <img src="assets/images/png/user.png" />
+            <span class="user">
               Dario docente
             </span>
-            <a>
-              <img>
-            </a>
+            <span class="arrow">
+              <img src="assets/images/png/arrowDown.png" />
+            </span>
           </div>
         </div>
       </mock:shadow-root>
@@ -34,70 +34,47 @@ describe("Suite test ZMenuDropdown", () => {
     `)
   });
 
-  it("Test  ZMenuDropdown con lista ed icone", async () => {
-    const page = await newSpecPage({
-      components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="user.png" icondropdownclosed="arrowDown.png" icondropdownopened="arrowUp.png"></z-menu-dropdown>`
-    });
-    expect(page.root).toEqualHtml(`<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="user.png" icondropdownclosed="arrowDown.png" icondropdownopened="arrowUp.png">
-    <mock:shadow-root>
-      <div>
-        <div class=\"container\">
-          <img src=\"../../../assets/images/png/user.png\">
-          <span>
-            Dario docente
-          </span>
-          <a>
-            <img src=\"../../../assets/images/png/arrowDown.png\">
-          </a>
-        </div>
-      </div>
-    </mock:shadow-root>
-  </z-menu-dropdown>
-`);
-  });
-
   it("Test  ZMenuDropdown con lista on click", async () => {
     const page = await newSpecPage({
       components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="user.png" icondropdownclosed="arrowDown.png" icondropdownopened="arrowUp.png"></z-menu-dropdown>`
+      html: `<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`
     });
     expect(page.root).toEqualHtml(`
-    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="user.png" icondropdownclosed="arrowDown.png" icondropdownopened="arrowUp.png">
+    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
       <div>
         <div class=\"container\">
-          <img src=\"../../../assets/images/png/user.png\">
-          <span>
+          <img src="assets/images/png/user.png" />
+          <span class="user">
             Dario docente
           </span>
-          <a>
-            <img src=\"../../../assets/images/png/arrowDown.png\">
-          </a>
+          <span class="arrow">
+            <img src="assets/images/png/arrowDown.png" />
+          </span>
         </div>
       </div>
     </mock:shadow-root>
   </z-menu-dropdown>`);
     expect(page.rootInstance.ismenuopen).toBeFalsy;
 
-    let image = page.root.shadowRoot.querySelector("div").querySelector("div").querySelector("a").querySelector("img");
+    let image = page.root.shadowRoot.querySelector("div").querySelector("div").querySelector("span.arrow");
     image.click();
     await page.waitForChanges();
 
     expect(page.rootInstance.ismenuopen).toBeTruthy;
 
     expect(page.root).toEqualHtml(`
-    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente" iconuser="user.png" icondropdownclosed="arrowDown.png" icondropdownopened="arrowUp.png">
+    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
         <div class=\"menuOpened\">
           <div class=\"container\">
-            <img src=\"../../../assets/images/png/user.png\">
-            <span>
+            <img src=\"assets/images/png/user.png\">
+            <span class="user">
               Dario docente
             </span>
-            <a>
-              <img src=\"../../../assets/images/png/arrowUp.png\">
-            </a>
+            <span class="arrow">
+              <img src="assets/images/png/arrowUp.png" />
+            </span>
           </div>
           <ul>
             <li>
