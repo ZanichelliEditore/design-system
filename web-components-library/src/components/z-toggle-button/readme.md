@@ -1,4 +1,4 @@
-# z-card-footer
+# z-toggle-button
 
 
 
@@ -9,9 +9,14 @@
 
 | Property | Attribute | Description | Type     | Default     |
 | -------- | --------- | ----------- | -------- | ----------- |
-| `anno`   | `anno`    |             | `number` | `undefined` |
-| `autori` | `autori`  |             | `string` | `undefined` |
-| `titolo` | `titolo`  |             | `string` | `undefined` |
+| `label`  | `label`   |             | `string` | `undefined` |
+
+
+## Events
+
+| Event         | Description | Type               |
+| ------------- | ----------- | ------------------ |
+| `toggleClick` |             | `CustomEvent<any>` |
 
 
 ----------------------------------------------

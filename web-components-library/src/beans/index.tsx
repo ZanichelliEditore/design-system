@@ -49,3 +49,15 @@ export type ListItemBean = {
   link?: string;
   icon?: string;
 };
+
+export type MenuDropdownItem = {
+  text: string;
+  link: string;
+};
+
+export type FilterItem = {
+  name: string;
+  id: string;
+  isActive: boolean;
+  isfixed: boolean;
+};
