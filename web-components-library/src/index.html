@@ -13,6 +13,7 @@
   </head>
 
   <body>
+
     <z-card>
       <z-card-header titolo="titolo">
         <z-card-icon
@@ -20,15 +21,45 @@
           slot="icon"
         />
       </z-card-header>
-
       <z-card-body>
         <z-card-cover slot="cover" titolo="titolo" img="http://media.curtisinvitoblu.bedita.net/a1/40/curti_a140cb3359b7611d84f80e384d2fb49b/curtis_plus-1A_320x_71bc3567ace1ff728caef1b381d7535b.png" />
       </z-card-body>
-
       <z-card-footer titolo="titolo" autori="autori" anno="2019">
         <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
         <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
       </z-card-footer>
     </z-card>
+    <br />
+
+    <z-button label="button" type="primary"></z-button>
+    <z-button label="button" type="primary" icon="zanichelli-external-link-2@8x.png"></z-button>
+    <z-button label="button" type="primary" isdisabled></z-button>
+    <z-button label="button" type="secondary"></z-button>
+    <z-button label="button" type="secondary" isdisabled></z-button>
+    <z-button label="button" type="primary" issmall></z-button>
+    <z-button label="button" type="primary" issmall icon="zanichelli-external-link-2@8x.png"></z-button>
+    <z-button label="button" type="primary" issmall isdisabled></z-button>
+    <z-button label="button" type="secondary" issmall></z-button>
+    <z-button label="button" type="secondary" issmall isdisabled></z-button>
+    <br />
+
+    <z-toggle-button label="toggle"></z-toggle-button>
+    <br />
+
+    <z-link label="z-link"></z-link>
+    <z-link label="z-link" icon="zanichelli-external-link@8x.png"></z-link>
+    <z-link label="z-link" isdisabled></z-link>
+    <br />
+
+    <z-logo imageurl="../../assets/images/png/zanichelli-logo.png" imagealt="logo"></z-logo>
+    <br />
+
+    <z-menu-dropdown nomeutente="username" menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'></z-menu-dropdown>
+    <br />
+
+    <z-button-filter filtername="filter 1" isfixed></z-button-filter>
+    <z-button-filter filtername="filter 2"></z-button-filter>
+    <br />
+
   </body>
 </html>
