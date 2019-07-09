@@ -13,6 +13,8 @@ export class ZFooter {
   @State() isOpen : boolean[] = [];
   @State() isMobile : boolean;
 
+  readonly mobileBreakpoint = 360;
+
   componentWillLoad() {
     this.jsonData = JSON.parse(this.data);
     this.isOpen = Array<boolean>(this.jsonData.zanichelliLinks.length).fill(false);
@@ -61,13 +63,20 @@ export class ZFooter {
 
   renderFooterTop(): HTMLElement {
     const zanichelliLinks: FooterGroupBean[] = this.jsonData.zanichelliLinks;
+    const bottomLinks: FooterGroupItemBean[] = this.jsonData.bottomLinks;
+    const zanichelliLinksToRender = zanichelliLinks.slice()
+
+    if(this.isMobile){
+      zanichelliLinksToRender.push({title:'Altre informazioni',items:bottomLinks})
+    }
 
     return (
       <section class="top">
-        {zanichelliLinks.map(
+        {zanichelliLinksToRender.map(
           (item: FooterGroupBean, id: number): HTMLElement =>
             this.renderFooterSection(id, item)
         )}
+
       </section>
     );
   }
@@ -123,17 +132,21 @@ export class ZFooter {
 
   renderBottomLinks(): HTMLElement {
     const bottomLinks: FooterGroupItemBean[] = this.jsonData.bottomLinks;
-
-    return (
-      <ul>
-        {bottomLinks.map(
-          (item: FooterGroupItemBean): HTMLElement =>
-            <li>
-              <a href={item.link} target={item.target ? item.target : '_blank'}>{item.label}</a>
-            </li>
-        )}
-      </ul>
-    );
+    if(!this.isMobile)
+    {
+      return (
+        <div class="item bottom-links">
+          <ul>
+            {bottomLinks.map(
+              (item: FooterGroupItemBean): HTMLElement =>
+                <li>
+                  <a href={item.link} target={item.target ? item.target : '_blank'}>{item.label}</a>
+                </li>
+            )}
+          </ul>
+        </div>
+      );
+    }
   }
 
   renderFooterBottom(): HTMLElement {
@@ -148,10 +161,8 @@ export class ZFooter {
           {this.renderAddress()}
           {this.renderSocial()}
         </div>
-        <div class="item bottom-links">
-          {this.renderBottomLinks()}
-        </div>
-      </section>
+        {this.renderBottomLinks()}
+       </section>
     );
   }
 
