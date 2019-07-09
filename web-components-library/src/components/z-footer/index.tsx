@@ -9,9 +9,10 @@ import { FooterBean, FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSo
 })
 export class ZFooter {
   @Prop() data: string;
-  @State() jsonData: FooterBean;
   @State() isOpen : boolean[] = [];
   @State() isMobile : boolean;
+
+  jsonData: FooterBean;
 
   readonly mobileBreakpoint = 768;
 
