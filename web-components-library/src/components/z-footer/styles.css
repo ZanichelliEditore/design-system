@@ -68,7 +68,7 @@ footer > section.bottom {
   height: 180px;
   margin: 0;
   padding: 0;
-  grid-template-columns: 25% 28% auto;
+  grid-template-columns: 1fr 1fr 2fr;
   background-color: var(--text-gray-dark2);
   white-space: pre-line;
   font-size: 12px;
@@ -194,6 +194,7 @@ footer > section.bottom > div.item ul li a {
   footer > section.bottom > div.item {
     margin: 0px;
   }
+
   footer > section.bottom > div:nth-child(2) {
     margin: 0px var(--basex2) 0px var(--basex2);
   }
@@ -207,7 +208,6 @@ footer > section.bottom > div.item ul li a {
     grid-template-columns: repeat(2, 230px);
     margin: 0px var(--half-x1);
   }
-
 
   footer > section.bottom > div.item > ul.social img {
     width: var(--basex3);
@@ -277,6 +277,10 @@ footer > section.bottom > div.item ul li a {
   footer > section.bottom > div.item  {
     height: auto;
     width: 312px;
+  }
+
+  footer > section.bottom > div:nth-child(2) {
+    margin: 0;
   }
 
   footer > section.bottom > div.item > ul.social img {
