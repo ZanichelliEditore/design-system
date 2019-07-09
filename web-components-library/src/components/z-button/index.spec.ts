@@ -69,10 +69,10 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton small", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button type="primary" small="true"></z-button>`
+      html: `<z-button type="primary" issmall="true"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button type="primary" small="true">
+      <z-button type="primary" issmall="true">
         <mock:shadow-root>
           <button class="primary small">
           </button>
@@ -84,10 +84,10 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton disabled", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button disabled="true"></z-button>`
+      html: `<z-button isdisabled="true"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button disabled="true">
+      <z-button isdisabled="true">
         <mock:shadow-root>
           <button disabled>
           </button>
