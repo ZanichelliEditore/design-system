@@ -29,10 +29,10 @@ describe("Suite test ZFooter", () => {
               <div class="item logo">
                 <z-logo targetblank></z-logo>
                 <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
-                <small></small>
+                <p></p>
               </div>
               <div class="item">
-                <span></span>
+                <p></p>
                 <ul class="social"></ul>
               </div>
               <div class="item bottom-links">
@@ -157,10 +157,10 @@ describe("Suite test ZFooter", () => {
               <div class="item logo">
                 <z-logo targetblank></z-logo>
                 <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
-                <small></small>
+                <p></p>
               </div>
               <div class="item">
-                <span></span>
+                <p></p>
                 <ul class="social"></ul>
               </div>
               <div class="item bottom-links">
@@ -198,10 +198,10 @@ describe("Suite test ZFooter", () => {
               <div class="item logo">
                 <z-logo link='https://my.zanichelli.it' imageurl='logo.png' imagealt='MyZ' targetblank /></z-logo>
                 <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
-                <small></small>
+                <p></p>
               </div>
               <div class="item">
-                <span></span>
+                <p></p>
                 <ul class="social"></ul>
               </div>
               <div class="item bottom-links">
@@ -245,10 +245,10 @@ describe("Suite test ZFooter", () => {
               <div class="item logo">
                 <z-logo targetblank></z-logo>
                 <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
-                <small></small>
+                <p></p>
               </div>
               <div class="item">
-                <span></span>
+                <p></p>
                 <ul class="social">
                   <li>
                     <a href='https://it-it.facebook.com/zanichelliscuola' target='_blank'>
@@ -303,10 +303,10 @@ describe("Suite test ZFooter", () => {
               <div class="item logo">
                 <z-logo targetblank></z-logo>
                 <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
-                <small></small>
+                <p></p>
               </div>
               <div class="item">
-                <span></span>
+                <p></p>
                 <ul class="social"></ul>
               </div>
               <div class="item bottom-links">
