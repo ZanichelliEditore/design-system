@@ -46,20 +46,6 @@ describe("Suite test ZLink", () => {
     `)
   });
 
-  it("Test render ZLink con type", async () => {
-    const page = await newSpecPage({
-      components: [ZLink],
-      html: `<z-link type="tertiary"></z-link>`
-    });
-    expect(page.root).toEqualHtml(`
-      <z-link type="tertiary">
-        <mock:shadow-root>
-          <a class="tertiary"></a>
-        </mock:shadow-root>
-      </z-link>
-    `)
-  });
-
   it("Test render ZLink con icon", async () => {
     const page = await newSpecPage({
       components: [ZLink],
