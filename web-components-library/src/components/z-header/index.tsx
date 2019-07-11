@@ -25,7 +25,10 @@ export class ZHeader {
 
   componentWillLoad() {
     this.menuData = JSON.parse(this.headermenudata);
-    this.menuData.forEach((menu) => {
+    return this.menuData.forEach((menu) => {
+      if (!window.location.hash) {
+        this.activeMenuItem = this.menuData[0];
+      }
       if (window.location.hash === menu.url) {
         this.activeMenuItem = menu;
       }
@@ -39,28 +42,6 @@ export class ZHeader {
       this.isSticky = false;
     }
   }
-
-  // handleHomeButtonClick(): void {
-  //   const dropdown = this.element.shadowRoot.getElementById("dropdown-menu");
-  //   dropdown.classList.toggle("visible");
-  //   const mobileDropdown = this.element.shadowRoot.getElementById(
-  //     "mobile-dropdown"
-  //   );
-  //   mobileDropdown.classList.toggle("visible");
-  //   const homeButton = this.element.shadowRoot.getElementById("home");
-  //   homeButton.classList.toggle("isopen");
-  // }
-
-  // handleDizionariButtonClick(): void {
-  //   const dropdown = this.element.shadowRoot.getElementById("dropdown-menu");
-  //   dropdown.classList.remove("visible");
-  //   const mobileDropdown = this.element.shadowRoot.getElementById(
-  //     "mobile-dropdown-d"
-  //   );
-  //   mobileDropdown.classList.toggle("visible");
-  //   const dizionariButton = this.element.shadowRoot.getElementById("dizionari");
-  //   dizionariButton.classList.toggle("isopen");
-  // }
 
   // handleMobileButtonClick(): void {
   //   const mobileButton = this.element.shadowRoot.getElementById("mobile-menu");
@@ -91,7 +72,7 @@ export class ZHeader {
           <span>{menuItem.name}</span>
           <i />
         </a>
-        <svg height="8" width="16" class={ menuItem.id !== this.activeMenuItem.id && "hidden"}>
+        <svg height="8" width="16" class={ this.activeMenuItem ? menuItem.id !== this.activeMenuItem.id && "hidden" : "hidden"}>
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
       </span>
@@ -103,10 +84,15 @@ export class ZHeader {
       return;
     }
     return (
-      <div class="dropdown-links">
-        {menuItem.subMenu.map(item =>
-          <a href={item.url}>{item.name}</a>
-        )}
+        <div
+          id="dropdown-menu"
+          class={`dropdown-menu ${this.isSticky && "sticky"}`}
+        >
+        <div class="dropdown-links">
+          {menuItem.subMenu.map(item =>
+            <a href={item.url}>{item.name}</a>
+          )}
+        </div>
       </div>
     );
   }
@@ -152,7 +138,7 @@ export class ZHeader {
           <div id="link-ext" class="link-ext">
             <span class="link-ext-span"><z-link url="#supporto" label="Supporto" icon="question-mark.png" iswhite={true} /></span>
             <span class="link-ext-span"><z-link url="#shop" label="E-Shop" icon="cart-icon.png" iswhite={true} /></span>
-            <span class="link-ext-span"><z-link url="#shop" label="Chiedi al tuo responsabile" icon="suitcase-icon.png" iswhite={true} /></span>
+            <span class="link-ext-span"><z-link url="#shop" label="Chiedi al tuo responsabile di zona" icon="suitcase-icon.png" iswhite={true} /></span>
           </div>
 
           <div class="login">
@@ -163,12 +149,9 @@ export class ZHeader {
           </div>
 
         </div>
-        <div
-          id="dropdown-menu"
-          class={`dropdown-menu ${this.isSticky && "sticky"}`}
-        >
-          {this.renderSubMenu(this.activeMenuItem)}
-        </div>
+
+        {this.renderSubMenu(this.activeMenuItem)}
+
       </header>
     );
   }
