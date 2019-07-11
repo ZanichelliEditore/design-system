@@ -25,14 +25,12 @@ export class ZHeader {
 
   componentWillLoad() {
     this.menuData = JSON.parse(this.headermenudata);
-    return this.menuData.forEach((menu) => {
-      if (!window.location.hash) {
-        this.activeMenuItem = this.menuData[0];
-      }
-      if (window.location.hash === menu.url) {
-        this.activeMenuItem = menu;
-      }
-    });
+    this.activeMenuItem = this.menuData.filter((menu) => {
+      return window.location.hash === menu.url
+    })[0];
+    if (!this.activeMenuItem) {
+      this.activeMenuItem = this.menuData[0]
+    }
   }
 
   handleStickyNav(sticky): void {
