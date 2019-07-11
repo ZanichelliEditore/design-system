@@ -114,16 +114,16 @@ li {
     width: 37px;
   }
 
-  div.menuOpened, :host > div:hover {
+  div.menuOpened {
     margin-left: -59px;
     width: 147px;
   }
 
-  div.menuOpened .container, :host > div:hover .container {
+  div.menuOpened .container {
     width: 147px;
   }
 
-  div.menuOpened span.user, :host > div:hover span.user {
+  div.menuOpened span.user{
     width: 96px;
   }
 }

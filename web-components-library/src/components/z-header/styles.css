@@ -43,6 +43,7 @@ header {
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "logo link-int link-ext login";
   grid-area: main-header;
+  grid-column-gap: 8px;
   background-color: rgb(48, 56, 64);
   height: 52px;
   align-items: center;
@@ -142,8 +143,9 @@ header {
   display: grid;
   grid-template-columns: minmax(241px, 294px) 4.7fr;
   grid-template-rows: 1fr;
-  grid-template-areas: ". dropdown-links . .";
+  grid-template-areas: ". dropdown-links";
   grid-area: dropdown-menu;
+  grid-column-gap: 8px;
   background: rgb(230, 230, 230);
   visibility: hidden;
 }
@@ -191,6 +193,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 999;
 }
 
 .dropdown-menu.sticky {
@@ -199,12 +202,33 @@ header {
   width: 100%;
 }
 
-.login.sticky {
-  position: fixed;
-  top: 10px;
+/* Tablet breakpoint */
+@media only screen and (max-width: 1024px) {
+  .main-header {
+    grid-template-columns: minmax(241px, 294px) 1fr 4fr 0.5fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "logo link-int link-ext login";
+    grid-area: main-header;
+    grid-column-gap: 4px;
+    align-items: center;
+  }
+
+  .login {
+    grid-area: login;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 16px;
+  }
+
+  .link-ext > z-link::part(link) {
+    line-height: 14px;
+    margin: 4px;
+    padding: 4px;
+  }
 }
 
-@media only screen and (max-width: 480px) {
+/* SmartPhone breakpoint */
+@media only screen and (max-width: 768px) {
   header {
     display: grid;
     grid-template-columns: 1fr;
@@ -348,7 +372,7 @@ header {
     background-color: rgb(230, 230, 230);
     border-top: 2px solid rgb(230, 230, 230);
   }
-  .link-ext > ::slotted(a) {
+  .link-ext > z-link::part(link) {
     width: 100%;
     margin: 4px auto;
     padding-left: 12px;
@@ -358,17 +382,17 @@ header {
 
   .link-int > span > .menu-item:hover,
   .link-int > span > .menu-item:focus,
-  .link-ext > ::slotted(a:hover),
-  .link-ext > ::slotted(a:focus) {
+  .link-ext > z-link::part(link):hover,
+  .link-ext > z-link::part(link):focus {
     border-radius: 0;
   }
 
-  .link-ext > ::slotted(a:hover),
-  .link-ext > ::slotted(a:focus) {
+  .link-ext > z-link::part(link):hover,
+  .link-ext > z-link::part(link):focus {
     background-color: rgb(230, 230, 230);
   }
 
-  ::slotted(#last) {
+  z-link::part(link):last-child() {
     border: none;
   }
 

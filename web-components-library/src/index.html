@@ -12,17 +12,13 @@
 
 <body style="background-color: #f9f9f9">
 
+  <a href="#ciao"></a>
     <z-header>
       <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors"/>
       <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors"/>
       <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors"/>
       <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors"/>
 
-      <z-menu-dropdown
-        nomeutente="Dario Docente"
-        menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'
-        slot="login">
-      </z-menu-dropdown>
     </z-header>
 
     <br>
@@ -34,16 +30,14 @@
           slot="icon"
         />
       </z-card-header>
-
       <z-card-body>
         <z-card-cover slot="cover" titolo="titolo" img="http://media.curtisinvitoblu.bedita.net/a1/40/curti_a140cb3359b7611d84f80e384d2fb49b/curtis_plus-1A_320x_71bc3567ace1ff728caef1b381d7535b.png" />
       </z-card-body>
-
-      <z-card-footer hasbutton titolo="titolo" autori="autori" anno="2019">
+      <z-card-footer titolo="titolo" autori="autori" anno="2019">
+        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
         <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
       </z-card-footer>
     </z-card>
-
     <br />
 
     <z-button label="button" type="primary"></z-button>
@@ -77,7 +71,9 @@
     <z-button-filter filtername="filter 1" isfixed></z-button-filter>
     <z-button-filter filtername="filter 2"></z-button-filter>
     <br />
-
+    <p>
+      <a name="supporto"></a>#Supporto
+    </p>
     <z-footer data='{
       "zanichelliLinks": [{
           "title": "Zanichelli.it",

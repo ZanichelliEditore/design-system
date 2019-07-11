@@ -130,11 +130,14 @@ export class ZHeader {
           </div>
           <div id="link-ext" class="link-ext">
             <z-link url="#supporto" label="Supporto" icon="question-mark.png"></z-link>
-            <z-link url="#shop" label="E-Shop" icon="zanichelli-external-link@8x.png"></z-link>
-            <z-link url="#shop" label="Chiedi al tuo responsabile" icon="zanichelli-external-link@8x.png"></z-link>
+            <z-link url="#shop" label="E-Shop" icon="cart-icon.png"></z-link>
+            <z-link url="#shop" label="Chiedi al tuo responsabile" icon="suitcase-icon.png"></z-link>
           </div>
-          <div class={`login ${this.isSticky && "sticky"}`}>
-            <slot name="login" />
+          <div class="login">
+            <z-menu-dropdown
+              nomeutente="Dario Docente"
+              menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'>
+            </z-menu-dropdown>
           </div>
         </div>
         <div
