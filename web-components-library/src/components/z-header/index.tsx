@@ -67,7 +67,11 @@ export class ZHeader {
           class={`main-header ${this.isSticky && "sticky"}`}
         >
           <div class="logo">
-            <slot name="logo" />
+            <z-logo
+              link="https:\\www.zanichelli.it"
+              targetblank={true}
+              imageurl="../../assets/images/png/zanichelli-logo-2.png"
+              imagealt="logo zanichelli" />
           </div>
           <div class="menu" id="mobile-menu-wrapper" onClick={() => this.handleMobileButtonClick()}>
             <span>Menu</span>
@@ -125,7 +129,9 @@ export class ZHeader {
             </div>
           </div>
           <div id="link-ext" class="link-ext">
-            <slot name="extlink" />
+            <z-link url="#supporto" label="Supporto" icon="question-mark.png"></z-link>
+            <z-link url="#shop" label="E-Shop" icon="zanichelli-external-link@8x.png"></z-link>
+            <z-link url="#shop" label="Chiedi al tuo responsabile" icon="zanichelli-external-link@8x.png"></z-link>
           </div>
           <div class={`login ${this.isSticky && "sticky"}`}>
             <slot name="login" />

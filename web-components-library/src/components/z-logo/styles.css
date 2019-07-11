@@ -1,6 +1,12 @@
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  height: 52px;
-  width: 241px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0px;
+  padding: 0px;
 }

@@ -17,6 +17,7 @@ header {
   grid-area: top-header;
   height: 32px;
   align-items: center;
+  background-color: rgb(255, 255, 255);
 }
 
 .editors {
@@ -33,7 +34,7 @@ header {
   height: 32px;
   width: auto;
   margin: 0;
-  transform: scale(0.7, 0.7);
+  transform: scale(0.6, 0.6);
 }
 
 .main-header {
@@ -51,7 +52,6 @@ header {
 .logo {
   grid-area: logo;
   height: 52px;
-  background-color: #e30613;
 }
 
 .link-int {
@@ -111,7 +111,7 @@ header {
   align-content: center;
 }
 
-.link-ext > ::slotted(a) {
+.link-ext > z-link::part(link) {
   width: auto;
   height: auto;
   font-size: 12px;
@@ -124,8 +124,9 @@ header {
   padding: 8px;
 }
 
-.link-ext > ::slotted(a:hover),
-.link-ext > ::slotted(a:focus) {
+
+.link-ext > z-link::part(link):hover,
+.link-ext > z-link::part(link):focus {
   background: rgb(66, 69, 72);
   border-radius: 4px;
   cursor: pointer;
@@ -183,6 +184,7 @@ header {
 .menu {
   display: none;
 }
+
 /* Stycky bar style  */
 
 .main-header.sticky {
