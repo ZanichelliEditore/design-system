@@ -150,13 +150,9 @@ export class ZHeader {
           </div>
 
           <div id="link-ext" class="link-ext">
-            <z-link url="#supporto" label="Supporto" icon="question-mark.png" />
-            <z-link url="#shop" label="E-Shop" icon="cart-icon.png" />
-            <z-link
-              url="#shop"
-              label="Chiedi al tuo responsabile"
-              icon="suitcase-icon.png"
-            />
+            <span class="link-ext-span"><z-link url="#supporto" label="Supporto" icon="question-mark.png" iswhite={true} /></span>
+            <span class="link-ext-span"><z-link url="#shop" label="E-Shop" icon="cart-icon.png" iswhite={true} /></span>
+            <span class="link-ext-span"><z-link url="#shop" label="Chiedi al tuo responsabile" icon="suitcase-icon.png" iswhite={true} /></span>
           </div>
 
           <div class="login">

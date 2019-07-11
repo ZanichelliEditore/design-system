@@ -112,22 +112,16 @@ header {
   align-content: center;
 }
 
-.link-ext > z-link::part(link) {
-  width: auto;
-  height: auto;
-  font-size: 12px;
-  font-weight: var(--font-sb);
-  color: rgb(255, 255, 255);
-  letter-spacing: 0.17px;
+.link-ext-span {
+  display: inline-block;
   line-height: 14px;
-  text-decoration: none;
   margin: 8px;
   padding: 8px;
 }
 
 
-.link-ext > z-link::part(link):hover,
-.link-ext > z-link::part(link):focus {
+.link-ext-span:hover,
+.link-ext-span:focus {
   background: rgb(66, 69, 72);
   border-radius: 4px;
   cursor: pointer;
@@ -220,7 +214,7 @@ header {
     padding: 0 16px;
   }
 
-  .link-ext > z-link::part(link) {
+  .link-ext-span {
     line-height: 14px;
     margin: 4px;
     padding: 4px;
@@ -372,7 +366,7 @@ header {
     background-color: rgb(230, 230, 230);
     border-top: 2px solid rgb(230, 230, 230);
   }
-  .link-ext > z-link::part(link) {
+  .link-ext-span {
     width: 100%;
     margin: 4px auto;
     padding-left: 12px;
@@ -382,17 +376,17 @@ header {
 
   .link-int > span > .menu-item:hover,
   .link-int > span > .menu-item:focus,
-  .link-ext > z-link::part(link):hover,
-  .link-ext > z-link::part(link):focus {
+  .link-ext-span:hover,
+  .link-ext-span:focus {
     border-radius: 0;
   }
 
-  .link-ext > z-link::part(link):hover,
-  .link-ext > z-link::part(link):focus {
+  .link-ext-span:hover,
+  .link-ext-span):focus {
     background-color: rgb(230, 230, 230);
   }
 
-  z-link::part(link):last-child() {
+  .link-ext-span:last-child() {
     border: none;
   }
 
