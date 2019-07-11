@@ -1,4 +1,4 @@
-# z-card-footer
+# z-footer
 
 
 
@@ -9,10 +9,21 @@
 
 | Property | Attribute | Description | Type     | Default     |
 | -------- | --------- | ----------- | -------- | ----------- |
-| `anno`   | `anno`    |             | `number` | `undefined` |
-| `autori` | `autori`  |             | `string` | `undefined` |
-| `titolo` | `titolo`  |             | `string` | `undefined` |
+| `data`   | `data`    |             | `string` | `undefined` |
 
+
+## Dependencies
+
+### Depends on
+
+- [z-logo](../z-logo)
+
+### Graph
+```mermaid
+graph TD;
+  z-footer --> z-logo
+  style z-footer fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

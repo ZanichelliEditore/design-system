@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type       | Default     |
-| ------------ | ------------- | ----------- | ---------- | ----------- |
-| `action`     | --            |             | `Function` | `undefined` |
-| `hasIcon`    | `has-icon`    |             | `boolean`  | `undefined` |
-| `isDisabled` | `is-disabled` |             | `boolean`  | `false`     |
-| `isPrimary`  | `is-primary`  |             | `boolean`  | `true`      |
-| `label`      | `label`       |             | `string`   | `undefined` |
+| Property     | Attribute    | Description | Type      | Default     |
+| ------------ | ------------ | ----------- | --------- | ----------- |
+| `icon`       | `icon`       |             | `string`  | `undefined` |
+| `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
+| `issmall`    | `issmall`    |             | `boolean` | `false`     |
+| `label`      | `label`      |             | `string`  | `undefined` |
+| `type`       | `type`       |             | `string`  | `undefined` |
 
 
 ----------------------------------------------

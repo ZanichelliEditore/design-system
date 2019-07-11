@@ -38,7 +38,7 @@ div > img {
   padding-left: var(--half-x3);
 }
 
-div > a {
+div > span.arrow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,12 +46,12 @@ div > a {
   padding-right: var(--basex1);
 }
 
-div > a > img{
+div > span.arrow > img{
   height: 7px;
   width: 10px;
 }
 
-div > span{
+div > span.user{
   color: var(--text-gray-dark);
   padding-left: var(--half-x1);
   width:96px;
@@ -72,4 +72,3 @@ li {
     display: flex;
     align-items: center;
 }
-

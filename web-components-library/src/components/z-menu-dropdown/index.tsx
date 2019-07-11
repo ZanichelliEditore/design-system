@@ -1,6 +1,9 @@
 import { Component, Prop, h, State, Watch } from '@stencil/core';
 import { MenuDropdownItem } from "../../beans/index.js";
 
+import {retrieveAsset} from "../../utils/utils";
+
+import  icons from "../../constants/icons";
 @Component({
   tag: 'z-menu-dropdown',
   styleUrl: 'styles.css',
@@ -8,9 +11,6 @@ import { MenuDropdownItem } from "../../beans/index.js";
 })
 
 export class ZMenuDropdown {
-  @Prop() iconuser: string;
-  @Prop() icondropdownclosed: string;
-  @Prop() icondropdownopened: string;
   @Prop() nomeutente: string;
   @Prop() menucontent: string;
 
@@ -45,9 +45,9 @@ export class ZMenuDropdown {
 
   renderButtonMenu(){
       return(
-        <a onClick={() => this.ismenuopen=!this.ismenuopen}>
-          <img src={this.ismenuopen?this.icondropdownopened:this.icondropdownclosed}/>
-        </a>
+          <span class="arrow">
+            <img src={this.ismenuopen?retrieveAsset(icons.iconarrowup):retrieveAsset(icons.iconarrowdown)}/>
+          </span>
       );
   }
 
@@ -59,10 +59,10 @@ export class ZMenuDropdown {
 
   render() {
     return (
-      <div class={this.retriveMenuClass()}>
+      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen=!this.ismenuopen}     >
         <div class="container">
-          <img src={this.iconuser}/>
-          <span>{this.nomeutente}</span>
+          <img src={retrieveAsset(icons.iconuserlogo)}/>
+          <span class="user">{this.nomeutente}</span>
           {this.renderButtonMenu()}
         </div>
         {this.renderMenuOpen()}

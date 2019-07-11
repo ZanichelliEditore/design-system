@@ -1,0 +1,52 @@
+button {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-base);
+  color: var(--myz-blue);
+  background-color: var(--bg-artboard-white);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  font-size: 14px;
+  outline: none;
+  padding-left: 0px;
+  padding-right: 8px;
+  transition: all 200ms linear;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button:hover {
+  color: var(--myz-blue-dark);
+}
+
+button > i::before {
+  border-style: solid;
+  border-width: 0.15em 0.15em 0 0;
+  content: " ";
+  display: inline-block;
+  height: 0.5em;
+  left: 0.16em;
+  position: relative;
+  top: 0.4em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 0.5em;
+  margin-top: 2px;
+  margin-left: 16px;
+  margin-right: 16px;
+  transition: all 200ms linear;
+}
+
+button.isopen {
+  top: -20px;
+  transition: top 200ms linear;
+}
+
+button.isopen > i::before {
+  top: 0.1em;
+  transform: rotate(135deg);
+  transition: all 200ms linear;
+}
