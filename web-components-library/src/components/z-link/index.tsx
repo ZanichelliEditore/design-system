@@ -10,12 +10,13 @@ export class ZLink {
   @Prop() label?: string;
   @Prop() icon?: string;
   @Prop() isdisabled?: boolean = false;
+  @Prop() iswhite?: boolean = false;
 
   render() {
     const icon = this.icon ? '../../../assets/images/png/' + this.icon : '';
 
     return (
-      <a part="link" href={this.url} class={this.isdisabled && 'disabled'}>
+      <a href={this.url} class={`${this.isdisabled && "disabled"} ${this.iswhite && "white"}`}>
         {this.icon && <img src={icon} />}
         {this.label}
       </a>
