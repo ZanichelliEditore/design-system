@@ -61,3 +61,10 @@ export type FilterItem = {
   isActive: boolean;
   isfixed: boolean;
 };
+
+export type HeaderMenuItem = {
+  id: string,
+  name: string,
+  subMenu?: HeaderMenuItem[],
+  url?: string
+};

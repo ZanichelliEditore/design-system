@@ -1,4 +1,6 @@
 import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
+import { menuItems } from "./menu-mock-data";
+import {HeaderMenuItem} from "../../beans";
 
 @Component({
   tag: "z-header",
@@ -30,7 +32,9 @@ export class ZHeader {
   handleHomeButtonClick(): void {
     const dropdown = this.element.shadowRoot.getElementById("dropdown-menu");
     dropdown.classList.toggle("visible");
-    const mobileDropdown = this.element.shadowRoot.getElementById("mobile-dropdown");
+    const mobileDropdown = this.element.shadowRoot.getElementById(
+      "mobile-dropdown"
+    );
     mobileDropdown.classList.toggle("visible");
     const homeButton = this.element.shadowRoot.getElementById("home");
     homeButton.classList.toggle("isopen");
@@ -39,7 +43,9 @@ export class ZHeader {
   handleDizionariButtonClick(): void {
     const dropdown = this.element.shadowRoot.getElementById("dropdown-menu");
     dropdown.classList.remove("visible");
-    const mobileDropdown = this.element.shadowRoot.getElementById("mobile-dropdown-d");
+    const mobileDropdown = this.element.shadowRoot.getElementById(
+      "mobile-dropdown-d"
+    );
     mobileDropdown.classList.toggle("visible");
     const dizionariButton = this.element.shadowRoot.getElementById("dizionari");
     dizionariButton.classList.toggle("isopen");
@@ -54,12 +60,48 @@ export class ZHeader {
     linkInt.classList.toggle("open");
   }
 
+  renderMenuItems(menuItems: HeaderMenuItem[]): HTMLDivElement {
+    return (
+      <div>
+        <span>
+          <a
+            href="#home"
+            id="home"
+            class="menu-item"
+            onClick={() => this.handleHomeButtonClick()}
+            >
+            <span>Home</span>
+            <i />
+          </a>
+          <svg height="8" width="16" class="hidden">
+            <polygon points="8,0 16,8 0,8" class="arrow" />
+          </svg>
+        </span>
+        <div id="mobile-dropdown" class="mobile-dropdown">
+          {this.renderDropdownList()}
+        </div>
+      </div>
+    )
+  }
+
+  renderDropdownList(): HTMLDivElement {
+    return (
+      <div class="dropdown-links">
+        <a href="#libreria" class="active">
+          La mia Libreria
+        </a>
+        <a href="#ambienti">Ambienti Zanichelli</a>
+        <a href="#idee">Idee per insegnare</a>
+      </div>
+    )
+  }
+
   render() {
     return (
       <header>
         <div class="top-header">
           <div class="editors">
-            <slot name="editors"></slot>
+            <slot name="editors" />
           </div>
         </div>
         <div
@@ -71,18 +113,23 @@ export class ZHeader {
               link="https:\\www.zanichelli.it"
               targetblank={true}
               imageurl="../../assets/images/png/zanichelli-logo-2.png"
-              imagealt="logo zanichelli" />
+              imagealt="logo zanichelli"
+            />
           </div>
-          <div class="menu" id="mobile-menu-wrapper" onClick={() => this.handleMobileButtonClick()}>
+          <div
+            class="menu"
+            id="mobile-menu-wrapper"
+            onClick={() => this.handleMobileButtonClick()}
+          >
             <span>Menu</span>
             <div class="menu-toggle" id="mobile-menu">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
+              <span class="bar" />
+              <span class="bar" />
+              <span class="bar" />
             </div>
-
           </div>
           <div id="link-int" class="link-int">
+            {/* menu 1 livello */}
             <span>
               <a
                 href="#home"
@@ -90,23 +137,15 @@ export class ZHeader {
                 class="menu-item"
                 onClick={() => this.handleHomeButtonClick()}
               >
-                <span>Home</span><i />
+                <span>Home</span>
+                <i />
               </a>
               <svg height="8" width="16" class="hidden">
                 <polygon points="8,0 16,8 0,8" class="arrow" />
               </svg>
             </span>
-            <div
-              id="mobile-dropdown"
-              class="mobile-dropdown"
-            >
-              <div class="dropdown-links">
-                <a href="#libreria" class="active">
-                  La mia Libreria
-              </a>
-                <a href="#ambienti">Ambienti Zanichelli</a>
-                <a href="#idee">Idee per insegnare</a>
-              </div>
+            <div id="mobile-dropdown" class="mobile-dropdown">
+              {this.renderDropdownList()}
             </div>
             <span>
               <a
@@ -115,42 +154,39 @@ export class ZHeader {
                 class="menu-item"
                 onClick={() => this.handleDizionariButtonClick()}
               >
-                <span>Dizionari</span><i />
+                <span>Dizionari</span>
+                <i />
               </a>
               <svg height="8" width="16" class="hidden">
                 <polygon points="8,0 16,8 0,8" class="arrow" />
               </svg>
             </span>
-            <div
-              id="mobile-dropdown-d"
-              class="mobile-dropdown"
-            >
-              <z-button label="Scarica la app BookTab"></z-button>
+            {/* fine menu 1 livello */}
+            <div id="mobile-dropdown-d" class="mobile-dropdown">
+              <z-button label="Scarica la app BookTab" />
             </div>
           </div>
           <div id="link-ext" class="link-ext">
-            <z-link url="#supporto" label="Supporto" icon="question-mark.png"></z-link>
-            <z-link url="#shop" label="E-Shop" icon="cart-icon.png"></z-link>
-            <z-link url="#shop" label="Chiedi al tuo responsabile" icon="suitcase-icon.png"></z-link>
+            <z-link url="#supporto" label="Supporto" icon="question-mark.png" />
+            <z-link url="#shop" label="E-Shop" icon="cart-icon.png" />
+            <z-link
+              url="#shop"
+              label="Chiedi al tuo responsabile"
+              icon="suitcase-icon.png"
+            />
           </div>
           <div class="login">
             <z-menu-dropdown
               nomeutente="Dario Docente"
-              menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'>
-            </z-menu-dropdown>
+              menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'
+            />
           </div>
         </div>
         <div
           id="dropdown-menu"
           class={`dropdown-menu ${this.isSticky && "sticky"}`}
         >
-          <div class="dropdown-links">
-            <a href="#libreria" class="active">
-              La mia Libreria
-            </a>
-            <a href="#ambienti">Ambienti Zanichelli</a>
-            <a href="#idee">Idee per insegnare</a>
-          </div>
+          {this.renderDropdownList()}
         </div>
       </header>
     );
