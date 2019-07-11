@@ -59,7 +59,7 @@ export class ZMenuDropdown {
 
   render() {
     return (
-      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen=!this.ismenuopen}     >
+      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen=!this.ismenuopen}>
         <div class="container">
           <img src={retrieveAsset(icons.iconuserlogo)}/>
           <span class="user">{this.nomeutente}</span>

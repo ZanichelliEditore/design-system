@@ -14,13 +14,38 @@ a, a:visited, a:active {
 }
 
 :host > div {
-  background: var(--bg-artboard-white);
+  background: var(--bg-artboard-gray);
+  color: var(--text-gray-dark);
   border-radius: 4px;
   width:147px;
+  cursor: pointer;
+}
+
+:host > div:hover, :host > div.menuOpened:hover {
+  color: var(--myz-blue-dark);
+}
+
+:host > div:focus, :host > div.menuOpened {
+  color: var(--myz-blue);
+  border: 1px solid var(--myz-blue);
+  box-shadow: 0px 0px 2px 2px var(--myz-blue-light);
+}
+
+:host > div:active {
+  color: #1973e1;
+  border: 1px solid #1973e1;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
 .menuOpened{
   padding-bottom: var(--basex2)
+}
+
+.menuOpened a, .menuOpened a:active, .menuOpened a:visited {
+  color: var(--myz-blue);
+}
+.menuOpened a:hover {
+  color: var(--myz-blue-dark);
 }
 
 .container {
@@ -52,7 +77,6 @@ div > span.arrow > img{
 }
 
 div > span.user{
-  color: var(--text-gray-dark);
   padding-left: var(--half-x1);
   width:96px;
   text-overflow: ellipsis;
@@ -68,7 +92,7 @@ ul {
 
 li {
     height: 32px;
-    color: var(--text-my-zanichelli-blue);
+    /* color: var(--text-my-zanichelli-blue); */
     display: flex;
     align-items: center;
 }
