@@ -15,7 +15,7 @@ export class ZLink {
     const icon = this.icon ? '../../../assets/images/png/' + this.icon : '';
 
     return (
-      <a href={this.url} class={this.isdisabled && 'disabled'}>
+      <a part="link" href={this.url} class={this.isdisabled && 'disabled'}>
         {this.icon && <img src={icon} />}
         {this.label}
       </a>

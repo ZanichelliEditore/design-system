@@ -121,8 +121,9 @@ footer > section.bottom > div.bottom-links > ul {
   font-size: 13px;
 }
 
-footer > section.bottom > div.logo a > img {
-  width: 236px;
+footer > section.bottom > div.logo > z-logo {
+  height: 39px;
+  width: 220px;
 }
 
 footer > section.bottom > div.item ul li {
@@ -208,11 +209,6 @@ footer > section.bottom > div.item ul li a {
 
   footer > section.bottom > div:nth-child(2) {
     margin: 0px var(--basex2) 0px var(--basex2);
-  }
-
-  footer > section.bottom > div.logo a > img {
-    height: 39px;
-    width: 220px;
   }
 
   footer > section.bottom > div.bottom-links > ul {

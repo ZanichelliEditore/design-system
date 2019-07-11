@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
-    <title>Stencil Component Starter</title>
-    <link rel="stylesheet" type="text/css" href="/build/web-components-library.css">
-    <script type="module" src="/build/web-components-library.esm.js"></script>
-    <script nomodule src="/build/web-components-library.js"></script>
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+  <link rel="stylesheet" type="text/css" href="/build/web-components-library.css">
+  <script type="module" src="/build/web-components-library.esm.js"></script>
+  <script nomodule src="/build/web-components-library.js"></script>
+</head>
+
+<body style="background-color: #f9f9f9">
+
+    <z-header>
+      <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors"/>
+      <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors"/>
+      <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors"/>
+      <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors"/>
+
+      <z-menu-dropdown
+        nomeutente="Dario Docente"
+        menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'
+        slot="login">
+      </z-menu-dropdown>
+    </z-header>
+
+    <br>
 
     <z-card>
       <z-card-header titolo="titolo">
@@ -21,14 +34,16 @@
           slot="icon"
         />
       </z-card-header>
+
       <z-card-body>
         <z-card-cover slot="cover" titolo="titolo" img="http://media.curtisinvitoblu.bedita.net/a1/40/curti_a140cb3359b7611d84f80e384d2fb49b/curtis_plus-1A_320x_71bc3567ace1ff728caef1b381d7535b.png" />
       </z-card-body>
-      <z-card-footer titolo="titolo" autori="autori" anno="2019">
-        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+
+      <z-card-footer hasbutton titolo="titolo" autori="autori" anno="2019">
         <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
       </z-card-footer>
     </z-card>
+
     <br />
 
     <z-button label="button" type="primary"></z-button>
@@ -51,7 +66,9 @@
     <z-link label="z-link" isdisabled></z-link>
     <br />
 
-    <z-logo imageurl="../../assets/images/png/zanichelli-logo.png" imagealt="logo"></z-logo>
+    <div style="height:52px;width:240px;">
+        <z-logo imageurl="../../assets/images/png/zanichelli-logo.png" imagealt="logo"></z-logo>
+    </div >
     <br />
 
     <z-menu-dropdown nomeutente="username" menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'></z-menu-dropdown>
