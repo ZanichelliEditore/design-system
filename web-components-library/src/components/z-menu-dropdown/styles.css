@@ -92,7 +92,38 @@ ul {
 
 li {
     height: 32px;
-    /* color: var(--text-my-zanichelli-blue); */
     display: flex;
     align-items: center;
+}
+
+
+@media (max-width: 1024px) {
+  :host {
+    width: 88px;
+  }
+
+  :host > div {
+    width: 88px;
+  }
+
+  .container {
+    width: 88px;
+  }
+
+  div > span.user{
+    width: 37px;
+  }
+
+  div.menuOpened, :host > div:hover {
+    margin-left: -59px;
+    width: 147px;
+  }
+
+  div.menuOpened .container, :host > div:hover .container {
+    width: 147px;
+  }
+
+  div.menuOpened span.user, :host > div:hover span.user {
+    width: 96px;
+  }
 }
