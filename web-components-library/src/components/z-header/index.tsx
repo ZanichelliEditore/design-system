@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
-import { HeaderMenuItem } from "../../beans";
+import { HeaderIntLink, HeaderExtLink } from "../../beans";
 
 @Component({
   tag: "z-header",
@@ -9,10 +9,12 @@ import { HeaderMenuItem } from "../../beans";
 export class ZHeader {
   @Prop() editors: string; // lista di immagini del top-nav --> slot
   @Prop() intlink: string; // json per link interni del main-nav, con possibili sottomenu
-  @Prop() headermenudata: string;
+  @Prop() intlinkdata: string;
+  @Prop() extlinkdata: string;
   @State() isSticky: boolean = false;
-  @State() activeMenuItem: HeaderMenuItem;
-  @State() menuData: HeaderMenuItem[];
+  @State() activeMenuItem: HeaderIntLink;
+  @State() intMenuData: HeaderIntLink[];
+  private extMenuData: HeaderExtLink[];
 
   @Element() private element: HTMLElement;
 
@@ -23,11 +25,12 @@ export class ZHeader {
     this.handleStickyNav(sticky);
 
     const links =  this.element.shadowRoot.querySelectorAll(".dropdown-links > a[href^='#']");
+    // TODO: move to prop()
     const sections = document.querySelectorAll('section');
     let index = sections.length;
-  
+
     while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
-    
+
     links.forEach((link) => {
       link.classList.remove('active')
     });
@@ -35,13 +38,10 @@ export class ZHeader {
   }
 
   componentWillLoad() {
-    this.menuData = JSON.parse(this.headermenudata);
-    this.activeMenuItem = this.menuData.filter((menu) => {
-      return window.location.hash === menu.url
-    })[0];
-    if (!this.activeMenuItem) {
-      this.activeMenuItem = this.menuData[0]
-    }
+    this.intMenuData = JSON.parse(this.intlinkdata);
+    this.extMenuData = JSON.parse(this.extlinkdata);
+    console.log(this.extMenuData);
+    this.activeMenuItem = this.intMenuData.filter((menu: HeaderIntLink) => window.location.hash === menu.url)[0] || this.intMenuData[0];
   }
 
   handleStickyNav(sticky): void {
@@ -61,15 +61,15 @@ export class ZHeader {
   //   linkInt.classList.toggle("open");
   // }
 
-  renderMenu(menuItems: HeaderMenuItem[]): HTMLDivElement {
+  renderIntMenu(menuItems: HeaderIntLink[]): HTMLDivElement {
     return (
       <div id="link-int" class="link-int">
-        {menuItems.map(item => this.renderMenuItem(item))}
+        {menuItems.map(item => this.renderIntMenuItem(item))}
       </div>
     );
   }
 
-  renderMenuItem(menuItem: HeaderMenuItem): HTMLSpanElement {
+  renderIntMenuItem(menuItem: HeaderIntLink): HTMLSpanElement {
     return (
       <span>
         <a
@@ -88,7 +88,7 @@ export class ZHeader {
     );
   }
 
-  renderSubMenu(menuItem: HeaderMenuItem): HTMLDivElement {
+  renderSubMenu(menuItem: HeaderIntLink): HTMLDivElement {
     if (!menuItem.subMenu) {
       return;
     }
@@ -104,6 +104,19 @@ export class ZHeader {
         </div>
       </div>
     );
+  }
+
+  renderExtMenu(menuItems: HeaderExtLink[]): HTMLDivElement {
+    return (
+      <div id="link-ext" class="link-ext">
+        {menuItems.map((menuItem: HeaderExtLink): HTMLSpanElement => {
+          const {id, name, url, icon} = menuItem;
+          return (
+            <span class="link-ext-span"><z-link id={id} url={url} label={name} icon={icon} iswhite={true} /></span>
+          )
+        })}
+      </div>
+    )
   }
 
   render() {
@@ -139,16 +152,12 @@ export class ZHeader {
             </div>
           </div>
 
-          {this.renderMenu(JSON.parse(this.headermenudata))}
+          {this.renderIntMenu(this.intMenuData)}
           <div id="mobile-dropdown-d" class="mobile-dropdown">
             <z-button label="Scarica la app BookTab" />
           </div>
 
-          <div id="link-ext" class="link-ext">
-            <span class="link-ext-span"><z-link url="#supporto" label="Supporto" icon="question-mark.png" iswhite={true} /></span>
-            <span class="link-ext-span"><z-link url="#shop" label="E-Shop" icon="cart-icon.png" iswhite={true} /></span>
-            <span class="link-ext-span"><z-link url="#shop" label="Chiedi al tuo responsabile di zona" icon="suitcase-icon.png" iswhite={true} /></span>
-          </div>
+          {this.renderExtMenu(this.extMenuData)}
 
           <div class="login">
             <z-menu-dropdown

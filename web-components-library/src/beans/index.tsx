@@ -1,4 +1,3 @@
-
 export type FooterBean = {
   zanichelliLinks: FooterGroupBean[];
   myzLink: MyzLinkBean;
@@ -22,7 +21,7 @@ export type FooterGroupBean = {
 export type MyzLinkBean = {
   label: string;
   img: string;
-  link: string
+  link: string;
 };
 
 export type FooterSocialBean = {
@@ -62,9 +61,16 @@ export type FilterItem = {
   isfixed: boolean;
 };
 
-export type HeaderMenuItem = {
-  id: string,
-  name: string,
-  subMenu?: HeaderMenuItem[],
-  url?: string
+export type HeaderIntLink = {
+  id: string;
+  name: string;
+  subMenu?: HeaderIntLink[];
+  url?: string;
+};
+
+export type HeaderExtLink = {
+  id: string;
+  name: string;
+  url: string;
+  icon?: string;
 };

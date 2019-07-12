@@ -17,6 +17,7 @@ a, a:visited, a:active {
   background: var(--bg-artboard-gray);
   color: var(--text-gray-dark);
   border-radius: 4px;
+  border: 1px solid transparent;
   width:147px;
   cursor: pointer;
 }
