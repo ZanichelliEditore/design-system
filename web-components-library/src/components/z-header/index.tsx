@@ -76,6 +76,10 @@ export class ZHeader {
   // }
 
   renderTopHeader(): HTMLDivElement {
+    if (!this.ismyz) {
+      return <div />;
+    }
+
     return (
       <div class="top-header">
         <div class="editors">
@@ -99,7 +103,7 @@ export class ZHeader {
   }
 
   renderIntMenu(menuItems: HeaderIntLink[]): HTMLDivElement {
-    if (!this.isLogged) {
+    if (!this.isLogged || !this.ismyz) {
       return <div />;
     }
 
@@ -141,7 +145,7 @@ export class ZHeader {
   }
 
   renderSubMenu(menuItem: HeaderIntLink): HTMLDivElement {
-    if (!this.isLogged) {
+    if (!this.isLogged || !this.ismyz) {
       return <div />;
     }
 
@@ -172,13 +176,13 @@ export class ZHeader {
           (menuItem: HeaderExtLink): HTMLSpanElement => {
             const { id, name, url, icon } = menuItem;
             return (
-              <span class="link-ext-span">
+              <span class={`link-ext-span ${this.ismyz && "myz"}`}>
                 <z-link
                   id={id}
                   url={url}
                   label={name}
                   icon={icon}
-                  iswhite={true}
+                  iswhite={this.ismyz ? true : false}
                   target="_blank"
                 />
               </span>
@@ -207,7 +211,7 @@ export class ZHeader {
     return (
       <div
         id="main-header"
-        class={`main-header ${this.isSticky && "sticky"}`}
+        class={`main-header ${this.isSticky && "sticky"} ${!this.ismyz && "myz-out"}`}
       >
         {this.renderLogoDiv()}
         {this.renderMobileMenu()}

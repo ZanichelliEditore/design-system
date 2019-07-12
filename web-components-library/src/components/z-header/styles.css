@@ -50,6 +50,10 @@ header {
   z-index: 1;
 }
 
+.main-header.myz-out {
+  background-color:var(--bg-artboard-white);
+}
+
 .logo {
   grid-area: logo;
   height: 52px;
@@ -127,8 +131,8 @@ header {
 }
 
 
-.link-ext-span:hover,
-.link-ext-span:focus {
+.link-ext-span.myz:hover,
+.link-ext-span.myz:focus {
   background: rgb(66, 69, 72);
   border-radius: 4px;
   cursor: pointer;
