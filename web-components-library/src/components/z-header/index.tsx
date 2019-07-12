@@ -158,6 +158,7 @@ export class ZHeader {
                   label={name}
                   icon={icon}
                   iswhite={true}
+                  target="_blank"
                 />
               </span>
             );
