@@ -98,17 +98,18 @@ export class ZHeader {
   }
 
   renderIntMenuItem(menuItem: HeaderIntLink): HTMLSpanElement {
+    const {id, name, url} = menuItem;
     return (
       <span>
         <a
-          href={menuItem.url}
-          id={menuItem.id}
+          href={url}
+          id={id}
           class="menu-item"
           onClick={() => {
             this.activeMenuItem = menuItem;
           }}
         >
-          <span>{menuItem.name}</span>
+          <span>{name}</span>
           <i />
         </a>
         <svg
@@ -116,7 +117,7 @@ export class ZHeader {
           width="16"
           class={
             this.activeMenuItem
-              ? menuItem.id !== this.activeMenuItem.id && "hidden"
+              ? id !== this.activeMenuItem.id && "hidden"
               : "hidden"
           }
         >
@@ -127,7 +128,8 @@ export class ZHeader {
   }
 
   renderSubMenu(menuItem: HeaderIntLink): HTMLDivElement {
-    if (!menuItem.subMenu) {
+    const {subMenu} = menuItem;
+    if (!subMenu) {
       return;
     }
     return (
@@ -136,9 +138,7 @@ export class ZHeader {
         class={`dropdown-menu ${this.isSticky && "sticky"}`}
       >
         <div class="dropdown-links">
-          {menuItem.subMenu.map(item => (
-            <a href={item.url}>{item.name}</a>
-          ))}
+          {subMenu.map(item => <a href={item.url}>{item.name}</a>)}
         </div>
       </div>
     );
