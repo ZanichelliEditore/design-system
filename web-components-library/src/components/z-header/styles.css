@@ -153,6 +153,12 @@ header {
   grid-area: dropdown-menu;
   grid-column-gap: 8px;
   background: rgb(230, 230, 230);
+  height: 32px;
+  visibility: visible;
+}
+
+.dropdown-menu.hidden {
+  visibility: hidden;
 }
 
 .mobile-dropdown {
@@ -161,6 +167,7 @@ header {
 
 .dropdown-links {
   grid-area: dropdown-links;
+  max-height: 32px;
 }
 
 .arrow {

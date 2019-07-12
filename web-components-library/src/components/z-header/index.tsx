@@ -16,6 +16,7 @@ export class ZHeader {
   @State() isLogged: boolean = false;
   @State() isSticky: boolean = false;
   @State() activeMenuItem: HeaderIntLink;
+  @State() currentMenuItem: HeaderIntLink;
   @State() intMenuData: HeaderIntLink[];
   private extMenuData: HeaderExtLink[];
   private userData: HeaderUserData;
@@ -27,35 +28,47 @@ export class ZHeader {
     const navbar = this.element.shadowRoot.getElementById("main-header");
     const sticky = navbar.offsetTop;
     this.handleStickyNav(sticky);
-
     const links = this.element.shadowRoot.querySelectorAll(
       ".dropdown-links > a[href^='#']"
     );
-    // TODO: move to prop()
-    const sections = document.querySelectorAll("section");
-    let index = sections.length;
 
-    while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
-
-    links.forEach(link => {
-      link.classList.remove("active");
-    });
-    links[index].classList.add("active");
+    this.handleActiveOnScroll(links);
   }
 
   componentWillLoad() {
     this.intMenuData = JSON.parse(this.intlinkdata);
     this.extMenuData = JSON.parse(this.extlinkdata);
-    this.activeMenuItem =
-      this.intMenuData.filter(
-        (menu: HeaderIntLink) => window.location.hash === menu.url
-      )[0] || this.intMenuData[0];
-
+    this.activeMenuItem = this.setIntMenuItem();
+    this.currentMenuItem = this.setIntMenuItem();
     if (this.userdata) {
       this.userData = JSON.parse(this.userdata);
       this.isLogged = this.userData.islogged;
     }
-    // console.log(this.isLogged);
+  }
+
+  handleActiveOnScroll(links) {
+    links.forEach((link) => {
+      link.classList.remove("active");
+
+      const currentSection = document.querySelector(link.hash);
+      console.table([currentSection.offsetHeight + currentSection.offsetTop, currentSection.offsetTop, window.scrollY])
+      if (currentSection.offsetTop <= window.scrollY && currentSection.offsetHeight + currentSection.offsetTop > window.scrollY) {
+        link.classList.add("active");
+      }
+    });
+
+  }
+
+  setIntMenuItem(): HeaderIntLink {
+    return (
+      this.intMenuData.filter(
+        (menu: HeaderIntLink) => window.location.hash === menu.url
+      )[0] || this.intMenuData[0]
+    );
+  }
+
+  getSectionsArray() {
+    return;
   }
 
   handleStickyNav(sticky): void {
@@ -115,7 +128,7 @@ export class ZHeader {
   }
 
   renderIntMenuItem(menuItem: HeaderIntLink): HTMLSpanElement {
-    const {id, name, url} = menuItem;
+    const { id, name, url } = menuItem;
     return (
       <span>
         <a
@@ -124,6 +137,13 @@ export class ZHeader {
           class="menu-item"
           onClick={() => {
             this.activeMenuItem = menuItem;
+            this.currentMenuItem = menuItem;
+          }}
+          onMouseEnter={() => {
+            this.activeMenuItem = menuItem;
+          }}
+          onMouseLeave={() => {
+            this.activeMenuItem = this.currentMenuItem;
           }}
         >
           <span>{name}</span>
@@ -145,13 +165,14 @@ export class ZHeader {
   }
 
   renderSubMenu(menuItem: HeaderIntLink): HTMLDivElement {
-    if (!this.isLogged || !this.ismyz) {
-      return <div />;
-    }
 
-    const {subMenu} = menuItem;
-    if (!subMenu) {
-      return;
+    if (!menuItem["subMenu"] || !this.isLogged || !this.ismyz) {
+      return (
+        <div
+          id="dropdown-menu"
+          class={`dropdown-menu hidden ${this.isSticky && "sticky"}`}
+        />
+      );
     }
     return (
       <div
@@ -159,7 +180,9 @@ export class ZHeader {
         class={`dropdown-menu ${this.isSticky && "sticky"}`}
       >
         <div class="dropdown-links">
-          {subMenu.map(item => <a href={item.url}>{item.name}</a>)}
+          {menuItem.subMenu.map(item => (
+            <a href={item.url}>{item.name}</a>
+          ))}
         </div>
       </div>
     );
@@ -209,10 +232,7 @@ export class ZHeader {
 
   renderMainHeader(): HTMLDivElement {
     return (
-      <div
-        id="main-header"
-        class={`main-header ${this.isSticky && "sticky"} ${!this.ismyz && "myz-out"}`}
-      >
+      <div id="main-header" class={`main-header ${this.isSticky && "sticky"} ${!this.ismyz && "myz-out"}`}>
         {this.renderLogoDiv()}
         {this.renderMobileMenu()}
         {this.renderIntMenu(this.intMenuData)}
@@ -223,7 +243,7 @@ export class ZHeader {
         {this.renderExtMenu(this.extMenuData)}
         {this.renderLoginDiv(this.userData)}
       </div>
-    )
+    );
   }
 
   renderMobileMenu(): HTMLDivElement {
@@ -240,7 +260,7 @@ export class ZHeader {
           <span class="bar" />
         </div>
       </div>
-    )
+    );
   }
 
   render() {

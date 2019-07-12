@@ -16,6 +16,19 @@
 | `type`       | `type`       |             | `string`  | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [z-header](../z-header)
+
+### Graph
+```mermaid
+graph TD;
+  z-header --> z-button
+  style z-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
