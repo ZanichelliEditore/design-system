@@ -170,7 +170,8 @@ header {
   padding-bottom: 4px;
 }
 
-.dropdown-links > a:hover {
+.dropdown-links > a:hover,
+.dropdown-links > a.active {
   color: rgb(66, 69, 72);
   border-bottom: 2px solid rgb(0, 86, 193);
 }

@@ -21,6 +21,17 @@ export class ZHeader {
     const navbar = this.element.shadowRoot.getElementById("main-header");
     const sticky = navbar.offsetTop;
     this.handleStickyNav(sticky);
+
+    const links =  this.element.shadowRoot.querySelectorAll(".dropdown-links > a[href^='#']");
+    const sections = document.querySelectorAll('section');
+    let index = sections.length;
+  
+    while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
+    
+    links.forEach((link) => {
+      link.classList.remove('active')
+    });
+    links[index].classList.add('active');
   }
 
   componentWillLoad() {
