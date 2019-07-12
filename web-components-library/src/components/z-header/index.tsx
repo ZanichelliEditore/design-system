@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
-import { HeaderIntLink, HeaderExtLink } from "../../beans";
+import { HeaderIntLink, HeaderExtLink, HeaderUserData } from "../../beans";
 
 @Component({
   tag: "z-header",
@@ -11,10 +11,14 @@ export class ZHeader {
   @Prop() intlink: string; // json per link interni del main-nav, con possibili sottomenu
   @Prop() intlinkdata: string;
   @Prop() extlinkdata: string;
+  @Prop() userdata?: string;
+  @Prop() ismyz: boolean;
+  @State() isLogged: boolean = false;
   @State() isSticky: boolean = false;
   @State() activeMenuItem: HeaderIntLink;
   @State() intMenuData: HeaderIntLink[];
   private extMenuData: HeaderExtLink[];
+  private userData: HeaderUserData;
 
   @Element() private element: HTMLElement;
 
@@ -42,11 +46,16 @@ export class ZHeader {
   componentWillLoad() {
     this.intMenuData = JSON.parse(this.intlinkdata);
     this.extMenuData = JSON.parse(this.extlinkdata);
-    console.log(this.extMenuData);
     this.activeMenuItem =
       this.intMenuData.filter(
         (menu: HeaderIntLink) => window.location.hash === menu.url
       )[0] || this.intMenuData[0];
+
+    if (this.userdata) {
+      this.userData = JSON.parse(this.userdata);
+      this.isLogged = this.userData.islogged;
+    }
+    // console.log(this.isLogged);
   }
 
   handleStickyNav(sticky): void {
@@ -90,6 +99,10 @@ export class ZHeader {
   }
 
   renderIntMenu(menuItems: HeaderIntLink[]): HTMLDivElement {
+    if (!this.isLogged) {
+      return <div />;
+    }
+
     return (
       <div id="link-int" class="link-int">
         {menuItems.map(item => this.renderIntMenuItem(item))}
@@ -128,6 +141,10 @@ export class ZHeader {
   }
 
   renderSubMenu(menuItem: HeaderIntLink): HTMLDivElement {
+    if (!this.isLogged) {
+      return <div />;
+    }
+
     const {subMenu} = menuItem;
     if (!subMenu) {
       return;
@@ -145,6 +162,10 @@ export class ZHeader {
   }
 
   renderExtMenu(menuItems: HeaderExtLink[]): HTMLDivElement {
+    if (!this.isLogged) {
+      return <div />;
+    }
+
     return (
       <div id="link-ext" class="link-ext">
         {menuItems.map(
@@ -168,13 +189,16 @@ export class ZHeader {
     );
   }
 
-  renderLoginDiv(): HTMLDivElement {
+  renderLoginDiv(userData: HeaderUserData): HTMLDivElement {
     return (
       <div class="login">
-        <z-menu-dropdown
-          nomeutente="Dario Docente"
-          menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'
-        />
+        {this.isLogged
+          ? <z-menu-dropdown
+              nomeutente={userData.name}
+              menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'
+            />
+          : <z-button label="entra" type="secondary" onClick={() => alert('login')}></z-button>
+        }
       </div>
     );
   }
@@ -193,7 +217,7 @@ export class ZHeader {
         </div>
 
         {this.renderExtMenu(this.extMenuData)}
-        {this.renderLoginDiv()}
+        {this.renderLoginDiv(this.userData)}
       </div>
     )
   }

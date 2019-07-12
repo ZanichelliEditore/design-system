@@ -74,3 +74,9 @@ export type HeaderExtLink = {
   url: string;
   icon?: string;
 };
+
+export type HeaderUserData = {
+  islogged: boolean;
+  id?: number;
+  name?: string;
+};
