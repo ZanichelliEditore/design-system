@@ -86,6 +86,7 @@ header {
   margin: 8px 8px 0 8px;
   padding: 11px;
   text-decoration: none;
+  outline: none;
 }
 
 .link-int > span > .menu-item:focus,
@@ -93,6 +94,10 @@ header {
   background: rgb(66, 69, 72);
   border-radius: 4px;
   cursor: pointer;
+}
+
+.link-int > span > .menu-item::-moz-focus-inner {
+  border: 0;
 }
 
 .link-int > span > .menu-item:focus + svg {
@@ -386,7 +391,7 @@ header {
   }
 
   .link-ext-span:hover,
-  .link-ext-span):focus {
+  .link-ext-span:focus {
     background-color: rgb(230, 230, 230);
   }
 
