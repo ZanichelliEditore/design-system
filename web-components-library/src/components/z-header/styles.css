@@ -34,7 +34,7 @@ header {
   height: 32px;
   width: auto;
   margin: 0;
-  transform: scale(0.6, 0.6);
+  transform: scale(0.6);
 }
 
 .main-header {
@@ -215,7 +215,7 @@ header {
 /* Tablet breakpoint */
 @media only screen and (max-width: 1024px) {
   .main-header {
-    grid-template-columns: 282px 1fr 4fr 0.5fr;
+    grid-template-columns: 292px 1fr 4fr 100px;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "logo link-int link-ext login";
     grid-area: main-header;
@@ -224,7 +224,7 @@ header {
   }
 
   .dropdown-menu {
-    grid-template-columns: 282px 1fr;
+    grid-template-columns: 292px 1fr;
   }
 
   .login {
