@@ -161,6 +161,7 @@ header {
   visibility: hidden;
 }
 
+.mobile-header,
 .mobile-hr,
 .mobile-login,
 .mobile-dropdown {
