@@ -132,7 +132,6 @@ export class ZHeader {
     return (
       <div id="link-int" class="link-int">
         {menuItems.map(item => this.renderIntMenuItem(item))}
-        <hr class="mobile-hr"/>
       </div>
     );
   }
@@ -271,7 +270,6 @@ export class ZHeader {
               Entra
             </span>
         )}
-        <hr class="mobile-hr"/>
       </div>
     );
   }
@@ -287,11 +285,8 @@ export class ZHeader {
         {this.renderMobileMenu()}
         {this.renderMobileLoginDiv(this.userData)}
         {this.renderIntMenu(this.intMenuData)}
-        <div id="mobile-dropdown-d" class="mobile-dropdown">
-          <z-button label="Scarica la app BookTab" />
-        </div>
-
         {this.renderExtMenu(this.extMenuData)}
+        {this.renderBooktabButton()}
         {this.renderLoginDiv(this.userData)}
       </div>
     );
@@ -322,6 +317,14 @@ export class ZHeader {
     mainHeader.classList.toggle('open');
     const mobileButton = this.element.shadowRoot.getElementById("mobile-menu");
     mobileButton.classList.toggle("is-active");
+  }
+
+  renderBooktabButton(): HTMLDivElement {
+    return (
+      <div id="booktab-button" class="booktab-button">
+        <z-button label="Scarica la app BookTab" type="primary" />
+      </div>
+    )
   }
 
   render() {
