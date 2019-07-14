@@ -1,5 +1,6 @@
 import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
 import { HeaderIntLink, HeaderExtLink, HeaderUserData } from "../../beans";
+import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
   tag: "z-header",
@@ -18,6 +19,7 @@ export class ZHeader {
   @State() activeMenuItem: HeaderIntLink;
   @State() currentMenuItem: HeaderIntLink;
   @State() intMenuData: HeaderIntLink[];
+  @State() isMobile: boolean = true;
   private extMenuData: HeaderExtLink[];
   private userData: HeaderUserData;
   private sections: object;
@@ -35,6 +37,11 @@ export class ZHeader {
     );
 
     this.handleActiveOnScroll(links);
+  }
+
+  @Listen('resize', {target: 'window'})
+  handleResize(): void {
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
   componentWillLoad() {
@@ -274,6 +281,24 @@ export class ZHeader {
     );
   }
 
+  renderDesktopHeader(): HTMLHeadingElement {
+    return (
+      <header>
+        {this.renderTopHeader()}
+        {this.renderMainHeader()}
+        {this.renderSubMenu(this.activeMenuItem)}
+        </header>
+      );
+  }
+
+  renderMobileHeader(): HTMLHeadingElement {
+    return (
+      <header>
+        {this.renderFlexHeader()}
+      </header>
+    );
+  }
+
   renderMainHeader(): HTMLDivElement {
     return (
       <div
@@ -282,19 +307,34 @@ export class ZHeader {
           "myz-out"}`}
       >
         {this.renderLogoDiv()}
-        {this.renderMobileMenu()}
-        {this.renderMobileLoginDiv(this.userData)}
         {this.renderIntMenu(this.intMenuData)}
         {this.renderExtMenu(this.extMenuData)}
-        {this.renderBooktabButton()}
         {this.renderLoginDiv(this.userData)}
       </div>
-    );
+    )
+  }
+
+  renderFlexHeader(): HTMLDivElement {
+    return (
+      <div
+        id="main-header"
+        class={`main-header ${this.isSticky && "sticky"} ${!this.ismyz &&
+          "myz-out"}`}
+      >
+        {this.renderMobileMenu()}
+        <div id="mobile-content" class="mobile-content">
+          {this.renderMobileLoginDiv(this.userData)}
+          {this.renderIntMenu(this.intMenuData)}
+          {this.renderExtMenu(this.extMenuData)}
+          {this.renderBooktabButton()}
+        </div>
+      </div>
+    )
   }
 
   renderMobileMenu(): HTMLDivElement {
     return (
-      <div class="mobile-header">
+      <div id="mobile-header" class="mobile-header">
         {this.renderLogoDiv()}    
       <div
         class="menu-mobile"
@@ -313,7 +353,7 @@ export class ZHeader {
   }
 
   handleMobileButtonClick(): void {
-    const mainHeader = this.element.shadowRoot.getElementById('main-header');
+    const mainHeader = this.element.shadowRoot.getElementById('mobile-content');
     mainHeader.classList.toggle('open');
     const mobileButton = this.element.shadowRoot.getElementById("mobile-menu");
     mobileButton.classList.toggle("is-active");
@@ -328,12 +368,6 @@ export class ZHeader {
   }
 
   render() {
-    return (
-      <header>
-        {this.renderTopHeader()}
-        {this.renderMainHeader()}
-        {this.renderSubMenu(this.activeMenuItem)}
-      </header>
-    );
+    return !this.isMobile ? this.renderDesktopHeader() : this.renderMobileHeader();
   }
 }

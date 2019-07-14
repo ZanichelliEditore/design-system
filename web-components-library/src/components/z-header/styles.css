@@ -270,32 +270,50 @@ header {
     width: 100%;
     grid-area: main-header;
     left: 0px;
-    padding: 6px 0;
+    padding: 0;
     height: auto;
-    max-height: 52px;
     overflow: hidden;
-    transition: all 0.3s linear;
-  }
-
-  .main-header.open {
-    padding: 2px 0;
-    max-height: 640px;
-    transition: all 0.3s ease-in-out;
+    background-color: transparent;
   }
 
   .logo {
-    margin-top: 8px;
+    margin-top: 7px;
   }
-
-  .main-header > .logo {
-    display: none;
-  } 
 
   .mobile-header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: center;
     width: 100%;
+    background-color: rgb(48, 56, 64);
+    z-index: inherit;
+    height: 56px;
+  }
+
+  .mobile-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    top: -769px;
+    background-color: rgb(48, 56, 64);
+    transition: top 0.5s cubic-bezier(.46,0,1,.79);
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .mobile-content.open {
+    height: auto;
+    top: -1px;
+    transition: top 0.7s cubic-bezier(0,.79,.46,1);
   }
 
   .menu-mobile {
@@ -306,7 +324,7 @@ header {
     align-items: center;
     align-content: center;
     color: rgb(230, 230, 230);
-    margin: 0 8px;
+    padding: 0 24px;
   }
 
   .menu-toggle {
@@ -353,11 +371,18 @@ header {
     height: 100%;
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     align-items: stretch;
     align-content: stretch;
-    justify-content: center;
-    background-color: rgb(48, 56, 64);
+    padding: 8px 0px 8px 0px;
   }
+
+  .mobile-login, 
+  .link-int {
+    border-bottom: 1px solid#e6e6e6;
+  }
+
   .booktab-button > z-button {
     display: flex;
     flex-direction: row;
@@ -367,7 +392,6 @@ header {
     align-content: center;
     width: 100%;
     margin: 4px auto;
-    padding: 8px 0px;
   }
 
   .link-int > span {
@@ -388,8 +412,12 @@ header {
     align-items: stretch;
     align-content: stretch;
     width: 100%;
-    margin: 4px auto;
-    padding: 8px 32px 8px 32px;
+    margin: 8px auto 0px auto;
+    padding: 8px 4px;
+  }
+
+  .link-int > span:first-child > .menu-item {
+    margin-top: 0;
   }
 
   .link-int > span > svg {
@@ -404,23 +432,23 @@ header {
     width: 100%;
     margin: 4px auto;
     color: #3f3f3f;
-    padding: 6px 32px;
-  }
-  
-  .mobile-login > span > .menu-item:focus,
-  .mobile-login > span > .menu-item:hover {
-    background: rgb(66, 69, 72);
-    cursor: pointer;
+    padding: 6px 4px;
   }
 
   .mobile-login > span {
-    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: stretch;
     align-content: flex-start;
+    padding: 8px 4px;
+  }
+
+  .mobile-login > span:focus,
+  .mobile-login > span:hover {
+    background: rgb(66, 69, 72);
+    cursor: pointer;
   }
 
   .mobile-login > span > .menu-item {
@@ -439,8 +467,6 @@ header {
     align-items: stretch;
     align-content: stretch;
     width: 100%;
-    margin: 4px auto;
-    padding: 8px 32px 8px 32px;
   }
 
   .menu-item > i::before {
