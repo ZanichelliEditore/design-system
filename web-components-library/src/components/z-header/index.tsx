@@ -285,6 +285,7 @@ export class ZHeader {
       >
         {this.renderLogoDiv()}
         {this.renderMobileMenu()}
+        {this.renderMobileLoginDiv(this.userData)}
         {this.renderIntMenu(this.intMenuData)}
         <div id="mobile-dropdown-d" class="mobile-dropdown">
           <z-button label="Scarica la app BookTab" />
@@ -292,13 +293,14 @@ export class ZHeader {
 
         {this.renderExtMenu(this.extMenuData)}
         {this.renderLoginDiv(this.userData)}
-        {this.renderMobileLoginDiv(this.userData)}
       </div>
     );
   }
 
   renderMobileMenu(): HTMLDivElement {
     return (
+      <div class="mobile-header">
+        {this.renderLogoDiv()}    
       <div
         class="menu-mobile"
         id="mobile-menu-wrapper"
@@ -310,6 +312,7 @@ export class ZHeader {
           <span class="bar" />
         </div>
         <span>Menu</span>
+      </div>
       </div>
     );
   }
