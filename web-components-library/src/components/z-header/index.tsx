@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
-import { HeaderIntLink, HeaderExtLink, HeaderUserData } from "../../beans";
+import { HeaderLink, HeaderUserData } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
@@ -16,11 +16,11 @@ export class ZHeader {
   @Prop() ismyz: boolean;
   @State() isLogged: boolean = false;
   @State() isSticky: boolean = false;
-  @State() activeMenuItem: HeaderIntLink;
-  @State() currentMenuItem: HeaderIntLink;
-  @State() intMenuData: HeaderIntLink[];
+  @State() activeMenuItem: HeaderLink;
+  @State() currentMenuItem: HeaderLink;
+  @State() intMenuData: HeaderLink[];
   @State() isMobile: boolean = true;
-  private extMenuData: HeaderExtLink[];
+  private extMenuData: HeaderLink[];
   private userData: HeaderUserData;
   private sections: object;
   private readonly topOffset: number = 90;
@@ -84,10 +84,10 @@ export class ZHeader {
     });
   }
 
-  setIntMenuItem(): HeaderIntLink {
+  setIntMenuItem(): HeaderLink {
     return (
       this.intMenuData.filter(
-        (menu: HeaderIntLink) => window.location.hash === menu.url
+        (menu: HeaderLink) => window.location.hash === menu.url
       )[0] || this.intMenuData[0]
     );
   }
@@ -131,7 +131,7 @@ export class ZHeader {
     );
   }
 
-  renderIntMenu(menuItems: HeaderIntLink[]): HTMLDivElement {
+  renderIntMenu(menuItems: HeaderLink[]): HTMLDivElement {
     if (!this.isLogged || !this.ismyz) {
       return <div />;
     }
@@ -143,7 +143,7 @@ export class ZHeader {
     );
   }
 
-  renderIntMenuItem(menuItem: HeaderIntLink): HTMLSpanElement {
+  renderIntMenuItem(menuItem: HeaderLink): HTMLSpanElement {
     const { id, name, url } = menuItem;
     return (
       <span>
@@ -163,7 +163,7 @@ export class ZHeader {
           }}
         >
           <span>{name}</span>
-          {menuItem.subMenu ? <i />: null} 
+          {menuItem.subMenu ? <i />: null}
         </a>
         <svg
           height="8"
@@ -180,7 +180,7 @@ export class ZHeader {
     );
   }
 
-  renderSubMenu(menuItem: HeaderIntLink): HTMLDivElement {
+  renderSubMenu(menuItem: HeaderLink): HTMLDivElement {
     const active = menuItem.subMenu ? menuItem.subMenu[0] : null;
     if (!menuItem["subMenu"] || !this.isLogged || !this.ismyz) {
       return (
@@ -215,7 +215,7 @@ export class ZHeader {
     );
   }
 
-  renderExtMenu(menuItems: HeaderExtLink[]): HTMLDivElement {
+  renderExtMenu(menuItems: HeaderLink[]): HTMLDivElement {
     if (!this.isLogged) {
       return <div />;
     }
@@ -223,7 +223,7 @@ export class ZHeader {
     return (
       <div id="link-ext" class="link-ext">
         {menuItems.map(
-          (menuItem: HeaderExtLink): HTMLSpanElement => {
+          (menuItem: HeaderLink): HTMLSpanElement => {
             const { id, name, url, icon } = menuItem;
             return (
               <span class={`link-ext-span ${this.ismyz && "myz"}`}>
@@ -331,7 +331,7 @@ export class ZHeader {
   renderMobileMenu(): HTMLDivElement {
     return (
       <div id="mobile-header" class="mobile-header">
-        {this.renderLogoDiv()}    
+        {this.renderLogoDiv()}
       <div
         class="menu-mobile"
         id="mobile-menu-wrapper"

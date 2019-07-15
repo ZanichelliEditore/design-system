@@ -61,17 +61,11 @@ export type FilterItem = {
   isfixed: boolean;
 };
 
-export type HeaderIntLink = {
+export type HeaderLink = {
   id: string;
   name: string;
-  subMenu?: HeaderIntLink[];
+  subMenu?: HeaderLink[];
   url?: string;
-};
-
-export type HeaderExtLink = {
-  id: string;
-  name: string;
-  url: string;
   icon?: string;
 };
 
@@ -79,4 +73,5 @@ export type HeaderUserData = {
   islogged: boolean;
   id?: number;
   name?: string;
+  usergroup: number;
 };
