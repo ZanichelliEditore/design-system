@@ -126,7 +126,7 @@ export class ZHeader {
     return (
       <div class="logo">
         <z-logo
-          link="https:\\www.zanichelli.it"
+          link="https://www.zanichelli.it"
           targetblank={true}
           imageurl="../../assets/images/png/zanichelli-logo-2.png"
           imagealt="logo zanichelli"
@@ -180,23 +180,28 @@ export class ZHeader {
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
-        {this.isMobile ? this.renderMobileSubMenu(menuItem) : null}
+        {this.renderMenuItemsData(menuItem)}
       </span>
     );
   }
 
-  renderMobileSubMenu(menuItem: HeaderLink): HTMLUListElement | null {
-    if (!menuItem.subMenu) return null;
-    const listItems: ListItemBean[] = menuItem.subMenu.map((item: HeaderLink) => {
-      return {
-        text: item.name,
-        link: item.url
+  renderMenuItemsData(menuItem) {
+    if (this.isMobile && !menuItem.subMenu) return null;
+    const listItems: ListItemBean[] = menuItem.subMenu.map(
+      (item: HeaderLink) => {
+        return {
+          text: item.name,
+          link: item.url
+        };
       }
-    })
+    );
+    return this.renderMobileSubMenu(listItems);
+  }
 
+  renderMobileSubMenu(menuItems: ListItemBean[]): HTMLUListElement | null {
     return (
       <span class="mobile-dropdown">
-        <z-list list={listItems}></z-list>
+        <z-list list={menuItems} />
       </span>
     );
   }
@@ -289,18 +294,26 @@ export class ZHeader {
   renderMobileLoginDiv(userData: HeaderUserData): HTMLDivElement {
     return (
       <div id="mobile-login" class="mobile-login">
-        {this.isLogged ? (
-          <span>
-            <a class="menu-item" href="#">
-              <span>{userData.name}</span>
-              <i />
-            </a>
-          </span>
-        ) : (
-          <span>Entra</span>
-        )}
+        <span>
+          <a class="menu-item" href="#">
+            <span>{userData.name}</span>
+            <i />
+          </a>
+          {this.renderUserData(userData)}
+        </span>
       </div>
     );
+  }
+
+  renderUserData(userData) {
+    if (this.isMobile && !userData) return null;
+    const listItems = [
+      {
+        text: "Profilo",
+        link: "http://www.zanichelli.it"
+      }
+    ];
+    return this.renderMobileSubMenu(listItems);
   }
 
   renderDesktopHeader(): HTMLHeadingElement {

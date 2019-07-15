@@ -437,7 +437,7 @@ header {
 
   .mobile-login > span {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: stretch;
@@ -516,37 +516,5 @@ header {
   .mobile-dropdown.visible {
     height: 80px;
     transition: all 0.3s ease;
-  }
-
-  .dropdown-links > a {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: stretch;
-    align-content: stretch;
-    width: auto;
-    height: auto;
-    color: rgb(0, 86, 193);
-    font-size: 16px;
-    letter-spacing: 0.23px;
-    line-height: 16px;
-    text-decoration: none;
-    margin: 0px;
-    padding: 4px;
-    border-bottom: 2px solid rgb(202, 209, 216);
-  }
-
-  .dropdown-links > a:last-child {
-    border-bottom: none;
-  }
-
-  .dropdown-links > a:focus {
-    color: rgb(66, 69, 72);
-    border-bottom: 2px solid rgb(202, 209, 216);
-  }
-
-  .dropdown-links > a:focus:last-child {
-    border-bottom: none;
   }
 }
