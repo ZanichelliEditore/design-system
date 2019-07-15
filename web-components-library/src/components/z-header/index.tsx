@@ -54,6 +54,7 @@ export class ZHeader {
       this.userData = JSON.parse(this.userdata);
       this.isLogged = this.userData.islogged;
     }
+    this.handleResize();
   }
 
   getSections(intMenuData): object {
@@ -294,7 +295,13 @@ export class ZHeader {
   renderMobileHeader(): HTMLHeadingElement {
     return (
       <header>
-        {this.renderFlexHeader()}
+        {this.renderMobileMenu()}
+        <div id="mobile-content" class="mobile-content">
+          {this.renderMobileLoginDiv(this.userData)}
+          {this.renderIntMenu(this.intMenuData)}
+          {this.renderExtMenu(this.extMenuData)}
+          {this.renderBooktabButton()}
+        </div>
       </header>
     );
   }
@@ -311,20 +318,6 @@ export class ZHeader {
         {this.renderExtMenu(this.extMenuData)}
         {this.renderLoginDiv(this.userData)}
       </div>
-    )
-  }
-
-  renderFlexHeader(): HTMLDivElement {
-    return (
-      <section id="main-header" class="main-header">
-        {this.renderMobileMenu()}
-        <div id="mobile-content" class="mobile-content">
-          {this.renderMobileLoginDiv(this.userData)}
-          {this.renderIntMenu(this.intMenuData)}
-          {this.renderExtMenu(this.extMenuData)}
-          {this.renderBooktabButton()}
-          </div>
-      </section>
     )
   }
 

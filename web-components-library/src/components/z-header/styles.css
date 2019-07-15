@@ -259,23 +259,6 @@ header {
     display: none;
   }
 
-  .main-header {
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    width: 100%;
-    grid-area: main-header;
-    left: 0px;
-    padding: 0;
-    height: auto;
-    overflow: hidden;
-    background-color: red;
-  }
-
   .logo {
     margin-top: 7px;
   }
@@ -291,10 +274,12 @@ header {
     background-color: rgb(48, 56, 64);
     z-index: inherit;
     height: 56px;
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
   }
 
   .mobile-content {
-    position: relative;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -302,18 +287,22 @@ header {
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: auto;
-    top: -769px;
+    /* height: 0px; */
     background-color: rgb(48, 56, 64);
-    transition: top 0.5s cubic-bezier(.46,0,1,.79);
     padding-left: 10%;
     padding-right: 10%;
+    position: fixed;
+    top: 56px;
+    z-index: 1000;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(.46,0,1,.79);
   }
 
   .mobile-content.open {
-    height: auto;
-    top: -1px;
-    transition: top 0.7s cubic-bezier(0,.79,.46,1);
+    /* height: auto; */
+    max-height: 100vh;
+    transition: max-height 0.8s cubic-bezier(0,.79,.46,1);
   }
 
   .menu-mobile {
@@ -333,9 +322,9 @@ header {
     flex-direction: column;
     margin: 0 8px;
   }
-  
+
   /* MOBILE MENU & ANIMATION */
-  
+
   .menu-toggle .bar {
     width: 20px;
     height: 2px;
@@ -343,11 +332,11 @@ header {
     margin: 2px auto;
     transition: all 0.3s ease-in-out;
   }
-  
+
   .menu-toggle:hover {
     cursor: pointer;
   }
-  
+
   #mobile-menu.is-active .bar:nth-child(2) {
     opacity: 0;
   }
@@ -378,7 +367,7 @@ header {
     padding: 8px 0px 8px 0px;
   }
 
-  .mobile-login, 
+  .mobile-login,
   .link-int {
     border-bottom: 1px solid#e6e6e6;
   }
@@ -403,7 +392,7 @@ header {
     align-items: stretch;
     align-content: flex-start;
   }
-  
+
   .link-int > span > .menu-item {
     display: flex;
     flex-direction: row;
