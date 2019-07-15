@@ -316,19 +316,15 @@ export class ZHeader {
 
   renderFlexHeader(): HTMLDivElement {
     return (
-      <div
-        id="main-header"
-        class={`main-header ${this.isSticky && "sticky"} ${!this.ismyz &&
-          "myz-out"}`}
-      >
+      <section id="main-header" class="main-header">
         {this.renderMobileMenu()}
         <div id="mobile-content" class="mobile-content">
           {this.renderMobileLoginDiv(this.userData)}
           {this.renderIntMenu(this.intMenuData)}
           {this.renderExtMenu(this.extMenuData)}
           {this.renderBooktabButton()}
-        </div>
-      </div>
+          </div>
+      </section>
     )
   }
 
