@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
-import { HeaderLink, HeaderUserData } from "../../beans";
+import { HeaderLink, HeaderUserData, ListItemBean } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
@@ -29,6 +29,7 @@ export class ZHeader {
 
   @Listen("scroll", { target: "document" })
   handleScroll(): void {
+    if (this.isMobile) return;
     const navbar = this.element.shadowRoot.getElementById("main-header");
     const sticky = navbar.offsetTop;
     this.handleStickyNav(sticky);
@@ -39,7 +40,7 @@ export class ZHeader {
     this.handleActiveOnScroll(links);
   }
 
-  @Listen('resize', {target: 'window'})
+  @Listen("resize", { target: "window" })
   handleResize(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
@@ -59,13 +60,15 @@ export class ZHeader {
 
   getSections(intMenuData): object {
     let obj = {};
-    if (intMenuData) {
-      intMenuData.forEach(menuItem => {
+    if (!intMenuData) return obj;
+
+    intMenuData.forEach(menuItem => {
+      if (menuItem.url && !menuItem.url.startsWith("http")) {
         const tmp = document.querySelector(menuItem.url);
         if (tmp) obj[menuItem.id] = tmp;
         obj = { ...obj, ...this.getSections(menuItem.subMenu) };
-      });
-    }
+      }
+    });
     return obj;
   }
 
@@ -164,7 +167,7 @@ export class ZHeader {
           }}
         >
           <span>{name}</span>
-          {menuItem.subMenu ? <i />: null}
+          {menuItem.subMenu ? <i /> : null}
         </a>
         <svg
           height="8"
@@ -177,6 +180,23 @@ export class ZHeader {
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
+        {this.isMobile ? this.renderMobileSubMenu(menuItem) : null}
+      </span>
+    );
+  }
+
+  renderMobileSubMenu(menuItem: HeaderLink): HTMLUListElement | null {
+    if (!menuItem.subMenu) return null;
+    const listItems: ListItemBean[] = menuItem.subMenu.map((item: HeaderLink) => {
+      return {
+        text: item.name,
+        link: item.url
+      }
+    })
+
+    return (
+      <span class="mobile-dropdown">
+        <z-list list={listItems}></z-list>
       </span>
     );
   }
@@ -199,12 +219,15 @@ export class ZHeader {
         <div class="dropdown-links">
           {menuItem.subMenu.map(item => (
             <a
-              class={item.id === active.id ? 'active': ''}
+              class={item.id === active.id ? "active" : ""}
               href={item.url}
               onClick={e => {
                 if (this.sections[item.id]) {
                   e.preventDefault();
-                  window.scrollTo(0, this.sections[item.id].offsetTop - this.topOffset);
+                  window.scrollTo(
+                    0,
+                    this.sections[item.id].offsetTop - this.topOffset
+                  );
                 }
               }}
             >
@@ -267,16 +290,14 @@ export class ZHeader {
     return (
       <div id="mobile-login" class="mobile-login">
         {this.isLogged ? (
-            <span>
-              <a class="menu-item" href="#">
-                <span>{userData.name}</span>
-                <i />
-              </a>
-              </span>
-          ) : (
-            <span>
-              Entra
-            </span>
+          <span>
+            <a class="menu-item" href="#">
+              <span>{userData.name}</span>
+              <i />
+            </a>
+          </span>
+        ) : (
+          <span>Entra</span>
         )}
       </div>
     );
@@ -288,20 +309,6 @@ export class ZHeader {
         {this.renderTopHeader()}
         {this.renderMainHeader()}
         {this.renderSubMenu(this.activeMenuItem)}
-        </header>
-      );
-  }
-
-  renderMobileHeader(): HTMLHeadingElement {
-    return (
-      <header>
-        {this.renderMobileMenu()}
-        <div id="mobile-content" class="mobile-content">
-          {this.renderMobileLoginDiv(this.userData)}
-          {this.renderIntMenu(this.intMenuData)}
-          {this.renderExtMenu(this.extMenuData)}
-          {this.renderBooktabButton()}
-        </div>
       </header>
     );
   }
@@ -318,32 +325,46 @@ export class ZHeader {
         {this.renderExtMenu(this.extMenuData)}
         {this.renderLoginDiv(this.userData)}
       </div>
-    )
+    );
+  }
+
+  renderMobileHeader(): HTMLHeadingElement {
+    return (
+      <header>
+        {this.renderMobileMenu()}
+        <div id="mobile-content" class="mobile-content">
+          {this.renderMobileLoginDiv(this.userData)}
+          {this.renderIntMenu(this.intMenuData)}
+          {this.renderExtMenu(this.extMenuData)}
+          {this.renderBooktabButton()}
+        </div>
+      </header>
+    );
   }
 
   renderMobileMenu(): HTMLDivElement {
     return (
       <div id="mobile-header" class="mobile-header">
         {this.renderLogoDiv()}
-      <div
-        class="menu-mobile"
-        id="mobile-menu-wrapper"
-        onClick={() => this.handleMobileButtonClick()}
-      >
-        <div class="menu-toggle" id="mobile-menu">
-          <span class="bar" />
-          <span class="bar" />
-          <span class="bar" />
+        <div
+          class="menu-mobile"
+          id="mobile-menu-wrapper"
+          onClick={() => this.handleMobileButtonClick()}
+        >
+          <div class="menu-toggle" id="mobile-menu">
+            <span class="bar" />
+            <span class="bar" />
+            <span class="bar" />
+          </div>
+          <span>Menu</span>
         </div>
-        <span>Menu</span>
-      </div>
       </div>
     );
   }
 
   handleMobileButtonClick(): void {
-    const mainHeader = this.element.shadowRoot.getElementById('mobile-content');
-    mainHeader.classList.toggle('open');
+    const mainHeader = this.element.shadowRoot.getElementById("mobile-content");
+    mainHeader.classList.toggle("open");
     const mobileButton = this.element.shadowRoot.getElementById("mobile-menu");
     mobileButton.classList.toggle("is-active");
   }
@@ -353,10 +374,12 @@ export class ZHeader {
       <div id="booktab-button" class="booktab-button">
         <z-button label="Scarica la app BookTab" type="primary" />
       </div>
-    )
+    );
   }
 
   render() {
-    return !this.isMobile ? this.renderDesktopHeader() : this.renderMobileHeader();
+    return this.isMobile
+      ? this.renderMobileHeader()
+      : this.renderDesktopHeader();
   }
 }

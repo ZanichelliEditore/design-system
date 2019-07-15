@@ -204,6 +204,7 @@ header {
 .main-header.sticky {
   position: fixed;
   top: 0;
+  left:0;
   width: 100%;
   z-index: 999;
 }
@@ -211,8 +212,9 @@ header {
 .dropdown-menu.sticky {
   position: fixed;
   top: 52px;
+  left:0;
   width: 100%;
-  z-index: 9;
+  z-index: 999;
 }
 
 /* Tablet breakpoint */
@@ -253,9 +255,8 @@ header {
     grid-template-areas: "main-header";
   }
 
-  .top-header,
-  .dropdown-menu,
-  .login {
+
+  .dropdown-menu {
     display: none;
   }
 
@@ -276,7 +277,8 @@ header {
     height: 56px;
     position: fixed;
     top: 0px;
-    z-index: 1000;
+    left: 0;
+    z-index: 999;
   }
 
   .mobile-content {
@@ -286,14 +288,13 @@ header {
     align-content: center;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
     /* height: 0px; */
     background-color: rgb(48, 56, 64);
-    padding-left: 10%;
-    padding-right: 10%;
     position: fixed;
     top: 56px;
-    z-index: 1000;
+    left: 0;
+    z-index: 999;
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s cubic-bezier(.46,0,1,.79);
@@ -364,12 +365,7 @@ header {
     justify-content: space-between;
     align-items: stretch;
     align-content: stretch;
-    padding: 8px 0px 8px 0px;
-  }
-
-  .mobile-login,
-  .link-int {
-    border-bottom: 1px solid#e6e6e6;
+    padding: 0;
   }
 
   .booktab-button > z-button {
@@ -386,7 +382,7 @@ header {
   .link-int > span {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: stretch;
@@ -401,8 +397,20 @@ header {
     align-items: stretch;
     align-content: stretch;
     width: 100%;
-    margin: 8px auto 0px auto;
-    padding: 8px 4px;
+    box-sizing: border-box;
+    margin: 0px auto 0px auto;
+    padding: 0px 32px 0px 32px;
+    line-height: 44px;
+  }
+
+  .link-int > span > .menu-item:hover,
+  .link-int > span > .menu-item:focus {
+    border-radius: 0px;
+  }
+
+  .link-int > span > .menu-item > i {
+    padding-top: 16px;
+    height: 28px;
   }
 
   .link-int > span:first-child > .menu-item {
@@ -421,7 +429,10 @@ header {
     width: 100%;
     margin: 4px auto;
     color: #3f3f3f;
-    padding: 6px 4px;
+    box-sizing: border-box;
+    margin: 0px auto 0px auto;
+    padding: 0px 32px 0px 32px;
+    line-height: 44px;
   }
 
   .mobile-login > span {
@@ -431,20 +442,18 @@ header {
     justify-content: flex-start;
     align-items: stretch;
     align-content: flex-start;
-    padding: 8px 4px;
   }
 
   .mobile-login > span:focus,
   .mobile-login > span:hover {
     background: rgb(66, 69, 72);
-    cursor: pointer;
   }
 
   .mobile-login > span > .menu-item {
     height: auto;
     color: rgb(255, 255, 255);
     letter-spacing: 0.2px;
-    line-height: 14px;
+    /* line-height: 14px; */
     font-weight: var(--font-sb);
     font-size: 16px;
     text-decoration: none;
@@ -456,6 +465,15 @@ header {
     align-items: stretch;
     align-content: stretch;
     width: 100%;
+    box-sizing: border-box;
+    margin: 0px auto 0px auto;
+    padding: 0px 32px 0px 32px;
+    line-height: 44px;
+  }
+
+  .mobile-login > span > .menu-item > i {
+    padding-top: 16px;
+    height: 28px;
   }
 
   .menu-item > i::before {
@@ -486,7 +504,12 @@ header {
     background: white;
     display: block;
     overflow: hidden;
-    height: 0;
+    /* height: 0; */
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0px auto 0px auto;
+    padding: 0px 32px 0px 32px;
+    line-height: 44px;
     transition: all 0.3s ease;
   }
 
