@@ -47,6 +47,7 @@ export type ListItemBean = {
   text: string;
   link?: string;
   icon?: string;
+  listitemid?: string;
 };
 
 export type MenuDropdownItem = {
