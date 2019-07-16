@@ -516,17 +516,17 @@ header {
     background: white;
     display: block;
     overflow: hidden;
-    /* height: 0; */
     width: 100%;
     box-sizing: border-box;
     margin: 0px auto 0px auto;
     padding: 0px 32px 0px 32px;
     line-height: 44px;
-    transition: all 0.3s ease;
+    max-height: 0px;
+    transition: max-height 0.3s ease;
   }
 
   .mobile-dropdown.visible {
-    height: 80px;
-    transition: all 0.3s ease;
+    max-height: 100vh;
+    transition: max-height 0.3s ease;
   }
 }
