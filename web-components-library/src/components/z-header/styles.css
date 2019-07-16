@@ -252,6 +252,7 @@ header {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "main-header";
+    margin-bottom: 56px;
   }
 
   .dropdown-menu {
