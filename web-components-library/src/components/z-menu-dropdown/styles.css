@@ -20,13 +20,18 @@ a, a:visited, a:active {
   border: 1px solid transparent;
   width:147px;
   cursor: pointer;
+  outline: none;
+}
+
+:host >div::-moz-focus-inner {
+  border: 0;
 }
 
 :host > div:hover, :host > div.menuOpened:hover {
   color: var(--myz-blue-dark);
 }
 
-:host > div:focus, :host > div.menuOpened {
+:host > div:focus {
   color: var(--myz-blue);
   border: 1px solid var(--myz-blue);
   box-shadow: 0px 0px 2px 2px var(--myz-blue-light);
