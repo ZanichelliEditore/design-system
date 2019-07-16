@@ -283,14 +283,14 @@ export class ZHeader {
             menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'
           />
         ) : (
-          <z-button
-            label="entra"
-            type="secondary"
-            onClick={() => alert("login")}
-          />
+          this.renderLoginButton()
         )}
       </div>
     );
+  }
+
+  renderLoginButton() {
+    return (<z-button label="entra" type="secondary" onClick={() => alert("login")} />);
   }
 
   renderMobileLoginDiv(userData: HeaderUserData): HTMLDivElement {
@@ -361,23 +361,35 @@ export class ZHeader {
     return (
       <div id="mobile-header" class="mobile-header">
         {this.renderLogoDiv()}
-        <div
-          class="menu-mobile"
-          id="mobile-menu-wrapper"
-          onClick={() => this.isMenuMobileOpen = !this.isMenuMobileOpen }
-        >
-          <div class={`menu-toggle ${this.isMenuMobileOpen && "is-active"}`} id="mobile-menu">
-            <span class="bar" />
-            <span class="bar" />
-            <span class="bar" />
-          </div>
-          <span>Menu</span>
+        {this.renderMobileMenuToggle()}
+      </div>
+    );
+  }
+
+  renderMobileMenuToggle() {
+    if (!this.isLogged) {
+      return this.renderLoginButton();
+    }
+
+    return (
+      <div
+        class="menu-mobile"
+        id="mobile-menu-wrapper"
+        onClick={() => this.isMenuMobileOpen = !this.isMenuMobileOpen }
+      >
+        <div class={`menu-toggle ${this.isMenuMobileOpen && "is-active"}`} id="mobile-menu">
+          <span class="bar" />
+          <span class="bar" />
+          <span class="bar" />
         </div>
+        <span>Menu</span>
       </div>
     );
   }
 
   renderMobileMenuContent(): HTMLDivElement | null {
+    if (!this.isLogged) return null;
+
     return (
       <div id="mobile-content" class={`mobile-content ${this.isMenuMobileOpen && "open"}`}>
         {this.renderMobileLoginDiv(this.userData)}
