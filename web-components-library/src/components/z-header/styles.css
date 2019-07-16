@@ -412,9 +412,17 @@ header {
     border-radius: 0px;
   }
 
+  .link-int > span > .menu-item > span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .link-int > span > .menu-item > i {
     padding-top: 16px;
     height: 28px;
+    width: 24px;
+    text-align: right;
   }
 
   .link-int > span:first-child > .menu-item {
@@ -478,15 +486,14 @@ header {
   .mobile-login > span > .menu-item > i {
     padding-top: 16px;
     height: 28px;
+    width: 24px;
+    text-align: right;
   }
 
   .mobile-login > span > .menu-item > span {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    align-content: stretch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .mobile-login > span > .menu-item > span > img {
