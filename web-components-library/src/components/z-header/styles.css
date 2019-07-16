@@ -310,6 +310,21 @@ header {
     transition: max-height 0.8s cubic-bezier(0, 0.79, 0.46, 1);
   }
 
+  hr {
+      display: block;
+      position: relative;
+      padding: 0;
+      margin: 8px 32px;
+      height: 0;
+      width: calc(100% - 64px);
+      max-height: 0;
+      font-size: 1px;
+      line-height: 0;
+      clear: both;
+      border: none;
+      border-top: 1px solid var(--text-gray-medium);
+  }
+
   .menu-mobile {
     display: flex;
     flex-direction: row;
@@ -516,7 +531,7 @@ header {
     width: 0.45em;
     margin-top: 2px;
     margin-left: 2px;
-    margin-right: 2px;
+    margin-right: 6px;
     transition: all 200ms linear;
   }
 

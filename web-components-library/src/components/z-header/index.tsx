@@ -408,7 +408,9 @@ export class ZHeader {
     return (
       <div id="mobile-content" class={`mobile-content ${this.isMenuMobileOpen && "open"}`}>
         {this.renderMobileLoginDiv(this.userData)}
+        <hr />
         {this.renderIntMenu(this.intMenuData)}
+        <hr />
         {this.renderExtMenu(this.extMenuData)}
         {this.renderBooktabButton()}
       </div>
