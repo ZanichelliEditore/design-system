@@ -46,6 +46,12 @@ export class ZHeader {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
+  @Listen('zListItemLinkClick')
+  handleZListItemLinkClick(event: CustomEvent): void {
+    this.isMenuMobileOpen = false;
+    this.handleSubMenuClick(event.detail.e, event.detail.linkId.replace('link_', ''));
+  }
+
   componentWillLoad() {
     this.intMenuData = JSON.parse(this.intlinkdata);
     this.extMenuData = JSON.parse(this.extlinkdata);
@@ -159,7 +165,7 @@ export class ZHeader {
           onClick={() => {
             this.activeMenuItem = menuItem;
             this.currentMenuItem = menuItem;
-            this.toggleMobileMenuItem(menuItem.id);
+            this.handleToggleMobileMenuItem(menuItem.id);
           }}
           onMouseEnter={() => {
             this.activeMenuItem = menuItem;
@@ -187,10 +193,10 @@ export class ZHeader {
     );
   }
 
-  toggleMobileMenuItem(elementId: string): void {
+  handleToggleMobileMenuItem(elementId: string): void {
     if (!this.isMobile) return;
-    this.element.shadowRoot.getElementById("mobile-dropdown-" + elementId).classList.toggle('visible')
     this.element.shadowRoot.getElementById(elementId).classList.toggle('isopen');
+    this.element.shadowRoot.getElementById("mobile-dropdown-" + elementId).classList.toggle('visible');
   }
 
   renderMenuItemsData(menuItem): HTMLSpanElement | null {
@@ -199,7 +205,8 @@ export class ZHeader {
       (item: HeaderLink) => {
         return {
           text: item.name,
-          link: item.url
+          link: item.url,
+          listitemid: item.id
         };
       }
     );
@@ -208,8 +215,8 @@ export class ZHeader {
 
   renderMobileSubMenu(menuItems: ListItemBean[], id?: string): HTMLSpanElement {
     return (
-      <span class="mobile-dropdown" id={`${id ? "mobile-dropdown-"+id : ""}`}>
-        <z-list list={menuItems} onClick={() => this.isMenuMobileOpen = false} />
+      <span class="mobile-dropdown" id={id ? `mobile-dropdown-${id}` : ""}>
+        <z-list list={menuItems} />
       </span>
     );
   }
@@ -230,19 +237,11 @@ export class ZHeader {
         class={`dropdown-menu ${this.isSticky && "sticky"}`}
       >
         <div class="dropdown-links">
-          {menuItem.subMenu.map(item => (
+          {menuItem.subMenu.map((item: HeaderLink): HTMLAnchorElement => (
             <a
               class={item.id === active.id ? "active" : ""}
               href={item.url}
-              onClick={e => {
-                if (this.sections[item.id]) {
-                  e.preventDefault();
-                  window.scrollTo(
-                    0,
-                    this.sections[item.id].offsetTop - this.topOffset
-                  );
-                }
-              }}
+              onClick={e => this.handleSubMenuClick(e, item.id)}
             >
               {item.name}
             </a>
@@ -250,6 +249,16 @@ export class ZHeader {
         </div>
       </div>
     );
+  }
+
+  handleSubMenuClick(e: MouseEvent, itemId: string): void {
+    if (this.sections[itemId]) {
+      e.preventDefault();
+      window.scrollTo(
+        0,
+        this.sections[itemId].offsetTop - this.topOffset
+      );
+    }
   }
 
   renderExtMenu(menuItems: HeaderLink[]): HTMLDivElement {
@@ -304,7 +313,7 @@ export class ZHeader {
       <div id="mobile-login" class="mobile-login">
         <span>
           <a class="menu-item" id="user-data" href="#"
-            onClick={() => this.toggleMobileMenuItem("user-data")}
+            onClick={() => this.handleToggleMobileMenuItem("user-data")}
           >
             <span>
               <img src="../assets/images/png/user_transparent.png"/>
