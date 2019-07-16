@@ -51,7 +51,7 @@ header {
 }
 
 .main-header.myz-out {
-  background-color:var(--bg-artboard-white);
+  background-color: var(--bg-artboard-white);
 }
 
 .logo {
@@ -130,7 +130,6 @@ header {
   padding: 8px;
 }
 
-
 .link-ext-span.myz:hover,
 .link-ext-span.myz:focus {
   background: rgb(66, 69, 72);
@@ -204,7 +203,7 @@ header {
 .main-header.sticky {
   position: fixed;
   top: 0;
-  left:0;
+  left: 0;
   width: 100%;
   z-index: 999;
 }
@@ -212,7 +211,7 @@ header {
 .dropdown-menu.sticky {
   position: fixed;
   top: 52px;
-  left:0;
+  left: 0;
   width: 100%;
   z-index: 999;
 }
@@ -255,7 +254,6 @@ header {
     grid-template-areas: "main-header";
   }
 
-
   .dropdown-menu {
     display: none;
   }
@@ -297,13 +295,13 @@ header {
     z-index: 999;
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(.46,0,1,.79);
+    transition: max-height 0.5s cubic-bezier(0.46, 0, 1, 0.79);
   }
 
   .mobile-content.open {
     /* height: auto; */
     max-height: 100vh;
-    transition: max-height 0.8s cubic-bezier(0,.79,.46,1);
+    transition: max-height 0.8s cubic-bezier(0, 0.79, 0.46, 1);
   }
 
   .menu-mobile {
@@ -375,8 +373,7 @@ header {
     justify-content: center;
     align-items: center;
     align-content: center;
-    width: 100%;
-    margin: 4px auto;
+    padding: 16Px 0px 32px 0px;
   }
 
   .link-int > span {
@@ -474,6 +471,21 @@ header {
   .mobile-login > span > .menu-item > i {
     padding-top: 16px;
     height: 28px;
+  }
+
+  .mobile-login > span > .menu-item > span {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+  }
+
+  .mobile-login > span > .menu-item > span > img {
+    padding-right: 8px;
+    height: 16px;
+    width: 16px;
   }
 
   .menu-item > i::before {

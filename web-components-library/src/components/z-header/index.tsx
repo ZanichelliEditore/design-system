@@ -185,8 +185,8 @@ export class ZHeader {
     );
   }
 
-  renderMenuItemsData(menuItem) {
-    if (this.isMobile && !menuItem.subMenu) return null;
+  renderMenuItemsData(menuItem): HTMLSpanElement | null {
+    if (!menuItem.subMenu) return null;
     const listItems: ListItemBean[] = menuItem.subMenu.map(
       (item: HeaderLink) => {
         return {
@@ -198,7 +198,7 @@ export class ZHeader {
     return this.renderMobileSubMenu(listItems);
   }
 
-  renderMobileSubMenu(menuItems: ListItemBean[]): HTMLUListElement | null {
+  renderMobileSubMenu(menuItems: ListItemBean[]): HTMLSpanElement {
     return (
       <span class="mobile-dropdown">
         <z-list list={menuItems} />
@@ -296,7 +296,8 @@ export class ZHeader {
       <div id="mobile-login" class="mobile-login">
         <span>
           <a class="menu-item" href="#">
-            <span>{userData.name}</span>
+
+            <span><img src="../assets/images/png/user_transparent.png"/> {userData.name}</span>
             <i />
           </a>
           {this.renderUserData(userData)}
@@ -385,7 +386,7 @@ export class ZHeader {
   renderBooktabButton(): HTMLDivElement {
     return (
       <div id="booktab-button" class="booktab-button">
-        <z-button label="Scarica la app BookTab" type="primary" />
+        <z-button label="Scarica la app BookTab" type="primary" icon="download.png"/>
       </div>
     );
   }
