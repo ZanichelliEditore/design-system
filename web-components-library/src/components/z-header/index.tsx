@@ -159,7 +159,7 @@ export class ZHeader {
           onClick={() => {
             this.activeMenuItem = menuItem;
             this.currentMenuItem = menuItem;
-            this.element.shadowRoot.getElementById("mobile-dropdown-" + menuItem.id).classList.toggle('visible');
+            this.toggleMobileMenuItem(menuItem.id);
           }}
           onMouseEnter={() => {
             this.activeMenuItem = menuItem;
@@ -185,6 +185,12 @@ export class ZHeader {
         {this.renderMenuItemsData(menuItem)}
       </span>
     );
+  }
+
+  toggleMobileMenuItem(elementId: string): void {
+    if (!this.isMobile) return;
+    this.element.shadowRoot.getElementById("mobile-dropdown-" + elementId).classList.toggle('visible')
+    this.element.shadowRoot.getElementById(elementId).classList.toggle('isopen');
   }
 
   renderMenuItemsData(menuItem): HTMLSpanElement | null {
@@ -298,7 +304,7 @@ export class ZHeader {
       <div id="mobile-login" class="mobile-login">
         <span>
           <a class="menu-item" id="user-data" href="#"
-            onClick={() => this.element.shadowRoot.getElementById("mobile-dropdown-user-data").classList.toggle('visible') }
+            onClick={() => this.toggleMobileMenuItem("user-data")}
           >
             <span>
               <img src="../assets/images/png/user_transparent.png"/>
