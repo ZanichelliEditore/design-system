@@ -322,7 +322,7 @@ header {
       display: block;
       position: relative;
       padding: 0;
-      margin: 8px 32px;
+      margin: 0px 32px;
       height: 0;
       width: calc(100% - 64px);
       max-height: 0;
