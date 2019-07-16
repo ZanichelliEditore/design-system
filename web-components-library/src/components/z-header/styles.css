@@ -281,6 +281,10 @@ header {
     z-index: 999;
   }
 
+  .mobile-header.myz-out {
+    background-color: var(--bg-artboard-white);
+  }
+
   .mobile-header > z-button {
     margin: 0 16px;
   }
@@ -310,6 +314,10 @@ header {
     transition: max-height 0.8s cubic-bezier(0, 0.79, 0.46, 1);
   }
 
+  .mobile-content.myz-out {
+    background-color: var(--bg-artboard-white);
+  }
+
   hr {
       display: block;
       position: relative;
@@ -332,9 +340,13 @@ header {
     justify-content: flex-start;
     align-items: center;
     align-content: center;
-    color: rgb(230, 230, 230);
+    color: var(--bg-artboard-white);
     padding: 16px 24px;
     cursor: pointer;
+  }
+
+  .myz-out .menu-mobile {
+    color: var(--text-gray-dark);
   }
 
   .menu-toggle {
@@ -349,10 +361,15 @@ header {
   .menu-toggle .bar {
     width: 20px;
     height: 2px;
-    background-color: rgb(230, 230, 230);
+    background-color: var(--bg-artboard-white);
     margin: 2px auto;
     transition: all 0.3s ease-in-out;
   }
+
+  .myz-out .menu-toggle .bar {
+    background-color: var(--text-gray-dark);
+  }
+
 
   .menu-toggle:hover {
     cursor: pointer;
@@ -476,6 +493,11 @@ header {
     background: rgb(66, 69, 72);
   }
 
+  .myz-out .mobile-login > span:focus,
+  .myz-out .mobile-login > span:hover {
+    background: none;
+  }
+
   .mobile-login > span > .menu-item {
     height: auto;
     color: rgb(255, 255, 255);
@@ -496,6 +518,10 @@ header {
     margin: 0px auto 0px auto;
     padding: 0px 32px 0px 32px;
     line-height: 44px;
+  }
+
+  .myz-out .mobile-login > span > .menu-item {
+    color: var(--text-gray-dark);
   }
 
   .mobile-login > span > .menu-item > i {

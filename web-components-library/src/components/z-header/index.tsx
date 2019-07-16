@@ -352,8 +352,7 @@ export class ZHeader {
     return (
       <div
         id="main-header"
-        class={`main-header ${this.isSticky && "sticky"} ${!this.ismyz &&
-          "myz-out"}`}
+        class={`main-header ${this.isSticky && "sticky"} ${!this.ismyz && "myz-out"}`}
       >
         {this.renderLogoDiv()}
         {this.renderIntMenu(this.intMenuData)}
@@ -374,7 +373,7 @@ export class ZHeader {
 
   renderMobileMenu(): HTMLDivElement {
     return (
-      <div id="mobile-header" class="mobile-header">
+      <div id="mobile-header" class={`mobile-header ${!this.ismyz && "myz-out"}`}>
         {this.renderLogoDiv()}
         {this.renderMobileMenuToggle()}
       </div>
@@ -406,9 +405,9 @@ export class ZHeader {
     if (!this.isLogged) return null;
 
     return (
-      <div id="mobile-content" class={`mobile-content ${this.isMenuMobileOpen && "open"}`}>
+      <div id="mobile-content" class={`mobile-content ${this.isMenuMobileOpen && "open"} ${!this.ismyz && "myz-out"}`}>
         {this.renderMobileLoginDiv(this.userData)}
-        <hr />
+        {this.ismyz && <hr />}
         {this.renderIntMenu(this.intMenuData)}
         <hr />
         {this.renderExtMenu(this.extMenuData)}
