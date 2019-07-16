@@ -252,7 +252,7 @@ header {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "main-header";
-    margin-bottom: 56px;
+    margin-bottom: 64px;
   }
 
   .dropdown-menu {
@@ -274,7 +274,7 @@ header {
     width: 100%;
     background-color: rgb(48, 56, 64);
     z-index: inherit;
-    height: 56px;
+    height: 64px;
     position: fixed;
     top: 0px;
     left: 0;
@@ -296,7 +296,7 @@ header {
     /* height: 0px; */
     background-color: rgb(48, 56, 64);
     position: fixed;
-    top: 56px;
+    top: 64px;
     left: 0;
     z-index: 999;
     max-height: 0px;
@@ -318,7 +318,8 @@ header {
     align-items: center;
     align-content: center;
     color: rgb(230, 230, 230);
-    padding: 0 24px;
+    padding: 16px 24px;
+    cursor: pointer;
   }
 
   .menu-toggle {
