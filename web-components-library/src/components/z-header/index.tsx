@@ -31,9 +31,6 @@ export class ZHeader {
   @Listen("scroll", { target: "document" })
   handleScroll(): void {
     if (this.isMobile) return;
-    const navbar = this.element.shadowRoot.getElementById("main-header");
-    const sticky = navbar.offsetTop;
-    this.handleStickyNav(sticky);
     const links = this.element.shadowRoot.querySelectorAll(
       ".dropdown-links > a[href^='#']"
     );
@@ -104,18 +101,6 @@ export class ZHeader {
         (menu: HeaderLink) => window.location.hash === menu.url
       )[0] || this.intMenuData[0]
     );
-  }
-
-  handleStickyNav(sticky): void {
-    // TODO: emettere sticky event;
-    const mainContent = document.getElementById("main-content");
-    if (window.pageYOffset > sticky) {
-      this.isSticky = true;
-      mainContent.style.paddingTop = `${this.topOffset}px`;
-    } else {
-      this.isSticky = false;
-      mainContent.style.paddingTop = "0px";
-    }
   }
 
   renderTopHeader(): HTMLDivElement {

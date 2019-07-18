@@ -15,6 +15,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-header](../z-header)
+
 ### Depends on
 
 - [z-list-item](../z-list-item)
@@ -23,6 +27,7 @@
 ```mermaid
 graph TD;
   z-list --> z-list-item
+  z-header --> z-list
   style z-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

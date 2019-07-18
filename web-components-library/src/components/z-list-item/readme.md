@@ -7,11 +7,19 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `icon`   | `icon`    |             | `string` | `undefined` |
-| `link`   | `link`    |             | `string` | `undefined` |
-| `text`   | `text`    |             | `string` | `undefined` |
+| Property     | Attribute    | Description | Type     | Default     |
+| ------------ | ------------ | ----------- | -------- | ----------- |
+| `icon`       | `icon`       |             | `string` | `undefined` |
+| `link`       | `link`       |             | `string` | `undefined` |
+| `listitemid` | `listitemid` |             | `string` | `undefined` |
+| `text`       | `text`       |             | `string` | `undefined` |
+
+
+## Events
+
+| Event                | Description | Type               |
+| -------------------- | ----------- | ------------------ |
+| `zListItemLinkClick` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

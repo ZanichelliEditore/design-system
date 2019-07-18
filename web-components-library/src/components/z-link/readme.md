@@ -13,8 +13,16 @@
 | `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
 | `iswhite`    | `iswhite`    |             | `boolean` | `false`     |
 | `label`      | `label`      |             | `string`  | `undefined` |
+| `linkid`     | `linkid`     |             | `string`  | `undefined` |
 | `target`     | `target`     |             | `string`  | `'_self'`   |
 | `url`        | `url`        |             | `string`  | `undefined` |
+
+
+## Events
+
+| Event        | Description | Type               |
+| ------------ | ----------- | ------------------ |
+| `zLinkClick` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

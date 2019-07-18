@@ -1,6 +1,9 @@
 /* Basic style  */
 
 header {
+  position: sticky;
+  top: -36px;
+  z-index: 99;
   display: grid;
   grid-template-columns: 1fr 0.8fr 1.5fr 1.1fr 0.7fr;
   grid-template-rows: 0.2fr 0.2fr 0.2fr;
@@ -197,22 +200,6 @@ header {
 
 .menu-mobile {
   display: none;
-}
-
-/* Stycky bar style  */
-
-.main-header.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-.dropdown-menu.sticky {
-  position: fixed;
-  top: 52px;
-  left: 0;
-  width: 100%;
 }
 
 /* Tablet breakpoint */

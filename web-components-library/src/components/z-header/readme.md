@@ -22,6 +22,7 @@
 ### Depends on
 
 - [z-logo](../z-logo)
+- [z-list](../z-list)
 - [z-link](../z-link)
 - [z-menu-dropdown](../z-menu-dropdown)
 - [z-button](../z-button)
@@ -30,9 +31,11 @@
 ```mermaid
 graph TD;
   z-header --> z-logo
+  z-header --> z-list
   z-header --> z-link
   z-header --> z-menu-dropdown
   z-header --> z-button
+  z-list --> z-list-item
   style z-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
