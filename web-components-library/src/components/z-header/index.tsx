@@ -28,14 +28,13 @@ export class ZHeader {
 
   @Element() private element: HTMLElement;
 
-  @Listen("scroll", { target: "document" })
-  handleScroll(): void {
+  @Listen("scroll", { target: "window", capture: true })
+  handleScroll(e): void {
     if (this.isMobile) return;
     const links = this.element.shadowRoot.querySelectorAll(
       ".dropdown-links > a[href^='#']"
     );
-
-    this.handleActiveOnScroll(links);
+    this.handleActiveOnScroll(e, links);
   }
 
   @Listen("resize", { target: "window" })
@@ -43,7 +42,7 @@ export class ZHeader {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
-  @Listen("zListItemLinkClick")
+  @Listen("zListItemLinkClick", { capture: true })
   handleZListItemLinkClick(event: CustomEvent): void {
     this.isMenuMobileOpen = false;
     this.handleSubMenuClick(
@@ -79,16 +78,16 @@ export class ZHeader {
     return obj;
   }
 
-  handleActiveOnScroll(links) {
+  handleActiveOnScroll(e, links) {
     links.forEach(link => {
       link.classList.remove("active");
 
       const currentSection = document.querySelector(link.hash);
+
       if (
-        currentSection &&
-        currentSection.offsetTop <= window.scrollY + this.topOffset &&
-        currentSection.offsetHeight + currentSection.offsetTop >
-          window.scrollY + this.topOffset
+        currentSection
+        && currentSection.offsetTop <= e.srcElement.scrollTop + this.topOffset
+        && currentSection.offsetHeight + currentSection.offsetTop > e.srcElement.scrollTop + this.topOffset
       ) {
         link.classList.add("active");
       }
@@ -150,10 +149,10 @@ export class ZHeader {
           href={url}
           id={id}
           class="menu-item"
-          onClick={() => {
+          onClick={(e) => {
             this.activeMenuItem = menuItem;
             this.currentMenuItem = menuItem;
-            this.handleToggleMobileMenuItem(menuItem.id);
+            this.handleToggleMobileMenuItem(e, menuItem.id);
           }}
           onMouseEnter={() => {
             this.activeMenuItem = menuItem;
@@ -181,8 +180,9 @@ export class ZHeader {
     );
   }
 
-  handleToggleMobileMenuItem(elementId: string): void {
+  handleToggleMobileMenuItem(e, elementId: string): void {
     if (!this.isMobile) return;
+    e.preventDefault()
     this.element.shadowRoot
       .getElementById(elementId)
       .classList.toggle("isopen");
@@ -308,8 +308,8 @@ export class ZHeader {
           <a
             class="menu-item"
             id="user-data"
-            href="#"
-            onClick={() => this.handleToggleMobileMenuItem("user-data")}
+            href="#home"
+            onClick={(e) => this.handleToggleMobileMenuItem(e,"user-data")}
           >
             <span>
               <img src="../assets/images/png/user_transparent.png" />
