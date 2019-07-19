@@ -285,8 +285,7 @@ export class ZHeader {
         {this.isLogged ? (
           <z-menu-dropdown
             nomeutente={userData.name}
-            menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"#home"}]'
-            buttonid="logout-button"
+            menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"#home", "linkid":"logout-button"}]'
           />
         ) : (
           this.renderLoginButton()

@@ -37,7 +37,11 @@ export class ZMenuDropdown {
       return(
         <ul>
           {this.linkarray.map( bean => (
-            <li><a id={this.buttonid} href={bean.link}>{bean.text}</a></li>
+            <li>
+              <a id={bean.linkid} href={bean.link}>
+                {bean.text}
+              </a>
+            </li>
           ))}
         </ul>
       );

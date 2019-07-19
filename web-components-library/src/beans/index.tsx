@@ -53,6 +53,7 @@ export type ListItemBean = {
 export type MenuDropdownItem = {
   text: string;
   link: string;
+  linkid?: string;
 };
 
 export type FilterItem = {
