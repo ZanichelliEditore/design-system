@@ -9,6 +9,7 @@
 
 | Property     | Attribute    | Description | Type      | Default     |
 | ------------ | ------------ | ----------- | --------- | ----------- |
+| `buttonid`   | `buttonid`   |             | `string`  | `undefined` |
 | `icon`       | `icon`       |             | `string`  | `undefined` |
 | `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
 | `issmall`    | `issmall`    |             | `boolean` | `false`     |

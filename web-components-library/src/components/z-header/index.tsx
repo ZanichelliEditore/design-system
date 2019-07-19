@@ -298,7 +298,7 @@ export class ZHeader {
 
   renderLoginButton() {
     return (
-      <z-button label="entra" type="secondary" id="login-button"/>
+      <z-button label="entra" type="secondary" buttonid="login-button"/>
     );
   }
 
