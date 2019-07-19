@@ -59,6 +59,7 @@ export class ZHeader {
     this.sections = this.getSections(this.intMenuData);
     if (this.userdata) {
       this.userData = JSON.parse(this.userdata);
+      console.log(this.userdata, this.userData)
       this.isLogged = this.userData.islogged;
     }
     this.handleResize();
@@ -214,15 +215,15 @@ export class ZHeader {
   }
 
   renderSubMenu(menuItem: HeaderLink): HTMLDivElement {
-    const active = menuItem.subMenu ? menuItem.subMenu[0] : null;
-    if (!menuItem["subMenu"] || !this.isLogged || !this.ismyz) {
+    if (!menuItem || !menuItem["subMenu"] || !this.isLogged || !this.ismyz) {
       return (
         <div
-          id="dropdown-menu"
-          class={`dropdown-menu hidden ${this.isSticky && "sticky"}`}
+        id="dropdown-menu"
+        class={`dropdown-menu hidden ${this.isSticky && "sticky"}`}
         />
-      );
-    }
+        );
+      }
+    const active = menuItem.subMenu ? menuItem.subMenu[0] : null;
     return (
       <div
         id="dropdown-menu"
@@ -297,7 +298,7 @@ export class ZHeader {
 
   renderLoginButton() {
     return (
-      <z-button label="entra" type="secondary" onClick={() => alert("login")} />
+      <z-button label="entra" type="secondary" id="login-button"/>
     );
   }
 
