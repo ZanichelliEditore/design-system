@@ -9,6 +9,7 @@
 
 | Property      | Attribute     | Description | Type     | Default     |
 | ------------- | ------------- | ----------- | -------- | ----------- |
+| `buttonid`    | `buttonid`    |             | `string` | `undefined` |
 | `menucontent` | `menucontent` |             | `string` | `undefined` |
 | `nomeutente`  | `nomeutente`  |             | `string` | `undefined` |
 

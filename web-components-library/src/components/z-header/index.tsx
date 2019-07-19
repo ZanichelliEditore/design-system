@@ -59,7 +59,6 @@ export class ZHeader {
     this.sections = this.getSections(this.intMenuData);
     if (this.userdata) {
       this.userData = JSON.parse(this.userdata);
-      console.log(this.userdata, this.userData)
       this.isLogged = this.userData.islogged;
     }
     this.handleResize();
@@ -150,10 +149,10 @@ export class ZHeader {
           href={url}
           id={id}
           class="menu-item"
-          onClick={(e) => {
+          onClick={() => {
             this.activeMenuItem = menuItem;
             this.currentMenuItem = menuItem;
-            this.handleToggleMobileMenuItem(e, menuItem.id);
+            if (url.startsWith('#')) this.handleToggleMobileMenuItem(menuItem.id);
           }}
           onMouseEnter={() => {
             this.activeMenuItem = menuItem;
@@ -181,9 +180,8 @@ export class ZHeader {
     );
   }
 
-  handleToggleMobileMenuItem(e, elementId: string): void {
+  handleToggleMobileMenuItem(elementId: string): void {
     if (!this.isMobile) return;
-    e.preventDefault()
     this.element.shadowRoot
       .getElementById(elementId)
       .classList.toggle("isopen");
@@ -287,7 +285,8 @@ export class ZHeader {
         {this.isLogged ? (
           <z-menu-dropdown
             nomeutente={userData.name}
-            menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'
+            menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"#home"}]'
+            buttonid="logout-button"
           />
         ) : (
           this.renderLoginButton()
@@ -310,7 +309,7 @@ export class ZHeader {
             class="menu-item"
             id="user-data"
             href="#home"
-            onClick={(e) => this.handleToggleMobileMenuItem(e,"user-data")}
+            onClick={() => this.handleToggleMobileMenuItem("user-data")}
           >
             <span>
               <img src="../assets/images/png/user_transparent.png" />
@@ -333,7 +332,8 @@ export class ZHeader {
       },
       {
         text: "Esci",
-        link: "http://www.google.it"
+        link: "#home",
+        listitemid: "logout-button"
       }
     ];
     return this.renderMobileSubMenu(listItems, "user-data");

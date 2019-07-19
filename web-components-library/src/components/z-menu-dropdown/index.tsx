@@ -13,6 +13,7 @@ import  icons from "../../constants/icons";
 export class ZMenuDropdown {
   @Prop() nomeutente: string;
   @Prop() menucontent: string;
+  @Prop() buttonid: string
 
   @State() ismenuopen:boolean = false;
 
@@ -36,7 +37,7 @@ export class ZMenuDropdown {
       return(
         <ul>
           {this.linkarray.map( bean => (
-            <li><a href={bean.link}>{bean.text}</a></li>
+            <li><a id={this.buttonid} href={bean.link}>{bean.text}</a></li>
           ))}
         </ul>
       );
