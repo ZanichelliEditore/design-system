@@ -9,6 +9,8 @@ button {
   height: 44px;
   text-transform: uppercase;
   padding: 0px 16px;
+  cursor: pointer;
+  white-space: nowrap;
   outline: none;
 }
 button::-moz-focus-inner {
