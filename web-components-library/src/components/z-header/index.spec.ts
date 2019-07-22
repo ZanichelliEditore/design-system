@@ -1,5 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 
+import { ZList } from "../z-list";
+
 import { ZHeader } from "./index";
 
 describe("Suite test ZHeader", () => {
@@ -114,6 +116,99 @@ describe("Suite test ZHeader", () => {
     </mock:shadow-root>
   </z-header>
     `);
+  });
+
+  it("Test render ZHeader mobile myz loggato open", async () => {
+    const page = await newSpecPage({
+      components: [ZHeader, ZList],
+      html: initHeader(true, true, true, true, true)
+    });
+    page.rootInstance.isMobile = true;
+    page.rootInstance.isMenuMobileOpen = true;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+    <z-header
+      intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
+      extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15}'
+      ismyz="true"
+    >
+      <mock:shadow-root>
+        <header>
+          <div class="false mobile-header" id="mobile-header">
+            <div class="logo">
+              <z-logo imagealt="logo zanichelli" imageurl="../../assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank=""></z-logo>
+            </div>
+            <div class="menu-mobile" id="mobile-menu-wrapper">
+              <div class="menu-toggle is-active" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+              <span>Menu</span>
+            </div>
+          </div>
+          <div id="mobile-content" class="mobile-content open false">
+            <div id="mobile-login" class="mobile-login">
+              <span>
+                <a class="menu-item" id="user-data" href="#home">
+                  <span>
+                    <img src="../assets/images/png/user_transparent.png" />
+                    Dario Docente e Professore
+                  </span>
+                  <i></i>
+                </a>
+                <span class="mobile-dropdown" id="mobile-dropdown-user-data">
+                  <z-list>
+                    <mock:shadow-root>
+                      <ul>
+                        <z-list-item link="http://www.zanichelli.it" text="Profilo"></z-list-item>
+                        <z-list-item link="#home" listitemid="logout-button" text="Esci"></z-list-item>
+                      </ul>
+                    </mock:shadow-root>
+                  </z-list>
+                </span>
+              </span>
+            </div>
+            <hr />
+            <div id="link-int" class="link-int">
+              <span>
+                <a href="#home" id="home" class="menu-item">
+                  <span>Home</span>
+                  <i></i>
+                </a>
+                <svg height="8" width="16"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
+                <span class="mobile-dropdown" id="mobile-dropdown-home">
+                  <z-list>
+                    <mock:shadow-root>
+                      <ul>
+                        <z-list-item link="#libreria" text="la mia libreria" listitemid="libreria"></z-list-item>
+                      </ul>
+                    </mock:shadow-root>
+                  </z-list>
+                </span>
+              </span>
+              <span>
+                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano">
+                  <span>Dizionari</span>
+                </a>
+                <svg height="8" width="16" class="hidden"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
+              </span>
+            </div>
+            <hr />
+            <div id="link-ext" class="link-ext">
+              <span class="link-ext-span myz">
+                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" iswhite target="_blank" />
+              </span>
+            </div>
+            <div id="booktab-button" class="booktab-button">
+              <z-button label="Scarica la app BookTab" type="primary" icon="download.png"></z-button>
+            </div>
+          </div>
+        </header>
+      </mock:shadow-root>
+    </z-header>
+  `);
   });
 
   /*
