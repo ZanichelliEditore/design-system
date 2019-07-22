@@ -43,7 +43,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata=\"[]\" intlinkdata=\"[]\" ismyz=\"true\">
+    <z-header extlinkdata=\"[]\" intlinkdata=\"[]\" ismyz=\"true\" userdata=\"{&quot;islogged&quot;:false,&quot;usergroup&quot;:4}\">
     <mock:shadow-root>
       <header>
         <div class=\"false mobile-header\" id=\"mobile-header\">
@@ -61,18 +61,58 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader myz loggato", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(true, true, false)
+      html: initHeader(true, true, true, false, false)
     });
 
+    //Set mobile state
+    page.rootInstance.isMobile = true;
+    await page.waitForChanges();
+
     expect(page.root).toEqualHtml(`
-      <z-header>
-        <mock:shadow-root>
-          <div>
-            This is your z-header component
-            This is your default prop:
+    <z-header extlinkdata=\"[]\" intlinkdata=\"[]\" ismyz=\"true\" userdata=\"{&quot;islogged&quot;:true,&quot;id&quot;:123456,&quot;name&quot;:&quot;Dario Docente e Professore&quot;,&quot;usergroup&quot;:15}\">
+    <mock:shadow-root>
+      <header>
+        <div class=\"false mobile-header\" id=\"mobile-header\">
+          <div class=\"logo\">
+            <z-logo imagealt=\"logo zanichelli\" imageurl=\"../../assets/images/png/zanichelli-logo-2.png\" link=\"https://www.zanichelli.it\" targetblank=\"\"></z-logo>
           </div>
-        </mock:shadow-root>
-      </z-header>
+          <div class=\"menu-mobile\" id=\"mobile-menu-wrapper\">
+            <div class=\"false menu-toggle\" id=\"mobile-menu\">
+              <span class=\"bar\"></span>
+              <span class=\"bar\"></span>
+              <span class=\"bar\"></span>
+            </div>
+            <span>
+              Menu
+            </span>
+          </div>
+        </div>
+        <div class=\"false false mobile-content\" id=\"mobile-content\">
+          <div class=\"mobile-login\" id=\"mobile-login\">
+            <span>
+              <a class=\"menu-item\" href=\"#home\" id=\"user-data\">
+                <span>
+                  <img src=\"../assets/images/png/user_transparent.png\">
+                  Dario Docente e Professore
+                </span>
+                <i></i>
+              </a>
+              <span class=\"mobile-dropdown\" id=\"mobile-dropdown-user-data\">
+                <z-list></z-list>
+              </span>
+            </span>
+          </div>
+          <hr>
+          <div class=\"link-int\" id=\"link-int\"></div>
+          <hr>
+          <div class=\"link-ext\" id=\"link-ext\"></div>
+          <div class=\"booktab-button\" id=\"booktab-button\">
+            <z-button icon=\"download.png\" label=\"Scarica la app BookTab\" type=\"primary\"></z-button>
+          </div>
+        </div>
+      </header>
+    </mock:shadow-root>
+  </z-header>
     `);
   });
 
