@@ -19,7 +19,6 @@ a, a:visited, a:active {
   border-radius: 4px;
   border: 1px solid transparent;
   width:147px;
-  cursor: pointer;
   outline: none;
 }
 
@@ -88,6 +87,7 @@ div > span.user{
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  cursor: pointer;
 }
 
 ul {
