@@ -3,7 +3,6 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZLink } from "./index";
 
 describe("Suite test ZLink", () => {
-
   it("Test render ZLink vuoto", async () => {
     const page = await newSpecPage({
       components: [ZLink],
@@ -12,10 +11,10 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link>
         <mock:shadow-root>
-          <a></a>
+          <a class="false false" target="_self"></a>
         </mock:shadow-root>
       </z-link>
-    `)
+    `);
   });
 
   it("Test render ZLink con link", async () => {
@@ -26,10 +25,10 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link url="http://www.google.com/">
         <mock:shadow-root>
-          <a href="http://www.google.com/"></a>
+          <a href="http://www.google.com/" class="false false" target="_self"></a>
         </mock:shadow-root>
       </z-link>
-    `)
+    `);
   });
 
   it("Test render ZLink con label", async () => {
@@ -40,10 +39,10 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link label="label">
         <mock:shadow-root>
-          <a>label</a>
+          <a class="false false" target="_self">label</a>
         </mock:shadow-root>
       </z-link>
-    `)
+    `);
   });
 
   it("Test render ZLink con icon", async () => {
@@ -54,12 +53,12 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link icon="icon.png">
         <mock:shadow-root>
-          <a>
+          <a class="false false" target="_self">
             <img src="../../../assets/images/png/icon.png" />
           </a>
         </mock:shadow-root>
       </z-link>
-    `)
+    `);
   });
 
   it("Test render ZLink disabled", async () => {
@@ -70,11 +69,37 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link isdisabled>
         <mock:shadow-root>
-          <a class="disabled"></a>
+          <a class="disabled false" target="_self"></a>
         </mock:shadow-root>
       </z-link>
-    `)
+    `);
   });
 
-});
+  it("Test render ZLink white", async () => {
+    const page = await newSpecPage({
+      components: [ZLink],
+      html: `<z-link iswhite></z-link>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-link iswhite>
+        <mock:shadow-root>
+          <a class="white false" target="_self"></a>
+        </mock:shadow-root>
+      </z-link>
+    `);
+  });
 
+  it("Test render ZLink target", async () => {
+    const page = await newSpecPage({
+      components: [ZLink],
+      html: `<z-link target="_blank"></z-link>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-link target="_blank">
+        <mock:shadow-root>
+          <a class="false false" target="_blank"></a>
+        </mock:shadow-root>
+      </z-link>
+    `);
+  });
+});
