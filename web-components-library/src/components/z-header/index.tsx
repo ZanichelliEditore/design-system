@@ -160,7 +160,7 @@ export class ZHeader {
           }}
         >
           <span>{name}</span>
-          {menuItem.subMenu ? <i /> : null}
+          {menuItem.subMenu ? <i></i> : null}
         </a>
         <svg
           height="8"
@@ -312,7 +312,7 @@ export class ZHeader {
               <img src="../assets/images/png/user_transparent.png" />
               {userData.name}
             </span>
-            <i />
+            <i></i>
           </a>
           {this.renderUserData(userData)}
         </span>
