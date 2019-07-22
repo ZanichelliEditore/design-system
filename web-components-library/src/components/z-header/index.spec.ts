@@ -211,6 +211,31 @@ describe("Suite test ZHeader", () => {
   `);
   });
 
+  it("Test click ZHeader mobile toggle", async () => {
+    const page = await newSpecPage({
+      components: [ZHeader],
+      html: initHeader(true, true, true, true, true)
+    });
+
+    expect(page.rootInstance.isMobile).toEqual(false);
+    page.rootInstance.isMobile = true;
+    await page.waitForChanges();
+    expect(page.rootInstance.isMobile).toEqual(true);
+
+    const menu = page.root.shadowRoot
+      .querySelector("header")
+      .querySelector("div#mobile-header")
+      .querySelector("div#mobile-menu-wrapper")
+      .querySelector("div#mobile-menu");
+    expect(page.rootInstance.isMenuMobileOpen).toEqual(false);
+    menu.click();
+    await page.waitForChanges();
+    expect(page.rootInstance.isMenuMobileOpen).toEqual(true);
+    menu.click();
+    await page.waitForChanges();
+    expect(page.rootInstance.isMenuMobileOpen).toEqual(false);
+  });
+
   /*
   TEST MOBILE END
   */
