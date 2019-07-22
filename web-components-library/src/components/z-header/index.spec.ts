@@ -2,13 +2,21 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { ZHeader } from "./index";
 
+
+
 describe("Suite test ZHeader", () => {
   it("Test render ZHeader vuoto", async () => {
 
     const page = await newSpecPage({
       components: [ZHeader],
-      html: `<z-header></z-header>`
+      html: initHeader(true,true)
     });
+
+
+    console.log("prima "+page.rootInstance.isMobile);
+    page.rootInstance.isMobile = true;
+    console.log("dopo "+page.rootInstance.isMobile);
+    await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
       <z-header>
@@ -23,3 +31,41 @@ describe("Suite test ZHeader", () => {
   });
 });
 
+
+//Init header
+function initHeader(log,myz){
+  const user = {islogged: true, id: 123456, name: "Dario Docente e Professore", usergroup: 15};
+  const userTag = log? "userdata='"+JSON.stringify(user)+"'":"";
+
+
+
+  return `<z-header intlinkdata='[
+    {
+      "id": "home",
+      "name": "Home",
+      "url": "#home",
+      "subMenu": [
+        {
+          "id": "libreria",
+          "name": "la mia libreria",
+          "url": "#libreria"
+        }
+      ]
+    },
+    {
+      "id": "Dizionari",
+      "name": "Dizionari",
+      "url": "http://www.dizionari.it"
+    }
+  ]'
+  extlinkdata='[
+    {
+      "id": "supporto",
+      "name": "Supporto",
+      "url": "https://www.support.com/",
+      "icon" : "question-mark.png"
+    }
+  ]'
+  ${userTag}
+  ismyz=${myz}></z-header>`
+}

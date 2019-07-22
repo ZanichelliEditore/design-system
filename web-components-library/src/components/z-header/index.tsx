@@ -8,8 +8,6 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
   shadow: true
 })
 export class ZHeader {
-  @Prop() editors: string; // lista di immagini del top-nav --> slot
-  @Prop() intlink: string; // json per link interni del main-nav, con possibili sottomenu
   @Prop() intlinkdata: string;
   @Prop() extlinkdata: string;
   @Prop() userdata?: string;
