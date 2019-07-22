@@ -4,10 +4,12 @@ import { ZMenuDropdown } from "./index";
 
 describe("Suite test ZMenuDropdown", () => {
   it("Test render ZMenuDropdown vuoto", async () => {
-    expect(() => {newSpecPage({
-      components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent=''></z-menu-dropdown>`
-    })}).toThrowError
+    expect(() => {
+      newSpecPage({
+        components: [ZMenuDropdown],
+        html: `<z-menu-dropdown menucontent=''></z-menu-dropdown>`
+      });
+    }).toThrowError;
   });
 
   it("Test  ZMenuDropdown con lista", async () => {
@@ -18,7 +20,7 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
-        <div>
+        <div tabindex="0">
           <div class=\"container\">
             <img src="assets/images/png/user.png" />
             <span class="user">
@@ -31,7 +33,7 @@ describe("Suite test ZMenuDropdown", () => {
         </div>
       </mock:shadow-root>
     </z-menu-dropdown>
-    `)
+    `);
   });
 
   it("Test  ZMenuDropdown con lista on click", async () => {
@@ -42,7 +44,7 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
-      <div>
+      <div tabindex="0">
         <div class=\"container\">
           <img src="assets/images/png/user.png" />
           <span class="user">
@@ -57,7 +59,10 @@ describe("Suite test ZMenuDropdown", () => {
   </z-menu-dropdown>`);
     expect(page.rootInstance.ismenuopen).toBeFalsy;
 
-    let image = page.root.shadowRoot.querySelector("div").querySelector("div").querySelector("span.arrow");
+    let image = page.root.shadowRoot
+      .querySelector("div")
+      .querySelector("div")
+      .querySelector("span.arrow");
     image.click();
     await page.waitForChanges();
 
@@ -66,7 +71,7 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
-        <div class=\"menuOpened\">
+        <div tabindex="0" class=\"menuOpened\">
           <div class=\"container\">
             <img src=\"assets/images/png/user.png\">
             <span class="user">
@@ -92,8 +97,5 @@ describe("Suite test ZMenuDropdown", () => {
       </mock:shadow-root>
     </z-menu-dropdown>
     `);
-
   });
-
 });
-
