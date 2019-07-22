@@ -9,7 +9,6 @@
 
 | Property      | Attribute     | Description | Type      | Default     |
 | ------------- | ------------- | ----------- | --------- | ----------- |
-| `editors`     | `editors`     |             | `string`  | `undefined` |
 | `extlinkdata` | `extlinkdata` |             | `string`  | `undefined` |
 | `intlink`     | `intlink`     |             | `string`  | `undefined` |
 | `intlinkdata` | `intlinkdata` |             | `string`  | `undefined` |
