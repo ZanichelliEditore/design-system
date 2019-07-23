@@ -12,7 +12,6 @@ export class ZHeader {
   @Prop() extlinkdata: string | HeaderLink[];
   @Prop() userdata?: string | HeaderUserData;
   @Prop() ismyz: boolean;
-  @State() isSticky: boolean = false;
   @State() activeMenuItem: HeaderLink;
   @State() currentMenuItem: HeaderLink;
   @State() isMobile: boolean = true;
@@ -215,7 +214,7 @@ export class ZHeader {
       return (
         <div
           id="dropdown-menu"
-          class={`dropdown-menu hidden ${this.isSticky && "sticky"}`}
+          class={`dropdown-menu hidden`}
         />
       );
     }
@@ -223,7 +222,7 @@ export class ZHeader {
     return (
       <div
         id="dropdown-menu"
-        class={`dropdown-menu ${this.isSticky && "sticky"}`}
+        class={`dropdown-menu`}
       >
         <div class="dropdown-links">
           {menuItem.subMenu.map(
@@ -350,8 +349,7 @@ export class ZHeader {
     return (
       <div
         id="main-header"
-        class={`main-header ${this.isSticky && "sticky"} ${!this.ismyz &&
-          "myz-out"}`}
+        class={`main-header ${!this.ismyz && "myz-out"}`}
       >
         {this.renderLogoDiv()}
         {this.renderIntMenu(this.intMenuData)}
