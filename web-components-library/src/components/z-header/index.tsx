@@ -8,9 +8,9 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
   shadow: true
 })
 export class ZHeader {
-  @Prop() intlinkdata: string;
-  @Prop() extlinkdata: string;
-  @Prop() userdata?: string;
+  @Prop() intlinkdata: string | HeaderLink[];
+  @Prop() extlinkdata: string | HeaderLink[];
+  @Prop() userdata?: string | HeaderUserData;
   @Prop() ismyz: boolean;
   @State() isSticky: boolean = false;
   @State() activeMenuItem: HeaderLink;
@@ -50,13 +50,13 @@ export class ZHeader {
   }
 
   componentWillLoad() {
-    this.intMenuData = JSON.parse(this.intlinkdata);
-    this.extMenuData = JSON.parse(this.extlinkdata);
+    this.intMenuData = typeof this.intlinkdata === 'string' ? JSON.parse(this.intlinkdata) : this.intlinkdata;
+    this.extMenuData = typeof this.extlinkdata === 'string' ? JSON.parse(this.extlinkdata) : this.extlinkdata;
     this.activeMenuItem = this.setIntMenuItem();
     this.currentMenuItem = this.setIntMenuItem();
     this.sections = this.getSections(this.intMenuData);
     if (this.userdata) {
-      this.userData = JSON.parse(this.userdata);
+      this.userData = typeof this.userdata === 'string' ? JSON.parse(this.userdata) : this.userdata;
       this.isLogged = this.userData.islogged;
     }
     this.handleResize();
@@ -214,11 +214,11 @@ export class ZHeader {
     if (!menuItem || !menuItem["subMenu"] || !this.isLogged || !this.ismyz) {
       return (
         <div
-        id="dropdown-menu"
-        class={`dropdown-menu hidden ${this.isSticky && "sticky"}`}
+          id="dropdown-menu"
+          class={`dropdown-menu hidden ${this.isSticky && "sticky"}`}
         />
-        );
-      }
+      );
+    }
     const active = menuItem.subMenu ? menuItem.subMenu[0] : null;
     return (
       <div
@@ -286,15 +286,15 @@ export class ZHeader {
             menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"#home", "linkid":"logout-button"}]'
           />
         ) : (
-          this.renderLoginButton()
-        )}
+            this.renderLoginButton()
+          )}
       </div>
     );
   }
 
   renderLoginButton() {
     return (
-      <z-button label="entra" type="secondary" buttonid="login-button"/>
+      <z-button label="entra" type="secondary" buttonid="login-button" />
     );
   }
 
