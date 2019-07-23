@@ -1,19 +1,113 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
-    <title>Stencil Component Starter</title>
-    <link rel="stylesheet" type="text/css" href="/build/web-components-library.css">
-    <script type="module" src="/build/web-components-library.esm.js"></script>
-    <script nomodule src="/build/web-components-library.js"></script>
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+  <link rel="stylesheet" type="text/css" href="/build/web-components-library.css">
+  <script type="module" src="/build/web-components-library.esm.js"></script>
+  <script nomodule src="/build/web-components-library.js"></script>
+</head>
 
+<body style="background-color: #f9f9f9">
+
+    <z-header
+      intlinkdata='[
+        {
+          "id": "home",
+          "name": "Home",
+          "url": "#home",
+          "subMenu": [
+            {
+              "id": "libreria",
+              "name": "la mia libreria",
+              "url": "#libreria"
+            },
+            {
+              "id": "ambienti",
+              "name": "ambienti zanichelli",
+              "url": "#ambienti"
+            },
+            {
+              "id": "idee",
+              "name": "Idee per insegnare",
+              "url": "#idee"
+            }
+          ]
+        },
+        {
+          "id": "Dizionari",
+          "name": "Dizionari",
+          "url": "http://www.dizionari.it"
+        },
+        {
+          "id": "terzavoce",
+          "name": "Terza Voce",
+          "subMenu": [
+            {
+              "id": "sub1",
+              "name": "sub 1",
+              "url": "#terzavoce"
+            },
+            {
+              "id": "sub2",
+              "name": "sub 2",
+              "url": "#sub2"
+            }
+          ]
+        }
+      ]'
+      extlinkdata='[
+        {
+          "id": "supporto",
+          "name": "Supporto",
+          "url": "https://www.support.com/",
+          "icon" : "question-mark.png"
+        },
+        {
+          "id": "shop",
+          "name": "E-Shop",
+          "url": "https://www.shop.com/",
+          "icon" : "cart-icon.png"
+        },
+        {
+          "id": "chiedi",
+          "name": "Chiedi al tuo responsabile",
+          "url": "http://www.responsabile.it/",
+          "icon" : "suitcase-icon.png"
+        }
+      ]'
+      userdata='{
+        "islogged": true,
+        "id": 123456,
+        "name": "Dario Docente e Professore",
+        "usergroup": 15
+      }'
+      ismyz=true
+      >
+      <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors"/>
+      <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors"/>
+      <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors"/>
+      <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors"/>
+
+    </z-header>
+    <div id="main-content">
+
+    <section id="libreria">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In id maximus purus. Nam porttitor mollis ipsum, sed scelerisque ipsum consequat vel. Vivamus a congue neque, ac venenatis arcu. Aliquam venenatis fermentum mauris, ac efficitur lacus pellentesque sed. Fusce sit amet varius tellus, sit amet ultrices nisl. Integer et tincidunt metus. Curabitur tristique interdum tempus.
+
+Pellentesque quis nulla eu neque efficitur posuere ac quis lectus. In volutpat, est at tempor mollis, ipsum ligula hendrerit ligula, in semper ex nunc non est. Curabitur ut volutpat ex. Phasellus nec bibendum tellus. Etiam faucibus at nunc non consequat. Etiam tristique nibh mi, quis gravida lorem lobortis eget. Etiam ac nunc sed velit laoreet venenatis. Nulla ipsum enim, sodales quis massa vitae, aliquam vehicula mi. Nunc feugiat eros sit amet quam sollicitudin, ut pellentesque nisi lobortis. Nunc efficitur ex et augue convallis aliquam ut ut dolor. Donec dapibus felis lorem, a feugiat lectus eleifend eget. Fusce cursus, velit nec viverra rhoncus, nulla purus scelerisque tellus, vitae cursus tellus ligula a leo. Donec non blandit lectus. Fusce scelerisque libero sit amet consequat mollis. Donec eget porttitor sem, nec ornare nibh.
+
+Ut in gravida ante. Duis convallis suscipit porta. Curabitur gravida a arcu eu hendrerit. Sed ultrices, eros quis mollis vulputate, orci justo fermentum elit, nec tristique sem ex quis mi. Vivamus non maximus tortor. Nulla varius eu diam quis blandit. Nunc mattis in lectus sit amet porta. Nam nec quam molestie, venenatis quam vitae, dapibus enim. Sed justo magna, dapibus eu volutpat sed, imperdiet at urna. Sed et urna et diam consequat maximus. Phasellus tincidunt convallis urna eget sollicitudin. Nunc eget fringilla massa. Fusce hendrerit sapien eu metus imperdiet mattis. Duis lacinia ex non turpis suscipit, sit amet hendrerit eros tincidunt. Integer iaculis congue volutpat.
+
+Ut tristique lobortis purus, quis vestibulum risus cursus convallis. Donec faucibus pharetra dui a finibus. Maecenas gravida dignissim neque, in pellentesque nibh congue quis. Donec semper tempus fringilla. Mauris laoreet tortor ut lorem dignissim euismod a vitae est. Pellentesque eget lacus quis quam blandit sagittis a eu dui. Nam at erat ultrices, dapibus ipsum in, luctus lacus. Mauris sed feugiat elit. Vivamus quis purus sodales, consectetur velit id, feugiat augue. Vivamus scelerisque dui a nunc tristique, in semper enim maximus. Vestibulum ex neque, consequat blandit lobortis vitae, dapibus et tortor. Morbi dictum, ex at viverra sollicitudin, mauris lacus bibendum arcu, porttitor egestas ipsum leo sit amet neque. Quisque nec massa et nibh dapibus cursus.
+
+Ut a felis sed massa porta egestas. Praesent eget nulla pharetra, accumsan arcu eu, tristique nulla. Aliquam arcu libero, ultrices vitae lectus non, condimentum congue massa. Integer mi nibh, finibus nec euismod in, laoreet et odio. Vestibulum condimentum in ante quis bibendum. Nam quis hendrerit massa, sit amet varius elit. Proin varius eu massa et convallis. Maecenas facilisis sem non dictum pulvinar. Maecenas est enim, fringilla sed sem dictum, blandit vulputate turpis. Vivamus nisl ante, suscipit ut massa et, venenatis tempus nisi. Praesent tempus laoreet pretium. Duis porta eleifend lectus non congue. Ut quis suscipit leo, eu euismod mauris.
+        </p>
+    </section>
+    <section id="ambienti">
     <z-card>
       <z-card-header titolo="titolo">
         <z-card-icon
@@ -30,17 +124,33 @@
       </z-card-footer>
     </z-card>
     <br />
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In id maximus purus. Nam porttitor mollis ipsum, sed scelerisque ipsum consequat vel. Vivamus a congue neque, ac venenatis arcu. Aliquam venenatis fermentum mauris, ac efficitur lacus pellentesque sed. Fusce sit amet varius tellus, sit amet ultrices nisl. Integer et tincidunt metus. Curabitur tristique interdum tempus.
 
+          Pellentesque quis nulla eu neque efficitur posuere ac quis lectus. In volutpat, est at tempor mollis, ipsum ligula hendrerit ligula, in semper ex nunc non est. Curabitur ut volutpat ex. Phasellus nec bibendum tellus. Etiam faucibus at nunc non consequat. Etiam tristique nibh mi, quis gravida lorem lobortis eget. Etiam ac nunc sed velit laoreet venenatis. Nulla ipsum enim, sodales quis massa vitae, aliquam vehicula mi. Nunc feugiat eros sit amet quam sollicitudin, ut pellentesque nisi lobortis. Nunc efficitur ex et augue convallis aliquam ut ut dolor. Donec dapibus felis lorem, a feugiat lectus eleifend eget. Fusce cursus, velit nec viverra rhoncus, nulla purus scelerisque tellus, vitae cursus tellus ligula a leo. Donec non blandit lectus. Fusce scelerisque libero sit amet consequat mollis. Donec eget porttitor sem, nec ornare nibh.
+
+          Ut in gravida ante. Duis convallis suscipit porta. Curabitur gravida a arcu eu hendrerit. Sed ultrices, eros quis mollis vulputate, orci justo fermentum elit, nec tristique sem ex quis mi. Vivamus non maximus tortor. Nulla varius eu diam quis blandit. Nunc mattis in lectus sit amet porta. Nam nec quam molestie, venenatis quam vitae, dapibus enim. Sed justo magna, dapibus eu volutpat sed, imperdiet at urna. Sed et urna et diam consequat maximus. Phasellus tincidunt convallis urna eget sollicitudin. Nunc eget fringilla massa. Fusce hendrerit sapien eu metus imperdiet mattis. Duis lacinia ex non turpis suscipit, sit amet hendrerit eros tincidunt. Integer iaculis congue volutpat.
+
+          Ut tristique lobortis purus, quis vestibulum risus cursus convallis. Donec faucibus pharetra dui a finibus. Maecenas gravida dignissim neque, in pellentesque nibh congue quis. Donec semper tempus fringilla. Mauris laoreet tortor ut lorem dignissim euismod a vitae est. Pellentesque eget lacus quis quam blandit sagittis a eu dui. Nam at erat ultrices, dapibus ipsum in, luctus lacus. Mauris sed feugiat elit. Vivamus quis purus sodales, consectetur velit id, feugiat augue. Vivamus scelerisque dui a nunc tristique, in semper enim maximus. Vestibulum ex neque, consequat blandit lobortis vitae, dapibus et tortor. Morbi dictum, ex at viverra sollicitudin, mauris lacus bibendum arcu, porttitor egestas ipsum leo sit amet neque. Quisque nec massa et nibh dapibus cursus.
+
+          Ut a felis sed massa porta egestas. Praesent eget nulla pharetra, accumsan arcu eu, tristique nulla. Aliquam arcu libero, ultrices vitae lectus non, condimentum congue massa. Integer mi nibh, finibus nec euismod in, laoreet et odio. Vestibulum condimentum in ante quis bibendum. Nam quis hendrerit massa, sit amet varius elit. Proin varius eu massa et convallis. Maecenas facilisis sem non dictum pulvinar. Maecenas est enim, fringilla sed sem dictum, blandit vulputate turpis. Vivamus nisl ante, suscipit ut massa et, venenatis tempus nisi. Praesent tempus laoreet pretium. Duis porta eleifend lectus non congue. Ut quis suscipit leo, eu euismod mauris.
+          </p>
+    </section>
+    <section id="idee">
     <z-button label="button" type="primary"></z-button>
     <z-button label="button" type="primary" icon="zanichelli-external-link-2@8x.png"></z-button>
     <z-button label="button" type="primary" isdisabled></z-button>
     <z-button label="button" type="secondary"></z-button>
     <z-button label="button" type="secondary" isdisabled></z-button>
+    <z-button label="button" type="tertiary"></z-button>
+    <z-button label="button" type="tertiary" isdisabled></z-button>
     <z-button label="button" type="primary" issmall></z-button>
     <z-button label="button" type="primary" issmall icon="zanichelli-external-link-2@8x.png"></z-button>
     <z-button label="button" type="primary" issmall isdisabled></z-button>
     <z-button label="button" type="secondary" issmall></z-button>
     <z-button label="button" type="secondary" issmall isdisabled></z-button>
+    <z-button label="button" type="tertiary" issmall></z-button>
+    <z-button label="button" type="tertiary" issmall isdisabled></z-button>
     <br />
 
     <z-toggle-button label="toggle"></z-toggle-button>
@@ -51,7 +161,9 @@
     <z-link label="z-link" isdisabled></z-link>
     <br />
 
-    <z-logo imageurl="../../assets/images/png/zanichelli-logo.png" imagealt="logo"></z-logo>
+    <div style="height:52px;width:240px;">
+        <z-logo imageurl="../../assets/images/png/zanichelli-logo.png" imagealt="logo"></z-logo>
+    </div >
     <br />
 
     <z-menu-dropdown nomeutente="username" menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'></z-menu-dropdown>
@@ -60,6 +172,19 @@
     <z-button-filter filtername="filter 1" isfixed></z-button-filter>
     <z-button-filter filtername="filter 2"></z-button-filter>
     <br />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In id maximus purus. Nam porttitor mollis ipsum, sed scelerisque ipsum consequat vel. Vivamus a congue neque, ac venenatis arcu. Aliquam venenatis fermentum mauris, ac efficitur lacus pellentesque sed. Fusce sit amet varius tellus, sit amet ultrices nisl. Integer et tincidunt metus. Curabitur tristique interdum tempus.
+
+Pellentesque quis nulla eu neque efficitur posuere ac quis lectus. In volutpat, est at tempor mollis, ipsum ligula hendrerit ligula, in semper ex nunc non est. Curabitur ut volutpat ex. Phasellus nec bibendum tellus. Etiam faucibus at nunc non consequat. Etiam tristique nibh mi, quis gravida lorem lobortis eget. Etiam ac nunc sed velit laoreet venenatis. Nulla ipsum enim, sodales quis massa vitae, aliquam vehicula mi. Nunc feugiat eros sit amet quam sollicitudin, ut pellentesque nisi lobortis. Nunc efficitur ex et augue convallis aliquam ut ut dolor. Donec dapibus felis lorem, a feugiat lectus eleifend eget. Fusce cursus, velit nec viverra rhoncus, nulla purus scelerisque tellus, vitae cursus tellus ligula a leo. Donec non blandit lectus. Fusce scelerisque libero sit amet consequat mollis. Donec eget porttitor sem, nec ornare nibh.
+
+Ut in gravida ante. Duis convallis suscipit porta. Curabitur gravida a arcu eu hendrerit. Sed ultrices, eros quis mollis vulputate, orci justo fermentum elit, nec tristique sem ex quis mi. Vivamus non maximus tortor. Nulla varius eu diam quis blandit. Nunc mattis in lectus sit amet porta. Nam nec quam molestie, venenatis quam vitae, dapibus enim. Sed justo magna, dapibus eu volutpat sed, imperdiet at urna. Sed et urna et diam consequat maximus. Phasellus tincidunt convallis urna eget sollicitudin. Nunc eget fringilla massa. Fusce hendrerit sapien eu metus imperdiet mattis. Duis lacinia ex non turpis suscipit, sit amet hendrerit eros tincidunt. Integer iaculis congue volutpat.
+
+Ut tristique lobortis purus, quis vestibulum risus cursus convallis. Donec faucibus pharetra dui a finibus. Maecenas gravida dignissim neque, in pellentesque nibh congue quis. Donec semper tempus fringilla. Mauris laoreet tortor ut lorem dignissim euismod a vitae est. Pellentesque eget lacus quis quam blandit sagittis a eu dui. Nam at erat ultrices, dapibus ipsum in, luctus lacus. Mauris sed feugiat elit. Vivamus quis purus sodales, consectetur velit id, feugiat augue. Vivamus scelerisque dui a nunc tristique, in semper enim maximus. Vestibulum ex neque, consequat blandit lobortis vitae, dapibus et tortor. Morbi dictum, ex at viverra sollicitudin, mauris lacus bibendum arcu, porttitor egestas ipsum leo sit amet neque. Quisque nec massa et nibh dapibus cursus.
+
+Ut a felis sed massa porta egestas. Praesent eget nulla pharetra, accumsan arcu eu, tristique nulla. Aliquam arcu libero, ultrices vitae lectus non, condimentum congue massa. Integer mi nibh, finibus nec euismod in, laoreet et odio. Vestibulum condimentum in ante quis bibendum. Nam quis hendrerit massa, sit amet varius elit. Proin varius eu massa et convallis. Maecenas facilisis sem non dictum pulvinar. Maecenas est enim, fringilla sed sem dictum, blandit vulputate turpis. Vivamus nisl ante, suscipit ut massa et, venenatis tempus nisi. Praesent tempus laoreet pretium. Duis porta eleifend lectus non congue. Ut quis suscipit leo, eu euismod mauris.
+      </p>
+    </section>
+  </div>
 
     <z-footer data='{
       "zanichelliLinks": [{

@@ -1,5 +1,5 @@
 import { Component, Prop, State, h } from "@stencil/core";
-
+import { mobileBreakpoint } from "../../constants/breakpoints";
 import { FooterBean, FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } from "../../beans/index.js";
 
 @Component({
@@ -14,8 +14,6 @@ export class ZFooter {
 
   jsonData: FooterBean;
 
-  readonly mobileBreakpoint = 768;
-
   componentWillLoad() {
     this.jsonData = JSON.parse(this.data);
     this.isOpen = Array<boolean>(this.jsonData.zanichelliLinks.length).fill(false);
@@ -27,7 +25,7 @@ export class ZFooter {
   }
 
   resize() {
-    this.isMobile = window.innerWidth <= this.mobileBreakpoint;
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
   handleOnHeaderClick(id: number): void {

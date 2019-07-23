@@ -6,6 +6,7 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZButton {
+  @Prop() buttonid?: string;
   @Prop() label: string;
   @Prop() type: string;
   @Prop() isdisabled?: boolean = false;
@@ -21,7 +22,7 @@ export class ZButton {
     const btnIcon = this.icon ? '../../../assets/images/png/' + this.icon : '';
 
     return (
-      <button class={btnClass} disabled={this.isdisabled}>
+      <button id={this.buttonid} class={btnClass} disabled={this.isdisabled}>
         {this.icon && <img src={btnIcon} />}
         {this.label}
       </button>

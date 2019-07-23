@@ -13,6 +13,7 @@ import  icons from "../../constants/icons";
 export class ZMenuDropdown {
   @Prop() nomeutente: string;
   @Prop() menucontent: string;
+  @Prop() buttonid: string
 
   @State() ismenuopen:boolean = false;
 
@@ -36,7 +37,11 @@ export class ZMenuDropdown {
       return(
         <ul>
           {this.linkarray.map( bean => (
-            <li><a href={bean.link}>{bean.text}</a></li>
+            <li>
+              <a id={bean.linkid} href={bean.link}>
+                {bean.text}
+              </a>
+            </li>
           ))}
         </ul>
       );
@@ -59,7 +64,7 @@ export class ZMenuDropdown {
 
   render() {
     return (
-      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen=!this.ismenuopen}     >
+      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen=!this.ismenuopen} tabindex="0">
         <div class="container">
           <img src={retrieveAsset(icons.iconuserlogo)}/>
           <span class="user">{this.nomeutente}</span>

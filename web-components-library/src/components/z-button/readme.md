@@ -9,12 +9,26 @@
 
 | Property     | Attribute    | Description | Type      | Default     |
 | ------------ | ------------ | ----------- | --------- | ----------- |
+| `buttonid`   | `buttonid`   |             | `string`  | `undefined` |
 | `icon`       | `icon`       |             | `string`  | `undefined` |
 | `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
 | `issmall`    | `issmall`    |             | `boolean` | `false`     |
 | `label`      | `label`      |             | `string`  | `undefined` |
 | `type`       | `type`       |             | `string`  | `undefined` |
 
+
+## Dependencies
+
+### Used by
+
+ - [z-header](../z-header)
+
+### Graph
+```mermaid
+graph TD;
+  z-header --> z-button
+  style z-button fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

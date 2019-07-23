@@ -30,7 +30,7 @@ export class ZList {
       <ul>
         {this.list &&
           this.list.map(bean => (
-            <z-list-item text={bean.text} link={bean.link} icon={bean.icon} />
+            <z-list-item text={bean.text} link={bean.link} icon={bean.icon} listitemid={bean.listitemid} />
           ))}
       </ul>
     );

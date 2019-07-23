@@ -1,7 +1,6 @@
 li {
   list-style-type: none;
   line-height: 14px;
-  width: 308px;
 }
 
 li span {
@@ -12,7 +11,6 @@ li span {
   font-weight: var(--font-rg);
   font-size: 16px;
   letter-spacing: 0.23px;
-  width: 264px;
   color: var(--text-gray-dark);
   border-bottom: 2px solid var(--bg-artboard-gray-light);
 }

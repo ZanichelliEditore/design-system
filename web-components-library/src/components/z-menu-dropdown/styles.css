@@ -8,19 +8,55 @@
   line-height: 14px;
 }
 
-a, a:visited, a:active {
+a,
+a:visited,
+a:active {
   color: inherit;
-  text-decoration:none;
+  text-decoration: none;
 }
 
-:host > div {
-  background: var(--bg-artboard-white);
-  border-radius: 4px;
-  width:147px;
+:host>div {
+  background: var(--bg-artboard-gray);
+  color: var(--text-gray-dark);
+  border-radius: var(--radius-base);
+  border: 1px solid transparent;
+  width: 147px;
+  outline: none;
 }
 
-.menuOpened{
+:host>div::-moz-focus-inner {
+  border: 0;
+}
+
+:host>div:hover,
+:host>div.menuOpened:hover {
+  color: var(--myz-blue-dark);
+}
+
+:host>div:focus {
+  color: var(--myz-blue);
+  border: 1px solid var(--myz-blue);
+  box-shadow: 0px 0px 2px 2px var(--myz-blue-light);
+}
+
+:host>div:active {
+  color: #1973e1;
+  border: 1px solid #1973e1;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.menuOpened {
   padding-bottom: var(--basex2)
+}
+
+.menuOpened a,
+.menuOpened a:active,
+.menuOpened a:visited {
+  color: var(--myz-blue);
+}
+
+.menuOpened a:hover {
+  color: var(--myz-blue-dark);
 }
 
 .container {
@@ -32,13 +68,13 @@ a, a:visited, a:active {
   position: relative;
 }
 
-div > img {
+div>img {
   width: 14px;
   height: 14px;
   padding-left: var(--half-x3);
 }
 
-div > span.arrow {
+div>span.arrow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,18 +82,18 @@ div > span.arrow {
   padding-right: var(--basex1);
 }
 
-div > span.arrow > img{
+div>span.arrow>img {
   height: 7px;
   width: 10px;
 }
 
-div > span.user{
-  color: var(--text-gray-dark);
+div>span.user {
   padding-left: var(--half-x1);
-  width:96px;
+  width: 96px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  cursor: pointer;
 }
 
 ul {
@@ -67,8 +103,39 @@ ul {
 }
 
 li {
-    height: 32px;
-    color: var(--text-my-zanichelli-blue);
-    display: flex;
-    align-items: center;
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+
+@media (max-width: 1024px) {
+  :host {
+    width: 88px;
+  }
+
+  :host>div {
+    width: 88px;
+  }
+
+  .container {
+    width: 88px;
+  }
+
+  div>span.user {
+    width: 37px;
+  }
+
+  div.menuOpened {
+    margin-left: -59px;
+    width: 147px;
+  }
+
+  div.menuOpened .container {
+    width: 147px;
+  }
+
+  div.menuOpened span.user {
+    width: 96px;
+  }
 }
