@@ -10,7 +10,6 @@
 | Property      | Attribute     | Description | Type      | Default     |
 | ------------- | ------------- | ----------- | --------- | ----------- |
 | `extlinkdata` | `extlinkdata` |             | `string`  | `undefined` |
-| `intlink`     | `intlink`     |             | `string`  | `undefined` |
 | `intlinkdata` | `intlinkdata` |             | `string`  | `undefined` |
 | `ismyz`       | `ismyz`       |             | `boolean` | `undefined` |
 | `userdata`    | `userdata`    |             | `string`  | `undefined` |

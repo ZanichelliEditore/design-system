@@ -12,15 +12,15 @@ export class ZHeader {
   @Prop() extlinkdata: string;
   @Prop() userdata?: string;
   @Prop() ismyz: boolean;
-  @State() isLogged: boolean = false;
   @State() isSticky: boolean = false;
   @State() activeMenuItem: HeaderLink;
   @State() currentMenuItem: HeaderLink;
-  @State() intMenuData: HeaderLink[];
   @State() isMobile: boolean = true;
   @State() isMenuMobileOpen: boolean = false;
+  private intMenuData: HeaderLink[];
   private extMenuData: HeaderLink[];
   private userData: HeaderUserData;
+  private isLogged: boolean = false;
   private sections: object;
   private readonly topOffset: number = 90;
 
