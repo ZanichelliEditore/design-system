@@ -3,7 +3,7 @@ div {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 301px;
+  width: 300px;
   height: 558px;
   border: 2px solid var(--bg-artboard-gray-very-light);
   border-radius: 4px;
