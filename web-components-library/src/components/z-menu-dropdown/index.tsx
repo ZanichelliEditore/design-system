@@ -1,9 +1,6 @@
 import { Component, Prop, h, State, Watch } from '@stencil/core';
 import { MenuDropdownItem } from "../../beans/index.js";
 
-import {retrieveAsset} from "../../utils/utils";
-
-import  icons from "../../constants/icons";
 @Component({
   tag: 'z-menu-dropdown',
   styleUrl: 'styles.css',
@@ -15,12 +12,12 @@ export class ZMenuDropdown {
   @Prop() menucontent: string;
   @Prop() buttonid: string
 
-  @State() ismenuopen:boolean = false;
+  @State() ismenuopen: boolean = false;
 
-  linkarray:MenuDropdownItem[];
+  linkarray: MenuDropdownItem[];
 
   componentDidLoad() {
-      this.parseinputrawdata(this.menucontent);
+    this.parseinputrawdata(this.menucontent);
   }
 
   parseinputrawdata(inputrawdata: string) {
@@ -32,11 +29,11 @@ export class ZMenuDropdown {
     this.parseinputrawdata(newValue);
   }
 
-  renderMenuOpen(){
-    if(this.ismenuopen){
-      return(
+  renderMenuOpen() {
+    if (this.ismenuopen) {
+      return (
         <ul>
-          {this.linkarray.map( bean => (
+          {this.linkarray.map(bean => (
             <li>
               <a id={bean.linkid} href={bean.link}>
                 {bean.text}
@@ -48,25 +45,25 @@ export class ZMenuDropdown {
     }
   }
 
-  renderButtonMenu(){
-      return(
-          <span class="arrow">
-            <img src={this.ismenuopen?retrieveAsset(icons.iconarrowup):retrieveAsset(icons.iconarrowdown)}/>
-          </span>
-      );
+  renderButtonMenu() {
+    return (
+      <span class="arrow">
+        <z-icon name="select-icon-stroked" width={14} height={14} />
+      </span>
+    );
   }
 
-  retriveMenuClass(){
-   if(this.ismenuopen){
-    return "menuOpened"
-  }
+  retriveMenuClass() {
+    if (this.ismenuopen) {
+      return "menuOpened"
+    }
   }
 
   render() {
     return (
-      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen=!this.ismenuopen} tabindex="0">
+      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen = !this.ismenuopen} tabindex="0">
         <div class="container">
-          <img src={retrieveAsset(icons.iconuserlogo)}/>
+          <z-icon name="profilo-icon-stroked" width={14} height={14} />
           <span class="user">{this.nomeutente}</span>
           {this.renderButtonMenu()}
         </div>

@@ -20,7 +20,8 @@ export class ZToggleButton {
   render() {
     return (
       <button class={this.isOpen && "isopen"} onClick={() => this.emitToggleClick()}>
-        <i /> {this.label}
+        <z-icon name="head-arrow-up-icon" width={16} height={16} />
+        {this.label}
       </button>
     );
   }

@@ -23,9 +23,14 @@
 
  - [z-header](../z-header)
 
+### Depends on
+
+- [z-icon](../z-icon)
+
 ### Graph
 ```mermaid
 graph TD;
+  z-button --> z-icon
   z-header --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

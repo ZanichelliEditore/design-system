@@ -68,7 +68,8 @@ a:active {
   position: relative;
 }
 
-div>img {
+div>img,
+div>z-icon {
   width: 14px;
   height: 14px;
   padding-left: var(--half-x3);
@@ -82,9 +83,14 @@ div>span.arrow {
   padding-right: var(--basex1);
 }
 
-div>span.arrow>img {
-  height: 7px;
-  width: 10px;
+span.arrow>z-icon {
+  transform: rotate(360deg);
+  transition: all 200ms linear;
+}
+
+.menuOpened span.arrow>z-icon {
+  transform: rotate(180deg);
+  transition: all 200ms linear;
 }
 
 div>span.user {

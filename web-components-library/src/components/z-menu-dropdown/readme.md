@@ -20,9 +20,14 @@
 
  - [z-header](../z-header)
 
+### Depends on
+
+- [z-icon](../z-icon)
+
 ### Graph
 ```mermaid
 graph TD;
+  z-menu-dropdown --> z-icon
   z-header --> z-menu-dropdown
   style z-menu-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```

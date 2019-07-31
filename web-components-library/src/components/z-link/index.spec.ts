@@ -48,13 +48,13 @@ describe("Suite test ZLink", () => {
   it("Test render ZLink con icon", async () => {
     const page = await newSpecPage({
       components: [ZLink],
-      html: `<z-link icon="icon.png"></z-link>`
+      html: `<z-link icon="icon"></z-link>`
     });
     expect(page.root).toEqualHtml(`
-      <z-link icon="icon.png">
+      <z-link icon="icon">
         <mock:shadow-root>
           <a class="false false" target="_self">
-            <img src="../../../assets/images/png/icon.png" />
+            <z-icon height="12" name="icon" width="12"></z-icon>
           </a>
         </mock:shadow-root>
       </z-link>

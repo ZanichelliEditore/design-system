@@ -6,10 +6,25 @@ span {
   justify-content: center;
   border-left: var(--border-base) solid var(--bg-artboard-gray-very-light);
   border-radius: 0px 4px 0px 0px;
+
+  color: var(--myz-blue);
+  fill: var(--myz-blue);
 }
 
-span > img {
+span:active,
+span:hover,
+span:focus {
+  color: var(--myz-blue-dark);
+  fill: var(--myz-blue-dark);
+}
+
+span>z-icon {
+  cursor: pointer;
+}
+
+/* span>img {
   width: 20px;
   height: 22px;
   object-fit: contain;
 }
+ */
