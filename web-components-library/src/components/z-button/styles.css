@@ -39,8 +39,8 @@ button.primary:hover {
 button.primary:disabled {
   background-color: var(--bg-artboard-gray-very-light);
   border-color: var(--bg-artboard-gray-very-light);
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-gray-medium);
+  fill: var(--text-gray-medium);
 }
 
 button.primary:focus {
@@ -76,8 +76,8 @@ button.secondary:hover {
 button.secondary:disabled {
   background-color: var(--bg-artboard-white);
   border-color: var(--bg-artboard-gray-very-light);
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-gray-medium);
+  fill: var(--text-gray-medium);
 }
 
 button.secondary:focus {
@@ -113,8 +113,8 @@ button.tertiary:hover {
 button.tertiary:disabled {
   background-color: transparent;
   border-color: transparent;
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-gray-medium);
+  fill: var(--text-gray-medium);
 }
 
 button.tertiary:focus {

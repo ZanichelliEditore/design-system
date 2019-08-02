@@ -1,8 +1,9 @@
 button {
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
-  height: 32px;
-  border: none;
+  height: 36px;
+  border: var(--border-base) solid;
+  border-color: transparent;
   border-radius: var(--radius-base);
   color: var(--myz-blue);
   fill: var(--myz-blue);
@@ -12,7 +13,7 @@ button {
   font-size: 14px;
   outline: none;
   padding-left: 0px;
-  padding-right: 8px;
+  padding-right: var(--basex2);
   transition: all 200ms linear;
 }
 
@@ -25,9 +26,28 @@ button:hover {
   fill: var(--myz-blue-dark);
 }
 
+button:focus {
+  border-color: var(--myz-blue);
+  color: var(--myz-blue);
+  fill: var(--myz-blue);
+  box-shadow: 0px 0px 2px 2px #78b5ff;
+}
+
+button:active {
+  border-color: #1973e1;
+  color: #1973e1;
+  fill: #1973e1;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+button:disabled {
+  color: var(--text-gray-medium);
+  fill: var(--text-gray-medium);
+}
+
 z-icon {
   display: inline-block;
-  margin: 0 16px;
+  margin: 0 var(--basex1) 0 var(--basex2);
   transform: rotate(360deg);
   transition: all 200ms linear;
 }
