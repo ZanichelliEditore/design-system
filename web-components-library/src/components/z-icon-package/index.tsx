@@ -18,7 +18,7 @@ export class ZIconPackage {
           return (
             <div>
               <z-icon name={icon} />
-              <label>{icon}: </label>
+              <label>{icon}</label>
             </div>)
         })}
       </div>
