@@ -15,7 +15,7 @@ export class ZIcon {
 
   render() {
     return (
-      <svg viewBox="0 0 18 18" width={this.width + 'px'} height={this.height + 'px'} id={this.iconid}>
+      <svg viewBox="0 0 18 18" width={this.width} height={this.height} id={this.iconid}>
         <path d={icons[this.name]}></path>
         <polygon points={icons[this.name]}></polygon>
       </svg>

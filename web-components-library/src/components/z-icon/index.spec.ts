@@ -12,7 +12,7 @@ describe("Suite test ZIcon", () => {
     expect(page.root).toEqualHtml(`
       <z-icon>
         <mock:shadow-root>
-          <svg viewBox="0 0 18 18" width='18px' height='18px' id="">
+          <svg viewBox="0 0 18 18" width='18' height='18' id="">
             <path></path>
             <polygon></polygon>
           </svg>
@@ -29,7 +29,7 @@ describe("Suite test ZIcon", () => {
     expect(page.root).toEqualHtml(`
       <z-icon name="link-esterno-icon-stroked" iconid="zicon">
         <mock:shadow-root>
-          <svg viewBox="0 0 18 18" width='18px' height='18px' id="zicon">
+          <svg viewBox="0 0 18 18" width='18' height='18' id="zicon">
             <path d="${icons["link-esterno-icon-stroked"]}"></path>
             <polygon points="${icons["link-esterno-icon-stroked"]}"></polygon>
           </svg>
@@ -46,7 +46,7 @@ describe("Suite test ZIcon", () => {
     expect(page.root).toEqualHtml(`
       <z-icon name="link-esterno-icon-stroked" iconid="zicon" width="10" height="10">
         <mock:shadow-root>
-          <svg viewBox="0 0 18 18" width='10px' height='10px' id="zicon">
+          <svg viewBox="0 0 18 18" width='10' height='10' id="zicon">
             <path d="${icons["link-esterno-icon-stroked"]}"></path>
             <polygon points="${icons["link-esterno-icon-stroked"]}"></polygon>
           </svg>
