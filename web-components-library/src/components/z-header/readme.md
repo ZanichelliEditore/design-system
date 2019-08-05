@@ -34,6 +34,9 @@ graph TD;
   z-header --> z-menu-dropdown
   z-header --> z-button
   z-list --> z-list-item
+  z-link --> z-icon
+  z-menu-dropdown --> z-icon
+  z-button --> z-icon
   style z-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

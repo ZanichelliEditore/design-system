@@ -15,15 +15,13 @@ export class ZButton {
 
   render() {
     let btnClass = this.type;
-    if(this.issmall) {
+    if (this.issmall) {
       btnClass += ' small';
     }
 
-    const btnIcon = this.icon ? '../../../assets/images/png/' + this.icon : '';
-
     return (
       <button id={this.buttonid} class={btnClass} disabled={this.isdisabled}>
-        {this.icon && <img src={btnIcon} />}
+        {this.icon && <z-icon name={this.icon} width={16} height={16} />}
         {this.label}
       </button>
     );

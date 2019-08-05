@@ -16,12 +16,10 @@ export class ZLink {
 
   @Event() zLinkClick: EventEmitter;
   emitZLinkClick(e: MouseEvent, linkId) {
-    this.zLinkClick.emit({e, linkId});
+    this.zLinkClick.emit({ e, linkId });
   }
 
   render() {
-    const icon = this.icon ? '../../../assets/images/png/' + this.icon : '';
-
     return (
       <a
         href={this.url}
@@ -30,7 +28,7 @@ export class ZLink {
         id={this.linkid}
         onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.linkid)}
       >
-        {this.icon && <img src={icon} />}
+        {this.icon && <z-icon name={this.icon} width={12} height={12} />}
         {this.label}
       </a>
     );

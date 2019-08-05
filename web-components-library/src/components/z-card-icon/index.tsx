@@ -11,7 +11,7 @@ export class ZCardIcon {
   render() {
     return (
       <span>
-        <img src={this.icon} />
+        <z-icon name={this.icon} width={18} height={18} />
       </span>
     );
   }
