@@ -12,19 +12,13 @@
 
 ##### NB: il nome dei componenti deve contenere un dash (`-`)
 
----
+## Sviluppo della libreria tramite symlink
+All'interno di web-components-library e lanciare il seguente comando
+```
+yarn link
+```
+Entrare dentro myzanichelli_dashboard ed eseguire il seguente comando
+```
+yarn link zanichelli-web-components-library
+```
 
-### Per pubblicare il pacchetto web components:
-
-##### da web comp libs
-
--   lanciare il container docker di verdaccio: `yarn verdaccio`
--   aggiungere utente locale: `npm adduser --registry http://localhost:4873` (comando da lanciare solo la prima volta)
--   pubblicare il package lanciando: `yarn release` (verrà chiesto di aggiornare il numero di versione)
-
-##### da app dashboard
-
--   settare il registro di yarn su verdaccio: `yarn config set registry http://localhost:4873`
--   installare tutti pacchetti: `yarn`
--   (per fare aggiornmento `yarn upgrade`)
--   avviare l'app: `yarn start`
