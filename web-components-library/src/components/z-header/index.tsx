@@ -279,14 +279,10 @@ export class ZHeader {
   renderLoginDiv(userData: HeaderUserData): HTMLDivElement {
     return (
       <div class="login">
-        {this.isLogged ? (
-          <z-menu-dropdown
-            nomeutente={userData.name}
-            menucontent={JSON.stringify(userData.userlinks)}
-          />
-        ) : (
-            this.renderLoginButton()
-          )}
+        {this.isLogged
+          ? <z-menu-dropdown nomeutente={userData.name} menucontent={userData.userlinks} />
+          : this.renderLoginButton()
+        }
       </div>
     );
   }
