@@ -1,4 +1,4 @@
-# z-card-icon
+# z-icon-package
 
 
 
@@ -9,7 +9,7 @@
 
 | Property | Attribute | Description | Type     | Default     |
 | -------- | --------- | ----------- | -------- | ----------- |
-| `icon`   | `icon`    |             | `string` | `undefined` |
+| `name`   | `name`    |             | `string` | `undefined` |
 
 
 ## Dependencies
@@ -21,8 +21,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  z-card-icon --> z-icon
-  style z-card-icon fill:#f9f,stroke:#333,stroke-width:4px
+  z-icon-package --> z-icon
+  style z-icon-package fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

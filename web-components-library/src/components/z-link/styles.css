@@ -8,6 +8,7 @@
 a {
   cursor: pointer;
   color: var(--myz-blue);
+  fill: var(--myz-blue);
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -15,6 +16,7 @@ a {
 
 a:hover {
   color: var(--myz-blue-dark);
+  fill: var(--myz-blue-dark);
   text-decoration: none;
 }
 
@@ -23,18 +25,24 @@ a.disabled {
   pointer-events: none;
 }
 
-a.disabled, a.disabled:active, a.disabled:visited, a.disabled:hover {
+a.disabled,
+a.disabled:active,
+a.disabled:visited,
+a.disabled:hover {
   color: var(--bg-artboard-gray-very-light);
+  fill: var(--bg-artboard-gray-very-light);
   text-decoration: none;
 }
 
-a.white, a.white:active, a.white:visited, a.white:hover {
+a.white,
+a.white:active,
+a.white:visited,
+a.white:hover {
   color: var(--bg-artboard-white);
+  fill: var(--bg-artboard-white);
   text-decoration: none;
 }
 
-a > img {
-  height: 16px;
-  width: 16px;
+a>z-icon {
   margin-right: 8px;
 }

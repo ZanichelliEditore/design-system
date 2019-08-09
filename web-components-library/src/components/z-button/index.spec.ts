@@ -3,7 +3,6 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZButton } from "./index";
 
 describe("Suite test ZButton", () => {
-
   it("Test render ZButton", async () => {
     const page = await newSpecPage({
       components: [ZButton],
@@ -16,7 +15,7 @@ describe("Suite test ZButton", () => {
           </button>
         </mock:shadow-root>
       </z-button>
-    `)
+    `);
   });
 
   it("Test render ZButton con label", async () => {
@@ -32,23 +31,23 @@ describe("Suite test ZButton", () => {
           </button>
         </mock:shadow-root>
       </z-button>
-    `)
+    `);
   });
 
   it("Test render ZButton con icon", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button icon="icon.png"></z-button>`
+      html: `<z-button icon="icon"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button icon="icon.png">
+      <z-button icon="icon">
         <mock:shadow-root>
           <button>
-            <img src="../../../assets/images/png/icon.png" />
+            <z-icon name="icon" height="16" width="16" />
           </button>
         </mock:shadow-root>
       </z-button>
-    `)
+    `);
   });
 
   it("Test render ZButton type", async () => {
@@ -63,7 +62,7 @@ describe("Suite test ZButton", () => {
           </button>
         </mock:shadow-root>
       </z-button>
-    `)
+    `);
   });
 
   it("Test render ZButton small", async () => {
@@ -78,7 +77,7 @@ describe("Suite test ZButton", () => {
           </button>
         </mock:shadow-root>
       </z-button>
-    `)
+    `);
   });
 
   it("Test render ZButton disabled", async () => {
@@ -93,7 +92,6 @@ describe("Suite test ZButton", () => {
           </button>
         </mock:shadow-root>
       </z-button>
-    `)
+    `);
   });
-
 });
