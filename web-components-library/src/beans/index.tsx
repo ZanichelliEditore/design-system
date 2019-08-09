@@ -76,4 +76,5 @@ export type HeaderUserData = {
   id?: number;
   name?: string;
   usergroup: number;
+  userlinks: ListItemBean[];
 };

@@ -282,7 +282,7 @@ export class ZHeader {
         {this.isLogged ? (
           <z-menu-dropdown
             nomeutente={userData.name}
-            menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"#home", "linkid":"logout-button"}]'
+            menucontent={JSON.stringify(userData.userlinks)}
           />
         ) : (
             this.renderLoginButton()
@@ -321,18 +321,7 @@ export class ZHeader {
 
   renderUserData(userData) {
     if (this.isMobile && !userData) return null;
-    const listItems = [
-      {
-        text: "Profilo",
-        link: "http://www.zanichelli.it"
-      },
-      {
-        text: "Esci",
-        link: "#home",
-        listitemid: "logout-button"
-      }
-    ];
-    return this.renderMobileSubMenu(listItems, "user-data");
+    return this.renderMobileSubMenu(userData.userlinks, "user-data");
   }
 
   renderDesktopHeader(): HTMLHeadingElement {
