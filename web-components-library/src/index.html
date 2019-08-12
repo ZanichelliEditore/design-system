@@ -255,9 +255,23 @@
       </div>
       <br />
 
-      <z-menu-dropdown nomeutente="username"
-        menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'>
-      </z-menu-dropdown>
+      <div style="
+        display: grid;
+        grid-template-columns: minmax(241px, 294px) 1fr 2.5fr minmax(180px, 180px);
+        grid-column-gap: var(--basex1);
+        background-color: rgb(48, 56, 64);
+        height: 52px;
+        align-items: center;
+        z-index: 10;">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div style="display: flex; justify-content:flex-end; margin-right:8px">
+          <z-menu-dropdown nomeutente="username molto lungo nome"
+            menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'>
+          </z-menu-dropdown>
+        </div>
+      </div>
       <br />
 
       <z-button-filter filtername="filter 1" isfixed></z-button-filter>

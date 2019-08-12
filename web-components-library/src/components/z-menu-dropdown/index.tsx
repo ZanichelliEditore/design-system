@@ -46,7 +46,7 @@ export class ZMenuDropdown {
 
   retriveMenuClass() {
     if (this.ismenuopen) {
-      return "menuOpened"
+      return "menu-opened"
     }
   }
 
