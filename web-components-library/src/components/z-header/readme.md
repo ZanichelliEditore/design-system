@@ -12,6 +12,7 @@
 | `extlinkdata` | `extlinkdata` |             | `HeaderLink[] \| string`                                                                                         | `undefined` |
 | `intlinkdata` | `intlinkdata` |             | `HeaderLink[] \| string`                                                                                         | `undefined` |
 | `ismyz`       | `ismyz`       |             | `boolean`                                                                                                        | `undefined` |
+| `logopath`    | `logopath`    |             | `string`                                                                                                         | `undefined` |
 | `userdata`    | `userdata`    |             | `string \| { islogged: boolean; id?: number; name?: string; usergroup: number; userlinks: MenuDropdownItem[]; }` | `undefined` |
 
 
