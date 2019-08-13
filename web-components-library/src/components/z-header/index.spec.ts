@@ -19,14 +19,14 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata=\"[]\" intlinkdata=\"[]\" ismyz=\"true\">
+    <z-header extlinkdata="[]" intlinkdata="[]" ismyz="true" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
         <header>
-          <div class=\"false mobile-header\" id=\"mobile-header\">
-            <div class=\"logo\">
-              <z-logo imagealt=\"logo zanichelli\" imageurl=\"../../assets/images/png/zanichelli-logo-2.png\" link=\"https://www.zanichelli.it\" targetblank=\"\"></z-logo>
+          <div class="false mobile-header" id="mobile-header">
+            <div class="logo">
+              <z-logo imagealt="logo zanichelli" imageurl="./assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank=""></z-logo>
             </div>
-            <z-button buttonid=\"login-button\" label=\"entra\" type=\"secondary\"></z-button>
+            <z-button buttonid="login-button" label="entra" type="secondary"></z-button>
           </div>
         </header>
       </mock:shadow-root>
@@ -37,7 +37,7 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader mobile non myz utente non loggato", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(true, false, true, false, false)
+      html: initHeader(true, false, false, false, false)
     });
 
     //Set mobile state
@@ -45,14 +45,14 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata=\"[]\" intlinkdata=\"[]\" ismyz=\"true\" userdata=\"{&quot;islogged&quot;:false,&quot;usergroup&quot;:4}\">
+    <z-header extlinkdata="[]" intlinkdata="[]" ismyz="false" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":false,"usergroup":4}'>
     <mock:shadow-root>
       <header>
-        <div class=\"false mobile-header\" id=\"mobile-header\">
-          <div class=\"logo\">
-            <z-logo imagealt=\"logo zanichelli\" imageurl=\"../../assets/images/png/zanichelli-logo-2.png\" link=\"https://www.zanichelli.it\" targetblank=\"\"></z-logo>
+        <div class="mobile-header myz-out" id="mobile-header">
+          <div class="logo">
+            <z-logo imagealt="logo zanichelli" imageurl="./assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank=""></z-logo>
           </div>
-          <z-button buttonid=\"login-button\" label=\"entra\" type=\"secondary\"></z-button>
+          <z-button buttonid="login-button" label="entra" type="secondary"></z-button>
         </div>
       </header>
     </mock:shadow-root>
@@ -71,45 +71,45 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata=\"[]\" intlinkdata=\"[]\" ismyz=\"true\" userdata=\"{&quot;islogged&quot;:true,&quot;id&quot;:123456,&quot;name&quot;:&quot;Dario Docente e Professore&quot;,&quot;usergroup&quot;:15}\">
+    <z-header extlinkdata="[]" intlinkdata="[]" ismyz="true" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'>   
     <mock:shadow-root>
       <header>
-        <div class=\"false mobile-header\" id=\"mobile-header\">
-          <div class=\"logo\">
-            <z-logo imagealt=\"logo zanichelli\" imageurl=\"../../assets/images/png/zanichelli-logo-2.png\" link=\"https://www.zanichelli.it\" targetblank=\"\"></z-logo>
+        <div class="false mobile-header" id="mobile-header">
+          <div class="logo">
+            <z-logo imagealt="logo zanichelli" imageurl="./assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank=""></z-logo>
           </div>
-          <div class=\"menu-mobile\" id=\"mobile-menu-wrapper\">
-            <div class=\"false menu-toggle\" id=\"mobile-menu\">
-              <span class=\"bar\"></span>
-              <span class=\"bar\"></span>
-              <span class=\"bar\"></span>
+          <div class="menu-mobile" id="mobile-menu-wrapper">
+            <div class="false menu-toggle" id="mobile-menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
             </div>
             <span>
               Menu
             </span>
           </div>
         </div>
-        <div class=\"false false mobile-content\" id=\"mobile-content\">
-          <div class=\"mobile-login\" id=\"mobile-login\">
+        <div class="false false mobile-content" id="mobile-content">
+          <div class="mobile-login" id="mobile-login">
             <span>
-              <a class=\"menu-item\" href=\"#home\" id=\"user-data\">
+              <a class="menu-item" href="#home" id="user-data">
                 <span>
-                  <img src=\"../assets/images/png/user_transparent.png\">
+                  <img src="../assets/images/png/user_transparent.png">
                   Dario Docente e Professore
                 </span>
                 <i></i>
               </a>
-              <span class=\"mobile-dropdown\" id=\"mobile-dropdown-user-data\">
+              <span class="mobile-dropdown" id="mobile-dropdown-user-data">
                 <z-list></z-list>
               </span>
             </span>
           </div>
           <hr>
-          <div class=\"link-int\" id=\"link-int\"></div>
+          <div class="link-int" id="link-int"></div>
           <hr>
-          <div class=\"link-ext\" id=\"link-ext\"></div>
-          <div class=\"booktab-button\" id=\"booktab-button\">
-            <z-button icon=\"download.png\" label=\"Scarica la app BookTab\" type=\"primary\"></z-button>
+          <div class="link-ext" id="link-ext"></div>
+          <div class="booktab-button" id="booktab-button">
+            <z-button icon="download.png" label="Scarica la app BookTab" type="primary"></z-button>
           </div>
         </div>
       </header>
@@ -130,14 +130,15 @@ describe("Suite test ZHeader", () => {
     <z-header
       intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
-      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15}'
+      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
       ismyz="true"
+      logopath="./assets/images/png/zanichelli-logo-2.png"
     >
       <mock:shadow-root>
         <header>
           <div class="false mobile-header" id="mobile-header">
             <div class="logo">
-              <z-logo imagealt="logo zanichelli" imageurl="../../assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank=""></z-logo>
+              <z-logo imagealt="logo zanichelli" imageurl="./assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank=""></z-logo>
             </div>
             <div class="menu-mobile" id="mobile-menu-wrapper">
               <div class="menu-toggle is-active" id="mobile-menu">
@@ -163,7 +164,7 @@ describe("Suite test ZHeader", () => {
                     <mock:shadow-root>
                       <ul>
                         <z-list-item link="http://www.zanichelli.it" text="Profilo"></z-list-item>
-                        <z-list-item link="#home" listitemid="logout-button" text="Esci"></z-list-item>
+                        <z-list-item link="#home" text="Esci"></z-list-item>
                       </ul>
                     </mock:shadow-root>
                   </z-list>
@@ -250,7 +251,8 @@ describe("Suite test ZHeader", () => {
       html: initHeader(false, false, true, false, false)
     });
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata='[]' intlinkdata='[]' ismyz="true">
+
+      <z-header extlinkdata='[]' intlinkdata='[]' ismyz="true" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
         <header>
           <div class="top-header">
@@ -260,7 +262,7 @@ describe("Suite test ZHeader", () => {
           </div>
           <div class="main-header false" id="main-header">
             <div class="logo">
-              <z-logo imagealt="logo zanichelli" imageurl="../../assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank></z-logo>
+              <z-logo imagealt="logo zanichelli" imageurl="./assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank></z-logo>
             </div>
             <div></div>
             <div></div>
@@ -284,8 +286,9 @@ describe("Suite test ZHeader", () => {
     <z-header
       intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
-      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15}'
+      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
       ismyz="true"
+      logopath="./assets/images/png/zanichelli-logo-2.png"
     >
       <mock:shadow-root>
         <header>
@@ -299,7 +302,7 @@ describe("Suite test ZHeader", () => {
               <z-logo
                 link="https://www.zanichelli.it"
                 targetblank
-                imageurl="../../assets/images/png/zanichelli-logo-2.png"
+                imageurl="./assets/images/png/zanichelli-logo-2.png"
                 imagealt="logo zanichelli"
               />
             </div>
@@ -329,7 +332,7 @@ describe("Suite test ZHeader", () => {
             <div class="login">
               <z-menu-dropdown
                 nomeutente="Dario Docente e Professore"
-                menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"#home", "linkid":"logout-button"}]'
+                menucontent='[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]'
               ></z-menu-dropdown>
             </div>
           </div>
@@ -356,6 +359,7 @@ describe("Suite test ZHeader", () => {
       intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       ismyz="true"
+      logopath="./assets/images/png/zanichelli-logo-2.png"
     >
       <mock:shadow-root>
         <header>
@@ -369,7 +373,7 @@ describe("Suite test ZHeader", () => {
               <z-logo
                 link="https://www.zanichelli.it"
                 targetblank
-                imageurl="../../assets/images/png/zanichelli-logo-2.png"
+                imageurl="./assets/images/png/zanichelli-logo-2.png"
                 imagealt="logo zanichelli"
               />
             </div>
@@ -395,8 +399,9 @@ describe("Suite test ZHeader", () => {
     <z-header
       intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
-      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15}'
+      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
       ismyz="false"
+      logopath="./assets/images/png/zanichelli-logo-2.png"
     >
       <mock:shadow-root>
         <header>
@@ -406,7 +411,7 @@ describe("Suite test ZHeader", () => {
               <z-logo
                 link="https://www.zanichelli.it"
                 targetblank
-                imageurl="../../assets/images/png/zanichelli-logo-2.png"
+                imageurl="./assets/images/png/zanichelli-logo-2.png"
                 imagealt="logo zanichelli"
               />
             </div>
@@ -419,7 +424,7 @@ describe("Suite test ZHeader", () => {
             <div class="login">
               <z-menu-dropdown
                 nomeutente="Dario Docente e Professore"
-                menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"#home", "linkid":"logout-button"}]'
+                menucontent='[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]'
               ></z-menu-dropdown>
             </div>
           </div>
@@ -445,8 +450,9 @@ describe("Suite test ZHeader", () => {
     <z-header
       intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
-      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15}'
+      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
       ismyz="true"
+      logopath="./assets/images/png/zanichelli-logo-2.png"
     >
       <mock:shadow-root>
         <header>
@@ -460,7 +466,7 @@ describe("Suite test ZHeader", () => {
               <z-logo
                 link="https://www.zanichelli.it"
                 targetblank
-                imageurl="../../assets/images/png/zanichelli-logo-2.png"
+                imageurl="./assets/images/png/zanichelli-logo-2.png"
                 imagealt="logo zanichelli"
               />
             </div>
@@ -490,7 +496,7 @@ describe("Suite test ZHeader", () => {
             <div class="login">
               <z-menu-dropdown
                 nomeutente="Dario Docente e Professore"
-                menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"#home", "linkid":"logout-button"}]'
+                menucontent='[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]'
               ></z-menu-dropdown>
             </div>
           </div>
@@ -519,7 +525,8 @@ function initHeader(
     islogged: true,
     id: 123456,
     name: "Dario Docente e Professore",
-    usergroup: 15
+    usergroup: 15,
+    userlinks:[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]
   };
   const emptyArray = "[]";
   let userTag = "";
@@ -528,7 +535,6 @@ function initHeader(
       ? "userdata='" + JSON.stringify(user) + "'"
       : "userdata='" + JSON.stringify(userNotLogged) + "'";
   }
-
   const intlinkdata = JSON.stringify([
     {
       id: "home",
@@ -557,8 +563,12 @@ function initHeader(
     }
   ]);
 
+  const logoPath = './assets/images/png/zanichelli-logo-2.png';
+
   return `<z-header intlinkdata='${intlinkdataBool ? intlinkdata : emptyArray}'
   extlinkdata='${extlinkdataBool ? extlinkdata : emptyArray}'
   ${userTag}
-  ismyz=${myz}></z-header>`;
+  ismyz=${myz}
+  logopath=${logoPath}
+  ></z-header>`;
 }
