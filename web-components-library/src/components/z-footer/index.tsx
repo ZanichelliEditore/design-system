@@ -41,7 +41,7 @@ export class ZFooter {
         <div class="header" >
           <h2>{group.title}</h2>
           {this.isMobile &&
-            <img src={this.isOpen[id] ? '../../assets/images/png/down-arrow.png' : '../../assets/images/png/up-arrow.png' }
+            <img src={this.isOpen[id] ? '../../assets/images/down-arrow.png' : '../../assets/images/up-arrow.png' }
                 onClick={() => this.handleOnHeaderClick(id)}/>
           }
         </div>
