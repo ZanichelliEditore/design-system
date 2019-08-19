@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
-import { HeaderLink, HeaderUserData, ListItemBean } from "../../beans";
+import { HeaderLink, HeaderUserData, ListItemBean, MenuDropdownItem } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
@@ -318,7 +318,16 @@ export class ZHeader {
 
   renderUserData(userData) {
     if (this.isMobile && !userData) return null;
-    return this.renderMobileSubMenu(userData.userlinks, "user-data");
+    const listItems: ListItemBean[] = userData.userlinks.map(
+      (item: MenuDropdownItem) => {
+        return {
+          text: item.text,
+          link: item.link,
+          listitemid: item.linkid
+        };
+      }
+    );
+    return this.renderMobileSubMenu(listItems, "user-data");
   }
 
   renderDesktopHeader(): HTMLHeadingElement {
