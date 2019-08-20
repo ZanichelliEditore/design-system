@@ -3,7 +3,7 @@
   font-weight: var(--font-sb);
   font-size: 12px;
   height: 32px;
-  width: 147px;
+  width: inherit;
   letter-spacing: 0.17px;
   line-height: 14px;
 }
@@ -15,7 +15,7 @@ a:active {
   text-decoration: none;
 }
 
-:host>div {
+:host > div {
   background: var(--bg-artboard-gray);
   color: var(--text-gray-dark);
   border-radius: var(--radius-base);
@@ -24,58 +24,60 @@ a:active {
   outline: none;
 }
 
-:host>div::-moz-focus-inner {
+:host > div::-moz-focus-inner {
   border: 0;
 }
 
-:host>div:hover,
-:host>div.menuOpened:hover {
+:host > div:hover,
+:host > div.menu-opened:hover {
   color: var(--myz-blue-dark);
 }
 
-:host>div:focus {
+:host > div:focus {
   color: var(--myz-blue);
   border: 1px solid var(--myz-blue);
   box-shadow: 0px 0px 2px 2px var(--myz-blue-light);
 }
 
-:host>div:active {
+:host > div:active {
   color: #1973e1;
   border: 1px solid #1973e1;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
-}
-
-.menuOpened {
-  padding-bottom: var(--basex2)
-}
-
-.menuOpened a,
-.menuOpened a:active,
-.menuOpened a:visited {
-  color: var(--myz-blue);
-}
-
-.menuOpened a:hover {
-  color: var(--myz-blue-dark);
 }
 
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 147px;
+  /* width: 147px; */
   height: 32px;
   position: relative;
 }
 
-div>img,
-div>z-icon {
+.menu-opened {
+  padding-bottom: var(--basex2);
+  width: auto!important;
+  position: inherit;
+}
+
+.menu-opened a,
+.menu-opened a:active,
+.menu-opened a:visited {
+  color: var(--myz-blue);
+}
+
+.menu-opened a:hover {
+  color: var(--myz-blue-dark);
+}
+
+div > img,
+div > z-icon {
   width: 14px;
   height: 14px;
   padding-left: var(--half-x3);
 }
 
-div>span.arrow {
+div > span.arrow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,19 +85,19 @@ div>span.arrow {
   padding-right: var(--basex1);
 }
 
-span.arrow>z-icon {
+span.arrow > z-icon {
   transform: rotate(360deg);
   transition: all 200ms linear;
 }
 
-.menuOpened span.arrow>z-icon {
+.menu-opened span.arrow > z-icon {
   transform: rotate(180deg);
   transition: all 200ms linear;
 }
 
-div>span.user {
+div > span.user {
   padding-left: var(--half-x1);
-  width: 96px;
+  /* width: 96px; */
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -114,13 +116,12 @@ li {
   align-items: center;
 }
 
-
 @media (max-width: 1024px) {
   :host {
-    width: 88px;
+    width: inherit;
   }
 
-  :host>div {
+  :host > div {
     width: 88px;
   }
 
@@ -128,20 +129,20 @@ li {
     width: 88px;
   }
 
-  div>span.user {
+  div > span.user {
     width: 37px;
   }
 
-  div.menuOpened {
+  /* div.menu-opened {
     margin-left: -59px;
     width: 147px;
+  } */
+
+  div.menu-opened .container {
+    width: auto;
   }
 
-  div.menuOpened .container {
-    width: 147px;
-  }
-
-  div.menuOpened span.user {
-    width: 96px;
+  div.menu-opened span.user {
+    width: auto;
   }
 }

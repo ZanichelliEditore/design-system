@@ -9,8 +9,8 @@ import { FooterBean, FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSo
 })
 export class ZFooter {
   @Prop() data: string;
-  @State() isOpen : boolean[] = [];
-  @State() isMobile : boolean;
+  @State() isOpen: boolean[] = [];
+  @State() isMobile: boolean;
 
   jsonData: FooterBean;
 
@@ -41,8 +41,10 @@ export class ZFooter {
         <div class="header" >
           <h2>{group.title}</h2>
           {this.isMobile &&
-            <img src={this.isOpen[id] ? '../../assets/images/png/down-arrow.png' : '../../assets/images/png/up-arrow.png' }
-                onClick={() => this.handleOnHeaderClick(id)}/>
+            <z-icon name={this.isOpen[id] ? 'head-arrow-down-icon' : 'head-arrow-up-icon'}
+              width={16} height={16}
+              onClick={() => this.handleOnHeaderClick(id)}
+            />
           }
         </div>
         <div class="content">
@@ -65,8 +67,8 @@ export class ZFooter {
     const bottomLinks: FooterGroupItemBean[] = this.jsonData.bottomLinks;
     const zanichelliLinksToRender = zanichelliLinks.slice()
 
-    if(this.isMobile){
-      zanichelliLinksToRender.push({title:'Altre informazioni',items:bottomLinks})
+    if (this.isMobile) {
+      zanichelliLinksToRender.push({ title: 'Altre informazioni', items: bottomLinks })
     }
 
     return (
@@ -81,7 +83,7 @@ export class ZFooter {
   }
 
   renderZLogo(): HTMLElement {
-    const myzLink : MyzLinkBean = this.jsonData.myzLink;
+    const myzLink: MyzLinkBean = this.jsonData.myzLink;
 
     return (
       <z-logo
@@ -93,7 +95,7 @@ export class ZFooter {
   }
 
   renderAddress(): HTMLElement {
-    const zanichelliAddress : string = this.jsonData.zanichelliAddress;
+    const zanichelliAddress: string = this.jsonData.zanichelliAddress;
 
     return (
       <p>{zanichelliAddress}</p>
@@ -108,7 +110,7 @@ export class ZFooter {
         {social.map(
           (item: FooterSocialBean): HTMLElement =>
             <li>
-              <a href={item.link} target="_blank"><img src={item.icon}/></a>
+              <a href={item.link} target="_blank"><img src={item.icon} /></a>
             </li>
         )}
       </ul>
@@ -122,7 +124,7 @@ export class ZFooter {
   }
 
   renderCertification(): HTMLElement {
-    const certification : string = this.jsonData.certification;
+    const certification: string = this.jsonData.certification;
 
     return (
       <p>{certification}</p>
@@ -131,8 +133,7 @@ export class ZFooter {
 
   renderBottomLinks(): HTMLElement {
     const bottomLinks: FooterGroupItemBean[] = this.jsonData.bottomLinks;
-    if(!this.isMobile)
-    {
+    if (!this.isMobile) {
       return (
         <div class="item bottom-links">
           <ul>
@@ -161,7 +162,7 @@ export class ZFooter {
           {this.renderSocial()}
         </div>
         {this.renderBottomLinks()}
-       </section>
+      </section>
     );
   }
 

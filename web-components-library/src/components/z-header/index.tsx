@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
-import { HeaderLink, HeaderUserData, ListItemBean } from "../../beans";
+import { HeaderLink, HeaderUserData, ListItemBean, MenuDropdownItem } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
@@ -8,11 +8,11 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
   shadow: true
 })
 export class ZHeader {
-  @Prop() intlinkdata: string;
-  @Prop() extlinkdata: string;
-  @Prop() userdata?: string;
+  @Prop() intlinkdata: string | HeaderLink[];
+  @Prop() extlinkdata: string | HeaderLink[];
+  @Prop() userdata?: string | HeaderUserData;
   @Prop() ismyz: boolean;
-  @State() isSticky: boolean = false;
+  @Prop() logopath?: string;
   @State() activeMenuItem: HeaderLink;
   @State() currentMenuItem: HeaderLink;
   @State() isMobile: boolean = true;
@@ -50,13 +50,13 @@ export class ZHeader {
   }
 
   componentWillLoad() {
-    this.intMenuData = JSON.parse(this.intlinkdata);
-    this.extMenuData = JSON.parse(this.extlinkdata);
+    this.intMenuData = typeof this.intlinkdata === 'string' ? JSON.parse(this.intlinkdata) : this.intlinkdata;
+    this.extMenuData = typeof this.extlinkdata === 'string' ? JSON.parse(this.extlinkdata) : this.extlinkdata;
     this.activeMenuItem = this.setIntMenuItem();
     this.currentMenuItem = this.setIntMenuItem();
     this.sections = this.getSections(this.intMenuData);
     if (this.userdata) {
-      this.userData = JSON.parse(this.userdata);
+      this.userData = typeof this.userdata === 'string' ? JSON.parse(this.userdata) : this.userdata;
       this.isLogged = this.userData.islogged;
     }
     this.handleResize();
@@ -120,7 +120,7 @@ export class ZHeader {
         <z-logo
           link="https://www.zanichelli.it"
           targetblank={true}
-          imageurl="../../assets/images/png/zanichelli-logo-2.png"
+          imageurl={this.logopath}
           imagealt="logo zanichelli"
         />
       </div>
@@ -214,16 +214,16 @@ export class ZHeader {
     if (!menuItem || !menuItem["subMenu"] || !this.isLogged || !this.ismyz) {
       return (
         <div
-        id="dropdown-menu"
-        class={`dropdown-menu hidden ${this.isSticky && "sticky"}`}
+          id="dropdown-menu"
+          class={`dropdown-menu hidden`}
         />
-        );
-      }
+      );
+    }
     const active = menuItem.subMenu ? menuItem.subMenu[0] : null;
     return (
       <div
         id="dropdown-menu"
-        class={`dropdown-menu ${this.isSticky && "sticky"}`}
+        class={`dropdown-menu`}
       >
         <div class="dropdown-links">
           {menuItem.subMenu.map(
@@ -280,21 +280,17 @@ export class ZHeader {
   renderLoginDiv(userData: HeaderUserData): HTMLDivElement {
     return (
       <div class="login">
-        {this.isLogged ? (
-          <z-menu-dropdown
-            nomeutente={userData.name}
-            menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"#home", "linkid":"logout-button"}]'
-          />
-        ) : (
-          this.renderLoginButton()
-        )}
+        {this.isLogged
+          ? <z-menu-dropdown nomeutente={userData.name} menucontent={JSON.stringify(userData.userlinks)} />
+          : this.renderLoginButton()
+        }
       </div>
     );
   }
 
   renderLoginButton() {
     return (
-      <z-button label="entra" type="secondary" buttonid="login-button"/>
+      <z-button label="entra" type="secondary" buttonid="login-button" />
     );
   }
 
@@ -322,17 +318,15 @@ export class ZHeader {
 
   renderUserData(userData) {
     if (this.isMobile && !userData) return null;
-    const listItems = [
-      {
-        text: "Profilo",
-        link: "http://www.zanichelli.it"
-      },
-      {
-        text: "Esci",
-        link: "#home",
-        listitemid: "logout-button"
+    const listItems: ListItemBean[] = userData.userlinks.map(
+      (item: MenuDropdownItem) => {
+        return {
+          text: item.text,
+          link: item.link,
+          listitemid: item.linkid
+        };
       }
-    ];
+    );
     return this.renderMobileSubMenu(listItems, "user-data");
   }
 
@@ -350,8 +344,7 @@ export class ZHeader {
     return (
       <div
         id="main-header"
-        class={`main-header ${this.isSticky && "sticky"} ${!this.ismyz &&
-          "myz-out"}`}
+        class={`main-header ${!this.ismyz && "myz-out"}`}
       >
         {this.renderLogoDiv()}
         {this.renderIntMenu(this.intMenuData)}
