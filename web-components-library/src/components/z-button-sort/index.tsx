@@ -8,8 +8,8 @@ import { Component, Prop, h, State, Event, EventEmitter } from '@stencil/core';
 
 export class ZButtonSort {
   @Prop() label: string;
-  @Prop() counter: number;
   @Prop() buttonid: string;
+  @Prop() counter?: number;
 
   @State() isSelected: boolean = false;
   @State() sortAsc: boolean = true;
@@ -27,7 +27,7 @@ export class ZButtonSort {
   render() {
     return (
       <button id={this.buttonid} class={this.isSelected && "selected"} onClick={() => this.emitButtonSortClick()}>
-        <label>{this.label} ({this.counter})</label>
+        <label>{this.label}{this.counter && ` (${this.counter})`}</label>
         <span>{this.sortAsc ? 'A-Z' : 'Z-A'}</span>
         <z-icon name="ordina-icon-stroked" width={16} height={16} />
       </button>

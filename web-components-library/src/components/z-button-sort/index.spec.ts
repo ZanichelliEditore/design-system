@@ -12,7 +12,7 @@ describe("Suite test ZButtonSort", () => {
       <z-button-sort>
         <mock:shadow-root>
           <button>
-            <label>()</label>
+            <label></label>
             <span>A-Z</span>
             <z-icon name="ordina-icon-stroked" width="16" height="16" />
           </button>
@@ -50,7 +50,7 @@ describe("Suite test ZButtonSort", () => {
       <z-button-sort>
         <mock:shadow-root>
           <button class="selected">
-            <label>()</label>
+            <label></label>
             <span>A-Z</span>
             <z-icon name="ordina-icon-stroked" width="16" height="16" />
           </button>
@@ -71,7 +71,7 @@ describe("Suite test ZButtonSort", () => {
       <z-button-sort>
         <mock:shadow-root>
           <button class="selected">
-            <label>()</label>
+            <label></label>
             <span>Z-A</span>
             <z-icon name="ordina-icon-stroked" width="16" height="16" />
           </button>
