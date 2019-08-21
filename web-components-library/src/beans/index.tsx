@@ -38,6 +38,7 @@ export declare type ActionBean = {
 export type CardBean = {
   id: string;
   titolo: string;
+  titolo_opera: string;
   img: string;
   autori: string;
   anno: number;

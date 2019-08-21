@@ -16,11 +16,13 @@
 
 ### Depends on
 
+- [z-icon](../z-icon)
 - [z-logo](../z-logo)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-footer --> z-icon
   z-footer --> z-logo
   style z-footer fill:#f9f,stroke:#333,stroke-width:4px
 ```
