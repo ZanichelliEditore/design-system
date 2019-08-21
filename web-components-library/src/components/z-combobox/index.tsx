@@ -20,8 +20,6 @@ export class ZCombobox {
   render() {
     return (
       <ul>
-        <p>{(this.items)}</p>
-        <p>{JSON.stringify(this.itemsList)}</p>
         {this.itemsList.map((item) => {
           return (
             <z-list-item text={item.name} listitemid={item.id}
