@@ -26,6 +26,7 @@
 
 ### Used by
 
+ - [z-combobox](../z-combobox)
  - [z-list](../z-list)
 
 ### Depends on
@@ -36,6 +37,7 @@
 ```mermaid
 graph TD;
   z-list-item --> z-icon
+  z-combobox --> z-list-item
   z-list --> z-list-item
   style z-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```

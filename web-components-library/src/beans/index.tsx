@@ -78,3 +78,8 @@ export type HeaderUserData = {
   usergroup: number;
   userlinks: MenuDropdownItem[];
 };
+ export type ComboItemBean = {
+  id: string;
+  name: string;
+  checked: boolean;
+};
