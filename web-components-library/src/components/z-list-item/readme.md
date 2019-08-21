@@ -28,9 +28,14 @@
 
  - [z-list](../z-list)
 
+### Depends on
+
+- [z-icon](../z-icon)
+
 ### Graph
 ```mermaid
 graph TD;
+  z-list-item --> z-icon
   z-list --> z-list-item
   style z-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
