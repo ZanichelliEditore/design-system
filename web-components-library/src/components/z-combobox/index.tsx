@@ -1,13 +1,12 @@
-import { Component, Prop, h, State } from '@stencil/core';
-import { ComboItemBean } from '../../beans';
-import { ZInputText } from '../z-input-text';
+import { Component, Prop, h, State } from "@stencil/core";
+import { ComboItemBean } from "../../beans";
+import { ZInputText } from "../z-input-text";
 
 @Component({
-  tag: 'z-combobox',
-  styleUrl: 'styles.css',
+  tag: "z-combobox",
+  styleUrl: "styles.css",
   shadow: true
 })
-
 export class ZCombobox {
   @Prop() inputid: string;
   @Prop() items: ComboItemBean[] | string;
@@ -21,15 +20,22 @@ export class ZCombobox {
   @State() searchValue: string;
   @State() searchItemsList: ComboItemBean[] = [];
 
+
   private itemsList: ComboItemBean[];
   private selectedCounter: number;
 
   componentWillRender() {
-    this.itemsList = typeof this.items === 'string' ? JSON.parse(this.items) : this.items;
-    this.selectedCounter = this.itemsList.filter((item) => { return item.checked; }).length;
+    this.itemsList =
+      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    this.selectedCounter = this.itemsList.filter(item => {
+      return item.checked;
+    }).length;
 
     if (this.searchitems) {
-      this.searchItemsList = typeof this.searchitems === 'string' ? JSON.parse(this.searchitems) : this.searchitems;
+      this.searchItemsList =
+        typeof this.searchitems === "string"
+          ? JSON.parse(this.searchitems)
+          : this.searchitems;
     }
   }
 
@@ -37,9 +43,10 @@ export class ZCombobox {
     if (!value) return this.closeFilterItems();
 
     this.searchValue = value;
-    this.searchItemsList = this.itemsList.filter((item) => {
-      // item.name = item.name.replace(value, value.bold());
-      return (item.name.includes(value));
+
+    this.searchItemsList = this.itemsList.filter(item => {
+      item.name = item.name.replace(value, value.bold());
+      return item.name.includes(value);
     });
   }
 
@@ -51,10 +58,16 @@ export class ZCombobox {
 
   renderHeader(): HTMLHeadingElement {
     return (
-      <header onClick={() => { this.isOpen = !this.isOpen; }}>
+      <header
+        onClick={() => {
+          this.isOpen = !this.isOpen;
+        }}
+      >
         <h2>
           {this.label}
-          <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
+          <span>
+            {this.selectedCounter > 0 && ` (${this.selectedCounter})`}
+          </span>
         </h2>
         <z-icon name="select-icon-stroked" width={18} height={18} />
       </header>
@@ -77,11 +90,19 @@ export class ZCombobox {
   renderList(items: ComboItemBean[]): HTMLUListElement {
     return (
       <ul>
-        {items.map((item) => {
+        {items.map(item => {
           return (
-            <z-list-item text={item.name} listitemid={item.id}
-              icon={item.checked ? "checkbox-success-icon-filled" : "checkbox-unchecked-icon"}
-            />);
+            <z-list-item
+              id={item.id}
+              text={item.name}
+              listitemid={item.id}
+              icon={
+                item.checked
+                  ? "checkbox-success-icon-filled"
+                  : "checkbox-unchecked-icon"
+              }
+            />
+          );
         })}
       </ul>
     );
@@ -91,9 +112,15 @@ export class ZCombobox {
     if (!this.isOpen) return;
 
     return (
-      <z-input-text inputid={`${this.inputid}_search`} label={this.searchlabel} placeholder={this.searchplaceholder} type="search"
+      <z-input-text
+        inputid={`${this.inputid}_search`}
+        label={this.searchlabel}
+        placeholder={this.searchplaceholder}
+        type="search"
         value={this.searchValue}
-        onInputChange={(e: CustomEvent) => { this.filterItems(e.detail.value); }}
+        onInputChange={(e: CustomEvent) => {
+          this.filterItems(e.detail.value);
+        }}
       />
     );
   }

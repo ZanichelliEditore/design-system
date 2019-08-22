@@ -21,13 +21,13 @@ export class ZListItem {
 
     return (
       <li id={this.listitemid}>
-        <span>
+        <span >
           {this.icon && <z-icon name={this.icon} />}
           {this.link
               ? <a href={this.link} id={linkId} onClick={(e: MouseEvent) => this.emitZListItemLinkClick(e, linkId)}>
                 {this.text}
               </a>
-              : this.text
+              : <span innerHTML={this.text}></span>
           }
         </span>
       </li>

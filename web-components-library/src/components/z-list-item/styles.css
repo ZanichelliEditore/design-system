@@ -3,7 +3,7 @@ li {
   line-height: 14px;
 }
 
-li span {
+li > span {
   height: 14px;
   padding: var(--basex2) 0;
   display: flex;
