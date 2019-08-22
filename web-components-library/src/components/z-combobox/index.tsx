@@ -36,6 +36,8 @@ export class ZCombobox {
   }
 
   renderList(): HTMLUListElement {
+    if (!this.isOpen) return;
+
     return (
       <ul>
         {this.itemsList.map((item) => {

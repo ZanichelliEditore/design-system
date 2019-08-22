@@ -46,15 +46,9 @@
   transition: all 200ms linear;
 }
 
-:host>div>ul {
-  height: 0px;
-  max-height: 0px;
-}
-
 :host>div.open>ul {
   margin: var(--basex1) var(--basex2);
   padding: 0;
-  height: 0px;
   max-height: 235px;
   overflow: auto;
   scrollbar-width: thin;
