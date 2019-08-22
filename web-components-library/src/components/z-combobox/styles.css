@@ -1,3 +1,8 @@
+:host {
+  width: 270px;
+  display: block;
+}
+
 :host>div {
   background-color: var(--bg-artboard-white);
   border-radius: var(--radius-base);

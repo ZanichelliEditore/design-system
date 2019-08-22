@@ -18,12 +18,25 @@ export class ZInputText {
     this.inputChange.emit({ value: e.target.value });
   }
 
+  @Event() inputSearch: EventEmitter;
+  emitInputSearch(e: any) {
+    this.inputSearch.emit({ ev: e });
+  }
+
   render() {
     return (
       <div>
         <label>{this.label}</label>
-        <input type={this.type} id={this.inputid} name={this.inputid} placeholder={this.placeholder} value={this.value}
-          onKeyUp={(e: any) => { this.emitInputChange(e); }}
+        {/* 
+  // @ts-ignore */}
+        <input 
+          type={this.type} 
+          id={this.inputid} 
+          name={this.inputid} 
+          placeholder={this.placeholder} 
+          value={this.value}
+          onSearch={(e: any) => { this.emitInputSearch(e) }}
+          onKeyUp={(e: any) => { this.emitInputChange(e) }}
         />
       </div>
     );

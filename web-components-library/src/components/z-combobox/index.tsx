@@ -1,4 +1,4 @@
-import { Component, Prop, h, State } from "@stencil/core";
+import { Component, Prop, h, State, Listen } from "@stencil/core";
 import { ComboItemBean } from "../../beans";
 import { ZInputText } from "../z-input-text";
 
@@ -20,6 +20,13 @@ export class ZCombobox {
   @State() searchValue: string;
   @State() searchItemsList: ComboItemBean[] = [];
 
+  @Listen('click', { target: 'window' })
+  handleClick(ev) {
+
+    if(ev.srcElement.inputid !== this.inputid) {
+      this.closeFilterItems();
+    };
+  }
 
   private itemsList: ComboItemBean[];
   private selectedCounter: number;
@@ -81,10 +88,21 @@ export class ZCombobox {
 
     return (
       <div class={this.searchValue && "search"}>
-        {this.renderList(items)}
+        {items.length ? this.renderList(items): this.renderNoSearchResults()}
         {this.searchValue ? (<a onClick={() => { this.closeFilterItems(); }}>CHIUDI</a>) : null}
       </div>
     );
+  }
+  renderNoSearchResults() {
+    return (
+      <ul>
+          <z-list-item
+            id='no-results'
+            text='non ci sono risultati'
+            listitemid='no-results'
+            icon='error-icon-stroked'
+          />
+      </ul>)
   }
 
   renderList(items: ComboItemBean[]): HTMLUListElement {
@@ -119,6 +137,9 @@ export class ZCombobox {
         type="search"
         value={this.searchValue}
         onInputChange={(e: CustomEvent) => {
+          this.filterItems(e.detail.value);
+        }}
+        onInputSearch={(e: CustomEvent) => {
           this.filterItems(e.detail.value);
         }}
       />
