@@ -68,8 +68,43 @@
   width: 10px;
 }
 
-z-input-text {
+:host>div.open>z-input-text {
   color: var(--myz-blue);
   margin: 0 var(--basex2);
   width: 238px;
+  position: relative;
+  z-index: 1;
+}
+
+:host>div.open>section {
+  background: var(--bg-artboard-white);
+  border-radius: 0px;
+  box-shadow: 1px 1px 4px 2px rgba(217, 222, 227, 0.5);
+  margin: 0 var(--basex2);
+  width: 238px;
+  position: absolute;
+  z-index: 10;
+}
+
+:host>div.open>section>ul {
+  margin: var(--basex1) var(--basex2);
+  padding: 0;
+  max-height: 183px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--myz-blue) var(--bg-artboard-gray-light);
+}
+
+:host>div.open>section>a {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--myz-blue);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
+  font-size: 14px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
 }

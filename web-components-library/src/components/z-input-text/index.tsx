@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'z-input-text',
@@ -12,11 +12,18 @@ export class ZInputText {
   @Prop() placeholder?: string;
   @Prop() type?: string = 'text';
 
+  @Event() inputChange: EventEmitter;
+  emitInputChange(e: any) {
+    this.inputChange.emit({ value: e.target.value });
+  }
+
   render() {
     return (
       <div>
         <label>{this.label}</label>
-        <input type={this.type} id={this.inputid} name={this.inputid} placeholder={this.placeholder} />
+        <input type={this.type} id={this.inputid} name={this.inputid} placeholder={this.placeholder}
+          onKeyUp={(e: any) => { this.emitInputChange(e); }}
+        />
       </div>
     );
   }

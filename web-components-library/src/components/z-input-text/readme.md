@@ -15,6 +15,13 @@
 | `type`        | `type`        |             | `string` | `'text'`    |
 
 
+## Events
+
+| Event         | Description | Type               |
+| ------------- | ----------- | ------------------ |
+| `inputChange` |             | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Used by
