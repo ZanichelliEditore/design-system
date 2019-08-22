@@ -1,5 +1,6 @@
 import { Component, Prop, h, State } from '@stencil/core';
 import { ComboItemBean } from '../../beans';
+import { ZInputText } from '../z-input-text';
 
 @Component({
   tag: 'z-combobox',
@@ -12,6 +13,8 @@ export class ZCombobox {
   @Prop() items: ComboItemBean[] | string;
   @Prop() label: string;
   @Prop() hassearch?: boolean = false;
+  @Prop() searchlabel?: string;
+  @Prop() searchplaceholder?: string;
 
   @State() isOpen: boolean = true;
 
@@ -50,7 +53,13 @@ export class ZCombobox {
     );
   }
 
-  renderSearchInput() { }
+  renderSearchInput(): ZInputText {
+    if (!this.isOpen) return;
+
+    return (
+      <z-input-text inputid={`${this.inputid}_search`} label={this.searchlabel} placeholder={this.searchplaceholder} type="search" />
+    );
+  }
 
   render() {
     return (

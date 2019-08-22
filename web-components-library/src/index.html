@@ -292,10 +292,15 @@
         ]'>
       </z-list>
 
-      <br />
-      <z-combobox
+      <br /><br />
+      <z-input-text label="autore" placeholder="Cerca Autore"></z-input-text>
+      <z-input-text label="materia" placeholder="Cerca Materia"></z-input-text>
+      <z-input-text></z-input-text>
+
+      <br /><br />
+      <z-combobox inputid="combo_1"
         items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'
-        label="Combo Corta">
+        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta">
       </z-combobox>
       <br />
       <z-combobox

@@ -67,3 +67,9 @@
   border-radius: var(--radius-base);
   width: 10px;
 }
+
+z-input-text {
+  color: var(--myz-blue);
+  margin: 0 var(--basex2);
+  width: 238px;
+}
