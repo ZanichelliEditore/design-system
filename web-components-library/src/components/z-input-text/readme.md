@@ -13,6 +13,7 @@
 | `label`       | `label`       |             | `string` | `undefined` |
 | `placeholder` | `placeholder` |             | `string` | `undefined` |
 | `type`        | `type`        |             | `string` | `'text'`    |
+| `value`       | `value`       |             | `string` | `undefined` |
 
 
 ## Events

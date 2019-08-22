@@ -18,6 +18,7 @@ export class ZCombobox {
   @Prop() searchitems?: ComboItemBean[] | string;
 
   @State() isOpen: boolean = true;
+  @State() searchValue: string;
   @State() searchItemsList: ComboItemBean[] = [];
 
   private itemsList: ComboItemBean[];
@@ -33,10 +34,19 @@ export class ZCombobox {
   }
 
   filterItems(value: string): void {
+    if (!value) return this.closeFilterItems();
+
+    this.searchValue = value;
     this.searchItemsList = this.itemsList.filter((item) => {
       // item.name = item.name.replace(value, value.bold());
       return (item.name.includes(value));
     });
+  }
+
+  closeFilterItems() {
+    this.searchValue = '';
+    this.searchitems = '';
+    this.searchItemsList = [];
   }
 
   renderHeader(): HTMLHeadingElement {
@@ -51,9 +61,20 @@ export class ZCombobox {
     );
   }
 
-  renderList(items: ComboItemBean[]): HTMLUListElement {
+  renderItems(): HTMLDivElement {
     if (!this.isOpen) return;
 
+    const items: ComboItemBean[] = this.searchValue ? this.searchItemsList : this.itemsList;
+
+    return (
+      <div class={this.searchValue && "search"}>
+        {this.renderList(items)}
+        {this.searchValue ? (<a onClick={() => { this.closeFilterItems(); }}>CHIUDI</a>) : null}
+      </div>
+    );
+  }
+
+  renderList(items: ComboItemBean[]): HTMLUListElement {
     return (
       <ul>
         {items.map((item) => {
@@ -71,23 +92,9 @@ export class ZCombobox {
 
     return (
       <z-input-text inputid={`${this.inputid}_search`} label={this.searchlabel} placeholder={this.searchplaceholder} type="search"
+        value={this.searchValue}
         onInputChange={(e: CustomEvent) => { this.filterItems(e.detail.value); }}
       />
-    );
-  }
-
-  renderSearchItems(): HTMLElement {
-    if (!this.isOpen) return;
-    if (!this.searchItemsList.length) return;
-
-    return (
-      <section>
-        {this.renderList(this.searchItemsList)}
-        <a onClick={() => {
-          this.searchitems = '';
-          this.searchItemsList = [];
-        }}>CHIUDI</a>
-      </section>
     );
   }
 
@@ -96,8 +103,7 @@ export class ZCombobox {
       <div class={this.isOpen && "open"}>
         {this.renderHeader()}
         {this.hassearch && this.renderSearchInput()}
-        {this.hassearch && this.renderSearchItems()}
-        {this.renderList(this.itemsList)}
+        {this.renderItems()}
       </div>
     );
   }
