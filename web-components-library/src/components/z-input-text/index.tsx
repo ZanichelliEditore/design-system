@@ -30,6 +30,8 @@ export class ZInputText {
       <div>
         <label>{this.label}</label>
 
+        {/*
+        // @ts-ignore */}
         <input
           type={this.type}
           id={this.inputid}

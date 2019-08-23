@@ -14,7 +14,6 @@ export class ZCombobox {
   @Prop() hassearch?: boolean = false;
   @Prop() searchlabel?: string;
   @Prop() searchplaceholder?: string;
-  @Prop() searchitems?: ComboItemBean[] | string;
 
   @State() isOpen: boolean = true;
   @State() searchValue: string;
@@ -23,7 +22,7 @@ export class ZCombobox {
   @Listen('click', { target: 'window' })
   handleClick(ev) {
 
-    if(ev.srcElement.inputid !== this.inputid) {
+    if (ev.srcElement.inputid !== this.inputid) {
       this.closeFilterItems();
     };
   }
@@ -33,17 +32,11 @@ export class ZCombobox {
   private inputType: InputTypeBean = InputTypeEnum.search;
 
   componentWillRender() {
-    this.itemsList =
-      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-    this.selectedCounter = this.itemsList.filter(item => {
-      return item.checked;
-    }).length;
+    this.itemsList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    this.selectedCounter = this.itemsList.filter(item => item.checked).length;
 
-    if (this.searchitems) {
-      this.searchItemsList =
-        typeof this.searchitems === "string"
-          ? JSON.parse(this.searchitems)
-          : this.searchitems;
+    if (this.searchValue) {
+      this.filterItems(this.searchValue);
     }
   }
 
@@ -52,7 +45,7 @@ export class ZCombobox {
 
     this.searchValue = value;
 
-    this.searchItemsList = this.itemsList.filter(item => {
+    this.itemsList = this.itemsList.filter(item => {
       item.name = item.name.replace(value, value.bold());
       return item.name.includes(value);
     });
@@ -60,8 +53,6 @@ export class ZCombobox {
 
   closeFilterItems() {
     this.searchValue = '';
-    this.searchitems = '';
-    this.searchItemsList = [];
   }
 
   renderHeader(): HTMLHeadingElement {
@@ -85,24 +76,22 @@ export class ZCombobox {
   renderItems(): HTMLDivElement {
     if (!this.isOpen) return;
 
-    const items: ComboItemBean[] = this.searchValue ? this.searchItemsList : this.itemsList;
-
     return (
       <div class={this.searchValue && "search"}>
-        {items.length ? this.renderList(items): this.renderNoSearchResults()}
-        {this.searchValue ? (<a onClick={() => { this.closeFilterItems(); }}>CHIUDI</a>) : null}
+        {this.itemsList.length ? this.renderList(this.itemsList) : this.renderNoSearchResults()}
+        {this.searchValue ? (<a onClick={() => this.closeFilterItems()}>CHIUDI</a>) : null}
       </div>
     );
   }
   renderNoSearchResults() {
     return (
       <ul>
-          <z-list-item
-            id='no-results'
-            text='non ci sono risultati'
-            listitemid='no-results'
-            icon='error-icon-stroked'
-          />
+        <z-list-item
+          id='no-results'
+          text='non ci sono risultati'
+          listitemid='no-results'
+          icon='error-icon-stroked'
+        />
       </ul>)
   }
 
