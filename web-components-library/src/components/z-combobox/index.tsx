@@ -17,7 +17,6 @@ export class ZCombobox {
 
   @State() isOpen: boolean = true;
   @State() searchValue: string;
-  @State() searchItemsList: ComboItemBean[] = [];
 
   @Listen('click', { target: 'window' })
   handleClick(ev) {
@@ -27,7 +26,7 @@ export class ZCombobox {
     };
   }
 
-  private itemsList: ComboItemBean[];
+  private itemsList: ComboItemBean[] = [];
   private selectedCounter: number;
   private inputType: InputTypeBean = InputTypeEnum.search;
 
@@ -139,7 +138,7 @@ export class ZCombobox {
 
   render() {
     return (
-      <div class={this.isOpen && "open"}>
+      <div class={this.isOpen && "open"} id={this.inputid}>
         {this.renderHeader()}
         {this.hassearch && this.renderSearchInput()}
         {this.renderItems()}
