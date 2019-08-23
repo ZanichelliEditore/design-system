@@ -109,6 +109,7 @@ export class ZCombobox {
                   ? "checkbox-success-icon-filled"
                   : "checkbox-unchecked-icon"
               }
+              action={`combo-li-${this.inputid}`}
             />
           );
         })}

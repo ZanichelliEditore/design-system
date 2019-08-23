@@ -9,6 +9,7 @@
 
 | Property     | Attribute    | Description | Type     | Default     |
 | ------------ | ------------ | ----------- | -------- | ----------- |
+| `action`     | `action`     |             | `string` | `undefined` |
 | `icon`       | `icon`       |             | `string` | `undefined` |
 | `link`       | `link`       |             | `string` | `undefined` |
 | `listitemid` | `listitemid` |             | `string` | `undefined` |
