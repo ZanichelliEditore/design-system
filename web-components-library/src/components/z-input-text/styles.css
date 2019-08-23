@@ -2,6 +2,10 @@
   display: inline-block;
 }
 
+:host>div {
+  position: relative;
+}
+
 :host>div>input {
   border-radius: 0px;
   border: var(--border-size-small) solid var(--bg-artboard-gray-light);
@@ -51,4 +55,12 @@ input::placeholder {
   line-height: 16px;
   text-transform: uppercase;
   margin: var(--basex1) 0;
+}
+
+:host>div>z-icon {
+  position: absolute;
+  bottom: var(--half-x3);
+  right: var(--half-x3);
+  fill: var(--myz-blue);
+  cursor: pointer;
 }

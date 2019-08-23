@@ -25,6 +25,7 @@
  - [z-combobox](../z-combobox)
  - [z-footer](../z-footer)
  - [z-icon-package](../z-icon-package)
+ - [z-input-text](../z-input-text)
  - [z-link](../z-link)
  - [z-list-item](../z-list-item)
  - [z-menu-dropdown](../z-menu-dropdown)
@@ -39,6 +40,7 @@ graph TD;
   z-combobox --> z-icon
   z-footer --> z-icon
   z-icon-package --> z-icon
+  z-input-text --> z-icon
   z-link --> z-icon
   z-list-item --> z-icon
   z-menu-dropdown --> z-icon

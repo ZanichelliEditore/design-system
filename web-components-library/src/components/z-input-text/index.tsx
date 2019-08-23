@@ -16,31 +16,23 @@ export class ZInputText {
   @Prop() type?: InputTypeBean
 
   @Event() inputChange: EventEmitter;
-  emitInputChange(e: any) {
-    this.inputChange.emit({ value: e.target.value });
-  }
-
-  @Event() inputSearch: EventEmitter;
-  emitInputSearch(e: any) {
-    this.inputSearch.emit({ ev: e });
+  emitInputChange(value: string, keycode: number) {
+    this.inputChange.emit({ value, keycode });
   }
 
   render() {
     return (
       <div>
         <label>{this.label}</label>
-
-        {/*
-        // @ts-ignore */}
         <input
           type={this.type}
           id={this.inputid}
           name={this.inputid}
           placeholder={this.placeholder}
           value={this.value}
-          onSearch={(e: any) => { this.emitInputSearch(e) }}
-          onKeyUp={(e: any) => { this.emitInputChange(e) }}
+          onKeyUp={(e: any) => { this.emitInputChange(e.target.value, e.keyCode) }}
         />
+        {this.value ? <z-icon name="answer-wrong-icon" onClick={(e: any) => this.emitInputChange('', e.keyCode)} /> : null}
       </div>
     );
   }

@@ -32,6 +32,7 @@ graph TD;
   z-combobox --> z-list-item
   z-combobox --> z-input-text
   z-list-item --> z-icon
+  z-input-text --> z-icon
   style z-combobox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -134,7 +134,7 @@ describe("Suite test ZCombobox", () => {
               <h2>combo<span>(1)</span></h2>
               <z-icon name="select-icon-stroked" width="18" height="18" />
             </header>
-            <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="search"></z-input-text>
+            <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text"></z-input-text>
             <div class="">
               <ul>
                 <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked-icon" action="combo-li-combo"></z-list-item>
@@ -162,7 +162,7 @@ describe("Suite test ZCombobox", () => {
               <h2>combo<span>(1)</span></h2>
               <z-icon name="select-icon-stroked" width="18" height="18" />
             </header>
-            <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="search" value="primo"></z-input-text>
+            <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input-text>
             <div class="search">
               <ul>
                 <z-list-item id="item_1" text="<b>primo</b> elemento" listitemid="item_1" icon="checkbox-unchecked-icon" action="combo-li-combo"></z-list-item>
@@ -190,7 +190,7 @@ describe("Suite test ZCombobox", () => {
               <h2>combo<span>(1)</span></h2>
               <z-icon name="select-icon-stroked" width="18" height="18" />
             </header>
-            <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="search" value="prova"></z-input-text>
+            <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text" value="prova"></z-input-text>
             <div class="search">
               <ul>
                 <z-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='error-icon-stroked'></z-list-item>

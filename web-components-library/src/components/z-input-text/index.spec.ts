@@ -31,6 +31,7 @@ describe("Suite test ZInputText", () => {
           <div>
             <label>label</label>
             <input type='text' id='test' name='test' placeholder='placeholder' value='value' />
+            <z-icon name="answer-wrong-icon"></z-icon>
           </div>
         </mock:shadow-root>
       </z-input-text>

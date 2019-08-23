@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                                                                                                                  | Default     |
-| ------------- | ------------- | ----------- | --------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `inputid`     | `inputid`     |             | `string`                                                                                                              | `undefined` |
-| `label`       | `label`       |             | `string`                                                                                                              | `undefined` |
-| `placeholder` | `placeholder` |             | `string`                                                                                                              | `undefined` |
-| `type`        | `type`        |             | `InputTypeEnum.email \| InputTypeEnum.number \| InputTypeEnum.password \| InputTypeEnum.search \| InputTypeEnum.text` | `undefined` |
-| `value`       | `value`       |             | `string`                                                                                                              | `undefined` |
+| Property      | Attribute     | Description | Type                                                                                          | Default     |
+| ------------- | ------------- | ----------- | --------------------------------------------------------------------------------------------- | ----------- |
+| `inputid`     | `inputid`     |             | `string`                                                                                      | `undefined` |
+| `label`       | `label`       |             | `string`                                                                                      | `undefined` |
+| `placeholder` | `placeholder` |             | `string`                                                                                      | `undefined` |
+| `type`        | `type`        |             | `InputTypeEnum.email \| InputTypeEnum.number \| InputTypeEnum.password \| InputTypeEnum.text` | `undefined` |
+| `value`       | `value`       |             | `string`                                                                                      | `undefined` |
 
 
 ## Events
@@ -21,7 +21,6 @@
 | Event         | Description | Type               |
 | ------------- | ----------- | ------------------ |
 | `inputChange` |             | `CustomEvent<any>` |
-| `inputSearch` |             | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -30,9 +29,14 @@
 
  - [z-combobox](../z-combobox)
 
+### Depends on
+
+- [z-icon](../z-icon)
+
 ### Graph
 ```mermaid
 graph TD;
+  z-input-text --> z-icon
   z-combobox --> z-input-text
   style z-input-text fill:#f9f,stroke:#333,stroke-width:4px
 ```

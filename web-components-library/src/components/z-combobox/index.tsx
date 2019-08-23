@@ -28,7 +28,7 @@ export class ZCombobox {
 
   private itemsList: ComboItemBean[] = [];
   private selectedCounter: number;
-  private inputType: InputTypeBean = InputTypeEnum.search;
+  private inputType: InputTypeBean = InputTypeEnum.text;
 
   componentWillRender() {
     this.itemsList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
@@ -127,9 +127,7 @@ export class ZCombobox {
         type={this.inputType}
         value={this.searchValue}
         onInputChange={(e: CustomEvent) => {
-          this.filterItems(e.detail.value);
-        }}
-        onInputSearch={(e: CustomEvent) => {
+          if (e.detail.keycode === 27) return this.closeFilterItems();
           this.filterItems(e.detail.value);
         }}
       />

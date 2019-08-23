@@ -79,7 +79,7 @@ export type HeaderUserData = {
   usergroup: number;
   userlinks: MenuDropdownItem[];
 };
- export type ComboItemBean = {
+export type ComboItemBean = {
   id: string;
   name: string;
   checked: boolean;
@@ -88,8 +88,7 @@ export type HeaderUserData = {
 export type InputTypeBean = InputTypeEnum;
 
 export enum InputTypeEnum {
-	text = 'text',
-	search = 'search',
+  text = 'text',
   password = 'password',
   number = 'number',
   email = 'email'
