@@ -22,6 +22,7 @@
  - [z-button](../z-button)
  - [z-button-sort](../z-button-sort)
  - [z-card-icon](../z-card-icon)
+ - [z-footer](../z-footer)
  - [z-icon-package](../z-icon-package)
  - [z-link](../z-link)
  - [z-menu-dropdown](../z-menu-dropdown)
@@ -33,6 +34,7 @@ graph TD;
   z-button --> z-icon
   z-button-sort --> z-icon
   z-card-icon --> z-icon
+  z-footer --> z-icon
   z-icon-package --> z-icon
   z-link --> z-icon
   z-menu-dropdown --> z-icon
