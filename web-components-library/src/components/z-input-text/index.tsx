@@ -17,6 +17,7 @@ export class ZInputText {
 
   @Event() inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number) {
+    this.value = value;
     this.inputChange.emit({ value, keycode });
   }
 

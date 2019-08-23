@@ -1,5 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 
+import { ZIcon } from "../z-icon";
+
 import { ZInputText } from "./index";
 
 describe("Suite test ZInputText", () => {
@@ -36,5 +38,19 @@ describe("Suite test ZInputText", () => {
         </mock:shadow-root>
       </z-input-text>
     `);
+  });
+
+  it("Test ZInputText clear", async () => {
+    const page = await newSpecPage({
+      components: [ZInputText, ZIcon],
+      html: `<z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label'></z-input-text>`
+    });
+    const icon = page.root.shadowRoot
+      .querySelector("div")
+      .querySelector("z-icon");
+    expect(page.rootInstance.value).toEqual("value");
+    icon.click();
+    await page.waitForChanges();
+    expect(page.rootInstance.value).toEqual("");
   });
 });

@@ -20,7 +20,6 @@ export class ZCombobox {
 
   @Listen('click', { target: 'window' })
   handleClick(ev) {
-
     if (ev.srcElement.inputid !== this.inputid) {
       this.closeFilterItems();
     };
