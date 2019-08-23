@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Listen } from "@stencil/core";
-import { ComboItemBean } from "../../beans";
+import { ComboItemBean, InputTypeBean, InputTypeEnum } from "../../beans";
 import { ZInputText } from "../z-input-text";
 
 @Component({
@@ -30,6 +30,7 @@ export class ZCombobox {
 
   private itemsList: ComboItemBean[];
   private selectedCounter: number;
+  private inputType: InputTypeBean = InputTypeEnum.search;
 
   componentWillRender() {
     this.itemsList =
@@ -134,7 +135,7 @@ export class ZCombobox {
         inputid={`${this.inputid}_search`}
         label={this.searchlabel}
         placeholder={this.searchplaceholder}
-        type="search"
+        type={this.inputType}
         value={this.searchValue}
         onInputChange={(e: CustomEvent) => {
           this.filterItems(e.detail.value);

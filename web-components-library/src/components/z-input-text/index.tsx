@@ -1,4 +1,6 @@
 import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { InputTypeBean } from "../../beans";
+
 
 @Component({
   tag: 'z-input-text',
@@ -11,7 +13,7 @@ export class ZInputText {
   @Prop() label?: string;
   @Prop() value?: string;
   @Prop() placeholder?: string;
-  @Prop() type?: string = 'text';
+  @Prop() type?: InputTypeBean
 
   @Event() inputChange: EventEmitter;
   emitInputChange(e: any) {
@@ -27,13 +29,12 @@ export class ZInputText {
     return (
       <div>
         <label>{this.label}</label>
-        {/* 
-  // @ts-ignore */}
-        <input 
-          type={this.type} 
-          id={this.inputid} 
-          name={this.inputid} 
-          placeholder={this.placeholder} 
+
+        <input
+          type={this.type}
+          id={this.inputid}
+          name={this.inputid}
+          placeholder={this.placeholder}
           value={this.value}
           onSearch={(e: any) => { this.emitInputSearch(e) }}
           onKeyUp={(e: any) => { this.emitInputChange(e) }}

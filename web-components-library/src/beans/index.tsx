@@ -83,3 +83,13 @@ export type HeaderUserData = {
   name: string;
   checked: boolean;
 };
+
+export type InputTypeBean = InputTypeEnum;
+
+export enum InputTypeEnum {
+	text = 'text',
+	search = 'search',
+  password = 'password',
+  number = 'number',
+  email = 'email'
+}
