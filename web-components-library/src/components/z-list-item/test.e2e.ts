@@ -46,25 +46,5 @@ describe('z-list-item test end2end', () => {
     const iconElem = await page.find('z-list-item >>> li span img ');
 
     expect(iconElem).toBeNull;
-
-
-  });
-
-  it('Test that icon is created', async () => {
-    const page = await newE2EPage();
-    await page.setContent(`<z-list-item></z-list-item>`);
-
-
-    await page.$eval('z-list-item', (elm: any) => {
-      elm.text = 'elemento';
-      elm.link = 'http://www.google.it';
-      elm.icon = '../../assets/images/png/zanichelli-external-link@8x.png'
-    });
-
-    await page.waitForChanges();
-
-    const el = await page.find('z-list-item >>> li span img ');
-    expect(el.getAttribute('src')).toBe('../../assets/images/png/zanichelli-external-link@8x.png');
-
   });
 });

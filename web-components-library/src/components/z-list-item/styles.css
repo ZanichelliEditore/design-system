@@ -3,7 +3,7 @@ li {
   line-height: 14px;
 }
 
-li span {
+li > span {
   height: 14px;
   padding: var(--basex2) 0;
   display: flex;
@@ -12,19 +12,24 @@ li span {
   font-size: 16px;
   letter-spacing: 0.23px;
   color: var(--text-gray-dark);
+  fill: var(--text-gray-dark);
   border-bottom: 2px solid var(--bg-artboard-gray-light);
 }
 
 li span:hover, a:hover{
   color: var(--text-my-zanichelli-blue);
+  fill: var(--text-my-zanichelli-blue);
 }
 
 a, a:visited, a:active {
   color: inherit;
+  fill: inherit;
   text-decoration:none;
 }
 
-li span img {
+li span z-icon {
+  color: var(--text-my-zanichelli-blue);
+  fill: var(--text-my-zanichelli-blue);
   height: var(--basex2);
   width: var(--basex2);
   padding: 0 var(--half-x3) 0 0;

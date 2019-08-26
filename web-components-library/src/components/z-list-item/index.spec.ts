@@ -1,4 +1,5 @@
 import { newSpecPage } from "@stencil/core/testing";
+
 import { ZListItem } from "./index";
 
 describe("Suite test z-list-item", () => {
@@ -8,7 +9,7 @@ describe("Suite test z-list-item", () => {
       html: `<z-list-item></z-list-item>`
     });
     expect(page.root).toEqualHtml(`
-      <z-list-item><mock:shadow-root><li><span></span></li></mock:shadow-root></z-list-item>
+      <z-list-item><mock:shadow-root><li><span><span></span></span></li></mock:shadow-root></z-list-item>
     `);
   });
 
@@ -22,7 +23,7 @@ describe("Suite test z-list-item", () => {
       <mock:shadow-root>
         <li>
           <span>
-            testo
+            <span>testo</span>
           </span>
         </li>
       </mock:shadow-root>

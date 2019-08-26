@@ -27,6 +27,7 @@
 ```mermaid
 graph TD;
   z-list --> z-list-item
+  z-list-item --> z-icon
   z-header --> z-list
   style z-list fill:#f9f,stroke:#333,stroke-width:4px
 ```

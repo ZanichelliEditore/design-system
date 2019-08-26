@@ -1,6 +1,8 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { ZList } from "./index";
+
 import { ZListItem } from "../z-list-item/index";
+
+import { ZList } from "./index";
 
 describe("Suite test z-list", () => {
   it("Test render lista vuota", async () => {
@@ -36,7 +38,7 @@ describe("Suite test z-list", () => {
               <mock:shadow-root>
                 <li>
                   <span>
-                      elemento lista
+                      <span>elemento lista</span>
                   </span>
                 </li>
               </mock:shadow-root>
@@ -86,7 +88,7 @@ describe("Suite test z-list", () => {
             <mock:shadow-root>
               <li>
                 <span>
-                  elemento lista
+                  <span>elemento lista</span>
                 </span>
               </li>
             </mock:shadow-root>
@@ -134,7 +136,7 @@ describe("Suite test z-list", () => {
               <mock:shadow-root>
                 <li>
                   <span>
-                      testo di esempio
+                      <span>testo di esempio</span>
                   </span>
                 </li>
               </mock:shadow-root>

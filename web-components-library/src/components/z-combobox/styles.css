@@ -1,0 +1,117 @@
+:host {
+  width: 270px;
+  display: block;
+}
+
+:host>div {
+  background-color: var(--bg-artboard-white);
+  border-radius: var(--radius-base);
+  border: var(--border-base) solid var(--bg-artboard-gray-light);
+  width: 270px;
+}
+
+:host>div>header {
+  height: 48px;
+  margin: 0;
+  padding: 0 var(--basex2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+:host>div.open>header {
+  border-radius: var(--radius-base);
+  border-bottom: var(--border-base) solid var(--bg-artboard-gray-light);
+}
+
+:host>div>header>h2 {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  color: var(--text-gray-dark);
+  font-size: 16px;
+  line-height: 48px;
+  margin: 0;
+  padding: 0;
+}
+
+:host>div>header>h2>span {
+  font-weight: var(--font-sb);
+}
+
+:host>div>header>z-icon {
+  fill: var(--myz-blue);
+  transform: rotate(360deg);
+  transition: all 200ms linear;
+}
+
+:host>div.open>header>z-icon {
+  fill: inherit;
+  transform: rotate(180deg);
+  transition: all 200ms linear;
+}
+
+:host>div.open>div {
+  margin: var(--basex1) var(--basex2);
+  padding: 0;
+  max-height: 235px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--myz-blue) var(--bg-artboard-gray-light);
+}
+
+:host>div.open>div>ul {
+  margin: 0;
+  padding: 0;
+  max-height: 235px;
+}
+
+::-webkit-scrollbar {
+  /* background-color: var(--bg-artboard-gray-light); */
+  background: linear-gradient(90deg, var(--bg-artboard-white) 2px, var(--bg-artboard-gray-light) 4px, var(--bg-artboard-white) 8px);
+  border-radius: var(--radius-base);
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--myz-blue);
+  border-radius: var(--radius-base);
+  width: 10px;
+}
+
+:host>div.open>z-input-text {
+  color: var(--myz-blue);
+  margin: 0 var(--basex2);
+  width: 238px;
+  position: relative;
+  z-index: 1;
+}
+
+:host>div.open>div.search {
+  box-shadow: 1px 1px 4px 2px rgba(217, 222, 227, 0.5);
+  margin-top: 0;
+  max-height: auto;
+  overflow: hidden;
+}
+
+:host>div.open>div.search>ul {
+  padding: var(--basex1) var(--basex2);
+  max-height: 180px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--myz-blue) var(--bg-artboard-gray-light);
+}
+
+:host>div.open>div.search>a {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--myz-blue);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
+  font-size: 14px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}

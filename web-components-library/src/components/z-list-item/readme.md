@@ -9,6 +9,7 @@
 
 | Property     | Attribute    | Description | Type     | Default     |
 | ------------ | ------------ | ----------- | -------- | ----------- |
+| `action`     | `action`     |             | `string` | `undefined` |
 | `icon`       | `icon`       |             | `string` | `undefined` |
 | `link`       | `link`       |             | `string` | `undefined` |
 | `listitemid` | `listitemid` |             | `string` | `undefined` |
@@ -26,11 +27,18 @@
 
 ### Used by
 
+ - [z-combobox](../z-combobox)
  - [z-list](../z-list)
+
+### Depends on
+
+- [z-icon](../z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-list-item --> z-icon
+  z-combobox --> z-list-item
   z-list --> z-list-item
   style z-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -35,6 +35,7 @@ graph TD;
   z-header --> z-menu-dropdown
   z-header --> z-button
   z-list --> z-list-item
+  z-list-item --> z-icon
   z-link --> z-icon
   z-menu-dropdown --> z-icon
   z-button --> z-icon

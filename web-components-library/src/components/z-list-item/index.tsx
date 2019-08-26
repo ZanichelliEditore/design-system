@@ -10,24 +10,25 @@ export class ZListItem {
   @Prop() link?: string;
   @Prop() icon?: string;
   @Prop() listitemid?: string;
+  @Prop() action?: string;
 
   @Event() zListItemLinkClick: EventEmitter;
   emitZListItemLinkClick(e: MouseEvent, linkId) {
-    this.zListItemLinkClick.emit({e, linkId});
+    this.zListItemLinkClick.emit({ e, linkId });
   }
 
   render() {
     const linkId = this.listitemid ? `link_${this.listitemid}` : "";
 
     return (
-      <li id={this.listitemid}>
-        <span>
-          {this.icon && <img src={this.icon} />}
+      <li id={this.listitemid} data-action={this.action}>
+        <span >
+          {this.icon && <z-icon name={this.icon} />}
           {this.link
-              ? <a href={this.link} id={linkId} onClick={(e: MouseEvent) => this.emitZListItemLinkClick(e, linkId)}>
-                {this.text}
-              </a>
-              : this.text
+            ? <a href={this.link} id={linkId} onClick={(e: MouseEvent) => this.emitZListItemLinkClick(e, linkId)}>
+              {this.text}
+            </a>
+            : <span innerHTML={this.text}></span>
           }
         </span>
       </li>

@@ -285,6 +285,32 @@
       <br />
 
       <br />
+      <z-list inputrawdata='[
+        {"text":"elemento lista","link":"http://www.google.it","listitemid":"id1","icon":"checkbox-success-icon-filled"},
+        {"text":"elemento lista","link":"http://www.google.it","listitemid":"id2","icon":"checkbox-unchecked-icon"},
+        {"text":""}
+        ]'>
+      </z-list>
+
+      <br /><br />
+      <z-input-text label="autore" placeholder="Cerca Autore"></z-input-text>
+      <z-input-text label="materia" placeholder="Cerca Materia"></z-input-text>
+      <z-input-text></z-input-text>
+
+      <br /><br />
+      <z-combobox inputid="combo_1"
+        items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'
+        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta">
+      </z-combobox>
+      <br />
+      <z-combobox
+      inputid="combo_2"
+        items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
+        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta">
+        label="Combo Lunga">
+      </z-combobox>
+
+      <br />
       <z-icon name="down-hand-icon-filled"></z-icon>
       <z-icon name="download-cloud-icon-filled"></z-icon>
       <z-icon name="e-shop-icon-stroked"></z-icon>
