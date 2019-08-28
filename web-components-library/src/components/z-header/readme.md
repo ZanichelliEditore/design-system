@@ -25,6 +25,7 @@
 - [z-link](../z-link)
 - [z-menu-dropdown](../z-menu-dropdown)
 - [z-button](../z-button)
+- [z-icon](../z-icon)
 
 ### Graph
 ```mermaid
@@ -34,9 +35,11 @@ graph TD;
   z-header --> z-link
   z-header --> z-menu-dropdown
   z-header --> z-button
+  z-header --> z-icon
   z-list --> z-list-item
   z-list-item --> z-icon
   z-link --> z-icon
+  z-menu-dropdown --> z-link
   z-menu-dropdown --> z-icon
   z-button --> z-icon
   style z-header fill:#f9f,stroke:#333,stroke-width:4px

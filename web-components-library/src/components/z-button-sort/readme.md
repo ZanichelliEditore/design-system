@@ -7,11 +7,16 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type     | Default     |
-| ---------- | ---------- | ----------- | -------- | ----------- |
-| `buttonid` | `buttonid` |             | `string` | `undefined` |
-| `counter`  | `counter`  |             | `number` | `undefined` |
-| `label`    | `label`    |             | `string` | `undefined` |
+| Property        | Attribute       | Description | Type      | Default      |
+| --------------- | --------------- | ----------- | --------- | ------------ |
+| `buttonid`      | `buttonid`      |             | `string`  | `undefined`  |
+| `counter`       | `counter`       |             | `number`  | `undefined`  |
+| `desclabel`     | `desclabel`     |             | `string`  | `this.label` |
+| `isselected`    | `isselected`    |             | `boolean` | `false`      |
+| `label`         | `label`         |             | `string`  | `undefined`  |
+| `sortasc`       | `sortasc`       |             | `boolean` | `true`       |
+| `sortlabelasc`  | `sortlabelasc`  |             | `string`  | `'A-Z'`      |
+| `sortlabeldesc` | `sortlabeldesc` |             | `string`  | `'Z-A'`      |
 
 
 ## Events

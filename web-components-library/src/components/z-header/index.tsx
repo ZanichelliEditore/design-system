@@ -305,7 +305,7 @@ export class ZHeader {
             onClick={() => this.handleToggleMobileMenuItem("user-data")}
           >
             <span>
-              <img src="../assets/images/png/user_transparent.png" />
+              <z-icon name="profilo-icon-stroked" height={16} width={16} />
               {userData.name}
             </span>
             <i></i>
@@ -413,23 +413,6 @@ export class ZHeader {
         {this.renderIntMenu(this.intMenuData)}
         <hr />
         {this.renderExtMenu(this.extMenuData)}
-        {this.renderBooktabButton()}
-      </div>
-    );
-  }
-
-  renderBooktabButton(): HTMLDivElement {
-    return (
-      <div id="booktab-button" class="booktab-button">
-        <z-button
-          label="Scarica la app BookTab"
-          type="primary"
-          icon="download.png"
-          onClick={(e): void => {
-            e.preventDefault();
-            window.location.href = "https://booktab.it";
-          }}
-        />
       </div>
     );
   }

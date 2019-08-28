@@ -471,6 +471,7 @@ header {
     justify-content: flex-start;
     align-items: stretch;
     align-content: flex-start;
+    fill: white;
   }
 
   .mobile-login>span:focus,
@@ -521,10 +522,8 @@ header {
     text-overflow: ellipsis;
   }
 
-  .mobile-login>span>.menu-item>span>img {
+  .mobile-login>span>.menu-item>span>z-icon {
     padding-right: var(--basex1);
-    height: 16px;
-    width: 16px;
   }
 
   .menu-item>i::before {
