@@ -7,13 +7,14 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type     | Default     |
-| ------------ | ------------ | ----------- | -------- | ----------- |
-| `action`     | `action`     |             | `string` | `undefined` |
-| `icon`       | `icon`       |             | `string` | `undefined` |
-| `link`       | `link`       |             | `string` | `undefined` |
-| `listitemid` | `listitemid` |             | `string` | `undefined` |
-| `text`       | `text`       |             | `string` | `undefined` |
+| Property     | Attribute    | Description | Type      | Default     |
+| ------------ | ------------ | ----------- | --------- | ----------- |
+| `action`     | `action`     |             | `string`  | `undefined` |
+| `icon`       | `icon`       |             | `string`  | `undefined` |
+| `link`       | `link`       |             | `string`  | `undefined` |
+| `listitemid` | `listitemid` |             | `string`  | `undefined` |
+| `text`       | `text`       |             | `string`  | `undefined` |
+| `underlined` | `underlined` |             | `boolean` | `true`      |
 
 
 ## Events

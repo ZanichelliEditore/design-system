@@ -11,6 +11,7 @@ export class ZListItem {
   @Prop() icon?: string;
   @Prop() listitemid?: string;
   @Prop() action?: string;
+  @Prop() underlined?: boolean = true;
 
   @Event() zListItemLinkClick: EventEmitter;
   emitZListItemLinkClick(e: MouseEvent, linkId) {
@@ -22,7 +23,7 @@ export class ZListItem {
 
     return (
       <li id={this.listitemid} data-action={this.action}>
-        <span >
+        <span class={this.underlined && "border"} >
           {this.icon && <z-icon name={this.icon} />}
           {this.link
             ? <a href={this.link} id={linkId} onClick={(e: MouseEvent) => this.emitZListItemLinkClick(e, linkId)}>

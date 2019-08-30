@@ -26,11 +26,12 @@ export class ZList {
   }
 
   render() {
+    const lastElem = this.list? this.list.length -1:-1;
     return (
       <ul>
         {this.list &&
-          this.list.map(bean => (
-            <z-list-item text={bean.text} link={bean.link} icon={bean.icon} listitemid={bean.listitemid} />
+          this.list.map((bean,i) => (
+            <z-list-item text={bean.text} link={bean.link} icon={bean.icon} listitemid={bean.listitemid} underlined={lastElem != i}/>
           ))}
       </ul>
     );
