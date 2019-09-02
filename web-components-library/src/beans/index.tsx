@@ -55,6 +55,7 @@ export type MenuDropdownItem = {
   text: string;
   link: string;
   linkid?: string;
+  icon?: string;
 };
 
 export type FilterItem = {
