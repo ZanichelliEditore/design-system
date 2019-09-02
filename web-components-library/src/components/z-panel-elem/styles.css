@@ -1,0 +1,29 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+.panel-elem-container {
+  border: 1px solid red;
+}
+
+.panel-elem-logo {
+  border: 1px solid red;
+  margin-left: 36px;
+  margin-right: 36px;
+}
+
+.panel-elem-link {
+  background: var(--bg-artboard-gray);
+  border-radius: var(--radius-min);
+  border: 1px solid red;
+  margin: 16px 36px;
+  text-align: center;
+}
+
+.panel-elem-desc {
+  letter-spacing: 0.16px;
+  text-align: center;
+  border: 1px solid red;
+  margin: 0;
+}

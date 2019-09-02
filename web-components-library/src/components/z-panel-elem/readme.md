@@ -1,0 +1,41 @@
+# z-panel-elem
+
+
+
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property      | Attribute     | Description | Type      | Default     |
+| ------------- | ------------- | ----------- | --------- | ----------- |
+| `description` | `description` |             | `string`  | `undefined` |
+| `elemid`      | `elemid`      |             | `string`  | `undefined` |
+| `imagealt`    | `imagealt`    |             | `string`  | `undefined` |
+| `imgurl`      | `imgurl`      |             | `string`  | `undefined` |
+| `isdisabled`  | `isdisabled`  |             | `boolean` | `false`     |
+| `linkicon`    | `linkicon`    |             | `string`  | `undefined` |
+| `linklabel`   | `linklabel`   |             | `string`  | `undefined` |
+| `target`      | `target`      |             | `string`  | `"_blank"`  |
+| `url`         | `url`         |             | `string`  | `undefined` |
+
+
+## Dependencies
+
+### Depends on
+
+- [z-logo](../z-logo)
+- [z-link](../z-link)
+
+### Graph
+```mermaid
+graph TD;
+  z-panel-elem --> z-logo
+  z-panel-elem --> z-link
+  z-link --> z-icon
+  style z-panel-elem fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
