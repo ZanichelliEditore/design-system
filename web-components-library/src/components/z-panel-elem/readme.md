@@ -11,7 +11,7 @@
 | ------------- | ------------- | ----------- | --------- | ----------- |
 | `description` | `description` |             | `string`  | `undefined` |
 | `elemid`      | `elemid`      |             | `string`  | `undefined` |
-| `imagealt`    | `imagealt`    |             | `string`  | `undefined` |
+| `imgalt`      | `imgalt`      |             | `string`  | `undefined` |
 | `imgurl`      | `imgurl`      |             | `string`  | `undefined` |
 | `isdisabled`  | `isdisabled`  |             | `boolean` | `false`     |
 | `linkicon`    | `linkicon`    |             | `string`  | `undefined` |

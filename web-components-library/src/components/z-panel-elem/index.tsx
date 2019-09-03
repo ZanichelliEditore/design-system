@@ -8,7 +8,7 @@ import { Component, Prop, h } from "@stencil/core";
 export class ZPanelElem {
   @Prop() elemid?: string;
   @Prop() imgurl?: string;
-  @Prop() imagealt?: string;
+  @Prop() imgalt?: string;
   @Prop() linkicon?: string;
   @Prop() linklabel: string;
   @Prop() url: string;
@@ -22,7 +22,7 @@ export class ZPanelElem {
         <div class="panel-elem-logo">
           <z-logo
             imageurl={this.imgurl}
-            imagealt={this.imagealt}
+            imagealt={this.imgalt}
             link={this.url}
             targetblank={!!(this.target == "_blank")}
           />
