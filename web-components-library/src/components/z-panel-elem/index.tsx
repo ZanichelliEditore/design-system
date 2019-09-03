@@ -19,13 +19,10 @@ export class ZPanelElem {
   render() {
     return (
       <div class="panel-elem-container">
-        <div class="panel-elem-logo">
-          <z-logo
-            imageurl={this.imgurl}
-            imagealt={this.imgalt}
-            link={this.url}
-            targetblank={!!(this.target == "_blank")}
-          />
+        <div class="panel-elem-icon">
+          <a class="elem-icon" href={this.url} target={this.target}>
+            <img src={this.imgurl} alt={this.imgalt} />
+          </a>
         </div>
         <div class="panel-elem-link">
           <z-link

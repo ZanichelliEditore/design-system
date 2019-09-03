@@ -3,9 +3,16 @@
   font-weight: var(--font-rg);
 }
 
-.panel-elem-logo {
+.panel-elem-icon {
   margin-left: 36px;
   margin-right: 36px;
+}
+
+.panel-elem-icon img {
+  object-fit: contain;
+  width: 120px;
+  height: 56px;
+  margin: auto;
 }
 
 .panel-elem-link {

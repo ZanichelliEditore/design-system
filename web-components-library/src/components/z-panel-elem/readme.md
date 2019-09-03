@@ -24,13 +24,11 @@
 
 ### Depends on
 
-- [z-logo](../z-logo)
 - [z-link](../z-link)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-panel-elem --> z-logo
   z-panel-elem --> z-link
   z-link --> z-icon
   style z-panel-elem fill:#f9f,stroke:#333,stroke-width:4px

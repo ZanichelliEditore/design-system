@@ -21,14 +21,12 @@
 
  - [z-footer](../z-footer)
  - [z-header](../z-header)
- - [z-panel-elem](../z-panel-elem)
 
 ### Graph
 ```mermaid
 graph TD;
   z-footer --> z-logo
   z-header --> z-logo
-  z-panel-elem --> z-logo
   style z-logo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
