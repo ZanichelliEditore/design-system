@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type      | Default     |
-| ------------- | ------------- | ----------- | --------- | ----------- |
-| `description` | `description` |             | `string`  | `undefined` |
-| `elemid`      | `elemid`      |             | `string`  | `undefined` |
-| `imgalt`      | `imgalt`      |             | `string`  | `undefined` |
-| `imgurl`      | `imgurl`      |             | `string`  | `undefined` |
-| `isdisabled`  | `isdisabled`  |             | `boolean` | `false`     |
-| `linkicon`    | `linkicon`    |             | `string`  | `undefined` |
-| `linklabel`   | `linklabel`   |             | `string`  | `undefined` |
-| `target`      | `target`      |             | `string`  | `"_blank"`  |
-| `url`         | `url`         |             | `string`  | `undefined` |
+| Property          | Attribute         | Description | Type      | Default     |
+| ----------------- | ----------------- | ----------- | --------- | ----------- |
+| `descr_slot_name` | `descr_slot_name` |             | `string`  | `undefined` |
+| `elemid`          | `elemid`          |             | `string`  | `undefined` |
+| `imgalt`          | `imgalt`          |             | `string`  | `undefined` |
+| `imgurl`          | `imgurl`          |             | `string`  | `undefined` |
+| `isdisabled`      | `isdisabled`      |             | `boolean` | `false`     |
+| `linkicon`        | `linkicon`        |             | `string`  | `undefined` |
+| `linklabel`       | `linklabel`       |             | `string`  | `undefined` |
+| `target`          | `target`          |             | `string`  | `"_blank"`  |
+| `url`             | `url`             |             | `string`  | `undefined` |
 
 
 ## Dependencies

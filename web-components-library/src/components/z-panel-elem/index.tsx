@@ -14,7 +14,7 @@ export class ZPanelElem {
   @Prop() url: string;
   @Prop() target?: string = "_blank";
   @Prop() isdisabled?: boolean = false;
-  @Prop() description?: string;
+  @Prop() descr_slot_name?: string;
 
   render() {
     return (
@@ -34,7 +34,9 @@ export class ZPanelElem {
             linkid={this.elemid + "link_id"}
           />
         </div>
-        <div class="panel-elem-desc heading-01">{this.description}</div>
+        <div class="panel-elem-desc heading-01">
+          <slot name={this.descr_slot_name} />
+        </div>
       </div>
     );
   }
