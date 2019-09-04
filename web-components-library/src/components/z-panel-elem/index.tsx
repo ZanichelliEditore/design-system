@@ -19,11 +19,13 @@ export class ZPanelElem {
   render() {
     return (
       <div class="panel-elem-container">
-        <div class="panel-elem-icon">
-          <a class="elem-icon" href={this.url} target={this.target}>
-            <img src={this.imgurl} alt={this.imgalt} />
-          </a>
-        </div>
+        {(this.imgurl || this.imgalt) && (
+          <div class="panel-elem-icon">
+            <a class="elem-icon" href={this.url} target={this.target}>
+              <img src={this.imgurl} alt={this.imgalt} />
+            </a>
+          </div>
+        )}
         <div class="panel-elem-link">
           <z-link
             url={this.url}
@@ -34,9 +36,11 @@ export class ZPanelElem {
             linkid={this.elemid + "link_id"}
           />
         </div>
-        <div class="panel-elem-desc heading-01">
-          <slot name={this.descr_slot_name} />
-        </div>
+        {this.descr_slot_name && (
+          <div class="panel-elem-desc body-long-01">
+            <slot name={this.descr_slot_name} />
+          </div>
+        )}
       </div>
     );
   }

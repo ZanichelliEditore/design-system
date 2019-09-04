@@ -1,14 +1,17 @@
+@import url("../../globals/global-text.css");
+
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 }
 
 .panel-elem-icon {
-  margin-left: 36px;
-  margin-right: 36px;
+  margin-left: var(--basex4);
+  margin-right: var(--basex4);
 }
 
 .panel-elem-icon img {
+  display: block;
   object-fit: contain;
   width: 120px;
   height: 56px;
@@ -18,7 +21,7 @@
 .panel-elem-link {
   background: var(--bg-artboard-gray);
   border-radius: var(--radius-min);
-  margin: 16px 36px;
+  margin: var(--basex2) var(--basex4);
   text-align: center;
 }
 
