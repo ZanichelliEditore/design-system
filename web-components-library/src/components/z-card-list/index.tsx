@@ -16,7 +16,7 @@ export class ZCardList {
     if (!data.isLink) return <span>{data.value}</span>;
     return (
       <a href={data.url} target="_blank">
-        • {data.value}
+        {data.value}
       </a>
     );
   }

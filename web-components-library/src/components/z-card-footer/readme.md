@@ -11,6 +11,7 @@
 | -------- | --------- | ----------- | -------- | ----------- |
 | `anno`   | `anno`    |             | `number` | `undefined` |
 | `autori` | `autori`  |             | `string` | `undefined` |
+| `isbn`   | `isbn`    |             | `string` | `undefined` |
 | `titolo` | `titolo`  |             | `string` | `undefined` |
 
 

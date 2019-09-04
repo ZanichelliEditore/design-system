@@ -5,6 +5,6 @@ div {
   overflow: hidden;
   width: 300px;
   height: 558px;
-  border: 2px solid var(--bg-artboard-gray-very-light);
-  border-radius: 4px;
+  border: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border-radius: var(--radius-base);
 }

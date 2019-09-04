@@ -12,6 +12,7 @@ button {
   cursor: pointer;
   white-space: nowrap;
   outline: none;
+  width: inherit;
 }
 
 button::-moz-focus-inner {
