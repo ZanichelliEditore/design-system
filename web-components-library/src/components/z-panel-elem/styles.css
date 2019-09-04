@@ -3,6 +3,11 @@
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+  width: inherit;
+}
+
+.panel-elem-container {
+  width: 100%;
 }
 
 .panel-elem-icon {
