@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `anno`   | `anno`    |             | `number` | `undefined` |
+| Property      | Attribute     | Description | Type     | Default      |
+| ------------- | ------------- | ----------- | -------- | ------------ |
+| `anno`        | `anno`        |             | `number` | `undefined`  |
 | `annolabel`   | `annolabel`   |             | `string` | `'Edizione'` |
-| `autori` | `autori`  |             | `string` | `undefined` |
+| `autori`      | `autori`      |             | `string` | `undefined`  |
 | `autorilabel` | `autorilabel` |             | `string` | `'Autore'`   |
-| `isbn`   | `isbn`    |             | `string` | `undefined` |
-| `titolo` | `titolo`  |             | `string` | `undefined` |
+| `isbn`        | `isbn`        |             | `string` | `undefined`  |
+| `titolo`      | `titolo`      |             | `string` | `undefined`  |
 
 
 ----------------------------------------------
