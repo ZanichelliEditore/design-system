@@ -12,7 +12,10 @@ export class ZHeader {
   @Prop() extlinkdata: string | HeaderLink[];
   @Prop() userdata?: string | HeaderUserData;
   @Prop() ismyz: boolean;
+  @Prop() logolink?: string;
   @Prop() logopath?: string;
+  @Prop() imagealt: string;
+
   @State() activeMenuItem: HeaderLink;
   @State() currentMenuItem: HeaderLink;
   @State() isMobile: boolean = true;
@@ -118,10 +121,10 @@ export class ZHeader {
     return (
       <div class="logo">
         <z-logo
-          link="https://www.zanichelli.it"
+          link={this.logolink ? this.logolink : null}
           targetblank={true}
           imageurl={this.logopath}
-          imagealt="logo zanichelli"
+          imagealt={this.imagealt}
         />
       </div>
     );
