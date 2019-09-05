@@ -15,12 +15,12 @@ describe("Suite test ZCardList", () => {
         <ul>
           <li>
             <a href="https://booktab.it/" target="_blank">
-              • Leggi sul browser
+              Leggi sul browser
             </a>
           </li>
           <li>
             <a href="http://online.scuola.zanichelli.it/curtisinvitoblu/" target="_blank">
-              • Sito e risorse del libro
+              Sito e risorse del libro
             </a>
           </li>
           <li>
@@ -30,7 +30,7 @@ describe("Suite test ZCardList", () => {
           </li>
           <li>
             <a href="https://zte.zanichelli.it/" target="_blank">
-              • ZTE
+              ZTE
             </a>
           </li>
         </ul>
