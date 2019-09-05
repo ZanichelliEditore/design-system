@@ -9,6 +9,7 @@ import { FooterBean, FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSo
 })
 export class ZFooter {
   @Prop() data: string;
+  @Prop() copyrightuser?;
   @State() isOpen: boolean[] = [];
   @State() isMobile: boolean;
 
@@ -118,9 +119,12 @@ export class ZFooter {
   }
 
   renderCopyright(): HTMLElement {
-    return (
-      <p>Copyright – {new Date().getFullYear()} Zanichelli All rights reserved</p>
-    );
+    if(!!this.copyrightuser){
+      return (
+        <p>Copyright – {new Date().getFullYear()} {this.copyrightuser} All rights reserved</p>
+      );
+    }
+    else return;
   }
 
   renderCertification(): HTMLElement {
