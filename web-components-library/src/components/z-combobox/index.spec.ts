@@ -75,10 +75,10 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta vuota", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox items='[]'></z-combobox>`
+      html: `<z-combobox items='[]' noresultslabel='non ci sono risultati'></z-combobox>`
     });
     expect(page.root).toEqualHtml(`
-      <z-combobox items='[]'>
+      <z-combobox items='[]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
           <div class="open">
             <header>
@@ -178,12 +178,12 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con ricerca attiva senza risultati", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
+      html: `<z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'></z-combobox>`
     });
     page.rootInstance.searchValue = "prova";
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
           <div class="open" id="combo">
             <header>
