@@ -19,7 +19,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata="[]" intlinkdata="[]" ismyz="true" logopath="./assets/images/png/zanichelli-logo-2.png">
+    <z-header extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
         <header>
           <div class="false mobile-header" id="mobile-header">
@@ -45,7 +45,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata="[]" intlinkdata="[]" ismyz="false" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":false,"usergroup":4}'>
+    <z-header extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="false" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":false,"usergroup":4}'>
     <mock:shadow-root>
       <header>
         <div class="mobile-header myz-out" id="mobile-header">
@@ -71,7 +71,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata="[]" intlinkdata="[]" ismyz="true" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'>
+    <z-header extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'>
     <mock:shadow-root>
       <header>
         <div class="false mobile-header" id="mobile-header">
@@ -127,8 +127,10 @@ describe("Suite test ZHeader", () => {
     <z-header
       intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      imagealt="logo zanichelli"
       userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
       ismyz="true"
+      logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
     >
       <mock:shadow-root>
@@ -246,7 +248,7 @@ describe("Suite test ZHeader", () => {
     });
     expect(page.root).toEqualHtml(`
 
-      <z-header extlinkdata='[]' intlinkdata='[]' ismyz="true" logopath="./assets/images/png/zanichelli-logo-2.png">
+      <z-header extlinkdata='[]' imagealt="logo zanichelli" intlinkdata='[]' ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
         <header>
           <div class="top-header">
@@ -280,8 +282,10 @@ describe("Suite test ZHeader", () => {
     <z-header
       intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      imagealt="logo zanichelli"
       userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
       ismyz="true"
+      logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
     >
       <mock:shadow-root>
@@ -352,7 +356,9 @@ describe("Suite test ZHeader", () => {
     <z-header
       intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      imagealt="logo zanichelli"
       ismyz="true"
+      logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
     >
       <mock:shadow-root>
@@ -393,8 +399,10 @@ describe("Suite test ZHeader", () => {
     <z-header
       intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      imagealt="logo zanichelli"
       userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
       ismyz="false"
+      logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
     >
       <mock:shadow-root>
@@ -444,8 +452,10 @@ describe("Suite test ZHeader", () => {
     <z-header
       intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      imagealt="logo zanichelli"
       userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
       ismyz="true"
+      logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
     >
       <mock:shadow-root>
@@ -561,11 +571,15 @@ function initHeader(
   ]);
 
   const logoPath = "./assets/images/png/zanichelli-logo-2.png";
+  const logoLink = "https://www.zanichelli.it";
+
 
   return `<z-header intlinkdata='${intlinkdataBool ? intlinkdata : emptyArray}'
   extlinkdata='${extlinkdataBool ? extlinkdata : emptyArray}'
   ${userTag}
   ismyz=${myz}
   logopath=${logoPath}
+  logolink=${logoLink}
+  imagealt="logo zanichelli"
   ></z-header>`;
 }
