@@ -20,6 +20,7 @@
 ### Used by
 
  - [z-button](../z-button)
+ - [z-button-filter](../z-button-filter)
  - [z-button-sort](../z-button-sort)
  - [z-card-icon](../z-card-icon)
  - [z-combobox](../z-combobox)
@@ -36,6 +37,7 @@
 ```mermaid
 graph TD;
   z-button --> z-icon
+  z-button-filter --> z-icon
   z-button-sort --> z-icon
   z-card-icon --> z-icon
   z-combobox --> z-icon
