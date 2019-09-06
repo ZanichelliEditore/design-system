@@ -28,7 +28,6 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo targetblank></z-logo>
-                <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
                 <p></p>
               </div>
               <div class="item">
@@ -81,11 +80,11 @@ describe("Suite test ZFooter", () => {
         "myzLink": {},
         "social": [],
         "bottomLinks": []
-      }'></z-footer>`
+      }' copyrightuser='Zanichelli'></z-footer>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-footer data='{
+      <z-footer  copyrightuser="Zanichelli" data='{
         "zanichelliLinks": [
           {
             "title": "Zanichelli.it",
@@ -181,11 +180,11 @@ describe("Suite test ZFooter", () => {
         "myzLink": {"label": "MyZ", "link": "https://my.zanichelli.it", "img": "logo.png"},
         "social": [],
         "bottomLinks": []
-      }'></z-footer>`
+      }' copyrightuser='Zanichelli'></z-footer>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-footer data='{
+      <z-footer copyrightuser='Zanichelli' data='{
         "zanichelliLinks": [],
         "myzLink": {"label": "MyZ", "link": "https://my.zanichelli.it", "img": "logo.png"},
         "social": [],
@@ -225,11 +224,11 @@ describe("Suite test ZFooter", () => {
           {"icon": "youtube.png", "link": "https://www.youtube.com/user/zanichellieditore"}
         ],
         "bottomLinks": []
-      }'></z-footer>`
+      }' copyrightuser='Zanichelli'></z-footer>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-footer data='{
+      <z-footer copyrightuser='Zanichelli' data='{
         "zanichelliLinks": [],
         "myzLink": {},
         "social": [
@@ -283,11 +282,11 @@ describe("Suite test ZFooter", () => {
           {"label": "Chi siamo", "link": "https://www.zanichelli.it/chi-siamo/via-irnerio-34"},
           {"label": "Contatti e recapiti", "link": "https://www.zanichelli.it/contatti-e-recapiti", "target": "_self"}
         ]
-      }'></z-footer>`
+      }' copyrightuser='Zanichelli'></z-footer>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-footer data='{
+      <z-footer copyrightuser='Zanichelli' data='{
         "zanichelliLinks": [],
         "myzLink": {},
         "social": [],

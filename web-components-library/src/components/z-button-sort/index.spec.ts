@@ -44,7 +44,7 @@ describe("Suite test ZButtonSort", () => {
       components: [ZButtonSort],
       html: `<z-button-sort></z-button-sort>`
     });
-    page.rootInstance.isSelected = true;
+    page.rootInstance.isselected = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-button-sort>
@@ -64,8 +64,8 @@ describe("Suite test ZButtonSort", () => {
       components: [ZButtonSort],
       html: `<z-button-sort></z-button-sort>`
     });
-    page.rootInstance.isSelected = true;
-    page.rootInstance.sortAsc = false;
+    page.rootInstance.isselected = true;
+    page.rootInstance.sortasc = false;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-button-sort>
@@ -87,15 +87,15 @@ describe("Suite test ZButtonSort", () => {
     });
 
     const button = page.root.shadowRoot.querySelector("button");
-    expect(page.rootInstance.isSelected).toEqual(false);
-    expect(page.rootInstance.sortAsc).toEqual(true);
+    expect(page.rootInstance.isselected).toEqual(false);
+    expect(page.rootInstance.sortasc).toEqual(true);
     button.click();
     await page.waitForChanges();
-    expect(page.rootInstance.isSelected).toEqual(true);
-    expect(page.rootInstance.sortAsc).toEqual(true);
+    expect(page.rootInstance.isselected).toEqual(true);
+    expect(page.rootInstance.sortasc).toEqual(true);
     button.click();
     await page.waitForChanges();
-    expect(page.rootInstance.isSelected).toEqual(true);
-    expect(page.rootInstance.sortAsc).toEqual(false);
+    expect(page.rootInstance.isselected).toEqual(true);
+    expect(page.rootInstance.sortasc).toEqual(false);
   });
 });

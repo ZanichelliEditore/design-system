@@ -13,6 +13,7 @@
 | `inputid`           | `inputid`           |             | `string`                    | `undefined` |
 | `items`             | `items`             |             | `ComboItemBean[] \| string` | `undefined` |
 | `label`             | `label`             |             | `string`                    | `undefined` |
+| `noresultslabel`    | `noresultslabel`    |             | `string`                    | `undefined` |
 | `searchlabel`       | `searchlabel`       |             | `string`                    | `undefined` |
 | `searchplaceholder` | `searchplaceholder` |             | `string`                    | `undefined` |
 

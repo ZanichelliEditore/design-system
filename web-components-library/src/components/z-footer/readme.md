@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `data`   | `data`    |             | `string` | `undefined` |
+| Property        | Attribute       | Description | Type     | Default     |
+| --------------- | --------------- | ----------- | -------- | ----------- |
+| `copyrightuser` | `copyrightuser` |             | `any`    | `undefined` |
+| `data`          | `data`          |             | `string` | `undefined` |
 
 
 ## Dependencies
