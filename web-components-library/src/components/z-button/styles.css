@@ -133,6 +133,10 @@ button.tertiary:active {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
-button>z-icon {
+button > z-icon {
   margin-right: var(--half-x3);
+}
+
+button:disabled {
+  pointer-events: none;
 }
