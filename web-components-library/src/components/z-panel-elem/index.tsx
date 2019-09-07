@@ -17,13 +17,17 @@ export class ZPanelElem {
   @Prop() descr_slot_name?: string;
 
   render() {
+    const elemId = this.elemid ? this.elemid : "";
     return (
       <div class="panel-elem-container">
         {(this.imgurl || this.imgalt) && (
           <div class="panel-elem-icon">
-            <a class="elem-icon" href={this.url} target={this.target}>
-              <img src={this.imgurl} alt={this.imgalt} />
-            </a>
+            {this.isdisabled && <img src={this.imgurl} alt={this.imgalt} />}
+            {!this.isdisabled && (
+              <a class="elem-icon" href={this.url} target={this.target}>
+                <img src={this.imgurl} alt={this.imgalt} />
+              </a>
+            )}
           </div>
         )}
         <div class="panel-elem-link">
@@ -33,7 +37,7 @@ export class ZPanelElem {
             icon={this.linkicon}
             isdisabled={this.isdisabled}
             target={this.target}
-            linkid={this.elemid + "link_id"}
+            linkid={elemId + "link_id"}
           />
         </div>
         {this.descr_slot_name && (
