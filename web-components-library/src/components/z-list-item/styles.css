@@ -13,6 +13,9 @@ li > span {
   letter-spacing: 0.23px;
   color: var(--text-gray-dark);
   fill: var(--text-gray-dark);
+}
+
+li > span.border{
   border-bottom: 2px solid var(--bg-artboard-gray-light);
 }
 

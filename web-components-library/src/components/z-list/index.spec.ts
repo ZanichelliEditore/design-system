@@ -87,7 +87,7 @@ describe("Suite test z-list", () => {
           <z-list-item>
             <mock:shadow-root>
               <li>
-                <span>
+                <span class="border">
                   <span>elemento lista</span>
                 </span>
               </li>
