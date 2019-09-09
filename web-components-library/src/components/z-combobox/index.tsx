@@ -14,6 +14,7 @@ export class ZCombobox {
   @Prop() hassearch?: boolean = false;
   @Prop() searchlabel?: string;
   @Prop() searchplaceholder?: string;
+  @Prop() noresultslabel: string;
 
   @State() isOpen: boolean = true;
   @State() searchValue: string;
@@ -86,7 +87,7 @@ export class ZCombobox {
       <ul>
         <z-list-item
           id='no-results'
-          text='non ci sono risultati'
+          text={this.noresultslabel}
           listitemid='no-results'
           icon='error-icon-stroked'
         />

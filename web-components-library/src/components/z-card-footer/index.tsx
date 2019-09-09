@@ -7,8 +7,10 @@ import { Component, Prop, h, State, Listen } from "@stencil/core";
 })
 export class ZCardFooter {
   @Prop() titolo: string;
+  @Prop() autorilabel: string = 'Autore';
   @Prop() autori: string;
   @Prop() anno: number;
+  @Prop() annolabel: string = 'Edizione';
 
   @State() isOpen: boolean = false;
 
@@ -26,10 +28,10 @@ export class ZCardFooter {
         <h2 class={this.isOpen && "isopen"}>{this.titolo}</h2>
         <div>
           <p>
-            Autore: <b>{this.autori}</b>
+            {this.autorilabel}: <b>{this.autori}</b>
           </p>
           <p>
-            Edizione: <b>{this.anno}</b>
+          {this.annolabel}: <b>{this.anno}</b>
           </p>
         </div>
         <slot name="list" />

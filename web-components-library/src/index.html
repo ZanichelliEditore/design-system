@@ -80,8 +80,8 @@
         "id": 123456,
         "name": "Dario Docente e Professore",
         "usergroup": 15,
-        "userlinks" : [{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]
-      }' ismyz=true logopath="./assets/images/png/zanichelli-logo-2.png">
+        "userlinks" : [{"text":"Profilo", "link":"http://www.zanichelli.it", "icon":"profilo-icon-stroked"},{"text":"Esci", "link":"http://www.google.it","icon":"Mask"}]
+      }' ismyz=true logopath="./assets/images/png/zanichelli-logo-2.png" imagealt="none" >
     <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
     <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
     <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
@@ -252,7 +252,7 @@
       <br />
 
       <div style="height:52px;width:240px;">
-        <z-logo imageurl="../../assets/images/png/zanichelli-logo.png" imagealt="logo"></z-logo>
+        <z-logo imageurl="../../assets/images/png/zanichelli-logo.png" imagealt="logo" ></z-logo>
       </div>
       <br />
 
@@ -269,7 +269,7 @@
         <div></div>
         <div style="display: flex; justify-content:flex-end; margin-right:8px">
           <z-menu-dropdown nomeutente="username molto lungo nome"
-            menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]'>
+            menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it", "icon":"profilo-icon-stroked"},{"text":"Esci", "link":"http://www.google.it","icon":"Mask"}]'>
           </z-menu-dropdown>
         </div>
       </div>
@@ -282,6 +282,10 @@
       <z-button-sort label="Chimica" counter="3"></z-button-sort>
       <z-button-sort label="Biologia" counter="5"></z-button-sort>
       <z-button-sort label="Label"></z-button-sort>
+      <z-button-sort label="Selected" isselected=true></z-button-sort>
+      <z-button-sort label="Selected" isselected=true sortasc=false></z-button-sort>
+      <z-button-sort label="Sort number" sortlabelasc="1-9" sortlabeldesc="9-1"></z-button-sort>
+      <z-button-sort label="Ordina ASC" desclabel="Ordina DESC" sortlabelasc="" sortlabeldesc=""></z-button-sort>
       <br />
 
       <br />
@@ -303,8 +307,7 @@
         hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta">
       </z-combobox>
       <br />
-      <z-combobox
-      inputid="combo_2"
+      <z-combobox inputid="combo_2"
         items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
         hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta">
         label="Combo Lunga">
@@ -364,7 +367,7 @@
     </section>
   </div>
 
-  <z-footer data='{
+  <z-footer copyrightuser='Zanichelli' data='{
       "zanichelliLinks": [{
           "title": "Zanichelli.it",
           "items": [{

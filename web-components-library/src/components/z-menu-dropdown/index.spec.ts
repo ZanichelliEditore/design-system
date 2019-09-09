@@ -83,14 +83,10 @@ describe("Suite test ZMenuDropdown", () => {
           </div>
           <ul>
             <li>
-              <a href=\"http://www.zanichelli.it\">
-                Profilo
-              </a>
+              <z-link url=\"http://www.zanichelli.it\" label="Profilo"></z-link>
             </li>
             <li>
-              <a href=\"http://www.google.it\">
-                Esci
-              </a>
+              <z-link url=\"http://www.google.it\" label="Esci"></z-link>
             </li>
           </ul>
         </div>

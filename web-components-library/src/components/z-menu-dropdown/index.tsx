@@ -26,9 +26,7 @@ export class ZMenuDropdown {
         <ul>
           {this.linkarray.map(bean => (
             <li>
-              <a id={bean.linkid} href={bean.link}>
-                {bean.text}
-              </a>
+              <z-link linkid={bean.linkid} url={bean.link} label={bean.text} icon={bean.icon} />
             </li>
           ))}
         </ul>
