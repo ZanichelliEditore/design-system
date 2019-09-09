@@ -9,7 +9,7 @@ describe("Suite test z-list-item", () => {
       html: `<z-list-item></z-list-item>`
     });
     expect(page.root).toEqualHtml(`
-      <z-list-item><mock:shadow-root><li><span><span></span></span></li></mock:shadow-root></z-list-item>
+      <z-list-item><mock:shadow-root><li><span class="border"><span></span></span></li></mock:shadow-root></z-list-item>
     `);
   });
 
@@ -22,7 +22,7 @@ describe("Suite test z-list-item", () => {
      <z-list-item text=\"testo\">
       <mock:shadow-root>
         <li>
-          <span>
+          <span class="border">
             <span>testo</span>
           </span>
         </li>
@@ -40,7 +40,7 @@ describe("Suite test z-list-item", () => {
      <z-list-item link=\"='http://www.google.it'\" text=\"testo\">
       <mock:shadow-root>
         <li>
-          <span>
+          <span class="border">
             <a href=\"='http://www.google.it'\">
               testo
             </a>

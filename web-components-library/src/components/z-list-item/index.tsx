@@ -11,7 +11,7 @@ export class ZListItem {
   @Prop() icon?: string;
   @Prop() listitemid?: string;
   @Prop() action?: string;
-  @Prop() underlined?: boolean = true;
+  @Prop() underlined: boolean = true;
 
   @Event() zListItemLinkClick: EventEmitter;
   emitZListItemLinkClick(e: MouseEvent, linkId) {
