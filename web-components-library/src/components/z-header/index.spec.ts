@@ -162,7 +162,7 @@ describe("Suite test ZHeader", () => {
                   <z-list>
                     <mock:shadow-root>
                       <ul>
-                        <z-list-item link="http://www.zanichelli.it" text="Profilo"></z-list-item>
+                        <z-list-item link="http://www.zanichelli.it" text="Profilo" underlined=""></z-list-item>
                         <z-list-item link="#home" text="Esci"></z-list-item>
                       </ul>
                     </mock:shadow-root>
