@@ -11,22 +11,21 @@
 }
 
 .panel-elem-icon {
-  margin-left: var(--basex4);
-  margin-right: var(--basex4);
+  margin: auto var(--basex3);
 }
 
 .panel-elem-icon img {
   display: block;
   object-fit: contain;
-  width: 120px;
-  height: 56px;
+  width: 96px;
+  height: 32px;
   margin: auto;
 }
 
 .panel-elem-link {
   background: var(--bg-artboard-gray);
   border-radius: var(--radius-min);
-  margin: var(--basex2) var(--basex4);
+  margin: var(--basex2) auto;
   text-align: center;
 }
 
