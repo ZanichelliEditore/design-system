@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/web-components-library.css"
+    />
+    <script type="module" src="/build/web-components-library.esm.js"></script>
+    <script nomodule src="/build/web-components-library.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>Stencil Component Starter</title>
-  <link rel="stylesheet" type="text/css" href="/build/web-components-library.css">
-  <script type="module" src="/build/web-components-library.esm.js"></script>
-  <script nomodule src="/build/web-components-library.js"></script>
-</head>
-
-<body style="background-color: #f9f9f9">
-
-  <z-header intlinkdata='[
+  <body style="background-color: #f9f9f9">
+    <z-header
+      intlinkdata='[
         {
           "id": "home",
           "name": "Home",
@@ -56,7 +62,8 @@
             }
           ]
         }
-      ]' extlinkdata='[
+      ]'
+      extlinkdata='[
         {
           "id": "supporto",
           "name": "Supporto",
@@ -75,7 +82,8 @@
           "url": "http://www.responsabile.it/",
           "icon" : "cheidi-al-responsabile-icon-stroked"
         }
-      ]' userdata='{
+      ]'
+      userdata='{
         "islogged": true,
         "id": 123456,
         "name": "Dario Docente e Professore",
@@ -367,7 +375,43 @@
     </section>
   </div>
 
-  <z-footer copyrightuser='Zanichelli' data='{
+  <div id="main-content">
+    <section
+      id="ideePerInsegnare"
+      style="
+  max-width: 200px;
+  max-height: 200px;
+  margin-left:  40px;
+"
+    >
+      <z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="link-esterno-icon-stroked"
+        linklabel="Biblioteca" url="https://biblioteca.scuola.zanichelli.it/" />
+    </section>
+    <section style="
+  max-width: 200px;
+  max-height: 200px;
+      margin: 40px;
+  margin-top: 3px;
+">
+      <z-panel-elem isdisabled="true" imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="link-esterno-icon-stroked"
+        linklabel="Tutte le prove" url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1"><span
+          slot="xxx1">
+          L’archivio di prove in pdf e word pronto da stampare: prove
+          comuni, simulazioni, prove interdisciplinari</span></z-panel-elem>
+    </section>
+    <section style="
+  max-width: 200px;
+  max-height: 200px;
+  margin:  40px;
+">
+      <z-panel-elem
+        linkicon="link-esterno-icon-stroked" linklabel="Tutte le prove"
+        url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1"/>
+    </section>
+  </div>
+
+    <z-footer
+      data='{
       "zanichelliLinks": [{
           "title": "Zanichelli.it",
           "items": [{
@@ -528,8 +572,7 @@
           "label": "Privacy",
           "link": "https://my.zanichelli.it/privacy"
       }]
-  }'></z-footer>
-
-</body>
-
+  }'
+    ></z-footer>
+  </body>
 </html>
