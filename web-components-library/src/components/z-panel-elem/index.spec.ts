@@ -296,18 +296,18 @@ describe("Suite test ZPanelElem", () => {
   it("Test render ZPanelElem with imgalt and isdisabled", async () => {
     const page = await newSpecPage({
       components: [ZPanelElem],
-      html: `<z-panel-elem isdisabled imgalt="exampleAlt" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" ></z-panel-elem>`
+      html: `<z-panel-elem isdisabled imgalt="exampleAlt" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" target="_self"></z-panel-elem>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-panel-elem isdisabled imgalt="exampleAlt" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
+      <z-panel-elem isdisabled imgalt="exampleAlt" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" target="_self">
         <mock:shadow-root>
           <div class=\"panel-elem-container\">
           <div class="panel-elem-icon">
               <img alt="exampleAlt" />
           </div>
           <div class=\"panel-elem-link\">
-            <z-link isdisabled icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_blank\" url=\"http://www.google.it\"></z-link>
+            <z-link isdisabled icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_self\" url=\"http://www.google.it\"></z-link>
           </div>
         </div>
         </mock:shadow-root>
