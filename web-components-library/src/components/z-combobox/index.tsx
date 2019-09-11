@@ -104,7 +104,7 @@ export class ZCombobox {
   renderList(items: ComboItemBean[]): HTMLUListElement {
     return (
       <ul>
-        {items.map(item => {
+        {items.map((item, i) => {
           return (
             <z-list-item
               id={item.id}
@@ -116,6 +116,7 @@ export class ZCombobox {
                   : "checkbox-unchecked-icon"
               }
               action={`combo-li-${this.inputid}`}
+              underlined={(i === items.length - 1) ? false : true}
             />
           );
         })}
