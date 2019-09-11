@@ -43,6 +43,7 @@ export type CardBean = {
   autori: string;
   anno: number;
   actions: ActionBean[];
+  is_bookmark?: boolean;
 };
 export type ListItemBean = {
   text: string;

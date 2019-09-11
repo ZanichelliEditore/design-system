@@ -1,0 +1,36 @@
+@import url("../../globals/global-text.css");
+
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  width: inherit;
+}
+
+.panel-elem-container {
+  width: 100%;
+}
+
+.panel-elem-icon {
+  margin: auto var(--basex3);
+}
+
+.panel-elem-icon img {
+  display: block;
+  object-fit: contain;
+  width: 96px;
+  height: 32px;
+  margin: auto;
+}
+
+.panel-elem-link {
+  background: var(--bg-artboard-gray);
+  border-radius: var(--radius-min);
+  margin: var(--basex2) auto;
+  text-align: center;
+}
+
+.panel-elem-desc {
+  letter-spacing: 0.16px;
+  text-align: center;
+  margin: 0;
+}

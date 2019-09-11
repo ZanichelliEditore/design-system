@@ -88,8 +88,7 @@
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
 
   </z-header>
-  <div id="main-content">
-
+  <section id="main-content">
     <section id="libreria">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
@@ -313,11 +312,31 @@
         label="Combo Lunga">
       </z-combobox>
 
-      <br />
-      <z-icon name="down-hand-icon-filled"></z-icon>
-      <z-icon name="download-cloud-icon-filled"></z-icon>
-      <z-icon name="e-shop-icon-stroked"></z-icon>
+      <br /><br />
+      <section id="ideePerInsegnare"
+        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
+        <z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png"
+          linkicon="link-esterno-icon-stroked" linklabel="Biblioteca" url="https://biblioteca.scuola.zanichelli.it/"
+          elemid="prova1" />
+      </section>
+      <section id="ideePerInsegnare"
+        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
+        <z-panel-elem isdisabled="true" imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png"
+          linkicon="link-esterno-icon-stroked" linklabel="Tutte le prove"
+          url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" elemid="prova2">
+          <span slot="xxx1">
+            L’archivio di prove in pdf e word pronto da stampare: prove
+            comuni, simulazioni, prove interdisciplinari
+          </span>
+        </z-panel-elem>
+      </section>
+      <section id="ideePerInsegnare"
+        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
+        <z-panel-elem linkicon="link-esterno-icon-stroked" linklabel="Tutte le prove" elemid="prova3"
+          url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" />
+      </section>
 
+      <br />
       <div style="background:grey;">
         <z-icon-package>
           </z-icon-pacakge>
@@ -365,7 +384,7 @@
         tempus laoreet pretium. Duis porta eleifend lectus non congue. Ut quis suscipit leo, eu euismod mauris.
       </p>
     </section>
-  </div>
+  </section>
 
   <z-footer copyrightuser='Zanichelli' data='{
       "zanichelliLinks": [{
