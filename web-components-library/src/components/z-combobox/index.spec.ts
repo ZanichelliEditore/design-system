@@ -111,7 +111,7 @@ describe("Suite test ZCombobox", () => {
             </header>
             <div class="">
               <ul>
-                <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked-icon" action="combo-li-combo"></z-list-item>
+                <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked-icon" action="combo-li-combo" underlined=""></z-list-item>
                 <z-list-item id="item_2" text="secondo elemento" listitemid="item_2" icon="checkbox-success-icon-filled" action="combo-li-combo"></z-list-item>
             </ul>
             </div>
@@ -137,7 +137,7 @@ describe("Suite test ZCombobox", () => {
             <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text"></z-input-text>
             <div class="">
               <ul>
-                <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked-icon" action="combo-li-combo"></z-list-item>
+                <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked-icon" action="combo-li-combo" underlined=""></z-list-item>
                 <z-list-item id="item_2" text="secondo elemento" listitemid="item_2" icon="checkbox-success-icon-filled" action="combo-li-combo"></z-list-item>
               </ul>
             </div>
