@@ -16,19 +16,23 @@ export class ZPanelElem {
   @Prop() isdisabled?: boolean = false;
   @Prop() descr_slot_name?: string;
 
+  renderIcon() {
+    if (this.isdisabled) {
+      return <img src={this.imgurl} alt={this.imgalt} />;
+    }
+    return (
+      <a class="elem-icon" href={this.url} target={this.target}>
+        <img src={this.imgurl} alt={this.imgalt} />
+      </a>
+    );
+  }
+
   render() {
     const elemId = this.elemid ? this.elemid : "";
     return (
       <div class="panel-elem-container">
         {(this.imgurl || this.imgalt) && (
-          <div class="panel-elem-icon">
-            {this.isdisabled && <img src={this.imgurl} alt={this.imgalt} />}
-            {!this.isdisabled && (
-              <a class="elem-icon" href={this.url} target={this.target}>
-                <img src={this.imgurl} alt={this.imgalt} />
-              </a>
-            )}
-          </div>
+          <div class="panel-elem-icon">{this.renderIcon()}</div>
         )}
         <div class="panel-elem-link">
           <z-link
