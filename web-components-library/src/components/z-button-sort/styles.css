@@ -7,6 +7,7 @@ button {
   background-color: var(--bg-artboard-white);
   outline: none;
   padding: 0 var(--basex1);
+  cursor: pointer;
 }
 
 button::-moz-focus-inner {
@@ -41,6 +42,7 @@ button.selected {
 }
 
 button>label {
+  cursor: pointer;
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;

@@ -13,7 +13,7 @@ describe("Suite test ZButtonFilter", () => {
       <z-button-filter filtername="">
         <mock:shadow-root>
           <button class="container isactive">
-            <span class="close-icon-container"></span>
+            <z-icon class="close-icon-container" name="chiudi-icon" height="12" width="12"></z-icon>
             <span class="text-container"></span>
           </button>
         </mock:shadow-root>
@@ -30,7 +30,7 @@ describe("Suite test ZButtonFilter", () => {
       <z-button-filter filtername="FILTRO">
         <mock:shadow-root>
           <button class="container isactive">
-            <span class="close-icon-container"></span>
+            <z-icon class="close-icon-container" name="chiudi-icon" height="12" width="12"></z-icon>
             <span class="text-container">filtro</span>
           </button>
         </mock:shadow-root>
@@ -47,7 +47,7 @@ describe("Suite test ZButtonFilter", () => {
       <z-button-filter filtername="" isfixed>
         <mock:shadow-root>
           <button class="container">
-            <span class="close-icon-container"></span>
+            <z-icon class="close-icon-container" name="chiudi-icon" height="12" width="12"></z-icon>
             <span class="text-container"></span>
           </button>
         </mock:shadow-root>

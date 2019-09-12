@@ -8,11 +8,11 @@ describe("Suite test ZCardFooter", () => {
   it("Test render ZCardFooter con props", async () => {
     const page = await newSpecPage({
       components: [ZCardFooter],
-      html: `<z-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019"></z-card-footer>`
+      html: `<z-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019" isbn="123456"></z-card-footer>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019">
+    <z-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019" isbn="123456">
       <mock:shadow-root>
         <footer >
           <span class="toggle">
@@ -24,7 +24,8 @@ describe("Suite test ZCardFooter", () => {
               Autore: <b>Mario Rossi, Paolo Bianchi</b>
             </p>
             <p>
-              Edizione: <b>2019</b>
+              <span class="year">Edizione: <b>2019</b></span>
+              <span class="isbn">ISBN: <b>123456</b></span>
             </p>
           </div>
           <slot name="list" />
@@ -53,7 +54,8 @@ describe("Suite test ZCardFooter", () => {
               Autore: <b>Mario Rossi, Paolo Bianchi</b>
             </p>
             <p>
-              Edizione: <b>2019</b>
+              <span class="year">Edizione: <b>2019</b></span>
+              <span class="isbn">ISBN: <b></b></span>
             </p>
           </div>
           <slot name="list" />
@@ -82,7 +84,8 @@ describe("Suite test ZCardFooter", () => {
               Autore: <b></b>
             </p>
             <p>
-              Edizione: <b></b>
+              <span class="year">Edizione: <b></b></span>
+              <span class="isbn">ISBN: <b></b></span>
             </p>
           </div>
           <slot name="list" />
@@ -91,5 +94,4 @@ describe("Suite test ZCardFooter", () => {
     </z-card-footer>
     `);
   });
-
 });

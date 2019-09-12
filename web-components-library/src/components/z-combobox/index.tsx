@@ -45,8 +45,15 @@ export class ZCombobox {
     this.searchValue = value;
 
     this.itemsList = this.itemsList.filter(item => {
-      item.name = item.name.replace(value, value.bold());
-      return item.name.includes(value);
+      const start = item.name.toUpperCase().indexOf(value.toUpperCase());
+      const end = start + value.length;
+      const newName =
+        item.name.substring(0, start) +
+        item.name.substring(start, end).bold() +
+        item.name.substring(end, item.name.length);
+
+      item.name = newName;
+      return start >= 0;
     });
   }
 
@@ -97,7 +104,7 @@ export class ZCombobox {
   renderList(items: ComboItemBean[]): HTMLUListElement {
     return (
       <ul>
-        {items.map(item => {
+        {items.map((item, i) => {
           return (
             <z-list-item
               id={item.id}
@@ -109,6 +116,7 @@ export class ZCombobox {
                   : "checkbox-unchecked-icon"
               }
               action={`combo-li-${this.inputid}`}
+              underlined={(i === items.length - 1) ? false : true}
             />
           );
         })}

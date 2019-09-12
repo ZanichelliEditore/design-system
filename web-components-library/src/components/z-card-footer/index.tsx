@@ -11,6 +11,7 @@ export class ZCardFooter {
   @Prop() autori: string;
   @Prop() anno: number;
   @Prop() annolabel: string = 'Edizione';
+  @Prop() isbn: string;
 
   @State() isOpen: boolean = false;
 
@@ -31,7 +32,8 @@ export class ZCardFooter {
             {this.autorilabel}: <b>{this.autori}</b>
           </p>
           <p>
-          {this.annolabel}: <b>{this.anno}</b>
+            <span class="year">{this.annolabel}: <b>{this.anno}</b></span>
+            <span class="isbn">ISBN: <b>{this.isbn}</b></span>
           </p>
         </div>
         <slot name="list" />

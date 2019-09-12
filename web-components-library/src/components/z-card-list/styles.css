@@ -1,25 +1,35 @@
 ul {
-  font-size: 14px;
   font-family: var(--dashboard-font);
-  font-weight: var(--font-sb);
   color: rgb(0, 86, 193);
-  margin: 0px;
-  padding: 8px 12px;
+  margin: var(--basex1) var(--basex2);
+  padding: 0px;
   overflow: hidden;
   list-style: none;
   width: 280px;
   height: auto;
-  letter-spacing: 0.17px;
-  line-height: 24px;
+}
+
+ul > li {
+  padding-left: 10px;
+  text-indent: -10px;
 }
 
 ul > li > a {
+  font-size: 12px;
+  font-weight: var(--font-sb);
   text-decoration: none;
   color: var(--text-my-zanichelli-blue);
 }
 
+ul > li > a:before {
+  content: "•";
+  padding-right: 5px;
+}
+
 ul > li > span {
+  font-size: 14px;
+  font-weight: var(--font-rg);
   text-decoration: none;
   color: var(--text-gray-medium);
-  padding: 8px;
+  padding: var(--basex1) var(--basex2);
 }

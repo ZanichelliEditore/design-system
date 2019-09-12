@@ -1,8 +1,8 @@
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
-  font-size: 12px;
-  line-height: 14px;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 a {

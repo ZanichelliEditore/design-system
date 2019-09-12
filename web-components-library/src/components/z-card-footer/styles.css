@@ -12,7 +12,7 @@ footer {
   width: 304px;
   top: 0px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
-  border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px var(--radius-base) var(--radius-base);
 }
 footer b {
   font-family: var(--dashboard-font);
@@ -21,12 +21,12 @@ footer b {
 
 footer > h2 {
   font-family: var(--dashboard-font);
-  font-weight: var(--font-sb);
+  font-weight: var(--font-rg);
   font-size: 16px;
   line-height: 20px;
   height: 40px;
-  margin: 0px 0px 8px 0px;
-  padding: 12px 12px 0px 12px;
+  margin: 0px 0px var(--basex1) 0px;
+  padding: var(--half-x3) var(--basex2) 0px var(--basex2);
   overflow: hidden;
   text-overflow: ellipsis;
   background-color: var(--bg-artboard-white);
@@ -34,7 +34,7 @@ footer > h2 {
 }
 
 footer > div {
-  padding: 4px 12px 8px 12px;
+  padding: var(--half-x1) var(--basex2) var(--basex1) var(--basex2);
   height: 40px;
   overflow: hidden;
 }
@@ -50,6 +50,17 @@ footer > div > p {
   text-overflow: ellipsis;
 }
 
+footer > div > p > span {
+  display: inline-block;
+}
+footer > div > p > span.year {
+  width: 90px;
+}
+footer > div > p > span.isbn {
+  width: 182px;
+  text-align: right;
+}
+
 footer.isopen {
   height: 255px;
   top: -147px;
@@ -59,14 +70,15 @@ footer.isopen {
 
 h2.isopen {
   background-color: var(--bg-artboard-gray-very-light);
+  font-weight: var(--font-sb);
   height: 42px;
-  padding-top: 16px;
+  padding-top: var(--basex2);
   transition: all 200ms linear;
 }
 
 .toggle {
   position: absolute;
   top: -24px;
-  left: 12px;
+  left: 16px;
   z-index: 10;
 }

@@ -13,6 +13,7 @@
 | `annolabel`   | `annolabel`   |             | `string` | `'Edizione'` |
 | `autori`      | `autori`      |             | `string` | `undefined`  |
 | `autorilabel` | `autorilabel` |             | `string` | `'Autore'`   |
+| `isbn`        | `isbn`        |             | `string` | `undefined`  |
 | `titolo`      | `titolo`      |             | `string` | `undefined`  |
 
 

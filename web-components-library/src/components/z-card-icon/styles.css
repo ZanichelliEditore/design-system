@@ -5,7 +5,7 @@ span {
   align-items: center;
   justify-content: center;
   border-left: var(--border-base) solid var(--bg-artboard-gray-very-light);
-  border-radius: 0px 4px 0px 0px;
+  border-radius: 0px var(--radius-base) 0px 0px;
 
   color: var(--myz-blue);
   fill: var(--myz-blue);
@@ -21,10 +21,3 @@ span:focus {
 span>z-icon {
   cursor: pointer;
 }
-
-/* span>img {
-  width: 20px;
-  height: 22px;
-  object-fit: contain;
-}
- */

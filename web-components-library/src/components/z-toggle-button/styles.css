@@ -15,6 +15,7 @@ button {
   padding-left: 0px;
   padding-right: var(--basex2);
   transition: all 200ms linear;
+  cursor: pointer;
 }
 
 button::-moz-focus-inner {
