@@ -4,7 +4,7 @@ li {
 }
 
 li > span {
-  height: 14px;
+  line-height: 14px;
   padding: var(--basex2) 0;
   display: flex;
   font-family: var(--dashboard-font);
