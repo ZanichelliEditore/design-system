@@ -9,12 +9,15 @@ button.container {
 
   padding: 0 var(--basex2);
 
-  -webkit-user-select: none; /*INFO: Safari 3.1+ */
-  -moz-user-select: none; /*INFO: Firefox 2+ */
-  -ms-user-select: none; /*INFO: IE 10+ */
-  user-select: none; /*INFO: Standard syntax */
+  -webkit-user-select: none;
+  /*INFO: Safari 3.1+ */
+  -moz-user-select: none;
+  /*INFO: Firefox 2+ */
+  -ms-user-select: none;
+  /*INFO: IE 10+ */
+  user-select: none;
+  /*INFO: Standard syntax */
 
-  text-transform: capitalize;
   letter-spacing: 0.17px;
   font-family: var(--dashboard-font);
   font-size: 12px;

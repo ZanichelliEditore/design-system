@@ -3,7 +3,6 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZButtonFilter } from "./index";
 
 describe("Suite test ZButtonFilter", () => {
-
   it("Test render ZButtonFilter vuoto", async () => {
     const page = await newSpecPage({
       components: [ZButtonFilter],
@@ -18,7 +17,7 @@ describe("Suite test ZButtonFilter", () => {
           </button>
         </mock:shadow-root>
       </z-button-filter>
-    `)
+    `);
   });
 
   it("Test render ZButtonFilter con label", async () => {
@@ -31,11 +30,11 @@ describe("Suite test ZButtonFilter", () => {
         <mock:shadow-root>
           <button class="container isactive">
             <z-icon class="close-icon-container" name="chiudi-icon" height="12" width="12"></z-icon>
-            <span class="text-container">filtro</span>
+            <span class="text-container">FILTRO</span>
           </button>
         </mock:shadow-root>
       </z-button-filter>
-    `)
+    `);
   });
 
   it("Test render ZButtonFilter fixed", async () => {
@@ -52,8 +51,6 @@ describe("Suite test ZButtonFilter", () => {
           </button>
         </mock:shadow-root>
       </z-button-filter>
-    `)
+    `);
   });
-
 });
-

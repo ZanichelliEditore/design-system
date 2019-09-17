@@ -15,7 +15,7 @@ a:active {
   text-decoration: none;
 }
 
-:host > div {
+:host>div {
   background: var(--bg-artboard-gray);
   color: var(--text-gray-dark);
   border-radius: var(--radius-base);
@@ -24,22 +24,22 @@ a:active {
   outline: none;
 }
 
-:host > div::-moz-focus-inner {
+:host>div::-moz-focus-inner {
   border: 0;
 }
 
-:host > div:hover,
-:host > div.menu-opened:hover {
+:host>div:hover,
+:host>div.menu-opened:hover {
   color: var(--myz-blue-dark);
 }
 
-:host > div:focus {
+:host>div:focus {
   color: var(--myz-blue);
   border: 1px solid var(--myz-blue);
   box-shadow: 0px 0px 2px 2px var(--myz-blue-light);
 }
 
-:host > div:active {
+:host>div:active {
   color: #1973e1;
   border: 1px solid #1973e1;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
@@ -56,7 +56,8 @@ a:active {
 
 .menu-opened {
   padding-bottom: var(--basex2);
-  width: auto!important;
+  width: auto !important;
+  min-width: 147px;
   position: inherit;
 }
 
@@ -70,14 +71,14 @@ a:active {
   color: var(--myz-blue-dark);
 }
 
-div > img,
-div > z-icon {
+div>img,
+div>z-icon {
   width: 14px;
   height: 14px;
   padding-left: var(--half-x3);
 }
 
-div > span.arrow {
+div>span.arrow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,17 +86,17 @@ div > span.arrow {
   padding-right: var(--basex1);
 }
 
-span.arrow > z-icon {
+span.arrow>z-icon {
   transform: rotate(360deg);
   transition: all 200ms linear;
 }
 
-.menu-opened span.arrow > z-icon {
+.menu-opened span.arrow>z-icon {
   transform: rotate(180deg);
   transition: all 200ms linear;
 }
 
-div > span.user {
+div>span.user {
   padding-left: var(--half-x1);
   /* width: 96px; */
   text-overflow: ellipsis;
@@ -121,7 +122,7 @@ li {
     width: inherit;
   }
 
-  :host > div {
+  :host>div {
     width: 88px;
   }
 
@@ -129,7 +130,7 @@ li {
     width: 88px;
   }
 
-  div > span.user {
+  div>span.user {
     width: 37px;
   }
 
