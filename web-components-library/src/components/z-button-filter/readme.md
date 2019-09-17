@@ -11,6 +11,7 @@
 | ------------ | ------------ | ----------- | --------- | ----------- |
 | `filterid`   | `filterid`   |             | `string`  | `undefined` |
 | `filtername` | `filtername` |             | `string`  | `undefined` |
+| `hasicon`    | `hasicon`    |             | `boolean` | `true`      |
 | `isfixed`    | `isfixed`    |             | `boolean` | `false`     |
 
 

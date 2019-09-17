@@ -8,6 +8,7 @@ import { Component, Prop, Event, EventEmitter, h } from "@stencil/core";
 export class ZButtonFilter {
   @Prop() filtername: string;
   @Prop() isfixed: boolean = false;
+  @Prop() hasicon: boolean = true;
   @Prop() filterid: string;
   @Event({
     eventName: "removefilter",
@@ -30,7 +31,7 @@ export class ZButtonFilter {
   renderFixedPillow(filtername) {
     return (
       <button class="container">
-        <z-icon class="close-icon-container" name="chiudi-icon" height={12} width={12} />
+        {this.hasicon && <z-icon class="close-icon-container" name="chiudi-icon" height={12} width={12} />}
         <span class="text-container">{filtername}</span>
       </button>
     );
@@ -39,19 +40,17 @@ export class ZButtonFilter {
   renderDynamicPillow(filtername) {
     return (
       <button class="container isactive">
-        <z-icon class="close-icon-container" name="chiudi-icon" height={12} width={12} onClick={this.handleRemovingFilterClick} />
+        {this.hasicon && <z-icon class="close-icon-container" name="chiudi-icon" height={12} width={12} onClick={this.handleRemovingFilterClick} />}
         <span class="text-container">{filtername}</span>
       </button>
     );
   }
 
   render() {
-    const filtername = this.filtername.toLowerCase();
-
     if (this.isfixed) {
-      return this.renderFixedPillow(filtername);
+      return this.renderFixedPillow(this.filtername);
     }
 
-    return this.renderDynamicPillow(filtername);
+    return this.renderDynamicPillow(this.filtername);
   }
 }
