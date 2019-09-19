@@ -29,18 +29,9 @@ export type FooterSocialBean = {
   link: string;
 };
 
-// export type CardBean = {
-//   id: string;
-//   titolo: string;
-//   titolo_opera: string;
-//   img: string;
-//   autori: string;
-//   anno: number;
-//   actions: ActionBean[];
-//   is_bookmark?: boolean;
-// };
 export type CardBean = {
   id: string;
+  isbn: string;
   volume_title: string;
   opera_title: string;
   img: string;
