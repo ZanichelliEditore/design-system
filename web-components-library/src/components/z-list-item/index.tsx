@@ -8,6 +8,7 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 export class ZListItem {
   @Prop() text: string;
   @Prop() link?: string;
+  @Prop() linktarget?: string = '_self';
   @Prop() icon?: string;
   @Prop() listitemid?: string;
   @Prop() action?: string;
@@ -26,7 +27,7 @@ export class ZListItem {
         <span class={this.underlined && "border"} >
           {this.icon && <z-icon name={this.icon} />}
           {this.link
-            ? <a href={this.link} id={linkId} onClick={(e: MouseEvent) => this.emitZListItemLinkClick(e, linkId)}>
+            ? <a href={this.link} target={this.linktarget} id={linkId} onClick={(e: MouseEvent) => this.emitZListItemLinkClick(e, linkId)}>
               {this.text}
             </a>
             : <span innerHTML={this.text}></span>

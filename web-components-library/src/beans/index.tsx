@@ -50,6 +50,7 @@ export declare type ActionBean = {
 export type ListItemBean = {
   text: string;
   link?: string;
+  linktarget?: string;
   icon?: string;
   listitemid?: string;
 };
