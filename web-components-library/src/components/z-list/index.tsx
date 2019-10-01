@@ -31,7 +31,11 @@ export class ZList {
       <ul>
         {this.list &&
           this.list.map((bean,i) => (
-            <z-list-item text={bean.text} link={bean.link} icon={bean.icon} listitemid={bean.listitemid} underlined={lastElem != i}/>
+            <z-list-item
+              listitemid={bean.listitemid} text={bean.text}
+              link={bean.link} linktarget={bean.linktarget}
+              icon={bean.icon} underlined={lastElem != i}
+            />
           ))}
       </ul>
     );
