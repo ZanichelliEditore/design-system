@@ -1,0 +1,17 @@
+:host>div {
+  height: 48px;
+  display: inline-flex;
+  align-items: flex-end;
+}
+
+:host>div>z-icon {
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+:host>div>z-icon.disabled {
+  cursor: default;
+  pointer-events: none;
+  color: var(--bg-artboard-gray-very-light);
+  fill: var(--bg-artboard-gray-very-light);
+}
