@@ -308,7 +308,7 @@ export class ZHeader {
             onClick={() => this.handleToggleMobileMenuItem("user-data")}
           >
             <span>
-              <z-icon name="profilo-icon-stroked" height={16} width={16} />
+              <z-icon name="user" height={16} width={16} />
               {userData.name}
             </span>
             <i></i>

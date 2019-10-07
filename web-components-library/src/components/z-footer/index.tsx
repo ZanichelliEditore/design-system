@@ -42,7 +42,7 @@ export class ZFooter {
         <div class="header" >
           <h2>{group.title}</h2>
           {this.isMobile &&
-            <z-icon name={this.isOpen[id] ? 'head-arrow-down-icon' : 'head-arrow-up-icon'}
+            <z-icon name={this.isOpen[id] ? 'chevron-down' : 'chevron-up'}
               width={16} height={16}
               onClick={() => this.handleOnHeaderClick(id)}
             />
@@ -119,7 +119,7 @@ export class ZFooter {
   }
 
   renderCopyright(): HTMLElement {
-    if(!!this.copyrightuser){
+    if (!!this.copyrightuser) {
       return (
         <p>Copyright – {new Date().getFullYear()} {this.copyrightuser} All rights reserved</p>
       );

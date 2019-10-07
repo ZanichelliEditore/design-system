@@ -13,7 +13,7 @@ describe("Suite test ZToggleButton", () => {
       <z-toggle-button>
         <mock:shadow-root>
           <button>
-            <z-icon height="16" name="head-arrow-up-icon" width="16"></z-icon>
+            <z-icon height="16" name="chevron-up" width="16"></z-icon>
           </button>
         </mock:shadow-root>
       </z-toggle-button>
@@ -30,7 +30,7 @@ describe("Suite test ZToggleButton", () => {
       <z-toggle-button label="label">
         <mock:shadow-root>
           <button>
-            <z-icon height="16" name="head-arrow-up-icon" width="16"></z-icon>
+            <z-icon height="16" name="chevron-up" width="16"></z-icon>
             label
           </button>
         </mock:shadow-root>
@@ -48,7 +48,7 @@ describe("Suite test ZToggleButton", () => {
       <z-toggle-button label="label" isdisabled="true">
         <mock:shadow-root>
           <button disabled>
-            <z-icon height="16" name="head-arrow-up-icon" width="16"></z-icon>
+            <z-icon height="16" name="chevron-up" width="16"></z-icon>
             label
           </button>
         </mock:shadow-root>

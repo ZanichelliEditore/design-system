@@ -56,8 +56,3 @@ z-icon {
 button.isopen {
   top: -20px;
 }
-
-.isopen z-icon {
-  transform: rotate(180deg);
-  transition: all 200ms linear;
-}

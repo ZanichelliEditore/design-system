@@ -94,7 +94,7 @@ describe("Suite test ZHeader", () => {
             <span>
               <a class="menu-item" href="#home" id="user-data">
                 <span>
-                  <z-icon height="16" name="profilo-icon-stroked" width="16"></z-icon>
+                  <z-icon height="16" name="user" width="16"></z-icon>
                   Dario Docente e Professore
                 </span>
                 <i></i>
@@ -153,7 +153,7 @@ describe("Suite test ZHeader", () => {
               <span>
                 <a class="menu-item" id="user-data" href="#home">
                   <span>
-                    <z-icon height="16" name="profilo-icon-stroked" width="16"></z-icon>
+                    <z-icon height="16" name="user" width="16"></z-icon>
                     Dario Docente e Professore
                   </span>
                   <i></i>
@@ -572,7 +572,6 @@ function initHeader(
 
   const logoPath = "./assets/images/png/zanichelli-logo-2.png";
   const logoLink = "https://www.zanichelli.it";
-
 
   return `<z-header intlinkdata='${intlinkdataBool ? intlinkdata : emptyArray}'
   extlinkdata='${extlinkdataBool ? extlinkdata : emptyArray}'

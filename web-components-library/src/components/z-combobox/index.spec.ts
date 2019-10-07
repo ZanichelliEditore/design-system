@@ -16,7 +16,7 @@ describe("Suite test ZCombobox", () => {
           <div class="">
             <header>
               <h2><span></span></h2>
-              <z-icon name="select-icon-stroked" width="18" height="18" />
+              <z-icon name="drop-down" width="18" height="18" />
             </header>
           </div>
         </mock:shadow-root>
@@ -40,7 +40,7 @@ describe("Suite test ZCombobox", () => {
                 label
                 <span></span>
               </h2>
-              <z-icon name="select-icon-stroked" width="18" height="18" />
+              <z-icon name="drop-down" width="18" height="18" />
             </header>
           </div>
         </mock:shadow-root>
@@ -64,7 +64,7 @@ describe("Suite test ZCombobox", () => {
                 label
                 <span>(1)</span>
               </h2>
-              <z-icon name="select-icon-stroked" width="18" height="18" />
+              <z-icon name="drop-down" width="18" height="18" />
             </header>
           </div>
         </mock:shadow-root>
@@ -83,11 +83,11 @@ describe("Suite test ZCombobox", () => {
           <div class="open">
             <header>
               <h2><span></span></h2>
-              <z-icon name="select-icon-stroked" width="18" height="18" />
+              <z-icon name="drop-down" width="18" height="18" />
             </header>
             <div class="">
               <ul>
-                <z-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='error-icon-stroked'></z-list-item>
+                <z-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='circle-cross-stroke'></z-list-item>
               </ul>
             </div>
           </div>
@@ -107,12 +107,12 @@ describe("Suite test ZCombobox", () => {
           <div class="open" id="combo">
             <header>
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="select-icon-stroked" width="18" height="18" />
+              <z-icon name="drop-down" width="18" height="18" />
             </header>
             <div class="">
               <ul>
-                <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked-icon" action="combo-li-combo" underlined=""></z-list-item>
-                <z-list-item id="item_2" text="secondo elemento" listitemid="item_2" icon="checkbox-success-icon-filled" action="combo-li-combo"></z-list-item>
+                <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked" action="combo-li-combo" underlined=""></z-list-item>
+                <z-list-item id="item_2" text="secondo elemento" listitemid="item_2" icon="checkbox-selected" action="combo-li-combo"></z-list-item>
             </ul>
             </div>
           </div>
@@ -132,13 +132,13 @@ describe("Suite test ZCombobox", () => {
           <div class="open" id="combo">
             <header>
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="select-icon-stroked" width="18" height="18" />
+              <z-icon name="drop-down" width="18" height="18" />
             </header>
             <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text"></z-input-text>
             <div class="">
               <ul>
-                <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked-icon" action="combo-li-combo" underlined=""></z-list-item>
-                <z-list-item id="item_2" text="secondo elemento" listitemid="item_2" icon="checkbox-success-icon-filled" action="combo-li-combo"></z-list-item>
+                <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked" action="combo-li-combo" underlined=""></z-list-item>
+                <z-list-item id="item_2" text="secondo elemento" listitemid="item_2" icon="checkbox-selected" action="combo-li-combo"></z-list-item>
               </ul>
             </div>
           </div>
@@ -160,12 +160,12 @@ describe("Suite test ZCombobox", () => {
           <div class="open" id="combo">
             <header>
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="select-icon-stroked" width="18" height="18" />
+              <z-icon name="drop-down" width="18" height="18" />
             </header>
             <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input-text>
             <div class="search">
               <ul>
-                <z-list-item id="item_1" text="<b>primo</b> elemento" listitemid="item_1" icon="checkbox-unchecked-icon" action="combo-li-combo"></z-list-item>
+                <z-list-item id="item_1" text="<b>primo</b> elemento" listitemid="item_1" icon="checkbox-unchecked" action="combo-li-combo"></z-list-item>
               </ul>
               <a>CHIUDI</a>
             </div>
@@ -188,12 +188,12 @@ describe("Suite test ZCombobox", () => {
           <div class="open" id="combo">
             <header>
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="select-icon-stroked" width="18" height="18" />
+              <z-icon name="drop-down" width="18" height="18" />
             </header>
             <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text" value="prova"></z-input-text>
             <div class="search">
               <ul>
-                <z-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='error-icon-stroked'></z-list-item>
+                <z-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='circle-cross-stroke'></z-list-item>
               </ul>
               <a>CHIUDI</a>
             </div>
