@@ -11,24 +11,27 @@ export class ZPaginationBar {
   @Prop() visiblepages: number;
   @Prop({ mutable: true }) currentpage: number = 1;
 
-  @State() startpage: number = 1;
+  @Prop({ mutable: true }) startpage: number = 1;
   @State() currentPages: number[] = [];
 
   @Event() goToPage: EventEmitter;
   emitGoToPage(page) {
     this.currentpage = page;
-    // TODO: gestione start page ?
     this.goToPage.emit({ page: page });
   }
 
   componentWillRender() {
+    console.log("componentWillRender");
     this.loadPages();
+  }
+
+  componentWillLoad() {
+    console.log("componentWillLoad");
   }
 
   loadPages() {
     this.currentPages.splice(0);
     const lastPage = this.pageWindow();
-    // TODO: gestione start page se il numero di pagine è inferiore al numero di pagine visibili
 
     let i:number;
     for (i = 0 ; i < lastPage; i++) {
@@ -62,15 +65,17 @@ export class ZPaginationBar {
   }
 
   render() {
+    console.log("renderBar");
+
     return (
       <div>
-        <z-icon name="head-arrow-left-icon" class={!this.canNavigateLeft() && 'disabled'} onClick={() => this.navigateLeft()} />
+        <z-icon name="chevron-left" class={!this.canNavigateLeft() && 'disabled'} onClick={() => this.navigateLeft()} />
         {this.currentPages.map((page) => (
           <z-pagination-page value={page} isselected={page === this.currentpage}
             onClick={() => this.emitGoToPage(page)}
           />
         ))}
-        <z-icon name="head-arrow-right-icon" class={!this.canNavigateRight() && 'disabled'} onClick={() => this.navigateRight()} />
+        <z-icon name="chevron-right" class={!this.canNavigateRight() && 'disabled'} onClick={() => this.navigateRight()} />
       </div>
     );
   }

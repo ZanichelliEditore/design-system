@@ -11,6 +11,7 @@
 | -------------- | -------------- | ----------- | -------- | ----------- |
 | `currentpage`  | `currentpage`  |             | `number` | `1`         |
 | `pages`        | `pages`        |             | `number` | `undefined` |
+| `startpage`    | `startpage`    |             | `number` | `1`         |
 | `visiblepages` | `visiblepages` |             | `number` | `undefined` |
 
 

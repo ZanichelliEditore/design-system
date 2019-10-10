@@ -11,6 +11,7 @@
 | ------------ | ------------ | ----------- | --------- | ----------- |
 | `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
 | `isselected` | `isselected` |             | `boolean` | `false`     |
+| `isvisited`  | `isvisited`  |             | `boolean` | `false`     |
 | `pageid`     | `pageid`     |             | `string`  | `undefined` |
 | `value`      | `value`      |             | `number`  | `undefined` |
 
