@@ -63,7 +63,7 @@ describe("Suite test z-list", () => {
               <mock:shadow-root>
                 <li>
                   <span>
-                    <a href=\"http://www.google.it\"> elemento lista</a>
+                    <a href=\"http://www.google.it\" target="_self"> elemento lista</a>
                   </span>
                 </li>
               </mock:shadow-root>
@@ -97,7 +97,7 @@ describe("Suite test z-list", () => {
             <mock:shadow-root>
               <li>
                 <span>
-                  <a href=\"http://www.google.it\">
+                  <a href=\"http://www.google.it\" target="_self">
                     link lista
                   </a>
                 </span>

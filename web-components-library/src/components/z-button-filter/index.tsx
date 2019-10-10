@@ -31,7 +31,7 @@ export class ZButtonFilter {
   renderFixedPillow(filtername) {
     return (
       <button class="container">
-        {this.hasicon && <z-icon class="close-icon-container" name="chiudi-icon" height={12} width={12} />}
+        {this.hasicon && <z-icon class="close-icon-container" name="close" height={12} width={12} />}
         <span class="text-container">{filtername}</span>
       </button>
     );
@@ -40,7 +40,7 @@ export class ZButtonFilter {
   renderDynamicPillow(filtername) {
     return (
       <button class="container isactive">
-        {this.hasicon && <z-icon class="close-icon-container" name="chiudi-icon" height={12} width={12} onClick={this.handleRemovingFilterClick} />}
+        {this.hasicon && <z-icon class="close-icon-container" name="close" height={12} width={12} onClick={this.handleRemovingFilterClick} />}
         <span class="text-container">{filtername}</span>
       </button>
     );

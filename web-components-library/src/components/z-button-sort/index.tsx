@@ -33,7 +33,7 @@ export class ZButtonSort {
           {this.sortasc ? this.label : this.desclabel}
           {this.counter && ` (${this.counter})`}</label>
         <span>{this.sortasc ? this.sortlabelasc : this.sortlabeldesc}</span>
-        <z-icon name="ordina-icon-stroked" width={16} height={16} />
+        <z-icon name="drop-up-down" width={16} height={16} />
       </button>
     );
   }

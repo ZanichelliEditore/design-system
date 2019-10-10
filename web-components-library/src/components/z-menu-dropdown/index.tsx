@@ -37,7 +37,7 @@ export class ZMenuDropdown {
   renderButtonMenu() {
     return (
       <span class="arrow">
-        <z-icon name="select-icon-stroked" width={14} height={14} />
+        <z-icon name="drop-down" width={14} height={14} />
       </span>
     );
   }
@@ -52,7 +52,7 @@ export class ZMenuDropdown {
     return (
       <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen = !this.ismenuopen} tabindex="0">
         <div class="container">
-          <z-icon name="profilo-icon-stroked" width={14} height={14} />
+          <z-icon name="user" width={14} height={14} />
           <span class="user">{this.nomeutente}</span>
           {this.renderButtonMenu()}
         </div>

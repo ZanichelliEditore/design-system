@@ -43,12 +43,14 @@
   fill: var(--myz-blue);
   transform: rotate(360deg);
   transition: all 200ms linear;
+  padding-top: 10px;
 }
 
 :host>div.open>header>z-icon {
   fill: inherit;
   transform: rotate(180deg);
   transition: all 200ms linear;
+  padding-top: -2px;
 }
 
 :host>div.open>div {

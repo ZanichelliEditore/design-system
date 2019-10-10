@@ -74,7 +74,7 @@ export class ZCombobox {
             {this.selectedCounter > 0 && ` (${this.selectedCounter})`}
           </span>
         </h2>
-        <z-icon name="select-icon-stroked" width={18} height={18} />
+        <z-icon name="drop-down" width={18} height={18} />
       </header>
     );
   }
@@ -96,7 +96,7 @@ export class ZCombobox {
           id='no-results'
           text={this.noresultslabel}
           listitemid='no-results'
-          icon='error-icon-stroked'
+          icon='circle-cross-stroke'
         />
       </ul>)
   }
@@ -112,8 +112,8 @@ export class ZCombobox {
               listitemid={item.id}
               icon={
                 item.checked
-                  ? "checkbox-success-icon-filled"
-                  : "checkbox-unchecked-icon"
+                  ? "checkbox-selected"
+                  : "checkbox-unchecked"
               }
               action={`combo-li-${this.inputid}`}
               underlined={(i === items.length - 1) ? false : true}

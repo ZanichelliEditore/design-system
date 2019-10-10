@@ -20,7 +20,7 @@ do
   path="$(echo -e $path)"
   if [ -n "$path" ]; then
     IFS='"' read -ra arr <<< "$path"
-    id=${arr[1]}
+#    id=${arr[1]}
     data=${arr[3]}
     IFS=' '
   else
@@ -28,19 +28,22 @@ do
     path="$(echo -e $path)"
     if [ -n "$path" ]; then
       IFS='"' read -ra arr <<< "$path"
-      id=${arr[3]}
+#      id=${arr[3]}
       data=${arr[1]}
       IFS=' '
     fi
   fi
 
-  tmp="$(cat $entry | grep 'use id')"
-  tmp="$(echo -e $tmp)"
-  if [ -n "$tmp" ]; then
-    IFS='"' read -ra arr <<< "$tmp"
-    id=${arr[1]}
-    IFS=' '
-  fi
+#  tmp="$(cat $entry | grep 'use id')"
+#  tmp="$(echo -e $tmp)"
+#  if [ -n "$tmp" ]; then
+#    IFS='"' read -ra arr <<< "$tmp"
+#    id=${arr[1]}
+#    IFS=' '
+#  fi
+
+  basename=$(basename $entry)
+  id="${basename%.*}"
 
   json="$json\"$id\": \"$data\",
   "
