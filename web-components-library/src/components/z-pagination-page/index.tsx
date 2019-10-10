@@ -15,8 +15,6 @@ export class ZPaginationPage {
 
 
   render() {
-    console.log("renderPage"+this.value);
-
     return (
       <a id={this.pageid}
         class={`${this.isselected && 'selected'} ${this.isdisabled && 'disabled'} ${this.isvisited && 'visited'}`}
@@ -24,7 +22,6 @@ export class ZPaginationPage {
       >
         {this.value}
       </a>
-
     );
   }
 }

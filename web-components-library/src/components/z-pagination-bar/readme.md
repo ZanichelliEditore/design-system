@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property       | Attribute      | Description | Type     | Default     |
-| -------------- | -------------- | ----------- | -------- | ----------- |
-| `currentpage`  | `currentpage`  |             | `number` | `1`         |
-| `pages`        | `pages`        |             | `number` | `undefined` |
-| `startpage`    | `startpage`    |             | `number` | `1`         |
-| `visiblepages` | `visiblepages` |             | `number` | `undefined` |
+| Property       | Attribute      | Description | Type      | Default     |
+| -------------- | -------------- | ----------- | --------- | ----------- |
+| `currentpage`  | `currentpage`  |             | `number`  | `1`         |
+| `pages`        | `pages`        |             | `number`  | `undefined` |
+| `reset`        | `reset`        |             | `boolean` | `false`     |
+| `visiblepages` | `visiblepages` |             | `number`  | `undefined` |
 
 
 ## Events
