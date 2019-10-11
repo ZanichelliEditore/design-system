@@ -31,7 +31,7 @@ export class ZInputText {
           name={this.inputid}
           placeholder={this.placeholder}
           value={this.value}
-          onKeyUp={(e: any) => { this.emitInputChange(e.target.value, e.keyCode) }}
+          onInput={(e: any) => { this.emitInputChange(e.target.value, e.keyCode) }}
         />
         {this.value ? <z-icon name="close" onClick={(e: any) => this.emitInputChange('', e.keyCode)} /> : null}
       </div>
