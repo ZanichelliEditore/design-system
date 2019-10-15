@@ -7,6 +7,8 @@
 :host>div>z-icon {
   cursor: pointer;
   margin: 15px 0;
+  color: var(--myz-blue);
+  fill: var(--myz-blue);
 }
 
 :host>div>z-icon.disabled {
