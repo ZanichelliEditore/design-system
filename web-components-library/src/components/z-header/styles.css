@@ -140,6 +140,10 @@ header {
   cursor: pointer;
 }
 
+.link-ext z-link {
+  font-size: var(--half-x3);
+}
+
 .login {
   grid-area: login;
   display: flex;
