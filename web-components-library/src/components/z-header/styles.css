@@ -141,7 +141,7 @@ header {
 }
 
 .link-ext z-link {
-  font-size: 12px;
+  font-size: var(--half-x3);
 }
 
 .login {
