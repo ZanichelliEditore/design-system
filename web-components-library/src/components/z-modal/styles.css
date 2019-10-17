@@ -1,0 +1,45 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host>div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+
+:host>div::-webkit-scrollbar {
+  width: 0 !important
+}
+
+:host>div>div {
+  background: white;
+  width: auto;
+  min-height: 200px;
+  margin: 144px;
+  z-index: 1010;
+  border-radius: var(--radius-base);
+}
+
+:host>div>div>header {
+  background: var(--bg-artboard-gray);
+  display: flex;
+  justify-content: space-between;
+  border-radius: var(--radius-base) var(--radius-base) 0 0;
+}
+
+:host>div>div>header>z-icon {
+  cursor: pointer;
+  fill: var(--myz-blue);
+  margin: 16px;
+}
