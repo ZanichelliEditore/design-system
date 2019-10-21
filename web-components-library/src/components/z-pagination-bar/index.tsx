@@ -1,4 +1,6 @@
 import { Component, Prop, h, State, Event, EventEmitter } from "@stencil/core";
+import 'hammerjs';
+
 
 @Component({
   tag: "z-pagination-bar",
@@ -14,10 +16,43 @@ export class ZPaginationBar {
   @State() startpage: number = 1;
   @State() currentPages: number[] = [];
 
-  //Mobile swipe variables
-  private startTouch: number;
-  private startTouchPage: number;
-  private touchScrollSize: number = 60;
+  bar: HTMLElement;
+
+  componentDidLoad(){
+    this.scrollPage = this.scrollPage.bind(this);
+
+
+    let mc = new Hammer(this.bar);
+    mc.get('swipe').set({ velocity: 0.5 });
+
+    // listen to events...
+    mc.on("swipeleft", this.scrollPage);
+    mc.on("swiperight", this.scrollPage);
+  }
+
+  scrollPage(ev:HammerInput): void{
+    let vel = Math.round(Math.abs(ev.velocity));
+    console.log(vel)
+
+    switch(ev.type){
+      case 'swiperight':
+        if (!this.canNavigateLeft()) break;
+        const deltaPage1 = Math.max(1, vel);
+        if (deltaPage1 != this.startpage) this.startpage = deltaPage1;
+        break;
+      case 'swipeleft':
+          if (!this.canNavigateRight()) break;
+
+          const deltaPage2 = Math.min(
+            this.startpage + vel,
+            this.pages - this.visiblepages + 1
+          );
+          if (deltaPage2 != this.startpage) this.startpage = deltaPage2;
+        break;
+      default:
+        break;
+    }
+  }
 
   @Event() goToPage: EventEmitter;
   emitGoToPage(page) {
@@ -69,46 +104,9 @@ export class ZPaginationBar {
     }
   }
 
-  touchStart(e: TouchEvent) {
-    e.preventDefault();
-    this.startTouch = e.changedTouches[0].clientX;
-    this.startTouchPage = this.startpage;
-  }
-
-  calculateTouchMovement(diffX: number) {
-    return Math.abs(Math.floor(diffX / this.touchScrollSize));
-  }
-
-  touchMove(e: TouchEvent) {
-    e.preventDefault();
-    const diffX = e.changedTouches[0].clientX - this.startTouch;
-    const movement = this.calculateTouchMovement(diffX);
-
-    if (diffX > 0) {
-      if (!this.canNavigateLeft()) return;
-
-      const deltaPage = Math.max(1, this.startTouchPage - movement);
-      if (deltaPage != this.startpage) this.startpage = deltaPage;
-    } else if (diffX < 0) {
-      if (!this.canNavigateRight()) return;
-
-      const deltaPage = Math.min(
-        this.startTouchPage + movement,
-        this.pages - this.visiblepages + 1
-      );
-      if (deltaPage != this.startpage) this.startpage = deltaPage;
-    }
-  }
-
   render() {
     return (
-      <div
-        onTouchStart={(e: TouchEvent) => {
-          this.touchStart(e);
-        }}
-        onTouchMove={(e: TouchEvent) => {
-          this.touchMove(e);
-        }}
+      <div  ref={(el) => this.bar = el as HTMLElement}
       >
         <z-icon
           name="chevron-left"
