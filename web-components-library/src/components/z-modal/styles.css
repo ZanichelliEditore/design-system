@@ -16,6 +16,12 @@
   overflow: auto;
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 :host>div::-webkit-scrollbar {
@@ -25,8 +31,8 @@
 :host>div>div {
   background: white;
   width: auto;
-  min-height: 200px;
-  margin: 144px;
+  min-width: 300px;
+  min-height: 300px;
   z-index: 1010;
   border-radius: var(--radius-base);
 }
@@ -41,5 +47,29 @@
 :host>div>div>header>z-icon {
   cursor: pointer;
   fill: var(--myz-blue);
-  margin: 16px;
+  margin: var(--half-x3) var(--basex3);
+}
+
+:host>div>div>header>div {
+  margin: var(--half-x3) var(--basex3);
+}
+
+:host>div>div>header>div>h1,
+:host>div>div>header>div>h2 {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  color: var(--text-gray-dark);
+  margin: 0;
+  padding: 0;
+}
+
+:host>div>div>header>div>h1 {
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: var(--basex1);
+}
+
+:host>div>div>header>div>h2 {
+  font-size: 16px;
+  line-height: 24px;
 }

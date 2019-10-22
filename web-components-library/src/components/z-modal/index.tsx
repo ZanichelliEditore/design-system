@@ -8,6 +8,8 @@ import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
 
 export class ZModal {
   @Prop() modalid: string;
+  @Prop() modaltitle?: string;
+  @Prop() modalsubtitle?: string;
 
   @Event() modalClose: EventEmitter;
   emitModalClose() {
@@ -20,7 +22,8 @@ export class ZModal {
         <div id={this.modalid}>
           <header>
             <div>
-              <slot name="modalHeader" />
+              <h1>{this.modaltitle}</h1>
+              <h2>{this.modalsubtitle}</h2>
             </div>
             <z-icon name="circle-cross-fill" width={24} height={24}
               data-action="modalClose" data-modal={this.modalid}
