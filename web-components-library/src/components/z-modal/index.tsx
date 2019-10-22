@@ -52,7 +52,7 @@ export class ZModal {
             <slot name="modalContent" />
           </main>
         </div>
-      </ div>
+      </div>
     );
   }
 }
