@@ -21,7 +21,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  align-content: center;
 }
 
 :host>div::-webkit-scrollbar {
@@ -33,6 +32,7 @@
   width: auto;
   min-width: 300px;
   min-height: 300px;
+  margin-top: var(--basex4);
   z-index: 1010;
   border-radius: var(--radius-base);
 }
