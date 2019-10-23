@@ -8,7 +8,7 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox items='[]'></z-combobox>`
     });
-    page.rootInstance.isOpen = false;
+    page.rootInstance.isopen = false;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox items='[]'>
@@ -29,7 +29,7 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox items='[]' inputid="combobox" label="label"></z-combobox>`
     });
-    page.rootInstance.isOpen = false;
+    page.rootInstance.isopen = false;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox items='[]' inputid="combobox" label="label">
@@ -53,7 +53,7 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' inputid="combobox" label="label"></z-combobox>`
     });
-    page.rootInstance.isOpen = false;
+    page.rootInstance.isopen = false;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' inputid="combobox" label="label">
