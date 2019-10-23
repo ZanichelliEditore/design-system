@@ -1,0 +1,117 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host>div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+:host>div::-webkit-scrollbar {
+  width: 0 !important
+}
+
+:host>div>div {
+  background: white;
+  z-index: 1010;
+  width: 100%;
+  margin: 0;
+}
+
+:host>div>div>header {
+  background: #e8ebee;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: space-between;
+}
+
+:host>div>div>header>z-link {
+  cursor: pointer;
+  fill: var(--myz-blue);
+  margin: var(--half-x3) var(--basex3);
+  font-size: 14px;
+  order: 1;
+  align-self: flex-end;
+}
+
+:host>div>div>header>div {
+  margin: 0 var(--basex3) var(--basex3) var(--basex3);
+  order: 2;
+  align-self: flex-start;
+}
+
+:host>div>div>header>div>h1,
+:host>div>div>header>div>h2 {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  color: var(--text-gray-dark);
+  margin: 0;
+  padding: 0;
+}
+
+:host>div>div>header>div>h1 {
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: var(--basex1);
+}
+
+:host>div>div>header>div>h2 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+/* Tablet / Desktop style */
+
+@media only screen and (min-width: 768px) {
+
+  :host>div {
+    align-items: center;
+  }
+
+  :host>div>div {
+    width: auto;
+    min-width: 300px;
+    min-height: 300px;
+    margin-top: var(--basex4);
+    border-radius: var(--radius-base);
+  }
+
+  :host>div>div>header {
+    background: var(--bg-artboard-gray);
+    border-radius: var(--radius-base) var(--radius-base) 0 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  :host>div>div>header>z-icon {
+    cursor: pointer;
+    fill: var(--myz-blue);
+    margin: var(--half-x3) var(--basex3);
+    order: 1;
+  }
+
+  :host>div>div>header>div {
+    margin: var(--half-x3) var(--basex3);
+    order: 1;
+  }
+
+}

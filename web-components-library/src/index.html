@@ -12,6 +12,10 @@
 
 <body style="background-color: #f9f9f9">
 
+  <!-- <z-modal modaltitle="titolotitolo" modalsubtitle="sottotitolo">
+    <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+  </z-modal> -->
+
   <z-header intlinkdata='[
         {
           "id": "home",
@@ -81,7 +85,7 @@
         "name": "Dario Docente e Professore",
         "usergroup": 15,
         "userlinks" : [{"text":"Profilo", "link":"http://www.zanichelli.it", "icon":"user"},{"text":"Esci", "link":"http://www.google.it","icon":"exit"}]
-      }' ismyz=true logopath="./assets/images/png/zanichelli-logo-2.png" imagealt="none" >
+      }' ismyz=true logopath="./assets/images/png/zanichelli-logo-2.png" imagealt="none">
     <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
     <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
     <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
@@ -142,7 +146,8 @@
             <z-card-cover slot="cover" titolo="titolo"
               img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
           </z-card-body>
-          <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" anno="2019" isbn="97-88-80-8620-710">
+          <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" anno="2019"
+            isbn="97-88-80-8620-710">
             <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
             <z-card-list
               listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
@@ -157,7 +162,9 @@
             <z-card-cover slot="cover" titolo="titolo"
               img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
           </z-card-body>
-          <z-card-footer titolo="titolo titolo titolo titolotitolo titolo titolo titolo titolotitolo titolo titolo titolo" autori="autori" anno="2019" isbn="9788808620712">
+          <z-card-footer
+            titolo="titolo titolo titolo titolotitolo titolo titolo titolo titolotitolo titolo titolo titolo"
+            autori="autori" anno="2019" isbn="9788808620712">
             <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
             <z-card-list
               listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
@@ -251,7 +258,7 @@
       <br />
 
       <div style="height:52px;width:240px;">
-        <z-logo imageurl="../../assets/images/png/zanichelli-logo.png" imagealt="logo" ></z-logo>
+        <z-logo imageurl="../../assets/images/png/zanichelli-logo.png" imagealt="logo"></z-logo>
       </div>
       <br />
 
@@ -328,9 +335,8 @@
       <br /><br />
       <section id="ideePerInsegnare"
         style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
-        <z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png"
-          linkicon="external-link-left" linklabel="Biblioteca" url="https://biblioteca.scuola.zanichelli.it/"
-          elemid="prova1" />
+        <z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="external-link-left"
+          linklabel="Biblioteca" url="https://biblioteca.scuola.zanichelli.it/" elemid="prova1" />
       </section>
       <section id="ideePerInsegnare"
         style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
