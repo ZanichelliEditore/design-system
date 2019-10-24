@@ -13,10 +13,15 @@ export class ZPaginationPage {
   @Prop() isdisabled: boolean = false;
   @Prop() isvisited: boolean = false;
 
+  page: HTMLElement;
+
+  componentWillUpdate(){
+  }
+
 
   render() {
     return (
-      <a id={this.pageid}
+      <a id={this.pageid} ref={(el) => this.page = el as HTMLElement}
         class={`${this.isselected && 'selected'} ${this.isdisabled && 'disabled'} ${this.isvisited && 'visited'}`}
         tabindex={this.isdisabled ? -1 : 1}
       >
