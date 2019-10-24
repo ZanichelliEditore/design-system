@@ -81,7 +81,6 @@ export class ZPaginationBar {
     }
   }
 
-
   componentWillUpdate() {
     this.loadPages();
     if (this.historyraw) {
