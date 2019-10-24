@@ -1,5 +1,5 @@
 :host {
-  width: 270px;
+  /* width: 100%; */
   display: block;
 }
 
@@ -7,7 +7,7 @@
   background-color: var(--bg-artboard-white);
   border-radius: var(--radius-base);
   border: var(--border-base) solid var(--bg-artboard-gray-light);
-  width: 270px;
+  /* width: 100%; */
 }
 
 :host>div>header {
