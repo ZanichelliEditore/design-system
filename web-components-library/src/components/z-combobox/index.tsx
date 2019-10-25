@@ -16,6 +16,7 @@ export class ZCombobox {
   @Prop() searchplaceholder?: string;
   @Prop() noresultslabel: string;
   @Prop({ mutable: true }) isopen: boolean = true;
+  @Prop() isfixed: boolean = false;
 
   @State() searchValue: string;
 
@@ -63,11 +64,7 @@ export class ZCombobox {
 
   renderHeader(): HTMLHeadingElement {
     return (
-      <header
-        onClick={() => {
-          this.isopen = !this.isopen;
-        }}
-      >
+      <header onClick={() => this.isopen = !this.isopen}>
         <h2>
           {this.label}
           <span>
@@ -77,6 +74,17 @@ export class ZCombobox {
         <z-icon name="drop-down" width={18} height={18} />
       </header>
     );
+  }
+
+  renderContent(): HTMLDivElement {
+    if (!this.isopen) return;
+
+    return (
+      <div class="openComboData">
+        {this.hassearch && this.renderSearchInput()}
+        {this.renderItems()}
+      </div>
+    )
   }
 
   renderItems(): HTMLDivElement {
@@ -144,10 +152,9 @@ export class ZCombobox {
 
   render() {
     return (
-      <div class={this.isopen && "open"} id={this.inputid}>
+      <div class={`${this.isopen && "open"} ${this.isfixed && "fixed"}`} id={this.inputid}>
         {this.renderHeader()}
-        {this.hassearch && this.renderSearchInput()}
-        {this.renderItems()}
+        {this.renderContent()}
       </div>
     );
   }

@@ -11,6 +11,7 @@
 | ------------------- | ------------------- | ----------- | --------------------------- | ----------- |
 | `hassearch`         | `hassearch`         |             | `boolean`                   | `false`     |
 | `inputid`           | `inputid`           |             | `string`                    | `undefined` |
+| `isfixed`           | `isfixed`           |             | `boolean`                   | `false`     |
 | `isopen`            | `isopen`            |             | `boolean`                   | `true`      |
 | `items`             | `items`             |             | `ComboItemBean[] \| string` | `undefined` |
 | `label`             | `label`             |             | `string`                    | `undefined` |
