@@ -2,13 +2,10 @@
   display: inline-block;
 }
 
-:host>div {
-  position: relative;
-}
-
-:host>div>input {
+:host>div>div>input {
   border-radius: 0px;
   border: var(--border-size-small) solid var(--bg-artboard-gray-light);
+  border-color: var(--text-gray-dark);
   box-sizing: border-box;
   height: 44px;
   width: 100%;
@@ -17,7 +14,8 @@
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 16px;
-  color: inherit;
+  color: var(--text-gray-dark);
+  fill: var(--text-gray-dark);
 }
 
 input::placeholder {
@@ -40,9 +38,45 @@ input::placeholder {
   color: var(--text-gray-medium);
 }
 
-:host>div>input:focus {
-  border-color: var(--myz-blue);
+:host>div>div>input.input_success {
+  border-color: #417505;
+  background: #effce0;
+}
+
+:host>div>div>input.input_error {
+  border-color: #dc3122;
+  background: #fdefee;
+}
+
+:host>div>div>input.input_warning {
+  border-color: #f6bb3b;
+  background: #fbf4e6;
+}
+
+:host>div>div>input:focus {
+  border-color: transparent;
+  box-shadow: 0 0 2px 2px #78b5ff;
+}
+
+:host>div>div>input:disabled {
+  border-color: var(--bg-artboard-gray-light);
+  background: var(--bg-artboard-white);
   box-shadow: none;
+  color: #676b6f;
+  fill: #676b6f;
+}
+
+:host>div>div>input:hover {
+  background: var(--bg-artboard-gray);
+}
+
+:host>div>div>input:disabled:hover {
+  background: var(--bg-artboard-white);
+}
+
+:host>div>div>input.readonly:disabled {
+  color: var(--text-gray-dark);
+  fill: var(--text-gray-dark);
 }
 
 :host>div>label {
@@ -57,10 +91,44 @@ input::placeholder {
   margin: var(--basex1) 0;
 }
 
-:host>div>z-icon {
+:host>div>div {
+  position: relative;
+  z-index: 1;
+}
+
+:host>div>div>z-icon {
   position: absolute;
   bottom: var(--half-x3);
   right: var(--half-x3);
   fill: var(--myz-blue);
   cursor: pointer;
+  z-index: 2;
+}
+
+:host>div>span.helperMsg,
+:host>div>span.statusMsg {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: 12px;
+  color: var(--text-gray-medium);
+  fill: var(--text-gray-medium);
+}
+
+:host>div>span.statusMsg.msg_success {
+  color: #417505;
+  fill: #417505;
+}
+
+:host>div>span.statusMsg.msg_error {
+  color: #dc3122;
+  fill: #dc3122;
+}
+
+:host>div>span.statusMsg.msg_warning {
+  color: #85641a;
+  fill: #85641a;
+}
+
+:host>div>span.statusMsg>z-icon {
+  margin-right: var(--half-x1);
 }

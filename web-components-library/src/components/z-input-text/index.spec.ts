@@ -14,8 +14,9 @@ describe("Suite test ZInputText", () => {
       <z-input-text>
         <mock:shadow-root>
           <div>
-            <label></label>
-            <input />
+            <div>
+              <input class="false undefined" />
+            </div>
           </div>
         </mock:shadow-root>
       </z-input-text>
@@ -32,8 +33,95 @@ describe("Suite test ZInputText", () => {
         <mock:shadow-root>
           <div>
             <label>label</label>
-            <input type='text' id='test' name='test' placeholder='placeholder' value='value' />
-            <z-icon name="close"></z-icon>
+            <div>
+              <input class="false undefined" type='text' id='test' name='test' placeholder='placeholder' value='value' />
+              <z-icon name="close"></z-icon>
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-input-text>
+    `);
+  });
+
+  it("Test render ZInputText con attributi disabled", async () => {
+    const page = await newSpecPage({
+      components: [ZInputText],
+      html: `<z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' isdisabled></z-input-text>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' isdisabled>
+        <mock:shadow-root>
+          <div>
+            <label>label</label>
+            <div>
+              <input disabled class="false undefined" type='text' id='test' name='test' placeholder='placeholder' value='value' />
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-input-text>
+    `);
+  });
+
+  it("Test render ZInputText con attributi readonly", async () => {
+    const page = await newSpecPage({
+      components: [ZInputText],
+      html: `<z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' isreadonly></z-input-text>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' isreadonly>
+        <mock:shadow-root>
+          <div>
+            <label>label</label>
+            <div>
+              <input disabled class="readonly undefined" type='text' id='test' name='test' placeholder='placeholder' value='value' />
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-input-text>
+    `);
+  });
+
+  it("Test render ZInputText con helper message", async () => {
+    const page = await newSpecPage({
+      components: [ZInputText],
+      html: `<z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' helpermessage='helper message'></z-input-text>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' helpermessage='helper message'>
+        <mock:shadow-root>
+          <div>
+            <label>label</label>
+            <div>
+              <input class="false undefined" type='text' id='test' name='test' placeholder='placeholder' value='value' />
+              <z-icon name="close"></z-icon>
+            </div>
+            <span class="helperMsg">
+              helper message
+            </span>
+          </div>
+        </mock:shadow-root>
+      </z-input-text>
+    `);
+  });
+
+  it("Test render ZInputText con status e message", async () => {
+    const page = await newSpecPage({
+      components: [ZInputText],
+      html: `<z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' status='success' statusmessage='success message'></z-input-text>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' status='success' statusmessage='success message'>
+        <mock:shadow-root>
+          <div>
+            <label>label</label>
+            <div>
+              <input class="false input_success" type='text' id='test' name='test' placeholder='placeholder' value='value' />
+              <z-icon name="close"></z-icon>
+            </div>
+            <span class="statusMsg msg_success">
+              <z-icon name="circle-warning" width="12" height="12"></z-icon>
+              success message
+            </span>
           </div>
         </mock:shadow-root>
       </z-input-text>
