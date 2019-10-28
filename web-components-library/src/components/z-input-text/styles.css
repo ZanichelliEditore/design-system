@@ -5,7 +5,7 @@
 :host>div>div>input {
   border-radius: 0px;
   border: var(--border-size-small) solid var(--bg-artboard-gray-light);
-  border-color: var(--text-gray-dark);
+  border-color: var(--bg-artboard-gray-light);
   box-sizing: border-box;
   height: 44px;
   width: 100%;

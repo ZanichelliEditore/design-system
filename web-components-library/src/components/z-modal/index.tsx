@@ -34,6 +34,7 @@ export class ZModal {
           <main>
             <slot name="modalContent" />
           </main>
+          <div class="bottomBackground" data-action="modalBackground" data-modal={this.modalid} />
         </div>
       </div>
     );

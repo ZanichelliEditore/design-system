@@ -27,7 +27,6 @@
 }
 
 :host>div>div {
-  background: white;
   z-index: 1010;
   width: 100%;
   margin: 0;
@@ -40,9 +39,7 @@
   justify-content: space-between;
   align-items: stretch;
   align-content: space-between;
-
   background: var(--bg-artboard-gray);
-  border-radius: var(--radius-base) var(--radius-base) 0 0;
 }
 
 :host>div>div>header>z-icon {
@@ -76,6 +73,11 @@
   line-height: 24px;
 }
 
+:host>div>div>main {
+  background: white;
+  overflow: hidden;
+}
+
 
 /* Tablet / Desktop style */
 
@@ -90,7 +92,10 @@
     min-width: 300px;
     min-height: 300px;
     margin-top: var(--basex4);
-    border-radius: var(--radius-base);
+  }
+
+  :host>div>div>header {
+    border-radius: var(--radius-base) var(--radius-base) 0 0;
   }
 
   :host>div>div>header>z-icon {
@@ -100,6 +105,15 @@
 
   :host>div>div>header>div {
     margin: var(--half-x3) var(--basex3);
+  }
+
+  :host>div>div>main {
+    border-radius: 0 0 var(--radius-base) var(--radius-base);
+  }
+
+  :host>div>div>div.bottomBackground {
+    background: transparent;
+    height: var(--basex4);
   }
 
 }
