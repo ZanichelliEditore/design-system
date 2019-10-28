@@ -1,4 +1,6 @@
 import { Component, Prop, h, State, Event, EventEmitter } from "@stencil/core";
+import 'hammerjs';
+
 
 @Component({
   tag: "z-pagination-bar",
@@ -9,29 +11,78 @@ export class ZPaginationBar {
   @Prop() pages: number;
   @Prop() visiblepages: number;
   @Prop({ mutable: true }) currentpage: number = 1;
-  @Prop({ mutable: true }) reset: boolean = false;
+  @Prop({ mutable: true }) startpage: number = 1;
+  @Prop() historyraw?: string;
+  @Prop({ mutable: true }) listhistoryrow?: number[] = [];
 
-  @State() startpage: number = 1;
   @State() currentPages: number[] = [];
 
-  //Mobile swipe variables
-  private startTouch: number;
-  private startTouchPage: number;
-  private touchScrollSize: number = 60;
+
+  velocityConstantMultiplier: number = 2;
+
+  bar: HTMLElement;
+
+  componentDidLoad(){
+    this.scrollPage = this.scrollPage.bind(this);
+    let mc = new Hammer(this.bar);
+    // listen to events...
+    mc.on("swiperight", this.scrollPage);
+    mc.on("swipeleft", this.scrollPage);
+    this.loadPages();
+    if (this.historyraw) {
+      this.parsehistoryraw(this.historyraw);
+    }
+  }
+
+  parsehistoryraw(historyraw: string) {
+    this.listhistoryrow = [...JSON.parse(historyraw)];
+  }
+
+  scrollPage(ev:HammerInput): void{
+    let vel = Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
+    const deltaPage = Math.max(1, vel);
+    switch(ev.type){
+      case 'swiperight':
+        if (!this.canNavigateLeft()) break;
+        const newstartPage1 = this.startpage - deltaPage;
+        if (newstartPage1 > 1 ) this.emitChangeStartPage(newstartPage1);
+        else this.emitChangeStartPage(1);
+        break;
+      case 'swipeleft':
+          if (!this.canNavigateRight()) break;
+          const newstartPage2 = this.startpage + deltaPage;
+          if (newstartPage2 < (this.pages - this.visiblepages + 1 )) this.emitChangeStartPage(newstartPage2);
+          else this.emitChangeStartPage(this.pages - this.visiblepages + 1);
+        break;
+      default:
+        break;
+    }
+  }
 
   @Event() goToPage: EventEmitter;
   emitGoToPage(page) {
     this.currentpage = page;
     this.goToPage.emit({ page: page });
+    this.addPageToHistory.emit({ page: page });
   }
 
-  componentWillRender() {
-    if (this.reset) {
-      this.startpage = 1;
-      this.reset = false;
-    }
+  @Event() changeStartPage: EventEmitter;
+  emitChangeStartPage(startpage) {
+    this.startpage = startpage
+    this.changeStartPage.emit({ startpage: startpage });
+  }
 
+  @Event() addPageToHistory: EventEmitter;
+  emitAddPageToHistory(page) {
+    this.listhistoryrow.push(page)
+    this.changeStartPage.emit({ page: page });
+  }
+
+  componentWillUpdate() {
     this.loadPages();
+    if (this.historyraw) {
+      this.parsehistoryraw(this.historyraw);
+    }
   }
 
   loadPages() {
@@ -58,6 +109,7 @@ export class ZPaginationBar {
   navigateLeft() {
     if (this.canNavigateLeft()) {
       this.startpage--;
+      this.emitChangeStartPage(this.startpage);
       this.loadPages();
     }
   }
@@ -65,63 +117,28 @@ export class ZPaginationBar {
   navigateRight() {
     if (this.canNavigateRight()) {
       this.startpage++;
+      this.emitChangeStartPage(this.startpage);
       this.loadPages();
-    }
-  }
-
-  touchStart(e: TouchEvent) {
-    e.preventDefault();
-    this.startTouch = e.changedTouches[0].clientX;
-    this.startTouchPage = this.startpage;
-  }
-
-  calculateTouchMovement(diffX: number) {
-    return Math.abs(Math.floor(diffX / this.touchScrollSize));
-  }
-
-  touchMove(e: TouchEvent) {
-    e.preventDefault();
-    const diffX = e.changedTouches[0].clientX - this.startTouch;
-    const movement = this.calculateTouchMovement(diffX);
-
-    if (diffX > 0) {
-      if (!this.canNavigateLeft()) return;
-
-      const deltaPage = Math.max(1, this.startTouchPage - movement);
-      if (deltaPage != this.startpage) this.startpage = deltaPage;
-    } else if (diffX < 0) {
-      if (!this.canNavigateRight()) return;
-
-      const deltaPage = Math.min(
-        this.startTouchPage + movement,
-        this.pages - this.visiblepages + 1
-      );
-      if (deltaPage != this.startpage) this.startpage = deltaPage;
     }
   }
 
   render() {
     return (
-      <div
-        onTouchStart={(e: TouchEvent) => {
-          this.touchStart(e);
-        }}
-        onTouchMove={(e: TouchEvent) => {
-          this.touchMove(e);
-        }}
+      <div ref={(el) => this.bar = el as HTMLElement}
       >
         <z-icon
           name="chevron-left"
           class={!this.canNavigateLeft() && "disabled"}
           onClick={() => this.navigateLeft()}
         />
-        {this.currentPages.map(page => (
-          <z-pagination-page
-            value={page}
-            isselected={page === this.currentpage}
-            onClick={() => this.emitGoToPage(page)}
-          />
-        ))}
+          {this.currentPages.map(page => (
+            <z-pagination-page
+              value={page}
+              isselected={page === this.currentpage}
+              onClick={() => this.emitGoToPage(page)}
+              isvisited={this.listhistoryrow.includes(page)}
+            />
+          ))}
         <z-icon
           name="chevron-right"
           class={!this.canNavigateRight() && "disabled"}

@@ -305,9 +305,15 @@
       </z-list>
 
       <br /><br />
-      <z-input-text label="autore" placeholder="Cerca Autore"></z-input-text>
-      <z-input-text label="materia" placeholder="Cerca Materia"></z-input-text>
       <z-input-text></z-input-text>
+      <z-input-text label="default" placeholder="Cerca Autore"></z-input-text>
+      <z-input-text label="filled" value="testo testo testo"></z-input-text>
+      <z-input-text label="disabled" placeholder="placeholder" isdisabled value="i'm disabled"></z-input-text>
+      <z-input-text label="readonly" placeholder="placeholder" isreadonly value="i'm read-only"></z-input-text>
+      <z-input-text label="success" placeholder="placeholder" status="success" statusmessage="message message" value=""></z-input-text>
+      <z-input-text label="error" placeholder="placeholder" status="error" statusmessage="message message"></z-input-text>
+      <z-input-text label="warning" placeholder="placeholder" status="warning" statusmessage="message message"></z-input-text>
+      <z-input-text label="message" placeholder="placeholder" helpermessage="helper message"></z-input-text>
 
       <br /><br />
       <z-pagination-page value="4"></z-pagination-page>
@@ -318,7 +324,7 @@
       <br />
       <z-pagination-page value="4" isvisited></z-pagination-page>
       <br />
-      <z-pagination-bar pages="10" visiblepages="5" currentpage="2"></z-pagination-bar>
+      <z-pagination-bar pages="20" visiblepages="5" currentpage="2"></z-pagination-bar>
 
       <br /><br />
       <z-combobox inputid="combo_1"
@@ -328,7 +334,7 @@
       <br />
       <z-combobox inputid="combo_2"
         items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
-        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta">
+        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta" isopen="false">
         label="Combo Lunga">
       </z-combobox>
 
