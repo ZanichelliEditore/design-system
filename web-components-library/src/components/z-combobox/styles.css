@@ -1,16 +1,18 @@
 :host {
-  width: 270px;
   display: block;
 }
 
-:host>div {
-  background-color: var(--bg-artboard-white);
-  border-radius: var(--radius-base);
-  border: var(--border-base) solid var(--bg-artboard-gray-light);
-  width: 270px;
+:host>div.fixed {
+  position: relative;
+  height: 48px;
 }
 
 :host>div>header {
+  background-color: var(--bg-artboard-white);
+  border-radius: var(--radius-base);
+  border: var(--border-base) solid var(--bg-artboard-gray-light);
+  position: relative;
+  z-index: 10;
   height: 48px;
   margin: 0;
   padding: 0 var(--basex2);
@@ -21,8 +23,7 @@
 }
 
 :host>div.open>header {
-  border-radius: var(--radius-base);
-  border-bottom: var(--border-base) solid var(--bg-artboard-gray-light);
+  border-radius: var(--radius-base) var(--radius-base) 0 0;
 }
 
 :host>div>header>h2 {
@@ -47,14 +48,24 @@
 }
 
 :host>div.open>header>z-icon {
-  fill: inherit;
+  fill: var(--myz-blue);
   transform: rotate(180deg);
   transition: all 200ms linear;
   padding-top: -2px;
+  margin-right: 2px;
 }
 
-:host>div.open>div {
-  margin: var(--basex1) var(--basex2);
+:host>div.open>div.openComboData {
+  background-color: var(--bg-artboard-white);
+  border-radius: 0 0 var(--radius-base) var(--radius-base);
+  border: var(--border-base) solid var(--bg-artboard-gray-light);
+  border-top: 0px;
+  position: relative;
+  z-index: 12;
+  padding: var(--basex1) var(--basex2);
+}
+
+:host>div.open>div.openComboData>div {
   padding: 0;
   max-height: 235px;
   overflow: auto;
@@ -62,14 +73,18 @@
   scrollbar-color: var(--myz-blue) var(--bg-artboard-gray-light);
 }
 
-:host>div.open>div>ul {
+:host>div.open>div.openComboData>z-input-text {
+  margin-bottom: var(--basex2);
+  width: 100%;
+}
+
+:host>div.open>div.openComboData>div>ul {
   margin: 0;
   padding: 0;
   max-height: 235px;
 }
 
 ::-webkit-scrollbar {
-  /* background-color: var(--bg-artboard-gray-light); */
   background: linear-gradient(90deg, var(--bg-artboard-white) 2px, var(--bg-artboard-gray-light) 4px, var(--bg-artboard-white) 8px);
   border-radius: var(--radius-base);
   width: 10px;
@@ -89,14 +104,14 @@
   z-index: 1;
 }
 
-:host>div.open>div.search {
+:host>div.open>div.openComboData>div.search {
   box-shadow: 1px 1px 4px 2px rgba(217, 222, 227, 0.5);
   margin-top: 0;
   max-height: auto;
   overflow: hidden;
 }
 
-:host>div.open>div.search>ul {
+:host>div.open>div.openComboData>div.search>ul {
   padding: var(--basex1) var(--basex2);
   max-height: 180px;
   overflow: auto;
@@ -104,7 +119,7 @@
   scrollbar-color: var(--myz-blue) var(--bg-artboard-gray-light);
 }
 
-:host>div.open>div.search>a {
+:host>div.open>div.openComboData>div.search>a {
   display: inline-block;
   cursor: pointer;
   color: var(--myz-blue);
