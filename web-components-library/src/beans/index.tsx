@@ -98,3 +98,11 @@ export enum InputTypeEnum {
   number = 'number',
   email = 'email'
 }
+
+export type InputStatusBean = InputStatusEnum;
+
+export enum InputStatusEnum {
+  success = 'success',
+  error = 'error',
+  warning = 'warning'
+}

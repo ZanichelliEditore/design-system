@@ -7,13 +7,18 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                                                                                          | Default     |
-| ------------- | ------------- | ----------- | --------------------------------------------------------------------------------------------- | ----------- |
-| `inputid`     | `inputid`     |             | `string`                                                                                      | `undefined` |
-| `label`       | `label`       |             | `string`                                                                                      | `undefined` |
-| `placeholder` | `placeholder` |             | `string`                                                                                      | `undefined` |
-| `type`        | `type`        |             | `InputTypeEnum.email \| InputTypeEnum.number \| InputTypeEnum.password \| InputTypeEnum.text` | `undefined` |
-| `value`       | `value`       |             | `string`                                                                                      | `undefined` |
+| Property        | Attribute       | Description | Type                                                                                          | Default     |
+| --------------- | --------------- | ----------- | --------------------------------------------------------------------------------------------- | ----------- |
+| `helpermessage` | `helpermessage` |             | `string`                                                                                      | `undefined` |
+| `inputid`       | `inputid`       |             | `string`                                                                                      | `undefined` |
+| `isdisabled`    | `isdisabled`    |             | `boolean`                                                                                     | `false`     |
+| `isreadonly`    | `isreadonly`    |             | `boolean`                                                                                     | `false`     |
+| `label`         | `label`         |             | `string`                                                                                      | `undefined` |
+| `placeholder`   | `placeholder`   |             | `string`                                                                                      | `undefined` |
+| `status`        | `status`        |             | `InputStatusEnum.error \| InputStatusEnum.success \| InputStatusEnum.warning`                 | `undefined` |
+| `statusmessage` | `statusmessage` |             | `string`                                                                                      | `undefined` |
+| `type`          | `type`          |             | `InputTypeEnum.email \| InputTypeEnum.number \| InputTypeEnum.password \| InputTypeEnum.text` | `undefined` |
+| `value`         | `value`         |             | `string`                                                                                      | `undefined` |
 
 
 ## Events

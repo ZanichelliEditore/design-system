@@ -34,28 +34,26 @@
 }
 
 :host>div>div>header {
-  background: #e8ebee;
   display: flex;
-  flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: stretch;
   align-content: space-between;
+
+  background: var(--bg-artboard-gray);
+  border-radius: var(--radius-base) var(--radius-base) 0 0;
 }
 
-:host>div>div>header>z-link {
+:host>div>div>header>z-icon {
   cursor: pointer;
   fill: var(--myz-blue);
-  margin: var(--half-x3) var(--basex3);
-  font-size: 14px;
-  order: 1;
-  align-self: flex-end;
+  margin: var(--basex2) var(--basex2);
+  transform: scale(0.9);
 }
 
 :host>div>div>header>div {
-  margin: 0 var(--basex3) var(--basex3) var(--basex3);
-  order: 2;
-  align-self: flex-start;
+  margin: var(--basex2) var(--basex2);
 }
 
 :host>div>div>header>div>h1,
@@ -95,23 +93,13 @@
     border-radius: var(--radius-base);
   }
 
-  :host>div>div>header {
-    background: var(--bg-artboard-gray);
-    border-radius: var(--radius-base) var(--radius-base) 0 0;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
   :host>div>div>header>z-icon {
-    cursor: pointer;
-    fill: var(--myz-blue);
     margin: var(--half-x3) var(--basex3);
-    order: 1;
+    transform: scale(1);
   }
 
   :host>div>div>header>div {
     margin: var(--half-x3) var(--basex3);
-    order: 1;
   }
 
 }
