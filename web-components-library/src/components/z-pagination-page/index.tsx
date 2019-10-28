@@ -15,10 +15,6 @@ export class ZPaginationPage {
 
   page: HTMLElement;
 
-  componentWillUpdate(){
-  }
-
-
   render() {
     return (
       <a id={this.pageid} ref={(el) => this.page = el as HTMLElement}
