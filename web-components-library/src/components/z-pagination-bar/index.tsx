@@ -28,6 +28,10 @@ export class ZPaginationBar {
     // listen to events...
     mc.on("swiperight", this.scrollPage);
     mc.on("swipeleft", this.scrollPage);
+    this.loadPages();
+    if (this.historyraw) {
+      this.parsehistoryraw(this.historyraw);
+    }
   }
 
   parsehistoryraw(historyraw: string) {
@@ -72,13 +76,6 @@ export class ZPaginationBar {
   emitAddPageToHistory(page) {
     this.listhistoryrow.push(page)
     this.changeStartPage.emit({ page: page });
-  }
-
-  componentWillRender() {
-    this.loadPages();
-    if (this.historyraw) {
-      this.parsehistoryraw(this.historyraw);
-    }
   }
 
   componentWillUpdate() {
