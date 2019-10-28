@@ -23,6 +23,7 @@ describe("Suite test ZModal", () => {
               <main>
                 <slot name="modalContent" />
               </main>
+              <div class="bottomBackground" data-action="modalBackground"></div>
             </div>
           </div>
         </mock:shadow-root>
@@ -50,6 +51,7 @@ describe("Suite test ZModal", () => {
               <main>
                 <slot name="modalContent" />
               </main>
+              <div class="bottomBackground" data-action="modalBackground" data-modal="modal"></div>
             </div>
           </div>
         </mock:shadow-root>
@@ -81,6 +83,7 @@ describe("Suite test ZModal", () => {
               <main>
                 <slot name="modalContent" />
               </main>
+              <div class="bottomBackground" data-action="modalBackground"></div>
             </div>
           </div>
         </mock:shadow-root>

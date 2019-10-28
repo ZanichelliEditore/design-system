@@ -23,7 +23,7 @@ button.container {
   font-size: 12px;
   font-weight: var(--font-sb);
 
-  opacity: 100%;
+  opacity: 1;
 
   transition: all 200ms linear;
 }
