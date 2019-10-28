@@ -31,6 +31,7 @@
  - [z-link](../z-link)
  - [z-list-item](../z-list-item)
  - [z-menu-dropdown](../z-menu-dropdown)
+ - [z-modal](../z-modal)
  - [z-pagination-bar](../z-pagination-bar)
  - [z-toggle-button](../z-toggle-button)
 
@@ -49,6 +50,7 @@ graph TD;
   z-link --> z-icon
   z-list-item --> z-icon
   z-menu-dropdown --> z-icon
+  z-modal --> z-icon
   z-pagination-bar --> z-icon
   z-toggle-button --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px

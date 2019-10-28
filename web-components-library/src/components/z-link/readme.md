@@ -31,6 +31,7 @@
 
  - [z-header](../z-header)
  - [z-menu-dropdown](../z-menu-dropdown)
+ - [z-modal](../z-modal)
  - [z-panel-elem](../z-panel-elem)
 
 ### Depends on
@@ -43,6 +44,7 @@ graph TD;
   z-link --> z-icon
   z-header --> z-link
   z-menu-dropdown --> z-link
+  z-modal --> z-link
   z-panel-elem --> z-link
   style z-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
