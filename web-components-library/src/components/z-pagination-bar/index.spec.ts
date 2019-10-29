@@ -12,7 +12,7 @@ describe("Suite test ZPaginationBar", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-bar>
         <mock:shadow-root>
-          <div>
+          <div style="undefined: rgba(0,0,0,0);">
             <z-icon class=\"disabled\" name=\"chevron-left\"></z-icon>
             <z-icon class=\"disabled\" name=\"chevron-right\"></z-icon>
           </div>
@@ -30,7 +30,7 @@ describe("Suite test ZPaginationBar", () => {
     expect(page.root).toEqualHtml(`
     <z-pagination-bar currentpage=\"1\" pages=\"20\" visiblepages=\"10\">
       <mock:shadow-root>
-        <div>
+        <div style="undefined: rgba(0,0,0,0);">
           <z-icon class=\"disabled\" name=\"chevron-left\"></z-icon>
           <z-pagination-page isselected=\"\" value=\"1\"></z-pagination-page>
           <z-pagination-page value=\"2\"></z-pagination-page>
@@ -58,7 +58,7 @@ describe("Suite test ZPaginationBar", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
         <mock:shadow-root>
-          <div>
+          <div style="undefined: rgba(0,0,0,0);">
             <z-icon class=\"disabled\" name=\"chevron-left\"></z-icon>
             <z-pagination-page value=\"1\"></z-pagination-page>
             <z-pagination-page value=\"2\"></z-pagination-page>
@@ -86,7 +86,7 @@ describe("Suite test ZPaginationBar", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
         <mock:shadow-root>
-          <div>
+          <div style="undefined: rgba(0,0,0,0);">
             <z-icon class=\"disabled\" name=\"chevron-left\"></z-icon>
             <z-pagination-page value=\"1\"></z-pagination-page>
             <z-pagination-page value=\"2\"></z-pagination-page>
@@ -113,7 +113,7 @@ describe("Suite test ZPaginationBar", () => {
     expect(page.root).toEqualHtml(`
     <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
       <mock:shadow-root>
-        <div>
+        <div style="undefined: rgba(0,0,0,0);">
           <z-icon name=\"chevron-left\"></z-icon>
           <z-pagination-page value=\"2\"></z-pagination-page>
           <z-pagination-page value=\"3\"></z-pagination-page>
@@ -141,7 +141,7 @@ describe("Suite test ZPaginationBar", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
         <mock:shadow-root>
-          <div>
+          <div style="undefined: rgba(0,0,0,0);">
             <z-icon class=\"disabled\" name=\"chevron-left\"></z-icon>
             <z-pagination-page value=\"1\"></z-pagination-page>
             <z-pagination-page value=\"2\"></z-pagination-page>
@@ -169,7 +169,7 @@ describe("Suite test ZPaginationBar", () => {
     expect(page.root).toEqualHtml(`
     <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
       <mock:shadow-root>
-        <div>
+        <div style="undefined: rgba(0,0,0,0);">
           <z-icon name=\"chevron-left\"></z-icon>
           <z-pagination-page value=\"2\"></z-pagination-page>
           <z-pagination-page value=\"3\"></z-pagination-page>
@@ -193,7 +193,7 @@ describe("Suite test ZPaginationBar", () => {
     expect(page.root).toEqualHtml(`
     <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
       <mock:shadow-root>
-        <div>
+        <div style="undefined: rgba(0,0,0,0);">
           <z-icon  class="disabled"  name=\"chevron-left\"></z-icon>
           <z-pagination-page value=\"1\"></z-pagination-page>
           <z-pagination-page value=\"2\"></z-pagination-page>
