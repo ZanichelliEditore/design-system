@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Event, EventEmitter } from "@stencil/core";
-import 'hammerjs';
+import Hammer from 'hammerjs';
 
 
 @Component({
@@ -17,7 +17,6 @@ export class ZPaginationBar {
 
   @State() currentPages: number[] = [];
 
-
   velocityConstantMultiplier: number = 2;
 
   bar: HTMLElement;
@@ -28,6 +27,17 @@ export class ZPaginationBar {
     // listen to events...
     mc.on("swiperight", this.scrollPage);
     mc.on("swipeleft", this.scrollPage);
+  }
+
+  componentWillRender() {
+    this.initPagination()
+  }
+
+  componentWillUpdate() {
+    this.initPagination()
+  }
+
+  initPagination(){
     this.loadPages();
     if (this.historyraw) {
       this.parsehistoryraw(this.historyraw);
@@ -76,13 +86,6 @@ export class ZPaginationBar {
   emitAddPageToHistory(page) {
     this.listhistoryrow.push(page)
     this.changeStartPage.emit({ page: page });
-  }
-
-  componentWillUpdate() {
-    this.loadPages();
-    if (this.historyraw) {
-      this.parsehistoryraw(this.historyraw);
-    }
   }
 
   loadPages() {

@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
-
 import { ZPaginationBar } from "./index";
+
 
 describe("Suite test ZPaginationBar", () => {
   it("Test render ZPaginationBar vuoto", async () => {
