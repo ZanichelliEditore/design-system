@@ -1,0 +1,83 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-style: italic;
+  line-height: 16px;
+  letter-spacing: 0.32px;
+}
+
+/* Tooltip basic */
+:host > div.tooltip {
+  position: relative;
+  max-width: 200px;
+  margin: 0 auto;
+  display: inline-block;
+  background: ivory;
+  border-radius: 4px;
+  font-size: 12px;
+  text-align: center;
+  background: white;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+}
+
+/* Tooltip Top */
+:host > div.tooltip-top-arrow:after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 7px);
+  top: -8px;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  transform: rotate(45deg);
+  border-left: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
+  box-shadow: 0px -1px 20px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* Tooltip Bottom */
+:host > div.tooltip-bottom-arrow:after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 7px);
+  bottom: -8px;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  transform: rotate(45deg);
+  border-right: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* Tooltip left */
+:host > div.tooltip-left-arrow:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 7px);
+  left: -7px;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  transform: rotate(45deg);
+  border-left: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* Tooltip Top */
+:host > div.tooltip-right-arrow:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 7px);
+  right: -7px;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  transform: rotate(45deg);
+  border-right: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
+  box-shadow: 0px -1px 2px 0px rgba(0, 0, 0, 0.08);
+}
