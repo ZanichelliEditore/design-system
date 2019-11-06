@@ -1,12 +1,5 @@
 import { Component, Prop, h } from "@stencil/core";
-
-enum TooltipPosition {
-  TOP = 1,
-  BOTTOM,
-  LEFT,
-  RIGHT,
-  NO_ARROW
-}
+import { TooltipPosition } from "../../beans/index";
 
 @Component({
   tag: "z-tooltip",

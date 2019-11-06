@@ -93,16 +93,26 @@ export type ComboItemBean = {
 export type InputTypeBean = InputTypeEnum;
 
 export enum InputTypeEnum {
-  text = 'text',
-  password = 'password',
-  number = 'number',
-  email = 'email'
+  text = "text",
+  password = "password",
+  number = "number",
+  email = "email"
 }
 
 export type InputStatusBean = InputStatusEnum;
 
 export enum InputStatusEnum {
-  success = 'success',
-  error = 'error',
-  warning = 'warning'
+  success = "success",
+  error = "error",
+  warning = "warning"
+}
+
+export type TooltipPositionBean = TooltipPosition;
+
+export enum TooltipPosition {
+  TOP = "TOP",
+  BOTTOM = "BOTTOM",
+  LEFT = "LEFT",
+  RIGHT = "RIGHT",
+  NO_ARROW = "NO_ARROW"
 }
