@@ -1,0 +1,65 @@
+:host {
+  position: absolute;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  height: 48px;
+  max-width: 301px;
+  top: 0px;
+  left: 0px;
+}
+
+:host > div.container {
+  position: relative;
+}
+
+:host > div > div {
+  width: 301px;
+  padding: var(--basex2) 0 var(--basex2) 0;
+  position: absolute;
+  display: flex;
+}
+
+:host div.addAlert {
+  background: #effce0;
+}
+
+:host div.removeAlert {
+  background: #fbf4e6;
+}
+
+:host div > .contentText {
+  color: rgb(66, 69, 72);
+  font-size: 14px;
+  height: 20px;
+  letter-spacing: 0.16px;
+  line-height: 20px;
+  width: 200px;
+  margin-left: var(--basex1);
+}
+
+:host div > .contentAction {
+  color: rgb(0, 86, 193);
+  font-size: 12px;
+  font-weight: 600;
+  height: 16px;
+  letter-spacing: 0.32px;
+  line-height: 20px;
+  width: 46px;
+  margin-right: var(--basex2);
+}
+
+:host div > z-icon {
+  color: #417505;
+  fill: #417505;
+  margin-left: var(--basex2);
+}
+
+:host div > z-icon.addAlert {
+  color: #417505;
+  fill: #417505;
+}
+
+:host div > z-icon.removeAlert {
+  color: #876428;
+  fill: #876428;
+}

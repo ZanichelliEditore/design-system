@@ -1,7 +1,8 @@
-:host>div {
+:host > div {
   height: 400px;
   width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
