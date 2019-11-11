@@ -14,7 +14,6 @@ export class ZCardAlert {
   @Event() undoAction: EventEmitter;
   emitUndoAction(event: MouseEvent) {
     event.preventDefault();
-    console.log("emitUndoAction");
     this.undoAction.emit({ actionType: this.type });
   }
 

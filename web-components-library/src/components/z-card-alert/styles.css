@@ -6,6 +6,7 @@
   max-width: 301px;
   top: 0px;
   left: 0px;
+  z-index: 2;
 }
 
 :host > div.container {
@@ -20,15 +21,15 @@
 }
 
 :host div.addAlert {
-  background: #effce0;
+  background: var(--myz-green-light);
 }
 
 :host div.removeAlert {
-  background: #fbf4e6;
+  background: var(--myz-yellow-light);
 }
 
 :host div > .contentText {
-  color: rgb(66, 69, 72);
+  color: var(--text-gray-dark);
   font-size: 14px;
   height: 20px;
   letter-spacing: 0.16px;
@@ -38,28 +39,27 @@
 }
 
 :host div > .contentAction {
-  color: rgb(0, 86, 193);
+  color: var(--text-my-zanichelli-blue);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: var(--font-sb);
   height: 16px;
   letter-spacing: 0.32px;
   line-height: 20px;
   width: 46px;
   margin-right: var(--basex2);
+  cursor: pointer;
 }
 
 :host div > z-icon {
-  color: #417505;
-  fill: #417505;
   margin-left: var(--basex2);
 }
 
 :host div > z-icon.addAlert {
-  color: #417505;
-  fill: #417505;
+  color: var(--icon-green);
+  fill: var(--icon-green);
 }
 
 :host div > z-icon.removeAlert {
-  color: #876428;
-  fill: #876428;
+  color: var(--icon-yellow);
+  fill: var(--icon-yellow);
 }
