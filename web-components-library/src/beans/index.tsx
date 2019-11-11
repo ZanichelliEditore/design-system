@@ -39,6 +39,7 @@ export type CardBean = {
   year: number;
   actions: ActionBean[];
   is_bookmark: boolean;
+  licenseType: string;
 };
 
 export declare type ActionBean = {
