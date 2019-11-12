@@ -136,7 +136,7 @@ footer>section.bottom>div.item ul li a {
   color: var(--text-my-zanichelli-white);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
 
   footer {
     grid-template-rows: auto;
@@ -224,7 +224,7 @@ footer>section.bottom>div.item ul li a {
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 
   footer>section.top {
     padding-left: var(--basex3);

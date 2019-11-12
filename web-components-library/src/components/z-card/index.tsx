@@ -1,4 +1,4 @@
-import { Component, h } from "@stencil/core";
+import { Component, h, Prop } from "@stencil/core";
 
 @Component({
   tag: "z-card",
@@ -6,9 +6,12 @@ import { Component, h } from "@stencil/core";
   shadow: true
 })
 export class ZCardComponent {
+
+  @Prop() faded: boolean;
+
   render() {
     return (
-      <div>
+      <div class={this.faded && "faded"}>
         <slot />
       </div>
     );

@@ -143,8 +143,9 @@
             <z-card-icon icon="book-delete" slot="icon" />
           </z-card-header>
           <z-card-body>
+            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-card-alert>
             <z-card-cover slot="cover" titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"/>
           </z-card-body>
           <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" anno="2019"
             isbn="97-88-80-8620-710">
@@ -154,20 +155,21 @@
               slot="list" />
           </z-card-footer>
         </z-card>
-        <z-card>
-          <z-card-header titolo="titolo">
-            <z-card-icon icon="book-add" slot="icon" />
+        <!-- in questo esempio puoi vedere dove stano i faded -->
+        <z-card faded=true>
+          <z-card-header faded=true titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-card-icon icon="book-delete" slot="icon" />
           </z-card-header>
           <z-card-body>
+            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" actiontext="Annulla" type="remove" faded=true></z-card-alert>
             <z-card-cover slot="cover" titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" faded=true/>
           </z-card-body>
-          <z-card-footer
-            titolo="titolo titolo titolo titolotitolo titolo titolo titolo titolotitolo titolo titolo titolo"
-            autori="autori" anno="2019" isbn="9788808620712">
-            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+          <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" anno="2019"
+            isbn="97-88-80-8620-710" faded=true>
+            <z-toggle-button label="risorse" slot="toggle" avoidclick=true></z-toggle-button>
             <z-card-list
-              listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
               slot="list" />
           </z-card-footer>
         </z-card>
@@ -303,6 +305,23 @@
         {"text":""}
         ]'>
       </z-list>
+
+      <div style="display: inline-flex; align-items: center; margin-left:100px;">
+        <div style="min-width: 200px; min-height: 70px; ">
+          <z-tooltip content="Aggiungi libro" type="top"></z-tooltip>
+        </div>
+
+        <div style="min-width: 200px; min-height: 70px; ">
+          <z-tooltip content="Aggiungi libro" type="bottom"></z-tooltip>
+        </div>
+        <div style="min-width: 200px; min-height: 70px; ">
+          <z-tooltip content="Rimuovi libro" type="left"></z-tooltip>
+        </div>
+        <div style="min-width: 200px; min-height: 70px; ">
+          <z-tooltip content="Rimuovi libro" type="right"></z-tooltip>
+        </div>
+        </div>
+
 
       <br /><br />
       <z-input-text></z-input-text>

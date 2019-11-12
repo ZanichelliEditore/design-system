@@ -8,6 +8,7 @@ import { Component, Prop, h } from "@stencil/core";
 export class ZCardCover {
   @Prop() img: string;
   @Prop() titolo: string;
+  @Prop() faded: boolean;
 
   hadleOnImageError() {
     this.img =
@@ -17,6 +18,7 @@ export class ZCardCover {
   render() {
     return (
       <img
+        class={this.faded && "faded"}
         onError={this.hadleOnImageError.bind(this)}
         alt={this.titolo}
         src={this.img}

@@ -9,6 +9,7 @@ export class ZCardBody {
   render() {
     return (
       <div>
+        <slot name="alert"></slot>
         <slot name="cover" />
       </div>
     );
