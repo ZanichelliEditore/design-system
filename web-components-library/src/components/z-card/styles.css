@@ -8,3 +8,7 @@ div {
   border: var(--border-base) solid var(--bg-artboard-gray-very-light);
   border-radius: var(--radius-base);
 }
+
+.faded {
+  border: none;
+}

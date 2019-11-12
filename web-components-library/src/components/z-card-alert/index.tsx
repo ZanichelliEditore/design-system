@@ -18,9 +18,19 @@ export class ZCardAlert {
   }
 
   retrieveClass(): string {
-    if (this.type === "add") return "addAlert";
-    else if (this.type === "remove") return "removeAlert";
-    else return "";
+    let className = "";
+    switch (this.type) {
+      case "add":
+        className = "addAlert";
+        break;
+      case "remove":
+        className = "removeAlert";
+        break;
+      default:
+        className = "";
+        break;
+    }
+    return className;
   }
 
   render() {

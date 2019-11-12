@@ -13,22 +13,7 @@ export class ZTooltip {
   private direction: TooltipPosition;
 
   constructor() {
-    switch (true) {
-      case "top" === this.type:
-        this.direction = TooltipPosition.TOP;
-        break;
-      case "bottom" === this.type:
-        this.direction = TooltipPosition.BOTTOM;
-        break;
-      case "left" === this.type:
-        this.direction = TooltipPosition.LEFT;
-        break;
-      case "right" === this.type:
-        this.direction = TooltipPosition.RIGHT;
-        break;
-      default:
-        this.direction = TooltipPosition.NO_ARROW;
-    }
+    this.direction = TooltipPosition[(this.type).toUpperCase()];
   }
 
   getArrowClass() {

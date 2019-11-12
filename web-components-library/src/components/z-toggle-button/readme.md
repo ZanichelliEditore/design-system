@@ -9,6 +9,7 @@
 
 | Property     | Attribute    | Description | Type      | Default     |
 | ------------ | ------------ | ----------- | --------- | ----------- |
+| `avoidclick` | `avoidclick` |             | `boolean` | `undefined` |
 | `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
 | `label`      | `label`      |             | `string`  | `undefined` |
 

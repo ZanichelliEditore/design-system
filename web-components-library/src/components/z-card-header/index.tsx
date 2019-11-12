@@ -7,10 +7,11 @@ import { Component, Prop, h } from "@stencil/core";
 })
 export class ZCardHeader {
   @Prop() titolo: string;
+  @Prop() faded: boolean;
 
   render() {
     return (
-      <header>
+      <header class={this.faded && "faded"}>
         <h2>{this.titolo}</h2>
         <slot name="icon" />
       </header>
