@@ -141,7 +141,7 @@ header {
 }
 
 .link-ext z-link {
-  font-size: var(--half-x3);
+  font-size: 12px;
 }
 
 .login {
@@ -208,7 +208,7 @@ header {
 }
 
 /* Tablet breakpoint */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1023px) {
   .main-header {
     grid-template-columns: 292px 1fr 4fr 100px;
     grid-template-rows: 1fr 1fr;
@@ -232,12 +232,24 @@ header {
   .link-ext-span {
     line-height: 14px;
     margin: var(--half-x1);
-    padding: var(--half-x1);
+    padding: var(--half-x1) 0;
   }
+
+  .link-int>span>.menu-item {
+    font-size: 14px;
+    margin: var(--basex1) var(--half-x1) 0 var(--half-x1);
+    padding: 11px var(--half-x1);
+  }
+
+  .link-ext z-link {
+    font-size: 11px;
+  }
+
+
 }
 
 /* SmartPhone breakpoint */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   header {
     display: grid;
     grid-template-columns: 1fr;
