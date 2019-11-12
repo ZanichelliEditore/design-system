@@ -9,15 +9,21 @@ span {
 
   color: var(--myz-blue);
   fill: var(--myz-blue);
+  cursor: pointer;
 }
 
 span:active,
-span:hover,
 span:focus {
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
 }
 
-span>z-icon {
-  cursor: pointer;
+span > span {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-base);
+  border: 0px;
+}
+span:hover > span {
+  background: rgb(225, 240, 255);
 }

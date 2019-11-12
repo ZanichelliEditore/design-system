@@ -4,3 +4,7 @@ img {
   max-height: 400px;
   margin: auto auto;
 }
+
+img.faded {
+  opacity: 0.3;
+}

@@ -82,3 +82,7 @@ h2.isopen {
   left: 16px;
   z-index: 10;
 }
+
+.faded {
+  opacity: 0.3;
+}

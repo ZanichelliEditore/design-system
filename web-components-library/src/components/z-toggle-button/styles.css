@@ -56,3 +56,7 @@ z-icon {
 button.isopen {
   top: -20px;
 }
+
+button.avoid-clicks {
+  pointer-events: none;
+}

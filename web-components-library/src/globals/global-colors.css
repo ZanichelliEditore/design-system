@@ -12,6 +12,8 @@
   --myz-blue: #0056c1;
   --myz-blue-light: #63a8ff;
   --myz-blue-dark: #003476;
+  --myz-green-light: #effce0;
+  --myz-yellow-light: #fbf4e6;
 
   --text-gray-dark2: #333333;
   --text-gray-dark: #424548;
@@ -23,4 +25,7 @@
   --status-success-green: #9cd638;
   --status-warning-orange: #db9909;
   --status-error-red: #dc3122;
+
+  --icon-green: #417505;
+  --icon-yellow: #876428;
 }
