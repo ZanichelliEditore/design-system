@@ -84,10 +84,10 @@ describe("Suite test ZInputText", () => {
   it("Test render ZInputText con helper message", async () => {
     const page = await newSpecPage({
       components: [ZInputText],
-      html: `<z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' helpermessage='helper message'></z-input-text>`
+      html: `<z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' message='helper message'></z-input-text>`
     });
     expect(page.root).toEqualHtml(`
-      <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' helpermessage='helper message'>
+      <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' message='helper message'>
         <mock:shadow-root>
           <div>
             <label>label</label>
@@ -95,7 +95,7 @@ describe("Suite test ZInputText", () => {
               <input class="false undefined" type='text' id='test' name='test' placeholder='placeholder' value='value' />
               <z-icon name="close"></z-icon>
             </div>
-            <span class="helperMsg">
+            <span class="statusMsg msg_undefined">
               helper message
             </span>
           </div>
@@ -107,10 +107,10 @@ describe("Suite test ZInputText", () => {
   it("Test render ZInputText con status e message", async () => {
     const page = await newSpecPage({
       components: [ZInputText],
-      html: `<z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' status='success' statusmessage='success message'></z-input-text>`
+      html: `<z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' status='success' message='success message'></z-input-text>`
     });
     expect(page.root).toEqualHtml(`
-      <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' status='success' statusmessage='success message'>
+      <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' status='success' message='success message'>
         <mock:shadow-root>
           <div>
             <label>label</label>
@@ -119,7 +119,7 @@ describe("Suite test ZInputText", () => {
               <z-icon name="close"></z-icon>
             </div>
             <span class="statusMsg msg_success">
-              <z-icon name="circle-warning" width="12" height="12"></z-icon>
+              <z-icon name="circle-check" width="14" height="14"></z-icon>
               success message
             </span>
           </div>
