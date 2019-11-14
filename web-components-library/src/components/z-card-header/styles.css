@@ -2,7 +2,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  width: 300px;
+  width: auto;
   height: 40px;
   position: relative;
   background: var(--bg-artboard-gray);
@@ -14,7 +14,7 @@ h2 {
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   color: var(--text-gray-dark);
-  width: 240px;
+  width: 80%;
   height: var(--basex2);
   font-size: 12px;
   text-transform: uppercase;
@@ -31,5 +31,4 @@ h2 {
   border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
   border-right: var(--border-base) solid var(--bg-artboard-gray-very-light);
   border-left: var(--border-base) solid var(--bg-artboard-gray-very-light);
-  width: 296px;
 }

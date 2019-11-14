@@ -35,24 +35,22 @@ export class ZCardAlert {
 
   render() {
     return (
-      <div class="relativeContainer">
-        <div class={this.retrieveClass()}>
-          <z-icon
-            name={this.iconname}
-            width={18}
-            height={18}
-            class={this.retrieveClass()}
-          ></z-icon>
-          <span class="contentText">{this.contenttext}</span>
-          <span
-            class="contentAction"
-            onClick={(e: MouseEvent) => {
-              this.emitUndoAction(e);
-            }}
-          >
-            {this.actiontext}
-          </span>
-        </div>
+      <div class={`relativeContainer ${this.retrieveClass()}`}>
+        <z-icon
+          name={this.iconname}
+          width={18}
+          height={18}
+          class={this.retrieveClass()}
+        ></z-icon>
+        <span class="contentText">{this.contenttext}</span>
+        <span
+          class="contentAction"
+          onClick={(e: MouseEvent) => {
+            this.emitUndoAction(e);
+          }}
+        >
+          {this.actiontext}
+        </span>
       </div>
     );
   }

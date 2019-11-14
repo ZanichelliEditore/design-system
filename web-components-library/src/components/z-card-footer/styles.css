@@ -9,7 +9,7 @@ footer {
   position: relative;
   z-index: 5;
   height: 48px;
-  width: 304px;
+  width: auto;
   top: 0px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
   border-radius: 0px 0px var(--radius-base) var(--radius-base);

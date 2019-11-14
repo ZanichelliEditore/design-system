@@ -1,6 +1,11 @@
+:host {
+  height: 400px;
+  width: auto;
+}
+
 :host > div {
   height: 400px;
-  width: 300px;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
