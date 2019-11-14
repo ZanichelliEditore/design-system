@@ -17,7 +17,7 @@ export class ZInfoBox {
 
   render() {
     return (
-      <div>
+      <div id={this.boxid}>
         <slot name="content" />
         {this.isclosable && <z-icon name="close" onClick={() => this.emitInfoBoxClose()} />}
       </div>
