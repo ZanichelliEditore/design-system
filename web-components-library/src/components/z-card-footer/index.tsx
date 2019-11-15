@@ -1,4 +1,5 @@
 import { Component, Prop, h, State, Listen } from "@stencil/core";
+import {LicenseTypeEnum} from '../../beans/index';
 
 @Component({
   tag: "z-card-footer",
@@ -13,7 +14,7 @@ export class ZCardFooter {
   @Prop() annolabel: string = "Edizione";
   @Prop() isbn: string;
   @Prop() faded: boolean;
-
+  @Prop() cardtype: LicenseTypeEnum;
   @State() isOpen: boolean = false;
 
   @Listen("toggleClick")
@@ -21,9 +22,26 @@ export class ZCardFooter {
     this.isOpen = !this.isOpen;
   }
 
+  retrieveClass() {
+    let elemClasses = '';
+
+    if(this.faded) elemClasses += 'faded ';
+
+    switch(this.cardtype) {
+      case LicenseTypeEnum.real:
+        elemClasses += 'real-card';
+      break;
+      case LicenseTypeEnum.virtual:
+        elemClasses += 'virtual-card';
+      break;
+    }
+
+    return elemClasses;
+  }
+
   render() {
     return (
-      <div class={this.faded && "faded"}>
+      <div class={this.retrieveClass()}>
         <footer class={this.isOpen && "isopen"}>
           <span class="toggle">
             <slot name="toggle" />

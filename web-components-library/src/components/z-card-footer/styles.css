@@ -3,7 +3,7 @@ footer {
   font-weight: var(--font-rg);
   color: var(--text-gray-dark);
   background-color: var(--bg-artboard-white);
-  border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border-top: var(--border-base) solid; /**/
   margin: 0px;
   padding: 0px;
   position: relative;
@@ -14,6 +14,15 @@ footer {
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
   border-radius: 0px 0px var(--radius-base) var(--radius-base);
 }
+
+.real-card footer {
+  border-color: #add2ff;
+}
+
+.virtual-card footer {
+  border-color: var(--bg-artboard-gray-very-light);
+}
+
 footer b {
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
@@ -69,11 +78,18 @@ footer.isopen {
 }
 
 h2.isopen {
-  background-color: var(--bg-artboard-gray-very-light);
   font-weight: var(--font-sb);
   height: 42px;
   padding-top: var(--basex2);
   transition: all 200ms linear;
+}
+
+.virtual-card h2.isopen {
+  background-color: var(--bg-artboard-gray-very-light);
+}
+
+.real-card h2.isopen {
+  background-color: #add2ff;
 }
 
 .toggle {
