@@ -93,7 +93,7 @@
     min-width: 300px;
     min-height: 300px;
     margin-top: var(--basex4);
-    border-radius: var(--radius-base);
+    background: none;
   }
 
   :host>div>div>header {
