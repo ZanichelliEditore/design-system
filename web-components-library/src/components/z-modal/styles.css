@@ -30,6 +30,7 @@
   z-index: 1010;
   width: 100%;
   margin: 0;
+  background: var(--bg-artboard-white);
 }
 
 :host>div>div>header {
@@ -92,6 +93,7 @@
     min-width: 300px;
     min-height: 300px;
     margin-top: var(--basex4);
+    background: none;
   }
 
   :host>div>div>header {

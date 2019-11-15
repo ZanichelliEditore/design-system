@@ -15,14 +15,13 @@ export class ZInputText {
   @Prop() placeholder?: string;
   @Prop() type?: InputTypeBean;
   @Prop() status?: InputStatusBean;
-  @Prop() helpermessage?: string;
-  @Prop() statusmessage?: string;
+  @Prop() message?: string;
   @Prop() isdisabled: boolean = false;
   @Prop() isreadonly: boolean = false;
 
   private statusIcons = {
-    success: 'circle-warning',
-    error: 'circle-warning',
+    success: 'circle-check',
+    error: 'circle-cross-stroke',
     warning: 'circle-warning',
   };
 
@@ -58,19 +57,13 @@ export class ZInputText {
     return <z-icon name="close" onClick={(e: any) => this.emitInputChange('', e.keyCode)} />;
   }
 
-  renderHelperMessage() {
-    if (!this.helpermessage) return;
-
-    return <span class="helperMsg">{this.helpermessage}</span>;
-  }
-
-  renderStatusMessage() {
-    if (!this.statusmessage && !this.status) return;
+  renderMessage() {
+    if (!this.message) return;
 
     return (
       <span class={`statusMsg msg_${this.status}`}>
-        <z-icon name={this.statusIcons[this.status]} width={12} height={12} />
-        {this.statusmessage}
+        {this.status ? <z-icon name={this.statusIcons[this.status]} width={14} height={14} /> : null}
+        {this.message}
       </span>
     );
   }
@@ -83,8 +76,7 @@ export class ZInputText {
           {this.renderInput()}
           {this.renderResetIcon()}
         </div>
-        {this.renderHelperMessage()}
-        {this.renderStatusMessage()}
+        {this.renderMessage()}
       </div>
     );
   }

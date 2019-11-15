@@ -105,13 +105,14 @@ input::placeholder {
   z-index: 2;
 }
 
-:host>div>span.helperMsg,
 :host>div>span.statusMsg {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-gray-medium);
   fill: var(--text-gray-medium);
+  padding: var(--basex1) 0;
+  display: flex;
 }
 
 :host>div>span.statusMsg.msg_success {
@@ -130,5 +131,6 @@ input::placeholder {
 }
 
 :host>div>span.statusMsg>z-icon {
-  margin-right: var(--half-x1);
+  margin-right: var(--basex1);
+  margin-top: var(--half-x1);
 }
