@@ -31,7 +31,7 @@ export class ZCardComponent {
 
   render() {
     return (
-      <div class={this.retrieveClass()}>
+      <div class={this.retrieveClass()} tabindex="0">
         <slot />
       </div>
     );
