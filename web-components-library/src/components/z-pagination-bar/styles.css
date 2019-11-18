@@ -1,7 +1,11 @@
 :host>div {
   height: 48px;
-  display: inline-flex;
-  align-items: flex-end;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
 }
 
 :host>div>z-icon {

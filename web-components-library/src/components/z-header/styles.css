@@ -490,7 +490,7 @@ hr {
     grid-template-rows: 1fr;
     grid-template-areas: "logo link-int link-ext login";
     grid-area: main-header;
-    padding-top: 6px;
+    /* padding-top: var(--half-x1); */
   }
 
   .dropdown-menu {
