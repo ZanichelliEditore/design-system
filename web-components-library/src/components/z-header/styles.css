@@ -20,7 +20,7 @@ header {
   grid-column-gap: var(--half-x1);
   align-items: center;
   background-color: rgb(48, 56, 64);
-  height: 46px;
+  height: auto;
   align-items: center;
   z-index: 10;
 }
@@ -61,8 +61,11 @@ header {
   grid-area: logo;
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 4px;
-  /* max-height: 46px; */
+  padding: 2px;
+}
+
+z-logo {
+  transform: scale(0.9);
 }
 
 .dropdown-menu {
@@ -298,7 +301,6 @@ hr {
 
 .link-int {
   overflow: hidden;
-  height: 0%;
   max-height: 100%;
   width: 100%;
   height: 100%;
@@ -490,7 +492,6 @@ hr {
     grid-template-rows: 1fr;
     grid-template-areas: "logo link-int link-ext login";
     grid-area: main-header;
-    /* padding-top: var(--half-x1); */
   }
 
   .dropdown-menu {
