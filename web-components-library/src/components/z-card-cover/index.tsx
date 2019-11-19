@@ -10,10 +10,9 @@ export class ZCardCover {
   @Prop() titolo: string;
   @Prop() faded: boolean;
   @Prop() defaultimg: string;
-  @Prop() internalfaultimg?: string;
 
   hadleOnImageError() {
-    this.img = (this.img === this.defaultimg) && this.internalfaultimg ? this.internalfaultimg : this.defaultimg;
+    this.img = this.defaultimg;
   }
 
   render() {
