@@ -9,7 +9,6 @@ export class ZCardHeader {
   @Prop() titolo: string;
   @Prop() faded: boolean;
 
-
   render() {
     return (
       <header class={this.faded && 'faded'}>

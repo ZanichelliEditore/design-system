@@ -13,6 +13,7 @@ export class ZCardFooter {
   @Prop() annolabel: string = "Edizione";
   @Prop() isbn: string;
   @Prop() faded: boolean;
+
   @State() isOpen: boolean = false;
 
   @Listen("toggleClick")

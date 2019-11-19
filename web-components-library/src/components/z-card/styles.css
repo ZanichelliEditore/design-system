@@ -17,9 +17,8 @@ div {
   overflow: hidden;
   width: 300px;
   height: 558px;
-  border: var(--border-base) solid;
+  border: var(--border-base) solid var(--card-border);
   border-radius: var(--radius-base);
-  border-color: var(--card-border);
 }
 
 .faded {
