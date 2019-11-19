@@ -7,6 +7,8 @@ header {
   position: relative;
   border-bottom: var(--border-base) solid inherit;
   border-radius: var(--radius-base) var(--radius-base) var(--radius-min) var(--radius-min);
+  background: var(--header-background);
+  border-color: var(--card-border);
 }
 
 h2 {
@@ -31,14 +33,4 @@ h2 {
   border-right: var(--border-base) solid;
   border-left: var(--border-base) solid;
   width: 296px;
-}
-
-header.real-card {
-  background: #ebf4ff;
-  border-color: #add2ff;
-}
-
-header.virtual-card {
-  background: var(--bg-artboard-gray);
-  border-color: var(--bg-artboard-gray-very-light);
 }
