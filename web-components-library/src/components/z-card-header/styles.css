@@ -5,9 +5,9 @@ header {
   width: 300px;
   height: 40px;
   position: relative;
-  background: var(--bg-artboard-gray);
-  border-bottom: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border-bottom: var(--border-base) solid var(--card-border);
   border-radius: var(--radius-base) var(--radius-base) var(--radius-min) var(--radius-min);
+  background-color: var(--header-background);
 }
 
 h2 {
@@ -28,8 +28,8 @@ h2 {
 }
 
 .faded {
-  border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
-  border-right: var(--border-base) solid var(--bg-artboard-gray-very-light);
-  border-left: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border-top: var(--border-base) solid var(--card-border);
+  border-right: var(--border-base) solid var(--card-border);
+  border-left: var(--border-base) solid var(--card-border);
   width: 296px;
 }

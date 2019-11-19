@@ -9,10 +9,10 @@ export class ZCardCover {
   @Prop() img: string;
   @Prop() titolo: string;
   @Prop() faded: boolean;
+  @Prop() defaultimg: string;
 
   hadleOnImageError() {
-    this.img =
-      "https://dummyimage.com/301x406/3c6fcf/ffffff.png&text=Copertina+non+disponibile";
+    this.img = this.defaultimg;
   }
 
   render() {

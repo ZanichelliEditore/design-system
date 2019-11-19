@@ -29,6 +29,13 @@ export type FooterSocialBean = {
   link: string;
 };
 
+export enum LicenseTypeEnum {
+  real = 'reale',
+  virtual = 'virtuale',
+  essay = 'saggio'
+};
+export type LicenseType = LicenseTypeEnum;
+
 export type CardBean = {
   id: string;
   isbn: string;
@@ -39,7 +46,7 @@ export type CardBean = {
   year: number;
   actions: ActionBean[];
   is_bookmark: boolean;
-  licenseType: string;
+  licenseType: LicenseTypeEnum;
 };
 
 export declare type ActionBean = {
