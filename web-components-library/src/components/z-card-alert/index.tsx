@@ -34,18 +34,18 @@ export class ZCardAlert {
   }
 
   renderTextAction() {
-    if (this.actiontext)
-      return (
-        <span
-          class="contentAction"
-          onClick={(e: MouseEvent) => {
-            this.emitUndoAction(e);
-          }}
-        >
-          {this.actiontext}
-        </span>
-      );
-    return;
+    if (!this.actiontext) return;
+
+    return (
+      <span
+        class="contentAction"
+        onClick={(e: MouseEvent) => {
+          this.emitUndoAction(e);
+        }}
+      >
+        {this.actiontext}
+      </span>
+    );
   }
 
   render() {
