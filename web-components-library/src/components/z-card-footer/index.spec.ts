@@ -12,26 +12,43 @@ describe("Suite test ZCardFooter", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019" isbn="123456">
-      <mock:shadow-root>
-        <footer >
-          <span class="toggle">
-            <slot name="toggle" />
-          </span>
-          <h2>titolo</h2>
+      <z-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" isbn=\"123456\" titolo=\"titolo\">
+        <mock:shadow-root>
           <div>
-            <p>
-              Autore: <b>Mario Rossi, Paolo Bianchi</b>
-            </p>
-            <p>
-              <span class="year">Edizione: <b>2019</b></span>
-              <span class="isbn">ISBN: <b>123456</b></span>
-            </p>
+            <footer>
+              <span class=\"toggle\">
+                <slot name=\"toggle\"></slot>
+              </span>
+              <h2>
+                titolo
+              </h2>
+              <div>
+                <p>
+                  Autore:
+                  <b>
+                    Mario Rossi, Paolo Bianchi
+                  </b>
+                </p>
+                <p>
+                  <span class=\"year\">
+                    Edizione:
+                    <b>
+                      2019
+                    </b>
+                  </span>
+                  <span class=\"isbn\">
+                    ISBN:
+                    <b>
+                      123456
+                    </b>
+                  </span>
+                </p>
+              </div>
+              <slot name=\"list\"></slot>
+            </footer>
           </div>
-          <slot name="list" />
-        </footer>
-      </mock:shadow-root>
-    </z-card-footer>
+        </mock:shadow-root>
+      </z-card-footer>
     `);
   });
 
@@ -42,26 +59,41 @@ describe("Suite test ZCardFooter", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019">
-      <mock:shadow-root>
-        <footer >
-          <span class="toggle">
-            <slot name="toggle" />
-          </span>
-          <h2>titolo</h2>
+      <z-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" titolo=\"titolo\">
+        <mock:shadow-root>
           <div>
-            <p>
-              Autore: <b>Mario Rossi, Paolo Bianchi</b>
-            </p>
-            <p>
-              <span class="year">Edizione: <b>2019</b></span>
-              <span class="isbn">ISBN: <b></b></span>
-            </p>
+            <footer>
+              <span class=\"toggle\">
+                <slot name=\"toggle\"></slot>
+              </span>
+              <h2>
+                titolo
+              </h2>
+              <div>
+                <p>
+                  Autore:
+                  <b>
+                    Mario Rossi, Paolo Bianchi
+                  </b>
+                </p>
+                <p>
+                  <span class=\"year\">
+                    Edizione:
+                    <b>
+                      2019
+                    </b>
+                  </span>
+                  <span class=\"isbn\">
+                    ISBN:
+                    <b></b>
+                  </span>
+                </p>
+              </div>
+              <slot name=\"list\"></slot>
+            </footer>
           </div>
-          <slot name="list" />
-        </footer>
-      </mock:shadow-root>
-    </z-card-footer>
+        </mock:shadow-root>
+      </z-card-footer>
     `);
   });
 
@@ -72,26 +104,35 @@ describe("Suite test ZCardFooter", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-footer>
-      <mock:shadow-root>
-        <footer >
-          <span class="toggle">
-            <slot name="toggle" />
-          </span>
-          <h2></h2>
+      <z-card-footer>
+        <mock:shadow-root>
           <div>
-            <p>
-              Autore: <b></b>
-            </p>
-            <p>
-              <span class="year">Edizione: <b></b></span>
-              <span class="isbn">ISBN: <b></b></span>
-            </p>
+            <footer>
+              <span class=\"toggle\">
+                <slot name=\"toggle\"></slot>
+              </span>
+              <h2></h2>
+              <div>
+                <p>
+                  Autore:
+                  <b></b>
+                </p>
+                <p>
+                  <span class=\"year\">
+                    Edizione:
+                    <b></b>
+                  </span>
+                  <span class=\"isbn\">
+                    ISBN:
+                    <b></b>
+                  </span>
+                </p>
+              </div>
+              <slot name=\"list\"></slot>
+            </footer>
           </div>
-          <slot name="list" />
-        </footer>
-      </mock:shadow-root>
-    </z-card-footer>
+        </mock:shadow-root>
+      </z-card-footer>
     `);
   });
 });

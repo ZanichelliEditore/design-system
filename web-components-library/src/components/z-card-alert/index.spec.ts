@@ -10,18 +10,16 @@ describe("Suite test ZCardAlert", () => {
     });
 
     expect(page.root).toEqualHtml(`
-     <z-card-alert actiontext=\"Annulla\" contenttext=\"Libro aggiunto ai miei libri\" iconname=\"circle-check\" slot=\"alert\" type=\"add\">
+    <z-card-alert actiontext=\"Annulla\" contenttext=\"Libro aggiunto ai miei libri\" iconname=\"circle-check\" slot=\"alert\" type=\"add\">
       <mock:shadow-root>
-        <div class=\"relativeContainer\">
-          <div class=\"addAlert\">
-            <z-icon class=\"addAlert\" height=\"18\" name=\"circle-check\" width=\"18\"></z-icon>
-            <span class=\"contentText\">
-              Libro aggiunto ai miei libri
-            </span>
-            <span class=\"contentAction\">
-              Annulla
-            </span>
-          </div>
+        <div class=\"addAlert relativeContainer\">
+          <z-icon class=\"addAlert\" height=\"18\" name=\"circle-check\" width=\"18\"></z-icon>
+          <span class=\"contentText\">
+            Libro aggiunto ai miei libri
+          </span>
+          <span class=\"contentAction\">
+            Annulla
+          </span>
         </div>
       </mock:shadow-root>
     </z-card-alert>
@@ -35,18 +33,16 @@ describe("Suite test ZCardAlert", () => {
     });
 
     expect(page.root).toEqualHtml(`
-     <z-card-alert actiontext=\"Annulla\" contenttext=\"Libro rimosso dai tuoi libri\" iconname=\"circle-check\" slot=\"alert\" type=\"remove\">
+    <z-card-alert actiontext=\"Annulla\" contenttext=\"Libro rimosso dai tuoi libri\" iconname=\"circle-check\" slot=\"alert\" type=\"remove\">
       <mock:shadow-root>
-        <div class=\"relativeContainer\">
-          <div class=\"removeAlert\">
-            <z-icon class=\"removeAlert\" height=\"18\" name=\"circle-check\" width=\"18\"></z-icon>
-            <span class=\"contentText\">
-              Libro rimosso dai tuoi libri
-            </span>
-            <span class=\"contentAction\">
-              Annulla
-            </span>
-          </div>
+        <div class=\"relativeContainer removeAlert\">
+          <z-icon class=\"removeAlert\" height=\"18\" name=\"circle-check\" width=\"18\"></z-icon>
+          <span class=\"contentText\">
+            Libro rimosso dai tuoi libri
+          </span>
+          <span class=\"contentAction\">
+            Annulla
+          </span>
         </div>
       </mock:shadow-root>
     </z-card-alert>
