@@ -21,9 +21,10 @@ export class ZCardFooter {
     this.isOpen = !this.isOpen;
   }
 
+
   render() {
     return (
-      <div class={this.faded && "faded"}>
+      <div class={this.faded && 'faded'}>
         <footer class={this.isOpen && "isopen"}>
           <span class="toggle">
             <slot name="toggle" />

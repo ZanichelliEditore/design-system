@@ -11,7 +11,7 @@ export class ZCardHeader {
 
   render() {
     return (
-      <header class={this.faded && "faded"}>
+      <header class={this.faded && 'faded'}>
         <h2>{this.titolo}</h2>
         <slot name="icon" />
       </header>

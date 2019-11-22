@@ -3,7 +3,6 @@ footer {
   font-weight: var(--font-rg);
   color: var(--text-gray-dark);
   background-color: var(--bg-artboard-white);
-  border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
   margin: 0px;
   padding: 0px;
   position: relative;
@@ -13,7 +12,9 @@ footer {
   top: 0px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
   border-radius: 0px 0px var(--radius-base) var(--radius-base);
+  border-top: var(--border-base) solid var(--card-border);
 }
+
 footer b {
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
@@ -69,11 +70,11 @@ footer.isopen {
 }
 
 h2.isopen {
-  background-color: var(--bg-artboard-gray-very-light);
   font-weight: var(--font-sb);
   height: 42px;
   padding-top: var(--basex2);
   transition: all 200ms linear;
+  background-color: var(--footer-background);
 }
 
 .toggle {

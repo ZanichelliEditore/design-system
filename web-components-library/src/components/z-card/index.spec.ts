@@ -12,7 +12,7 @@ describe("Suite test ZCard", () => {
     expect(page.root).toEqualHtml(`
     <z-card>
       <mock:shadow-root>
-        <div>
+        <div tabindex=\"0\">
           <slot></slot>
         </div>
       </mock:shadow-root>

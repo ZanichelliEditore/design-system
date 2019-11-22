@@ -28,6 +28,7 @@
  - [z-footer](../z-footer)
  - [z-header](../z-header)
  - [z-icon-package](../z-icon-package)
+ - [z-info-box](../z-info-box)
  - [z-input-text](../z-input-text)
  - [z-link](../z-link)
  - [z-list-item](../z-list-item)
@@ -48,6 +49,7 @@ graph TD;
   z-footer --> z-icon
   z-header --> z-icon
   z-icon-package --> z-icon
+  z-info-box --> z-icon
   z-input-text --> z-icon
   z-link --> z-icon
   z-list-item --> z-icon

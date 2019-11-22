@@ -145,7 +145,7 @@
             <z-card-icon icon="book-delete" slot="icon" />
           </z-card-header>
           <z-card-body>
-            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" actiontext="Annulla" type="remove" faded=true></z-card-alert>
+            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" type="remove" faded=true></z-card-alert>
             <z-card-cover slot="cover" titolo="titolo"
               img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" faded=true/>
           </z-card-body>
@@ -313,10 +313,10 @@
       <z-input-text label="filled" value="testo testo testo"></z-input-text>
       <z-input-text label="disabled" placeholder="placeholder" isdisabled value="i'm disabled"></z-input-text>
       <z-input-text label="readonly" placeholder="placeholder" isreadonly value="i'm read-only"></z-input-text>
-      <z-input-text label="success" placeholder="placeholder" status="success" statusmessage="message message" value=""></z-input-text>
-      <z-input-text label="error" placeholder="placeholder" status="error" statusmessage="message message"></z-input-text>
-      <z-input-text label="warning" placeholder="placeholder" status="warning" statusmessage="message message"></z-input-text>
-      <z-input-text label="message" placeholder="placeholder" helpermessage="helper message"></z-input-text>
+      <z-input-text label="success" placeholder="placeholder" status="success" message="message message" value=""></z-input-text>
+      <z-input-text label="error" placeholder="placeholder" status="error" message="message message" value="testo"></z-input-text>
+      <z-input-text label="warning" placeholder="placeholder" status="warning" message="message message message message message message message message message message message message message message message message message message"></z-input-text>
+      <z-input-text label="message" placeholder="placeholder" message="helper message"></z-input-text>
 
       <br /><br />
       <z-pagination-page value="4"></z-pagination-page>
@@ -364,6 +364,19 @@
         <z-panel-elem linkicon="external-link-left" linklabel="Tutte le prove" elemid="prova3"
           url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" />
       </section>
+
+      <br /><br />
+      <z-info-box  style="width: 300px;">
+        <span slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
+          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+          Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+      </z-info-box>
+      <br />
+      <z-info-box isclosable="false">
+        <span slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
+          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+          Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+      </z-info-box>
 
       <br />
       <div style="background:grey;">

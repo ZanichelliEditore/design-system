@@ -8,7 +8,7 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 export class ZCardAlert {
   @Prop() iconname: string;
   @Prop() contenttext: string;
-  @Prop() actiontext: string;
+  @Prop() actiontext?: string;
   @Prop() type: string;
 
   @Event() undoAction: EventEmitter;
@@ -31,6 +31,21 @@ export class ZCardAlert {
         break;
     }
     return className;
+  }
+
+  renderTextAction() {
+    if (!this.actiontext) return;
+
+    return (
+      <span
+        class="contentAction"
+        onClick={(e: MouseEvent) => {
+          this.emitUndoAction(e);
+        }}
+      >
+        {this.actiontext}
+      </span>
+    );
   }
 
   render() {

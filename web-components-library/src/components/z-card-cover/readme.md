@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default     |
-| -------- | --------- | ----------- | --------- | ----------- |
-| `faded`  | `faded`   |             | `boolean` | `undefined` |
-| `img`    | `img`     |             | `string`  | `undefined` |
-| `titolo` | `titolo`  |             | `string`  | `undefined` |
+| Property     | Attribute    | Description | Type      | Default     |
+| ------------ | ------------ | ----------- | --------- | ----------- |
+| `defaultimg` | `defaultimg` |             | `string`  | `undefined` |
+| `faded`      | `faded`      |             | `boolean` | `undefined` |
+| `img`        | `img`        |             | `string`  | `undefined` |
+| `titolo`     | `titolo`     |             | `string`  | `undefined` |
 
 
 ----------------------------------------------
