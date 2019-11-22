@@ -1,15 +1,3 @@
-div.real-card {
-  --footer-background: #add2ff;
-  --header-background: #ebf4ff;
-  --card-border: #add2ff;
-}
-
-div.virtual-card {
-  --footer-background: var(--bg-artboard-gray-very-light);
-  --header-background: var(--bg-artboard-gray);
-  --card-border: var(--bg-artboard-gray-very-light);
-}
-
 div {
   background-color: var(--bg-artboard-white);
   display: flex;
@@ -18,8 +6,12 @@ div {
   width: auto;
   max-width: 328px;
   height: 558px;
-  border: var(--border-base) solid var(--card-border);
+  border: var(--border-base) solid var(--bg-artboard-gray-very-light);
   border-radius: var(--radius-base);
+}
+
+div.real {
+  border-color: var(--bg-artboard-gray-very-light-real);
 }
 
 .faded {

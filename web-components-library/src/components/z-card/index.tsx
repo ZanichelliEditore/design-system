@@ -1,5 +1,5 @@
 import { Component, h, Prop } from "@stencil/core";
-import {LicenseTypeEnum} from '../../beans/index';
+import { LicenseTypeEnum } from "../../beans/index";
 
 @Component({
   tag: "z-card",
@@ -7,24 +7,14 @@ import {LicenseTypeEnum} from '../../beans/index';
   shadow: true
 })
 export class ZCardComponent {
-
   @Prop() faded: boolean;
-  @Prop() cardtype: LicenseTypeEnum;
-
+  @Prop() cardtype?: LicenseTypeEnum;
 
   retrieveClass() {
-    let elemClasses = '';
+    let elemClasses = "";
 
-    if(this.faded) elemClasses += 'faded ';
-
-    switch(this.cardtype) {
-      case LicenseTypeEnum.real:
-        elemClasses += 'real-card';
-      break;
-      case LicenseTypeEnum.virtual:
-        elemClasses += 'virtual-card';
-      break;
-    }
+    if (this.faded) elemClasses += "faded ";
+    if (this.cardtype === LicenseTypeEnum.real) elemClasses += "real";
 
     return elemClasses;
   }

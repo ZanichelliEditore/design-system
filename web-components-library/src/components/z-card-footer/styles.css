@@ -12,7 +12,11 @@ footer {
   top: 0px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
   border-radius: 0px 0px var(--radius-base) var(--radius-base);
-  border-top: var(--border-base) solid var(--card-border);
+  border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
+}
+
+footer.real {
+  border-top: var(--border-base) solid var(--bg-artboard-gray-very-light-real);
 }
 
 footer b {
@@ -74,7 +78,11 @@ h2.isopen {
   height: 42px;
   padding-top: var(--basex2);
   transition: all 200ms linear;
-  background-color: var(--footer-background);
+  background-color: var(--bg-artboard-gray-very-light);
+}
+
+h2.isopen.real {
+  background-color: var(--bg-artboard-gray-very-light-real);
 }
 
 .toggle {
