@@ -19,7 +19,7 @@ header {
   grid-area: main-header;
   grid-column-gap: var(--half-x1);
   align-items: center;
-  background-color: rgb(48, 56, 64);
+  background-color: var(--bg-artboard-gray-dark2);
   height: auto;
   align-items: center;
   z-index: 10;
@@ -33,7 +33,7 @@ header {
   grid-area: top-header;
   height: 32px;
   align-items: center;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--bg-artboard-white);
 }
 
 .editors {
@@ -112,7 +112,7 @@ z-logo {
   align-content: center;
   align-items: center;
   width: 100%;
-  background-color: rgb(48, 56, 64);
+  background-color: var(--bg-artboard-gray-dark2);
   z-index: inherit;
   height: 64px;
   position: fixed;
@@ -137,7 +137,7 @@ z-logo {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: rgb(48, 56, 64);
+  background-color: var(--bg-artboard-gray-dark2);
   position: fixed;
   top: 64px;
   left: 0;
@@ -525,6 +525,7 @@ hr {
     align-items: center;
     align-content: center;
     max-height: 46px;
+    margin-top: var(--half-x1);
   }
 
   .link-int > span {

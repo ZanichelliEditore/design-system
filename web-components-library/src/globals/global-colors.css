@@ -1,5 +1,6 @@
 :root,
 :host {
+  --bg-artboard-gray-dark2: #333333;
   --bg-artboard-gray: #f6f6f6;
   --bg-artboard-white: #ffffff;
   --bg-artboard-gray-light: #e6e6e6;
