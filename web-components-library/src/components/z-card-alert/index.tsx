@@ -33,21 +33,6 @@ export class ZCardAlert {
     return className;
   }
 
-  renderTextAction() {
-    if (!this.actiontext) return;
-
-    return (
-      <span
-        class="contentAction"
-        onClick={(e: MouseEvent) => {
-          this.emitUndoAction(e);
-        }}
-      >
-        {this.actiontext}
-      </span>
-    );
-  }
-
   render() {
     return (
       <div class={`relativeContainer ${this.retrieveClass()}`}>
