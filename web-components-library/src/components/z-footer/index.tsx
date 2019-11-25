@@ -42,7 +42,7 @@ export class ZFooter {
         <div class="header" >
           <h2>{group.title}</h2>
           {this.isMobile &&
-            <z-icon name={this.isOpen[id] ? 'chevron-down' : 'chevron-up'}
+            <z-icon name={this.isOpen[id] ? 'chevron-up' : 'chevron-down'}
               width={16} height={16}
               onClick={() => this.handleOnHeaderClick(id)}
             />

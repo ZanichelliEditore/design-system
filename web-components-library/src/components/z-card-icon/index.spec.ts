@@ -10,10 +10,12 @@ describe("Suite test ZCardIcon", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-icon icon="icon">
+    <z-card-icon icon=\"icon\">
       <mock:shadow-root>
         <span>
-          <z-icon name="icon" height="18" width="18" />
+          <span>
+            <z-icon height=\"18\" name=\"icon\" width=\"18\"></z-icon>
+          </span>
         </span>
       </mock:shadow-root>
     </z-card-icon>

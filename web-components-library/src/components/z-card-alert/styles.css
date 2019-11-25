@@ -2,23 +2,30 @@
   position: absolute;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  height: 48px;
-  max-width: 301px;
+  width: 100%;
   top: 0px;
   left: 0px;
   z-index: 2;
 }
 
-:host > div.container {
+/* :host > div.container {
+} */
+
+.relativeContainer {
   position: relative;
+  height: 48px;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
 }
 
-:host > div > div {
-  width: 301px;
-  padding: var(--basex2) 0 var(--basex2) 0;
+/* :host > div > div {
   position: absolute;
   display: flex;
-}
+} */
 
 :host div.addAlert {
   background: var(--myz-green-light);
@@ -26,6 +33,8 @@
 
 :host div.removeAlert {
   background: var(--myz-yellow-light);
+  border: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border-top: none;
 }
 
 :host div > .contentText {
@@ -34,8 +43,7 @@
   height: 20px;
   letter-spacing: 0.16px;
   line-height: 20px;
-  width: 200px;
-  margin-left: var(--basex1);
+  margin-right: var(--basex3);
 }
 
 :host div > .contentAction {
@@ -45,7 +53,6 @@
   height: 16px;
   letter-spacing: 0.32px;
   line-height: 20px;
-  width: 46px;
   margin-right: var(--basex2);
   cursor: pointer;
 }

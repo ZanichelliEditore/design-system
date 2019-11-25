@@ -10,17 +10,15 @@
   display: inline-block;
   box-sizing: border-box;
   margin: 0;
-  margin-right: 2px;
-  padding: 0;
   height: 48px;
   line-height: 48px;
-  width: 62px;
   text-align: center;
   border-bottom: 4px solid transparent;
   color: var(--myz-blue);
   font-size: 14px;
   text-decoration: none;
   transition: border-bottom 0.2s ease, font-size 0.2s ease;
+  min-width: 56px;
 }
 
 :host>a.disabled {
@@ -61,7 +59,7 @@
 @media only screen and (min-width: 768px) {
 
   :host>a {
-    width: 76px;
+    /* width: 76px; */
   }
 
 }

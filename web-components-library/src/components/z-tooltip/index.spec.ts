@@ -3,21 +3,6 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZTooltip } from "./index";
 
 describe("Suite test ZTooltip", () => {
-  it("Test render ZTooltip vuoto", async () => {
-    const page = await newSpecPage({
-      components: [ZTooltip],
-      html: `<z-tooltip></z-tooltip>`
-    });
-
-    expect(page.root).toEqualHtml(`
-      <z-tooltip>
-        <mock:shadow-root>
-          <div>
-          </div>
-        </mock:shadow-root>
-      </z-tooltip>
-    `);
-  });
 
   it("Test render ZTooltip left", async () => {
     const page = await newSpecPage({
