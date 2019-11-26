@@ -173,7 +173,7 @@ footer > section.bottom > div.item:nth-child(1) > p {
   }
 
   footer > section.top {
-    padding: var(--basex1) var(--basex4);
+    padding: var(--basex2) var(--basex4);
     background-color: var(--text-gray-dark);
   }
   footer > section.top > nav {
@@ -182,7 +182,7 @@ footer > section.bottom > div.item:nth-child(1) > p {
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
     grid-column-gap: 18px;
-    padding: var(--basex3) 0 var(--basex1) 0;
+    padding: var(--basex2) 0 var(--basex1) 0;
     border-bottom: 1px solid var(--bg-artboard-white);
     margin: 0;
   }
