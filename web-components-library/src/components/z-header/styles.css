@@ -139,7 +139,7 @@ z-logo {
   width: 100%;
   background-color: var(--bg-artboard-gray-dark2);
   position: fixed;
-  top: 64px;
+  top: 52px;
   left: 0;
   z-index: 999;
   max-height: 0px;
