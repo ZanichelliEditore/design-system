@@ -23,7 +23,6 @@
 }
 
 .panel-elem-link {
-  background: var(--bg-artboard-gray);
   border-radius: var(--radius-min);
   margin: var(--basex2) auto;
   text-align: center;
