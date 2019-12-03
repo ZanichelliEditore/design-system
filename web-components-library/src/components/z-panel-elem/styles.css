@@ -17,14 +17,14 @@
 .panel-elem-icon img {
   display: block;
   object-fit: contain;
-  width: 96px;
+  max-width: 96px;
   height: 32px;
   margin: auto;
 }
 
 .panel-elem-link {
   border-radius: var(--radius-min);
-  margin: var(--basex2) auto;
+  margin: var(--basex2) auto 0;
   text-align: center;
   font-size: 12px;
 }
@@ -33,4 +33,5 @@
   letter-spacing: 0.16px;
   text-align: center;
   margin: 0;
+  padding-top: var(--basex2);
 }
