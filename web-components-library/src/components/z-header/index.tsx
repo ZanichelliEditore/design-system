@@ -326,6 +326,7 @@ export class ZHeader {
         return {
           text: item.text,
           link: item.link,
+          icon: item.icon,
           listitemid: item.linkid
         };
       }
