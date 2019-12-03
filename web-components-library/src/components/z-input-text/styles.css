@@ -16,6 +16,7 @@
   font-size: 16px;
   color: var(--text-gray-dark);
   fill: var(--text-gray-dark);
+  outline: none;
 }
 
 input::placeholder {
