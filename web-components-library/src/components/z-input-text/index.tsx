@@ -63,7 +63,7 @@ export class ZInputText {
     return (
       <span class={`statusMsg msg_${this.status}`}>
         {this.status ? <z-icon name={this.statusIcons[this.status]} width={14} height={14} /> : null}
-        {this.message}
+        <span innerHTML={this.message}></span>
       </span>
     );
   }

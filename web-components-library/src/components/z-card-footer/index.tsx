@@ -41,10 +41,10 @@ export class ZCardFooter {
           </span>
           <h2 class={this.retrieveClass()}>{this.titolo}</h2>
           <div>
-            <p>
+            <p class="authors">
               {this.autorilabel}: <b>{this.autori}</b>
             </p>
-            <p>
+            <p class="year_isbn">
               <span class="year">
                 {this.annolabel}: <b>{this.anno}</b>
               </span>

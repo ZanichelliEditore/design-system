@@ -96,7 +96,7 @@ describe("Suite test ZInputText", () => {
               <z-icon name="close"></z-icon>
             </div>
             <span class="statusMsg msg_undefined">
-              helper message
+              <span>helper message</span>
             </span>
           </div>
         </mock:shadow-root>
@@ -120,7 +120,7 @@ describe("Suite test ZInputText", () => {
             </div>
             <span class="statusMsg msg_success">
               <z-icon name="circle-check" width="14" height="14"></z-icon>
-              success message
+              <span>success message</span>
             </span>
           </div>
         </mock:shadow-root>

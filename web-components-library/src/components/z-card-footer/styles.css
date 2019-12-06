@@ -24,7 +24,7 @@ footer b {
   font-weight: var(--font-sb);
 }
 
-footer > h2 {
+footer>h2 {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 16px;
@@ -38,13 +38,13 @@ footer > h2 {
   transition: all 200ms linear;
 }
 
-footer > div {
+footer>div {
   padding: var(--half-x1) var(--basex2) var(--basex1) var(--basex2);
   height: 40px;
   overflow: hidden;
 }
 
-footer > div > p {
+footer>div>p {
   font-size: 14px;
   height: 20px;
   line-height: 20px;
@@ -55,15 +55,9 @@ footer > div > p {
   text-overflow: ellipsis;
 }
 
-footer > div > p > span {
-  display: inline-block;
-}
-footer > div > p > span.year {
-  width: 90px;
-}
-footer > div > p > span.isbn {
-  width: 182px;
-  text-align: right;
+footer>div>p.year_isbn {
+  display: flex;
+  justify-content: space-between;
 }
 
 footer.isopen {

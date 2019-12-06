@@ -23,13 +23,13 @@ describe("Suite test ZCardFooter", () => {
                 titolo
               </h2>
               <div>
-                <p>
+                <p class="authors">
                   Autore:
                   <b>
                     Mario Rossi, Paolo Bianchi
                   </b>
                 </p>
-                <p>
+                <p class="year_isbn">
                   <span class=\"year\">
                     Edizione:
                     <b>
@@ -70,13 +70,13 @@ describe("Suite test ZCardFooter", () => {
                 titolo
               </h2>
               <div>
-                <p>
+                <p class="authors">
                   Autore:
                   <b>
                     Mario Rossi, Paolo Bianchi
                   </b>
                 </p>
-                <p>
+                <p class="year_isbn">
                   <span class=\"year\">
                     Edizione:
                     <b>
@@ -113,11 +113,11 @@ describe("Suite test ZCardFooter", () => {
               </span>
               <h2></h2>
               <div>
-                <p>
+                <p class="authors">
                   Autore:
                   <b></b>
                 </p>
-                <p>
+                <p class="year_isbn">
                   <span class=\"year\">
                     Edizione:
                     <b></b>

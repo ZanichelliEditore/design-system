@@ -37,13 +37,6 @@ button.primary:hover {
   fill: var(--bg-artboard-white);
 }
 
-button.primary:disabled {
-  background-color: var(--bg-artboard-gray-very-light);
-  border-color: var(--bg-artboard-gray-very-light);
-  color: var(--text-gray-medium);
-  fill: var(--text-gray-medium);
-}
-
 button.primary:focus {
   background-color: var(--myz-blue);
   border-color: var(--myz-blue);
@@ -60,6 +53,14 @@ button.primary:active {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
+/* INFO: mantenere il selettore disabled per ultima in modo che sia prioritaria rispetto alle altre */
+button.primary:disabled {
+  background-color: var(--bg-artboard-gray-very-light);
+  border-color: var(--bg-artboard-gray-very-light);
+  color: var(--text-gray-medium);
+  fill: var(--text-gray-medium);
+}
+
 button.secondary {
   background-color: var(--bg-artboard-white);
   border-color: var(--myz-blue);
@@ -72,13 +73,6 @@ button.secondary:hover {
   border-color: var(--myz-blue-dark);
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
-}
-
-button.secondary:disabled {
-  background-color: var(--bg-artboard-white);
-  border-color: var(--bg-artboard-gray-very-light);
-  color: var(--text-gray-medium);
-  fill: var(--text-gray-medium);
 }
 
 button.secondary:focus {
@@ -97,6 +91,14 @@ button.secondary:active {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
+/* INFO: mantenere il selettore disabled per ultima in modo che sia prioritaria rispetto alle altre */
+button.secondary:disabled {
+  background-color: var(--bg-artboard-white);
+  border-color: var(--bg-artboard-gray-very-light);
+  color: var(--text-gray-medium);
+  fill: var(--text-gray-medium);
+}
+
 button.tertiary {
   background-color: transparent;
   border-color: transparent;
@@ -109,13 +111,6 @@ button.tertiary:hover {
   border-color: transparent;
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
-}
-
-button.tertiary:disabled {
-  background-color: transparent;
-  border-color: transparent;
-  color: var(--text-gray-medium);
-  fill: var(--text-gray-medium);
 }
 
 button.tertiary:focus {
@@ -134,7 +129,15 @@ button.tertiary:active {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
-button>z-icon {
+/* INFO: mantenere il selettore disabled per ultima in modo che sia prioritaria rispetto alle altre */
+button.tertiary:disabled {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--text-gray-medium);
+  fill: var(--text-gray-medium);
+}
+
+button > z-icon {
   margin-right: var(--half-x3);
 }
 
