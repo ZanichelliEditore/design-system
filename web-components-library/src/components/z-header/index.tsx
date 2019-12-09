@@ -87,8 +87,8 @@ export class ZHeader {
 
       if (
         currentSection
-        && currentSection.offsetTop <= e.srcElement.scrollTop + this.topOffset
-        && currentSection.offsetHeight + currentSection.offsetTop > e.srcElement.scrollTop + this.topOffset
+        && currentSection.offsetTop <= e.srcElement.scrollingElement.scrollTop + this.topOffset
+        && currentSection.offsetHeight + currentSection.offsetTop > e.srcElement.scrollingElement.scrollTop + this.topOffset
       ) {
         link.classList.add("active");
       }
