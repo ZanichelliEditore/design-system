@@ -7,15 +7,15 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                                                                                                             | Default     |
-| ------------- | ------------- | ----------- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
-| `extlinkdata` | `extlinkdata` |             | `HeaderLink[] \| string`                                                                                         | `undefined` |
-| `imagealt`    | `imagealt`    |             | `string`                                                                                                         | `undefined` |
-| `intlinkdata` | `intlinkdata` |             | `HeaderLink[] \| string`                                                                                         | `undefined` |
-| `ismyz`       | `ismyz`       |             | `boolean`                                                                                                        | `undefined` |
-| `logolink`    | `logolink`    |             | `string`                                                                                                         | `undefined` |
-| `logopath`    | `logopath`    |             | `string`                                                                                                         | `undefined` |
-| `userdata`    | `userdata`    |             | `string \| { islogged: boolean; id?: number; name?: string; usergroup: number; userlinks: MenuDropdownItem[]; }` | `undefined` |
+| Property      | Attribute     | Description | Type                                                                                                     | Default     |
+| ------------- | ------------- | ----------- | -------------------------------------------------------------------------------------------------------- | ----------- |
+| `extlinkdata` | `extlinkdata` |             | `MenuItem[] \| string`                                                                                   | `undefined` |
+| `imagealt`    | `imagealt`    |             | `string`                                                                                                 | `undefined` |
+| `intlinkdata` | `intlinkdata` |             | `MenuItem[] \| string`                                                                                   | `undefined` |
+| `ismyz`       | `ismyz`       |             | `boolean`                                                                                                | `undefined` |
+| `logolink`    | `logolink`    |             | `string`                                                                                                 | `undefined` |
+| `logopath`    | `logopath`    |             | `string`                                                                                                 | `undefined` |
+| `userdata`    | `userdata`    |             | `string \| { islogged: boolean; id?: number; name?: string; usergroup: number; userlinks: MenuItem[]; }` | `undefined` |
 
 
 ## Dependencies

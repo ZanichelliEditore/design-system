@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                           | Default     |
-| ------------- | ------------- | ----------- | ------------------------------ | ----------- |
-| `buttonid`    | `buttonid`    |             | `string`                       | `undefined` |
-| `menucontent` | `menucontent` |             | `MenuDropdownItem[] \| string` | `undefined` |
-| `nomeutente`  | `nomeutente`  |             | `string`                       | `undefined` |
+| Property      | Attribute     | Description | Type                   | Default     |
+| ------------- | ------------- | ----------- | ---------------------- | ----------- |
+| `buttonid`    | `buttonid`    |             | `string`               | `undefined` |
+| `menucontent` | `menucontent` |             | `MenuItem[] \| string` | `undefined` |
+| `nomeutente`  | `nomeutente`  |             | `string`               | `undefined` |
 
 
 ## Dependencies
