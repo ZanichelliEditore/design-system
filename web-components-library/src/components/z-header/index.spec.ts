@@ -71,7 +71,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'>
+    <z-header extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]}'>
     <mock:shadow-root>
       <header>
         <div class="false mobile-header" id="mobile-header">
@@ -89,7 +89,7 @@ describe("Suite test ZHeader", () => {
             </span>
           </div>
         </div>
-        <div class="false false mobile-content" id="mobile-content">
+        <div class="false mobile-content" id="mobile-content">
           <div class="mobile-login" id="mobile-login">
             <span>
               <a class="menu-item" href="#home" id="user-data">
@@ -125,10 +125,10 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
     <z-header
-      intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
-      extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"la mia libreria","link":"#libreria"}]},{"id":"Dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
+      extlinkdata='[{"id":"supporto","label":"Supporto","link":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       imagealt="logo zanichelli"
-      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
+      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]}'
       ismyz="true"
       logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
@@ -280,10 +280,10 @@ describe("Suite test ZHeader", () => {
     });
     expect(page.root).toEqualHtml(`
     <z-header
-      intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
-      extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"la mia libreria","link":"#libreria"}]},{"id":"Dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
+      extlinkdata='[{"id":"supporto","label":"Supporto","link":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       imagealt="logo zanichelli"
-      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
+      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]}'
       ismyz="true"
       logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
@@ -330,7 +330,7 @@ describe("Suite test ZHeader", () => {
             <div class="login">
               <z-menu-dropdown
                 nomeutente="Dario Docente e Professore"
-                menucontent='[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]'
+                menucontent='[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]'
               ></z-menu-dropdown>
             </div>
           </div>
@@ -354,8 +354,8 @@ describe("Suite test ZHeader", () => {
     });
     expect(page.root).toEqualHtml(`
     <z-header
-      intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
-      extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"la mia libreria","link":"#libreria"}]},{"id":"Dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
+      extlinkdata='[{"id":"supporto","label":"Supporto","link":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       imagealt="logo zanichelli"
       ismyz="true"
       logolink="https://www.zanichelli.it"
@@ -397,10 +397,10 @@ describe("Suite test ZHeader", () => {
     });
     expect(page.root).toEqualHtml(`
     <z-header
-      intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
-      extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"la mia libreria","link":"#libreria"}]},{"id":"Dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
+      extlinkdata='[{"id":"supporto","label":"Supporto","link":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       imagealt="logo zanichelli"
-      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
+      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]}'
       ismyz="false"
       logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
@@ -426,7 +426,7 @@ describe("Suite test ZHeader", () => {
             <div class="login">
               <z-menu-dropdown
                 nomeutente="Dario Docente e Professore"
-                menucontent='[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]'
+                menucontent='[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]'
               ></z-menu-dropdown>
             </div>
           </div>
@@ -444,16 +444,16 @@ describe("Suite test ZHeader", () => {
     });
     page.rootInstance.activeMenuItem = {
       id: "Dizionari",
-      name: "Dizionari",
+      label: "Dizionari",
       url: "https://www.zanichelli.it/dizionari/in-primo-piano"
     };
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
     <z-header
-      intlinkdata='[{"id":"home","name":"Home","url":"#home","subMenu":[{"id":"libreria","name":"la mia libreria","url":"#libreria"}]},{"id":"Dizionari","name":"Dizionari","url":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
-      extlinkdata='[{"id":"supporto","name":"Supporto","url":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
+      intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"la mia libreria","link":"#libreria"}]},{"id":"Dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
+      extlinkdata='[{"id":"supporto","label":"Supporto","link":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       imagealt="logo zanichelli"
-      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]}'
+      userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]}'
       ismyz="true"
       logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
@@ -500,7 +500,7 @@ describe("Suite test ZHeader", () => {
             <div class="login">
               <z-menu-dropdown
                 nomeutente="Dario Docente e Professore"
-                menucontent='[{"text":"Profilo","link":"http://www.zanichelli.it"},{"text":"Esci","link":"#home"}]'
+                menucontent='[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]'
               ></z-menu-dropdown>
             </div>
           </div>
@@ -531,8 +531,8 @@ function initHeader(
     name: "Dario Docente e Professore",
     usergroup: 15,
     userlinks: [
-      { text: "Profilo", link: "http://www.zanichelli.it" },
-      { text: "Esci", link: "#home" }
+      { label: "Profilo", link: "http://www.zanichelli.it" },
+      { label: "Esci", link: "#home" }
     ]
   };
   const emptyArray = "[]";
@@ -545,27 +545,27 @@ function initHeader(
   const intlinkdata = JSON.stringify([
     {
       id: "home",
-      name: "Home",
-      url: "#home",
+      label: "Home",
+      link: "#home",
       subMenu: [
         {
           id: "libreria",
-          name: "la mia libreria",
-          url: "#libreria"
+          label: "la mia libreria",
+          link: "#libreria"
         }
       ]
     },
     {
       id: "Dizionari",
-      name: "Dizionari",
-      url: "https://www.zanichelli.it/dizionari/in-primo-piano"
+      label: "Dizionari",
+      link: "https://www.zanichelli.it/dizionari/in-primo-piano"
     }
   ]);
   const extlinkdata = JSON.stringify([
     {
       id: "supporto",
-      name: "Supporto",
-      url: "https://www.zanichelli.it/contatti-e-recapiti",
+      label: "Supporto",
+      link: "https://www.zanichelli.it/contatti-e-recapiti",
       icon: "question-mark.png"
     }
   ]);

@@ -15,10 +15,10 @@ describe("Suite test ZMenuDropdown", () => {
   it("Test  ZMenuDropdown con lista", async () => {
     const page = await newSpecPage({
       components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`
+      html: `<z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`
     });
     expect(page.root).toEqualHtml(`
-    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
+    <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
         <div tabindex="0">
           <div class=\"container\">
@@ -39,10 +39,10 @@ describe("Suite test ZMenuDropdown", () => {
   it("Test ZMenuDropdown con lista on click", async () => {
     const page = await newSpecPage({
       components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`
+      html: `<z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`
     });
     expect(page.root).toEqualHtml(`
-    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
+    <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
       <div tabindex="0">
         <div class="container">
@@ -69,7 +69,7 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.rootInstance.ismenuopen).toBeTruthy;
 
     expect(page.root).toEqualHtml(`
-    <z-menu-dropdown menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it"},{"text":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
+    <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
         <div class="menu-opened" tabindex="0">
           <div class=\"container\">

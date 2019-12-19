@@ -12,7 +12,7 @@ describe("Suite test ZPaginationPage", () => {
     expect(page.root).toEqualHtml(`
     <z-pagination-page>
           <mock:shadow-root>
-            <a class=\"false false false\" tabindex=\"1\"></a>
+            <a class=\"false\" tabindex=\"1\"></a>
           </mock:shadow-root>
     </z-pagination-page>
     `);
@@ -27,7 +27,7 @@ describe("Suite test ZPaginationPage", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-page pageid=\"10\" value=\"10\">
         <mock:shadow-root>
-          <a class=\"false false false\" id=\"10\" tabindex=\"1\">
+          <a class=\"false\" id=\"10\" tabindex=\"1\">
             10
           </a>
         </mock:shadow-root>
@@ -44,7 +44,7 @@ describe("Suite test ZPaginationPage", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-page isselected=\"\" pageid=\"10\" value=\"10\">
         <mock:shadow-root>
-          <a class=\"false false selected\" id=\"10\" tabindex=\"1\">
+          <a class=\"false selected\" id=\"10\" tabindex=\"1\">
             10
           </a>
         </mock:shadow-root>
@@ -61,7 +61,7 @@ describe("Suite test ZPaginationPage", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-page isdisabled=\"\" pageid=\"10\" value=\"10\">
         <mock:shadow-root>
-          <a class=\"false false disabled\" id=\"10\" tabindex=\"-1\">
+          <a class=\"false disabled\" id=\"10\" tabindex=\"-1\">
             10
           </a>
         </mock:shadow-root>
@@ -78,7 +78,7 @@ describe("Suite test ZPaginationPage", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-page isvisited=\"\" pageid=\"10\" value=\"10\">
         <mock:shadow-root>
-          <a class=\"false false visited\" id=\"10\" tabindex=\"1\">
+          <a class=\"false visited\" id=\"10\" tabindex=\"1\">
             10
           </a>
         </mock:shadow-root>
