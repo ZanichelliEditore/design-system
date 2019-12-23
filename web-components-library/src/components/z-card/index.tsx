@@ -9,12 +9,21 @@ import { LicenseTypeEnum } from "../../beans/index";
 export class ZCardComponent {
   @Prop() faded: boolean;
   @Prop() cardtype?: LicenseTypeEnum;
+  @Prop() ispressed: boolean = false;
+  @Prop() ishighlighted: boolean = false;
 
   retrieveClass() {
     let elemClasses = "";
 
-    if (this.faded) elemClasses += "faded ";
     if (this.cardtype === LicenseTypeEnum.real) elemClasses += "real";
+
+    if (this.faded) {
+      elemClasses += " faded";
+    } else if (this.ispressed) {
+      elemClasses += " pressed";
+    } else if (this.ishighlighted) {
+      elemClasses += " highlighted";
+    }
 
     return elemClasses;
   }
