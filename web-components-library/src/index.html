@@ -16,59 +16,15 @@
     <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
   </z-modal> -->
 
-  <z-header intlinkdata='[
-        {
-          "id": "home",
-          "name": "Home",
-          "url": "#home",
-          "subMenu": [
-            {
-              "id": "libreria",
-              "name": "la mia libreria",
-              "url": "#libreria"
-            },
-            {
-              "id": "ambienti",
-              "name": "documenti miei",
-              "url": "#ambienti"
-            },
-            {
-              "id": "idee",
-              "name": "Idee per insegnare",
-              "url": "#idee"
-            }
-          ]
-        },
-        {
-          "id": "Dizionari",
-          "name": "Dizionari",
-          "url": "http://www.dizionari.it"
-        }
-      ]' extlinkdata='[
-        {
-          "id": "supporto",
-          "name": "Supporto",
-          "url": "https://www.support.com/",
-          "icon" : "question-mark"
-        },
-        {
-          "id": "shop",
-          "name": "E-Shop",
-          "url": "https://www.shop.com/",
-          "icon" : "cart"
-        },
-        {
-          "id": "chiedi",
-          "name": "Chiedi al tuo responsabile",
-          "url": "http://www.responsabile.it/",
-          "icon" : "ask-your-manager"
-        }
-      ]' userdata='{
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"ask-your-manager"}]'
+    userdata='{
         "islogged": true,
         "id": 123456,
         "name": "Dario Docente e Professore",
         "usergroup": 15,
-        "userlinks" : [{"text":"Profilo", "link":"http://www.zanichelli.it", "icon":"user"},{"text":"Esci", "link":"http://www.google.it","icon":"exit"}]
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
       }' ismyz=true logopath="./assets/images/png/zanichelli-logo-2.png" imagealt="none">
     <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
     <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
@@ -127,9 +83,10 @@
             <z-card-icon icon="book-delete" slot="icon" />
           </z-card-header>
           <z-card-body>
-            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-card-alert>
+            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri"
+              actiontext="Annulla" type="add"></z-card-alert>
             <z-card-cover slot="cover" titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"/>
+              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
           </z-card-body>
           <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" anno="2019"
             isbn="97-88-80-8620-710">
@@ -145,9 +102,10 @@
             <z-card-icon icon="book-delete" slot="icon" />
           </z-card-header>
           <z-card-body>
-            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" type="remove" faded=true></z-card-alert>
+            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" type="remove"
+              faded=true></z-card-alert>
             <z-card-cover slot="cover" titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" faded=true/>
+              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" faded=true />
           </z-card-body>
           <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" anno="2019"
             isbn="97-88-80-8620-710" faded=true>
@@ -180,9 +138,10 @@
             <!-- <z-card-icon icon="book-delete" slot="icon" /> -->
           </z-card-header>
           <z-card-body>
-            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-card-alert>
+            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri"
+              actiontext="Annulla" type="add"></z-card-alert>
             <z-card-cover slot="cover" titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"/>
+              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
           </z-card-body>
           <z-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" anno="2019"
             isbn="97-88-80-8620-710">
@@ -281,7 +240,7 @@
         <div></div>
         <div style="display: flex; justify-content:flex-end; margin-right:8px">
           <z-menu-dropdown nomeutente="username molto lungo nome"
-            menucontent='[{"text":"Profilo", "link":"http://www.zanichelli.it", "icon":"user"},{"text":"Esci", "link":"http://www.google.it","icon":"exit"}]'>
+            menucontent='[{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]'>
           </z-menu-dropdown>
         </div>
       </div>
@@ -324,7 +283,7 @@
         <div style="min-width: 200px; min-height: 70px; ">
           <z-tooltip content="Rimuovi libro" type="right"></z-tooltip>
         </div>
-        </div>
+      </div>
 
 
       <br /><br />
@@ -333,9 +292,13 @@
       <z-input-text label="filled" value="testo testo testo"></z-input-text>
       <z-input-text label="disabled" placeholder="placeholder" isdisabled value="i'm disabled"></z-input-text>
       <z-input-text label="readonly" placeholder="placeholder" isreadonly value="i'm read-only"></z-input-text>
-      <z-input-text label="success" placeholder="placeholder" status="success" message="message message" value=""></z-input-text>
-      <z-input-text label="error" placeholder="placeholder" status="error" message="message message" value="testo"></z-input-text>
-      <z-input-text label="warning" placeholder="placeholder" status="warning" message="message message message message message message message message message message message message message message message message message message"></z-input-text>
+      <z-input-text label="success" placeholder="placeholder" status="success" message="message message" value="">
+      </z-input-text>
+      <z-input-text label="error" placeholder="placeholder" status="error" message="message message" value="testo">
+      </z-input-text>
+      <z-input-text label="warning" placeholder="placeholder" status="warning"
+        message="message message message message message message message message message message message message message message message message message message">
+      </z-input-text>
       <z-input-text label="message" placeholder="placeholder" message="helper message"></z-input-text>
 
       <br /><br />
@@ -386,15 +349,17 @@
       </section>
 
       <br /><br />
-      <z-info-box  style="width: 300px;">
+      <z-info-box style="width: 300px;">
         <span slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
-          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi
+          at imperdiet.
           Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
       </z-info-box>
       <br />
       <z-info-box isclosable="false">
         <span slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
-          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi
+          at imperdiet.
           Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
       </z-info-box>
 

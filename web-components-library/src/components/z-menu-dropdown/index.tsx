@@ -1,5 +1,5 @@
 import { Component, Prop, h, State } from '@stencil/core';
-import { MenuDropdownItem } from "../../beans/index.js";
+import { MenuItem } from "../../beans/index.js";
 
 @Component({
   tag: 'z-menu-dropdown',
@@ -9,12 +9,12 @@ import { MenuDropdownItem } from "../../beans/index.js";
 
 export class ZMenuDropdown {
   @Prop() nomeutente: string;
-  @Prop() menucontent: string | MenuDropdownItem[];
+  @Prop() menucontent: string | MenuItem[];
   @Prop() buttonid: string
 
   @State() ismenuopen: boolean = false;
 
-  linkarray: MenuDropdownItem[];
+  linkarray: MenuItem[];
 
   componentWillRender() {
     this.linkarray = typeof this.menucontent === 'string' ? JSON.parse(this.menucontent) : this.menucontent;
@@ -26,7 +26,7 @@ export class ZMenuDropdown {
         <ul>
           {this.linkarray.map(bean => (
             <li>
-              <z-link linkid={bean.linkid} url={bean.link} label={bean.text} icon={bean.icon} />
+              <z-link linkid={bean.id} url={bean.link} label={bean.label} icon={bean.icon} />
             </li>
           ))}
         </ul>

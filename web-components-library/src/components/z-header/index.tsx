@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
-import { HeaderLink, HeaderUserData, ListItemBean, MenuDropdownItem } from "../../beans";
+import { MenuItem, HeaderUserData, ListItemBean } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
@@ -8,20 +8,20 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
   shadow: true
 })
 export class ZHeader {
-  @Prop() intlinkdata: string | HeaderLink[];
-  @Prop() extlinkdata: string | HeaderLink[];
+  @Prop() intlinkdata: string | MenuItem[];
+  @Prop() extlinkdata: string | MenuItem[];
   @Prop() userdata?: string | HeaderUserData;
   @Prop() ismyz: boolean;
   @Prop() logolink?: string;
   @Prop() logopath?: string;
   @Prop() imagealt: string;
 
-  @State() activeMenuItem: HeaderLink;
-  @State() currentMenuItem: HeaderLink;
+  @State() activeMenuItem: MenuItem;
+  @State() currentMenuItem: MenuItem;
   @State() isMobile: boolean = true;
   @State() isMenuMobileOpen: boolean = false;
-  private intMenuData: HeaderLink[];
-  private extMenuData: HeaderLink[];
+  private intMenuData: MenuItem[];
+  private extMenuData: MenuItem[];
   private userData: HeaderUserData;
   private isLogged: boolean = false;
   private sections: object;
@@ -70,8 +70,8 @@ export class ZHeader {
     if (!intMenuData) return obj;
 
     intMenuData.forEach(menuItem => {
-      if (menuItem.url && !menuItem.url.startsWith("http")) {
-        const tmp = document.querySelector(menuItem.url);
+      if (menuItem.link && !menuItem.link.startsWith("http")) {
+        const tmp = document.querySelector(menuItem.link);
         if (tmp) obj[menuItem.id] = tmp;
         obj = { ...obj, ...this.getSections(menuItem.subMenu) };
       }
@@ -95,10 +95,10 @@ export class ZHeader {
     });
   }
 
-  setIntMenuItem(): HeaderLink {
+  setIntMenuItem(): MenuItem {
     return (
       this.intMenuData.filter(
-        (menu: HeaderLink) => window.location.hash === menu.url
+        (menu: MenuItem) => window.location.hash === menu.link
       )[0] || this.intMenuData[0]
     );
   }
@@ -130,7 +130,7 @@ export class ZHeader {
     );
   }
 
-  renderIntMenu(menuItems: HeaderLink[]): HTMLDivElement {
+  renderIntMenu(menuItems: MenuItem[]): HTMLDivElement {
     if (!this.isLogged || !this.ismyz) {
       return <div />;
     }
@@ -142,18 +142,18 @@ export class ZHeader {
     );
   }
 
-  renderIntMenuItem(menuItem: HeaderLink): HTMLSpanElement {
-    const { id, name, url } = menuItem;
+  renderIntMenuItem(menuItem: MenuItem): HTMLSpanElement {
+    const { id, label, link } = menuItem;
     return (
       <span>
         <a
-          href={url}
+          href={link}
           id={id}
           class="menu-item"
           onClick={() => {
             this.activeMenuItem = menuItem;
             this.currentMenuItem = menuItem;
-            if (url.startsWith('#')) this.handleToggleMobileMenuItem(menuItem.id);
+            if (link.startsWith('#')) this.handleToggleMobileMenuItem(menuItem.id);
           }}
           onMouseEnter={() => {
             this.activeMenuItem = menuItem;
@@ -162,7 +162,7 @@ export class ZHeader {
             this.activeMenuItem = this.currentMenuItem;
           }}
         >
-          <span>{name}</span>
+          <span>{label}</span>
           {menuItem.subMenu ? <i></i> : null}
         </a>
         <svg
@@ -194,10 +194,10 @@ export class ZHeader {
   renderMenuItemsData(menuItem): HTMLSpanElement | null {
     if (!menuItem.subMenu) return null;
     const listItems: ListItemBean[] = menuItem.subMenu.map(
-      (item: HeaderLink) => {
+      (item: MenuItem) => {
         return {
-          text: item.name,
-          link: item.url,
+          text: item.label,
+          link: item.link,
           listitemid: item.id
         };
       }
@@ -213,7 +213,7 @@ export class ZHeader {
     );
   }
 
-  renderSubMenu(menuItem: HeaderLink): HTMLDivElement {
+  renderSubMenu(menuItem: MenuItem): HTMLDivElement {
     if (!menuItem || !menuItem["subMenu"] || !this.isLogged || !this.ismyz) {
       return (
         <div
@@ -230,13 +230,13 @@ export class ZHeader {
       >
         <div class="dropdown-links">
           {menuItem.subMenu.map(
-            (item: HeaderLink): HTMLAnchorElement => (
+            (item: MenuItem): HTMLAnchorElement => (
               <a
                 class={item.id === active.id ? "active" : ""}
-                href={item.url}
+                href={item.link}
                 onClick={e => this.handleSubMenuClick(e, item.id)}
               >
-                {item.name}
+                {item.label}
               </a>
             )
           )}
@@ -252,7 +252,7 @@ export class ZHeader {
     }
   }
 
-  renderExtMenu(menuItems: HeaderLink[]): HTMLDivElement {
+  renderExtMenu(menuItems: MenuItem[]): HTMLDivElement {
     if (!this.isLogged) {
       return <div />;
     }
@@ -260,14 +260,14 @@ export class ZHeader {
     return (
       <div id="link-ext" class="link-ext">
         {menuItems.map(
-          (menuItem: HeaderLink): HTMLSpanElement => {
-            const { id, name, url, icon } = menuItem;
+          (menuItem: MenuItem): HTMLSpanElement => {
+            const { id, label, link, icon } = menuItem;
             return (
               <span class={`link-ext-span ${this.ismyz && "myz"}`}>
                 <z-link
                   id={id}
-                  url={url}
-                  label={name}
+                  url={link}
+                  label={label}
                   icon={icon}
                   iswhite={this.ismyz ? true : false}
                   target="_blank"
@@ -322,12 +322,12 @@ export class ZHeader {
   renderUserData(userData) {
     if (this.isMobile && !userData) return null;
     const listItems: ListItemBean[] = userData.userlinks.map(
-      (item: MenuDropdownItem) => {
+      (item: MenuItem) => {
         return {
-          text: item.text,
+          text: item.label,
           link: item.link,
           icon: item.icon,
-          listitemid: item.linkid
+          listitemid: item.id
         };
       }
     );

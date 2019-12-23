@@ -13,7 +13,7 @@ describe("Suite test ZCombobox", () => {
     expect(page.root).toEqualHtml(`
       <z-combobox items='[]'>
         <mock:shadow-root>
-          <div class="false false">
+          <div class="false">
             <header>
               <h2><span></span></h2>
               <z-icon name="drop-down" width="18" height="18" />
@@ -58,7 +58,7 @@ describe("Suite test ZCombobox", () => {
     expect(page.root).toEqualHtml(`
       <z-combobox items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' inputid="combobox" label="label">
         <mock:shadow-root>
-          <div class="false false" id="combobox">
+          <div class="false" id="combobox">
             <header>
               <h2>
                 label

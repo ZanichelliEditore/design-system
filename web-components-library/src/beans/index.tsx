@@ -63,13 +63,6 @@ export type ListItemBean = {
   listitemid?: string;
 };
 
-export type MenuDropdownItem = {
-  text: string;
-  link: string;
-  linkid?: string;
-  icon?: string;
-};
-
 export type FilterItem = {
   name: string;
   id: string;
@@ -77,12 +70,12 @@ export type FilterItem = {
   isfixed: boolean;
 };
 
-export type HeaderLink = {
+export type MenuItem = {
   id: string;
-  name: string;
-  subMenu?: HeaderLink[];
-  url?: string;
+  label: string;
+  link?: string;
   icon?: string;
+  subMenu?: MenuItem[];
 };
 
 export type HeaderUserData = {
@@ -90,7 +83,7 @@ export type HeaderUserData = {
   id?: number;
   name?: string;
   usergroup: number;
-  userlinks: MenuDropdownItem[];
+  userlinks: MenuItem[];
 };
 export type ComboItemBean = {
   id: string;
