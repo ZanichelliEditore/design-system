@@ -51,13 +51,13 @@ button:active>span {
 }
 
 button:disabled {
-  pointer-events: none;
   cursor: not-allowed;
 }
 
 button:disabled>span {
   background: none;
   box-shadow: 0 0 0 0 transparent;
+  pointer-events: none;
 }
 
 button:disabled>span>z-icon {
