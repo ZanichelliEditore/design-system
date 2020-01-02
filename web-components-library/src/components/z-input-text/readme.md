@@ -9,6 +9,7 @@
 
 | Property      | Attribute     | Description | Type                                                                                          | Default     |
 | ------------- | ------------- | ----------- | --------------------------------------------------------------------------------------------- | ----------- |
+| `icon`        | `icon`        |             | `string`                                                                                      | `undefined` |
 | `inputid`     | `inputid`     |             | `string`                                                                                      | `undefined` |
 | `isdisabled`  | `isdisabled`  |             | `boolean`                                                                                     | `false`     |
 | `isreadonly`  | `isreadonly`  |             | `boolean`                                                                                     | `false`     |

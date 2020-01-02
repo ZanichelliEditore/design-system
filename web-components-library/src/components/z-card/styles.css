@@ -6,7 +6,7 @@ div {
   width: auto;
   max-width: 328px;
   height: 558px;
-  border: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border: var(--border-base) solid var(--bg-artboard-gray-light);
   border-radius: var(--radius-base);
 }
 

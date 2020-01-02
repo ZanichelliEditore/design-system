@@ -12,7 +12,7 @@ footer {
   top: 0px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
   border-radius: 0px 0px var(--radius-base) var(--radius-base);
-  border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border-top: var(--border-base) solid var(--bg-artboard-gray-light);
 }
 
 footer.real {

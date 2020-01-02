@@ -35,7 +35,7 @@ export class ZCardAlert {
 
   render() {
     return (
-      <div class={`relativeContainer ${this.retrieveClass()}`}>
+      <div class={`relativeContainer ${this.retrieveClass()}`} tabindex="2">
         <z-icon
           name={this.iconname}
           width={18}

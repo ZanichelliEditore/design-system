@@ -17,6 +17,11 @@
   grid-column-gap: 8px;
   align-items: center;
   padding: 0 var(--basex1);
+  outline: none;
+}
+
+.relativeContainer::-moz-focus-inner {
+  border: 0;
 }
 
 :host div.addAlert {
@@ -25,7 +30,7 @@
 
 :host div.removeAlert {
   background: var(--myz-yellow-light);
-  border: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border: var(--border-base) solid var(--bg-artboard-gray-light);
   border-top: none;
 }
 
