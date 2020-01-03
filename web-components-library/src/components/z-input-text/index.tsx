@@ -18,7 +18,7 @@ export class ZInputText {
   @Prop() message?: string;
   @Prop() isdisabled: boolean = false;
   @Prop() isreadonly: boolean = false;
-  @Prop() icon?: string;
+  @Prop() typingTimeout?: number = 300;
 
   @State() isTyping: boolean = false;
 
@@ -28,7 +28,6 @@ export class ZInputText {
     warning: 'circle-warning',
   };
   private timer;
-  private timeout = 300;
 
   @Event() inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number) {
@@ -37,7 +36,7 @@ export class ZInputText {
     this.inputChange.emit({ value, keycode });
 
     clearTimeout(this.timer);
-    this.timer = setTimeout(() => { this.isTyping = false }, this.timeout);
+    this.timer = setTimeout(() => { this.isTyping = false }, this.typingTimeout);
   }
 
 
