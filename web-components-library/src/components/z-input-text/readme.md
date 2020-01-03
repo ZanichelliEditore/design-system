@@ -28,6 +28,19 @@
 | `inputChange` |             | `CustomEvent<any>` |
 
 
+## Methods
+
+### `getValue() => Promise<string>`
+
+
+
+#### Returns
+
+Type: `Promise<string>`
+
+
+
+
 ## Dependencies
 
 ### Used by

@@ -1,4 +1,4 @@
-import { Component, Prop, State, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, State, h, Event, EventEmitter, Method } from '@stencil/core';
 import { InputTypeBean, InputStatusBean } from "../../beans";
 
 
@@ -11,7 +11,7 @@ import { InputTypeBean, InputStatusBean } from "../../beans";
 export class ZInputText {
   @Prop() inputid: string;
   @Prop() label?: string;
-  @Prop() value?: string;
+  @Prop({ mutable: true }) value?: string;
   @Prop() placeholder?: string;
   @Prop() type?: InputTypeBean;
   @Prop() status?: InputStatusBean;
@@ -28,6 +28,11 @@ export class ZInputText {
     warning: 'circle-warning',
   };
   private timer;
+
+  @Method()
+  async getValue() {
+    return this.value;
+  }
 
   @Event() inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number) {
