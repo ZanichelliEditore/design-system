@@ -21,8 +21,8 @@
 
 
 .caption-01 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 12px;
@@ -30,8 +30,8 @@
 }
 
 .helper-text-01 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-style: italic;
@@ -40,8 +40,8 @@
 }
 
 .body-short-01 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
@@ -49,8 +49,8 @@
 }
 
 .body-short-02 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 16px;
@@ -58,8 +58,8 @@
 }
 
 .body-long-01 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
@@ -67,8 +67,8 @@
 }
 
 .body-long-02 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 16px;
@@ -76,8 +76,8 @@
 }
 
 .heading-01 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
@@ -85,8 +85,8 @@
 }
 
 .heading-02 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 16px;
@@ -94,8 +94,8 @@
 }
 
 .heading-03 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 20px;
@@ -103,8 +103,8 @@
 }
 
 .heading-04 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 28px;
@@ -112,8 +112,8 @@
 }
 
 .heading-05 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 32px;
@@ -121,8 +121,8 @@
 }
 
 .expressive-heading-04 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 32px;
@@ -137,8 +137,8 @@
 }
 
 .expressive-heading-05 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 48px;
@@ -160,8 +160,8 @@
 }
 
 .expressive-paragraph-01 {
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-lt);
   font-size: 32px;
@@ -176,8 +176,8 @@
 }
 
 .quotation-01 {
-  color: var(--text-gray-dark2);
-  fill: var(--text-gray-dark2);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-lt);
   font-size: 32px;
@@ -192,8 +192,8 @@
 }
 
 .quotation-02 {
-  color: var(--text-gray-dark2);
-  fill: var(--text-gray-dark2);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-lt);
   font-size: 60px;
@@ -215,8 +215,8 @@
 }
 
 .display-01 {
-  color: var(--text-gray-dark2);
-  fill: var(--text-gray-dark2);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-lt);
   font-size: 76px;
@@ -231,8 +231,8 @@
 }
 
 .display-02 {
-  color: var(--text-gray-dark2);
-  fill: var(--text-gray-dark2);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 76px;
@@ -247,8 +247,8 @@
 }
 
 .display-03 {
-  color: var(--text-gray-dark2);
-  fill: var(--text-gray-dark2);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-lt);
   font-size: 156px;
@@ -270,8 +270,8 @@
 }
 
 .display-04 {
-  color: var(--text-gray-dark2);
-  fill: var(--text-gray-dark2);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 156px;

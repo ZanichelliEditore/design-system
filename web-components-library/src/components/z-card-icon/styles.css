@@ -12,7 +12,7 @@ button {
 
   background: none;
   border: none;
-  border-left: var(--border-base) solid var(--bg-artboard-gray-light);
+  border-left: var(--border-base) solid var(--bg-grey-200);
   border-radius: 0px var(--radius-base) 0px 0px;
   margin: 0;
   padding: 0;
@@ -39,13 +39,13 @@ button:hover>span {
 }
 
 button:focus>span {
-  background: var(--bg-artboard-white);
+  background: var(--bg-white);
   border-radius: var(--radius-base);
   box-shadow: 0px 0px 2px 2px #78b5ff;
 }
 
 button:active>span {
-  background: var(--bg-artboard-white);
+  background: var(--bg-white);
   border-radius: var(--radius-base);
   box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.4);
 }
@@ -61,7 +61,7 @@ button:disabled>span {
 }
 
 button:disabled>span>z-icon {
-  fill: var(--bg-artboard-gray-light);
+  fill: var(--bg-grey-200);
 }
 
 button::-moz-focus-inner {

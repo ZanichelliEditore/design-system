@@ -1,17 +1,17 @@
 div {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   width: auto;
   max-width: 328px;
   height: 558px;
-  border: var(--border-base) solid var(--bg-artboard-gray-light);
+  border: var(--border-base) solid var(--bg-grey-200);
   border-radius: var(--radius-base);
 }
 
 div.real {
-  border-color: var(--bg-artboard-gray-very-light-real);
+  border-color: var(--accent);
 }
 
 /* HIDDEN status */

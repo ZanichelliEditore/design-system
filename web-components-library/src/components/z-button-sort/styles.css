@@ -4,7 +4,7 @@ button {
   border-radius: var(--radius-base);
   color: var(--myz-blue);
   fill: var(--myz-blue);
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
   outline: none;
   padding: 0 var(--basex1);
   cursor: pointer;
@@ -37,8 +37,8 @@ button:active {
 button.selected {
   border-color: var(--myz-blue-dark);
   background-color: var(--myz-blue-dark);
-  color: var(--bg-artboard-white);
-  fill: var(--bg-artboard-white);
+  color: var(--bg-white);
+  fill: var(--bg-white);
 }
 
 button>label {

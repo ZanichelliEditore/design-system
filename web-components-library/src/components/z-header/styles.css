@@ -19,7 +19,7 @@ header {
   grid-area: main-header;
   grid-column-gap: var(--half-x1);
   align-items: center;
-  background-color: var(--bg-artboard-gray-dark2);
+  background-color: var(---bg-grey-900);
   height: auto;
   align-items: center;
   z-index: 10;
@@ -33,7 +33,7 @@ header {
   grid-area: top-header;
   height: 32px;
   align-items: center;
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
 }
 
 .editors {
@@ -54,7 +54,7 @@ header {
 }
 
 .main-header.myz-out {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
 }
 
 .logo {
@@ -99,7 +99,7 @@ z-logo {
 
 .dropdown-links > a:hover,
 .dropdown-links > a.active {
-  color: var(--text-gray-dark);
+  color: var(--text-grey-800);
   border-bottom: 2px solid var(--myz-blue);
 }
 
@@ -112,7 +112,7 @@ z-logo {
   align-content: center;
   align-items: center;
   width: 100%;
-  background-color: var(--bg-artboard-gray-dark2);
+  background-color: var(---bg-grey-900);
   z-index: inherit;
   height: 52px;
   position: fixed;
@@ -122,7 +122,7 @@ z-logo {
 }
 
 .mobile-header.myz-out {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
 }
 
 .mobile-header > z-button {
@@ -137,7 +137,7 @@ z-logo {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: var(--bg-artboard-gray-dark2);
+  background-color: var(---bg-grey-900);
   position: fixed;
   top: 52px;
   left: 0;
@@ -153,7 +153,7 @@ z-logo {
 }
 
 .mobile-content.myz-out {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
 }
 
 hr {
@@ -168,7 +168,7 @@ hr {
   line-height: 0;
   clear: both;
   border: none;
-  border-top: 1px solid var(--text-gray-medium);
+  border-top: 1px solid var(--text-grey-700);
 }
 
 .menu-mobile {
@@ -178,13 +178,13 @@ hr {
   justify-content: flex-start;
   align-items: center;
   align-content: center;
-  color: var(--bg-artboard-white);
+  color: var(--bg-white);
   padding: var(--basex2) var(--basex3);
   cursor: pointer;
 }
 
 .myz-out .menu-mobile {
-  color: var(--text-gray-dark);
+  color: var(--text-grey-800);
 }
 
 .menu-toggle {
@@ -199,13 +199,13 @@ hr {
 .menu-toggle .bar {
   width: 20px;
   height: 2px;
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
   margin: 2px auto;
   transition: all 0.3s ease-in-out;
 }
 
 .myz-out .menu-toggle .bar {
-  background-color: var(--text-gray-dark);
+  background-color: var(--text-grey-800);
 }
 
 .menu-toggle:hover {
@@ -290,7 +290,7 @@ hr {
 
 .link-ext-span.myz:hover,
 .link-ext-span.myz:focus {
-  background: var(--text-gray-dark);
+  background: var(--text-grey-800);
   border-radius: var(--radius-base);
   cursor: pointer;
 }
@@ -325,7 +325,7 @@ hr {
 
 .link-int > span > .menu-item {
   height: auto;
-  color: var(--bg-artboard-white);
+  color: var(--bg-white);
   letter-spacing: 0.2px;
   font-weight: var(--font-sb);
   font-size: 16px;
@@ -386,7 +386,7 @@ hr {
 
 .mobile-login > span:focus,
 .mobile-login > span:hover {
-  background: var(--text-gray-dark);
+  background: var(--text-grey-800);
 }
 
 .myz-out .mobile-login > span:focus,
@@ -396,7 +396,7 @@ hr {
 
 .mobile-login > span > .menu-item {
   height: auto;
-  color: var(--bg-artboard-white);
+  color: var(--bg-white);
   letter-spacing: 0.2px;
   font-weight: var(--font-sb);
   font-size: 16px;
@@ -416,7 +416,7 @@ hr {
 }
 
 .myz-out .mobile-login > span > .menu-item {
-  color: var(--text-gray-dark);
+  color: var(--text-grey-800);
 }
 
 .mobile-login > span > .menu-item > i {
@@ -434,7 +434,7 @@ hr {
 
 .mobile-login > span > .menu-item > span > z-icon {
   padding-right: var(--basex1);
-  fill: var(--bg-artboard-white);
+  fill: var(--bg-white);
 }
 
 .menu-item > i::before {
@@ -503,7 +503,7 @@ hr {
     grid-template-areas: "dropdown-links";
     grid-area: dropdown-menu;
     grid-column-gap: var(--basex1);
-    background: var(--bg-artboard-gray-light);
+    background: var(--bg-grey-200);
     height: 32px;
     visibility: visible;
     z-index: 9;
@@ -542,7 +542,7 @@ hr {
   .link-int > span > .menu-item {
     width: auto;
     height: auto;
-    color: var(--bg-artboard-white);
+    color: var(--bg-white);
     letter-spacing: 0.2px;
     line-height: 14px;
     font-weight: var(--font-sb);
@@ -561,7 +561,7 @@ hr {
 
   .link-int > span > .menu-item:focus,
   .link-int > span > .menu-item:hover {
-    background: var(--text-gray-dark);
+    background: var(--text-grey-800);
     border-radius: var(--radius-base);
     cursor: pointer;
   }

@@ -18,7 +18,7 @@ ul > li > a {
   font-size: 12px;
   font-weight: var(--font-sb);
   text-decoration: none;
-  color: var(--text-my-zanichelli-blue);
+  color: var(--myz-blue);
 }
 
 ul > li > a:before {
@@ -30,6 +30,6 @@ ul > li > span {
   font-size: 14px;
   font-weight: var(--font-rg);
   text-decoration: none;
-  color: var(--text-gray-medium);
+  color: var(--text-grey-700);
   padding: var(--basex1) var(--basex2);
 }

@@ -16,8 +16,8 @@ a:active {
 }
 
 :host>div {
-  background: var(--bg-artboard-gray);
-  color: var(--text-gray-dark);
+  background: var(--bg-grey-050);
+  color: var(--text-grey-800);
   border-radius: var(--radius-base);
   border: 1px solid transparent;
   width: 147px;

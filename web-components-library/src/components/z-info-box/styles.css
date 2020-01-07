@@ -12,7 +12,7 @@
 }
 
 :host>div>slot {
-  color: var(--text-gray-dark);
+  color: var(--text-grey-800);
   font-size: 14px;
 }
 

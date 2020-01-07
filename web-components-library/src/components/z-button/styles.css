@@ -26,57 +26,57 @@ button.small {
 button.primary {
   background-color: var(--myz-blue);
   border-color: var(--myz-blue);
-  color: var(--bg-artboard-white);
-  fill: var(--bg-artboard-white);
+  color: var(--bg-white);
+  fill: var(--bg-white);
 }
 
 button.primary:hover {
   background-color: var(--myz-blue-dark);
   border-color: var(--myz-blue-dark);
-  color: var(--bg-artboard-white);
-  fill: var(--bg-artboard-white);
+  color: var(--bg-white);
+  fill: var(--bg-white);
 }
 
 button.primary:focus {
   background-color: var(--myz-blue);
   border-color: var(--myz-blue);
-  color: var(--bg-artboard-white);
-  fill: var(--bg-artboard-white);
+  color: var(--bg-white);
+  fill: var(--bg-white);
   box-shadow: 0px 0px 2px 2px #78b5ff;
 }
 
 button.primary:active {
   background-color: #1973e1;
   border-color: #1973e1;
-  color: var(--bg-artboard-white);
-  fill: var(--bg-artboard-white);
+  color: var(--bg-white);
+  fill: var(--bg-white);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
 /* INFO: mantenere il selettore disabled per ultima in modo che sia prioritaria rispetto alle altre */
 button.primary:disabled {
-  background-color: var(--bg-artboard-gray-very-light);
-  border-color: var(--bg-artboard-gray-very-light);
-  color: var(--text-gray-medium);
-  fill: var(--text-gray-medium);
+  background-color: var(--bg-neutral-200);
+  border-color: var(--bg-neutral-200);
+  color: var(--text-grey-700);
+  fill: var(--text-grey-700);
 }
 
 button.secondary {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
   border-color: var(--myz-blue);
   color: var(--myz-blue);
   fill: var(--myz-blue);
 }
 
 button.secondary:hover {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
   border-color: var(--myz-blue-dark);
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
 }
 
 button.secondary:focus {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
   border-color: var(--myz-blue);
   color: var(--myz-blue);
   fill: var(--myz-blue);
@@ -84,7 +84,7 @@ button.secondary:focus {
 }
 
 button.secondary:active {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
   border-color: #1973e1;
   color: #1973e1;
   fill: #1973e1;
@@ -93,10 +93,10 @@ button.secondary:active {
 
 /* INFO: mantenere il selettore disabled per ultima in modo che sia prioritaria rispetto alle altre */
 button.secondary:disabled {
-  background-color: var(--bg-artboard-white);
-  border-color: var(--bg-artboard-gray-very-light);
-  color: var(--text-gray-medium);
-  fill: var(--text-gray-medium);
+  background-color: var(--bg-white);
+  border-color: var(--bg-neutral-200);
+  color: var(--text-grey-700);
+  fill: var(--text-grey-700);
 }
 
 button.tertiary {
@@ -114,16 +114,16 @@ button.tertiary:hover {
 }
 
 button.tertiary:focus {
-  background-color: var(--bg-artboard-white);
-  border-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
+  border-color: var(--bg-white);
   color: var(--myz-blue);
   fill: var(--myz-blue);
   box-shadow: 0px 0px 2px 2px #78b5ff;
 }
 
 button.tertiary:active {
-  background-color: var(--bg-artboard-white);
-  border-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
+  border-color: var(--bg-white);
   color: #1973e1;
   fill: #1973e1;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
@@ -133,8 +133,8 @@ button.tertiary:active {
 button.tertiary:disabled {
   background-color: transparent;
   border-color: transparent;
-  color: var(--text-gray-medium);
-  fill: var(--text-gray-medium);
+  color: var(--text-grey-700);
+  fill: var(--text-grey-700);
 }
 
 button > z-icon {
