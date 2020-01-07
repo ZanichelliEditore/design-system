@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, State, h, Event, EventEmitter, Method } from '@stencil/core';
 import { InputTypeBean, InputStatusBean } from "../../beans";
 
 
@@ -11,24 +11,37 @@ import { InputTypeBean, InputStatusBean } from "../../beans";
 export class ZInputText {
   @Prop() inputid: string;
   @Prop() label?: string;
-  @Prop() value?: string;
+  @Prop({ mutable: true }) value?: string;
   @Prop() placeholder?: string;
   @Prop() type?: InputTypeBean;
   @Prop() status?: InputStatusBean;
   @Prop() message?: string;
   @Prop() isdisabled: boolean = false;
   @Prop() isreadonly: boolean = false;
+  @Prop() typingTimeout?: number = 300;
+
+  @State() isTyping: boolean = false;
 
   private statusIcons = {
     success: 'circle-check',
     error: 'circle-cross-stroke',
     warning: 'circle-warning',
   };
+  private timer;
+
+  @Method()
+  async getValue() {
+    return this.value;
+  }
 
   @Event() inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number) {
+    this.isTyping = true;
     this.value = value;
     this.inputChange.emit({ value, keycode });
+
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => { this.isTyping = false }, this.typingTimeout);
   }
 
 
@@ -43,7 +56,11 @@ export class ZInputText {
       id={this.inputid}
       type={this.type}
       disabled={this.isdisabled || this.isreadonly}
-      class={`${this.isreadonly && 'readonly'} ${this.status && 'input_' + this.status}`}
+      class={this.isreadonly ? 'readonly' : `
+        ${this.status ? 'input_' + this.status : 'input_default'}
+        ${this.isTyping && 'istyping'}
+        ${(!this.isTyping && this.value) && 'filled'}
+      `}
       name={this.inputid}
       placeholder={this.placeholder}
       value={this.value}

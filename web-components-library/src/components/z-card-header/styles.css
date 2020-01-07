@@ -5,9 +5,9 @@ header {
   width: auto;
   height: 40px;
   position: relative;
-  border-bottom: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border-bottom: var(--border-base) solid var(--bg-artboard-gray-light);
   border-radius: var(--radius-base) var(--radius-base) var(--radius-min) var(--radius-min);
-  background-color: var(--bg-artboard-gray);
+  background-color: var(--bg-artboard-white);
 }
 
 header.real {
@@ -33,9 +33,9 @@ h2 {
 }
 
 .faded {
-  border-top: var(--border-base) solid var(--bg-artboard-gray-very-light);
-  border-right: var(--border-base) solid var(--bg-artboard-gray-very-light);
-  border-left: var(--border-base) solid var(--bg-artboard-gray-very-light);
+  border-top: var(--border-base) solid var(--bg-artboard-gray-light);
+  border-right: var(--border-base) solid var(--bg-artboard-gray-light);
+  border-left: var(--border-base) solid var(--bg-artboard-gray-light);
 }
 
 .faded.real {

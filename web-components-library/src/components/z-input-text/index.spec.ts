@@ -15,7 +15,7 @@ describe("Suite test ZInputText", () => {
         <mock:shadow-root>
           <div>
             <div>
-              <input class="false undefined" />
+              <input class="false input_default undefined" />
             </div>
           </div>
         </mock:shadow-root>
@@ -34,7 +34,7 @@ describe("Suite test ZInputText", () => {
           <div>
             <label>label</label>
             <div>
-              <input class="false undefined" type='text' id='test' name='test' placeholder='placeholder' value='value' />
+              <input class="false input_default filled" type='text' id='test' name='test' placeholder='placeholder' value='value' />
               <z-icon name="close"></z-icon>
             </div>
           </div>
@@ -54,7 +54,7 @@ describe("Suite test ZInputText", () => {
           <div>
             <label>label</label>
             <div>
-              <input disabled class="false undefined" type='text' id='test' name='test' placeholder='placeholder' value='value' />
+              <input disabled class="false filled input_default" type='text' id='test' name='test' placeholder='placeholder' value='value' />
             </div>
           </div>
         </mock:shadow-root>
@@ -73,7 +73,7 @@ describe("Suite test ZInputText", () => {
           <div>
             <label>label</label>
             <div>
-              <input disabled class="readonly undefined" type='text' id='test' name='test' placeholder='placeholder' value='value' />
+              <input disabled class="readonly" type='text' id='test' name='test' placeholder='placeholder' value='value' />
             </div>
           </div>
         </mock:shadow-root>
@@ -92,7 +92,7 @@ describe("Suite test ZInputText", () => {
           <div>
             <label>label</label>
             <div>
-              <input class="false undefined" type='text' id='test' name='test' placeholder='placeholder' value='value' />
+              <input class="false filled input_default" type='text' id='test' name='test' placeholder='placeholder' value='value' />
               <z-icon name="close"></z-icon>
             </div>
             <span class="statusMsg msg_undefined">
@@ -115,7 +115,7 @@ describe("Suite test ZInputText", () => {
           <div>
             <label>label</label>
             <div>
-              <input class="false input_success" type='text' id='test' name='test' placeholder='placeholder' value='value' />
+              <input class="false filled input_success" type='text' id='test' name='test' placeholder='placeholder' value='value' />
               <z-icon name="close"></z-icon>
             </div>
             <span class="statusMsg msg_success">

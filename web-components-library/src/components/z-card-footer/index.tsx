@@ -53,7 +53,7 @@ export class ZCardFooter {
               </span>
             </p>
           </div>
-          <slot name="list" />
+          {this.isOpen && <slot name="list" />}
         </footer>
       </div>
     );
