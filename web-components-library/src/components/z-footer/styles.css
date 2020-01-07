@@ -48,7 +48,7 @@ footer>section.top>nav>.header>h2 {
 }
 
 footer>section.top>nav>.header {
-  fill: #fff;
+  fill: var(--text-white);
 }
 
 footer>section.top>nav>.header>z-icon {
@@ -288,7 +288,7 @@ footer>section.bottom>div.item:nth-child(1)>p {
   }
 
   footer>section.bottom>div.bottom-links>ul>li>a {
-    color: #fff;
+    color: var(--text-white);
   }
 }
 

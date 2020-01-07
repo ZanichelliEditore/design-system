@@ -4,7 +4,7 @@
 }
 
 :host>div {
-  background: #ebf4ff;
+  background: var(--accent-lighter);
   padding: var(--basex2);
   border-radius: var(--radius-base);
   display: flex;

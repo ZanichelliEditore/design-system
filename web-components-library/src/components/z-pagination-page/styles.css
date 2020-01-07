@@ -29,7 +29,7 @@
 
 
 :host>a:hover {
-  border-bottom: 4px solid rgb(0, 86, 193, 0.5);
+  border-bottom: 4px solid rgba(0, 86, 193, 0.5);
   background-color: var(--bg-grey-050);
   text-decoration: none;
   transition: border-bottom 0.2s ease, background-color 0.2s ease;
@@ -37,13 +37,13 @@
 
 :host>a:focus {
   border-bottom: 4px solid var(--bg-grey-200);
-  box-shadow: 0px 0px 2px 2px #78b5ff;
+  box-shadow: 0px 0px 2px 2px var(--accent-dark);
   background-color: var(--bg-grey-050);
   text-decoration: none;
 }
 
 :host>a.visited {
-  border-color: rgb(0, 86, 193, 0.5);
+  border-color: rgba(0, 86, 193, 0.5);
   text-decoration: none;
 }
 

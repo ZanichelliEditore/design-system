@@ -45,18 +45,18 @@ input::placeholder {
 }
 
 :host>div>div>input.input_success {
-  border-color: #417505;
-  background: #effce0;
+  border-color: var(--status-success-green);
+  background: var(--status-success-green-lighter);
 }
 
 :host>div>div>input.input_error {
-  border-color: #dc3122;
-  background: #fdefee;
+  border-color: var(--status-error-red);
+  background: var(--status-error-red-lighter);
 }
 
 :host>div>div>input.input_warning {
-  border-color: #f6bb3b;
-  background: #fbf4e6;
+  border-color: var(--status-warning-yellow);
+  background: var(--status-warning-yellow-lighter);
 }
 
 :host>div>div>input.input_default.filled {
@@ -65,7 +65,7 @@ input::placeholder {
 
 :host>div>div>input:focus {
   border-color: transparent;
-  box-shadow: 0 0 2px 2px #78b5ff;
+  box-shadow: 0 0 2px 2px var(--accent-dark);
 }
 
 :host>div>div>input:focus.istyping {
@@ -135,18 +135,18 @@ input::placeholder {
 }
 
 :host>div>span.statusMsg.msg_success {
-  color: #417505;
-  fill: #417505;
+  color: var(--status-success-green);
+  fill: var(--status-success-green);
 }
 
 :host>div>span.statusMsg.msg_error {
-  color: #dc3122;
-  fill: #dc3122;
+  color: var(--status-error-red);
+  fill: var(--status-error-red);
 }
 
 :host>div>span.statusMsg.msg_warning {
-  color: #85641a;
-  fill: #85641a;
+  color: var(--status-warning-yellow-dark);
+  fill: var(--status-warning-yellow-dark);
 }
 
 :host>div>span.statusMsg>z-icon {
