@@ -25,25 +25,25 @@
 }
 
 :host div.addAlert {
-  background: var(--myz-green-light);
+  background: var(--status-success-green-lighter);
 }
 
 :host div.removeAlert {
-  background: var(--myz-yellow-light);
-  border: var(--border-base) solid var(--bg-artboard-gray-light);
+  background: var(--status-warning-yellow-lighter);
+  border: var(--border-base) solid var(--bg-grey-200);
   border-top: none;
 }
 
-:host div > .contentText {
-  color: var(--text-gray-dark);
+:host div>.contentText {
+  color: var(--text-grey-800);
   font-size: 14px;
   height: 20px;
   letter-spacing: 0.16px;
   line-height: 20px;
 }
 
-:host div > .contentAction {
-  color: var(--text-my-zanichelli-blue);
+:host div>.contentAction {
+  color: var(--myz-blue);
   font-size: 12px;
   font-weight: var(--font-sb);
   height: 16px;
@@ -52,16 +52,16 @@
   cursor: pointer;
 }
 
-:host div > z-icon {
+:host div>z-icon {
   justify-self: center;
 }
 
-:host div > z-icon.addAlert {
-  color: var(--icon-green);
-  fill: var(--icon-green);
+:host div>z-icon.addAlert {
+  color: var(--status-success-green);
+  fill: var(--status-success-green);
 }
 
-:host div > z-icon.removeAlert {
-  color: var(--icon-yellow);
-  fill: var(--icon-yellow);
+:host div>z-icon.removeAlert {
+  color: var(--status-warning-yellow-dark);
+  fill: var(--status-warning-yellow-dark);
 }

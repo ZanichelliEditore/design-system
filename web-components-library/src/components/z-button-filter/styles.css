@@ -2,7 +2,7 @@ button.container {
   min-height: 32px;
   line-height: 32px;
 
-  border: var(--border-size-small) solid var(--bg-artboard-gray-light);
+  border: var(--border-size-small) solid var(--bg-grey-200);
   border-radius: 19.5px;
 
   text-align: center;
@@ -43,13 +43,13 @@ button.container::-moz-focus-inner {
 button.container,
 button.container:focus,
 button.container:hover {
-  background-color: var(--bg-artboard-white);
-  color: var(--text-gray-medium);
-  fill: var(--text-gray-medium);
+  background-color: var(--bg-white);
+  color: var(--text-grey-700);
+  fill: var(--text-grey-700);
 }
 
 button.container.isactive {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
   color: var(--myz-blue);
   fill: var(--myz-blue);
 }
@@ -62,9 +62,9 @@ button.container.isactive:hover {
 button.container.isactive:focus {
   background-color: var(--myz-blue-dark);
   border-color: var(--myz-blue-dark);
-  box-shadow: 0px 0px 4px 0px var(--text-gray-dark);
-  color: var(--bg-artboard-white);
-  fill: var(--bg-artboard-white);
+  box-shadow: 0px 0px 4px 0px var(--text-grey-800);
+  color: var(--bg-white);
+  fill: var(--bg-white);
 }
 
 button.container.isactive z-icon.close-icon-container {

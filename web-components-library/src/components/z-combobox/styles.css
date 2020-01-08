@@ -8,9 +8,9 @@
 }
 
 :host>div>header {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
   border-radius: var(--radius-base);
-  border: var(--border-base) solid var(--bg-artboard-gray-light);
+  border: var(--border-base) solid var(--bg-grey-200);
   position: relative;
   z-index: 10;
   height: 48px;
@@ -29,7 +29,7 @@
 :host>div>header>h2 {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  color: var(--text-gray-dark);
+  color: var(--text-grey-800);
   font-size: 16px;
   line-height: 48px;
   margin: 0;
@@ -56,9 +56,9 @@
 }
 
 :host>div.open>div.openComboData {
-  background-color: var(--bg-artboard-white);
+  background-color: var(--bg-white);
   border-radius: 0 0 var(--radius-base) var(--radius-base);
-  border: var(--border-base) solid var(--bg-artboard-gray-light);
+  border: var(--border-base) solid var(--bg-grey-200);
   border-top: 0px;
   position: relative;
   z-index: 12;
@@ -70,7 +70,7 @@
   max-height: 235px;
   overflow: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--myz-blue) var(--bg-artboard-gray-light);
+  scrollbar-color: var(--myz-blue) var(--bg-grey-200);
 }
 
 :host>div.open>div.openComboData>z-input-text {
@@ -85,7 +85,7 @@
 }
 
 ::-webkit-scrollbar {
-  background: linear-gradient(90deg, var(--bg-artboard-white) 2px, var(--bg-artboard-gray-light) 4px, var(--bg-artboard-white) 8px);
+  background: linear-gradient(90deg, var(--bg-white) 2px, var(--bg-grey-200) 4px, var(--bg-white) 8px);
   border-radius: var(--radius-base);
   width: 10px;
 }
@@ -116,7 +116,7 @@
   max-height: 180px;
   overflow: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--myz-blue) var(--bg-artboard-gray-light);
+  scrollbar-color: var(--myz-blue) var(--bg-grey-200);
 }
 
 :host>div.open>div.openComboData>div.search>a {

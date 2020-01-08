@@ -29,8 +29,8 @@ a.disabled,
 a.disabled:active,
 a.disabled:visited,
 a.disabled:hover {
-  color: var(--bg-artboard-gray-very-light);
-  fill: var(--bg-artboard-gray-very-light);
+  color: var(--bg-neutral-200);
+  fill: var(--bg-neutral-200);
   text-decoration: none;
 }
 
@@ -38,8 +38,8 @@ a.white,
 a.white:active,
 a.white:visited,
 a.white:hover {
-  color: var(--bg-artboard-white);
-  fill: var(--bg-artboard-white);
+  color: var(--bg-white);
+  fill: var(--bg-white);
   text-decoration: none;
 }
 

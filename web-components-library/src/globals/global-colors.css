@@ -1,35 +1,55 @@
 :root,
 :host {
-  --bg-artboard-gray-dark2: #333333;
-  --bg-artboard-gray: #f6f6f6;
-  --bg-artboard-white: #ffffff;
-  --bg-artboard-gray-light: #e6e6e6;
-  --bg-artboard-gray-very-light: #cad1d8;
-
-  --bg-artboard-heavenly-real: #ebf4ff;
-  --bg-artboard-gray-very-light-real: #add2ff;
-
-  --brand-red-normal: #e2001a;
-  --brand-red-light: #ff808e;
-  --brand-red-dark: #80000f;
-
-  --myz-blue: #0056c1;
-  --myz-blue-light: #63a8ff;
+  --myz-blue: #0056C1;
   --myz-blue-dark: #003476;
-  --myz-green-light: #effce0;
-  --myz-yellow-light: #fbf4e6;
+  --myz-blue-light: #1973E1;
+  --myz-blue-lighter: #E1F0FF;
 
-  --text-gray-dark2: #333333;
-  --text-gray-dark: #424548;
-  --text-gray-medium: #676b6f;
-  --text-gray-light: #8d9196;
-  --text-my-zanichelli-white: #f7f7f7;
-  --text-my-zanichelli-blue: #0056c1;
+  --myz-red: #E2001A;
+  --myz-red-dark: #80000F;
+  --myz-red-light: #FF808E;
 
-  --status-success-green: #9cd638;
-  --status-warning-orange: #db9909;
-  --status-error-red: #dc3122;
+  --accent: #ADD2FF;
+  --accent-dark: #78B5FF;
+  --accent-light: #D0E9FF;
+  --accent-lighter: #EBF4FF;
 
-  --icon-green: #417505;
-  --icon-yellow: #876428;
+  --bg-grey-050: #F6F6F6;
+  --bg-grey-200: #E6E6E6;
+  --bg-grey-700: #676B6F;
+  --bg-grey-800: #424548;
+  --bg-grey-900: #333333;
+
+  --bg-white: #FFFFFF;
+
+  --bg-neutral-100: #E8EBEE;
+  --bg-neutral-150: #D9DEE3;
+  --bg-neutral-200: #CAD1D8;
+  --bg-neutral-300: #AEB8C2;
+  --bg-neutral-400: #919EAC;
+  --bg-neutral-500: #738596;
+  --bg-neutral-600: #5C6B7A;
+  --bg-neutral-700: #46525D;
+  --bg-neutral-800: #303840;
+
+  --status-error-red: #DC3122;
+  --status-error-red-dark: #7E0A00;
+  --status-error-red-light: #FF9C9C;
+  --status-error-red-lighter: #FDEFEE;
+
+  --status-warning-yellow: #F6BB3B;
+  --status-warning-yellow-dark: #85641A;
+  --status-warning-yellow-light: #FEE17F;
+  --status-warning-yellow-lighter: #FBF4E6;
+
+  --status-success-green: #417505;
+  --status-success-green-dark: #233A00;
+  --status-success-green-light: #95D150;
+  --status-success-green-lighter: #EFFCE0;
+
+  --text-grey-800: #424548;
+  --text-grey-700: #676B6F;
+  --text-grey-200: #E6E6E6;
+  --text-grey-050: #F6F6F6;
+  --text-white: #FFFFFF;
 }

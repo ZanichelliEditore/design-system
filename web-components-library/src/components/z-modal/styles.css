@@ -30,7 +30,7 @@
   z-index: 1010;
   width: 100%;
   margin: 0;
-  background: var(--bg-artboard-white);
+  background: var(--bg-white);
 }
 
 :host>div>div>header {
@@ -40,7 +40,7 @@
   justify-content: space-between;
   align-items: stretch;
   align-content: space-between;
-  background: var(--bg-artboard-gray);
+  background: var(--bg-grey-050);
 }
 
 :host>div>div>header>z-icon {
@@ -58,7 +58,7 @@
 :host>div>div>header>div>h2 {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  color: var(--text-gray-dark);
+  color: var(--text-grey-800);
   margin: 0;
   padding: 0;
 }

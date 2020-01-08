@@ -16,8 +16,8 @@ a:active {
 }
 
 :host>div {
-  background: var(--bg-artboard-gray);
-  color: var(--text-gray-dark);
+  background: var(--bg-grey-050);
+  color: var(--text-grey-800);
   border-radius: var(--radius-base);
   border: 1px solid transparent;
   width: 147px;
@@ -40,8 +40,8 @@ a:active {
 }
 
 :host>div:active {
-  color: #1973e1;
-  border: 1px solid #1973e1;
+  color: var(--myz-blue-light);
+  border: 1px solid var(--myz-blue-light);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 

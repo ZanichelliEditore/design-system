@@ -3,14 +3,14 @@
 }
 
 :host>div>div {
-  fill: var(--text-gray-dark);
+  fill: var(--text-grey-800);
 }
 
 :host>div>div>input {
   border-radius: 0px;
-  border: var(--border-size-small) solid var(--bg-artboard-gray-light);
-  border-color: var(--bg-artboard-gray-light);
-  background: var(--bg-artboard-white);
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  border-color: var(--bg-grey-200);
+  background: var(--bg-white);
   box-sizing: border-box;
   height: 44px;
   width: 100%;
@@ -19,53 +19,53 @@
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 16px;
-  color: var(--text-gray-dark);
-  fill: var(--text-gray-dark);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
   outline: none;
 }
 
 input::placeholder {
-  color: var(--text-gray-medium);
+  color: var(--text-grey-700);
 }
 
 ::-webkit-input-placeholder {
-  color: var(--text-gray-medium);
+  color: var(--text-grey-700);
 }
 
 :-ms-input-placeholder {
-  color: var(--text-gray-medium);
+  color: var(--text-grey-700);
 }
 
 ::-moz-placeholder {
-  color: var(--text-gray-medium);
+  color: var(--text-grey-700);
 }
 
 :-moz-placeholder {
-  color: var(--text-gray-medium);
+  color: var(--text-grey-700);
 }
 
 :host>div>div>input.input_success {
-  border-color: #417505;
-  background: #effce0;
+  border-color: var(--status-success-green);
+  background: var(--status-success-green-lighter);
 }
 
 :host>div>div>input.input_error {
-  border-color: #dc3122;
-  background: #fdefee;
+  border-color: var(--status-error-red);
+  background: var(--status-error-red-lighter);
 }
 
 :host>div>div>input.input_warning {
-  border-color: #f6bb3b;
-  background: #fbf4e6;
+  border-color: var(--status-warning-yellow);
+  background: var(--status-warning-yellow-lighter);
 }
 
 :host>div>div>input.input_default.filled {
-  border-color: var(--text-gray-dark);
+  border-color: var(--text-grey-800);
 }
 
 :host>div>div>input:focus {
   border-color: transparent;
-  box-shadow: 0 0 2px 2px #78b5ff;
+  box-shadow: 0 0 2px 2px var(--accent-dark);
 }
 
 :host>div>div>input:focus.istyping {
@@ -79,29 +79,29 @@ input::placeholder {
 }
 
 :host>div>div>input:disabled {
-  border-color: var(--bg-artboard-gray-light);
-  background: var(--bg-artboard-white);
+  border-color: var(--bg-grey-200);
+  background: var(--bg-white);
   box-shadow: none;
-  color: var(--text-gray-medium);
-  fill: var(--bg-artboard-gray-light);
+  color: var(--text-grey-700);
+  fill: var(--bg-grey-200);
 }
 
 :host>div>div>input:hover {
-  border-color: var(--text-gray-dark);
-  background: var(--bg-artboard-gray);
+  border-color: var(--text-grey-800);
+  background: var(--bg-grey-050);
 }
 
 :host>div>div>input:disabled:hover {
-  background: var(--bg-artboard-white);
+  background: var(--bg-white);
 }
 
 :host>div>div>input.readonly:disabled {
-  color: var(--text-gray-dark);
+  color: var(--text-grey-800);
 }
 
 :host>div>label {
   display: inline-block;
-  color: var(--text-gray-dark);
+  color: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 12px;
@@ -128,25 +128,25 @@ input::placeholder {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
-  color: var(--text-gray-medium);
-  fill: var(--text-gray-medium);
+  color: var(--text-grey-700);
+  fill: var(--text-grey-700);
   padding: var(--basex1) 0;
   display: flex;
 }
 
 :host>div>span.statusMsg.msg_success {
-  color: #417505;
-  fill: #417505;
+  color: var(--status-success-green);
+  fill: var(--status-success-green);
 }
 
 :host>div>span.statusMsg.msg_error {
-  color: #dc3122;
-  fill: #dc3122;
+  color: var(--status-error-red);
+  fill: var(--status-error-red);
 }
 
 :host>div>span.statusMsg.msg_warning {
-  color: #85641a;
-  fill: #85641a;
+  color: var(--status-warning-yellow-dark);
+  fill: var(--status-warning-yellow-dark);
 }
 
 :host>div>span.statusMsg>z-icon {

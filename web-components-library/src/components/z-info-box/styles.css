@@ -4,7 +4,7 @@
 }
 
 :host>div {
-  background: #ebf4ff;
+  background: var(--accent-lighter);
   padding: var(--basex2);
   border-radius: var(--radius-base);
   display: flex;
@@ -12,7 +12,7 @@
 }
 
 :host>div>slot {
-  color: var(--text-gray-dark);
+  color: var(--text-grey-800);
   font-size: 14px;
 }
 
