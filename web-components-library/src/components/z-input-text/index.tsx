@@ -34,6 +34,11 @@ export class ZInputText {
     return this.value;
   }
 
+  @Method()
+  async setValue(value: string) {
+    this.value = value;
+  }
+
   @Event() inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number) {
     this.isTyping = true;
@@ -67,10 +72,11 @@ export class ZInputText {
 
     switch (this.type) {
       case InputTypeEnum.textarea:
-        return <textarea id={id} name={name} placeholder={placeholder}
-            disabled={disabled} class={inputClass}
-            onInput={inputChangeFn}
-          >{value}</textarea>
+        return <textarea id={id} name={name}
+          placeholder={placeholder} value={value}
+          disabled={disabled} class={inputClass}
+          onInput={inputChangeFn}
+        />
       default:
         return <input id={id} name={name} type={type}
           placeholder={placeholder} value={value}
