@@ -117,9 +117,14 @@ textarea::placeholder {
   background: var(--bg-white);
 }
 
-:host>div>div>input.readonly:disabled,
-:host>div>div>textarea.readonly:disabled {
+:host>div>div>input[readonly],
+:host>div>div>textarea[readonly] {
   color: var(--text-grey-800);
+}
+
+:host>div>div>input[readonly]:hover,
+:host>div>div>textarea[readonly]:hover {
+  background: var(--bg-white);
 }
 
 :host>div>label {

@@ -59,8 +59,9 @@ export class ZInputText {
   renderInput() {
     const id = this.inputid;
     const type = this.type;
-    const disabled = this.isdisabled || this.isreadonly;
-    const inputClass = this.isreadonly ? 'readonly' : `
+    const disabled = this.isdisabled;
+    const readonly = this.isreadonly;
+    const inputClass = `
         ${this.status ? 'input_' + this.status : 'input_default'}
         ${this.isTyping && 'istyping'}
         ${(!this.isTyping && this.value) && 'filled'}
@@ -74,13 +75,15 @@ export class ZInputText {
       case InputTypeEnum.textarea:
         return <textarea id={id} name={name}
           placeholder={placeholder} value={value}
-          disabled={disabled} class={inputClass}
+          disabled={disabled} readonly={readonly}
+          class={inputClass}
           onInput={inputChangeFn}
         />
       default:
         return <input id={id} name={name} type={type}
           placeholder={placeholder} value={value}
-          disabled={disabled} class={inputClass}
+          disabled={disabled} readonly={readonly}
+          class={inputClass}
           onInput={inputChangeFn}
         />
     }
