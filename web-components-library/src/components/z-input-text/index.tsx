@@ -1,5 +1,5 @@
 import { Component, Prop, State, h, Event, EventEmitter, Method } from '@stencil/core';
-import { InputTypeBean, InputStatusBean } from "../../beans";
+import { InputTypeBean, InputTypeEnum, InputStatusBean } from "../../beans";
 
 
 @Component({
@@ -52,24 +52,36 @@ export class ZInputText {
   }
 
   renderInput() {
-    return <input
-      id={this.inputid}
-      type={this.type}
-      disabled={this.isdisabled || this.isreadonly}
-      class={this.isreadonly ? 'readonly' : `
+    const id = this.inputid;
+    const type = this.type;
+    const disabled = this.isdisabled || this.isreadonly;
+    const inputClass = this.isreadonly ? 'readonly' : `
         ${this.status ? 'input_' + this.status : 'input_default'}
         ${this.isTyping && 'istyping'}
         ${(!this.isTyping && this.value) && 'filled'}
-      `}
-      name={this.inputid}
-      placeholder={this.placeholder}
-      value={this.value}
-      onInput={(e: any) => { this.emitInputChange(e.target.value, e.keyCode) }}
-    />
+      `;
+    const name = this.inputid;
+    const placeholder = this.placeholder;
+    const value = this.value;
+    const inputChangeFn = (e: any) => this.emitInputChange(e.target.value, e.keyCode);
+
+    switch (this.type) {
+      case InputTypeEnum.textarea:
+        return <textarea id={id} name={name} placeholder={placeholder}
+            disabled={disabled} class={inputClass}
+            onInput={inputChangeFn}
+          >{value}</textarea>
+      default:
+        return <input id={id} name={name} type={type}
+          placeholder={placeholder} value={value}
+          disabled={disabled} class={inputClass}
+          onInput={inputChangeFn}
+        />
+    }
   }
 
   renderResetIcon() {
-    if (!this.value || this.isdisabled || this.isreadonly) return;
+    if (!this.value || this.isdisabled || this.isreadonly || this.type === InputTypeEnum.textarea) return;
 
     return <z-icon name="close" onClick={(e: any) => this.emitInputChange('', e.keyCode)} />;
   }
