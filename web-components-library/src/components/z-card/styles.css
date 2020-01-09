@@ -17,7 +17,6 @@ div.real {
 /* HIDDEN status */
 div.faded {
   border: none;
-  pointer-events: none;
 }
 
 /* HIGHLIGHTED status */
