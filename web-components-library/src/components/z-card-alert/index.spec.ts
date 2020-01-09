@@ -40,7 +40,6 @@ describe("Suite test ZCardAlert", () => {
           <span class=\"contentText\">
             Libro aggiunto ai miei libri
           </span>
-          <span class=\"contentAction\"></span>
         </div>
       </mock:shadow-root>
     </z-card-alert>
@@ -84,7 +83,6 @@ describe("Suite test ZCardAlert", () => {
           <span class=\"contentText\">
             Libro rimosso dai tuoi libri
           </span>
-          <span class=\"contentAction\"></span>
         </div>
       </mock:shadow-root>
     </z-card-alert>
