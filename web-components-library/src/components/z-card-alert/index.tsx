@@ -43,7 +43,7 @@ export class ZCardAlert {
           class={this.retrieveClass()}
         ></z-icon>
         <span class="contentText">{this.contenttext}</span>
-        {this.actiontext && (
+        {this.actiontext && !!this.actiontext.trim().length && (
           <span
             class="contentAction"
             onClick={(e: MouseEvent) => {
