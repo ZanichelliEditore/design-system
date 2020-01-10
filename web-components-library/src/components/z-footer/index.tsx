@@ -1,6 +1,12 @@
 import { Component, Prop, State, h } from "@stencil/core";
 import { mobileBreakpoint } from "../../constants/breakpoints";
-import { FooterBean, FooterGroupBean, FooterGroupItemBean, MyzLinkBean, FooterSocialBean } from "../../beans/index.js";
+import {
+  FooterBean,
+  FooterGroupBean,
+  FooterGroupItemBean,
+  MyzLinkBean,
+  FooterSocialBean
+} from "../../beans/index.js";
 
 @Component({
   tag: "z-footer",
@@ -17,7 +23,9 @@ export class ZFooter {
 
   componentWillLoad() {
     this.jsonData = JSON.parse(this.data);
-    this.isOpen = Array<boolean>(this.jsonData.zanichelliLinks.length).fill(false);
+    this.isOpen = Array<boolean>(this.jsonData.zanichelliLinks.length).fill(
+      false
+    );
   }
 
   componentDidLoad() {
@@ -39,21 +47,28 @@ export class ZFooter {
   renderFooterSection(id: number, group: FooterGroupBean): HTMLElement {
     return (
       <nav>
-        <div class="header" >
+        <div class="header">
           <h2>{group.title}</h2>
-          {this.isMobile &&
-            <z-icon name={this.isOpen[id] ? 'chevron-up' : 'chevron-down'}
-              width={16} height={16}
+          {this.isMobile && (
+            <z-icon
+              name={this.isOpen[id] ? "chevron-up" : "chevron-down"}
+              width={16}
+              height={16}
               onClick={() => this.handleOnHeaderClick(id)}
             />
-          }
+          )}
         </div>
         <div class="content">
           <ul class={this.isOpen[id] ? "show" : ""}>
             {group.items.map(
               (item: FooterGroupItemBean): HTMLElement => (
                 <li>
-                  <a href={item.link} target={item.target ? item.target : '_blank'}>{item.label}</a>
+                  <a
+                    href={item.link}
+                    target={item.target ? item.target : "_blank"}
+                  >
+                    {item.label}
+                  </a>
                 </li>
               )
             )}
@@ -66,10 +81,13 @@ export class ZFooter {
   renderFooterTop(): HTMLElement {
     const zanichelliLinks: FooterGroupBean[] = this.jsonData.zanichelliLinks;
     const bottomLinks: FooterGroupItemBean[] = this.jsonData.bottomLinks;
-    const zanichelliLinksToRender = zanichelliLinks.slice()
+    const zanichelliLinksToRender = zanichelliLinks.slice();
 
     if (this.isMobile) {
-      zanichelliLinksToRender.push({ title: 'Altre informazioni', items: bottomLinks })
+      zanichelliLinksToRender.push({
+        title: "Altre informazioni",
+        items: bottomLinks
+      });
     }
 
     return (
@@ -78,7 +96,6 @@ export class ZFooter {
           (item: FooterGroupBean, id: number): HTMLElement =>
             this.renderFooterSection(id, item)
         )}
-
       </section>
     );
   }
@@ -89,18 +106,18 @@ export class ZFooter {
     return (
       <z-logo
         link={myzLink.link}
-        imageurl={myzLink.img}
+        width={144}
+        height={38}
         imagealt={myzLink.label}
-        targetblank={true} />
+        targetblank={true}
+      />
     );
   }
 
   renderAddress(): HTMLElement {
     const zanichelliAddress: string = this.jsonData.zanichelliAddress;
 
-    return (
-      <p>{zanichelliAddress}</p>
-    );
+    return <p>{zanichelliAddress}</p>;
   }
 
   renderSocial(): HTMLElement {
@@ -109,10 +126,13 @@ export class ZFooter {
     return (
       <ul class="social">
         {social.map(
-          (item: FooterSocialBean): HTMLElement =>
+          (item: FooterSocialBean): HTMLElement => (
             <li>
-              <a href={item.link} target="_blank"><img src={item.icon} /></a>
+              <a href={item.link} target="_blank">
+                <img src={item.icon} />
+              </a>
             </li>
+          )
         )}
       </ul>
     );
@@ -121,18 +141,18 @@ export class ZFooter {
   renderCopyright(): HTMLElement {
     if (!!this.copyrightuser) {
       return (
-        <p>Copyright – {new Date().getFullYear()} {this.copyrightuser} All rights reserved</p>
+        <p>
+          Copyright – {new Date().getFullYear()} {this.copyrightuser} All rights
+          reserved
+        </p>
       );
-    }
-    else return;
+    } else return;
   }
 
   renderCertification(): HTMLElement {
     const certification: string = this.jsonData.certification;
 
-    return (
-      <p>{certification}</p>
-    );
+    return <p>{certification}</p>;
   }
 
   renderBottomLinks(): HTMLElement {
@@ -142,10 +162,16 @@ export class ZFooter {
         <div class="item bottom-links">
           <ul>
             {bottomLinks.map(
-              (item: FooterGroupItemBean): HTMLElement =>
+              (item: FooterGroupItemBean): HTMLElement => (
                 <li>
-                  <a href={item.link} target={item.target ? item.target : '_blank'}>{item.label}</a>
+                  <a
+                    href={item.link}
+                    target={item.target ? item.target : "_blank"}
+                  >
+                    {item.label}
+                  </a>
                 </li>
+              )
             )}
           </ul>
         </div>

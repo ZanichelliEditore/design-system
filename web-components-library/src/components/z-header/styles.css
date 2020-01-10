@@ -1,6 +1,6 @@
 header {
   position: sticky;
-  top: -36px;
+  top: -32px;
   z-index: 99;
   display: grid;
   grid-template-columns: 1fr;
@@ -59,9 +59,9 @@ header {
 
 .logo {
   grid-area: logo;
-  display: flex;
-  justify-content: flex-start;
-  padding: 2px;
+  /* display: flex;
+  justify-content: flex-start; */
+  padding: 6px;
 }
 
 z-logo {

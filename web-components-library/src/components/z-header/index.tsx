@@ -134,7 +134,8 @@ export class ZHeader {
         <z-logo
           link={this.logolink ? this.logolink : null}
           targetblank={true}
-          imageurl={this.logopath}
+          width={144}
+          height={36}
           imagealt={this.imagealt}
         />
       </div>
