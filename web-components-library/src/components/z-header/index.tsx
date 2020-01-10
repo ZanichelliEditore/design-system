@@ -301,9 +301,10 @@ export class ZHeader {
     return (
       <z-button
         label="entra"
-        type={`${this.ismyz ? "login" : "tertiary"}`}
+        type="tertiary" // INFO: se previsto un tipo di bottone diverso: type={`${this.ismyz ? "login" : "tertiary"}`}
         buttonid="login-button"
         icon="enter"
+        issmall={true}
       />
     );
   }
