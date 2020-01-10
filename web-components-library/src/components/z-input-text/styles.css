@@ -6,8 +6,14 @@
   fill: var(--text-grey-800);
 }
 
+:host>div>div>div.textareaWrapper {
+  background: var(--bg-white);
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  padding: var(--half-x3);
+}
+
 :host>div>div>input,
-:host>div>div>textarea {
+:host>div>div>div.textareaWrapper>textarea {
   border-radius: 0px;
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-color: var(--bg-grey-200);
@@ -25,12 +31,13 @@
   outline: none;
 }
 
-:host>div>div>textarea {
-  padding: 12px;
-  min-height: 156px;
+:host>div>div>div.textareaWrapper>textarea {
+  padding: 0;
+  min-height: 132px;
   resize: none;
   scrollbar-width: thin;
   scrollbar-color: var(--myz-blue) var(--bg-grey-200);
+  border-color: transparent;
 }
 
 input::placeholder,
@@ -57,48 +64,54 @@ textarea::placeholder {
 }
 
 :host>div>div>input.input_success,
-:host>div>div>textarea.input_success {
+:host>div>div>div.textareaWrapper>textarea.input_success,
+:host>div>div>div.textareaWrapper.input_success {
   border-color: var(--status-success-green);
   background: var(--status-success-green-lighter);
 }
 
 :host>div>div>input.input_error,
-:host>div>div>textarea.input_error {
+:host>div>div>div.textareaWrapper>textarea.input_error,
+:host>div>div>div.textareaWrapper.input_error {
   border-color: var(--status-error-red);
   background: var(--status-error-red-lighter);
 }
 
 :host>div>div>input.input_warning,
-:host>div>div>textarea.input_warning {
+:host>div>div>div.textareaWrapper>textarea.input_warning,
+:host>div>div>div.textareaWrapper.input_warning {
   border-color: var(--status-warning-yellow);
   background: var(--status-warning-yellow-lighter);
 }
 
+:host>div>div>div.textareaWrapper>textarea.input_success,
+:host>div>div>div.textareaWrapper>textarea.input_error,
+:host>div>div>div.textareaWrapper>textarea.input_warning {
+  border-color: transparent;
+}
+
 :host>div>div>input.input_default.filled,
-:host>div>div>textarea.input_default.filled {
+:host>div>div>div.textareaWrapper.input_default.filled {
   border-color: var(--text-grey-800);
 }
 
 :host>div>div>input:focus,
-:host>div>div>textarea:focus {
+:host>div>div>div.textareaWrapper.focus {
   border-color: transparent;
   box-shadow: 0 0 2px 2px var(--accent-dark);
 }
 
 :host>div>div>input:focus.istyping,
-:host>div>div>textarea:focus.istyping {
+:host>div>div>div.textareaWrapper.focus.istyping {
   border-color: var(--myz-blue);
   color: var(--myz-blue);
   box-shadow: 0 0 0 0 transparent;
 }
 
-:host>div>div>input:focus.filled,
-:host>div>div>textarea:focus.filled {
-  border-color: transparent;
-}
-
 :host>div>div>input:disabled,
-:host>div>div>textarea:disabled {
+:host>div>div>input.filled:disabled,
+:host>div>div>div.textareaWrapper.disabled,
+:host>div>div>div.textareaWrapper.filled.disabled {
   border-color: var(--bg-grey-200);
   background: var(--bg-white);
   box-shadow: none;
@@ -107,23 +120,29 @@ textarea::placeholder {
 }
 
 :host>div>div>input:hover,
-:host>div>div>textarea:hover {
+:host>div>div>div.textareaWrapper.hover {
   border-color: var(--text-grey-800);
   background: var(--bg-grey-050);
 }
 
+:host>div>div>div.textareaWrapper>textarea:hover {
+  background: var(--bg-grey-050);
+}
+
 :host>div>div>input:disabled:hover,
-:host>div>div>textarea:disabled:hover {
+:host>div>div>div.textareaWrapper>textarea:disabled:hover,
+:host>div>div>div.textareaWrapper.disabled.hover {
   background: var(--bg-white);
 }
 
 :host>div>div>input[readonly],
-:host>div>div>textarea[readonly] {
+:host>div>div>div.textareaWrapper.readonly {
   color: var(--text-grey-800);
 }
 
 :host>div>div>input[readonly]:hover,
-:host>div>div>textarea[readonly]:hover {
+:host>div>div>div.textareaWrapper>textarea[readonly]:hover,
+:host>div>div>div.textareaWrapper.readonly.hover {
   background: var(--bg-white);
 }
 

@@ -21,6 +21,8 @@ export class ZInputText {
   @Prop() typingTimeout?: number = 300;
 
   @State() isTyping: boolean = false;
+  @State() textareaWrapperHover: string = '';
+  @State() textareaWrapperFocus: string = '';
 
   private statusIcons = {
     success: 'circle-check',
@@ -50,6 +52,23 @@ export class ZInputText {
   }
 
 
+  getAttributes() {
+    return {
+      id: this.inputid,
+      name: this.inputid,
+      placeholder: this.placeholder,
+      value: this.value,
+      disabled: this.isdisabled,
+      readonly: this.isreadonly,
+      class: `
+        ${this.status ? 'input_' + this.status : 'input_default'}
+        ${this.isTyping && 'istyping'}
+        ${(!this.isTyping && this.value) && 'filled'}
+      `,
+      onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode)
+    }
+  }
+
   renderLabel() {
     if (!this.label) return;
 
@@ -57,35 +76,29 @@ export class ZInputText {
   }
 
   renderInput() {
-    const id = this.inputid;
-    const type = this.type;
-    const disabled = this.isdisabled;
-    const readonly = this.isreadonly;
-    const inputClass = `
-        ${this.status ? 'input_' + this.status : 'input_default'}
-        ${this.isTyping && 'istyping'}
-        ${(!this.isTyping && this.value) && 'filled'}
-      `;
-    const name = this.inputid;
-    const placeholder = this.placeholder;
-    const value = this.value;
-    const inputChangeFn = (e: any) => this.emitInputChange(e.target.value, e.keyCode);
+    const attributes = this.getAttributes();
 
     switch (this.type) {
       case InputTypeEnum.textarea:
-        return <textarea id={id} name={name}
-          placeholder={placeholder} value={value}
-          disabled={disabled} readonly={readonly}
-          class={inputClass}
-          onInput={inputChangeFn}
-        />
+        return (
+          <div class={`
+            textareaWrapper
+            ${attributes.class}
+            ${attributes.disabled && ' disabled'}
+            ${attributes.readonly && ' readonly'}
+            ${this.textareaWrapperFocus}
+            ${this.textareaWrapperHover}
+          `}>
+            <textarea {...attributes}
+              onFocus={() => this.textareaWrapperFocus = 'focus'}
+              onBlur={() => this.textareaWrapperFocus = ''}
+              onMouseOver={() => this.textareaWrapperHover = 'hover'}
+              onMouseOut={() => this.textareaWrapperHover = ''}
+            />
+          </div>
+        )
       default:
-        return <input id={id} name={name} type={type}
-          placeholder={placeholder} value={value}
-          disabled={disabled} readonly={readonly}
-          class={inputClass}
-          onInput={inputChangeFn}
-        />
+        return <input {...attributes} type={this.type} />
     }
   }
 
