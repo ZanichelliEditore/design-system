@@ -16,6 +16,42 @@
     <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
   </z-modal> -->
 
+  <!-- non zanichelli logged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"MyZanichelli","label":"Link a MyZanichelli","link":"http://www.myzanichelli.it","icon":"circle-chevron-left"}]'
+    userdata='{
+        "islogged": true,
+        "id": 123456,
+        "name": "Dario Docente e Professore",
+        "usergroup": 15,
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+      }' ismyz=false logopath="./assets/images/png/zanichelli-logo-2.png" imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
+
+  <p style="height:50px;"></p>
+  <!-- non zanichelli unlogged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"ask-your-manager"}]'
+    userdata='{
+        "islogged": false,
+        "id": 123456,
+        "name": "Dario Docente e Professore",
+        "usergroup": 15,
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+      }' ismyz=false logopath="./assets/images/png/zanichelli-logo-2.png" imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
+
+  <!-- zanichelli docente logged -->
   <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"ask-your-manager"}]'
@@ -30,8 +66,45 @@
     <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
     <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
+
+  <p style="height:50px;"></p>
+
+  <!-- zanichelli unlogged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"ask-your-manager"}]'
+    userdata='{
+        "islogged": false,
+        "id": 123456,
+        "name": "Dario Docente e Professore",
+        "usergroup": 15,
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+      }' ismyz=true logopath="./assets/images/png/zanichelli-logo-2.png" imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
+
+  <!-- zanichelli studente logged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"I miei Libri","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"}]'
+    userdata='{
+        "islogged": true,
+        "id": 123456,
+        "name": "Sandro Studente",
+        "usergroup": 14,
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+      }' ismyz=true logopath="./assets/images/png/zanichelli-logo-2.png" imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
 
   </z-header>
+
   <section id="main-content">
     <section id="libreria">
       <p>
