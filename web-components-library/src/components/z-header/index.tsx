@@ -53,13 +53,22 @@ export class ZHeader {
   }
 
   componentWillLoad() {
-    this.intMenuData = typeof this.intlinkdata === 'string' ? JSON.parse(this.intlinkdata) : this.intlinkdata;
-    this.extMenuData = typeof this.extlinkdata === 'string' ? JSON.parse(this.extlinkdata) : this.extlinkdata;
+    this.intMenuData =
+      typeof this.intlinkdata === "string"
+        ? JSON.parse(this.intlinkdata)
+        : this.intlinkdata;
+    this.extMenuData =
+      typeof this.extlinkdata === "string"
+        ? JSON.parse(this.extlinkdata)
+        : this.extlinkdata;
     this.activeMenuItem = this.setIntMenuItem();
     this.currentMenuItem = this.setIntMenuItem();
     this.sections = this.getSections(this.intMenuData);
     if (this.userdata) {
-      this.userData = typeof this.userdata === 'string' ? JSON.parse(this.userdata) : this.userdata;
+      this.userData =
+        typeof this.userdata === "string"
+          ? JSON.parse(this.userdata)
+          : this.userdata;
       this.isLogged = this.userData.islogged;
     }
     this.handleResize();
@@ -86,9 +95,11 @@ export class ZHeader {
       const currentSection = document.querySelector(link.hash);
 
       if (
-        currentSection
-        && currentSection.offsetTop <= e.srcElement.scrollingElement.scrollTop + this.topOffset
-        && currentSection.offsetHeight + currentSection.offsetTop > e.srcElement.scrollingElement.scrollTop + this.topOffset
+        currentSection &&
+        currentSection.offsetTop <=
+          e.srcElement.scrollingElement.scrollTop + this.topOffset &&
+        currentSection.offsetHeight + currentSection.offsetTop >
+          e.srcElement.scrollingElement.scrollTop + this.topOffset
       ) {
         link.classList.add("active");
       }
@@ -153,7 +164,8 @@ export class ZHeader {
           onClick={() => {
             this.activeMenuItem = menuItem;
             this.currentMenuItem = menuItem;
-            if (link.startsWith('#')) this.handleToggleMobileMenuItem(menuItem.id);
+            if (link.startsWith("#"))
+              this.handleToggleMobileMenuItem(menuItem.id);
           }}
           onMouseEnter={() => {
             this.activeMenuItem = menuItem;
@@ -193,15 +205,13 @@ export class ZHeader {
 
   renderMenuItemsData(menuItem): HTMLSpanElement | null {
     if (!menuItem.subMenu) return null;
-    const listItems: ListItemBean[] = menuItem.subMenu.map(
-      (item: MenuItem) => {
-        return {
-          text: item.label,
-          link: item.link,
-          listitemid: item.id
-        };
-      }
-    );
+    const listItems: ListItemBean[] = menuItem.subMenu.map((item: MenuItem) => {
+      return {
+        text: item.label,
+        link: item.link,
+        listitemid: item.id
+      };
+    });
     return this.renderMobileSubMenu(listItems, menuItem.id);
   }
 
@@ -215,19 +225,11 @@ export class ZHeader {
 
   renderSubMenu(menuItem: MenuItem): HTMLDivElement {
     if (!menuItem || !menuItem["subMenu"] || !this.isLogged || !this.ismyz) {
-      return (
-        <div
-          id="dropdown-menu"
-          class={`dropdown-menu hidden`}
-        />
-      );
+      return <div id="dropdown-menu" class={`dropdown-menu hidden`} />;
     }
     const active = menuItem.subMenu ? menuItem.subMenu[0] : null;
     return (
-      <div
-        id="dropdown-menu"
-        class={`dropdown-menu`}
-      >
+      <div id="dropdown-menu" class={`dropdown-menu`}>
         <div class="dropdown-links">
           {menuItem.subMenu.map(
             (item: MenuItem): HTMLAnchorElement => (
@@ -283,17 +285,26 @@ export class ZHeader {
   renderLoginDiv(userData: HeaderUserData): HTMLDivElement {
     return (
       <div class="login">
-        {this.isLogged
-          ? <z-menu-dropdown nomeutente={userData.name} menucontent={JSON.stringify(userData.userlinks)} />
-          : this.renderLoginButton()
-        }
+        {this.isLogged ? (
+          <z-menu-dropdown
+            nomeutente={userData.name}
+            menucontent={JSON.stringify(userData.userlinks)}
+          />
+        ) : (
+          this.renderLoginButton()
+        )}
       </div>
     );
   }
 
   renderLoginButton() {
     return (
-      <z-button label="entra" type="secondary" buttonid="login-button" />
+      <z-button
+        label="entra"
+        type={`${this.ismyz ? "login" : "tertiary"}`}
+        buttonid="login-button"
+        icon="enter"
+      />
     );
   }
 
@@ -346,10 +357,7 @@ export class ZHeader {
 
   renderMainHeader(): HTMLDivElement {
     return (
-      <div
-        id="main-header"
-        class={`main-header ${!this.ismyz && "myz-out"}`}
-      >
+      <div id="main-header" class={`main-header ${!this.ismyz && "myz-out"}`}>
         {this.renderLogoDiv()}
         {this.renderIntMenu(this.intMenuData)}
         {this.renderExtMenu(this.extMenuData)}

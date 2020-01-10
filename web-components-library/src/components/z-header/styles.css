@@ -251,6 +251,16 @@ hr {
   padding: 0 var(--basex2);
 }
 
+.login > z-button {
+  color: var(--bg-white);
+  fill: var(--bg-white);
+}
+
+/* .login > z-button:hover {
+  color: var(--bg-white);
+  fill: var(--bg-white);
+} */
+
 .booktab-button > z-button {
   display: flex;
   flex-direction: row;
