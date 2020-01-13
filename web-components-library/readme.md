@@ -13,12 +13,27 @@
 ##### NB: il nome dei componenti deve contenere un dash (`-`)
 
 ## Sviluppo della libreria tramite symlink
+
 All'interno di web-components-library e lanciare il seguente comando
+
 ```
 yarn link
 ```
+
 Entrare dentro myzanichelli_dashboard ed eseguire il seguente comando
+
 ```
 yarn link zanichelli-web-components-library
 ```
 
+## To run tests:
+
+### run all tests
+
+`yarn test`
+
+### run single test
+
+`yarn test --spec {componentPath}`
+
+Example: `yarn test --spec /components/z-button`

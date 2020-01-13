@@ -6,8 +6,8 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZLogo {
-  @Prop() width: number;
-  @Prop() height: number;
+  @Prop() width: number = 163;
+  @Prop() height: number = 42;
   @Prop() imagealt?: string;
   @Prop() link?: string;
   @Prop() targetblank?: boolean;
