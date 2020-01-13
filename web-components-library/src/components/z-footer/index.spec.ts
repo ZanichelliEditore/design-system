@@ -3,7 +3,6 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZFooter } from "./index";
 
 describe("Suite test ZFooter", () => {
-
   it("Test render ZFooter vuoto", async () => {
     const page = await newSpecPage({
       components: [ZFooter],
@@ -27,7 +26,7 @@ describe("Suite test ZFooter", () => {
             <section class="top"></section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo targetblank></z-logo>
+                <z-logo targetblank height="38" width="144"></z-logo>
                 <p></p>
               </div>
               <div class="item">
@@ -41,7 +40,7 @@ describe("Suite test ZFooter", () => {
           </footer>
         </mock:shadow-root>
       </z-footer>
-    `)
+    `);
   });
 
   it("Test render ZFooter con zanichelli link", async () => {
@@ -83,7 +82,8 @@ describe("Suite test ZFooter", () => {
       }' copyrightuser='Zanichelli'></z-footer>`
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toEqualHtml(
+      `
       <z-footer  copyrightuser="Zanichelli" data='{
         "zanichelliLinks": [
           {
@@ -154,8 +154,10 @@ describe("Suite test ZFooter", () => {
             </section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo targetblank></z-logo>
-                <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
+                <z-logo targetblank height="38" width="144"></z-logo>
+                <p>Copyright – ` +
+        new Date().getFullYear() +
+        ` Zanichelli All rights reserved</p>
                 <p></p>
               </div>
               <div class="item">
@@ -169,7 +171,8 @@ describe("Suite test ZFooter", () => {
           </footer>
         </mock:shadow-root>
       </z-footer>
-    `)
+    `
+    );
   });
 
   it("Test render ZFooter con myz link", async () => {
@@ -183,7 +186,8 @@ describe("Suite test ZFooter", () => {
       }' copyrightuser='Zanichelli'></z-footer>`
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toEqualHtml(
+      `
       <z-footer copyrightuser='Zanichelli' data='{
         "zanichelliLinks": [],
         "myzLink": {"label": "MyZ", "link": "https://my.zanichelli.it", "img": "logo.png"},
@@ -195,8 +199,10 @@ describe("Suite test ZFooter", () => {
             <section class="top"></section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo link='https://my.zanichelli.it' imageurl='logo.png' imagealt='MyZ' targetblank /></z-logo>
-                <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
+                <z-logo link='https://my.zanichelli.it' height="38" width="144" imagealt='MyZ' targetblank /></z-logo>
+                <p>Copyright – ` +
+        new Date().getFullYear() +
+        ` Zanichelli All rights reserved</p>
                 <p></p>
               </div>
               <div class="item">
@@ -210,7 +216,8 @@ describe("Suite test ZFooter", () => {
           </footer>
         </mock:shadow-root>
       </z-footer>
-    `)
+    `
+    );
   });
 
   it("Test render ZFooter con social", async () => {
@@ -227,7 +234,8 @@ describe("Suite test ZFooter", () => {
       }' copyrightuser='Zanichelli'></z-footer>`
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toEqualHtml(
+      `
       <z-footer copyrightuser='Zanichelli' data='{
         "zanichelliLinks": [],
         "myzLink": {},
@@ -242,8 +250,10 @@ describe("Suite test ZFooter", () => {
             <section class="top"></section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo targetblank></z-logo>
-                <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
+                <z-logo targetblank height="38" width="144"></z-logo>
+                <p>Copyright – ` +
+        new Date().getFullYear() +
+        ` Zanichelli All rights reserved</p>
                 <p></p>
               </div>
               <div class="item">
@@ -268,7 +278,8 @@ describe("Suite test ZFooter", () => {
           </footer>
         </mock:shadow-root>
       </z-footer>
-    `)
+    `
+    );
   });
 
   it("Test render ZFooter con bottom link", async () => {
@@ -285,7 +296,8 @@ describe("Suite test ZFooter", () => {
       }' copyrightuser='Zanichelli'></z-footer>`
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toEqualHtml(
+      `
       <z-footer copyrightuser='Zanichelli' data='{
         "zanichelliLinks": [],
         "myzLink": {},
@@ -300,8 +312,10 @@ describe("Suite test ZFooter", () => {
             <section class="top"></section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo targetblank></z-logo>
-                <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
+                <z-logo targetblank height="38" width="144"></z-logo>
+                <p>Copyright – ` +
+        new Date().getFullYear() +
+        ` Zanichelli All rights reserved</p>
                 <p></p>
               </div>
               <div class="item">
@@ -322,7 +336,7 @@ describe("Suite test ZFooter", () => {
           </footer>
         </mock:shadow-root>
       </z-footer>
-    `)
+    `
+    );
   });
-
 });
