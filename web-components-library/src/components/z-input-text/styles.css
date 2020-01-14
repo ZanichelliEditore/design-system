@@ -6,7 +6,14 @@
   fill: var(--text-grey-800);
 }
 
-:host>div>div>input {
+:host>div>div>div.textareaWrapper {
+  background: var(--bg-white);
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  padding: var(--half-x3);
+}
+
+:host>div>div>input,
+:host>div>div>div.textareaWrapper>textarea {
   border-radius: 0px;
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-color: var(--bg-grey-200);
@@ -24,15 +31,27 @@
   outline: none;
 }
 
-input::placeholder {
+:host>div>div>div.textareaWrapper>textarea {
+  padding: 0;
+  min-height: 132px;
+  resize: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--myz-blue) var(--bg-grey-200);
+  border-color: transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
   color: var(--text-grey-700);
 }
 
-::-webkit-input-placeholder {
+::-webkit-input-placeholder,
+::-webkit-textarea-placeholder {
   color: var(--text-grey-700);
 }
 
-:-ms-input-placeholder {
+:-ms-input-placeholder,
+:-ms-textarea-placeholder {
   color: var(--text-grey-700);
 }
 
@@ -44,41 +63,55 @@ input::placeholder {
   color: var(--text-grey-700);
 }
 
-:host>div>div>input.input_success {
+:host>div>div>input.input_success,
+:host>div>div>div.textareaWrapper>textarea.input_success,
+:host>div>div>div.textareaWrapper.input_success {
   border-color: var(--status-success-green);
   background: var(--status-success-green-lighter);
 }
 
-:host>div>div>input.input_error {
+:host>div>div>input.input_error,
+:host>div>div>div.textareaWrapper>textarea.input_error,
+:host>div>div>div.textareaWrapper.input_error {
   border-color: var(--status-error-red);
   background: var(--status-error-red-lighter);
 }
 
-:host>div>div>input.input_warning {
+:host>div>div>input.input_warning,
+:host>div>div>div.textareaWrapper>textarea.input_warning,
+:host>div>div>div.textareaWrapper.input_warning {
   border-color: var(--status-warning-yellow);
   background: var(--status-warning-yellow-lighter);
 }
 
-:host>div>div>input.input_default.filled {
+:host>div>div>div.textareaWrapper>textarea.input_success,
+:host>div>div>div.textareaWrapper>textarea.input_error,
+:host>div>div>div.textareaWrapper>textarea.input_warning {
+  border-color: transparent;
+}
+
+:host>div>div>input.input_default.filled,
+:host>div>div>div.textareaWrapper.input_default.filled {
   border-color: var(--text-grey-800);
 }
 
-:host>div>div>input:focus {
+:host>div>div>input:focus,
+:host>div>div>div.textareaWrapper.focus {
   border-color: transparent;
   box-shadow: 0 0 2px 2px var(--accent-dark);
 }
 
-:host>div>div>input:focus.istyping {
+:host>div>div>input:focus.istyping,
+:host>div>div>div.textareaWrapper.focus.istyping {
   border-color: var(--myz-blue);
   color: var(--myz-blue);
   box-shadow: 0 0 0 0 transparent;
 }
 
-:host>div>div>input:focus.filled {
-  border-color: transparent;
-}
-
-:host>div>div>input:disabled {
+:host>div>div>input:disabled,
+:host>div>div>input.filled:disabled,
+:host>div>div>div.textareaWrapper.disabled,
+:host>div>div>div.textareaWrapper.filled.disabled {
   border-color: var(--bg-grey-200);
   background: var(--bg-white);
   box-shadow: none;
@@ -86,17 +119,31 @@ input::placeholder {
   fill: var(--bg-grey-200);
 }
 
-:host>div>div>input:hover {
+:host>div>div>input:hover,
+:host>div>div>div.textareaWrapper.hover {
   border-color: var(--text-grey-800);
   background: var(--bg-grey-050);
 }
 
-:host>div>div>input:disabled:hover {
+:host>div>div>div.textareaWrapper>textarea:hover {
+  background: var(--bg-grey-050);
+}
+
+:host>div>div>input:disabled:hover,
+:host>div>div>div.textareaWrapper>textarea:disabled:hover,
+:host>div>div>div.textareaWrapper.disabled.hover {
   background: var(--bg-white);
 }
 
-:host>div>div>input.readonly:disabled {
+:host>div>div>input[readonly],
+:host>div>div>div.textareaWrapper.readonly {
   color: var(--text-grey-800);
+}
+
+:host>div>div>input[readonly]:hover,
+:host>div>div>div.textareaWrapper>textarea[readonly]:hover,
+:host>div>div>div.textareaWrapper.readonly.hover {
+  background: var(--bg-white);
 }
 
 :host>div>label {
@@ -152,4 +199,20 @@ input::placeholder {
 :host>div>span.statusMsg>z-icon {
   margin-right: var(--basex1);
   margin-top: var(--half-x1);
+}
+
+::-webkit-scrollbar {
+  background: linear-gradient(90deg, var(--bg-white) 2px, var(--bg-grey-200) 4px, var(--bg-white) 8px);
+  border-radius: var(--radius-base);
+  width: 10px;
+  margin-right: 20px;
+  padding-right: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--myz-blue);
+  border-radius: var(--radius-base);
+  width: 10px;
+  margin-right: 20px;
+  padding: 20px;
 }

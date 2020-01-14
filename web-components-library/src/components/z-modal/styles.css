@@ -101,7 +101,7 @@
   }
 
   :host>div>div>header>z-icon {
-    margin: var(--half-x3) var(--basex3);
+    margin: var(--half-x3) var(--basex3) var(--half-x3) 0px;
     transform: scale(1);
   }
 
