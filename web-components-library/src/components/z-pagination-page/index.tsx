@@ -20,6 +20,7 @@ export class ZPaginationPage {
       <a id={this.pageid} ref={(el) => this.page = el as HTMLElement}
         class={`${this.isselected && 'selected'} ${this.isdisabled && 'disabled'} ${this.isvisited && 'visited'}`}
         tabindex={this.isdisabled ? -1 : 1}
+        role="button"
       >
         {this.value}
       </a>

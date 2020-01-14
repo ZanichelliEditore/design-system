@@ -18,6 +18,7 @@
 | `noresultslabel`    | `noresultslabel`    |             | `string`                    | `undefined` |
 | `searchlabel`       | `searchlabel`       |             | `string`                    | `undefined` |
 | `searchplaceholder` | `searchplaceholder` |             | `string`                    | `undefined` |
+| `searchtitle`       | `searchtitle`       |             | `string`                    | `undefined` |
 
 
 ## Dependencies
