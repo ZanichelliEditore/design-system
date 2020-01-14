@@ -1,18 +1,25 @@
-import { Component, Prop, State, h, Event, EventEmitter, Method } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  State,
+  h,
+  Event,
+  EventEmitter,
+  Method
+} from "@stencil/core";
 import { InputTypeBean, InputTypeEnum, InputStatusBean } from "../../beans";
 
-
 @Component({
-  tag: 'z-input-text',
-  styleUrl: 'styles.css',
+  tag: "z-input-text",
+  styleUrl: "styles.css",
   shadow: true
 })
-
 export class ZInputText {
   @Prop() inputid: string;
   @Prop() label?: string;
   @Prop({ mutable: true }) value?: string;
   @Prop() placeholder?: string;
+  @Prop() htmltitle?: string;
   @Prop() type?: InputTypeBean;
   @Prop() status?: InputStatusBean;
   @Prop() message?: string;
@@ -21,13 +28,13 @@ export class ZInputText {
   @Prop() typingTimeout?: number = 300;
 
   @State() isTyping: boolean = false;
-  @State() textareaWrapperHover: string = '';
-  @State() textareaWrapperFocus: string = '';
+  @State() textareaWrapperHover: string = "";
+  @State() textareaWrapperFocus: string = "";
 
   private statusIcons = {
-    success: 'circle-check',
-    error: 'circle-cross-stroke',
-    warning: 'circle-warning',
+    success: "circle-check",
+    error: "circle-cross-stroke",
+    warning: "circle-warning"
   };
   private timer;
 
@@ -48,9 +55,10 @@ export class ZInputText {
     this.inputChange.emit({ value, keycode });
 
     clearTimeout(this.timer);
-    this.timer = setTimeout(() => { this.isTyping = false }, this.typingTimeout);
+    this.timer = setTimeout(() => {
+      this.isTyping = false;
+    }, this.typingTimeout);
   }
-
 
   getAttributes() {
     return {
@@ -60,19 +68,20 @@ export class ZInputText {
       value: this.value,
       disabled: this.isdisabled,
       readonly: this.isreadonly,
+      title: this.htmltitle,
       class: `
-        ${this.status ? 'input_' + this.status : 'input_default'}
-        ${this.isTyping && 'istyping'}
-        ${(!this.isTyping && this.value) && 'filled'}
+        ${this.status ? "input_" + this.status : "input_default"}
+        ${this.isTyping && "istyping"}
+        ${!this.isTyping && this.value && "filled"}
       `,
       onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode)
-    }
+    };
   }
 
   renderLabel() {
     if (!this.label) return;
 
-    return <label>{this.label}</label>;
+    return <label htmlFor={this.inputid}>{this.label}</label>;
   }
 
   renderInput() {
@@ -81,31 +90,45 @@ export class ZInputText {
     switch (this.type) {
       case InputTypeEnum.textarea:
         return (
-          <div class={`
+          <div
+            class={`
             textareaWrapper
             ${attributes.class}
-            ${attributes.disabled && ' disabled'}
-            ${attributes.readonly && ' readonly'}
+            ${attributes.disabled && " disabled"}
+            ${attributes.readonly && " readonly"}
             ${this.textareaWrapperFocus}
             ${this.textareaWrapperHover}
-          `}>
-            <textarea {...attributes}
-              onFocus={() => this.textareaWrapperFocus = 'focus'}
-              onBlur={() => this.textareaWrapperFocus = ''}
-              onMouseOver={() => this.textareaWrapperHover = 'hover'}
-              onMouseOut={() => this.textareaWrapperHover = ''}
+          `}
+          >
+            <textarea
+              {...attributes}
+              onFocus={() => (this.textareaWrapperFocus = "focus")}
+              onBlur={() => (this.textareaWrapperFocus = "")}
+              onMouseOver={() => (this.textareaWrapperHover = "hover")}
+              onMouseOut={() => (this.textareaWrapperHover = "")}
             />
           </div>
-        )
+        );
       default:
-        return <input {...attributes} type={this.type} />
+        return <input {...attributes} type={this.type} />;
     }
   }
 
   renderResetIcon() {
-    if (!this.value || this.isdisabled || this.isreadonly || this.type === InputTypeEnum.textarea) return;
+    if (
+      !this.value ||
+      this.isdisabled ||
+      this.isreadonly ||
+      this.type === InputTypeEnum.textarea
+    )
+      return;
 
-    return <z-icon name="close" onClick={(e: any) => this.emitInputChange('', e.keyCode)} />;
+    return (
+      <z-icon
+        name="close"
+        onClick={(e: any) => this.emitInputChange("", e.keyCode)}
+      />
+    );
   }
 
   renderMessage() {
@@ -113,7 +136,9 @@ export class ZInputText {
 
     return (
       <span class={`statusMsg msg_${this.status}`}>
-        {this.status ? <z-icon name={this.statusIcons[this.status]} width={14} height={14} /> : null}
+        {this.status ? (
+          <z-icon name={this.statusIcons[this.status]} width={14} height={14} />
+        ) : null}
         <span innerHTML={this.message}></span>
       </span>
     );

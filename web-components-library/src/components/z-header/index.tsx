@@ -176,7 +176,7 @@ export class ZHeader {
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
-        {this.renderMenuItemsData(menuItem)}
+        {this.isMobile && this.renderMenuItemsData(menuItem)}
       </span>
     );
   }

@@ -9,6 +9,7 @@
 
 | Property        | Attribute        | Description | Type                                                                                                                    | Default     |
 | --------------- | ---------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `htmltitle`     | `htmltitle`      |             | `string`                                                                                                                | `undefined` |
 | `inputid`       | `inputid`        |             | `string`                                                                                                                | `undefined` |
 | `isdisabled`    | `isdisabled`     |             | `boolean`                                                                                                               | `false`     |
 | `isreadonly`    | `isreadonly`     |             | `boolean`                                                                                                               | `false`     |
