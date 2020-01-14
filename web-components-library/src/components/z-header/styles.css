@@ -78,14 +78,25 @@ z-logo {
 
 .dropdown-links {
   grid-area: dropdown-links;
+  list-style: none;
+  display: block;
   max-height: 32px;
+  margin: 0;
+  padding: 0;
 }
 
 .arrow {
   fill: var(--text-grey-200);
 }
 
-.dropdown-links > a {
+.dropdown-links > li {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-links > li > a {
   width: auto;
   height: auto;
   color: var(--myz-blue);
@@ -97,8 +108,8 @@ z-logo {
   padding-bottom: var(--half-x1);
 }
 
-.dropdown-links > a:hover,
-.dropdown-links > a.active {
+.dropdown-links > li > a:hover,
+.dropdown-links > li > a.active {
   color: var(--text-grey-800);
   border-bottom: 2px solid var(--myz-blue);
 }

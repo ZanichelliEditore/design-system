@@ -33,7 +33,7 @@ export class ZHeader {
   handleScroll(e): void {
     if (this.isMobile) return;
     const links = this.element.shadowRoot.querySelectorAll(
-      ".dropdown-links > a[href^='#']"
+      ".dropdown-links > li > a[href^='#']"
     );
     this.handleActiveOnScroll(e, links);
   }
@@ -228,19 +228,21 @@ export class ZHeader {
         id="dropdown-menu"
         class={`dropdown-menu`}
       >
-        <div class="dropdown-links">
+        <ul class="dropdown-links">
           {menuItem.subMenu.map(
             (item: MenuItem): HTMLAnchorElement => (
-              <a
-                class={item.id === active.id ? "active" : ""}
-                href={item.link}
-                onClick={e => this.handleSubMenuClick(e, item.id)}
-              >
-                {item.label}
-              </a>
+              <li>
+                <a
+                  class={item.id === active.id ? "active" : ""}
+                  href={item.link}
+                  onClick={e => this.handleSubMenuClick(e, item.id)}
+                >
+                  {item.label}
+                </a>
+              </li>
             )
           )}
-        </div>
+        </ul>
       </div>
     );
   }
