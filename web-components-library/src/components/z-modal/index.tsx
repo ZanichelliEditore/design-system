@@ -22,8 +22,8 @@ export class ZModal {
         <div id={this.modalid}>
           <header>
             <div>
-              <h1>{this.modaltitle}</h1>
-              <h2>{this.modalsubtitle}</h2>
+              {this.modaltitle && <h1>{this.modaltitle}</h1>}
+              {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
             </div>
             <z-icon
               name="circle-cross-fill" width={24} height={24}
