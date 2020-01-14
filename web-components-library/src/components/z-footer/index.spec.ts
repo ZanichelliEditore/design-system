@@ -3,7 +3,6 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZFooter } from "./index";
 
 describe("Suite test ZFooter", () => {
-
   it("Test render ZFooter vuoto", async () => {
     const page = await newSpecPage({
       components: [ZFooter],
@@ -41,7 +40,7 @@ describe("Suite test ZFooter", () => {
           </footer>
         </mock:shadow-root>
       </z-footer>
-    `)
+    `);
   });
 
   it("Test render ZFooter con zanichelli link", async () => {
@@ -83,7 +82,8 @@ describe("Suite test ZFooter", () => {
       }' copyrightuser='Zanichelli'></z-footer>`
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toEqualHtml(
+      `
       <z-footer  copyrightuser="Zanichelli" data='{
         "zanichelliLinks": [
           {
@@ -155,7 +155,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo targetblank></z-logo>
-                <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
+                <p>Copyright – ` +
+        new Date().getFullYear() +
+        ` Zanichelli All rights reserved</p>
                 <p></p>
               </div>
               <div class="item">
@@ -169,7 +171,8 @@ describe("Suite test ZFooter", () => {
           </footer>
         </mock:shadow-root>
       </z-footer>
-    `)
+    `
+    );
   });
 
   it("Test render ZFooter con myz link", async () => {
@@ -183,7 +186,8 @@ describe("Suite test ZFooter", () => {
       }' copyrightuser='Zanichelli'></z-footer>`
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toEqualHtml(
+      `
       <z-footer copyrightuser='Zanichelli' data='{
         "zanichelliLinks": [],
         "myzLink": {"label": "MyZ", "link": "https://my.zanichelli.it", "img": "logo.png"},
@@ -196,7 +200,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo link='https://my.zanichelli.it' imageurl='logo.png' imagealt='MyZ' targetblank /></z-logo>
-                <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
+                <p>Copyright – ` +
+        new Date().getFullYear() +
+        ` Zanichelli All rights reserved</p>
                 <p></p>
               </div>
               <div class="item">
@@ -210,10 +216,73 @@ describe("Suite test ZFooter", () => {
           </footer>
         </mock:shadow-root>
       </z-footer>
-    `)
+    `
+    );
   });
 
   it("Test render ZFooter con social", async () => {
+    const page = await newSpecPage({
+      components: [ZFooter],
+      html: `<z-footer data='{
+        "zanichelliLinks": [],
+        "myzLink": {},
+        "social": [
+          {"icon": "facebook.png", "link": "https://it-it.facebook.com/zanichelliscuola", "description" : "facebook"},
+          {"icon": "youtube.png", "link": "https://www.youtube.com/user/zanichellieditore", "description" : "youtube"}
+        ],
+        "bottomLinks": []
+      }' copyrightuser='Zanichelli'></z-footer>`
+    });
+
+    expect(page.root).toEqualHtml(
+      `
+      <z-footer copyrightuser='Zanichelli' data='{
+        "zanichelliLinks": [],
+        "myzLink": {},
+        "social": [
+          {"icon": "facebook.png", "link": "https://it-it.facebook.com/zanichelliscuola", "description" : "facebook"},
+          {"icon": "youtube.png", "link": "https://www.youtube.com/user/zanichellieditore", "description" : "youtube"}
+        ],
+        "bottomLinks": []
+      }'>
+        <mock:shadow-root>
+          <footer>
+            <section class="top"></section>
+            <section class="bottom">
+              <div class="item logo">
+                <z-logo targetblank></z-logo>
+                <p>Copyright – ` +
+        new Date().getFullYear() +
+        ` Zanichelli All rights reserved</p>
+                <p></p>
+              </div>
+              <div class="item">
+                <p></p>
+                <ul class="social">
+                  <li>
+                    <a href='https://it-it.facebook.com/zanichelliscuola' target='_blank'>
+                      <img src='facebook.png' alt='facebook'/>
+                    </a>
+                  </li>
+                  <li>
+                    <a href='https://www.youtube.com/user/zanichellieditore' target='_blank'>
+                      <img src='youtube.png' alt='youtube'/>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="item bottom-links">
+                <ul></ul>
+              </div>
+            </section>
+          </footer>
+        </mock:shadow-root>
+      </z-footer>
+    `
+    );
+  });
+
+  it("Test render ZFooter con social, ma senza il parametro 'description' ", async () => {
     const page = await newSpecPage({
       components: [ZFooter],
       html: `<z-footer data='{
@@ -227,7 +296,8 @@ describe("Suite test ZFooter", () => {
       }' copyrightuser='Zanichelli'></z-footer>`
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toEqualHtml(
+      `
       <z-footer copyrightuser='Zanichelli' data='{
         "zanichelliLinks": [],
         "myzLink": {},
@@ -243,7 +313,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo targetblank></z-logo>
-                <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
+                <p>Copyright – ` +
+        new Date().getFullYear() +
+        ` Zanichelli All rights reserved</p>
                 <p></p>
               </div>
               <div class="item">
@@ -251,7 +323,7 @@ describe("Suite test ZFooter", () => {
                 <ul class="social">
                   <li>
                     <a href='https://it-it.facebook.com/zanichelliscuola' target='_blank'>
-                      <img src='facebook.png' />
+                      <img src='facebook.png'/>
                     </a>
                   </li>
                   <li>
@@ -268,7 +340,8 @@ describe("Suite test ZFooter", () => {
           </footer>
         </mock:shadow-root>
       </z-footer>
-    `)
+    `
+    );
   });
 
   it("Test render ZFooter con bottom link", async () => {
@@ -285,7 +358,8 @@ describe("Suite test ZFooter", () => {
       }' copyrightuser='Zanichelli'></z-footer>`
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toEqualHtml(
+      `
       <z-footer copyrightuser='Zanichelli' data='{
         "zanichelliLinks": [],
         "myzLink": {},
@@ -301,7 +375,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo targetblank></z-logo>
-                <p>Copyright – ` + new Date().getFullYear() + ` Zanichelli All rights reserved</p>
+                <p>Copyright – ` +
+        new Date().getFullYear() +
+        ` Zanichelli All rights reserved</p>
                 <p></p>
               </div>
               <div class="item">
@@ -322,7 +398,7 @@ describe("Suite test ZFooter", () => {
           </footer>
         </mock:shadow-root>
       </z-footer>
-    `)
+    `
+    );
   });
-
 });

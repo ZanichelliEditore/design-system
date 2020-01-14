@@ -27,13 +27,14 @@ export type MyzLinkBean = {
 export type FooterSocialBean = {
   icon: string;
   link: string;
+  description?: string;
 };
 
 export enum LicenseTypeEnum {
-  real = 'reale',
-  virtual = 'virtuale',
-  essay = 'saggio'
-};
+  real = "reale",
+  virtual = "virtuale",
+  essay = "saggio"
+}
 export type LicenseType = LicenseTypeEnum;
 
 export type CardBean = {
