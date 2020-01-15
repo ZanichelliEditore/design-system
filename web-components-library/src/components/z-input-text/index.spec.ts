@@ -32,7 +32,7 @@ describe("Suite test ZInputText", () => {
       <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label'>
         <mock:shadow-root>
           <div>
-            <label>label</label>
+            <label htmlfor="test">label</label>
             <div>
               <input class="false input_default filled" type='text' id='test' name='test' placeholder='placeholder' value='value' />
               <z-icon name="close"></z-icon>
@@ -52,7 +52,7 @@ describe("Suite test ZInputText", () => {
       <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' isdisabled>
         <mock:shadow-root>
           <div>
-            <label>label</label>
+            <label htmlfor="test">label</label>
             <div>
               <input disabled class="false filled input_default" type='text' id='test' name='test' placeholder='placeholder' value='value' />
             </div>
@@ -71,7 +71,7 @@ describe("Suite test ZInputText", () => {
       <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' isreadonly>
         <mock:shadow-root>
           <div>
-            <label>label</label>
+            <label htmlfor="test">label</label>
             <div>
               <input readonly class="false filled input_default" type='text' id='test' name='test' placeholder='placeholder' value='value' />
             </div>
@@ -90,7 +90,7 @@ describe("Suite test ZInputText", () => {
       <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' message='helper message'>
         <mock:shadow-root>
           <div>
-            <label>label</label>
+            <label htmlfor="test">label</label>
             <div>
               <input class="false filled input_default" type='text' id='test' name='test' placeholder='placeholder' value='value' />
               <z-icon name="close"></z-icon>
@@ -113,7 +113,7 @@ describe("Suite test ZInputText", () => {
       <z-input-text type='text' inputid='test' placeholder='placeholder' value='value' label='label' status='success' message='success message'>
         <mock:shadow-root>
           <div>
-            <label>label</label>
+            <label htmlfor="test">label</label>
             <div>
               <input class="false filled input_success" type='text' id='test' name='test' placeholder='placeholder' value='value' />
               <z-icon name="close"></z-icon>
@@ -137,7 +137,7 @@ describe("Suite test ZInputText", () => {
       <z-input-text type='textarea' inputid='test' placeholder='placeholder' value='value' label='label'>
         <mock:shadow-root>
           <div>
-            <label>label</label>
+            <label htmlfor="test">label</label>
             <div>
               <div class="textareaWrapper false filled input_default">
                 <textarea class="false filled input_default" id='test' name='test' placeholder='placeholder' value='value'></textarea>
@@ -158,7 +158,7 @@ describe("Suite test ZInputText", () => {
       <z-input-text type='textarea' inputid='test' placeholder='placeholder' value='value' label='label' isdisabled isreadonly>
         <mock:shadow-root>
           <div>
-            <label>label</label>
+            <label htmlfor="test">label</label>
             <div>
               <div class="textareaWrapper false filled input_default disabled readonly">
                 <textarea disabled readonly class="false filled input_default" id='test' name='test' placeholder='placeholder' value='value'></textarea>
@@ -179,7 +179,7 @@ describe("Suite test ZInputText", () => {
       <z-input-text type='textarea' inputid='test' placeholder='placeholder' value='value' label='label' status='error' message='error message'>
         <mock:shadow-root>
           <div>
-            <label>label</label>
+            <label htmlfor="test">label</label>
             <div>
               <div class="textareaWrapper false filled input_error">
                 <textarea class="false filled input_error" id='test' name='test' placeholder='placeholder' value='value'></textarea>
