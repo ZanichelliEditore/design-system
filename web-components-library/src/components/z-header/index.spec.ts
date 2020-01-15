@@ -311,9 +311,6 @@ describe("Suite test ZHeader", () => {
                   <i></i>
                 </a>
                 <svg height="8" width="16"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
-                <span class="mobile-dropdown" id="mobile-dropdown-home">
-                  <z-list></z-list>
-                </span>
               </span>
               <span>
                 <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano">
@@ -335,11 +332,12 @@ describe("Suite test ZHeader", () => {
             </div>
           </div>
           <div id="dropdown-menu" class="dropdown-menu">
-            <div class="dropdown-links">
-              <a class="active" href="#libreria">
+            <ul class="dropdown-links">
+              <li><a class="active" href="#libreria">
                 la mia libreria
               </a>
-            </div>
+              </li>
+            </ul>
           </div>
         </header>
       </mock:shadow-root>
@@ -481,9 +479,6 @@ describe("Suite test ZHeader", () => {
                   <i></i>
                 </a>
                 <svg height="8" width="16" class="hidden"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
-                <span class="mobile-dropdown" id="mobile-dropdown-home">
-                  <z-list></z-list>
-                </span>
               </span>
               <span>
                 <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano">
