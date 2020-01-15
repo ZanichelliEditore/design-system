@@ -59,8 +59,6 @@ header {
 
 .logo {
   grid-area: logo;
-  /* display: flex;
-  justify-content: flex-start; */
   padding: 6px;
 }
 
@@ -255,11 +253,6 @@ hr {
   color: var(--bg-white);
   fill: var(--bg-white);
 }
-
-/* .login > z-button:hover {
-  color: var(--bg-white);
-  fill: var(--bg-white);
-} */
 
 .booktab-button > z-button {
   display: flex;
