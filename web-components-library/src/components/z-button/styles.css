@@ -53,7 +53,7 @@ button.primary:active {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
-/* INFO: mantenere il selettore disabled per ultima in modo che sia prioritaria rispetto alle altre */
+/* INFO: mantenere il selettore disabled per ultimo in modo che sia prioritario rispetto agli altri */
 button.primary:disabled {
   background-color: var(--bg-neutral-200);
   border-color: var(--bg-neutral-200);
@@ -91,7 +91,7 @@ button.secondary:active {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
-/* INFO: mantenere il selettore disabled per ultima in modo che sia prioritaria rispetto alle altre */
+/* INFO: mantenere il selettore disabled per ultimo in modo che sia prioritario rispetto agli altri */
 button.secondary:disabled {
   background-color: var(--bg-white);
   border-color: var(--bg-neutral-200);
@@ -129,7 +129,7 @@ button.tertiary:active {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
-/* INFO: mantenere il selettore disabled per ultima in modo che sia prioritaria rispetto alle altre */
+/* INFO: mantenere il selettore disabled per ultimo in modo che sia prioritario rispetto agli altri */
 button.tertiary:disabled {
   background-color: transparent;
   border-color: transparent;
@@ -137,7 +137,7 @@ button.tertiary:disabled {
   fill: var(--text-grey-700);
 }
 
-button>z-icon {
+button > z-icon {
   margin-right: var(--half-x3);
 }
 

@@ -24,9 +24,9 @@ describe("Suite test ZHeader", () => {
         <header>
           <div class="false mobile-header" id="mobile-header">
             <div class="logo">
-              <z-logo imagealt="logo zanichelli" imageurl="./assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank=""></z-logo>
+              <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank=""></z-logo>
             </div>
-            <z-button buttonid="login-button" label="entra" type="secondary"></z-button>
+            <z-button buttonid="login-button" label="entra" type="secondary" icon="enter" issmall=""></z-button>
           </div>
         </header>
       </mock:shadow-root>
@@ -50,9 +50,13 @@ describe("Suite test ZHeader", () => {
       <header>
         <div class="mobile-header myz-out" id="mobile-header">
           <div class="logo">
-            <z-logo imagealt="logo zanichelli" imageurl="./assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank=""></z-logo>
+            <z-logo imagealt="logo zanichelli" 
+            height="36" 
+            width="144" 
+            link="https://www.zanichelli.it" 
+            targetblank=""></z-logo>
           </div>
-          <z-button buttonid="login-button" label="entra" type="secondary"></z-button>
+          <z-button buttonid="login-button" label="entra" type="tertiary" icon="enter" issmall=""></z-button>
         </div>
       </header>
     </mock:shadow-root>
@@ -76,7 +80,7 @@ describe("Suite test ZHeader", () => {
       <header>
         <div class="false mobile-header" id="mobile-header">
           <div class="logo">
-            <z-logo imagealt="logo zanichelli" imageurl="./assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank=""></z-logo>
+            <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank=""></z-logo>
           </div>
           <div class="menu-mobile" id="mobile-menu-wrapper">
             <div class="false menu-toggle" id="mobile-menu">
@@ -137,7 +141,7 @@ describe("Suite test ZHeader", () => {
         <header>
           <div class="false mobile-header" id="mobile-header">
             <div class="logo">
-              <z-logo imagealt="logo zanichelli" imageurl="./assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank=""></z-logo>
+              <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank=""></z-logo>
             </div>
             <div class="menu-mobile" id="mobile-menu-wrapper">
               <div class="menu-toggle is-active" id="mobile-menu">
@@ -258,12 +262,12 @@ describe("Suite test ZHeader", () => {
           </div>
           <div class="main-header false" id="main-header">
             <div class="logo">
-              <z-logo imagealt="logo zanichelli" imageurl="./assets/images/png/zanichelli-logo-2.png" link="https://www.zanichelli.it" targetblank></z-logo>
+              <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank></z-logo>
             </div>
             <div></div>
             <div></div>
             <div class="login">
-              <z-button buttonid="login-button" label="entra" type="secondary"></z-button>
+              <z-button buttonid="login-button" label="entra" type="secondary" icon="enter" issmall=""></z-button>
             </div>
           </div>
           <div class="dropdown-menu hidden" id="dropdown-menu"></div>
@@ -298,9 +302,10 @@ describe("Suite test ZHeader", () => {
           <div id="main-header" class="main-header false">
             <div class="logo">
               <z-logo
+                height="36"
+                width="144"  
                 link="https://www.zanichelli.it"
                 targetblank
-                imageurl="./assets/images/png/zanichelli-logo-2.png"
                 imagealt="logo zanichelli"
               />
             </div>
@@ -371,16 +376,17 @@ describe("Suite test ZHeader", () => {
           <div id="main-header" class="main-header false">
             <div class="logo">
               <z-logo
+                height="36"
+                width="144"  
                 link="https://www.zanichelli.it"
                 targetblank
-                imageurl="./assets/images/png/zanichelli-logo-2.png"
                 imagealt="logo zanichelli"
               />
             </div>
             <div></div>
             <div></div>
             <div class="login">
-              <z-button label="entra" type="secondary" buttonid="login-button"></z-button>
+              <z-button label="entra" type="secondary" buttonid="login-button" icon="enter" issmall=""></z-button>
             </div>
           </div>
           <div id="dropdown-menu" class="dropdown-menu hidden"></div>
@@ -411,9 +417,10 @@ describe("Suite test ZHeader", () => {
           <div id="main-header" class="main-header myz-out">
             <div class="logo">
               <z-logo
+                height="36"
+                width="144"  
                 link="https://www.zanichelli.it"
                 targetblank
-                imageurl="./assets/images/png/zanichelli-logo-2.png"
                 imagealt="logo zanichelli"
               />
             </div>
@@ -468,9 +475,10 @@ describe("Suite test ZHeader", () => {
           <div id="main-header" class="main-header false">
             <div class="logo">
               <z-logo
+                height="36"
+                width="144"
                 link="https://www.zanichelli.it"
                 targetblank
-                imageurl="./assets/images/png/zanichelli-logo-2.png"
                 imagealt="logo zanichelli"
               />
             </div>

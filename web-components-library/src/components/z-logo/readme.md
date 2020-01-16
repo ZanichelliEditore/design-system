@@ -9,10 +9,11 @@
 
 | Property      | Attribute     | Description | Type      | Default     |
 | ------------- | ------------- | ----------- | --------- | ----------- |
+| `height`      | `height`      |             | `number`  | `42`        |
 | `imagealt`    | `imagealt`    |             | `string`  | `undefined` |
-| `imageurl`    | `imageurl`    |             | `string`  | `undefined` |
 | `link`        | `link`        |             | `string`  | `undefined` |
 | `targetblank` | `targetblank` |             | `boolean` | `undefined` |
+| `width`       | `width`       |             | `number`  | `163`       |
 
 
 ## Dependencies
