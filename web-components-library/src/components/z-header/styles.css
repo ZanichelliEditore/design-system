@@ -492,7 +492,7 @@ hr {
 
   .main-header {
     display: grid;
-    grid-template-columns: 180px 168px 4fr 100px;
+    grid-template-columns: 170px 168px 4fr 120px;
     grid-template-rows: 1fr;
     grid-template-areas: "logo link-int link-ext login";
     grid-area: main-header;
@@ -509,7 +509,7 @@ hr {
     height: 32px;
     visibility: visible;
     z-index: 9;
-    padding-left: 180px;
+    padding-left: 160px;
   }
 
   .booktab-button,
@@ -597,10 +597,6 @@ hr {
 /* Desktop breakpoint */
 @media only screen and (min-width: 1024px) {
   .main-header {
-    grid-template-columns: 241px 168px 1fr minmax(180px, 180px);
-  }
-
-  .dropdown-menu {
-    padding-left: 241px;
+    grid-template-columns: 170px 168px 4fr 180px;
   }
 }
