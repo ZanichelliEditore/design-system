@@ -12,7 +12,7 @@
 | `action`     | `action`     |             | `string`  | `undefined` |
 | `icon`       | `icon`       |             | `string`  | `undefined` |
 | `link`       | `link`       |             | `string`  | `undefined` |
-| `linktarget` | `linktarget` |             | `string`  | `'_self'`   |
+| `linktarget` | `linktarget` |             | `string`  | `"_self"`   |
 | `listitemid` | `listitemid` |             | `string`  | `undefined` |
 | `text`       | `text`       |             | `string`  | `undefined` |
 | `underlined` | `underlined` |             | `boolean` | `true`      |
@@ -22,6 +22,7 @@
 
 | Event                | Description | Type               |
 | -------------------- | ----------- | ------------------ |
+| `zListItemClick`     |             | `CustomEvent<any>` |
 | `zListItemLinkClick` |             | `CustomEvent<any>` |
 
 

@@ -1,3 +1,7 @@
+:host a {
+  cursor: pointer;
+}
+
 header {
   position: sticky;
   top: -32px;

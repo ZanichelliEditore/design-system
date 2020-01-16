@@ -1,20 +1,20 @@
 # z-header
 
-
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                                                                                                     | Default     |
-| ------------- | ------------- | ----------- | -------------------------------------------------------------------------------------------------------- | ----------- |
-| `extlinkdata` | `extlinkdata` |             | `MenuItem[] \| string`                                                                                   | `undefined` |
-| `imagealt`    | `imagealt`    |             | `string`                                                                                                 | `undefined` |
-| `intlinkdata` | `intlinkdata` |             | `MenuItem[] \| string`                                                                                   | `undefined` |
-| `ismyz`       | `ismyz`       |             | `boolean`                                                                                                | `undefined` |
-| `logolink`    | `logolink`    |             | `string`                                                                                                 | `undefined` |
-| `userdata`    | `userdata`    |             | `string \| { islogged: boolean; id?: number; name?: string; usergroup: number; userlinks: MenuItem[]; }` | `undefined` |
+| Property          | Attribute         | Description | Type                                                                                                     | Default     |
+| ----------------- | ----------------- | ----------- | -------------------------------------------------------------------------------------------------------- | ----------- |
+| `activeintlinkid` | `activeintlinkid` |             | `string`                                                                                                 | `undefined` |
+| `activesublinkid` | `activesublinkid` |             | `string`                                                                                                 | `undefined` |
+| `extlinkdata`     | `extlinkdata`     |             | `MenuItem[] \| string`                                                                                   | `undefined` |
+| `imagealt`        | `imagealt`        |             | `string`                                                                                                 | `undefined` |
+| `intlinkdata`     | `intlinkdata`     |             | `MenuItem[] \| string`                                                                                   | `undefined` |
+| `ismyz`           | `ismyz`           |             | `boolean`                                                                                                | `undefined` |
+| `logolink`        | `logolink`        |             | `string`                                                                                                 | `undefined` |
+| `userdata`        | `userdata`        |             | `string \| { islogged: boolean; id?: number; name?: string; usergroup: number; userlinks: MenuItem[]; }` | `undefined` |
 
 
 ## Dependencies
