@@ -155,9 +155,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo targetblank height="38" width="144"></z-logo>
-                <p>Copyright – ` +
+                <p>Copyright – 2018-` +
         new Date().getFullYear() +
-        ` Zanichelli All rights reserved</p>
+        ` Zanichelli <span>All rights reserved</span></p>
                 <p></p>
               </div>
               <div class="item">
@@ -200,9 +200,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo link='https://my.zanichelli.it' height="38" width="144" imagealt='MyZ' targetblank /></z-logo>
-                <p>Copyright – ` +
+                <p>Copyright – 2018-` +
         new Date().getFullYear() +
-        ` Zanichelli All rights reserved</p>
+        ` Zanichelli <span>All rights reserved</span></p>
                 <p></p>
               </div>
               <div class="item">
@@ -250,10 +250,10 @@ describe("Suite test ZFooter", () => {
             <section class="top"></section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo targetblank></z-logo>
-                <p>Copyright – ` +
+                <z-logo height="38" targetblank="" width="144"></z-logo>
+                <p>Copyright – 2018-` +
         new Date().getFullYear() +
-        ` Zanichelli All rights reserved</p>
+        ` Zanichelli <span>All rights reserved</span></p>
                 <p></p>
               </div>
               <div class="item">
@@ -313,9 +313,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo targetblank height="38" width="144"></z-logo>
-                <p>Copyright – ` +
+                <p>Copyright – 2018-` +
         new Date().getFullYear() +
-        ` Zanichelli All rights reserved</p>
+        ` Zanichelli <span>All rights reserved</span></p>
                 <p></p>
               </div>
               <div class="item">
@@ -375,9 +375,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo targetblank height="38" width="144"></z-logo>
-                <p>Copyright – ` +
+                <p>Copyright – 2018-` +
         new Date().getFullYear() +
-        ` Zanichelli All rights reserved</p>
+        ` Zanichelli <span>All rights reserved</span></p>
                 <p></p>
               </div>
               <div class="item">

@@ -11,7 +11,7 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader mobile myz utente non loggato", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(false, false, true, false, false)
+      html: initHeader(false, false, true, false, false, "")
     });
 
     //Set mobile state
@@ -19,7 +19,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
+    <z-header activeintlinkid="" extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
         <header>
           <div class="false mobile-header" id="mobile-header">
@@ -37,7 +37,7 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader mobile non myz utente non loggato", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(true, false, false, false, false)
+      html: initHeader(true, false, false, false, false, "")
     });
 
     //Set mobile state
@@ -45,15 +45,15 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="false" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":false,"usergroup":4}'>
+    <z-header activeintlinkid="" extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="false" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":false,"usergroup":4}'>
     <mock:shadow-root>
       <header>
         <div class="mobile-header myz-out" id="mobile-header">
           <div class="logo">
-            <z-logo imagealt="logo zanichelli" 
-            height="36" 
-            width="144" 
-            link="https://www.zanichelli.it" 
+            <z-logo imagealt="logo zanichelli"
+            height="36"
+            width="144"
+            link="https://www.zanichelli.it"
             targetblank=""></z-logo>
           </div>
           <z-button buttonid="login-button" label="entra" type="tertiary" icon="enter" issmall=""></z-button>
@@ -67,7 +67,7 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader mobile myz loggato", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(true, true, true, false, false)
+      html: initHeader(true, true, true, false, false, "")
     });
 
     //Set mobile state
@@ -75,7 +75,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]}'>
+    <z-header activeintlinkid="" extlinkdata="[]" imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]}'>
     <mock:shadow-root>
       <header>
         <div class="false mobile-header" id="mobile-header">
@@ -96,7 +96,7 @@ describe("Suite test ZHeader", () => {
         <div class="false mobile-content" id="mobile-content">
           <div class="mobile-login" id="mobile-login">
             <span>
-              <a class="menu-item" href="#home" id="user-data">
+              <a class="menu-item" id="user-data" role="button">
                 <span>
                   <z-icon height="16" name="user" width="16"></z-icon>
                   Dario Docente e Professore
@@ -122,7 +122,7 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader mobile myz loggato open", async () => {
     const page = await newSpecPage({
       components: [ZHeader, ZList],
-      html: initHeader(true, true, true, true, true)
+      html: initHeader(true, true, true, true, true, "")
     });
     page.rootInstance.isMobile = true;
     page.rootInstance.isMenuMobileOpen = true;
@@ -136,6 +136,7 @@ describe("Suite test ZHeader", () => {
       ismyz="true"
       logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
+      activeintlinkid=""
     >
       <mock:shadow-root>
         <header>
@@ -155,7 +156,7 @@ describe("Suite test ZHeader", () => {
           <div id="mobile-content" class="mobile-content open false">
             <div id="mobile-login" class="mobile-login">
               <span>
-                <a class="menu-item" id="user-data" href="#home">
+                <a class="menu-item" id="user-data" role="button">
                   <span>
                     <z-icon height="16" name="user" width="16"></z-icon>
                     Dario Docente e Professore
@@ -177,11 +178,11 @@ describe("Suite test ZHeader", () => {
             <hr />
             <div id="link-int" class="link-int">
               <span>
-                <a href="#home" id="home" class="menu-item">
+                <a href="#home" id="home" class="menu-item" role="link">
                   <span>Home</span>
                   <i></i>
                 </a>
-                <svg height="8" width="16"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
+                <svg class="hidden" height="8" width="16"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
                 <span class="mobile-dropdown" id="mobile-dropdown-home">
                   <z-list>
                     <mock:shadow-root>
@@ -193,7 +194,7 @@ describe("Suite test ZHeader", () => {
                 </span>
               </span>
               <span>
-                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano">
+                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano" role="link">
                   <span>Dizionari</span>
                 </a>
                 <svg height="8" width="16" class="hidden"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
@@ -215,7 +216,7 @@ describe("Suite test ZHeader", () => {
   it("Test click ZHeader mobile toggle", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(true, true, true, true, true)
+      html: initHeader(true, true, true, true, true, "")
     });
 
     expect(page.rootInstance.isMobile).toEqual(false);
@@ -248,11 +249,11 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader myz vuoto", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(false, false, true, false, false)
+      html: initHeader(false, false, true, false, false, "")
     });
     expect(page.root).toEqualHtml(`
 
-      <z-header extlinkdata='[]' imagealt="logo zanichelli" intlinkdata='[]' ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
+      <z-header activeintlinkid="" extlinkdata='[]' imagealt="logo zanichelli" intlinkdata='[]' ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
         <header>
           <div class="top-header">
@@ -280,7 +281,7 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader myz loggato", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(true, true, true, true, true)
+      html: initHeader(true, true, true, true, true, "home")
     });
     expect(page.root).toEqualHtml(`
     <z-header
@@ -291,6 +292,7 @@ describe("Suite test ZHeader", () => {
       ismyz="true"
       logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
+      activeintlinkid="home"
     >
       <mock:shadow-root>
         <header>
@@ -303,7 +305,7 @@ describe("Suite test ZHeader", () => {
             <div class="logo">
               <z-logo
                 height="36"
-                width="144"  
+                width="144"
                 link="https://www.zanichelli.it"
                 targetblank
                 imagealt="logo zanichelli"
@@ -311,14 +313,14 @@ describe("Suite test ZHeader", () => {
             </div>
             <div id="link-int" class="link-int">
               <span>
-                <a href="#home" id="home" class="menu-item">
+                <a href="#home" id="home" class="menu-item" role="link">
                   <span>Home</span>
                   <i></i>
                 </a>
                 <svg height="8" width="16"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
               </span>
               <span>
-                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano">
+                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano" role="link">
                   <span>Dizionari</span>
                 </a>
                 <svg height="8" width="16" class="hidden"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
@@ -338,7 +340,7 @@ describe("Suite test ZHeader", () => {
           </div>
           <div id="dropdown-menu" class="dropdown-menu">
             <ul class="dropdown-links">
-              <li><a class="active" href="#libreria">
+              <li><a href="#libreria" id="libreria" role="link">
                 la mia libreria
               </a>
               </li>
@@ -353,7 +355,7 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader myz non loggato", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(false, false, true, true, true)
+      html: initHeader(false, false, true, true, true, "")
     });
     expect(page.root).toEqualHtml(`
     <z-header
@@ -363,6 +365,7 @@ describe("Suite test ZHeader", () => {
       ismyz="true"
       logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
+      activeintlinkid=""
     >
       <mock:shadow-root>
         <header>
@@ -375,7 +378,7 @@ describe("Suite test ZHeader", () => {
             <div class="logo">
               <z-logo
                 height="36"
-                width="144"  
+                width="144"
                 link="https://www.zanichelli.it"
                 targetblank
                 imagealt="logo zanichelli"
@@ -397,7 +400,7 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader non myz loggato", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(true, true, false, true, true)
+      html: initHeader(true, true, false, true, true, "")
     });
     expect(page.root).toEqualHtml(`
     <z-header
@@ -408,6 +411,7 @@ describe("Suite test ZHeader", () => {
       ismyz="false"
       logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
+      activeintlinkid=""
     >
       <mock:shadow-root>
         <header>
@@ -416,7 +420,7 @@ describe("Suite test ZHeader", () => {
             <div class="logo">
               <z-logo
                 height="36"
-                width="144"  
+                width="144"
                 link="https://www.zanichelli.it"
                 targetblank
                 imagealt="logo zanichelli"
@@ -445,7 +449,7 @@ describe("Suite test ZHeader", () => {
   it("Test render ZHeader active menu item", async () => {
     const page = await newSpecPage({
       components: [ZHeader],
-      html: initHeader(true, true, true, true, true)
+      html: initHeader(true, true, true, true, true, "")
     });
     page.rootInstance.activeMenuItem = {
       id: "Dizionari",
@@ -462,6 +466,7 @@ describe("Suite test ZHeader", () => {
       ismyz="true"
       logolink="https://www.zanichelli.it"
       logopath="./assets/images/png/zanichelli-logo-2.png"
+      activeintlinkid=""
     >
       <mock:shadow-root>
         <header>
@@ -482,14 +487,14 @@ describe("Suite test ZHeader", () => {
             </div>
             <div id="link-int" class="link-int">
               <span>
-                <a href="#home" id="home" class="menu-item">
+                <a href="#home" id="home" class="menu-item" role="link">
                   <span>Home</span>
                   <i></i>
                 </a>
                 <svg height="8" width="16" class="hidden"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
               </span>
               <span>
-                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano">
+                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano" role="link">
                   <span>Dizionari</span>
                 </a>
                 <svg height="8" width="16"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
@@ -525,7 +530,8 @@ function initHeader(
   userLogged: boolean,
   myz: boolean,
   intlinkdataBool: boolean,
-  extlinkdataBool: boolean
+  extlinkdataBool: boolean,
+  activeintlinkid: string
 ) {
   const userNotLogged = { islogged: false, usergroup: 4 };
   const user = {
@@ -583,5 +589,6 @@ function initHeader(
   logopath=${logoPath}
   logolink=${logoLink}
   imagealt="logo zanichelli"
+  activeintlinkid=${activeintlinkid}
   ></z-header>`;
 }

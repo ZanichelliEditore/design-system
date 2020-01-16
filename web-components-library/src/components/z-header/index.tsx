@@ -276,6 +276,7 @@ export class ZHeader {
             class="menu-item"
             id="user-data"
             onClick={() => this.handleToggleMobileMenuItem("user-data")}
+            role="button"
           >
             <span>
               <z-icon name="user" height={16} width={16} />

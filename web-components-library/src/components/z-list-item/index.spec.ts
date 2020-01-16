@@ -41,7 +41,7 @@ describe("Suite test z-list-item", () => {
       <mock:shadow-root>
         <li>
           <span class="border">
-            <a href=\"='http://www.google.it'\" target="_self">
+            <a href=\"='http://www.google.it'\" target="_self" role="link">
               testo
             </a>
           </span>
