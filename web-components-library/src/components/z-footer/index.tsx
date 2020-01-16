@@ -106,7 +106,8 @@ export class ZFooter {
     return (
       <z-logo
         link={myzLink.link}
-        imageurl={myzLink.img}
+        width={144}
+        height={38}
         imagealt={myzLink.label}
         targetblank={true}
       />
@@ -141,8 +142,8 @@ export class ZFooter {
     if (!!this.copyrightuser) {
       return (
         <p>
-          Copyright – {new Date().getFullYear()} {this.copyrightuser} All rights
-          reserved
+          Copyright – 2018-{new Date().getFullYear()} {this.copyrightuser}
+          <span> All rights reserved </span>
         </p>
       );
     } else return;

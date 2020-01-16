@@ -14,7 +14,6 @@
 | `intlinkdata` | `intlinkdata` |             | `MenuItem[] \| string`                                                                                   | `undefined` |
 | `ismyz`       | `ismyz`       |             | `boolean`                                                                                                | `undefined` |
 | `logolink`    | `logolink`    |             | `string`                                                                                                 | `undefined` |
-| `logopath`    | `logopath`    |             | `string`                                                                                                 | `undefined` |
 | `userdata`    | `userdata`    |             | `string \| { islogged: boolean; id?: number; name?: string; usergroup: number; userlinks: MenuItem[]; }` | `undefined` |
 
 

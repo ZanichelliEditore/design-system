@@ -1,6 +1,6 @@
 header {
   position: sticky;
-  top: -36px;
+  top: -32px;
   z-index: 99;
   display: grid;
   grid-template-columns: 1fr;
@@ -59,9 +59,7 @@ header {
 
 .logo {
   grid-area: logo;
-  display: flex;
-  justify-content: flex-start;
-  padding: 2px;
+  padding: 6px;
 }
 
 z-logo {
@@ -260,6 +258,11 @@ hr {
   display: flex;
   justify-content: flex-end;
   padding: 0 var(--basex2);
+}
+
+.login > z-button {
+  color: var(--bg-white);
+  fill: var(--bg-white);
 }
 
 .booktab-button > z-button {

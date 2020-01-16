@@ -26,7 +26,7 @@ describe("Suite test ZFooter", () => {
             <section class="top"></section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo targetblank></z-logo>
+                <z-logo targetblank height="38" width="144"></z-logo>
                 <p></p>
               </div>
               <div class="item">
@@ -154,7 +154,7 @@ describe("Suite test ZFooter", () => {
             </section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo targetblank></z-logo>
+                <z-logo targetblank height="38" width="144"></z-logo>
                 <p>Copyright – ` +
         new Date().getFullYear() +
         ` Zanichelli All rights reserved</p>
@@ -199,7 +199,7 @@ describe("Suite test ZFooter", () => {
             <section class="top"></section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo link='https://my.zanichelli.it' imageurl='logo.png' imagealt='MyZ' targetblank /></z-logo>
+                <z-logo link='https://my.zanichelli.it' height="38" width="144" imagealt='MyZ' targetblank /></z-logo>
                 <p>Copyright – ` +
         new Date().getFullYear() +
         ` Zanichelli All rights reserved</p>
@@ -312,7 +312,7 @@ describe("Suite test ZFooter", () => {
             <section class="top"></section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo targetblank></z-logo>
+                <z-logo targetblank height="38" width="144"></z-logo>
                 <p>Copyright – ` +
         new Date().getFullYear() +
         ` Zanichelli All rights reserved</p>
@@ -374,7 +374,7 @@ describe("Suite test ZFooter", () => {
             <section class="top"></section>
             <section class="bottom">
               <div class="item logo">
-                <z-logo targetblank></z-logo>
+                <z-logo targetblank height="38" width="144"></z-logo>
                 <p>Copyright – ` +
         new Date().getFullYear() +
         ` Zanichelli All rights reserved</p>
