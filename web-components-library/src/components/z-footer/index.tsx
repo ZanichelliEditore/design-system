@@ -129,7 +129,7 @@ export class ZFooter {
           (item: FooterSocialBean): HTMLElement => (
             <li>
               <a href={item.link} target="_blank">
-                <img src={item.icon} />
+                <img src={item.icon} alt={item.description} />
               </a>
             </li>
           )

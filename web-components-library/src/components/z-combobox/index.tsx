@@ -14,6 +14,7 @@ export class ZCombobox {
   @Prop() hassearch?: boolean = false;
   @Prop() searchlabel?: string;
   @Prop() searchplaceholder?: string;
+  @Prop() searchtitle?: string;
   @Prop() noresultslabel: string;
   @Prop({ mutable: true }) isopen: boolean = true;
   @Prop() isfixed: boolean = false;
@@ -140,6 +141,7 @@ export class ZCombobox {
         inputid={`${this.inputid}_search`}
         label={this.searchlabel}
         placeholder={this.searchplaceholder}
+        htmltitle={this.searchtitle}
         type={this.inputType}
         value={this.searchValue}
         onInputChange={(e: CustomEvent) => {

@@ -155,9 +155,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo targetblank height="38" width="144"></z-logo>
-                <p>Copyright – ` +
+                <p>Copyright – 2018-` +
         new Date().getFullYear() +
-        ` Zanichelli All rights reserved</p>
+        ` Zanichelli <span>All rights reserved</span></p>
                 <p></p>
               </div>
               <div class="item">
@@ -200,9 +200,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo link='https://my.zanichelli.it' height="38" width="144" imagealt='MyZ' targetblank /></z-logo>
-                <p>Copyright – ` +
+                <p>Copyright – 2018-` +
         new Date().getFullYear() +
-        ` Zanichelli All rights reserved</p>
+        ` Zanichelli <span>All rights reserved</span></p>
                 <p></p>
               </div>
               <div class="item">
@@ -221,6 +221,68 @@ describe("Suite test ZFooter", () => {
   });
 
   it("Test render ZFooter con social", async () => {
+    const page = await newSpecPage({
+      components: [ZFooter],
+      html: `<z-footer data='{
+        "zanichelliLinks": [],
+        "myzLink": {},
+        "social": [
+          {"icon": "facebook.png", "link": "https://it-it.facebook.com/zanichelliscuola", "description" : "facebook"},
+          {"icon": "youtube.png", "link": "https://www.youtube.com/user/zanichellieditore", "description" : "youtube"}
+        ],
+        "bottomLinks": []
+      }' copyrightuser='Zanichelli'></z-footer>`
+    });
+
+    expect(page.root).toEqualHtml(
+      `
+      <z-footer copyrightuser='Zanichelli' data='{
+        "zanichelliLinks": [],
+        "myzLink": {},
+        "social": [
+          {"icon": "facebook.png", "link": "https://it-it.facebook.com/zanichelliscuola", "description" : "facebook"},
+          {"icon": "youtube.png", "link": "https://www.youtube.com/user/zanichellieditore", "description" : "youtube"}
+        ],
+        "bottomLinks": []
+      }'>
+        <mock:shadow-root>
+          <footer>
+            <section class="top"></section>
+            <section class="bottom">
+              <div class="item logo">
+                <z-logo height="38" targetblank="" width="144"></z-logo>
+                <p>Copyright – 2018-` +
+        new Date().getFullYear() +
+        ` Zanichelli <span>All rights reserved</span></p>
+                <p></p>
+              </div>
+              <div class="item">
+                <p></p>
+                <ul class="social">
+                  <li>
+                    <a href='https://it-it.facebook.com/zanichelliscuola' target='_blank'>
+                      <img src='facebook.png' alt='facebook'/>
+                    </a>
+                  </li>
+                  <li>
+                    <a href='https://www.youtube.com/user/zanichellieditore' target='_blank'>
+                      <img src='youtube.png' alt='youtube'/>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="item bottom-links">
+                <ul></ul>
+              </div>
+            </section>
+          </footer>
+        </mock:shadow-root>
+      </z-footer>
+    `
+    );
+  });
+
+  it("Test render ZFooter con social, ma senza il parametro 'description' ", async () => {
     const page = await newSpecPage({
       components: [ZFooter],
       html: `<z-footer data='{
@@ -251,9 +313,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo targetblank height="38" width="144"></z-logo>
-                <p>Copyright – ` +
+                <p>Copyright – 2018-` +
         new Date().getFullYear() +
-        ` Zanichelli All rights reserved</p>
+        ` Zanichelli <span>All rights reserved</span></p>
                 <p></p>
               </div>
               <div class="item">
@@ -261,7 +323,7 @@ describe("Suite test ZFooter", () => {
                 <ul class="social">
                   <li>
                     <a href='https://it-it.facebook.com/zanichelliscuola' target='_blank'>
-                      <img src='facebook.png' />
+                      <img src='facebook.png'/>
                     </a>
                   </li>
                   <li>
@@ -313,9 +375,9 @@ describe("Suite test ZFooter", () => {
             <section class="bottom">
               <div class="item logo">
                 <z-logo targetblank height="38" width="144"></z-logo>
-                <p>Copyright – ` +
+                <p>Copyright – 2018-` +
         new Date().getFullYear() +
-        ` Zanichelli All rights reserved</p>
+        ` Zanichelli <span>All rights reserved</span></p>
                 <p></p>
               </div>
               <div class="item">

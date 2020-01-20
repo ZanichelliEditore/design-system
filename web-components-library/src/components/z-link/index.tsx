@@ -9,7 +9,7 @@ export class ZLink {
   @Prop() url: string;
   @Prop() label?: string;
   @Prop() icon?: string;
-  @Prop() target?: string = '_self';
+  @Prop() target?: string = "_self";
   @Prop() isdisabled?: boolean = false;
   @Prop() iswhite?: boolean = false;
   @Prop() linkid?: string;
@@ -22,11 +22,12 @@ export class ZLink {
   render() {
     return (
       <a
-        href={this.url}
+        href={this.url ? this.url : null}
         class={`${this.isdisabled && "disabled"} ${this.iswhite && "white"}`}
         target={this.target}
         id={this.linkid}
         onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.linkid)}
+        role={this.url ? "link" : "button"}
       >
         {this.icon && <z-icon name={this.icon} width={12} height={12} />}
         {this.label}

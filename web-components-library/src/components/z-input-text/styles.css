@@ -108,6 +108,10 @@ textarea::placeholder {
   box-shadow: 0 0 0 0 transparent;
 }
 
+:host>div>div>div.textareaWrapper>textarea.istyping {
+  color: var(--myz-blue);
+}
+
 :host>div>div>input:disabled,
 :host>div>div>input.filled:disabled,
 :host>div>div>div.textareaWrapper.disabled,
@@ -133,6 +137,10 @@ textarea::placeholder {
 :host>div>div>div.textareaWrapper>textarea:disabled:hover,
 :host>div>div>div.textareaWrapper.disabled.hover {
   background: var(--bg-white);
+}
+
+:host>div>div>input:disabled:hover {
+  border-color: var(--bg-grey-200);
 }
 
 :host>div>div>input[readonly],

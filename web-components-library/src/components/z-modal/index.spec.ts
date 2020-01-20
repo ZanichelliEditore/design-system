@@ -15,8 +15,6 @@ describe("Suite test ZModal", () => {
             <div id="">
               <header>
                 <div>
-                  <h1></h1>
-                  <h2></h2>
                 </div>
                 <z-icon name="circle-cross-fill" width="24" height="24" data-action="modalClose" />
               </header>
@@ -75,8 +73,6 @@ describe("Suite test ZModal", () => {
             <div id="">
               <header>
                 <div>
-                  <h1></h1>
-                  <h2></h2>
                 </div>
                 <z-icon name="circle-cross-fill" width="24" height="24" data-action="modalClose" />
               </header>

@@ -1,4 +1,12 @@
-import { Component, Prop, h, State, Element, Listen } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  State,
+  Element,
+  Listen,
+  Watch
+} from "@stencil/core";
 import { MenuItem, HeaderUserData, ListItemBean } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
@@ -13,7 +21,9 @@ export class ZHeader {
   @Prop() userdata?: string | HeaderUserData;
   @Prop() ismyz: boolean;
   @Prop() logolink?: string;
-  @Prop() imagealt: string;
+  @Prop() imagealt?: string;
+  @Prop() activeintlinkid?: string;
+  @Prop() activesublinkid?: string;
 
   @State() activeMenuItem: MenuItem;
   @State() currentMenuItem: MenuItem;
@@ -23,18 +33,14 @@ export class ZHeader {
   private extMenuData: MenuItem[];
   private userData: HeaderUserData;
   private isLogged: boolean = false;
-  private sections: object;
-  private readonly topOffset: number = 90;
 
   @Element() private element: HTMLElement;
 
-  @Listen("scroll", { target: "window", capture: true })
-  handleScroll(e): void {
-    if (this.isMobile) return;
-    const links = this.element.shadowRoot.querySelectorAll(
-      ".dropdown-links > a[href^='#']"
+  @Watch("activeintlinkid")
+  activeIntLinkChange(newValue: string) {
+    this.activeMenuItem = this.currentMenuItem = this.intMenuData.find(
+      (item: MenuItem) => item.id === newValue
     );
-    this.handleActiveOnScroll(e, links);
   }
 
   @Listen("resize", { target: "window" })
@@ -43,12 +49,12 @@ export class ZHeader {
   }
 
   @Listen("zListItemLinkClick", { capture: true })
-  handleZListItemLinkClick(event: CustomEvent): void {
+  handleZListItemLinkClick(): void {
     this.isMenuMobileOpen = false;
-    this.handleSubMenuClick(
-      event.detail.e,
-      event.detail.linkId.replace("link_", "")
-    );
+  }
+  @Listen("zListItemClick", { capture: true })
+  handleZListItemClick(): void {
+    this.isMenuMobileOpen = false;
   }
 
   componentWillLoad() {
@@ -60,9 +66,9 @@ export class ZHeader {
       typeof this.extlinkdata === "string"
         ? JSON.parse(this.extlinkdata)
         : this.extlinkdata;
-    this.activeMenuItem = this.setIntMenuItem();
-    this.currentMenuItem = this.setIntMenuItem();
-    this.sections = this.getSections(this.intMenuData);
+    this.activeMenuItem = this.currentMenuItem = this.intMenuData.find(
+      (item: MenuItem) => item.id === this.activeintlinkid
+    );
     if (this.userdata) {
       this.userData =
         typeof this.userdata === "string"
@@ -73,50 +79,8 @@ export class ZHeader {
     this.handleResize();
   }
 
-  getSections(intMenuData): object {
-    let obj = {};
-    if (!intMenuData) return obj;
-
-    intMenuData.forEach(menuItem => {
-      if (menuItem.link && !menuItem.link.startsWith("http")) {
-        const tmp = document.querySelector(menuItem.link);
-        if (tmp) obj[menuItem.id] = tmp;
-        obj = { ...obj, ...this.getSections(menuItem.subMenu) };
-      }
-    });
-    return obj;
-  }
-
-  handleActiveOnScroll(e, links) {
-    links.forEach(link => {
-      link.classList.remove("active");
-
-      const currentSection = document.querySelector(link.hash);
-
-      if (
-        currentSection &&
-        currentSection.offsetTop <=
-          e.srcElement.scrollingElement.scrollTop + this.topOffset &&
-        currentSection.offsetHeight + currentSection.offsetTop >
-          e.srcElement.scrollingElement.scrollTop + this.topOffset
-      ) {
-        link.classList.add("active");
-      }
-    });
-  }
-
-  setIntMenuItem(): MenuItem {
-    return (
-      this.intMenuData.filter(
-        (menu: MenuItem) => window.location.hash === menu.link
-      )[0] || this.intMenuData[0]
-    );
-  }
-
   renderTopHeader(): HTMLDivElement {
-    if (!this.ismyz) {
-      return <div />;
-    }
+    if (!this.ismyz) return <div />;
 
     return (
       <div class="top-header">
@@ -142,9 +106,7 @@ export class ZHeader {
   }
 
   renderIntMenu(menuItems: MenuItem[]): HTMLDivElement {
-    if (!this.isLogged || !this.ismyz) {
-      return <div />;
-    }
+    if (!this.isLogged || !this.ismyz) return <div />;
 
     return (
       <div id="link-int" class="link-int">
@@ -158,14 +120,13 @@ export class ZHeader {
     return (
       <span>
         <a
-          href={link}
+          href={link ? link : null}
           id={id}
           class="menu-item"
           onClick={() => {
-            this.activeMenuItem = menuItem;
-            this.currentMenuItem = menuItem;
-            if (link.startsWith("#"))
-              this.handleToggleMobileMenuItem(menuItem.id);
+            this.activeMenuItem = this.currentMenuItem = menuItem;
+            this.activeintlinkid = menuItem.id;
+            if (menuItem.subMenu) this.handleToggleMobileMenuItem(menuItem.id);
           }}
           onMouseEnter={() => {
             this.activeMenuItem = menuItem;
@@ -173,6 +134,7 @@ export class ZHeader {
           onMouseLeave={() => {
             this.activeMenuItem = this.currentMenuItem;
           }}
+          role={link ? "link" : "button"}
         >
           <span>{label}</span>
           {menuItem.subMenu ? <i></i> : null}
@@ -188,13 +150,14 @@ export class ZHeader {
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
-        {this.renderMenuItemsData(menuItem)}
+        {this.isMobile && this.renderMenuItemsData(menuItem)}
       </span>
     );
   }
 
   handleToggleMobileMenuItem(elementId: string): void {
     if (!this.isMobile) return;
+
     this.element.shadowRoot
       .getElementById(elementId)
       .classList.toggle("isopen");
@@ -205,8 +168,10 @@ export class ZHeader {
 
   renderMenuItemsData(menuItem): HTMLSpanElement | null {
     if (!menuItem.subMenu) return null;
+
     const listItems: ListItemBean[] = menuItem.subMenu.map((item: MenuItem) => {
       return {
+        id: item.id,
         text: item.label,
         link: item.link,
         listitemid: item.id
@@ -227,37 +192,31 @@ export class ZHeader {
     if (!menuItem || !menuItem["subMenu"] || !this.isLogged || !this.ismyz) {
       return <div id="dropdown-menu" class={`dropdown-menu hidden`} />;
     }
-    const active = menuItem.subMenu ? menuItem.subMenu[0] : null;
+
     return (
       <div id="dropdown-menu" class={`dropdown-menu`}>
-        <div class="dropdown-links">
+        <ul class="dropdown-links">
           {menuItem.subMenu.map(
             (item: MenuItem): HTMLAnchorElement => (
-              <a
-                class={item.id === active.id ? "active" : ""}
-                href={item.link}
-                onClick={e => this.handleSubMenuClick(e, item.id)}
-              >
-                {item.label}
-              </a>
+              <li>
+                <a
+                  id={item.id}
+                  class={item.id === this.activesublinkid ? "active" : ""}
+                  href={item.link ? item.link : null}
+                  role={item.link ? "link" : "button"}
+                >
+                  {item.label}
+                </a>
+              </li>
             )
           )}
-        </div>
+        </ul>
       </div>
     );
   }
 
-  handleSubMenuClick(e: MouseEvent, itemId: string): void {
-    if (this.sections[itemId]) {
-      e.preventDefault();
-      window.scrollTo(0, this.sections[itemId].offsetTop - this.topOffset);
-    }
-  }
-
   renderExtMenu(menuItems: MenuItem[]): HTMLDivElement {
-    if (!this.isLogged) {
-      return <div />;
-    }
+    if (!this.isLogged) return <div />;
 
     return (
       <div id="link-ext" class="link-ext">
@@ -316,8 +275,8 @@ export class ZHeader {
           <a
             class="menu-item"
             id="user-data"
-            href="#home"
             onClick={() => this.handleToggleMobileMenuItem("user-data")}
+            role="button"
           >
             <span>
               <z-icon name="user" height={16} width={16} />
@@ -331,8 +290,9 @@ export class ZHeader {
     );
   }
 
-  renderUserData(userData) {
+  renderUserData(userData: HeaderUserData) {
     if (this.isMobile && !userData) return null;
+
     const listItems: ListItemBean[] = userData.userlinks.map(
       (item: MenuItem) => {
         return {
@@ -389,9 +349,7 @@ export class ZHeader {
   }
 
   renderMobileMenuToggle() {
-    if (!this.isLogged) {
-      return this.renderLoginButton();
-    }
+    if (!this.isLogged) return this.renderLoginButton();
 
     return (
       <div
