@@ -2,18 +2,18 @@
   display: inline-block;
 }
 
-:host>div>div {
+:host > div > div {
   fill: var(--text-grey-800);
 }
 
-:host>div>div>div.textareaWrapper {
+:host > div > div > div.textareaWrapper {
   background: var(--bg-white);
   border: var(--border-size-small) solid var(--bg-grey-200);
   padding: var(--half-x3);
 }
 
-:host>div>div>input,
-:host>div>div>div.textareaWrapper>textarea {
+:host > div > div > input,
+:host > div > div > div.textareaWrapper > textarea {
   border-radius: 0px;
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-color: var(--bg-grey-200);
@@ -31,7 +31,7 @@
   outline: none;
 }
 
-:host>div>div>div.textareaWrapper>textarea {
+:host > div > div > div.textareaWrapper > textarea {
   padding: 0;
   min-height: 132px;
   resize: none;
@@ -63,59 +63,59 @@ textarea::placeholder {
   color: var(--text-grey-700);
 }
 
-:host>div>div>input.input_success,
-:host>div>div>div.textareaWrapper>textarea.input_success,
-:host>div>div>div.textareaWrapper.input_success {
+:host > div > div > input.input_success,
+:host > div > div > div.textareaWrapper > textarea.input_success,
+:host > div > div > div.textareaWrapper.input_success {
   border-color: var(--status-success-green);
   background: var(--status-success-green-lighter);
 }
 
-:host>div>div>input.input_error,
-:host>div>div>div.textareaWrapper>textarea.input_error,
-:host>div>div>div.textareaWrapper.input_error {
+:host > div > div > input.input_error,
+:host > div > div > div.textareaWrapper > textarea.input_error,
+:host > div > div > div.textareaWrapper.input_error {
   border-color: var(--status-error-red);
   background: var(--status-error-red-lighter);
 }
 
-:host>div>div>input.input_warning,
-:host>div>div>div.textareaWrapper>textarea.input_warning,
-:host>div>div>div.textareaWrapper.input_warning {
+:host > div > div > input.input_warning,
+:host > div > div > div.textareaWrapper > textarea.input_warning,
+:host > div > div > div.textareaWrapper.input_warning {
   border-color: var(--status-warning-yellow);
   background: var(--status-warning-yellow-lighter);
 }
 
-:host>div>div>div.textareaWrapper>textarea.input_success,
-:host>div>div>div.textareaWrapper>textarea.input_error,
-:host>div>div>div.textareaWrapper>textarea.input_warning {
+:host > div > div > div.textareaWrapper > textarea.input_success,
+:host > div > div > div.textareaWrapper > textarea.input_error,
+:host > div > div > div.textareaWrapper > textarea.input_warning {
   border-color: transparent;
 }
 
-:host>div>div>input.input_default.filled,
-:host>div>div>div.textareaWrapper.input_default.filled {
+:host > div > div > input.input_default.filled,
+:host > div > div > div.textareaWrapper.input_default.filled {
   border-color: var(--text-grey-800);
 }
 
-:host>div>div>input:focus,
-:host>div>div>div.textareaWrapper.focus {
+:host > div > div > input:focus,
+:host > div > div > div.textareaWrapper.focus {
   border-color: transparent;
   box-shadow: 0 0 2px 2px var(--accent-dark);
 }
 
-:host>div>div>input:focus.istyping,
-:host>div>div>div.textareaWrapper.focus.istyping {
+:host > div > div > input:focus.istyping,
+:host > div > div > div.textareaWrapper.focus.istyping {
   border-color: var(--myz-blue);
   color: var(--myz-blue);
   box-shadow: 0 0 0 0 transparent;
 }
 
-:host>div>div>div.textareaWrapper>textarea.istyping {
+:host > div > div > div.textareaWrapper > textarea.istyping {
   color: var(--myz-blue);
 }
 
-:host>div>div>input:disabled,
-:host>div>div>input.filled:disabled,
-:host>div>div>div.textareaWrapper.disabled,
-:host>div>div>div.textareaWrapper.filled.disabled {
+:host > div > div > input:disabled,
+:host > div > div > input.filled:disabled,
+:host > div > div > div.textareaWrapper.disabled,
+:host > div > div > div.textareaWrapper.filled.disabled {
   border-color: var(--bg-grey-200);
   background: var(--bg-white);
   box-shadow: none;
@@ -123,38 +123,42 @@ textarea::placeholder {
   fill: var(--bg-grey-200);
 }
 
-:host>div>div>input:hover,
-:host>div>div>div.textareaWrapper.hover {
+:host > div > div > div.textareaWrapper > textarea:disabled {
+  color: var(--text-grey-700);
+}
+
+:host > div > div > input:hover,
+:host > div > div > div.textareaWrapper.hover {
   border-color: var(--text-grey-800);
   background: var(--bg-grey-050);
 }
 
-:host>div>div>div.textareaWrapper>textarea:hover {
+:host > div > div > div.textareaWrapper > textarea:hover {
   background: var(--bg-grey-050);
 }
 
-:host>div>div>input:disabled:hover,
-:host>div>div>div.textareaWrapper>textarea:disabled:hover,
-:host>div>div>div.textareaWrapper.disabled.hover {
+:host > div > div > input:disabled:hover,
+:host > div > div > div.textareaWrapper > textarea:disabled:hover,
+:host > div > div > div.textareaWrapper.disabled.hover {
   background: var(--bg-white);
 }
 
-:host>div>div>input:disabled:hover {
+:host > div > div > input:disabled:hover {
   border-color: var(--bg-grey-200);
 }
 
-:host>div>div>input[readonly],
-:host>div>div>div.textareaWrapper.readonly {
+:host > div > div > input[readonly],
+:host > div > div > div.textareaWrapper.readonly {
   color: var(--text-grey-800);
 }
 
-:host>div>div>input[readonly]:hover,
-:host>div>div>div.textareaWrapper>textarea[readonly]:hover,
-:host>div>div>div.textareaWrapper.readonly.hover {
+:host > div > div > input[readonly]:hover,
+:host > div > div > div.textareaWrapper > textarea[readonly]:hover,
+:host > div > div > div.textareaWrapper.readonly.hover {
   background: var(--bg-white);
 }
 
-:host>div>label {
+:host > div > label {
   display: inline-block;
   color: var(--text-grey-800);
   font-family: var(--dashboard-font);
@@ -166,12 +170,12 @@ textarea::placeholder {
   margin: var(--basex1) 0;
 }
 
-:host>div>div {
+:host > div > div {
   position: relative;
   z-index: 1;
 }
 
-:host>div>div>z-icon {
+:host > div > div > z-icon {
   position: absolute;
   bottom: var(--half-x3);
   right: var(--half-x3);
@@ -179,7 +183,7 @@ textarea::placeholder {
   z-index: 2;
 }
 
-:host>div>span.statusMsg {
+:host > div > span.statusMsg {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
@@ -189,28 +193,33 @@ textarea::placeholder {
   display: flex;
 }
 
-:host>div>span.statusMsg.msg_success {
+:host > div > span.statusMsg.msg_success {
   color: var(--status-success-green);
   fill: var(--status-success-green);
 }
 
-:host>div>span.statusMsg.msg_error {
+:host > div > span.statusMsg.msg_error {
   color: var(--status-error-red);
   fill: var(--status-error-red);
 }
 
-:host>div>span.statusMsg.msg_warning {
+:host > div > span.statusMsg.msg_warning {
   color: var(--status-warning-yellow-dark);
   fill: var(--status-warning-yellow-dark);
 }
 
-:host>div>span.statusMsg>z-icon {
+:host > div > span.statusMsg > z-icon {
   margin-right: var(--basex1);
   margin-top: var(--half-x1);
 }
 
 ::-webkit-scrollbar {
-  background: linear-gradient(90deg, var(--bg-white) 2px, var(--bg-grey-200) 4px, var(--bg-white) 8px);
+  background: linear-gradient(
+    90deg,
+    var(--bg-white) 2px,
+    var(--bg-grey-200) 4px,
+    var(--bg-white) 8px
+  );
   border-radius: var(--radius-base);
   width: 10px;
   margin-right: 20px;
