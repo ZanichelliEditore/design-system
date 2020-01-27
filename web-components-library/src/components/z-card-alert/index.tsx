@@ -12,9 +12,21 @@ export class ZCardAlert {
   @Prop() type: string;
 
   @Event() undoAction: EventEmitter;
-  emitUndoAction(event: MouseEvent) {
-    event.preventDefault();
+  emitUndoAction() {
+    console.log("undoAction");
     this.undoAction.emit({ actionType: this.type });
+  }
+
+  handleSpaceKeyPress(e: KeyboardEvent): void {
+    e.preventDefault();
+    if (e.keyCode == 32 || e.keyCode == 13) {
+      this.emitUndoAction();
+    }
+  }
+
+  handleActionButtonClick(e: MouseEvent): void {
+    e.preventDefault();
+    this.emitUndoAction();
   }
 
   retrieveClass(): string {
@@ -49,7 +61,10 @@ export class ZCardAlert {
             tabindex="0"
             class="contentAction"
             onClick={(e: MouseEvent) => {
-              this.emitUndoAction(e);
+              this.handleActionButtonClick(e);
+            }}
+            onKeyPress={(e: KeyboardEvent) => {
+              this.handleSpaceKeyPress(e);
             }}
           >
             {this.actiontext}
