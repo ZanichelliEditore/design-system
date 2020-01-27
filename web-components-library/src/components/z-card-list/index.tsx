@@ -12,11 +12,24 @@ export class ZCardList {
     this.renderList = this.renderList.bind(this);
   }
 
+  handleSpaceKey(e: KeyboardEvent, url: string): void {
+    e.preventDefault();
+    if (e.keyCode == 32 || e.keyCode == 13) {
+      window.open(url, "_blank");
+    }
+  }
+
   formatListContent(data) {
-    if (!data.isLink) return <span>{data.value}</span>;
+    const { value, isLink, url } = data;
+    if (!isLink) return <span>{value}</span>;
     return (
-      <a href={data.url} target="_blank">
-        {data.value}
+      <a
+        role="button"
+        onKeyPress={(e: KeyboardEvent) => this.handleSpaceKey(e, url)}
+        href={url}
+        target="_blank"
+      >
+        {value}
       </a>
     );
   }

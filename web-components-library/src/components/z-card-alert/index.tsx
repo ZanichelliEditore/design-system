@@ -35,7 +35,7 @@ export class ZCardAlert {
 
   render() {
     return (
-      <div class={`relativeContainer ${this.retrieveClass()}`} tabindex="2">
+      <div class={`relativeContainer ${this.retrieveClass()}`}>
         <z-icon
           name={this.iconname}
           width={18}
@@ -45,6 +45,8 @@ export class ZCardAlert {
         <span class="contentText">{this.contenttext}</span>
         {this.actiontext && !!this.actiontext.trim().length && (
           <span
+            role="button"
+            tabindex="0"
             class="contentAction"
             onClick={(e: MouseEvent) => {
               this.emitUndoAction(e);
