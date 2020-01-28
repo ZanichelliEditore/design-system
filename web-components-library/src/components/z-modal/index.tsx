@@ -1,18 +1,27 @@
-import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 @Component({
-  tag: 'z-modal',
-  styleUrl: 'styles.css',
+  tag: "z-modal",
+  styleUrl: "styles.css",
   shadow: true
 })
-
 export class ZModal {
   @Prop() modalid: string;
   @Prop() modaltitle?: string;
   @Prop() modalsubtitle?: string;
 
+  constructor() {
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+  }
+
+  handleKeyUp(ev: KeyboardEvent) {
+    if (ev.key === "Enter" || ev.key === "Space") {
+      this.emitModalClose();
+    }
+  }
   @Event() modalClose: EventEmitter;
   emitModalClose() {
+    console.log("emit", this.modalid);
     this.modalClose.emit({ modalid: this.modalid });
   }
 
@@ -26,15 +35,24 @@ export class ZModal {
               {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
             </div>
             <z-icon
-              name="circle-cross-fill" width={24} height={24}
-              data-action="modalClose" data-modal={this.modalid}
+              name="circle-cross-fill"
+              width={24}
+              height={24}
+              data-action="modalClose"
+              data-modal={this.modalid}
               onClick={() => this.emitModalClose()}
+              onKeyUp={(ev: KeyboardEvent) => this.handleKeyUp(ev)}
+              tabindex="0"
             />
           </header>
           <main>
             <slot name="modalContent" />
           </main>
-          <div class="bottomBackground" data-action="modalBackground" data-modal={this.modalid} />
+          <div
+            class="bottomBackground"
+            data-action="modalBackground"
+            data-modal={this.modalid}
+          />
         </div>
       </div>
     );

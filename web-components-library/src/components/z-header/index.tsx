@@ -204,6 +204,7 @@ export class ZHeader {
                   class={item.id === this.activesublinkid ? "active" : ""}
                   href={item.link ? item.link : null}
                   role={item.link ? "link" : "button"}
+                  tabindex="0"
                 >
                   {item.label}
                 </a>

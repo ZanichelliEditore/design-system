@@ -1,6 +1,5 @@
 import { Component, Prop, h, State, Event, EventEmitter } from "@stencil/core";
-import Hammer from 'hammerjs';
-
+import Hammer from "hammerjs";
 
 @Component({
   tag: "z-pagination-bar",
@@ -21,7 +20,7 @@ export class ZPaginationBar {
 
   bar: HTMLElement;
 
-  componentDidLoad(){
+  componentDidLoad() {
     this.scrollPage = this.scrollPage.bind(this);
     let mc = new Hammer(this.bar);
     // listen to events...
@@ -30,14 +29,14 @@ export class ZPaginationBar {
   }
 
   componentWillRender() {
-    this.initPagination()
+    this.initPagination();
   }
 
   componentWillUpdate() {
-    this.initPagination()
+    this.initPagination();
   }
 
-  initPagination(){
+  initPagination() {
     this.loadPages();
     if (this.historyraw) {
       this.parsehistoryraw(this.historyraw);
@@ -48,24 +47,32 @@ export class ZPaginationBar {
     this.listhistoryrow = [...JSON.parse(historyraw)];
   }
 
-  scrollPage(ev:HammerInput): void{
-    let vel = Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
+  scrollPage(ev: HammerInput): void {
+    let vel =
+      Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
     const deltaPage = Math.max(1, vel);
-    switch(ev.type){
-      case 'swiperight':
+    switch (ev.type) {
+      case "swiperight":
         if (!this.canNavigateLeft()) break;
         const newstartPage1 = this.startpage - deltaPage;
-        if (newstartPage1 > 1 ) this.emitChangeStartPage(newstartPage1);
+        if (newstartPage1 > 1) this.emitChangeStartPage(newstartPage1);
         else this.emitChangeStartPage(1);
         break;
-      case 'swipeleft':
-          if (!this.canNavigateRight()) break;
-          const newstartPage2 = this.startpage + deltaPage;
-          if (newstartPage2 < (this.pages - this.visiblepages + 1 )) this.emitChangeStartPage(newstartPage2);
-          else this.emitChangeStartPage(this.pages - this.visiblepages + 1);
+      case "swipeleft":
+        if (!this.canNavigateRight()) break;
+        const newstartPage2 = this.startpage + deltaPage;
+        if (newstartPage2 < this.pages - this.visiblepages + 1)
+          this.emitChangeStartPage(newstartPage2);
+        else this.emitChangeStartPage(this.pages - this.visiblepages + 1);
         break;
       default:
         break;
+    }
+  }
+
+  handleKeyDown(ev: KeyboardEvent, page: number) {
+    if (ev.key === "Enter" || ev.key === "Space") {
+      this.emitGoToPage(page);
     }
   }
 
@@ -78,13 +85,13 @@ export class ZPaginationBar {
 
   @Event() changeStartPage: EventEmitter;
   emitChangeStartPage(startpage) {
-    this.startpage = startpage
+    this.startpage = startpage;
     this.changeStartPage.emit({ startpage: startpage });
   }
 
   @Event() addPageToHistory: EventEmitter;
   emitAddPageToHistory(page) {
-    this.listhistoryrow.push(page)
+    this.listhistoryrow.push(page);
     this.changeStartPage.emit({ page: page });
   }
 
@@ -127,21 +134,21 @@ export class ZPaginationBar {
 
   render() {
     return (
-      <div ref={(el) => this.bar = el as HTMLElement}
-      >
+      <div ref={el => (this.bar = el as HTMLElement)}>
         <z-icon
           name="chevron-left"
           class={!this.canNavigateLeft() && "disabled"}
           onClick={() => this.navigateLeft()}
         />
-          {this.currentPages.map(page => (
-            <z-pagination-page
-              value={page}
-              isselected={page === this.currentpage}
-              onClick={() => this.emitGoToPage(page)}
-              isvisited={this.listhistoryrow.includes(page)}
-            />
-          ))}
+        {this.currentPages.map(page => (
+          <z-pagination-page
+            value={page}
+            isselected={page === this.currentpage}
+            onClick={() => this.emitGoToPage(page)}
+            onKeyDown={(ev: KeyboardEvent) => this.handleKeyDown(ev, page)}
+            isvisited={this.listhistoryrow.includes(page)}
+          />
+        ))}
         <z-icon
           name="chevron-right"
           class={!this.canNavigateRight() && "disabled"}

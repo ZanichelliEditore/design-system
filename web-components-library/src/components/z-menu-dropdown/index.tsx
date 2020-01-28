@@ -1,23 +1,35 @@
-import { Component, Prop, h, State } from '@stencil/core';
+import { Component, Prop, h, State } from "@stencil/core";
 import { MenuItem } from "../../beans/index.js";
 
 @Component({
-  tag: 'z-menu-dropdown',
-  styleUrl: 'styles.css',
+  tag: "z-menu-dropdown",
+  styleUrl: "styles.css",
   shadow: true
 })
-
 export class ZMenuDropdown {
   @Prop() nomeutente: string;
   @Prop() menucontent: string | MenuItem[];
-  @Prop() buttonid: string
+  @Prop() buttonid: string;
 
   @State() ismenuopen: boolean = false;
 
   linkarray: MenuItem[];
 
+  constructor() {
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+  }
+
   componentWillRender() {
-    this.linkarray = typeof this.menucontent === 'string' ? JSON.parse(this.menucontent) : this.menucontent;
+    this.linkarray =
+      typeof this.menucontent === "string"
+        ? JSON.parse(this.menucontent)
+        : this.menucontent;
+  }
+
+  handleKeyUp(ev: KeyboardEvent) {
+    if (ev.key === "Enter" || ev.key === "Space") {
+      this.ismenuopen = !this.ismenuopen;
+    }
   }
 
   renderMenuOpen() {
@@ -26,7 +38,12 @@ export class ZMenuDropdown {
         <ul>
           {this.linkarray.map(bean => (
             <li>
-              <z-link linkid={bean.id} url={bean.link} label={bean.label} icon={bean.icon} />
+              <z-link
+                linkid={bean.id}
+                url={bean.link}
+                label={bean.label}
+                icon={bean.icon}
+              />
             </li>
           ))}
         </ul>
@@ -44,13 +61,19 @@ export class ZMenuDropdown {
 
   retriveMenuClass() {
     if (this.ismenuopen) {
-      return "menu-opened"
+      return "menu-opened";
     }
   }
 
   render() {
     return (
-      <div class={this.retriveMenuClass()} onClick={() => this.ismenuopen = !this.ismenuopen} tabindex="0">
+      <div
+        class={this.retriveMenuClass()}
+        onClick={() => (this.ismenuopen = !this.ismenuopen)}
+        onKeyUp={(ev: KeyboardEvent) => this.handleKeyUp(ev)}
+        tabindex="0"
+        role="button"
+      >
         <div class="container">
           <z-icon name="user" width={14} height={14} />
           <span class="user">{this.nomeutente}</span>
