@@ -14,6 +14,7 @@ export class ZLink {
   @Prop() isdisabled?: boolean = false;
   @Prop() iswhite?: boolean = false;
   @Prop() linkid?: string;
+  @Prop() linktabindex: number = 0;
 
   @Event() zLinkClick: EventEmitter;
 
@@ -42,7 +43,7 @@ export class ZLink {
           handleKeyUp(ev, this.emitZLinkClick, ev, this.linkid)
         }
         role={this.url ? "link" : "button"}
-        tabindex="0"
+        tabindex={this.linktabindex}
       >
         {this.icon && <z-icon name={this.icon} width={12} height={12} />}
         {this.label}

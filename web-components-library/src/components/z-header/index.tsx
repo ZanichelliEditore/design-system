@@ -135,6 +135,7 @@ export class ZHeader {
             this.activeMenuItem = this.currentMenuItem;
           }}
           role={link ? "link" : "button"}
+          tabindex={this.getIntMenuItemTabindex(menuItem)}
         >
           <span>{label}</span>
           {menuItem.subMenu ? <i></i> : null}
@@ -153,6 +154,10 @@ export class ZHeader {
         {this.isMobile && this.renderMenuItemsData(menuItem)}
       </span>
     );
+  }
+
+  getIntMenuItemTabindex(item: MenuItem) {
+    return this.intMenuData.indexOf(item);
   }
 
   handleToggleMobileMenuItem(elementId: string): void {
@@ -204,7 +209,7 @@ export class ZHeader {
                   class={item.id === this.activesublinkid ? "active" : ""}
                   href={item.link ? item.link : null}
                   role={item.link ? "link" : "button"}
-                  tabindex="0"
+                  tabindex={this.getIntMenuItemTabindex(menuItem)}
                 >
                   {item.label}
                 </a>
@@ -234,6 +239,7 @@ export class ZHeader {
                   icon={icon}
                   iswhite={this.ismyz ? true : false}
                   target="_blank"
+                  linktabindex={10}
                 />
               </span>
             );
