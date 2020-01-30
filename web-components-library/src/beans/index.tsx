@@ -119,3 +119,10 @@ export enum TooltipPosition {
   RIGHT = "RIGHT",
   NO_ARROW = "NO_ARROW"
 }
+
+export enum keybordKeyCodeEnum {
+  TAB = 9,
+  SPACE = 32,
+  ESC = 27,
+  ENTER = 13
+}
