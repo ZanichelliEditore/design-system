@@ -157,7 +157,7 @@ export class ZHeader {
   }
 
   getIntMenuItemTabindex(item: MenuItem) {
-    return this.intMenuData.indexOf(item);
+    return this.intMenuData.indexOf(item) + 1;
   }
 
   handleToggleMobileMenuItem(elementId: string): void {
