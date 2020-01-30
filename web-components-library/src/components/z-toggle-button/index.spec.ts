@@ -12,7 +12,7 @@ describe("Suite test ZToggleButton", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-button>
         <mock:shadow-root>
-          <button>
+          <button tabindex="0">
             <z-icon height="16" name="chevron-up" width="16"></z-icon>
           </button>
         </mock:shadow-root>
@@ -29,7 +29,7 @@ describe("Suite test ZToggleButton", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-button label="label">
         <mock:shadow-root>
-          <button>
+          <button tabindex="0">
             <z-icon height="16" name="chevron-up" width="16"></z-icon>
             label
           </button>
@@ -47,7 +47,25 @@ describe("Suite test ZToggleButton", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-button label="label" isdisabled="true">
         <mock:shadow-root>
-          <button disabled>
+          <button disabled tabindex="0">
+            <z-icon height="16" name="chevron-up" width="16"></z-icon>
+            label
+          </button>
+        </mock:shadow-root>
+      </z-toggle-button>
+    `);
+  });
+
+  it("Test render ZToggleButton avoidclick", async () => {
+    const page = await newSpecPage({
+      components: [ZToggleButton],
+      html: `<z-toggle-button label="label" avoidclick="true"></z-toggle-button>`
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-toggle-button avoidclick="true" label="label">
+        <mock:shadow-root>
+          <button class="avoid-clicks false" tabindex="-1">
             <z-icon height="16" name="chevron-up" width="16"></z-icon>
             label
           </button>

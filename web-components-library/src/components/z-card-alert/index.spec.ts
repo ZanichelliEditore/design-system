@@ -12,12 +12,12 @@ describe("Suite test ZCardAlert", () => {
     expect(page.root).toEqualHtml(`
     <z-card-alert actiontext=\"Annulla\" contenttext=\"Libro aggiunto ai miei libri\" iconname=\"circle-check\" slot=\"alert\" type=\"add\">
       <mock:shadow-root>
-        <div class=\"addAlert relativeContainer\" tabindex="2">
+        <div class=\"addAlert relativeContainer\">
           <z-icon class=\"addAlert\" height=\"18\" name=\"circle-check\" width=\"18\"></z-icon>
           <span class=\"contentText\">
             Libro aggiunto ai miei libri
           </span>
-          <span class=\"contentAction\">
+          <span class=\"contentAction\" role=\"button\" tabindex=\"0\">
             Annulla
           </span>
         </div>
@@ -35,9 +35,9 @@ describe("Suite test ZCardAlert", () => {
     expect(page.root).toEqualHtml(`
     <z-card-alert contenttext=\"Libro aggiunto ai miei libri\" iconname=\"circle-check\" slot=\"alert\" type=\"add\">
       <mock:shadow-root>
-        <div class=\"addAlert relativeContainer\" tabindex="2">
+        <div class=\"addAlert relativeContainer\">
           <z-icon class=\"addAlert\" height=\"18\" name=\"circle-check\" width=\"18\"></z-icon>
-          <span class=\"contentText\">
+          <span class=\"contentText\" >
             Libro aggiunto ai miei libri
           </span>
         </div>
@@ -55,12 +55,12 @@ describe("Suite test ZCardAlert", () => {
     expect(page.root).toEqualHtml(`
     <z-card-alert actiontext=\"Annulla\" contenttext=\"Libro rimosso dai tuoi libri\" iconname=\"circle-check\" slot=\"alert\" type=\"remove\">
       <mock:shadow-root>
-        <div class=\"relativeContainer removeAlert\" tabindex="2">
+        <div class=\"relativeContainer removeAlert\">
           <z-icon class=\"removeAlert\" height=\"18\" name=\"circle-check\" width=\"18\"></z-icon>
           <span class=\"contentText\">
             Libro rimosso dai tuoi libri
           </span>
-          <span class=\"contentAction\">
+          <span class=\"contentAction\" role=\"button\" tabindex=\"0\">
             Annulla
           </span>
         </div>
@@ -78,7 +78,7 @@ describe("Suite test ZCardAlert", () => {
     expect(page.root).toEqualHtml(`
     <z-card-alert contenttext=\"Libro rimosso dai tuoi libri\" iconname=\"circle-check\" slot=\"alert\" type=\"remove\">
       <mock:shadow-root>
-        <div class=\"relativeContainer removeAlert\" tabindex="2">
+        <div class=\"relativeContainer removeAlert\" >
           <z-icon class=\"removeAlert\" height=\"18\" name=\"circle-check\" width=\"18\"></z-icon>
           <span class=\"contentText\">
             Libro rimosso dai tuoi libri
