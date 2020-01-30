@@ -1,6 +1,7 @@
 import { Component, Prop, h, State, Listen } from "@stencil/core";
 import { ComboItemBean, InputTypeBean, InputTypeEnum } from "../../beans";
 import { ZInputText } from "../z-input-text";
+import { handleKeyUp } from "../../utils/utils";
 
 @Component({
   tag: "z-combobox",
@@ -21,11 +22,15 @@ export class ZCombobox {
 
   @State() searchValue: string;
 
-  @Listen('click', { target: 'window' })
+  constructor() {
+    this.closeComboBox = this.closeComboBox.bind(this);
+  }
+
+  @Listen("click", { target: "window" })
   handleClick(ev) {
     if (ev.srcElement.inputid !== this.inputid) {
       this.closeFilterItems();
-    };
+    }
   }
 
   private itemsList: ComboItemBean[] = [];
@@ -33,7 +38,8 @@ export class ZCombobox {
   private inputType: InputTypeBean = InputTypeEnum.text;
 
   componentWillRender() {
-    this.itemsList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    this.itemsList =
+      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
 
     if (this.searchValue) {
@@ -60,12 +66,19 @@ export class ZCombobox {
   }
 
   closeFilterItems() {
-    this.searchValue = '';
+    this.searchValue = "";
+  }
+  closeComboBox() {
+    this.isopen = !this.isopen;
   }
 
   renderHeader(): HTMLHeadingElement {
     return (
-      <header onClick={() => this.isopen = !this.isopen}>
+      <header
+        onClick={() => this.closeComboBox()}
+        onKeyUp={(ev: KeyboardEvent) => handleKeyUp(ev, this.closeComboBox)}
+        tabindex="0"
+      >
         <h2>
           {this.label}
           <span>
@@ -85,7 +98,7 @@ export class ZCombobox {
         {this.hassearch && this.renderSearchInput()}
         {this.renderItems()}
       </div>
-    )
+    );
   }
 
   renderItems(): HTMLDivElement {
@@ -93,8 +106,12 @@ export class ZCombobox {
 
     return (
       <div class={this.searchValue && "search"}>
-        {this.itemsList.length ? this.renderList(this.itemsList) : this.renderNoSearchResults()}
-        {this.searchValue ? (<a onClick={() => this.closeFilterItems()}>CHIUDI</a>) : null}
+        {this.itemsList.length
+          ? this.renderList(this.itemsList)
+          : this.renderNoSearchResults()}
+        {this.searchValue ? (
+          <a onClick={() => this.closeFilterItems()}>CHIUDI</a>
+        ) : null}
       </div>
     );
   }
@@ -102,12 +119,13 @@ export class ZCombobox {
     return (
       <ul>
         <z-list-item
-          id='no-results'
+          id="no-results"
           text={this.noresultslabel}
-          listitemid='no-results'
-          icon='circle-cross-stroke'
+          listitemid="no-results"
+          icon="circle-cross-stroke"
         />
-      </ul>)
+      </ul>
+    );
   }
 
   renderList(items: ComboItemBean[]): HTMLUListElement {
@@ -119,13 +137,10 @@ export class ZCombobox {
               id={item.id}
               text={item.name}
               listitemid={item.id}
-              icon={
-                item.checked
-                  ? "checkbox-selected"
-                  : "checkbox-unchecked"
-              }
+              icon={item.checked ? "checkbox-selected" : "checkbox-unchecked"}
               action={`combo-li-${this.inputid}`}
-              underlined={(i === items.length - 1) ? false : true}
+              underlined={i === items.length - 1 ? false : true}
+              tabindex="0"
             />
           );
         })}
@@ -154,7 +169,10 @@ export class ZCombobox {
 
   render() {
     return (
-      <div class={`${this.isopen && "open"} ${this.isfixed && "fixed"}`} id={this.inputid}>
+      <div
+        class={`${this.isopen && "open"} ${this.isfixed && "fixed"}`}
+        id={this.inputid}
+      >
         {this.renderHeader()}
         {this.renderContent()}
       </div>

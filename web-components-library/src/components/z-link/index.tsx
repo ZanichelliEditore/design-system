@@ -1,4 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import { handleKeyUp } from "../../utils/utils";
 
 @Component({
   tag: "z-link",
@@ -15,14 +16,14 @@ export class ZLink {
   @Prop() linkid?: string;
 
   @Event() zLinkClick: EventEmitter;
-  emitZLinkClick(e: MouseEvent, linkId) {
-    this.emitZLinkInteraction(e, linkId);
+
+  constructor() {
+    this.emitZLinkClick = this.emitZLinkClick.bind(this);
+    this.emitZLinkInteraction = this.emitZLinkInteraction.bind(this);
   }
 
-  handleKeyDown(ev: KeyboardEvent, linkId) {
-    if (ev.key === "Enter" || ev.key === "Space") {
-      this.emitZLinkInteraction(ev, linkId);
-    }
+  emitZLinkClick(e: MouseEvent, linkId) {
+    this.emitZLinkInteraction(e, linkId);
   }
 
   emitZLinkInteraction(e: Event, linkId: string) {
@@ -37,7 +38,9 @@ export class ZLink {
         target={this.target}
         id={this.linkid}
         onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.linkid)}
-        onKeyDown={(ev: KeyboardEvent) => this.handleKeyDown(ev, this.linkid)}
+        onKeyUp={(ev: KeyboardEvent) =>
+          handleKeyUp(ev, this.emitZLinkClick, ev, this.linkid)
+        }
         role={this.url ? "link" : "button"}
         tabindex="0"
       >

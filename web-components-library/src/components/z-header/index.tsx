@@ -228,6 +228,7 @@ export class ZHeader {
               <span class={`link-ext-span ${this.ismyz && "myz"}`}>
                 <z-link
                   id={id}
+                  linkid={id}
                   url={link}
                   label={label}
                   icon={icon}

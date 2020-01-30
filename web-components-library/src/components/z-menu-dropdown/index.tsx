@@ -67,14 +67,13 @@ export class ZMenuDropdown {
 
   render() {
     return (
-      <div
-        class={this.retriveMenuClass()}
-        onClick={() => (this.ismenuopen = !this.ismenuopen)}
-        onKeyUp={(ev: KeyboardEvent) => this.handleKeyUp(ev)}
-        tabindex="0"
-        role="button"
-      >
-        <div class="container">
+      <div class={this.retriveMenuClass()} role="button">
+        <div
+          class="container"
+          onKeyUp={(ev: KeyboardEvent) => this.handleKeyUp(ev)}
+          onClick={() => (this.ismenuopen = !this.ismenuopen)}
+          tabindex="0"
+        >
           <z-icon name="user" width={14} height={14} />
           <span class="user">{this.nomeutente}</span>
           {this.renderButtonMenu()}
