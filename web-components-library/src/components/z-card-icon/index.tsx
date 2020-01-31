@@ -11,7 +11,7 @@ export class ZCardIcon {
 
   render() {
     return (
-      <button tabindex="1" disabled={this.isdisabled}>
+      <button disabled={this.isdisabled}>
         <span>
           <z-icon name={this.icon} width={16} height={16} />
         </span>
