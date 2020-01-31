@@ -18,7 +18,6 @@ export class ZModal {
 
   @Event() modalClose: EventEmitter;
   emitModalClose() {
-    console.log("emit", this.modalid);
     this.modalClose.emit({ modalid: this.modalid });
   }
 
