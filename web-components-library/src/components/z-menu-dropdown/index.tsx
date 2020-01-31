@@ -77,7 +77,7 @@ export class ZMenuDropdown {
       <div class={this.retriveMenuClass()} role="button">
         <div
           class="container"
-          onKeyPress={(ev: KeyboardEvent) =>
+          onKeyDown={(ev: KeyboardEvent) =>
             handleKeyboardSubmit(ev, () => {
               this.ismenuopen = !this.ismenuopen;
             })

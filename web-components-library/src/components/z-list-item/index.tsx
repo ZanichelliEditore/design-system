@@ -38,7 +38,7 @@ export class ZListItem {
         id={this.listitemid}
         data-action={this.action}
         onClick={(e: MouseEvent) => this.emitZListItemClick(e, this.listitemid)}
-        onKeyUp={(ev: KeyboardEvent) =>
+        onKeyPress={(ev: KeyboardEvent) =>
           handleKeyboardSubmit(ev, this.emitZListItemClick, this.listitemid)
         }
       >
@@ -52,7 +52,7 @@ export class ZListItem {
               onClick={(e: MouseEvent) =>
                 this.emitZListItemLinkClick(e, linkId)
               }
-              onKeyUp={(ev: KeyboardEvent) =>
+              onKeyPress={(ev: KeyboardEvent) =>
                 handleKeyboardSubmit(ev, this.emitZListItemLinkClick, linkId)
               }
               role={this.link ? "link" : "button"}

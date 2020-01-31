@@ -15,7 +15,7 @@ export function handleKeyboardSubmit(
   callback: Function,
   ...args: any[]
 ) {
-  if (ev.keyCode === keybordKeyCodeEnum.ENTER || keybordKeyCodeEnum.SPACE) {
+  if (ev.keyCode === (keybordKeyCodeEnum.ENTER || keybordKeyCodeEnum.SPACE)) {
     ev.preventDefault();
     callback(...args);
   }
