@@ -1,5 +1,5 @@
 import { Component, Prop, h, State } from "@stencil/core";
-import { MenuItem, keybordKeyCodeEnum } from "../../beans/index.js";
+import { MenuItem, keybordKeyCodeEnum } from "../../beans/index";
 
 @Component({
   tag: "z-menu-dropdown",

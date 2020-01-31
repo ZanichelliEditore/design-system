@@ -12,7 +12,7 @@ describe("Suite test ZPaginationPage", () => {
     expect(page.root).toEqualHtml(`
     <z-pagination-page>
           <mock:shadow-root>
-            <a class=\"false\" tabindex=\"1\" role=\"button\"></a>
+            <a class=\"false\" tabindex=\"0\" role=\"button\"></a>
           </mock:shadow-root>
     </z-pagination-page>
     `);
@@ -27,7 +27,7 @@ describe("Suite test ZPaginationPage", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-page pageid=\"10\" value=\"10\">
         <mock:shadow-root>
-          <a class=\"false\" id=\"10\" tabindex=\"1\" role= \"button\" >
+          <a class=\"false\" id=\"10\" tabindex=\"0\" role= \"button\" >
             10
           </a>
         </mock:shadow-root>
@@ -44,7 +44,7 @@ describe("Suite test ZPaginationPage", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-page isselected=\"\" pageid=\"10\" value=\"10\">
         <mock:shadow-root>
-          <a class=\"false selected\" id=\"10\" tabindex=\"1\" role=\"button\" >
+          <a class=\"false selected\" id=\"10\" tabindex=\"0\" role=\"button\" >
             10
           </a>
         </mock:shadow-root>
@@ -78,7 +78,7 @@ describe("Suite test ZPaginationPage", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-page isvisited=\"\" pageid=\"10\" value=\"10\">
         <mock:shadow-root>
-          <a class=\"false visited\" id=\"10\" tabindex=\"1\" role=\"button\">
+          <a class=\"false visited\" id=\"10\" tabindex=\"0\" role=\"button\">
             10
           </a>
         </mock:shadow-root>
@@ -95,7 +95,7 @@ describe("Suite test ZPaginationPage", () => {
     expect(page.root).toEqualHtml(`
       <z-pagination-page isvisited=\"\" isselected=\"\" pageid=\"10\" value=\"10\">
         <mock:shadow-root>
-          <a class=\"false selected visited\" id=\"10\" tabindex=\"1\" role=\"button\" >
+          <a class=\"false selected visited\" id=\"10\" tabindex=\"0\" role=\"button\" >
             10
           </a>
         </mock:shadow-root>
