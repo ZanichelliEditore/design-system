@@ -13,13 +13,12 @@ export class ZCardAlert {
 
   @Event() undoAction: EventEmitter;
   emitUndoAction() {
-    console.log("undoAction");
     this.undoAction.emit({ actionType: this.type });
   }
 
   handleSpaceKeyPress(e: KeyboardEvent): void {
-    e.preventDefault();
     if (e.keyCode == 32 || e.keyCode == 13) {
+      e.preventDefault();
       this.emitUndoAction();
     }
   }
