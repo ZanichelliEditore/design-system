@@ -1,5 +1,7 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
+import { handleKeyboardSubmit } from "../../utils/utils";
+
 @Component({
   tag: "z-modal",
   styleUrl: "styles.css",
@@ -11,14 +13,9 @@ export class ZModal {
   @Prop() modalsubtitle?: string;
 
   constructor() {
-    this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.emitModalClose = this.emitModalClose.bind(this);
   }
 
-  handleKeyUp(ev: KeyboardEvent) {
-    if (ev.key === "Enter" || ev.key === "Space") {
-      this.emitModalClose();
-    }
-  }
   @Event() modalClose: EventEmitter;
   emitModalClose() {
     console.log("emit", this.modalid);
@@ -41,7 +38,9 @@ export class ZModal {
               data-action="modalClose"
               data-modal={this.modalid}
               onClick={() => this.emitModalClose()}
-              onKeyUp={(ev: KeyboardEvent) => this.handleKeyUp(ev)}
+              onKeyPress={(ev: KeyboardEvent) =>
+                handleKeyboardSubmit(ev, this.emitModalClose)
+              }
               tabindex="0"
             />
           </header>

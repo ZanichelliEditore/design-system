@@ -1,5 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { handleKeyUp } from "../../utils/utils";
+import { handleKeyboardSubmit } from "../../utils/utils";
 
 @Component({
   tag: "z-list-item",
@@ -39,7 +39,7 @@ export class ZListItem {
         data-action={this.action}
         onClick={(e: MouseEvent) => this.emitZListItemClick(e, this.listitemid)}
         onKeyUp={(ev: KeyboardEvent) =>
-          handleKeyUp(ev, this.emitZListItemClick, this.listitemid)
+          handleKeyboardSubmit(ev, this.emitZListItemClick, this.listitemid)
         }
       >
         <span class={this.underlined && "border"}>
@@ -53,7 +53,7 @@ export class ZListItem {
                 this.emitZListItemLinkClick(e, linkId)
               }
               onKeyUp={(ev: KeyboardEvent) =>
-                handleKeyUp(ev, this.emitZListItemLinkClick, linkId)
+                handleKeyboardSubmit(ev, this.emitZListItemLinkClick, linkId)
               }
               role={this.link ? "link" : "button"}
               tabindex="0"

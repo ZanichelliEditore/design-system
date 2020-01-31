@@ -1,5 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { handleKeyUp } from "../../utils/utils";
+import { handleKeyboardSubmit } from "../../utils/utils";
 
 @Component({
   tag: "z-link",
@@ -39,8 +39,8 @@ export class ZLink {
         target={this.target}
         id={this.linkid}
         onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.linkid)}
-        onKeyUp={(ev: KeyboardEvent) =>
-          handleKeyUp(ev, this.emitZLinkClick, ev, this.linkid)
+        onKeyPress={(ev: KeyboardEvent) =>
+          handleKeyboardSubmit(ev, this.emitZLinkClick, ev, this.linkid)
         }
         role={this.url ? "link" : "button"}
         tabindex={this.linktabindex}

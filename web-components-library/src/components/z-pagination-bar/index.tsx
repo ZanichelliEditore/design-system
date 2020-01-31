@@ -1,5 +1,6 @@
 import { Component, Prop, h, State, Event, EventEmitter } from "@stencil/core";
 import Hammer from "hammerjs";
+import { handleKeyboardSubmit } from "../../utils/utils";
 
 @Component({
   tag: "z-pagination-bar",
@@ -19,6 +20,11 @@ export class ZPaginationBar {
   velocityConstantMultiplier: number = 2;
 
   bar: HTMLElement;
+
+  constructor() {
+    this.navigateRight = this.navigateRight.bind(this);
+    this.navigateLeft = this.navigateLeft.bind(this);
+  }
 
   componentDidLoad() {
     this.scrollPage = this.scrollPage.bind(this);
@@ -139,13 +145,19 @@ export class ZPaginationBar {
           name="chevron-left"
           class={!this.canNavigateLeft() && "disabled"}
           onClick={() => this.navigateLeft()}
+          onKeyPress={(ev: KeyboardEvent) =>
+            handleKeyboardSubmit(ev, this.navigateLeft)
+          }
+          tabindex={this.canNavigateLeft() ? 0 : -1}
         />
         {this.currentPages.map(page => (
           <z-pagination-page
             value={page}
             isselected={page === this.currentpage}
             onClick={() => this.emitGoToPage(page)}
-            onKeyDown={(ev: KeyboardEvent) => this.handleKeyDown(ev, page)}
+            onKeyDown={(ev: KeyboardEvent) =>
+              handleKeyboardSubmit(ev, this.emitGoToPage, page)
+            }
             isvisited={this.listhistoryrow.includes(page)}
           />
         ))}
@@ -153,6 +165,10 @@ export class ZPaginationBar {
           name="chevron-right"
           class={!this.canNavigateRight() && "disabled"}
           onClick={() => this.navigateRight()}
+          onKeyPress={(ev: KeyboardEvent) =>
+            handleKeyboardSubmit(ev, this.navigateRight)
+          }
+          tabindex={this.canNavigateRight() ? 0 : -1}
         />
       </div>
     );

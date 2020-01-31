@@ -1,7 +1,7 @@
 import { Component, Prop, h, State, Listen } from "@stencil/core";
 import { ComboItemBean, InputTypeBean, InputTypeEnum } from "../../beans";
 import { ZInputText } from "../z-input-text";
-import { handleKeyUp } from "../../utils/utils";
+import { handleKeyboardSubmit } from "../../utils/utils";
 
 @Component({
   tag: "z-combobox",
@@ -76,7 +76,9 @@ export class ZCombobox {
     return (
       <header
         onClick={() => this.closeComboBox()}
-        onKeyUp={(ev: KeyboardEvent) => handleKeyUp(ev, this.closeComboBox)}
+        onKeyPress={(ev: KeyboardEvent) =>
+          handleKeyboardSubmit(ev, this.closeComboBox)
+        }
         tabindex="0"
       >
         <h2>

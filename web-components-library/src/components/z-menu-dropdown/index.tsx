@@ -1,6 +1,8 @@
 import { Component, Prop, h, State } from "@stencil/core";
 import { MenuItem, keybordKeyCodeEnum } from "../../beans/index";
 
+import { handleKeyboardSubmit } from "../../utils/utils";
+
 @Component({
   tag: "z-menu-dropdown",
   styleUrl: "styles.css",
@@ -75,7 +77,11 @@ export class ZMenuDropdown {
       <div class={this.retriveMenuClass()} role="button">
         <div
           class="container"
-          onKeyDown={(ev: KeyboardEvent) => this.handleKeyDown(ev)}
+          onKeyPress={(ev: KeyboardEvent) =>
+            handleKeyboardSubmit(ev, () => {
+              this.ismenuopen = !this.ismenuopen;
+            })
+          }
           onClick={() => (this.ismenuopen = !this.ismenuopen)}
           tabindex="0"
         >
