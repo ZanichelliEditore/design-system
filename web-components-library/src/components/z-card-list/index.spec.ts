@@ -14,12 +14,12 @@ describe("Suite test ZCardList", () => {
       <mock:shadow-root>
         <ul>
           <li>
-            <a href="https://booktab.it/" target="_blank">
+            <a href="https://booktab.it/" role="button" target="_blank">
               Leggi sul browser
             </a>
           </li>
           <li>
-            <a href="http://online.scuola.zanichelli.it/curtisinvitoblu/" target="_blank">
+            <a href="http://online.scuola.zanichelli.it/curtisinvitoblu/" role="button" target="_blank">
               Sito e risorse del libro
             </a>
           </li>
@@ -29,7 +29,7 @@ describe("Suite test ZCardList", () => {
             </span>
           </li>
           <li>
-            <a href="https://zte.zanichelli.it/" target="_blank">
+            <a href="https://zte.zanichelli.it/" role="button" target="_blank">
               ZTE
             </a>
           </li>
