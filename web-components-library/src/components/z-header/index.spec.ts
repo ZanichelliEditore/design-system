@@ -109,7 +109,7 @@ describe("Suite test ZHeader", () => {
             </span>
           </div>
           <hr>
-          <div class="link-int" id="link-int"></div>
+          <div class="link-int" id="link-int" ></div>
           <hr>
           <div class="link-ext" id="link-ext"></div>
         </div>
@@ -178,7 +178,7 @@ describe("Suite test ZHeader", () => {
             <hr />
             <div id="link-int" class="link-int">
               <span>
-                <a href="#home" id="home" class="menu-item" role="link">
+                <a href="#home" id="home" class="menu-item" role="link" tabindex="1">
                   <span>Home</span>
                   <i></i>
                 </a>
@@ -194,7 +194,7 @@ describe("Suite test ZHeader", () => {
                 </span>
               </span>
               <span>
-                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano" role="link">
+                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano" role="link"  tabindex="2">
                   <span>Dizionari</span>
                 </a>
                 <svg height="8" width="16" class="hidden"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
@@ -203,7 +203,7 @@ describe("Suite test ZHeader", () => {
             <hr />
             <div id="link-ext" class="link-ext">
               <span class="link-ext-span myz">
-                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" iswhite target="_blank" />
+                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" iswhite target="_blank" linkid="supporto" linktabindex="10" />
               </span>
             </div>
           </div>
@@ -313,14 +313,14 @@ describe("Suite test ZHeader", () => {
             </div>
             <div id="link-int" class="link-int">
               <span>
-                <a href="#home" id="home" class="menu-item" role="link">
+                <a href="#home" id="home" class="menu-item" role="link" tabindex="1">
                   <span>Home</span>
                   <i></i>
                 </a>
                 <svg height="8" width="16"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
               </span>
               <span>
-                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano" role="link">
+                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano" role="link" role="link" tabindex="2">
                   <span>Dizionari</span>
                 </a>
                 <svg height="8" width="16" class="hidden"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
@@ -328,7 +328,7 @@ describe("Suite test ZHeader", () => {
             </div>
             <div id="link-ext" class="link-ext">
               <span class="link-ext-span myz">
-                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" iswhite target="_blank" />
+                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" linkid="supporto" linktabindex="10" icon="question-mark.png" iswhite target="_blank" />
               </span>
             </div>
             <div class="login">
@@ -340,7 +340,7 @@ describe("Suite test ZHeader", () => {
           </div>
           <div id="dropdown-menu" class="dropdown-menu">
             <ul class="dropdown-links">
-              <li><a href="#libreria" id="libreria" role="link">
+              <li><a href="#libreria" id="libreria" role="link" tabindex="1">
                 la mia libreria
               </a>
               </li>
@@ -429,7 +429,7 @@ describe("Suite test ZHeader", () => {
             <div></div>
             <div id="link-ext" class="link-ext">
               <span class="link-ext-span false">
-                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" target="_blank" />
+                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" target="_blank" linkid="supporto" linktabindex="10"/>
               </span>
             </div>
             <div class="login">
@@ -487,14 +487,14 @@ describe("Suite test ZHeader", () => {
             </div>
             <div id="link-int" class="link-int">
               <span>
-                <a href="#home" id="home" class="menu-item" role="link">
+                <a href="#home" id="home" class="menu-item" role="link" tabindex="1">
                   <span>Home</span>
                   <i></i>
                 </a>
                 <svg height="8" width="16" class="hidden"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
               </span>
               <span>
-                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano" role="link">
+                <a id="Dizionari" class="menu-item" href="https://www.zanichelli.it/dizionari/in-primo-piano" role="link"  tabindex="2">
                   <span>Dizionari</span>
                 </a>
                 <svg height="8" width="16"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
@@ -502,7 +502,7 @@ describe("Suite test ZHeader", () => {
             </div>
             <div id="link-ext" class="link-ext">
               <span class="link-ext-span myz">
-                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" iswhite target="_blank" />
+                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" iswhite target="_blank"  linkid="supporto" linktabindex="10"/>
               </span>
             </div>
             <div class="login">

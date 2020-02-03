@@ -7,15 +7,16 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `icon`       | `icon`       |             | `string`  | `undefined` |
-| `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
-| `iswhite`    | `iswhite`    |             | `boolean` | `false`     |
-| `label`      | `label`      |             | `string`  | `undefined` |
-| `linkid`     | `linkid`     |             | `string`  | `undefined` |
-| `target`     | `target`     |             | `string`  | `"_self"`   |
-| `url`        | `url`        |             | `string`  | `undefined` |
+| Property       | Attribute      | Description | Type      | Default     |
+| -------------- | -------------- | ----------- | --------- | ----------- |
+| `icon`         | `icon`         |             | `string`  | `undefined` |
+| `isdisabled`   | `isdisabled`   |             | `boolean` | `false`     |
+| `iswhite`      | `iswhite`      |             | `boolean` | `false`     |
+| `label`        | `label`        |             | `string`  | `undefined` |
+| `linkid`       | `linkid`       |             | `string`  | `undefined` |
+| `linktabindex` | `linktabindex` |             | `number`  | `0`         |
+| `target`       | `target`       |             | `string`  | `"_self"`   |
+| `url`          | `url`          |             | `string`  | `undefined` |
 
 
 ## Events

@@ -11,7 +11,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link>
         <mock:shadow-root>
-          <a class="false" role="button" target="_self"></a>
+          <a class="false" role="button" tabindex="0" target="_self"></a>
         </mock:shadow-root>
       </z-link>
     `);
@@ -25,7 +25,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link url="http://www.google.com/">
         <mock:shadow-root>
-          <a href="http://www.google.com/" class="false" role="link" target="_self"></a>
+          <a href="http://www.google.com/" class="false" role="link"  tabindex="0" target="_self"></a>
         </mock:shadow-root>
       </z-link>
     `);
@@ -39,7 +39,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link label="label">
         <mock:shadow-root>
-          <a class="false" role="button" target="_self">label</a>
+          <a class="false" role="button"  tabindex="0" target="_self">label</a>
         </mock:shadow-root>
       </z-link>
     `);
@@ -53,7 +53,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link icon="icon">
         <mock:shadow-root>
-          <a class="false" role="button" target="_self">
+          <a class="false" role="button" tabindex="0" target="_self">
             <z-icon height="12" name="icon" width="12"></z-icon>
           </a>
         </mock:shadow-root>
@@ -69,7 +69,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link isdisabled>
         <mock:shadow-root>
-          <a class="disabled false" role="button" target="_self"></a>
+          <a class="disabled false" role="button"  tabindex="0" target="_self"></a>
         </mock:shadow-root>
       </z-link>
     `);
@@ -83,7 +83,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link iswhite>
         <mock:shadow-root>
-          <a class="white false" role="button" target="_self"></a>
+          <a class="white false" role="button" tabindex="0" target="_self"></a>
         </mock:shadow-root>
       </z-link>
     `);
@@ -97,7 +97,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link target="_blank">
         <mock:shadow-root>
-          <a class="false" role="button" target="_blank"></a>
+          <a class="false" role="button" tabindex="0" target="_blank"></a>
         </mock:shadow-root>
       </z-link>
     `);

@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { ZPaginationBar } from "./index";
 
+import { ZPaginationBar } from "./index";
 
 describe("Suite test ZPaginationBar", () => {
   it("Test render ZPaginationBar vuoto", async () => {
@@ -13,8 +13,8 @@ describe("Suite test ZPaginationBar", () => {
       <z-pagination-bar>
         <mock:shadow-root>
           <div style="undefined: rgba(0,0,0,0);">
-            <z-icon class=\"disabled\" name=\"chevron-left\"></z-icon>
-            <z-icon class=\"disabled\" name=\"chevron-right\"></z-icon>
+            <z-icon class=\"disabled\" name=\"chevron-left\" tabindex="-1"></z-icon>
+            <z-icon class=\"disabled\" name=\"chevron-right\" tabindex="-1"></z-icon>
           </div>
         </mock:shadow-root>
       </z-pagination-bar>
@@ -31,7 +31,7 @@ describe("Suite test ZPaginationBar", () => {
     <z-pagination-bar currentpage=\"1\" pages=\"20\" visiblepages=\"10\">
       <mock:shadow-root>
         <div style="undefined: rgba(0,0,0,0);">
-          <z-icon class=\"disabled\" name=\"chevron-left\"></z-icon>
+          <z-icon class=\"disabled\" name=\"chevron-left\" tabindex="-1"></z-icon>
           <z-pagination-page isselected=\"\" value=\"1\"></z-pagination-page>
           <z-pagination-page value=\"2\"></z-pagination-page>
           <z-pagination-page value=\"3\"></z-pagination-page>
@@ -42,7 +42,7 @@ describe("Suite test ZPaginationBar", () => {
           <z-pagination-page value=\"8\"></z-pagination-page>
           <z-pagination-page value=\"9\"></z-pagination-page>
           <z-pagination-page value=\"10\"></z-pagination-page>
-          <z-icon name=\"chevron-right\"></z-icon>
+          <z-icon name=\"chevron-right\" tabindex="0"></z-icon>
         </div>
       </mock:shadow-root>
     </z-pagination-bar>
@@ -59,7 +59,7 @@ describe("Suite test ZPaginationBar", () => {
       <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
         <mock:shadow-root>
           <div style="undefined: rgba(0,0,0,0);">
-            <z-icon class=\"disabled\" name=\"chevron-left\"></z-icon>
+            <z-icon class=\"disabled\" name=\"chevron-left\" tabindex="-1"></z-icon>
             <z-pagination-page value=\"1\"></z-pagination-page>
             <z-pagination-page value=\"2\"></z-pagination-page>
             <z-pagination-page value=\"3\"></z-pagination-page>
@@ -70,7 +70,7 @@ describe("Suite test ZPaginationBar", () => {
             <z-pagination-page value=\"8\"></z-pagination-page>
             <z-pagination-page value=\"9\"></z-pagination-page>
             <z-pagination-page value=\"10\"></z-pagination-page>
-            <z-icon name=\"chevron-right\"></z-icon>
+            <z-icon name=\"chevron-right\" tabindex="0"></z-icon>
           </div>
         </mock:shadow-root>
       </z-pagination-bar>
@@ -87,7 +87,7 @@ describe("Suite test ZPaginationBar", () => {
       <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
         <mock:shadow-root>
           <div style="undefined: rgba(0,0,0,0);">
-            <z-icon class=\"disabled\" name=\"chevron-left\"></z-icon>
+            <z-icon class=\"disabled\" name=\"chevron-left\" tabindex="-1"></z-icon>
             <z-pagination-page value=\"1\"></z-pagination-page>
             <z-pagination-page value=\"2\"></z-pagination-page>
             <z-pagination-page value=\"3\"></z-pagination-page>
@@ -98,7 +98,7 @@ describe("Suite test ZPaginationBar", () => {
             <z-pagination-page value=\"8\"></z-pagination-page>
             <z-pagination-page value=\"9\"></z-pagination-page>
             <z-pagination-page value=\"10\"></z-pagination-page>
-            <z-icon name=\"chevron-right\"></z-icon>
+            <z-icon name=\"chevron-right\" tabindex="0"></z-icon>
           </div>
         </mock:shadow-root>
       </z-pagination-bar>
@@ -114,7 +114,7 @@ describe("Suite test ZPaginationBar", () => {
     <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
       <mock:shadow-root>
         <div style="undefined: rgba(0,0,0,0);">
-          <z-icon name=\"chevron-left\"></z-icon>
+          <z-icon name=\"chevron-left\" tabindex="0"></z-icon>
           <z-pagination-page value=\"2\"></z-pagination-page>
           <z-pagination-page value=\"3\"></z-pagination-page>
           <z-pagination-page value=\"4\"></z-pagination-page>
@@ -125,7 +125,7 @@ describe("Suite test ZPaginationBar", () => {
           <z-pagination-page value=\"9\"></z-pagination-page>
           <z-pagination-page value=\"10\"></z-pagination-page>
           <z-pagination-page value=\"11\"></z-pagination-page>
-          <z-icon name=\"chevron-right\"></z-icon>
+          <z-icon name=\"chevron-right\" tabindex="0"></z-icon>
         </div>
       </mock:shadow-root>
     </z-pagination-bar>
@@ -142,7 +142,7 @@ describe("Suite test ZPaginationBar", () => {
       <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
         <mock:shadow-root>
           <div style="undefined: rgba(0,0,0,0);">
-            <z-icon class=\"disabled\" name=\"chevron-left\"></z-icon>
+            <z-icon class=\"disabled\" name=\"chevron-left\" tabindex="-1"></z-icon>
             <z-pagination-page value=\"1\"></z-pagination-page>
             <z-pagination-page value=\"2\"></z-pagination-page>
             <z-pagination-page value=\"3\"></z-pagination-page>
@@ -153,7 +153,7 @@ describe("Suite test ZPaginationBar", () => {
             <z-pagination-page value=\"8\"></z-pagination-page>
             <z-pagination-page value=\"9\"></z-pagination-page>
             <z-pagination-page value=\"10\"></z-pagination-page>
-            <z-icon name=\"chevron-right\"></z-icon>
+            <z-icon name=\"chevron-right\" tabindex="0"></z-icon>
           </div>
         </mock:shadow-root>
       </z-pagination-bar>
@@ -170,7 +170,7 @@ describe("Suite test ZPaginationBar", () => {
     <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
       <mock:shadow-root>
         <div style="undefined: rgba(0,0,0,0);">
-          <z-icon name=\"chevron-left\"></z-icon>
+          <z-icon name=\"chevron-left\" tabindex="0"></z-icon>
           <z-pagination-page value=\"2\"></z-pagination-page>
           <z-pagination-page value=\"3\"></z-pagination-page>
           <z-pagination-page value=\"4\"></z-pagination-page>
@@ -181,7 +181,7 @@ describe("Suite test ZPaginationBar", () => {
           <z-pagination-page value=\"9\"></z-pagination-page>
           <z-pagination-page value=\"10\"></z-pagination-page>
           <z-pagination-page value=\"11\"></z-pagination-page>
-          <z-icon name=\"chevron-right\"></z-icon>
+          <z-icon name=\"chevron-right\" tabindex="0"></z-icon>
         </div>
       </mock:shadow-root>
     </z-pagination-bar>
@@ -194,7 +194,7 @@ describe("Suite test ZPaginationBar", () => {
     <z-pagination-bar currentpage=\"5\" pages=\"20\" visiblepages=\"10\">
       <mock:shadow-root>
         <div style="undefined: rgba(0,0,0,0);">
-          <z-icon  class="disabled"  name=\"chevron-left\"></z-icon>
+          <z-icon  class="disabled"  name=\"chevron-left\" tabindex="-1"></z-icon>
           <z-pagination-page value=\"1\"></z-pagination-page>
           <z-pagination-page value=\"2\"></z-pagination-page>
           <z-pagination-page value=\"3\"></z-pagination-page>
@@ -205,7 +205,7 @@ describe("Suite test ZPaginationBar", () => {
           <z-pagination-page value=\"8\"></z-pagination-page>
           <z-pagination-page value=\"9\"></z-pagination-page>
           <z-pagination-page value=\"10\"></z-pagination-page>
-          <z-icon name=\"chevron-right\"></z-icon>
+          <z-icon name=\"chevron-right\" tabindex="0"></z-icon>
         </div>
       </mock:shadow-root>
     </z-pagination-bar>

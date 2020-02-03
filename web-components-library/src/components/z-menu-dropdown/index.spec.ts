@@ -20,8 +20,8 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
-        <div tabindex="0">
-          <div class=\"container\">
+        <div role="button">
+          <div class=\"container\" tabindex="0">
             <z-icon name="user" width="14" height="14"></z-icon>
             <span class="user">
               Dario docente
@@ -44,8 +44,8 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
-      <div tabindex="0">
-        <div class="container">
+      <div role="button">
+        <div class="container" tabindex="0">
           <z-icon width="14" name="user" height="14"></z-icon>
           <span class="user">
             Dario docente
@@ -71,8 +71,8 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
-        <div class="menu-opened" tabindex="0">
-          <div class=\"container\">
+        <div class="menu-opened" role="button">
+          <div class=\"container\"  tabindex="0">
             <z-icon height="14" name="user" width="14"></z-icon>
             <span class="user">
               Dario docente
