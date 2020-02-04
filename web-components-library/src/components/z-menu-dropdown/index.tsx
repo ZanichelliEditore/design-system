@@ -1,5 +1,5 @@
 import { Component, Prop, h, State } from "@stencil/core";
-import { MenuItem, keybordKeyCodeEnum } from "../../beans/index";
+import { MenuItem } from "../../beans/index";
 
 import { handleKeyboardSubmit } from "../../utils/utils";
 
@@ -17,26 +17,11 @@ export class ZMenuDropdown {
 
   linkarray: MenuItem[];
 
-  constructor() {
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-  }
-
   componentWillRender() {
     this.linkarray =
       typeof this.menucontent === "string"
         ? JSON.parse(this.menucontent)
         : this.menucontent;
-  }
-
-  handleKeyDown(ev: KeyboardEvent) {
-    if (ev.keyCode === keybordKeyCodeEnum.SPACE) ev.preventDefault();
-
-    if (
-      ev.keyCode === keybordKeyCodeEnum.ENTER ||
-      ev.keyCode === keybordKeyCodeEnum.SPACE
-    ) {
-      this.ismenuopen = !this.ismenuopen;
-    }
   }
 
   renderMenuOpen() {
