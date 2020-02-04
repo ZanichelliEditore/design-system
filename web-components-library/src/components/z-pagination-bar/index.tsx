@@ -24,6 +24,7 @@ export class ZPaginationBar {
   constructor() {
     this.navigateRight = this.navigateRight.bind(this);
     this.navigateLeft = this.navigateLeft.bind(this);
+    this.emitGoToPage = this.emitGoToPage.bind(this);
   }
 
   componentDidLoad() {
@@ -84,6 +85,7 @@ export class ZPaginationBar {
 
   @Event() goToPage: EventEmitter;
   emitGoToPage(page) {
+    console.log("go to page " + page);
     this.currentpage = page;
     this.goToPage.emit({ page: page });
     this.addPageToHistory.emit({ page: page });
