@@ -85,7 +85,6 @@ export class ZPaginationBar {
 
   @Event() goToPage: EventEmitter;
   emitGoToPage(page) {
-    console.log("go to page " + page);
     this.currentpage = page;
     this.goToPage.emit({ page: page });
     this.addPageToHistory.emit({ page: page });
