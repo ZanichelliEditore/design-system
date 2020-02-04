@@ -24,6 +24,7 @@ export class ZPaginationBar {
   constructor() {
     this.navigateRight = this.navigateRight.bind(this);
     this.navigateLeft = this.navigateLeft.bind(this);
+    this.emitGoToPage = this.emitGoToPage.bind(this);
   }
 
   componentDidLoad() {
