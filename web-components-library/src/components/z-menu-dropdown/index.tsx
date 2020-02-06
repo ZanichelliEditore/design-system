@@ -59,7 +59,7 @@ export class ZMenuDropdown {
 
   render() {
     return (
-      <div class={this.retriveMenuClass()} role="button">
+      <a class={this.retriveMenuClass()} role="button">
         <div
           class="container"
           onKeyDown={(ev: KeyboardEvent) =>
@@ -75,7 +75,7 @@ export class ZMenuDropdown {
           {this.renderButtonMenu()}
         </div>
         {this.renderMenuOpen()}
-      </div>
+      </a>
     );
   }
 }
