@@ -139,15 +139,15 @@ li {
     width: 88px;
   }
 
-  div > span.user {
+  .container > span.user {
     width: 37px;
   }
 
-  div.menu-opened .container {
+  :host > div.menu-opened .container {
     width: auto;
   }
 
-  div.menu-opened span.user {
+  :host > div.menu-opened span.user {
     width: auto;
   }
 }
