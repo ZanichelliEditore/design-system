@@ -2,12 +2,12 @@
   display: block;
 }
 
-:host>div.fixed {
+:host > div.fixed {
   position: relative;
   height: 48px;
 }
 
-:host>div>header {
+:host > div > .header {
   background-color: var(--bg-white);
   border-radius: var(--radius-base);
   border: var(--border-base) solid var(--bg-grey-200);
@@ -22,11 +22,11 @@
   cursor: pointer;
 }
 
-:host>div.open>header {
+:host > div.open > .header {
   border-radius: var(--radius-base) var(--radius-base) 0 0;
 }
 
-:host>div>header>h2 {
+:host > div > .header > h2 {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   color: var(--text-grey-800);
@@ -36,18 +36,18 @@
   padding: 0;
 }
 
-:host>div>header>h2>span {
+:host > div > .header > h2 > span {
   font-weight: var(--font-sb);
 }
 
-:host>div>header>z-icon {
+:host > div > .header > z-icon {
   fill: var(--myz-blue);
   transform: rotate(360deg);
   transition: all 200ms linear;
   padding-top: 10px;
 }
 
-:host>div.open>header>z-icon {
+:host > div.open > .header > z-icon {
   fill: var(--myz-blue);
   transform: rotate(180deg);
   transition: all 200ms linear;
@@ -55,7 +55,7 @@
   margin-right: 2px;
 }
 
-:host>div.open>div.openComboData {
+:host > div.open > div.openComboData {
   background-color: var(--bg-white);
   border-radius: 0 0 var(--radius-base) var(--radius-base);
   border: var(--border-base) solid var(--bg-grey-200);
@@ -65,7 +65,7 @@
   padding: var(--basex1) var(--basex2);
 }
 
-:host>div.open>div.openComboData>div {
+:host > div.open > div.openComboData > div {
   padding: 0;
   max-height: 235px;
   overflow: auto;
@@ -73,19 +73,24 @@
   scrollbar-color: var(--myz-blue) var(--bg-grey-200);
 }
 
-:host>div.open>div.openComboData>z-input-text {
+:host > div.open > div.openComboData > z-input-text {
   margin-bottom: var(--basex2);
   width: 100%;
 }
 
-:host>div.open>div.openComboData>div>ul {
+:host > div.open > div.openComboData > div > ul {
   margin: 0;
   padding: 0;
   max-height: 235px;
 }
 
 ::-webkit-scrollbar {
-  background: linear-gradient(90deg, var(--bg-white) 2px, var(--bg-grey-200) 4px, var(--bg-white) 8px);
+  background: linear-gradient(
+    90deg,
+    var(--bg-white) 2px,
+    var(--bg-grey-200) 4px,
+    var(--bg-white) 8px
+  );
   border-radius: var(--radius-base);
   width: 10px;
 }
@@ -96,7 +101,7 @@
   width: 10px;
 }
 
-:host>div.open>z-input-text {
+:host > div.open > z-input-text {
   color: var(--myz-blue);
   margin: 0 var(--basex2);
   width: 238px;
@@ -104,14 +109,14 @@
   z-index: 1;
 }
 
-:host>div.open>div.openComboData>div.search {
+:host > div.open > div.openComboData > div.search {
   box-shadow: 1px 1px 4px 2px rgba(217, 222, 227, 0.5);
   margin-top: 0;
   max-height: auto;
   overflow: hidden;
 }
 
-:host>div.open>div.openComboData>div.search>ul {
+:host > div.open > div.openComboData > div.search > ul {
   padding: var(--basex1) var(--basex2);
   max-height: 180px;
   overflow: auto;
@@ -119,7 +124,7 @@
   scrollbar-color: var(--myz-blue) var(--bg-grey-200);
 }
 
-:host>div.open>div.openComboData>div.search>a {
+:host > div.open > div.openComboData > div.search > a {
   display: inline-block;
   cursor: pointer;
   color: var(--myz-blue);
