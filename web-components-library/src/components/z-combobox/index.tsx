@@ -75,7 +75,7 @@ export class ZCombobox {
   renderHeader(): HTMLHeadingElement {
     return (
       <header
-        onClick={() => this.closeComboBox()}
+        onMouseUp={() => this.closeComboBox()}
         onKeyPress={(ev: KeyboardEvent) =>
           handleKeyboardSubmit(ev, this.closeComboBox)
         }
@@ -171,7 +171,8 @@ export class ZCombobox {
 
   render() {
     return (
-      <div data-action={`combo-${this.inputid}`}
+      <div
+        data-action={`combo-${this.inputid}`}
         class={`${this.isopen && "open"} ${this.isfixed && "fixed"}`}
         id={this.inputid}
       >
