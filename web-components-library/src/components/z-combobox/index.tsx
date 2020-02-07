@@ -171,7 +171,7 @@ export class ZCombobox {
 
   render() {
     return (
-      <div
+      <div data-action={`combo-${this.inputid}`}
         class={`${this.isopen && "open"} ${this.isfixed && "fixed"}`}
         id={this.inputid}
       >
