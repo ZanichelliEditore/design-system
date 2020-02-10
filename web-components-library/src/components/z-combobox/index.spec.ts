@@ -13,7 +13,7 @@ describe("Suite test ZCombobox", () => {
     expect(page.root).toEqualHtml(`
       <z-combobox items='[]'>
         <mock:shadow-root>
-          <div class="false false" data-action="combo-undefined">
+          <div class="false" data-action="combo-undefined">
             <header tabindex="0">
               <h2><span></span></h2>
               <z-icon name="drop-down" width="18" height="18" />
@@ -58,7 +58,7 @@ describe("Suite test ZCombobox", () => {
     expect(page.root).toEqualHtml(`
       <z-combobox items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' inputid="combobox" label="label">
         <mock:shadow-root>
-          <div class="false" id="combobox">
+          <div class="false" data-action="combo-combobox" id="combobox">
             <header tabindex="0">
               <h2>
                 label
@@ -80,7 +80,7 @@ describe("Suite test ZCombobox", () => {
     expect(page.root).toEqualHtml(`
       <z-combobox items='[]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
-          <div class="open false">
+          <div class="open false" data-action="combo-undefined">
             <header tabindex="0">
               <h2><span></span></h2>
               <z-icon name="drop-down" width="18" height="18" />
@@ -106,7 +106,7 @@ describe("Suite test ZCombobox", () => {
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open false" id="combo">
+          <div class="open false" data-action="combo-combo" id="combo">
             <header tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="drop-down" width="18" height="18" />
@@ -133,7 +133,7 @@ describe("Suite test ZCombobox", () => {
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open false" id="combo">
+          <div class="open false" data-action="combo-combo" id="combo">
             <header tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="drop-down" width="18" height="18" />
@@ -163,7 +163,7 @@ describe("Suite test ZCombobox", () => {
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open false" id="combo">
+          <div class="open false" data-action="combo-combo" id="combo">
             <header tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="drop-down" width="18" height="18" />
@@ -193,7 +193,7 @@ describe("Suite test ZCombobox", () => {
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
-          <div class="open false" id="combo">
+          <div class="open false" data-action="combo-combo" id="combo">
             <header tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="drop-down" width="18" height="18" />
