@@ -36,11 +36,11 @@ describe("Suite test z-list", () => {
           <ul>
             <z-list-item>
               <mock:shadow-root>
-                <button>
+                <li role="button">
                   <span>
                       <span>elemento lista</span>
                   </span>
-                </button>
+                </li>
               </mock:shadow-root>
             </z-list-item>
           </ul>
@@ -61,11 +61,11 @@ describe("Suite test z-list", () => {
           <ul>
             <z-list-item>
               <mock:shadow-root>
-                <button>
+                <li role="button">
                   <span>
                     <a href=\"http://www.google.it\" target="_self" role="link" tabindex="0"> elemento lista</a>
                   </span>
-                </button>
+                </li>
               </mock:shadow-root>
             </z-list-item>
           </ul>
@@ -86,22 +86,22 @@ describe("Suite test z-list", () => {
         <ul>
           <z-list-item>
             <mock:shadow-root>
-              <button>
+              <li role="button">
                 <span class="border">
                   <span>elemento lista</span>
                 </span>
-              </button>
+              </li>
             </mock:shadow-root>
           </z-list-item>
           <z-list-item>
             <mock:shadow-root>
-              <button>
+              <li role="button">
                 <span>
                   <a href=\"http://www.google.it\" tabindex="0" target="_self" role="link">
                     link lista
                   </a>
                 </span>
-              </button>
+              </li>
             </mock:shadow-root>
           </z-list-item>
         </ul>
@@ -134,11 +134,11 @@ describe("Suite test z-list", () => {
           <ul>
             <z-list-item>
               <mock:shadow-root>
-                <button>
+                <li role="button">
                   <span>
                       <span>testo di esempio</span>
                   </span>
-                </button>
+                </li>
               </mock:shadow-root>
             </z-list-item>
           </ul>
