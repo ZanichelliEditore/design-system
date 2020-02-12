@@ -76,7 +76,7 @@ export class ZCombobox {
     return (
       <header
         onMouseUp={() => this.closeComboBox()}
-        onKeyPress={(ev: KeyboardEvent) =>
+        onKeyUp={(ev: KeyboardEvent) =>
           handleKeyboardSubmit(ev, this.closeComboBox)
         }
         tabindex="0"
