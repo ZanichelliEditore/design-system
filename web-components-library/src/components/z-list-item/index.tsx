@@ -34,7 +34,7 @@ export class ZListItem {
     const linkId = this.listitemid ? `link_${this.listitemid}` : "";
 
     return (
-      <li
+      <li role="button"
         id={this.listitemid}
         data-action={this.action}
         onClick={(e: MouseEvent) => this.emitZListItemClick(e, this.listitemid)}

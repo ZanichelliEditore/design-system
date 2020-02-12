@@ -15,7 +15,8 @@ a:active {
   text-decoration: none;
 }
 
-:host > div {
+:host > a {
+  display: block;
   background: var(--bg-grey-050);
   color: var(--text-grey-800);
   border-radius: var(--radius-base);
@@ -24,24 +25,24 @@ a:active {
   outline: none;
 }
 
-:host > div::-moz-focus-inner {
+:host > a::-moz-focus-inner {
   border: 0;
 }
 
-:host > div:hover,
-:host > div.menu-opened:hover {
+:host > a:hover,
+:host > a.menu-opened:hover {
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
 }
 
-:host > div:focus {
+:host > a:focus {
   color: var(--myz-blue);
   fill: var(--myz-blue);
   border: 1px solid var(--myz-blue);
   box-shadow: 0px 0px 2px 2px var(--myz-blue-light);
 }
 
-:host > div:active {
+:host > a:active {
   color: var(--myz-blue-light);
   fill: var(--myz-blue-light);
   border: 1px solid var(--myz-blue-light);
@@ -131,7 +132,7 @@ li {
     width: inherit;
   }
 
-  :host > div {
+  :host > a {
     width: 88px;
   }
 
@@ -139,15 +140,15 @@ li {
     width: 88px;
   }
 
-  div > span.user {
+  .container > span.user {
     width: 37px;
   }
 
-  div.menu-opened .container {
+  :host > a.menu-opened .container {
     width: auto;
   }
 
-  div.menu-opened span.user {
+  :host > a.menu-opened span.user {
     width: auto;
   }
 }
