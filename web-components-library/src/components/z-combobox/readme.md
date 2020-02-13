@@ -9,6 +9,7 @@
 
 | Property            | Attribute           | Description | Type                        | Default     |
 | ------------------- | ------------------- | ----------- | --------------------------- | ----------- |
+| `closesearchtext`   | `closesearchtext`   |             | `string`                    | `undefined` |
 | `hassearch`         | `hassearch`         |             | `boolean`                   | `false`     |
 | `inputid`           | `inputid`           |             | `string`                    | `undefined` |
 | `isfixed`           | `isfixed`           |             | `boolean`                   | `false`     |

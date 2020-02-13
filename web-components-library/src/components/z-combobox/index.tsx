@@ -19,6 +19,7 @@ export class ZCombobox {
   @Prop() noresultslabel: string;
   @Prop({ mutable: true }) isopen: boolean = true;
   @Prop() isfixed: boolean = false;
+  @Prop() closesearchtext: string;
 
   @State() searchValue: string;
 
@@ -112,7 +113,9 @@ export class ZCombobox {
           ? this.renderList(this.itemsList)
           : this.renderNoSearchResults()}
         {this.searchValue ? (
-          <a onClick={() => this.closeFilterItems()}>CHIUDI</a>
+          <a onClick={() => this.closeFilterItems()} role="button">
+            {this.closesearchtext}
+          </a>
         ) : null}
       </div>
     );
