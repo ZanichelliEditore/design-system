@@ -127,7 +127,7 @@ li {
   align-items: center;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   :host {
     width: inherit;
   }

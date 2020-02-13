@@ -19,7 +19,6 @@
   fill: var(--text-grey-medium);
 }
 
-
 .caption-01 {
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
@@ -129,7 +128,7 @@
   line-height: 40px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .expressive-heading-04 {
     font-size: 28px;
     line-height: 36px;
@@ -152,7 +151,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .expressive-heading-05 {
     font-size: 32px;
     line-height: 40px;
@@ -168,7 +167,7 @@
   line-height: 40px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .expressive-paragraph-01 {
     font-size: 24px;
     line-height: 32px;
@@ -184,7 +183,7 @@
   line-height: 40px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .quotation-01 {
     font-size: 20px;
     line-height: 28px;
@@ -207,7 +206,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .quotation-02 {
     font-size: 32px;
     line-height: 40px;
@@ -223,7 +222,7 @@
   line-height: 88px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .display-01 {
     font-size: 42px;
     line-height: 52px;
@@ -239,7 +238,7 @@
   line-height: 88px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .display-02 {
     font-size: 42px;
     line-height: 52px;
@@ -262,7 +261,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .display-03 {
     font-size: 42px;
     line-height: 52px;
@@ -285,7 +284,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .display-04 {
     font-size: 42px;
     line-height: 52px;
