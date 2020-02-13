@@ -1,5 +1,7 @@
 import { Component, Prop, h, State, Event, EventEmitter } from "@stencil/core";
+
 import Hammer from "hammerjs";
+
 import { handleKeyboardSubmit } from "../../utils/utils";
 
 @Component({
@@ -74,12 +76,6 @@ export class ZPaginationBar {
         break;
       default:
         break;
-    }
-  }
-
-  handleKeyDown(ev: KeyboardEvent, page: number) {
-    if (ev.key === "Enter" || ev.key === "Space") {
-      this.emitGoToPage(page);
     }
   }
 
