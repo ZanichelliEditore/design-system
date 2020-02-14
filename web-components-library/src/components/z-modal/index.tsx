@@ -40,7 +40,7 @@ export class ZModal {
               name="circle-cross-fill"
               width={24}
               height={24}
-              onMouseUp={() => this.emitModalClose()}
+              onClick={() => this.emitModalClose()}
               data-action="modalClose"
               data-modal={this.modalid}
               onKeyPress={(ev: KeyboardEvent) =>
