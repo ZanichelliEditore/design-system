@@ -610,7 +610,7 @@ hr {
 }
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1025px) {
   .main-header {
     grid-template-columns: 170px 168px 4fr 180px;
   }

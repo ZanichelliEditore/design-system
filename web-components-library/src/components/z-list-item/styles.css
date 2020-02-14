@@ -1,9 +1,16 @@
-li {
+:host li {
+  all: unset;
+  all: reset;
+  width:100%;
+}
+
+
+:host li {
   list-style-type: none;
   line-height: 14px;
 }
 
-li > span {
+:host li > span {
   line-height: 14px;
   padding: var(--basex2) 0;
   display: flex;
@@ -15,11 +22,11 @@ li > span {
   fill: var(--text-grey-800);
 }
 
-li > span.border{
+:host li > span.border{
   border-bottom: 2px solid var(--bg-grey-200);
 }
 
-li span:hover, a:hover{
+:host li span:hover, a:hover{
   color: var(--myz-blue);
   fill: var(--myz-blue);
 }
@@ -30,7 +37,7 @@ a, a:visited, a:active {
   text-decoration:none;
 }
 
-li span z-icon {
+:host li span z-icon {
   color: var(--myz-blue);
   fill: var(--myz-blue);
   height: var(--basex2);

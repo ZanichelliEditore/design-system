@@ -20,7 +20,7 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
-        <div role="button">
+        <a role="button">
           <div class=\"container\" tabindex="0">
             <z-icon name="user" width="14" height="14"></z-icon>
             <span class="user">
@@ -30,7 +30,7 @@ describe("Suite test ZMenuDropdown", () => {
               <z-icon name="drop-down" width="14" height="14"></z-icon>
             </span>
           </div>
-        </div>
+        </a>
       </mock:shadow-root>
     </z-menu-dropdown>
     `);
@@ -44,7 +44,7 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
-      <div role="button">
+      <a role="button">
         <div class="container" tabindex="0">
           <z-icon width="14" name="user" height="14"></z-icon>
           <span class="user">
@@ -54,13 +54,13 @@ describe("Suite test ZMenuDropdown", () => {
             <z-icon  height="14" name="drop-down" width="14"></z-icon>
           </span>
         </div>
-      </div>
+      </a>
     </mock:shadow-root>
   </z-menu-dropdown>`);
     expect(page.rootInstance.ismenuopen).toBeFalsy;
 
     let image = page.root.shadowRoot
-      .querySelector("div")
+      .querySelector("a")
       .querySelector("div")
       .querySelector("span.arrow");
     image.click();
@@ -71,7 +71,7 @@ describe("Suite test ZMenuDropdown", () => {
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
-        <div class="menu-opened" role="button">
+        <a class="menu-opened" role="button">
           <div class=\"container\"  tabindex="0">
             <z-icon height="14" name="user" width="14"></z-icon>
             <span class="user">
@@ -89,7 +89,7 @@ describe("Suite test ZMenuDropdown", () => {
               <z-link url=\"http://www.google.it\" label="Esci"></z-link>
             </li>
           </ul>
-        </div>
+        </a>
       </mock:shadow-root>
     </z-menu-dropdown>
     `);

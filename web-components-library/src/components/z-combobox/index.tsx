@@ -75,7 +75,8 @@ export class ZCombobox {
 
   renderHeader(): HTMLHeadingElement {
     return (
-      <header
+      <a
+        class="header"
         onMouseUp={() => this.closeComboBox()}
         onKeyUp={(ev: KeyboardEvent) =>
           handleKeyboardSubmit(ev, this.closeComboBox)
@@ -89,7 +90,7 @@ export class ZCombobox {
           </span>
         </h2>
         <z-icon name="drop-down" width={18} height={18} />
-      </header>
+      </a>
     );
   }
 

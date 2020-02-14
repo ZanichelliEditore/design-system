@@ -297,7 +297,7 @@ footer > section.bottom > div.logo > p > span {
 }
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1025px) {
   footer > section.top {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 7fr 1fr;
