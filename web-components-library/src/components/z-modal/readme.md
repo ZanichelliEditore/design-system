@@ -16,9 +16,10 @@
 
 ## Events
 
-| Event        | Description | Type               |
-| ------------ | ----------- | ------------------ |
-| `modalClose` |             | `CustomEvent<any>` |
+| Event               | Description | Type               |
+| ------------------- | ----------- | ------------------ |
+| `modalClose`        |             | `CustomEvent<any>` |
+| `modalHeaderActive` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

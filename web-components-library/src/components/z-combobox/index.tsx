@@ -19,6 +19,7 @@ export class ZCombobox {
   @Prop() noresultslabel: string;
   @Prop({ mutable: true }) isopen: boolean = true;
   @Prop() isfixed: boolean = false;
+  @Prop() closesearchtext: string;
 
   @State() searchValue: string;
 
@@ -77,7 +78,7 @@ export class ZCombobox {
       <a
         class="header"
         onClick={() => this.closeComboBox()}
-        onKeyPress={(ev: KeyboardEvent) =>
+        onKeyUp={(ev: KeyboardEvent) =>
           handleKeyboardSubmit(ev, this.closeComboBox)
         }
         tabindex="0"
@@ -113,7 +114,9 @@ export class ZCombobox {
           ? this.renderList(this.itemsList)
           : this.renderNoSearchResults()}
         {this.searchValue ? (
-          <a onClick={() => this.closeFilterItems()}>CHIUDI</a>
+          <a onClick={() => this.closeFilterItems()} role="button">
+            {this.closesearchtext}
+          </a>
         ) : null}
       </div>
     );
@@ -173,6 +176,7 @@ export class ZCombobox {
   render() {
     return (
       <div
+        data-action={`combo-${this.inputid}`}
         class={`${this.isopen && "open"} ${this.isfixed && "fixed"}`}
         id={this.inputid}
       >

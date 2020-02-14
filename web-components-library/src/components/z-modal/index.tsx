@@ -14,6 +14,7 @@ export class ZModal {
 
   constructor() {
     this.emitModalClose = this.emitModalClose.bind(this);
+    this.emitModalHeaderActive = this.emitModalHeaderActive.bind(this);
   }
 
   @Event() modalClose: EventEmitter;
@@ -21,11 +22,16 @@ export class ZModal {
     this.modalClose.emit({ modalid: this.modalid });
   }
 
+  @Event() modalHeaderActive: EventEmitter;
+  emitModalHeaderActive() {
+    this.modalHeaderActive.emit({ modalid: this.modalid });
+  }
+
   render() {
     return (
       <div data-action="modalBackground" data-modal={this.modalid}>
         <div id={this.modalid}>
-          <header>
+          <header onClick={this.emitModalHeaderActive}>
             <div>
               {this.modaltitle && <h1>{this.modaltitle}</h1>}
               {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
@@ -34,9 +40,9 @@ export class ZModal {
               name="circle-cross-fill"
               width={24}
               height={24}
+              onClick={() => this.emitModalClose()}
               data-action="modalClose"
               data-modal={this.modalid}
-              onClick={() => this.emitModalClose()}
               onKeyPress={(ev: KeyboardEvent) =>
                 handleKeyboardSubmit(ev, this.emitModalClose)
               }
