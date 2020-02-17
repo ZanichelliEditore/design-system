@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Listen } from "@stencil/core";
+import { Component, Prop, h, State, Listen, Watch } from "@stencil/core";
 import { ComboItemBean, InputTypeBean, InputTypeEnum } from "../../beans";
 import { ZInputText } from "../z-input-text";
 import { handleKeyboardSubmit } from "../../utils/utils";
@@ -38,11 +38,18 @@ export class ZCombobox {
   private selectedCounter: number;
   private inputType: InputTypeBean = InputTypeEnum.text;
 
-  componentWillRender() {
+  @Watch("items")
+  countSelectedItems(newValue: ComboItemBean[] | string) {
     this.itemsList =
-      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+      typeof newValue === "string" ? JSON.parse(newValue) : newValue;
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
+  }
 
+  componentWillLoad() {
+    this.countSelectedItems(this.items);
+  }
+
+  componentWillRender() {
     if (this.searchValue) {
       this.filterItems(this.searchValue);
     }
