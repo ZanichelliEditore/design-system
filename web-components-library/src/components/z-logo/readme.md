@@ -1,5 +1,6 @@
 # z-logo
 
+<!-- readme-group="logo" -->
 
 
 <!-- Auto Generated Below -->

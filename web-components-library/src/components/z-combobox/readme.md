@@ -1,5 +1,6 @@
 # z-combobox
 
+<!-- readme-group="combobox" -->
 
 
 <!-- Auto Generated Below -->

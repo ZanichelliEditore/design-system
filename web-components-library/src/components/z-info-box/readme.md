@@ -1,5 +1,6 @@
 # z-info-box
 
+<!-- readme-group="infobox" -->
 
 
 <!-- Auto Generated Below -->

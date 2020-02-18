@@ -1,5 +1,9 @@
 import { Component, h } from "@stencil/core";
 
+/**
+ * @slot alert - card alert slot
+ * @slot cover - book cover slot
+ */
 @Component({
   tag: "z-card-body",
   styleUrl: "styles.css",

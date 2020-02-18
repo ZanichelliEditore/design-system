@@ -1,5 +1,6 @@
 # z-panel-elem
 
+<!-- readme-group="panel-element" -->
 
 
 <!-- Auto Generated Below -->

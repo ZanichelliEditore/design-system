@@ -1,18 +1,24 @@
 # z-button-filter
 
+<!-- readme-group="buttons" -->
 
-
+```html
+<z-button-filter filtername="filter 1" isfixed></z-button-filter>
+<z-button-filter filtername="filter 2"></z-button-filter>
+<z-button-filter filtername="filter 3" isfixed hasicon="false"></z-button-filter>
+<z-button-filter filtername="filter 4" hasicon="false"></z-button-filter>
+```
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `filterid`   | `filterid`   |             | `string`  | `undefined` |
-| `filtername` | `filtername` |             | `string`  | `undefined` |
-| `hasicon`    | `hasicon`    |             | `boolean` | `true`      |
-| `isfixed`    | `isfixed`    |             | `boolean` | `false`     |
+| Property     | Attribute    | Description              | Type      | Default     |
+| ------------ | ------------ | ------------------------ | --------- | ----------- |
+| `filterid`   | `filterid`   | filter id                | `string`  | `undefined` |
+| `filtername` | `filtername` | filter text content      | `string`  | `undefined` |
+| `hasicon`    | `hasicon`    | add icon to button       | `boolean` | `true`      |
+| `isfixed`    | `isfixed`    | disable action on button | `boolean` | `false`     |
 
 
 ## Events

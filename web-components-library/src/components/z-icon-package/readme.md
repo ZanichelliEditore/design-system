@@ -1,5 +1,6 @@
 # z-icon-package
 
+<!-- readme-group="icon" -->
 
 
 <!-- Auto Generated Below -->

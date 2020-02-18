@@ -1,5 +1,6 @@
 # z-modal
 
+<!-- readme-group="modal" -->
 
 
 <!-- Auto Generated Below -->

@@ -1,18 +1,24 @@
 # z-card-cover
 
-
+<!-- readme-group="card" -->
+```html
+<z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+<z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" faded=true />
+<z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" faded=true 
+  defaultimg="/assets/fallback_image.jpg" />
+```
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `defaultimg` | `defaultimg` |             | `string`  | `undefined` |
-| `faded`      | `faded`      |             | `boolean` | `undefined` |
-| `img`        | `img`        |             | `string`  | `undefined` |
-| `titolo`     | `titolo`     |             | `string`  | `undefined` |
+| Property     | Attribute    | Description                | Type      | Default     |
+| ------------ | ------------ | -------------------------- | --------- | ----------- |
+| `defaultimg` | `defaultimg` | default error image source | `string`  | `undefined` |
+| `faded`      | `faded`      | faded status               | `boolean` | `undefined` |
+| `img`        | `img`        | image source               | `string`  | `undefined` |
+| `titolo`     | `titolo`     | cover alt title            | `string`  | `undefined` |
 
 
 ----------------------------------------------

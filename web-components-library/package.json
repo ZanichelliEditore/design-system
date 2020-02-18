@@ -23,7 +23,7 @@
     "test.watch": "stencil test --spec --watch",
     "test.e2e": "stencil test --e2e",
     "release": "yarn build && yarn publish --registry https://npm.fury.io/zanichelli/",
-    "build-docs": "bash internals/scripts/build-docs.sh"
+    "build-docs": "yarn build && bash internals/scripts/build-docs.sh"
   },
   "devDependencies": {
     "@stencil/core": "^1.3.3",

@@ -1,5 +1,6 @@
 # z-pagination-bar
 
+<!-- readme-group="pagination" -->
 
 
 <!-- Auto Generated Below -->

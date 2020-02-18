@@ -1,5 +1,6 @@
 # z-footer
 
+<!-- readme-group="footer" -->
 
 
 <!-- Auto Generated Below -->

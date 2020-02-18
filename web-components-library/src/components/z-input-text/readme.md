@@ -1,5 +1,6 @@
 # z-input-text
 
+<!-- readme-group="input" -->
 
 
 <!-- Auto Generated Below -->
