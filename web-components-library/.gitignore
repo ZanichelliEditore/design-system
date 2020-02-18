@@ -5,6 +5,7 @@ loader/
 src/components.d.ts
 src/components/baseComponentLayer/index.tsx
 src/components/baseComponentLayer/styles.css
+src/components/readme.md
 
 *~
 *.sw[mnpcod]
