@@ -50,6 +50,7 @@ export class ZCombobox {
   }
 
   componentWillRender() {
+    this.countSelectedItems(this.items);
     if (this.searchValue) {
       this.filterItems(this.searchValue);
     }
