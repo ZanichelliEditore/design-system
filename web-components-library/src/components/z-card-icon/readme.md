@@ -1,17 +1,20 @@
 # z-card-icon
 
 <!-- readme-group="card" -->
-
+```html
+<z-card-icon icon="book-delete" slot="icon" />
+<z-card-icon icon="book-delete" isdisbled="true" slot="icon" />
+```
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `icon`       | `icon`       |             | `string`  | `undefined` |
-| `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
+| Property     | Attribute    | Description          | Type      | Default     |
+| ------------ | ------------ | -------------------- | --------- | ----------- |
+| `icon`       | `icon`       | icon name            | `string`  | `undefined` |
+| `isdisabled` | `isdisabled` | disabled status flag | `boolean` | `false`     |
 
 
 ## Dependencies

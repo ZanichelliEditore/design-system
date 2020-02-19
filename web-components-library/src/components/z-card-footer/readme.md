@@ -3,9 +3,9 @@
 <!-- readme-group="card" -->
 
 ```html
-<z-card-footer titolo="titolo" autori="autori" anno="2019" isbn="9788808620713"></z-card-footer>
-<z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" anno="2019" isbn="97-88-80-8620-710" faded=true></z-card-footer>
-<z-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" anno="2019" isbn="97-88-80-8620-710"></z-card-footer>
+<z-card-footer titolo="titolo" autori="autori" anno="2019" isbn="9788808620713">{list slot}{toggle slot}</z-card-footer>
+<z-card-footer titolo="titolo" autori="autori autori autori" anno="2019" isbn="97-88-80-8620-710" faded=true>{list slot}{toggle slot}</z-card-footer>
+<z-card-footer cardtype="reale" titolo="titolo" autori="autoriautori autori" anno="2019" isbn="97-88-80-8620-710">{list slot}{toggle slot}</z-card-footer>
 ```
 
 <!-- Auto Generated Below -->
