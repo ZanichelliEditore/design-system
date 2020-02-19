@@ -14,6 +14,8 @@ export class ZButtonFilter {
   @Prop() hasicon: boolean = true;
   /** filter id */
   @Prop() filterid: string;
+  
+  /** remove filter click event */
   @Event({
     eventName: "removefilter",
     composed: true,

@@ -15,6 +15,7 @@ export class ZCardAlert {
   /** alert variant type */
   @Prop() type: string;
 
+  /** undo action click/keyboard event */
   @Event() undoAction: EventEmitter;
   emitUndoAction() {
     this.undoAction.emit({ actionType: this.type });

@@ -32,9 +32,9 @@
 
 ## Events
 
-| Event             | Description | Type               |
-| ----------------- | ----------- | ------------------ |
-| `buttonSortClick` |             | `CustomEvent<any>` |
+| Event             | Description                   | Type               |
+| ----------------- | ----------------------------- | ------------------ |
+| `buttonSortClick` | sorting direction click event | `CustomEvent<any>` |
 
 
 ## Dependencies
