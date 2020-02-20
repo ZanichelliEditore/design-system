@@ -1,0 +1,48 @@
+:host > .checkboxWrapper {
+  display: inline-block;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: inherit;
+}
+
+:host > .checkboxWrapper > input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  position: absolute;
+}
+
+:host > .checkboxWrapper > label.checkboxLabel {
+  cursor: pointer;
+  display: inline-flex;
+  line-height: 16px;
+}
+
+:host > .checkboxWrapper > label.checkboxLabel.after {
+  flex-direction: row;
+}
+
+:host > .checkboxWrapper > label.checkboxLabel.before {
+  flex-direction: row-reverse;
+}
+
+:host > .checkboxWrapper > label.checkboxLabel > z-icon {
+  fill: var(--myz-blue);
+  height: 18px;
+  width: 18px;
+}
+
+:host > .checkboxWrapper > label.checkboxLabel.after > span {
+  margin-left: var(--basex1);
+}
+
+:host > .checkboxWrapper > label.checkboxLabel.before > span {
+  margin-right: var(--basex1);
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1025px) {
+}
