@@ -7,13 +7,17 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                                      | Type                                                                                                                                              | Default     |
-| ------------ | ------------ | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `checked`    | `checked`    | checked: available for checkbox                  | `boolean`                                                                                                                                         | `false`     |
-| `htmlid`     | `htmlid`     | the id of the input element                      | `string`                                                                                                                                          | `undefined` |
-| `label`      | `label`      | the input label                                  | `string`                                                                                                                                          | `undefined` |
-| `labelafter` | `labelafter` | the input label position: available for checkbox | `boolean`                                                                                                                                         | `true`      |
-| `type`       | `type`       | input types                                      | `InputTypeEnum.checkbox \| InputTypeEnum.email \| InputTypeEnum.number \| InputTypeEnum.password \| InputTypeEnum.text \| InputTypeEnum.textarea` | `undefined` |
+| Property     | Attribute    | Description                                             | Type                                                                                                                                              | Default     |
+| ------------ | ------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `checked`    | `checked`    | checked: available for checkbox, radio                  | `boolean`                                                                                                                                         | `false`     |
+| `disabled`   | `disabled`   | the input is disabled                                   | `boolean`                                                                                                                                         | `false`     |
+| `htmlid`     | `htmlid`     | the id of the input element                             | `string`                                                                                                                                          | `undefined` |
+| `label`      | `label`      | the input label                                         | `string`                                                                                                                                          | `undefined` |
+| `labelafter` | `labelafter` | the input label position: available for checkbox, radio | `boolean`                                                                                                                                         | `true`      |
+| `name`       | `name`       | the input name                                          | `string`                                                                                                                                          | `undefined` |
+| `readonly`   | `readonly`   | the input is readonly                                   | `boolean`                                                                                                                                         | `false`     |
+| `type`       | `type`       | input types                                             | `InputTypeEnum.checkbox \| InputTypeEnum.email \| InputTypeEnum.number \| InputTypeEnum.password \| InputTypeEnum.text \| InputTypeEnum.textarea` | `undefined` |
+| `value`      | `value`      | the input value                                         | `string`                                                                                                                                          | `undefined` |
 
 
 ## Methods

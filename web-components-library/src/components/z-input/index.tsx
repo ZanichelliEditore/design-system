@@ -11,11 +11,19 @@ export class ZInput {
   @Prop() htmlid: string;
   /** input types */
   @Prop() type: InputTypeBean;
-  /** checked: available for checkbox */
-  @Prop({ mutable: true }) checked?: boolean = false;
+  /** the input name */
+  @Prop() name?: string;
   /** the input label */
   @Prop() label?: string;
-  /** the input label position: available for checkbox */
+  /** the input value */
+  @Prop() value?: string;
+  /** the input is disabled */
+  @Prop() disabled?: boolean = false;
+  /** the input is readonly */
+  @Prop() readonly?: boolean = false;
+  /** checked: available for checkbox, radio */
+  @Prop({ mutable: true }) checked?: boolean = false;
+  /** the input label position: available for checkbox, radio */
   @Prop() labelafter?: boolean = true;
 
   @Method()
@@ -34,8 +42,14 @@ export class ZInput {
         <input
           id={this.htmlid}
           type="checkbox"
+          name={this.name}
           checked={this.checked}
-          onChange={() => (this.checked = !this.checked)}
+          value={this.value}
+          disabled={this.disabled}
+          readonly={this.readonly}
+          onChange={() => {
+            if (!this.disabled && !this.readonly) this.checked = !this.checked;
+          }}
         />
 
         <label

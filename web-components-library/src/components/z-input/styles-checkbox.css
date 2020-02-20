@@ -11,6 +11,10 @@
   position: absolute;
 }
 
+:host > .checkboxWrapper > input[type="checkbox"][readonly] {
+  pointer-events: none;
+}
+
 :host > .checkboxWrapper > label.checkboxLabel {
   cursor: pointer;
   display: inline-flex;
@@ -25,18 +29,47 @@
   flex-direction: row-reverse;
 }
 
-:host > .checkboxWrapper > label.checkboxLabel > z-icon {
-  fill: var(--myz-blue);
-  height: 18px;
-  width: 18px;
-}
-
 :host > .checkboxWrapper > label.checkboxLabel.after > span {
   margin-left: var(--basex1);
 }
 
 :host > .checkboxWrapper > label.checkboxLabel.before > span {
   margin-right: var(--basex1);
+}
+
+:host > .checkboxWrapper > label.checkboxLabel > z-icon {
+  fill: var(--myz-blue);
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+}
+
+/* focus */
+:host
+  > .checkboxWrapper
+  > input[type="checkbox"]:focus
+  + label.checkboxLabel
+  > z-icon {
+  box-shadow: 0 0 2px 2px var(--accent-dark);
+}
+
+/* disabled */
+:host
+  > .checkboxWrapper
+  > input[type="checkbox"]:disabled
+  + label.checkboxLabel
+  > z-icon {
+  fill: var(--bg-grey-700);
+}
+
+/* readonly */
+:host
+  > .checkboxWrapper
+  > input[type="checkbox"][readonly]
+  + label.checkboxLabel
+  > z-icon {
+  fill: var(--bg-grey-800);
+  pointer-events: none;
 }
 
 /* Tablet breakpoint */
