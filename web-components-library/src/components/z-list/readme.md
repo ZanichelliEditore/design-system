@@ -1,6 +1,9 @@
 # z-list
 
 <!-- readme-group="list" -->
+```html
+<z-list inputrawdata='[{"text":"elemento lista","link":"http://www.google.it","listitemid":"id1","icon":"checkbox-selected"},{"text":"elemento lista","link":"http://www.google.it","listitemid":"id2","icon":"checkbox-unchecked"},{"text":""}]'></z-list>
+```
 
 
 <!-- Auto Generated Below -->
@@ -8,10 +11,10 @@
 
 ## Properties
 
-| Property       | Attribute      | Description | Type             | Default     |
-| -------------- | -------------- | ----------- | ---------------- | ----------- |
-| `inputrawdata` | `inputrawdata` |             | `string`         | `undefined` |
-| `list`         | --             |             | `ListItemBean[]` | `undefined` |
+| Property       | Attribute      | Description                           | Type             | Default     |
+| -------------- | -------------- | ------------------------------------- | ---------------- | ----------- |
+| `inputrawdata` | `inputrawdata` | json stringified list data (optional) | `string`         | `undefined` |
+| `list`         | --             | list item data (mutable, optional)    | `ListItemBean[]` | `undefined` |
 
 
 ## Dependencies

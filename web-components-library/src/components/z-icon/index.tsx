@@ -8,9 +8,13 @@ import { icons } from './icons';
 })
 
 export class ZIcon {
+  /** icon name (choice between available icons) */
   @Prop() name: string;
+  /** icon height (optional) */
   @Prop() height?: number = 18;
+  /** icon width (optional) */
   @Prop() width?: number = 18;
+  /** icon id (optional) */
   @Prop() iconid?: string;
 
   selectPathOrPolygon(iconName: string): HTMLElement {

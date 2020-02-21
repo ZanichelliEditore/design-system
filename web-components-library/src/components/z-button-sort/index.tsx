@@ -24,7 +24,7 @@ export class ZButtonSort {
   /** sortable flag (optional) */
   @Prop({ mutable: true }) sortasc?: boolean = true;
 
-  /** sorting direction click event */
+  /** sorting direction click event, returns buttonid and sortAsc */
   @Event() buttonSortClick: EventEmitter;
   emitButtonSortClick() {
     if (!this.isselected) {

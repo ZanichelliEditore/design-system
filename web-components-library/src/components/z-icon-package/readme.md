@@ -1,16 +1,12 @@
 # z-icon-package
 
 <!-- readme-group="icon" -->
-
+```html
+<!-- utility component to display all icons -->
+<z-icon-package></z-icon-pacakge>
+```
 
 <!-- Auto Generated Below -->
-
-
-## Properties
-
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `name`   | `name`    |             | `string` | `undefined` |
 
 
 ## Dependencies

@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 import { icons } from '../z-icon/icons';
 
 @Component({
@@ -8,7 +8,6 @@ import { icons } from '../z-icon/icons';
 })
 
 export class ZIconPackage {
-  @Prop() name: string;
 
   render() {
     const iconsNames = Object.keys(icons);

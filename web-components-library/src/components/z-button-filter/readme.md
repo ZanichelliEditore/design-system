@@ -23,9 +23,9 @@
 
 ## Events
 
-| Event          | Description               | Type               |
-| -------------- | ------------------------- | ------------------ |
-| `removefilter` | remove filter click event | `CustomEvent<any>` |
+| Event          | Description                                 | Type               |
+| -------------- | ------------------------------------------- | ------------------ |
+| `removefilter` | remove filter click event, returns filterid | `CustomEvent<any>` |
 
 
 ## Dependencies

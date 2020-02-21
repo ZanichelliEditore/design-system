@@ -7,8 +7,10 @@ import { TooltipPosition } from "../../beans/index";
   shadow: true
 })
 export class ZTooltip {
+  /** content text */
   @Prop() content: string;
-  @Prop() type: string;
+  /** tooltip position variant */
+  @Prop() type: TooltipPosition;
 
   private direction: TooltipPosition;
 

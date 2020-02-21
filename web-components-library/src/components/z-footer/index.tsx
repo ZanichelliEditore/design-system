@@ -14,7 +14,9 @@ import {
   shadow: true
 })
 export class ZFooter {
+  /** JSON stringified data to fill the footer */
   @Prop() data: string;
+  /** set copyright user (optional)  */
   @Prop() copyrightuser?;
   @State() isOpen: boolean[] = [];
   @State() isMobile: boolean;

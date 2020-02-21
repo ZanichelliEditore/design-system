@@ -25,9 +25,9 @@
 
 ## Events
 
-| Event        | Description                      | Type               |
-| ------------ | -------------------------------- | ------------------ |
-| `undoAction` | undo action click/keyboard event | `CustomEvent<any>` |
+| Event        | Description                                          | Type               |
+| ------------ | ---------------------------------------------------- | ------------------ |
+| `undoAction` | undo action click/keyboard event, returns actionType | `CustomEvent<any>` |
 
 
 ## Dependencies

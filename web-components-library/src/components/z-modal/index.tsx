@@ -2,14 +2,20 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 import { handleKeyboardSubmit } from "../../utils/utils";
 
+/**
+ * @slot modalContent - set the content of the modal
+ */
 @Component({
   tag: "z-modal",
   styleUrl: "styles.css",
   shadow: true
 })
 export class ZModal {
+  /** unique id */
   @Prop() modalid: string;
+  /** title text (optional) */
   @Prop() modaltitle?: string;
+  /** subtitle (optional) */
   @Prop() modalsubtitle?: string;
 
   constructor() {
@@ -17,11 +23,13 @@ export class ZModal {
     this.emitModalHeaderActive = this.emitModalHeaderActive.bind(this);
   }
 
+  /** emitted on close icon click, returns modalid */
   @Event() modalClose: EventEmitter;
   emitModalClose() {
     this.modalClose.emit({ modalid: this.modalid });
   }
 
+  /** emitted on modal header click, returns modalid */
   @Event() modalHeaderActive: EventEmitter;
   emitModalHeaderActive() {
     this.modalHeaderActive.emit({ modalid: this.modalid });

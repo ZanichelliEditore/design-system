@@ -1,19 +1,31 @@
 import { Component, Prop, h } from "@stencil/core";
 
+/**
+ * @slot `descr_slot_name` - description content
+ */
 @Component({
   tag: "z-panel-elem",
   styleUrl: "styles.css",
   shadow: true
 })
 export class ZPanelElem {
+  /** html element id (optional) */
   @Prop() elemid?: string;
+  /** image url source (optional) */
   @Prop() imgurl?: string;
+  /** alternative image text (optional) */
   @Prop() imgalt?: string;
+  /** icon link name (optional) */
   @Prop() linkicon?: string;
+  /** link label text*/
   @Prop() linklabel: string;
+  /** link url */
   @Prop() url: string;
+  /** link target (optional) */
   @Prop() target?: string = "_blank";
+  /** disabled status flag (optional) */
   @Prop() isdisabled?: boolean = false;
+  /** name of slot container (optional) */
   @Prop() descr_slot_name?: string;
 
   renderIcon() {

@@ -6,15 +6,24 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
   shadow: true
 })
 export class ZLink {
+  /** link url */
   @Prop() url: string;
+  /** link label (optional) */
   @Prop() label?: string;
+  /** link icon name (optional) */
   @Prop() icon?: string;
+  /** link target (optional) */
   @Prop() target?: string = "_self";
+  /** disable link flag (optional) */
   @Prop() isdisabled?: boolean = false;
+  /** white variant flag (optional) */
   @Prop() iswhite?: boolean = false;
+  /** link id (optional) */
   @Prop() linkid?: string;
+  /** tabindex link attribute */
   @Prop() linktabindex: number = 0;
 
+  /** emitted on link click, returns linkId */
   @Event() zLinkClick: EventEmitter;
 
   constructor() {
