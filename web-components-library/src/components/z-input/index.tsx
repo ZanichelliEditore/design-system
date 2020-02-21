@@ -1,5 +1,5 @@
-import { Component, Prop, h, Method } from "@stencil/core";
-import { InputTypeBean, InputTypeEnum } from "../../beans";
+import { Component, Prop, h, Method, Event, EventEmitter } from "@stencil/core";
+import { InputTypeEnum } from "../../beans";
 
 @Component({
   tag: "z-input",
@@ -8,9 +8,9 @@ import { InputTypeBean, InputTypeEnum } from "../../beans";
 })
 export class ZInput {
   /** the id of the input element */
-  @Prop() htmlid: string;
+  @Prop() htmlid: string = this.randomId();
   /** input types */
-  @Prop() type: InputTypeBean;
+  @Prop() type: HTMLInputElement["type"];
   /** the input name */
   @Prop() name?: string;
   /** the input label */
@@ -26,6 +26,12 @@ export class ZInput {
   /** the input label position: available for checkbox, radio */
   @Prop() labelafter?: boolean = true;
 
+  randomId(): string {
+    return Math.random()
+      .toString(36)
+      .replace("0.", "");
+  }
+
   @Method()
   async isChecked() {
     switch (this.type) {
@@ -34,6 +40,16 @@ export class ZInput {
       default:
         return false;
     }
+  }
+
+  @Event() inputCheck: EventEmitter;
+  emitInputCheck(checked: boolean) {
+    this.inputCheck.emit({ id: this.htmlid, checked: checked });
+  }
+
+  handleCheckboxChange() {
+    this.checked = !this.checked;
+    this.emitInputCheck(this.checked);
   }
 
   renderCheckbox() {
@@ -47,9 +63,7 @@ export class ZInput {
           value={this.value}
           disabled={this.disabled}
           readonly={this.readonly}
-          onChange={() => {
-            if (!this.disabled && !this.readonly) this.checked = !this.checked;
-          }}
+          onChange={() => this.handleCheckboxChange()}
         />
 
         <label
@@ -59,7 +73,7 @@ export class ZInput {
           <z-icon
             name={this.checked ? "checkbox-selected" : "checkbox-unchecked"}
           />
-          {this.label && <span>{this.label}</span>}
+          {this.label && <span innerHTML={this.label} />}
         </label>
       </div>
     );
@@ -69,8 +83,13 @@ export class ZInput {
     switch (this.type) {
       case InputTypeEnum.checkbox:
         return this.renderCheckbox();
+      case InputTypeEnum.textarea:
+        return (
+          <z-input-text inputid={this.htmlid} type={InputTypeEnum.textarea} />
+        );
+      case InputTypeEnum.text:
       default:
-        return;
+        return <z-input-text inputid={this.htmlid} type={InputTypeEnum.text} />;
     }
   }
 }

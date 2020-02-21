@@ -1,5 +1,19 @@
-import { Component, Prop, h, State, Listen, Watch } from "@stencil/core";
-import { ComboItemBean, InputTypeBean, InputTypeEnum } from "../../beans";
+import {
+  Component,
+  Prop,
+  h,
+  State,
+  Listen,
+  Watch,
+  Event,
+  EventEmitter
+} from "@stencil/core";
+import {
+  ComboItemBean,
+  InputTypeBean,
+  InputTypeEnum,
+  keybordKeyCodeEnum
+} from "../../beans";
 import { ZInputText } from "../z-input-text";
 import { handleKeyboardSubmit } from "../../utils/utils";
 
@@ -16,15 +30,23 @@ export class ZCombobox {
   @Prop() searchlabel?: string;
   @Prop() searchplaceholder?: string;
   @Prop() searchtitle?: string;
-  @Prop() noresultslabel: string;
+  @Prop() noresultslabel?: string = "Nessun risultato";
   @Prop({ mutable: true }) isopen: boolean = true;
   @Prop() isfixed: boolean = false;
   @Prop() closesearchtext: string;
 
   @State() searchValue: string;
+  @State() selectedCounter: number;
+  @State() renderItemsList: ComboItemBean[] = []; // used for render only
 
-  constructor() {
-    this.closeComboBox = this.closeComboBox.bind(this);
+  private itemsList: ComboItemBean[] = [];
+  private inputType: InputTypeBean = InputTypeEnum.text;
+
+  @Watch("items")
+  watchItems() {
+    this.itemsList =
+      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    this.resetRenderItemsList();
   }
 
   @Listen("click", { target: "window" })
@@ -34,26 +56,39 @@ export class ZCombobox {
     }
   }
 
-  private itemsList: ComboItemBean[] = [];
-  private selectedCounter: number;
-  private inputType: InputTypeBean = InputTypeEnum.text;
+  @Listen("inputCheck")
+  inputCheckListener(e: CustomEvent) {
+    const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
+    this.itemsList = this.itemsList.map((item: ComboItemBean) => {
+      if (item.id === id) item.checked = e.detail.checked;
+      return item;
+    });
+    this.emitComboboxChange();
+  }
 
-  @Watch("items")
-  countSelectedItems(newValue: ComboItemBean[] | string) {
-    this.itemsList =
-      typeof newValue === "string" ? JSON.parse(newValue) : newValue;
-    this.selectedCounter = this.itemsList.filter(item => item.checked).length;
+  @Event() comboboxChange: EventEmitter;
+  emitComboboxChange() {
+    this.comboboxChange.emit({ id: this.inputid, items: this.itemsList });
+  }
+
+  constructor() {
+    this.closeComboBox = this.closeComboBox.bind(this);
+    this.closeFilterItems = this.closeFilterItems.bind(this);
   }
 
   componentWillLoad() {
-    this.countSelectedItems(this.items);
+    this.watchItems();
   }
 
   componentWillRender() {
-    this.countSelectedItems(this.items);
-    if (this.searchValue) {
-      this.filterItems(this.searchValue);
-    }
+    this.selectedCounter = this.itemsList.filter(item => item.checked).length;
+  }
+
+  resetRenderItemsList() {
+    this.renderItemsList = [];
+    this.itemsList.forEach((item: any) => {
+      this.renderItemsList.push({ ...item });
+    });
   }
 
   filterItems(value: string): void {
@@ -61,7 +96,8 @@ export class ZCombobox {
 
     this.searchValue = value;
 
-    this.itemsList = this.itemsList.filter(item => {
+    this.resetRenderItemsList();
+    this.renderItemsList = this.renderItemsList.filter(item => {
       const start = item.name.toUpperCase().indexOf(value.toUpperCase());
       const end = start + value.length;
       const newName =
@@ -76,19 +112,25 @@ export class ZCombobox {
 
   closeFilterItems() {
     this.searchValue = "";
+    this.resetRenderItemsList();
   }
+
   closeComboBox() {
     this.isopen = !this.isopen;
   }
 
   renderHeader(): HTMLHeadingElement {
     return (
-      <a
+      <div
         class="header"
         onClick={() => this.closeComboBox()}
+        onKeyDown={(ev: KeyboardEvent) => {
+          if (ev.keyCode === keybordKeyCodeEnum.SPACE) ev.preventDefault();
+        }}
         onKeyUp={(ev: KeyboardEvent) =>
           handleKeyboardSubmit(ev, this.closeComboBox)
         }
+        role="button"
         tabindex="0"
       >
         <h2>
@@ -98,7 +140,7 @@ export class ZCombobox {
           </span>
         </h2>
         <z-icon name="drop-down" width={18} height={18} />
-      </a>
+      </div>
     );
   }
 
@@ -117,18 +159,28 @@ export class ZCombobox {
     if (!this.isopen) return;
 
     return (
-      <div class={this.searchValue && "search"}>
-        {this.itemsList.length
-          ? this.renderList(this.itemsList)
+      <div class={this.searchValue && "search"} tabindex={-1}>
+        {this.renderItemsList.length
+          ? this.renderList(this.renderItemsList)
           : this.renderNoSearchResults()}
         {this.searchValue ? (
-          <a onClick={() => this.closeFilterItems()} role="button">
-            {this.closesearchtext}
-          </a>
+          <div>
+            <a
+              onClick={() => this.closeFilterItems()}
+              onKeyUp={(e: KeyboardEvent) =>
+                handleKeyboardSubmit(e, this.closeFilterItems)
+              }
+              role="button"
+              tabindex={0}
+            >
+              {this.closesearchtext}
+            </a>
+          </div>
         ) : null}
       </div>
     );
   }
+
   renderNoSearchResults() {
     return (
       <ul>
@@ -149,13 +201,17 @@ export class ZCombobox {
           return (
             <z-list-item
               id={item.id}
-              text={item.name}
               listitemid={item.id}
-              icon={item.checked ? "checkbox-selected" : "checkbox-unchecked"}
               action={`combo-li-${this.inputid}`}
               underlined={i === items.length - 1 ? false : true}
-              tabindex="0"
-            />
+            >
+              <z-input
+                type={InputTypeEnum.checkbox}
+                checked={item.checked}
+                htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
+                label={item.name}
+              />
+            </z-list-item>
           );
         })}
       </ul>

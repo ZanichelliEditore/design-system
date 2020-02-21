@@ -57,6 +57,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [z-combobox](../z-combobox)
+ - [z-input](../z-input)
 
 ### Depends on
 
@@ -67,6 +68,7 @@ Type: `Promise<void>`
 graph TD;
   z-input-text --> z-icon
   z-combobox --> z-input-text
+  z-input --> z-input-text
   style z-input-text fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

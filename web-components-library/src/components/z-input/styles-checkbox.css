@@ -7,16 +7,11 @@
 
 :host > .checkboxWrapper > input[type="checkbox"] {
   opacity: 0;
-  width: 0;
   position: absolute;
-}
-
-:host > .checkboxWrapper > input[type="checkbox"][readonly] {
-  pointer-events: none;
+  z-index: 0;
 }
 
 :host > .checkboxWrapper > label.checkboxLabel {
-  cursor: pointer;
   display: inline-flex;
   line-height: 16px;
 }
@@ -41,7 +36,6 @@
   fill: var(--myz-blue);
   height: 18px;
   width: 18px;
-  cursor: pointer;
 }
 
 /* focus */
@@ -60,6 +54,7 @@
   + label.checkboxLabel
   > z-icon {
   fill: var(--bg-grey-700);
+  cursor: default;
 }
 
 /* readonly */
@@ -70,6 +65,7 @@
   > z-icon {
   fill: var(--bg-grey-800);
   pointer-events: none;
+  cursor: default;
 }
 
 /* Tablet breakpoint */
