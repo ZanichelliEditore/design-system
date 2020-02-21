@@ -46,14 +46,8 @@ export class ZCombobox {
   watchItems() {
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    this.selectedCounter = this.itemsList.filter(item => item.checked).length;
     this.resetRenderItemsList();
-  }
-
-  @Listen("click", { target: "window" })
-  handleClick(ev) {
-    if (ev.srcElement.inputid !== this.inputid) {
-      this.closeFilterItems();
-    }
   }
 
   @Listen("inputCheck")
@@ -82,6 +76,9 @@ export class ZCombobox {
 
   componentWillRender() {
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
+    if (this.searchValue) {
+      this.filterItems(this.searchValue);
+    }
   }
 
   resetRenderItemsList() {
