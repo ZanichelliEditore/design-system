@@ -14,7 +14,7 @@ import {
   InputTypeEnum,
   keybordKeyCodeEnum
 } from "../../beans";
-import { ZInputText } from "../z-input-text";
+import { ZInput } from "../z-input";
 import { handleKeyboardSubmit } from "../../utils/utils";
 
 @Component({
@@ -71,6 +71,7 @@ export class ZCombobox {
     this.emitComboboxChange();
   }
 
+  /** Emitted when value is checked/unchecked. Returns id, items. */
   @Event() comboboxChange: EventEmitter;
   emitComboboxChange() {
     this.comboboxChange.emit({ id: this.inputid, items: this.itemsList });
@@ -226,12 +227,12 @@ export class ZCombobox {
     );
   }
 
-  renderSearchInput(): ZInputText {
+  renderSearchInput(): ZInput {
     if (!this.isopen) return;
 
     return (
-      <z-input-text
-        inputid={`${this.inputid}_search`}
+      <z-input
+        htmlid={`${this.inputid}_search`}
         label={this.searchlabel}
         placeholder={this.searchplaceholder}
         htmltitle={this.searchtitle}

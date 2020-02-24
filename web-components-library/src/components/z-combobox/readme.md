@@ -27,21 +27,30 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property            | Attribute           | Description                              | Type                        | Default     |
-| ------------------- | ------------------- | ---------------------------------------- | --------------------------- | ----------- |
-| `closesearchtext`   | `closesearchtext`   | close combobox list text                 | `string`                    | `undefined` |
-| `hassearch`         | `hassearch`         | show search input flag (optional)        | `boolean`                   | `false`     |
-| `inputid`           | `inputid`           | input unique id                          | `string`                    | `undefined` |
-| `isfixed`           | `isfixed`           | fixed style flag                         | `boolean`                   | `false`     |
-| `isopen`            | `isopen`            | toggle combo list opening flag           | `boolean`                   | `true`      |
-| `items`             | `items`             | list items array                         | `ComboItemBean[] \| string` | `undefined` |
-| `label`             | `label`             | label text                               | `string`                    | `undefined` |
-| `noresultslabel`    | `noresultslabel`    | no result text message                   | `string`                    | `undefined` |
-| `searchlabel`       | `searchlabel`       | search input label text (optional)       | `string`                    | `undefined` |
-| `searchplaceholder` | `searchplaceholder` | search input placeholder text (optional) | `string`                    | `undefined` |
-| `searchtitle`       | `searchtitle`       | search input title text (optional)       | `string`                    | `undefined` |
+| Property            | Attribute           | Description                              | Type                        | Default              |
+| ------------------- | ------------------- | ---------------------------------------- | --------------------------- | -------------------- |
+| `closesearchtext`   | `closesearchtext`   | close combobox list text                 | `string`                    | `undefined`          |
+| `hassearch`         | `hassearch`         | show search input flag (optional)        | `boolean`                   | `false`              |
+| `inputid`           | `inputid`           | input unique id                          | `string`                    | `undefined`          |
+| `isfixed`           | `isfixed`           | fixed style flag                         | `boolean`                   | `false`              |
+| `isopen`            | `isopen`            | toggle combo list opening flag           | `boolean`                   | `true`               |
+| `items`             | `items`             | list items array                         | `ComboItemBean[] \| string` | `undefined`          |
+| `label`             | `label`             | label text                               | `string`                    | `undefined`          |
+| `noresultslabel`    | `noresultslabel`    | no result text message                   | `string`                    | `"Nessun risultato"` |
+| `searchlabel`       | `searchlabel`       | search input label text (optional)       | `string`                    | `undefined`          |
+| `searchplaceholder` | `searchplaceholder` | search input placeholder text (optional) | `string`                    | `undefined`          |
+| `searchtitle`       | `searchtitle`       | search input title text (optional)       | `string`                    | `undefined`          |
+
+
+## Events
+
+| Event            | Description                                                 | Type               |
+| ---------------- | ----------------------------------------------------------- | ------------------ |
+| `comboboxChange` | Emitted when value is checked/unchecked. Returns id, items. | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -50,23 +59,18 @@
 - [z-icon](../z-icon)
 - [z-list-item](../z-list-item)
 - [z-input](../z-input)
-- [z-input-text](../z-input-text)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-combobox --> z-icon
   z-combobox --> z-list-item
   z-combobox --> z-input
-  z-combobox --> z-input-text
   z-list-item --> z-icon
   z-input --> z-icon
-  z-input --> z-input-text
-  z-input-text --> z-icon
   style z-combobox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
