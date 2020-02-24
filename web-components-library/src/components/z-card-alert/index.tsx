@@ -6,11 +6,16 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
   shadow: true
 })
 export class ZCardAlert {
+  /** icon name */
   @Prop() iconname: string;
+  /** content text */
   @Prop() contenttext: string;
+  /** action button text */
   @Prop() actiontext?: string;
+  /** alert variant type */
   @Prop() type: string;
 
+  /** undo action click/keyboard event, returns actionType */
   @Event() undoAction: EventEmitter;
   emitUndoAction() {
     this.undoAction.emit({ actionType: this.type });

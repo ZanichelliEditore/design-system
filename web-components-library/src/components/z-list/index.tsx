@@ -7,7 +7,9 @@ import { ListItemBean } from "../../beans/index.js";
   shadow: true
 })
 export class ZList {
+  /** json stringified list data (optional) */
   @Prop() inputrawdata?: string;
+  /** list item data (mutable, optional)*/
   @Prop({ mutable: true }) list?: ListItemBean[];
 
   componentDidLoad() {

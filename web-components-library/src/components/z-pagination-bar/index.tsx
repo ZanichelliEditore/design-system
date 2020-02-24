@@ -10,11 +10,17 @@ import { handleKeyboardSubmit } from "../../utils/utils";
   shadow: true
 })
 export class ZPaginationBar {
+  /** pages number */
   @Prop() pages: number;
+  /** number of visible pages*/
   @Prop() visiblepages: number;
+  /** current displayed page (mutable) */
   @Prop({ mutable: true }) currentpage: number = 1;
+  /** initial page (mutable) */
   @Prop({ mutable: true }) startpage: number = 1;
+  /** json stringified history of visited pages (optional) */
   @Prop() historyraw?: string;
+  /** array of history of visited pages (mutable, optional) */
   @Prop({ mutable: true }) listhistoryrow?: number[] = [];
 
   @State() currentPages: number[] = [];
@@ -79,6 +85,7 @@ export class ZPaginationBar {
     }
   }
 
+  /** emitted on page number click, returns page*/
   @Event() goToPage: EventEmitter;
   emitGoToPage(page) {
     this.currentpage = page;
@@ -86,12 +93,14 @@ export class ZPaginationBar {
     this.addPageToHistory.emit({ page: page });
   }
 
+  /** emitted on start page change, returns startpage*/
   @Event() changeStartPage: EventEmitter;
   emitChangeStartPage(startpage) {
     this.startpage = startpage;
     this.changeStartPage.emit({ startpage: startpage });
   }
 
+  /** emitted on adding page to isvisited array, returns page*/
   @Event() addPageToHistory: EventEmitter;
   emitAddPageToHistory(page) {
     this.listhistoryrow.push(page);
