@@ -32,7 +32,7 @@
 
 | Property            | Attribute           | Description                              | Type                        | Default              |
 | ------------------- | ------------------- | ---------------------------------------- | --------------------------- | -------------------- |
-| `closesearchtext`   | `closesearchtext`   | close combobox list text                 | `string`                    | `undefined`          |
+| `closesearchtext`   | `closesearchtext`   | close combobox list text                 | `string`                    | `"Chiudi"`           |
 | `hassearch`         | `hassearch`         | show search input flag (optional)        | `boolean`                   | `false`              |
 | `inputid`           | `inputid`           | input unique id                          | `string`                    | `undefined`          |
 | `isfixed`           | `isfixed`           | fixed style flag                         | `boolean`                   | `false`              |
