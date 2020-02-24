@@ -1,9 +1,122 @@
 # z-input
 
+<!-- readme-group="input" -->
 
+```html
+<!-- type text -->
+<z-input label="default" placeholder="Cerca Autore"></z-input>
+<z-input label="filled" value="testo testo testo"></z-input>
+<z-input
+  label="disabled"
+  placeholder="placeholder"
+  disabled
+  value="i'm disabled"
+></z-input>
+<z-input
+  label="readonly"
+  placeholder="placeholder"
+  readonly
+  value="i'm read-only"
+></z-input>
+<z-input
+  label="success"
+  placeholder="placeholder"
+  status="success"
+  message="message message"
+  value=""
+></z-input>
+<z-input
+  label="error"
+  placeholder="placeholder"
+  status="error"
+  message="message message"
+  value="testo"
+></z-input>
+<z-input
+  label="warning"
+  placeholder="placeholder"
+  status="warning"
+  message="message message message message message message message message message message message message message message message message message message"
+></z-input>
+<z-input
+  label="message"
+  placeholder="placeholder"
+  message="helper message"
+></z-input>
+
+<!-- type textarea -->
+<z-input type="textarea"></z-input>
+<z-input type="textarea" label="default" placeholder="Cerca Autore"></z-input>
+<z-input type="textarea" label="filled" value="testo testo testo"></z-input>
+<z-input
+  type="textarea"
+  label="disabled"
+  placeholder="placeholder"
+  disabled
+  value="i'm disabled"
+></z-input>
+<z-input
+  type="textarea"
+  label="readonly"
+  placeholder="placeholder"
+  readonly
+  value="i'm read-only"
+></z-input>
+<z-input
+  type="textarea"
+  label="success"
+  placeholder="placeholder"
+  status="success"
+  message="message message"
+  value=""
+></z-input>
+<z-input
+  type="textarea"
+  label="error"
+  placeholder="placeholder"
+  status="error"
+  message="message message"
+  value="testo"
+></z-input>
+<z-input
+  type="textarea"
+  label="warning"
+  placeholder="placeholder"
+  status="warning"
+  message="message message"
+></z-input>
+<z-input
+  type="textarea"
+  label="message"
+  placeholder="placeholder"
+  message="helper message"
+></z-input>
+
+<!-- type checkbox -->
+<z-input type="checkbox" htmlid="check1"></z-input>
+<z-input
+  type="checkbox"
+  htmlid="check2"
+  label="this is a checkbox"
+  checked="true"
+></z-input>
+<z-input
+  type="checkbox"
+  htmlid="check4"
+  value="value"
+  disabled="true"
+  label="disabled"
+></z-input>
+<z-input
+  type="checkbox"
+  htmlid="check5"
+  value="value"
+  readonly="true"
+  label="read-only"
+></z-input>
+```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -24,14 +137,12 @@
 | `typingTimeout` | `typing-timeout` | timeout setting before trigger `inputChange` event (optional) | `number`                                                                      | `300`        |
 | `value`         | `value`          | the input value                                               | `string`                                                                      | `undefined`  |
 
-
 ## Events
 
 | Event         | Description                                            | Type               |
 | ------------- | ------------------------------------------------------ | ------------------ |
 | `inputChange` | Emitted on input value change, returns value, keycode  | `CustomEvent<any>` |
 | `inputCheck`  | Emitted on checkbox check/uncheck, returns id, checked | `CustomEvent<any>` |
-
 
 ## Methods
 
@@ -43,8 +154,6 @@ get the input value
 
 Type: `Promise<string>`
 
-
-
 ### `isChecked() => Promise<boolean>`
 
 get checked status
@@ -52,8 +161,6 @@ get checked status
 #### Returns
 
 Type: `Promise<boolean>`
-
-
 
 ### `setValue(value: string) => Promise<void>`
 
@@ -63,20 +170,18 @@ set the input value
 
 Type: `Promise<void>`
 
-
-
-
 ## Dependencies
 
 ### Used by
 
- - [z-combobox](../z-combobox)
+- [z-combobox](../z-combobox)
 
 ### Depends on
 
 - [z-icon](../z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-input --> z-icon
@@ -84,6 +189,6 @@ graph TD;
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
