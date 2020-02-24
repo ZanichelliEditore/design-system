@@ -93,7 +93,7 @@ export class ZCombobox {
     }
   }
 
-  resetRenderItemsList() {
+  resetRenderItemsList(): void {
     this.renderItemsList = [];
     this.itemsList.forEach((item: any) => {
       this.renderItemsList.push({ ...item });
@@ -119,16 +119,16 @@ export class ZCombobox {
     });
   }
 
-  closeFilterItems() {
+  closeFilterItems(): void {
     this.searchValue = "";
     this.resetRenderItemsList();
   }
 
-  closeComboBox() {
+  closeComboBox(): void {
     this.isopen = !this.isopen;
   }
 
-  renderHeader(): HTMLHeadingElement {
+  renderHeader(): HTMLDivElement {
     return (
       <div
         class="header"
@@ -153,7 +153,7 @@ export class ZCombobox {
     );
   }
 
-  renderContent(): HTMLDivElement {
+  renderContent(): HTMLDivElement | undefined {
     if (!this.isopen) return;
 
     return (
@@ -164,7 +164,7 @@ export class ZCombobox {
     );
   }
 
-  renderItems(): HTMLDivElement {
+  renderItems(): HTMLDivElement | undefined {
     if (!this.isopen) return;
 
     return (
@@ -172,25 +172,12 @@ export class ZCombobox {
         {this.renderItemsList.length
           ? this.renderList(this.renderItemsList)
           : this.renderNoSearchResults()}
-        {this.searchValue ? (
-          <div>
-            <a
-              onClick={() => this.closeFilterItems()}
-              onKeyUp={(e: KeyboardEvent) =>
-                handleKeyboardSubmit(e, this.closeFilterItems)
-              }
-              role="button"
-              tabindex={0}
-            >
-              {this.closesearchtext}
-            </a>
-          </div>
-        ) : null}
+        {this.searchValue && this.renderCloseButton()}
       </div>
     );
   }
 
-  renderNoSearchResults() {
+  renderNoSearchResults(): HTMLUListElement {
     return (
       <ul>
         <z-list-item
@@ -227,7 +214,24 @@ export class ZCombobox {
     );
   }
 
-  renderSearchInput(): ZInput {
+  renderCloseButton(): HTMLDivElement {
+    return (
+      <div>
+        <a
+          onClick={() => this.closeFilterItems()}
+          onKeyUp={(e: KeyboardEvent) =>
+            handleKeyboardSubmit(e, this.closeFilterItems)
+          }
+          role="button"
+          tabindex={0}
+        >
+          {this.closesearchtext}
+        </a>
+      </div>
+    );
+  }
+
+  renderSearchInput(): ZInput | undefined {
     if (!this.isopen) return;
 
     return (
@@ -246,7 +250,7 @@ export class ZCombobox {
     );
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div
         data-action={`combo-${this.inputid}`}
