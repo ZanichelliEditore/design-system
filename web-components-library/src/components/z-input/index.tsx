@@ -89,6 +89,10 @@ export class ZInput {
           <z-input-text inputid={this.htmlid} type={InputTypeEnum.textarea} />
         );
       case InputTypeEnum.text:
+      case InputTypeEnum.password:
+      case InputTypeEnum.number:
+      case InputTypeEnum.email:
+        return <z-input-text inputid={this.htmlid} type={this.type} />;
       default:
         return <z-input-text inputid={this.htmlid} type={InputTypeEnum.text} />;
     }
