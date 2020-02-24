@@ -106,6 +106,7 @@
   value="value"
   disabled="true"
   label="disabled"
+  labelafter="false"
 ></z-input>
 <z-input
   type="checkbox"
