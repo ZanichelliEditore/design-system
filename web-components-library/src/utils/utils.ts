@@ -10,6 +10,12 @@ export function retrieveAsset(assetName: string): string {
   return assetName && "assets/images/png/" + assetName;
 }
 
+export function randomId(): string {
+  return Math.random()
+    .toString(36)
+    .replace("0.", "");
+}
+
 export function handleKeyboardSubmit(
   ev: KeyboardEvent,
   callback: Function,
