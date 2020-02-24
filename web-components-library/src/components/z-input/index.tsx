@@ -72,6 +72,7 @@ export class ZInput {
         >
           <z-icon
             name={this.checked ? "checkbox-selected" : "checkbox-unchecked"}
+            aria-hidden={true}
           />
           {this.label && <span innerHTML={this.label} />}
         </label>

@@ -3,6 +3,7 @@
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: inherit;
+  position: relative;
 }
 
 :host > .checkboxWrapper > input[type="checkbox"] {

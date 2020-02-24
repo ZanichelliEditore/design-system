@@ -128,7 +128,7 @@ export class ZCombobox {
           handleKeyboardSubmit(ev, this.closeComboBox)
         }
         role="button"
-        tabindex="0"
+        tabindex={0}
       >
         <h2>
           {this.label}
