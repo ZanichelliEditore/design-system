@@ -15,16 +15,27 @@ import { InputTypeBean, InputTypeEnum, InputStatusBean } from "../../beans";
   shadow: true
 })
 export class ZInputText {
+  /** html input unique id */
   @Prop() inputid: string;
+  /** input label text (optional) */
   @Prop() label?: string;
+  /** input value (mutable, optional) */
   @Prop({ mutable: true }) value?: string;
+  /** input placeholder (optional) */
   @Prop() placeholder?: string;
+  /** input html title (optional) */
   @Prop() htmltitle?: string;
+  /** input html type, can be text or textarea (optional) */
   @Prop() type?: InputTypeBean;
+  /** input status (optional) */
   @Prop() status?: InputStatusBean;
+  /** input helper message (optional) */
   @Prop() message?: string;
+  /** disable input flag */
   @Prop() isdisabled: boolean = false;
+  /** readonly input flag */
   @Prop() isreadonly: boolean = false;
+  /** timeout setting before trigger `inputChange` event (optional) */
   @Prop() typingTimeout?: number = 300;
 
   @State() isTyping: boolean = false;
@@ -38,16 +49,19 @@ export class ZInputText {
   };
   private timer;
 
+  /** get the input value */
   @Method()
-  async getValue() {
+  async getValue(): Promise<string> {
     return this.value;
   }
 
+  /** set the input value */
   @Method()
-  async setValue(value: string) {
+  async setValue(value: string): Promise<void> {
     this.value = value;
   }
 
+  /** emitted on input value change, returns value, keycode */
   @Event() inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number) {
     this.isTyping = true;

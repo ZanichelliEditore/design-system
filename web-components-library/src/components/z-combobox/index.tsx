@@ -9,16 +9,27 @@ import { handleKeyboardSubmit } from "../../utils/utils";
   shadow: true
 })
 export class ZCombobox {
+  /** input unique id */
   @Prop() inputid: string;
+  /** list items array */
   @Prop() items: ComboItemBean[] | string;
+  /** label text */
   @Prop() label: string;
+  /** show search input flag (optional) */
   @Prop() hassearch?: boolean = false;
+  /** search input label text (optional) */
   @Prop() searchlabel?: string;
+  /** search input placeholder text (optional) */
   @Prop() searchplaceholder?: string;
+  /** search input title text (optional) */
   @Prop() searchtitle?: string;
+  /** no result text message */
   @Prop() noresultslabel: string;
+  /** toggle combo list opening flag */
   @Prop({ mutable: true }) isopen: boolean = true;
+  /** fixed style flag */
   @Prop() isfixed: boolean = false;
+  /** close combobox list text */
   @Prop() closesearchtext: string;
 
   @State() searchValue: string;

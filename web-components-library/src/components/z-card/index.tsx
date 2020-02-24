@@ -1,15 +1,22 @@
 import { Component, h, Prop } from "@stencil/core";
 import { LicenseTypeEnum } from "../../beans/index";
 
+/**
+ * @slot  - generic card slot
+ */
 @Component({
   tag: "z-card",
   styleUrl: "styles.css",
   shadow: true
 })
 export class ZCardComponent {
+  /** faded status */
   @Prop() faded: boolean;
+  /** graphic variant (optional) */
   @Prop() cardtype?: LicenseTypeEnum;
+  /** pressed status */
   @Prop() ispressed: boolean = false;
+  /** highlighted status */
   @Prop() ishighlighted: boolean = false;
 
   retrieveClass() {

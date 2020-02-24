@@ -10,19 +10,30 @@ import {
 import { MenuItem, HeaderUserData, ListItemBean } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
+/**
+ * @slot editors - top menu editors images bar
+ */
 @Component({
   tag: "z-header",
   styleUrl: "styles.css",
   shadow: true
 })
 export class ZHeader {
+  /** data to fill internal navigation links */
   @Prop() intlinkdata: string | MenuItem[];
+  /** data to fill external navigation links */
   @Prop() extlinkdata: string | MenuItem[];
+  /** data to fill user dropdown menu (optional) */
   @Prop() userdata?: string | HeaderUserData;
+  /** graphic flag to set myzanichelli style */
   @Prop() ismyz: boolean;
+  /** url to attach to logo (optional) */
   @Prop() logolink?: string;
+  /** alternative logo title text (optional) */
   @Prop() imagealt?: string;
+  /** set current active menu link (optional) */
   @Prop() activeintlinkid?: string;
+  /** set current active sub menu link (optional) */
   @Prop() activesublinkid?: string;
 
   @State() activeMenuItem: MenuItem;

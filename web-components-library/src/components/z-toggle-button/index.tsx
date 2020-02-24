@@ -6,12 +6,16 @@ import { Component, Prop, h, State, Event, EventEmitter } from "@stencil/core";
   shadow: true
 })
 export class ZToggleButton {
+  /** label text */
   @Prop() label: string;
+  /** disabled status flag (optional) */
   @Prop() isdisabled?: boolean = false;
+  /** avoidclick status flag */
   @Prop() avoidclick: boolean;
 
   @State() isOpen: boolean = false;
 
+  /** emitted on toggle button click, returns isOpen */
   @Event() toggleClick: EventEmitter;
   emitToggleClick() {
     if (this.isdisabled) return;

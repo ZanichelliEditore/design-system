@@ -1,19 +1,25 @@
 # z-logo
 
-
+<!-- readme-group="logo" -->
+```html
+<z-logo ></z-logo>
+<z-logo imagealt="logo" ></z-logo>
+<z-logo imagealt="logo" height="50" width="200"></z-logo>
+<z-logo imagealt="logo" height="25" width="100"></z-logo>
+```
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property      | Attribute     | Description | Type      | Default     |
-| ------------- | ------------- | ----------- | --------- | ----------- |
-| `height`      | `height`      |             | `number`  | `42`        |
-| `imagealt`    | `imagealt`    |             | `string`  | `undefined` |
-| `link`        | `link`        |             | `string`  | `undefined` |
-| `targetblank` | `targetblank` |             | `boolean` | `undefined` |
-| `width`       | `width`       |             | `number`  | `163`       |
+| Property      | Attribute     | Description            | Type      | Default     |
+| ------------- | ------------- | ---------------------- | --------- | ----------- |
+| `height`      | `height`      | image height           | `number`  | `42`        |
+| `imagealt`    | `imagealt`    | alternative image text | `string`  | `undefined` |
+| `link`        | `link`        | link url (optional)    | `string`  | `undefined` |
+| `targetblank` | `targetblank` | link target (optional) | `boolean` | `undefined` |
+| `width`       | `width`       | image width            | `number`  | `163`       |
 
 
 ## Dependencies

@@ -6,10 +6,15 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZPaginationPage {
+  /** anchor html id */
   @Prop() pageid: string;
+  /** numeric page value (optional) */
   @Prop() value?: number;
+  /** selected status flag */
   @Prop() isselected: boolean = false;
+  /** disabled status flag */
   @Prop() isdisabled: boolean = false;
+  /** visited status flag */
   @Prop() isvisited: boolean = false;
 
   page: HTMLElement;

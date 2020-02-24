@@ -7,6 +7,7 @@ import { ActionBean } from "../../beans";
   shadow: true
 })
 export class ZCardList {
+  /** list data stringified array */
   @Prop() listdata: string;
 
   constructor() {

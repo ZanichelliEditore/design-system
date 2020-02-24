@@ -28,6 +28,11 @@ do
       readme="$(cat $doc)"
       echo "$readme" >> "$readme_dir/$readme_file"
       echo $'\r---\r---' >> "$readme_dir/$readme_file"
+
+      replace=''
+      search='<!-- Auto Generated Below -->'
+      sed -i "s/${search}/${replace}/g" $readme_dir/$readme_file
+      sed -i "s/${group}/${replace}/g" $readme_dir/$readme_file
     fi
   done
 done
