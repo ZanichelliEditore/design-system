@@ -44,7 +44,7 @@ export class ZCombobox {
   /** fixed style flag */
   @Prop() isfixed: boolean = false;
   /** close combobox list text */
-  @Prop() closesearchtext: string;
+  @Prop() closesearchtext?: string = "Chiudi";
 
   @State() searchValue: string;
   @State() selectedCounter: number;

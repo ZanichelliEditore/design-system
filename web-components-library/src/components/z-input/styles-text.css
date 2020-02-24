@@ -1,7 +1,3 @@
-:host > div.textWrapper {
-  display: inline-block;
-}
-
 :host > div.textWrapper > div {
   fill: var(--text-grey-800);
 }

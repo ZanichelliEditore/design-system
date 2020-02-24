@@ -73,7 +73,7 @@
   scrollbar-color: var(--myz-blue) var(--bg-grey-200);
 }
 
-:host > div.open > div.openComboData > z-input-text {
+:host > div.open > div.openComboData > z-input {
   margin-bottom: var(--basex2);
   width: 100%;
 }
@@ -101,7 +101,7 @@
   width: 10px;
 }
 
-:host > div.open > z-input-text {
+:host > div.open > z-input {
   color: var(--myz-blue);
   margin: 0 var(--basex2);
   width: 238px;
