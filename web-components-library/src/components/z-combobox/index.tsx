@@ -169,28 +169,16 @@ export class ZCombobox {
 
     return (
       <div class={this.searchValue && "search"} tabindex={-1}>
-        {this.renderItemsList.length
-          ? this.renderList(this.renderItemsList)
-          : this.renderNoSearchResults()}
+        {this.renderList(this.renderItemsList)}
         {this.searchValue && this.renderCloseButton()}
       </div>
     );
   }
 
-  renderNoSearchResults(): HTMLUListElement {
-    return (
-      <ul>
-        <z-list-item
-          id="no-results"
-          text={this.noresultslabel}
-          listitemid="no-results"
-          icon="circle-cross-stroke"
-        />
-      </ul>
-    );
-  }
+  renderList(items: ComboItemBean[]): HTMLUListElement | undefined {
+    if (!items) return;
+    if (!items.length && this.searchValue) return this.renderNoSearchResults();
 
-  renderList(items: ComboItemBean[]): HTMLUListElement {
     return (
       <ul>
         {items.map((item, i) => {
@@ -210,6 +198,19 @@ export class ZCombobox {
             </z-list-item>
           );
         })}
+      </ul>
+    );
+  }
+
+  renderNoSearchResults(): HTMLUListElement {
+    return (
+      <ul>
+        <z-list-item
+          id="no-results"
+          text={this.noresultslabel}
+          listitemid="no-results"
+          icon="circle-cross-stroke"
+        />
       </ul>
     );
   }

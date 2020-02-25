@@ -87,9 +87,7 @@ describe("Suite test ZCombobox", () => {
             </div>
             <div class="openComboData">
               <div tabindex="-1">
-                <ul>
-                  <z-list-item icon="circle-cross-stroke" id="no-results" listitemid="no-results" text="non ci sono risultati"></z-list-item>
-                </ul>
+                <ul></ul>
               </div>
             </div>
           </div>
