@@ -11,6 +11,10 @@ export const config: Config = {
       type: "docs-readme"
     },
     {
+      type: "docs-vscode", // output for Storybook documentation
+      file: "custom-elements.json"
+    },
+    {
       type: "www",
       serviceWorker: null // disable service workers
     }

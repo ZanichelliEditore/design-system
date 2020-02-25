@@ -1,0 +1,17 @@
+import { html } from 'lit-html';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+<Meta title="ZButton" component="z-button" />
+
+# ZButton
+
+With `MDX` we can define a story for `ZButton` right in the middle of our
+markdown documentation.
+
+<Preview>
+  <Story name="sample">
+    {html`<z-button label="Hello world!"></z-button>`}
+  </Story>
+</Preview>
+
+<Props of="z-button" />
