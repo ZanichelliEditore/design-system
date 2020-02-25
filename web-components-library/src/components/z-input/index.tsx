@@ -48,7 +48,7 @@ export class ZInput {
   /** the input label position: available for checkbox, radio */
   @Prop() labelafter?: boolean = true;
   /** timeout setting before trigger `inputChange` event (optional) */
-  @Prop() typingTimeout?: number = 300;
+  @Prop() typingtimeout?: number = 300;
 
   @State() isTyping: boolean = false;
   @State() textareaWrapperHover: string = "";
@@ -94,7 +94,7 @@ export class ZInput {
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
       this.isTyping = false;
-    }, this.typingTimeout);
+    }, this.typingtimeout);
   }
 
   /** Emitted on checkbox check/uncheck, returns id, checked */

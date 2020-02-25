@@ -65,7 +65,7 @@ it("Test disabled ZInput should not change / emit inputChange event", async () =
 it("Test ZInput typing state", async () => {
   const page = await newE2EPage();
 
-  await page.setContent(`<z-input typingTimeout="1000"></z-input>`);
+  await page.setContent(`<z-input typingtimeout="1000"></z-input>`);
   const input = await page.find("z-input >>> div input");
 
   expect(input).not.toHaveClass("istyping");
