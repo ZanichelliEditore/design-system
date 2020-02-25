@@ -2,7 +2,7 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { ZInput } from "./index";
 
-describe("Suite test ZInput", () => {
+describe("Suite test ZInput - textarea", () => {
   it("Test render ZInput textarea", async () => {
     const page = await newSpecPage({
       components: [ZInput],

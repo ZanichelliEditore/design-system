@@ -119,6 +119,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute        | Description                                                   | Type                                                                          | Default      |
@@ -138,12 +139,14 @@
 | `typingTimeout` | `typing-timeout` | timeout setting before trigger `inputChange` event (optional) | `number`                                                                      | `300`        |
 | `value`         | `value`          | the input value                                               | `string`                                                                      | `undefined`  |
 
+
 ## Events
 
 | Event         | Description                                            | Type               |
 | ------------- | ------------------------------------------------------ | ------------------ |
 | `inputChange` | Emitted on input value change, returns value, keycode  | `CustomEvent<any>` |
 | `inputCheck`  | Emitted on checkbox check/uncheck, returns id, checked | `CustomEvent<any>` |
+
 
 ## Methods
 
@@ -155,6 +158,8 @@ get the input value
 
 Type: `Promise<string>`
 
+
+
 ### `isChecked() => Promise<boolean>`
 
 get checked status
@@ -162,6 +167,8 @@ get checked status
 #### Returns
 
 Type: `Promise<boolean>`
+
+
 
 ### `setValue(value: string) => Promise<void>`
 
@@ -171,18 +178,20 @@ set the input value
 
 Type: `Promise<void>`
 
+
+
+
 ## Dependencies
 
 ### Used by
 
-- [z-combobox](../z-combobox)
+ - [z-combobox](../z-combobox)
 
 ### Depends on
 
 - [z-icon](../z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-input --> z-icon
@@ -190,6 +199,6 @@ graph TD;
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -4,7 +4,7 @@ import { ZIcon } from "../z-icon";
 
 import { ZInput } from "./index";
 
-describe("Suite test ZInput", () => {
+describe("Suite test ZInput - text", () => {
   it("Test render ZInput vuoto", async () => {
     const page = await newSpecPage({
       components: [ZInput],
