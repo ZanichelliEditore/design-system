@@ -1,0 +1,115 @@
+:host {
+  display: inline-block;
+}
+
+/* GENERAL */
+:host input,
+:host textarea {
+  background: var(--bg-white);
+  border-radius: 0px;
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  border-color: var(--bg-grey-200);
+  box-sizing: border-box;
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: 16px;
+  outline: none;
+}
+
+/* FILLED */
+:host .filled {
+  border-color: var(--text-grey-800) !important;
+}
+
+/* FOCUS */
+:host input:focus,
+:host .focus {
+  border-color: transparent;
+  box-shadow: 0 0 2px 2px var(--accent-dark);
+}
+
+/* FOCUS - typing */
+:host input:focus.istyping,
+:host .focus.istyping {
+  border-color: var(--myz-blue);
+  box-shadow: 0 0 0 0 transparent;
+  color: var(--myz-blue);
+}
+
+/* HOVER */
+:host input:hover,
+:host textarea:hover,
+:host .hover {
+  background: var(--bg-grey-050) !important;
+  border-color: var(--text-grey-800) !important;
+}
+
+/* DISABLED */
+:host input:disabled,
+:host .filled:disabled,
+:host .disabled {
+  background: var(--bg-white);
+  border-color: var(--bg-grey-200);
+  box-shadow: none;
+  color: var(--text-grey-700);
+  fill: var(--bg-grey-200);
+}
+
+/* DISABLED - hover */
+:host input:disabled:hover,
+:host textarea:disabled:hover,
+:host .disabled.hover {
+  background: var(--bg-white);
+  border-color: var(--bg-grey-200);
+}
+
+/* READONLY */
+:host input[readonly],
+:host .readonly {
+  color: var(--text-grey-800);
+}
+
+/* READONLY - hover */
+:host input[readonly]:hover,
+:host textarea[readonly]:hover,
+:host .readonly.hover {
+  background: var(--bg-white);
+}
+
+/* STATUSES (success, warning, error) */
+:host .input_success {
+  border-color: var(--status-success-green) !important;
+  background: var(--status-success-green-lighter) !important;
+}
+
+:host .input_error {
+  border-color: var(--status-error-red) !important;
+  background: var(--status-error-red-lighter) !important;
+}
+
+:host .input_warning {
+  border-color: var(--status-warning-yellow) !important;
+  background: var(--status-warning-yellow-lighter) !important;
+}
+
+/* PLACEHOLDER */
+:host input::placeholder,
+:host textarea::placeholder {
+  color: var(--text-grey-700);
+}
+::-webkit-input-placeholder,
+::-webkit-textarea-placeholder {
+  color: var(--text-grey-700);
+}
+:-ms-input-placeholder,
+:-ms-textarea-placeholder {
+  color: var(--text-grey-700);
+}
+::-moz-placeholder {
+  color: var(--text-grey-700);
+}
+:-moz-placeholder {
+  color: var(--text-grey-700);
+}

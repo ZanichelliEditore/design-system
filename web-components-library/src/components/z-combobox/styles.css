@@ -73,14 +73,14 @@
   scrollbar-color: var(--myz-blue) var(--bg-grey-200);
 }
 
-:host > div.open > div.openComboData > z-input-text {
+:host > div.open > div.openComboData > z-input {
   margin-bottom: var(--basex2);
   width: 100%;
 }
 
 :host > div.open > div.openComboData > div > ul {
   margin: 0;
-  padding: 0;
+  padding: 0 3px; /* needed for checkbox focus shadow */
   max-height: 235px;
 }
 
@@ -101,7 +101,7 @@
   width: 10px;
 }
 
-:host > div.open > z-input-text {
+:host > div.open > z-input {
   color: var(--myz-blue);
   margin: 0 var(--basex2);
   width: 238px;
@@ -124,7 +124,12 @@
   scrollbar-color: var(--myz-blue) var(--bg-grey-200);
 }
 
-:host > div.open > div.openComboData > div.search > a {
+:host > div.open > div.openComboData > div.search > div {
+  display: flex;
+  justify-content: center;
+}
+
+:host > div.open > div.openComboData > div.search > div > a {
   display: inline-block;
   cursor: pointer;
   color: var(--myz-blue);
@@ -135,5 +140,4 @@
   line-height: 44px;
   text-align: center;
   text-transform: uppercase;
-  width: 100%;
 }
