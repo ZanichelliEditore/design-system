@@ -24,14 +24,24 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                      | Type      | Default     |
-| ------------ | ------------ | -------------------------------- | --------- | ----------- |
-| `buttonid`   | `buttonid`   | id, should be unique             | `string`  | `undefined` |
-| `icon`       | `icon`       | add an icon to button (optional) | `string`  | `undefined` |
-| `isdisabled` | `isdisabled` | disable button                   | `boolean` | `false`     |
-| `issmall`    | `issmall`    | reduce button size (optional)    | `boolean` | `false`     |
-| `label`      | `label`      | label content                    | `string`  | `undefined` |
-| `type`       | `type`       | graphic variant                  | `string`  | `undefined` |
+| Property   | Attribute  | Description                      | Type                                                                                     | Default                     |
+| ---------- | ---------- | -------------------------------- | ---------------------------------------------------------------------------------------- | --------------------------- |
+| `disabled` | `disabled` | disable button                   | `boolean`                                                                                | `false`                     |
+| `htmlid`   | `htmlid`   | id, should be unique             | `string`                                                                                 | `undefined`                 |
+| `icon`     | `icon`     | add an icon to button (optional) | `string`                                                                                 | `undefined`                 |
+| `issmall`  | `issmall`  | reduce button size (optional)    | `boolean`                                                                                | `false`                     |
+| `name`     | `name`     | name                             | `string`                                                                                 | `undefined`                 |
+| `type`     | `type`     | button type                      | `string`                                                                                 | `ButtonTypeEnum.button`     |
+| `variant`  | `variant`  | graphic variant                  | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary` | `ButtonVariantEnum.primary` |
+
+
+## Events
+
+| Event          | Description                  | Type               |
+| -------------- | ---------------------------- | ------------------ |
+| `buttonClick`  | Emitted on type button click | `CustomEvent<any>` |
+| `buttonReset`  | Emitted on type reset click  | `CustomEvent<any>` |
+| `buttonSubmit` | Emitted on type submit click | `CustomEvent<any>` |
 
 
 ## Dependencies

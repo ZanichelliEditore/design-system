@@ -92,6 +92,20 @@ export type ComboItemBean = {
   checked: boolean;
 };
 
+export type ButtonVariantBean = ButtonVariantEnum;
+
+export enum ButtonVariantEnum {
+  primary = "primary",
+  secondary = "secondary",
+  tertiary = "tertiary"
+}
+
+export enum ButtonTypeEnum {
+  submit = "submit",
+  reset = "reset",
+  button = "button"
+}
+
 export type InputTypeBean = InputTypeEnum;
 
 export enum InputTypeEnum {
