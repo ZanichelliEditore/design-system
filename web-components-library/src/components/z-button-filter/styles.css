@@ -13,14 +13,7 @@ button.container {
 
   padding: 0 var(--basex2);
 
-  -webkit-user-select: none;
-  /*INFO: Safari 3.1+ */
-  -moz-user-select: none;
-  /*INFO: Firefox 2+ */
-  -ms-user-select: none;
-  /*INFO: IE 10+ */
-  user-select: none;
-  /*INFO: Standard syntax */
+  cursor : pointer;
 
   letter-spacing: 0.17px;
   font-family: var(--dashboard-font);
@@ -69,8 +62,4 @@ button.container.isactive:focus {
   box-shadow: 0px 0px 4px 0px var(--text-grey-800);
   color: var(--bg-white);
   fill: var(--bg-white);
-}
-
-button.container.isactive z-icon.close-icon-container {
-  cursor: pointer;
 }
