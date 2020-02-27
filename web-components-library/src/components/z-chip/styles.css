@@ -1,7 +1,7 @@
 :host {
   display : inline-block;
-  min-height: 32px;
-  line-height: 32px;
+  min-height: 30px;
+  line-height: 30px;
   text-align: center;
   padding: 0 var(--basex2);
   letter-spacing: 0.17px;
@@ -14,12 +14,11 @@
   fill: var(--text-grey-700);
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-radius: 19.5px;
-}
-
-.text-container {
   margin-left: 4px;
 }
 
+
 .number {
+  font-weight: bold;
   color: rgb(66, 69, 72);
 }
