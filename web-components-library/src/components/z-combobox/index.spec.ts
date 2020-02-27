@@ -14,10 +14,10 @@ describe("Suite test ZCombobox", () => {
       <z-combobox items='[]'>
         <mock:shadow-root>
           <div class="false" data-action="combo-undefined">
-            <a class="header" tabindex="0">
+            <div class="header" role="button" tabindex="0">
               <h2><span></span></h2>
               <z-icon name="drop-down" width="18" height="18" />
-            </a>
+            </div>
           </div>
         </mock:shadow-root>
       </z-combobox>
@@ -35,13 +35,13 @@ describe("Suite test ZCombobox", () => {
       <z-combobox items='[]' inputid="combobox" label="label" isfixed>
         <mock:shadow-root>
           <div class="false fixed" id="combobox" data-action="combo-combobox">
-            <a class="header" tabindex="0">
+            <div class="header" role="button" tabindex="0">
               <h2>
                 label
                 <span></span>
               </h2>
               <z-icon name="drop-down" width="18" height="18" />
-            </a>
+            </div>
           </div>
         </mock:shadow-root>
       </z-combobox>
@@ -59,13 +59,13 @@ describe("Suite test ZCombobox", () => {
       <z-combobox items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' inputid="combobox" label="label">
         <mock:shadow-root>
           <div class="false" data-action="combo-combobox" id="combobox">
-            <a class="header" tabindex="0">
+            <div class="header" role="button" tabindex="0">
               <h2>
                 label
                 <span>(1)</span>
               </h2>
               <z-icon name="drop-down" width="18" height="18" />
-            </a>
+            </div>
           </div>
         </mock:shadow-root>
       </z-combobox>
@@ -81,15 +81,13 @@ describe("Suite test ZCombobox", () => {
       <z-combobox items='[]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
           <div class="open false" data-action="combo-undefined">
-            <a class="header" tabindex="0">
+            <div class="header" role="button" tabindex="0">
               <h2><span></span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
-            </a>
+              <z-icon name="drop-down" width="18" height="18"></z-icon>
+            </div>
             <div class="openComboData">
-              <div>
-                <ul>
-                  <z-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='circle-cross-stroke'></z-list-item>
-                </ul>
+              <div tabindex="-1">
+                <ul></ul>
               </div>
             </div>
           </div>
@@ -107,15 +105,19 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combo" label="combo" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open false" data-action="combo-combo" id="combo">
-            <a class="header" tabindex="0">
+            <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="drop-down" width="18" height="18" />
-            </a>
+            </div>
             <div class="openComboData">
-              <div>
+              <div tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked" action="combo-li-combo" underlined="" tabindex="0"></z-list-item>
-                  <z-list-item id="item_2" text="secondo elemento" listitemid="item_2" icon="checkbox-selected" action="combo-li-combo" tabindex="0"></z-list-item>
+                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
+                    <z-input type="checkbox" htmlid="combo-checkbox-combo-item_1" label="primo elemento"></z-input>
+                  </z-list-item>
+                  <z-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
+                    <z-input type="checkbox" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
+                  </z-list-item>
                 </ul>
               </div
             </div>
@@ -134,16 +136,20 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open false" data-action="combo-combo" id="combo">
-            <a class="header" tabindex="0">
+            <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="drop-down" width="18" height="18" />
-            </a>
+            </div>
             <div class="openComboData">
-              <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text"></z-input-text>
-              <div>
+              <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text"></z-input>
+              <div tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" text="primo elemento" listitemid="item_1" icon="checkbox-unchecked" action="combo-li-combo" underlined="" tabindex="0"></z-list-item>
-                  <z-list-item id="item_2" text="secondo elemento" listitemid="item_2" icon="checkbox-selected" action="combo-li-combo" tabindex="0"></z-list-item>
+                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
+                    <z-input type="checkbox" htmlid="combo-checkbox-combo-item_1" label="primo elemento"></z-input>
+                  </z-list-item>
+                  <z-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
+                    <z-input type="checkbox" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
+                  </z-list-item>
                 </ul>
               </div>
             </div>
@@ -164,17 +170,21 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open false" data-action="combo-combo" id="combo">
-            <a class="header" tabindex="0">
+            <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="drop-down" width="18" height="18" />
-            </a>
+            </div>
             <div class="openComboData">
-              <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input-text>
-              <div class="search">
+              <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input>
+              <div class="search" tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" text="<b>primo</b> elemento" listitemid="item_1" icon="checkbox-unchecked" action="combo-li-combo" tabindex="0"></z-list-item>
+                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo">
+                    <z-input type="checkbox" htmlid="combo-checkbox-combo-item_1" label="<b>primo</b> elemento"></z-input>
+                  </z-list-item>
                 </ul>
-                <a role="button">CHIUDI</a>
+                <div>
+                  <a role="button" tabindex="0">CHIUDI</a>
+                </div>
               </div>
             </div>
           </div>
@@ -194,17 +204,21 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open false" data-action="combo-combo" id="combo">
-            <a class="header" tabindex="0">
+            <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="drop-down" width="18" height="18" />
-            </a>
+            </div>
             <div class="openComboData">
-              <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input-text>
-              <div class="search">
+              <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input>
+              <div class="search" tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" text="<b>primo</b> elemento" listitemid="item_1" icon="checkbox-unchecked" action="combo-li-combo" tabindex="0"></z-list-item>
+                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo">
+                    <z-input type="checkbox" htmlid="combo-checkbox-combo-item_1" label="<b>primo</b> elemento"></z-input>
+                  </z-list-item>
                 </ul>
-                <a role="button"></a>
+                <div>
+                  <a role="button" tabindex="0">Chiudi</a>
+                </div>
               </div>
             </div>
           </div>
@@ -224,17 +238,19 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
           <div class="open false" data-action="combo-combo" id="combo">
-            <a class="header" tabindex="0">
+            <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="drop-down" width="18" height="18" />
-            </a>
+            </div>
             <div class="openComboData">
-              <z-input-text inputid="combo_search" label="cerca" placeholder="placeholder" type="text" value="prova"></z-input-text>
-              <div class="search">
+              <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="prova"></z-input>
+              <div class="search" tabindex="-1">
                 <ul>
                   <z-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='circle-cross-stroke'></z-list-item>
                 </ul>
-                <a role="button">CHIUDI</a>
+                <div>
+                  <a role="button" tabindex="0">CHIUDI</a>
+                </div>
               </div>
             </div>
           </div>

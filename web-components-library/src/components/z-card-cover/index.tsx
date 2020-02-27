@@ -6,9 +6,13 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZCardCover {
+  /** image source */
   @Prop() img: string;
+  /** cover alt title */
   @Prop() titolo: string;
+  /** faded status */
   @Prop() faded: boolean;
+  /** default error image source */
   @Prop() defaultimg: string;
 
   hadleOnImageError() {

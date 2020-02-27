@@ -6,10 +6,15 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZLogo {
+  /** image width */
   @Prop() width: number = 163;
+  /** image height */
   @Prop() height: number = 42;
+  /** alternative image text */
   @Prop() imagealt?: string;
+  /** link url (optional) */
   @Prop() link?: string;
+  /** link target (optional) */
   @Prop() targetblank?: boolean;
 
   renderSvg() {

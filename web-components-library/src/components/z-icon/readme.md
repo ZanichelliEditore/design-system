@@ -1,18 +1,23 @@
 # z-icon
 
-
+<!-- readme-group="icon" -->
+```html
+<z-icon name="book-add" ></z-icon>
+<z-icon name="chevron-down" iconid="zicon"></z-icon>
+<z-icon name="download" iconid="zicon" width="10" height="10"></z-icon>
+```
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `height` | `height`  |             | `number` | `18`        |
-| `iconid` | `iconid`  |             | `string` | `undefined` |
-| `name`   | `name`    |             | `string` | `undefined` |
-| `width`  | `width`   |             | `number` | `18`        |
+| Property | Attribute | Description                                | Type     | Default     |
+| -------- | --------- | ------------------------------------------ | -------- | ----------- |
+| `height` | `height`  | icon height (optional)                     | `number` | `18`        |
+| `iconid` | `iconid`  | icon id (optional)                         | `string` | `undefined` |
+| `name`   | `name`    | icon name (choice between available icons) | `string` | `undefined` |
+| `width`  | `width`   | icon width (optional)                      | `number` | `18`        |
 
 
 ## Dependencies
@@ -29,7 +34,7 @@
  - [z-header](../z-header)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../z-info-box)
- - [z-input-text](../z-input-text)
+ - [z-input](../z-input)
  - [z-link](../z-link)
  - [z-list-item](../z-list-item)
  - [z-menu-dropdown](../z-menu-dropdown)
@@ -50,7 +55,7 @@ graph TD;
   z-header --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon
-  z-input-text --> z-icon
+  z-input --> z-icon
   z-link --> z-icon
   z-list-item --> z-icon
   z-menu-dropdown --> z-icon

@@ -1,5 +1,11 @@
 # z-toggle-button
 
+<!-- readme-group="buttons" -->
+```html
+<z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+<z-toggle-button label="risorse" slot="toggle" avoidclick=true></z-toggle-button>
+<z-toggle-button label="risorse" slot="toggle" isdisabled="true" avoidclick=true></z-toggle-button>
+```
 
 
 <!-- Auto Generated Below -->
@@ -7,18 +13,18 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `avoidclick` | `avoidclick` |             | `boolean` | `undefined` |
-| `isdisabled` | `isdisabled` |             | `boolean` | `false`     |
-| `label`      | `label`      |             | `string`  | `undefined` |
+| Property     | Attribute    | Description                     | Type      | Default     |
+| ------------ | ------------ | ------------------------------- | --------- | ----------- |
+| `avoidclick` | `avoidclick` | avoidclick status flag          | `boolean` | `undefined` |
+| `isdisabled` | `isdisabled` | disabled status flag (optional) | `boolean` | `false`     |
+| `label`      | `label`      | label text                      | `string`  | `undefined` |
 
 
 ## Events
 
-| Event         | Description | Type               |
-| ------------- | ----------- | ------------------ |
-| `toggleClick` |             | `CustomEvent<any>` |
+| Event         | Description                                    | Type               |
+| ------------- | ---------------------------------------------- | ------------------ |
+| `toggleClick` | emitted on toggle button click, returns isOpen | `CustomEvent<any>` |
 
 
 ## Dependencies

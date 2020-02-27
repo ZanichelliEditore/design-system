@@ -6,7 +6,9 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZCardIcon {
+  /** icon name */
   @Prop() icon: string;
+  /** disabled status flag */
   @Prop() isdisabled: boolean = false;
 
   render() {

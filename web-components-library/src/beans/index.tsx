@@ -99,7 +99,8 @@ export enum InputTypeEnum {
   password = "password",
   number = "number",
   email = "email",
-  textarea = "textarea"
+  textarea = "textarea",
+  checkbox = "checkbox"
 }
 
 export type InputStatusBean = InputStatusEnum;

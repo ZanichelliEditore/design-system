@@ -1,19 +1,31 @@
 import { Component, Prop, h, State, Listen } from "@stencil/core";
 import { LicenseTypeEnum } from "../../beans/index";
 
+/**
+ * @slot toggle - toggle button slot
+ * @slot list - card resources list slot
+ */
 @Component({
   tag: "z-card-footer",
   styleUrl: "styles.css",
   shadow: true
 })
 export class ZCardFooter {
+  /** volume title */
   @Prop() titolo: string;
+  /** authors label text */
   @Prop() autorilabel: string = "Autore";
+  /** authors name text */
   @Prop() autori: string;
+  /** year */
   @Prop() anno: number;
+  /** year label */
   @Prop() annolabel: string = "Edizione";
+  /** volume isbn */
   @Prop() isbn: string;
+  /** faded status */
   @Prop() faded: boolean;
+  /** card graphic variant (optional) */
   @Prop() cardtype?: LicenseTypeEnum;
 
   @State() isOpen: boolean = false;

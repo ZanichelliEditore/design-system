@@ -1,5 +1,9 @@
 # z-menu-dropdown
 
+<!-- readme-group="header" -->
+```html
+<z-menu-dropdown nomeutente="username molto lungo nome" menucontent='[{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]'></z-menu-dropdown>
+```
 
 
 <!-- Auto Generated Below -->
@@ -7,11 +11,11 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                   | Default     |
-| ------------- | ------------- | ----------- | ---------------------- | ----------- |
-| `buttonid`    | `buttonid`    |             | `string`               | `undefined` |
-| `menucontent` | `menucontent` |             | `MenuItem[] \| string` | `undefined` |
-| `nomeutente`  | `nomeutente`  |             | `string`               | `undefined` |
+| Property      | Attribute     | Description                                     | Type                   | Default     |
+| ------------- | ------------- | ----------------------------------------------- | ---------------------- | ----------- |
+| `buttonid`    | `buttonid`    | unique button id                                | `string`               | `undefined` |
+| `menucontent` | `menucontent` | Json stringified or array to fill menu dropdown | `MenuItem[] \| string` | `undefined` |
+| `nomeutente`  | `nomeutente`  | user name text                                  | `string`               | `undefined` |
 
 
 ## Dependencies

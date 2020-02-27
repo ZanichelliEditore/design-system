@@ -1,5 +1,10 @@
 # z-list-item
 
+<!-- readme-group="list" -->
+```html
+<z-list-item text='testo' ></z-list-item>
+<z-list-item text='testo' link ='http://www.google.it'></z-list-item>`
+```
 
 
 <!-- Auto Generated Below -->
@@ -7,23 +12,23 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `action`     | `action`     |             | `string`  | `undefined` |
-| `icon`       | `icon`       |             | `string`  | `undefined` |
-| `link`       | `link`       |             | `string`  | `undefined` |
-| `linktarget` | `linktarget` |             | `string`  | `"_self"`   |
-| `listitemid` | `listitemid` |             | `string`  | `undefined` |
-| `text`       | `text`       |             | `string`  | `undefined` |
-| `underlined` | `underlined` |             | `boolean` | `true`      |
+| Property     | Attribute    | Description                      | Type      | Default     |
+| ------------ | ------------ | -------------------------------- | --------- | ----------- |
+| `action`     | `action`     | data-action attribute (optional) | `string`  | `undefined` |
+| `icon`       | `icon`       | icon name (optional)             | `string`  | `undefined` |
+| `link`       | `link`       | link url (optional)              | `string`  | `undefined` |
+| `linktarget` | `linktarget` | link target (optional)           | `string`  | `"_self"`   |
+| `listitemid` | `listitemid` | id (optional)                    | `string`  | `undefined` |
+| `text`       | `text`       | content text                     | `string`  | `undefined` |
+| `underlined` | `underlined` | underlined style flag            | `boolean` | `true`      |
 
 
 ## Events
 
-| Event                | Description | Type               |
-| -------------------- | ----------- | ------------------ |
-| `zListItemClick`     |             | `CustomEvent<any>` |
-| `zListItemLinkClick` |             | `CustomEvent<any>` |
+| Event                | Description                                     | Type               |
+| -------------------- | ----------------------------------------------- | ------------------ |
+| `zListItemClick`     | emitted on list item click, returns listitemid  | `CustomEvent<any>` |
+| `zListItemLinkClick` | emitted on list item link click, returns linkId | `CustomEvent<any>` |
 
 
 ## Dependencies

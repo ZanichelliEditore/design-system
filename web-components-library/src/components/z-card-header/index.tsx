@@ -1,14 +1,20 @@
 import { Component, Prop, h } from "@stencil/core";
 import { LicenseTypeEnum } from "../../beans/index";
 
+/**
+ * @slot icon - card header icon slot
+ */
 @Component({
   tag: "z-card-header",
   styleUrl: "styles.css",
   shadow: true
 })
 export class ZCardHeader {
+  /** volume title */
   @Prop() titolo: string;
+  /** faded status */
   @Prop() faded: boolean;
+  /** card graphic variant (optional) */
   @Prop() cardtype?: LicenseTypeEnum;
 
   retrieveClass() {

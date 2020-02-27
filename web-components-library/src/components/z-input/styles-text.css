@@ -1,0 +1,65 @@
+:host > div.textWrapper > div {
+  fill: var(--text-grey-800);
+}
+
+:host > div.textWrapper > div > input {
+  height: 44px;
+  width: 100%;
+  margin: 0;
+  padding: 0 var(--half-x3);
+}
+
+:host > div.textWrapper > label {
+  display: inline-block;
+  color: var(--text-grey-800);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
+  font-size: 12px;
+  height: 16px;
+  line-height: 16px;
+  text-transform: uppercase;
+  margin: var(--basex1) 0;
+}
+
+:host > div.textWrapper > div {
+  position: relative;
+  z-index: 1;
+}
+
+:host > div.textWrapper > div > z-icon {
+  position: absolute;
+  bottom: var(--half-x3);
+  right: var(--half-x3);
+  cursor: pointer;
+  z-index: 2;
+}
+
+:host > div.textWrapper > span.statusMsg {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: 14px;
+  color: var(--text-grey-700);
+  fill: var(--text-grey-700);
+  padding: var(--basex1) 0;
+  display: flex;
+}
+
+:host > div.textWrapper > span.statusMsg.msg_success {
+  color: var(--status-success-green);
+  fill: var(--status-success-green);
+}
+
+:host > div.textWrapper > span.statusMsg.msg_error {
+  color: var(--status-error-red);
+  fill: var(--status-error-red);
+}
+
+:host > div.textWrapper > span.statusMsg.msg_warning {
+  color: var(--status-warning-yellow-dark);
+  fill: var(--status-warning-yellow-dark);
+}
+
+:host > div.textWrapper > span.statusMsg > z-icon {
+  margin-right: var(--basex1);
+  margin-top: var(--half-x1);
+}
