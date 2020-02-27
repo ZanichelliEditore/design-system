@@ -1,0 +1,23 @@
+:host {
+  display : inline-block;
+  min-height: 32px;
+  line-height: 32px;
+  text-align: center;
+  padding: 0 var(--basex2);
+  letter-spacing: 0.17px;
+  font-family: var(--dashboard-font);
+  font-size: 12px;
+  font-weight: var(--font-sb);
+  opacity: 1;
+  background-color: var(--bg-white);
+  color: var(--text-grey-700);
+  fill: var(--text-grey-700);
+}
+
+.text-container {
+  margin-left: 4px;
+}
+
+.number {
+  color: rgb(66, 69, 72);
+}
