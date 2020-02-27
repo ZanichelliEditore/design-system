@@ -31,9 +31,7 @@ describe("Suite test ZChip", () => {
           <mock:shadow-root>
           <div>
             <span class="text-container">
-              <span class="number">20</span>
-              libri trovati
-            </span>
+              <span class="number">20</span>&nbsp;libri trovati</span>
           </div>
         </mock:shadow-root>
       </z-chip>

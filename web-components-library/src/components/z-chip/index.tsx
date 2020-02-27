@@ -14,9 +14,7 @@ export class ZChip {
     return (
       <div>
         <span class="text-container">
-          <span class="number">{this.number}</span>
-          {this.label}
-        </span>
+          <span class="number">{this.number}</span>&nbsp;{this.label}</span>
       </div>
     );
   }
