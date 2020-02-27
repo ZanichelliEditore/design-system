@@ -12,6 +12,8 @@
   background-color: var(--bg-white);
   color: var(--text-grey-700);
   fill: var(--text-grey-700);
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  border-radius: 19.5px;
 }
 
 .text-container {
