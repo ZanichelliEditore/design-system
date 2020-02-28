@@ -32,7 +32,8 @@
 
 /* FOCUS - typing */
 :host input:focus.istyping,
-:host .focus.istyping {
+:host .focus.istyping,
+:host .istyping {
   border-color: var(--myz-blue);
   box-shadow: 0 0 0 0 transparent;
   color: var(--myz-blue);
