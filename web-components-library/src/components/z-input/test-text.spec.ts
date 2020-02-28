@@ -52,7 +52,7 @@ describe("Suite test ZInput - text", () => {
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled>
         <mock:shadow-root>
           <div class="textWrapper">
-            <label htmlfor="test">label</label>
+            <label htmlfor="test" class="disabledLabel">label</label>
             <div>
               <input disabled class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' />
             </div>
