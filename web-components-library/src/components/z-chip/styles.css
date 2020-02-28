@@ -1,24 +1,18 @@
-:host > div{
-  display : inline-block;
+:host > div {
+  display: inline-block;
   min-height: 28px;
   line-height: 28px;
-  text-align: center;
-  padding: 0 var(--basex2);
-  letter-spacing: 0.17px;
-  font-family: var(--dashboard-font);
-  font-size: 12px;
-  font-weight: var(--font-sb);
-  opacity: 1;
+  padding: 0 var(--half-x3);
   background-color: var(--bg-white);
-  color: var(--text-grey-700);
-  fill: var(--text-grey-700);
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-radius: 14px;
-  margin-left: 4px;
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
+  font-family: var(--dashboard-font);
+  font-size: 12px;
 }
-
 
 .number {
   font-weight: bold;
-  color: rgb(66, 69, 72);
+  /* color: rgb(66, 69, 72); */
 }
