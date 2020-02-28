@@ -3,7 +3,7 @@ button.container {
   line-height: 32px;
 
   border: var(--border-size-small) solid var(--bg-grey-200);
-  border-radius: 19.5px;
+  border-radius: 16px;
 
   box-shadow: 0px 2px 5px 0px var(--bg-neutral-300);
   -webkit-box-shadow: 0px 2px 5px 0px var(--bg-neutral-300);

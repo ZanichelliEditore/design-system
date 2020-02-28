@@ -1,7 +1,7 @@
-:host {
+:host > div{
   display : inline-block;
-  min-height: 30px;
-  line-height: 30px;
+  min-height: 28px;
+  line-height: 28px;
   text-align: center;
   padding: 0 var(--basex2);
   letter-spacing: 0.17px;
@@ -13,7 +13,7 @@
   color: var(--text-grey-700);
   fill: var(--text-grey-700);
   border: var(--border-size-small) solid var(--bg-grey-200);
-  border-radius: 19.5px;
+  border-radius: 14px;
   margin-left: 4px;
 }
 
