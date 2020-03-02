@@ -7,14 +7,14 @@
     "type": "git"
   },
   "scripts": {
-    "storybook": "start-storybook -p 3000 -s web-components-library --ci"
+    "storybook": "start-storybook -p 3003 -s web-components-library --ci"
   },
   "author": "Secondini",
   "pre-commit": {
     "colors": true,
     "silent": false,
     "run": [
-      "test"
+      "storybook"
     ]
   },
   "license": "ISC",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@storybook/addon-docs": "^5.3.13",
+    "@storybook/addon-knobs": "^5.3.14",
     "@storybook/addon-viewport": "^5.3.13",
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/web-components": "^5.3.13",

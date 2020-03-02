@@ -1,16 +1,25 @@
-import { html } from 'lit-html';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
-<Meta title="ZButton" component="z-button" />
+export const zButtonProps = () => ({
+  buttonid: text("buttonid", "id1"),
+  label: text("label", "my button"),
+  type: text("type", "primary"),
+  isdisabled: boolean("isdisabled", false),
+  issmall: boolean("issmall", false),
+  icon: text("icon", "download")
+});
+
+<Meta title="ZButton" component="z-button" decorators={[withKnobs]} />
 
 # ZButton
 
-With `MDX` we can define a story for `ZButton` right in the middle of our
-markdown documentation.
+// With `MDX` we can define a story for `ZButton` right in the middle of our markdown documentation.
 
 <Preview>
   <Story name="sample">
-    {html`<z-button label="Hello world!"></z-button>`}
+    {html`<z-button isdisabled="${zButtonProps.isdisabled}" label="${zButtonProps.label}"></z-button>`}
   </Story>
 </Preview>
 
