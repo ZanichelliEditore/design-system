@@ -14,7 +14,7 @@ describe("Suite test ZChip", () => {
         <z-chip>
           <mock:shadow-root>
           <div>
-          <span class="number"></span>&nbsp;
+          <span class="boldtext"></span>&nbsp;
           </div>
         </mock:shadow-root>
       </z-chip>
@@ -25,14 +25,14 @@ describe("Suite test ZChip", () => {
   it("Test render ZChip with values", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip number="20" label="libri trovati"></z-chip>`
+      html: `<z-chip boldtext="20" regulartext="libri trovati"></z-chip>`
     });
 
     expect(page.root).toEqualHtml(`
-        <z-chip number="20" label="libri trovati">
+        <z-chip boldtext="20" regulartext="libri trovati">
           <mock:shadow-root>
          <div>
-          <span class="number">20</span>&nbsp;libri trovati
+          <span class="boldtext">20</span>&nbsp;libri trovati
       </div>
         </mock:shadow-root>
       </z-chip>
