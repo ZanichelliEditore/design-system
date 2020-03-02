@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `label`  | `label`   |             | `string` | `undefined` |
-| `number` | `number`  |             | `number` | `undefined` |
+| Property      | Attribute     | Description | Type     | Default     |
+| ------------- | ------------- | ----------- | -------- | ----------- |
+| `boldtext`    | `boldtext`    |             | `number` | `undefined` |
+| `regulartext` | `regulartext` |             | `string` | `undefined` |
 
 
 ----------------------------------------------

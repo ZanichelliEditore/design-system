@@ -7,14 +7,14 @@ import { Component, Prop, h } from '@stencil/core';
 })
 
 export class ZChip {
-  @Prop() regulartext: string;
-  @Prop() boldtext: number;
+  @Prop() regulartext?: string;
+  @Prop() boldtext?: number;
   
 
   render() {
     return (
       <div>
-          <span class="boldtext">{this.boldtext}</span>&nbsp;{this.regulartext}
+          <span class="boldtext">{this.boldtext}</span> {this.regulartext}
       </div>
     );
   }
