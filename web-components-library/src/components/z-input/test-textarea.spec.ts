@@ -33,7 +33,7 @@ describe("Suite test ZInput - textarea", () => {
       <z-input type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' disabled readonly>
         <mock:shadow-root>
           <div class="textWrapper">
-            <label htmlfor="test">label</label>
+            <label htmlfor="test" class="disabledLabel">label</label>
             <div>
               <div class="textareaWrapper false filled input_default disabled readonly">
                 <textarea disabled readonly class="false filled input_default" id='test' placeholder='placeholder' value='value'></textarea>
