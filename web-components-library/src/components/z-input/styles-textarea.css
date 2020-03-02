@@ -33,6 +33,10 @@
   border-color: var(--bg-grey-200) !important;
 }
 
+:host > div.textWrapper > div > div.textareaWrapper > textarea.istyping {
+  color: var(--myz-blue);
+}
+
 ::-webkit-scrollbar {
   background: linear-gradient(
     90deg,
