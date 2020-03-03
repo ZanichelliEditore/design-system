@@ -3,3 +3,4 @@ _doc/*
 web-components-library/*.tgz
 web-components-library/src/components.d.ts
 web-components-library/src/components/baseComponentLayer/index.tsx
+web-components-library/storybook

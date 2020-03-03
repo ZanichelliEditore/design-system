@@ -32,5 +32,5 @@ export default create({
     inputBorderRadius: 4,
 
     brandTitle: 'Design System — Zanichelli Editore',
-    brandImage: '/src/assets/images/png/zanichelli-logo.png',
+    brandImage: './images/png/zanichelli-logo.png',
 });
