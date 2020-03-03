@@ -1,6 +1,7 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Preview, Props, Description } from "@storybook/addon-docs/blocks";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+import readme from './readme.md';
 
 export const zButtonProps = () => ({
   buttonid: text("buttonid", "id1"),
@@ -15,10 +16,8 @@ export const zButtonProps = () => ({
 
 # ZButton
 
-// With `MDX` we can define a story for `ZButton` right in the middle of our markdown documentation.
-
 <Preview>
-  <Story name="sample">
+  <Story name="knobs">
     {html`
       <z-button
         isdisabled="${zButtonProps().isdisabled}"
@@ -32,4 +31,34 @@ export const zButtonProps = () => ({
   </Story>
 </Preview>
 
+<Preview>
+  <Story name="primary">
+    {html`
+      <z-button label="button" type="primary" icon="download"></z-button>
+    `}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="secondary">
+    {html`
+      <z-button label="button" type="secondary" icon="download"></z-button>
+    `}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="tertiary">
+    {html`
+      <z-button label="button" type="tertiary" icon="download"></z-button>
+    `}
+  </Story>
+</Preview>
+
+----
+
 <Props of="z-button" />
+
+----
+
+<Description markdown={readme} />
