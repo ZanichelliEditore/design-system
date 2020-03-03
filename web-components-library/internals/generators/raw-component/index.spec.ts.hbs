@@ -7,18 +7,18 @@ describe("Suite test {{properCase name}}", () => {
 
     const page = await newSpecPage({
       components: [{{ properCase name }}],
-      html: `<{{name}}></{{name}}>`
+      html: `<{{kebabCase name}}></{{kebabCase name}}>`
     });
 
     expect(page.root).toEqualHtml(`
-      <{{name}}>
+      <{{kebabCase name}}>
         <mock:shadow-root>
           <div>
             This is your {{name}} component
             This is your default prop:
           </div>
         </mock:shadow-root>
-      </{{name}}>
+      </{{kebabCase name}}>
     `)
   });
 });

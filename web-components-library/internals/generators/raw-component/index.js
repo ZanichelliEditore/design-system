@@ -16,20 +16,26 @@ module.exports = {
     const actions = [
       {
         type: "add",
-        path: "../../src/components/{{name}}/index.tsx",
+        path: "../../src/components/{{kebabCase name}}/index.tsx",
         templateFile: "./raw-component/index.tsx.hbs",
         abortOnFail: true
       },
       {
         type: "add",
-        path: "../../src/components/{{name}}/styles.css",
+        path: "../../src/components/{{kebabCase name}}/styles.css",
         templateFile: "./raw-component/styles.css.hbs",
         abortOnFail: true
       },
       {
         type: "add",
-        path: "../../src/components/{{name}}/index.spec.ts",
+        path: "../../src/components/{{kebabCase name}}/index.spec.ts",
         templateFile: "./raw-component/index.spec.ts.hbs",
+        abortOnFail: true
+      },
+      {
+        type: "add",
+        path: "../../src/components/{{kebabCase name}}/index.stories.mdx",
+        templateFile: "./raw-component/index.stories.mdx.hbs",
         abortOnFail: true
       }
     ];
