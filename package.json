@@ -6,9 +6,6 @@
   "repository": {
     "type": "git"
   },
-  "scripts": {
-    "storybook": "start-storybook -p 3003 -s web-components-library --ci"
-  },
   "author": "Secondini",
   "pre-commit": {
     "colors": true,
@@ -18,15 +15,5 @@
     ]
   },
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@storybook/addon-docs": "^5.3.13",
-    "@storybook/addon-knobs": "^5.3.14",
-    "@storybook/addon-viewport": "^5.3.13",
-    "@storybook/preset-typescript": "^1.2.0",
-    "@storybook/web-components": "^5.3.13",
-    "babel-loader": "^8.0.6",
-    "lit-html": "^1.1.2"
-  }
+  "dependencies": {}
 }

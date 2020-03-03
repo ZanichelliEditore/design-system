@@ -1,57 +1,39 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props, Description } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import readme from './readme.md';
-
-export const zButtonProps = () => ({
-  buttonid: text("buttonid", "id1"),
-  label: text("label", "my button"),
-  type: text("type", "primary"),
-  isdisabled: boolean("isdisabled", false),
-  issmall: boolean("issmall", false),
-  icon: text("icon", "download")
-});
 
 <Meta title="ZButton" component="z-button" decorators={[withKnobs]} />
 
 # ZButton
 
 <Preview>
-  <Story name="knobs">
+  <Story name="primary">
     {html`
       <z-button
-        isdisabled="${zButtonProps().isdisabled}"
-        label="${zButtonProps().label}"
-        buttonid="${zButtonProps().buttonid}"
-        type="${zButtonProps().type}"
-        issmall="${zButtonProps().issmall}"
-        icon="${zButtonProps().icon}"
+        type="primary"
+        isdisabled="${boolean('isdisabled', false)}"
+        label="${text('label', 'click me')}"
+        icon="${text('icon', 'download')}"
+      ></z-button>`}
+  </Story>
+  <Story name="secondary">
+    {html`
+      <z-button
+        type="secondary"
+        isdisabled="${boolean('isdisabled', false)}"
+        label="${text('label', 'click me')}"
+        icon="${text('icon', 'download')}"
       ></z-button>
     `}
   </Story>
-</Preview>
-
-<Preview>
-  <Story name="primary">
-    {html`
-      <z-button label="button" type="primary" icon="download"></z-button>
-    `}
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="secondary">
-    {html`
-      <z-button label="button" type="secondary" icon="download"></z-button>
-    `}
-  </Story>
-</Preview>
-
-<Preview>
   <Story name="tertiary">
     {html`
-      <z-button label="button" type="tertiary" icon="download"></z-button>
-    `}
+      <z-button
+        type="tertiary"
+        isdisabled="${boolean('isdisabled', false)}"
+        label="${text('label', 'click me')}"
+        icon="${text('icon', 'download')}"
+      ></z-button>`}
   </Story>
 </Preview>
 
@@ -61,4 +43,3 @@ export const zButtonProps = () => ({
 
 ----
 
-<Description markdown={readme} />
