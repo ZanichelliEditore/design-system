@@ -1,45 +1,49 @@
-import { addParameters, setCustomElements } from '@storybook/web-components';
+import { addParameters, addDecorator, setCustomElements } from '@storybook/web-components';
+import { withA11y } from '@storybook/addon-a11y';
+import { withKnobs } from "@storybook/addon-knobs";
 import customElements from '../custom-elements.json';
 
 // bound generated Stencil documentation with Props table (https://github.com/storybookjs/storybook/blob/next/addons/docs/web-components/README.md)
 setCustomElements(customElements);
 
 addParameters({
-    viewport: {
-        viewports: [
-            {
-                type: 'desktop',
-                name: 'responsive',
-                styles: {
-                    width: '100%',
-                    height: '100%',
-                },
-            },
-            {
-                type: 'mobile',
-                name: 'mobile',
-                styles: {
-                    width: '320px',
-                    height: '480px',
-                },
-            },
-            {
-                type: 'tablet',
-                name: 'tablet',
-                styles: {
-                    width: '768px',
-                    height: '1024px',
-                },
-            },
-            {
-                type: 'desktop',
-                name: 'desktop',
-                styles: {
-                    width: '1366px',
-                    height: '100%',
-                },
-            },
-        ],
-        defaultViewport: 'responsive',
-    },
+  viewport: {
+    viewports: [{
+        type: 'desktop',
+        name: 'responsive',
+        styles: {
+          width: '100%',
+          height: '100%',
+        },
+      },
+      {
+        type: 'mobile',
+        name: 'mobile',
+        styles: {
+          width: '320px',
+          height: '480px',
+        },
+      },
+      {
+        type: 'tablet',
+        name: 'tablet',
+        styles: {
+          width: '768px',
+          height: '1024px',
+        },
+      },
+      {
+        type: 'desktop',
+        name: 'desktop',
+        styles: {
+          width: '1366px',
+          height: '100%',
+        },
+      },
+    ],
+    defaultViewport: 'responsive',
+  },
 });
+
+addDecorator(withA11y);
+addDecorator(withKnobs);
