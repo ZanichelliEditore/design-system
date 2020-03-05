@@ -84,9 +84,9 @@
 
 ## Slots
 
-| Slot        | Description                 |
-| ----------- | --------------------------- |
-| `"editors"` | top menu editors images bar |
+| Slot        | Description                                                 |
+| ----------- | ----------------------------------------------------------- |
+| `"editors"` | top menu editors images bar (only with ismyz prop === true) |
 
 
 ## Dependencies

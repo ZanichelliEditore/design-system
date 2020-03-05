@@ -255,7 +255,7 @@ describe("Suite test ZHeader", () => {
 
       <z-header activeintlinkid="" extlinkdata='[]' imagealt="logo zanichelli" intlinkdata='[]' ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
-        <header>
+        <header class="false">
           <div class="top-header">
             <div class="editors">
               <slot name="editors"></slot>
@@ -266,12 +266,10 @@ describe("Suite test ZHeader", () => {
               <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank></z-logo>
             </div>
             <div></div>
-            <div></div>
             <div class="login">
               <z-button buttonid="login-button" label="entra" type="secondary" icon="enter" issmall=""></z-button>
             </div>
           </div>
-          <div class="dropdown-menu hidden" id="dropdown-menu"></div>
         </header>
       </mock:shadow-root>
     </z-header>
@@ -295,7 +293,7 @@ describe("Suite test ZHeader", () => {
       activeintlinkid="home"
     >
       <mock:shadow-root>
-        <header>
+        <header class="false">
           <div class="top-header">
             <div class="editors">
               <slot name="editors" />
@@ -368,7 +366,7 @@ describe("Suite test ZHeader", () => {
       activeintlinkid=""
     >
       <mock:shadow-root>
-        <header>
+        <header class="false">
           <div class="top-header">
             <div class="editors">
               <slot name="editors" />
@@ -385,12 +383,10 @@ describe("Suite test ZHeader", () => {
               />
             </div>
             <div></div>
-            <div></div>
             <div class="login">
               <z-button label="entra" type="secondary" buttonid="login-button" icon="enter" issmall=""></z-button>
             </div>
           </div>
-          <div id="dropdown-menu" class="dropdown-menu hidden"></div>
         </header>
       </mock:shadow-root>
     </z-header>
@@ -414,8 +410,7 @@ describe("Suite test ZHeader", () => {
       activeintlinkid=""
     >
       <mock:shadow-root>
-        <header>
-          <div></div>
+        <header class="myz-out">
           <div id="main-header" class="main-header myz-out">
             <div class="logo">
               <z-logo
@@ -426,7 +421,6 @@ describe("Suite test ZHeader", () => {
                 imagealt="logo zanichelli"
               />
             </div>
-            <div></div>
             <div id="link-ext" class="link-ext">
               <span class="link-ext-span false">
                 <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" target="_blank" linkid="supporto" linktabindex="10"/>
@@ -439,7 +433,6 @@ describe("Suite test ZHeader", () => {
               ></z-menu-dropdown>
             </div>
           </div>
-          <div id="dropdown-menu" class="dropdown-menu hidden"></div>
         </header>
       </mock:shadow-root>
     </z-header>
@@ -469,7 +462,7 @@ describe("Suite test ZHeader", () => {
       activeintlinkid=""
     >
       <mock:shadow-root>
-        <header>
+        <header class="false">
           <div class="top-header">
             <div class="editors">
               <slot name="editors" />
