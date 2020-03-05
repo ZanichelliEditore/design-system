@@ -505,6 +505,11 @@ hr {
     margin-bottom: 0;
   }
 
+  header.myz-out {
+    top: 0px;
+    grid-template-rows: 1fr;
+  }
+
   .main-header {
     display: grid;
     grid-template-columns: 170px 168px 4fr 120px;
