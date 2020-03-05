@@ -1,10 +1,13 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import { Component, Prop, h } from "@stencil/core";
 import {
   ButtonVariantBean,
   ButtonVariantEnum,
   ButtonTypeEnum
 } from "../../beans";
 
+/**
+ * @slot - button label
+ */
 @Component({
   tag: "z-button",
   styleUrl: "styles.css",
@@ -26,29 +29,6 @@ export class ZButton {
   /** add an icon to button (optional) */
   @Prop() icon?: string;
 
-  /** Emitted on type submit click */
-  @Event() buttonSubmit: EventEmitter;
-  /** Emitted on type reset click */
-  @Event() buttonReset: EventEmitter;
-  /** Emitted on type button click */
-  @Event() buttonClick: EventEmitter;
-
-  emitButtonClick() {
-    const data = { id: this.htmlid };
-    switch (this.type) {
-      case ButtonTypeEnum.submit:
-        this.buttonSubmit.emit(data);
-        break;
-      case ButtonTypeEnum.reset:
-        this.buttonReset.emit(data);
-        break;
-      case ButtonTypeEnum.button:
-      default:
-        this.buttonClick.emit(data);
-        break;
-    }
-  }
-
   render() {
     return (
       <button
@@ -57,7 +37,6 @@ export class ZButton {
         type={this.type}
         disabled={this.disabled}
         class={`${this.variant} ${this.issmall && "small"}`}
-        onClick={() => this.emitButtonClick()}
       >
         {this.icon && <z-icon name={this.icon} width={16} height={16} />}
         <slot />

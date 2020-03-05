@@ -35,13 +35,11 @@
 | `variant`  | `variant`  | graphic variant                  | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary` | `ButtonVariantEnum.primary` |
 
 
-## Events
+## Slots
 
-| Event          | Description                  | Type               |
-| -------------- | ---------------------------- | ------------------ |
-| `buttonClick`  | Emitted on type button click | `CustomEvent<any>` |
-| `buttonReset`  | Emitted on type reset click  | `CustomEvent<any>` |
-| `buttonSubmit` | Emitted on type submit click | `CustomEvent<any>` |
+| Slot | Description  |
+| ---- | ------------ |
+|      | button label |
 
 
 ## Dependencies
