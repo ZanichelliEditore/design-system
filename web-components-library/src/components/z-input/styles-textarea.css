@@ -18,18 +18,23 @@
 :host > div.textWrapper > div > div.textareaWrapper > textarea:hover {
   border-color: transparent !important;
 }
-:host > div.textWrapper > div > div.textareaWrapper.input_success.hover,
-:host > div.textWrapper > div > div.textareaWrapper.input_warning.hover,
-:host > div.textWrapper > div > div.textareaWrapper.input_error.hover {
-  background: var(--bg-grey-050) !important;
-  border-color: var(--text-grey-800) !important;
-}
 
 :host > div.textWrapper > div > div.textareaWrapper > textarea.filled,
 :host > div.textWrapper > div > div.textareaWrapper > textarea.input_success,
 :host > div.textWrapper > div > div.textareaWrapper > textarea.input_warning,
 :host > div.textWrapper > div > div.textareaWrapper > textarea.input_error {
   border: none;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper.input_success.disabled,
+:host > div.textWrapper > div > div.textareaWrapper.input_warning.disabled,
+:host > div.textWrapper > div > div.textareaWrapper.input_error.disabled {
+  background: var(--bg-white) !important;
+  border-color: var(--bg-grey-200) !important;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper > textarea.istyping {
+  color: var(--myz-blue);
 }
 
 ::-webkit-scrollbar {

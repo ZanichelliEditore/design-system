@@ -21,6 +21,10 @@
   margin: var(--basex1) 0;
 }
 
+:host > div.textWrapper > label.disabledLabel {
+  color: var(--text-grey-700);
+}
+
 :host > div.textWrapper > div {
   position: relative;
   z-index: 1;

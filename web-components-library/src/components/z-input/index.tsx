@@ -138,7 +138,11 @@ export class ZInput {
 
   renderLabel() {
     if (!this.label) return;
-    return <label htmlFor={this.htmlid}>{this.label}</label>;
+    return (
+      <label htmlFor={this.htmlid} class={this.disabled && "disabledLabel"}>
+        {this.label}
+      </label>
+    );
   }
 
   renderResetIcon() {
@@ -189,6 +193,7 @@ export class ZInput {
             ${attributes.class}
             ${attributes.disabled && " disabled"}
             ${attributes.readonly && " readonly"}
+            ${this.isTyping && " istyping"}
             ${this.textareaWrapperFocus}
             ${this.textareaWrapperHover}
           `}
