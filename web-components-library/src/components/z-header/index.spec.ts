@@ -26,7 +26,7 @@ describe("Suite test ZHeader", () => {
             <div class="logo">
               <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank=""></z-logo>
             </div>
-            <z-button buttonid="login-button" label="entra" type="secondary" icon="enter" issmall=""></z-button>
+            <z-button htmlid="login-button" variant="secondary" icon="enter" issmall="">entra</z-button>
           </div>
         </header>
       </mock:shadow-root>
@@ -56,7 +56,7 @@ describe("Suite test ZHeader", () => {
             link="https://www.zanichelli.it"
             targetblank=""></z-logo>
           </div>
-          <z-button buttonid="login-button" label="entra" type="tertiary" icon="enter" issmall=""></z-button>
+          <z-button htmlid="login-button" variant="tertiary" icon="enter" issmall="">entra</z-button>
         </div>
       </header>
     </mock:shadow-root>
@@ -267,7 +267,7 @@ describe("Suite test ZHeader", () => {
             </div>
             <div></div>
             <div class="login">
-              <z-button buttonid="login-button" label="entra" type="secondary" icon="enter" issmall=""></z-button>
+              <z-button htmlid="login-button" variant="secondary" icon="enter" issmall="">entra</z-button>
             </div>
           </div>
         </header>
@@ -384,7 +384,9 @@ describe("Suite test ZHeader", () => {
             </div>
             <div></div>
             <div class="login">
-              <z-button label="entra" type="secondary" buttonid="login-button" icon="enter" issmall=""></z-button>
+              <z-button htmlid="login-button" icon="enter" issmall="" variant="secondary">
+                entra
+              </z-button>
             </div>
           </div>
         </header>

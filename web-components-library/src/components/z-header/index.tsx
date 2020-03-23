@@ -7,7 +7,12 @@ import {
   Listen,
   Watch
 } from "@stencil/core";
-import { MenuItem, HeaderUserData, ListItemBean } from "../../beans";
+import {
+  MenuItem,
+  HeaderUserData,
+  ListItemBean,
+  ButtonVariantEnum
+} from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 /**
@@ -284,12 +289,15 @@ export class ZHeader {
   renderLoginButton() {
     return (
       <z-button
-        label="entra"
-        type={`${this.ismyz ? "secondary" : "tertiary"}`}
-        buttonid="login-button"
+        htmlid="login-button"
+        variant={
+          this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary
+        }
         icon="enter"
         issmall={true}
-      />
+      >
+        entra
+      </z-button>
     );
   }
 
