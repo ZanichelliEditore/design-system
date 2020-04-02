@@ -31,7 +31,7 @@ footer > h2 {
   line-height: 20px;
   height: 40px;
   margin: 0px 0px var(--basex1) 0px;
-  padding: var(--half-x3) var(--basex2) 0px var(--basex2);
+  padding: var(--basex2) var(--basex2) 0px var(--basex2);
   overflow: hidden;
   text-overflow: ellipsis;
   background-color: var(--bg-white);
@@ -56,8 +56,9 @@ footer > div > p {
 }
 
 footer > div > p.year_isbn {
-  display: flex;
-  justify-content: space-between;
+  padding-top : var(--half-x3);
+  /*display: flex;
+  justify-content: space-between;*/
 }
 
 footer.isopen {

@@ -46,7 +46,7 @@ export class ZCardFooter {
 
   render() {
     return (
-      <div class={this.faded && 'faded'}>
+      <div class={this.faded && "faded"}>
         <footer class={this.retrieveClass()}>
           <span class="toggle">
             <slot name="toggle" />
@@ -58,7 +58,7 @@ export class ZCardFooter {
             </p>
             <p class="year_isbn">
               <span class="year">
-                {this.annolabel}: <b>{this.anno}</b>
+                {this.annolabel}: <b>{this.anno}</b>&nbsp;
               </span>
               <span class="isbn">
                 ISBN: <b>{this.isbn}</b>
