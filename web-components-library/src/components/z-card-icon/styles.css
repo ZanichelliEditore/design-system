@@ -4,7 +4,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-
   color: var(--myz-blue);
   fill: var(--myz-blue);
   cursor: pointer;
@@ -15,7 +14,7 @@ button {
   border-left: var(--border-base) solid var(--bg-grey-200);
   border-radius: 0px var(--radius-base) 0px 0px;
   margin: 0;
-  padding: 0;
+  padding: 10px;
 }
 
 button:active,
@@ -24,7 +23,7 @@ button:focus {
   fill: var(--myz-blue-dark);
 }
 
-button>span {
+button > span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,17 +33,17 @@ button>span {
   border: 0px;
 }
 
-button:hover>span {
+button:hover > span {
   background: var(--myz-blue-lighter);
 }
 
-button:focus>span {
+button:focus > span {
   background: var(--bg-white);
   border-radius: var(--radius-base);
   box-shadow: 0px 0px 2px 2px var(--accent-dark);
 }
 
-button:active>span {
+button:active > span {
   background: var(--bg-white);
   border-radius: var(--radius-base);
   box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.4);
@@ -54,13 +53,13 @@ button:disabled {
   cursor: not-allowed;
 }
 
-button:disabled>span {
+button:disabled > span {
   background: none;
   box-shadow: 0 0 0 0 transparent;
   pointer-events: none;
 }
 
-button:disabled>span>z-icon {
+button:disabled > span > z-icon {
   fill: var(--bg-grey-200);
 }
 

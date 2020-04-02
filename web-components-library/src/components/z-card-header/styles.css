@@ -3,10 +3,11 @@ header {
   flex-direction: row;
   align-items: flex-start;
   width: auto;
-  height: 40px;
+  height: var(--basex6);
   position: relative;
   border-bottom: var(--border-base) solid var(--bg-grey-200);
-  border-radius: var(--radius-base) var(--radius-base) var(--radius-min) var(--radius-min);
+  border-radius: var(--radius-base) var(--radius-base) var(--radius-min)
+    var(--radius-min);
   background-color: var(--bg-white);
 }
 
@@ -26,7 +27,7 @@ h2 {
   letter-spacing: 0.22px;
   line-height: var(--basex2);
   margin: 0px;
-  padding: var(--half-x3);
+  padding: var(--basex2);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
