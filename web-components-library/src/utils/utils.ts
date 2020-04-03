@@ -29,3 +29,31 @@ export function handleKeyboardSubmit(
     callback(...args);
   }
 }
+
+export function getClickedElement(elem: null | Element = null): null | Element {
+  if (!elem) elem = document.activeElement;
+  let newElem = elem;
+
+  if (newElem && newElem.shadowRoot && newElem.shadowRoot.activeElement) {
+    newElem = newElem.shadowRoot.activeElement;
+    return getClickedElement(newElem);
+  }
+
+  return newElem;
+}
+
+export function getClickedElementTree(
+  elem: null | Element = null,
+  tree: Element[] = []
+): null | Element[] {
+  if (!elem) elem = document.activeElement;
+  let newElem = elem;
+  tree.push(newElem);
+
+  if (newElem && newElem.shadowRoot && newElem.shadowRoot.activeElement) {
+    newElem = newElem.shadowRoot.activeElement;
+    return getClickedElementTree(newElem, tree);
+  }
+
+  return tree;
+}

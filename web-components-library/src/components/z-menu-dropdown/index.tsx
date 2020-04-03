@@ -1,7 +1,7 @@
 import { Component, Prop, h, State } from "@stencil/core";
-import { MenuItem } from "../../beans/index";
+import { MenuItem, keybordKeyCodeEnum } from "../../beans/index";
 
-import { handleKeyboardSubmit } from "../../utils/utils";
+import { handleKeyboardSubmit, getClickedElementTree } from "../../utils/utils";
 
 @Component({
   tag: "z-menu-dropdown",
@@ -19,6 +19,13 @@ export class ZMenuDropdown {
   @State() ismenuopen: boolean = false;
 
   linkarray: MenuItem[];
+
+  constructor() {
+    // this.handleOpen = this.handleOpen.bind(this);
+    // this.handleClose = this.handleClose.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+  }
 
   componentWillRender() {
     this.linkarray =
@@ -38,6 +45,7 @@ export class ZMenuDropdown {
                 url={bean.link}
                 label={bean.label}
                 icon={bean.icon}
+                // onClick={(e: MouseEvent) => e.stopPropagation()}
               />
             </li>
           ))}
@@ -60,19 +68,67 @@ export class ZMenuDropdown {
     }
   }
 
+  // handleOpen() {
+  //   if (this.ismenuopen) return;
+
+  //   console.log("click --> open");
+  //   this.ismenuopen = true;
+  // }
+
+  // handleClose(e: MouseEvent | KeyboardEvent) {
+  //   if (!this.ismenuopen) return;
+
+  //   console.log("click --> close");
+  //   this.ismenuopen = false;
+  //   e.stopPropagation();
+  // }
+
+  handleToggle(/* e: MouseEvent */) {
+    // const clickedElem = e.target as HTMLElement;
+    // console.log("click on " + clickedElem.tagName.toLowerCase());
+    // if (clickedElem.tagName.toLowerCase() === "z-link") return;
+    console.log("toggling");
+
+    this.ismenuopen = !this.ismenuopen;
+  }
+
+  handleFocus(e: MouseEvent | KeyboardEvent) {
+    if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB)
+      return;
+
+    console.log("handle focus", e.type);
+
+    const tree = getClickedElementTree();
+    const menuParent = tree.find(
+      (elem: any) => elem.nodeName.toLowerCase() === "z-menu-dropdown"
+    );
+    console.log(tree, menuParent);
+
+    if (!menuParent) {
+      console.log("remove listener", this.ismenuopen);
+      document.removeEventListener("click", this.handleFocus);
+      document.removeEventListener("keyup", this.handleFocus);
+      this.ismenuopen = false;
+    }
+  }
+
   render() {
     return (
-      <a class={this.retriveMenuClass()} role="button">
-        <div
-          class="container"
-          onKeyDown={(ev: KeyboardEvent) =>
-            handleKeyboardSubmit(ev, () => {
-              this.ismenuopen = !this.ismenuopen;
-            })
-          }
-          onClick={() => (this.ismenuopen = !this.ismenuopen)}
-          tabindex="0"
-        >
+      <a
+        class={this.retriveMenuClass()}
+        role="button"
+        tabindex="0"
+        onFocus={() => {
+          console.log("add listener");
+          document.addEventListener("click", this.handleFocus);
+          document.addEventListener("keyup", this.handleFocus);
+        }}
+        onBlur={() => console.log("blur")}
+        onKeyUp={(e: KeyboardEvent) =>
+          handleKeyboardSubmit(e, this.handleToggle)
+        }
+      >
+        <div class="container" onClick={() => this.handleToggle()}>
           <z-icon name="user" width={14} height={14} />
           <span class="user">{this.nomeutente}</span>
           {this.renderButtonMenu()}
