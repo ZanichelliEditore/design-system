@@ -8,7 +8,7 @@ import { LicenseTypeEnum } from "../../beans/index";
 @Component({
   tag: "z-card-footer",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZCardFooter {
   /** volume title */
@@ -58,7 +58,7 @@ export class ZCardFooter {
             </p>
             <p class="year_isbn">
               <span class="year">
-                {this.annolabel}: <b>{this.anno}</b>&nbsp;
+                {this.annolabel}: <b>{this.anno}</b>
               </span>
               <span class="isbn">
                 ISBN: <b>{this.isbn}</b>

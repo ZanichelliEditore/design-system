@@ -56,9 +56,14 @@ footer > div > p {
 }
 
 footer > div > p.year_isbn {
-  padding-top : var(--half-x3);
-  /*display: flex;
-  justify-content: space-between;*/
+  padding-top: var(--half-x3);
+  display: inline-flexbox;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+footer > div > p.year_isbn > span.isbn {
+  padding-left: var(--basex1);
 }
 
 footer.isopen {
