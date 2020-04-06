@@ -20,7 +20,7 @@ export class ZCardFooter {
   /** year */
   @Prop() anno: number;
   /** year label */
-  @Prop() annolabel: string = "Edizione";
+  @Prop() annolabel: string = "Anno";
   /** volume isbn */
   @Prop() isbn: string;
   /** faded status */
