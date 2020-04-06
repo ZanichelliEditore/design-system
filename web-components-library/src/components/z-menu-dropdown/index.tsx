@@ -1,12 +1,16 @@
 import { Component, Prop, h, State } from "@stencil/core";
 import { MenuItem, keybordKeyCodeEnum } from "../../beans/index";
 
-import { handleKeyboardSubmit, getClickedElementTree } from "../../utils/utils";
+import {
+  handleKeyboardSubmit,
+  getClickedElement,
+  getClickedElementTree,
+} from "../../utils/utils";
 
 @Component({
   tag: "z-menu-dropdown",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMenuDropdown {
   /** user name text */
@@ -21,8 +25,6 @@ export class ZMenuDropdown {
   linkarray: MenuItem[];
 
   constructor() {
-    // this.handleOpen = this.handleOpen.bind(this);
-    // this.handleClose = this.handleClose.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
   }
@@ -38,14 +40,13 @@ export class ZMenuDropdown {
     if (this.ismenuopen) {
       return (
         <ul>
-          {this.linkarray.map(bean => (
+          {this.linkarray.map((bean) => (
             <li>
               <z-link
                 linkid={bean.id}
                 url={bean.link}
                 label={bean.label}
                 icon={bean.icon}
-                // onClick={(e: MouseEvent) => e.stopPropagation()}
               />
             </li>
           ))}
@@ -63,32 +64,10 @@ export class ZMenuDropdown {
   }
 
   retriveMenuClass() {
-    if (this.ismenuopen) {
-      return "menu-opened";
-    }
+    if (this.ismenuopen) return "menu-opened";
   }
 
-  // handleOpen() {
-  //   if (this.ismenuopen) return;
-
-  //   console.log("click --> open");
-  //   this.ismenuopen = true;
-  // }
-
-  // handleClose(e: MouseEvent | KeyboardEvent) {
-  //   if (!this.ismenuopen) return;
-
-  //   console.log("click --> close");
-  //   this.ismenuopen = false;
-  //   e.stopPropagation();
-  // }
-
-  handleToggle(/* e: MouseEvent */) {
-    // const clickedElem = e.target as HTMLElement;
-    // console.log("click on " + clickedElem.tagName.toLowerCase());
-    // if (clickedElem.tagName.toLowerCase() === "z-link") return;
-    console.log("toggling");
-
+  handleToggle() {
     this.ismenuopen = !this.ismenuopen;
   }
 
@@ -96,16 +75,12 @@ export class ZMenuDropdown {
     if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB)
       return;
 
-    console.log("handle focus", e.type);
-
-    const tree = getClickedElementTree();
+    const tree = getClickedElementTree(getClickedElement());
     const menuParent = tree.find(
       (elem: any) => elem.nodeName.toLowerCase() === "z-menu-dropdown"
     );
-    console.log(tree, menuParent);
 
     if (!menuParent) {
-      console.log("remove listener", this.ismenuopen);
       document.removeEventListener("click", this.handleFocus);
       document.removeEventListener("keyup", this.handleFocus);
       this.ismenuopen = false;
@@ -119,11 +94,9 @@ export class ZMenuDropdown {
         role="button"
         tabindex="0"
         onFocus={() => {
-          console.log("add listener");
           document.addEventListener("click", this.handleFocus);
           document.addEventListener("keyup", this.handleFocus);
         }}
-        onBlur={() => console.log("blur")}
         onKeyUp={(e: KeyboardEvent) =>
           handleKeyboardSubmit(e, this.handleToggle)
         }

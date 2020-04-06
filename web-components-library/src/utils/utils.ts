@@ -11,9 +11,7 @@ export function retrieveAsset(assetName: string): string {
 }
 
 export function randomId(): string {
-  return Math.random()
-    .toString(36)
-    .replace("0.", "");
+  return Math.random().toString(36).replace("0.", "");
 }
 
 export function handleKeyboardSubmit(
@@ -43,16 +41,22 @@ export function getClickedElement(elem: null | Element = null): null | Element {
 }
 
 export function getClickedElementTree(
-  elem: null | Element = null,
+  elem: Element,
   tree: Element[] = []
 ): null | Element[] {
-  if (!elem) elem = document.activeElement;
   let newElem = elem;
   tree.push(newElem);
 
-  if (newElem && newElem.shadowRoot && newElem.shadowRoot.activeElement) {
-    newElem = newElem.shadowRoot.activeElement;
-    return getClickedElementTree(newElem, tree);
+  if (newElem) {
+    if (newElem.parentElement) {
+      newElem = newElem.parentElement;
+      return getClickedElementTree(newElem, tree);
+      // @ts-ignore
+    } else if (newElem.parentNode && newElem.parentNode.host) {
+      // @ts-ignore
+      newElem = newElem.parentNode.host;
+      return getClickedElementTree(newElem, tree);
+    }
   }
 
   return tree;
