@@ -57,13 +57,15 @@ footer > div > p {
 
 footer > div > p.year_isbn {
   padding-top: var(--half-x3);
-  display: inline-flexbox;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 footer > div > p.year_isbn > span.isbn {
   padding-left: var(--basex1);
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 footer.isopen {
