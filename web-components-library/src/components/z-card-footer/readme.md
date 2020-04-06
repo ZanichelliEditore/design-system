@@ -13,16 +13,16 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                     | Type                                                                       | Default      |
-| ------------- | ------------- | ------------------------------- | -------------------------------------------------------------------------- | ------------ |
-| `anno`        | `anno`        | year                            | `number`                                                                   | `undefined`  |
-| `annolabel`   | `annolabel`   | year label                      | `string`                                                                   | `"Edizione"` |
-| `autori`      | `autori`      | authors name text               | `string`                                                                   | `undefined`  |
-| `autorilabel` | `autorilabel` | authors label text              | `string`                                                                   | `"Autore"`   |
-| `cardtype`    | `cardtype`    | card graphic variant (optional) | `LicenseTypeEnum.essay \| LicenseTypeEnum.real \| LicenseTypeEnum.virtual` | `undefined`  |
-| `faded`       | `faded`       | faded status                    | `boolean`                                                                  | `undefined`  |
-| `isbn`        | `isbn`        | volume isbn                     | `string`                                                                   | `undefined`  |
-| `titolo`      | `titolo`      | volume title                    | `string`                                                                   | `undefined`  |
+| Property      | Attribute     | Description                     | Type                                                                       | Default     |
+| ------------- | ------------- | ------------------------------- | -------------------------------------------------------------------------- | ----------- |
+| `anno`        | `anno`        | year                            | `number`                                                                   | `undefined` |
+| `annolabel`   | `annolabel`   | year label                      | `string`                                                                   | `"Anno"`    |
+| `autori`      | `autori`      | authors name text               | `string`                                                                   | `undefined` |
+| `autorilabel` | `autorilabel` | authors label text              | `string`                                                                   | `"Autore"`  |
+| `cardtype`    | `cardtype`    | card graphic variant (optional) | `LicenseTypeEnum.essay \| LicenseTypeEnum.real \| LicenseTypeEnum.virtual` | `undefined` |
+| `faded`       | `faded`       | faded status                    | `boolean`                                                                  | `undefined` |
+| `isbn`        | `isbn`        | volume isbn                     | `string`                                                                   | `undefined` |
+| `titolo`      | `titolo`      | volume title                    | `string`                                                                   | `undefined` |
 
 
 ## Slots
