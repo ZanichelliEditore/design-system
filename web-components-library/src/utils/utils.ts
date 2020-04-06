@@ -40,7 +40,7 @@ export function getClickedElement(elem: null | Element = null): null | Element {
   return newElem;
 }
 
-export function getClickedElementTree(
+export function getElementTree(
   elem: Element,
   tree: Element[] = []
 ): null | Element[] {
@@ -50,12 +50,12 @@ export function getClickedElementTree(
   if (newElem) {
     if (newElem.parentElement) {
       newElem = newElem.parentElement;
-      return getClickedElementTree(newElem, tree);
+      return getElementTree(newElem, tree);
       // @ts-ignore
     } else if (newElem.parentNode && newElem.parentNode.host) {
       // @ts-ignore
       newElem = newElem.parentNode.host;
-      return getClickedElementTree(newElem, tree);
+      return getElementTree(newElem, tree);
     }
   }
 

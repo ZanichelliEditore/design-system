@@ -4,7 +4,7 @@ import { MenuItem, keybordKeyCodeEnum } from "../../beans/index";
 import {
   handleKeyboardSubmit,
   getClickedElement,
-  getClickedElementTree,
+  getElementTree,
 } from "../../utils/utils";
 
 @Component({
@@ -75,7 +75,7 @@ export class ZMenuDropdown {
     if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB)
       return;
 
-    const tree = getClickedElementTree(getClickedElement());
+    const tree = getElementTree(getClickedElement());
     const menuParent = tree.find(
       (elem: any) => elem.nodeName.toLowerCase() === "z-menu-dropdown"
     );
