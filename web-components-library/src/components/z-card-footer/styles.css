@@ -68,6 +68,20 @@ footer > div > p.year_isbn > span.isbn {
   overflow: hidden;
 }
 
+footer.isopen > div {
+  height: 70px;
+}
+
+footer.isopen > div > p.year_isbn {
+  flex-direction: column;
+  height: 50px;
+  padding-left: 0px;
+}
+
+footer.isopen > div > p.year_isbn > span.isbn {
+  padding-left: 0px;
+}
+
 footer.isopen {
   height: 255px;
   top: -147px;
