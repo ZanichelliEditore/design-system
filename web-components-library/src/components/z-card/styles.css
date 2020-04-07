@@ -4,8 +4,8 @@ div {
   flex-direction: column;
   overflow: hidden;
   width: auto;
-  width: 256px;
-  height: 522px;
+  width: 252px;
+  height: 518px;
   border: var(--border-base) solid var(--bg-grey-200);
   border-radius: var(--radius-base);
 }
