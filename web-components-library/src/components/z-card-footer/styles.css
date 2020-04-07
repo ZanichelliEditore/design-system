@@ -83,10 +83,9 @@ footer.isopen > div > p.year_isbn > span.isbn {
 }
 
 footer.isopen {
-  height: 255px;
+  height: 278px;
   top: -147px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
-  border-radius: var(--border-base);
 }
 
 h2.isopen {

@@ -4,7 +4,7 @@ div {
   flex-direction: column;
   overflow: hidden;
   width: auto;
-  max-width: 256px;
+  width: 256px;
   height: 522px;
   border: var(--border-base) solid var(--bg-grey-200);
   border-radius: var(--radius-base);
