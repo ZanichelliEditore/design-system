@@ -11,7 +11,9 @@ export function retrieveAsset(assetName: string): string {
 }
 
 export function randomId(): string {
-  return Math.random().toString(36).replace("0.", "");
+  return Math.random()
+    .toString(36)
+    .replace("0.", "");
 }
 
 export function handleKeyboardSubmit(
@@ -30,32 +32,30 @@ export function handleKeyboardSubmit(
 
 export function getClickedElement(elem: null | Element = null): null | Element {
   if (!elem) elem = document.activeElement;
-  let newElem = elem;
 
-  if (newElem && newElem.shadowRoot && newElem.shadowRoot.activeElement) {
-    newElem = newElem.shadowRoot.activeElement;
-    return getClickedElement(newElem);
+  if (elem && elem.shadowRoot && elem.shadowRoot.activeElement) {
+    elem = elem.shadowRoot.activeElement;
+    return getClickedElement(elem);
   }
 
-  return newElem;
+  return elem;
 }
 
 export function getElementTree(
   elem: Element,
   tree: Element[] = []
 ): null | Element[] {
-  let newElem = elem;
-  tree.push(newElem);
+  tree.push(elem);
 
-  if (newElem) {
-    if (newElem.parentElement) {
-      newElem = newElem.parentElement;
-      return getElementTree(newElem, tree);
+  if (elem) {
+    if (elem.parentElement) {
+      elem = elem.parentElement;
+      return getElementTree(elem, tree);
       // @ts-ignore
-    } else if (newElem.parentNode && newElem.parentNode.host) {
+    } else if (elem.parentNode && elem.parentNode.host) {
       // @ts-ignore
-      newElem = newElem.parentNode.host;
-      return getElementTree(newElem, tree);
+      elem = elem.parentNode.host;
+      return getElementTree(elem, tree);
     }
   }
 
