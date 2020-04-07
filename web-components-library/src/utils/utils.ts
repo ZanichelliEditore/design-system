@@ -47,16 +47,14 @@ export function getElementTree(
 ): null | Element[] {
   tree.push(elem);
 
-  if (elem) {
-    if (elem.parentElement) {
-      elem = elem.parentElement;
-      return getElementTree(elem, tree);
-      // @ts-ignore
-    } else if (elem.parentNode && elem.parentNode.host) {
-      // @ts-ignore
-      elem = elem.parentNode.host;
-      return getElementTree(elem, tree);
-    }
+  if (elem.parentElement) {
+    elem = elem.parentElement;
+    return getElementTree(elem, tree);
+    // @ts-ignore
+  } else if (elem.parentNode && elem.parentNode.host) {
+    // @ts-ignore
+    elem = elem.parentNode.host;
+    return getElementTree(elem, tree);
   }
 
   return tree;
