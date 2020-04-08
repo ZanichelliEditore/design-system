@@ -29,3 +29,33 @@ export function handleKeyboardSubmit(
     callback(...args);
   }
 }
+
+export function getClickedElement(elem: null | Element = null): null | Element {
+  if (!elem) elem = document.activeElement;
+
+  if (elem && elem.shadowRoot && elem.shadowRoot.activeElement) {
+    elem = elem.shadowRoot.activeElement;
+    return getClickedElement(elem);
+  }
+
+  return elem;
+}
+
+export function getElementTree(
+  elem: Element,
+  tree: Element[] = []
+): null | Element[] {
+  tree.push(elem);
+
+  if (elem.parentElement) {
+    elem = elem.parentElement;
+    return getElementTree(elem, tree);
+    // @ts-ignore
+  } else if (elem.parentNode && elem.parentNode.host) {
+    // @ts-ignore
+    elem = elem.parentNode.host;
+    return getElementTree(elem, tree);
+  }
+
+  return tree;
+}

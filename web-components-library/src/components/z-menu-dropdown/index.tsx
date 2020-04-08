@@ -1,12 +1,16 @@
 import { Component, Prop, h, State } from "@stencil/core";
-import { MenuItem } from "../../beans/index";
+import { MenuItem, keybordKeyCodeEnum } from "../../beans/index";
 
-import { handleKeyboardSubmit } from "../../utils/utils";
+import {
+  handleKeyboardSubmit,
+  getClickedElement,
+  getElementTree,
+} from "../../utils/utils";
 
 @Component({
   tag: "z-menu-dropdown",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMenuDropdown {
   /** user name text */
@@ -20,6 +24,11 @@ export class ZMenuDropdown {
 
   linkarray: MenuItem[];
 
+  constructor() {
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+  }
+
   componentWillRender() {
     this.linkarray =
       typeof this.menucontent === "string"
@@ -31,7 +40,7 @@ export class ZMenuDropdown {
     if (this.ismenuopen) {
       return (
         <ul>
-          {this.linkarray.map(bean => (
+          {this.linkarray.map((bean) => (
             <li>
               <z-link
                 linkid={bean.id}
@@ -55,24 +64,44 @@ export class ZMenuDropdown {
   }
 
   retriveMenuClass() {
-    if (this.ismenuopen) {
-      return "menu-opened";
+    if (this.ismenuopen) return "menu-opened";
+  }
+
+  handleToggle() {
+    this.ismenuopen = !this.ismenuopen;
+  }
+
+  handleFocus(e: MouseEvent | KeyboardEvent) {
+    if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB)
+      return;
+
+    const tree = getElementTree(getClickedElement());
+    const menuParent = tree.find(
+      (elem: any) => elem.nodeName.toLowerCase() === "z-menu-dropdown"
+    );
+
+    if (!menuParent) {
+      document.removeEventListener("click", this.handleFocus);
+      document.removeEventListener("keyup", this.handleFocus);
+      this.ismenuopen = false;
     }
   }
 
   render() {
     return (
-      <a class={this.retriveMenuClass()} role="button">
-        <div
-          class="container"
-          onKeyDown={(ev: KeyboardEvent) =>
-            handleKeyboardSubmit(ev, () => {
-              this.ismenuopen = !this.ismenuopen;
-            })
-          }
-          onClick={() => (this.ismenuopen = !this.ismenuopen)}
-          tabindex="0"
-        >
+      <a
+        class={this.retriveMenuClass()}
+        role="button"
+        tabindex="0"
+        onFocus={() => {
+          document.addEventListener("click", this.handleFocus);
+          document.addEventListener("keyup", this.handleFocus);
+        }}
+        onKeyUp={(e: KeyboardEvent) =>
+          handleKeyboardSubmit(e, this.handleToggle)
+        }
+      >
+        <div class="container" onClick={() => this.handleToggle()}>
           <z-icon name="user" width={14} height={14} />
           <span class="user">{this.nomeutente}</span>
           {this.renderButtonMenu()}
