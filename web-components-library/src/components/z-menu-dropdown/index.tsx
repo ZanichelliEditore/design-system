@@ -4,13 +4,13 @@ import { MenuItem, keybordKeyCodeEnum } from "../../beans/index";
 import {
   handleKeyboardSubmit,
   getClickedElement,
-  getElementTree,
+  getElementTree
 } from "../../utils/utils";
 
 @Component({
   tag: "z-menu-dropdown",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: true
 })
 export class ZMenuDropdown {
   /** user name text */
@@ -40,14 +40,11 @@ export class ZMenuDropdown {
     if (this.ismenuopen) {
       return (
         <ul>
-          {this.linkarray.map((bean) => (
+          {this.linkarray.map(bean => (
             <li>
-              <z-link
-                linkid={bean.id}
-                url={bean.link}
-                label={bean.label}
-                icon={bean.icon}
-              />
+              <z-link htmlid={bean.id} href={bean.link} icon={bean.icon}>
+                {bean.label}
+              </z-link>
             </li>
           ))}
         </ul>

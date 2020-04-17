@@ -215,7 +215,7 @@ export class ZHeader {
   }
 
   renderSubMenu(menuItem: MenuItem): HTMLDivElement | undefined {
-    if(!this.ismyz || !this.isLogged) return;
+    if (!this.ismyz || !this.isLogged) return;
     if (!menuItem || !menuItem["subMenu"]) {
       return <div id="dropdown-menu" class={`dropdown-menu hidden`} />;
     }
@@ -255,14 +255,15 @@ export class ZHeader {
               <span class={`link-ext-span ${this.ismyz && "myz"}`}>
                 <z-link
                   id={id}
-                  linkid={id}
-                  url={link}
-                  label={label}
+                  htmlid={id}
+                  href={link}
                   icon={icon}
                   iswhite={this.ismyz ? true : false}
                   target="_blank"
-                  linktabindex={10}
-                />
+                  htmltabindex={10}
+                >
+                  {label}
+                </z-link>
               </span>
             );
           }

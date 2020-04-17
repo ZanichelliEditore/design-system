@@ -6,22 +6,22 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
   shadow: true
 })
 export class ZLink {
-  /** link url */
-  @Prop() url: string;
-  /** link label (optional) */
-  @Prop() label?: string;
-  /** link icon name (optional) */
-  @Prop() icon?: string;
+  /** link id (optional) */
+  @Prop() htmlid?: string;
+  /** link url (optional) */
+  @Prop() href?: string;
   /** link target (optional) */
   @Prop() target?: string = "_self";
+  /** tabindex link attribute (optional) */
+  @Prop() htmltabindex?: number = 0;
   /** disable link flag (optional) */
   @Prop() isdisabled?: boolean = false;
+  /** active link flag (optional) */
+  @Prop() isactive?: boolean = false;
   /** white variant flag (optional) */
   @Prop() iswhite?: boolean = false;
-  /** link id (optional) */
-  @Prop() linkid?: string;
-  /** tabindex link attribute */
-  @Prop() linktabindex: number = 0;
+  /** link icon name (optional) */
+  @Prop() icon?: string;
 
   /** emitted on link click, returns linkId */
   @Event() zLinkClick: EventEmitter;
@@ -42,16 +42,18 @@ export class ZLink {
   render() {
     return (
       <a
-        href={this.url ? this.url : null}
-        class={`${this.isdisabled && "disabled"} ${this.iswhite && "white"}`}
+        id={this.htmlid}
+        href={this.href ? this.href : null}
+        class={`${this.isdisabled && "disabled"}
+          ${this.isactive && "active"}
+          ${this.iswhite && "white"}`}
         target={this.target}
-        id={this.linkid}
-        onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.linkid)}
-        role={this.url ? "link" : "button"}
-        tabindex={this.linktabindex}
+        role={this.href ? "link" : "button"}
+        tabindex={this.htmltabindex}
+        onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.htmlid)}
       >
         {this.icon && <z-icon name={this.icon} width={12} height={12} />}
-        {this.label}
+        <slot />
       </a>
     );
   }
