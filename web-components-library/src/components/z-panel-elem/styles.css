@@ -29,6 +29,10 @@
   font-size: 12px;
 }
 
+.panel-elem-link > z-link {
+  font-weight: var(--font-sb);
+}
+
 .panel-elem-desc {
   letter-spacing: 0.16px;
   text-align: center;

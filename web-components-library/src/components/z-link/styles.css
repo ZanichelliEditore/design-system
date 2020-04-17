@@ -1,6 +1,6 @@
 :host {
   font-family: var(--dashboard-font);
-  font-weight: var(--font-sb);
+  font-weight: inherit;
   font-size: inherit;
   line-height: inherit;
 }
@@ -43,6 +43,6 @@ a.white:hover {
   text-decoration: none;
 }
 
-a>z-icon {
+a > z-icon {
   margin-right: 8px;
 }
