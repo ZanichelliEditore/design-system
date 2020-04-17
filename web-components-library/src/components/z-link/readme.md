@@ -14,16 +14,16 @@
 
 ## Properties
 
-| Property       | Attribute      | Description                   | Type      | Default     |
-| -------------- | -------------- | ----------------------------- | --------- | ----------- |
-| `icon`         | `icon`         | link icon name (optional)     | `string`  | `undefined` |
-| `isdisabled`   | `isdisabled`   | disable link flag (optional)  | `boolean` | `false`     |
-| `iswhite`      | `iswhite`      | white variant flag (optional) | `boolean` | `false`     |
-| `label`        | `label`        | link label (optional)         | `string`  | `undefined` |
-| `linkid`       | `linkid`       | link id (optional)            | `string`  | `undefined` |
-| `linktabindex` | `linktabindex` | tabindex link attribute       | `number`  | `0`         |
-| `target`       | `target`       | link target (optional)        | `string`  | `"_self"`   |
-| `url`          | `url`          | link url                      | `string`  | `undefined` |
+| Property       | Attribute      | Description                        | Type      | Default     |
+| -------------- | -------------- | ---------------------------------- | --------- | ----------- |
+| `href`         | `href`         | link url (optional)                | `string`  | `undefined` |
+| `htmlid`       | `htmlid`       | link id (optional)                 | `string`  | `undefined` |
+| `htmltabindex` | `htmltabindex` | tabindex link attribute (optional) | `number`  | `0`         |
+| `icon`         | `icon`         | link icon name (optional)          | `string`  | `undefined` |
+| `isactive`     | `isactive`     | active link flag (optional)        | `boolean` | `false`     |
+| `isdisabled`   | `isdisabled`   | disable link flag (optional)       | `boolean` | `false`     |
+| `iswhite`      | `iswhite`      | white variant flag (optional)      | `boolean` | `false`     |
+| `target`       | `target`       | link target (optional)             | `string`  | `"_self"`   |
 
 
 ## Events
