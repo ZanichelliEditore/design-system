@@ -2,10 +2,11 @@
 
 <!-- readme-group="link" -->
 ```html
-<z-link label="z-link"></z-link>
-<z-link label="z-link" icon="download"></z-link>
-<z-link label="z-link" isdisabled></z-link>
-<z-link label="z-link" isdisabled icon="download"></z-link>
+<z-link>z-link</z-link>
+<z-link icon="download">z-link</z-link>
+<z-link isdisabled>z-link</z-link>
+<z-link isactive>z-link</z-link>
+<z-link iswhite>z-link</z-link>
 ```
 
 
