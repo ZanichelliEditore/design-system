@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Element } from "@stencil/core";
 import {
   ButtonVariantBean,
   ButtonVariantEnum,
@@ -14,6 +14,8 @@ import {
   shadow: true
 })
 export class ZButton {
+  @Element() hostElement: HTMLElement;
+
   /** id, should be unique */
   @Prop() htmlid?: string;
   /** name */
@@ -30,6 +32,8 @@ export class ZButton {
   @Prop() icon?: string;
 
   render() {
+    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
+
     return (
       <button
         id={this.htmlid}
