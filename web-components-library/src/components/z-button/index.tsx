@@ -32,11 +32,7 @@ export class ZButton {
   @Prop() icon?: string;
 
   render() {
-    if (!this.disabled) {
-      this.hostElement.style.pointerEvents = "auto";
-    } else {
-      this.hostElement.style.pointerEvents = "none";
-    }
+    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
 
     return (
       <button
