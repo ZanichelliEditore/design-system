@@ -48,13 +48,14 @@ export class ZPanelElem {
         )}
         <div class="panel-elem-link">
           <z-link
-            url={this.url}
-            label={this.linklabel}
+            href={this.url}
             icon={this.linkicon}
             isdisabled={this.isdisabled}
             target={this.target}
-            linkid={elemId + "link_id"}
-          />
+            htmlid={elemId + "link_id"}
+          >
+            {this.linklabel}
+          </z-link>
         </div>
         {this.descr_slot_name && (
           <div class="panel-elem-desc body-long-01">

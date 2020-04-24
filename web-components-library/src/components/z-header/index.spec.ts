@@ -203,7 +203,7 @@ describe("Suite test ZHeader", () => {
             <hr />
             <div id="link-ext" class="link-ext">
               <span class="link-ext-span myz">
-                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" iswhite target="_blank" linkid="supporto" linktabindex="10" />
+                <z-link id="supporto" href="https://www.zanichelli.it/contatti-e-recapiti" icon="question-mark.png" iswhite target="_blank" htmlid="supporto" htmltabindex="10">Supporto</z-link>
               </span>
             </div>
           </div>
@@ -326,7 +326,7 @@ describe("Suite test ZHeader", () => {
             </div>
             <div id="link-ext" class="link-ext">
               <span class="link-ext-span myz">
-                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" linkid="supporto" linktabindex="10" icon="question-mark.png" iswhite target="_blank" />
+                <z-link id="supporto" href="https://www.zanichelli.it/contatti-e-recapiti" htmlid="supporto" htmltabindex="10" icon="question-mark.png" iswhite target="_blank">Supporto</z-link>
               </span>
             </div>
             <div class="login">
@@ -425,7 +425,7 @@ describe("Suite test ZHeader", () => {
             </div>
             <div id="link-ext" class="link-ext">
               <span class="link-ext-span false">
-                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" target="_blank" linkid="supporto" linktabindex="10"/>
+                <z-link id="supporto" href="https://www.zanichelli.it/contatti-e-recapiti" icon="question-mark.png" target="_blank" htmlid="supporto" htmltabindex="10">Supporto</z-link>
               </span>
             </div>
             <div class="login">
@@ -497,7 +497,7 @@ describe("Suite test ZHeader", () => {
             </div>
             <div id="link-ext" class="link-ext">
               <span class="link-ext-span myz">
-                <z-link id="supporto" url="https://www.zanichelli.it/contatti-e-recapiti" label="Supporto" icon="question-mark.png" iswhite target="_blank"  linkid="supporto" linktabindex="10"/>
+                <z-link id="supporto" href="https://www.zanichelli.it/contatti-e-recapiti" icon="question-mark.png" iswhite target="_blank" htmlid="supporto" htmltabindex="10">Supporto</z-link>
               </span>
             </div>
             <div class="login">

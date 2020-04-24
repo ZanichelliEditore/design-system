@@ -14,7 +14,7 @@ describe("Suite test ZPanelElem", () => {
         <mock:shadow-root>
           <div class=\"panel-elem-container\">
           <div class=\"panel-elem-link\">
-            <z-link linkid=\"link_id\" target=\"_blank\"></z-link>
+            <z-link htmlid=\"link_id\" target=\"_blank\"></z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -33,7 +33,7 @@ describe("Suite test ZPanelElem", () => {
         <mock:shadow-root>
           <div class=\"panel-elem-container\">
           <div class=\"panel-elem-link\">
-            <z-link label=\"label\" linkid=\"link_id\" target=\"_blank\" url=\"http://www.google.it\"></z-link>
+            <z-link htmlid=\"link_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -52,7 +52,7 @@ describe("Suite test ZPanelElem", () => {
         <mock:shadow-root>
           <div class=\"panel-elem-container\">
           <div class=\"panel-elem-link\">
-            <z-link label=\"label\" linkid=\"examplelink_id\" target=\"_blank\" url=\"http://www.google.it\"></z-link>
+            <z-link htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -71,7 +71,7 @@ describe("Suite test ZPanelElem", () => {
         <mock:shadow-root>
           <div class=\"panel-elem-container\">
           <div class=\"panel-elem-link\">
-            <z-link isdisabled label=\"label\" linkid=\"examplelink_id\" target=\"_blank\" url=\"http://www.google.it\"></z-link>
+            <z-link isdisabled htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -90,7 +90,7 @@ describe("Suite test ZPanelElem", () => {
         <mock:shadow-root>
           <div class=\"panel-elem-container\">
           <div class=\"panel-elem-link\">
-            <z-link target="\_self\" label=\"label\" linkid=\"examplelink_id\" target=\"_blank\" url=\"http://www.google.it\"></z-link>
+            <z-link target="\_self\" htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -109,7 +109,7 @@ describe("Suite test ZPanelElem", () => {
         <mock:shadow-root>
           <div class=\"panel-elem-container\">
           <div class=\"panel-elem-link\">
-            <z-link icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_blank\" url=\"http://www.google.it\"></z-link>
+            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -133,7 +133,7 @@ describe("Suite test ZPanelElem", () => {
             </a>
           </div>
           <div class=\"panel-elem-link\">
-            <z-link icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_blank\" url=\"http://www.google.it\"></z-link>
+            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -157,7 +157,7 @@ describe("Suite test ZPanelElem", () => {
             </a>
           </div>
           <div class=\"panel-elem-link\">
-            <z-link icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_self\" url=\"http://www.google.it\"></z-link>
+            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_self\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -181,7 +181,7 @@ describe("Suite test ZPanelElem", () => {
             </a>
           </div>
           <div class=\"panel-elem-link\">
-            <z-link icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_blank\" url=\"http://www.google.it\"></z-link>
+            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -205,7 +205,7 @@ describe("Suite test ZPanelElem", () => {
             </a>
           </div>
           <div class=\"panel-elem-link\">
-            <z-link icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_self\" url=\"http://www.google.it\"></z-link>
+            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_self\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -229,7 +229,7 @@ describe("Suite test ZPanelElem", () => {
             </a>
           </div>
           <div class=\"panel-elem-link\">
-            <z-link icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_self\" url=\"http://www.google.it\"></z-link>
+            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_self\" href=\"http://www.google.it\">label</z-link>
           </div>
           <div class="panel-elem-desc body-long-01">
             <slot name="slotname" />
@@ -256,7 +256,7 @@ describe("Suite test ZPanelElem", () => {
             </a>
           </div>
           <div class=\"panel-elem-link\">
-            <z-link icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_self\" url=\"http://www.google.it\"></z-link>
+            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_self\" href=\"http://www.google.it\">label</z-link>
           </div>
           <div class="panel-elem-desc body-long-01">
             <slot name=\"slotname\"></slot>
@@ -285,7 +285,7 @@ describe("Suite test ZPanelElem", () => {
               <img src="exampleImgUrl" />
           </div>
           <div class=\"panel-elem-link\">
-            <z-link isdisabled icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_blank\" url=\"http://www.google.it\"></z-link>
+            <z-link isdisabled icon="\example\" htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -307,7 +307,7 @@ describe("Suite test ZPanelElem", () => {
               <img alt="exampleAlt" />
           </div>
           <div class=\"panel-elem-link\">
-            <z-link isdisabled icon="\example\" label=\"label\" linkid=\"examplelink_id\" target=\"_self\" url=\"http://www.google.it\"></z-link>
+            <z-link isdisabled icon="\example\" htmlid=\"examplelink_id\" target=\"_self\" href=\"http://www.google.it\">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
