@@ -10,14 +10,14 @@
 }
 
 :host > div.textWrapper > label {
-  display: inline-block;
+  display: block;
   color: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 12px;
-  height: 16px;
   line-height: 16px;
   text-transform: uppercase;
+  text-align: left;
   margin: var(--basex1) 0;
 }
 
