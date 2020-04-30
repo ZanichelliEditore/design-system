@@ -146,7 +146,8 @@
 | ------------- | ------------------------------------------------------ | ------------------ |
 | `inputChange` | Emitted on input value change, returns value, keycode  | `CustomEvent<any>` |
 | `inputCheck`  | Emitted on checkbox check/uncheck, returns id, checked | `CustomEvent<any>` |
-| `stopTyping`  | Emitted on stop typing, returns value                  | `CustomEvent<any>` |
+| `startTyping` | Emitted when user starts typing                        | `CustomEvent<any>` |
+| `stopTyping`  | Emitted when user stops typing, returns value          | `CustomEvent<any>` |
 
 
 ## Methods
