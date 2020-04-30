@@ -5,7 +5,7 @@ import {
   h,
   Method,
   Event,
-  EventEmitter
+  EventEmitter,
 } from "@stencil/core";
 import { InputTypeEnum, InputStatusBean } from "../../beans";
 import { randomId } from "../../utils/utils";
@@ -16,9 +16,9 @@ import { randomId } from "../../utils/utils";
     "styles.css",
     "styles-text.css",
     "styles-textarea.css",
-    "styles-checkbox.css"
+    "styles-checkbox.css",
   ],
-  shadow: true
+  shadow: true,
 })
 export class ZInput {
   /** the id of the input element */
@@ -57,7 +57,7 @@ export class ZInput {
   private statusIcons = {
     success: "circle-check",
     error: "circle-cross-stroke",
-    warning: "circle-warning"
+    warning: "circle-warning",
   };
   private timer;
 
@@ -94,7 +94,14 @@ export class ZInput {
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
       this.isTyping = false;
+      this.emitStopTyping(this.value);
     }, this.typingtimeout);
+  }
+
+  /** Emitted on stop typing, returns value */
+  @Event() stopTyping: EventEmitter;
+  emitStopTyping(value: string) {
+    this.stopTyping.emit({ value: value });
   }
 
   /** Emitted on checkbox check/uncheck, returns id, checked */
@@ -119,7 +126,7 @@ export class ZInput {
         ${this.isTyping && "istyping"}
         ${!this.isTyping && this.value && "filled"}
       `,
-      onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode)
+      onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode),
     };
   }
 
