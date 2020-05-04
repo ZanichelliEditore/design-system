@@ -87,14 +87,31 @@ export class ZInput {
   /** Emitted on input value change, returns value, keycode */
   @Event() inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number) {
-    this.isTyping = true;
+    if (!this.isTyping) {
+      this.emitStartTyping();
+    }
+
     this.value = value;
     this.inputChange.emit({ value, keycode });
 
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      this.isTyping = false;
+      this.emitStopTyping(this.value);
     }, this.typingtimeout);
+  }
+
+  /** Emitted when user starts typing */
+  @Event() startTyping: EventEmitter;
+  emitStartTyping() {
+    this.isTyping = true;
+    this.startTyping.emit();
+  }
+
+  /** Emitted when user stops typing, returns value */
+  @Event() stopTyping: EventEmitter;
+  emitStopTyping(value: string) {
+    this.isTyping = false;
+    this.stopTyping.emit({ value: value });
   }
 
   /** Emitted on checkbox check/uncheck, returns id, checked */

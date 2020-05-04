@@ -9,7 +9,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button>
+      <z-button style="pointer-events: auto;">
         <mock:shadow-root>
           <button type="button" class="primary false">
             <slot></slot>
@@ -25,7 +25,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button>label</z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button>
+      <z-button style="pointer-events: auto;">
         <mock:shadow-root>
           <button type="button" class="primary false">
             <slot></slot>
@@ -42,7 +42,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button icon="icon"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button icon="icon">
+      <z-button style="pointer-events: auto;" icon="icon">
         <mock:shadow-root>
           <button type="button" class="primary false">
             <z-icon name="icon" height="16" width="16"></z-icon>
@@ -59,7 +59,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button variant="secondary"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button Variant="secondary">
+      <z-button style="pointer-events: auto;" variant="secondary">
         <mock:shadow-root>
           <button type="button" class="secondary false">
             <slot></slot>
@@ -75,7 +75,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button issmall="true"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button issmall="true">
+      <z-button style="pointer-events: auto;" issmall="true">
         <mock:shadow-root>
           <button type="button" class="primary small">
             <slot></slot>
@@ -91,7 +91,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button disabled></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button disabled>
+      <z-button disabled  style="pointer-events: none;">
         <mock:shadow-root>
           <button type="button" class="primary false" disabled>
             <slot></slot>
