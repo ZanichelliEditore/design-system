@@ -59,7 +59,7 @@ export class ZCombobox {
 
   @Watch("items")
   watchItems() {
-    console.log('watchItems');
+    console.log("watchItems");
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
@@ -68,8 +68,11 @@ export class ZCombobox {
 
   @Listen("inputCheck")
   inputCheckListener(e: CustomEvent) {
-    console.log('inputCheckListener');
+    console.log("inputCheckListener");
     const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
+
+    if (id === "select-all") return this.selectAll();
+
     this.itemsList = this.itemsList.map((item: ComboItemBean) => {
       if (item.id === id) item.checked = e.detail.checked;
       return item;
@@ -81,7 +84,7 @@ export class ZCombobox {
   /** Emitted when value is checked/unchecked. Returns id, items. */
   @Event() comboboxChange: EventEmitter;
   emitComboboxChange() {
-    console.log('emitComboboxChange', this.itemsList);
+    console.log("emitComboboxChange", this.itemsList);
     this.comboboxChange.emit({ id: this.inputid, items: this.itemsList });
   }
 
@@ -95,7 +98,7 @@ export class ZCombobox {
   }
 
   componentWillRender() {
-    console.log('componentWillRender',this.itemsList);
+    console.log("componentWillRender", this.itemsList);
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
     if (this.searchValue) {
       this.filterItems(this.searchValue);
@@ -103,7 +106,7 @@ export class ZCombobox {
   }
 
   resetRenderItemsList(): void {
-    console.log('resetRenderItemsList', this.itemsList);
+    console.log("resetRenderItemsList", this.itemsList);
     this.renderItemsList = [];
     this.itemsList.forEach((item: any) => {
       this.renderItemsList.push({ ...item });
@@ -129,9 +132,12 @@ export class ZCombobox {
     });
   }
 
-  selectAll() {
-    console.log('select all', this.itemsList);
-    this.itemsList = this.itemsList.map(item => ({...item, checked: true}));
+  selectAll(): void {
+    console.log("select all", this.itemsList);
+    this.itemsList = this.itemsList.map((item: ComboItemBean) => ({
+      ...item,
+      checked: true
+    }));
     console.log(this.itemsList);
     this.resetRenderItemsList();
     this.emitComboboxChange();
@@ -271,7 +277,15 @@ export class ZCombobox {
   }
 
   renderSelectAll() {
-    return <z-link onClick={() => this.selectAll()}>{this.selectalllabel}</z-link>;
+    return (
+      <z-input
+        type={InputTypeEnum.checkbox}
+        checked={this.selectedCounter === this.itemsList.length}
+        htmlid={`combo-checkbox-${this.inputid}-select-all`}
+        id="selectAll"
+        label={this.selectalllabel}
+      />
+    );
   }
 
   render(): HTMLDivElement {
