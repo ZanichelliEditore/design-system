@@ -63,7 +63,6 @@ export class ZCombobox {
 
   @Watch("items")
   watchItems() {
-    console.log("watchItems");
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
@@ -72,7 +71,6 @@ export class ZCombobox {
 
   @Listen("inputCheck")
   inputCheckListener(e: CustomEvent) {
-    console.log("inputCheckListener", e.detail);
     const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
 
     if (
@@ -94,7 +92,6 @@ export class ZCombobox {
   /** Emitted when value is checked/unchecked. Returns id, items. */
   @Event() comboboxChange: EventEmitter;
   emitComboboxChange() {
-    console.log("emitComboboxChange", this.itemsList);
     this.comboboxChange.emit({ id: this.inputid, items: this.itemsList });
   }
 
@@ -108,7 +105,6 @@ export class ZCombobox {
   }
 
   componentWillRender() {
-    console.log("componentWillRender", this.itemsList);
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
     if (this.searchValue) {
       this.filterItems(this.searchValue);
@@ -116,7 +112,6 @@ export class ZCombobox {
   }
 
   resetRenderItemsList(): void {
-    console.log("resetRenderItemsList", this.itemsList);
     this.renderItemsList = [];
     this.itemsList.forEach((item: any) => {
       this.renderItemsList.push({ ...item });
@@ -143,12 +138,10 @@ export class ZCombobox {
   }
 
   checkAll(checked = true): void {
-    console.log("select all", this.itemsList);
     this.itemsList = this.itemsList.map((item: ComboItemBean) => ({
       ...item,
       checked: checked
     }));
-    console.log(this.itemsList);
     this.resetRenderItemsList();
     this.emitComboboxChange();
   }
