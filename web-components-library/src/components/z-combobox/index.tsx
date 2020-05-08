@@ -51,8 +51,8 @@ export class ZCombobox {
   @Prop() checkalllabel?: string = "Seleziona tutti";
   /** uncheck all label (optional) */
   @Prop() uncheckalllabel?: string = "Deseleziona tutti";
-
-  // TODO: num max items
+  /** max number of checkable items (0 = unlimited) */
+  @Prop() maxcheckableitems: number = 0;
 
   @State() searchValue: string;
   @State() selectedCounter: number;
@@ -75,7 +75,13 @@ export class ZCombobox {
     console.log("inputCheckListener", e.detail);
     const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
 
-    if (id === "check-all") return this.checkAll(e.detail.checked);
+    if (
+      id === "check-all" &&
+      (!this.maxcheckableitems ||
+        this.maxcheckableitems >= this.itemsList.length)
+    ) {
+      return this.checkAll(e.detail.checked);
+    }
 
     this.itemsList = this.itemsList.map((item: ComboItemBean) => {
       if (item.id === id) item.checked = e.detail.checked;
@@ -223,6 +229,11 @@ export class ZCombobox {
                 checked={item.checked}
                 htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
                 label={item.name}
+                disabled={
+                  !item.checked &&
+                  this.maxcheckableitems &&
+                  this.maxcheckableitems === this.selectedCounter
+                }
               />
             </z-list-item>
           );
