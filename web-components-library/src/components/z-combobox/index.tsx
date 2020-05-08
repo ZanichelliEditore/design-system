@@ -45,10 +45,14 @@ export class ZCombobox {
   @Prop() isfixed: boolean = false;
   /** close combobox list text */
   @Prop() closesearchtext?: string = "Chiudi";
+  /** show "check all" checkbox (optional) */
+  @Prop() hascheckall?: boolean = false;
+  /** check all label (optional) */
+  @Prop() checkalllabel?: string = "Seleziona tutti";
+  /** uncheck all label (optional) */
+  @Prop() uncheckalllabel?: string = "Deseleziona tutti";
 
-  // TODO: DOC
-  @Prop() hasselectall?: boolean = false;
-  @Prop() selectalllabel?: string = "Seleziona tutti";
+  // TODO: num max items
 
   @State() searchValue: string;
   @State() selectedCounter: number;
@@ -68,10 +72,10 @@ export class ZCombobox {
 
   @Listen("inputCheck")
   inputCheckListener(e: CustomEvent) {
-    console.log("inputCheckListener");
+    console.log("inputCheckListener", e.detail);
     const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
 
-    if (id === "select-all") return this.selectAll();
+    if (id === "check-all") return this.checkAll(e.detail.checked);
 
     this.itemsList = this.itemsList.map((item: ComboItemBean) => {
       if (item.id === id) item.checked = e.detail.checked;
@@ -132,11 +136,11 @@ export class ZCombobox {
     });
   }
 
-  selectAll(): void {
+  checkAll(checked = true): void {
     console.log("select all", this.itemsList);
     this.itemsList = this.itemsList.map((item: ComboItemBean) => ({
       ...item,
-      checked: true
+      checked: checked
     }));
     console.log(this.itemsList);
     this.resetRenderItemsList();
@@ -183,7 +187,7 @@ export class ZCombobox {
     return (
       <div class="openComboData">
         {this.hassearch && this.renderSearchInput()}
-        {this.hasselectall && this.renderSelectAll()}
+        {this.hascheckall && this.renderCheckAll()}
         {this.renderItems()}
       </div>
     );
@@ -276,15 +280,17 @@ export class ZCombobox {
     );
   }
 
-  renderSelectAll() {
+  renderCheckAll() {
+    const allChecked = this.selectedCounter === this.itemsList.length;
     return (
-      <z-input
-        type={InputTypeEnum.checkbox}
-        checked={this.selectedCounter === this.itemsList.length}
-        htmlid={`combo-checkbox-${this.inputid}-select-all`}
-        id="selectAll"
-        label={this.selectalllabel}
-      />
+      <div class="checkAllWrapper">
+        <z-input
+          type={InputTypeEnum.checkbox}
+          checked={allChecked}
+          htmlid={`combo-checkbox-${this.inputid}-check-all`}
+          label={allChecked ? this.uncheckalllabel : this.checkalllabel}
+        />
+      </div>
     );
   }
 
