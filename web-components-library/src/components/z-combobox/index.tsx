@@ -293,6 +293,10 @@ export class ZCombobox {
           checked={allChecked}
           htmlid={`combo-checkbox-${this.inputid}-check-all`}
           label={allChecked ? this.uncheckalllabel : this.checkalllabel}
+          disabled={
+            this.maxcheckableitems &&
+            this.maxcheckableitems < this.itemsList.length
+          }
         />
       </div>
     );
