@@ -16,10 +16,6 @@ export function randomId(): string {
     .replace("0.", "");
 }
 
-export function cleanJsonString(string: string): string {
-  return string.replace(/(&quot\;)/g, '"');
-}
-
 export function handleKeyboardSubmit(
   ev: KeyboardEvent,
   callback: Function,
