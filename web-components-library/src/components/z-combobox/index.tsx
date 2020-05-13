@@ -15,7 +15,7 @@ import {
   keybordKeyCodeEnum
 } from "../../beans";
 import { ZInput } from "../z-input";
-import { handleKeyboardSubmit } from "../../utils/utils";
+import { cleanJsonString, handleKeyboardSubmit } from "../../utils/utils";
 
 @Component({
   tag: "z-combobox",
@@ -64,7 +64,9 @@ export class ZCombobox {
   @Watch("items")
   watchItems() {
     this.itemsList =
-      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+      typeof this.items === "string"
+        ? JSON.parse(cleanJsonString(this.items))
+        : this.items;
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
     this.resetRenderItemsList();
   }
