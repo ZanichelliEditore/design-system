@@ -5,9 +5,15 @@ import {
   h,
   Method,
   Event,
-  EventEmitter
+  EventEmitter,
+  Watch
 } from "@stencil/core";
-import { InputTypeEnum, InputStatusBean } from "../../beans";
+import {
+  InputTypeBean,
+  InputTypeEnum,
+  InputStatusBean,
+  SelectItemBean
+} from "../../beans";
 import { randomId } from "../../utils/utils";
 
 @Component({
@@ -16,7 +22,8 @@ import { randomId } from "../../utils/utils";
     "styles.css",
     "styles-text.css",
     "styles-textarea.css",
-    "styles-checkbox.css"
+    "styles-checkbox.css",
+    "styles-select.css"
   ],
   shadow: true
 })
@@ -24,7 +31,7 @@ export class ZInput {
   /** the id of the input element */
   @Prop() htmlid: string = randomId();
   /** input types */
-  @Prop() type: HTMLInputElement["type"];
+  @Prop() type: InputTypeBean;
   /** the input name */
   @Prop() name?: string;
   /** the input label */
@@ -49,10 +56,13 @@ export class ZInput {
   @Prop() labelafter?: boolean = true;
   /** timeout setting before trigger `inputChange` event (optional) */
   @Prop() typingtimeout?: number = 300;
+  /** items: available for select */
+  @Prop() items?: SelectItemBean[] | string;
 
   @State() isTyping: boolean = false;
   @State() textareaWrapperHover: string = "";
   @State() textareaWrapperFocus: string = "";
+  @State() isOpen: boolean = false;
 
   private statusIcons = {
     success: "circle-check",
@@ -60,6 +70,13 @@ export class ZInput {
     warning: "circle-warning"
   };
   private timer;
+  private itemsList: SelectItemBean[] = [];
+
+  @Watch("items")
+  watchItems() {
+    this.itemsList =
+      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+  }
 
   /** get the input value */
   @Method()
@@ -118,6 +135,12 @@ export class ZInput {
   @Event() inputCheck: EventEmitter;
   emitInputCheck(checked: boolean) {
     this.inputCheck.emit({ id: this.htmlid, checked: checked });
+  }
+
+  componentWillLoad() {
+    if (this.type === InputTypeEnum.select) {
+      this.watchItems();
+    }
   }
 
   /* START text/password/email/number */
@@ -265,6 +288,66 @@ export class ZInput {
 
   /* END checkbox */
 
+  /* START select */
+
+  renderSelect() {
+    return (
+      <div class="selectWrapper">
+        {this.renderLabel()}
+        {this.renderSelectUl()}
+      </div>
+    );
+  }
+
+  renderSelectUl() {
+    const selectedItem = this.itemsList.find(
+      (item: SelectItemBean) => item.selected === true
+    );
+
+    return (
+      <div>
+        <ul
+          role="listbox"
+          tabindex="0"
+          id={this.htmlid}
+          aria-activedescendant={selectedItem && selectedItem.id}
+          class={this.isOpen ? "open" : "closed"}
+          onClick={() => (this.isOpen = !this.isOpen)}
+        >
+          {this.renderSelectedItem(selectedItem)}
+          {this.renderSelectItems()}
+        </ul>
+      </div>
+    );
+  }
+
+  renderSelectedItem(selectedItem: null | SelectItemBean) {
+    return (
+      <li class="selected">
+        <span>{selectedItem ? selectedItem.name : "SELECT HERE!!"}</span>
+        <z-icon name="drop-down" />
+      </li>
+    );
+  }
+
+  renderSelectItems() {
+    if (!this.isOpen) return;
+
+    return this.itemsList.map((item: SelectItemBean) => (
+      <li
+        role="option"
+        tabindex={item.disabled ? -1 : 0}
+        data-value={item.id}
+        aria-selected={!!item.selected}
+        class={item.disabled && "disabled"}
+      >
+        <span>{item.name}</span>
+      </li>
+    ));
+  }
+
+  /* END select */
+
   render() {
     switch (this.type) {
       case InputTypeEnum.text:
@@ -276,6 +359,8 @@ export class ZInput {
         return this.renderTextarea();
       case InputTypeEnum.checkbox:
         return this.renderCheckbox();
+      case InputTypeEnum.select:
+        return this.renderSelect();
       default:
         return this.renderInputText();
     }

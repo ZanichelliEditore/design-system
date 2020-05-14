@@ -12,9 +12,23 @@
   z-index: 0;
 }
 
+:host label {
+  display: block;
+}
+
+:host label.disabledLabel {
+  color: var(--text-grey-700);
+}
+
 :host > .checkboxWrapper > label.checkboxLabel {
   display: inline-flex;
   line-height: 16px;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+  margin: 0;
 }
 
 :host > .checkboxWrapper > label.checkboxLabel.after {

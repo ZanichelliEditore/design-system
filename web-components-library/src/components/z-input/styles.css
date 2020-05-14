@@ -1,10 +1,12 @@
 :host {
   display: inline-block;
+  width: inherit;
 }
 
 /* GENERAL */
 :host input,
-:host textarea {
+:host textarea,
+:host ul[role="listbox"] {
   background: var(--bg-white);
   border-radius: 0px;
   border: var(--border-size-small) solid var(--bg-grey-200);
@@ -25,6 +27,7 @@
 
 /* FOCUS */
 :host input:focus,
+:host ul[role="listbox"].closed:focus,
 :host .focus {
   border-color: transparent;
   box-shadow: 0 0 2px 2px var(--accent-dark);
@@ -33,6 +36,7 @@
 /* HOVER */
 :host input:hover,
 :host textarea:hover,
+:host ul[role="listbox"].closed:hover,
 :host .hover {
   background: var(--bg-grey-050) !important;
   border-color: var(--text-grey-800) !important;
@@ -42,7 +46,8 @@
 :host input[readonly],
 :host .readonly,
 :host input[readonly].filled,
-:host .readonly.filled {
+:host .readonly.filled,
+:host ul[role="listbox"].closed[readonly] {
   border-color: var(--text-grey-200) !important;
   color: var(--text-grey-800) !important;
 }
@@ -50,7 +55,8 @@
 /* READONLY - hover */
 :host input[readonly]:hover,
 :host textarea[readonly]:hover,
-:host .readonly.hover {
+:host .readonly.hover,
+:host ul[role="listbox"].closed[readonly]:hover {
   background: var(--bg-white);
 }
 
@@ -60,7 +66,9 @@
 :host .filled:disabled,
 :host input:disabled:hover,
 :host textarea:disabled:hover,
-:host .disabled.hover {
+:host .disabled.hover,
+:host ul[role="listbox"].closed:disabled,
+:host ul[role="listbox"].closed:disabled:hover {
   background: var(--bg-white) !important;
   border-color: var(--bg-grey-200) !important;
   box-shadow: none !important;
@@ -115,5 +123,22 @@
   color: var(--text-grey-700);
 }
 :-moz-placeholder {
+  color: var(--text-grey-700);
+}
+
+/* LABEL */
+:host label {
+  display: block;
+  color: var(--text-grey-800);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  text-align: left;
+  margin: var(--basex1) 0;
+}
+
+:host label.disabledLabel {
   color: var(--text-grey-700);
 }
