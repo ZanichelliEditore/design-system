@@ -76,6 +76,10 @@ export class ZInput {
   watchItems() {
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    const selectedItem = this.itemsList.find(
+      (item: SelectItemBean) => item.selected
+    );
+    if (selectedItem) this.value = selectedItem.id;
   }
 
   /** get the input value */
@@ -135,6 +139,13 @@ export class ZInput {
   @Event() inputCheck: EventEmitter;
   emitInputCheck(checked: boolean) {
     this.inputCheck.emit({ id: this.htmlid, checked: checked });
+  }
+
+  /** Emitted on select option selection, returns select id, selected option id */
+  @Event() optionSelect: EventEmitter;
+  emitOptionSelect(value: string) {
+    this.value = value;
+    this.optionSelect.emit({ id: this.htmlid, selected: value });
   }
 
   componentWillLoad() {
@@ -337,13 +348,25 @@ export class ZInput {
       <li
         role="option"
         tabindex={item.disabled ? -1 : 0}
-        data-value={item.id}
         aria-selected={!!item.selected}
         class={item.disabled && "disabled"}
+        onClick={() => this.selectItem(item)}
       >
         <span>{item.name}</span>
       </li>
     ));
+  }
+
+  selectItem(item: SelectItemBean) {
+    if (item.disabled) return;
+
+    this.itemsList = this.itemsList.map((i: SelectItemBean) => {
+      if (i.selected) i.selected = false;
+      if (i === item) i.selected = true;
+      return i;
+    });
+
+    this.emitOptionSelect(item.id);
   }
 
   /* END select */
