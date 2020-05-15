@@ -9,7 +9,7 @@
   list-style: none;
   height: 44px;
   line-height: 44px;
-  width: 100%;
+  min-width: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;

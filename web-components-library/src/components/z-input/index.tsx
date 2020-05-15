@@ -306,33 +306,39 @@ export class ZInput {
       <div class="selectWrapper">
         {this.renderLabel()}
         {this.renderSelectUl()}
+        {this.renderMessage()}
       </div>
     );
   }
 
   renderSelectUl() {
-    const selectedItem = this.itemsList.find(
-      (item: SelectItemBean) => item.selected === true
-    );
-
     return (
       <div>
         <ul
           role="listbox"
-          tabindex="0"
+          tabindex={this.disabled || this.readonly ? -1 : 0}
           id={this.htmlid}
-          aria-activedescendant={selectedItem && selectedItem.id}
-          class={this.isOpen ? "open" : "closed"}
+          aria-activedescendant={this.value}
+          class={`
+            ${this.isOpen ? "open" : "closed"}
+            ${this.disabled && " disabled"}
+            ${this.readonly && " readonly"}
+            ${this.status ? "input_" + this.status : "input_default"}
+          `}
           onClick={() => (this.isOpen = !this.isOpen)}
         >
-          {this.renderSelectedItem(selectedItem)}
+          {this.renderSelectedItem()}
           {this.renderSelectItems()}
         </ul>
       </div>
     );
   }
 
-  renderSelectedItem(selectedItem: null | SelectItemBean) {
+  renderSelectedItem() {
+    const selectedItem = this.itemsList.find(
+      (item: SelectItemBean) => item.selected === true
+    );
+
     return (
       <li class="selected">
         <span>{selectedItem ? selectedItem.name : "SELECT HERE!!"}</span>
