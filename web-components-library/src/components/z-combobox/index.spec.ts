@@ -262,10 +262,10 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con check all", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" hascheckall="true" checkalllabel="CHECK" uncheckalllabel="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
+      html: `<z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
     });
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" hascheckall="true" checkalllabel="CHECK" uncheckalllabel="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
@@ -296,10 +296,10 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con uncheck all", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" hascheckall="true" checkalllabel="CHECK" uncheckalllabel="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
+      html: `<z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
     });
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" hascheckall="true" checkalllabel="CHECK" uncheckalllabel="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
@@ -361,10 +361,10 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con maxcheckableitems + check all", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" maxcheckableitems="3" hascheckall="true" checkalllabel="CHECK" uncheckalllabel="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'></z-combobox>`
+      html: `<z-combobox inputid="combo" label="combo" maxcheckableitems="3" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'></z-combobox>`
     });
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" maxcheckableitems="3" hascheckall="true" checkalllabel="CHECK" uncheckalllabel="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
+      <z-combobox inputid="combo" label="combo" maxcheckableitems="3" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
         <mock:shadow-root>
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
@@ -395,10 +395,10 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con maxcheckableitems + check all (disabled)", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" maxcheckableitems="1" hascheckall="true" checkalllabel="CHECK" uncheckalllabel="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'></z-combobox>`
+      html: `<z-combobox inputid="combo" label="combo" maxcheckableitems="1" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'></z-combobox>`
     });
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" maxcheckableitems="1" hascheckall="true" checkalllabel="CHECK" uncheckalllabel="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
+      <z-combobox inputid="combo" label="combo" maxcheckableitems="1" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
         <mock:shadow-root>
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
