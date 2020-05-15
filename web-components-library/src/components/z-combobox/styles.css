@@ -143,6 +143,6 @@
 }
 
 :host > div.open > div.openComboData > div.checkAllWrapper {
-  padding: var(--basex1) var(--half-x1);
+  padding: var(--basex2) var(--half-x1);
   text-align: left;
 }

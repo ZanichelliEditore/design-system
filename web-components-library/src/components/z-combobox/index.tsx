@@ -64,9 +64,7 @@ export class ZCombobox {
   @Watch("items")
   watchItems() {
     this.itemsList =
-      typeof this.items === "string"
-        ? JSON.parse(this.items)
-        : this.items;
+      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
     this.resetRenderItemsList();
   }
@@ -287,6 +285,8 @@ export class ZCombobox {
   }
 
   renderCheckAll() {
+    if (this.searchValue) return;
+
     const allChecked = this.selectedCounter === this.itemsList.length;
     return (
       <div class="checkAllWrapper">
