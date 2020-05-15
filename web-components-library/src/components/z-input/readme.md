@@ -143,12 +143,13 @@
 
 ## Events
 
-| Event         | Description                                            | Type               |
-| ------------- | ------------------------------------------------------ | ------------------ |
-| `inputChange` | Emitted on input value change, returns value, keycode  | `CustomEvent<any>` |
-| `inputCheck`  | Emitted on checkbox check/uncheck, returns id, checked | `CustomEvent<any>` |
-| `startTyping` | Emitted when user starts typing                        | `CustomEvent<any>` |
-| `stopTyping`  | Emitted when user stops typing, returns value          | `CustomEvent<any>` |
+| Event          | Description                                                               | Type               |
+| -------------- | ------------------------------------------------------------------------- | ------------------ |
+| `inputChange`  | Emitted on input value change, returns value, keycode                     | `CustomEvent<any>` |
+| `inputCheck`   | Emitted on checkbox check/uncheck, returns id, checked                    | `CustomEvent<any>` |
+| `optionSelect` | Emitted on select option selection, returns select id, selected option id | `CustomEvent<any>` |
+| `startTyping`  | Emitted when user starts typing                                           | `CustomEvent<any>` |
+| `stopTyping`   | Emitted when user stops typing, returns value                             | `CustomEvent<any>` |
 
 
 ## Methods
