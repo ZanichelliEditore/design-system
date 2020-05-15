@@ -66,7 +66,11 @@ export class ZCombobox {
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
-    this.resetRenderItemsList();
+    if (this.searchValue) {
+      this.filterItems(this.searchValue);
+    } else {
+      this.resetRenderItemsList();
+    }
   }
 
   @Listen("inputCheck")
