@@ -32,7 +32,7 @@
 
 | Property            | Attribute           | Description                                   | Type                        | Default               |
 | ------------------- | ------------------- | --------------------------------------------- | --------------------------- | --------------------- |
-| `checkalllabel`     | `checkalllabel`     | check all label (optional)                    | `string`                    | `"Seleziona tutti"`   |
+| `checkalltext`      | `checkalltext`      | check all label (optional)                    | `string`                    | `"Seleziona tutti"`   |
 | `closesearchtext`   | `closesearchtext`   | close combobox list text                      | `string`                    | `"Chiudi"`            |
 | `hascheckall`       | `hascheckall`       | show "check all" checkbox (optional)          | `boolean`                   | `false`               |
 | `hassearch`         | `hassearch`         | show search input flag (optional)             | `boolean`                   | `false`               |
@@ -46,7 +46,7 @@
 | `searchlabel`       | `searchlabel`       | search input label text (optional)            | `string`                    | `undefined`           |
 | `searchplaceholder` | `searchplaceholder` | search input placeholder text (optional)      | `string`                    | `undefined`           |
 | `searchtitle`       | `searchtitle`       | search input title text (optional)            | `string`                    | `undefined`           |
-| `uncheckalllabel`   | `uncheckalllabel`   | uncheck all label (optional)                  | `string`                    | `"Deseleziona tutti"` |
+| `uncheckalltext`    | `uncheckalltext`    | uncheck all label (optional)                  | `string`                    | `"Deseleziona tutti"` |
 
 
 ## Events
