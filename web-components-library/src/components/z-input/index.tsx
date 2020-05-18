@@ -12,9 +12,15 @@ import {
   InputTypeBean,
   InputTypeEnum,
   InputStatusBean,
-  SelectItemBean
+  SelectItemBean,
+  keybordKeyCodeEnum
 } from "../../beans";
-import { randomId, handleKeyboardSubmit } from "../../utils/utils";
+import {
+  randomId,
+  handleKeyboardSubmit,
+  getClickedElement,
+  getElementTree
+} from "../../utils/utils";
 
 @Component({
   tag: "z-input",
@@ -75,6 +81,7 @@ export class ZInput {
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
     this.selectItem = this.selectItem.bind(this);
+    this.handleSelectFocus = this.handleSelectFocus.bind(this);
   }
 
   @Watch("items")
@@ -334,7 +341,7 @@ export class ZInput {
             ${this.readonly && " readonly"}
             ${this.status ? "input_" + this.status : "input_default"}
           `}
-          onClick={() => (this.isOpen = !this.isOpen)}
+          onClick={this.toggleSelectUl}
           onKeyUp={(e: KeyboardEvent) =>
             handleKeyboardSubmit(e, this.toggleSelectUl)
           }
@@ -391,7 +398,32 @@ export class ZInput {
   }
 
   toggleSelectUl() {
+    if (!this.isOpen) {
+      document.addEventListener("click", this.handleSelectFocus);
+      document.addEventListener("keyup", this.handleSelectFocus);
+    } else {
+      document.removeEventListener("click", this.handleSelectFocus);
+      document.removeEventListener("keyup", this.handleSelectFocus);
+    }
+
     this.isOpen = !this.isOpen;
+  }
+
+  handleSelectFocus(e: MouseEvent | KeyboardEvent) {
+    if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB)
+      return;
+
+    const tree = getElementTree(getClickedElement());
+    const parent = tree.find(
+      (elem: any) =>
+        elem.nodeName.toLowerCase() === "ul" && elem.id === this.htmlid
+    );
+
+    if (!parent) {
+      document.removeEventListener("click", this.handleSelectFocus);
+      document.removeEventListener("keyup", this.handleSelectFocus);
+      this.isOpen = false;
+    }
   }
 
   /* END select */
