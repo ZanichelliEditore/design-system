@@ -6,7 +6,8 @@ import {
   Method,
   Event,
   EventEmitter,
-  Watch
+  Watch,
+  Element
 } from "@stencil/core";
 import {
   InputTypeBean,
@@ -34,6 +35,8 @@ import {
   shadow: true
 })
 export class ZInput {
+  @Element() hostElement: HTMLElement;
+
   /** the id of the input element */
   @Prop() htmlid: string = randomId();
   /** input types */
@@ -77,6 +80,7 @@ export class ZInput {
   };
   private timer;
   private itemsList: SelectItemBean[] = [];
+  private selectedItem: SelectItemBean;
 
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
@@ -88,14 +92,14 @@ export class ZInput {
   watchItems() {
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-    let selectedItem = this.itemsList.find(
+    this.selectedItem = this.itemsList.find(
       (item: SelectItemBean) => item.selected
     );
-    if (!selectedItem) {
+    if (!this.selectedItem) {
       this.itemsList[0].selected = true;
-      selectedItem = this.itemsList[0];
+      this.selectedItem = this.itemsList[0];
     }
-    this.value = selectedItem.id;
+    this.value = this.selectedItem.id;
   }
 
   /** get the input value */
@@ -159,9 +163,10 @@ export class ZInput {
 
   /** Emitted on select option selection, returns select id, selected option id */
   @Event() optionSelect: EventEmitter;
-  emitOptionSelect(value: string) {
-    this.value = value;
-    this.optionSelect.emit({ id: this.htmlid, selected: value });
+  emitOptionSelect(item: SelectItemBean) {
+    this.value = item.id;
+    this.selectedItem = item;
+    this.optionSelect.emit({ id: this.htmlid, selected: item.id });
   }
 
   componentWillLoad() {
@@ -345,6 +350,9 @@ export class ZInput {
           onKeyUp={(e: KeyboardEvent) =>
             handleKeyboardSubmit(e, this.toggleSelectUl)
           }
+          onKeyDown={(e: KeyboardEvent) =>
+            this.arrowsSelectNav(e, this.itemsList.indexOf(this.selectedItem))
+          }
         >
           {this.renderSelectedItem()}
           {this.renderSelectItems()}
@@ -354,13 +362,9 @@ export class ZInput {
   }
 
   renderSelectedItem() {
-    const selectedItem = this.itemsList.find(
-      (item: SelectItemBean) => item.selected === true
-    );
-
     return (
       <li class="selected">
-        <span>{selectedItem.name}</span>
+        <span>{this.selectedItem.name}</span>
         <z-icon name="drop-down" />
       </li>
     );
@@ -369,16 +373,18 @@ export class ZInput {
   renderSelectItems() {
     if (!this.isOpen) return;
 
-    return this.itemsList.map((item: SelectItemBean) => (
+    return this.itemsList.map((item: SelectItemBean, key) => (
       <li
         role="option"
         tabindex={item.disabled ? -1 : 0}
         aria-selected={!!item.selected}
         class={item.disabled && "disabled"}
+        id={`${this.htmlid}_${key}`}
         onClick={() => this.selectItem(item)}
         onKeyUp={(e: KeyboardEvent) =>
           handleKeyboardSubmit(e, this.selectItem, item)
         }
+        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
         <span>{item.name}</span>
       </li>
@@ -394,7 +400,27 @@ export class ZInput {
       return i;
     });
 
-    this.emitOptionSelect(item.id);
+    this.emitOptionSelect(item);
+  }
+
+  arrowsSelectNav(e: KeyboardEvent, key: number) {
+    const arrows = [keybordKeyCodeEnum.ARROW_DOWN, keybordKeyCodeEnum.ARROW_UP];
+    if (!arrows.includes(e.keyCode)) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    let index: number;
+    if (e.keyCode === keybordKeyCodeEnum.ARROW_DOWN) {
+      index = key + 1 === this.itemsList.length ? 0 : key + 1;
+    } else if (e.keyCode === keybordKeyCodeEnum.ARROW_UP) {
+      index = key <= 0 ? this.itemsList.length - 1 : key - 1;
+    }
+
+    const focusElem = this.hostElement.shadowRoot.getElementById(
+      `${this.htmlid}_${index}`
+    );
+    if (focusElem) focusElem.focus();
   }
 
   toggleSelectUl() {
@@ -404,14 +430,21 @@ export class ZInput {
     } else {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
+      this.hostElement.shadowRoot.getElementById(this.htmlid).focus();
     }
 
     this.isOpen = !this.isOpen;
   }
 
   handleSelectFocus(e: MouseEvent | KeyboardEvent) {
-    if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB)
+    if (e instanceof KeyboardEvent && e.keyCode === keybordKeyCodeEnum.ESC) {
+      e.stopPropagation();
+      return this.toggleSelectUl();
+    }
+
+    if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB) {
       return;
+    }
 
     const tree = getElementTree(getClickedElement());
     const parent = tree.find(
@@ -420,9 +453,7 @@ export class ZInput {
     );
 
     if (!parent) {
-      document.removeEventListener("click", this.handleSelectFocus);
-      document.removeEventListener("keyup", this.handleSelectFocus);
-      this.isOpen = false;
+      this.toggleSelectUl();
     }
   }
 
