@@ -16,11 +16,6 @@ a {
   padding: var(--half-x1) 0;
   border-top: var(--border-base) solid transparent;
   border-bottom: var(--border-base) solid transparent;
-  outline: none;
-}
-
-a::-moz-focus-inner {
-  border: 0;
 }
 
 a:hover {
