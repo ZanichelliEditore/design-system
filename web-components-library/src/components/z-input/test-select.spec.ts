@@ -1,0 +1,93 @@
+import { newSpecPage } from "@stencil/core/testing";
+
+import { ZInput } from "./index";
+
+describe("Suite test ZInput - select", () => {
+  it("Test render ZInput - select chiusa con elementi", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input htmlid="checkid" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'> </z-input>`,
+    });
+    page.rootInstance.isOpen = false;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+        <z-input htmlid="checkid" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'>
+          <mock:shadow-root>
+            <div class="selectWrapper">
+                <label htmlfor="checkid">default</label>
+                <div>
+                    <ul aria-activedescendant="item_0" class="closed false input_default" id="checkid" role="listbox" tabindex="0">
+                        <li class="selected">
+                            <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                            <z-icon name="drop-down"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          </mock:shadow-root>
+        </z-input>
+      `);
+  });
+
+  it("Test render ZInput aperto con elementi", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input htmlid="checkid" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-input>`,
+    });
+    page.rootInstance.isOpen = true;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+        <z-input htmlid="checkid" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
+          <mock:shadow-root>
+            <div class="selectWrapper">
+                <label htmlfor="checkid">default</label>
+                <div>
+                    <ul aria-activedescendant="item_0" class="open false input_default" id="checkid" role="listbox" tabindex="0">
+                        <li class="selected">
+                            <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                            <z-icon name="drop-down"/>
+                        </li>
+                        <li aria-selected="" role="option" tabindex="0">
+                            <span>
+                                SELECT HERE questa opzione con etichetta lunga lunghissima
+                            </span>
+                        </li>
+                        <li role="option" tabindex="0">
+                            <span>
+                                primo elemento
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          </mock:shadow-root>
+        </z-input>
+      `);
+  });
+
+  it("Test render ZInput chiuso disabilitato con elementi", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input htmlid="checkid" disabled type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-input>`,
+    });
+    page.rootInstance.isOpen = false;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+        <z-input htmlid="checkid" disabled type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
+          <mock:shadow-root>
+            <div class="selectWrapper">
+                <label class="disabledLabel" htmlfor="checkid">default</label>
+                <div>
+                    <ul aria-activedescendant="item_0" class="closed false input_default disabled" id="checkid" role="listbox" tabindex="-1">
+                        <li class="selected">
+                            <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                            <z-icon name="drop-down"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          </mock:shadow-root>
+        </z-input>
+      `);
+  });
+});
