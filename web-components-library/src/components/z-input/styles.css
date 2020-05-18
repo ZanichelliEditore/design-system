@@ -28,9 +28,11 @@
 /* FOCUS */
 :host input:focus,
 :host ul[role="listbox"].closed:focus,
+:host li[role="option"]:focus,
 :host .focus {
   border-color: transparent;
   box-shadow: 0 0 2px 2px var(--accent-dark);
+  outline: none;
 }
 
 /* HOVER */

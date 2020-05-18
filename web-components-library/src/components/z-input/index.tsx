@@ -14,7 +14,7 @@ import {
   InputStatusBean,
   SelectItemBean
 } from "../../beans";
-import { randomId } from "../../utils/utils";
+import { randomId, handleKeyboardSubmit } from "../../utils/utils";
 
 @Component({
   tag: "z-input",
@@ -72,14 +72,23 @@ export class ZInput {
   private timer;
   private itemsList: SelectItemBean[] = [];
 
+  constructor() {
+    this.toggleSelectUl = this.toggleSelectUl.bind(this);
+    this.selectItem = this.selectItem.bind(this);
+  }
+
   @Watch("items")
   watchItems() {
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-    const selectedItem = this.itemsList.find(
+    let selectedItem = this.itemsList.find(
       (item: SelectItemBean) => item.selected
     );
-    if (selectedItem) this.value = selectedItem.id;
+    if (!selectedItem) {
+      this.itemsList[0].selected = true;
+      selectedItem = this.itemsList[0];
+    }
+    this.value = selectedItem.id;
   }
 
   /** get the input value */
@@ -326,6 +335,9 @@ export class ZInput {
             ${this.status ? "input_" + this.status : "input_default"}
           `}
           onClick={() => (this.isOpen = !this.isOpen)}
+          onKeyUp={(e: KeyboardEvent) =>
+            handleKeyboardSubmit(e, this.toggleSelectUl)
+          }
         >
           {this.renderSelectedItem()}
           {this.renderSelectItems()}
@@ -341,7 +353,7 @@ export class ZInput {
 
     return (
       <li class="selected">
-        <span>{selectedItem ? selectedItem.name : "SELECT HERE!!"}</span>
+        <span>{selectedItem.name}</span>
         <z-icon name="drop-down" />
       </li>
     );
@@ -357,6 +369,9 @@ export class ZInput {
         aria-selected={!!item.selected}
         class={item.disabled && "disabled"}
         onClick={() => this.selectItem(item)}
+        onKeyUp={(e: KeyboardEvent) =>
+          handleKeyboardSubmit(e, this.selectItem, item)
+        }
       >
         <span>{item.name}</span>
       </li>
@@ -373,6 +388,10 @@ export class ZInput {
     });
 
     this.emitOptionSelect(item.id);
+  }
+
+  toggleSelectUl() {
+    this.isOpen = !this.isOpen;
   }
 
   /* END select */

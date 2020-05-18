@@ -73,6 +73,10 @@
   color: var(--text-grey-800);
 }
 
+:host > div.selectWrapper > div > ul.open > li[role="option"]:focus {
+  margin: 2px;
+}
+
 :host > div.selectWrapper > div > ul.open > li[role="option"]:last-child {
   border-bottom: var(--border-size-small) solid var(--bg-grey-200);
 }
@@ -94,6 +98,14 @@
 :host > div.selectWrapper > div > ul.open > li[role="option"]:hover {
   color: var(--myz-blue-dark);
   background: var(--bg-grey-050);
+}
+
+:host
+  > div.selectWrapper
+  > div
+  > ul.open
+  > li[role="option"]::-moz-focus-inner {
+  border: 0;
 }
 
 :host > div.selectWrapper > div > ul.open > li[role="option"].disabled {
