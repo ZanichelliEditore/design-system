@@ -17,6 +17,10 @@
   z-index: 10;
 }
 
+:host > div.selectWrapper > div > ul.closed {
+  max-width: 100%;
+}
+
 :host > div.selectWrapper > div > ul > li {
   padding: 0 var(--half-x3);
   text-align: left;
@@ -29,6 +33,10 @@
   justify-content: space-between;
   align-items: center;
   border: var(--border-size-small) solid transparent;
+}
+
+:host > div.selectWrapper > div > ul > li.selected > span {
+  width: calc(100% - 40px);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
