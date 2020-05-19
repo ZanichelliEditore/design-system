@@ -30,19 +30,23 @@
 
 ## Properties
 
-| Property            | Attribute           | Description                              | Type                        | Default              |
-| ------------------- | ------------------- | ---------------------------------------- | --------------------------- | -------------------- |
-| `closesearchtext`   | `closesearchtext`   | close combobox list text                 | `string`                    | `"Chiudi"`           |
-| `hassearch`         | `hassearch`         | show search input flag (optional)        | `boolean`                   | `false`              |
-| `inputid`           | `inputid`           | input unique id                          | `string`                    | `undefined`          |
-| `isfixed`           | `isfixed`           | fixed style flag                         | `boolean`                   | `false`              |
-| `isopen`            | `isopen`            | toggle combo list opening flag           | `boolean`                   | `true`               |
-| `items`             | `items`             | list items array                         | `ComboItemBean[] \| string` | `undefined`          |
-| `label`             | `label`             | label text                               | `string`                    | `undefined`          |
-| `noresultslabel`    | `noresultslabel`    | no result text message                   | `string`                    | `"Nessun risultato"` |
-| `searchlabel`       | `searchlabel`       | search input label text (optional)       | `string`                    | `undefined`          |
-| `searchplaceholder` | `searchplaceholder` | search input placeholder text (optional) | `string`                    | `undefined`          |
-| `searchtitle`       | `searchtitle`       | search input title text (optional)       | `string`                    | `undefined`          |
+| Property            | Attribute           | Description                                   | Type                        | Default               |
+| ------------------- | ------------------- | --------------------------------------------- | --------------------------- | --------------------- |
+| `checkalltext`      | `checkalltext`      | check all label (optional)                    | `string`                    | `"Seleziona tutti"`   |
+| `closesearchtext`   | `closesearchtext`   | close combobox list text                      | `string`                    | `"Chiudi"`            |
+| `hascheckall`       | `hascheckall`       | show "check all" checkbox (optional)          | `boolean`                   | `false`               |
+| `hassearch`         | `hassearch`         | show search input flag (optional)             | `boolean`                   | `false`               |
+| `inputid`           | `inputid`           | input unique id                               | `string`                    | `undefined`           |
+| `isfixed`           | `isfixed`           | fixed style flag                              | `boolean`                   | `false`               |
+| `isopen`            | `isopen`            | toggle combo list opening flag                | `boolean`                   | `true`                |
+| `items`             | `items`             | list items array                              | `ComboItemBean[] \| string` | `undefined`           |
+| `label`             | `label`             | label text                                    | `string`                    | `undefined`           |
+| `maxcheckableitems` | `maxcheckableitems` | max number of checkable items (0 = unlimited) | `number`                    | `0`                   |
+| `noresultslabel`    | `noresultslabel`    | no result text message                        | `string`                    | `"Nessun risultato"`  |
+| `searchlabel`       | `searchlabel`       | search input label text (optional)            | `string`                    | `undefined`           |
+| `searchplaceholder` | `searchplaceholder` | search input placeholder text (optional)      | `string`                    | `undefined`           |
+| `searchtitle`       | `searchtitle`       | search input title text (optional)            | `string`                    | `undefined`           |
+| `uncheckalltext`    | `uncheckalltext`    | uncheck all label (optional)                  | `string`                    | `"Deseleziona tutti"` |
 
 
 ## Events

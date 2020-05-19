@@ -45,6 +45,14 @@ export class ZCombobox {
   @Prop() isfixed: boolean = false;
   /** close combobox list text */
   @Prop() closesearchtext?: string = "Chiudi";
+  /** show "check all" checkbox (optional) */
+  @Prop() hascheckall?: boolean = false;
+  /** check all label (optional) */
+  @Prop() checkalltext?: string = "Seleziona tutti";
+  /** uncheck all label (optional) */
+  @Prop() uncheckalltext?: string = "Deseleziona tutti";
+  /** max number of checkable items (0 = unlimited) */
+  @Prop() maxcheckableitems: number = 0;
 
   @State() searchValue: string;
   @State() selectedCounter: number;
@@ -58,16 +66,30 @@ export class ZCombobox {
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter(item => item.checked).length;
-    this.resetRenderItemsList();
+    if (this.searchValue) {
+      this.filterItems(this.searchValue);
+    } else {
+      this.resetRenderItemsList();
+    }
   }
 
   @Listen("inputCheck")
   inputCheckListener(e: CustomEvent) {
     const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
+
+    if (
+      id === "check-all" &&
+      (!this.maxcheckableitems ||
+        this.maxcheckableitems >= this.itemsList.length)
+    ) {
+      return this.checkAll(e.detail.checked);
+    }
+
     this.itemsList = this.itemsList.map((item: ComboItemBean) => {
       if (item.id === id) item.checked = e.detail.checked;
       return item;
     });
+    this.resetRenderItemsList();
     this.emitComboboxChange();
   }
 
@@ -94,10 +116,11 @@ export class ZCombobox {
   }
 
   resetRenderItemsList(): void {
-    this.renderItemsList = [];
+    const renderItemsList = [];
     this.itemsList.forEach((item: any) => {
-      this.renderItemsList.push({ ...item });
+      renderItemsList.push({ ...item });
     });
+    this.renderItemsList = renderItemsList;
   }
 
   filterItems(value: string): void {
@@ -117,6 +140,15 @@ export class ZCombobox {
       item.name = newName;
       return start >= 0;
     });
+  }
+
+  checkAll(checked = true): void {
+    this.itemsList = this.itemsList.map((item: ComboItemBean) => ({
+      ...item,
+      checked: checked
+    }));
+    this.resetRenderItemsList();
+    this.emitComboboxChange();
   }
 
   closeFilterItems(): void {
@@ -159,6 +191,7 @@ export class ZCombobox {
     return (
       <div class="openComboData">
         {this.hassearch && this.renderSearchInput()}
+        {this.hascheckall && this.renderCheckAll()}
         {this.renderItems()}
       </div>
     );
@@ -194,6 +227,11 @@ export class ZCombobox {
                 checked={item.checked}
                 htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
                 label={item.name}
+                disabled={
+                  !item.checked &&
+                  this.maxcheckableitems &&
+                  this.maxcheckableitems === this.selectedCounter
+                }
               />
             </z-list-item>
           );
@@ -248,6 +286,26 @@ export class ZCombobox {
           this.filterItems(e.detail.value);
         }}
       />
+    );
+  }
+
+  renderCheckAll() {
+    if (this.searchValue) return;
+
+    const allChecked = this.selectedCounter === this.itemsList.length;
+    return (
+      <div class="checkAllWrapper">
+        <z-input
+          type={InputTypeEnum.checkbox}
+          checked={allChecked}
+          htmlid={`combo-checkbox-${this.inputid}-check-all`}
+          label={allChecked ? this.uncheckalltext : this.checkalltext}
+          disabled={
+            this.maxcheckableitems &&
+            this.maxcheckableitems < this.itemsList.length
+          }
+        />
+      </div>
     );
   }
 
