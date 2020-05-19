@@ -95,11 +95,9 @@ export class ZInput {
     this.selectedItem = this.itemsList.find(
       (item: SelectItemBean) => item.selected
     );
-    if (!this.selectedItem) {
-      this.itemsList[0].selected = true;
-      this.selectedItem = this.itemsList[0];
+    if (this.selectedItem) {
+      this.value = this.selectedItem.id;
     }
-    this.value = this.selectedItem.id;
   }
 
   /** get the input value */
@@ -351,7 +349,10 @@ export class ZInput {
             handleKeyboardSubmit(e, this.toggleSelectUl)
           }
           onKeyDown={(e: KeyboardEvent) =>
-            this.arrowsSelectNav(e, this.itemsList.indexOf(this.selectedItem))
+            this.arrowsSelectNav(
+              e,
+              this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1
+            )
           }
         >
           {this.renderSelectedItem()}
@@ -364,7 +365,9 @@ export class ZInput {
   renderSelectedItem() {
     return (
       <li class="selected">
-        <span>{this.selectedItem.name}</span>
+        <span>
+          {this.selectedItem ? this.selectedItem.name : this.placeholder}
+        </span>
         <z-icon name="drop-down" />
       </li>
     );

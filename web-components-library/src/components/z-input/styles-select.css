@@ -92,6 +92,7 @@
 :host > div.selectWrapper > div > ul.open > li[role="option"] > span {
   display: block;
   border-bottom: var(--border-size-small) solid var(--bg-grey-200);
+  padding: 0 var(--basex1);
 }
 
 :host
