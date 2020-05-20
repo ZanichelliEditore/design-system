@@ -141,3 +141,8 @@
   text-align: center;
   text-transform: uppercase;
 }
+
+:host > div.open > div.openComboData > div.checkAllWrapper {
+  padding: var(--basex2) var(--half-x1);
+  text-align: left;
+}
