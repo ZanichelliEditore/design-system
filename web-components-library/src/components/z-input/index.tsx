@@ -95,6 +95,7 @@ export class ZInput {
     this.selectedItem = this.itemsList.find(
       (item: SelectItemBean) => item.selected
     );
+    console.log(this.selectedItem);
     if (this.selectedItem) {
       this.value = this.selectedItem.id;
     }
@@ -356,7 +357,7 @@ export class ZInput {
             ${this.disabled && " disabled"}
             ${this.readonly && " readonly"}
             ${this.status ? " input_" + this.status : " input_default"}
-            ${this.selectedItem && " filled"}
+            ${this.selectedItem ? " filled" : ""}
           `}
           onClick={this.toggleSelectUl}
           onKeyUp={(e: KeyboardEvent) =>

@@ -78,7 +78,7 @@ describe("Suite test ZInput - select", () => {
           <div class="selectWrapper">
               <label htmlfor="checkid">default</label>
               <div>
-                  <ul class="open false input_default" id="checkid" role="listbox" tabindex="0" aria-activedescendant="item_1">
+                  <ul class="open false input_default filled" id="checkid" role="listbox" tabindex="0" aria-activedescendant="item_1">
                       <li class="selected">
                           <span>primo elemento</span>
                           <z-icon name="drop-down"/>
