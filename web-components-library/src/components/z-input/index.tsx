@@ -355,7 +355,8 @@ export class ZInput {
             ${this.isOpen ? "open" : "closed"}
             ${this.disabled && " disabled"}
             ${this.readonly && " readonly"}
-            ${this.status ? "input_" + this.status : "input_default"}
+            ${this.status ? " input_" + this.status : " input_default"}
+            ${this.selectedItem && " filled"}
           `}
           onClick={this.toggleSelectUl}
           onKeyUp={(e: KeyboardEvent) =>
