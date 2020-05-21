@@ -152,9 +152,11 @@
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
+  line-height: 16px;
+  min-height: 16px;
   color: var(--text-grey-700);
   fill: var(--text-grey-700);
-  padding: var(--basex1) 0;
+  margin-top: var(--basex1);
   display: flex;
 }
 

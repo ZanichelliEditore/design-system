@@ -8,10 +8,10 @@ describe("Suite test ZInput - text", () => {
   it("Test render ZInput vuoto", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input htmlid="id"></z-input>`
+      html: `<z-input hasmessage="false" htmlid="id"></z-input>`
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="id">
+      <z-input hasmessage="false" htmlid="id">
         <mock:shadow-root>
           <div class="textWrapper">
             <div>
@@ -26,10 +26,10 @@ describe("Suite test ZInput - text", () => {
   it("Test render ZInput con attributi", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label'></z-input>`
+      html: `<z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label'></z-input>`
     });
     expect(page.root).toEqualHtml(`
-      <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label'>
+      <z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label'>
         <mock:shadow-root>
           <div class="textWrapper">
             <label htmlfor="test">label</label>
@@ -46,10 +46,10 @@ describe("Suite test ZInput - text", () => {
   it("Test render ZInput con attributi disabled", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled></z-input>`
+      html: `<z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled></z-input>`
     });
     expect(page.root).toEqualHtml(`
-      <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled>
+      <z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled>
         <mock:shadow-root>
           <div class="textWrapper">
             <label htmlfor="test" class="disabledLabel">label</label>
@@ -65,10 +65,10 @@ describe("Suite test ZInput - text", () => {
   it("Test render ZInput con attributi readonly", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' readonly></z-input>`
+      html: `<z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' readonly></z-input>`
     });
     expect(page.root).toEqualHtml(`
-      <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' readonly>
+      <z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' readonly>
         <mock:shadow-root>
           <div class="textWrapper">
             <label htmlfor="test">label</label>

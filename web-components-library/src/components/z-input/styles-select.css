@@ -42,6 +42,10 @@
   text-overflow: ellipsis;
 }
 
+:host > div.selectWrapper > div > ul > li.selected > span.placeholder {
+  color: var(--text-grey-700);
+}
+
 :host > div.selectWrapper > div > ul > li.selected > z-icon {
   padding-left: var(--basex2);
   padding-right: 0;

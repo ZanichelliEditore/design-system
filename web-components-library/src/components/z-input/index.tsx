@@ -57,13 +57,15 @@ export class ZInput {
   @Prop() placeholder?: string;
   /** the input html title (optional) */
   @Prop() htmltitle?: string;
-  /** the input status (optional) */
+  /** the input status (optional): available for text, password, number, email, textarea, select */
   @Prop() status?: InputStatusBean;
-  /** input helper message (optional) */
+  /** show input helper message (optional): available for text, password, number, email, textarea, select */
+  @Prop() hasmessage?: boolean = true;
+  /** input helper message (optional): available for text, password, number, email, textarea, select */
   @Prop() message?: string;
   /** the input label position: available for checkbox, radio */
   @Prop() labelafter?: boolean = true;
-  /** timeout setting before trigger `inputChange` event (optional) */
+  /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
   @Prop() typingtimeout?: number = 300;
   /** items: available for select */
   @Prop() items?: SelectItemBean[] | string;
@@ -95,7 +97,6 @@ export class ZInput {
     this.selectedItem = this.itemsList.find(
       (item: SelectItemBean) => item.selected
     );
-    console.log(this.selectedItem);
     if (this.selectedItem) {
       this.value = this.selectedItem.id;
     }
@@ -238,7 +239,7 @@ export class ZInput {
   }
 
   renderMessage() {
-    if (!this.message) return;
+    if (!this.hasmessage) return;
 
     return (
       <span class={`statusMsg msg_${this.status}`}>
@@ -380,9 +381,11 @@ export class ZInput {
   renderSelectedItem() {
     return (
       <li class="selected">
-        <span>
-          {this.selectedItem ? this.selectedItem.name : this.placeholder}
-        </span>
+        {this.selectedItem ? (
+          <span>{this.selectedItem.name}</span>
+        ) : (
+          <span class="placeholder">{this.placeholder}</span>
+        )}
         <z-icon name="drop-down" />
       </li>
     );

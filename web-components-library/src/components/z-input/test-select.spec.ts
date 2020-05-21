@@ -6,19 +6,19 @@ describe("Suite test ZInput - select", () => {
   it("Test render ZInput - select chiusa con elementi", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'> </z-input>`
+      html: `<z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'> </z-input>`
     });
     page.rootInstance.isOpen = false;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-        <z-input htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'>
+        <z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'>
           <mock:shadow-root>
             <div class="selectWrapper">
                 <label htmlfor="checkid">default</label>
                 <div>
-                    <ul  class="closed false input_default" id="checkid" role="listbox" tabindex="0">
+                    <ul class="closed false input_default" id="checkid" role="listbox" tabindex="0">
                         <li class="selected">
-                            <span>select here</span>
+                            <span class="placeholder">select here</span>
                             <z-icon name="drop-down"/>
                         </li>
                     </ul>
@@ -32,19 +32,19 @@ describe("Suite test ZInput - select", () => {
   it("Test render ZInput aperto con elementi", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-input>`
+      html: `<z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-input>`
     });
     page.rootInstance.isOpen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-        <z-input htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
+        <z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
           <mock:shadow-root>
             <div class="selectWrapper">
                 <label htmlfor="checkid">default</label>
                 <div>
                     <ul class="open false input_default" id="checkid" role="listbox" tabindex="0">
                         <li class="selected">
-                            <span>select here</span>
+                            <span class="placeholder">select here</span>
                             <z-icon name="drop-down"/>
                         </li>
                         <li id="checkid_0"  role="option" tabindex="0">
@@ -68,12 +68,12 @@ describe("Suite test ZInput - select", () => {
   it("Test render ZInput aperto con elemento selezionato", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'> </z-input>`
+      html: `<z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'> </z-input>`
     });
     page.rootInstance.isOpen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'>
+      <z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'>
         <mock:shadow-root>
           <div class="selectWrapper">
               <label htmlfor="checkid">default</label>
@@ -104,19 +104,19 @@ describe("Suite test ZInput - select", () => {
   it("Test render ZInput chiuso disabilitato con elementi", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input htmlid="checkid" placeholder="select here" disabled readonly type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-input>`
+      html: `<z-input hasmessage="false" htmlid="checkid" placeholder="select here" disabled readonly type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-input>`
     });
     page.rootInstance.isOpen = false;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-        <z-input htmlid="checkid" placeholder="select here" disabled readonly type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
+        <z-input hasmessage="false" htmlid="checkid" placeholder="select here" disabled readonly type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
           <mock:shadow-root>
             <div class="selectWrapper">
                 <label class="disabledLabel" htmlfor="checkid">default</label>
                 <div>
-                    <ul  class="closed readonly input_default disabled" id="checkid" role="listbox" tabindex="-1">
+                    <ul class="closed readonly input_default disabled" id="checkid" role="listbox" tabindex="-1">
                         <li class="selected">
-                            <span>select here</span>
+                            <span class="placeholder">select here</span>
                             <z-icon name="drop-down"/>
                         </li>
                     </ul>
@@ -140,9 +140,9 @@ describe("Suite test ZInput - select", () => {
               <div class="selectWrapper">
                   <label htmlfor="checkid">default</label>
                   <div>
-                    <ul  class="closed false input_success" id="checkid" role="listbox" tabindex="0">
+                    <ul class="closed false input_success" id="checkid" role="listbox" tabindex="0">
                           <li class="selected">
-                              <span>select here</span>
+                              <span class="placeholder">select here</span>
                               <z-icon name="drop-down"/>
                           </li>
                       </ul>
@@ -160,19 +160,19 @@ describe("Suite test ZInput - select", () => {
   it("Test render ZInput aperto con elementi, un elemento disabilitato", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false,"disabled":true}]'> </z-input>`
+      html: `<z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false,"disabled":true}]'> </z-input>`
     });
     page.rootInstance.isOpen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-        <z-input htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false,"disabled":true}]'>
+        <z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false,"disabled":true}]'>
           <mock:shadow-root>
             <div class="selectWrapper">
                 <label htmlfor="checkid">default</label>
                 <div>
-                    <ul  class="open false input_default" id="checkid" role="listbox" tabindex="0">
+                    <ul class="open false input_default" id="checkid" role="listbox" tabindex="0">
                         <li class="selected">
-                            <span>select here</span>
+                            <span class="placeholder">select here</span>
                             <z-icon name="drop-down"/>
                         </li>
                         <li id="checkid_0"  role="option" tabindex="0">
