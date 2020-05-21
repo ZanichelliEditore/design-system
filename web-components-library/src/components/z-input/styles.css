@@ -177,5 +177,5 @@
 
 :host span.statusMsg > z-icon {
   margin-right: var(--basex1);
-  margin-top: var(--half-x1);
+  margin-top: 1px;
 }
