@@ -281,6 +281,7 @@ export class ZCombobox {
         htmltitle={this.searchtitle}
         type={this.inputType}
         value={this.searchValue}
+        hasmessage={false}
         onInputChange={(e: CustomEvent) => {
           if (e.detail.keycode === 27) return this.closeFilterItems();
           this.filterItems(e.detail.value);
