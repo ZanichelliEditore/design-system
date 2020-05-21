@@ -360,7 +360,7 @@ export class ZInput {
             ${this.status ? " input_" + this.status : " input_default"}
             ${this.selectedItem ? " filled" : ""}
           `}
-          onClick={this.toggleSelectUl}
+          onClick={() => this.toggleSelectUl()}
           onKeyUp={(e: KeyboardEvent) =>
             handleKeyboardSubmit(e, this.toggleSelectUl)
           }
@@ -431,6 +431,8 @@ export class ZInput {
     e.preventDefault();
     e.stopPropagation();
 
+    if (!this.isOpen) this.toggleSelectUl();
+
     let index: number;
     if (e.keyCode === keybordKeyCodeEnum.ARROW_DOWN) {
       index = key + 1 === this.itemsList.length ? 0 : key + 1;
@@ -444,14 +446,16 @@ export class ZInput {
     if (focusElem) focusElem.focus();
   }
 
-  toggleSelectUl() {
+  toggleSelectUl(selfFocusOnClose: boolean = false) {
     if (!this.isOpen) {
       document.addEventListener("click", this.handleSelectFocus);
       document.addEventListener("keyup", this.handleSelectFocus);
     } else {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
-      this.hostElement.shadowRoot.getElementById(this.htmlid).focus();
+      if (selfFocusOnClose) {
+        this.hostElement.shadowRoot.getElementById(this.htmlid).focus();
+      }
     }
 
     this.isOpen = !this.isOpen;
@@ -460,7 +464,7 @@ export class ZInput {
   handleSelectFocus(e: MouseEvent | KeyboardEvent) {
     if (e instanceof KeyboardEvent && e.keyCode === keybordKeyCodeEnum.ESC) {
       e.stopPropagation();
-      return this.toggleSelectUl();
+      return this.toggleSelectUl(true);
     }
 
     if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB) {
@@ -474,7 +478,7 @@ export class ZInput {
     );
 
     if (!parent) {
-      this.toggleSelectUl();
+      this.toggleSelectUl(e instanceof MouseEvent ? true : false);
     }
   }
 
