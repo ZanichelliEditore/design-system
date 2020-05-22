@@ -63,7 +63,6 @@ footer > div > p.year_isbn {
 }
 
 footer > div > p.year_isbn > span.isbn {
-  padding-left: var(--basex1);
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -79,6 +78,7 @@ footer.isopen > div > p.year_isbn {
 }
 
 footer.isopen > div > p.year_isbn > span.isbn {
+  display: inline-grid;
   padding-left: 0px;
 }
 
@@ -86,6 +86,10 @@ footer.isopen {
   height: 278px;
   top: -147px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
+}
+
+div > footer > h2 {
+  height: fit-content;
 }
 
 h2.isopen {
