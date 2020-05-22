@@ -96,6 +96,7 @@ h2.isopen {
   font-weight: var(--font-sb);
   height: 42px;
   padding-top: var(--basex2);
+  padding-bottom: var(--basex1);
   transition: all 200ms linear;
   background-color: var(--bg-neutral-200);
 }
