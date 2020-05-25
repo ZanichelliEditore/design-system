@@ -6,10 +6,10 @@ describe("Suite test ZInput - textarea", () => {
   it("Test render ZInput textarea", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label'></z-input>`
+      html: `<z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label'></z-input>`
     });
     expect(page.root).toEqualHtml(`
-      <z-input type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label'>
+      <z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label'>
         <mock:shadow-root>
           <div class="textWrapper">
             <label htmlfor="test">label</label>
@@ -27,10 +27,10 @@ describe("Suite test ZInput - textarea", () => {
   it("Test render ZInput textarea disabled/readonly", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' disabled readonly></z-input>`
+      html: `<z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' disabled readonly></z-input>`
     });
     expect(page.root).toEqualHtml(`
-      <z-input type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' disabled readonly>
+      <z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' disabled readonly>
         <mock:shadow-root>
           <div class="textWrapper">
             <label htmlfor="test" class="disabledLabel">label</label>

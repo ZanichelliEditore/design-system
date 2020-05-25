@@ -13,7 +13,7 @@
   border: var(--border-base) solid var(--bg-grey-200);
   position: relative;
   z-index: 10;
-  height: 48px;
+  min-height: 48px;
   margin: 0;
   padding: 0 var(--basex2);
   display: flex;
@@ -31,9 +31,9 @@
   font-weight: var(--font-rg);
   color: var(--text-grey-800);
   font-size: 16px;
-  line-height: 48px;
+  line-height: 24px;
   margin: 0;
-  padding: 0;
+  padding: var(--basex1) 0;
 }
 
 :host > div > .header > h2 > span {

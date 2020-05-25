@@ -114,7 +114,8 @@ export enum InputTypeEnum {
   number = "number",
   email = "email",
   textarea = "textarea",
-  checkbox = "checkbox"
+  checkbox = "checkbox",
+  select = "select"
 }
 
 export type InputStatusBean = InputStatusEnum;
@@ -139,5 +140,14 @@ export enum keybordKeyCodeEnum {
   TAB = 9,
   SPACE = 32,
   ESC = 27,
-  ENTER = 13
+  ENTER = 13,
+  ARROW_UP = 38,
+  ARROW_DOWN = 40
 }
+
+export type SelectItemBean = {
+  id: string;
+  name: string;
+  selected: boolean;
+  disabled?: boolean;
+};

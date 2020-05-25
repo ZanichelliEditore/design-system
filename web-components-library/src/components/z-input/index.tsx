@@ -5,10 +5,23 @@ import {
   h,
   Method,
   Event,
-  EventEmitter
+  EventEmitter,
+  Watch,
+  Element
 } from "@stencil/core";
-import { InputTypeEnum, InputStatusBean } from "../../beans";
-import { randomId } from "../../utils/utils";
+import {
+  InputTypeBean,
+  InputTypeEnum,
+  InputStatusBean,
+  SelectItemBean,
+  keybordKeyCodeEnum
+} from "../../beans";
+import {
+  randomId,
+  handleKeyboardSubmit,
+  getClickedElement,
+  getElementTree
+} from "../../utils/utils";
 
 @Component({
   tag: "z-input",
@@ -16,15 +29,18 @@ import { randomId } from "../../utils/utils";
     "styles.css",
     "styles-text.css",
     "styles-textarea.css",
-    "styles-checkbox.css"
+    "styles-checkbox.css",
+    "styles-select.css"
   ],
   shadow: true
 })
 export class ZInput {
+  @Element() hostElement: HTMLElement;
+
   /** the id of the input element */
   @Prop() htmlid: string = randomId();
   /** input types */
-  @Prop() type: HTMLInputElement["type"];
+  @Prop() type: InputTypeBean;
   /** the input name */
   @Prop() name?: string;
   /** the input label */
@@ -41,18 +57,23 @@ export class ZInput {
   @Prop() placeholder?: string;
   /** the input html title (optional) */
   @Prop() htmltitle?: string;
-  /** the input status (optional) */
+  /** the input status (optional): available for text, password, number, email, textarea, select */
   @Prop() status?: InputStatusBean;
-  /** input helper message (optional) */
+  /** show input helper message (optional): available for text, password, number, email, textarea, select */
+  @Prop() hasmessage?: boolean = true;
+  /** input helper message (optional): available for text, password, number, email, textarea, select */
   @Prop() message?: string;
   /** the input label position: available for checkbox, radio */
   @Prop() labelafter?: boolean = true;
-  /** timeout setting before trigger `inputChange` event (optional) */
+  /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
   @Prop() typingtimeout?: number = 300;
+  /** items: available for select */
+  @Prop() items?: SelectItemBean[] | string;
 
   @State() isTyping: boolean = false;
   @State() textareaWrapperHover: string = "";
   @State() textareaWrapperFocus: string = "";
+  @State() isOpen: boolean = false;
 
   private statusIcons = {
     success: "circle-check",
@@ -60,6 +81,26 @@ export class ZInput {
     warning: "circle-warning"
   };
   private timer;
+  private itemsList: SelectItemBean[] = [];
+  private selectedItem: SelectItemBean;
+
+  constructor() {
+    this.toggleSelectUl = this.toggleSelectUl.bind(this);
+    this.selectItem = this.selectItem.bind(this);
+    this.handleSelectFocus = this.handleSelectFocus.bind(this);
+  }
+
+  @Watch("items")
+  watchItems() {
+    this.itemsList =
+      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    this.selectedItem = this.itemsList.find(
+      (item: SelectItemBean) => item.selected
+    );
+    if (this.selectedItem) {
+      this.value = this.selectedItem.id;
+    }
+  }
 
   /** get the input value */
   @Method()
@@ -120,6 +161,20 @@ export class ZInput {
     this.inputCheck.emit({ id: this.htmlid, checked: checked });
   }
 
+  /** Emitted on select option selection, returns select id, selected option id */
+  @Event() optionSelect: EventEmitter;
+  emitOptionSelect(item: SelectItemBean) {
+    this.value = item.id;
+    this.selectedItem = item;
+    this.optionSelect.emit({ id: this.htmlid, selected: item.id });
+  }
+
+  componentWillLoad() {
+    if (this.type === InputTypeEnum.select) {
+      this.watchItems();
+    }
+  }
+
   /* START text/password/email/number */
 
   getTextAttributes() {
@@ -155,8 +210,18 @@ export class ZInput {
 
   renderLabel() {
     if (!this.label) return;
+
+    let attributes = {};
+    if (this.type === InputTypeEnum.textarea) {
+      attributes = this.getTextareaExtraAttributes();
+    }
+
     return (
-      <label htmlFor={this.htmlid} class={this.disabled && "disabledLabel"}>
+      <label
+        htmlFor={this.htmlid}
+        class={this.disabled && "disabledLabel"}
+        {...attributes}
+      >
         {this.label}
       </label>
     );
@@ -174,7 +239,7 @@ export class ZInput {
   }
 
   renderMessage() {
-    if (!this.message) return;
+    if (!this.hasmessage) return;
 
     return (
       <span class={`statusMsg msg_${this.status}`}>
@@ -215,15 +280,18 @@ export class ZInput {
             ${this.textareaWrapperHover}
           `}
       >
-        <textarea
-          {...attributes}
-          onFocus={() => (this.textareaWrapperFocus = "focus")}
-          onBlur={() => (this.textareaWrapperFocus = "")}
-          onMouseOver={() => (this.textareaWrapperHover = "hover")}
-          onMouseOut={() => (this.textareaWrapperHover = "")}
-        />
+        <textarea {...attributes} {...this.getTextareaExtraAttributes()} />
       </div>
     );
+  }
+
+  getTextareaExtraAttributes() {
+    return {
+      onFocus: () => (this.textareaWrapperFocus = "focus"),
+      onBlur: () => (this.textareaWrapperFocus = ""),
+      onMouseOver: () => (this.textareaWrapperHover = "hover"),
+      onMouseOut: () => (this.textareaWrapperHover = "")
+    };
   }
 
   /* END textarea */
@@ -265,6 +333,157 @@ export class ZInput {
 
   /* END checkbox */
 
+  /* START select */
+
+  renderSelect() {
+    return (
+      <div class="selectWrapper">
+        {this.renderLabel()}
+        {this.renderSelectUl()}
+        {this.renderMessage()}
+      </div>
+    );
+  }
+
+  renderSelectUl() {
+    return (
+      <div>
+        <ul
+          role="listbox"
+          tabindex={this.disabled || this.readonly ? -1 : 0}
+          id={this.htmlid}
+          aria-activedescendant={this.value}
+          class={`
+            ${this.isOpen ? "open" : "closed"}
+            ${this.disabled && " disabled"}
+            ${this.readonly && " readonly"}
+            ${this.status ? " input_" + this.status : " input_default"}
+            ${this.selectedItem ? " filled" : ""}
+          `}
+          onClick={() => this.toggleSelectUl()}
+          onKeyUp={(e: KeyboardEvent) =>
+            handleKeyboardSubmit(e, this.toggleSelectUl)
+          }
+          onKeyDown={(e: KeyboardEvent) =>
+            this.arrowsSelectNav(
+              e,
+              this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1
+            )
+          }
+        >
+          {this.renderSelectedItem()}
+          {this.renderSelectItems()}
+        </ul>
+      </div>
+    );
+  }
+
+  renderSelectedItem() {
+    return (
+      <li class="selected">
+        {this.selectedItem ? (
+          <span>{this.selectedItem.name}</span>
+        ) : (
+          <span class="placeholder">{this.placeholder}</span>
+        )}
+        <z-icon name="drop-down" />
+      </li>
+    );
+  }
+
+  renderSelectItems() {
+    if (!this.isOpen) return;
+
+    return this.itemsList.map((item: SelectItemBean, key) => (
+      <li
+        role="option"
+        tabindex={item.disabled ? -1 : 0}
+        aria-selected={!!item.selected}
+        class={item.disabled && "disabled"}
+        id={`${this.htmlid}_${key}`}
+        onClick={() => this.selectItem(item)}
+        onKeyUp={(e: KeyboardEvent) =>
+          handleKeyboardSubmit(e, this.selectItem, item)
+        }
+        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
+      >
+        <span>{item.name}</span>
+      </li>
+    ));
+  }
+
+  selectItem(item: SelectItemBean) {
+    if (item.disabled) return;
+
+    this.itemsList = this.itemsList.map((i: SelectItemBean) => {
+      if (i.selected) i.selected = false;
+      if (i === item) i.selected = true;
+      return i;
+    });
+
+    this.emitOptionSelect(item);
+  }
+
+  arrowsSelectNav(e: KeyboardEvent, key: number) {
+    const arrows = [keybordKeyCodeEnum.ARROW_DOWN, keybordKeyCodeEnum.ARROW_UP];
+    if (!arrows.includes(e.keyCode)) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!this.isOpen) this.toggleSelectUl();
+
+    let index: number;
+    if (e.keyCode === keybordKeyCodeEnum.ARROW_DOWN) {
+      index = key + 1 === this.itemsList.length ? 0 : key + 1;
+    } else if (e.keyCode === keybordKeyCodeEnum.ARROW_UP) {
+      index = key <= 0 ? this.itemsList.length - 1 : key - 1;
+    }
+
+    const focusElem = this.hostElement.shadowRoot.getElementById(
+      `${this.htmlid}_${index}`
+    );
+    if (focusElem) focusElem.focus();
+  }
+
+  toggleSelectUl(selfFocusOnClose: boolean = false) {
+    if (!this.isOpen) {
+      document.addEventListener("click", this.handleSelectFocus);
+      document.addEventListener("keyup", this.handleSelectFocus);
+    } else {
+      document.removeEventListener("click", this.handleSelectFocus);
+      document.removeEventListener("keyup", this.handleSelectFocus);
+      if (selfFocusOnClose) {
+        this.hostElement.shadowRoot.getElementById(this.htmlid).focus();
+      }
+    }
+
+    this.isOpen = !this.isOpen;
+  }
+
+  handleSelectFocus(e: MouseEvent | KeyboardEvent) {
+    if (e instanceof KeyboardEvent && e.keyCode === keybordKeyCodeEnum.ESC) {
+      e.stopPropagation();
+      return this.toggleSelectUl(true);
+    }
+
+    if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB) {
+      return;
+    }
+
+    const tree = getElementTree(getClickedElement());
+    const parent = tree.find(
+      (elem: any) =>
+        elem.nodeName.toLowerCase() === "ul" && elem.id === this.htmlid
+    );
+
+    if (!parent) {
+      this.toggleSelectUl(e instanceof MouseEvent ? true : false);
+    }
+  }
+
+  /* END select */
+
   render() {
     switch (this.type) {
       case InputTypeEnum.text:
@@ -276,6 +495,8 @@ export class ZInput {
         return this.renderTextarea();
       case InputTypeEnum.checkbox:
         return this.renderCheckbox();
+      case InputTypeEnum.select:
+        return this.renderSelect();
       default:
         return this.renderInputText();
     }
