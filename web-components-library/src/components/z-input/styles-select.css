@@ -42,7 +42,7 @@
   text-overflow: ellipsis;
 }
 
-:host > div.selectWrapper > div > ul > li.selected > span.placeholder {
+:host > div.selectWrapper > div > ul.closed > li.selected > span.placeholder {
   color: var(--text-grey-700);
 }
 
