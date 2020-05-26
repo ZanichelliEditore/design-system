@@ -44,7 +44,6 @@ export type CardBean = {
   opera_title: string;
   img: string;
   authors: string;
-  year: number;
   actions: ActionBean[];
   is_bookmark: boolean;
   licenseType: LicenseTypeEnum;

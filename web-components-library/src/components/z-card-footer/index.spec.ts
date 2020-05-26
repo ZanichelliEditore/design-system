@@ -30,14 +30,8 @@ describe("Suite test ZCardFooter", () => {
                   </b>
                 </p>
                 <p class="year_isbn">
-                  <span class=\"year\">
-                    Anno:
-                    <b>
-                      2019
-                    </b>
-                  </span>
                   <span class=\"isbn\">
-                    ISBN:
+                    ISBN (ed. cartacea):
                     <b>
                       123456
                     </b>
@@ -76,14 +70,8 @@ describe("Suite test ZCardFooter", () => {
                   </b>
                 </p>
                 <p class="year_isbn">
-                  <span class=\"year\">
-                    Anno:
-                    <b>
-                      2019
-                    </b>
-                  </span>
                   <span class=\"isbn\">
-                    ISBN:
+                    ISBN (ed. cartacea):
                     <b></b>
                   </span>
                 </p>
@@ -116,12 +104,8 @@ describe("Suite test ZCardFooter", () => {
                   <b></b>
                 </p>
                 <p class="year_isbn">
-                  <span class=\"year\">
-                    Anno:
-                    <b></b>
-                  </span>
                   <span class=\"isbn\">
-                    ISBN:
+                    ISBN (ed. cartacea):
                     <b></b>
                   </span>
                 </p>
@@ -159,14 +143,8 @@ describe("Suite test ZCardFooter", () => {
                   </b>
                 </p>
                 <p class="year_isbn">
-                  <span class=\"year\">
-                    Anno:
-                    <b>
-                      2019
-                    </b>
-                  </span>
                   <span class=\"isbn\">
-                    ISBN:
+                    ISBN (ed. cartacea):
                     <b></b>
                   </span>
                 </p>

@@ -28,18 +28,27 @@ footer > h2 {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 16px;
-  line-height: 20px;
+  line-height: 22px;
   height: 40px;
-  margin: 0px 0px var(--basex1) 0px;
-  padding: var(--basex2) var(--basex2) 0px var(--basex2);
+  margin: 0px;
+  padding: var(--basex2) var(--basex2) var(--basex1) var(--basex2);
   overflow: hidden;
-  text-overflow: ellipsis;
   background-color: var(--bg-white);
   transition: all 200ms linear;
 }
 
+h2.isopen {
+  font-weight: var(--font-sb);
+  transition: all 200ms linear;
+  background-color: var(--bg-neutral-200);
+}
+
+h2.isopen.real {
+  background-color: var(--accent);
+}
+
 footer > div {
-  padding: var(--half-x1) var(--basex2) var(--basex1) var(--basex2);
+  padding: var(--basex1) var(--basex2);
   height: 40px;
   overflow: hidden;
 }
@@ -56,14 +65,13 @@ footer > div > p {
 }
 
 footer > div > p.year_isbn {
-  padding-top: var(--half-x3);
+  padding-top: var(--basex1);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 footer > div > p.year_isbn > span.isbn {
-  padding-left: var(--basex1);
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -79,6 +87,7 @@ footer.isopen > div > p.year_isbn {
 }
 
 footer.isopen > div > p.year_isbn > span.isbn {
+  display: inline-grid;
   padding-left: 0px;
 }
 
@@ -86,18 +95,6 @@ footer.isopen {
   height: 278px;
   top: -147px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
-}
-
-h2.isopen {
-  font-weight: var(--font-sb);
-  height: 42px;
-  padding-top: var(--basex2);
-  transition: all 200ms linear;
-  background-color: var(--bg-neutral-200);
-}
-
-h2.isopen.real {
-  background-color: var(--accent);
 }
 
 .toggle {

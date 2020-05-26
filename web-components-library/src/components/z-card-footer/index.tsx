@@ -17,10 +17,6 @@ export class ZCardFooter {
   @Prop() autorilabel: string = "Autore";
   /** authors name text */
   @Prop() autori: string;
-  /** year */
-  @Prop() anno: number;
-  /** year label */
-  @Prop() annolabel: string = "Anno";
   /** volume isbn */
   @Prop() isbn: string;
   /** faded status */
@@ -57,11 +53,8 @@ export class ZCardFooter {
               {this.autorilabel}: <b>{this.autori}</b>
             </p>
             <p class="year_isbn">
-              <span class="year">
-                {this.annolabel}: <b>{this.anno}</b>
-              </span>
               <span class="isbn">
-                ISBN: <b>{this.isbn}</b>
+                ISBN (ed. cartacea): <b>{this.isbn}</b>
               </span>
             </p>
           </div>

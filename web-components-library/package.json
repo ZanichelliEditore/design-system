@@ -39,7 +39,7 @@
     "colors": true,
     "silent": false,
     "run": [
-      "release"
+      "test"
     ]
   },
   "license": "MIT",
