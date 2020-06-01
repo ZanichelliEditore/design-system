@@ -95,7 +95,7 @@
 
 - [z-logo](../../logo/z-logo)
 - [z-list](../../list/z-list)
-- [z-link](../../link/z-link)
+- [z-link](../z-link)
 - [z-menu-dropdown](../z-menu-dropdown)
 - [z-button](../../buttons/z-button)
 - [z-icon](../../icons/z-icon)

@@ -38,8 +38,8 @@
 
 ### Used by
 
- - [z-header](../../navigation/z-header)
- - [z-menu-dropdown](../../navigation/z-menu-dropdown)
+ - [z-header](../z-header)
+ - [z-menu-dropdown](../z-menu-dropdown)
  - [z-panel-elem](../../panel/z-panel-elem)
 
 ### Depends on

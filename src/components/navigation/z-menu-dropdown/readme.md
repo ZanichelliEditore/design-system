@@ -26,7 +26,7 @@
 
 ### Depends on
 
-- [z-link](../../link/z-link)
+- [z-link](../z-link)
 - [z-icon](../../icons/z-icon)
 
 ### Graph

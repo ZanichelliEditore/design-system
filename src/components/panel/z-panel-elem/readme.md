@@ -37,7 +37,7 @@
 
 ### Depends on
 
-- [z-link](../../link/z-link)
+- [z-link](../../navigation/z-link)
 
 ### Graph
 ```mermaid
