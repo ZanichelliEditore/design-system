@@ -9,7 +9,7 @@
       "request": "launch",
       "name": "Web Components Loibrary Chrome debugger",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/web-components-library/src"
+      "webRoot": "${workspaceFolder}/src"
     }
   ]
 }
