@@ -314,6 +314,7 @@ hr {
 
 .link-ext z-link {
   font-size: 12px;
+  font-weight: var(--font-sb);
 }
 
 .link-int {
@@ -505,6 +506,11 @@ hr {
     margin-bottom: 0;
   }
 
+  header.myz-out {
+    top: 0px;
+    grid-template-rows: 1fr;
+  }
+
   .main-header {
     display: grid;
     grid-template-columns: 170px 168px 4fr 120px;
@@ -605,7 +611,7 @@ hr {
     width: auto;
     line-height: 14px;
     margin: var(--basex1);
-    padding: var(--basex1);
+    padding: var(--half-x1) var(--basex1);
   }
 }
 

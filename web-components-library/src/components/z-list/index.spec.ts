@@ -39,6 +39,7 @@ describe("Suite test z-list", () => {
                 <li role="button">
                   <span>
                       <span>elemento lista</span>
+                      <slot></slot>
                   </span>
                 </li>
               </mock:shadow-root>
@@ -64,6 +65,7 @@ describe("Suite test z-list", () => {
                 <li role="button">
                   <span>
                     <a href=\"http://www.google.it\" target="_self" role="link" tabindex="0"> elemento lista</a>
+                    <slot></slot>
                   </span>
                 </li>
               </mock:shadow-root>
@@ -89,6 +91,7 @@ describe("Suite test z-list", () => {
               <li role="button">
                 <span class="border">
                   <span>elemento lista</span>
+                  <slot></slot>
                 </span>
               </li>
             </mock:shadow-root>
@@ -100,6 +103,7 @@ describe("Suite test z-list", () => {
                   <a href=\"http://www.google.it\" tabindex="0" target="_self" role="link">
                     link lista
                   </a>
+                  <slot></slot>
                 </span>
               </li>
             </mock:shadow-root>
@@ -137,6 +141,7 @@ describe("Suite test z-list", () => {
                 <li role="button">
                   <span>
                       <span>testo di esempio</span>
+                      <slot></slot>
                   </span>
                 </li>
               </mock:shadow-root>

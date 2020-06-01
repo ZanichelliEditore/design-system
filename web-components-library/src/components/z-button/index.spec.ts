@@ -9,27 +9,29 @@ describe("Suite test ZButton", () => {
       html: `<z-button></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button>
+      <z-button style="pointer-events: auto;">
         <mock:shadow-root>
-          <button>
+          <button type="button" class="primary false">
+            <slot></slot>
           </button>
         </mock:shadow-root>
       </z-button>
     `);
   });
 
-  it("Test render ZButton con label", async () => {
+  it("Test render ZButton con contenuto", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button label="label"></z-button>`
+      html: `<z-button>label</z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button label="label">
+      <z-button style="pointer-events: auto;">
         <mock:shadow-root>
-          <button>
-            label
+          <button type="button" class="primary false">
+            <slot></slot>
           </button>
-        </mock:shadow-root>
+          </mock:shadow-root>
+          label
       </z-button>
     `);
   });
@@ -40,25 +42,27 @@ describe("Suite test ZButton", () => {
       html: `<z-button icon="icon"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button icon="icon">
+      <z-button style="pointer-events: auto;" icon="icon">
         <mock:shadow-root>
-          <button>
-            <z-icon name="icon" height="16" width="16" />
+          <button type="button" class="primary false">
+            <z-icon name="icon" height="16" width="16"></z-icon>
+            <slot></slot>
           </button>
         </mock:shadow-root>
       </z-button>
     `);
   });
 
-  it("Test render ZButton type", async () => {
+  it("Test render ZButton variant", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button type="primary"></z-button>`
+      html: `<z-button variant="secondary"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button type="primary">
+      <z-button style="pointer-events: auto;" variant="secondary">
         <mock:shadow-root>
-          <button class="primary">
+          <button type="button" class="secondary false">
+            <slot></slot>
           </button>
         </mock:shadow-root>
       </z-button>
@@ -68,12 +72,13 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton small", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button type="primary" issmall="true"></z-button>`
+      html: `<z-button issmall="true"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button type="primary" issmall="true">
+      <z-button style="pointer-events: auto;" issmall="true">
         <mock:shadow-root>
-          <button class="primary small">
+          <button type="button" class="primary small">
+            <slot></slot>
           </button>
         </mock:shadow-root>
       </z-button>
@@ -83,12 +88,13 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton disabled", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button isdisabled="true"></z-button>`
+      html: `<z-button disabled></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button isdisabled="true">
+      <z-button disabled  style="pointer-events: none;">
         <mock:shadow-root>
-          <button disabled>
+          <button type="button" class="primary false" disabled>
+            <slot></slot>
           </button>
         </mock:shadow-root>
       </z-button>

@@ -34,7 +34,7 @@
  - [z-header](../z-header)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../z-info-box)
- - [z-input-text](../z-input-text)
+ - [z-input](../z-input)
  - [z-link](../z-link)
  - [z-list-item](../z-list-item)
  - [z-menu-dropdown](../z-menu-dropdown)
@@ -55,7 +55,7 @@ graph TD;
   z-header --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon
-  z-input-text --> z-icon
+  z-input --> z-icon
   z-link --> z-icon
   z-list-item --> z-icon
   z-menu-dropdown --> z-icon

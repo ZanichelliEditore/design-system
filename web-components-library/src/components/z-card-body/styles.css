@@ -1,10 +1,10 @@
 :host {
-  height: 400px;
+  height: 340px;
   width: auto;
 }
 
 :host > div {
-  height: 400px;
+  height: 340px;
   width: auto;
   display: flex;
   align-items: center;

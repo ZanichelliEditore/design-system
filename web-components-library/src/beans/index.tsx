@@ -44,7 +44,6 @@ export type CardBean = {
   opera_title: string;
   img: string;
   authors: string;
-  year: number;
   actions: ActionBean[];
   is_bookmark: boolean;
   licenseType: LicenseTypeEnum;
@@ -92,6 +91,20 @@ export type ComboItemBean = {
   checked: boolean;
 };
 
+export type ButtonVariantBean = ButtonVariantEnum;
+
+export enum ButtonVariantEnum {
+  primary = "primary",
+  secondary = "secondary",
+  tertiary = "tertiary"
+}
+
+export enum ButtonTypeEnum {
+  submit = "submit",
+  reset = "reset",
+  button = "button"
+}
+
 export type InputTypeBean = InputTypeEnum;
 
 export enum InputTypeEnum {
@@ -99,7 +112,9 @@ export enum InputTypeEnum {
   password = "password",
   number = "number",
   email = "email",
-  textarea = "textarea"
+  textarea = "textarea",
+  checkbox = "checkbox",
+  select = "select"
 }
 
 export type InputStatusBean = InputStatusEnum;
@@ -124,5 +139,14 @@ export enum keybordKeyCodeEnum {
   TAB = 9,
   SPACE = 32,
   ESC = 27,
-  ENTER = 13
+  ENTER = 13,
+  ARROW_UP = 38,
+  ARROW_DOWN = 40
 }
+
+export type SelectItemBean = {
+  id: string;
+  name: string;
+  selected: boolean;
+  disabled?: boolean;
+};

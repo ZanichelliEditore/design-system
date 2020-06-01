@@ -43,7 +43,8 @@ export class ZListItem {
     const linkId = this.listitemid ? `link_${this.listitemid}` : "";
 
     return (
-      <li role="button"
+      <li
+        role="button"
         id={this.listitemid}
         data-action={this.action}
         onClick={(e: MouseEvent) => this.emitZListItemClick(e, this.listitemid)}
@@ -72,6 +73,7 @@ export class ZListItem {
           ) : (
             <span innerHTML={this.text}></span>
           )}
+          <slot />
         </span>
       </li>
     );

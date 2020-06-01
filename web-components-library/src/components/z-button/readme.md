@@ -23,14 +23,22 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                      | Type      | Default     |
-| ------------ | ------------ | -------------------------------- | --------- | ----------- |
-| `buttonid`   | `buttonid`   | id, should be unique             | `string`  | `undefined` |
-| `icon`       | `icon`       | add an icon to button (optional) | `string`  | `undefined` |
-| `isdisabled` | `isdisabled` | disable button                   | `boolean` | `false`     |
-| `issmall`    | `issmall`    | reduce button size (optional)    | `boolean` | `false`     |
-| `label`      | `label`      | label content                    | `string`  | `undefined` |
-| `type`       | `type`       | graphic variant                  | `string`  | `undefined` |
+| Property   | Attribute  | Description                      | Type                                                                                     | Default                     |
+| ---------- | ---------- | -------------------------------- | ---------------------------------------------------------------------------------------- | --------------------------- |
+| `disabled` | `disabled` | disable button                   | `boolean`                                                                                | `false`                     |
+| `htmlid`   | `htmlid`   | id, should be unique             | `string`                                                                                 | `undefined`                 |
+| `icon`     | `icon`     | add an icon to button (optional) | `string`                                                                                 | `undefined`                 |
+| `issmall`  | `issmall`  | reduce button size (optional)    | `boolean`                                                                                | `false`                     |
+| `name`     | `name`     | name                             | `string`                                                                                 | `undefined`                 |
+| `type`     | `type`     | button type                      | `string`                                                                                 | `ButtonTypeEnum.button`     |
+| `variant`  | `variant`  | graphic variant                  | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary` | `ButtonVariantEnum.primary` |
+
+
+## Slots
+
+| Slot | Description  |
+| ---- | ------------ |
+|      | button label |
 
 
 ## Dependencies

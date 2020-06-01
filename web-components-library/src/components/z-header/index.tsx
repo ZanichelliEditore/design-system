@@ -7,11 +7,16 @@ import {
   Listen,
   Watch
 } from "@stencil/core";
-import { MenuItem, HeaderUserData, ListItemBean } from "../../beans";
+import {
+  MenuItem,
+  HeaderUserData,
+  ListItemBean,
+  ButtonVariantEnum
+} from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 /**
- * @slot editors - top menu editors images bar
+ * @slot editors - top menu editors images bar (only with ismyz prop === true)
  */
 @Component({
   tag: "z-header",
@@ -20,9 +25,9 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
 })
 export class ZHeader {
   /** data to fill internal navigation links */
-  @Prop() intlinkdata: string | MenuItem[];
+  @Prop() intlinkdata?: string | MenuItem[];
   /** data to fill external navigation links */
-  @Prop() extlinkdata: string | MenuItem[];
+  @Prop() extlinkdata?: string | MenuItem[];
   /** data to fill user dropdown menu (optional) */
   @Prop() userdata?: string | HeaderUserData;
   /** graphic flag to set myzanichelli style */
@@ -40,8 +45,8 @@ export class ZHeader {
   @State() currentMenuItem: MenuItem;
   @State() isMobile: boolean = true;
   @State() isMenuMobileOpen: boolean = false;
-  private intMenuData: MenuItem[];
-  private extMenuData: MenuItem[];
+  private intMenuData: MenuItem[] = [];
+  private extMenuData: MenuItem[] = [];
   private userData: HeaderUserData;
   private isLogged: boolean = false;
 
@@ -69,17 +74,22 @@ export class ZHeader {
   }
 
   componentWillLoad() {
-    this.intMenuData =
-      typeof this.intlinkdata === "string"
-        ? JSON.parse(this.intlinkdata)
-        : this.intlinkdata;
-    this.extMenuData =
-      typeof this.extlinkdata === "string"
-        ? JSON.parse(this.extlinkdata)
-        : this.extlinkdata;
+    if (this.intlinkdata) {
+      this.intMenuData =
+        typeof this.intlinkdata === "string"
+          ? JSON.parse(this.intlinkdata)
+          : this.intlinkdata;
+    }
     this.activeMenuItem = this.currentMenuItem = this.intMenuData.find(
       (item: MenuItem) => item.id === this.activeintlinkid
     );
+
+    if (this.extlinkdata) {
+      this.extMenuData =
+        typeof this.extlinkdata === "string"
+          ? JSON.parse(this.extlinkdata)
+          : this.extlinkdata;
+    }
     if (this.userdata) {
       this.userData =
         typeof this.userdata === "string"
@@ -90,8 +100,8 @@ export class ZHeader {
     this.handleResize();
   }
 
-  renderTopHeader(): HTMLDivElement {
-    if (!this.ismyz) return <div />;
+  renderTopHeader(): HTMLDivElement | undefined {
+    if (!this.ismyz) return;
 
     return (
       <div class="top-header">
@@ -116,8 +126,8 @@ export class ZHeader {
     );
   }
 
-  renderIntMenu(menuItems: MenuItem[]): HTMLDivElement {
-    if (!this.isLogged || !this.ismyz) return <div />;
+  renderIntMenu(menuItems: MenuItem[]): HTMLDivElement | undefined {
+    if (!this.isLogged || !this.ismyz) return;
 
     return (
       <div id="link-int" class="link-int">
@@ -204,8 +214,9 @@ export class ZHeader {
     );
   }
 
-  renderSubMenu(menuItem: MenuItem): HTMLDivElement {
-    if (!menuItem || !menuItem["subMenu"] || !this.isLogged || !this.ismyz) {
+  renderSubMenu(menuItem: MenuItem): HTMLDivElement | undefined {
+    if (!this.ismyz || !this.isLogged) return;
+    if (!menuItem || !menuItem["subMenu"]) {
       return <div id="dropdown-menu" class={`dropdown-menu hidden`} />;
     }
 
@@ -244,14 +255,15 @@ export class ZHeader {
               <span class={`link-ext-span ${this.ismyz && "myz"}`}>
                 <z-link
                   id={id}
-                  linkid={id}
-                  url={link}
-                  label={label}
+                  htmlid={id}
+                  href={link}
                   icon={icon}
                   iswhite={this.ismyz ? true : false}
                   target="_blank"
-                  linktabindex={10}
-                />
+                  htmltabindex={10}
+                >
+                  {label}
+                </z-link>
               </span>
             );
           }
@@ -278,12 +290,15 @@ export class ZHeader {
   renderLoginButton() {
     return (
       <z-button
-        label="entra"
-        type={`${this.ismyz ? "secondary" : "tertiary"}`}
-        buttonid="login-button"
+        htmlid="login-button"
+        variant={
+          this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary
+        }
         icon="enter"
         issmall={true}
-      />
+      >
+        entra
+      </z-button>
     );
   }
 
@@ -327,7 +342,7 @@ export class ZHeader {
 
   renderDesktopHeader(): HTMLHeadingElement {
     return (
-      <header>
+      <header class={`${!this.ismyz && "myz-out"}`}>
         {this.renderTopHeader()}
         {this.renderMainHeader()}
         {this.renderSubMenu(this.activeMenuItem)}

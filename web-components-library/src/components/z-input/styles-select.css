@@ -1,0 +1,136 @@
+/* CLOSE */
+
+:host > div.selectWrapper > div {
+  position: relative;
+  height: 44px;
+}
+
+:host > div.selectWrapper > div > ul {
+  list-style: none;
+  height: 44px;
+  line-height: 44px;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 10;
+}
+
+:host > div.selectWrapper > div > ul.closed {
+  max-width: 100%;
+}
+
+:host > div.selectWrapper > div > ul > li {
+  padding: 0 var(--half-x3);
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+:host > div.selectWrapper > div > ul > li.selected {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: var(--border-size-small) solid transparent;
+}
+
+:host > div.selectWrapper > div > ul > li.selected > span {
+  width: calc(100% - 40px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+:host > div.selectWrapper > div > ul.closed > li.selected > span.placeholder {
+  color: var(--text-grey-700);
+}
+
+:host > div.selectWrapper > div > ul > li.selected > z-icon {
+  padding-left: var(--basex2);
+  padding-right: 0;
+  padding-top: 8px;
+  fill: var(--text-grey-800);
+  transform: rotate(360deg);
+  transition: all 200ms linear;
+}
+
+/* OPEN */
+
+:host > div.selectWrapper > div > ul.open {
+  height: auto;
+  overflow-y: auto;
+  border: none;
+  z-index: 20;
+  min-width: 100%;
+  width: auto;
+}
+
+:host > div.selectWrapper > div > ul.open > li.selected {
+  border-color: var(--myz-blue) !important;
+  box-shadow: 0 0 0 0 transparent;
+  color: var(--myz-blue);
+}
+
+:host > div.selectWrapper > div > ul.open > li.selected > z-icon {
+  transform: rotate(180deg);
+  transition: all 200ms linear;
+  padding-left: 0;
+  padding-right: var(--basex2);
+}
+
+:host > div.selectWrapper > div > ul.open > li[role="option"] {
+  border-left: var(--border-size-small) solid var(--bg-grey-200);
+  border-right: var(--border-size-small) solid var(--bg-grey-200);
+  color: var(--text-grey-800);
+}
+
+:host > div.selectWrapper > div > ul.open > li[role="option"]:focus {
+  margin: 2px;
+}
+
+:host > div.selectWrapper > div > ul.open > li[role="option"]:last-child {
+  border-bottom: var(--border-size-small) solid var(--bg-grey-200);
+}
+
+:host > div.selectWrapper > div > ul.open > li[role="option"] > span {
+  display: block;
+  border-bottom: var(--border-size-small) solid var(--bg-grey-200);
+  padding: 0 var(--basex1);
+}
+
+:host
+  > div.selectWrapper
+  > div
+  > ul.open
+  > li[role="option"]:last-child
+  > span {
+  border-bottom: none;
+}
+
+:host > div.selectWrapper > div > ul.open > li[role="option"]:hover {
+  color: var(--myz-blue-dark);
+  background: var(--bg-grey-050);
+}
+
+:host
+  > div.selectWrapper
+  > div
+  > ul.open
+  > li[role="option"]::-moz-focus-inner {
+  border: 0;
+}
+
+:host > div.selectWrapper > div > ul.open > li[role="option"].disabled {
+  color: var(--text-grey-700);
+  cursor: default;
+  pointer-events: none;
+}
+
+:host
+  > div.selectWrapper
+  > div
+  > ul.open
+  > li[role="option"][aria-selected=""] {
+  font-weight: var(--font-sb);
+}

@@ -8,7 +8,7 @@ import { LicenseTypeEnum } from "../../beans/index";
 @Component({
   tag: "z-card-footer",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZCardFooter {
   /** volume title */
@@ -17,10 +17,6 @@ export class ZCardFooter {
   @Prop() autorilabel: string = "Autore";
   /** authors name text */
   @Prop() autori: string;
-  /** year */
-  @Prop() anno: number;
-  /** year label */
-  @Prop() annolabel: string = "Edizione";
   /** volume isbn */
   @Prop() isbn: string;
   /** faded status */
@@ -46,7 +42,7 @@ export class ZCardFooter {
 
   render() {
     return (
-      <div class={this.faded && 'faded'}>
+      <div class={this.faded && "faded"}>
         <footer class={this.retrieveClass()}>
           <span class="toggle">
             <slot name="toggle" />
@@ -57,11 +53,8 @@ export class ZCardFooter {
               {this.autorilabel}: <b>{this.autori}</b>
             </p>
             <p class="year_isbn">
-              <span class="year">
-                {this.annolabel}: <b>{this.anno}</b>
-              </span>
               <span class="isbn">
-                ISBN: <b>{this.isbn}</b>
+                ISBN (ed. cartacea): <b>{this.isbn}</b>
               </span>
             </p>
           </div>

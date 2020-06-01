@@ -1,6 +1,6 @@
 {
   "name": "zanichelli-web-components-library",
-  "version": "0.1.18",
+  "version": "0.1.26",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -51,7 +51,7 @@
     "colors": true,
     "silent": false,
     "run": [
-      "release"
+      "test"
     ]
   },
   "license": "MIT",

@@ -3,20 +3,17 @@ button.container {
   line-height: 32px;
 
   border: var(--border-size-small) solid var(--bg-grey-200);
-  border-radius: 19.5px;
+  border-radius: 16px;
+
+  box-shadow: 0px 2px 5px 0px var(--bg-neutral-300);
+  -webkit-box-shadow: 0px 2px 5px 0px var(--bg-neutral-300);
+  -moz-box-shadow: 0px 2px 5px 0px var(--bg-neutral-300);
 
   text-align: center;
 
   padding: 0 var(--basex2);
 
-  -webkit-user-select: none;
-  /*INFO: Safari 3.1+ */
-  -moz-user-select: none;
-  /*INFO: Firefox 2+ */
-  -ms-user-select: none;
-  /*INFO: IE 10+ */
-  user-select: none;
-  /*INFO: Standard syntax */
+  cursor : pointer;
 
   letter-spacing: 0.17px;
   font-family: var(--dashboard-font);
@@ -65,8 +62,4 @@ button.container.isactive:focus {
   box-shadow: 0px 0px 4px 0px var(--text-grey-800);
   color: var(--bg-white);
   fill: var(--bg-white);
-}
-
-button.container.isactive z-icon.close-icon-container {
-  cursor: pointer;
 }
