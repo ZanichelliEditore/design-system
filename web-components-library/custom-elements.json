@@ -9,7 +9,11 @@
       },
       "attributes": [
         {
-          "name": "buttonid",
+          "name": "disabled",
+          "description": "disable button"
+        },
+        {
+          "name": "htmlid",
           "description": "id, should be unique"
         },
         {
@@ -17,19 +21,19 @@
           "description": "add an icon to button (optional)"
         },
         {
-          "name": "isdisabled",
-          "description": "disable button"
-        },
-        {
           "name": "issmall",
           "description": "reduce button size (optional)"
         },
         {
-          "name": "label",
-          "description": "label content"
+          "name": "name",
+          "description": "name"
         },
         {
           "name": "type",
+          "description": "button type"
+        },
+        {
+          "name": "variant",
           "description": "graphic variant"
         }
       ]
@@ -191,14 +195,6 @@
       },
       "attributes": [
         {
-          "name": "anno",
-          "description": "year"
-        },
-        {
-          "name": "annolabel",
-          "description": "year label"
-        },
-        {
           "name": "autori",
           "description": "authors name text"
         },
@@ -276,15 +272,40 @@
       ]
     },
     {
-      "name": "z-combobox",
+      "name": "z-chip",
       "description": {
         "kind": "markdown",
-        "value": "<!-- readme-group=\"combobox\" -->\n```html\n<z-combobox inputid=\"combo_1\" items='[{\"id\":\"item_1\",\"name\":\"primo elemento\",\"checked\":false},{\"id\":\"item_2\",\"name\":\"secondo elemento\",\"checked\":true}]' hassearch=true searchlabel=\"Autore\" searchplaceholder=\"Cerca Autore\" label=\"Combo Corta\" closesearchtext=\"CHIUDI\"></z-combobox>\n<z-combobox inputid=\"combo_2\" items='[{\"id\":\"item_1\",\"name\":\"primo elemento\",\"checked\":false},{\"id\":\"item_2\",\"name\":\"secondo elemento\",\"checked\":true},{\"id\":\"item_3\",\"name\":\"terzo\",\"checked\":false},{\"id\":\"item_4\",\"name\":\"quarto elemento\",\"checked\":true},{\"id\":\"item_5\",\"name\":\"quinto elemento\",\"checked\":false},{\"id\":\"item_6\",\"name\":\"sesto elemento\",\"checked\":true}]' hassearch=true searchlabel=\"Autore\" searchplaceholder=\"Cerca Autore\" label=\"Combo Corta\" isopen=\"false\" label=\"Combo Lunga\" closesearchtext=\"CHIUDI\"></z-combobox>\n```"
+        "value": ""
       },
       "attributes": [
         {
+          "name": "boldtext",
+          "description": ""
+        },
+        {
+          "name": "regulartext",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "z-combobox",
+      "description": {
+        "kind": "markdown",
+        "value": "<!-- readme-group=\"combobox\" -->\n\n```html\n<z-combobox\n  inputid=\"combo_1\"\n  items='[{\"id\":\"item_1\",\"name\":\"primo elemento\",\"checked\":false},{\"id\":\"item_2\",\"name\":\"secondo elemento\",\"checked\":true}]'\n  hassearch=\"true\"\n  searchlabel=\"Autore\"\n  searchplaceholder=\"Cerca Autore\"\n  label=\"Combo Corta\"\n  closesearchtext=\"CHIUDI\"\n></z-combobox>\n<z-combobox\n  inputid=\"combo_2\"\n  items='[{\"id\":\"item_1\",\"name\":\"primo elemento\",\"checked\":false},{\"id\":\"item_2\",\"name\":\"secondo elemento\",\"checked\":true},{\"id\":\"item_3\",\"name\":\"terzo\",\"checked\":false},{\"id\":\"item_4\",\"name\":\"quarto elemento\",\"checked\":true},{\"id\":\"item_5\",\"name\":\"quinto elemento\",\"checked\":false},{\"id\":\"item_6\",\"name\":\"sesto elemento\",\"checked\":true}]'\n  hassearch=\"true\"\n  searchlabel=\"Autore\"\n  searchplaceholder=\"Cerca Autore\"\n  label=\"Combo Corta\"\n  isopen=\"false\"\n  label=\"Combo Lunga\"\n  closesearchtext=\"CHIUDI\"\n></z-combobox>\n```"
+      },
+      "attributes": [
+        {
+          "name": "checkalltext",
+          "description": "check all label (optional)"
+        },
+        {
           "name": "closesearchtext",
           "description": "close combobox list text"
+        },
+        {
+          "name": "hascheckall",
+          "description": "show \"check all\" checkbox (optional)"
         },
         {
           "name": "hassearch",
@@ -311,6 +332,10 @@
           "description": "label text"
         },
         {
+          "name": "maxcheckableitems",
+          "description": "max number of checkable items (0 = unlimited)"
+        },
+        {
           "name": "noresultslabel",
           "description": "no result text message"
         },
@@ -325,6 +350,10 @@
         {
           "name": "searchtitle",
           "description": "search input title text (optional)"
+        },
+        {
+          "name": "uncheckalltext",
+          "description": "uncheck all label (optional)"
         }
       ]
     },
@@ -437,55 +466,75 @@
       ]
     },
     {
-      "name": "z-input-text",
+      "name": "z-input",
       "description": {
         "kind": "markdown",
-        "value": "<!-- readme-group=\"input\" -->\n```html\n<!-- type text -->\n<z-input-text label=\"default\" placeholder=\"Cerca Autore\"></z-input-text>\n<z-input-text label=\"filled\" value=\"testo testo testo\"></z-input-text>\n<z-input-text label=\"disabled\" placeholder=\"placeholder\" isdisabled value=\"i'm disabled\"></z-input-text>\n<z-input-text label=\"readonly\" placeholder=\"placeholder\" isreadonly value=\"i'm read-only\"></z-input-text>\n<z-input-text label=\"success\" placeholder=\"placeholder\" status=\"success\" message=\"message message\" value=\"\"></z-input-text>\n<z-input-text label=\"error\" placeholder=\"placeholder\" status=\"error\" message=\"message message\" value=\"testo\"></z-input-text>\n<z-input-text label=\"warning\" placeholder=\"placeholder\" status=\"warning\" message=\"message message message message message message message message message message message message message message message message message message\"></z-input-text>\n<z-input-text label=\"message\" placeholder=\"placeholder\" message=\"helper message\"></z-input-text>\n<!-- type textarea -->\n<z-input-text type=\"textarea\"></z-input-text>\n<z-input-text type=\"textarea\" label=\"default\" placeholder=\"Cerca Autore\"></z-input-text>\n<z-input-text type=\"textarea\" label=\"filled\" value=\"testo testo testo\"></z-input-text>\n<z-input-text type=\"textarea\" label=\"disabled\" placeholder=\"placeholder\" isdisabled value=\"i'm disabled\"></z-input-text>\n<z-input-text type=\"textarea\" label=\"readonly\" placeholder=\"placeholder\" isreadonly value=\"i'm read-only\"></z-input-text>\n<z-input-text type=\"textarea\" label=\"success\" placeholder=\"placeholder\" status=\"success\" message=\"message message\" value=\"\"></z-input-text>\n<z-input-text type=\"textarea\" label=\"error\" placeholder=\"placeholder\" status=\"error\" message=\"message message\" value=\"testo\"></z-input-text>\n<z-input-text type=\"textarea\" label=\"warning\" placeholder=\"placeholder\" status=\"warning\" message=\"message message\"></z-input-text>\n<z-input-text type=\"textarea\" label=\"message\" placeholder=\"placeholder\" message=\"helper message\"></z-input-text>\n```"
+        "value": "<!-- readme-group=\"input\" -->\n\n```html\n<!-- type text -->\n<z-input label=\"default\" placeholder=\"Cerca Autore\"></z-input>\n<z-input label=\"filled\" value=\"testo testo testo\"></z-input>\n<z-input\n  label=\"disabled\"\n  placeholder=\"placeholder\"\n  disabled\n  value=\"i'm disabled\"\n></z-input>\n<z-input\n  label=\"readonly\"\n  placeholder=\"placeholder\"\n  readonly\n  value=\"i'm read-only\"\n></z-input>\n<z-input\n  label=\"success\"\n  placeholder=\"placeholder\"\n  status=\"success\"\n  message=\"message message\"\n  value=\"\"\n></z-input>\n<z-input\n  label=\"error\"\n  placeholder=\"placeholder\"\n  status=\"error\"\n  message=\"message message\"\n  value=\"testo\"\n></z-input>\n<z-input\n  label=\"warning\"\n  placeholder=\"placeholder\"\n  status=\"warning\"\n  message=\"message message message message message message message message message message message message message message message message message message\"\n></z-input>\n<z-input\n  label=\"message\"\n  placeholder=\"placeholder\"\n  message=\"helper message\"\n></z-input>\n\n<!-- type textarea -->\n<z-input type=\"textarea\"></z-input>\n<z-input type=\"textarea\" label=\"default\" placeholder=\"Cerca Autore\"></z-input>\n<z-input type=\"textarea\" label=\"filled\" value=\"testo testo testo\"></z-input>\n<z-input\n  type=\"textarea\"\n  label=\"disabled\"\n  placeholder=\"placeholder\"\n  disabled\n  value=\"i'm disabled\"\n></z-input>\n<z-input\n  type=\"textarea\"\n  label=\"readonly\"\n  placeholder=\"placeholder\"\n  readonly\n  value=\"i'm read-only\"\n></z-input>\n<z-input\n  type=\"textarea\"\n  label=\"success\"\n  placeholder=\"placeholder\"\n  status=\"success\"\n  message=\"message message\"\n  value=\"\"\n></z-input>\n<z-input\n  type=\"textarea\"\n  label=\"error\"\n  placeholder=\"placeholder\"\n  status=\"error\"\n  message=\"message message\"\n  value=\"testo\"\n></z-input>\n<z-input\n  type=\"textarea\"\n  label=\"warning\"\n  placeholder=\"placeholder\"\n  status=\"warning\"\n  message=\"message message\"\n></z-input>\n<z-input\n  type=\"textarea\"\n  label=\"message\"\n  placeholder=\"placeholder\"\n  message=\"helper message\"\n></z-input>\n\n<!-- type checkbox -->\n<z-input type=\"checkbox\" htmlid=\"check1\"></z-input>\n<z-input\n  type=\"checkbox\"\n  htmlid=\"check2\"\n  label=\"this is a checkbox\"\n  checked=\"true\"\n></z-input>\n<z-input\n  type=\"checkbox\"\n  htmlid=\"check4\"\n  value=\"value\"\n  disabled=\"true\"\n  label=\"disabled\"\n  labelafter=\"false\"\n></z-input>\n<z-input\n  type=\"checkbox\"\n  htmlid=\"check5\"\n  value=\"value\"\n  readonly=\"true\"\n  label=\"read-only\"\n></z-input>\n```"
       },
       "attributes": [
         {
+          "name": "checked",
+          "description": "checked: available for checkbox, radio"
+        },
+        {
+          "name": "disabled",
+          "description": "the input is disabled"
+        },
+        {
+          "name": "hasmessage",
+          "description": "show input helper message (optional): available for text, password, number, email, textarea, select"
+        },
+        {
+          "name": "htmlid",
+          "description": "the id of the input element"
+        },
+        {
           "name": "htmltitle",
-          "description": "input html title (optional)"
+          "description": "the input html title (optional)"
         },
         {
-          "name": "inputid",
-          "description": "html input unique id"
-        },
-        {
-          "name": "isdisabled",
-          "description": "disable input flag"
-        },
-        {
-          "name": "isreadonly",
-          "description": "readonly input flag"
+          "name": "items",
+          "description": "items: available for select"
         },
         {
           "name": "label",
-          "description": "input label text (optional)"
+          "description": "the input label"
+        },
+        {
+          "name": "labelafter",
+          "description": "the input label position: available for checkbox, radio"
         },
         {
           "name": "message",
-          "description": "input helper message (optional)"
+          "description": "input helper message (optional): available for text, password, number, email, textarea, select"
+        },
+        {
+          "name": "name",
+          "description": "the input name"
         },
         {
           "name": "placeholder",
-          "description": "input placeholder (optional)"
+          "description": "the input placeholder (optional)"
+        },
+        {
+          "name": "readonly",
+          "description": "the input is readonly"
         },
         {
           "name": "status",
-          "description": "input status (optional)"
+          "description": "the input status (optional): available for text, password, number, email, textarea, select"
         },
         {
           "name": "type",
-          "description": "input html type, can be text or textarea (optional)"
+          "description": "input types"
         },
         {
-          "name": "typing-timeout",
-          "description": "timeout setting before trigger `inputChange` event (optional)"
+          "name": "typingtimeout",
+          "description": "timeout setting before trigger `inputChange` event (optional): available for text, textarea"
         },
         {
           "name": "value",
-          "description": "input value (mutable, optional)"
+          "description": "the input value"
         }
       ]
     },
@@ -493,12 +542,28 @@
       "name": "z-link",
       "description": {
         "kind": "markdown",
-        "value": "<!-- readme-group=\"link\" -->\n```html\n<z-link label=\"z-link\"></z-link>\n<z-link label=\"z-link\" icon=\"download\"></z-link>\n<z-link label=\"z-link\" isdisabled></z-link>\n<z-link label=\"z-link\" isdisabled icon=\"download\"></z-link>\n```"
+        "value": "<!-- readme-group=\"link\" -->\n```html\n<z-link>z-link</z-link>\n<z-link icon=\"download\">z-link</z-link>\n<z-link isdisabled>z-link</z-link>\n<z-link isactive>z-link</z-link>\n<z-link iswhite>z-link</z-link>\n```"
       },
       "attributes": [
         {
+          "name": "href",
+          "description": "link url (optional)"
+        },
+        {
+          "name": "htmlid",
+          "description": "link id (optional)"
+        },
+        {
+          "name": "htmltabindex",
+          "description": "tabindex link attribute (optional)"
+        },
+        {
           "name": "icon",
           "description": "link icon name (optional)"
+        },
+        {
+          "name": "isactive",
+          "description": "active link flag (optional)"
         },
         {
           "name": "isdisabled",
@@ -509,24 +574,8 @@
           "description": "white variant flag (optional)"
         },
         {
-          "name": "label",
-          "description": "link label (optional)"
-        },
-        {
-          "name": "linkid",
-          "description": "link id (optional)"
-        },
-        {
-          "name": "linktabindex",
-          "description": "tabindex link attribute"
-        },
-        {
           "name": "target",
           "description": "link target (optional)"
-        },
-        {
-          "name": "url",
-          "description": "link url"
         }
       ]
     },
