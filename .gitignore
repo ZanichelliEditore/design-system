@@ -2,9 +2,7 @@ dist/
 www/
 loader/
 
-#temporaneamente aggiungo storybook (ho le modifiche in wip)
-storybook/
-
+custom-elements.json
 src/components.d.ts
 src/components/baseComponentLayer/index.tsx
 src/components/baseComponentLayer/styles.css

@@ -1,5 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
 
 <Meta title="ZButton" component="z-button" />
 
@@ -11,18 +12,16 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
       <z-button
         type="primary"
         isdisabled="${boolean('isdisabled', false)}"
-        label="${text('label', 'click me')}"
         icon="${text('icon', 'download')}"
-      ></z-button>`}
+      >${text('label', 'click me')}</z-button>`}
   </Story>
   <Story name="secondary">
     {html`
       <z-button
         type="secondary"
         isdisabled="${boolean('isdisabled', false)}"
-        label="${text('label', 'click me')}"
         icon="${text('icon', 'download')}"
-      ></z-button>
+      >${text('label', 'click me')}</z-button>
     `}
   </Story>
   <Story name="tertiary">
@@ -30,9 +29,8 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
       <z-button
         type="tertiary"
         isdisabled="${boolean('isdisabled', false)}"
-        label="${text('label', 'click me')}"
         icon="${text('icon', 'download')}"
-      ></z-button>`}
+      >${text('label', 'click me')}</z-button>`}
   </Story>
 </Preview>
 
