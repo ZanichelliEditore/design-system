@@ -1,0 +1,35 @@
+ul {
+  font-family: var(--dashboard-font);
+  color: var(--myz-blue);
+  margin: var(--basex1) var(--basex2);
+  padding: 0px;
+  overflow: hidden;
+  list-style: none;
+  width: auto;
+  height: auto;
+}
+
+ul>li {
+  padding-left: 10px;
+  text-indent: -10px;
+}
+
+ul>li>a {
+  font-size: 12px;
+  font-weight: var(--font-sb);
+  text-decoration: none;
+  color: var(--myz-blue);
+}
+
+ul>li>a:before {
+  content: "•";
+  padding-right: 5px;
+}
+
+ul>li>span {
+  font-size: 14px;
+  font-weight: var(--font-rg);
+  text-decoration: none;
+  color: var(--text-grey-700);
+  padding: var(--basex1) var(--basex2);
+}

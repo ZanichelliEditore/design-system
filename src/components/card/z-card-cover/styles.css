@@ -1,0 +1,9 @@
+img {
+  display: block;
+  max-height: 340px;
+  margin: auto auto;
+}
+
+img.faded {
+  opacity: 0.3;
+}

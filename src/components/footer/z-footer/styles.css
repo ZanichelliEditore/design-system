@@ -1,0 +1,379 @@
+:host {
+  width: 100%;
+}
+
+footer {
+  width: auto;
+  height: auto;
+  font-family: var(--dashboard-font);
+  font-size: 13px;
+  padding: var(--basex1) 0 var(--basex1) 0;
+  background-color: var(--bg-grey-900);
+  color: var(--text-grey-050);
+}
+
+footer > section {
+  display: grid;
+  width: auto;
+  height: auto;
+}
+
+footer > section.top > nav {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: var(--half-x1) 0 var(--half-x1) 0;
+  padding: 0;
+  border-bottom: none;
+}
+
+footer > section.top > nav > .header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  margin-left: var(--basex4);
+  margin-right: var(--basex4);
+  padding-bottom: var(--basex1);
+  height: var(--basex4);
+  border-bottom: 1px solid var(--bg-grey-050);
+  line-height: 1;
+}
+
+footer > section.top > nav > .header > h2 {
+  font-size: var(--basex2);
+  margin: var(--basex1) 0 var(--basex1) 0;
+}
+
+footer > section.top > nav > .header {
+  fill: var(--text-white);
+}
+
+footer > section.top > nav > .header > z-icon {
+  position: absolute;
+  right: 36px;
+  margin-top: var(--basex1);
+}
+
+footer > section.top > nav > .content {
+  padding-left: var(--basex4);
+  padding-right: var(--basex4);
+  background-color: var(--text-grey-800);
+  background-color: var(--text-grey-800);
+}
+
+footer > section.top > nav > .content > ul {
+  display: none;
+  height: 0;
+  transition: 0.3s ease;
+  padding: var(--half-x1) 0 var(--basex2) 0;
+}
+
+footer > section.top > nav > .content > ul > li {
+  width: 100%;
+  margin: 0;
+  padding: var(--basex1) 0 var(--basex1) 0;
+  border-bottom: 1px solid var(--bg-grey-050);
+}
+
+footer > section.top > nav > .content > ul.show {
+  display: block;
+  height: auto;
+  transition: 0.3s ease;
+}
+
+footer > section.top > nav > .content > ul > li {
+  list-style: none;
+}
+
+footer > section.top > nav > .content > ul > li > a {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-grey-050);
+  text-decoration: none;
+  padding: 0;
+}
+
+footer > section.top > nav > div > ul > li > a {
+  letter-spacing: 0.2px;
+  padding: 10px 0;
+  text-decoration: underline;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 2;
+}
+
+footer > section.bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  white-space: pre-line;
+  font-size: 12px;
+}
+
+footer > section.bottom > div.item {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column: span 1;
+  height: auto;
+  width: auto;
+  padding: var(--basex2) 0;
+  margin: 0 var(--basex3);
+}
+
+footer > section.bottom > div.item:nth-child(1) {
+  order: 2;
+}
+
+footer > section.bottom > div.item:nth-child(2) {
+  order: 1;
+  border-bottom: 1px solid var(--bg-grey-050);
+}
+
+footer > section.bottom > div.item > ul.social {
+  display: flex;
+  width: auto;
+  padding: 0;
+  margin-bottom: 0px;
+}
+
+footer > section.bottom > div.item > ul.social > li {
+  list-style: none;
+  margin-right: 14px;
+}
+
+footer > section.bottom > div.item > ul.social img {
+  width: var(--basex3);
+}
+
+footer > section.bottom > div.bottom-links {
+  display: none;
+}
+
+footer > section.bottom > div.item > p {
+  width: 50%;
+  padding: var(--basex1) 0;
+  margin: 0;
+}
+
+footer > section.bottom > div.item:nth-child(1) > p {
+  width: 253px;
+}
+
+footer > section.bottom > div.logo > p > span {
+  display: block;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  footer {
+    padding: 0;
+  }
+
+  footer > section.top {
+    padding: var(--basex2) var(--basex4);
+    background-color: var(--text-grey-800);
+  }
+
+  footer > section.top > nav {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 18px;
+    padding: var(--basex2) 0 var(--basex1) 0;
+    border-bottom: 1px solid var(--bg-white);
+    margin: 0;
+  }
+
+  footer > section.top > nav:last-child {
+    border-bottom: none;
+  }
+
+  footer > section.top > nav > .header {
+    border-bottom: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  footer > section.top > nav > .header > h2 {
+    border: none;
+  }
+
+  footer > section.top > nav > .content {
+    padding: 0;
+    margin: 0;
+  }
+
+  footer > section.top > nav > .content > ul {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    border-bottom: none;
+    margin: 0;
+  }
+
+  footer > section.top > nav > .content > ul > li {
+    width: 223px;
+    margin: 0 var(--basex1) 0 0;
+    padding: var(--half-x1) 0px;
+    border: none;
+  }
+
+  footer > section.top > nav > .content > ul > li > a {
+    font-size: 12px;
+    line-height: 1;
+    border-bottom: 1px solid var(--bg-white);
+  }
+
+  footer > section.bottom {
+    grid-template-columns: 1fr 1fr 2fr;
+    background-color: var(--bg-grey-900);
+    padding: 0 var(--basex2);
+  }
+
+  footer > section.bottom > div.item {
+    margin: 0;
+  }
+
+  footer > section.bottom > div.item:nth-child(1) {
+    order: 1;
+  }
+
+  footer > section.bottom > div.item:nth-child(2) {
+    order: 2;
+    border-bottom: none;
+    margin: 0px var(--basex2) 0px var(--basex2);
+  }
+
+  footer > section.bottom > div.item > p {
+    width: 80%;
+    padding-top: 0;
+  }
+
+  footer > section.bottom > div.item > ul.social img {
+    width: var(--basex3);
+    height: var(--basex3);
+    border: none;
+  }
+
+  footer > section.bottom > div.logo > z-logo {
+    height: 39px;
+    width: 220px;
+  }
+
+  footer > section.bottom > div.bottom-links {
+    display: block;
+    order: 3;
+  }
+
+  footer > section.bottom > div.bottom-links > ul {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    height: 54px;
+    margin: 0 var(--half-x1);
+    padding: 0;
+    font-size: 12px;
+  }
+
+  footer > section.bottom > div.bottom-links > ul > li {
+    margin-bottom: var(--basex1);
+    list-style: none;
+  }
+
+  footer > section.bottom > div.bottom-links > ul > li > a {
+    color: var(--text-white);
+  }
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1025px) {
+  footer > section.top {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 7fr 1fr;
+    grid-column-gap: 18px;
+    padding: var(--basex3) var(--basex4);
+    height: 100%;
+  }
+
+  footer > section.top > nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 4fr;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  footer > section.top > nav > div > h2 {
+    width: auto;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--text-grey-050);
+    padding: 0 0 var(--basex1);
+    margin: 0;
+  }
+
+  footer > section.top > nav > .header {
+    border-bottom: 1px solid var(--bg-grey-050);
+    width: 120px;
+  }
+
+  footer > section.top > nav > .header > h2 {
+    position: absolute;
+  }
+
+  footer > section.bottom {
+    padding: var(--basex2) var(--basex4);
+  }
+
+  footer > section.bottom > div.item:nth-child(1) > p:nth-of-type(1) {
+    margin-top: var(--basex2);
+  }
+
+  footer > section.bottom > div.item:nth-child(1) > p:nth-of-type(2) {
+    font-size: 10px;
+  }
+
+  footer > section.bottom > div.item > p {
+    padding-bottom: 0;
+    margin-bottom: var(--basex1);
+  }
+
+  footer > section.bottom > div.item > ul.social {
+    margin-top: 0;
+  }
+
+  footer > section.bottom > div.item > ul.social > li {
+    margin-right: var(--half-x3);
+  }
+
+  footer > section.bottom > div.item > ul.social img {
+    width: var(--basex2);
+    height: var(--basex2);
+  }
+
+  footer > section.bottom > div.bottom-links {
+    padding: var(--basex2) 0 0 var(--basex2);
+  }
+
+  footer > section.bottom > div.bottom-links > ul {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 18px;
+    margin: 0;
+  }
+
+  footer > section.bottom > div.bottom-links > ul > li {
+    margin-bottom: var(--basex2);
+  }
+}

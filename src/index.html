@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+  <link rel="stylesheet" type="text/css" href="/build/web-components-library.css">
+  <script type="module" src="/build/web-components-library.esm.js"></script>
+  <script nomodule src="/build/web-components-library.js"></script>
+</head>
+
+<body style="background-color: #f9f9f9">
+
+  <!-- <z-modal modaltitle="titolotitolo" modalsubtitle="sottotitolo">
+    <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+  </z-modal> -->
+
+  <!-- non zanichelli logged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"MyZanichelli","label":"Link a MyZanichelli","link":"http://www.myzanichelli.it","icon":"circle-chevron-left"}]'
+    userdata='{
+        "islogged": true,
+        "id": 123456,
+        "name": "Dario Docente",
+        "usergroup": 15,
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+      }' ismyz=false imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
+
+  <p style="height:50px;"></p>
+  <!-- non zanichelli unlogged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"ask-your-manager"}]'
+    userdata='{
+        "islogged": false,
+        "id": 123456,
+        "name": "Dario Docente",
+        "usergroup": 15,
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+      }' ismyz=false imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
+
+  <!-- zanichelli docente logged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"ask-your-manager"}]'
+    userdata='{
+        "islogged": true,
+        "id": 123456,
+        "name": "Dario Docente",
+        "usergroup": 15,
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+      }' ismyz=true imagealt="none"
+    activeintlinkid="home" activesublinkid="idee">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
+
+  <p style="height:50px;"></p>
+
+   <!-- zanichelli unlogged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"ask-your-manager"}]'
+    userdata='{
+        "islogged": false,
+        "id": 123456,
+        "name": "Dario Docente",
+        "usergroup": 15,
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+      }' ismyz=true imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
+
+  <!-- zanichelli studente logged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"I miei Libri","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"}]'
+    userdata='{
+            "islogged": true,
+            "id": 123456,
+            "name": "Sandro Studente",
+            "usergroup": 14,
+            "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+          }' ismyz=true imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
+
+  <section id="main-content">
+    <section id="libreria">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In id maximus purus. Nam
+        porttitor mollis ipsum, sed scelerisque ipsum consequat vel. Vivamus a congue neque, ac venenatis arcu. Aliquam
+        venenatis fermentum mauris, ac efficitur lacus pellentesque sed. Fusce sit amet varius tellus, sit amet ultrices
+        nisl. Integer et tincidunt metus. Curabitur tristique interdum tempus.
+
+        Pellentesque quis nulla eu neque efficitur posuere ac quis lectus. In volutpat, est at tempor mollis, ipsum
+        ligula hendrerit ligula, in semper ex nunc non est. Curabitur ut volutpat ex. Phasellus nec bibendum tellus.
+        Etiam faucibus at nunc non consequat. Etiam tristique nibh mi, quis gravida lorem lobortis eget. Etiam ac nunc
+        sed velit laoreet venenatis. Nulla ipsum enim, sodales quis massa vitae, aliquam vehicula mi. Nunc feugiat eros
+        sit amet quam sollicitudin, ut pellentesque nisi lobortis. Nunc efficitur ex et augue convallis aliquam ut ut
+        dolor. Donec dapibus felis lorem, a feugiat lectus eleifend eget. Fusce cursus, velit nec viverra rhoncus, nulla
+        purus scelerisque tellus, vitae cursus tellus ligula a leo. Donec non blandit lectus. Fusce scelerisque libero
+        sit amet consequat mollis. Donec eget porttitor sem, nec ornare nibh.
+
+        Ut in gravida ante. Duis convallis suscipit porta. Curabitur gravida a arcu eu hendrerit. Sed ultrices, eros
+        quis mollis vulputate, orci justo fermentum elit, nec tristique sem ex quis mi. Vivamus non maximus tortor.
+        Nulla varius eu diam quis blandit. Nunc mattis in lectus sit amet porta. Nam nec quam molestie, venenatis quam
+        vitae, dapibus enim. Sed justo magna, dapibus eu volutpat sed, imperdiet at urna. Sed et urna et diam consequat
+        maximus. Phasellus tincidunt convallis urna eget sollicitudin. Nunc eget fringilla massa. Fusce hendrerit sapien
+        eu metus imperdiet mattis. Duis lacinia ex non turpis suscipit, sit amet hendrerit eros tincidunt. Integer
+        iaculis congue volutpat.
+
+        Ut tristique lobortis purus, quis vestibulum risus cursus convallis. Donec faucibus pharetra dui a finibus.
+        Maecenas gravida dignissim neque, in pellentesque nibh congue quis. Donec semper tempus fringilla. Mauris
+        laoreet tortor ut lorem dignissim euismod a vitae est. Pellentesque eget lacus quis quam blandit sagittis a eu
+        dui. Nam at erat ultrices, dapibus ipsum in, luctus lacus. Mauris sed feugiat elit. Vivamus quis purus sodales,
+        consectetur velit id, feugiat augue. Vivamus scelerisque dui a nunc tristique, in semper enim maximus.
+        Vestibulum ex neque, consequat blandit lobortis vitae, dapibus et tortor. Morbi dictum, ex at viverra
+        sollicitudin, mauris lacus bibendum arcu, porttitor egestas ipsum leo sit amet neque. Quisque nec massa et nibh
+        dapibus cursus.
+
+        Ut a felis sed massa porta egestas. Praesent eget nulla pharetra, accumsan arcu eu, tristique nulla. Aliquam
+        arcu libero, ultrices vitae lectus non, condimentum congue massa. Integer mi nibh, finibus nec euismod in,
+        laoreet et odio. Vestibulum condimentum in ante quis bibendum. Nam quis hendrerit massa, sit amet varius elit.
+        Proin varius eu massa et convallis. Maecenas facilisis sem non dictum pulvinar. Maecenas est enim, fringilla sed
+        sem dictum, blandit vulputate turpis. Vivamus nisl ante, suscipit ut massa et, venenatis tempus nisi. Praesent
+        tempus laoreet pretium. Duis porta eleifend lectus non congue. Ut quis suscipit leo, eu euismod mauris.
+      </p>
+    </section>
+    <section id="ambienti">
+      <div style="width:1000px; display:flex; flex-wrap:wrap; justify-content:space-between;">
+        <z-card>
+          <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-card-icon icon="book-delete" slot="icon" />
+          </z-card-header>
+          <z-card-body>
+            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri"
+              actiontext="Annulla" type="add"></z-card-alert>
+            <z-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+          </z-card-body>
+          <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori"
+            isbn="97-88-80-8620-710">
+            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+            <z-card-list
+              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              slot="list" />
+          </z-card-footer>
+        </z-card>
+        <!-- in questo esempio puoi vedere dove stano i faded -->
+        <z-card faded=true>
+          <z-card-header faded=true titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-card-icon icon="book-delete" slot="icon" />
+          </z-card-header>
+          <z-card-body>
+            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" actiontext="annulla" type="remove"
+              faded=true></z-card-alert>
+            <z-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" faded=true />
+          </z-card-body>
+          <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori"
+            isbn="97-88-80-8620-710" faded=true>
+            <z-toggle-button label="risorse" slot="toggle" avoidclick=true></z-toggle-button>
+            <z-card-list
+              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              slot="list" />
+          </z-card-footer>
+        </z-card>
+        <z-card>
+          <z-card-header titolo="titolo">
+            <z-card-icon icon="book-delete" slot="icon" />
+          </z-card-header>
+          <z-card-body>
+            <z-card-cover slot="cover" titolo="titolo"
+              img="https://s3-eu-west-1.amazonaws.com/staticlocal.zanichelli.it/copertine/dashboard/m40002.9788808620712.png" />
+          </z-card-body>
+          <z-card-footer titolo="titolo" autori="autori" isbn="9788808620713">
+            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+            <z-card-list
+              listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              slot="list" />
+          </z-card-footer>
+        </z-card>
+      </div>
+      <br>
+      <div style="width:1400px; display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-template-rows:1fr 1fr; grid-column-gap:16px; grid-row-gap:16px;">
+      <z-card>
+        <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+          <z-card-icon icon="book-delete" slot="icon" />
+        </z-card-header>
+        <z-card-body>
+          <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+        </z-card-body>
+        <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+          <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+          <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+        </z-card-footer>
+      </z-card>
+      <z-card ishighlighted>
+        <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+          <z-card-icon icon="book-delete" slot="icon" />
+        </z-card-header>
+        <z-card-body>
+          <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-card-alert>
+          <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+        </z-card-body>
+        <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+          <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+          <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+        </z-card-footer>
+      </z-card>
+      <z-card ispressed>
+        <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+          <z-card-icon icon="book-delete" slot="icon" />
+        </z-card-header>
+        <z-card-body>
+          <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+        </z-card-body>
+        <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+          <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+          <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+        </z-card-footer>
+      </z-card>
+      <z-card faded=true>
+        <z-card-header faded=true titolo="titolo titolo titolotitolo titolo titolo titolo">
+          <z-card-icon icon="book-delete" slot="icon" />
+        </z-card-header>
+        <z-card-body>
+          <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" type="remove" faded=true></z-card-alert>
+          <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" faded=true />
+        </z-card-body>
+        <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710" faded=true>
+          <z-toggle-button label="risorse" slot="toggle" avoidclick=true></z-toggle-button>
+          <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+        </z-card-footer>
+      </z-card>
+    <z-card cardtype="reale">
+      <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+        <z-card-icon icon="book-delete" slot="icon" />
+      </z-card-header>
+      <z-card-body>
+        <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+      </z-card-body>
+      <z-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+        <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+      </z-card-footer>
+    </z-card>
+    <z-card cardtype="reale" ishighlighted>
+      <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+        <z-card-icon icon="book-delete" slot="icon" />
+      </z-card-header>
+      <z-card-body>
+        <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" type="add"></z-card-alert>
+        <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+      </z-card-body>
+      <z-card-footer cardtype="reale" titolo="Las reglas del juego con risorse digitali Scuolabook risorse digitali Scuolabook Scuolabook risorse digitali ScuolabookScuolabook risorse digitali ScuolabookScuolabook risorse digitali Scuolabook" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+        <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+      </z-card-footer>
+    </z-card>
+    <z-card cardtype="reale" ispressed>
+      <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+        <z-card-icon icon="book-delete" slot="icon" />
+      </z-card-header>
+      <z-card-body>
+        <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+      </z-card-body>
+      <z-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+        <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+      </z-card-footer>
+    </z-card>
+  </div>
+
+  <br />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In id maximus purus. Nam
+        porttitor mollis ipsum, sed scelerisque ipsum consequat vel. Vivamus a congue neque, ac venenatis arcu. Aliquam
+        venenatis fermentum mauris, ac efficitur lacus pellentesque sed. Fusce sit amet varius tellus, sit amet ultrices
+        nisl. Integer et tincidunt metus. Curabitur tristique interdum tempus.
+
+        Pellentesque quis nulla eu neque efficitur posuere ac quis lectus. In volutpat, est at tempor mollis, ipsum
+        ligula hendrerit ligula, in semper ex nunc non est. Curabitur ut volutpat ex. Phasellus nec bibendum tellus.
+        Etiam faucibus at nunc non consequat. Etiam tristique nibh mi, quis gravida lorem lobortis eget. Etiam ac nunc
+        sed velit laoreet venenatis. Nulla ipsum enim, sodales quis massa vitae, aliquam vehicula mi. Nunc feugiat eros
+        sit amet quam sollicitudin, ut pellentesque nisi lobortis. Nunc efficitur ex et augue convallis aliquam ut ut
+        dolor. Donec dapibus felis lorem, a feugiat lectus eleifend eget. Fusce cursus, velit nec viverra rhoncus, nulla
+        purus scelerisque tellus, vitae cursus tellus ligula a leo. Donec non blandit lectus. Fusce scelerisque libero
+        sit amet consequat mollis. Donec eget porttitor sem, nec ornare nibh.
+
+        Ut in gravida ante. Duis convallis suscipit porta. Curabitur gravida a arcu eu hendrerit. Sed ultrices, eros
+        quis mollis vulputate, orci justo fermentum elit, nec tristique sem ex quis mi. Vivamus non maximus tortor.
+        Nulla varius eu diam quis blandit. Nunc mattis in lectus sit amet porta. Nam nec quam molestie, venenatis quam
+        vitae, dapibus enim. Sed justo magna, dapibus eu volutpat sed, imperdiet at urna. Sed et urna et diam consequat
+        maximus. Phasellus tincidunt convallis urna eget sollicitudin. Nunc eget fringilla massa. Fusce hendrerit sapien
+        eu metus imperdiet mattis. Duis lacinia ex non turpis suscipit, sit amet hendrerit eros tincidunt. Integer
+        iaculis congue volutpat.
+
+        Ut tristique lobortis purus, quis vestibulum risus cursus convallis. Donec faucibus pharetra dui a finibus.
+        Maecenas gravida dignissim neque, in pellentesque nibh congue quis. Donec semper tempus fringilla. Mauris
+        laoreet tortor ut lorem dignissim euismod a vitae est. Pellentesque eget lacus quis quam blandit sagittis a eu
+        dui. Nam at erat ultrices, dapibus ipsum in, luctus lacus. Mauris sed feugiat elit. Vivamus quis purus sodales,
+        consectetur velit id, feugiat augue. Vivamus scelerisque dui a nunc tristique, in semper enim maximus.
+        Vestibulum ex neque, consequat blandit lobortis vitae, dapibus et tortor. Morbi dictum, ex at viverra
+        sollicitudin, mauris lacus bibendum arcu, porttitor egestas ipsum leo sit amet neque. Quisque nec massa et nibh
+        dapibus cursus.
+
+        Ut a felis sed massa porta egestas. Praesent eget nulla pharetra, accumsan arcu eu, tristique nulla. Aliquam
+        arcu libero, ultrices vitae lectus non, condimentum congue massa. Integer mi nibh, finibus nec euismod in,
+        laoreet et odio. Vestibulum condimentum in ante quis bibendum. Nam quis hendrerit massa, sit amet varius elit.
+        Proin varius eu massa et convallis. Maecenas facilisis sem non dictum pulvinar. Maecenas est enim, fringilla sed
+        sem dictum, blandit vulputate turpis. Vivamus nisl ante, suscipit ut massa et, venenatis tempus nisi. Praesent
+        tempus laoreet pretium. Duis porta eleifend lectus non congue. Ut quis suscipit leo, eu euismod mauris.
+      </p>
+    </section>
+    <section id="idee">
+      <z-button variant="primary">button</z-button>
+      <z-button variant="primary" icon="download">button</z-button>
+      <z-button variant="primary" isdisabled icon="download">button</z-button>
+      <z-button variant="secondary">button</z-button>
+      <z-button variant="secondary" isdisabled>button</z-button>
+      <z-button variant="tertiary">button</z-button>
+      <z-button variant="tertiary" isdisabled>button</z-button>
+      <z-button variant="primary" issmall>button</z-button>
+      <z-button variant="primary" issmall icon="download">button</z-button>
+      <z-button variant="primary" issmall isdisabled icon="download">button</z-button>
+      <z-button variant="secondary" issmall>button</z-button>
+      <z-button variant="secondary" issmall isdisabled>button</z-button>
+      <z-button variant="tertiary" issmall>button</z-button>
+      <z-button variant="tertiary" issmall isdisabled>button</z-button>
+      <br />
+      <z-button type="submit">submit</z-button>
+      <z-button type="reset">reset</z-button>
+      <br />
+
+      <z-toggle-button label="toggle"></z-toggle-button>
+      <z-toggle-button label="toggle" isdisabled></z-toggle-button>
+      <br />
+
+      <z-link>z-link</z-link>
+      <z-link icon="download">z-link</z-link>
+      <z-link isdisabled>z-link</z-link>
+      <z-link isdisabled icon="download">z-link</z-link>
+      <z-link isactive>z-link</z-link>
+      <z-link icon="download" style="font-size:12px;font-weight:bold;">z-link</z-link>
+      <br />
+      <hr>
+      <z-logo ></z-logo>
+      <z-logo imagealt="logo" ></z-logo>
+      <z-logo imagealt="logo" height="50" width="200"></z-logo>
+      <z-logo imagealt="logo" height="25" width="100"></z-logo>
+      <br />
+
+      <div style="
+        display: grid;
+        grid-template-columns: minmax(241px, 294px) 1fr 2.5fr minmax(180px, 180px);
+        grid-column-gap: var(--basex1);
+        background-color: rgb(48, 56, 64);
+        height: 52px;
+        align-items: center;
+        z-index: 10;">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div style="display: flex; justify-content:flex-end; margin-right:8px">
+          <z-menu-dropdown nomeutente="username molto lungo nome"
+            menucontent='[{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]'>
+          </z-menu-dropdown>
+        </div>
+      </div>
+      <br />
+
+      <z-button-filter filtername="filter 1" isfixed></z-button-filter>
+      <z-button-filter filtername="filter 2"></z-button-filter>
+      <z-button-filter filtername="filter 3" isfixed hasicon="false"></z-button-filter>
+      <z-button-filter filtername="filter 4" hasicon="false"></z-button-filter>
+      <z-chip boldtext="1234" regulartext="libri trovati"></z-chip>
+      <br/>
+      <br/>
+
+      <z-button-sort label="Chimica" counter="3"></z-button-sort>
+      <z-button-sort label="Biologia" counter="5"></z-button-sort>
+      <z-button-sort label="Label"></z-button-sort>
+      <z-button-sort label="Selected" isselected=true></z-button-sort>
+      <z-button-sort label="Selected" isselected=true sortasc=false></z-button-sort>
+      <z-button-sort label="Sort number" sortlabelasc="1-9" sortlabeldesc="9-1"></z-button-sort>
+      <z-button-sort label="Ordina ASC" desclabel="Ordina DESC" sortlabelasc="" sortlabeldesc=""></z-button-sort>
+      <br />
+
+      <br />
+      <z-list inputrawdata='[
+        {"text":"elemento lista","link":"http://www.google.it","listitemid":"id1","icon":"checkbox-selected"},
+        {"text":"elemento lista","link":"http://www.google.it","listitemid":"id2","icon":"checkbox-unchecked"},
+        {"text":""}
+        ]'>
+      </z-list>
+      <ul>
+        <z-list-item>ITEM 1</z-list-item>
+        <z-list-item>ITEM 2</z-list-item>
+        <z-list-item>ITEM 3 <z-input type="checkbox"></z-input></z-list-item>
+      </ul>
+
+      <div style="display: inline-flex; align-items: center; margin-left:100px;">
+        <div style="min-width: 200px; min-height: 70px; ">
+          <z-tooltip content="Aggiungi libro" type="top"></z-tooltip>
+        </div>
+
+        <div style="min-width: 200px; min-height: 70px; ">
+          <z-tooltip content="Aggiungi libro" type="bottom"></z-tooltip>
+        </div>
+        <div style="min-width: 200px; min-height: 70px; ">
+          <z-tooltip content="Rimuovi libro" type="left"></z-tooltip>
+        </div>
+        <div style="min-width: 200px; min-height: 70px; ">
+          <z-tooltip content="Rimuovi libro" type="right"></z-tooltip>
+        </div>
+      </div>
+
+      <br /><br />
+      <z-input></z-input>
+      <z-input type="text" label="default" placeholder="Cerca Autore"></z-input>
+      <z-input type="text" label="filled" value="testo testo testo"></z-input>
+      <z-input type="text" label="disabled" placeholder="placeholder" disabled value="i'm disabled"></z-input>
+      <z-input type="text" label="readonly" placeholder="placeholder" readonly value="i'm read-only"></z-input>
+      <z-input type="text" label="success" placeholder="placeholder" status="success" message="message message" value="">
+      </z-input>
+      <z-input type="text" label="error" placeholder="placeholder" status="error" message="message message" value="testo">
+      </z-input>
+      <z-input type="text" label="warning" placeholder="placeholder" status="warning"
+        message="message message message message message message message message message message message message message message message message message message">
+      </z-input>
+      <z-input type="text" label="message" placeholder="placeholder" message="helper message"></z-input>
+
+      <br /><br />
+      <z-input type="textarea"></z-input>
+      <z-input type="textarea" label="default" placeholder="Cerca Autore"></z-input>
+      <z-input type="textarea" label="filled" value="testo testo testo"></z-input>
+      <z-input type="textarea" label="disabled" placeholder="placeholder" disabled value="i'm disabled"></z-input>
+      <z-input type="textarea" label="readonly" placeholder="placeholder" readonly value="i'm read-only"></z-input>
+      <z-input type="textarea" label="success" placeholder="placeholder" status="success" message="message message" value="">
+      </z-input>
+      <z-input type="textarea" label="error" placeholder="placeholder" status="error" message="message message" value="testo">
+      </z-input>
+      <z-input type="textarea" label="warning" placeholder="placeholder" status="warning" message="message message">
+      </z-input>
+      <z-input type="textarea" label="message" placeholder="placeholder" message="helper message"></z-input>
+
+      <br /><br />
+      <z-input type="checkbox" htmlid="check1"></z-input><br />
+      <z-input type="checkbox" htmlid="check2" label="this is a checkbox" checked></z-input><br />
+      <div style="width:150px;background:grey;font-size:10px;"><z-input type="checkbox" htmlid="check3" label="unchecked with long long long longlong long long label" labelafter="false"></z-input></div>
+      <z-input type="checkbox" htmlid="check4" value="value" disabled label="disabled" ></z-input><br />
+      <z-input type="checkbox" htmlid="check5" value="value" readonly label="read-only" checked></z-input><br />
+
+
+      <br /><br />
+      <div style="width:300px;">
+        <z-input type="select" label="default" placeholder="Seleziona qui" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="disabled" placeholder="Seleziona qui" disabled items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":true}]'></z-input><br />
+        <z-input type="select" label="readonly" placeholder="Seleziona qui" readonly items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input><br />
+        <z-input type="select" label="success" placeholder="Seleziona qui" status="success" message="message message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input><br />
+        <z-input type="select" label="error" placeholder="Seleziona qui" status="error" message="message message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input><br />
+        <z-input type="select" label="warning" placeholder="Seleziona qui" status="warning" message="message message message" items='[{"id":"item_1","name":"primo elemento","selected":true},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="message" placeholder="Seleziona qui" message="helper message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
+      </div>
+
+      <br /><br />
+      <z-pagination-page value="4"></z-pagination-page>
+      <br />
+      <z-pagination-page value="4" isselected></z-pagination-page>
+      <br />
+      <z-pagination-page value="4" isdisabled></z-pagination-page>
+      <br />
+      <z-pagination-page value="4" isvisited></z-pagination-page>
+      <br />
+      <z-pagination-bar pages="20" visiblepages="5" currentpage="2"></z-pagination-bar>
+      <z-pagination-bar pages="20" visiblepages="11" currentpage="6"></z-pagination-bar>
+
+      <br /><br />
+      <z-combobox inputid="combo_1"
+        items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'
+        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta" closesearchtext="CHIUDI">
+      </z-combobox>
+      <br />
+      <z-combobox inputid="combo_2"
+        items='[{"id":"item_1","name":"Brimo elemento","checked":false},{"id":"item_2","name":"sbecondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
+        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta" isopen="false" label="Combo Lunga" closesearchtext="CHIUDI">
+      </z-combobox>
+      <br />
+      <z-combobox inputid="combo_3"
+        items='[{"id":"item_1","name":"Brimo elemento","checked":false},{"id":"item_2","name":"sbecondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
+        label="Combo Select All" closesearchtext="CHIUDI" hascheckall=true>
+      </z-combobox>
+      <br />
+      <z-combobox inputid="combo_4"
+        items='[{"id":"item_1","name":"Brimo elemento","checked":false},{"id":"item_2","name":"sbecondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
+        label="Combo Max 3" closesearchtext="CHIUDI" maxcheckableitems="3">
+      </z-combobox>
+
+    <br /><br />
+      <section id="ideePerInsegnare"
+        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
+        <z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="external-link-left"
+          linklabel="Biblioteca" url="https://biblioteca.scuola.zanichelli.it/" elemid="prova1" />
+      </section>
+      <section id="ideePerInsegnare"
+        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
+        <z-panel-elem isdisabled="true" imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png"
+          linkicon="external-link-left" linklabel="Tutte le prove"
+          url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" elemid="prova2">
+          <span slot="xxx1">
+            L’archivio di prove in pdf e word pronto da stampare: prove
+            comuni, simulazioni, prove interdisciplinari
+          </span>
+        </z-panel-elem>
+      </section>
+      <section id="ideePerInsegnare"
+        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
+        <z-panel-elem linkicon="external-link-left" linklabel="Tutte le prove" elemid="prova3"
+          url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" />
+      </section>
+
+      <br /><br />
+      <z-info-box style="width: 300px;">
+        <span slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
+          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi
+          at imperdiet.
+          Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+      </z-info-box>
+      <br />
+      <z-info-box isclosable="false">
+        <span slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
+          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi
+          at imperdiet.
+          Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+      </z-info-box>
+
+      <br />
+      <div style="background:grey;">
+        <z-icon-package>
+          </z-icon-pacakge>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In id maximus purus. Nam
+        porttitor mollis ipsum, sed scelerisque ipsum consequat vel. Vivamus a congue neque, ac venenatis arcu. Aliquam
+        venenatis fermentum mauris, ac efficitur lacus pellentesque sed. Fusce sit amet varius tellus, sit amet ultrices
+        nisl. Integer et tincidunt metus. Curabitur tristique interdum tempus.
+
+        Pellentesque quis nulla eu neque efficitur posuere ac quis lectus. In volutpat, est at tempor mollis, ipsum
+        ligula hendrerit ligula, in semper ex nunc non est. Curabitur ut volutpat ex. Phasellus nec bibendum tellus.
+        Etiam faucibus at nunc non consequat. Etiam tristique nibh mi, quis gravida lorem lobortis eget. Etiam ac nunc
+        sed velit laoreet venenatis. Nulla ipsum enim, sodales quis massa vitae, aliquam vehicula mi. Nunc feugiat eros
+        sit amet quam sollicitudin, ut pellentesque nisi lobortis. Nunc efficitur ex et augue convallis aliquam ut ut
+        dolor. Donec dapibus felis lorem, a feugiat lectus eleifend eget. Fusce cursus, velit nec viverra rhoncus, nulla
+        purus scelerisque tellus, vitae cursus tellus ligula a leo. Donec non blandit lectus. Fusce scelerisque libero
+        sit amet consequat mollis. Donec eget porttitor sem, nec ornare nibh.
+
+        Ut in gravida ante. Duis convallis suscipit porta. Curabitur gravida a arcu eu hendrerit. Sed ultrices, eros
+        quis mollis vulputate, orci justo fermentum elit, nec tristique sem ex quis mi. Vivamus non maximus tortor.
+        Nulla varius eu diam quis blandit. Nunc mattis in lectus sit amet porta. Nam nec quam molestie, venenatis quam
+        vitae, dapibus enim. Sed justo magna, dapibus eu volutpat sed, imperdiet at urna. Sed et urna et diam consequat
+        maximus. Phasellus tincidunt convallis urna eget sollicitudin. Nunc eget fringilla massa. Fusce hendrerit sapien
+        eu metus imperdiet mattis. Duis lacinia ex non turpis suscipit, sit amet hendrerit eros tincidunt. Integer
+        iaculis congue volutpat.
+
+        Ut tristique lobortis purus, quis vestibulum risus cursus convallis. Donec faucibus pharetra dui a finibus.
+        Maecenas gravida dignissim neque, in pellentesque nibh congue quis. Donec semper tempus fringilla. Mauris
+        laoreet tortor ut lorem dignissim euismod a vitae est. Pellentesque eget lacus quis quam blandit sagittis a eu
+        dui. Nam at erat ultrices, dapibus ipsum in, luctus lacus. Mauris sed feugiat elit. Vivamus quis purus sodales,
+        consectetur velit id, feugiat augue. Vivamus scelerisque dui a nunc tristique, in semper enim maximus.
+        Vestibulum ex neque, consequat blandit lobortis vitae, dapibus et tortor. Morbi dictum, ex at viverra
+        sollicitudin, mauris lacus bibendum arcu, porttitor egestas ipsum leo sit amet neque. Quisque nec massa et nibh
+        dapibus cursus.
+
+        Ut a felis sed massa porta egestas. Praesent eget nulla pharetra, accumsan arcu eu, tristique nulla. Aliquam
+        arcu libero, ultrices vitae lectus non, condimentum congue massa. Integer mi nibh, finibus nec euismod in,
+        laoreet et odio. Vestibulum condimentum in ante quis bibendum. Nam quis hendrerit massa, sit amet varius elit.
+        Proin varius eu massa et convallis. Maecenas facilisis sem non dictum pulvinar. Maecenas est enim, fringilla sed
+        sem dictum, blandit vulputate turpis. Vivamus nisl ante, suscipit ut massa et, venenatis tempus nisi. Praesent
+        tempus laoreet pretium. Duis porta eleifend lectus non congue. Ut quis suscipit leo, eu euismod mauris.
+      </p>
+    </section>
+  </section>
+
+  <z-footer copyrightuser='Zanichelli' data='{
+      "zanichelliLinks": [{
+          "title": "Zanichelli.it",
+          "items": [{
+              "label": "Home zanichelli.it",
+              "link": "https://www.zanichelli.it"
+          }, {
+              "label": "Ricerca in catalogo",
+              "link": "https://www.zanichelli.it/ricerca"
+          }, {
+              "label": "Contatti",
+              "link": "https://www.zanichelli.it/contatti-e-recapiti"
+          }]
+      }, {
+          "title": "Scuola",
+          "items": [{
+              "label": "Home scuola",
+              "url": "https://www.zanichelli.it/scuola/in-primo-piano"
+          }, {
+              "label": "Catalogo scuola",
+              "url": "https://www.zanichelli.it/scuola/novita-e-proposte"
+          }, {
+              "label": "Bisogni Educativi Speciali (BES)",
+              "url": "https://www.zanichelli.it/scuola/la-nostra-proposta-per-i-bisogni-educativi-speciali"
+          }, {
+              "label": "Formazione docenti",
+              "url": "https://www.zanichelli.it/scuola/formazione-e-aggiornamento"
+          }]
+      }, {
+          "title": "Siti per la scuola",
+          "items": [{
+              "label": "Siti dei libri di testo",
+              "link": "https://www.zanichelli.it/scuola/siti-dei-libri-di-testo"
+          }, {
+              "label": "ZTE Zanichelli Test",
+              "link": "http://zte.zanichelli.it/"
+          }, {
+              "label": "Verso l esame di stato",
+              "link": "http://online.scuola.zanichelli.it/esamedistato"
+          }, {
+              "label": "La seconda prova di matematica e fisica",
+              "link": "http://online.scuola.zanichelli.it/provamatematicafisica/"
+          }, {
+              "label": "Collezioni",
+              "link": "http://collezioni.scuola.zanichelli.it/"
+          }, {
+              "label": "Crea Verifiche",
+              "link": "https://creaverifiche.zanichelli.it"
+          }, {
+              "label": "Biblioteca",
+              "link": "https://biblioteca.scuola.zanichelli.it"
+          }, {
+              "label": "Tavola periodica interattiva",
+              "link": "https://tavolaperiodica.zanichelli.it/it"
+          }, {
+              "label": "Tutte le prove",
+              "link": "http://online.scuola.zanichelli.it/tutteleprove/"
+          }, {
+              "label": "Verso l INVALSI",
+              "link": "http://online.scuola.zanichelli.it/invalsi/"
+          }, {
+              "label": "La certificazione delle competenze",
+              "link": "http://online.scuola.zanichelli.it/competenze/"
+          }, {
+              "label": "Tutti i siti Zanichelli per la scuola",
+              "link": "https://www.zanichelli.it/scuola/siti-per-la-scuola"
+          }]
+      },{
+          "title": "Università",
+          "items": [{
+              "label": "Home università",
+              "link": "https://www.zanichelli.it/universita/in-primo-piano"
+          }, {
+              "label": "Catalogo università",
+              "link": "https://www.zanichelli.it/universita/novita-e-proposte"
+          }, {
+              "label": "Area docenti",
+              "link": "https://www.zanichelli.it/universita/informazioni-e-contatti-docenti"
+          }, {
+              "label": "Area studenti",
+              "link": "https://www.zanichelli.it/universita/risorse-online-studenti"
+          }, {
+              "label": "Preparazione test di ammissione",
+              "link": "http://online.scuola.zanichelli.it/unitutor/"
+          }, {
+              "label": "ZTE università",
+              "link": "http://zte.universita.zanichelli.it/"
+          }, {
+              "label": "ZTE UniTutor",
+              "link": "http://zte.unitutor.zanichelli.it/"
+          }, {
+              "label": "Collezioni Università",
+              "link": "https://collezioni-universita.zanichelli.it/"
+          }]
+      },{
+          "title": "Dizionari",
+          "items": [{
+              "label": "Home dizionari",
+              "link": "https://www.zanichelli.it/dizionari/in-primo-piano"
+          }, {
+              "label": "Catalogo dizionari",
+              "link": "https://www.zanichelli.it/dizionari/novita-e-proposte"
+          }, {
+              "label": "Dizionari digitali",
+              "link": "http://dizionari.zanichelli.it/"
+          }, {
+              "label": "Dizionari Pi\u00f9",
+              "link": "http://dizionaripiu.zanichelli.it/"
+          }]
+      },{
+          "title": "Altri settori",
+          "items": [{
+              "label": "Giuridico",
+              "link": "https://www.zanichelli.it/giuridico/in-primo-piano"
+          }, {
+              "label": "Manuali e saggi",
+              "link": "https://www.zanichelli.it/saggistica/argomenti"
+          }, {
+              "label": "Medico professionale",
+              "link": "https://www.zanichelli.it/medico-professionale"
+          }]
+      }],
+      "myzLink": {
+          "label": "Home MyZanichelli",
+          "link": "https://my.zanichelli.it",
+          "img": "../../assets/images/png/zanichelli-logo-2.png"
+      },
+      "zanichelliAddress": "Zanichelli editore S.p.A. via Irnerio 34, 40126 Bologna\nFax 051 - 249.782 / 293.224 | Tel. 051 - 293.111 / 245.024\nPartita IVA 03978000374",
+      "social": [{
+          "icon": "../../assets/images/png/facebook.png",
+          "link": "https://it-it.facebook.com/zanichelliscuola",
+          "description" : "facebook"
+      },{
+          "icon": "../../assets/images/png/youtube.png",
+          "link": "https://www.youtube.com/user/zanichellieditore",
+          "description" : "youtube"
+      },{
+          "icon": "../../assets/images/png/twitter.png",
+          "link": "https://twitter.com/zanichelli_ed",
+          "description" : "twitter"
+      },{
+          "icon": "../../assets/images/png/instagram.png",
+          "link": "https://www.instagram.com/zanichellieditore/",
+          "description" : "instagram"
+      }],
+      "certification": "Zanichelli editore S.p.A. opera con sistema qualità certificato CertiCarGraf n. 477\nsecondo la norma UNI EN ISO 9001:2015",
+      "bottomLinks": [{
+          "label": "Chi siamo",
+          "link": "https://www.zanichelli.it/chi-siamo/via-irnerio-34"
+      },{
+          "label": "Contatti e recapiti",
+          "link": "https://www.zanichelli.it/contatti-e-recapiti"
+      },{
+          "label": "Area stampa",
+          "link": "https://www.zanichelli.it/comunicazione/area-stampa"
+      },{
+          "label": "Per acqusti online",
+          "link": "https://www.zanichelli.it/contatti/acquisti-e-recesso"
+      },{
+          "label": "Filiali e agenzie",
+          "link": "https://www.zanichelli.it/contatti/filiali-e-agenzie"
+      },{
+          "label": "Privacy",
+          "link": "https://my.zanichelli.it/privacy"
+      }]
+  }'></z-footer>
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="{{ properCase name }}" component="{{ kebabCase name }}" />
+
+# {{ properCase name }}
+
+<Preview>
+  <Story name="{{ properCase name }}-sample">
+    {html`<{{kebabCase name}}></{{kebabCase name}}>`}
+  </Story>
+</Preview>
+
+<Props of="{{ kebabCase name }}" />
+
+

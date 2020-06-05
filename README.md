@@ -1,1 +1,0 @@
-# Zanichelli – web components

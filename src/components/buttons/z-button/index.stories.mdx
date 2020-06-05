@@ -1,0 +1,37 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
+
+<Meta title="ZButton" component="z-button" />
+
+# ZButton
+
+<Preview>
+  <Story name="primary">
+    {html`
+      <z-button
+        type="primary"
+        isdisabled="${boolean('isdisabled', false)}"
+        icon="${text('icon', 'download')}"
+      >${text('label', 'click me')}</z-button>`}
+  </Story>
+  <Story name="secondary">
+    {html`
+      <z-button
+        type="secondary"
+        isdisabled="${boolean('isdisabled', false)}"
+        icon="${text('icon', 'download')}"
+      >${text('label', 'click me')}</z-button>
+    `}
+  </Story>
+  <Story name="tertiary">
+    {html`
+      <z-button
+        type="tertiary"
+        isdisabled="${boolean('isdisabled', false)}"
+        icon="${text('icon', 'download')}"
+      >${text('label', 'click me')}</z-button>`}
+  </Story>
+</Preview>
+
+<Props of="z-button" />

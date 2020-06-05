@@ -1,0 +1,59 @@
+:host > div.textWrapper > div > div.textareaWrapper {
+  background: var(--bg-white);
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  padding: var(--half-x3);
+}
+
+:host > div.textWrapper > div > div.textareaWrapper > textarea {
+  min-height: 132px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  resize: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--myz-blue) var(--bg-grey-200);
+  border-color: transparent;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper > textarea:hover {
+  border-color: transparent !important;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper > textarea.filled,
+:host > div.textWrapper > div > div.textareaWrapper > textarea.input_success,
+:host > div.textWrapper > div > div.textareaWrapper > textarea.input_warning,
+:host > div.textWrapper > div > div.textareaWrapper > textarea.input_error {
+  border: none;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper.input_success.disabled,
+:host > div.textWrapper > div > div.textareaWrapper.input_warning.disabled,
+:host > div.textWrapper > div > div.textareaWrapper.input_error.disabled {
+  background: var(--bg-white) !important;
+  border-color: var(--bg-grey-200) !important;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper > textarea.istyping {
+  color: var(--myz-blue);
+}
+
+::-webkit-scrollbar {
+  background: linear-gradient(
+    90deg,
+    var(--bg-white) 2px,
+    var(--bg-grey-200) 4px,
+    var(--bg-white) 8px
+  );
+  border-radius: var(--radius-base);
+  width: 10px;
+  margin-right: 20px;
+  padding-right: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--myz-blue);
+  border-radius: var(--radius-base);
+  width: 10px;
+  margin-right: 20px;
+  padding: 20px;
+}

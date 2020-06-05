@@ -1,0 +1,23 @@
+:host > div.textWrapper > div {
+  fill: var(--text-grey-800);
+}
+
+:host > div.textWrapper > div > input {
+  height: 44px;
+  width: 100%;
+  margin: 0;
+  padding: 0 var(--half-x3);
+}
+
+:host > div.textWrapper > div {
+  position: relative;
+  z-index: 1;
+}
+
+:host > div.textWrapper > div > z-icon {
+  position: absolute;
+  bottom: var(--half-x3);
+  right: var(--half-x3);
+  cursor: pointer;
+  z-index: 2;
+}

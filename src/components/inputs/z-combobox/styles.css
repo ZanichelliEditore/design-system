@@ -1,0 +1,148 @@
+:host {
+  display: block;
+}
+
+:host > div.fixed {
+  position: relative;
+  height: 48px;
+}
+
+:host > div > .header {
+  background-color: var(--bg-white);
+  border-radius: var(--radius-base);
+  border: var(--border-base) solid var(--bg-grey-200);
+  position: relative;
+  z-index: 10;
+  min-height: 48px;
+  margin: 0;
+  padding: 0 var(--basex2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+:host > div.open > .header {
+  border-radius: var(--radius-base) var(--radius-base) 0 0;
+}
+
+:host > div > .header > h2 {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  color: var(--text-grey-800);
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  padding: var(--basex1) 0;
+}
+
+:host > div > .header > h2 > span {
+  font-weight: var(--font-sb);
+}
+
+:host > div > .header > z-icon {
+  fill: var(--myz-blue);
+  transform: rotate(360deg);
+  transition: all 200ms linear;
+  padding-top: 10px;
+}
+
+:host > div.open > .header > z-icon {
+  fill: var(--myz-blue);
+  transform: rotate(180deg);
+  transition: all 200ms linear;
+  padding-top: -2px;
+  margin-right: 2px;
+}
+
+:host > div.open > div.openComboData {
+  background-color: var(--bg-white);
+  border-radius: 0 0 var(--radius-base) var(--radius-base);
+  border: var(--border-base) solid var(--bg-grey-200);
+  border-top: 0px;
+  position: relative;
+  z-index: 12;
+  padding: var(--basex1) var(--basex2);
+}
+
+:host > div.open > div.openComboData > div {
+  padding: 0;
+  max-height: 235px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--myz-blue) var(--bg-grey-200);
+}
+
+:host > div.open > div.openComboData > z-input {
+  margin-bottom: var(--basex2);
+  width: 100%;
+}
+
+:host > div.open > div.openComboData > div > ul {
+  margin: 0;
+  padding: 0 3px; /* needed for checkbox focus shadow */
+  max-height: 235px;
+}
+
+::-webkit-scrollbar {
+  background: linear-gradient(
+    90deg,
+    var(--bg-white) 2px,
+    var(--bg-grey-200) 4px,
+    var(--bg-white) 8px
+  );
+  border-radius: var(--radius-base);
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--myz-blue);
+  border-radius: var(--radius-base);
+  width: 10px;
+}
+
+:host > div.open > z-input {
+  color: var(--myz-blue);
+  margin: 0 var(--basex2);
+  width: 238px;
+  position: relative;
+  z-index: 1;
+}
+
+:host > div.open > div.openComboData > div.search {
+  box-shadow: 1px 1px 4px 2px rgba(217, 222, 227, 0.5);
+  margin-top: 0;
+  max-height: auto;
+  overflow: hidden;
+}
+
+:host > div.open > div.openComboData > div.search > ul {
+  padding: var(--basex1) var(--basex2);
+  max-height: 180px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--myz-blue) var(--bg-grey-200);
+}
+
+:host > div.open > div.openComboData > div.search > div {
+  display: flex;
+  justify-content: center;
+}
+
+:host > div.open > div.openComboData > div.search > div > a {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--myz-blue);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
+  font-size: 14px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+:host > div.open > div.openComboData > div.checkAllWrapper {
+  padding: var(--basex2) var(--half-x1);
+  text-align: left;
+}
