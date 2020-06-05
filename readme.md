@@ -1,5 +1,11 @@
 # Zanichelli - Web Components Library
+Zanichelli's design system is widely documented on Zeroheight at this [link](https://zeroheight.com/485b31545).
 
+## Install
+
+```bash
+yarn add XXXXX
+```
 
 ## Start Library Development Server
 ```
@@ -106,9 +112,42 @@ yarn start-storybook
 yarn build
 ```
 
----
+# Environment Support
 
-## Publish the Library
+- Modern browsers and Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| IE11, Edge                                                                                                                                                                                                     | XXXXX                                                                                                                                                                                                            | XXXXX                                                                                                                                                                                                        | XXXXX                                                                                                                                                                                                        |
+
+## Usage
+
+```javascript
+import { defineCustomElements as defineComponents } from 'zanichelli-web-components-library/loader';
+
+defineComponents(window);
 ```
-yarn release
+
+Then use the relative tag as a usual component in your markup.
+
+```html
+<section>
+  <z-button label="button" type="primary">Click me!</z-button>
+</section>
 ```
+
+## Component definition
+
+Each component is structured as follows:
+
+| File name       | Description                    |
+| --------------- | ------------------------------ |
+| `index-ts`      | Component markup and UI logics |
+| `styles.css`    | Component styles               |
+| `index.spec.ts` | Compoentn tests                |
+| `README.md`     | Stencil documentation          |
+
+## Roadmap
+
+- 12 6 2020: Publishing repo v 1.0.0
+
