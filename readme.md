@@ -1,10 +1,13 @@
+![Zanichelli logo](https://www.zanichelli.it/static/zanichelli/templates/zanichelli/_template_style/images/logo-print.png)
+
 # Zanichelli - Web Components Library
+
 Zanichelli's design system is widely documented on Zeroheight at this [link](https://zeroheight.com/485b31545).
 
 ## Install
 
 ```bash
-yarn add XXXXX
+yarn add zanichelli-web-components-library
 ```
 
 ## Start Library Development Server
