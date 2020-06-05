@@ -147,7 +147,8 @@ Each component is structured as follows:
 | --------------- | ------------------------------ |
 | `index-ts`      | Component markup and UI logics |
 | `styles.css`    | Component styles               |
-| `index.spec.ts` | Compoentn tests                |
+| `index.spec.ts` | Component tests                |
+| `index.stories.mdx` | Component storybook file                |
 | `README.md`     | Stencil documentation          |
 
 ## Roadmap
