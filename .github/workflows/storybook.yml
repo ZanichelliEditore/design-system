@@ -1,0 +1,42 @@
+name: Storybook Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  # BUILD THE STORYBOOK
+  build:
+    name: Build storybook
+    runs-on: ubuntu-18.04
+    if: "!contains(github.event.commits[0].message, 'skip ci')"
+    steps:
+      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install --ignore-scripts
+      - name: Save build artifacts for later jobs (cache)
+        uses: actions/cache@v1
+        with:
+          path: ./storybook
+          key: build-storybook-${{ github.sha }}
+      - run: yarn build-storybook
+
+  # DEPLOY STORYBOOK TO GITHUB PAGES
+  deploy:
+    name: Deploy storybook
+    runs-on: ubuntu-18.04
+    needs: build
+    if: "!contains(github.event.commits[0].message, 'skip ci')"
+    steps:
+      - name: Retrieve build artifacts (cache)
+        uses: actions/cache@v1
+        with:
+          path: ./storybook
+          key: build-storybook-${{ github.sha }}
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook
