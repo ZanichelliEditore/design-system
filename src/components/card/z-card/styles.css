@@ -11,7 +11,8 @@ div {
   border-radius: var(--radius-base);
 }
 
-div.real {
+div.real,
+div.trial {
   border-color: var(--accent);
 }
 

@@ -181,7 +181,7 @@
               img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" faded=true />
           </z-card-body>
           <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori"
-            isbn="97-88-80-8620-710" faded=true>
+            isbn="97-88-80-8620-710" faded=false>
             <z-toggle-button label="risorse" slot="toggle" avoidclick=true></z-toggle-button>
             <z-card-list
               listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
@@ -281,8 +281,9 @@
         <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
       </z-card-footer>
     </z-card>
-    <z-card cardtype="reale" ispressed>
-      <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+
+    <z-card cardtype="reale">
+      <z-card-header cardtype="reale" titolo="titolo titolo titolotitolo titolo titolo titolo">
         <z-card-icon icon="book-delete" slot="icon" />
       </z-card-header>
       <z-card-body>
@@ -294,6 +295,32 @@
       </z-card-footer>
     </z-card>
   </div>
+
+  <z-card cardtype="reale">
+    <z-card-header cardtype="reale" titolo="titolo titolo titolotitolo titolo titolo titolo">
+      <z-card-icon icon="book-delete" slot="icon" />
+    </z-card-header>
+    <z-card-body>
+      <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+    </z-card-body>
+    <z-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+      <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+      <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+    </z-card-footer>
+  </z-card>
+
+  <z-card cardtype="saggio">
+    <z-card-header cardtype="saggio" titolo="titolo titolo titolotitolo titolo titolo titolo">
+      <z-card-icon icon="book-delete" slot="icon" />
+    </z-card-header>
+    <z-card-body>
+      <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+    </z-card-body>
+    <z-card-footer cardtype="saggio" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+      <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+      <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+    </z-card-footer>
+  </z-card>
 
   <br />
       <p>

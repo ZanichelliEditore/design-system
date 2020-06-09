@@ -19,7 +19,7 @@
 
 | Property        | Attribute       | Description                | Type                                                                       | Default     |
 | --------------- | --------------- | -------------------------- | -------------------------------------------------------------------------- | ----------- |
-| `cardtype`      | `cardtype`      | graphic variant (optional) | `LicenseTypeEnum.essay \| LicenseTypeEnum.real \| LicenseTypeEnum.virtual` | `undefined` |
+| `cardtype`      | `cardtype`      | graphic variant (optional) | `LicenseTypeEnum.real \| LicenseTypeEnum.trial \| LicenseTypeEnum.virtual` | `undefined` |
 | `faded`         | `faded`         | faded status               | `boolean`                                                                  | `undefined` |
 | `ishighlighted` | `ishighlighted` | highlighted status         | `boolean`                                                                  | `false`     |
 | `ispressed`     | `ispressed`     | pressed status             | `boolean`                                                                  | `false`     |

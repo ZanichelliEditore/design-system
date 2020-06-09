@@ -32,12 +32,11 @@ export class ZCardFooter {
   }
 
   retrieveClass() {
-    let elemClasses = "";
-
-    if (this.isOpen) elemClasses += "isopen ";
-    if (this.cardtype === LicenseTypeEnum.real) elemClasses += "real";
-
-    return elemClasses;
+    return {
+      isopen: this.isOpen,
+      real: this.cardtype === LicenseTypeEnum.real,
+      trial: this.cardtype === LicenseTypeEnum.trial,
+    };
   }
 
   render() {
@@ -47,7 +46,7 @@ export class ZCardFooter {
           <span class="toggle">
             <slot name="toggle" />
           </span>
-          <h2 class={this.retrieveClass()}>{this.titolo}</h2>
+          <h2>{this.titolo}</h2>
           <div>
             <p class="authors">
               {this.autorilabel}: <b>{this.autori}</b>

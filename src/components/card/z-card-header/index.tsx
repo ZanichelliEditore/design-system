@@ -7,7 +7,7 @@ import { LicenseTypeEnum } from "../../../beans/index";
 @Component({
   tag: "z-card-header",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZCardHeader {
   /** volume title */
@@ -18,12 +18,11 @@ export class ZCardHeader {
   @Prop() cardtype?: LicenseTypeEnum;
 
   retrieveClass() {
-    let elemClasses = "";
-
-    if (this.faded) elemClasses += "faded ";
-    if (this.cardtype === LicenseTypeEnum.real) elemClasses += "real";
-
-    return elemClasses;
+    return {
+      real: this.cardtype === LicenseTypeEnum.real,
+      trial: this.cardtype === LicenseTypeEnum.trial,
+      faded: this.faded,
+    };
   }
 
   render() {

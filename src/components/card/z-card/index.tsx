@@ -7,7 +7,7 @@ import { LicenseTypeEnum } from "../../../beans/index";
 @Component({
   tag: "z-card",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZCardComponent {
   /** faded status */
@@ -23,6 +23,7 @@ export class ZCardComponent {
     let elemClasses = "";
 
     if (this.cardtype === LicenseTypeEnum.real) elemClasses += "real";
+    else if (this.cardtype === LicenseTypeEnum.trial) elemClasses += "trial";
 
     if (this.faded) {
       elemClasses += " faded";
