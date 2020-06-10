@@ -25,13 +25,7 @@ import {
 
 @Component({
   tag: "z-input",
-  styleUrls: [
-    "styles.css",
-    "styles-text.css",
-    "styles-textarea.css",
-    "styles-checkbox.css",
-    "styles-select.css"
-  ],
+  styleUrl: "styles.css",
   shadow: true
 })
 export class ZInput {
