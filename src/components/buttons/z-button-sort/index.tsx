@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, State, h, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'z-button-sort',
@@ -24,6 +24,8 @@ export class ZButtonSort {
   /** sortable flag (optional) */
   @Prop({ mutable: true }) sortasc?: boolean = true;
 
+  @State() allowTooltip: boolean = false;
+
   /** sorting direction click event, returns buttonid and sortAsc */
   @Event() buttonSortClick: EventEmitter;
   emitButtonSortClick() {
@@ -35,10 +37,14 @@ export class ZButtonSort {
     this.buttonSortClick.emit({ buttonid: this.buttonid, sortAsc: this.sortasc });
   }
 
+  setLabelContent():string{
+    return `${this.sortasc ? this.label : this.desclabel}`
+  }
+
   render() {
     return (
-      <button id={this.buttonid} class={this.isselected && "selected"} onClick={() => this.emitButtonSortClick()}>
-        <label>
+      <button title={this.setLabelContent()} id={this.buttonid} class={this.isselected && "selected"} onClick={() => this.emitButtonSortClick()}>
+        <label class='ellipsis'>
           {this.sortasc ? this.label : this.desclabel}
           {this.counter && ` (${this.counter})`}</label>
         <span>{this.sortasc ? this.sortlabelasc : this.sortlabeldesc}</span>
