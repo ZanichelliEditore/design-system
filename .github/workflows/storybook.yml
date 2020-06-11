@@ -10,7 +10,6 @@ jobs:
   build:
     name: Build storybook
     runs-on: ubuntu-18.04
-    if: "!contains(github.event.commits[0].message, 'skip ci')"
     steps:
       - uses: actions/setup-node@v1
       - uses: actions/checkout@v2
@@ -28,7 +27,6 @@ jobs:
     name: Deploy storybook
     runs-on: ubuntu-18.04
     needs: build
-    if: "!contains(github.event.commits[0].message, 'skip ci')"
     steps:
       - name: Retrieve build artifacts (cache)
         uses: actions/cache@v1
