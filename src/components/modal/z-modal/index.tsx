@@ -18,6 +18,8 @@ export class ZModal {
   /** subtitle (optional) */
   @Prop() modalsubtitle?: string;
 
+  @Prop() disableColorHeader?: boolean = false;
+
   constructor() {
     this.emitModalClose = this.emitModalClose.bind(this);
     this.emitModalHeaderActive = this.emitModalHeaderActive.bind(this);
@@ -36,10 +38,14 @@ export class ZModal {
   }
 
   render() {
+    console.log(this.disableColorHeader);
     return (
       <div data-action="modalBackground" data-modal={this.modalid}>
         <div id={this.modalid}>
-          <header onClick={this.emitModalHeaderActive}>
+          <header
+            class={this.disableColorHeader && "white"}
+            onClick={this.emitModalHeaderActive}
+          >
             <div>
               {this.modaltitle && <h1>{this.modaltitle}</h1>}
               {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
