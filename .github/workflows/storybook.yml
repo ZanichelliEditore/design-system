@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v1
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: yarn install --ignore-scripts
+        run: yarn install --frozen-lockfile --ignore-scripts
       - name: Save build artifacts for later jobs (cache)
         uses: actions/cache@v1
         with:
