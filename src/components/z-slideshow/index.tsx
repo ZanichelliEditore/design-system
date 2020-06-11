@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, State, Element } from "@stencil/core";
 import { SlideshowLinkBean } from "../../beans";
 
 @Component({
@@ -11,28 +11,47 @@ export class ZSlideshow {
   @Prop() ismodal: boolean = false;
   /** JSON stringified link url images */
   @Prop() data?: string = "";
-
+  @State() anchor: number = 0;
   links: SlideshowLinkBean[];
+
+  @Element() el: HTMLElement;
 
   componentWillLoad() {
     this.links = this.data ? JSON.parse(this.data) : [];
+  }
+
+  showCurrentSlide(anchor: number) {
+    this.anchor = anchor;
+  }
+
+  renderSlide(items) {
+    const slide = Object.keys(items).find(i => parseInt(i) === this.anchor);
+    if (slide) {
+      return (
+        <div class="slide fade" data-anchor={parseInt(slide) - 1}>
+          <img src={items[slide].url} />
+        </div>
+      );
+    }
   }
 
   renderSlideshow() {
     return (
       <div id={this.slideshowid}>
         <main>
-          <div class="mainLeft">
-            <z-icon width={32} height={32} name="circle-chevron-left" />
-          </div>
-          <div class="mainCenter">
-            {this.links.map((item, i) => (
-              <z-slideshow-image url={item.url} anchor={i} />
-            ))}
-          </div>
-          <div class="mainRight">
-            <z-icon width={32} height={32} name="chevron-right" />
-          </div>
+          <z-icon
+            class="scrollLeft"
+            width={32}
+            height={32}
+            name="chevron-left"
+          />
+          <div class="mainCenter">{this.renderSlide(this.links)}</div>
+          <z-icon
+            class="scrollRight"
+            width={32}
+            height={32}
+            name="chevron-right"
+          />
         </main>
         <footer>
           <div class="footerLeft">
@@ -40,8 +59,15 @@ export class ZSlideshow {
           </div>
           <div class="footerCenter">
             <div class="bulletContainer">
-              {this.links.map((item, i) => (
-                <z-slideshow-bullet key={item.url} anchor={i} />
+              {Object.keys(this.links).map(i => (
+                <div
+                  id={"bullet" + i}
+                  class="bullet"
+                  data-anchor={i}
+                  onClick={() => {
+                    this.showCurrentSlide(parseInt(i));
+                  }}
+                ></div>
               ))}
             </div>
           </div>
