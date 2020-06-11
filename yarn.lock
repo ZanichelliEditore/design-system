@@ -1451,12 +1451,12 @@
   resolved "https://registry.npmjs.org/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@stencil/core@~1.8.0":
-  version "1.8.11"
-  resolved "https://registry.npmjs.org/@stencil/core/-/core-1.8.11.tgz#256aa9de100813ad241440ec2173aa09d62fd8c4"
-  integrity sha512-CWalrysaD+AFyPSd6ZJzBnGdp6vZIF9MajvnQg+jJd2s67HbO1B9lPDKtX8mPW9HF3/3o0XMVQR1F9uLBqIviA==
+"@stencil/core@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.npmjs.org/@stencil/core/-/core-1.14.0.tgz#4bdbfa69a7c89c404b688199441c39326418044c"
+  integrity sha512-3u3O8y8HIORiKuDmPowJiUu9nNmpxq4ak1kR3aVuWH6YTQ7+Uexy0dAxabn3CUoQmh6cpYsk9l5P5yIX2EQHoQ==
   dependencies:
-    typescript "3.8.2"
+    typescript "3.9.3"
 
 "@storybook/addon-a11y@^5.3.14":
   version "5.3.19"
@@ -2528,9 +2528,9 @@ acorn@^6.0.1, acorn@^6.4.1:
   integrity sha512-ZVA9k326Nwrj3Cj9jlh3wGFutC2ZornPNARZwsNYqQYgN0EsV2d53w5RN/co65Ohn4sUAUtb1rSUAOD6XN9idA==
 
 acorn@^7.1.0:
-  version "7.3.0"
-  resolved "https://registry.npmjs.org/acorn/-/acorn-7.3.0.tgz#34025cfa3ca25b3240d80700dc3bb695f8d86614"
-  integrity sha512-Q/reetejf1Yf8vY7wyZI8DOsrMr9r7RfnDYBVjIdE61Rk8atUkbV1Kyi/diJzgAWiDiHEPWpNoqpPb+2CUbudQ==
+  version "7.3.1"
+  resolved "https://registry.npmjs.org/acorn/-/acorn-7.3.1.tgz#85010754db53c3fbaf3b9ea3e083aa5c5d147ffd"
+  integrity sha512-tLc0wSnatxAQHVHUapaHdz72pi9KUyHjq5KyHjGg9Y8Ifdc79pTh2XvI6I1/chZbnM7QtNKzh66ooDogPZSleA==
 
 address@1.1.2, address@^1.0.1:
   version "1.1.2"
@@ -11477,10 +11477,10 @@ typescript-compiler@^1.4.1-2:
   resolved "https://registry.npmjs.org/typescript-compiler/-/typescript-compiler-1.4.1-2.tgz#ba4f7db22d91534a1929d90009dce161eb72fd3f"
   integrity sha1-uk99si2RU0oZKdkACdzhYety/T8=
 
-typescript@3.8.2:
-  version "3.8.2"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-3.8.2.tgz#91d6868aaead7da74f493c553aeff76c0c0b1d5a"
-  integrity sha512-EgOVgL/4xfVrCMbhYKUQTdF37SQn4Iw73H5BgCrF1Abdun7Kwy/QZsE/ssAy0y4LxBbvua3PIbFsbRczWWnDdQ==
+typescript@3.9.3:
+  version "3.9.3"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-3.9.3.tgz#d3ac8883a97c26139e42df5e93eeece33d610b8a"
+  integrity sha512-D/wqnB2xzNFIcoBG9FG8cXRDjiqSTbG2wd8DMZeQyJlP1vfTkIxH4GKveWaEBYySKIg+USu+E+EDIR47SqnaMQ==
 
 typescript@^3.4:
   version "3.9.5"
