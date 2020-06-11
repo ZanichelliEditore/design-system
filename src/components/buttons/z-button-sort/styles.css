@@ -8,6 +8,7 @@ button {
   outline: none;
   padding: 0 var(--basex1);
   cursor: pointer;
+  max-width: 490px;
 }
 
 button::-moz-focus-inner {
@@ -47,13 +48,13 @@ button>label {
   font-weight: var(--font-sb);
   font-size: 14px;
   margin-right: var(--basex2);
-  max-width: 490px;
 }
 
 button>label.ellipsis {
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
+  overflow: hidden;
+  width: calc(100% - 40px);
   display: inline-block;
 }
 

@@ -1,4 +1,4 @@
-import { Component, Prop, State, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, State, Element, h, Event, EventEmitter, Host } from '@stencil/core';
 
 @Component({
   tag: 'z-button-sort',
@@ -26,6 +26,8 @@ export class ZButtonSort {
 
   @State() allowTooltip: boolean = false;
 
+  @Element() el: HTMLElement;
+
   /** sorting direction click event, returns buttonid and sortAsc */
   @Event() buttonSortClick: EventEmitter;
   emitButtonSortClick() {
@@ -37,19 +39,31 @@ export class ZButtonSort {
     this.buttonSortClick.emit({ buttonid: this.buttonid, sortAsc: this.sortasc });
   }
 
+  componentDidLoad(){
+    console.log('larghezza:', this.getElementWidth());
+    if(this.getElementWidth() == 490)
+      this.allowTooltip = true;
+  }
+
   setLabelContent():string{
-    return `${this.sortasc ? this.label : this.desclabel}`
+    return this.allowTooltip ? `${this.sortasc ? this.label : this.desclabel}` : ""
+  }
+
+  getElementWidth():number{
+      return this.el.offsetWidth;
   }
 
   render() {
     return (
+      <Host>
       <button title={this.setLabelContent()} id={this.buttonid} class={this.isselected && "selected"} onClick={() => this.emitButtonSortClick()}>
-        <label class='ellipsis'>
+        <label class={this.allowTooltip ? 'ellipsis' : null}>
           {this.sortasc ? this.label : this.desclabel}
           {this.counter && ` (${this.counter})`}</label>
         <span>{this.sortasc ? this.sortlabelasc : this.sortlabeldesc}</span>
         <z-icon name="drop-up-down" width={16} height={16} />
       </button>
+      </Host>
     );
   }
 }
