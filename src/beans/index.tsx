@@ -152,6 +152,5 @@ export type SelectItemBean = {
 };
 
 export type SlideshowLinkBean = {
-  anchor: number;
   url: string;
 };

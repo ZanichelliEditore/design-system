@@ -44,7 +44,7 @@
 }
 
 :host main .mainCenter {
-  background-color: aquamarine;
+  display: flex;
 }
 
 :host main .mainCenter,
