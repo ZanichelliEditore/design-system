@@ -50,12 +50,13 @@ button>label {
   margin-right: var(--basex2);
 }
 
-button>label.ellipsis {
+button>label>span.ellipsis {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: calc(100% - 40px);
+  width: calc(100% - 80px);
   display: inline-block;
+  vertical-align: middle;
 }
 
 button>span {

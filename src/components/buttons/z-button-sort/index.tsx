@@ -57,8 +57,8 @@ export class ZButtonSort {
     return (
       <Host>
       <button title={this.setLabelContent()} id={this.buttonid} class={this.isselected && "selected"} onClick={() => this.emitButtonSortClick()}>
-        <label class={this.allowTooltip ? 'ellipsis' : null}>
-          {this.sortasc ? this.label : this.desclabel}
+        <label>
+          <span class={this.allowTooltip ? 'ellipsis' : null}>{this.sortasc ? this.label : this.desclabel}</span>
           {this.counter && ` (${this.counter})`}</label>
         <span>{this.sortasc ? this.sortlabelasc : this.sortlabeldesc}</span>
         <z-icon name="drop-up-down" width={16} height={16} />
