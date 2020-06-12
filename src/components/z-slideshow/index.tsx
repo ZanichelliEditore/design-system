@@ -45,7 +45,7 @@ export class ZSlideshow {
             height={32}
             name="chevron-left"
           />
-          <div class="mainCenter">{this.renderSlide(this.links)}</div>
+          <div class="mainContainer">{this.renderSlide(this.links)}</div>
           <z-icon
             class="scrollRight"
             width={32}
@@ -62,7 +62,7 @@ export class ZSlideshow {
               {Object.keys(this.links).map(i => (
                 <div
                   id={"bullet" + i}
-                  class="bullet"
+                  class={`bullet ${this.anchor === parseInt(i) && "selected"}`}
                   data-anchor={i}
                   onClick={() => {
                     this.showCurrentSlide(parseInt(i));
