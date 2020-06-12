@@ -12,6 +12,7 @@ export class ZSlideshow {
   @State() currentSlide: number = 0;
 
   private links: string[];
+  anchorPrefix = "#slide";
 
   componentWillLoad() {
     this.links = this.data ? JSON.parse(this.data) : [];
@@ -32,6 +33,12 @@ export class ZSlideshow {
         </div>
       );
     }
+
+    // return items.maps((item, i) => {
+    //   <div class="slide" data-anchor={parseInt(i) - 1}>
+    //     <img src={item} />{" "}
+    //   </div>;
+    // });
   }
 
   renderScroll(direction: "left" | "right", dimension: number) {
@@ -47,16 +54,19 @@ export class ZSlideshow {
     }
 
     return (
-      <z-icon
-        class={`scroll ${direction} ${disabled && "disabled"}`}
-        width={dimension}
-        height={dimension}
-        name={`chevron-${direction}`}
-        role="button"
+      <a
+        href={!disabled ? this.anchorPrefix + nextSlide : "#"}
         onClick={() => {
           !disabled && this.setCurrentSlide(nextSlide);
         }}
-      />
+      >
+        <z-icon
+          class={`scroll ${direction} ${disabled && "disabled"}`}
+          width={dimension}
+          height={dimension}
+          name={`chevron-${direction}`}
+        />
+      </a>
     );
   }
 
@@ -70,6 +80,18 @@ export class ZSlideshow {
     );
   }
 
+  renderBullet(i: number) {
+    return (
+      <a
+        class={`bullet ${this.currentSlide === i && "selected"}`}
+        href={this.anchorPrefix + i}
+        onClick={() => {
+          this.setCurrentSlide(i);
+        }}
+      ></a>
+    );
+  }
+
   renderSlideshowFooter() {
     return (
       <footer>
@@ -78,17 +100,7 @@ export class ZSlideshow {
         </div>
         <div class="footerCenter">
           <div class="bulletContainer">
-            {Object.keys(this.links).map(i => (
-              <div
-                id={"bullet" + i}
-                class={`bullet ${this.currentSlide === parseInt(i) &&
-                  "selected"}`}
-                data-anchor={i}
-                onClick={() => {
-                  this.setCurrentSlide(parseInt(i));
-                }}
-              ></div>
-            ))}
+            {Object.keys(this.links).map(i => this.renderBullet(parseInt(i)))}
           </div>
         </div>
         <div class="footerRight">
