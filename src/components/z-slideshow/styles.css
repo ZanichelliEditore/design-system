@@ -28,21 +28,22 @@ footer {
   align-items: center;
 }
 
-main z-icon {
-  fill: var(--myz-blue);
-}
-
-main .scrollLeft,
-main .scrollRight {
+main .scroll {
   position: absolute;
   top: 50%;
   width: auto;
   cursor: pointer;
   transition: 0.6s ease;
   margin: var(--half-x1);
+  fill: var(--myz-blue);
 }
 
-main .scrollRight {
+main .scroll.disabled {
+  opacity: 50%;
+  pointer-events: none;
+}
+
+main .scroll.right {
   right: 0;
 }
 

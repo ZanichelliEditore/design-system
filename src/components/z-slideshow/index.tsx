@@ -12,8 +12,6 @@ export class ZSlideshow {
   @State() currentSlide: number = 0;
 
   private links: string[];
-  private iconWidth = 40;
-  private iconHeight = 40;
 
   componentWillLoad() {
     this.links = this.data ? JSON.parse(this.data) : [];
@@ -36,24 +34,38 @@ export class ZSlideshow {
     }
   }
 
+  renderScroll(direction: "left" | "right", dimension: number) {
+    let disabled = false,
+      nextSlide = this.currentSlide;
+
+    if (direction === "left") {
+      disabled = this.currentSlide === 0;
+      nextSlide--;
+    } else if (direction === "right") {
+      disabled = this.currentSlide === this.links.length - 1;
+      nextSlide++;
+    }
+
+    return (
+      <z-icon
+        class={`scroll ${direction} ${disabled && "disabled"}`}
+        width={dimension}
+        height={dimension}
+        name={`chevron-${direction}`}
+        role="button"
+        onClick={() => {
+          !disabled && this.setCurrentSlide(nextSlide);
+        }}
+      />
+    );
+  }
+
   renderSlideshowMain() {
     return (
       <main>
-        <z-icon
-          class="scrollLeft"
-          width={this.iconWidth}
-          height={this.iconHeight}
-          name="chevron-left"
-          role="button"
-        />
+        {this.renderScroll("left", 40)}
         <div class="mainContainer">{this.renderCurrentSlide(this.links)}</div>
-        <z-icon
-          class="scrollRight"
-          width={this.iconWidth}
-          height={this.iconHeight}
-          name="chevron-right"
-          role="button"
-        />
+        {this.renderScroll("right", 40)}
       </main>
     );
   }
