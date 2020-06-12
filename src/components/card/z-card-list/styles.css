@@ -1,7 +1,7 @@
 ul {
   font-family: var(--dashboard-font);
   color: var(--myz-blue);
-  margin: var(--basex1) var(--basex2);
+  margin: 0 var(--basex2);
   padding: 0px;
   overflow: hidden;
   list-style: none;
@@ -11,14 +11,17 @@ ul {
 
 ul>li {
   padding-left: 10px;
+  padding-bottom: var(--half-x1);
   text-indent: -10px;
 }
 
 ul>li>a {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: var(--font-sb);
   text-decoration: none;
   color: var(--myz-blue);
+  letter-spacing: 0.16px;
+  line-height: var(--half-x5);
 }
 
 ul>li>a:before {
@@ -32,4 +35,6 @@ ul>li>span {
   text-decoration: none;
   color: var(--text-grey-700);
   padding: var(--basex1) var(--basex2);
+  letter-spacing: 0.16px;
+  line-height: var(--half-x5);
 }

@@ -132,7 +132,7 @@ describe("Suite test ZCardFooter", () => {
               <span class=\"toggle\">
                 <slot name=\"toggle\"></slot>
               </span>
-              <h2 class="isopen">
+              <h2>
                 titolo
               </h2>
               <div>
