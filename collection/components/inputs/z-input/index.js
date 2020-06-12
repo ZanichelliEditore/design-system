@@ -288,10 +288,10 @@ export class ZInput {
     static get is() { return "z-input"; }
     static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
-        "$": ["styles.css", "styles-text.css", "styles-textarea.css", "styles-checkbox.css", "styles-select.css"]
+        "$": ["styles.css"]
     }; }
     static get styleUrls() { return {
-        "$": ["styles.css", "styles-text.css", "styles-textarea.css", "styles-checkbox.css", "styles-select.css"]
+        "$": ["styles.css"]
     }; }
     static get properties() { return {
         "htmlid": {
