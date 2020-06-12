@@ -12,7 +12,10 @@ export class ZSlideshow {
   /** JSON stringified link url images */
   @Prop() data?: string = "";
   @State() anchor: number = 0;
-  links: SlideshowLinkBean[];
+
+  private links: SlideshowLinkBean[];
+  private iconWidth = 40;
+  private iconHeight = 40;
 
   @Element() el: HTMLElement;
 
@@ -24,7 +27,7 @@ export class ZSlideshow {
     this.anchor = anchor;
   }
 
-  renderSlide(items) {
+  renderCurrentSlide(items) {
     const slide = Object.keys(items).find(i => parseInt(i) === this.anchor);
     if (slide) {
       return (
@@ -35,46 +38,60 @@ export class ZSlideshow {
     }
   }
 
+  renderSlideshowMain() {
+    return (
+      <main>
+        <z-icon
+          class="scrollLeft"
+          width={this.iconWidth}
+          height={this.iconHeight}
+          name="chevron-left"
+          role="button"
+        />
+        <div class="mainContainer">{this.renderCurrentSlide(this.links)}</div>
+        <z-icon
+          class="scrollRight"
+          width={this.iconWidth}
+          height={this.iconHeight}
+          name="chevron-right"
+          role="button"
+        />
+      </main>
+    );
+  }
+
+  renderSlideshowFooter() {
+    return (
+      <footer>
+        <div class="footerLeft">
+          <slot name="footerLeft" />
+        </div>
+        <div class="footerCenter">
+          <div class="bulletContainer">
+            {Object.keys(this.links).map(i => (
+              <div
+                id={"bullet" + i}
+                class={`bullet ${this.anchor === parseInt(i) && "selected"}`}
+                data-anchor={i}
+                onClick={() => {
+                  this.showCurrentSlide(parseInt(i));
+                }}
+              ></div>
+            ))}
+          </div>
+        </div>
+        <div class="footerRight">
+          <slot name="footerRight" />
+        </div>
+      </footer>
+    );
+  }
+
   renderSlideshow() {
     return (
       <div id={this.slideshowid}>
-        <main>
-          <z-icon
-            class="scrollLeft"
-            width={32}
-            height={32}
-            name="chevron-left"
-          />
-          <div class="mainContainer">{this.renderSlide(this.links)}</div>
-          <z-icon
-            class="scrollRight"
-            width={32}
-            height={32}
-            name="chevron-right"
-          />
-        </main>
-        <footer>
-          <div class="footerLeft">
-            <slot name="footerLeft" />
-          </div>
-          <div class="footerCenter">
-            <div class="bulletContainer">
-              {Object.keys(this.links).map(i => (
-                <div
-                  id={"bullet" + i}
-                  class={`bullet ${this.anchor === parseInt(i) && "selected"}`}
-                  data-anchor={i}
-                  onClick={() => {
-                    this.showCurrentSlide(parseInt(i));
-                  }}
-                ></div>
-              ))}
-            </div>
-          </div>
-          <div class="footerRight">
-            <slot name="footerRight" />
-          </div>
-        </footer>
+        {this.renderSlideshowMain()}
+        {this.renderSlideshowFooter()}
       </div>
     );
   }
