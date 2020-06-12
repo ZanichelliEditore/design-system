@@ -27,7 +27,7 @@ export class ZSlideshow {
     );
     if (index) {
       return (
-        <div class="slide fade" data-anchor={parseInt(index) - 1}>
+        <div class="slide" data-anchor={parseInt(index) - 1}>
           <img src={items[index]} />
         </div>
       );
