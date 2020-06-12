@@ -1,5 +1,4 @@
-import { Component, Prop, h, State, Element } from "@stencil/core";
-import { SlideshowLinkBean } from "../../beans";
+import { Component, Prop, h, State } from "@stencil/core";
 
 @Component({
   tag: "z-slideshow",
@@ -8,31 +7,30 @@ import { SlideshowLinkBean } from "../../beans";
 })
 export class ZSlideshow {
   @Prop() slideshowid: string;
-  @Prop() ismodal: boolean = false;
   /** JSON stringified link url images */
   @Prop() data?: string = "";
-  @State() anchor: number = 0;
+  @State() currentSlide: number = 0;
 
-  private links: SlideshowLinkBean[];
+  private links: string[];
   private iconWidth = 40;
   private iconHeight = 40;
-
-  @Element() el: HTMLElement;
 
   componentWillLoad() {
     this.links = this.data ? JSON.parse(this.data) : [];
   }
 
-  showCurrentSlide(anchor: number) {
-    this.anchor = anchor;
+  setCurrentSlide(index: number) {
+    this.currentSlide = index;
   }
 
   renderCurrentSlide(items) {
-    const slide = Object.keys(items).find(i => parseInt(i) === this.anchor);
-    if (slide) {
+    const index = Object.keys(items).find(
+      i => parseInt(i) === this.currentSlide
+    );
+    if (index) {
       return (
-        <div class="slide fade" data-anchor={parseInt(slide) - 1}>
-          <img src={items[slide].url} />
+        <div class="slide fade" data-anchor={parseInt(index) - 1}>
+          <img src={items[index]} />
         </div>
       );
     }
@@ -71,10 +69,11 @@ export class ZSlideshow {
             {Object.keys(this.links).map(i => (
               <div
                 id={"bullet" + i}
-                class={`bullet ${this.anchor === parseInt(i) && "selected"}`}
+                class={`bullet ${this.currentSlide === parseInt(i) &&
+                  "selected"}`}
                 data-anchor={i}
                 onClick={() => {
-                  this.showCurrentSlide(parseInt(i));
+                  this.setCurrentSlide(parseInt(i));
                 }}
               ></div>
             ))}
@@ -87,28 +86,12 @@ export class ZSlideshow {
     );
   }
 
-  renderSlideshow() {
+  render() {
     return (
       <div id={this.slideshowid}>
         {this.renderSlideshowMain()}
         {this.renderSlideshowFooter()}
       </div>
     );
-  }
-
-  renderModalSlideshow() {
-    return (
-      <z-modal disableColorHeader={true}>
-        <div slot="modalContent">{this.renderSlideshow()}</div>
-      </z-modal>
-    );
-  }
-
-  render() {
-    {
-      return this.ismodal
-        ? this.renderModalSlideshow()
-        : this.renderSlideshow();
-    }
   }
 }

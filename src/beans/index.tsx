@@ -150,7 +150,3 @@ export type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
-
-export type SlideshowLinkBean = {
-  url: string;
-};
