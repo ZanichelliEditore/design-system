@@ -9,6 +9,10 @@ export declare class ZCardHeader {
     faded: boolean;
     /** card graphic variant (optional) */
     cardtype?: LicenseTypeEnum;
-    retrieveClass(): string;
+    retrieveClass(): {
+        real: boolean;
+        trial: boolean;
+        faded: boolean;
+    };
     render(): any;
 }

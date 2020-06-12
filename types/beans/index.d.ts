@@ -28,7 +28,7 @@ export declare type FooterSocialBean = {
 export declare enum LicenseTypeEnum {
     real = "reale",
     virtual = "virtuale",
-    essay = "saggio"
+    trial = "saggio"
 }
 export declare type LicenseType = LicenseTypeEnum;
 export declare type CardBean = {

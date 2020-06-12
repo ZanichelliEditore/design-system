@@ -18,6 +18,10 @@ export declare class ZCardFooter {
     cardtype?: LicenseTypeEnum;
     isOpen: boolean;
     handleToggle(): void;
-    retrieveClass(): string;
+    retrieveClass(): {
+        isopen: boolean;
+        real: boolean;
+        trial: boolean;
+    };
     render(): any;
 }

@@ -15,7 +15,8 @@ footer {
   border-top: var(--border-base) solid var(--bg-grey-200);
 }
 
-footer.real {
+footer.real,
+footer.trial {
   border-top: var(--border-base) solid var(--accent);
 }
 
@@ -37,13 +38,14 @@ footer > h2 {
   transition: all 200ms linear;
 }
 
-h2.isopen {
+footer.isopen > h2 {
   font-weight: var(--font-sb);
   transition: all 200ms linear;
   background-color: var(--bg-neutral-200);
 }
 
-h2.isopen.real {
+footer.isopen.real > h2,
+footer.isopen.trial > h2 {
   background-color: var(--accent);
 }
 
@@ -92,8 +94,8 @@ footer.isopen > div > p.year_isbn > span.isbn {
 }
 
 footer.isopen {
-  height: 278px;
-  top: -147px;
+  height: 300px;
+  top: -169px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
 

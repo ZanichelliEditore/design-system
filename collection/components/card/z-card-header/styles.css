@@ -11,7 +11,8 @@ header {
   background-color: var(--bg-white);
 }
 
-header.real {
+header.real,
+header.trial {
   background-color: var(--accent-lighter);
   border-bottom: var(--border-base) solid var(--accent);
 }
@@ -39,7 +40,8 @@ h2 {
   border-left: var(--border-base) solid var(--bg-grey-200);
 }
 
-.faded.real {
+.faded.real,
+.faded.trial {
   border-top: var(--border-base) solid var(--accent);
   border-right: var(--border-base) solid var(--accent);
   border-left: var(--border-base) solid var(--accent);

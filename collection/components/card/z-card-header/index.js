@@ -5,12 +5,11 @@ import { LicenseTypeEnum } from "../../../beans/index";
  */
 export class ZCardHeader {
     retrieveClass() {
-        let elemClasses = "";
-        if (this.faded)
-            elemClasses += "faded ";
-        if (this.cardtype === LicenseTypeEnum.real)
-            elemClasses += "real";
-        return elemClasses;
+        return {
+            real: this.cardtype === LicenseTypeEnum.real,
+            trial: this.cardtype === LicenseTypeEnum.trial,
+            faded: this.faded,
+        };
     }
     render() {
         return (h("header", { class: this.retrieveClass() },
@@ -65,7 +64,7 @@ export class ZCardHeader {
             "mutable": false,
             "complexType": {
                 "original": "LicenseTypeEnum",
-                "resolved": "LicenseTypeEnum.essay | LicenseTypeEnum.real | LicenseTypeEnum.virtual",
+                "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
                 "references": {
                     "LicenseTypeEnum": {
                         "location": "import",

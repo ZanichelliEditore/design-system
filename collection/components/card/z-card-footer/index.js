@@ -14,19 +14,18 @@ export class ZCardFooter {
         this.isOpen = !this.isOpen;
     }
     retrieveClass() {
-        let elemClasses = "";
-        if (this.isOpen)
-            elemClasses += "isopen ";
-        if (this.cardtype === LicenseTypeEnum.real)
-            elemClasses += "real";
-        return elemClasses;
+        return {
+            isopen: this.isOpen,
+            real: this.cardtype === LicenseTypeEnum.real,
+            trial: this.cardtype === LicenseTypeEnum.trial,
+        };
     }
     render() {
         return (h("div", { class: this.faded && "faded" },
             h("footer", { class: this.retrieveClass() },
                 h("span", { class: "toggle" },
                     h("slot", { name: "toggle" })),
-                h("h2", { class: this.retrieveClass() }, this.titolo),
+                h("h2", null, this.titolo),
                 h("div", null,
                     h("p", { class: "authors" },
                         this.autorilabel,
@@ -138,7 +137,7 @@ export class ZCardFooter {
             "mutable": false,
             "complexType": {
                 "original": "LicenseTypeEnum",
-                "resolved": "LicenseTypeEnum.essay | LicenseTypeEnum.real | LicenseTypeEnum.virtual",
+                "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
                 "references": {
                     "LicenseTypeEnum": {
                         "location": "import",

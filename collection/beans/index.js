@@ -2,7 +2,7 @@ export var LicenseTypeEnum;
 (function (LicenseTypeEnum) {
     LicenseTypeEnum["real"] = "reale";
     LicenseTypeEnum["virtual"] = "virtuale";
-    LicenseTypeEnum["essay"] = "saggio";
+    LicenseTypeEnum["trial"] = "saggio";
 })(LicenseTypeEnum || (LicenseTypeEnum = {}));
 export var ButtonVariantEnum;
 (function (ButtonVariantEnum) {
