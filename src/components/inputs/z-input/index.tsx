@@ -71,7 +71,7 @@ export class ZInput {
 
   private statusIcons = {
     success: "circle-check",
-    error: "circle-cross-stroke",
+    error: "circle-cross",
     warning: "circle-warning"
   };
   private timer;
@@ -226,7 +226,7 @@ export class ZInput {
 
     return (
       <z-icon
-        name="close"
+        name="cross"
         onClick={(e: any) => this.emitInputChange("", e.keyCode)}
       />
     );

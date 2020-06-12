@@ -14,7 +14,7 @@ describe("Suite test ZInfoBox", () => {
         <mock:shadow-root>
           <div>
             <slot name="content"></slot>
-            <z-icon data-action="infoBoxClose" name="close"></z-icon>
+            <z-icon data-action="infoBoxClose" name="cross"></z-icon>
           </div>
         </mock:shadow-root>
       </z-info-box>
@@ -32,7 +32,7 @@ describe("Suite test ZInfoBox", () => {
         <mock:shadow-root>
           <div id="box">
             <slot name="content"></slot>
-            <z-icon data-action="infoBoxClose" name="close"></z-icon>
+            <z-icon data-action="infoBoxClose" name="cross"></z-icon>
           </div>
         </mock:shadow-root>
       </z-info-box>
@@ -69,7 +69,7 @@ describe("Suite test ZInfoBox", () => {
         <mock:shadow-root>
           <div id="box">
             <slot name="content"></slot>
-            <z-icon data-action="infoBoxClose" name="close"></z-icon>
+            <z-icon data-action="infoBoxClose" name="cross"></z-icon>
           </div>
         </mock:shadow-root>
             <span slot="content">info box content</span>

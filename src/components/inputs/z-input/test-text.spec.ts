@@ -35,7 +35,7 @@ describe("Suite test ZInput - text", () => {
             <label htmlfor="test">label</label>
             <div>
               <input class="false input_default filled" type='text' id='test' placeholder='placeholder' value='value' />
-              <z-icon name="close"></z-icon>
+              <z-icon name="cross"></z-icon>
             </div>
           </div>
         </mock:shadow-root>
@@ -93,7 +93,7 @@ describe("Suite test ZInput - text", () => {
             <label htmlfor="test">label</label>
             <div>
               <input class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' />
-              <z-icon name="close"></z-icon>
+              <z-icon name="cross"></z-icon>
             </div>
             <span class="statusMsg msg_undefined">
               <span>helper message</span>
@@ -116,7 +116,7 @@ describe("Suite test ZInput - text", () => {
             <label htmlfor="test">label</label>
             <div>
               <input class="false filled input_success" type='text' id='test' placeholder='placeholder' value='value' />
-              <z-icon name="close"></z-icon>
+              <z-icon name="cross"></z-icon>
             </div>
             <span class="statusMsg msg_success">
               <z-icon name="circle-check" width="14" height="14"></z-icon>
