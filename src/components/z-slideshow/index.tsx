@@ -16,13 +16,13 @@ export class ZSlideshow {
 
   @Element() el: HTMLElement;
 
-  refMain: HTMLElement = null;
-  refSlides: HTMLElement = null;
+  refMain: HTMLElement;
+  refSlides: HTMLElement;
   width = 0;
 
   setWidth() {
     this.width = this.refMain.clientWidth;
-    const fullwidth = this.width * (this.links.length + 2);
+    const fullwidth = this.width * this.links.length;
     this.refSlides.style.width = `${fullwidth}px`;
     this.refSlides.style.transform = `translate(-${this.width *
       this.currentSlide}px)`;
