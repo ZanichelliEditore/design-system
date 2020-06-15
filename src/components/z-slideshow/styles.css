@@ -39,6 +39,7 @@ main .scroll.right {
 #slides {
   display: flex;
   flex-wrap: wrap;
+  transition: all 300ms;
 }
 
 footer {
