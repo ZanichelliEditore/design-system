@@ -17,6 +17,8 @@ export class ZModal {
   @Prop() modaltitle?: string;
   /** subtitle (optional) */
   @Prop() modalsubtitle?: string;
+  /** had header (optionale) */
+  @Prop() hasheader?: boolean = true;
 
   @Prop() disableColorHeader?: boolean = false;
 
@@ -37,33 +39,48 @@ export class ZModal {
     this.modalHeaderActive.emit({ modalid: this.modalid });
   }
 
+  renderHeader() {
+    if (!this.hasheader) {
+      return <div class="iconWrapper">{this.renderCloseIcon()}</div>;
+    }
+
+    return (
+      <header
+        class={this.disableColorHeader && "white"}
+        onClick={this.emitModalHeaderActive}
+      >
+        <div>
+          {this.modaltitle && <h1>{this.modaltitle}</h1>}
+          {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
+        </div>
+        {this.renderCloseIcon()}
+      </header>
+    );
+  }
+
+  renderCloseIcon() {
+    return (
+      <z-icon
+        name="circle-cross-fill"
+        width={24}
+        height={24}
+        onClick={() => this.emitModalClose()}
+        data-action="modalClose"
+        data-modal={this.modalid}
+        onKeyPress={(ev: KeyboardEvent) =>
+          handleKeyboardSubmit(ev, this.emitModalClose)
+        }
+        tabindex="0"
+      />
+    );
+  }
+
   render() {
-    console.log(this.disableColorHeader);
     return (
       <div data-action="modalBackground" data-modal={this.modalid}>
         <div id={this.modalid}>
-          <header
-            class={this.disableColorHeader && "white"}
-            onClick={this.emitModalHeaderActive}
-          >
-            <div>
-              {this.modaltitle && <h1>{this.modaltitle}</h1>}
-              {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
-            </div>
-            <z-icon
-              name="circle-cross-fill"
-              width={24}
-              height={24}
-              onClick={() => this.emitModalClose()}
-              data-action="modalClose"
-              data-modal={this.modalid}
-              onKeyPress={(ev: KeyboardEvent) =>
-                handleKeyboardSubmit(ev, this.emitModalClose)
-              }
-              tabindex="0"
-            />
-          </header>
-          <main>
+          {this.renderHeader()}
+          <main class={!this.hasheader && "noHeader"}>
             <slot name="modalContent" />
           </main>
           <div

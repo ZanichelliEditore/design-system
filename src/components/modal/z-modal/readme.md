@@ -10,11 +10,12 @@
 
 ## Properties
 
-| Property        | Attribute       | Description           | Type     | Default     |
-| --------------- | --------------- | --------------------- | -------- | ----------- |
-| `modalid`       | `modalid`       | unique id             | `string` | `undefined` |
-| `modalsubtitle` | `modalsubtitle` | subtitle (optional)   | `string` | `undefined` |
-| `modaltitle`    | `modaltitle`    | title text (optional) | `string` | `undefined` |
+| Property             | Attribute              | Description           | Type      | Default     |
+| -------------------- | ---------------------- | --------------------- | --------- | ----------- |
+| `disableColorHeader` | `disable-color-header` |                       | `boolean` | `false`     |
+| `modalid`            | `modalid`              | unique id             | `string`  | `undefined` |
+| `modalsubtitle`      | `modalsubtitle`        | subtitle (optional)   | `string`  | `undefined` |
+| `modaltitle`         | `modaltitle`           | title text (optional) | `string`  | `undefined` |
 
 
 ## Events
