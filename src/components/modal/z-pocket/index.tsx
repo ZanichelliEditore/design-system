@@ -1,4 +1,5 @@
 import { Component, Prop, h } from "@stencil/core";
+import { handleKeyboardSubmit } from "../../../utils/utils";
 
 @Component({
   tag: "z-pocket",
@@ -9,6 +10,10 @@ export class ZPocket {
   @Prop() pocketid: string;
   @Prop({ mutable: true }) isopen?: boolean = true;
   @Prop() ismodal?: boolean = false;
+
+  constructor() {
+    this.togglePocket = this.togglePocket.bind(this);
+  }
 
   togglePocket() {
     this.isopen = !this.isopen;
@@ -29,7 +34,14 @@ export class ZPocket {
         onClick={(e: any) => this.handleBackgroundClick(e)}
       >
         <div id={this.pocketid}>
-          <header onClick={() => this.togglePocket()}>
+          <header
+            role="button"
+            tabindex={0}
+            onClick={() => this.togglePocket()}
+            onKeyPress={(ev: KeyboardEvent) =>
+              handleKeyboardSubmit(ev, this.togglePocket)
+            }
+          >
             <z-icon
               name={
                 this.isopen
