@@ -23,18 +23,29 @@
 | `type`        | `type`        | alert variant type | `string` | `undefined` |
 
 
+## Events
+
+| Event        | Description                                          | Type               |
+| ------------ | ---------------------------------------------------- | ------------------ |
+| `userAction` | user click/keyboard action event, returns actionType | `CustomEvent<any>` |
+
+
 ## Dependencies
+
+### Used by
+
+ - [z-card-alert](../../card/z-card-alert)
 
 ### Depends on
 
-- [z-alert](../../notification/z-alert)
+- [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-card-alert --> z-alert
   z-alert --> z-icon
-  style z-card-alert fill:#f9f,stroke:#333,stroke-width:4px
+  z-card-alert --> z-alert
+  style z-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -157,7 +157,7 @@
           </z-card-header>
           <z-card-body>
             <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri"
-              actiontext="Annulla" type="add"></z-card-alert>
+              actiontext="Annulla" type="success"></z-card-alert>
             <z-card-cover slot="cover" titolo="titolo"
               img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
           </z-card-body>
@@ -175,7 +175,7 @@
             <z-card-icon icon="book-delete" slot="icon" />
           </z-card-header>
           <z-card-body>
-            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" actiontext="annulla" type="remove"
+            <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" actiontext="annulla" type="warning"
               faded=true></z-card-alert>
             <z-card-cover slot="cover" titolo="titolo"
               img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" faded=true />
@@ -223,7 +223,7 @@
           <z-card-icon icon="book-delete" slot="icon" />
         </z-card-header>
         <z-card-body>
-          <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-card-alert>
+          <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="success"></z-card-alert>
           <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
         </z-card-body>
         <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
@@ -248,7 +248,7 @@
           <z-card-icon icon="book-delete" slot="icon" />
         </z-card-header>
         <z-card-body>
-          <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" type="remove" faded=true></z-card-alert>
+          <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" type="warning" faded=true></z-card-alert>
           <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" faded=true />
         </z-card-body>
         <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710" faded=true>
@@ -273,7 +273,7 @@
         <z-card-icon icon="book-delete" slot="icon" />
       </z-card-header>
       <z-card-body>
-        <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" type="add"></z-card-alert>
+        <z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" type="success"></z-card-alert>
         <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
       </z-card-body>
       <z-card-footer cardtype="reale" titolo="Las reglas del juego con risorse digitali Scuolabook risorse digitali Scuolabook Scuolabook risorse digitali ScuolabookScuolabook risorse digitali ScuolabookScuolabook risorse digitali Scuolabook" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
@@ -802,6 +802,46 @@
           "link": "https://my.zanichelli.it/privacy"
       }]
   }'></z-footer>
+
+
+  <div style="margin-top: 30px; width:1000px; display:flex; flex-wrap:wrap; justify-content:space-between;">
+    <z-card>
+      <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+        <z-card-icon icon="book-delete" slot="icon" />
+      </z-card-header>
+      <z-card-body>
+        <z-card-alert slot="alert"
+          iconName="circle-warning-fill"
+          contenttext="Libro aggiunto"
+          actiontext="Annulla" type="error">
+        </z-card-alert>
+        <z-card-cover slot="cover" titolo="titolo"
+          img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+      </z-card-body>
+      <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+        <z-card-list
+          listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+          slot="list" />
+      </z-card-footer>
+    </z-card>
+  </div>
+
+  <div style="margin-top: 30px;
+      display: grid;
+      grid-template-columns: minmax(10px, 394px) 1fr 2.5fr minmax(180px, 180px);
+      grid-column-gap: var(--basex1);
+      border: 1px solid red;
+      height: 140px;
+      align-items: center;
+      z-index: 10;">
+      <div style="display: block;position: relative; height: 130px;">
+        <z-alert iconName="circle-warning-fill" contenttext="Non siamo riusciti ad inviare la mail. Vuoi riprovare?"
+          actiontext="Annulla" type="error">
+        </z-alert>
+      </div>
+    </div>
+  </div>
 
 </body>
 
