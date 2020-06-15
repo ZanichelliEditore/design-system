@@ -1,4 +1,8 @@
 import { Component, Prop, h, State, Element } from "@stencil/core";
+import {
+  mobileBreakpoint,
+  tabletBreakpoint
+} from "../../constants/breakpoints";
 
 @Component({
   tag: "z-slideshow",
@@ -9,6 +13,7 @@ export class ZSlideshow {
   @Prop() slideshowid: string;
   /** JSON stringified link url images */
   @Prop() data?: string = "";
+  @State() device: "mobile" | "tablet" | "desktop";
   @State() currentSlide: number = 0;
 
   private links: string[];
@@ -16,12 +21,14 @@ export class ZSlideshow {
 
   @Element() el: HTMLElement;
 
-  refMain: HTMLElement;
-  refSlides: HTMLElement;
+  refSlides: HTMLElement = null;
   width = 0;
 
   setWidth() {
-    this.width = this.refMain.clientWidth;
+    this.width = this.el.style.width
+      ? parseInt(this.el.style.width)
+      : this.el.offsetWidth;
+
     const fullwidth = this.width * this.links.length;
     this.refSlides.style.width = `${fullwidth}px`;
     this.refSlides.style.transform = `translate(-${this.width *
@@ -42,14 +49,25 @@ export class ZSlideshow {
     this.setWidth();
   }
 
+  setDevice() {
+    this.device =
+      window.innerWidth <= mobileBreakpoint
+        ? "mobile"
+        : window.innerWidth <= tabletBreakpoint
+        ? "tablet"
+        : "desktop";
+
+    this.setWidth();
+  }
+
   componentWillLoad() {
     this.links = this.data ? JSON.parse(this.data) : [];
   }
 
   componentDidLoad() {
-    this.refMain = this.el.shadowRoot.getElementById("slide-main");
     this.refSlides = this.el.shadowRoot.getElementById("slides");
-    this.setWidth();
+    window.addEventListener("resize", this.setDevice.bind(this));
+    this.setDevice();
   }
 
   renderSlides(items: string[]) {
@@ -67,7 +85,7 @@ export class ZSlideshow {
     );
   }
 
-  renderScroll(direction: "left" | "right", dimension: number) {
+  renderScroll(direction: "left" | "right") {
     let disabled = false,
       nextSlide = this.currentSlide;
 
@@ -88,9 +106,13 @@ export class ZSlideshow {
       >
         <z-icon
           class={`scroll ${direction} ${disabled && "disabled"}`}
-          width={dimension}
-          height={dimension}
-          name={`chevron-${direction}`}
+          width={
+            this.device === "mobile" ? 24 : this.device === "tablet" ? 32 : 40
+          }
+          height={
+            this.device === "mobile" ? 24 : this.device === "tablet" ? 32 : 40
+          }
+          name={`circle-chevron-${direction}`}
         />
       </a>
     );
@@ -98,10 +120,10 @@ export class ZSlideshow {
 
   renderSlideshowMain() {
     return (
-      <main id="slide-main">
-        {this.renderScroll("left", 40)}
+      <main>
+        {this.renderScroll("left")}
         {this.renderSlides(this.links)}
-        {this.renderScroll("right", 40)}
+        {this.renderScroll("right")}
       </main>
     );
   }
@@ -115,6 +137,24 @@ export class ZSlideshow {
           this.setCurrentSlide(i);
         }}
       ></a>
+    );
+  }
+
+  renderSlideshowFooterMobile() {
+    return (
+      <footer>
+        <div class="bulletContainer">
+          {Object.keys(this.links).map(i => this.renderBullet(parseInt(i)))}
+        </div>
+        <div class="subfooter">
+          <div class="footerLeft">
+            <slot name="footerLeft" />
+          </div>
+          <div class="footerRight">
+            <slot name="footerRight" />
+          </div>
+        </div>
+      </footer>
     );
   }
 
@@ -140,7 +180,9 @@ export class ZSlideshow {
     return (
       <div id={this.slideshowid}>
         {this.renderSlideshowMain()}
-        {this.renderSlideshowFooter()}
+        {this.device === "mobile"
+          ? this.renderSlideshowFooterMobile()
+          : this.renderSlideshowFooter()}
       </div>
     );
   }

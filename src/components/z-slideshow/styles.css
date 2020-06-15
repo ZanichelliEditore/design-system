@@ -7,7 +7,7 @@
 :host > div {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  width: inherit;
 }
 
 main {
@@ -16,7 +16,7 @@ main {
   width: 100%;
 }
 
-main .scroll {
+main z-icon.scroll {
   position: absolute;
   top: 50%;
   width: auto;
@@ -44,11 +44,12 @@ main .scroll.right {
 
 footer {
   width: 100%;
-  height: 75px;
-  border-top: var(--border-base) solid var(--bg-grey-050);
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
+}
+
+footer .subfooter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 footer .bulletContainer {
@@ -56,27 +57,42 @@ footer .bulletContainer {
   margin: 0 auto;
   justify-content: center;
   align-items: center;
+  min-height: 60px;
 }
 
 footer .bulletContainer .bullet {
-  width: var(--basex2);
-  height: var(--basex2);
+  width: var(--basex1);
+  height: var(--basex1);
   border-radius: 50%;
   background-color: var(--bg-neutral-150);
   margin: var(--basex1) var(--half-x1);
-  cursor: pointer;
+  pointer-events: none;
 }
 
 footer .bulletContainer .bullet.selected {
   background-color: var(--bg-neutral-400);
 }
 
-/* Tablet / Desktop style */
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 75px;
+    border-top: var(--border-base) solid var(--bg-grey-050);
+  }
+}
+/* Desktop breakpoint */
+@media only screen and (min-width: 1025px) {
+  footer {
+    height: 75px;
+    grid-template-columns: 1fr 2fr 1fr;
+    border-top: var(--border-base) solid var(--bg-grey-050);
+  }
 
-@media only screen and (max-width: 1024px) {
   footer .bulletContainer .bullet {
-    width: var(--basex1);
-    height: var(--basex1);
-    pointer-events: none;
+    width: var(--basex2);
+    height: var(--basex2);
+    pointer-events: auto;
   }
 }
