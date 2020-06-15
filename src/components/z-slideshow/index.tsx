@@ -1,4 +1,4 @@
-import { Component, Prop, h, State } from "@stencil/core";
+import { Component, Prop, h, State, Element } from "@stencil/core";
 
 @Component({
   tag: "z-slideshow",
@@ -14,31 +14,57 @@ export class ZSlideshow {
   private links: string[];
   anchorPrefix = "#slide";
 
-  componentWillLoad() {
-    this.links = this.data ? JSON.parse(this.data) : [];
+  @Element() el: HTMLElement;
+
+  refMain: HTMLElement = null;
+  refSlides: HTMLElement = null;
+  width = 0;
+
+  setWidth() {
+    this.width = this.refMain.clientWidth;
+    const fullwidth = this.width * (this.links.length + 2);
+    this.refSlides.style.width = `${fullwidth}px`;
+    this.refSlides.style.transform = `translate(-${this.width *
+      this.currentSlide}px)`;
+    this.setSlideStyle();
+  }
+
+  setSlideStyle() {
+    const allImages = this.el.shadowRoot.querySelectorAll(".slide");
+    allImages.forEach((item: HTMLElement) => {
+      const img = item.getElementsByTagName("img").item(0);
+      img.style.width = `${this.width}px`;
+    });
   }
 
   setCurrentSlide(index: number) {
     this.currentSlide = index;
+    this.setWidth();
   }
 
-  renderCurrentSlide(items) {
-    const index = Object.keys(items).find(
-      i => parseInt(i) === this.currentSlide
-    );
-    if (index) {
-      return (
-        <div class="slide" data-anchor={parseInt(index) - 1}>
-          <img src={items[index]} />
-        </div>
-      );
-    }
+  componentWillLoad() {
+    this.links = this.data ? JSON.parse(this.data) : [];
+  }
 
-    // return items.maps((item, i) => {
-    //   <div class="slide" data-anchor={parseInt(i) - 1}>
-    //     <img src={item} />{" "}
-    //   </div>;
-    // });
+  componentDidLoad() {
+    this.refMain = this.el.shadowRoot.getElementById("slide-main");
+    this.refSlides = this.el.shadowRoot.getElementById("slides");
+    this.setWidth();
+  }
+
+  renderSlides(items: string[]) {
+    return (
+      <div id="slides">
+        {items.map((item: string, i: number) => (
+          <div
+            id={"slide" + i}
+            class={`slide ${this.currentSlide !== i && "hide"}`}
+          >
+            <img src={item} />
+          </div>
+        ))}
+      </div>
+    );
   }
 
   renderScroll(direction: "left" | "right", dimension: number) {
@@ -72,9 +98,9 @@ export class ZSlideshow {
 
   renderSlideshowMain() {
     return (
-      <main>
+      <main id="slide-main">
         {this.renderScroll("left", 40)}
-        <div class="mainContainer">{this.renderCurrentSlide(this.links)}</div>
+        {this.renderSlides(this.links)}
         {this.renderScroll("right", 40)}
       </main>
     );
