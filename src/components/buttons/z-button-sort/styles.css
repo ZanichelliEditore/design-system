@@ -8,8 +8,7 @@ button {
   outline: none;
   padding: 0 var(--basex1);
   cursor: pointer;
-  max-width: 490px;
-  text-transform: lowercase;
+  max-width: 100%;
 }
 
 button::-moz-focus-inner {
@@ -43,36 +42,41 @@ button.selected {
   fill: var(--bg-white);
 }
 
-button::first-letter ,
-button>label>.ellipsis::first-letter{
-  text-transform: capitalize
-}
-
-button>label {
+button > label {
   cursor: pointer;
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
-  margin-right: var(--basex2);
+  display: flex;
+  align-items: center;
 }
 
-button>label>span.ellipsis {
+button > label > span.ellipsis {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: calc(100% - 80px);
-  display: inline-block;
-  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  display: block;
 }
 
-button>span {
+button > label > span.counter {
+  margin-right: var(--basex2);
+}
+
+button > label > span.sort {
+  margin-right: var(--half-x1);
+}
+
+button > span {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
   margin-right: var(--half-x1);
 }
 
-button>z-icon {
+button > z-icon {
   padding-top: var(--half-x1);
 }
 

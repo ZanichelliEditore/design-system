@@ -1,11 +1,10 @@
-import { Component, Prop, State, Element, h, Event, EventEmitter, Host } from '@stencil/core';
+import { Component, Prop, State, h, Event, EventEmitter } from "@stencil/core";
 
 @Component({
-  tag: 'z-button-sort',
-  styleUrl: 'styles.css',
+  tag: "z-button-sort",
+  styleUrl: "styles.css",
   shadow: true
 })
-
 export class ZButtonSort {
   /** id, should be unique */
   @Prop() buttonid: string;
@@ -16,9 +15,9 @@ export class ZButtonSort {
   /** occurrencies counter (optional) */
   @Prop() counter?: number;
   /** sort label content (ascending) (optional) */
-  @Prop() sortlabelasc?: string = 'A-Z';
+  @Prop() sortlabelasc?: string = "A-Z";
   /** sort label content (descending) (optional) */
-  @Prop() sortlabeldesc?: string = 'Z-A';
+  @Prop() sortlabeldesc?: string = "Z-A";
   /** selected flag (optional) */
   @Prop({ mutable: true }) isselected?: boolean = false;
   /** sortable flag (optional) */
@@ -26,7 +25,7 @@ export class ZButtonSort {
 
   @State() allowTooltip: boolean = false;
 
-  @Element() el: HTMLElement;
+  private ellipsis?: HTMLSpanElement;
 
   /** sorting direction click event, returns buttonid and sortAsc */
   @Event() buttonSortClick: EventEmitter;
@@ -36,34 +35,48 @@ export class ZButtonSort {
     } else {
       this.sortasc = !this.sortasc;
     }
-    this.buttonSortClick.emit({ buttonid: this.buttonid, sortAsc: this.sortasc });
+    this.buttonSortClick.emit({
+      buttonid: this.buttonid,
+      sortAsc: this.sortasc
+    });
   }
 
-  componentDidLoad(){
-    console.log(`larghezza: ${this.getElementWidth()}`);
-    if(this.getElementWidth() >= 320) this.allowTooltip = true;
-      
+  componentDidLoad() {
+    if (this.elementHasEllipsis() && window.innerWidth >= 1025) this.allowTooltip = true;
   }
 
-  setLabelContent():string{
-    return this.allowTooltip ? `${this.sortasc ? this.label : this.desclabel}` : ""
+  setLabelContent(): string {
+    return this.allowTooltip
+      ? `${this.sortasc ? this.label : this.desclabel}`
+      : "";
   }
 
-  getElementWidth():number{
-      return this.el.offsetWidth;
+  elementHasEllipsis(): boolean {
+    return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 
   render() {
     return (
-      <Host>
-      <button title={this.setLabelContent()} id={this.buttonid} class={this.isselected && "selected"} onClick={() => this.emitButtonSortClick()}>
+      <button
+        title={this.setLabelContent()}
+        id={this.buttonid}
+        class={this.isselected && "selected"}
+        onClick={() => this.emitButtonSortClick()}
+      >
         <label>
-          <span class={this.allowTooltip ? 'ellipsis' : null}>{this.sortasc ? this.label : this.desclabel} </span>
-          {this.counter && ` (${this.counter})`}</label>
-        <span>{this.sortasc ? this.sortlabelasc : this.sortlabeldesc}</span>
-        <z-icon name="drop-up-down" width={16} height={16} />
+          <span
+            ref={el => (this.ellipsis = el as HTMLSpanElement)}
+            class="ellipsis"
+          >
+            {this.sortasc ? this.label : this.desclabel}
+          </span>
+          <span class="counter">{this.counter && ` (${this.counter})`}</span>
+          <span class="sort">
+            {this.sortasc ? this.sortlabelasc : this.sortlabeldesc}
+          </span>
+          <z-icon name="drop-up-down" width={16} height={16} />
+        </label>
       </button>
-      </Host>
     );
   }
 }
