@@ -26,8 +26,8 @@
 | `isselected`    | `isselected`    | selected flag (optional)                   | `boolean` | `false`      |
 | `label`         | `label`         | label content (ascending)                  | `string`  | `undefined`  |
 | `sortasc`       | `sortasc`       | sortable flag (optional)                   | `boolean` | `true`       |
-| `sortlabelasc`  | `sortlabelasc`  | sort label content (ascending) (optional)  | `string`  | `'A-Z'`      |
-| `sortlabeldesc` | `sortlabeldesc` | sort label content (descending) (optional) | `string`  | `'Z-A'`      |
+| `sortlabelasc`  | `sortlabelasc`  | sort label content (ascending) (optional)  | `string`  | `"A-Z"`      |
+| `sortlabeldesc` | `sortlabeldesc` | sort label content (descending) (optional) | `string`  | `"Z-A"`      |
 
 
 ## Events
