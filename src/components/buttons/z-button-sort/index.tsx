@@ -45,7 +45,7 @@ export class ZButtonSort {
     if (this.elementHasEllipsis() && window.innerWidth >= 1025) this.allowTooltip = true;
   }
 
-  setLabelContent(): string {
+  setButtonTitle(): string {
     return this.allowTooltip
       ? `${this.sortasc ? this.label : this.desclabel}`
       : "";
@@ -58,7 +58,7 @@ export class ZButtonSort {
   render() {
     return (
       <button
-        title={this.setLabelContent()}
+        title={this.setButtonTitle()}
         id={this.buttonid}
         class={this.isselected && "selected"}
         onClick={() => this.emitButtonSortClick()}
