@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Element, Watch } from "@stencil/core";
-import { getDevice } from "../../utils/utils";
+import { getDevice } from "../../../utils/utils";
 
 @Component({
   tag: "z-slideshow",
