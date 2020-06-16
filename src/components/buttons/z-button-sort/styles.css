@@ -1,4 +1,4 @@
-:host{
+:host, button{
   max-width: 100%;
 }
 
@@ -12,7 +12,6 @@ button {
   outline: none;
   padding: 0 var(--basex1);
   cursor: pointer;
-  max-width: 100%;
 }
 
 button::-moz-focus-inner {
@@ -61,15 +60,16 @@ button > label > span.ellipsis {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  display: block;
 }
 
 button > label > span.counter {
+  margin-left: var(--half-x1);
   margin-right: var(--basex2);
 }
 
 button > label > span.sort {
   margin-right: var(--half-x1);
+  white-space: nowrap;
 }
 
 button > span {
@@ -85,14 +85,14 @@ button > z-icon {
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-  button {
+  :host, button {
     max-width: 325px;
   }
 }
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1025px) {
-  button {
+  :host, button {
     max-width: 490px;
   }
 }
