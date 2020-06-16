@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Element, Watch } from "@stencil/core";
-import { getDevice } from "../../../utils/utils";
+import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 
 @Component({
   tag: "z-slideshow",
@@ -83,6 +83,16 @@ export class ZSlideshow {
     );
   }
 
+  getBulletDimension() {
+    switch (this.device) {
+      case "mobile":
+        return 24;
+      case "tablet":
+        return 32;
+      default:
+        return 40;
+    }
+  }
   renderScroll(direction: "left" | "right") {
     let disabled = false,
       nextSlide = this.currentSlide;
@@ -96,23 +106,22 @@ export class ZSlideshow {
     }
 
     return (
-      <a
+      <z-icon
+        class={`scroll ${direction} ${disabled && "disabled"}`}
+        width={this.getBulletDimension()}
+        height={this.getBulletDimension()}
+        name={`circle-chevron-${direction}`}
         onClick={() => {
           !disabled && this.setCurrentSlide(nextSlide);
         }}
+        onKeyUp={(e: KeyboardEvent) =>
+          handleKeyboardSubmit(e, () => {
+            this.setCurrentSlide(nextSlide);
+          })
+        }
+        tabindex={0}
         role="button"
-      >
-        <z-icon
-          class={`scroll ${direction} ${disabled && "disabled"}`}
-          width={
-            this.device === "mobile" ? 24 : this.device === "tablet" ? 32 : 40
-          }
-          height={
-            this.device === "mobile" ? 24 : this.device === "tablet" ? 32 : 40
-          }
-          name={`circle-chevron-${direction}`}
-        />
-      </a>
+      />
     );
   }
 
@@ -133,6 +142,13 @@ export class ZSlideshow {
         onClick={() => {
           this.setCurrentSlide(i);
         }}
+        onKeyUp={(e: KeyboardEvent) =>
+          handleKeyboardSubmit(e, () => {
+            this.setCurrentSlide(i);
+          })
+        }
+        tabindex={0}
+        role="button"
       ></a>
     );
   }
