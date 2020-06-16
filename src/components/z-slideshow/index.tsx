@@ -180,9 +180,7 @@ export class ZSlideshow {
     return (
       <div id={this.slideshowid}>
         {this.renderSlideshowMain()}
-        {this.device === "mobile"
-          ? this.renderSlideshowFooterMobile()
-          : this.renderSlideshowFooter()}
+        {this.renderSlideshowFooter()}
       </div>
     );
   }

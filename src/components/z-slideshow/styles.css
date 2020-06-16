@@ -48,11 +48,35 @@ main .scroll.right {
 footer {
   width: 100%;
   align-items: center;
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 2;
+  grid-template-areas: "center center" "left right";
 }
 
-footer .subfooter {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+footer .footerCenter {
+  grid-area: center;
+}
+footer .footerLeft {
+  grid-area: left;
+  width: 100%;
+}
+
+footer .footerRight {
+  grid-area: right;
+}
+
+footer .footerLeft,
+footer .footerRight {
+  align-items: center;
+  background-color: salmon;
+  width: 100%;
+}
+
+footer .footerLeft .contentLeft {
+  width: 30px;
+  height: 30px;
+  background-color: lime;
 }
 
 footer .bulletContainer {
