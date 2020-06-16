@@ -17,7 +17,7 @@
 
 ### Depends on
 
-- [z-icon](../icons/z-icon)
+- [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
