@@ -35,6 +35,7 @@ export class ZSlideshow {
   }
 
   componentDidLoad() {
+    window.addEventListener("resize", this.setDevice.bind(this));
     this.initSlider();
   }
 
@@ -44,7 +45,6 @@ export class ZSlideshow {
 
   initSlider() {
     this.refSlides = this.el.shadowRoot.getElementById("slides");
-    window.addEventListener("resize", this.setDevice.bind(this));
     this.setDevice();
   }
 
