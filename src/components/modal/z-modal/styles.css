@@ -43,10 +43,6 @@
   background: var(--bg-grey-050);
 }
 
-:host > div > div > header.white {
-  background: var(--bg-white);
-}
-
 :host > div > div > header > z-icon {
   cursor: pointer;
   fill: var(--myz-blue);

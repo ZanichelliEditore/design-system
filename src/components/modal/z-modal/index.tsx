@@ -20,8 +20,6 @@ export class ZModal {
   /** had header (optionale) */
   @Prop() hasheader?: boolean = true;
 
-  @Prop() disableColorHeader?: boolean = false;
-
   constructor() {
     this.emitModalClose = this.emitModalClose.bind(this);
     this.emitModalHeaderActive = this.emitModalHeaderActive.bind(this);
@@ -45,10 +43,7 @@ export class ZModal {
     }
 
     return (
-      <header
-        class={this.disableColorHeader && "white"}
-        onClick={this.emitModalHeaderActive}
-      >
+      <header onClick={this.emitModalHeaderActive}>
         <div>
           {this.modaltitle && <h1>{this.modaltitle}</h1>}
           {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
