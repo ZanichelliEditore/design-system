@@ -50,6 +50,12 @@ footer {
   grid-template-columns: 2;
   grid-template-rows: 2;
   grid-template-areas: "center center" "left right";
+  border-top: var(--border-base) solid var(--bg-grey-050);
+}
+
+footer > div {
+  align-items: center;
+  width: 100%;
 }
 
 footer .footerCenter {
@@ -57,24 +63,10 @@ footer .footerCenter {
 }
 footer .footerLeft {
   grid-area: left;
-  width: 100%;
 }
 
 footer .footerRight {
   grid-area: right;
-}
-
-footer .footerLeft,
-footer .footerRight {
-  align-items: center;
-  background-color: salmon;
-  width: 100%;
-}
-
-footer .footerLeft .contentLeft {
-  width: 30px;
-  height: 30px;
-  background-color: lime;
 }
 
 footer .bulletContainer {
@@ -101,20 +93,15 @@ footer .bulletContainer .bullet.selected {
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   footer {
-    display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1;
+    grid-template-areas: "left center right";
     height: 75px;
     border-top: var(--border-base) solid var(--bg-grey-050);
   }
 }
 /* Desktop breakpoint */
 @media only screen and (min-width: 1025px) {
-  footer {
-    height: 75px;
-    grid-template-columns: 1fr 2fr 1fr;
-    border-top: var(--border-base) solid var(--bg-grey-050);
-  }
-
   footer .bulletContainer .bullet {
     width: var(--basex2);
     height: var(--basex2);

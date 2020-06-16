@@ -137,24 +137,6 @@ export class ZSlideshow {
     );
   }
 
-  renderSlideshowFooterMobile() {
-    return (
-      <footer>
-        <div class="bulletContainer">
-          {Object.keys(this.links).map(i => this.renderBullet(parseInt(i)))}
-        </div>
-        <div class="subfooter">
-          <div class="footerLeft">
-            <slot name="footerLeft" />
-          </div>
-          <div class="footerRight">
-            <slot name="footerRight" />
-          </div>
-        </div>
-      </footer>
-    );
-  }
-
   renderSlideshowFooter() {
     return (
       <footer>
