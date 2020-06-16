@@ -7,68 +7,65 @@ import { getDevice } from "../../utils/utils";
   shadow: true
 })
 export class ZSlideshow {
+  @Element() el: HTMLElement;
+
   @Prop() slideshowid: string;
+
   /** JSON stringified link url images */
+  // TODO: prevedere anche la possibilità che sia un array
   @Prop() data?: string = "";
+
   @State() device: "mobile" | "tablet" | "desktop";
   @State() currentSlide: number = 0;
 
   private links: string[];
 
-  @Element() el: HTMLElement;
-
-  refSlides: HTMLElement = null;
-  width = 0;
-
   @Watch("data")
   watchData() {
     this.parseLinks();
-    this.initSlider();
   }
 
   componentWillLoad() {
     this.parseLinks();
+
+    this.setDevice();
+    window.addEventListener("resize", this.handleResize.bind(this));
   }
 
-  componentDidLoad() {
-    window.addEventListener("resize", this.setDevice.bind(this));
-    this.initSlider();
+  componentDidRender() {
+    this.setStyle();
+  }
+
+  handleResize() {
+    this.setDevice();
+    this.setStyle();
   }
 
   parseLinks() {
+    // TODO: prevedere anche la possibilità che sia un array
     this.links = this.data ? JSON.parse(this.data) : [];
   }
 
-  initSlider() {
-    this.refSlides = this.el.shadowRoot.getElementById("slides");
-    this.setDevice();
-  }
-
-  setWidth() {
-    this.width = this.el.offsetWidth;
-    const fullwidth = this.width * this.links.length;
-    this.refSlides.style.width = `${fullwidth}px`;
-    this.refSlides.style.transform = `translate(-${this.width *
-      this.currentSlide}px)`;
-    this.setSlideStyle();
-  }
-
-  setSlideStyle() {
+  setStyle() {
+    const refSlides = this.el.shadowRoot.getElementById("slides");
     const allImages = this.el.shadowRoot.querySelectorAll(".slide");
+    const width = this.el.offsetWidth;
+    const fullwidth = width * this.links.length;
+
+    refSlides.style.width = `${fullwidth}px`;
+    refSlides.style.transform = `translate(-${width * this.currentSlide}px)`;
     allImages.forEach((item: HTMLElement) => {
       const img = item.getElementsByTagName("img").item(0);
-      img.style.width = `${this.width}px`;
+      img.style.width = `${width}px`;
     });
-  }
-
-  setCurrentSlide(index: number) {
-    this.currentSlide = index;
-    this.setWidth();
   }
 
   setDevice() {
     this.device = getDevice();
-    this.setWidth();
+  }
+
+  setCurrentSlide(index: number) {
+    this.currentSlide = index;
   }
 
   renderSlides(items: string[]) {
@@ -100,10 +97,10 @@ export class ZSlideshow {
 
     return (
       <a
-        // href={!disabled ? this.anchorPrefix + nextSlide : "#"}
         onClick={() => {
           !disabled && this.setCurrentSlide(nextSlide);
         }}
+        role="button"
       >
         <z-icon
           class={`scroll ${direction} ${disabled && "disabled"}`}

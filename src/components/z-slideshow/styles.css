@@ -2,14 +2,12 @@
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   display: block;
-  height: inherit;
   width: inherit;
 }
 
 :host > div {
   display: flex;
   flex-direction: column;
-  height: inherit;
   width: inherit;
 }
 
