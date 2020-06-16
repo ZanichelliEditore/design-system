@@ -40,8 +40,8 @@
  - [z-menu-dropdown](../../navigation/z-menu-dropdown)
  - [z-modal](../../modal/z-modal)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
- - [z-pocket](../../modal/z-pocket)
- - [z-slideshow](../../z-slideshow)
+ - [z-pocket](../../notification/z-pocket)
+ - [z-slideshow](../../slideshow/z-slideshow)
  - [z-toggle-button](../../buttons/z-toggle-button)
 
 ### Graph

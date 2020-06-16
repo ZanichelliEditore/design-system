@@ -87,4 +87,28 @@ describe("Suite test ZModal", () => {
       </z-modal>
     `);
   });
+
+  it("Test render ZModal without header", async () => {
+    const page = await newSpecPage({
+      components: [ZModal],
+      html: `<z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" hasheader="false"></z-modal>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" hasheader="false">
+        <mock:shadow-root>
+          <div data-action="modalBackground" data-modal="modal">
+            <div id="modal">
+              <div class="iconWrapper">
+                <z-icon name="circle-cross-fill" tabindex="0" width="24" height="24" data-action="modalClose" data-modal="modal" />
+              </div>
+              <main class="noHeader">
+                <slot name="modalContent" />
+              </main>
+              <div class="bottomBackground" data-action="modalBackground" data-modal="modal"></div>
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-modal>
+    `);
+  });
 });
