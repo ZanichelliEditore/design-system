@@ -67,8 +67,8 @@ export class ZSlideshow {
 
   setCurrentSlide(index: number) {
     this.currentSlide = index;
-    this.el.querySelector(this.anchorPrefix + index).scrollIntoView();
     this.setWidth();
+    this.el.querySelector(this.anchorPrefix + index).scrollIntoView();
   }
 
   setDevice() {
