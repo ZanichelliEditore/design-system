@@ -1,8 +1,5 @@
 import { Component, Prop, h, State, Element, Watch } from "@stencil/core";
-import {
-  mobileBreakpoint,
-  tabletBreakpoint
-} from "../../constants/breakpoints";
+import { getDevice } from "../../utils/utils";
 
 @Component({
   tag: "z-slideshow",
@@ -17,7 +14,6 @@ export class ZSlideshow {
   @State() currentSlide: number = 0;
 
   private links: string[];
-  anchorPrefix = "#slide";
 
   @Element() el: HTMLElement;
 
@@ -68,17 +64,10 @@ export class ZSlideshow {
   setCurrentSlide(index: number) {
     this.currentSlide = index;
     this.setWidth();
-    this.el.querySelector(this.anchorPrefix + index).scrollIntoView();
   }
 
   setDevice() {
-    this.device =
-      window.innerWidth <= mobileBreakpoint
-        ? "mobile"
-        : window.innerWidth <= tabletBreakpoint
-        ? "tablet"
-        : "desktop";
-
+    this.device = getDevice();
     this.setWidth();
   }
 
@@ -144,7 +133,6 @@ export class ZSlideshow {
     return (
       <a
         class={`bullet ${this.currentSlide === i && "selected"}`}
-        href={this.anchorPrefix + i}
         onClick={() => {
           this.setCurrentSlide(i);
         }}

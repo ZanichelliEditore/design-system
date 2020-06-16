@@ -1,4 +1,5 @@
 import { keybordKeyCodeEnum } from "../beans/index";
+import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 
 export function format(first: string, middle: string, last: string): string {
   return (
@@ -58,4 +59,15 @@ export function getElementTree(
   }
 
   return tree;
+}
+
+export function getDevice() {
+  switch (true) {
+    case window.innerWidth <= mobileBreakpoint:
+      return "mobile";
+    case window.innerWidth <= tabletBreakpoint:
+      return "tablet";
+    default:
+      return "desktop";
+  }
 }
