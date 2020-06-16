@@ -86,6 +86,7 @@
   position: absolute;
   top: var(--basex3);
   right: var(--basex3);
+  z-index: 1020;
 }
 
 :host > div > div > main {
