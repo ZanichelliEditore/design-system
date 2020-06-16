@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Element } from "@stencil/core";
+import { Component, Prop, h, State, Element, Watch } from "@stencil/core";
 import {
   mobileBreakpoint,
   tabletBreakpoint
@@ -24,11 +24,32 @@ export class ZSlideshow {
   refSlides: HTMLElement = null;
   width = 0;
 
-  setWidth() {
-    this.width = this.el.style.width
-      ? parseInt(this.el.style.width)
-      : this.el.offsetWidth;
+  @Watch("data")
+  watchData() {
+    this.parseLinks();
+    this.initSlider();
+  }
 
+  componentWillLoad() {
+    this.parseLinks();
+  }
+
+  componentDidLoad() {
+    this.initSlider();
+  }
+
+  parseLinks() {
+    this.links = this.data ? JSON.parse(this.data) : [];
+  }
+
+  initSlider() {
+    this.refSlides = this.el.shadowRoot.getElementById("slides");
+    window.addEventListener("resize", this.setDevice.bind(this));
+    this.setDevice();
+  }
+
+  setWidth() {
+    this.width = this.el.offsetWidth;
     const fullwidth = this.width * this.links.length;
     this.refSlides.style.width = `${fullwidth}px`;
     this.refSlides.style.transform = `translate(-${this.width *
@@ -46,6 +67,7 @@ export class ZSlideshow {
 
   setCurrentSlide(index: number) {
     this.currentSlide = index;
+    this.el.querySelector(this.anchorPrefix + index).scrollIntoView();
     this.setWidth();
   }
 
@@ -58,16 +80,6 @@ export class ZSlideshow {
         : "desktop";
 
     this.setWidth();
-  }
-
-  componentWillLoad() {
-    this.links = this.data ? JSON.parse(this.data) : [];
-  }
-
-  componentDidLoad() {
-    this.refSlides = this.el.shadowRoot.getElementById("slides");
-    window.addEventListener("resize", this.setDevice.bind(this));
-    this.setDevice();
   }
 
   renderSlides(items: string[]) {
@@ -99,7 +111,7 @@ export class ZSlideshow {
 
     return (
       <a
-        href={!disabled ? this.anchorPrefix + nextSlide : "#"}
+        // href={!disabled ? this.anchorPrefix + nextSlide : "#"}
         onClick={() => {
           !disabled && this.setCurrentSlide(nextSlide);
         }}
