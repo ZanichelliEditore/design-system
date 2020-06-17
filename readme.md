@@ -126,9 +126,11 @@ yarn build
 ## Usage
 
 ```javascript
-import { defineCustomElements as defineComponents } from '@zanichelli/albe-web-components/loader';
+import { defineCustomElements, applyPolyfills } from '@zanichelli/albe-web-components/loader';
 
-defineComponents(window);
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});
 ```
 
 Then use the relative tag as a usual component in your markup.
