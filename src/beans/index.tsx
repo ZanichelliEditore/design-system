@@ -150,3 +150,11 @@ export type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
+
+export type DeviceType = DeviceEnum;
+
+export enum DeviceEnum {
+  mobile = "mobile",
+  tablet = "tablet",
+  desktop = "desktop"
+}

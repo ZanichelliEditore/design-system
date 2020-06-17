@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                      | Type     | Default     |
-| ------------- | ------------- | -------------------------------- | -------- | ----------- |
-| `data`        | `data`        | JSON stringified link url images | `string` | `""`        |
-| `slideshowid` | `slideshowid` |                                  | `string` | `undefined` |
+| Property      | Attribute     | Description                           | Type                 | Default     |
+| ------------- | ------------- | ------------------------------------- | -------------------- | ----------- |
+| `data`        | `data`        | array or JSON stringified images urls | `string \| string[]` | `undefined` |
+| `slideshowid` | `slideshowid` | slideshow id                          | `string`             | `undefined` |
 
 
 ## Dependencies

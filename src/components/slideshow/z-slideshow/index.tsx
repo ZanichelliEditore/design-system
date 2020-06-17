@@ -1,4 +1,6 @@
 import { Component, Prop, h, State, Element, Watch } from "@stencil/core";
+
+import { DeviceEnum, DeviceType } from "../../../beans";
 import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 
 @Component({
@@ -9,13 +11,12 @@ import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 export class ZSlideshow {
   @Element() el: HTMLElement;
 
+  /** slideshow id */
   @Prop() slideshowid: string;
+  /** array or JSON stringified images urls */
+  @Prop() data: string[] | string;
 
-  /** JSON stringified link url images */
-  // TODO: prevedere anche la possibilità che sia un array
-  @Prop() data?: string = "";
-
-  @State() device: "mobile" | "tablet" | "desktop";
+  @State() device: DeviceType;
   @State() currentSlide: number = 0;
 
   private links: string[];
@@ -42,8 +43,8 @@ export class ZSlideshow {
   }
 
   parseLinks() {
-    // TODO: prevedere anche la possibilità che sia un array
-    this.links = this.data ? JSON.parse(this.data) : [];
+    this.links =
+      typeof this.data === "string" ? JSON.parse(this.data) : this.data;
   }
 
   setStyle() {
@@ -87,9 +88,9 @@ export class ZSlideshow {
 
   getBulletDimension() {
     switch (this.device) {
-      case "mobile":
+      case DeviceEnum.mobile:
         return 24;
-      case "tablet":
+      case DeviceEnum.tablet:
         return 32;
       default:
         return 40;
@@ -171,7 +172,7 @@ export class ZSlideshow {
   }
 
   render() {
-    if (!this.links.length) return;
+    if (!this.links || !this.links.length) return;
 
     return (
       <div id={this.slideshowid}>

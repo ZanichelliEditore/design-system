@@ -1,4 +1,4 @@
-import { keybordKeyCodeEnum } from "../beans/index";
+import { keybordKeyCodeEnum, DeviceEnum } from "../beans/index";
 import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 
 export function format(first: string, middle: string, last: string): string {
@@ -64,10 +64,10 @@ export function getElementTree(
 export function getDevice() {
   switch (true) {
     case window.innerWidth <= mobileBreakpoint:
-      return "mobile";
+      return DeviceEnum.mobile;
     case window.innerWidth <= tabletBreakpoint:
-      return "tablet";
+      return DeviceEnum.tablet;
     default:
-      return "desktop";
+      return DeviceEnum.desktop;
   }
 }
