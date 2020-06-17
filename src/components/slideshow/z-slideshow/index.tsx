@@ -93,6 +93,7 @@ export class ZSlideshow {
         return 40;
     }
   }
+
   renderScroll(direction: "left" | "right") {
     let disabled = false,
       nextSlide = this.currentSlide;
@@ -139,13 +140,9 @@ export class ZSlideshow {
     return (
       <a
         class={`bullet ${this.currentSlide === i && "selected"}`}
-        onClick={() => {
-          this.setCurrentSlide(i);
-        }}
+        onClick={() => this.setCurrentSlide(i)}
         onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(e, () => {
-            this.setCurrentSlide(i);
-          })
+          handleKeyboardSubmit(e, () => this.setCurrentSlide(i))
         }
         tabindex={0}
         role="button"
