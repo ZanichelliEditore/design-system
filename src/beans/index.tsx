@@ -150,11 +150,3 @@ export type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
-
-export type AlertData = {
-  iconname: string;
-  contenttext: string;
-  type: string;
-  actiontext?: string;
-  show: boolean;
-};
