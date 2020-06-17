@@ -48,6 +48,8 @@ export class ZSlideshow {
 
   setStyle() {
     const refSlides = this.el.shadowRoot.getElementById("slides");
+    if (!refSlides) return;
+
     const allImages = this.el.shadowRoot.querySelectorAll(".slide");
     const width = this.el.offsetWidth;
     const fullwidth = width * this.links.length;
@@ -169,6 +171,8 @@ export class ZSlideshow {
   }
 
   render() {
+    if (!this.links.length) return;
+
     return (
       <div id={this.slideshowid}>
         {this.renderSlideshowMain()}
