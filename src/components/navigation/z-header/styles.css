@@ -513,7 +513,7 @@ hr {
 
   .main-header {
     display: grid;
-    grid-template-columns: 170px 168px 4fr 120px;
+    grid-template-columns: 170px 84px 4fr 120px;
     grid-template-rows: 1fr;
     grid-template-areas: "logo link-int link-ext login";
     grid-area: main-header;
@@ -618,6 +618,6 @@ hr {
 /* Desktop breakpoint */
 @media only screen and (min-width: 1025px) {
   .main-header {
-    grid-template-columns: 170px 168px 4fr 180px;
+    grid-template-columns: 170px 84px 4fr 180px;
   }
 }
