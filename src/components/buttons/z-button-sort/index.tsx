@@ -1,5 +1,5 @@
 import { Component, Prop, State, h, Event, EventEmitter } from "@stencil/core";
-
+import { tabletBreakpoint } from '../../../constants/breakpoints';
 @Component({
   tag: "z-button-sort",
   styleUrl: "styles.css",
@@ -42,7 +42,7 @@ export class ZButtonSort {
   }
 
   componentDidLoad() {
-    if (this.elementHasEllipsis() && window.innerWidth >= 1025) this.allowTooltip = true;
+    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) this.allowTooltip = true;
   }
 
   setButtonTitle(): string {
