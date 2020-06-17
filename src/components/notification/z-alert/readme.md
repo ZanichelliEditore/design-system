@@ -35,7 +35,7 @@
 ### Used by
 
  - [z-card-alert](../../card/z-card-alert)
- - [z-modal](../../modal/z-modal)
+ - [z-modal-alert](../../modal/z-modal-alert)
 
 ### Depends on
 
@@ -46,7 +46,7 @@
 graph TD;
   z-alert --> z-icon
   z-card-alert --> z-alert
-  z-modal --> z-alert
+  z-modal-alert --> z-alert
   style z-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

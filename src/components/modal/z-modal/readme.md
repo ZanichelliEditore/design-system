@@ -10,12 +10,16 @@
 
 ## Properties
 
-| Property        | Attribute       | Description                 | Type                                                                                           | Default     |
-| --------------- | --------------- | --------------------------- | ---------------------------------------------------------------------------------------------- | ----------- |
-| `alertdata`     | --              | modal alert data (optional) | `{ iconname: string; contenttext: string; type: string; actiontext?: string; show: boolean; }` | `undefined` |
-| `modalid`       | `modalid`       | unique id                   | `string`                                                                                       | `undefined` |
-| `modalsubtitle` | `modalsubtitle` | subtitle (optional)         | `string`                                                                                       | `undefined` |
-| `modaltitle`    | `modaltitle`    | title text (optional)       | `string`                                                                                       | `undefined` |
+| Property          | Attribute         | Description                   | Type      | Default     |
+| ----------------- | ----------------- | ----------------------------- | --------- | ----------- |
+| `alertactiontext` | `alertactiontext` | alert action text (optional)  | `string`  | `undefined` |
+| `alerticon`       | `alerticon`       | alert icon (optional)         | `string`  | `undefined` |
+| `alerttext`       | `alerttext`       | alert content text (optional) | `string`  | `undefined` |
+| `alerttype`       | `alerttype`       | alert type (optional)         | `string`  | `undefined` |
+| `modalid`         | `modalid`         | unique id                     | `string`  | `undefined` |
+| `modalsubtitle`   | `modalsubtitle`   | subtitle (optional)           | `string`  | `undefined` |
+| `modaltitle`      | `modaltitle`      | title text (optional)         | `string`  | `undefined` |
+| `showalert`       | `showalert`       | alert visibility flag         | `boolean` | `undefined` |
 
 
 ## Events
@@ -37,14 +41,15 @@
 
 ### Depends on
 
-- [z-alert](../../notification/z-alert)
+- [z-modal-alert](../z-modal-alert)
 - [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-modal --> z-alert
+  z-modal --> z-modal-alert
   z-modal --> z-icon
+  z-modal-alert --> z-alert
   z-alert --> z-icon
   style z-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```

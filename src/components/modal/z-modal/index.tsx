@@ -1,7 +1,6 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 import { handleKeyboardSubmit } from "../../../utils/utils";
-import { AlertData } from "../../../beans";
 
 /**
  * @slot modalContent - set the content of the modal
@@ -18,8 +17,16 @@ export class ZModal {
   @Prop() modaltitle?: string;
   /** subtitle (optional) */
   @Prop() modalsubtitle?: string;
-  /** modal alert data (optional) */
-  @Prop() alertdata?: AlertData;
+  /** alert icon (optional) */
+  @Prop() alerticon?: string;
+  /** alert content text (optional) */
+  @Prop() alerttext?: string;
+  /** alert action text (optional) */
+  @Prop() alertactiontext?: string;
+  /** alert type (optional) */
+  @Prop() alerttype?: string;
+  /** alert visibility flag */
+  @Prop() showalert: boolean;
 
   constructor() {
     this.emitModalClose = this.emitModalClose.bind(this);
@@ -39,14 +46,13 @@ export class ZModal {
   }
 
   renderAlert() {
-    const alertdata = this.alertdata;
-    if (!alertdata || !alertdata.show) return null;
+    if (!this.showalert) return null;
     return (
       <z-modal-alert
-        iconname={alertdata.iconname}
-        contenttext={alertdata.contenttext}
-        type={alertdata.type}
-        actiontext={alertdata.actiontext}
+        iconname={this.alerticon}
+        contenttext={this.alerttext}
+        type={this.alerttype}
+        actiontext={this.alertactiontext}
       />
     );
   }
