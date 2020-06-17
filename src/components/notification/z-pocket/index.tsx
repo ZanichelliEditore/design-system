@@ -52,11 +52,9 @@ export class ZPocket {
               height={24}
             />
           </header>
-          {this.isopen && (
-            <main>
-              <slot />
-            </main>
-          )}
+          <main class={this.isopen && "open"}>
+            <slot />
+          </main>
         </div>
       </div>
     );

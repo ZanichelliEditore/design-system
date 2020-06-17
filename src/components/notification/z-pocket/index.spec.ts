@@ -17,7 +17,7 @@ describe("Suite test ZPocket", () => {
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-down-fill" width="24" height="24" />
               </header>
-              <main>
+              <main class="open">
                 <slot />
               </main>
             </div>
@@ -41,6 +41,9 @@ describe("Suite test ZPocket", () => {
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-up-fill" width="24" height="24" />
               </header>
+              <main>
+                <slot />
+              </main>
             </div>
           </div>
         </mock:shadow-root>
@@ -62,7 +65,7 @@ describe("Suite test ZPocket", () => {
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-down-fill" width="24" height="24" />
               </header>
-              <main>
+              <main class="open">
                 <slot />
               </main>
             </div>
@@ -88,7 +91,7 @@ describe("Suite test ZPocket", () => {
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-down-fill" width="24" height="24" />
               </header>
-              <main>
+              <main class="open">
                 <slot />
               </main>
             </div>
