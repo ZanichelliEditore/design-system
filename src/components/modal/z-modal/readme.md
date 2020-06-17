@@ -10,11 +10,12 @@
 
 ## Properties
 
-| Property        | Attribute       | Description           | Type     | Default     |
-| --------------- | --------------- | --------------------- | -------- | ----------- |
-| `modalid`       | `modalid`       | unique id             | `string` | `undefined` |
-| `modalsubtitle` | `modalsubtitle` | subtitle (optional)   | `string` | `undefined` |
-| `modaltitle`    | `modaltitle`    | title text (optional) | `string` | `undefined` |
+| Property        | Attribute       | Description                 | Type                                                                                           | Default     |
+| --------------- | --------------- | --------------------------- | ---------------------------------------------------------------------------------------------- | ----------- |
+| `alertdata`     | --              | modal alert data (optional) | `{ iconname: string; contenttext: string; type: string; actiontext?: string; show: boolean; }` | `undefined` |
+| `modalid`       | `modalid`       | unique id                   | `string`                                                                                       | `undefined` |
+| `modalsubtitle` | `modalsubtitle` | subtitle (optional)         | `string`                                                                                       | `undefined` |
+| `modaltitle`    | `modaltitle`    | title text (optional)       | `string`                                                                                       | `undefined` |
 
 
 ## Events
@@ -36,12 +37,15 @@
 
 ### Depends on
 
+- [z-alert](../../notification/z-alert)
 - [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-modal --> z-alert
   z-modal --> z-icon
+  z-alert --> z-icon
   style z-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

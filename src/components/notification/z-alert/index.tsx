@@ -7,7 +7,7 @@ import { keybordKeyCodeEnum } from "../../../beans/index";
   styleUrl: "styles.css",
   shadow: true
 })
-export class ZCardAlert {
+export class ZAlert {
   /** icon name */
   @Prop() iconname: string;
   /** content text */
@@ -59,31 +59,29 @@ export class ZCardAlert {
 
   render() {
     return (
-      <div class={`external-container ${this.retrieveClass()}`}>
-        <div class="relativeContainer">
-          <z-icon
-            name={this.iconname}
-            width={18}
-            height={18}
-            class={this.retrieveClass()}
-          ></z-icon>
-          <span class="contentText">{this.contenttext}</span>
-          {this.actiontext && !!this.actiontext.trim().length && (
-            <span
-              role="button"
-              tabindex="0"
-              class="contentAction"
-              onClick={(e: MouseEvent) => {
-                this.handleActionButtonClick(e);
-              }}
-              onKeyPress={(e: KeyboardEvent) => {
-                this.handleSpaceKeyPress(e);
-              }}
-            >
-              {this.actiontext}
-            </span>
-          )}
-        </div>
+      <div class={`relativeContainer ${this.retrieveClass()}`}>
+        <z-icon
+          name={this.iconname}
+          width={18}
+          height={18}
+          class={this.retrieveClass()}
+        ></z-icon>
+        <span class="contentText">{this.contenttext}</span>
+        {this.actiontext && !!this.actiontext.trim().length && (
+          <span
+            role="button"
+            tabindex="0"
+            class="contentAction"
+            onClick={(e: MouseEvent) => {
+              this.handleActionButtonClick(e);
+            }}
+            onKeyPress={(e: KeyboardEvent) => {
+              this.handleSpaceKeyPress(e);
+            }}
+          >
+            {this.actiontext}
+          </span>
+        )}
       </div>
     );
   }

@@ -1,11 +1,11 @@
 import { Component, Prop, h } from "@stencil/core";
 
 @Component({
-  tag: "z-card-alert",
+  tag: "z-modal-alert",
   styleUrl: "styles.css",
   shadow: true
 })
-export class ZCardAlert {
+export class ZModalAlert {
   /** icon name */
   @Prop() iconname: string;
   /** content text */
@@ -17,7 +17,7 @@ export class ZCardAlert {
 
   render() {
     return (
-      <div class={`card-alert-container ${this.type}`}>
+      <div class={`modal-alert-container ${this.type}`}>
         <z-alert
           iconname={this.iconname}
           contenttext={this.contenttext}

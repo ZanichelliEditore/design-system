@@ -4,15 +4,11 @@
   width: 100%;
   z-index: 2;
 
-  position: absolute;
-  top: 0px;
-  left: 0px;
   display: block;
-  width: 100%;
 }
 
-:host div.card-alert-container {
-  padding: var(--basex2) var(--basex2);
+div.modal-alert-container {
+  padding: var(--basex3) var(--basex2);
 }
 
 .success {
@@ -30,4 +26,19 @@
 
 .error {
   background: var(--status-error-red-lighter);
+}
+
+/* Tablet */
+
+@media only screen and (min-width: 768px) {
+  div.modal-alert-container {
+    padding: var(--basex3) var(--basex3);
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1025px) {
+  div.modal-alert-container {
+    padding: var(--basex3) var(--basex4);
+  }
 }

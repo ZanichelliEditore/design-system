@@ -1,36 +1,17 @@
-div.out {
-  display: block;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
-
-div.external-container {
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-}
-
 .relativeContainer {
   position: relative;
   width: 100%;
-  /*height: 48px; ---> da mettere sul contenitore, non qui*/
+
   display: grid;
   grid-template-columns: 16px auto 48px;
   grid-template-rows: 1fr;
   grid-column-gap: 8px;
   align-items: start;
-  padding: 0 var(--basex1);
   outline: none;
+
+  z-index: 2;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
 }
 
 .relativeContainer::-moz-focus-inner {
@@ -39,12 +20,6 @@ div.external-container {
 
 :host div.successAlert {
   background: var(--status-success-green-lighter);
-}
-
-:host div.warningAlert,
-:host div.errorAlert {
-  border-bottom: var(--border-base) solid var(--bg-grey-200);
-  /*Mettere direttamente nella card i bordi laterali*/
 }
 
 :host div.warningAlert {
@@ -87,19 +62,4 @@ div.external-container {
 :host div > z-icon.errorAlert {
   color: var(--status-error-red-dark);
   fill: var(--status-error-red-dark);
-}
-
-/* Tablet */
-
-/*@media only screen and (min-width: 768px) {
-  .relativeContainer {
-    padding: var(--basex3) var(--basex3);
-  }
-}*/
-
-/* Desktop */
-@media only screen and (min-width: 1025px) {
-  .relativeContainer {
-    padding: 0 var(--basex2);
-  }
 }

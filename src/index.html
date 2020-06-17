@@ -829,20 +829,19 @@
 
   <div style="margin-top: 30px;
       display: grid;
-      grid-template-columns: minmax(10px, 394px) 1fr 2.5fr minmax(180px, 180px);
-      grid-column-gap: var(--basex1);
-      border: 1px solid red;
-      height: 140px;
+      max-width: 2000px;
+      min-width: 30px;
+      grid-template-columns: minmax(30px, 2000px);
+      height: 84px;
       align-items: center;
       z-index: 10;">
-      <div style="display: block;position: relative; height: 130px;">
-        <z-alert iconName="circle-warning-fill" contenttext="Non siamo riusciti ad inviare la mail. Vuoi riprovare?"
+      <div style="display: block;position: relative; height: 100%;">
+        <z-modal-alert iconName="circle-warning-fill" contenttext="Non siamo riusciti ad inviare la mail. Vuoi riprovare?"
           actiontext="Annulla" type="error">
-        </z-alert>
+        </z-modal-alert>
       </div>
     </div>
   </div>
-
 </body>
 
 </html>
