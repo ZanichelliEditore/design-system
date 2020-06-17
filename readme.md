@@ -7,7 +7,7 @@ Zanichelli's design system is widely documented on Zeroheight at this [link](htt
 ## Install
 
 ```bash
-yarn add zanichelli-web-components-library
+yarn add @zanichelli/albe-web-components
 ```
 
 ## Start Library Development Server
@@ -38,7 +38,7 @@ yarn link
 #### In the destination project folder run
 
 ```
-yarn link zanichelli-web-components-library
+yarn link @zanichelli/albe-web-components
 ```
 
 ----
@@ -126,7 +126,7 @@ yarn build
 ## Usage
 
 ```javascript
-import { defineCustomElements as defineComponents } from 'zanichelli-web-components-library/loader';
+import { defineCustomElements as defineComponents } from '@zanichelli/albe-web-components/loader';
 
 defineComponents(window);
 ```
