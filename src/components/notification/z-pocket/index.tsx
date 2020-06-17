@@ -30,7 +30,10 @@ export class ZPocket {
       <div
         data-action="pocketBackground"
         data-pocket={this.pocketid}
-        class={this.ismodal && this.isopen && "modal"}
+        class={`
+          ${this.isopen && "open"}
+          ${this.ismodal && this.isopen && " modal"}
+        `}
         onClick={(e: any) => this.handleBackgroundClick(e)}
       >
         <div id={this.pocketid}>

@@ -4,6 +4,10 @@
 }
 
 :host > div {
+  height: 40px;
+}
+
+:host > div.open {
   position: fixed;
   top: 0;
   left: 0;
@@ -17,6 +21,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  background: lime;
 }
 
 :host > div.modal {

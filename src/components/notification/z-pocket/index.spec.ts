@@ -12,7 +12,7 @@ describe("Suite test ZPocket", () => {
     expect(page.root).toEqualHtml(`
       <z-pocket>
         <mock:shadow-root>
-          <div data-action="pocketBackground">
+          <div data-action="pocketBackground" class="open false">
             <div id="">
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-down-fill" width="24" height="24" />
@@ -36,7 +36,7 @@ describe("Suite test ZPocket", () => {
     expect(page.root).toEqualHtml(`
       <z-pocket isopen="false">
         <mock:shadow-root>
-          <div data-action="pocketBackground">
+          <div data-action="pocketBackground" class="false">
             <div id="">
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-up-fill" width="24" height="24" />
@@ -60,7 +60,7 @@ describe("Suite test ZPocket", () => {
     expect(page.root).toEqualHtml(`
       <z-pocket pocketid="pocket" ismodal="true">
         <mock:shadow-root>
-          <div data-action="pocketBackground" data-pocket="pocket" class="modal">
+          <div data-action="pocketBackground" data-pocket="pocket" class="open modal">
             <div id="pocket">
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-down-fill" width="24" height="24" />
@@ -86,7 +86,7 @@ describe("Suite test ZPocket", () => {
     expect(page.root).toEqualHtml(`
       <z-pocket pocketid="pocket" ismodal="true">
         <mock:shadow-root>
-          <div data-action="pocketBackground" data-pocket="pocket" class="modal">
+          <div data-action="pocketBackground" data-pocket="pocket" class="open modal">
             <div id="pocket">
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-down-fill" width="24" height="24" />
