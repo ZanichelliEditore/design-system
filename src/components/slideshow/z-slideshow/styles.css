@@ -25,7 +25,7 @@ main z-icon.scroll {
   transition: 0.6s ease;
   margin: 0 var(--basex1);
   fill: var(--myz-blue);
-  z-index: 1001;
+  z-index: 10;
 }
 
 main .scroll.disabled {
