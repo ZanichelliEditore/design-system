@@ -14,11 +14,11 @@
 }
 
 .two-sections-grid {
-  grid-template-columns: 16px auto;
+  grid-template-columns: var(--basex2) auto;
 }
 
 .three-sections-grid {
-  grid-template-columns: 16px auto 48px;
+  grid-template-columns: var(--basex2) auto var(--basex6);
 }
 
 .relativeContainer::-moz-focus-inner {
