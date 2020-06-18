@@ -71,6 +71,17 @@ export class ZSlideshow {
     this.currentSlide = index;
   }
 
+  getBulletDimension() {
+    switch (this.device) {
+      case DeviceEnum.mobile:
+        return 24;
+      case DeviceEnum.tablet:
+        return 32;
+      default:
+        return 40;
+    }
+  }
+
   renderSlides(items: string[]) {
     return (
       <div id="slides">
@@ -84,17 +95,6 @@ export class ZSlideshow {
         ))}
       </div>
     );
-  }
-
-  getBulletDimension() {
-    switch (this.device) {
-      case DeviceEnum.mobile:
-        return 24;
-      case DeviceEnum.tablet:
-        return 32;
-      default:
-        return 40;
-    }
   }
 
   renderScroll(direction: "left" | "right") {

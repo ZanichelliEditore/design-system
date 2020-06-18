@@ -17,7 +17,7 @@ export class ZModal {
   @Prop() modaltitle?: string;
   /** subtitle (optional) */
   @Prop() modalsubtitle?: string;
-  /** had header (optionale) */
+  /** has header (optional) */
   @Prop() hasheader?: boolean = true;
 
   constructor() {

@@ -7,8 +7,11 @@ import { handleKeyboardSubmit } from "../../../utils/utils";
   shadow: true
 })
 export class ZPocket {
+  /** pocket id */
   @Prop() pocketid: string;
+  /** pocket is open (optional) */
   @Prop({ mutable: true }) isopen?: boolean = true;
+  /** pocket is modal (dark background) (optional) */
   @Prop() ismodal?: boolean = false;
 
   /** close z-pocket */
