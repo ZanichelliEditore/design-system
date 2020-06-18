@@ -125,6 +125,20 @@ yarn build
 
 ## Usage
 
+### css custom properties
+
+The library provide a global css variables export. You can import the styles by ES6 import:
+
+````javascript
+import '@zanichelli/albe-web-components/www/build/web-components-library.css';
+````
+or via link tag:
+
+```html
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/@zanichelli/albe-web-components/www/build/web-components-library.css" />
+````
+### npm package
+
 ```javascript
 import { defineCustomElements, applyPolyfills } from '@zanichelli/albe-web-components/loader';
 
@@ -132,6 +146,13 @@ applyPolyfills().then(() => {
   defineCustomElements(window);
 });
 ```
+### unpkg cdn
+
+If you're using a simple HTML page, you can add te library via a script tag.
+
+````html
+<script src="https://unpkg.com/@zanichelli/albe-web-components/dist/web-components-library/web-components-library.esm.js"></script> 
+````
 
 Then use the relative tag as a usual component in your markup.
 
