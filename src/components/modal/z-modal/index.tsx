@@ -2,6 +2,8 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 import { handleKeyboardSubmit } from "../../../utils/utils";
 
+import { AlertTypesEnum } from "../../../beans/index";
+
 /**
  * @slot modalContent - set the content of the modal
  */
@@ -24,7 +26,7 @@ export class ZModal {
   /** alert action text (optional) */
   @Prop() alertactiontext?: string;
   /** alert type (optional) */
-  @Prop() alerttype?: string;
+  @Prop() alerttype?: AlertTypesEnum;
   /** alert visibility flag */
   @Prop() showalert: boolean;
 

@@ -1,4 +1,5 @@
 import { Component, Prop, h } from "@stencil/core";
+import { AlertTypesEnum } from "../../../beans/index";
 
 @Component({
   tag: "z-card-alert",
@@ -13,7 +14,7 @@ export class ZCardAlert {
   /** action button text */
   @Prop() actiontext?: string;
   /** alert variant type */
-  @Prop() type: string;
+  @Prop() type: AlertTypesEnum;
 
   render() {
     return (

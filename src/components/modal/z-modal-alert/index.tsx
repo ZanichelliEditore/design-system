@@ -1,4 +1,5 @@
 import { Component, Prop, h } from "@stencil/core";
+import { AlertTypes } from "../../../beans/index";
 
 @Component({
   tag: "z-modal-alert",
@@ -13,7 +14,7 @@ export class ZModalAlert {
   /** action button text */
   @Prop() actiontext?: string;
   /** alert variant type */
-  @Prop() type: string;
+  @Prop() type: AlertTypes;
 
   render() {
     return (

@@ -1,6 +1,6 @@
 import { Component, Prop, h, Event, EventEmitter, State } from "@stencil/core";
 
-import { keybordKeyCodeEnum } from "../../../beans/index";
+import { keybordKeyCodeEnum, AlertTypesEnum } from "../../../beans/index";
 
 @Component({
   tag: "z-alert",
@@ -15,7 +15,7 @@ export class ZAlert {
   /** action button text */
   @Prop() actiontext?: string;
   /** alert variant type */
-  @Prop() type: string;
+  @Prop() type: AlertTypesEnum;
 
   @State() hasActionTextSection: boolean = false;
 
@@ -49,15 +49,12 @@ export class ZAlert {
     let className = this.hasActionTextSection
       ? "three-sections-grid "
       : "two-sections-grid ";
+
     switch (this.type) {
-      case "success":
-        className += "successAlert";
-        break;
-      case "warning":
-        className += "warningAlert";
-        break;
-      case "error":
-        className += "errorAlert";
+      case AlertTypesEnum.success:
+      case AlertTypesEnum.warning:
+      case AlertTypesEnum.error:
+        className += this.type + "Alert";
         break;
       default:
         className += "";

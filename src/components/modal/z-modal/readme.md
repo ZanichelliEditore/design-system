@@ -10,16 +10,16 @@
 
 ## Properties
 
-| Property          | Attribute         | Description                   | Type      | Default     |
-| ----------------- | ----------------- | ----------------------------- | --------- | ----------- |
-| `alertactiontext` | `alertactiontext` | alert action text (optional)  | `string`  | `undefined` |
-| `alerticon`       | `alerticon`       | alert icon (optional)         | `string`  | `undefined` |
-| `alerttext`       | `alerttext`       | alert content text (optional) | `string`  | `undefined` |
-| `alerttype`       | `alerttype`       | alert type (optional)         | `string`  | `undefined` |
-| `modalid`         | `modalid`         | unique id                     | `string`  | `undefined` |
-| `modalsubtitle`   | `modalsubtitle`   | subtitle (optional)           | `string`  | `undefined` |
-| `modaltitle`      | `modaltitle`      | title text (optional)         | `string`  | `undefined` |
-| `showalert`       | `showalert`       | alert visibility flag         | `boolean` | `undefined` |
+| Property          | Attribute         | Description                   | Type                                                                       | Default     |
+| ----------------- | ----------------- | ----------------------------- | -------------------------------------------------------------------------- | ----------- |
+| `alertactiontext` | `alertactiontext` | alert action text (optional)  | `string`                                                                   | `undefined` |
+| `alerticon`       | `alerticon`       | alert icon (optional)         | `string`                                                                   | `undefined` |
+| `alerttext`       | `alerttext`       | alert content text (optional) | `string`                                                                   | `undefined` |
+| `alerttype`       | `alerttype`       | alert type (optional)         | `AlertTypesEnum.error \| AlertTypesEnum.success \| AlertTypesEnum.warning` | `undefined` |
+| `modalid`         | `modalid`         | unique id                     | `string`                                                                   | `undefined` |
+| `modalsubtitle`   | `modalsubtitle`   | subtitle (optional)           | `string`                                                                   | `undefined` |
+| `modaltitle`      | `modaltitle`      | title text (optional)         | `string`                                                                   | `undefined` |
+| `showalert`       | `showalert`       | alert visibility flag         | `boolean`                                                                  | `undefined` |
 
 
 ## Events

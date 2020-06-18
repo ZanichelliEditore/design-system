@@ -15,12 +15,12 @@
 
 ## Properties
 
-| Property      | Attribute     | Description        | Type     | Default     |
-| ------------- | ------------- | ------------------ | -------- | ----------- |
-| `actiontext`  | `actiontext`  | action button text | `string` | `undefined` |
-| `contenttext` | `contenttext` | content text       | `string` | `undefined` |
-| `iconname`    | `iconname`    | icon name          | `string` | `undefined` |
-| `type`        | `type`        | alert variant type | `string` | `undefined` |
+| Property      | Attribute     | Description        | Type                                                                       | Default     |
+| ------------- | ------------- | ------------------ | -------------------------------------------------------------------------- | ----------- |
+| `actiontext`  | `actiontext`  | action button text | `string`                                                                   | `undefined` |
+| `contenttext` | `contenttext` | content text       | `string`                                                                   | `undefined` |
+| `iconname`    | `iconname`    | icon name          | `string`                                                                   | `undefined` |
+| `type`        | `type`        | alert variant type | `AlertTypesEnum.error \| AlertTypesEnum.success \| AlertTypesEnum.warning` | `undefined` |
 
 
 ## Events
