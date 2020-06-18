@@ -122,5 +122,6 @@ footer .bulletContainer .bullet.selected {
     height: 16px;
     margin: var(--basex1) var(--half-x1);
     pointer-events: auto;
+    cursor: pointer;
   }
 }
