@@ -21,6 +21,7 @@ footer > section {
 footer > section.top > nav {
   display: flex;
   flex-direction: column;
+  justify-items: flex-start;
   overflow: hidden;
   margin: var(--half-x1) 0 var(--half-x1) 0;
   padding: 0;
@@ -48,13 +49,24 @@ footer > section.top > nav > .header > h2 {
 }
 
 footer > section.top > nav > .header {
+  position: relative;
   fill: var(--text-white);
 }
 
-footer > section.top > nav > .header > z-icon {
+footer > section.top > nav > .header > button {
   position: absolute;
-  right: 36px;
-  margin-top: var(--basex1);
+  top: var(--basex1);
+  right: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+footer > section.top > nav > .header > button > z-icon {
+  display: block;
 }
 
 footer > section.top > nav > .content {
@@ -117,10 +129,9 @@ footer > section.bottom {
 }
 
 footer > section.bottom > div.item {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   height: auto;
   width: auto;
   padding: var(--basex2) 0;
@@ -157,13 +168,16 @@ footer > section.bottom > div.bottom-links {
 }
 
 footer > section.bottom > div.item > p {
-  width: 50%;
+  margin: var(--basex1) 0;
   padding: var(--basex1) 0;
-  margin: 0;
 }
 
-footer > section.bottom > div.item:nth-child(1) > p {
-  width: 253px;
+footer > section.bottom > div.item > p:first-child {
+  margin-top: 0;
+}
+
+footer > section.bottom > div.item > p:last-child {
+  margin-bottom: 0;
 }
 
 footer > section.bottom > div.logo > p > span {
@@ -224,7 +238,6 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top > nav > .content > ul > li {
-    width: 223px;
     margin: 0 var(--basex1) 0 0;
     padding: var(--half-x1) 0px;
     border: none;
@@ -237,7 +250,7 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom {
-    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-columns: calc(4 * var(--basex8)) 1fr 2fr;
     background-color: var(--bg-grey-900);
     padding: 0 var(--basex2);
   }
@@ -257,7 +270,6 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom > div.item > p {
-    width: 80%;
     padding-top: 0;
   }
 
@@ -325,20 +337,12 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top > nav > .header {
+    display: inline-flex;
     border-bottom: 1px solid var(--bg-grey-050);
-    width: 120px;
-  }
-
-  footer > section.top > nav > .header > h2 {
-    position: absolute;
   }
 
   footer > section.bottom {
     padding: var(--basex2) var(--basex4);
-  }
-
-  footer > section.bottom > div.item:nth-child(1) > p:nth-of-type(1) {
-    margin-top: var(--basex2);
   }
 
   footer > section.bottom > div.item:nth-child(1) > p:nth-of-type(2) {
@@ -347,7 +351,7 @@ footer > section.bottom > div.logo > p > span {
 
   footer > section.bottom > div.item > p {
     padding-bottom: 0;
-    margin-bottom: var(--basex1);
+    margin-bottom: var(--basex2);
   }
 
   footer > section.bottom > div.item > ul.social {
