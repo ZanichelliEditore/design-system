@@ -58,7 +58,7 @@ export class ZSlideshow {
     refSlides.style.width = `${fullwidth}px`;
     refSlides.style.transform = `translate(-${width * this.currentSlide}px)`;
     allImages.forEach((item: HTMLElement) => {
-      const img = item.getElementsByTagName("img").item(0);
+      const img = Array.from(item.getElementsByTagName("img"))[0];
       img.style.width = `${width}px`;
     });
   }
