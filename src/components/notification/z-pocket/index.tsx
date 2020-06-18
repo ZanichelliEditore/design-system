@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Method } from "@stencil/core";
 import { handleKeyboardSubmit } from "../../../utils/utils";
 
 @Component({
@@ -10,6 +10,12 @@ export class ZPocket {
   @Prop() pocketid: string;
   @Prop({ mutable: true }) isopen?: boolean = true;
   @Prop() ismodal?: boolean = false;
+
+  /** close z-pocket */
+  @Method()
+  async close() {
+    this.isopen = false;
+  }
 
   constructor() {
     this.togglePocket = this.togglePocket.bind(this);

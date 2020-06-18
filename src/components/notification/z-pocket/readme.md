@@ -14,6 +14,19 @@
 | `pocketid` | `pocketid` |             | `string`  | `undefined` |
 
 
+## Methods
+
+### `close() => Promise<void>`
+
+close z-pocket
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on
