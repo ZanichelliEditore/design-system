@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import { Component, Prop, h, Event, EventEmitter, State } from "@stencil/core";
 
 import { keybordKeyCodeEnum } from "../../../beans/index";
 
@@ -17,10 +17,17 @@ export class ZAlert {
   /** alert variant type */
   @Prop() type: string;
 
+  @State() hasActionTextSection: boolean = false;
+
   /** user click/keyboard action event, returns actionType */
   @Event() userAction: EventEmitter;
   emitUserAction() {
     this.userAction.emit({ actionType: this.type });
+  }
+
+  componentWillLoad() {
+    this.hasActionTextSection =
+      this.actiontext && !!this.actiontext.trim().length;
   }
 
   handleSpaceKeyPress(e: KeyboardEvent): void {
@@ -39,19 +46,21 @@ export class ZAlert {
   }
 
   retrieveClass(): string {
-    let className = "";
+    let className = this.hasActionTextSection
+      ? "three-sections-grid "
+      : "two-sections-grid ";
     switch (this.type) {
       case "success":
-        className = "successAlert";
+        className += "successAlert";
         break;
       case "warning":
-        className = "warningAlert";
+        className += "warningAlert";
         break;
       case "error":
-        className = "errorAlert";
+        className += "errorAlert";
         break;
       default:
-        className = "";
+        className += "";
         break;
     }
     return className;
@@ -67,7 +76,7 @@ export class ZAlert {
           class={this.retrieveClass()}
         ></z-icon>
         <span class="contentText">{this.contenttext}</span>
-        {this.actiontext && !!this.actiontext.trim().length && (
+        {this.hasActionTextSection && (
           <span
             role="button"
             tabindex="0"

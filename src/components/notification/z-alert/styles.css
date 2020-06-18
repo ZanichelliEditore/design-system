@@ -3,7 +3,6 @@
   width: 100%;
 
   display: grid;
-  grid-template-columns: 16px auto 48px;
   grid-template-rows: 1fr;
   grid-column-gap: 8px;
   align-items: start;
@@ -12,6 +11,14 @@
   z-index: 2;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+}
+
+.two-sections-grid {
+  grid-template-columns: 16px auto;
+}
+
+.three-sections-grid {
+  grid-template-columns: 16px auto 48px;
 }
 
 .relativeContainer::-moz-focus-inner {
