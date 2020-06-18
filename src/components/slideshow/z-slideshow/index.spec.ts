@@ -66,15 +66,9 @@ describe("Suite test ZSlideshow", () => {
       html: `<z-slideshow data='["https://link1.png", "https://link2.png" ,"https://link3.png"]'></z-slideshow>`
     });
 
-    const bullets = Array.from(
-      page.root.shadowRoot.querySelectorAll("a.bullet")
-    );
-    const lengthSlide = page.root.shadowRoot.querySelectorAll("a.bullet")
-      .length;
-    const bullet = bullets[lengthSlide - 1] as HTMLElement;
-
-    bullet.click();
+    page.rootInstance.currentSlide = 2;
     await page.waitForChanges();
+
     expect(page.root).toEqualHtml(`
     <z-slideshow data="[&quot;https://link1.png&quot;, &quot;https://link2.png&quot; ,&quot;https://link3.png&quot;]">
        <mock:shadow-root>
