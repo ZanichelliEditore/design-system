@@ -8,20 +8,22 @@
   top: 0px;
   left: 0px;
   display: block;
-  width: 100%;
 }
 
 :host div.card-alert-container {
+  border-style: solid;
+  border-color: var(--bg-grey-200);
   padding: var(--basex2) var(--basex2);
 }
 
 .success {
   background: var(--status-success-green-lighter);
+  border-width: 0 0 var(--border-base);
 }
 
 .warning,
 .error {
-  border-bottom: var(--border-base) solid var(--bg-grey-200);
+  border-width: 0 var(--border-base) var(--border-base);
 }
 
 .warning {
