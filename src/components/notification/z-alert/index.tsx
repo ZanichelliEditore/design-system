@@ -1,6 +1,6 @@
 import { Component, Prop, h, Event, EventEmitter, State } from "@stencil/core";
-
-import { keybordKeyCodeEnum, AlertTypesEnum } from "../../../beans/index";
+import { handleKeyboardSubmit } from "../../../utils/utils";
+import { AlertTypesEnum } from "../../../beans/index";
 
 @Component({
   tag: "z-alert",
@@ -28,16 +28,6 @@ export class ZAlert {
   componentWillLoad() {
     this.hasActionTextSection =
       this.actiontext && !!this.actiontext.trim().length;
-  }
-
-  handleSpaceKeyPress(e: KeyboardEvent): void {
-    if (
-      e.keyCode == keybordKeyCodeEnum.SPACE ||
-      e.keyCode == keybordKeyCodeEnum.ENTER
-    ) {
-      e.preventDefault();
-      this.emitUserAction();
-    }
   }
 
   handleActionButtonClick(e: MouseEvent): void {
@@ -81,9 +71,9 @@ export class ZAlert {
             onClick={(e: MouseEvent) => {
               this.handleActionButtonClick(e);
             }}
-            onKeyPress={(e: KeyboardEvent) => {
-              this.handleSpaceKeyPress(e);
-            }}
+            onKeyPress={(e: KeyboardEvent) =>
+              handleKeyboardSubmit(e, this.emitUserAction)
+            }
           >
             {this.actiontext}
           </span>
