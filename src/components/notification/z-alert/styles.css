@@ -1,3 +1,5 @@
+@import "background-styles.css";
+
 .relativeContainer {
   position: relative;
   width: 100%;
@@ -25,18 +27,6 @@
   border: 0;
 }
 
-:host div.successAlert {
-  background: var(--status-success-green-lighter);
-}
-
-:host div.warningAlert {
-  background: var(--status-warning-yellow-lighter);
-}
-
-:host div.errorAlert {
-  background: var(--status-error-red-lighter);
-}
-
 :host div > .contentText {
   color: var(--text-grey-800);
   font-size: 14px;
@@ -57,16 +47,16 @@
   justify-self: center;
 }
 
-:host div > z-icon.successAlert {
+:host div > z-icon.success {
   color: var(--status-success-green);
   fill: var(--status-success-green);
 }
 
-:host div > z-icon.warningAlert {
+:host div > z-icon.warning {
   color: var(--status-warning-yellow-dark);
   fill: var(--status-warning-yellow-dark);
 }
-:host div > z-icon.errorAlert {
+:host div > z-icon.error {
   color: var(--status-error-red-dark);
   fill: var(--status-error-red-dark);
 }

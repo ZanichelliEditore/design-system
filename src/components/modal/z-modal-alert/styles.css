@@ -1,3 +1,5 @@
+@import "../../notification/z-alert/background-styles.css";
+
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
@@ -11,21 +13,9 @@ div.modal-alert-container {
   padding: var(--basex3) var(--basex2);
 }
 
-.success {
-  background: var(--status-success-green-lighter);
-}
-
 .warning,
 .error {
   border-bottom: var(--border-base) solid var(--bg-grey-200);
-}
-
-.warning {
-  background: var(--status-warning-yellow-lighter);
-}
-
-.error {
-  background: var(--status-error-red-lighter);
 }
 
 /* Tablet breakpoint */

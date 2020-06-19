@@ -1,3 +1,5 @@
+@import "../../notification/z-alert/background-styles.css";
+
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
@@ -17,19 +19,10 @@
 }
 
 .success {
-  background: var(--status-success-green-lighter);
   border-width: 0 0 var(--border-base);
 }
 
 .warning,
 .error {
   border-width: 0 var(--border-base) var(--border-base);
-}
-
-.warning {
-  background: var(--status-warning-yellow-lighter);
-}
-
-.error {
-  background: var(--status-error-red-lighter);
 }

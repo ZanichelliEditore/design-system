@@ -54,7 +54,7 @@ export class ZAlert {
       case AlertTypesEnum.success:
       case AlertTypesEnum.warning:
       case AlertTypesEnum.error:
-        className += this.type + "Alert";
+        className += this.type;
         break;
       default:
         className += "";

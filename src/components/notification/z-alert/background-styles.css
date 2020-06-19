@@ -1,0 +1,11 @@
+:host div.success {
+  background: var(--status-success-green-lighter);
+}
+
+:host div.warning {
+  background: var(--status-warning-yellow-lighter);
+}
+
+:host div.error {
+  background: var(--status-error-red-lighter);
+}
