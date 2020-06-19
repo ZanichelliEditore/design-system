@@ -1,16 +1,22 @@
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+  font-size: 14px;
+  line-height: 16px;
 }
 
-:host div.success {
+:host > div {
+  padding: 16px;
+}
+
+:host > div.success {
   background: var(--status-success-green-lighter);
 }
 
-:host div.warning {
+:host > div.warning {
   background: var(--status-warning-yellow-lighter);
 }
 
-:host div.error {
+:host > div.error {
   background: var(--status-error-red-lighter);
 }

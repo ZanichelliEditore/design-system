@@ -1,5 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter, State } from "@stencil/core";
-import { handleKeyboardSubmit } from "../../../utils/utils";
+import { Component, Prop, h } from "@stencil/core";
 import { AlertTypesEnum } from "../../../beans/index";
 
 /**

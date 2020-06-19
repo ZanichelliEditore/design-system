@@ -18,14 +18,16 @@ export class ZCardAlert {
 
   render() {
     return (
-      <div class={`card-alert-container ${this.type}`}>
-        <z-alert
-          iconname={this.iconname}
-          contenttext={this.contenttext}
-          type={this.type}
-          actiontext={this.actiontext}
-        />
-      </div>
+      // <div class={`card-alert-container ${this.type}`}>
+      <z-alert
+      // iconname={this.iconname}
+      // contenttext={this.contenttext}
+      // type={this.type}
+      // actiontext={this.actiontext}
+      >
+        suka
+      </z-alert>
+      // </div>
     );
   }
 }
