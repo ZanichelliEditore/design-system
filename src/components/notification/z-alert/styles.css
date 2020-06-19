@@ -3,6 +3,7 @@
   font-weight: var(--font-rg);
   font-size: 14px;
   line-height: 16px;
+  box-sizing: border-box;
 }
 
 :host > div {

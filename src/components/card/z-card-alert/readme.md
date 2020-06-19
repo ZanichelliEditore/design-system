@@ -15,12 +15,19 @@
 
 ## Properties
 
-| Property      | Attribute     | Description        | Type                                                                       | Default     |
-| ------------- | ------------- | ------------------ | -------------------------------------------------------------------------- | ----------- |
-| `actiontext`  | `actiontext`  | action button text | `string`                                                                   | `undefined` |
-| `contenttext` | `contenttext` | content text       | `string`                                                                   | `undefined` |
-| `iconname`    | `iconname`    | icon name          | `string`                                                                   | `undefined` |
-| `type`        | `type`        | alert variant type | `AlertTypesEnum.error \| AlertTypesEnum.success \| AlertTypesEnum.warning` | `undefined` |
+| Property      | Attribute     | Description        | Type     | Default     |
+| ------------- | ------------- | ------------------ | -------- | ----------- |
+| `actiontext`  | `actiontext`  | action button text | `string` | `undefined` |
+| `contenttext` | `contenttext` | content text       | `string` | `undefined` |
+| `iconname`    | `iconname`    | icon name          | `string` | `undefined` |
+| `type`        | `type`        | alert variant type | `string` | `undefined` |
+
+
+## Events
+
+| Event        | Description                                          | Type               |
+| ------------ | ---------------------------------------------------- | ------------------ |
+| `undoAction` | undo action click/keyboard event, returns actionType | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -28,12 +35,13 @@
 ### Depends on
 
 - [z-alert](../../notification/z-alert)
+- [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
   z-card-alert --> z-alert
-  z-alert --> z-icon
+  z-card-alert --> z-icon
   style z-card-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
