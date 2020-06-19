@@ -1,14 +1,6 @@
-# z-card-alert
+# z-alert
 
-<!-- readme-group="card" -->
 
-```html
-<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-card-alert>
-<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" actiontext="annulla" type="remove" faded=true></z-card-alert>
-<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" type="remove" faded=true></z-card-alert>
-<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" type="add"></z-card-alert>
-
-```
 
 <!-- Auto Generated Below -->
 
