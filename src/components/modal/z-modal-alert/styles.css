@@ -28,15 +28,14 @@ div.modal-alert-container {
   background: var(--status-error-red-lighter);
 }
 
-/* Tablet */
-
+/* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   div.modal-alert-container {
     padding: var(--basex3) var(--basex3);
   }
 }
 
-/* Desktop */
+/* Desktop breakpoint */
 @media only screen and (min-width: 1025px) {
   div.modal-alert-container {
     padding: var(--basex3) var(--basex4);
