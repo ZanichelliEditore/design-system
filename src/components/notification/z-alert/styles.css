@@ -1,62 +1,11 @@
-@import "background-styles.css";
-
-.relativeContainer {
-  position: relative;
-  width: 100%;
-
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-column-gap: 8px;
-  align-items: start;
-  outline: none;
-
-  z-index: 2;
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
+:host div.success {
+  background: var(--status-success-green-lighter);
 }
 
-.two-sections-grid {
-  grid-template-columns: var(--basex2) auto;
+:host div.warning {
+  background: var(--status-warning-yellow-lighter);
 }
 
-.three-sections-grid {
-  grid-template-columns: var(--basex2) auto var(--basex6);
-}
-
-.relativeContainer::-moz-focus-inner {
-  border: 0;
-}
-
-:host div > .contentText {
-  color: var(--text-grey-800);
-  font-size: 14px;
-  letter-spacing: 0.16px;
-  line-height: 20px;
-}
-
-:host div > .contentAction {
-  color: var(--myz-blue);
-  font-size: 12px;
-  font-weight: var(--font-sb);
-  letter-spacing: 0.32px;
-  line-height: 20px;
-  cursor: pointer;
-}
-
-:host div > z-icon {
-  justify-self: center;
-}
-
-:host div > z-icon.success {
-  color: var(--status-success-green);
-  fill: var(--status-success-green);
-}
-
-:host div > z-icon.warning {
-  color: var(--status-warning-yellow-dark);
-  fill: var(--status-warning-yellow-dark);
-}
-:host div > z-icon.error {
-  color: var(--status-error-red-dark);
-  fill: var(--status-error-red-dark);
+:host div.error {
+  background: var(--status-error-red-lighter);
 }

@@ -1,5 +1,3 @@
-@import "../../notification/z-alert/background-styles.css";
-
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);

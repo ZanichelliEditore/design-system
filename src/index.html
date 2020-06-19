@@ -588,11 +588,12 @@
       </z-info-box>
 
       <br /><br />
-      <z-alert iconname="circle-warning-fill" contenttext="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." actiontext="actiontext" type="warning"></z-alert>
-      <z-alert iconname="circle-cross-fill" contenttext="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." actiontext="actiontext" type="error"></z-alert>
-      <z-alert iconname="circle-check-fill" contenttext="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." actiontext="actiontext" type="success"></z-alert>
-
+      <z-alert type="success">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</z-alert>
       <br />
+      <z-alert type="warning">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</z-alert>
+      <br />
+      <z-alert type="error">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</z-alert>
+
       <div style="background:grey;">
         <z-icon-package>
           </z-icon-pacakge>
@@ -807,46 +808,5 @@
           "link": "https://my.zanichelli.it/privacy"
       }]
   }'></z-footer>
-
-
-  <div style="margin-top: 30px; width:1000px; display:flex; flex-wrap:wrap; justify-content:space-between;">
-    <z-card>
-      <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
-        <z-card-icon icon="book-delete" slot="icon" />
-      </z-card-header>
-      <z-card-body>
-        <z-card-alert slot="alert"
-          iconName="circle-warning-fill"
-          contenttext="Libro aggiunto"
-          actiontext="Annulla" type="error">
-        </z-card-alert>
-        <z-card-cover slot="cover" titolo="titolo"
-          img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
-      </z-card-body>
-      <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
-        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-        <z-card-list
-          listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
-          slot="list" />
-      </z-card-footer>
-    </z-card>
-  </div>
-
-  <div style="margin-top: 30px;
-      display: grid;
-      max-width: 2000px;
-      min-width: 30px;
-      grid-template-columns: minmax(30px, 2000px);
-      height: 84px;
-      align-items: center;
-      z-index: 10;">
-      <div style="display: block;position: relative; height: 100%;">
-        <z-modal-alert iconName="circle-warning-fill" contenttext="Non siamo riusciti ad inviare la mail. Vuoi riprovare?"
-          actiontext="Annulla" type="error">
-        </z-modal-alert>
-      </div>
-    </div>
-  </div>
-</body>
 
 </html>

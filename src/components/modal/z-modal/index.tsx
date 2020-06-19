@@ -19,16 +19,6 @@ export class ZModal {
   @Prop() modaltitle?: string;
   /** subtitle (optional) */
   @Prop() modalsubtitle?: string;
-  /** alert icon (optional) */
-  @Prop() alerticon?: string;
-  /** alert content text (optional) */
-  @Prop() alerttext?: string;
-  /** alert action text (optional) */
-  @Prop() alertactiontext?: string;
-  /** alert type (optional) */
-  @Prop() alerttype?: AlertTypesEnum;
-  /** alert visibility flag */
-  @Prop() showalert: boolean;
 
   constructor() {
     this.emitModalClose = this.emitModalClose.bind(this);
@@ -45,18 +35,6 @@ export class ZModal {
   @Event() modalHeaderActive: EventEmitter;
   emitModalHeaderActive() {
     this.modalHeaderActive.emit({ modalid: this.modalid });
-  }
-
-  renderAlert() {
-    if (!this.showalert) return null;
-    return (
-      <z-modal-alert
-        iconname={this.alerticon}
-        contenttext={this.alerttext}
-        type={this.alerttype}
-        actiontext={this.alertactiontext}
-      />
-    );
   }
 
   render() {
@@ -82,7 +60,6 @@ export class ZModal {
             />
           </header>
           <main>
-            {this.renderAlert()}
             <slot name="modalContent" />
           </main>
           <div
