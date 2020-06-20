@@ -27,14 +27,17 @@
   border: 0;
 }
 
+.alert-external-wrapper.removeAlert {
+  border: solid var(--bg-grey-200) var(--border-base);
+  border-top: none;
+}
+
 :host div.addAlert {
   background: var(--status-success-green-lighter);
 }
 
 :host div.removeAlert {
   background: var(--status-warning-yellow-lighter);
-  border: var(--border-base) solid var(--bg-grey-200);
-  border-top: none;
 }
 
 :host div > .contentText {
