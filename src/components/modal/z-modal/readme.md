@@ -10,16 +10,11 @@
 
 ## Properties
 
-| Property          | Attribute         | Description                   | Type                                                                       | Default     |
-| ----------------- | ----------------- | ----------------------------- | -------------------------------------------------------------------------- | ----------- |
-| `alertactiontext` | `alertactiontext` | alert action text (optional)  | `string`                                                                   | `undefined` |
-| `alerticon`       | `alerticon`       | alert icon (optional)         | `string`                                                                   | `undefined` |
-| `alerttext`       | `alerttext`       | alert content text (optional) | `string`                                                                   | `undefined` |
-| `alerttype`       | `alerttype`       | alert type (optional)         | `AlertTypesEnum.error \| AlertTypesEnum.success \| AlertTypesEnum.warning` | `undefined` |
-| `modalid`         | `modalid`         | unique id                     | `string`                                                                   | `undefined` |
-| `modalsubtitle`   | `modalsubtitle`   | subtitle (optional)           | `string`                                                                   | `undefined` |
-| `modaltitle`      | `modaltitle`      | title text (optional)         | `string`                                                                   | `undefined` |
-| `showalert`       | `showalert`       | alert visibility flag         | `boolean`                                                                  | `undefined` |
+| Property        | Attribute       | Description           | Type     | Default     |
+| --------------- | --------------- | --------------------- | -------- | ----------- |
+| `modalid`       | `modalid`       | unique id             | `string` | `undefined` |
+| `modalsubtitle` | `modalsubtitle` | subtitle (optional)   | `string` | `undefined` |
+| `modaltitle`    | `modaltitle`    | title text (optional) | `string` | `undefined` |
 
 
 ## Events
@@ -41,16 +36,12 @@
 
 ### Depends on
 
-- [z-modal-alert](../z-modal-alert)
 - [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-modal --> z-modal-alert
   z-modal --> z-icon
-  z-modal-alert --> z-alert
-  z-alert --> z-icon
   style z-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

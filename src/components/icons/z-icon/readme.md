@@ -24,7 +24,6 @@
 
 ### Used by
 
- - [z-alert](../../notification/z-alert)
  - [z-button](../../buttons/z-button)
  - [z-button-filter](../../buttons/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
@@ -45,7 +44,6 @@
 ### Graph
 ```mermaid
 graph TD;
-  z-alert --> z-icon
   z-button --> z-icon
   z-button-filter --> z-icon
   z-button-sort --> z-icon

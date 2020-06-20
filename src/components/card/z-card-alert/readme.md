@@ -33,7 +33,6 @@
 ```mermaid
 graph TD;
   z-card-alert --> z-alert
-  z-alert --> z-icon
   style z-card-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
