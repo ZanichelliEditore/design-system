@@ -1,5 +1,5 @@
 import { Component, Prop, h } from "@stencil/core";
-import { AlertTypesEnum } from "../../../beans/index";
+import { AlertTypes } from "../../../beans/index";
 
 /**
  * @slot alert content
@@ -12,7 +12,7 @@ import { AlertTypesEnum } from "../../../beans/index";
 })
 export class ZAlert {
   /** alert variant type */
-  @Prop() type: AlertTypesEnum;
+  @Prop() type: AlertTypes;
 
   render() {
     return (

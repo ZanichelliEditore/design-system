@@ -1,26 +1,60 @@
 :host {
+  position: absolute;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   width: 100%;
-  z-index: 2;
-
-  position: absolute;
   top: 0px;
   left: 0px;
-  display: block;
+  z-index: 2;
 }
 
-:host div.card-alert-container {
-  border-style: solid;
-  border-color: var(--bg-grey-200);
-  padding: var(--basex2) var(--basex2);
+:host > z-alert {
+  height: 48px;
 }
 
-.success {
-  border-width: 0 0 var(--border-base);
+.relativeContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18px auto 46px;
+  grid-template-rows: 1fr;
+  grid-column-gap: 8px;
+  align-items: center;
+  padding: 0;
+  outline: none;
 }
 
-.warning,
-.error {
-  border-width: 0 var(--border-base) var(--border-base);
+.relativeContainer::-moz-focus-inner {
+  border: 0;
+}
+
+:host div.addAlert {
+  background: var(--status-success-green-lighter);
+}
+
+:host div.removeAlert {
+  background: var(--status-warning-yellow-lighter);
+  border: var(--border-base) solid var(--bg-grey-200);
+  border-top: none;
+}
+
+:host div > .contentText {
+  color: var(--text-grey-800);
+  font-size: 14px;
+  height: 20px;
+  letter-spacing: 0.16px;
+  line-height: 20px;
+}
+
+:host div > .contentAction {
+  color: var(--myz-blue);
+  font-size: 12px;
+  font-weight: var(--font-sb);
+  height: 20px;
+  letter-spacing: 0.32px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+:host div > z-icon {
+  justify-self: center;
 }
