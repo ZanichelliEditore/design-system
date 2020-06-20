@@ -28,7 +28,7 @@
 }
 
 .alert-external-wrapper.removeAlert {
-  border: solid var(--bg-grey-200) var(--border-base);
+  border: var(--border-base) solid var(--bg-grey-200);
   border-top: none;
 }
 
