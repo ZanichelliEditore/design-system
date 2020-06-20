@@ -10,14 +10,17 @@
   padding: 16px;
 }
 
-:host > div.success {
+:host > .success {
+  fill: var(--status-success-green);
   background: var(--status-success-green-lighter);
 }
 
-:host > div.warning {
+:host > .warning {
+  fill: var(--status-warning-yellow-dark);
   background: var(--status-warning-yellow-lighter);
 }
 
-:host > div.error {
+:host > .error {
+  fill: var(--status-error-red-dark);
   background: var(--status-error-red-lighter);
 }
