@@ -3,6 +3,10 @@ import { Component, Prop, h, State, Element, Watch } from "@stencil/core";
 import { DeviceEnum, DeviceType } from "../../../beans";
 import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 
+/**
+ * @slot footer-right - right content slot in footer
+ * @slot footer-left - left content slot in footer
+ */
 @Component({
   tag: "z-slideshow",
   styleUrl: "styles.css",
@@ -157,7 +161,7 @@ export class ZSlideshow {
     return (
       <footer>
         <div class="footerLeft">
-          <slot name="footerLeft" />
+          <slot name="footer-left" />
         </div>
         <div class="footerCenter">
           <div class="bulletContainer">
@@ -165,7 +169,7 @@ export class ZSlideshow {
           </div>
         </div>
         <div class="footerRight">
-          <slot name="footerRight" />
+          <slot name="footer-right" />
         </div>
       </footer>
     );
