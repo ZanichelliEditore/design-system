@@ -13,6 +13,14 @@
 | `slideshowid` | `slideshowid` | slideshow id                          | `string`             | `undefined` |
 
 
+## Slots
+
+| Slot             | Description                  |
+| ---------------- | ---------------------------- |
+| `"footer-left"`  | left content slot in footer  |
+| `"footer-right"` | right content slot in footer |
+
+
 ## Dependencies
 
 ### Depends on
