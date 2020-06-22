@@ -42,6 +42,7 @@ main .scroll.right {
   flex-wrap: wrap;
   transition: all 300ms;
   line-height: 0px;
+  overflow-y: hidden;
 }
 
 footer {
