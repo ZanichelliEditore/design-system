@@ -131,6 +131,7 @@ export class ZSlideshow {
           !disabled && this.setCurrentSlide(nextSlide);
         }}
         onKeyUp={(e: KeyboardEvent) =>
+          !disabled &&
           handleKeyboardSubmit(e, () => {
             this.setCurrentSlide(nextSlide);
           })
