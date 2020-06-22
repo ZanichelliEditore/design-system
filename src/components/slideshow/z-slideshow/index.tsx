@@ -83,7 +83,7 @@ export class ZSlideshow {
     this.currentSlide = index;
   }
 
-  getBulletDimension() {
+  getBulletDimension(): number {
     switch (this.device) {
       case DeviceEnum.mobile:
         return 24;
@@ -94,7 +94,7 @@ export class ZSlideshow {
     }
   }
 
-  renderSlides(items: string[]) {
+  renderSlides(items: string[]): HTMLElement {
     return (
       <div id="slides">
         {items.map((item: string, i: number) => (
@@ -109,7 +109,7 @@ export class ZSlideshow {
     );
   }
 
-  renderScroll(direction: "left" | "right") {
+  renderScroll(direction: "left" | "right"): HTMLZIconElement {
     let disabled = false,
       nextSlide = this.currentSlide;
 
@@ -141,7 +141,7 @@ export class ZSlideshow {
     );
   }
 
-  renderSlideshowMain() {
+  renderSlideshowMain(): HTMLElement {
     return (
       <main>
         {this.renderScroll("left")}
@@ -151,7 +151,7 @@ export class ZSlideshow {
     );
   }
 
-  renderBullet(i: number) {
+  renderBullet(i: number): HTMLElement {
     return (
       <a
         class={`bullet ${this.currentSlide === i && "selected"}`}
@@ -165,7 +165,7 @@ export class ZSlideshow {
     );
   }
 
-  renderSlideshowFooter() {
+  renderSlideshowFooter(): HTMLElement {
     return (
       <footer>
         <div class="footerLeft">
@@ -183,7 +183,7 @@ export class ZSlideshow {
     );
   }
 
-  render() {
+  render(): HTMLElement {
     if (!this.links || !this.links.length) return;
 
     return (

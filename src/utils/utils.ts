@@ -61,7 +61,7 @@ export function getElementTree(
   return tree;
 }
 
-export function getDevice() {
+export function getDevice(): DeviceEnum {
   switch (true) {
     case window.innerWidth <= mobileBreakpoint:
       return DeviceEnum.mobile;
