@@ -11,7 +11,7 @@ describe("Suite test ZSlideshow", () => {
 
     expect(page.root).toEqualHtml(`
       <z-slideshow>
-        <mock:shadow-root></mock:shadow-root>
+        <mock:shadow-root><div></div></mock:shadow-root>
       </z-slideshow>
     `);
   });
@@ -43,7 +43,7 @@ describe("Suite test ZSlideshow", () => {
            </main>
            <footer>
              <div class="footerLeft">
-               <slot name="footerLeft"></slot>
+               <slot name="footer-left"></slot>
              </div>
              <div class="footerCenter">
                <div class="bulletContainer">
@@ -53,7 +53,7 @@ describe("Suite test ZSlideshow", () => {
                </div>
              </div>
              <div class="footerRight">
-               <slot name="footerRight"></slot>
+               <slot name="footer-right"></slot>
              </div>
            </footer>
          </div>
@@ -90,7 +90,7 @@ describe("Suite test ZSlideshow", () => {
            </main>
            <footer>
              <div class="footerLeft">
-               <slot name="footerLeft"></slot>
+               <slot name="footer-left"></slot>
              </div>
              <div class="footerCenter">
                <div class="bulletContainer">
@@ -100,7 +100,7 @@ describe("Suite test ZSlideshow", () => {
                </div>
              </div>
              <div class="footerRight">
-               <slot name="footerRight"></slot>
+               <slot name="footer-right"></slot>
              </div>
            </footer>
          </div>
@@ -153,7 +153,7 @@ describe("Suite test ZSlideshow", () => {
              </main>
              <footer>
                <div class="footerLeft">
-                 <slot name="footerLeft"></slot>
+                 <slot name="footer-left"></slot>
                </div>
                <div class="footerCenter">
                  <div class="bulletContainer">
@@ -169,7 +169,7 @@ describe("Suite test ZSlideshow", () => {
                  </div>
                </div>
                <div class="footerRight">
-                 <slot name="footerRight"></slot>
+                 <slot name="footer-right"></slot>
                </div>
              </footer>
            </div>
@@ -213,7 +213,7 @@ describe("Suite test ZSlideshow", () => {
              </main>
              <footer>
                <div class="footerLeft">
-                 <slot name="footerLeft"></slot>
+                 <slot name="footer-left"></slot>
                </div>
                <div class="footerCenter">
                  <div class="bulletContainer">
@@ -229,7 +229,7 @@ describe("Suite test ZSlideshow", () => {
                  </div>
                </div>
                <div class="footerRight">
-                 <slot name="footerRight"></slot>
+                 <slot name="footer-right"></slot>
                </div>
              </footer>
            </div>
