@@ -14,9 +14,9 @@
 
 ## Slots
 
-| Slot              | Description |
-| ----------------- | ----------- |
-| `"alert content"` |             |
+| Slot | Description   |
+| ---- | ------------- |
+|      | alert content |
 
 
 ## Dependencies

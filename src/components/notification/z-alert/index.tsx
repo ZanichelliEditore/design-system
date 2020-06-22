@@ -2,7 +2,7 @@ import { Component, Prop, h } from "@stencil/core";
 import { AlertTypes } from "../../../beans/index";
 
 /**
- * @slot alert content
+ * @slot - alert content
  */
 
 @Component({
