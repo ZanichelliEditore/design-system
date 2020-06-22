@@ -1,3 +1,10 @@
 {
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#950a96",
+    "statusBar.border": "#950a96",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#c40dc6"
+  },
+  "peacock.color": "#950a96"
 }
