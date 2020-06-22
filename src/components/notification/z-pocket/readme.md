@@ -27,6 +27,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot             | Description    |
+| ---------------- | -------------- |
+| `"generic slot"` | pocket content |
+
+
 ## Dependencies
 
 ### Depends on

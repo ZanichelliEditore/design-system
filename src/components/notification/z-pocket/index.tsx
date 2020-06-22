@@ -1,6 +1,9 @@
 import { Component, Prop, h, Method } from "@stencil/core";
 import { handleKeyboardSubmit } from "../../../utils/utils";
 
+/**
+ * @slot generic slot - pocket content
+ */
 @Component({
   tag: "z-pocket",
   styleUrl: "styles.css",
@@ -34,7 +37,7 @@ export class ZPocket {
     }
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div
         data-action="pocketBackground"
