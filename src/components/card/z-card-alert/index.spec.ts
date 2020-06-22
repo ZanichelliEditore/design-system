@@ -10,115 +10,124 @@ describe("Suite test ZCardAlert", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-card-alert>
-        <mock:shadow-root>
-          <div class="card-alert-container undefined">
-            <z-alert></z-alert>
-          </div>
+    <z-card-alert>
+      <mock:shadow-root>
+        <div class="alert-external-wrapper">
+            <z-alert>
+              <div class="relativeContainer">
+                <z-icon height="18" width="18"></z-icon>
+                <span class="contentText"></span>
+              </div>
+            </z-alert>
         </mock:shadow-root>
-      </z-card-alert>
-    `);
-  });
-
-  it("Test render ZCardAlert success", async () => {
-    const page = await newSpecPage({
-      components: [ZCardAlert],
-      html: `<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="success"></z-card-alert>`
-    });
-
-    expect(page.root).toEqualHtml(`
-     <z-card-alert actiontext="Annulla" contenttext="Libro aggiunto ai miei libri" iconname="circle-check" slot="alert" type="success">
-      <mock:shadow-root>
-        <div class="card-alert-container success">
-          <z-alert actiontext="Annulla" contenttext="Libro aggiunto ai miei libri" iconname="circle-check" type="success"></z-alert>
-        </div>
-      </mock:shadow-root>
+      </div>
     </z-card-alert>
     `);
   });
 
-  it("Test render ZCardAlert success no undo", async () => {
+  it("Test render ZCardAlert (type add)", async () => {
     const page = await newSpecPage({
       components: [ZCardAlert],
-      html: `<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" type="success"></z-card-alert>`
+      html: `<z-card-alert iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-card-alert>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-alert contenttext="Libro aggiunto ai miei libri" iconname="circle-check" slot="alert" type="success">
+    <z-card-alert iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add">
       <mock:shadow-root>
-        <div class="card-alert-container success">
-          <z-alert contenttext="Libro aggiunto ai miei libri" iconname="circle-check" type="success"></z-alert>
+        <div class="addAlert alert-external-wrapper">
+            <z-alert type="success">
+              <div class="relativeContainer">
+                <z-icon class="addAlert" name="circle-check" height="18" width="18"></z-icon>
+                <span class="contentText">
+                  Libro aggiunto ai miei libri
+                </span>
+                <span class="contentAction" role="button" tabindex="0">
+                  Annulla
+                </span>
+              </div>
+            </z-alert>
+          </mock:shadow-root>
         </div>
       </mock:shadow-root>
-    </z-card-alert>
+    </z-card-alert iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add">
     `);
   });
 
-  it("Test render ZCardAlert warning", async () => {
+  it("Test render ZCardAlert no undo (type add)", async () => {
     const page = await newSpecPage({
       components: [ZCardAlert],
-      html: `<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" actiontext="Annulla" type="warning"></z-card-alert>`
+      html: `<z-card-alert iconName="circle-check" contenttext="Libro aggiunto ai miei libri" type="add"></z-card-alert>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-alert actiontext="Annulla" contenttext="Libro rimosso dai tuoi libri" iconname="circle-check" slot="alert" type="warning">
+    <z-card-alert iconName="circle-check" contenttext="Libro aggiunto ai miei libri" type="add">
       <mock:shadow-root>
-        <div class="card-alert-container warning">
-          <z-alert actiontext="Annulla" contenttext="Libro rimosso dai tuoi libri" iconname="circle-check" type="warning"></z-alert>
+        <div class="addAlert alert-external-wrapper">
+            <z-alert type="success">
+              <div class="relativeContainer">
+                <z-icon class="addAlert" name="circle-check" height="18" width="18"></z-icon>
+                <span class="contentText">
+                  Libro aggiunto ai miei libri
+                </span>
+              </div>
+            </z-alert>
+          </mock:shadow-root>
         </div>
       </mock:shadow-root>
-    </z-card-alert>
+    </z-card-alert iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add">
     `);
   });
 
-  it("Test render ZCardAlert warning no undo", async () => {
+  it("Test render ZCardAlert (type remove)", async () => {
     const page = await newSpecPage({
       components: [ZCardAlert],
-      html: `<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" type="warning"></z-card-alert>`
+      html: `<z-card-alert iconName="circle-check" contenttext="Libro rimosso dai miei libri" actiontext="Annulla" type="remove"></z-card-alert>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-alert contenttext="Libro rimosso dai tuoi libri" iconname="circle-check" slot="alert" type="warning">
+    <z-card-alert iconName="circle-check" contenttext="Libro rimosso dai miei libri" actiontext="Annulla" type="remove">
       <mock:shadow-root>
-        <div class="card-alert-container warning">
-          <z-alert contenttext="Libro rimosso dai tuoi libri" iconname="circle-check" type="warning"></z-alert>
+        <div class="removeAlert alert-external-wrapper">
+            <z-alert type="warning">
+              <div class="relativeContainer">
+                <z-icon class="removeAlert" name="circle-check" height="18" width="18"></z-icon>
+                <span class="contentText">
+                  Libro rimosso dai miei libri
+                </span>
+                <span class="contentAction" role="button" tabindex="0">
+                  Annulla
+                </span>
+              </div>
+            </z-alert>
+          </mock:shadow-root>
         </div>
       </mock:shadow-root>
-    </z-card-alert>
+    </z-card-alert iconName="circle-check" contenttext="Libro rimosso dai miei libri" actiontext="Annulla" type="remove">
     `);
   });
 
-  it("Test render ZCardAlert error", async () => {
+  it("Test render ZCardAlert no undo (type remove)", async () => {
     const page = await newSpecPage({
       components: [ZCardAlert],
-      html: `<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" actiontext="Annulla" type="error"></z-card-alert>`
+      html: `<z-card-alert iconName="circle-check" contenttext="Libro rimosso dai miei libri" type="remove"></z-card-alert>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-alert actiontext="Annulla" contenttext="Libro rimosso dai tuoi libri" iconname="circle-check" slot="alert" type="error">
+    <z-card-alert iconName="circle-check" contenttext="Libro rimosso dai miei libri" type="remove">
       <mock:shadow-root>
-        <div class="card-alert-container error">
-          <z-alert actiontext="Annulla" contenttext="Libro rimosso dai tuoi libri" iconname="circle-check" type="error"></z-alert>
+        <div class="removeAlert alert-external-wrapper">
+            <z-alert type="warning">
+              <div class="relativeContainer">
+                <z-icon class="removeAlert" name="circle-check" height="18" width="18"></z-icon>
+                <span class="contentText">
+                  Libro rimosso dai miei libri
+                </span>
+              </div>
+            </z-alert>
+          </mock:shadow-root>
         </div>
       </mock:shadow-root>
-    </z-card-alert>
-    `);
-  });
-
-  it("Test render ZCardAlert error no undo", async () => {
-    const page = await newSpecPage({
-      components: [ZCardAlert],
-      html: `<z-card-alert slot="alert" iconName="circle-check" contenttext="Messaggio di errore generico" type="error"></z-card-alert>`
-    });
-
-    expect(page.root).toEqualHtml(`
-    <z-card-alert contenttext="Messaggio di errore generico" iconname="circle-check" slot="alert" type="error">
-      <mock:shadow-root>
-        <div class="card-alert-container error">
-          <z-alert contenttext="Messaggio di errore generico" iconname="circle-check" type="error"></z-alert>
-        </div>
-      </mock:shadow-root>
-    </z-card-alert>
+    </z-card-alert iconName="circle-check" contenttext="Libro rimosso dai miei libri" actiontext="Annulla" type="remove">
     `);
   });
 });
