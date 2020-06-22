@@ -10,11 +10,12 @@
 
 ## Properties
 
-| Property        | Attribute       | Description           | Type     | Default     |
-| --------------- | --------------- | --------------------- | -------- | ----------- |
-| `modalid`       | `modalid`       | unique id             | `string` | `undefined` |
-| `modalsubtitle` | `modalsubtitle` | subtitle (optional)   | `string` | `undefined` |
-| `modaltitle`    | `modaltitle`    | title text (optional) | `string` | `undefined` |
+| Property        | Attribute       | Description           | Type      | Default     |
+| --------------- | --------------- | --------------------- | --------- | ----------- |
+| `hasheader`     | `hasheader`     | has header (optional) | `boolean` | `true`      |
+| `modalid`       | `modalid`       | unique id             | `string`  | `undefined` |
+| `modalsubtitle` | `modalsubtitle` | subtitle (optional)   | `string`  | `undefined` |
+| `modaltitle`    | `modaltitle`    | title text (optional) | `string`  | `undefined` |
 
 
 ## Events
