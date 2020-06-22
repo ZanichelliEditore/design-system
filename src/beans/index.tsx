@@ -157,3 +157,10 @@ export enum AlertTypesEnum {
   error = "error"
 }
 export type AlertTypes = AlertTypesEnum;
+
+export type DeviceType = DeviceEnum;
+export enum DeviceEnum {
+  mobile = "mobile",
+  tablet = "tablet",
+  desktop = "desktop"
+}
