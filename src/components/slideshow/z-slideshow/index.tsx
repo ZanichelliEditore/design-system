@@ -53,7 +53,7 @@ export class ZSlideshow {
   parseLinks() {
     switch (typeof this.data) {
       case "string":
-        return (this.links = convertJson(this.data));
+        return (this.links = convertJson(this.data) ?? []);
       default:
         return (this.links = this.data);
     }
