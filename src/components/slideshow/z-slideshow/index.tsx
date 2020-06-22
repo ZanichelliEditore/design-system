@@ -1,7 +1,11 @@
 import { Component, Prop, h, State, Element, Watch } from "@stencil/core";
 
 import { DeviceEnum, DeviceType } from "../../../beans";
-import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
+import {
+  getDevice,
+  handleKeyboardSubmit,
+  convertJson
+} from "../../../utils/utils";
 
 /**
  * @slot footer-right - right content slot in footer
@@ -47,8 +51,12 @@ export class ZSlideshow {
   }
 
   parseLinks() {
-    this.links =
-      typeof this.data === "string" ? JSON.parse(this.data) : this.data;
+    switch (typeof this.data) {
+      case "string":
+        return (this.links = convertJson(this.data));
+      default:
+        return (this.links = this.data);
+    }
   }
 
   setStyle() {

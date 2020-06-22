@@ -71,3 +71,11 @@ export function getDevice() {
       return DeviceEnum.desktop;
   }
 }
+
+export function convertJson(data) {
+  try {
+    return JSON.parse(data);
+  } catch (e) {
+    return false;
+  }
+}
