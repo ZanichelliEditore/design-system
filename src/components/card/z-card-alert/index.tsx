@@ -1,4 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import { AlertTypesEnum } from "../../../beans/index";
 
 @Component({
   tag: "z-card-alert",
@@ -49,31 +50,46 @@ export class ZCardAlert {
     return className;
   }
 
+  getAlertType() {
+    switch (this.type) {
+      case "add":
+        return AlertTypesEnum.success;
+      case "remove":
+        return AlertTypesEnum.warning;
+      default:
+        return null;
+    }
+  }
+
   render() {
     return (
-      <div class={`relativeContainer ${this.retrieveClass()}`}>
-        <z-icon
-          name={this.iconname}
-          width={18}
-          height={18}
-          class={this.retrieveClass()}
-        ></z-icon>
-        <span class="contentText">{this.contenttext}</span>
-        {this.actiontext && !!this.actiontext.trim().length && (
-          <span
-            role="button"
-            tabindex="0"
-            class="contentAction"
-            onClick={(e: MouseEvent) => {
-              this.handleActionButtonClick(e);
-            }}
-            onKeyPress={(e: KeyboardEvent) => {
-              this.handleSpaceKeyPress(e);
-            }}
-          >
-            {this.actiontext}
-          </span>
-        )}
+      <div class={"alert-external-wrapper " + this.retrieveClass()}>
+        <z-alert type={this.getAlertType()}>
+          <div class="relativeContainer">
+            <z-icon
+              name={this.iconname}
+              width={18}
+              height={18}
+              class={this.retrieveClass()}
+            ></z-icon>
+            <span class="contentText">{this.contenttext}</span>
+            {this.actiontext && !!this.actiontext.trim().length && (
+              <span
+                role="button"
+                tabindex="0"
+                class="contentAction"
+                onClick={(e: MouseEvent) => {
+                  this.handleActionButtonClick(e);
+                }}
+                onKeyPress={(e: KeyboardEvent) => {
+                  this.handleSpaceKeyPress(e);
+                }}
+              >
+                {this.actiontext}
+              </span>
+            )}
+          </div>
+        </z-alert>
       </div>
     );
   }
