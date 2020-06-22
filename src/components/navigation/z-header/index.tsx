@@ -352,7 +352,7 @@ export class ZHeader {
 
   renderMainHeader(): HTMLDivElement {
     return (
-      <div id="main-header" class={`main-header ${!this.ismyz && "myz-out"}`}>
+      <div id="main-header" class={`main-header${this.ismyz ? "" : " myz-out"}`}>
         {this.renderLogoDiv()}
         {this.renderIntMenu(this.intMenuData)}
         {this.renderExtMenu(this.extMenuData)}
@@ -374,7 +374,7 @@ export class ZHeader {
     return (
       <div
         id="mobile-header"
-        class={`mobile-header ${!this.ismyz && "myz-out"}`}
+        class={`mobile-header${this.ismyz ? "" : " myz-out"}`}
       >
         {this.renderLogoDiv()}
         {this.renderMobileMenuToggle()}
@@ -392,7 +392,7 @@ export class ZHeader {
         onClick={() => (this.isMenuMobileOpen = !this.isMenuMobileOpen)}
       >
         <div
-          class={`menu-toggle ${this.isMenuMobileOpen && "is-active"}`}
+          class={`menu-toggle${this.isMenuMobileOpen ? " is-active" : ""}`}
           id="mobile-menu"
         >
           <span class="bar" />
@@ -410,8 +410,7 @@ export class ZHeader {
     return (
       <div
         id="mobile-content"
-        class={`mobile-content ${this.isMenuMobileOpen && "open"} ${!this
-          .ismyz && "myz-out"}`}
+        class={`mobile-content${this.isMenuMobileOpen ? " open" : ""}${this.ismyz ? "" : " myz-out"}`}
       >
         {this.renderMobileLoginDiv(this.userData)}
         {this.ismyz && <hr />}
