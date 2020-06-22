@@ -10,7 +10,7 @@
         "id": 123456,
         "name": "Dario Docente",
         "usergroup": 15,
-        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
       }' ismyz=false imagealt="none">
   {editors slot}
   </z-header>
@@ -22,7 +22,7 @@
         "id": 123456,
         "name": "Dario Docente",
         "usergroup": 15,
-        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
       }' ismyz=false imagealt="none">
   {editors slot}
   </z-header>
@@ -34,7 +34,7 @@
         "id": 123456,
         "name": "Dario Docente",
         "usergroup": 15,
-        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
       }' ismyz=true imagealt="none"
     activeintlinkid="home" activesublinkid="idee">
   {editors slot}
@@ -47,7 +47,7 @@
         "id": 123456,
         "name": "Dario Docente",
         "usergroup": 15,
-        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
       }' ismyz=true imagealt="none">
   {editors slot}
   </z-header>
@@ -59,7 +59,7 @@
             "id": 123456,
             "name": "Sandro Studente",
             "usergroup": 14,
-            "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]
+            "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
           }' ismyz=true imagealt="none">
   {editors slot}
   </z-header>

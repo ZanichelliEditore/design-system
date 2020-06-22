@@ -53,4 +53,4 @@ done
 
 json="$json};";
 
-echo $json | tee ../../src/components/z-icon/icons.tsx
+echo $json | tee ../../src/components/icons/icons.tsx

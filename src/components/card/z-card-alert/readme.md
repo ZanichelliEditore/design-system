@@ -3,11 +3,34 @@
 <!-- readme-group="card" -->
 
 ```html
-<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-card-alert>
-<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" actiontext="annulla" type="remove" faded=true></z-card-alert>
-<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai tuoi libri" type="remove" faded=true></z-card-alert>
-<z-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" type="add"></z-card-alert>
-
+<z-card-alert
+  slot="alert"
+  iconName="circle-check"
+  contenttext="Libro aggiunto ai miei libri"
+  actiontext="Annulla"
+  type="add"
+></z-card-alert>
+<z-card-alert
+  slot="alert"
+  iconName="circle-check"
+  contenttext="Libro rimosso dai tuoi libri"
+  actiontext="annulla"
+  type="remove"
+  faded="true"
+></z-card-alert>
+<z-card-alert
+  slot="alert"
+  iconName="circle-check"
+  contenttext="Libro rimosso dai tuoi libri"
+  type="remove"
+  faded="true"
+></z-card-alert>
+<z-card-alert
+  slot="alert"
+  iconName="circle-check"
+  contenttext="Libro aggiunto ai miei libri"
+  type="add"
+></z-card-alert>
 ```
 
 <!-- Auto Generated Below -->
@@ -34,11 +57,13 @@
 
 ### Depends on
 
+- [z-alert](../../notification/z-alert)
 - [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-card-alert --> z-alert
   z-card-alert --> z-icon
   style z-card-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
