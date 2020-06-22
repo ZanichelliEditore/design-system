@@ -72,7 +72,7 @@ export function getDevice(): DeviceEnum {
   }
 }
 
-export function convertJson(data) {
+export function convertJson(data: string): any {
   try {
     return JSON.parse(data);
   } catch (e) {

@@ -184,7 +184,7 @@ export class ZSlideshow {
   }
 
   render(): HTMLElement {
-    if (!this.links || !this.links.length) return;
+    if (!this.links || !this.links.length) return <div />;
 
     return (
       <div id={this.slideshowid}>
