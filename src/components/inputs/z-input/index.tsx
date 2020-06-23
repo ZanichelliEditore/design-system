@@ -434,9 +434,9 @@ export class ZInput {
       index = key <= 0 ? this.itemsList.length - 1 : key - 1;
     }
 
-    const focusElem = this.hostElement.shadowRoot.getElementById(
-      `${this.htmlid}_${index}`
-    );
+    const focusElem = this.hostElement.shadowRoot.querySelector(
+      `#${this.htmlid}_${index}`
+    ) as HTMLElement;
     if (focusElem) focusElem.focus();
   }
 
@@ -448,7 +448,10 @@ export class ZInput {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        this.hostElement.shadowRoot.getElementById(this.htmlid).focus();
+        const elem = this.hostElement.shadowRoot.querySelector(
+          `#${this.htmlid}`
+        ) as HTMLElement;
+        elem.focus();
       }
     }
 
