@@ -1,6 +1,6 @@
 {
-  "name": "@zanichelli/albe-web-components",
-  "version": "1.0.3-rc.6",
+  "name": "zanichelli-web-components-library",
+  "version": "1.0.3-rc.8",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
