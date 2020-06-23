@@ -185,10 +185,10 @@ export class ZHeader {
     if (!this.isMobile) return;
 
     this.element.shadowRoot
-      .getElementById(elementId)
+      .querySelector(`#${elementId}`)
       .classList.toggle("isopen");
     this.element.shadowRoot
-      .getElementById("mobile-dropdown-" + elementId)
+      .querySelector("#mobile-dropdown-" + elementId)
       .classList.toggle("visible");
   }
 
