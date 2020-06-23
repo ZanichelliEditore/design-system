@@ -164,11 +164,7 @@ export class ZHeader {
         <svg
           height="8"
           width="16"
-          class={
-            this.activeMenuItem
-              ? id !== this.activeMenuItem.id && "hidden"
-              : "hidden"
-          }
+          class={(!this.activeMenuItem || this.activeMenuItem.id !== id) ? "hidden" : ""}
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
@@ -252,13 +248,13 @@ export class ZHeader {
           (menuItem: MenuItem): HTMLSpanElement => {
             const { id, label, link, icon } = menuItem;
             return (
-              <span class={`link-ext-span ${this.ismyz && "myz"}`}>
+              <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
                 <z-link
                   id={id}
                   htmlid={id}
                   href={link}
                   icon={icon}
-                  iswhite={this.ismyz ? true : false}
+                  iswhite={!!this.ismyz}
                   target="_blank"
                   htmltabindex={10}
                 >
@@ -342,7 +338,7 @@ export class ZHeader {
 
   renderDesktopHeader(): HTMLHeadingElement {
     return (
-      <header class={`${!this.ismyz && "myz-out"}`}>
+      <header class={!this.ismyz ? "myz-out" : ""}>
         {this.renderTopHeader()}
         {this.renderMainHeader()}
         {this.renderSubMenu(this.activeMenuItem)}
