@@ -7,6 +7,7 @@
   position: fixed;
   bottom: 0;
   height: 40px;
+  z-index: 99999;
 }
 
 :host > div.open {
@@ -16,7 +17,6 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  z-index: 99999;
   overflow: hidden;
   display: flex;
   flex-direction: row;
