@@ -1,14 +1,16 @@
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+  background: lime !important;
 }
 
 :host > div {
+  position: fixed;
+  bottom: 0;
   height: 40px;
 }
 
 :host > div.open {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
