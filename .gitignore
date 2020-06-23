@@ -3,7 +3,6 @@ www/
 loader/
 
 custom-elements.json
-src/components.d.ts
 src/components/baseComponentLayer/index.tsx
 src/components/baseComponentLayer/styles.css
 
