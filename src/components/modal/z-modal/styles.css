@@ -24,6 +24,8 @@
   overflow: auto;
   max-height: 100%;
   scrollbar-width: none;
+  width: 100%;
+  height: 100vh;
 }
 
 :host > div > div::-webkit-scrollbar {
@@ -35,6 +37,7 @@
   width: 100%;
   margin: 0;
   background: var(--bg-white);
+  height: 100%;
 }
 
 :host > div > div > div > header {
@@ -98,6 +101,10 @@
   overflow: hidden;
 }
 
+:host > div > div > div > main.noHeader {
+  min-height: 72px;
+}
+
 /* Tablet / Desktop style */
 
 @media only screen and (min-width: 768px) {
@@ -105,8 +112,14 @@
     align-items: center;
   }
 
+  :host > div > div {
+    width: auto;
+    height: auto;
+  }
+
   :host > div > div > div {
     width: auto;
+    height: auto;
     min-width: 300px;
     min-height: 300px;
     margin-top: var(--basex4);
