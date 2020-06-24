@@ -14,6 +14,13 @@
 | `pocketid` | `pocketid` | pocket id                                    | `string`  | `undefined` |
 
 
+## Events
+
+| Event          | Description                                | Type               |
+| -------------- | ------------------------------------------ | ------------------ |
+| `pocketToggle` | Emitted on pocket close, returns pocket id | `CustomEvent<any>` |
+
+
 ## Methods
 
 ### `close() => Promise<void>`

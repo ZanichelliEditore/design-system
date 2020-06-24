@@ -1632,6 +1632,10 @@ declare namespace LocalJSX {
          */
         "isopen"?: boolean;
         /**
+          * Emitted on pocket close, returns pocket id
+         */
+        "onPocketToggle"?: (event: CustomEvent<any>) => void;
+        /**
           * pocket id
          */
         "pocketid"?: string;
