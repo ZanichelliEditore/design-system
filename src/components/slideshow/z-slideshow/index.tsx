@@ -60,7 +60,9 @@ export class ZSlideshow {
   }
 
   setStyle() {
-    const refSlides = this.el.shadowRoot.getElementById("slides");
+    const refSlides = this.el.shadowRoot.querySelector(
+      "#slides"
+    ) as HTMLElement;
     if (!refSlides) return;
 
     const allImages = this.el.shadowRoot.querySelectorAll(".slide");
