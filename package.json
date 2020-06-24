@@ -1,5 +1,5 @@
 {
-  "name": "zanichelli-web-components-library",
+  "name": "@zanichelli/albe-web-components",
   "version": "1.0.3-rc.10",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
