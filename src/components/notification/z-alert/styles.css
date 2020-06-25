@@ -1,8 +1,10 @@
 :host {
+  display: block;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
   line-height: 16px;
+  color: var(--text-grey-800);
   box-sizing: border-box;
 }
 

@@ -1,5 +1,8 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
+/**
+ * @slot - link content
+ */
 @Component({
   tag: "z-link",
   styleUrl: "styles.css",
