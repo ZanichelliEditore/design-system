@@ -1,4 +1,20 @@
-:root,
+:root {
+  --grid-mobile-viewport: 768px;
+  --grid-mobile-column: 4;
+  --grid-mobile-margin: 16px;
+  --grid-mobile-gutter: 16px;
+
+  --grid-tablet-viewport: 768px;
+  --grid-tablet-column: 8;
+  --grid-tablet-margin: 24px;
+  --grid-tablet-gutter: 24px;
+
+  --grid-desktop-viewport: 1024px;
+  --grid-desktop-column: 12;
+  --grid-desktop-margin: 24px;
+  --grid-desktop-gutter: 24px;
+}
+
 :host {
   --grid-mobile-viewport: 768px;
   --grid-mobile-column: 4;

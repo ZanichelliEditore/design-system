@@ -1,4 +1,12 @@
-:root,
+:root {
+  --border-base: 2px;
+  --border-size-small: 1px;
+
+  --radius-base: 4px;
+  --radius-min: 0;
+  --radius-max: 100%;
+}
+
 :host {
   --border-base: 2px;
   --border-size-small: 1px;
