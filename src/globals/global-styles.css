@@ -1,5 +1,6 @@
 /* Css Variables */
 
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,600&display=swap');
 @import url("./global-fonts.css");
 @import url("./global-grid.css");
 @import url("./global-spacing.css");
