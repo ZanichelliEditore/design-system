@@ -11,6 +11,11 @@
   box-sizing: border-box;
 }
 
+:host > div.textWrapper > div > input:disabled,
+:host > div.textWrapper > div > input[readonly] {
+  padding: 0 var(--half-x3);
+}
+
 :host > div.textWrapper > div {
   position: relative;
   z-index: 1;
