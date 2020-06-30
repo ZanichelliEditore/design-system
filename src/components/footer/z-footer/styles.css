@@ -221,16 +221,16 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top > nav > .content {
+    width: 100%;
     padding: 0;
     margin: 0;
   }
 
   footer > section.top > nav > .content > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 18px;
     height: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
     align-items: stretch;
     align-content: stretch;
     border-bottom: none;
@@ -339,6 +339,13 @@ footer > section.bottom > div.logo > p > span {
   footer > section.top > nav > .header {
     display: inline-flex;
     border-bottom: 1px solid var(--bg-grey-050);
+  }
+
+  footer > section.top > nav > .content > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
   footer > section.bottom {
