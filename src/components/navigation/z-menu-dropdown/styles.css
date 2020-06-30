@@ -82,9 +82,8 @@ a:active {
 }
 div > img,
 div > z-icon {
-  width: 14px;
-  height: 14px;
   padding-left: var(--half-x3);
+  padding-right: var(--half-x1);
 }
 
 div > span.arrow {
@@ -117,7 +116,7 @@ div > span.user {
 
 ul {
   list-style: none;
-  padding-inline-start: var(--basex4);
+  padding-left: var(--basex4);
   margin: 0px;
 }
 
