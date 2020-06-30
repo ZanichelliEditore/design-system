@@ -198,7 +198,7 @@ footer > section.bottom > div.logo > p > span {
   footer > section.top > nav {
     height: fit-content;
     display: grid;
-    grid-template-columns: calc((100% - 54px) / 4) auto;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 18px;
     padding: var(--basex2) 0 var(--basex1) 0;
@@ -221,6 +221,7 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top > nav > .content {
+    grid-column: span 3;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -228,7 +229,7 @@ footer > section.bottom > div.logo > p > span {
 
   footer > section.top > nav > .content > ul {
     display: grid;
-    grid-template-columns: calc((100% - 36px) / 3) calc((100% - 36px) / 3) auto;
+    grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 18px;
     height: auto;
     align-items: stretch;
@@ -250,7 +251,7 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom {
-    grid-template-columns: calc((100% - 54px) / 4) calc((100% - 54px) / 4) auto;
+    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 18px;
     background-color: var(--bg-grey-900);
     padding: 0 var(--basex4);
@@ -286,6 +287,7 @@ footer > section.bottom > div.logo > p > span {
 
   footer > section.bottom > div.bottom-links {
     display: block;
+    grid-column: span 2;
     order: 3;
   }
 
