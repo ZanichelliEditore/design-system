@@ -16,9 +16,9 @@
 
 ## Events
 
-| Event          | Description                                | Type               |
-| -------------- | ------------------------------------------ | ------------------ |
-| `pocketToggle` | Emitted on pocket close, returns pocket id | `CustomEvent<any>` |
+| Event          | Description                                                           | Type               |
+| -------------- | --------------------------------------------------------------------- | ------------------ |
+| `pocketToggle` | Emitted on pocket toggle, returns pocket id and open status (boolean) | `CustomEvent<any>` |
 
 
 ## Methods

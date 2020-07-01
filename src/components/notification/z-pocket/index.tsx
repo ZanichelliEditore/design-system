@@ -24,7 +24,7 @@ export class ZPocket {
     this.emitPocketToggle(this.pocketid, false);
   }
 
-  /** Emitted on pocket close, returns pocket id */
+  /** Emitted on pocket toggle, returns pocket id and open status (boolean) */
   @Event() pocketToggle: EventEmitter;
   emitPocketToggle(id: string, open: boolean) {
     this.pocketToggle.emit({ id, open });
