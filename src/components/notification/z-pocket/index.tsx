@@ -21,7 +21,6 @@ export class ZPocket {
   @Method()
   async close() {
     this.isopen = false;
-    this.emitPocketToggle(this.pocketid, false);
   }
 
   /** Emitted on pocket toggle, returns pocket id and open status (boolean) */
@@ -36,7 +35,6 @@ export class ZPocket {
 
   togglePocket() {
     this.isopen = !this.isopen;
-    this.emitPocketToggle(this.pocketid, this.isopen);
   }
 
   handleBackgroundClick(e: any) {
@@ -75,7 +73,12 @@ export class ZPocket {
               height={24}
             />
           </header>
-          <main class={this.isopen && "open"}>
+          <main
+            class={this.isopen && "open"}
+            onTransitionEnd={() =>
+              this.emitPocketToggle(this.pocketid, this.isopen)
+            }
+          >
             <slot />
           </main>
         </div>
