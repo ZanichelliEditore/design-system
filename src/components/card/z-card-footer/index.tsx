@@ -8,7 +8,7 @@ import { LicenseTypeEnum } from "../../../beans/index";
 @Component({
   tag: "z-card-footer",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: true
 })
 export class ZCardFooter {
   /** volume title */
@@ -26,16 +26,43 @@ export class ZCardFooter {
 
   @State() isOpen: boolean = false;
 
+  @State() allowTooltipAuthors: boolean = false;
+  @State() allowTooltipIsbn: boolean = false;
+
+  private ellipsisAuthors?: HTMLSpanElement;
+  private ellipsisIsbn?: HTMLSpanElement;
+
   @Listen("toggleClick")
   handleToggle(): void {
     this.isOpen = !this.isOpen;
+  }
+
+  getTitleAuthors(): string {
+    return this.allowTooltipAuthors ? this.autori : "";
+  }
+
+  getTitleIsbn(): string {
+    return this.allowTooltipIsbn ? this.isbn : "";
+  }
+
+  componentDidLoad() {
+    if (this.elementAuthorsHasEllipsis()) this.allowTooltipAuthors = true;
+    if (this.elementIsbnHasEllipsis()) this.allowTooltipIsbn = true;
+  }
+
+  elementAuthorsHasEllipsis(): boolean {
+    return this.ellipsisAuthors.offsetWidth < this.ellipsisAuthors.scrollWidth;
+  }
+
+  elementIsbnHasEllipsis(): boolean {
+    return this.ellipsisIsbn.offsetWidth < this.ellipsisIsbn.scrollWidth;
   }
 
   retrieveClass() {
     return {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial,
+      trial: this.cardtype === LicenseTypeEnum.trial
     };
   }
 
@@ -48,12 +75,24 @@ export class ZCardFooter {
           </span>
           <h2>{this.titolo}</h2>
           <div>
-            <p class="authors">
-              {this.autorilabel}: <b>{this.autori}</b>
+            <p
+              class="authors"
+              ref={el => (this.ellipsisAuthors = el as HTMLSpanElement)}
+            >
+              {this.autorilabel}:
+              <span title={this.getTitleAuthors()}>
+                <b>{this.autori}</b>
+              </span>
             </p>
             <p class="year_isbn">
-              <span class="isbn">
-                ISBN (ed. cartacea): <b>{this.isbn}</b>
+              <span
+                class="isbn"
+                ref={el => (this.ellipsisIsbn = el as HTMLSpanElement)}
+              >
+                ISBN (ed. cartacea):
+                <span title={this.getTitleIsbn()}>
+                  <b>{this.isbn}</b>
+                </span>
               </span>
             </p>
           </div>
