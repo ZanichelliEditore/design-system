@@ -6,6 +6,13 @@
   height: 44px;
   width: 100%;
   margin: 0;
+  padding-left: var(--half-x3);
+  padding-right: 32px;
+  box-sizing: border-box;
+}
+
+:host > div.textWrapper > div > input:disabled,
+:host > div.textWrapper > div > input[readonly] {
   padding: 0 var(--half-x3);
 }
 
