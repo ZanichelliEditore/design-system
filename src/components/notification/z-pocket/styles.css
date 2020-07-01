@@ -22,7 +22,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background: lime;
 }
 
 :host > div.modal {

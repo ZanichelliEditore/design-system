@@ -1,4 +1,4 @@
-import { Component, Prop, h, Method } from "@stencil/core";
+import { Component, Prop, h, Method, Event, EventEmitter } from "@stencil/core";
 import { handleKeyboardSubmit } from "../../../utils/utils";
 
 /**
@@ -21,6 +21,13 @@ export class ZPocket {
   @Method()
   async close() {
     this.isopen = false;
+    this.emitPocketToggle(this.pocketid, false);
+  }
+
+  /** Emitted on pocket toggle, returns pocket id and open status (boolean) */
+  @Event() pocketToggle: EventEmitter;
+  emitPocketToggle(id: string, open: boolean) {
+    this.pocketToggle.emit({ id, open });
   }
 
   constructor() {
@@ -29,11 +36,12 @@ export class ZPocket {
 
   togglePocket() {
     this.isopen = !this.isopen;
+    this.emitPocketToggle(this.pocketid, this.isopen);
   }
 
   handleBackgroundClick(e: any) {
     if (e.target.dataset.action == "pocketBackground") {
-      this.isopen = false;
+      this.close();
     }
   }
 
