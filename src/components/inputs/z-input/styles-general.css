@@ -4,6 +4,10 @@
 }
 
 /* GENERAL */
+:host input::-ms-clear { 
+  display: none;
+}
+
 :host input,
 :host textarea,
 :host ul[role="listbox"] {

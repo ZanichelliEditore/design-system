@@ -8,7 +8,7 @@ import { LicenseTypeEnum } from "../../../beans/index";
 @Component({
   tag: "z-card-footer",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: true
 })
 export class ZCardFooter {
   /** volume title */
@@ -35,7 +35,7 @@ export class ZCardFooter {
     return {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial,
+      trial: this.cardtype === LicenseTypeEnum.trial
     };
   }
 
@@ -57,7 +57,9 @@ export class ZCardFooter {
               </span>
             </p>
           </div>
-          {this.isOpen && <slot name="list" />}
+          <div class={`slot-handler ${this.isOpen ? 'visible' : 'nonvisible'}`}>
+            <slot name="list" />
+          </div>
         </footer>
       </div>
     );
