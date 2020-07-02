@@ -19,6 +19,7 @@ export class ZPocket {
   @Prop() ismodal?: boolean = false;
 
   private swipeWrap: HTMLDivElement;
+  private mainElem: HTMLElement;
 
   /** close z-pocket */
   @Method()
@@ -44,7 +45,7 @@ export class ZPocket {
       if (!this.isopen) this.isopen = true;
     });
     mc.on("pandown", () => {
-      if (this.isopen) this.isopen = false;
+      if (this.isopen && this.mainElem.scrollTop === 0) this.isopen = false;
     });
   }
 
@@ -98,6 +99,7 @@ export class ZPocket {
             onTransitionEnd={() =>
               this.emitPocketToggle(this.pocketid, this.isopen)
             }
+            ref={el => (this.mainElem = el as HTMLElement)}
           >
             <slot />
           </main>
