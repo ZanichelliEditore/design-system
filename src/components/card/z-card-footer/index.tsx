@@ -37,7 +37,7 @@ export class ZCardFooter {
     this.isOpen = !this.isOpen;
     setTimeout(() => {
       this.elementsEllipsis();
-    }, 100);
+    }, 500);
   }
 
   getTitleAuthors(): string {
@@ -84,7 +84,7 @@ export class ZCardFooter {
           <div>
             <p
               class="authors"
-              ref={el => (this.ellipsisAuthors = el as HTMLSpanElement)}
+              ref={el => (this.ellipsisAuthors = el as HTMLElement)}
             >
               {this.autorilabel}:
               <span title={this.getTitleAuthors()}>
@@ -94,7 +94,7 @@ export class ZCardFooter {
             <p class="year_isbn">
               <span
                 class="isbn"
-                ref={el => (this.ellipsisIsbn = el as HTMLSpanElement)}
+                ref={el => (this.ellipsisIsbn = el as HTMLElement)}
               >
                 ISBN (ed. cartacea):
                 <span title={this.getTitleIsbn()}>

@@ -19,7 +19,7 @@ export class ZCardHeader {
 
   @State() allowTooltip: boolean = false;
 
-  private ellipsis?: HTMLSpanElement;
+  private ellipsis?: HTMLElement;
 
   getTitle(): string {
     return this.allowTooltip ? this.titolo : "";
@@ -45,7 +45,7 @@ export class ZCardHeader {
     return (
       <header class={this.retrieveClass()}>
         <h2
-          ref={el => (this.ellipsis = el as HTMLSpanElement)}
+          ref={el => (this.ellipsis = el as HTMLElement)}
           title={this.getTitle()}
         >
           {this.titolo}
