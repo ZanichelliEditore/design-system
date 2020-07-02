@@ -29,15 +29,13 @@ export class ZCardFooter {
   @State() allowTooltipAuthors: boolean = false;
   @State() allowTooltipIsbn: boolean = false;
 
+  private footer?: HTMLElement;
   private ellipsisAuthors?: HTMLElement;
   private ellipsisIsbn?: HTMLElement;
 
   @Listen("toggleClick")
   handleToggle(): void {
     this.isOpen = !this.isOpen;
-    setTimeout(() => {
-      this.elementsEllipsis();
-    }, 500);
   }
 
   getTitleAuthors(): string {
@@ -49,7 +47,10 @@ export class ZCardFooter {
   }
 
   componentDidLoad() {
-    this.elementsEllipsis();
+    this.footer.ontransitionend = event => {
+      if (["visibility", "height"].includes(event.propertyName))
+        this.elementsEllipsis();
+    };
   }
 
   elementsEllipsis(): void {
@@ -76,7 +77,10 @@ export class ZCardFooter {
   render() {
     return (
       <div class={this.faded && "faded"}>
-        <footer class={this.retrieveClass()}>
+        <footer
+          ref={el => (this.footer = el as HTMLElement)}
+          class={this.retrieveClass()}
+        >
           <span class="toggle">
             <slot name="toggle" />
           </span>
