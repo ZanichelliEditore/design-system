@@ -59,11 +59,7 @@ export class ZPocket {
   }
 
   render(): HTMLDivElement {
-    if (this.isopen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = this.isopen ? "hidden" : "auto";
 
     return (
       <div
