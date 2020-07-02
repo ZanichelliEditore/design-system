@@ -78,9 +78,7 @@ export class ZHeader {
                 }, role: link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) },
                 h("span", null, label),
                 menuItem.subMenu ? h("i", null) : null),
-            h("svg", { height: "8", width: "16", class: this.activeMenuItem
-                    ? id !== this.activeMenuItem.id && "hidden"
-                    : "hidden" },
+            h("svg", { height: "8", width: "16", class: (!this.activeMenuItem || this.activeMenuItem.id !== id) ? "hidden" : "" },
                 h("polygon", { points: "8,0 16,8 0,8", class: "arrow" })),
             this.isMobile && this.renderMenuItemsData(menuItem)));
     }
@@ -129,8 +127,8 @@ export class ZHeader {
             return h("div", null);
         return (h("div", { id: "link-ext", class: "link-ext" }, menuItems.map((menuItem) => {
             const { id, label, link, icon } = menuItem;
-            return (h("span", { class: `link-ext-span ${this.ismyz && "myz"}` },
-                h("z-link", { id: id, htmlid: id, href: link, icon: icon, iswhite: this.ismyz ? true : false, target: "_blank", htmltabindex: 10 }, label)));
+            return (h("span", { class: `link-ext-span${this.ismyz ? " myz" : ""}` },
+                h("z-link", { id: id, htmlid: id, href: link, icon: icon, iswhite: !!this.ismyz, target: "_blank", htmltabindex: 10 }, label)));
         })));
     }
     renderLoginDiv(userData) {
@@ -163,13 +161,13 @@ export class ZHeader {
         return this.renderMobileSubMenu(listItems, "user-data");
     }
     renderDesktopHeader() {
-        return (h("header", { class: `${!this.ismyz && "myz-out"}` },
+        return (h("header", { class: !this.ismyz ? "myz-out" : "" },
             this.renderTopHeader(),
             this.renderMainHeader(),
             this.renderSubMenu(this.activeMenuItem)));
     }
     renderMainHeader() {
-        return (h("div", { id: "main-header", class: `main-header ${!this.ismyz && "myz-out"}` },
+        return (h("div", { id: "main-header", class: `main-header${this.ismyz ? "" : " myz-out"}` },
             this.renderLogoDiv(),
             this.renderIntMenu(this.intMenuData),
             this.renderExtMenu(this.extMenuData),
@@ -181,7 +179,7 @@ export class ZHeader {
             this.renderMobileMenuContent()));
     }
     renderMobileMenu() {
-        return (h("div", { id: "mobile-header", class: `mobile-header ${!this.ismyz && "myz-out"}` },
+        return (h("div", { id: "mobile-header", class: `mobile-header${this.ismyz ? "" : " myz-out"}` },
             this.renderLogoDiv(),
             this.renderMobileMenuToggle()));
     }
@@ -189,7 +187,7 @@ export class ZHeader {
         if (!this.isLogged)
             return this.renderLoginButton();
         return (h("div", { class: "menu-mobile", id: "mobile-menu-wrapper", onClick: () => (this.isMenuMobileOpen = !this.isMenuMobileOpen) },
-            h("div", { class: `menu-toggle ${this.isMenuMobileOpen && "is-active"}`, id: "mobile-menu" },
+            h("div", { class: `menu-toggle${this.isMenuMobileOpen ? " is-active" : ""}`, id: "mobile-menu" },
                 h("span", { class: "bar" }),
                 h("span", { class: "bar" }),
                 h("span", { class: "bar" })),
@@ -198,8 +196,7 @@ export class ZHeader {
     renderMobileMenuContent() {
         if (!this.isLogged)
             return null;
-        return (h("div", { id: "mobile-content", class: `mobile-content ${this.isMenuMobileOpen && "open"} ${!this
-                .ismyz && "myz-out"}` },
+        return (h("div", { id: "mobile-content", class: `mobile-content${this.isMenuMobileOpen ? " open" : ""}${this.ismyz ? "" : " myz-out"}` },
             this.renderMobileLoginDiv(this.userData),
             this.ismyz && h("hr", null),
             this.renderIntMenu(this.intMenuData),

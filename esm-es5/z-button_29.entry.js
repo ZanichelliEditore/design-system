@@ -673,9 +673,7 @@ var ZHeader = /** @class */ (function () {
                 _this.activeMenuItem = menuItem;
             }, onMouseLeave: function () {
                 _this.activeMenuItem = _this.currentMenuItem;
-            }, role: link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) }, h("span", null, label), menuItem.subMenu ? h("i", null) : null), h("svg", { height: "8", width: "16", class: this.activeMenuItem
-                ? id !== this.activeMenuItem.id && "hidden"
-                : "hidden" }, h("polygon", { points: "8,0 16,8 0,8", class: "arrow" })), this.isMobile && this.renderMenuItemsData(menuItem)));
+            }, role: link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) }, h("span", null, label), menuItem.subMenu ? h("i", null) : null), h("svg", { height: "8", width: "16", class: (!this.activeMenuItem || this.activeMenuItem.id !== id) ? "hidden" : "" }, h("polygon", { points: "8,0 16,8 0,8", class: "arrow" })), this.isMobile && this.renderMenuItemsData(menuItem)));
     };
     ZHeader.prototype.getIntMenuItemTabindex = function (item) {
         return this.intMenuData.indexOf(item) + 1;
@@ -721,7 +719,7 @@ var ZHeader = /** @class */ (function () {
             return h("div", null);
         return (h("div", { id: "link-ext", class: "link-ext" }, menuItems.map(function (menuItem) {
             var id = menuItem.id, label = menuItem.label, link = menuItem.link, icon = menuItem.icon;
-            return (h("span", { class: "link-ext-span " + (_this.ismyz && "myz") }, h("z-link", { id: id, htmlid: id, href: link, icon: icon, iswhite: _this.ismyz ? true : false, target: "_blank", htmltabindex: 10 }, label)));
+            return (h("span", { class: "link-ext-span" + (_this.ismyz ? " myz" : "") }, h("z-link", { id: id, htmlid: id, href: link, icon: icon, iswhite: !!_this.ismyz, target: "_blank", htmltabindex: 10 }, label)));
         })));
     };
     ZHeader.prototype.renderLoginDiv = function (userData) {
@@ -748,28 +746,27 @@ var ZHeader = /** @class */ (function () {
         return this.renderMobileSubMenu(listItems, "user-data");
     };
     ZHeader.prototype.renderDesktopHeader = function () {
-        return (h("header", { class: "" + (!this.ismyz && "myz-out") }, this.renderTopHeader(), this.renderMainHeader(), this.renderSubMenu(this.activeMenuItem)));
+        return (h("header", { class: !this.ismyz ? "myz-out" : "" }, this.renderTopHeader(), this.renderMainHeader(), this.renderSubMenu(this.activeMenuItem)));
     };
     ZHeader.prototype.renderMainHeader = function () {
-        return (h("div", { id: "main-header", class: "main-header " + (!this.ismyz && "myz-out") }, this.renderLogoDiv(), this.renderIntMenu(this.intMenuData), this.renderExtMenu(this.extMenuData), this.renderLoginDiv(this.userData)));
+        return (h("div", { id: "main-header", class: "main-header" + (this.ismyz ? "" : " myz-out") }, this.renderLogoDiv(), this.renderIntMenu(this.intMenuData), this.renderExtMenu(this.extMenuData), this.renderLoginDiv(this.userData)));
     };
     ZHeader.prototype.renderMobileHeader = function () {
         return (h("header", null, this.renderMobileMenu(), this.renderMobileMenuContent()));
     };
     ZHeader.prototype.renderMobileMenu = function () {
-        return (h("div", { id: "mobile-header", class: "mobile-header " + (!this.ismyz && "myz-out") }, this.renderLogoDiv(), this.renderMobileMenuToggle()));
+        return (h("div", { id: "mobile-header", class: "mobile-header" + (this.ismyz ? "" : " myz-out") }, this.renderLogoDiv(), this.renderMobileMenuToggle()));
     };
     ZHeader.prototype.renderMobileMenuToggle = function () {
         var _this = this;
         if (!this.isLogged)
             return this.renderLoginButton();
-        return (h("div", { class: "menu-mobile", id: "mobile-menu-wrapper", onClick: function () { return (_this.isMenuMobileOpen = !_this.isMenuMobileOpen); } }, h("div", { class: "menu-toggle " + (this.isMenuMobileOpen && "is-active"), id: "mobile-menu" }, h("span", { class: "bar" }), h("span", { class: "bar" }), h("span", { class: "bar" })), h("span", null, "Menu")));
+        return (h("div", { class: "menu-mobile", id: "mobile-menu-wrapper", onClick: function () { return (_this.isMenuMobileOpen = !_this.isMenuMobileOpen); } }, h("div", { class: "menu-toggle" + (this.isMenuMobileOpen ? " is-active" : ""), id: "mobile-menu" }, h("span", { class: "bar" }), h("span", { class: "bar" }), h("span", { class: "bar" })), h("span", null, "Menu")));
     };
     ZHeader.prototype.renderMobileMenuContent = function () {
         if (!this.isLogged)
             return null;
-        return (h("div", { id: "mobile-content", class: "mobile-content " + (this.isMenuMobileOpen && "open") + " " + (!this
-                .ismyz && "myz-out") }, this.renderMobileLoginDiv(this.userData), this.ismyz && h("hr", null), this.renderIntMenu(this.intMenuData), h("hr", null), this.renderExtMenu(this.extMenuData)));
+        return (h("div", { id: "mobile-content", class: "mobile-content" + (this.isMenuMobileOpen ? " open" : "") + (this.ismyz ? "" : " myz-out") }, this.renderMobileLoginDiv(this.userData), this.ismyz && h("hr", null), this.renderIntMenu(this.intMenuData), h("hr", null), this.renderExtMenu(this.extMenuData)));
     };
     ZHeader.prototype.render = function () {
         return this.isMobile
