@@ -59,7 +59,7 @@ footer .visible {
   display: block;
 }
 
-footer .nonvisible {
+footer .hidden {
   display: none;
 }
 
