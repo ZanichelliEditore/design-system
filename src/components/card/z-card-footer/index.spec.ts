@@ -38,6 +38,9 @@ describe("Suite test ZCardFooter", () => {
                   </span>
                 </p>
               </div>
+              <div class="hidden slot-handler">
+                <slot name="list"></slot>
+              </div>
             </footer>
           </div>
         </mock:shadow-root>
@@ -76,6 +79,9 @@ describe("Suite test ZCardFooter", () => {
                   </span>
                 </p>
               </div>
+              <div class="hidden slot-handler">
+                <slot name="list"></slot>
+              </div>
             </footer>
           </div>
         </mock:shadow-root>
@@ -109,6 +115,9 @@ describe("Suite test ZCardFooter", () => {
                     <span><b></b></span>
                   </span>
                 </p>
+              </div>
+              <div class="hidden slot-handler">
+                <slot name="list"></slot>
               </div>
             </footer>
           </div>
@@ -149,7 +158,9 @@ describe("Suite test ZCardFooter", () => {
                   </span>
                 </p>
               </div>
-              <slot name="list"></slot>
+              <div class="slot-handler visible">
+                <slot name="list"></slot>
+              </div>
             </footer>
           </div>
         </mock:shadow-root>

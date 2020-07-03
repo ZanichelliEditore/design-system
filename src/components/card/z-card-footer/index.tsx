@@ -107,7 +107,9 @@ export class ZCardFooter {
               </span>
             </p>
           </div>
-          {this.isOpen && <slot name="list" />}
+          <div class={`slot-handler ${this.isOpen ? 'visible' : 'hidden'}`}>
+            <slot name="list" />
+          </div>
         </footer>
       </div>
     );
