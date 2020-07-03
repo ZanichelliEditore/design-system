@@ -631,6 +631,18 @@ export namespace Components {
          */
         "url": string;
     }
+    interface ZStepper {
+    }
+    interface ZStepperItem {
+        /**
+          * The number of the step item.
+         */
+        "index": number;
+        /**
+          * The status of the item.
+         */
+        "status": string;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -825,6 +837,18 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
+    }
+    var HTMLZStepperElement: {
+        prototype: HTMLZStepperElement;
+        new (): HTMLZStepperElement;
+    };
+    interface HTMLZStepperItemElement extends Components.ZStepperItem, HTMLStencilElement {
+    }
+    var HTMLZStepperItemElement: {
+        prototype: HTMLZStepperItemElement;
+        new (): HTMLZStepperItemElement;
+    };
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
     }
     var HTMLZToggleButtonElement: {
@@ -866,6 +890,8 @@ declare global {
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-stepper": HTMLZStepperElement;
+        "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
     }
@@ -1553,6 +1579,18 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface ZStepper {
+    }
+    interface ZStepperItem {
+        /**
+          * The number of the step item.
+         */
+        "index"?: number;
+        /**
+          * The status of the item.
+         */
+        "status"?: string;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -1610,6 +1648,8 @@ declare namespace LocalJSX {
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-stepper": ZStepper;
+        "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
     }
@@ -1646,6 +1686,8 @@ declare module "@stencil/core" {
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
+            "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
         }
