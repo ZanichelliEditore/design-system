@@ -1,5 +1,6 @@
 import { Component, Prop, h, Method, Event, EventEmitter } from "@stencil/core";
 import { handleKeyboardSubmit } from "../../../utils/utils";
+import Hammer from "hammerjs";
 
 /**
  * @slot generic slot - pocket content
@@ -17,6 +18,9 @@ export class ZPocket {
   /** pocket is modal (dark background) (optional) */
   @Prop() ismodal?: boolean = false;
 
+  private swipeWrap: HTMLDivElement;
+  private mainElem: HTMLElement;
+
   /** close z-pocket */
   @Method()
   async close() {
@@ -33,6 +37,18 @@ export class ZPocket {
     this.togglePocket = this.togglePocket.bind(this);
   }
 
+  componentDidLoad() {
+    // INFO: swipe handling
+    const mc = new Hammer(this.swipeWrap);
+    mc.get("pan").set({ direction: Hammer.DIRECTION_VERTICAL });
+    mc.on("panup", () => {
+      if (!this.isopen) this.isopen = true;
+    });
+    mc.on("pandown", () => {
+      if (this.isopen && this.mainElem.scrollTop === 0) this.isopen = false;
+    });
+  }
+
   togglePocket() {
     this.isopen = !this.isopen;
   }
@@ -44,6 +60,8 @@ export class ZPocket {
   }
 
   render(): HTMLDivElement {
+    document.body.style.overflow = this.isopen ? "hidden" : "auto";
+
     return (
       <div
         data-action="pocketBackground"
@@ -54,7 +72,10 @@ export class ZPocket {
         `}
         onClick={(e: any) => this.handleBackgroundClick(e)}
       >
-        <div id={this.pocketid}>
+        <div
+          id={this.pocketid}
+          ref={el => (this.swipeWrap = el as HTMLDivElement)}
+        >
           <header
             role="button"
             tabindex={0}
@@ -78,6 +99,7 @@ export class ZPocket {
             onTransitionEnd={() =>
               this.emitPocketToggle(this.pocketid, this.isopen)
             }
+            ref={el => (this.mainElem = el as HTMLElement)}
           >
             <slot />
           </main>

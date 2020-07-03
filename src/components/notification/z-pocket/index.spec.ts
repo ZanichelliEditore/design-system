@@ -13,7 +13,7 @@ describe("Suite test ZPocket", () => {
       <z-pocket>
         <mock:shadow-root>
           <div data-action="pocketBackground" class="open false">
-            <div id="">
+            <div id="" style="undefined: rgba(0,0,0,0);">
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-down-fill" width="24" height="24" />
               </header>
@@ -37,7 +37,7 @@ describe("Suite test ZPocket", () => {
       <z-pocket isopen="false">
         <mock:shadow-root>
           <div data-action="pocketBackground" class="false">
-            <div id="">
+            <div id="" style="undefined: rgba(0,0,0,0);">
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-up-fill" width="24" height="24" />
               </header>
@@ -61,7 +61,7 @@ describe("Suite test ZPocket", () => {
       <z-pocket pocketid="pocket" ismodal="true">
         <mock:shadow-root>
           <div data-action="pocketBackground" data-pocket="pocket" class="open modal">
-            <div id="pocket">
+            <div id="pocket" style="undefined: rgba(0,0,0,0);">
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-down-fill" width="24" height="24" />
               </header>
@@ -87,7 +87,7 @@ describe("Suite test ZPocket", () => {
       <z-pocket pocketid="pocket" ismodal="true">
         <mock:shadow-root>
           <div data-action="pocketBackground" data-pocket="pocket" class="open modal">
-            <div id="pocket">
+            <div id="pocket" style="undefined: rgba(0,0,0,0);">
               <header role="button" tabindex="0">
                 <z-icon name="circle-chevron-down-fill" width="24" height="24" />
               </header>
