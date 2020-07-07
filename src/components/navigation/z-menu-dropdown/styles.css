@@ -62,7 +62,7 @@ a:active {
   padding-bottom: var(--basex2);
   width: auto !important;
   min-width: 147px;
-  position: inherit;
+  position: relative;
 }
 
 .menu-opened a,
