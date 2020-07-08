@@ -49,10 +49,18 @@ footer.isopen.trial > h2 {
   background-color: var(--accent);
 }
 
-footer > div {
+footer > div:not(.slot-handler) {
   padding: var(--basex1) var(--basex2);
   height: 40px;
   overflow: hidden;
+}
+
+footer .visible {
+  display: block;
+}
+
+footer .hidden {
+  display: none;
 }
 
 footer > div > p {
@@ -78,7 +86,7 @@ footer > div > p.year_isbn > span.isbn {
   overflow: hidden;
 }
 
-footer.isopen > div {
+footer.isopen > div:not(.slot-handler) {
   height: 70px;
 }
 

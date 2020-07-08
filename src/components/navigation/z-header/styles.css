@@ -6,10 +6,6 @@ header {
   position: sticky;
   top: -32px;
   z-index: 99;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "main-header";
   margin-bottom: 64px;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
@@ -20,7 +16,6 @@ header {
   grid-template-columns: 2fr 2fr 4fr 100px;
   grid-template-rows: 1fr;
   grid-template-areas: "logo link-int link-ext login";
-  grid-area: main-header;
   grid-column-gap: var(--half-x1);
   align-items: center;
   background-color: var(--bg-grey-900);
@@ -48,13 +43,6 @@ header {
   justify-content: flex-end;
   align-items: center;
   align-content: center;
-}
-
-.editors > ::slotted(img) {
-  height: 32px;
-  width: auto;
-  margin: 0;
-  transform: scale(0.6);
 }
 
 .main-header.myz-out {
@@ -513,7 +501,7 @@ hr {
 
   .main-header {
     display: grid;
-    grid-template-columns: 170px 168px 4fr 120px;
+    grid-template-columns: 170px 84px 4fr 120px;
     grid-template-rows: 1fr;
     grid-template-areas: "logo link-int link-ext login";
     grid-area: main-header;
@@ -618,6 +606,6 @@ hr {
 /* Desktop breakpoint */
 @media only screen and (min-width: 1025px) {
   .main-header {
-    grid-template-columns: 170px 168px 4fr 180px;
+    grid-template-columns: 170px 84px 4fr 180px;
   }
 }

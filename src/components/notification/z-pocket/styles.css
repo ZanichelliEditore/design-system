@@ -1,0 +1,97 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host > div {
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  z-index: 99999;
+}
+
+:host > div.open {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+:host > div.modal {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+:host > div > div {
+  z-index: 1010;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+:host > div > div > header {
+  background: var(--bg-white);
+  border-radius: 8px 8px 0px 0px;
+  box-shadow: 0px -2px 4px 0px rgba(66, 69, 72, 0.4);
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+:host > div > div > header:focus {
+  outline: none;
+}
+
+:host > div > div > header::-moz-focus-inner {
+  border: 0;
+}
+
+:host > div > div > header > z-icon {
+  fill: var(--myz-blue);
+}
+
+:host > div > div > header:focus > z-icon {
+  outline: 1px dotted;
+}
+
+:host > div > div > main {
+  background: white;
+  overflow-y: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  width: 100%;
+  max-height: 0;
+  transition: all 200ms ease-in-out, top 200ms ease-in-out;
+}
+
+:host > div > div > main.open {
+  max-height: calc(100vh - 150px);
+  transition: all 500ms ease-in-out, top 500ms ease-in-out;
+}
+
+:host > div > div > main::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  :host {
+    display: none;
+  }
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1025px) {
+}

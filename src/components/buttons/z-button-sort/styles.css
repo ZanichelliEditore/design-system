@@ -1,3 +1,7 @@
+:host, button{
+  max-width: 100%;
+}
+
 button {
   height: 36px;
   border: var(--border-base) solid var(--myz-blue);
@@ -41,21 +45,54 @@ button.selected {
   fill: var(--bg-white);
 }
 
-button>label {
+button > label {
   cursor: pointer;
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+button > label > span.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+button > label > span.counter {
+  margin-left: var(--half-x1);
   margin-right: var(--basex2);
 }
 
-button>span {
+button > label > span.sort {
+  margin-right: var(--half-x1);
+  white-space: nowrap;
+}
+
+button > span {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
   margin-right: var(--half-x1);
 }
 
-button>z-icon {
+button > z-icon {
   padding-top: var(--half-x1);
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  :host, button {
+    max-width: 325px;
+  }
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1025px) {
+  :host, button {
+    max-width: 490px;
+  }
 }

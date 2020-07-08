@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "1.0.0",
+  "version": "1.0.4-rc.8",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -23,6 +23,7 @@
     "test.watch": "stencil test --spec --watch",
     "test.e2e": "stencil test --e2e",
     "release": "yarn build && yarn publish --registry https://registry.npmjs.com --access public",
+    "release-rc": "yarn release --tag rc",
     "start-storybook": "yarn build && start-storybook -p 3003 -s ./dist,./src/assets --ci",
     "build-storybook": "yarn build && build-storybook -c .storybook -s ./dist,./src/assets . -o storybook"
   },
@@ -36,7 +37,7 @@
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/web-components": "^5.3.13",
     "@types/hammerjs": "^2.0.36",
-    "@types/jest": "24.0.24",
+    "@types/jest": "25.2.3",
     "@types/puppeteer": "1.20.3",
     "babel-loader": "^8.0.6",
     "jest": "24.9.0",
