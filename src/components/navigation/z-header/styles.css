@@ -10,7 +10,7 @@ header {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: "main-header";
-  margin-bottom: 64px;
+  margin-bottom: 52px;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 }
@@ -369,8 +369,6 @@ hr {
 
 .link-int > span > .menu-item > span {
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .link-int > span > .menu-item > i {
@@ -513,7 +511,7 @@ hr {
 
   .main-header {
     display: grid;
-    grid-template-columns: 170px 168px 4fr 120px;
+    grid-template-columns: 170px auto auto 120px;
     grid-template-rows: 1fr;
     grid-template-areas: "logo link-int link-ext login";
     grid-area: main-header;
@@ -560,6 +558,7 @@ hr {
     justify-content: flex-start;
     align-items: center;
     align-content: center;
+    width: auto;
   }
 
   .link-int > span > .menu-item {
@@ -618,6 +617,6 @@ hr {
 /* Desktop breakpoint */
 @media only screen and (min-width: 1025px) {
   .main-header {
-    grid-template-columns: 170px 168px 4fr 180px;
+    grid-template-columns: 170px auto auto 180px;
   }
 }
