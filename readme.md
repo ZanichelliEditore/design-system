@@ -7,7 +7,7 @@ Zanichelli's design system is widely documented on Zeroheight at this [link](htt
 ## Install
 
 ```bash
-yarn add zanichelli-web-components-library
+yarn add @zanichelli/albe-web-components
 ```
 
 ## Start Library Development Server
@@ -38,7 +38,7 @@ yarn link
 #### In the destination project folder run
 
 ```
-yarn link zanichelli-web-components-library
+yarn link @zanichelli/albe-web-components
 ```
 
 ----
@@ -125,10 +125,36 @@ yarn build
 
 ## Usage
 
-```javascript
-import { defineCustomElements as defineComponents } from 'zanichelli-web-components-library/loader';
+### CSS Custom Properties
 
-defineComponents(window);
+The library provides a global css variables export. You can import the styles by ES6 import:
+
+```javascript
+import '@zanichelli/albe-web-components/www/build/web-components-library.css';
+```
+or via link tag:
+
+```html
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/@zanichelli/albe-web-components/www/build/web-components-library.css" />
+```
+
+
+### Custom Elements
+
+You can use the library by importing the custom elements from npm package:
+
+```javascript
+import { defineCustomElements, applyPolyfills } from '@zanichelli/albe-web-components/loader';
+
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});
+```
+
+or via a script tag:
+
+```html
+<script src="https://unpkg.com/@zanichelli/albe-web-components/dist/web-components-library/web-components-library.esm.js"></script> 
 ```
 
 Then use the relative tag as a usual component in your markup.
