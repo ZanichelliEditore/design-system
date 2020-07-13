@@ -7,7 +7,8 @@ import {
   Event,
   EventEmitter,
   Watch,
-  Element
+  Element,
+  Listen
 } from "@stencil/core";
 import {
   InputTypeBean,
@@ -96,6 +97,23 @@ export class ZInput {
     }
   }
 
+  @Listen("inputCheck", { target: "document" })
+  inputCheckListener(e: CustomEvent) {
+    const data = e.detail;
+    switch (this.type) {
+      case InputTypeEnum.radio:
+        if (
+          data.type === InputTypeEnum.radio &&
+          data.name === this.name &&
+          data.id !== this.htmlid
+        ) {
+          this.checked = false;
+        }
+      default:
+        return;
+    }
+  }
+
   /** get the input value */
   @Method()
   async getValue(): Promise<string> {
@@ -156,7 +174,8 @@ export class ZInput {
     this.inputCheck.emit({
       id: this.htmlid,
       checked: checked,
-      type: this.type
+      type: this.type,
+      name: this.name
     });
   }
 
