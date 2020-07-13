@@ -1,0 +1,26 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="Indicators/Stepper" component="z-stepper" />
+
+# ZStepper
+
+<Preview>
+  <Story name="Initial">
+    {html`<z-stepper>
+      <z-stepper-item index="1" status="active"></z-stepper-item>
+      <z-stepper-item index="2"></z-stepper-item>
+      <z-stepper-item index="3"></z-stepper-item>
+    </z-stepper>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Completed">
+    {html`<z-stepper>
+      <z-stepper-item index="1" status="done">I tuoi dati</z-stepper-item>
+      <z-stepper-item index="2" status="done">Le tue credenziali</z-stepper-item>
+      <z-stepper-item index="3" status="active">Conferma</z-stepper-item>
+    </z-stepper>`}
+  </Story>
+</Preview>

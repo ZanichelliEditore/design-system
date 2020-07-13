@@ -1,0 +1,19 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="Indicators/Stepper/Item" component="z-stepper-item" />
+
+# ZStepperItem
+
+<Preview>
+  <Story name="With index">
+    {html`<z-stepper-item index="1"></z-stepper-item>`}
+  </Story>
+  <Story name="With text">
+    {html`<z-stepper-item index="1">First step</z-stepper-item>`}
+  </Story>
+</Preview>
+
+<Props of="z-stepper-item" />
+
+

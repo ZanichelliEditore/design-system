@@ -669,6 +669,18 @@ export namespace Components {
          */
         "slideshowid": string;
     }
+    interface ZStepper {
+    }
+    interface ZStepperItem {
+        /**
+          * The number of the step item.
+         */
+        "index": number;
+        /**
+          * The status of the item.
+         */
+        "status": string;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -881,6 +893,18 @@ declare global {
         prototype: HTMLZSlideshowElement;
         new (): HTMLZSlideshowElement;
     };
+    interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
+    }
+    var HTMLZStepperElement: {
+        prototype: HTMLZStepperElement;
+        new (): HTMLZStepperElement;
+    };
+    interface HTMLZStepperItemElement extends Components.ZStepperItem, HTMLStencilElement {
+    }
+    var HTMLZStepperItemElement: {
+        prototype: HTMLZStepperItemElement;
+        new (): HTMLZStepperItemElement;
+    };
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
     }
     var HTMLZToggleButtonElement: {
@@ -925,6 +949,8 @@ declare global {
         "z-panel-elem": HTMLZPanelElemElement;
         "z-pocket": HTMLZPocketElement;
         "z-slideshow": HTMLZSlideshowElement;
+        "z-stepper": HTMLZStepperElement;
+        "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
     }
@@ -1650,6 +1676,18 @@ declare namespace LocalJSX {
          */
         "slideshowid"?: string;
     }
+    interface ZStepper {
+    }
+    interface ZStepperItem {
+        /**
+          * The number of the step item.
+         */
+        "index"?: number;
+        /**
+          * The status of the item.
+         */
+        "status"?: string;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -1710,6 +1748,8 @@ declare namespace LocalJSX {
         "z-panel-elem": ZPanelElem;
         "z-pocket": ZPocket;
         "z-slideshow": ZSlideshow;
+        "z-stepper": ZStepper;
+        "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
     }
@@ -1749,6 +1789,8 @@ declare module "@stencil/core" {
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
             "z-pocket": LocalJSX.ZPocket & JSXBase.HTMLAttributes<HTMLZPocketElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
+            "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
+            "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
         }
