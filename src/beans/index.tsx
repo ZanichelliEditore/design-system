@@ -114,6 +114,7 @@ export enum InputTypeEnum {
   email = "email",
   textarea = "textarea",
   checkbox = "checkbox",
+  radio = "radio",
   select = "select"
 }
 
@@ -170,5 +171,5 @@ export type DeviceType = DeviceEnum;
 export enum StepperItemStatus {
   IDLE = "idle",
   ACTIVE = "active",
-  DONE = "done",
+  DONE = "done"
 }
