@@ -376,7 +376,7 @@ export class ZInput {
           htmlFor={this.htmlid}
           class={`radioLabel ${this.labelafter ? "after" : "before"}`}
         >
-          //TODO: utilizzare icon corretta - da importare
+          {/* TODO: utilizzare icon corretta - da importare */}
           <z-icon
             name={this.checked ? "checkbox-selected" : "checkbox-unchecked"}
             aria-hidden={true}
