@@ -635,13 +635,21 @@ export namespace Components {
     }
     interface ZStepperItem {
         /**
+          * The disabled state of the item.
+         */
+        "disabled": boolean;
+        /**
+          * The href to navigate on click.
+         */
+        "href": string;
+        /**
           * The number of the step item.
          */
         "index": number;
         /**
-          * The status of the item.
+          * The pressed state of the item.
          */
-        "status": string;
+        "pressed": boolean;
     }
     interface ZToggleButton {
         /**
@@ -1583,13 +1591,21 @@ declare namespace LocalJSX {
     }
     interface ZStepperItem {
         /**
+          * The disabled state of the item.
+         */
+        "disabled"?: boolean;
+        /**
+          * The href to navigate on click.
+         */
+        "href"?: string;
+        /**
           * The number of the step item.
          */
         "index"?: number;
         /**
-          * The status of the item.
+          * The pressed state of the item.
          */
-        "status"?: string;
+        "pressed"?: boolean;
     }
     interface ZToggleButton {
         /**

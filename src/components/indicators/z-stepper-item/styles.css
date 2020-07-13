@@ -1,7 +1,4 @@
 :host {
-  --indicator-color: var(--text-grey-800);
-  --indicator-background: var(--bg-grey-200);
-  --indicator-border: currentColor;
   position: relative;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
@@ -29,9 +26,25 @@
   flex-direction: column;
   align-items: center;
   width: calc(var(--basex6) + var(--basex4));
+  padding: 0;
+  color: inherit;
   white-space: nowrap;
+  font-family: inherit;
   font-size: 18px;
+  text-decoration: none;
   line-height: 28px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  appearance: none;
+}
+
+:host(:not([disabled])) .stepper-item {
+  cursor: pointer;
+}
+
+:host([disabled]) .stepper-item {
+  pointer-events: none;
 }
 
 .indicator {
@@ -46,21 +59,34 @@
   font-size: 16px;
   font-weight: var(--font-sb);
   line-height: 1;
-  color: var(--indicator-color);
-  background: var(--indicator-background);
-  border: 2px solid var(--indicator-border);
+  color: var(--myz-blue);
+  background: var(--bg-white);
+  border: 2px solid var(--myz-blue);
   border-radius: 50%;
 }
 
-:host([status='done']) {
-  --indicator-color: var(--myz-blue);
-  --indicator-background: var(--bg-white);
+:host(:not([disabled]):not([pressed]):hover) .indicator {
+  color: var(--myz-blue-dark);
+  border-color: var(--myz-blue-dark);
 }
 
-:host([status='active']) {
-  --indicator-color: var(--text-white);
-  --indicator-background: var(--myz-blue);
-  --indicator-border: var(--myz-blue);
+:host(:not([disabled]):not([pressed]):focus-within) .indicator {
+  color: var(--myz-blue);
+  border-color: var(--myz-blue);
+  box-shadow: 0px 0px 2px 2px var(--accent-dark);
+}
+
+:host([pressed]:not([disabled])) .indicator {
+  color: var(--text-white);
+  background: var(--myz-blue);
+  border-color: var(--myz-blue);
+  box-shadow: none;
+}
+
+:host([disabled]) .indicator {
+  color: var(--text-grey-800);
+  background: var(--bg-grey-200);
+  border-color: var(--text-grey-800);
 }
 
 /* Mobile breakpoint */

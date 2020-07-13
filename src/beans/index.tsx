@@ -150,9 +150,3 @@ export type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
-
-export enum StepperItemStatus {
-  IDLE = "idle",
-  ACTIVE = "active",
-  DONE = "done",
-}

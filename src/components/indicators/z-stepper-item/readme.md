@@ -10,10 +10,12 @@
 
 ## Properties
 
-| Property | Attribute | Description                  | Type     | Default                  |
-| -------- | --------- | ---------------------------- | -------- | ------------------------ |
-| `index`  | `index`   | The number of the step item. | `number` | `undefined`              |
-| `status` | `status`  | The status of the item.      | `string` | `StepperItemStatus.IDLE` |
+| Property   | Attribute  | Description                     | Type      | Default     |
+| ---------- | ---------- | ------------------------------- | --------- | ----------- |
+| `disabled` | `disabled` | The disabled state of the item. | `boolean` | `undefined` |
+| `href`     | `href`     | The href to navigate on click.  | `string`  | `undefined` |
+| `index`    | `index`    | The number of the step item.    | `number`  | `undefined` |
+| `pressed`  | `pressed`  | The pressed state of the item.  | `boolean` | `undefined` |
 
 
 ----------------------------------------------

@@ -593,24 +593,24 @@
           </z-icon-pacakge>
       </div>
       <z-stepper>
-        <z-stepper-item index="1" status="active"></z-stepper-item>
-        <z-stepper-item index="2"></z-stepper-item>
-        <z-stepper-item index="3"></z-stepper-item>
+        <z-stepper-item index="1" pressed></z-stepper-item>
+        <z-stepper-item index="2" disabled></z-stepper-item>
+        <z-stepper-item index="3" disabled></z-stepper-item>
       </z-stepper>
       <z-stepper>
-        <z-stepper-item index="1" status="active">I tuoi dati</z-stepper-item>
+        <z-stepper-item index="1">I tuoi dati</z-stepper-item>
+        <z-stepper-item index="2" pressed>Le tue credenziali</z-stepper-item>
+        <z-stepper-item index="3" disabled>Conferma</z-stepper-item>
+      </z-stepper>
+      <z-stepper>
+        <z-stepper-item index="1">I tuoi dati</z-stepper-item>
         <z-stepper-item index="2">Le tue credenziali</z-stepper-item>
-        <z-stepper-item index="3">Conferma</z-stepper-item>
+        <z-stepper-item index="3" pressed>Conferma</z-stepper-item>
       </z-stepper>
       <z-stepper>
-        <z-stepper-item index="1" status="done">I tuoi dati</z-stepper-item>
-        <z-stepper-item index="2" status="active">Le tue credenziali</z-stepper-item>
-        <z-stepper-item index="3">Conferma</z-stepper-item>
-      </z-stepper>
-      <z-stepper>
-        <z-stepper-item index="1" status="done">I tuoi dati</z-stepper-item>
-        <z-stepper-item index="2" status="done">Le tue credenziali</z-stepper-item>
-        <z-stepper-item index="3" status="active">Conferma</z-stepper-item>
+        <z-stepper-item href="#stepper1" index="1">I tuoi dati</z-stepper-item>
+        <z-stepper-item href="#stepper2" index="2">Le tue credenziali</z-stepper-item>
+        <z-stepper-item href="#stepper3" index="3" pressed>Conferma</z-stepper-item>
       </z-stepper>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
