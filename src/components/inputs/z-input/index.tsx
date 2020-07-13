@@ -113,6 +113,7 @@ export class ZInput {
   async isChecked(): Promise<boolean> {
     switch (this.type) {
       case InputTypeEnum.checkbox:
+      case InputTypeEnum.radio:
         return this.checked;
       default:
         return false;
@@ -149,10 +150,14 @@ export class ZInput {
     this.stopTyping.emit({ value: value });
   }
 
-  /** Emitted on checkbox check/uncheck, returns id, checked */
+  /** Emitted on checkbox check/uncheck, returns id, checked, type */
   @Event() inputCheck: EventEmitter;
   emitInputCheck(checked: boolean) {
-    this.inputCheck.emit({ id: this.htmlid, checked: checked });
+    this.inputCheck.emit({
+      id: this.htmlid,
+      checked: checked,
+      type: this.type
+    });
   }
 
   /** Emitted on select option selection, returns select id, selected option id */
@@ -327,6 +332,43 @@ export class ZInput {
 
   /* END checkbox */
 
+  /* START radio */
+
+  handleRadioChange() {
+    this.checked = true;
+    this.emitInputCheck(this.checked);
+  }
+
+  renderRadio() {
+    return (
+      <div class="radioWrapper">
+        <input
+          id={this.htmlid}
+          type="radio"
+          name={this.name}
+          checked={this.checked}
+          value={this.value}
+          disabled={this.disabled}
+          readonly={this.readonly}
+          onChange={() => this.handleRadioChange()}
+        />
+
+        <label
+          htmlFor={this.htmlid}
+          class={`radioLabel ${this.labelafter ? "after" : "before"}`}
+        >
+          //TODO: utilizzare icon corretta - da importare
+          <z-icon
+            name={this.checked ? "checkbox-selected" : "checkbox-unchecked"}
+            aria-hidden={true}
+          />
+          {this.label && <span innerHTML={this.label} />}
+        </label>
+      </div>
+    );
+  }
+  /* END radio */
+
   /* START select */
 
   renderSelect() {
@@ -489,6 +531,8 @@ export class ZInput {
         return this.renderTextarea();
       case InputTypeEnum.checkbox:
         return this.renderCheckbox();
+      case InputTypeEnum.radio:
+        return this.renderRadio();
       case InputTypeEnum.select:
         return this.renderSelect();
       default:

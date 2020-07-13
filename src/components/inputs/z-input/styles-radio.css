@@ -1,4 +1,4 @@
-:host > .checkboxWrapper {
+:host > .radioWrapper {
   display: inline-block;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
@@ -6,7 +6,7 @@
   position: relative;
 }
 
-:host > .checkboxWrapper > input[type="checkbox"] {
+:host > .radioWrapper > input[type="radio"] {
   opacity: 0;
   position: absolute;
   z-index: 0;
@@ -20,7 +20,7 @@
   color: var(--text-grey-700);
 }
 
-:host > .checkboxWrapper > label.checkboxLabel {
+:host > .radioWrapper > label.radioLabel {
   display: inline-flex;
   line-height: 16px;
   color: inherit;
@@ -31,43 +31,39 @@
   margin: 0;
 }
 
-:host > .checkboxWrapper > label.checkboxLabel.after {
+:host > .radioWrapper > label.radioLabel.after {
   flex-direction: row;
 }
 
-:host > .checkboxWrapper > label.checkboxLabel.before {
+:host > .radioWrapper > label.radioLabel.before {
   flex-direction: row-reverse;
 }
 
-:host > .checkboxWrapper > label.checkboxLabel.after > span {
+:host > .radioWrapper > label.radioLabel.after > span {
   margin-left: var(--basex1);
 }
 
-:host > .checkboxWrapper > label.checkboxLabel.before > span {
+:host > .radioWrapper > label.radioLabel.before > span {
   margin-right: var(--basex1);
 }
 
-:host > .checkboxWrapper > label.checkboxLabel > z-icon {
+:host > .radioWrapper > label.radioLabel > z-icon {
   fill: var(--myz-blue);
   height: 18px;
   width: 18px;
 }
 
 /* focus */
-:host
-  > .checkboxWrapper
-  > input[type="checkbox"]:focus
-  + label.checkboxLabel
-  > z-icon {
+:host > .radioWrapper > input[type="radio"]:focus + label.radioLabel > z-icon {
   box-shadow: 0 0 2px 2px var(--accent-dark);
-  border-radius: 2px;
+  border-radius: 50%;
 }
 
 /* disabled */
 :host
-  > .checkboxWrapper
-  > input[type="checkbox"]:disabled
-  + label.checkboxLabel
+  > .radioWrapper
+  > input[type="radio"]:disabled
+  + label.radioLabel
   > z-icon {
   fill: var(--bg-grey-700);
   cursor: default;
@@ -75,9 +71,9 @@
 
 /* readonly */
 :host
-  > .checkboxWrapper
-  > input[type="checkbox"][readonly]
-  + label.checkboxLabel
+  > .radioWrapper
+  > input[type="radio"][readonly]
+  + label.radioLabel
   > z-icon {
   fill: var(--bg-grey-800);
   pointer-events: none;
