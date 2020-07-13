@@ -73,7 +73,11 @@ export class ZModal {
   render() {
     return (
       <div data-action="modalBackground" data-modal={this.modalid}>
-        <div class="scrollWrapper">
+        <div
+          class="scrollWrapper"
+          data-action="modalBackground"
+          data-modal={this.modalid}
+        >
           <div id={this.modalid}>
             {this.renderHeader()}
             <main class={!this.hasheader && "noHeader"}>
