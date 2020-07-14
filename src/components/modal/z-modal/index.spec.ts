@@ -12,7 +12,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
           <div data-action="modalBackground">
-            <div class="scrollWrapper">
+            <div class="scrollWrapper" data-action="modalBackground">
               <div id="">
                 <header>
                   <div>
@@ -40,7 +40,7 @@ describe("Suite test ZModal", () => {
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle">
         <mock:shadow-root>
           <div data-action="modalBackground" data-modal="modal">
-            <div class="scrollWrapper">
+            <div class="scrollWrapper" data-action="modalBackground" data-modal="modal">
               <div id="modal">
                 <header>
                   <div>
@@ -74,7 +74,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
           <div data-action="modalBackground">
-            <div class="scrollWrapper">
+            <div class="scrollWrapper" data-action="modalBackground">
               <div id="">
                 <header>
                   <div>
@@ -103,7 +103,7 @@ describe("Suite test ZModal", () => {
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" hasheader="false">
         <mock:shadow-root>
           <div data-action="modalBackground" data-modal="modal">
-            <div class="scrollWrapper">
+            <div class="scrollWrapper" data-action="modalBackground" data-modal="modal">
               <div id="modal">
                 <div class="iconWrapper">
                   <z-icon name="circle-cross-fill" tabindex="0" width="24" height="24" data-action="modalClose" data-modal="modal" />
