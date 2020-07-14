@@ -147,7 +147,7 @@
 | Event          | Description                                                               | Type               |
 | -------------- | ------------------------------------------------------------------------- | ------------------ |
 | `inputChange`  | Emitted on input value change, returns value, keycode                     | `CustomEvent<any>` |
-| `inputCheck`   | Emitted on checkbox check/uncheck, returns id, checked, type, name        | `CustomEvent<any>` |
+| `inputCheck`   | Emitted on checkbox check/uncheck, returns id, checked, type, name, value | `CustomEvent<any>` |
 | `optionSelect` | Emitted on select option selection, returns select id, selected option id | `CustomEvent<any>` |
 | `startTyping`  | Emitted when user starts typing                                           | `CustomEvent<any>` |
 | `stopTyping`   | Emitted when user stops typing, returns value                             | `CustomEvent<any>` |
