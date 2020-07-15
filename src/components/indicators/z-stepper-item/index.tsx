@@ -28,14 +28,14 @@ export class ZStepperItem {
       return (
         <a href={this.href} class="stepper-item">
           <div class="indicator">{this.index}</div>
-          <slot />
+          <span><slot /></span>
         </a>
       );
     }
     return (
       <button class="stepper-item">
         <div class="indicator">{this.index}</div>
-        <slot />
+        <span><slot /></span>
       </button>
     );
   }
