@@ -151,3 +151,25 @@ export type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
+
+export enum AlertTypesEnum {
+  success = "success",
+  warning = "warning",
+  error = "error"
+}
+
+export type AlertTypes = AlertTypesEnum;
+
+export enum DeviceEnum {
+  mobile = "mobile",
+  tablet = "tablet",
+  desktop = "desktop"
+}
+
+export type DeviceType = DeviceEnum;
+
+export enum StepperItemStatus {
+  IDLE = "idle",
+  ACTIVE = "active",
+  DONE = "done"
+}

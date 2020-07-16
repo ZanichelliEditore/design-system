@@ -62,7 +62,7 @@ a:active {
   padding-bottom: var(--basex2);
   width: auto !important;
   min-width: 147px;
-  position: inherit;
+  position: relative;
 }
 
 .menu-opened a,
@@ -82,9 +82,8 @@ a:active {
 }
 div > img,
 div > z-icon {
-  width: 14px;
-  height: 14px;
   padding-left: var(--half-x3);
+  padding-right: var(--half-x1);
 }
 
 div > span.arrow {
@@ -98,13 +97,11 @@ div > span.arrow {
 span.arrow > z-icon {
   transform: rotate(360deg);
   transition: all 200ms linear;
-  margin-top: var(--basex1);
 }
 
 .menu-opened span.arrow > z-icon {
   transform: rotate(180deg);
   transition: all 200ms linear;
-  margin-top: -8px;
 }
 
 div > span.user {
@@ -117,7 +114,7 @@ div > span.user {
 
 ul {
   list-style: none;
-  padding-inline-start: var(--basex4);
+  padding-left: var(--basex4);
   margin: 0px;
 }
 

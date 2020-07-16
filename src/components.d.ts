@@ -5,10 +5,16 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
-import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 export namespace Components {
+    interface ZAlert {
+        /**
+          * alert variant type
+         */
+        "type": AlertTypes;
+    }
     interface ZButton {
         /**
           * disable button
@@ -533,6 +539,10 @@ export namespace Components {
     }
     interface ZModal {
         /**
+          * has header (optional)
+         */
+        "hasheader"?: boolean;
+        /**
           * unique id
          */
         "modalid": string;
@@ -631,6 +641,46 @@ export namespace Components {
          */
         "url": string;
     }
+    interface ZPocket {
+        /**
+          * close z-pocket
+         */
+        "close": () => Promise<void>;
+        /**
+          * pocket is modal (dark background) (optional)
+         */
+        "ismodal"?: boolean;
+        /**
+          * pocket is open (optional)
+         */
+        "isopen"?: boolean;
+        /**
+          * pocket id
+         */
+        "pocketid": string;
+    }
+    interface ZSlideshow {
+        /**
+          * array or JSON stringified images urls
+         */
+        "data": string[] | string;
+        /**
+          * slideshow id
+         */
+        "slideshowid": string;
+    }
+    interface ZStepper {
+    }
+    interface ZStepperItem {
+        /**
+          * The number of the step item.
+         */
+        "index": number;
+        /**
+          * The status of the item.
+         */
+        "status": string;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -657,6 +707,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
+    }
+    var HTMLZAlertElement: {
+        prototype: HTMLZAlertElement;
+        new (): HTMLZAlertElement;
+    };
     interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {
     }
     var HTMLZButtonElement: {
@@ -825,6 +881,30 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZPocketElement extends Components.ZPocket, HTMLStencilElement {
+    }
+    var HTMLZPocketElement: {
+        prototype: HTMLZPocketElement;
+        new (): HTMLZPocketElement;
+    };
+    interface HTMLZSlideshowElement extends Components.ZSlideshow, HTMLStencilElement {
+    }
+    var HTMLZSlideshowElement: {
+        prototype: HTMLZSlideshowElement;
+        new (): HTMLZSlideshowElement;
+    };
+    interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
+    }
+    var HTMLZStepperElement: {
+        prototype: HTMLZStepperElement;
+        new (): HTMLZStepperElement;
+    };
+    interface HTMLZStepperItemElement extends Components.ZStepperItem, HTMLStencilElement {
+    }
+    var HTMLZStepperItemElement: {
+        prototype: HTMLZStepperItemElement;
+        new (): HTMLZStepperItemElement;
+    };
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
     }
     var HTMLZToggleButtonElement: {
@@ -838,6 +918,7 @@ declare global {
         new (): HTMLZTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "z-alert": HTMLZAlertElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
@@ -866,11 +947,21 @@ declare global {
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-pocket": HTMLZPocketElement;
+        "z-slideshow": HTMLZSlideshowElement;
+        "z-stepper": HTMLZStepperElement;
+        "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
     }
 }
 declare namespace LocalJSX {
+    interface ZAlert {
+        /**
+          * alert variant type
+         */
+        "type"?: AlertTypes;
+    }
     interface ZButton {
         /**
           * disable button
@@ -1435,6 +1526,10 @@ declare namespace LocalJSX {
     }
     interface ZModal {
         /**
+          * has header (optional)
+         */
+        "hasheader"?: boolean;
+        /**
           * unique id
          */
         "modalid"?: string;
@@ -1553,6 +1648,46 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface ZPocket {
+        /**
+          * pocket is modal (dark background) (optional)
+         */
+        "ismodal"?: boolean;
+        /**
+          * pocket is open (optional)
+         */
+        "isopen"?: boolean;
+        /**
+          * Emitted on pocket toggle, returns pocket id and open status (boolean)
+         */
+        "onPocketToggle"?: (event: CustomEvent<any>) => void;
+        /**
+          * pocket id
+         */
+        "pocketid"?: string;
+    }
+    interface ZSlideshow {
+        /**
+          * array or JSON stringified images urls
+         */
+        "data"?: string[] | string;
+        /**
+          * slideshow id
+         */
+        "slideshowid"?: string;
+    }
+    interface ZStepper {
+    }
+    interface ZStepperItem {
+        /**
+          * The number of the step item.
+         */
+        "index"?: number;
+        /**
+          * The status of the item.
+         */
+        "status"?: string;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -1582,6 +1717,7 @@ declare namespace LocalJSX {
         "type"?: TooltipPosition;
     }
     interface IntrinsicElements {
+        "z-alert": ZAlert;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
@@ -1610,6 +1746,10 @@ declare namespace LocalJSX {
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-pocket": ZPocket;
+        "z-slideshow": ZSlideshow;
+        "z-stepper": ZStepper;
+        "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
     }
@@ -1618,6 +1758,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
@@ -1646,6 +1787,10 @@ declare module "@stencil/core" {
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-pocket": LocalJSX.ZPocket & JSXBase.HTMLAttributes<HTMLZPocketElement>;
+            "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
+            "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
+            "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
         }

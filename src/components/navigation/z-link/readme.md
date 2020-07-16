@@ -34,6 +34,13 @@
 | `zLinkClick` | emitted on link click, returns linkId | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot | Description  |
+| ---- | ------------ |
+|      | link content |
+
+
 ## Dependencies
 
 ### Used by

@@ -8,7 +8,7 @@ import { LicenseTypeEnum } from "../../../beans/index";
 @Component({
   tag: "z-card-footer",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: true
 })
 export class ZCardFooter {
   /** volume title */
@@ -26,38 +26,90 @@ export class ZCardFooter {
 
   @State() isOpen: boolean = false;
 
+  @State() allowTooltipAuthors: boolean = false;
+  @State() allowTooltipIsbn: boolean = false;
+
+  private footer?: HTMLElement;
+  private ellipsisAuthors?: HTMLElement;
+  private ellipsisIsbn?: HTMLElement;
+
   @Listen("toggleClick")
   handleToggle(): void {
     this.isOpen = !this.isOpen;
+  }
+
+  getTitleAuthors(): string {
+    return this.allowTooltipAuthors ? this.autori : "";
+  }
+
+  getTitleIsbn(): string {
+    return this.allowTooltipIsbn ? this.isbn : "";
+  }
+
+  componentDidLoad() {
+    this.footer.ontransitionend = event => {
+      if (["visibility", "height"].includes(event.propertyName))
+        this.elementsEllipsis();
+    };
+  }
+
+  elementsEllipsis(): void {
+    this.allowTooltipAuthors = this.elementAuthorsHasEllipsis() ? true : false;
+    this.allowTooltipIsbn = this.elementIsbnHasEllipsis() ? true : false;
+  }
+
+  elementAuthorsHasEllipsis(): boolean {
+    return this.ellipsisAuthors.offsetWidth < this.ellipsisAuthors.scrollWidth;
+  }
+
+  elementIsbnHasEllipsis(): boolean {
+    return this.ellipsisIsbn.offsetWidth < this.ellipsisIsbn.scrollWidth;
   }
 
   retrieveClass() {
     return {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial,
+      trial: this.cardtype === LicenseTypeEnum.trial
     };
   }
 
   render() {
     return (
       <div class={this.faded && "faded"}>
-        <footer class={this.retrieveClass()}>
+        <footer
+          ref={el => (this.footer = el as HTMLElement)}
+          class={this.retrieveClass()}
+        >
           <span class="toggle">
             <slot name="toggle" />
           </span>
           <h2>{this.titolo}</h2>
           <div>
-            <p class="authors">
-              {this.autorilabel}: <b>{this.autori}</b>
+            <p
+              class="authors"
+              ref={el => (this.ellipsisAuthors = el as HTMLElement)}
+            >
+              {this.autorilabel}:
+              <span title={this.getTitleAuthors()}>
+                <b> {this.autori}</b>
+              </span>
             </p>
             <p class="year_isbn">
-              <span class="isbn">
-                ISBN (ed. cartacea): <b>{this.isbn}</b>
+              <span
+                class="isbn"
+                ref={el => (this.ellipsisIsbn = el as HTMLElement)}
+              >
+                ISBN (ed. cartacea):
+                <span title={this.getTitleIsbn()}>
+                  <b> {this.isbn}</b>
+                </span>
               </span>
             </p>
           </div>
-          {this.isOpen && <slot name="list" />}
+          <div class={`slot-handler ${this.isOpen ? 'visible' : 'hidden'}`}>
+            <slot name="list" />
+          </div>
         </footer>
       </div>
     );

@@ -1,4 +1,23 @@
-:root,
+:root {
+  --basex1: 8px;
+  --basex2: 16px;
+  --basex3: 24px;
+  --basex4: 32px;
+  --basex5: 40px;
+  --basex6: 48px;
+  --basex7: 56px;
+  --basex8: 64px;
+
+  --half-x1: 4px;
+  --half-x3: 12px;
+  --half-x5: 20px;
+  --half-x7: 28px;
+  --half-x9: 36px;
+  --half-x11: 44px;
+  --half-x13: 52px;
+  --half-x14: 60px;
+}
+
 :host {
   --basex1: 8px;
   --basex2: 16px;

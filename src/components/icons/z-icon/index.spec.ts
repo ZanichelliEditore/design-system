@@ -1,6 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { icons } from "./icons";
+import { icons } from "../icons";
+
 import { ZIcon } from "./index";
 
 describe("Suite test ZIcon", () => {

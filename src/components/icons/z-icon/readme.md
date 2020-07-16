@@ -40,6 +40,8 @@
  - [z-menu-dropdown](../../navigation/z-menu-dropdown)
  - [z-modal](../../modal/z-modal)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
+ - [z-pocket](../../notification/z-pocket)
+ - [z-slideshow](../../slideshow/z-slideshow)
  - [z-toggle-button](../../buttons/z-toggle-button)
 
 ### Graph
@@ -61,6 +63,8 @@ graph TD;
   z-menu-dropdown --> z-icon
   z-modal --> z-icon
   z-pagination-bar --> z-icon
+  z-pocket --> z-icon
+  z-slideshow --> z-icon
   z-toggle-button --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

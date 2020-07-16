@@ -61,7 +61,7 @@ describe("Suite test ZInput - textarea", () => {
               </div>
             </div>
             <span class="statusMsg msg_error">
-              <z-icon name="circle-cross-stroke" width="14" height="14"></z-icon>
+              <z-icon name="circle-cross" width="14" height="14"></z-icon>
               <span>error message</span>
             </span>
           </div>
