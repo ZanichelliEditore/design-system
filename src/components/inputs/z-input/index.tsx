@@ -125,13 +125,13 @@ export class ZInput {
     if (!this.isTyping) {
       this.emitStartTyping();
     }
-
+    let validity = this.hostElement.shadowRoot.querySelector("input").validity;
     this.value = value;
-    this.inputChange.emit({ value, keycode });
+    this.inputChange.emit({ value, keycode, validity});
 
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      this.emitStopTyping(this.value);
+      this.emitStopTyping(this.value, validity);
     }, this.typingtimeout);
   }
 
@@ -144,9 +144,12 @@ export class ZInput {
 
   /** Emitted when user stops typing, returns value */
   @Event() stopTyping: EventEmitter;
-  emitStopTyping(value: string) {
+  emitStopTyping(value: string, validity: any) {
     this.isTyping = false;
-    this.stopTyping.emit({ value: value });
+    this.stopTyping.emit({
+      value: value,
+      validity: validity,
+    });
   }
 
   /** Emitted on checkbox check/uncheck, returns id, checked */
@@ -185,7 +188,11 @@ export class ZInput {
         ${this.isTyping && "istyping"}
         ${!this.isTyping && this.value && "filled"}
       `,
-      onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode)
+      onInput: (e: any) =>
+        this.emitInputChange(
+          e.target.value,
+          e.keyCode
+        )
     };
   }
 
