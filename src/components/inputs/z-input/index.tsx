@@ -127,7 +127,7 @@ export class ZInput {
     }
     let validity = this.hostElement.shadowRoot.querySelector("input").validity;
     this.value = value;
-    this.inputChange.emit({ value, keycode, validity});
+    this.inputChange.emit({ value, keycode, validity });
 
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
