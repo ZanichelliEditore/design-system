@@ -262,7 +262,7 @@ export class ZInput {
 
     return (
       <span class={`statusMsg msg_${this.status}`}>
-        {this.status ? (
+        {this.status && this.message ? (
           <z-icon name={this.statusIcons[this.status]} width={14} height={14} />
         ) : null}
         <span innerHTML={this.message}></span>
