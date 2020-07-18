@@ -1,11 +1,46 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Card/ZCard" component="z-card" />
 
   # ZCard
+
+<Preview>
+  <Story name="z-card">
+    {html`
+      <z-card
+        cardtype="${text('cardtype', 'reale')}"
+        faded="${boolean('faded', true)}"
+        ishighlighted="${boolean('ishighlighted', true)}"
+        ispressed="${boolean('ispressed', true)}"
+        >
+        <z-card-header titolo="Card Header">
+          <z-card-icon icon="book-delete" slot="icon" />
+        </z-card-header>
+        <z-card-body>
+          <z-card-alert slot="alert" iconName="circle-check" contenttext="Aggiunto"
+            actiontext="Annulla" type="add"></z-card-alert>
+          <z-card-cover
+            slot="cover"
+            titolo="titolo"
+            img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"
+          />
+        </z-card-body>
+        <z-card-footer
+          titolo="title"
+          autori="Authors"
+          isbn="97-88-80-8620-710">
+          <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+          <z-card-list
+            listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+            slot="list" />
+        </z-card-footer>
+      </z-card>`}
+  </Story>
+</Preview>
 
   <Props of="z-card" />
 
