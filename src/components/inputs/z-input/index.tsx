@@ -168,14 +168,15 @@ export class ZInput {
     this.stopTyping.emit({ value: value });
   }
 
-  /** Emitted on checkbox check/uncheck, returns id, checked, type, name */
+  /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value */
   @Event() inputCheck: EventEmitter;
   emitInputCheck(checked: boolean) {
     this.inputCheck.emit({
       id: this.htmlid,
       checked: checked,
       type: this.type,
-      name: this.name
+      name: this.name,
+      value: this.value
     });
   }
 

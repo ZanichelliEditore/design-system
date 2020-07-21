@@ -1362,7 +1362,7 @@ declare namespace LocalJSX {
          */
         "onInputChange"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted on checkbox check/uncheck, returns id, checked, type, name
+          * Emitted on checkbox check/uncheck, returns id, checked, type, name, value
          */
         "onInputCheck"?: (event: CustomEvent<any>) => void;
         /**
