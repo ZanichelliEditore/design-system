@@ -90,9 +90,9 @@
 }
 
 :host([disabled]) .indicator {
-  color: var(--text-grey-800);
+  color: var(--text-grey-700);
   background: var(--bg-grey-200);
-  border-color: var(--text-grey-800);
+  border-color: currentColor;
 }
 
 /* Mobile breakpoint */
