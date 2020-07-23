@@ -45,8 +45,13 @@
   text-align: center;
 }
 
-.stepper-item:not([disabled]) {
+:host(:not([disabled])) .stepper-item {
   cursor: pointer;
+}
+
+
+:host([disabled]) .stepper-item {
+  pointer-events: none;
 }
 
 .indicator {
