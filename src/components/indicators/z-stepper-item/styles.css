@@ -95,7 +95,7 @@
   border-color: currentColor;
 }
 
-/* Mobile breakpoint */
+/* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   :host {
     width: calc(var(--basex4) + var(--basex6));
