@@ -26,14 +26,14 @@ export class ZStepperItem {
   render() {
     if (this.href) {
       return (
-        <a href={this.href} class="stepper-item">
+        <a href={!this.disabled && this.href} class="stepper-item">
           <div class="indicator">{this.index}</div>
           <span><slot /></span>
         </a>
       );
     }
     return (
-      <button class="stepper-item">
+      <button class="stepper-item" disabled={this.disabled}>
         <div class="indicator">{this.index}</div>
         <span><slot /></span>
       </button>

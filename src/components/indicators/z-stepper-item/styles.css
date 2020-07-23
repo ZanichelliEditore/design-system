@@ -45,12 +45,8 @@
   text-align: center;
 }
 
-:host(:not([disabled])) .stepper-item {
+.stepper-item:not([disabled]) {
   cursor: pointer;
-}
-
-:host([disabled]) .stepper-item {
-  pointer-events: none;
 }
 
 .indicator {
@@ -71,22 +67,14 @@
   border-radius: 50%;
 }
 
-:host(:not([disabled]):not([pressed]):hover) .indicator {
-  color: var(--myz-blue-dark);
+:host([pressed]:not([disabled])) .indicator {
+  color: var(--text-white);
+  background: var(--myz-blue-dark);
   border-color: var(--myz-blue-dark);
 }
 
-:host(:not([disabled]):not([pressed]):focus-within) .indicator {
-  color: var(--myz-blue);
-  border-color: var(--myz-blue);
+:host(:not([disabled]):focus-within) .indicator {
   box-shadow: 0px 0px 2px 2px var(--accent-dark);
-}
-
-:host([pressed]:not([disabled])) .indicator {
-  color: var(--text-white);
-  background: var(--myz-blue);
-  border-color: var(--myz-blue);
-  box-shadow: none;
 }
 
 :host([disabled]) .indicator {
