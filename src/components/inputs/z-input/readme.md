@@ -136,6 +136,7 @@
 | `name`          | `name`          | the input name                                                                                      | `string`                                                                                                                                                                  | `undefined`  |
 | `placeholder`   | `placeholder`   | the input placeholder (optional)                                                                    | `string`                                                                                                                                                                  | `undefined`  |
 | `readonly`      | `readonly`      | the input is readonly                                                                               | `boolean`                                                                                                                                                                 | `false`      |
+| `required`      | `required`      | the input is required (optional): available for text, password, number, email, textarea, checkbox   | `boolean`                                                                                                                                                                 | `false`      |
 | `status`        | `status`        | the input status (optional): available for text, password, number, email, textarea, select          | `InputStatusEnum.error \| InputStatusEnum.success \| InputStatusEnum.warning`                                                                                             | `undefined`  |
 | `type`          | `type`          | input types                                                                                         | `InputTypeEnum.checkbox \| InputTypeEnum.email \| InputTypeEnum.number \| InputTypeEnum.password \| InputTypeEnum.select \| InputTypeEnum.text \| InputTypeEnum.textarea` | `undefined`  |
 | `typingtimeout` | `typingtimeout` | timeout setting before trigger `inputChange` event (optional): available for text, textarea         | `number`                                                                                                                                                                  | `300`        |
@@ -146,11 +147,11 @@
 
 | Event          | Description                                                               | Type               |
 | -------------- | ------------------------------------------------------------------------- | ------------------ |
-| `inputChange`  | Emitted on input value change, returns value, keycode                     | `CustomEvent<any>` |
-| `inputCheck`   | Emitted on checkbox check/uncheck, returns id, checked                    | `CustomEvent<any>` |
+| `inputChange`  | Emitted on input value change, returns value, keycode, validity           | `CustomEvent<any>` |
+| `inputCheck`   | Emitted on checkbox check/uncheck, returns id, checked, validity          | `CustomEvent<any>` |
 | `optionSelect` | Emitted on select option selection, returns select id, selected option id | `CustomEvent<any>` |
 | `startTyping`  | Emitted when user starts typing                                           | `CustomEvent<any>` |
-| `stopTyping`   | Emitted when user stops typing, returns value                             | `CustomEvent<any>` |
+| `stopTyping`   | Emitted when user stops typing, returns value, validity                   | `CustomEvent<any>` |
 
 
 ## Methods

@@ -401,6 +401,10 @@ export namespace Components {
          */
         "readonly"?: boolean;
         /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
+        /**
           * set the input value
          */
         "setValue": (value: string) => Promise<void>;
@@ -1267,11 +1271,11 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emitted on input value change, returns value, keycode
+          * Emitted on input value change, returns value, keycode, validity
          */
         "onInputChange"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted on checkbox check/uncheck, returns id, checked
+          * Emitted on checkbox check/uncheck, returns id, checked, validity
          */
         "onInputCheck"?: (event: CustomEvent<any>) => void;
         /**
@@ -1283,7 +1287,7 @@ declare namespace LocalJSX {
          */
         "onStartTyping"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted when user stops typing, returns value
+          * Emitted when user stops typing, returns value, validity
          */
         "onStopTyping"?: (event: CustomEvent<any>) => void;
         /**
@@ -1294,6 +1298,10 @@ declare namespace LocalJSX {
           * the input is readonly
          */
         "readonly"?: boolean;
+        /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
         /**
           * the input status (optional): available for text, password, number, email, textarea, select
          */

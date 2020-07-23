@@ -45,6 +45,8 @@ export class ZInput {
   @Prop() disabled?: boolean = false;
   /** the input is readonly */
   @Prop() readonly?: boolean = false;
+  /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
+  @Prop() required?: boolean = false;
   /** checked: available for checkbox, radio */
   @Prop({ mutable: true }) checked?: boolean = false;
   /** the input placeholder (optional) */
@@ -119,13 +121,18 @@ export class ZInput {
     }
   }
 
-  /** Emitted on input value change, returns value, keycode */
+  /** Emitted on input value change, returns value, keycode, validity */
   @Event() inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number) {
     if (!this.isTyping) {
       this.emitStartTyping();
     }
-    let validity = this.hostElement.shadowRoot.querySelector("input").validity;
+    let validity = {};
+    if (this.type === InputTypeEnum.textarea) {
+      validity = this.getValidity("textarea")
+    } else {
+      validity = this.getValidity("input")
+    }
     this.value = value;
     this.inputChange.emit({ value, keycode, validity });
 
@@ -142,7 +149,7 @@ export class ZInput {
     this.startTyping.emit();
   }
 
-  /** Emitted when user stops typing, returns value */
+  /** Emitted when user stops typing, returns value, validity */
   @Event() stopTyping: EventEmitter;
   emitStopTyping(value: string, validity: any) {
     this.isTyping = false;
@@ -152,10 +159,10 @@ export class ZInput {
     });
   }
 
-  /** Emitted on checkbox check/uncheck, returns id, checked */
+  /** Emitted on checkbox check/uncheck, returns id, checked, validity */
   @Event() inputCheck: EventEmitter;
   emitInputCheck(checked: boolean) {
-    this.inputCheck.emit({ id: this.htmlid, checked: checked });
+    this.inputCheck.emit({ id: this.htmlid, checked: checked, validity: this.getValidity("input") });
   }
 
   /** Emitted on select option selection, returns select id, selected option id */
@@ -172,6 +179,11 @@ export class ZInput {
     }
   }
 
+  getValidity(type: string) {
+    const input = this.hostElement.shadowRoot.querySelector(type) as HTMLInputElement;
+    return input.validity;
+  }
+
   /* START text/password/email/number */
 
   getTextAttributes() {
@@ -182,6 +194,7 @@ export class ZInput {
       value: this.value,
       disabled: this.disabled,
       readonly: this.readonly,
+      required: this.required,
       title: this.htmltitle,
       class: `
         ${this.status ? "input_" + this.status : "input_default"}
@@ -315,6 +328,7 @@ export class ZInput {
           value={this.value}
           disabled={this.disabled}
           readonly={this.readonly}
+          required={this.required}
           onChange={() => this.handleCheckboxChange()}
         />
 
