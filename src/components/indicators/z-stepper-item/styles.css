@@ -1,8 +1,6 @@
 :host {
-  --indicator-color: var(--text-grey-800);
-  --indicator-background: var(--bg-grey-200);
-  --indicator-border: currentColor;
   position: relative;
+  width: calc(var(--basex4) + var(--basex1));
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 }
@@ -13,8 +11,8 @@
 
 :host(:not(:last-child))::after {
   position: absolute;
-  top: var(--basex5);
-  left: calc(var(--basex4) + var(--basex4));
+  top: var(--basex4);
+  left: var(--basex3);
   right: var(--basex2);
   z-index: 1;
   content: '';
@@ -28,10 +26,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(var(--basex6) + var(--basex4));
-  white-space: nowrap;
+  width: calc(var(--basex4) + var(--basex1));
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
   font-size: 18px;
+  text-decoration: none;
   line-height: 28px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  appearance: none;
+}
+
+.stepper-item span {
+  display: none;
+  width: calc(100% + var(--basex4));
+  text-align: center;
+}
+
+:host(:not([disabled])) .stepper-item {
+  cursor: pointer;
+}
+
+
+:host([disabled]) .stepper-item {
+  pointer-events: none;
 }
 
 .indicator {
@@ -40,49 +60,56 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--basex6);
-  height: var(--basex6);
+  width: var(--basex4);
+  height: var(--basex4);
   margin: var(--basex2);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: var(--font-sb);
   line-height: 1;
-  color: var(--indicator-color);
-  background: var(--indicator-background);
-  border: 2px solid var(--indicator-border);
+  color: var(--myz-blue);
+  background: var(--bg-white);
+  border: 2px solid var(--myz-blue);
   border-radius: 50%;
 }
 
-:host([status='done']) {
-  --indicator-color: var(--myz-blue);
-  --indicator-background: var(--bg-white);
+:host([pressed]:not([disabled])) .indicator {
+  color: var(--text-white);
+  background: var(--myz-blue-dark);
+  border-color: var(--myz-blue-dark);
 }
 
-:host([status='active']) {
-  --indicator-color: var(--text-white);
-  --indicator-background: var(--myz-blue);
-  --indicator-border: var(--myz-blue);
+:host(:not([disabled]):focus-within) .indicator {
+  box-shadow: 0px 0px 2px 2px var(--accent-dark);
 }
 
-/* Mobile breakpoint */
-@media only screen and (max-width: 768px) {
+:host([disabled]) .indicator {
+  color: var(--text-grey-700);
+  background: var(--bg-grey-200);
+  border-color: currentColor;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
   :host {
-    width: calc(var(--basex4) + var(--basex4));
+    width: calc(var(--basex4) + var(--basex6));
   }
 
   :host(:not(:last-child))::after {
-    top: var(--basex4);
-    left: calc(var(--basex4) + var(--basex2));
+    top: var(--basex5);
+    left: calc(var(--basex4) + var(--basex4));
   }
 
   .stepper-item {
-    font-size: 0;
-    line-height: 0;
-    width: calc(var(--basex4) + var(--basex4));
+    width: calc(var(--basex6) + var(--basex4));
+  }
+
+  .stepper-item span {
+    display: block;
   }
 
   .indicator {
-    width: var(--basex4);
-    height: var(--basex4);
-    font-size: 14px;
+    width: var(--basex6);
+    height: var(--basex6);
+    font-size: 16px;
   }
 }

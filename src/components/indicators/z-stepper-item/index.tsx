@@ -1,5 +1,4 @@
 import { Component, Prop, h } from '@stencil/core';
-import { StepperItemStatus } from '../../../beans';
 
 @Component({
   tag: 'z-stepper-item',
@@ -10,18 +9,34 @@ export class ZStepperItem {
   /**
    * The number of the step item.
    */
-  @Prop() index: number;
+  @Prop({ attribute: 'index' }) index: number;
   /**
-   * The status of the item.
+   * The href to navigate on click.
    */
-  @Prop() status: string = StepperItemStatus.IDLE;
+  @Prop({ attribute: 'href' }) href: string;
+  /**
+   * The pressed state of the item.
+   */
+  @Prop({ attribute: 'pressed' }) pressed: boolean;
+  /**
+   * The disabled state of the item.
+   */
+  @Prop({ attribute: 'disabled' }) disabled: boolean;
 
   render() {
+    if (this.href) {
+      return (
+        <a href={!this.disabled && this.href} class="stepper-item">
+          <div class="indicator">{this.index}</div>
+          <span><slot /></span>
+        </a>
+      );
+    }
     return (
-      <div class="stepper-item">
+      <button class="stepper-item" disabled={this.disabled}>
         <div class="indicator">{this.index}</div>
-        <slot />
-      </div>
+        <span><slot /></span>
+      </button>
     );
   }
 }

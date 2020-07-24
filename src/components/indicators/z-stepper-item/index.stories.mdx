@@ -12,6 +12,12 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
   <Story name="With text">
     {html`<z-stepper-item index="1">First step</z-stepper-item>`}
   </Story>
+  <Story name="Disabled">
+    {html`<z-stepper-item index="1" disabled>First step</z-stepper-item>`}
+  </Story>
+  <Story name="Pressed">
+    {html`<z-stepper-item index="1" pressed>First step</z-stepper-item>`}
+  </Story>
 </Preview>
 
 <Props of="z-stepper-item" />
