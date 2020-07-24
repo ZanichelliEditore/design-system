@@ -167,9 +167,3 @@ export enum DeviceEnum {
 }
 
 export type DeviceType = DeviceEnum;
-
-export enum StepperItemStatus {
-  IDLE = "idle",
-  ACTIVE = "active",
-  DONE = "done"
-}
