@@ -16,6 +16,8 @@
     "./components/footer/z-footer/index.js",
     "./components/icons/z-icon/index.js",
     "./components/icons/z-icon-package/index.js",
+    "./components/indicators/z-stepper/index.js",
+    "./components/indicators/z-stepper-item/index.js",
     "./components/inputs/z-input/index.js",
     "./components/inputs/z-combobox/index.js",
     "./components/list/z-list/index.js",
