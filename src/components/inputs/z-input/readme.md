@@ -125,10 +125,12 @@
 | Property        | Attribute       | Description                                                                                         | Type                                                                                                                                                                      | Default      |
 | --------------- | --------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | `checked`       | `checked`       | checked: available for checkbox, radio                                                              | `boolean`                                                                                                                                                                 | `false`      |
+| `clearIcon`     | `clear-icon`    |                                                                                                     | `boolean`                                                                                                                                                                 | `true`       |
 | `disabled`      | `disabled`      | the input is disabled                                                                               | `boolean`                                                                                                                                                                 | `false`      |
 | `hasmessage`    | `hasmessage`    | show input helper message (optional): available for text, password, number, email, textarea, select | `boolean`                                                                                                                                                                 | `true`       |
 | `htmlid`        | `htmlid`        | the id of the input element                                                                         | `string`                                                                                                                                                                  | `randomId()` |
 | `htmltitle`     | `htmltitle`     | the input html title (optional)                                                                     | `string`                                                                                                                                                                  | `undefined`  |
+| `icon`          | `icon`          |                                                                                                     | `string`                                                                                                                                                                  | `undefined`  |
 | `items`         | `items`         | items: available for select                                                                         | `SelectItemBean[] \| string`                                                                                                                                              | `undefined`  |
 | `label`         | `label`         | the input label                                                                                     | `string`                                                                                                                                                                  | `undefined`  |
 | `labelafter`    | `labelafter`    | the input label position: available for checkbox, radio                                             | `boolean`                                                                                                                                                                 | `true`       |
@@ -136,7 +138,7 @@
 | `name`          | `name`          | the input name                                                                                      | `string`                                                                                                                                                                  | `undefined`  |
 | `placeholder`   | `placeholder`   | the input placeholder (optional)                                                                    | `string`                                                                                                                                                                  | `undefined`  |
 | `readonly`      | `readonly`      | the input is readonly                                                                               | `boolean`                                                                                                                                                                 | `false`      |
-| `status`        | `status`        | the input status (optional): available for text, password, number, email, textarea, select          | `InputStatusEnum.error \| InputStatusEnum.success \| InputStatusEnum.warning`                                                                                             | `undefined`  |
+| `status`        | `status`        | the input status (optional): available for text, password, number, email, textarea, select          | `InputStatusEnum.error \| InputStatusEnum.selecting \| InputStatusEnum.success \| InputStatusEnum.warning`                                                                | `undefined`  |
 | `type`          | `type`          | input types                                                                                         | `InputTypeEnum.checkbox \| InputTypeEnum.email \| InputTypeEnum.number \| InputTypeEnum.password \| InputTypeEnum.select \| InputTypeEnum.text \| InputTypeEnum.textarea` | `undefined`  |
 | `typingtimeout` | `typingtimeout` | timeout setting before trigger `inputChange` event (optional): available for text, textarea         | `number`                                                                                                                                                                  | `300`        |
 | `value`         | `value`         | the input value                                                                                     | `string`                                                                                                                                                                  | `undefined`  |
@@ -191,6 +193,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [z-combobox](../z-combobox)
+ - [z-select](../z-select)
 
 ### Depends on
 
@@ -201,6 +204,7 @@ Type: `Promise<void>`
 graph TD;
   z-input --> z-icon
   z-combobox --> z-input
+  z-select --> z-input
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

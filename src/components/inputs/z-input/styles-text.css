@@ -14,10 +14,33 @@
   z-index: 1;
 }
 
-:host > div.textWrapper > div > z-icon {
+/* :host > div.textWrapper > div > z-icon.resetIcon {
   position: absolute;
   bottom: var(--half-x3);
   right: var(--half-x3);
   cursor: pointer;
   z-index: 2;
+}
+
+:host > div.textWrapper > div > z-icon.inputIcon {
+  position: absolute;
+  bottom: var(--half-x3);
+  right: var(--half-x3);
+  cursor: pointer;
+  z-index: 2;
+} */
+
+:host > div.textWrapper > div > span.iconsWrapper {
+  position: absolute;
+  bottom: var(--half-x3);
+  right: var(--half-x3);
+  z-index: 2;
+}
+
+:host > div.textWrapper > div > span.iconsWrapper > z-icon {
+  margin-left: var(--half-x1);
+}
+
+:host > div.textWrapper > div > span.iconsWrapper > z-icon.resetIcon {
+  cursor: pointer;
 }

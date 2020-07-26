@@ -64,6 +64,9 @@ export class ZInput {
   /** items: available for select */
   @Prop() items?: SelectItemBean[] | string;
 
+  @Prop() clearIcon?: boolean = true;
+  @Prop() icon?: string;
+
   @State() isTyping: boolean = false;
   @State() textareaWrapperHover: string = "";
   @State() textareaWrapperFocus: string = "";
@@ -195,7 +198,7 @@ export class ZInput {
         {this.renderLabel()}
         <div>
           <input {...this.getTextAttributes()} type={type} />
-          {this.renderResetIcon()}
+          {this.renderIcons()}
         </div>
         {this.renderMessage()}
       </div>
@@ -221,15 +224,32 @@ export class ZInput {
     );
   }
 
+  renderIcons() {
+    return (
+      <span class="iconsWrapper">
+        {this.renderResetIcon()}
+        {this.renderIcon()}
+      </span>
+    );
+  }
+
   renderResetIcon() {
-    if (!this.value || this.disabled || this.readonly) return;
+    if (!this.clearIcon || !this.value || this.disabled || this.readonly)
+      return;
 
     return (
       <z-icon
+        class="resetIcon"
         name="close"
         onClick={(e: any) => this.emitInputChange("", e.keyCode)}
       />
     );
+  }
+
+  renderIcon() {
+    if (!this.icon) return;
+
+    return <z-icon class="inputIcon" name={this.icon} />;
   }
 
   renderMessage() {

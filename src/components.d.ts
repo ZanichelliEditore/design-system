@@ -348,6 +348,7 @@ export namespace Components {
           * checked: available for checkbox, radio
          */
         "checked"?: boolean;
+        "clearIcon"?: boolean;
         /**
           * the input is disabled
          */
@@ -368,6 +369,7 @@ export namespace Components {
           * the input html title (optional)
          */
         "htmltitle"?: string;
+        "icon"?: string;
         /**
           * get checked status
          */
@@ -631,6 +633,57 @@ export namespace Components {
          */
         "url": string;
     }
+    interface ZSelect {
+        "autocomplete"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * get the input value
+         */
+        "getValue": () => Promise<string>;
+        /**
+          * show input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "hasmessage"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid": string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * items: available for select
+         */
+        "items"?: SelectItemBean[] | string;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "message"?: string;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea, select
+         */
+        "status"?: InputStatusBean;
+    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -845,6 +898,12 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
+    }
+    var HTMLZSelectElement: {
+        prototype: HTMLZSelectElement;
+        new (): HTMLZSelectElement;
+    };
     interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
     }
     var HTMLZStepperElement: {
@@ -898,6 +957,7 @@ declare global {
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-select": HTMLZSelectElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
@@ -1264,6 +1324,7 @@ declare namespace LocalJSX {
           * checked: available for checkbox, radio
          */
         "checked"?: boolean;
+        "clearIcon"?: boolean;
         /**
           * the input is disabled
          */
@@ -1280,6 +1341,7 @@ declare namespace LocalJSX {
           * the input html title (optional)
          */
         "htmltitle"?: string;
+        "icon"?: string;
         /**
           * items: available for select
          */
@@ -1587,6 +1649,57 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface ZSelect {
+        "autocomplete"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * show input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "hasmessage"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid"?: string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * items: available for select
+         */
+        "items"?: SelectItemBean[] | string;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "message"?: string;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * Emitted on select option selection, returns select id, selected option id
+         */
+        "onOptionSelect"?: (event: CustomEvent<any>) => void;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea, select
+         */
+        "status"?: InputStatusBean;
+    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -1664,6 +1777,7 @@ declare namespace LocalJSX {
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-select": ZSelect;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
@@ -1702,6 +1816,7 @@ declare module "@stencil/core" {
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
