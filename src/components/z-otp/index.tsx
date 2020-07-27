@@ -6,7 +6,6 @@ import { Component, h, Event, EventEmitter, Prop } from "@stencil/core";
   shadow: true
 })
 export class ZOtp {
-  // Indicate that name should be a public property on the component
   @Prop() inputNum?: number = 6;
 
   private otp: string[];
@@ -36,7 +35,9 @@ export class ZOtp {
               onInput={(e: any) => {
                 this.otp[i] = e.target.value;
                 this.emitInputChange(this.otp.join(""));
-                if (e.key !== "Backspace")
+              }}
+              onKeyUp={(e: any) => {
+                if (e.keyCode !== 8 && e.keyCode !== 46)
                   i < this.inputNum && this.otpRef[i + 1].focus();
               }}
               type="tel"
