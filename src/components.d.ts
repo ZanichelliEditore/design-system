@@ -555,6 +555,9 @@ export namespace Components {
          */
         "modaltitle"?: string;
     }
+    interface ZOtp {
+        "inputNum"?: number;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -863,6 +866,12 @@ declare global {
         prototype: HTMLZModalElement;
         new (): HTMLZModalElement;
     };
+    interface HTMLZOtpElement extends Components.ZOtp, HTMLStencilElement {
+    }
+    var HTMLZOtpElement: {
+        prototype: HTMLZOtpElement;
+        new (): HTMLZOtpElement;
+    };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
     var HTMLZPaginationBarElement: {
@@ -944,6 +953,7 @@ declare global {
         "z-logo": HTMLZLogoElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
         "z-modal": HTMLZModalElement;
+        "z-otp": HTMLZOtpElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
@@ -1550,6 +1560,10 @@ declare namespace LocalJSX {
          */
         "onModalHeaderActive"?: (event: CustomEvent<any>) => void;
     }
+    interface ZOtp {
+        "inputNum"?: number;
+        "onOtpChange"?: (event: CustomEvent<any>) => void;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -1743,6 +1757,7 @@ declare namespace LocalJSX {
         "z-logo": ZLogo;
         "z-menu-dropdown": ZMenuDropdown;
         "z-modal": ZModal;
+        "z-otp": ZOtp;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
@@ -1784,6 +1799,7 @@ declare module "@stencil/core" {
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
+            "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
