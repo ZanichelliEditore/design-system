@@ -205,7 +205,7 @@
 :host > div.selectWrapper > div > div.ulScrollWrapper {
   background: var(--bg-white);
   position: absolute;
-  padding: var(--half-x1) var(--half-x3);
+  padding: var(--half-x1) var(--basex1);
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-top: none;
   width: 100%;
