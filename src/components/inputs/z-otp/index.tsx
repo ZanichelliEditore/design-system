@@ -13,7 +13,6 @@ export class ZOtp {
 
   @Event() otpChange: EventEmitter;
   emitInputChange(value: string) {
-    //if (value.length == this.inputNum)
     this.otpChange.emit({ value });
   }
 
