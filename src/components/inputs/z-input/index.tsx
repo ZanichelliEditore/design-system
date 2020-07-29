@@ -269,10 +269,7 @@ export class ZInput {
     return {
       onFocus: () => (this.textareaWrapperFocus = "focus"),
       onBlur: () => (this.textareaWrapperFocus = ""),
-      onMouseOver: () => {
-        console.log("over");
-        this.textareaWrapperHover = "hover";
-      },
+      onMouseOver: () => (this.textareaWrapperHover = "hover"),
       onMouseOut: () => (this.textareaWrapperHover = "")
     };
   }
