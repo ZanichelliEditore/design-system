@@ -12,6 +12,6 @@ export class ZInputLabel {
   @Prop() disabled?: boolean = false;
 
   render() {
-    return <label class={this.disabled && "disabled"}>{this.value}</label>;
+    return <label class={this.disabled ? "disabled" : ""}>{this.value}</label>;
   }
 }
