@@ -130,23 +130,6 @@
   color: var(--text-grey-700);
 }
 
-/* LABEL */
-:host label {
-  display: block;
-  color: var(--text-grey-800);
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-sb);
-  font-size: 12px;
-  line-height: 16px;
-  text-transform: uppercase;
-  text-align: left;
-  margin: var(--basex1) 0;
-}
-
-:host label.disabledLabel {
-  color: var(--text-grey-700);
-}
-
 /* MESSAGES */
 :host span.statusMsg {
   font-family: var(--dashboard-font);

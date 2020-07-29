@@ -194,7 +194,11 @@ export class ZInput {
       <div class="textWrapper">
         {this.renderLabel()}
         <div>
-          <input {...this.getTextAttributes()} type={type} />
+          <input
+            {...this.getTextAttributes()}
+            type={type}
+            aria-labelledby={`${this.htmlid}_label`}
+          />
           {this.renderResetIcon()}
         </div>
         {this.renderMessage()}
@@ -205,19 +209,13 @@ export class ZInput {
   renderLabel() {
     if (!this.label) return;
 
-    let attributes = {};
-    if (this.type === InputTypeEnum.textarea) {
-      attributes = this.getTextareaExtraAttributes();
-    }
-
     return (
-      <label
-        htmlFor={this.htmlid}
-        class={this.disabled && "disabledLabel"}
-        {...attributes}
-      >
-        {this.label}
-      </label>
+      <z-input-label
+        value={this.label}
+        disabled={this.disabled}
+        aria-label={this.label}
+        id={`${this.htmlid}_label`}
+      />
     );
   }
 
@@ -283,7 +281,10 @@ export class ZInput {
     return {
       onFocus: () => (this.textareaWrapperFocus = "focus"),
       onBlur: () => (this.textareaWrapperFocus = ""),
-      onMouseOver: () => (this.textareaWrapperHover = "hover"),
+      onMouseOver: () => {
+        console.log("over");
+        this.textareaWrapperHover = "hover";
+      },
       onMouseOut: () => (this.textareaWrapperHover = "")
     };
   }
