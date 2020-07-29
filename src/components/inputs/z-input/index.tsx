@@ -69,11 +69,6 @@ export class ZInput {
   @State() textareaWrapperFocus: string = "";
   @State() isOpen: boolean = false;
 
-  private statusIcons = {
-    success: "circle-check",
-    error: "circle-cross-stroke",
-    warning: "circle-warning"
-  };
   private timer;
   private itemsList: SelectItemBean[] = [];
   private selectedItem: SelectItemBean;
@@ -233,14 +228,7 @@ export class ZInput {
   renderMessage() {
     if (!this.hasmessage) return;
 
-    return (
-      <span class={`statusMsg msg_${this.status}`}>
-        {this.status ? (
-          <z-icon name={this.statusIcons[this.status]} width={14} height={14} />
-        ) : null}
-        <span innerHTML={this.message}></span>
-      </span>
-    );
+    return <z-input-message message={this.message} status={this.status} />;
   }
 
   /* END text/password/email/number */
