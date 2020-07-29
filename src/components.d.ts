@@ -421,6 +421,26 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface ZInputLabel {
+        /**
+          * the label is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * the label value
+         */
+        "value": string;
+    }
+    interface ZInputMessage {
+        /**
+          * input helper message
+         */
+        "message": string;
+        /**
+          * input status (optional)
+         */
+        "status"?: InputStatusBean;
+    }
     interface ZLink {
         /**
           * link url (optional)
@@ -791,6 +811,18 @@ declare global {
         prototype: HTMLZInputElement;
         new (): HTMLZInputElement;
     };
+    interface HTMLZInputLabelElement extends Components.ZInputLabel, HTMLStencilElement {
+    }
+    var HTMLZInputLabelElement: {
+        prototype: HTMLZInputLabelElement;
+        new (): HTMLZInputLabelElement;
+    };
+    interface HTMLZInputMessageElement extends Components.ZInputMessage, HTMLStencilElement {
+    }
+    var HTMLZInputMessageElement: {
+        prototype: HTMLZInputMessageElement;
+        new (): HTMLZInputMessageElement;
+    };
     interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {
     }
     var HTMLZLinkElement: {
@@ -889,6 +921,8 @@ declare global {
         "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
         "z-input": HTMLZInputElement;
+        "z-input-label": HTMLZInputLabelElement;
+        "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
         "z-list": HTMLZListElement;
         "z-list-item": HTMLZListItemElement;
@@ -1345,6 +1379,26 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface ZInputLabel {
+        /**
+          * the label is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * the label value
+         */
+        "value"?: string;
+    }
+    interface ZInputMessage {
+        /**
+          * input helper message
+         */
+        "message"?: string;
+        /**
+          * input status (optional)
+         */
+        "status"?: InputStatusBean;
+    }
     interface ZLink {
         /**
           * link url (optional)
@@ -1655,6 +1709,8 @@ declare namespace LocalJSX {
         "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
         "z-input": ZInput;
+        "z-input-label": ZInputLabel;
+        "z-input-message": ZInputMessage;
         "z-link": ZLink;
         "z-list": ZList;
         "z-list-item": ZListItem;
@@ -1693,6 +1749,8 @@ declare module "@stencil/core" {
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
+            "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
+            "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
