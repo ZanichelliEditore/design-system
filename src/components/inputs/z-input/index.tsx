@@ -70,11 +70,6 @@ export class ZInput {
   @State() textareaWrapperFocus: string = "";
   @State() isOpen: boolean = false;
 
-  private statusIcons = {
-    success: "circle-check",
-    error: "circle-cross",
-    warning: "circle-warning"
-  };
   private timer;
   private itemsList: SelectItemBean[] = [];
   private selectedItem: SelectItemBean;
@@ -219,7 +214,11 @@ export class ZInput {
       <div class="textWrapper">
         {this.renderLabel()}
         <div>
-          <input {...this.getTextAttributes()} type={type} />
+          <input
+            {...this.getTextAttributes()}
+            type={type}
+            aria-labelledby={`${this.htmlid}_label`}
+          />
           {this.renderResetIcon()}
         </div>
         {this.renderMessage()}
@@ -230,19 +229,13 @@ export class ZInput {
   renderLabel() {
     if (!this.label) return;
 
-    let attributes = {};
-    if (this.type === InputTypeEnum.textarea) {
-      attributes = this.getTextareaExtraAttributes();
-    }
-
     return (
-      <label
-        htmlFor={this.htmlid}
-        class={this.disabled && "disabledLabel"}
-        {...attributes}
-      >
-        {this.label}
-      </label>
+      <z-input-label
+        value={this.label}
+        disabled={this.disabled}
+        aria-label={this.label}
+        id={`${this.htmlid}_label`}
+      />
     );
   }
 
@@ -260,14 +253,7 @@ export class ZInput {
   renderMessage() {
     if (!this.hasmessage) return;
 
-    return (
-      <span class={`statusMsg msg_${this.status}`}>
-        {this.status && this.message ? (
-          <z-icon name={this.statusIcons[this.status]} width={14} height={14} />
-        ) : null}
-        <span innerHTML={this.message}></span>
-      </span>
-    );
+    return <z-input-message message={this.message} status={this.status} />;
   }
 
   /* END text/password/email/number */

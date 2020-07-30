@@ -12,7 +12,7 @@ describe("Suite test ZInput - textarea", () => {
       <z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label'>
         <mock:shadow-root>
           <div class="textWrapper">
-            <label htmlfor="test">label</label>
+            <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
               <div class="textareaWrapper false filled input_default">
                 <textarea class="false filled input_default" id='test' placeholder='placeholder' value='value'></textarea>
@@ -33,7 +33,7 @@ describe("Suite test ZInput - textarea", () => {
       <z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' disabled readonly>
         <mock:shadow-root>
           <div class="textWrapper">
-            <label htmlfor="test" class="disabledLabel">label</label>
+            <z-input-label aria-label="label" id="test_label" value="label" disabled=""></z-input-label>
             <div>
               <div class="textareaWrapper false filled input_default disabled readonly">
                 <textarea disabled readonly class="false filled input_default" id='test' placeholder='placeholder' value='value'></textarea>
@@ -54,16 +54,13 @@ describe("Suite test ZInput - textarea", () => {
       <z-input type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' status='error' message='error message'>
         <mock:shadow-root>
           <div class="textWrapper">
-            <label htmlfor="test">label</label>
+            <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
               <div class="textareaWrapper false filled input_error">
                 <textarea class="false filled input_error" id='test' placeholder='placeholder' value='value'></textarea>
               </div>
             </div>
-            <span class="statusMsg msg_error">
-              <z-icon name="circle-cross" width="14" height="14"></z-icon>
-              <span>error message</span>
-            </span>
+            <z-input-message message="error message" status="error"></z-input-message>
           </div>
         </mock:shadow-root>
       </z-input>

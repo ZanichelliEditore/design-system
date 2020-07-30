@@ -15,7 +15,7 @@ describe("Suite test ZInput - text", () => {
         <mock:shadow-root>
           <div class="textWrapper">
             <div>
-              <input id="id" class="false input_default undefined" type="text" />
+              <input id="id" class="false input_default undefined" type="text" aria-labelledby="id_label" />
             </div>
           </div>
         </mock:shadow-root>
@@ -32,9 +32,9 @@ describe("Suite test ZInput - text", () => {
       <z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label'>
         <mock:shadow-root>
           <div class="textWrapper">
-            <label htmlfor="test">label</label>
+            <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input class="false input_default filled" type='text' id='test' placeholder='placeholder' value='value' />
+              <input class="false input_default filled" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
               <z-icon name="cross"></z-icon>
             </div>
           </div>
@@ -52,9 +52,9 @@ describe("Suite test ZInput - text", () => {
       <z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled>
         <mock:shadow-root>
           <div class="textWrapper">
-            <label htmlfor="test" class="disabledLabel">label</label>
+            <z-input-label aria-label="label" id="test_label" value="label" disabled=""></z-input-label>
             <div>
-              <input disabled class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' />
+              <input disabled class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
             </div>
           </div>
         </mock:shadow-root>
@@ -71,9 +71,9 @@ describe("Suite test ZInput - text", () => {
       <z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' readonly>
         <mock:shadow-root>
           <div class="textWrapper">
-            <label htmlfor="test">label</label>
+            <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input readonly class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' />
+              <input readonly class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
             </div>
           </div>
         </mock:shadow-root>
@@ -90,14 +90,12 @@ describe("Suite test ZInput - text", () => {
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' message='helper message'>
         <mock:shadow-root>
           <div class="textWrapper">
-            <label htmlfor="test">label</label>
+            <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' />
+              <input class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
               <z-icon name="cross"></z-icon>
             </div>
-            <span class="statusMsg msg_undefined">
-              <span>helper message</span>
-            </span>
+            <z-input-message message="helper message"></z-input-message>
           </div>
         </mock:shadow-root>
       </z-input>
@@ -113,15 +111,12 @@ describe("Suite test ZInput - text", () => {
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' status='success' message='success message'>
         <mock:shadow-root>
           <div class="textWrapper">
-            <label htmlfor="test">label</label>
+            <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input class="false filled input_success" type='text' id='test' placeholder='placeholder' value='value' />
+              <input class="false filled input_success" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
               <z-icon name="cross"></z-icon>
             </div>
-            <span class="statusMsg msg_success">
-              <z-icon name="circle-check" width="14" height="14"></z-icon>
-              <span>success message</span>
-            </span>
+            <z-input-message message="success message" status="success"></z-input-message>
           </div>
         </mock:shadow-root>
       </z-input>

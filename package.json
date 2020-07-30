@@ -1,7 +1,7 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "1.0.5",
-  "description": "Stencil Component Starter",
+  "version": "1.0.6",
+  "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -45,6 +45,7 @@
     "lit-html": "^1.1.2",
     "plop": "^2.1.0",
     "puppeteer": "1.20.0",
+    "standard-version": "^8.0.2",
     "storybook-addons-abstract": "^5.0.6"
   },
   "pre-commit": {
@@ -57,5 +58,10 @@
   "license": "MIT",
   "dependencies": {
     "hammerjs": "^2.0.8"
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "yarn build"
+    }
   }
 }
