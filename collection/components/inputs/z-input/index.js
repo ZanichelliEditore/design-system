@@ -9,6 +9,8 @@ export class ZInput {
         this.disabled = false;
         /** the input is readonly */
         this.readonly = false;
+        /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
+        this.required = false;
         /** checked: available for checkbox, radio */
         this.checked = false;
         /** show input helper message (optional): available for text, password, number, email, textarea, select */
@@ -60,23 +62,33 @@ export class ZInput {
         if (!this.isTyping) {
             this.emitStartTyping();
         }
+        let validity = {};
+        if (this.type === InputTypeEnum.textarea) {
+            validity = this.getValidity("textarea");
+        }
+        else {
+            validity = this.getValidity("input");
+        }
         this.value = value;
-        this.inputChange.emit({ value, keycode });
+        this.inputChange.emit({ value, keycode, validity });
         clearTimeout(this.timer);
         this.timer = setTimeout(() => {
-            this.emitStopTyping(this.value);
+            this.emitStopTyping(this.value, validity);
         }, this.typingtimeout);
     }
     emitStartTyping() {
         this.isTyping = true;
         this.startTyping.emit();
     }
-    emitStopTyping(value) {
+    emitStopTyping(value, validity) {
         this.isTyping = false;
-        this.stopTyping.emit({ value: value });
+        this.stopTyping.emit({
+            value: value,
+            validity: validity,
+        });
     }
     emitInputCheck(checked) {
-        this.inputCheck.emit({ id: this.htmlid, checked: checked });
+        this.inputCheck.emit({ id: this.htmlid, checked: checked, validity: this.getValidity("input") });
     }
     emitOptionSelect(item) {
         this.value = item.id;
@@ -88,6 +100,10 @@ export class ZInput {
             this.watchItems();
         }
     }
+    getValidity(type) {
+        const input = this.hostElement.shadowRoot.querySelector(type);
+        return input.validity;
+    }
     /* START text/password/email/number */
     getTextAttributes() {
         return {
@@ -97,6 +113,7 @@ export class ZInput {
             value: this.value,
             disabled: this.disabled,
             readonly: this.readonly,
+            required: this.required,
             title: this.htmltitle,
             class: `
         ${this.status ? "input_" + this.status : "input_default"}
@@ -132,7 +149,7 @@ export class ZInput {
         if (!this.hasmessage)
             return;
         return (h("span", { class: `statusMsg msg_${this.status}` },
-            this.status ? (h("z-icon", { name: this.statusIcons[this.status], width: 14, height: 14 })) : null,
+            this.status && this.message ? (h("z-icon", { name: this.statusIcons[this.status], width: 14, height: 14 })) : null,
             h("span", { innerHTML: this.message })));
     }
     /* END text/password/email/number */
@@ -172,7 +189,7 @@ export class ZInput {
     }
     renderCheckbox() {
         return (h("div", { class: "checkboxWrapper" },
-            h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, value: this.value, disabled: this.disabled, readonly: this.readonly, onChange: () => this.handleCheckboxChange() }),
+            h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, value: this.value, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: () => this.handleCheckboxChange() }),
             h("label", { htmlFor: this.htmlid, class: `checkboxLabel ${this.labelafter ? "after" : "before"}` },
                 h("z-icon", { name: this.checked ? "checkbox-selected" : "checkbox-unchecked", "aria-hidden": true }),
                 this.label && h("span", { innerHTML: this.label }))));
@@ -421,6 +438,24 @@ export class ZInput {
             "reflect": false,
             "defaultValue": "false"
         },
+        "required": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "the input is required (optional): available for text, password, number, email, textarea, checkbox"
+            },
+            "attribute": "required",
+            "reflect": false,
+            "defaultValue": "false"
+        },
         "checked": {
             "type": "boolean",
             "mutable": true,
@@ -603,7 +638,7 @@ export class ZInput {
             "composed": true,
             "docs": {
                 "tags": [],
-                "text": "Emitted on input value change, returns value, keycode"
+                "text": "Emitted on input value change, returns value, keycode, validity"
             },
             "complexType": {
                 "original": "any",
@@ -633,7 +668,7 @@ export class ZInput {
             "composed": true,
             "docs": {
                 "tags": [],
-                "text": "Emitted when user stops typing, returns value"
+                "text": "Emitted when user stops typing, returns value, validity"
             },
             "complexType": {
                 "original": "any",
@@ -648,7 +683,7 @@ export class ZInput {
             "composed": true,
             "docs": {
                 "tags": [],
-                "text": "Emitted on checkbox check/uncheck, returns id, checked"
+                "text": "Emitted on checkbox check/uncheck, returns id, checked, validity"
             },
             "complexType": {
                 "original": "any",

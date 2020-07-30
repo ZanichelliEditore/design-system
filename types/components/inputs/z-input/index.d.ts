@@ -16,6 +16,8 @@ export declare class ZInput {
     disabled?: boolean;
     /** the input is readonly */
     readonly?: boolean;
+    /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
+    required?: boolean;
     /** checked: available for checkbox, radio */
     checked?: boolean;
     /** the input placeholder (optional) */
@@ -50,22 +52,23 @@ export declare class ZInput {
     setValue(value: string): Promise<void>;
     /** get checked status */
     isChecked(): Promise<boolean>;
-    /** Emitted on input value change, returns value, keycode */
+    /** Emitted on input value change, returns value, keycode, validity */
     inputChange: EventEmitter;
     emitInputChange(value: string, keycode: number): void;
     /** Emitted when user starts typing */
     startTyping: EventEmitter;
     emitStartTyping(): void;
-    /** Emitted when user stops typing, returns value */
+    /** Emitted when user stops typing, returns value, validity */
     stopTyping: EventEmitter;
-    emitStopTyping(value: string): void;
-    /** Emitted on checkbox check/uncheck, returns id, checked */
+    emitStopTyping(value: string, validity: any): void;
+    /** Emitted on checkbox check/uncheck, returns id, checked, validity */
     inputCheck: EventEmitter;
     emitInputCheck(checked: boolean): void;
     /** Emitted on select option selection, returns select id, selected option id */
     optionSelect: EventEmitter;
     emitOptionSelect(item: SelectItemBean): void;
     componentWillLoad(): void;
+    getValidity(type: string): ValidityState;
     getTextAttributes(): {
         id: string;
         name: string;
@@ -73,6 +76,7 @@ export declare class ZInput {
         value: string;
         disabled: boolean;
         readonly: boolean;
+        required: boolean;
         title: string;
         class: string;
         onInput: (e: any) => void;
