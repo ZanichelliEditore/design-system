@@ -14,7 +14,7 @@ export class ZInputMessage {
 
   private statusIcons = {
     success: "circle-check",
-    error: "circle-cross-stroke",
+    error: "circle-cross",
     warning: "circle-warning"
   };
 
