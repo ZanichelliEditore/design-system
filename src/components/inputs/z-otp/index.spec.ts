@@ -12,13 +12,13 @@ describe("Suite test ZOtp", () => {
     expect(page.root).toEqualHtml(`
       <z-otp>
         <mock:shadow-root>
-          <div>
-            <input type="tel" autocomplete="off" maxlength="1">
-            <input type="tel" autocomplete="off" maxlength="1">
-            <input type="tel" autocomplete="off" maxlength="1">
-            <input type="tel" autocomplete="off" maxlength="1">
-            <input type="tel" autocomplete="off" maxlength="1">
-            <input type="tel" autocomplete="off" maxlength="1">
+          <div class='otp-container'>
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
           </div>
         </mock:shadow-root>
       </z-otp>
@@ -32,12 +32,15 @@ describe("Suite test ZOtp", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-otp>
+      <z-otp inputNum='3'>
         <mock:shadow-root>
-          <div>
-            <input type="tel" autocomplete="off" maxlength="1">
-            <input type="tel" autocomplete="off" maxlength="1">
-            <input type="tel" autocomplete="off" maxlength="1">
+          <div class='otp-container'>
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
+            <input type="text" autocomplete="off" minlength="1" maxlength="1">
           </div>
         </mock:shadow-root>
       </z-otp>

@@ -22,10 +22,6 @@ export class ZOtp {
     this.otpRef = Array.apply(null, Array(this.inputNum));
   }
 
-  componentDidLoad() {
-    this.otpRef[0].focus();
-  }
-
   render() {
     return (
       <div class="otp-container">
@@ -38,11 +34,12 @@ export class ZOtp {
               }}
               onKeyUp={(e: any) => {
                 if (e.keyCode !== keybordKeyCodeEnum.BACKSPACE && e.keyCode !== keybordKeyCodeEnum.DELETE)
-                  i < this.inputNum && this.otpRef[i + 1].focus();
+                  i < this.inputNum - 1 && this.otpRef[i + 1].focus();
               }}
-              type="number"
+              type="text"
+              minlength="1" 
+              maxlength="1"
               autoComplete="off"
-              maxLength={1}
               ref={input => (this.otpRef[i] = input)}
             />
           );
