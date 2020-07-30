@@ -15,6 +15,7 @@
   overflow: hidden;
   position: absolute;
   z-index: 10;
+  max-height: 300px;
 }
 
 :host > div.selectWrapper > div > ul.closed {
