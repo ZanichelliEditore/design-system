@@ -401,6 +401,10 @@ export namespace Components {
          */
         "readonly"?: boolean;
         /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
+        /**
           * set the input value
          */
         "setValue": (value: string) => Promise<void>;
@@ -631,6 +635,26 @@ export namespace Components {
          */
         "url": string;
     }
+    interface ZStepper {
+    }
+    interface ZStepperItem {
+        /**
+          * The disabled state of the item.
+         */
+        "disabled": boolean;
+        /**
+          * The href to navigate on click.
+         */
+        "href": string;
+        /**
+          * The number of the step item.
+         */
+        "index": number;
+        /**
+          * The pressed state of the item.
+         */
+        "pressed": boolean;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -825,6 +849,18 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
+    }
+    var HTMLZStepperElement: {
+        prototype: HTMLZStepperElement;
+        new (): HTMLZStepperElement;
+    };
+    interface HTMLZStepperItemElement extends Components.ZStepperItem, HTMLStencilElement {
+    }
+    var HTMLZStepperItemElement: {
+        prototype: HTMLZStepperItemElement;
+        new (): HTMLZStepperItemElement;
+    };
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
     }
     var HTMLZToggleButtonElement: {
@@ -866,6 +902,8 @@ declare global {
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-stepper": HTMLZStepperElement;
+        "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
     }
@@ -1267,11 +1305,11 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emitted on input value change, returns value, keycode
+          * Emitted on input value change, returns value, keycode, validity
          */
         "onInputChange"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted on checkbox check/uncheck, returns id, checked, type, name, value
+          * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
          */
         "onInputCheck"?: (event: CustomEvent<any>) => void;
         /**
@@ -1283,7 +1321,7 @@ declare namespace LocalJSX {
          */
         "onStartTyping"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted when user stops typing, returns value
+          * Emitted when user stops typing, returns value, validity
          */
         "onStopTyping"?: (event: CustomEvent<any>) => void;
         /**
@@ -1294,6 +1332,10 @@ declare namespace LocalJSX {
           * the input is readonly
          */
         "readonly"?: boolean;
+        /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
         /**
           * the input status (optional): available for text, password, number, email, textarea, select
          */
@@ -1553,6 +1595,26 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface ZStepper {
+    }
+    interface ZStepperItem {
+        /**
+          * The disabled state of the item.
+         */
+        "disabled"?: boolean;
+        /**
+          * The href to navigate on click.
+         */
+        "href"?: string;
+        /**
+          * The number of the step item.
+         */
+        "index"?: number;
+        /**
+          * The pressed state of the item.
+         */
+        "pressed"?: boolean;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -1610,6 +1672,8 @@ declare namespace LocalJSX {
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-stepper": ZStepper;
+        "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
     }
@@ -1646,6 +1710,8 @@ declare module "@stencil/core" {
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
+            "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
         }

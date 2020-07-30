@@ -46,6 +46,8 @@ export class ZInput {
   @Prop() disabled?: boolean = false;
   /** the input is readonly */
   @Prop() readonly?: boolean = false;
+  /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
+  @Prop() required?: boolean = false;
   /** checked: available for checkbox, radio */
   @Prop({ mutable: true }) checked?: boolean = false;
   /** the input placeholder (optional) */
@@ -138,19 +140,24 @@ export class ZInput {
     }
   }
 
-  /** Emitted on input value change, returns value, keycode */
+  /** Emitted on input value change, returns value, keycode, validity */
   @Event() inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number) {
     if (!this.isTyping) {
       this.emitStartTyping();
     }
-
+    let validity = {};
+    if (this.type === InputTypeEnum.textarea) {
+      validity = this.getValidity("textarea");
+    } else {
+      validity = this.getValidity("input");
+    }
     this.value = value;
-    this.inputChange.emit({ value, keycode });
+    this.inputChange.emit({ value, keycode, validity });
 
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      this.emitStopTyping(this.value);
+      this.emitStopTyping(this.value, validity);
     }, this.typingtimeout);
   }
 
@@ -161,14 +168,17 @@ export class ZInput {
     this.startTyping.emit();
   }
 
-  /** Emitted when user stops typing, returns value */
+  /** Emitted when user stops typing, returns value, validity */
   @Event() stopTyping: EventEmitter;
-  emitStopTyping(value: string) {
+  emitStopTyping(value: string, validity: any) {
     this.isTyping = false;
-    this.stopTyping.emit({ value: value });
+    this.stopTyping.emit({
+      value: value,
+      validity: validity
+    });
   }
 
-  /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value */
+  /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
   @Event() inputCheck: EventEmitter;
   emitInputCheck(checked: boolean) {
     this.inputCheck.emit({
@@ -176,7 +186,8 @@ export class ZInput {
       checked: checked,
       type: this.type,
       name: this.name,
-      value: this.value
+      value: this.value,
+      validity: this.getValidity("input")
     });
   }
 
@@ -194,6 +205,13 @@ export class ZInput {
     }
   }
 
+  getValidity(type: string) {
+    const input = this.hostElement.shadowRoot.querySelector(
+      type
+    ) as HTMLInputElement;
+    return input.validity;
+  }
+
   /* START text/password/email/number */
 
   getTextAttributes() {
@@ -204,6 +222,7 @@ export class ZInput {
       value: this.value,
       disabled: this.disabled,
       readonly: this.readonly,
+      required: this.required,
       title: this.htmltitle,
       class: `
         ${this.status ? "input_" + this.status : "input_default"}
@@ -262,7 +281,7 @@ export class ZInput {
 
     return (
       <span class={`statusMsg msg_${this.status}`}>
-        {this.status ? (
+        {this.status && this.message ? (
           <z-icon name={this.statusIcons[this.status]} width={14} height={14} />
         ) : null}
         <span innerHTML={this.message}></span>
@@ -333,6 +352,7 @@ export class ZInput {
           value={this.value}
           disabled={this.disabled}
           readonly={this.readonly}
+          required={this.required}
           onChange={() => this.handleCheckboxChange()}
         />
 
