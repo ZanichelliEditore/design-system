@@ -7,7 +7,8 @@ import {
   Event,
   EventEmitter,
   Watch,
-  Element
+  Element,
+  Listen
 } from "@stencil/core";
 import {
   InputTypeBean,
@@ -98,6 +99,23 @@ export class ZInput {
     }
   }
 
+  @Listen("inputCheck", { target: "document" })
+  inputCheckListener(e: CustomEvent) {
+    const data = e.detail;
+    switch (this.type) {
+      case InputTypeEnum.radio:
+        if (
+          data.type === InputTypeEnum.radio &&
+          data.name === this.name &&
+          data.id !== this.htmlid
+        ) {
+          this.checked = false;
+        }
+      default:
+        return;
+    }
+  }
+
   /** get the input value */
   @Method()
   async getValue(): Promise<string> {
@@ -115,6 +133,7 @@ export class ZInput {
   async isChecked(): Promise<boolean> {
     switch (this.type) {
       case InputTypeEnum.checkbox:
+      case InputTypeEnum.radio:
         return this.checked;
       default:
         return false;
@@ -129,9 +148,9 @@ export class ZInput {
     }
     let validity = {};
     if (this.type === InputTypeEnum.textarea) {
-      validity = this.getValidity("textarea")
+      validity = this.getValidity("textarea");
     } else {
-      validity = this.getValidity("input")
+      validity = this.getValidity("input");
     }
     this.value = value;
     this.inputChange.emit({ value, keycode, validity });
@@ -155,14 +174,21 @@ export class ZInput {
     this.isTyping = false;
     this.stopTyping.emit({
       value: value,
-      validity: validity,
+      validity: validity
     });
   }
 
-  /** Emitted on checkbox check/uncheck, returns id, checked, validity */
+  /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
   @Event() inputCheck: EventEmitter;
   emitInputCheck(checked: boolean) {
-    this.inputCheck.emit({ id: this.htmlid, checked: checked, validity: this.getValidity("input") });
+    this.inputCheck.emit({
+      id: this.htmlid,
+      checked: checked,
+      type: this.type,
+      name: this.name,
+      value: this.value,
+      validity: this.getValidity("input")
+    });
   }
 
   /** Emitted on select option selection, returns select id, selected option id */
@@ -180,7 +206,9 @@ export class ZInput {
   }
 
   getValidity(type: string) {
-    const input = this.hostElement.shadowRoot.querySelector(type) as HTMLInputElement;
+    const input = this.hostElement.shadowRoot.querySelector(
+      type
+    ) as HTMLInputElement;
     return input.validity;
   }
 
@@ -201,11 +229,7 @@ export class ZInput {
         ${this.isTyping && "istyping"}
         ${!this.isTyping && this.value && "filled"}
       `,
-      onInput: (e: any) =>
-        this.emitInputChange(
-          e.target.value,
-          e.keyCode
-        )
+      onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode)
     };
   }
 
@@ -347,6 +371,42 @@ export class ZInput {
   }
 
   /* END checkbox */
+
+  /* START radio */
+
+  handleRadioChange() {
+    this.checked = true;
+    this.emitInputCheck(this.checked);
+  }
+
+  renderRadio() {
+    return (
+      <div class="radioWrapper">
+        <input
+          id={this.htmlid}
+          type="radio"
+          name={this.name}
+          checked={this.checked}
+          value={this.value}
+          disabled={this.disabled}
+          readonly={this.readonly}
+          onChange={() => this.handleRadioChange()}
+        />
+
+        <label
+          htmlFor={this.htmlid}
+          class={`radioLabel ${this.labelafter ? "after" : "before"}`}
+        >
+          <z-icon
+            name={this.checked ? "radio-button-checked" : "radio-button"}
+            aria-hidden={true}
+          />
+          {this.label && <span innerHTML={this.label} />}
+        </label>
+      </div>
+    );
+  }
+  /* END radio */
 
   /* START select */
 
@@ -510,6 +570,8 @@ export class ZInput {
         return this.renderTextarea();
       case InputTypeEnum.checkbox:
         return this.renderCheckbox();
+      case InputTypeEnum.radio:
+        return this.renderRadio();
       case InputTypeEnum.select:
         return this.renderSelect();
       default:
