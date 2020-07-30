@@ -35,4 +35,6 @@ export declare const icons: {
     close: string;
     exit: string;
     enter: string;
+    "radio-button": string;
+    "radio-button-checked": string;
 };

@@ -98,6 +98,7 @@ export declare enum InputTypeEnum {
     email = "email",
     textarea = "textarea",
     checkbox = "checkbox",
+    radio = "radio",
     select = "select"
 }
 export declare type InputStatusBean = InputStatusEnum;

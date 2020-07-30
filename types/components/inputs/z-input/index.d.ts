@@ -46,6 +46,7 @@ export declare class ZInput {
     private selectedItem;
     constructor();
     watchItems(): void;
+    inputCheckListener(e: CustomEvent): void;
     /** get the input value */
     getValue(): Promise<string>;
     /** set the input value */
@@ -61,7 +62,7 @@ export declare class ZInput {
     /** Emitted when user stops typing, returns value, validity */
     stopTyping: EventEmitter;
     emitStopTyping(value: string, validity: any): void;
-    /** Emitted on checkbox check/uncheck, returns id, checked, validity */
+    /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
     inputCheck: EventEmitter;
     emitInputCheck(checked: boolean): void;
     /** Emitted on select option selection, returns select id, selected option id */
@@ -95,6 +96,8 @@ export declare class ZInput {
     };
     handleCheckboxChange(): void;
     renderCheckbox(): any;
+    handleRadioChange(): void;
+    renderRadio(): any;
     renderSelect(): any;
     renderSelectUl(): any;
     renderSelectedItem(): any;

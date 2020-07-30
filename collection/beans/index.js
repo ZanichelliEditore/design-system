@@ -24,6 +24,7 @@ export var InputTypeEnum;
     InputTypeEnum["email"] = "email";
     InputTypeEnum["textarea"] = "textarea";
     InputTypeEnum["checkbox"] = "checkbox";
+    InputTypeEnum["radio"] = "radio";
     InputTypeEnum["select"] = "select";
 })(InputTypeEnum || (InputTypeEnum = {}));
 export var InputStatusEnum;

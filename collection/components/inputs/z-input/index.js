@@ -1,4 +1,4 @@
-import { Component, Prop, State, h, Method, Event, Watch, Element } from "@stencil/core";
+import { Component, Prop, State, h, Method, Event, Watch, Element, Listen } from "@stencil/core";
 import { InputTypeEnum, keybordKeyCodeEnum } from "../../../beans";
 import { randomId, handleKeyboardSubmit, getClickedElement, getElementTree } from "../../../utils/utils";
 export class ZInput {
@@ -41,6 +41,19 @@ export class ZInput {
             this.value = this.selectedItem.id;
         }
     }
+    inputCheckListener(e) {
+        const data = e.detail;
+        switch (this.type) {
+            case InputTypeEnum.radio:
+                if (data.type === InputTypeEnum.radio &&
+                    data.name === this.name &&
+                    data.id !== this.htmlid) {
+                    this.checked = false;
+                }
+            default:
+                return;
+        }
+    }
     /** get the input value */
     async getValue() {
         return this.value;
@@ -53,6 +66,7 @@ export class ZInput {
     async isChecked() {
         switch (this.type) {
             case InputTypeEnum.checkbox:
+            case InputTypeEnum.radio:
                 return this.checked;
             default:
                 return false;
@@ -84,11 +98,18 @@ export class ZInput {
         this.isTyping = false;
         this.stopTyping.emit({
             value: value,
-            validity: validity,
+            validity: validity
         });
     }
     emitInputCheck(checked) {
-        this.inputCheck.emit({ id: this.htmlid, checked: checked, validity: this.getValidity("input") });
+        this.inputCheck.emit({
+            id: this.htmlid,
+            checked: checked,
+            type: this.type,
+            name: this.name,
+            value: this.value,
+            validity: this.getValidity("input")
+        });
     }
     emitOptionSelect(item) {
         this.value = item.id;
@@ -195,6 +216,19 @@ export class ZInput {
                 this.label && h("span", { innerHTML: this.label }))));
     }
     /* END checkbox */
+    /* START radio */
+    handleRadioChange() {
+        this.checked = true;
+        this.emitInputCheck(this.checked);
+    }
+    renderRadio() {
+        return (h("div", { class: "radioWrapper" },
+            h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, value: this.value, disabled: this.disabled, readonly: this.readonly, onChange: () => this.handleRadioChange() }),
+            h("label", { htmlFor: this.htmlid, class: `radioLabel ${this.labelafter ? "after" : "before"}` },
+                h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": true }),
+                this.label && h("span", { innerHTML: this.label }))));
+    }
+    /* END radio */
     /* START select */
     renderSelect() {
         return (h("div", { class: "selectWrapper" },
@@ -296,6 +330,8 @@ export class ZInput {
                 return this.renderTextarea();
             case InputTypeEnum.checkbox:
                 return this.renderCheckbox();
+            case InputTypeEnum.radio:
+                return this.renderRadio();
             case InputTypeEnum.select:
                 return this.renderSelect();
             default:
@@ -334,7 +370,7 @@ export class ZInput {
             "mutable": false,
             "complexType": {
                 "original": "InputTypeBean",
-                "resolved": "InputTypeEnum.checkbox | InputTypeEnum.email | InputTypeEnum.number | InputTypeEnum.password | InputTypeEnum.select | InputTypeEnum.text | InputTypeEnum.textarea",
+                "resolved": "InputTypeEnum.checkbox | InputTypeEnum.email | InputTypeEnum.number | InputTypeEnum.password | InputTypeEnum.radio | InputTypeEnum.select | InputTypeEnum.text | InputTypeEnum.textarea",
                 "references": {
                     "InputTypeBean": {
                         "location": "import",
@@ -683,7 +719,7 @@ export class ZInput {
             "composed": true,
             "docs": {
                 "tags": [],
-                "text": "Emitted on checkbox check/uncheck, returns id, checked, validity"
+                "text": "Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity"
             },
             "complexType": {
                 "original": "any",
@@ -763,5 +799,12 @@ export class ZInput {
     static get watchers() { return [{
             "propName": "items",
             "methodName": "watchItems"
+        }]; }
+    static get listeners() { return [{
+            "name": "inputCheck",
+            "method": "inputCheckListener",
+            "target": "document",
+            "capture": false,
+            "passive": false
         }]; }
 }
