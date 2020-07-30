@@ -1,0 +1,39 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+input {
+  height: 72px;
+  width: var(--basex5);
+  font-size: 40px;
+  text-align: center;
+  caret-color: transparent;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input:not(:last-of-type) {
+  margin-right: var(--basex2);
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1025px) {
+  input {
+    width: var(--basex6);
+  }
+  
+}
