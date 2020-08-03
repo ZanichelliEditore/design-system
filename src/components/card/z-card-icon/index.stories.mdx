@@ -1,11 +1,22 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Card/ZCardIcon" component="z-card-icon" />
 
   # ZCardIcon
+
+<Preview>
+  <Story name="z-card-alert">
+    {html`
+      <z-card-icon
+        icon="${text('icon', 'book-delete')}"
+        isdisabled="${boolean('isdisabled', true)}"
+      />`}
+  </Story>
+</Preview>
 
   <Props of="z-card-icon" />
 

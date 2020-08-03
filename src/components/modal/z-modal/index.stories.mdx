@@ -1,11 +1,24 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Modal/ZModal" component="z-modal" />
 
   # ZModal
+
+<Preview>
+  <Story name="z-modal">
+    {html`
+      <z-modal
+        modaltitle="${text('modaltitle', 'Modal title')}"
+        modalsubtitle="${text('modalsubtitle', 'Modal subtitle')}">
+        <div slot="modalContent">Modal Content</div>
+      </z-modal>`}
+  </Story>
+</Preview>
+
 
   <Props of="z-modal" />
 
