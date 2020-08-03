@@ -195,12 +195,17 @@ Type: `Promise<void>`
 
 ### Depends on
 
+- [z-input-label](../z-input-label)
 - [z-icon](../../icons/z-icon)
+- [z-input-message](../z-input-message)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-input --> z-input-label
   z-input --> z-icon
+  z-input --> z-input-message
+  z-input-message --> z-icon
   z-combobox --> z-input
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

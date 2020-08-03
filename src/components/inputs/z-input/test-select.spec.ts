@@ -14,7 +14,7 @@ describe("Suite test ZInput - select", () => {
         <z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'>
           <mock:shadow-root>
             <div class="selectWrapper">
-                <label htmlfor="checkid">default</label>
+                <z-input-label aria-label="default" id="checkid_label" value="default"></z-input-label>
                 <div>
                     <ul class="closed false input_default" id="checkid" role="listbox" tabindex="0">
                         <li class="selected">
@@ -40,7 +40,7 @@ describe("Suite test ZInput - select", () => {
         <z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
           <mock:shadow-root>
             <div class="selectWrapper">
-                <label htmlfor="checkid">default</label>
+                <z-input-label aria-label="default" id="checkid_label" value="default"></z-input-label>
                 <div>
                     <ul class="open false input_default" id="checkid" role="listbox" tabindex="0">
                         <li class="selected">
@@ -76,7 +76,7 @@ describe("Suite test ZInput - select", () => {
       <z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'>
         <mock:shadow-root>
           <div class="selectWrapper">
-              <label htmlfor="checkid">default</label>
+              <z-input-label aria-label="default" id="checkid_label" value="default"></z-input-label>
               <div>
                   <ul class="open false input_default filled" id="checkid" role="listbox" tabindex="0" aria-activedescendant="item_1">
                       <li class="selected">
@@ -112,7 +112,7 @@ describe("Suite test ZInput - select", () => {
         <z-input hasmessage="false" htmlid="checkid" placeholder="select here" disabled readonly type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
           <mock:shadow-root>
             <div class="selectWrapper">
-                <label class="disabledLabel" htmlfor="checkid">default</label>
+                <z-input-label aria-label="default" id="checkid_label" value="default" disabled=""></z-input-label>
                 <div>
                     <ul class="closed readonly input_default disabled" id="checkid" role="listbox" tabindex="-1">
                         <li class="selected">
@@ -138,7 +138,7 @@ describe("Suite test ZInput - select", () => {
           <z-input htmlid="checkid" placeholder="select here" type="select" status="success" message="message message" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
             <mock:shadow-root>
               <div class="selectWrapper">
-                  <label htmlfor="checkid">default</label>
+                  <z-input-label aria-label="default" id="checkid_label" value="default"></z-input-label>
                   <div>
                     <ul class="closed false input_success" id="checkid" role="listbox" tabindex="0">
                           <li class="selected">
@@ -147,10 +147,7 @@ describe("Suite test ZInput - select", () => {
                           </li>
                       </ul>
                   </div>
-                  <span class="statusMsg msg_success">
-                    <z-icon height="14" name="circle-check" width="14"></z-icon>
-                    <span>message message</span>
-                  </span>
+                  <z-input-message message="message message" status="success"></z-input-message>
               </div>
             </mock:shadow-root>
           </z-input>
@@ -168,7 +165,7 @@ describe("Suite test ZInput - select", () => {
         <z-input hasmessage="false" htmlid="checkid" placeholder="select here" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false,"disabled":true}]'>
           <mock:shadow-root>
             <div class="selectWrapper">
-                <label htmlfor="checkid">default</label>
+                <z-input-label aria-label="default" id="checkid_label" value="default"></z-input-label>
                 <div>
                     <ul class="open false input_default" id="checkid" role="listbox" tabindex="0">
                         <li class="selected">

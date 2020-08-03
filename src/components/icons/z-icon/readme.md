@@ -35,6 +35,7 @@
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
  - [z-input](../../inputs/z-input)
+ - [z-input-message](../../inputs/z-input-message)
  - [z-link](../../navigation/z-link)
  - [z-list-item](../../list/z-list-item)
  - [z-menu-dropdown](../../navigation/z-menu-dropdown)
@@ -56,6 +57,7 @@ graph TD;
   z-icon-package --> z-icon
   z-info-box --> z-icon
   z-input --> z-icon
+  z-input-message --> z-icon
   z-link --> z-icon
   z-list-item --> z-icon
   z-menu-dropdown --> z-icon

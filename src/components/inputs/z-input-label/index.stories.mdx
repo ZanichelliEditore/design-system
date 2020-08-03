@@ -1,0 +1,20 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
+
+<Meta title="Inputs/ZInputLabel" component="z-input-label" />
+
+# ZInputLabel
+
+<Preview>
+  <Story name="ZInputLabel-sample">
+    {html`<z-input-label
+      value="${text('value', 'Messaggio')}"
+      disabled="${boolean('disabled', false)}"
+    ></z-input-label>`}
+  </Story>
+</Preview>
+
+<Props of="z-input-label" />
+
+

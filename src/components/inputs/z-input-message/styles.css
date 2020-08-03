@@ -1,0 +1,31 @@
+:host span.statusMsg {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: 14px;
+  line-height: 16px;
+  min-height: 16px;
+  color: var(--text-grey-700);
+  fill: var(--text-grey-700);
+  margin-top: var(--basex1);
+  display: flex;
+}
+
+:host span.statusMsg.msg_success {
+  color: var(--status-success-green);
+  fill: var(--status-success-green);
+}
+
+:host span.statusMsg.msg_error {
+  color: var(--status-error-red);
+  fill: var(--status-error-red);
+}
+
+:host span.statusMsg.msg_warning {
+  color: var(--status-warning-yellow-dark);
+  fill: var(--status-warning-yellow-dark);
+}
+
+:host span.statusMsg > z-icon {
+  margin-right: var(--basex1);
+  margin-top: 1px;
+}
