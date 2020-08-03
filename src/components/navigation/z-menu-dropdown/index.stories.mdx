@@ -1,11 +1,22 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Navigation/ZMenuDropdown" component="z-menu-dropdown" />
 
   # ZMenuDropdown
+
+<Preview>
+  <Story name="z-menu-dropdown">
+    {html`
+      <z-menu-dropdown
+        nomeutente="${text('nomeutente', 'Name Surname')}"
+        menucontent='[{"id":"profile","label":"Profile","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Active new book","link":"#","icon":"plus"},{"id":"logout-button","label":"Logout","link":"/logout","icon":"exit"}]'
+      ></z-menu-dropdown>`}
+  </Story>
+</Preview>
 
   <Props of="z-menu-dropdown" />
 

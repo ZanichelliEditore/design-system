@@ -1,11 +1,23 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, number } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Icons/ZIcon" component="z-icon" />
 
   # ZIcon
+
+<Preview>
+  <Story name="z-icon">
+    {html`
+      <z-icon
+        name="${text('name', 'download')}"
+        height="${number('height', '24')}"
+        width="${number('width', '24')}"
+      ></z-icon>`}
+  </Story>
+</Preview>
 
   <Props of="z-icon" />
 

@@ -1,11 +1,22 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Buttons/ZChip" component="z-chip" />
 
-  # ZButtonSort
+  # ZChip
+
+<Preview>
+  <Story name="z-chip">
+    {html`
+      <z-chip
+        boldtext="${text('boldtext', '1234')}"
+        regulartext="${text('regulartext', 'libri trovati')}"
+      ></z-chip>`}
+  </Story>
+</Preview>
 
   <Props of="z-chip" />
 

@@ -33,7 +33,7 @@ export type FooterSocialBean = {
 export enum LicenseTypeEnum {
   real = "reale",
   virtual = "virtuale",
-  trial = "saggio",
+  trial = "saggio"
 }
 export type LicenseType = LicenseTypeEnum;
 
@@ -96,13 +96,13 @@ export type ButtonVariantBean = ButtonVariantEnum;
 export enum ButtonVariantEnum {
   primary = "primary",
   secondary = "secondary",
-  tertiary = "tertiary",
+  tertiary = "tertiary"
 }
 
 export enum ButtonTypeEnum {
   submit = "submit",
   reset = "reset",
-  button = "button",
+  button = "button"
 }
 
 export type InputTypeBean = InputTypeEnum;
@@ -114,7 +114,8 @@ export enum InputTypeEnum {
   email = "email",
   textarea = "textarea",
   checkbox = "checkbox",
-  select = "select",
+  radio = "radio",
+  select = "select"
 }
 
 export type InputStatusBean = InputStatusEnum;
@@ -122,7 +123,7 @@ export type InputStatusBean = InputStatusEnum;
 export enum InputStatusEnum {
   success = "success",
   error = "error",
-  warning = "warning",
+  warning = "warning"
 }
 
 export type TooltipPositionBean = TooltipPosition;
@@ -132,7 +133,7 @@ export enum TooltipPosition {
   BOTTOM = "BOTTOM",
   LEFT = "LEFT",
   RIGHT = "RIGHT",
-  NO_ARROW = "NO_ARROW",
+  NO_ARROW = "NO_ARROW"
 }
 
 export enum keybordKeyCodeEnum {
@@ -141,7 +142,7 @@ export enum keybordKeyCodeEnum {
   ESC = 27,
   ENTER = 13,
   ARROW_UP = 38,
-  ARROW_DOWN = 40,
+  ARROW_DOWN = 40
 }
 
 export type SelectItemBean = {
