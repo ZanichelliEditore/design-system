@@ -18,9 +18,13 @@ export class ZInputMessage {
     warning: "circle-warning"
   };
 
+  renderMsgClassName(): string {
+    return this.status ? `msg_${this.status}` : '';
+  }
+
   render() {
     return (
-      <span class={`statusMsg msg_${this.status}`}>
+      <span class={`statusMsg ${this.renderMsgClassName()}`}>
         {this.status && this.message ? (
           <z-icon name={this.statusIcons[this.status]} width={14} height={14} />
         ) : null}
