@@ -6,25 +6,18 @@
 input {
   height: 72px;
   width: var(--basex5);
-  font-size: 40px;
+  font-size: 32px;
+  font-weight: 300;
+  font-family: var(--dashboard-font);
   text-align: center;
   caret-color: transparent;
   box-sizing: border-box;
   padding: 0;
+  color: var(--bg-grey-800);
 }
 
 input:not(:last-of-type) {
   margin-right: var(--basex2);
-}
-
-input[type="number"]::-webkit-inner-spin-button, 
-input[type="number"]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
 }
 
 /* Tablet breakpoint */
