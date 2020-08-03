@@ -12,16 +12,16 @@ import { text, boolean } from '@storybook/addon-knobs';
   <Story name="primary">
     {html`
       <z-button
-        type="primary"
-        isdisabled="${boolean('isdisabled', false)}"
+        variant="primary"
+        disabled="${boolean('disabled', false)}"
         icon="${text('icon', 'download')}"
       >${text('label', 'click me')}</z-button>`}
   </Story>
   <Story name="secondary">
     {html`
       <z-button
-        type="secondary"
-        isdisabled="${boolean('isdisabled', false)}"
+        variant="secondary"
+        disabled="${boolean('disabled', false)}"
         icon="${text('icon', 'download')}"
       >${text('label', 'click me')}</z-button>
     `}
@@ -29,8 +29,8 @@ import { text, boolean } from '@storybook/addon-knobs';
   <Story name="tertiary">
     {html`
       <z-button
-        type="tertiary"
-        isdisabled="${boolean('isdisabled', false)}"
+        variant="tertiary"
+        disabled="${boolean('disabled', false)}"
         icon="${text('icon', 'download')}"
       >${text('label', 'click me')}</z-button>`}
   </Story>
