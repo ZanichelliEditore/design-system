@@ -40,7 +40,6 @@ export declare class ZInput {
     textareaWrapperHover: string;
     textareaWrapperFocus: string;
     isOpen: boolean;
-    private statusIcons;
     private timer;
     private itemsList;
     private selectedItem;

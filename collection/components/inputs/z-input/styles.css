@@ -130,56 +130,6 @@
   color: var(--text-grey-700);
 }
 
-/* LABEL */
-:host label {
-  display: block;
-  color: var(--text-grey-800);
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-sb);
-  font-size: 12px;
-  line-height: 16px;
-  text-transform: uppercase;
-  text-align: left;
-  margin: var(--basex1) 0;
-}
-
-:host label.disabledLabel {
-  color: var(--text-grey-700);
-}
-
-/* MESSAGES */
-:host span.statusMsg {
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-  font-size: 14px;
-  line-height: 16px;
-  min-height: 16px;
-  color: var(--text-grey-700);
-  fill: var(--text-grey-700);
-  margin-top: var(--basex1);
-  display: flex;
-}
-
-:host span.statusMsg.msg_success {
-  color: var(--status-success-green);
-  fill: var(--status-success-green);
-}
-
-:host span.statusMsg.msg_error {
-  color: var(--status-error-red);
-  fill: var(--status-error-red);
-}
-
-:host span.statusMsg.msg_warning {
-  color: var(--status-warning-yellow-dark);
-  fill: var(--status-warning-yellow-dark);
-}
-
-:host span.statusMsg > z-icon {
-  margin-right: var(--basex1);
-  margin-top: 1px;
-}
-
 :host > div.textWrapper > div {
   fill: var(--text-grey-800);
 }

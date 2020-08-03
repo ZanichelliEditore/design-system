@@ -23,11 +23,6 @@ export class ZInput {
         this.textareaWrapperHover = "";
         this.textareaWrapperFocus = "";
         this.isOpen = false;
-        this.statusIcons = {
-            success: "circle-check",
-            error: "circle-cross-stroke",
-            warning: "circle-warning"
-        };
         this.itemsList = [];
         this.toggleSelectUl = this.toggleSelectUl.bind(this);
         this.selectItem = this.selectItem.bind(this);
@@ -148,18 +143,14 @@ export class ZInput {
         return (h("div", { class: "textWrapper" },
             this.renderLabel(),
             h("div", null,
-                h("input", Object.assign({}, this.getTextAttributes(), { type: type })),
+                h("input", Object.assign({}, this.getTextAttributes(), { type: type, "aria-labelledby": `${this.htmlid}_label` })),
                 this.renderResetIcon()),
             this.renderMessage()));
     }
     renderLabel() {
         if (!this.label)
             return;
-        let attributes = {};
-        if (this.type === InputTypeEnum.textarea) {
-            attributes = this.getTextareaExtraAttributes();
-        }
-        return (h("label", Object.assign({ htmlFor: this.htmlid, class: this.disabled && "disabledLabel" }, attributes), this.label));
+        return (h("z-input-label", { value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_label` }));
     }
     renderResetIcon() {
         if (!this.value || this.disabled || this.readonly)
@@ -169,9 +160,7 @@ export class ZInput {
     renderMessage() {
         if (!this.hasmessage)
             return;
-        return (h("span", { class: `statusMsg msg_${this.status}` },
-            this.status && this.message ? (h("z-icon", { name: this.statusIcons[this.status], width: 14, height: 14 })) : null,
-            h("span", { innerHTML: this.message })));
+        return h("z-input-message", { message: this.message, status: this.status });
     }
     /* END text/password/email/number */
     /* START textarea */
