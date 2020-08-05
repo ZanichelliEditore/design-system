@@ -260,21 +260,10 @@ export class ZInput {
     );
   }
 
-  renderClosedEye() {
+  renderEye(status: string) {
     return (
       <z-icon
-        name="hide-password"
-        onClick={() => {
-          this.passwordHidden = !this.passwordHidden;
-        }}
-      />
-    );
-  }
-
-  renderOpenEye() {
-    return (
-      <z-icon
-        name="show-password"
+        name={status}
         onClick={() => {
           this.passwordHidden = !this.passwordHidden;
         }}
@@ -285,7 +274,9 @@ export class ZInput {
   renderShowHidePassword() {
     if (this.type !== InputTypeEnum.password) return;
 
-    return this.passwordHidden ? this.renderClosedEye() : this.renderOpenEye();
+    if (this.disabled) this.hostElement.style.pointerEvents = 'none';
+
+    return this.passwordHidden ? this.renderEye('hide-password') : this.renderEye('show-password');
   }
 
   renderResetIcon() {

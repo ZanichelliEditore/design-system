@@ -1,5 +1,7 @@
 import { newE2EPage } from "@stencil/core/testing";
 
+import { icons } from "../../icons/icons";
+
 it("Test ZInput should emit inputChange event", async () => {
   const page = await newE2EPage();
 
@@ -77,6 +79,58 @@ it("Test ZInput typing state", async () => {
   await new Promise(resolve => setTimeout(resolve, 1500));
   await page.waitForChanges();
   expect(input).not.toHaveClass("istyping");
+});
+
+it("Test ZInput - input password - change hide/show icon on click", async () => {
+  const page = await newE2EPage();
+  // Define a window.onCustomEvent function on the page.
+  await page.setContent(
+    `<z-input htmlid="checkid" type="password"> </z-input>`
+  );
+  //const select = await page.find("z-input >>> div.textWrapper");
+  const icon = await page.find("z-input >>> div.textWrapper div z-icon");
+  //icon will be an open eye on first click
+  await icon.click();
+  await page.waitForChanges();
+  expect(icon).toEqualHtml(
+    `<z-icon class="hydrated">
+    <mock:shadow-root>
+    <svg viewBox="0 0 18 18" width='18' height='18'>
+        <path d="${icons["show-password"]}"></path>
+    </svg>
+    </mock:shadow-root>
+    </z-icon>`
+  );
+  //icon will be a closed eye on second click
+  await icon.click();
+  await page.waitForChanges();
+  expect(icon).toEqualHtml(
+    `<z-icon class="hydrated">
+    <mock:shadow-root>
+    <svg viewBox="0 0 18 18" width='18' height='18'>
+        <path d="${icons["hide-password"]}"></path>
+    </svg>
+    </mock:shadow-root>
+    </z-icon>`
+  );
+});
+
+it("Test ZInput - input password - change input type on icon click to show/hide password", async () => {
+  const page = await newE2EPage();
+  // Define a window.onCustomEvent function on the page.
+  await page.setContent(
+    `<z-input htmlid="checkid" type="password"> </z-input>`
+  );
+  const input = await page.find("z-input >>> div.textWrapper div input");
+  const icon = await page.find("z-input >>> div.textWrapper div z-icon");
+  //input will be type text after first click on icon
+  await icon.click();
+  await page.waitForChanges();
+  expect(input).toEqualAttribute('type', 'text');
+  //input will be type password after second click on icon
+  await icon.click();
+  await page.waitForChanges();
+  expect(input).toEqualAttribute('type', 'password');
 });
 
 it("Test ZInput checkbox should emit inputCheck event", async () => {
