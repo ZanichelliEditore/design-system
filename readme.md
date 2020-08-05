@@ -43,7 +43,7 @@ yarn link @zanichelli/albe-web-components
 
 ----
 
-## Tests:
+## Tests
 
 #### Run all tests
 
@@ -62,6 +62,34 @@ yarn test --spec {componentPath}
 ```
 yarn test.e2e
 ```
+
+----
+
+## Release
+
+In this repository we follow the [Conventional Commits Specification](https://www.conventionalcommits.org/) and we use [standard-version](https://github.com/conventional-changelog/standard-version) to update the [CHANGELOG.md](./CHANGELOG.md) when publishing a new version of the package to NPM.
+
+Standard-version automatically detects the type of the update (patch, minor or major) following the [Semantic Versioning](https://semver.org/) specification.
+
+**Publish a new version**
+
+* Make sure you are logged in NPM
+* Run standard-version:
+
+```
+yarn release
+```
+
+**Specify a version**
+
+If you want to select a version or the update type, you can use the `--release-as` flag:
+
+```
+yarn release --release-as path
+yarn release --release-as 1.1.0
+```
+
+In general, you can pass any flag supported by standard-version, please refer to their [CLI usage](https://github.com/conventional-changelog/standard-version#cli-usage) documentation.
 
 ----
 
@@ -117,7 +145,8 @@ yarn build
 
 # Environment Support
 
-- Modern browsers and Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
+- Modern browsers
+- Chromium Edge and Safari 10 with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br> Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
