@@ -239,8 +239,7 @@ export class ZInput {
             type={!this.passwordHidden ? InputTypeEnum.text : type}
             aria-labelledby={`${this.htmlid}_label`}
           />
-          {this.renderResetIcon()}
-          {this.renderShowHidePassword()}
+          {this.type == InputTypeEnum.password ? this.renderShowHidePassword() : this.renderResetIcon()}
         </div>
         {this.renderMessage()}
       </div>
@@ -272,7 +271,6 @@ export class ZInput {
   }
 
   renderShowHidePassword() {
-    if (this.type !== InputTypeEnum.password) return;
 
     if (this.disabled) this.hostElement.style.pointerEvents = 'none';
 
@@ -283,8 +281,7 @@ export class ZInput {
     if (
       !this.value ||
       this.disabled ||
-      this.readonly ||
-      this.type == InputTypeEnum.password
+      this.readonly 
     )
       return;
 
