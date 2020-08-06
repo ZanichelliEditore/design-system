@@ -71,6 +71,7 @@ export class ZInput {
   @State() textareaWrapperHover: string = "";
   @State() textareaWrapperFocus: string = "";
   @State() isOpen: boolean = false;
+  @State() passwordHidden: boolean = true;
 
   private timer;
   private itemsList: SelectItemBean[] = [];
@@ -235,10 +236,10 @@ export class ZInput {
         <div>
           <input
             {...this.getTextAttributes()}
-            type={type}
+            type={!this.passwordHidden ? InputTypeEnum.text : type}
             aria-labelledby={`${this.htmlid}_label`}
           />
-          {this.renderResetIcon()}
+          {this.type == InputTypeEnum.password ? this.renderShowHidePassword() : this.renderResetIcon()}
         </div>
         {this.renderMessage()}
       </div>
@@ -258,8 +259,31 @@ export class ZInput {
     );
   }
 
+  renderEye(status: string) {
+    return (
+      <z-icon
+        name={status}
+        onClick={() => {
+          this.passwordHidden = !this.passwordHidden;
+        }}
+      />
+    );
+  }
+
+  renderShowHidePassword() {
+
+    if (this.disabled) this.hostElement.style.pointerEvents = 'none';
+
+    return this.passwordHidden ? this.renderEye('hide-password') : this.renderEye('show-password');
+  }
+
   renderResetIcon() {
-    if (!this.value || this.disabled || this.readonly) return;
+    if (
+      !this.value ||
+      this.disabled ||
+      this.readonly 
+    )
+      return;
 
     return (
       <z-icon

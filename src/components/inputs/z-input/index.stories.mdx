@@ -71,6 +71,14 @@ import { text, boolean, number } from '@storybook/addon-knobs';
         value="${text('value', 'select')}"
       ></z-input>`}
   </Story>
+    <Story name="z-input type:password">
+    {html`
+      <z-input
+        type="password"
+        label="${text('label', 'Password Label')}"
+        placeholder="${text('placeholder', 'Password')}"
+      ></z-input>`}
+  </Story>
 </Preview>
 
   <Props of="z-input" />
