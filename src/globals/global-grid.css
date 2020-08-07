@@ -1,5 +1,4 @@
-:root,
-:host {
+:root {
   --grid-mobile-viewport: 768px;
   --grid-mobile-column: 4;
   --grid-mobile-margin: 16px;
