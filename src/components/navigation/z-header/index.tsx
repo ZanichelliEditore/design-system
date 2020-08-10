@@ -40,6 +40,8 @@ export class ZHeader {
   @Prop() activeintlinkid?: string;
   /** set current active sub menu link (optional) */
   @Prop() activesublinkid?: string;
+  /** hide login button if true (optional) */
+  @Prop() hideloginbutton?: boolean;
 
   @State() activeMenuItem: MenuItem;
   @State() currentMenuItem: MenuItem;
@@ -284,6 +286,10 @@ export class ZHeader {
   }
 
   renderLoginButton() {
+    if (this.hideloginbutton) {
+      return;
+    }
+
     return (
       <z-button
         htmlid="login-button"
