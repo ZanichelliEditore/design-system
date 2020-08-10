@@ -658,11 +658,18 @@ export namespace Components {
         "url": string;
     }
     interface ZSelect {
+        /**
+          * the input has autocomplete option
+         */
         "autocomplete"?: boolean;
         /**
           * the input is disabled
          */
         "disabled"?: boolean;
+        /**
+          * get the input selected options
+         */
+        "getSelectedItems": () => Promise<SelectItemBean[]>;
         /**
           * show input helper message (optional): available for text, password, number, email, textarea, select
          */
@@ -676,9 +683,9 @@ export namespace Components {
          */
         "htmltitle"?: string;
         /**
-          * items: available for select
+          * the input select options
          */
-        "items"?: SelectItemBean[] | string;
+        "items": SelectItemBean[] | string;
         /**
           * the input label
          */
@@ -687,6 +694,9 @@ export namespace Components {
           * input helper message (optional): available for text, password, number, email, textarea, select
          */
         "message"?: string;
+        /**
+          * multiple options can be selected
+         */
         "multiple"?: boolean;
         /**
           * the input name
@@ -1709,6 +1719,9 @@ declare namespace LocalJSX {
         "url"?: string;
     }
     interface ZSelect {
+        /**
+          * the input has autocomplete option
+         */
         "autocomplete"?: boolean;
         /**
           * the input is disabled
@@ -1727,7 +1740,7 @@ declare namespace LocalJSX {
          */
         "htmltitle"?: string;
         /**
-          * items: available for select
+          * the input select options
          */
         "items"?: SelectItemBean[] | string;
         /**
@@ -1738,6 +1751,9 @@ declare namespace LocalJSX {
           * input helper message (optional): available for text, password, number, email, textarea, select
          */
         "message"?: string;
+        /**
+          * multiple options can be selected
+         */
         "multiple"?: boolean;
         /**
           * the input name

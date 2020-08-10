@@ -6,7 +6,8 @@ import {
   Event,
   EventEmitter,
   Watch,
-  Element
+  Element,
+  Method
 } from "@stencil/core";
 import {
   InputStatusBean,
@@ -31,6 +32,8 @@ export class ZSelect {
 
   /** the id of the input element */
   @Prop() htmlid: string = randomId();
+  /** the input select options */
+  @Prop() items: SelectItemBean[] | string;
   /** the input name */
   @Prop() name?: string;
   /** the input label */
@@ -49,24 +52,16 @@ export class ZSelect {
   @Prop() hasmessage?: boolean = true;
   /** input helper message (optional): available for text, password, number, email, textarea, select */
   @Prop() message?: string;
-  /** items: available for select */
-  @Prop() items?: SelectItemBean[] | string;
-
+  /** the input has autocomplete option */
   @Prop() autocomplete?: boolean = false;
+  /** multiple options can be selected */
   @Prop() multiple?: boolean = false;
 
   @State() isOpen: boolean = false;
-
   @State() renderItemsList: SelectItemBean[];
-  @State() selectedItem: null | SelectItemBean;
   @State() selectedItems: SelectItemBean[];
   @State() searchString: null | string;
 
-  // private statusIcons = {
-  //   success: "circle-check",
-  //   error: "circle-cross-stroke",
-  //   warning: "circle-warning"
-  // };
   private itemsList: SelectItemBean[] = [];
 
   constructor() {
@@ -79,29 +74,17 @@ export class ZSelect {
   watchItems() {
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-    // this.selectedItem = this.itemsList.find(
-    //   (item: SelectItemBean) => item.selected
-    // );
     this.selectedItems = this.itemsList.filter(
       (item: SelectItemBean) => item.selected
     );
   }
 
-  /** get the input value */
-  // @Method()
-  // async getValue(): Promise<string> {
-  //   return this.selectedItem ? this.selectedItem.id : null;
-  // }
+  /** get the input selected options */
+  @Method()
+  async getSelectedItems(): Promise<SelectItemBean[]> {
+    return this.selectedItems;
+  }
 
-  // /** Emitted on select option selection, returns select id, selected option id */
-  // @Event() optionSelect: EventEmitter;
-  // emitOptionSelect(item: null | SelectItemBean) {
-  //   this.selectedItem = item;
-  //   this.optionSelect.emit({
-  //     id: this.htmlid,
-  //     selected: item ? item.id : null
-  //   });
-  // }
   /** Emitted on select option selection, returns select id, selected items */
   @Event() optionSelect: EventEmitter;
   emitOptionSelect() {
@@ -112,18 +95,15 @@ export class ZSelect {
   }
 
   componentWillLoad() {
-    // console.log("componentWillLoad");
     this.watchItems();
   }
 
   componentWillRender() {
-    // console.log("componentWillRender");
     this.resetRenderItemsList();
     if (this.searchString) this.filterItems(this.searchString);
   }
 
   resetRenderItemsList(): void {
-    // console.log("resetRenderItemsList");
     const renderItemsList = [];
     this.itemsList.forEach((item: any) => {
       renderItemsList.push({ ...item });
@@ -146,18 +126,10 @@ export class ZSelect {
   }
 
   handleInputChange(e: CustomEvent) {
-    const searchString = e.detail.value;
-    console.log("handleInputChange", searchString);
-
-    // if (!searchString) this.emitOptionSelect(null);
-    // if (!searchString) this.selectItem(null);
-
-    this.searchString = searchString;
-    if (!this.isOpen) this.toggleSelectUl();
+    this.searchString = e.detail.value;
   }
 
   selectItem(item: null | SelectItemBean, selected: boolean) {
-    // console.log("selectItem", item.id);
     if (item && item.disabled) return;
 
     this.itemsList = this.itemsList.map((i: SelectItemBean) => {
@@ -170,7 +142,6 @@ export class ZSelect {
       (item: SelectItemBean) => item.selected
     );
 
-    // this.emitOptionSelect(item);
     this.emitOptionSelect();
 
     if (this.searchString) this.searchString = null;
@@ -206,6 +177,7 @@ export class ZSelect {
     if (!this.isOpen) {
       document.addEventListener("click", this.handleSelectFocus);
       document.addEventListener("keyup", this.handleSelectFocus);
+      // TODO:
       // this.focusSelectItem(0);
       // il focus va messo dopo altrimenti non mi catcha il click
     } else {
@@ -255,11 +227,6 @@ export class ZSelect {
         id={`${this.htmlid}_input`}
         placeholder={this.placeholder}
         label={this.label}
-        // value={
-        //   this.selectedItem
-        //     ? this.selectedItem.name.replace(/<[^>]+>/g, "")
-        //     : null
-        // }
         value={
           this.selectedItems.length
             ? this.selectedItems
@@ -269,20 +236,14 @@ export class ZSelect {
         }
         icon="drop-down" // TODO: drop-up icon
         clearIcon={this.autocomplete}
-        readonly={!this.autocomplete && this.isOpen} // TODO: gestire, col tab ci scrivi dentro anche se non puoi
+        readonly={!this.autocomplete && this.isOpen}
         hasmessage={false}
-        status={this.isOpen ? InputStatusEnum.selecting : undefined}
+        status={this.isOpen ? InputStatusEnum.selecting : this.status}
         onClick={() => this.toggleSelectUl()}
         onKeyUp={(e: KeyboardEvent) => {
           if (e.keyCode !== 13) e.preventDefault();
           handleKeyboardSubmit(e, this.toggleSelectUl);
         }}
-        // onKeyDown={(e: KeyboardEvent) =>
-        //   this.arrowsSelectNav(
-        //     e,
-        //     this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1
-        //   )
-        // }
         onKeyDown={(e: KeyboardEvent) =>
           this.arrowsSelectNav(
             e,
@@ -309,9 +270,6 @@ export class ZSelect {
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
             id={this.htmlid}
-            // aria-activedescendant={
-            //   this.selectedItem ? this.selectedItem.id : null
-            // }
             aria-activedescendant={
               !this.multiple && this.selectedItems.length
                 ? this.selectedItems[0].id
@@ -321,7 +279,11 @@ export class ZSelect {
             class={`
             ${this.disabled && " disabled"}
             ${this.readonly && " readonly"}
-            ${this.status ? " input_" + this.status : " input_default"}
+            ${
+              !this.isOpen && this.status
+                ? " input_" + this.status
+                : " input_default"
+            }
             ${this.selectedItems.length ? " filled" : ""}
           `}
           >
@@ -333,8 +295,6 @@ export class ZSelect {
   }
 
   renderSelectUlItems() {
-    // console.log("render", this.renderItemsList, this.searchString);
-
     return this.renderItemsList.map((item: SelectItemBean, key) => (
       <li
         role="option"
@@ -342,9 +302,16 @@ export class ZSelect {
         aria-selected={!!item.selected}
         class={item.disabled && "disabled"}
         id={`${this.htmlid}_${key}`}
-        onClick={() => this.selectItem(item, !item.selected)}
+        onClick={() =>
+          this.selectItem(item, this.multiple ? !item.selected : true)
+        }
         onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(e, this.selectItem, item, !item.selected)
+          handleKeyboardSubmit(
+            e,
+            this.selectItem,
+            item,
+            this.multiple ? !item.selected : true
+          )
         }
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
