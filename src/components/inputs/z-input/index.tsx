@@ -7,7 +7,8 @@ import {
   Event,
   EventEmitter,
   Watch,
-  Element
+  Element,
+  Listen
 } from "@stencil/core";
 import {
   InputTypeBean,
@@ -45,6 +46,8 @@ export class ZInput {
   @Prop() disabled?: boolean = false;
   /** the input is readonly */
   @Prop() readonly?: boolean = false;
+  /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
+  @Prop() required?: boolean = false;
   /** checked: available for checkbox, radio */
   @Prop({ mutable: true }) checked?: boolean = false;
   /** the input placeholder (optional) */
@@ -72,11 +75,6 @@ export class ZInput {
   @State() textareaWrapperFocus: string = "";
   @State() isOpen: boolean = false;
 
-  private statusIcons = {
-    success: "circle-check",
-    error: "circle-cross-stroke",
-    warning: "circle-warning"
-  };
   private timer;
   private itemsList: SelectItemBean[] = [];
   private selectedItem: SelectItemBean;
@@ -99,6 +97,23 @@ export class ZInput {
     }
   }
 
+  @Listen("inputCheck", { target: "document" })
+  inputCheckListener(e: CustomEvent) {
+    const data = e.detail;
+    switch (this.type) {
+      case InputTypeEnum.radio:
+        if (
+          data.type === InputTypeEnum.radio &&
+          data.name === this.name &&
+          data.id !== this.htmlid
+        ) {
+          this.checked = false;
+        }
+      default:
+        return;
+    }
+  }
+
   /** get the input value */
   @Method()
   async getValue(): Promise<string> {
@@ -116,25 +131,31 @@ export class ZInput {
   async isChecked(): Promise<boolean> {
     switch (this.type) {
       case InputTypeEnum.checkbox:
+      case InputTypeEnum.radio:
         return this.checked;
       default:
         return false;
     }
   }
 
-  /** Emitted on input value change, returns value, keycode */
+  /** Emitted on input value change, returns value, keycode, validity */
   @Event() inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number) {
     if (!this.isTyping) {
       this.emitStartTyping();
     }
-
+    let validity = {};
+    if (this.type === InputTypeEnum.textarea) {
+      validity = this.getValidity("textarea");
+    } else {
+      validity = this.getValidity("input");
+    }
     this.value = value;
-    this.inputChange.emit({ value, keycode });
+    this.inputChange.emit({ value, keycode, validity });
 
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      this.emitStopTyping(this.value);
+      this.emitStopTyping(this.value, validity);
     }, this.typingtimeout);
   }
 
@@ -145,17 +166,27 @@ export class ZInput {
     this.startTyping.emit();
   }
 
-  /** Emitted when user stops typing, returns value */
+  /** Emitted when user stops typing, returns value, validity */
   @Event() stopTyping: EventEmitter;
-  emitStopTyping(value: string) {
+  emitStopTyping(value: string, validity: any) {
     this.isTyping = false;
-    this.stopTyping.emit({ value: value });
+    this.stopTyping.emit({
+      value: value,
+      validity: validity
+    });
   }
 
-  /** Emitted on checkbox check/uncheck, returns id, checked */
+  /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
   @Event() inputCheck: EventEmitter;
   emitInputCheck(checked: boolean) {
-    this.inputCheck.emit({ id: this.htmlid, checked: checked });
+    this.inputCheck.emit({
+      id: this.htmlid,
+      checked: checked,
+      type: this.type,
+      name: this.name,
+      value: this.value,
+      validity: this.getValidity("input")
+    });
   }
 
   /** Emitted on select option selection, returns select id, selected option id */
@@ -172,6 +203,13 @@ export class ZInput {
     }
   }
 
+  getValidity(type: string) {
+    const input = this.hostElement.shadowRoot.querySelector(
+      type
+    ) as HTMLInputElement;
+    return input.validity;
+  }
+
   /* START text/password/email/number */
 
   getTextAttributes() {
@@ -182,6 +220,7 @@ export class ZInput {
       value: this.value,
       disabled: this.disabled,
       readonly: this.readonly,
+      required: this.required,
       title: this.htmltitle,
       class: `
         ${this.status ? "input_" + this.status : "input_default"}
@@ -208,19 +247,13 @@ export class ZInput {
   renderLabel() {
     if (!this.label) return;
 
-    let attributes = {};
-    if (this.type === InputTypeEnum.textarea) {
-      attributes = this.getTextareaExtraAttributes();
-    }
-
     return (
-      <label
-        htmlFor={this.htmlid}
-        class={this.disabled && "disabledLabel"}
-        {...attributes}
-      >
-        {this.label}
-      </label>
+      <z-input-label
+        value={this.label}
+        disabled={this.disabled}
+        aria-label={this.label}
+        id={`${this.htmlid}_label`}
+      />
     );
   }
 
@@ -255,14 +288,7 @@ export class ZInput {
   renderMessage() {
     if (!this.hasmessage) return;
 
-    return (
-      <span class={`statusMsg msg_${this.status}`}>
-        {this.status ? (
-          <z-icon name={this.statusIcons[this.status]} width={14} height={14} />
-        ) : null}
-        <span innerHTML={this.message}></span>
-      </span>
-    );
+    return <z-input-message message={this.message} status={this.status} />;
   }
 
   /* END text/password/email/number */
@@ -328,6 +354,7 @@ export class ZInput {
           value={this.value}
           disabled={this.disabled}
           readonly={this.readonly}
+          required={this.required}
           onChange={() => this.handleCheckboxChange()}
         />
 
@@ -346,6 +373,42 @@ export class ZInput {
   }
 
   /* END checkbox */
+
+  /* START radio */
+
+  handleRadioChange() {
+    this.checked = true;
+    this.emitInputCheck(this.checked);
+  }
+
+  renderRadio() {
+    return (
+      <div class="radioWrapper">
+        <input
+          id={this.htmlid}
+          type="radio"
+          name={this.name}
+          checked={this.checked}
+          value={this.value}
+          disabled={this.disabled}
+          readonly={this.readonly}
+          onChange={() => this.handleRadioChange()}
+        />
+
+        <label
+          htmlFor={this.htmlid}
+          class={`radioLabel ${this.labelafter ? "after" : "before"}`}
+        >
+          <z-icon
+            name={this.checked ? "radio-button-checked" : "radio-button"}
+            aria-hidden={true}
+          />
+          {this.label && <span innerHTML={this.label} />}
+        </label>
+      </div>
+    );
+  }
+  /* END radio */
 
   /* START select */
 
@@ -509,6 +572,8 @@ export class ZInput {
         return this.renderTextarea();
       case InputTypeEnum.checkbox:
         return this.renderCheckbox();
+      case InputTypeEnum.radio:
+        return this.renderRadio();
       case InputTypeEnum.select:
         return this.renderSelect();
       default:

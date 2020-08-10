@@ -1,11 +1,24 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Buttons/ZButtonFilter" component="z-button-filter" />
 
   # ZButtonFilter
+
+<Preview>
+  <Story name="z-button-filter">
+    {html`
+      <z-button-filter
+        filtername="${text('filtername', 'filter 2')}"
+        hasicon="${boolean('hasicon', true)}"
+        isfixed="${text('isfixed', true)}"
+      ></z-button-filter>
+    `}
+  </Story>
+</Preview>
 
   <Props of="z-button-filter" />
 

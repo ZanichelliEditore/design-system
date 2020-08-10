@@ -5,14 +5,14 @@ it("Test ZInput should emit inputChange event", async () => {
 
   // Define a window.onCustomEvent function on the page.
   let inputValue = "";
-  await page.exposeFunction("onInputChange", (e) => {
+  await page.exposeFunction("onInputChange", e => {
     inputValue = e.detail.value;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "inputChange";
-  page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+  page.evaluateOnNewDocument(type => {
+    document.addEventListener(type, e => {
       window.onInputChange({ type, detail: e.detail });
     });
   }, type);
@@ -36,14 +36,14 @@ it("Test disabled ZInput should not change / emit inputChange event", async () =
 
   // Define a window.onCustomEvent function on the page.
   let inputValue = "";
-  await page.exposeFunction("onInputChange", (e) => {
+  await page.exposeFunction("onInputChange", e => {
     inputValue = e.detail.value;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "inputChange";
-  page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+  page.evaluateOnNewDocument(type => {
+    document.addEventListener(type, e => {
       window.onInputChange({ type, detail: e.detail });
     });
   }, type);
@@ -74,69 +74,129 @@ it("Test ZInput typing state", async () => {
   await page.waitForChanges();
   expect(input).toHaveClass("istyping");
 
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  await new Promise(resolve => setTimeout(resolve, 1500));
   await page.waitForChanges();
   expect(input).not.toHaveClass("istyping");
 });
 
-it("Test ZInput should emit inputCheck event", async () => {
+it("Test ZInput checkbox should emit inputCheck event", async () => {
   const page = await newE2EPage();
 
   // Define a window.onCustomEvent function on the page.
   let checked = false;
-  await page.exposeFunction("onInputCheck", (e) => {
+  await page.exposeFunction("onInputCheck", e => {
     checked = e.detail.checked;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "inputCheck";
-  page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+  page.evaluateOnNewDocument(type => {
+    document.addEventListener(type, e => {
       window.onInputCheck({
         type,
-        detail: e.detail,
+        detail: e.detail
       });
     });
   }, type);
 
   await page.setContent(`<z-input type="checkbox"></z-input>`);
-  const input = await page.find("z-input >>> div input");
+  const input_checkbox = await page.find("z-input >>> div input");
 
   expect(checked).toEqual(false);
 
-  await input.click();
+  await input_checkbox.click();
   await page.waitForChanges();
   expect(checked).toEqual(true);
 
-  await input.click();
+  await input_checkbox.click();
   await page.waitForChanges();
   expect(checked).toEqual(false);
 });
 
-it("Test disabled ZInput should not emit inputCheck event", async () => {
+it("Test disabled ZInput checkbox should not emit inputCheck event", async () => {
   const page = await newE2EPage();
 
   // Define a window.onCustomEvent function on the page.
   let checked = false;
-  await page.exposeFunction("onInputCheck", (e) => {
+  await page.exposeFunction("onInputCheck", e => {
     checked = e.detail.checked;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "inputCheck";
-  page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+  page.evaluateOnNewDocument(type => {
+    document.addEventListener(type, e => {
       window.onInputCheck({
         type,
-        detail: e.detail,
+        detail: e.detail
       });
     });
   }, type);
 
   await page.setContent(`<z-input type="checkbox" disabled></z-input>`);
-  const input_unchecked = await page.find("z-input >>> div input");
+  const input_checkbox_unchecked = await page.find("z-input >>> div input");
   expect(checked).toEqual(false);
-  await input_unchecked.click();
+  await input_checkbox_unchecked.click();
+  await page.waitForChanges();
+  expect(checked).toEqual(false);
+});
+
+it("Test ZInput radio should emit inputCheck event", async () => {
+  const page = await newE2EPage();
+
+  // Define a window.onCustomEvent function on the page.
+  let checked = false;
+  await page.exposeFunction("onInputCheck", e => {
+    checked = e.detail.checked;
+  });
+
+  // Attach an event listener to page to capture a custom event on page load/navigation.
+  const type = "inputCheck";
+  page.evaluateOnNewDocument(type => {
+    document.addEventListener(type, e => {
+      window.onInputCheck({
+        type,
+        detail: e.detail
+      });
+    });
+  }, type);
+
+  await page.setContent(`<z-input id="radio_1" type="radio"></z-input>`);
+  const input_radio = await page.find("z-input >>> div input");
+
+  expect(checked).toEqual(false);
+  await input_radio.click();
+  await page.waitForChanges();
+  expect(checked).toEqual(true);
+  await input_radio.click();
+  await page.waitForChanges();
+  expect(checked).toEqual(true);
+});
+
+it("Test disabled ZInput radio should not emit inputCheck event", async () => {
+  const page = await newE2EPage();
+
+  // Define a window.onCustomEvent function on the page.
+  let checked = false;
+  await page.exposeFunction("onInputCheck", e => {
+    checked = e.detail.checked;
+  });
+
+  // Attach an event listener to page to capture a custom event on page load/navigation.
+  const type = "inputCheck";
+  page.evaluateOnNewDocument(type => {
+    document.addEventListener(type, e => {
+      window.onInputCheck({
+        type,
+        detail: e.detail
+      });
+    });
+  }, type);
+
+  await page.setContent(`<z-input type="radio" disabled></z-input>`);
+  const input_radio_unchecked = await page.find("z-input >>> div input");
+  expect(checked).toEqual(false);
+  await input_radio_unchecked.click();
   await page.waitForChanges();
   expect(checked).toEqual(false);
 });
@@ -145,16 +205,16 @@ it("Test ZInput - select should open, close and emit optionSelect event", async 
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
   let selected = null;
-  await page.exposeFunction("onOptionSelect", (e) => {
+  await page.exposeFunction("onOptionSelect", e => {
     selected = e.detail.selected;
   });
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "optionSelect";
-  page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+  page.evaluateOnNewDocument(type => {
+    document.addEventListener(type, e => {
       window.onOptionSelect({
         type,
-        detail: e.detail,
+        detail: e.detail
       });
     });
   }, type);

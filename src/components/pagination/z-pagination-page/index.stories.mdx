@@ -1,11 +1,24 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { number, boolean } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Pagination/ZPaginationPage" component="z-pagination-page" />
 
   # ZPaginationPage
+
+<Preview>
+  <Story name="z-pagination-page">
+    {html`
+      <z-pagination-page
+        value="${number('value', 4)}"
+        isselected="${boolean('isselected', true)}"
+        isdisabled="${boolean('isdisabled', true)}"
+        isvisited="${boolean('isvisited', true)}"
+      ></z-pagination-page>`}
+  </Story>
+</Preview>
 
   <Props of="z-pagination-page" />
 

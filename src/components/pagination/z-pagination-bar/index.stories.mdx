@@ -1,11 +1,24 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { number } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Pagination/ZPaginationBar" component="z-pagination-bar" />
 
   # ZPaginationBar
+
+<Preview>
+  <Story name="z-pagination-bar">
+    {html`
+      <z-pagination-bar
+        pages="${number('pages', 20)}"
+        visiblepages="${number('visiblepages', 5)}"
+        currentpage="${number('currentpage', 4)}"
+        startpage="${number('startpage', 2)}"
+      ></z-pagination-bar>`}
+  </Story>
+</Preview>
 
   <Props of="z-pagination-bar" />
 
