@@ -664,10 +664,6 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * get the input value
-         */
-        "getValue": () => Promise<string>;
-        /**
           * show input helper message (optional): available for text, password, number, email, textarea, select
          */
         "hasmessage"?: boolean;
@@ -691,6 +687,7 @@ export namespace Components {
           * input helper message (optional): available for text, password, number, email, textarea, select
          */
         "message"?: string;
+        "multiple"?: boolean;
         /**
           * the input name
          */
@@ -1741,12 +1738,13 @@ declare namespace LocalJSX {
           * input helper message (optional): available for text, password, number, email, textarea, select
          */
         "message"?: string;
+        "multiple"?: boolean;
         /**
           * the input name
          */
         "name"?: string;
         /**
-          * Emitted on select option selection, returns select id, selected option id
+          * Emitted on select option selection, returns select id, selected items
          */
         "onOptionSelect"?: (event: CustomEvent<any>) => void;
         /**

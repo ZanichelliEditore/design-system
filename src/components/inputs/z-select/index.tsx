@@ -6,8 +6,7 @@ import {
   Event,
   EventEmitter,
   Watch,
-  Element,
-  Method
+  Element
 } from "@stencil/core";
 import {
   InputStatusBean,
@@ -54,11 +53,13 @@ export class ZSelect {
   @Prop() items?: SelectItemBean[] | string;
 
   @Prop() autocomplete?: boolean = false;
+  @Prop() multiple?: boolean = false;
 
   @State() isOpen: boolean = false;
 
   @State() renderItemsList: SelectItemBean[];
   @State() selectedItem: null | SelectItemBean;
+  @State() selectedItems: SelectItemBean[];
   @State() searchString: null | string;
 
   // private statusIcons = {
@@ -78,24 +79,35 @@ export class ZSelect {
   watchItems() {
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-    this.selectedItem = this.itemsList.find(
+    // this.selectedItem = this.itemsList.find(
+    //   (item: SelectItemBean) => item.selected
+    // );
+    this.selectedItems = this.itemsList.filter(
       (item: SelectItemBean) => item.selected
     );
   }
 
   /** get the input value */
-  @Method()
-  async getValue(): Promise<string> {
-    return this.selectedItem ? this.selectedItem.id : null;
-  }
+  // @Method()
+  // async getValue(): Promise<string> {
+  //   return this.selectedItem ? this.selectedItem.id : null;
+  // }
 
-  /** Emitted on select option selection, returns select id, selected option id */
+  // /** Emitted on select option selection, returns select id, selected option id */
+  // @Event() optionSelect: EventEmitter;
+  // emitOptionSelect(item: null | SelectItemBean) {
+  //   this.selectedItem = item;
+  //   this.optionSelect.emit({
+  //     id: this.htmlid,
+  //     selected: item ? item.id : null
+  //   });
+  // }
+  /** Emitted on select option selection, returns select id, selected items */
   @Event() optionSelect: EventEmitter;
-  emitOptionSelect(item: null | SelectItemBean) {
-    this.selectedItem = item;
+  emitOptionSelect() {
     this.optionSelect.emit({
       id: this.htmlid,
-      selected: item ? item.id : null
+      selected: this.selectedItems
     });
   }
 
@@ -135,25 +147,31 @@ export class ZSelect {
 
   handleInputChange(e: CustomEvent) {
     const searchString = e.detail.value;
+    console.log("handleInputChange", searchString);
 
     // if (!searchString) this.emitOptionSelect(null);
-    if (!searchString) this.selectItem(null);
+    // if (!searchString) this.selectItem(null);
 
     this.searchString = searchString;
     if (!this.isOpen) this.toggleSelectUl();
   }
 
-  selectItem(item: null | SelectItemBean) {
+  selectItem(item: null | SelectItemBean, selected: boolean) {
     // console.log("selectItem", item.id);
     if (item && item.disabled) return;
 
     this.itemsList = this.itemsList.map((i: SelectItemBean) => {
-      if (i.selected) i.selected = false;
-      if (i.id === (item ? item.id : null)) i.selected = true;
+      if (!this.multiple) i.selected = false;
+      if (i.id === (item ? item.id : null)) i.selected = selected;
       return i;
     });
 
-    this.emitOptionSelect(item);
+    this.selectedItems = this.itemsList.filter(
+      (item: SelectItemBean) => item.selected
+    );
+
+    // this.emitOptionSelect(item);
+    this.emitOptionSelect();
 
     if (this.searchString) this.searchString = null;
   }
@@ -231,14 +249,22 @@ export class ZSelect {
   }
 
   renderInput() {
+    console.log(this.selectedItems, this.selectedItems.length);
     return (
       <z-input
         id={`${this.htmlid}_input`}
         placeholder={this.placeholder}
         label={this.label}
+        // value={
+        //   this.selectedItem
+        //     ? this.selectedItem.name.replace(/<[^>]+>/g, "")
+        //     : null
+        // }
         value={
-          this.selectedItem
-            ? this.selectedItem.name.replace(/<[^>]+>/g, "")
+          this.selectedItems.length
+            ? this.selectedItems
+                .map((item: any) => item.name.replace(/<[^>]+>/g, ""))
+                .join(", ") // TODO: chips
             : null
         }
         icon="drop-down" // TODO: drop-up icon
@@ -247,17 +273,29 @@ export class ZSelect {
         hasmessage={false}
         status={this.isOpen ? InputStatusEnum.selecting : undefined}
         onClick={() => this.toggleSelectUl()}
-        onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(e, this.toggleSelectUl)
-        }
+        onKeyUp={(e: KeyboardEvent) => {
+          if (e.keyCode !== 13) e.preventDefault();
+          handleKeyboardSubmit(e, this.toggleSelectUl);
+        }}
+        // onKeyDown={(e: KeyboardEvent) =>
+        //   this.arrowsSelectNav(
+        //     e,
+        //     this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1
+        //   )
+        // }
         onKeyDown={(e: KeyboardEvent) =>
           this.arrowsSelectNav(
             e,
-            this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1
+            this.selectedItems.length
+              ? this.itemsList.indexOf(this.selectedItems[0])
+              : -1
           )
         }
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);
+        }}
+        onKeyPress={(e: KeyboardEvent) => {
+          if (!this.autocomplete) e.preventDefault();
         }}
       />
     );
@@ -271,14 +309,20 @@ export class ZSelect {
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
             id={this.htmlid}
+            // aria-activedescendant={
+            //   this.selectedItem ? this.selectedItem.id : null
+            // }
             aria-activedescendant={
-              this.selectedItem ? this.selectedItem.id : null
+              !this.multiple && this.selectedItems.length
+                ? this.selectedItems[0].id
+                : null
             }
+            aria-multiselectable={!!this.multiple}
             class={`
             ${this.disabled && " disabled"}
             ${this.readonly && " readonly"}
             ${this.status ? " input_" + this.status : " input_default"}
-            ${this.selectedItem ? " filled" : ""}
+            ${this.selectedItems.length ? " filled" : ""}
           `}
           >
             {this.renderSelectUlItems()}
@@ -298,9 +342,9 @@ export class ZSelect {
         aria-selected={!!item.selected}
         class={item.disabled && "disabled"}
         id={`${this.htmlid}_${key}`}
-        onClick={() => this.selectItem(item)}
+        onClick={() => this.selectItem(item, !item.selected)}
         onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(e, this.selectItem, item)
+          handleKeyboardSubmit(e, this.selectItem, item, !item.selected)
         }
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
@@ -309,27 +353,18 @@ export class ZSelect {
     ));
   }
 
-  // TODO: componente message
+  renderMessage() {
+    if (!this.hasmessage) return;
 
-  // renderMessage() {
-  //   if (!this.hasmessage) return;
-
-  //   return (
-  //     <span class={`statusMsg msg_${this.status}`}>
-  //       {this.status && this.message ? (
-  //         <z-icon name={this.statusIcons[this.status]} width={14} height={14} />
-  //       ) : null}
-  //       <span innerHTML={this.message}></span>
-  //     </span>
-  //   );
-  // }
+    return <z-input-message message={this.message} status={this.status} />;
+  }
 
   render() {
     return (
       <div class="selectWrapper">
         {this.renderInput()}
         {this.renderSelectUl()}
-        {/* {this.renderMessage()} */}
+        {this.renderMessage()}
       </div>
     );
   }
