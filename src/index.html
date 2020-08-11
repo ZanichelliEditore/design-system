@@ -469,7 +469,7 @@
       </div>
 
       <br /><br />
-      <z-input></z-input>
+      <z-input required></z-input>
       <z-input type="text" label="default" placeholder="Cerca Autore"></z-input>
       <z-input type="text" label="filled" value="testo testo testo"></z-input>
       <z-input type="text" label="disabled" placeholder="placeholder" disabled value="i'm disabled"></z-input>
@@ -484,7 +484,7 @@
       <z-input type="text" label="message" placeholder="placeholder" message="helper message"></z-input>
 
       <br /><br />
-      <z-input type="textarea"></z-input>
+      <z-input type="textarea" required></z-input>
       <z-input type="textarea" label="default" placeholder="Cerca Autore"></z-input>
       <z-input type="textarea" label="filled" value="testo testo testo"></z-input>
       <z-input type="textarea" label="disabled" placeholder="placeholder" disabled value="i'm disabled"></z-input>
@@ -498,13 +498,18 @@
       <z-input type="textarea" label="message" placeholder="placeholder" message="helper message"></z-input>
 
       <br /><br />
-      <z-input type="checkbox" htmlid="check1"></z-input><br />
+      <z-input type="checkbox" htmlid="check1" required></z-input><br />
       <z-input type="checkbox" htmlid="check2" label="this is a checkbox" checked></z-input><br />
       <div style="width:150px;background:grey;font-size:10px;"><z-input type="checkbox" htmlid="check3" label="unchecked with long long long longlong long long label" labelafter="false"></z-input></div>
       <z-input type="checkbox" htmlid="check4" value="value" disabled label="disabled" ></z-input><br />
       <z-input type="checkbox" htmlid="check5" value="value" readonly label="read-only" checked></z-input><br />
 
-
+      <br /><br />
+      <z-input type="radio" htmlid="radio1" name="radio-selected" value="1"></z-input><br />
+      <z-input type="radio" htmlid="radio2" name="radio-selected" value="2" label="opzione 2"></z-input><br />
+      <z-input type="radio" htmlid="radio3" name="radio-selected" value="3" labelafter="false" label="opzione 3"></z-input><br />
+      <z-input type="radio" htmlid="radio4" name="radio-selected" value="4" label="disabled" disabled></z-input><br />
+      <z-input type="radio" htmlid="radio5" name="radio-selected" value="5" label="readonly" readonly></z-input><br />
       <br /><br />
       <div style="width:300px;">
         <z-input type="select" label="default" placeholder="Seleziona qui" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
@@ -592,6 +597,26 @@
         <z-icon-package>
           </z-icon-pacakge>
       </div>
+      <z-stepper>
+        <z-stepper-item index="1" pressed></z-stepper-item>
+        <z-stepper-item index="2" disabled></z-stepper-item>
+        <z-stepper-item index="3" disabled></z-stepper-item>
+      </z-stepper>
+      <z-stepper>
+        <z-stepper-item index="1">I tuoi dati</z-stepper-item>
+        <z-stepper-item index="2" pressed>Le tue credenziali</z-stepper-item>
+        <z-stepper-item index="3" disabled>Conferma</z-stepper-item>
+      </z-stepper>
+      <z-stepper>
+        <z-stepper-item index="1">I tuoi dati</z-stepper-item>
+        <z-stepper-item index="2">Le tue credenziali</z-stepper-item>
+        <z-stepper-item index="3" pressed>Conferma</z-stepper-item>
+      </z-stepper>
+      <z-stepper>
+        <z-stepper-item href="#stepper1" index="1">I tuoi dati</z-stepper-item>
+        <z-stepper-item href="#stepper2" index="2">Le tue credenziali</z-stepper-item>
+        <z-stepper-item href="#stepper3" index="3" pressed>Conferma</z-stepper-item>
+      </z-stepper>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
         dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.

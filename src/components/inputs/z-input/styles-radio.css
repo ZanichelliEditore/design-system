@@ -1,0 +1,89 @@
+:host > .radioWrapper {
+  display: inline-block;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: inherit;
+  position: relative;
+}
+
+:host > .radioWrapper > input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+:host label {
+  display: block;
+}
+
+:host label.disabledLabel {
+  color: var(--text-grey-700);
+}
+
+:host > .radioWrapper > label.radioLabel {
+  display: inline-flex;
+  line-height: 16px;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+  margin: 0;
+}
+
+:host > .radioWrapper > label.radioLabel.after {
+  flex-direction: row;
+}
+
+:host > .radioWrapper > label.radioLabel.before {
+  flex-direction: row-reverse;
+}
+
+:host > .radioWrapper > label.radioLabel.after > span {
+  margin-left: var(--basex1);
+}
+
+:host > .radioWrapper > label.radioLabel.before > span {
+  margin-right: var(--basex1);
+}
+
+:host > .radioWrapper > label.radioLabel > z-icon {
+  fill: var(--myz-blue);
+  height: 18px;
+  width: 18px;
+}
+
+/* focus */
+:host > .radioWrapper > input[type="radio"]:focus + label.radioLabel > z-icon {
+  box-shadow: 0 0 2px 2px var(--accent-dark);
+  border-radius: 50%;
+}
+
+/* disabled */
+:host
+  > .radioWrapper
+  > input[type="radio"]:disabled
+  + label.radioLabel
+  > z-icon {
+  fill: var(--bg-grey-700);
+  cursor: default;
+}
+
+/* readonly */
+:host
+  > .radioWrapper
+  > input[type="radio"][readonly]
+  + label.radioLabel
+  > z-icon {
+  fill: var(--bg-grey-800);
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1025px) {
+}

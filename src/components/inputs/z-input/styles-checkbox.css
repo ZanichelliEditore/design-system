@@ -60,6 +60,7 @@
   + label.checkboxLabel
   > z-icon {
   box-shadow: 0 0 2px 2px var(--accent-dark);
+  border-radius: 2px;
 }
 
 /* disabled */

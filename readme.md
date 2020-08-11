@@ -7,7 +7,7 @@ Zanichelli's design system is widely documented on Zeroheight at this [link](htt
 ## Install
 
 ```bash
-yarn add zanichelli-web-components-library
+yarn add @zanichelli/albe-web-components
 ```
 
 ## Start Library Development Server
@@ -38,12 +38,12 @@ yarn link
 #### In the destination project folder run
 
 ```
-yarn link zanichelli-web-components-library
+yarn link @zanichelli/albe-web-components
 ```
 
 ----
 
-## Tests:
+## Tests
 
 #### Run all tests
 
@@ -62,6 +62,34 @@ yarn test --spec {componentPath}
 ```
 yarn test.e2e
 ```
+
+----
+
+## Release
+
+In this repository we follow the [Conventional Commits Specification](https://www.conventionalcommits.org/) and we use [standard-version](https://github.com/conventional-changelog/standard-version) to update the [CHANGELOG.md](./CHANGELOG.md) when publishing a new version of the package to NPM.
+
+Standard-version automatically detects the type of the update (patch, minor or major) following the [Semantic Versioning](https://semver.org/) specification.
+
+**Publish a new version**
+
+* Make sure you are logged in NPM
+* Run standard-version:
+
+```
+yarn release
+```
+
+**Specify a version**
+
+If you want to select a version or the update type, you can use the `--release-as` flag:
+
+```
+yarn release --release-as path
+yarn release --release-as 1.1.0
+```
+
+In general, you can pass any flag supported by standard-version, please refer to their [CLI usage](https://github.com/conventional-changelog/standard-version#cli-usage) documentation.
 
 ----
 
@@ -117,18 +145,45 @@ yarn build
 
 # Environment Support
 
-- Modern browsers and Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
+- Modern browsers
+- Chromium Edge and Safari 10 with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11)
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari |
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br> Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| IE11, Edge                                                                                                                                                                                                     | XXXXX                                                                                                                                                                                                            | XXXXX                                                                                                                                                                                                        | XXXXX                                                                                                                                                                                                        |
+| > 16.16                                                                                                                                                                                                     | > 48                                                                                                                                                                                                            | > 69                                                                                                                                                                                                        | > 10.0                                                                                                                                                                                                        |
 
 ## Usage
 
-```javascript
-import { defineCustomElements as defineComponents } from 'zanichelli-web-components-library/loader';
+### CSS Custom Properties
 
-defineComponents(window);
+The library provides a global css variables export. You can import the styles by ES6 import:
+
+```javascript
+import '@zanichelli/albe-web-components/www/build/web-components-library.css';
+```
+or via link tag:
+
+```html
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/@zanichelli/albe-web-components/www/build/web-components-library.css" />
+```
+
+
+### Custom Elements
+
+You can use the library by importing the custom elements from npm package:
+
+```javascript
+import { defineCustomElements, applyPolyfills } from '@zanichelli/albe-web-components/loader';
+
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});
+```
+
+or via a script tag:
+
+```html
+<script src="https://unpkg.com/@zanichelli/albe-web-components/dist/web-components-library/web-components-library.esm.js"></script> 
 ```
 
 Then use the relative tag as a usual component in your markup.

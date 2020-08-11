@@ -40,6 +40,8 @@ export class ZHeader {
   @Prop() activeintlinkid?: string;
   /** set current active sub menu link (optional) */
   @Prop() activesublinkid?: string;
+  /** hide login button if true (optional) */
+  @Prop() hideloginbutton?: boolean;
 
   @State() activeMenuItem: MenuItem;
   @State() currentMenuItem: MenuItem;
@@ -164,11 +166,7 @@ export class ZHeader {
         <svg
           height="8"
           width="16"
-          class={
-            this.activeMenuItem
-              ? id !== this.activeMenuItem.id && "hidden"
-              : "hidden"
-          }
+          class={(!this.activeMenuItem || this.activeMenuItem.id !== id) ? "hidden" : ""}
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
@@ -252,13 +250,13 @@ export class ZHeader {
           (menuItem: MenuItem): HTMLSpanElement => {
             const { id, label, link, icon } = menuItem;
             return (
-              <span class={`link-ext-span ${this.ismyz && "myz"}`}>
+              <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
                 <z-link
                   id={id}
                   htmlid={id}
                   href={link}
                   icon={icon}
-                  iswhite={this.ismyz ? true : false}
+                  iswhite={!!this.ismyz}
                   target="_blank"
                   htmltabindex={10}
                 >
@@ -288,6 +286,10 @@ export class ZHeader {
   }
 
   renderLoginButton() {
+    if (this.hideloginbutton) {
+      return;
+    }
+
     return (
       <z-button
         htmlid="login-button"
@@ -342,7 +344,7 @@ export class ZHeader {
 
   renderDesktopHeader(): HTMLHeadingElement {
     return (
-      <header class={`${!this.ismyz && "myz-out"}`}>
+      <header class={!this.ismyz ? "myz-out" : ""}>
         {this.renderTopHeader()}
         {this.renderMainHeader()}
         {this.renderSubMenu(this.activeMenuItem)}
@@ -352,7 +354,7 @@ export class ZHeader {
 
   renderMainHeader(): HTMLDivElement {
     return (
-      <div id="main-header" class={`main-header ${!this.ismyz && "myz-out"}`}>
+      <div id="main-header" class={`main-header${this.ismyz ? "" : " myz-out"}`}>
         {this.renderLogoDiv()}
         {this.renderIntMenu(this.intMenuData)}
         {this.renderExtMenu(this.extMenuData)}
@@ -374,7 +376,7 @@ export class ZHeader {
     return (
       <div
         id="mobile-header"
-        class={`mobile-header ${!this.ismyz && "myz-out"}`}
+        class={`mobile-header${this.ismyz ? "" : " myz-out"}`}
       >
         {this.renderLogoDiv()}
         {this.renderMobileMenuToggle()}
@@ -392,7 +394,7 @@ export class ZHeader {
         onClick={() => (this.isMenuMobileOpen = !this.isMenuMobileOpen)}
       >
         <div
-          class={`menu-toggle ${this.isMenuMobileOpen && "is-active"}`}
+          class={`menu-toggle${this.isMenuMobileOpen ? " is-active" : ""}`}
           id="mobile-menu"
         >
           <span class="bar" />
@@ -410,8 +412,7 @@ export class ZHeader {
     return (
       <div
         id="mobile-content"
-        class={`mobile-content ${this.isMenuMobileOpen && "open"} ${!this
-          .ismyz && "myz-out"}`}
+        class={`mobile-content${this.isMenuMobileOpen ? " open" : ""}${this.ismyz ? "" : " myz-out"}`}
       >
         {this.renderMobileLoginDiv(this.userData)}
         {this.ismyz && <hr />}

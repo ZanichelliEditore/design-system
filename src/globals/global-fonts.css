@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,600&display=swap');
 
-:root,
-:host {
+:root {
   --dashboard-font: IBM Plex Sans;
   --font-lt: 300;
   --font-rg: 400;

@@ -1,11 +1,22 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Notification/ZTooltip" component="z-tooltip" />
 
   # ZTooltip
+
+<Preview>
+  <Story name="z-tooltip top">
+    {html`
+      <z-tooltip
+        content="${text('content', 'Aggiungi libro')}"
+        type="${text('type', 'top')}"
+      ></z-tooltip>`}
+  </Story>
+</Preview>
 
   <Props of="z-tooltip" />
 

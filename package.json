@@ -1,7 +1,7 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "1.0.0",
-  "description": "Stencil Component Starter",
+  "version": "1.1.0",
+  "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -22,7 +22,7 @@
     "test": "stencil test --spec",
     "test.watch": "stencil test --spec --watch",
     "test.e2e": "stencil test --e2e",
-    "release": "yarn build && yarn publish --registry https://registry.npmjs.com --access public",
+    "release": "standard-version",
     "start-storybook": "yarn build && start-storybook -p 3003 -s ./dist,./src/assets --ci",
     "build-storybook": "yarn build && build-storybook -c .storybook -s ./dist,./src/assets . -o storybook"
   },
@@ -36,14 +36,15 @@
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/web-components": "^5.3.13",
     "@types/hammerjs": "^2.0.36",
-    "@types/jest": "24.0.24",
+    "@types/jest": "25.2.3",
     "@types/puppeteer": "1.20.3",
     "babel-loader": "^8.0.6",
     "jest": "24.9.0",
-    "jest-cli": "24.9.0",
+    "jest-cli": "26.0.1",
     "lit-html": "^1.1.2",
     "plop": "^2.1.0",
     "puppeteer": "1.20.0",
+    "standard-version": "^8.0.2",
     "storybook-addons-abstract": "^5.0.6"
   },
   "pre-commit": {
@@ -56,5 +57,10 @@
   "license": "MIT",
   "dependencies": {
     "hammerjs": "^2.0.8"
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "yarn build"
+    }
   }
 }
