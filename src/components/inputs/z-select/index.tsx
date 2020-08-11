@@ -105,7 +105,7 @@ export class ZSelect {
 
   resetRenderItemsList(): void {
     const renderItemsList = [];
-    this.itemsList.forEach((item: any) => {
+    this.itemsList.forEach((item: SelectItemBean) => {
       renderItemsList.push({ ...item });
     });
     this.renderItemsList = renderItemsList;
@@ -127,6 +127,7 @@ export class ZSelect {
 
   handleInputChange(e: CustomEvent) {
     this.searchString = e.detail.value;
+    if (!this.searchString && !this.isOpen) this.toggleSelectUl();
   }
 
   selectItem(item: null | SelectItemBean, selected: boolean) {
@@ -167,9 +168,9 @@ export class ZSelect {
   }
 
   focusSelectItem(index: number) {
-    const focusElem = this.hostElement.shadowRoot.getElementById(
-      `${this.htmlid}_${index}`
-    );
+    const focusElem = this.hostElement.shadowRoot.querySelector(
+      `#${this.htmlid}_${index}`
+    ) as HTMLElement;
     if (focusElem) focusElem.focus();
   }
 
@@ -193,6 +194,18 @@ export class ZSelect {
     this.isOpen = !this.isOpen;
   }
 
+  handleInputClick(e: MouseEvent) {
+    e.stopPropagation();
+
+    const cp = e.composedPath();
+    const clearIcon = cp.find(
+      (item: any) => item.classList && item.classList.contains("resetIcon")
+    );
+    if (clearIcon) return;
+
+    this.toggleSelectUl();
+  }
+
   handleSelectFocus(e: MouseEvent | KeyboardEvent) {
     if (e instanceof KeyboardEvent && e.keyCode === keybordKeyCodeEnum.ESC) {
       e.stopPropagation();
@@ -204,15 +217,17 @@ export class ZSelect {
       e.keyCode !== keybordKeyCodeEnum.TAB &&
       e.keyCode !== keybordKeyCodeEnum.ENTER
     ) {
-      console.log("handleSelectFocus NO TAB");
       return;
     }
 
     const tree = getElementTree(getClickedElement());
     const parent = tree.find(
       (elem: any) =>
-        elem.nodeName.toLowerCase() === "z-input" &&
-        elem.id === `${this.htmlid}_input`
+        (elem.nodeName.toLowerCase() === "z-input" &&
+          elem.id === `${this.htmlid}_input`) ||
+        (this.multiple &&
+          elem.nodeName.toLowerCase() === "ul" &&
+          elem.id === this.htmlid)
     );
 
     if (!parent) {
@@ -220,8 +235,14 @@ export class ZSelect {
     }
   }
 
+  scrollToLetter(letter: string) {
+    const foundItem = this.itemsList.find(
+      (item: SelectItemBean) => item.name.charAt(0) === letter
+    );
+    if (foundItem) this.focusSelectItem(this.itemsList.indexOf(foundItem));
+  }
+
   renderInput() {
-    console.log(this.selectedItems, this.selectedItems.length);
     return (
       <z-input
         id={`${this.htmlid}_input`}
@@ -230,16 +251,21 @@ export class ZSelect {
         value={
           this.selectedItems.length
             ? this.selectedItems
-                .map((item: any) => item.name.replace(/<[^>]+>/g, ""))
+                .map((item: SelectItemBean) =>
+                  item.name.replace(/<[^>]+>/g, "")
+                )
                 .join(", ") // TODO: chips
             : null
         }
         icon="drop-down" // TODO: drop-up icon
         clearIcon={this.autocomplete}
-        readonly={!this.autocomplete && this.isOpen}
         hasmessage={false}
+        disabled={this.disabled}
+        readonly={this.readonly || (!this.autocomplete && this.isOpen)}
         status={this.isOpen ? InputStatusEnum.selecting : this.status}
-        onClick={() => this.toggleSelectUl()}
+        onClick={(e: MouseEvent) => {
+          this.handleInputClick(e);
+        }}
         onKeyUp={(e: KeyboardEvent) => {
           if (e.keyCode !== 13) e.preventDefault();
           handleKeyboardSubmit(e, this.toggleSelectUl);
@@ -256,7 +282,10 @@ export class ZSelect {
           this.handleInputChange(e);
         }}
         onKeyPress={(e: KeyboardEvent) => {
-          if (!this.autocomplete) e.preventDefault();
+          if (!this.autocomplete) {
+            e.preventDefault();
+            this.scrollToLetter(String.fromCharCode(e.keyCode));
+          }
         }}
       />
     );
