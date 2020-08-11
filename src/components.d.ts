@@ -659,6 +659,24 @@ export namespace Components {
          */
         "url": string;
     }
+    interface ZPocket {
+        /**
+          * close z-pocket
+         */
+        "close": () => Promise<void>;
+        /**
+          * pocket is modal (dark background) (optional)
+         */
+        "ismodal"?: boolean;
+        /**
+          * pocket is open (optional)
+         */
+        "isopen"?: boolean;
+        /**
+          * pocket id
+         */
+        "pocketid": string;
+    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -885,6 +903,12 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZPocketElement extends Components.ZPocket, HTMLStencilElement {
+    }
+    var HTMLZPocketElement: {
+        prototype: HTMLZPocketElement;
+        new (): HTMLZPocketElement;
+    };
     interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
     }
     var HTMLZStepperElement: {
@@ -940,6 +964,7 @@ declare global {
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-pocket": HTMLZPocketElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
@@ -1657,6 +1682,24 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface ZPocket {
+        /**
+          * pocket is modal (dark background) (optional)
+         */
+        "ismodal"?: boolean;
+        /**
+          * pocket is open (optional)
+         */
+        "isopen"?: boolean;
+        /**
+          * Emitted on pocket toggle, returns pocket id and open status (boolean)
+         */
+        "onPocketToggle"?: (event: CustomEvent<any>) => void;
+        /**
+          * pocket id
+         */
+        "pocketid"?: string;
+    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -1736,6 +1779,7 @@ declare namespace LocalJSX {
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-pocket": ZPocket;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
@@ -1776,6 +1820,7 @@ declare module "@stencil/core" {
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-pocket": LocalJSX.ZPocket & JSXBase.HTMLAttributes<HTMLZPocketElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
