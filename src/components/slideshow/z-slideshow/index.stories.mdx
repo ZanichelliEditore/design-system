@@ -13,7 +13,14 @@ import { text } from '@storybook/addon-knobs';
       <z-slideshow
         data='["https://i.pinimg.com/originals/df/6e/8c/df6e8c9bbb70c660fdf3d628fe38f9d7.jpg","https://cdn.gelestatic.it/kataweb/ilmiolibro/2018/02/The-Jungle-Book-Heros.png", "https://cdn.gelestatic.it/kataweb/ilmiolibro/2016/06/Robin-Hood-19-650x320.png"]'
         slideshowid="${text('slideshowid', 'slideshow-id')}"
-      ></z-slideshow>
+      >
+        <div slot="footer-left">
+            I'am on left
+        </div>
+        <div slot="footer-right">
+          I'am on right
+        </div>
+      </z-slideshow>
     </div>
    `}
   </Story>
