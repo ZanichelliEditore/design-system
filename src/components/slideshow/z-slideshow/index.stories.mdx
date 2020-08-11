@@ -1,0 +1,24 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text } from '@storybook/addon-knobs';
+
+<Meta title="ZSlideshow" component="z-slideshow" />
+
+# ZSlideshow
+
+<Preview>
+  <Story name="ZSlideshow-sample">
+    {html`
+    <div style="max-width:500px;max-heigth:300px;">
+      <z-slideshow
+        data='["https://i.pinimg.com/originals/df/6e/8c/df6e8c9bbb70c660fdf3d628fe38f9d7.jpg","https://cdn.gelestatic.it/kataweb/ilmiolibro/2018/02/The-Jungle-Book-Heros.png", "https://cdn.gelestatic.it/kataweb/ilmiolibro/2016/06/Robin-Hood-19-650x320.png"]'
+        slideshowid="${text('slideshowid', 'slideshow-id')}"
+      ></z-slideshow>
+    </div>
+   `}
+  </Story>
+</Preview>
+
+<Props of="z-slideshow" />
+
+

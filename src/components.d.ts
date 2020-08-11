@@ -659,6 +659,16 @@ export namespace Components {
          */
         "url": string;
     }
+    interface ZSlideshow {
+        /**
+          * array or JSON stringified images urls
+         */
+        "data": string[] | string;
+        /**
+          * slideshow id
+         */
+        "slideshowid": string;
+    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -885,6 +895,12 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZSlideshowElement extends Components.ZSlideshow, HTMLStencilElement {
+    }
+    var HTMLZSlideshowElement: {
+        prototype: HTMLZSlideshowElement;
+        new (): HTMLZSlideshowElement;
+    };
     interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
     }
     var HTMLZStepperElement: {
@@ -940,6 +956,7 @@ declare global {
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-slideshow": HTMLZSlideshowElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
@@ -1657,6 +1674,16 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface ZSlideshow {
+        /**
+          * array or JSON stringified images urls
+         */
+        "data"?: string[] | string;
+        /**
+          * slideshow id
+         */
+        "slideshowid"?: string;
+    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -1736,6 +1763,7 @@ declare namespace LocalJSX {
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-slideshow": ZSlideshow;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
@@ -1776,6 +1804,7 @@ declare module "@stencil/core" {
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
