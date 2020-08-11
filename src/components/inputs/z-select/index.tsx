@@ -171,19 +171,18 @@ export class ZSelect {
   }
 
   focusSelectItem(index: number) {
-    const focusElem = this.hostElement.shadowRoot.querySelector(
-      `#${this.htmlid}_${index}`
-    ) as HTMLElement;
+    const focusElem = this.hostElement.shadowRoot.getElementById(
+      `${this.htmlid}_${index}`
+    );
     if (focusElem) focusElem.focus();
   }
 
   toggleSelectUl(selfFocusOnClose: boolean = false) {
+    if (this.disabled || this.readonly) return;
+
     if (!this.isOpen) {
       document.addEventListener("click", this.handleSelectFocus);
       document.addEventListener("keyup", this.handleSelectFocus);
-      // TODO:
-      // this.focusSelectItem(0);
-      // il focus va messo dopo altrimenti non mi catcha il click
     } else {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
@@ -197,14 +196,15 @@ export class ZSelect {
     this.isOpen = !this.isOpen;
   }
 
-  handleInputClick(e: MouseEvent) {
-    e.stopPropagation();
-
+  handleInputClick(e: MouseEvent | KeyboardEvent) {
     const cp = e.composedPath();
     const clearIcon = cp.find(
       (item: any) => item.classList && item.classList.contains("resetIcon")
     );
-    if (clearIcon) return;
+    if (clearIcon) {
+      e.stopPropagation();
+      return;
+    }
 
     this.toggleSelectUl();
   }
@@ -224,14 +224,15 @@ export class ZSelect {
     }
 
     const tree = getElementTree(getClickedElement());
-    const parent = tree.find(
-      (elem: any) =>
+    const parent = tree.find((elem: any) => {
+      return (
         (elem.nodeName.toLowerCase() === "z-input" &&
           elem.id === `${this.htmlid}_input`) ||
         (this.multiple &&
           elem.nodeName.toLowerCase() === "ul" &&
           elem.id === this.htmlid)
-    );
+      );
+    });
 
     if (!parent) {
       this.toggleSelectUl(e instanceof MouseEvent ? true : false);
