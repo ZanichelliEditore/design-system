@@ -26,9 +26,9 @@
 
 ## Events
 
-| Event          | Description                                                           | Type               |
-| -------------- | --------------------------------------------------------------------- | ------------------ |
-| `optionSelect` | Emitted on select option selection, returns select id, selected items | `CustomEvent<any>` |
+| Event          | Description                                                                                                          | Type               |
+| -------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `optionSelect` | Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) | `CustomEvent<any>` |
 
 
 ## Methods

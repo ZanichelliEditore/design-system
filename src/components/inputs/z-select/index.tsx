@@ -85,12 +85,15 @@ export class ZSelect {
     return this.selectedItems;
   }
 
-  /** Emitted on select option selection, returns select id, selected items */
+  /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
   @Event() optionSelect: EventEmitter;
   emitOptionSelect() {
+    const selected = this.multiple
+      ? this.selectedItems.map((item: SelectItemBean) => item.id)
+      : this.selectedItems[0].id;
     this.optionSelect.emit({
       id: this.htmlid,
-      selected: this.selectedItems
+      selected
     });
   }
 

@@ -124,6 +124,7 @@
 
 | Property        | Attribute       | Description                                                                                         | Type                                                                                                                                                                                             | Default      |
 | --------------- | --------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
+| `autocomplete`  | `autocomplete`  | the input has autocomplete option (optional): available for select                                  | `boolean`                                                                                                                                                                                        | `false`      |
 | `checked`       | `checked`       | checked: available for checkbox, radio                                                              | `boolean`                                                                                                                                                                                        | `false`      |
 | `clearIcon`     | `clear-icon`    |                                                                                                     | `boolean`                                                                                                                                                                                        | `true`       |
 | `disabled`      | `disabled`      | the input is disabled                                                                               | `boolean`                                                                                                                                                                                        | `false`      |
@@ -131,10 +132,11 @@
 | `htmlid`        | `htmlid`        | the id of the input element                                                                         | `string`                                                                                                                                                                                         | `randomId()` |
 | `htmltitle`     | `htmltitle`     | the input html title (optional)                                                                     | `string`                                                                                                                                                                                         | `undefined`  |
 | `icon`          | `icon`          |                                                                                                     | `string`                                                                                                                                                                                         | `undefined`  |
-| `items`         | `items`         | items: available for select                                                                         | `SelectItemBean[] \| string`                                                                                                                                                                     | `undefined`  |
+| `items`         | `items`         | items (optional): available for select                                                              | `SelectItemBean[] \| string`                                                                                                                                                                     | `undefined`  |
 | `label`         | `label`         | the input label                                                                                     | `string`                                                                                                                                                                                         | `undefined`  |
 | `labelafter`    | `labelafter`    | the input label position: available for checkbox, radio                                             | `boolean`                                                                                                                                                                                        | `true`       |
 | `message`       | `message`       | input helper message (optional): available for text, password, number, email, textarea, select      | `string`                                                                                                                                                                                         | `undefined`  |
+| `multiple`      | `multiple`      | multiple options can be selected (optional): available for select                                   | `boolean`                                                                                                                                                                                        | `false`      |
 | `name`          | `name`          | the input name                                                                                      | `string`                                                                                                                                                                                         | `undefined`  |
 | `placeholder`   | `placeholder`   | the input placeholder (optional)                                                                    | `string`                                                                                                                                                                                         | `undefined`  |
 | `readonly`      | `readonly`      | the input is readonly                                                                               | `boolean`                                                                                                                                                                                        | `false`      |
@@ -147,13 +149,13 @@
 
 ## Events
 
-| Event          | Description                                                                         | Type               |
-| -------------- | ----------------------------------------------------------------------------------- | ------------------ |
-| `inputChange`  | Emitted on input value change, returns value, keycode, validity                     | `CustomEvent<any>` |
-| `inputCheck`   | Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity | `CustomEvent<any>` |
-| `optionSelect` | Emitted on select option selection, returns select id, selected option id           | `CustomEvent<any>` |
-| `startTyping`  | Emitted when user starts typing                                                     | `CustomEvent<any>` |
-| `stopTyping`   | Emitted when user stops typing, returns value, validity                             | `CustomEvent<any>` |
+| Event          | Description                                                                                                          | Type               |
+| -------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `inputChange`  | Emitted on input value change, returns value, keycode, validity                                                      | `CustomEvent<any>` |
+| `inputCheck`   | Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity                                  | `CustomEvent<any>` |
+| `optionSelect` | Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) | `CustomEvent<any>` |
+| `startTyping`  | Emitted when user starts typing                                                                                      | `CustomEvent<any>` |
+| `stopTyping`   | Emitted when user stops typing, returns value, validity                                                              | `CustomEvent<any>` |
 
 
 ## Methods
@@ -201,6 +203,7 @@ Type: `Promise<void>`
 - [z-input-label](../z-input-label)
 - [z-icon](../../icons/z-icon)
 - [z-input-message](../z-input-message)
+- [z-select](../z-select)
 
 ### Graph
 ```mermaid
@@ -208,9 +211,10 @@ graph TD;
   z-input --> z-input-label
   z-input --> z-icon
   z-input --> z-input-message
+  z-input --> z-select
   z-input-message --> z-icon
-  z-combobox --> z-input
   z-select --> z-input
+  z-combobox --> z-input
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
