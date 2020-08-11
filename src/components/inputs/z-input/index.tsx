@@ -63,8 +63,9 @@ export class ZInput {
   @Prop() autocomplete?: boolean = false;
   /** multiple options can be selected (optional): available for select */
   @Prop() multiple?: boolean = false;
-
-  @Prop() clearIcon?: boolean = true;
+  /** render clear icon when typing (optional): available for text */
+  @Prop() hasclearicon?: boolean = true;
+  /** render icon (optional): available for text, select */
   @Prop() icon?: string;
 
   @State() isTyping: boolean = false;
@@ -197,11 +198,15 @@ export class ZInput {
   }
 
   renderInputText(type = InputTypeEnum.text) {
+    const attr = this.getTextAttributes();
+    if (this.icon) attr.class = attr.class + " hasIcon";
+    if (this.hasclearicon) attr.class = attr.class + " hasClearIcon";
+
     return (
       <div class="textWrapper">
         {this.renderLabel()}
         <div>
-          <input {...this.getTextAttributes()} type={type} />
+          <input {...attr} type={type} />
           {this.renderIcons()}
         </div>
         {this.renderMessage()}
@@ -232,7 +237,7 @@ export class ZInput {
   }
 
   renderResetIcon() {
-    if (!this.clearIcon || !this.value || this.disabled || this.readonly)
+    if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
       return;
 
     return (

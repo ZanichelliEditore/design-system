@@ -261,7 +261,7 @@ export class ZSelect {
             : null
         }
         icon="drop-down" // TODO: drop-up icon
-        clearIcon={this.autocomplete}
+        hasclearicon={this.autocomplete}
         hasmessage={false}
         disabled={this.disabled}
         readonly={this.readonly || (!this.autocomplete && this.isOpen)}

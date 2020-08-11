@@ -7,28 +7,22 @@
   width: 100%;
   margin: 0;
   padding: 0 var(--half-x3);
+  box-sizing: border-box;
+}
+
+:host > div.textWrapper > div > input.hasIcon,
+:host > div.textWrapper > div > input.hasClearIcon {
+  padding-right: var(--basex4);
+}
+
+:host > div.textWrapper > div > input.hasIcon.hasClearIcon {
+  padding-right: var(--basex7);
 }
 
 :host > div.textWrapper > div {
   position: relative;
   z-index: 1;
 }
-
-/* :host > div.textWrapper > div > z-icon.resetIcon {
-  position: absolute;
-  bottom: var(--half-x3);
-  right: var(--half-x3);
-  cursor: pointer;
-  z-index: 2;
-}
-
-:host > div.textWrapper > div > z-icon.inputIcon {
-  position: absolute;
-  bottom: var(--half-x3);
-  right: var(--half-x3);
-  cursor: pointer;
-  z-index: 2;
-} */
 
 :host > div.textWrapper > div > span.iconsWrapper {
   position: absolute;

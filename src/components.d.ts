@@ -345,10 +345,13 @@ export namespace Components {
     }
     interface ZInput {
         /**
+          * the input has autocomplete option (optional): available for select
+         */
+        "autocomplete"?: boolean;
+        /**
           * checked: available for checkbox, radio
          */
         "checked"?: boolean;
-        "clearIcon"?: boolean;
         /**
           * the input is disabled
          */
@@ -357,6 +360,10 @@ export namespace Components {
           * get the input value
          */
         "getValue": () => Promise<string>;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
         /**
           * show input helper message (optional): available for text, password, number, email, textarea, select
          */
@@ -369,13 +376,16 @@ export namespace Components {
           * the input html title (optional)
          */
         "htmltitle"?: string;
+        /**
+          * render icon (optional): available for text, select
+         */
         "icon"?: string;
         /**
           * get checked status
          */
         "isChecked": () => Promise<boolean>;
         /**
-          * items: available for select
+          * items (optional): available for select
          */
         "items"?: SelectItemBean[] | string;
         /**
@@ -390,6 +400,10 @@ export namespace Components {
           * input helper message (optional): available for text, password, number, email, textarea, select
          */
         "message"?: string;
+        /**
+          * multiple options can be selected (optional): available for select
+         */
+        "multiple"?: boolean;
         /**
           * the input name
          */
@@ -1366,14 +1380,21 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
+          * the input has autocomplete option (optional): available for select
+         */
+        "autocomplete"?: boolean;
+        /**
           * checked: available for checkbox, radio
          */
         "checked"?: boolean;
-        "clearIcon"?: boolean;
         /**
           * the input is disabled
          */
         "disabled"?: boolean;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
         /**
           * show input helper message (optional): available for text, password, number, email, textarea, select
          */
@@ -1386,9 +1407,12 @@ declare namespace LocalJSX {
           * the input html title (optional)
          */
         "htmltitle"?: string;
+        /**
+          * render icon (optional): available for text, select
+         */
         "icon"?: string;
         /**
-          * items: available for select
+          * items (optional): available for select
          */
         "items"?: SelectItemBean[] | string;
         /**
@@ -1404,6 +1428,10 @@ declare namespace LocalJSX {
          */
         "message"?: string;
         /**
+          * multiple options can be selected (optional): available for select
+         */
+        "multiple"?: boolean;
+        /**
           * the input name
          */
         "name"?: string;
@@ -1416,7 +1444,7 @@ declare namespace LocalJSX {
          */
         "onInputCheck"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted on select option selection, returns select id, selected option id
+          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
          */
         "onOptionSelect"?: (event: CustomEvent<any>) => void;
         /**
@@ -1760,7 +1788,7 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emitted on select option selection, returns select id, selected items
+          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
          */
         "onOptionSelect"?: (event: CustomEvent<any>) => void;
         /**
