@@ -561,6 +561,10 @@ export namespace Components {
     }
     interface ZModal {
         /**
+          * has header (optional)
+         */
+        "hasheader"?: boolean;
+        /**
           * unique id
          */
         "modalid": string;
@@ -1538,6 +1542,10 @@ declare namespace LocalJSX {
         "nomeutente"?: string;
     }
     interface ZModal {
+        /**
+          * has header (optional)
+         */
+        "hasheader"?: boolean;
         /**
           * unique id
          */

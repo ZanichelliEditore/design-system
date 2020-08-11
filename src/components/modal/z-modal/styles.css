@@ -3,7 +3,7 @@
   font-weight: var(--font-rg);
 }
 
-:host>div {
+:host > div {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,28 +12,35 @@
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
-  z-index: 1000;
-  overflow: auto;
-  overflow: -moz-scrollbars-none;
-  -ms-overflow-style: none;
+  z-index: 99999;
+  overflow: hidden;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-:host>div::-webkit-scrollbar {
-  width: 0 !important
+:host > div > div {
+  overflow: auto;
+  max-height: 100%;
+  scrollbar-width: none;
+  width: 100%;
+  height: 100vh;
 }
 
-:host>div>div {
+:host > div > div::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+:host > div > div > div {
   z-index: 1010;
   width: 100%;
   margin: 0;
   background: var(--bg-white);
+  height: 100%;
 }
 
-:host>div>div>header {
+:host > div > div > div > header {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
@@ -43,19 +50,19 @@
   background: var(--bg-grey-050);
 }
 
-:host>div>div>header>z-icon {
+:host > div > div > div > header > z-icon {
   cursor: pointer;
   fill: var(--myz-blue);
   margin: var(--basex2) var(--basex2);
   transform: scale(0.9);
 }
 
-:host>div>div>header>div {
+:host > div > div > div > header > div {
   margin: var(--basex2) var(--basex2);
 }
 
-:host>div>div>header>div>h1,
-:host>div>div>header>div>h2 {
+:host > div > div > div > header > div > h1,
+:host > div > div > div > header > div > h2 {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   color: var(--text-grey-800);
@@ -63,52 +70,80 @@
   padding: 0;
 }
 
-:host>div>div>header>div>h1 {
+:host > div > div > div > header > div > h1 {
   font-size: 20px;
   line-height: 28px;
 }
 
-:host>div>div>header>div>h2 {
+:host > div > div > div > header > div > h2 {
   font-size: 16px;
   line-height: 24px;
   margin-top: var(--basex1);
 }
 
-:host>div>div>main {
+:host > div > div > div > div.iconWrapper {
+  position: relative;
+  width: 100%;
+}
+
+:host > div > div > div > div.iconWrapper > z-icon {
+  cursor: pointer;
+  fill: var(--myz-blue);
+  transform: scale(0.8);
+  position: absolute;
+  top: var(--basex3);
+  right: var(--basex3);
+  z-index: 1020;
+}
+
+:host > div > div > div > main {
   background: white;
   overflow: hidden;
 }
 
+:host > div > div > div > main.noHeader {
+  min-height: 72px;
+}
 
 /* Tablet / Desktop style */
 
 @media only screen and (min-width: 768px) {
-  :host>div>div {
+  :host > div > div {
     width: auto;
+    height: auto;
+  }
+
+  :host > div > div > div {
+    width: auto;
+    height: auto;
     min-width: 300px;
     min-height: 300px;
     margin-top: var(--basex6);
     background: none;
   }
 
-  :host>div>div>header {
+  :host > div > div > div > header {
     border-radius: var(--radius-base) var(--radius-base) 0 0;
   }
 
-  :host>div>div>header>z-icon {
+  :host > div > div > div > header > z-icon {
     margin: var(--half-x3) var(--basex3) var(--half-x3) 0px;
     transform: scale(1);
   }
 
-  :host>div>div>header>div {
+  :host > div > div > div > header > div {
     margin: var(--half-x3) var(--basex3);
   }
 
-  :host>div>div>main {
+  :host > div > div > div > main {
     border-radius: 0 0 var(--radius-base) var(--radius-base);
   }
 
-  :host>div>div>div.bottomBackground {
+  :host > div > div > div > main.noHeader {
+    border-radius: var(--radius-base);
+  }
+
+  :host > div > div > div > div.bottomBackground {
     background: transparent;
     height: var(--basex4);
   }

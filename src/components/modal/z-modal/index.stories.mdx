@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text } from '@storybook/addon-knobs';
+import { text, boolean } from '@storybook/addon-knobs';
 
 ## Stories
 
@@ -13,8 +13,12 @@ import { text } from '@storybook/addon-knobs';
     {html`
       <z-modal
         modaltitle="${text('modaltitle', 'Modal title')}"
-        modalsubtitle="${text('modalsubtitle', 'Modal subtitle')}">
-        <div slot="modalContent">Modal Content</div>
+        modalsubtitle="${text('modalsubtitle', 'Modal subtitle')}"
+        hasheader="${boolean('hasheader', 'true')}"
+      >
+        <div slot="modalContent" style="width:300px;height:200px;display:flex;justify-content:center;align-items:center">
+          Modal Content
+        </div>
       </z-modal>`}
   </Story>
 </Preview>
