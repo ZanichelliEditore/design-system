@@ -5,10 +5,16 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
-import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 export namespace Components {
+    interface ZAlert {
+        /**
+          * alert variant type
+         */
+        "type": AlertTypes;
+    }
     interface ZButton {
         /**
           * disable button
@@ -705,6 +711,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
+    }
+    var HTMLZAlertElement: {
+        prototype: HTMLZAlertElement;
+        new (): HTMLZAlertElement;
+    };
     interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {
     }
     var HTMLZButtonElement: {
@@ -910,6 +922,7 @@ declare global {
         new (): HTMLZTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "z-alert": HTMLZAlertElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
@@ -947,6 +960,12 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ZAlert {
+        /**
+          * alert variant type
+         */
+        "type"?: AlertTypes;
+    }
     interface ZButton {
         /**
           * disable button
@@ -1706,6 +1725,7 @@ declare namespace LocalJSX {
         "type"?: TooltipPosition;
     }
     interface IntrinsicElements {
+        "z-alert": ZAlert;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
@@ -1746,6 +1766,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;

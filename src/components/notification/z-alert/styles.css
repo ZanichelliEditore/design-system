@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--text-grey-800);
+  box-sizing: border-box;
+}
+
+:host > div {
+  padding: 16px;
+}
+
+:host > .success {
+  fill: var(--status-success-green);
+  background: var(--status-success-green-lighter);
+}
+
+:host > .warning {
+  fill: var(--status-warning-yellow-dark);
+  background: var(--status-warning-yellow-lighter);
+}
+
+:host > .error {
+  fill: var(--status-error-red-dark);
+  background: var(--status-error-red-lighter);
+}

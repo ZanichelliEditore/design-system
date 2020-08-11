@@ -151,3 +151,10 @@ export type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
+
+export enum AlertTypesEnum {
+  success = "success",
+  warning = "warning",
+  error = "error"
+}
+export type AlertTypes = AlertTypesEnum;
