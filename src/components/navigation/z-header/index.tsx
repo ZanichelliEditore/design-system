@@ -296,7 +296,7 @@ export class ZHeader {
         variant={
           this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary
         }
-        icon="enter"
+        icon="login"
         issmall={true}
       >
         entra
@@ -315,7 +315,7 @@ export class ZHeader {
             role="button"
           >
             <span>
-              <z-icon name="user" height={16} width={16} />
+              <z-icon name="user-avatar" height={16} width={16} />
               {userData.name}
             </span>
             <i></i>

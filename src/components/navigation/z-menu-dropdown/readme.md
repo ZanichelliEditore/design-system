@@ -2,7 +2,7 @@
 
 <!-- readme-group="header" -->
 ```html
-<z-menu-dropdown nomeutente="username molto lungo nome" menucontent='[{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"exit"}]'></z-menu-dropdown>
+<z-menu-dropdown nomeutente="username molto lungo nome" menucontent='[{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]'></z-menu-dropdown>
 ```
 
 

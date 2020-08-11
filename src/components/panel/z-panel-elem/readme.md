@@ -2,9 +2,9 @@
 
 <!-- readme-group="panel-element" -->
 ```html
-<z-panel-elem linkicon="external-link-left" linklabel="Tutte le prove" elemid="prova3" url="http://online.scuola.zanichelli.it/tutteleprove/"/>
-<z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="external-link-left" linklabel="Biblioteca" url="https://biblioteca.scuola.zanichelli.it/" elemid="prova1" />
-<z-panel-elem isdisabled="true" imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="external-link-left" linklabel="Tutte le prove" url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" elemid="prova2">{descr_slot_name slot}</z-panel-elem>
+<z-panel-elem linkicon="aplquad-left-arrow" linklabel="Tutte le prove" elemid="prova3" url="http://online.scuola.zanichelli.it/tutteleprove/"/>
+<z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="aplquad-left-arrowt" linklabel="Biblioteca" url="https://biblioteca.scuola.zanichelli.it/" elemid="prova1" />
+<z-panel-elem isdisabled="true" imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="aplquad-left-arrow" linklabel="Tutte le prove" url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" elemid="prova2">{descr_slot_name slot}</z-panel-elem>
 ```
 
 

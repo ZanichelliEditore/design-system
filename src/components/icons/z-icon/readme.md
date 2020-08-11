@@ -2,8 +2,8 @@
 
 <!-- readme-group="icon" -->
 ```html
-<z-icon name="book-add" ></z-icon>
-<z-icon name="chevron-down" iconid="zicon"></z-icon>
+<z-icon name="book-plus" ></z-icon>
+<z-icon name="down-chevron" iconid="zicon"></z-icon>
 <z-icon name="download" iconid="zicon" width="10" height="10"></z-icon>
 ```
 

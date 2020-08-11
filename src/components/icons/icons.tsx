@@ -376,5 +376,6 @@ icons["menu-burger"] = icons["burger-menu"];
 icons["question-mark"] = icons["question-mark-circle"];
 icons["user"] = icons["user-avatar"];
 icons["close"] = icons["multiply"];
+icons["cross"] = icons["multiply"];
 icons["exit"] = icons["logout"];
 icons["enter"] = icons["login"];

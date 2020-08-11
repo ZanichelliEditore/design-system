@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { icons } from "./icons";
+import { icons } from "../icons";
 import { ZIcon } from "./index";
 
 describe("Suite test ZIcon", () => {
@@ -12,7 +12,7 @@ describe("Suite test ZIcon", () => {
     expect(page.root).toEqualHtml(`
       <z-icon>
         <mock:shadow-root>
-          <svg viewBox="0 0 18 18" width='18' height='18' id="">
+          <svg viewBox="0 0 1000 1000" width='18' height='18' id="">
             <polygon></polygon>
           </svg>
         </mock:shadow-root>
@@ -28,7 +28,7 @@ describe("Suite test ZIcon", () => {
     expect(page.root).toEqualHtml(`
       <z-icon name="download" iconid="zicon">
         <mock:shadow-root>
-          <svg viewBox="0 0 18 18" width='18' height='18' id="zicon">
+          <svg viewBox="0 0 1000 1000" width='18' height='18' id="zicon">
             <path d="${icons["download"]}"></path>
           </svg>
         </mock:shadow-root>
@@ -44,7 +44,7 @@ describe("Suite test ZIcon", () => {
     expect(page.root).toEqualHtml(`
       <z-icon name="download" iconid="zicon" width="10" height="10">
         <mock:shadow-root>
-          <svg viewBox="0 0 18 18" width='10' height='10' id="zicon">
+          <svg viewBox="0 0 1000 1000" width='10' height='10' id="zicon">
             <path d="${icons["download"]}"></path>
           </svg>
         </mock:shadow-root>
@@ -55,13 +55,13 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon con polygon", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon name="chevron-down" iconid="zicon"></z-icon>`
+      html: `<z-icon name="down-chevron" iconid="zicon"></z-icon>`
     });
     expect(page.root).toEqualHtml(`
-      <z-icon name="chevron-down" iconid="zicon">
+      <z-icon name="down-chevron" iconid="zicon">
         <mock:shadow-root>
-          <svg viewBox="0 0 18 18" width='18' height='18' id="zicon">
-            <polygon points="${icons["chevron-down"]}"></polygon>
+          <svg viewBox="0 0 1000 1000" width='18' height='18' id="zicon">
+            <path d="${icons["down-chevron"]}"></path>
           </svg>
         </mock:shadow-root>
       </z-icon>
@@ -71,13 +71,13 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon con polygon con dimensioni", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon name="chevron-down" iconid="zicon" width="10" height="10"></z-icon>`
+      html: `<z-icon name="down-chevron" iconid="zicon" width="10" height="10"></z-icon>`
     });
     expect(page.root).toEqualHtml(`
-      <z-icon name="chevron-down" iconid="zicon" width="10" height="10">
+      <z-icon name="down-chevron" iconid="zicon" width="10" height="10">
         <mock:shadow-root>
-          <svg viewBox="0 0 18 18" width='10' height='10' id="zicon">
-            <polygon points="${icons["chevron-down"]}"></polygon>
+          <svg viewBox="0 0 1000 1000" width='10' height='10' id="zicon">
+            <path d="${icons["down-chevron"]}"></path>
           </svg>
         </mock:shadow-root>
       </z-icon>

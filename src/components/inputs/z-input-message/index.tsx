@@ -13,9 +13,9 @@ export class ZInputMessage {
   @Prop() status?: InputStatusBean;
 
   private statusIcons = {
-    success: "circle-check",
-    error: "circle-cross",
-    warning: "circle-warning"
+    success: "checkmark-circle",
+    error: "multiply-circle-filled",
+    warning: "exclamation-circle"
   };
 
   renderMsgClassName(): string {
