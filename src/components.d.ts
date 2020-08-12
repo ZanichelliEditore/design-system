@@ -56,6 +56,10 @@ export namespace Components {
           * disable action on button
          */
         "isfixed": boolean;
+        /**
+          * reduce button size (optional)
+         */
+        "issmall"?: boolean;
     }
     interface ZButtonSort {
         /**
@@ -1071,6 +1075,10 @@ declare namespace LocalJSX {
           * disable action on button
          */
         "isfixed"?: boolean;
+        /**
+          * reduce button size (optional)
+         */
+        "issmall"?: boolean;
         /**
           * remove filter click event, returns filterid
          */

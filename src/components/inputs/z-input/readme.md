@@ -214,6 +214,7 @@ graph TD;
   z-input --> z-select
   z-input-message --> z-icon
   z-select --> z-input
+  z-button-filter --> z-icon
   z-combobox --> z-input
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

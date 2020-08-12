@@ -246,19 +246,28 @@ export class ZSelect {
     if (foundItem) this.focusSelectItem(this.itemsList.indexOf(foundItem));
   }
 
+  renderLabel() {
+    if (!this.label) return;
+
+    return (
+      <z-input-label
+        value={this.label}
+        disabled={this.disabled}
+        aria-label={this.label}
+        id={`${this.htmlid}_input_label`}
+      />
+    );
+  }
+
   renderInput() {
     return (
       <z-input
         id={`${this.htmlid}_input`}
+        htmlid={`${this.htmlid}_input`}
         placeholder={this.placeholder}
-        label={this.label}
         value={
-          this.selectedItems.length
-            ? this.selectedItems
-                .map((item: SelectItemBean) =>
-                  item.name.replace(/<[^>]+>/g, "")
-                )
-                .join(", ") // TODO: chips
+          !this.multiple && this.selectedItems.length
+            ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
             : null
         }
         icon={this.isOpen ? "caret-up" : "caret-down"}
@@ -292,6 +301,23 @@ export class ZSelect {
           }
         }}
       />
+    );
+  }
+
+  renderChips() {
+    if (!this.multiple || !this.selectedItems.length) return;
+
+    return (
+      <div class={`chipsWrapper ${this.isOpen ? "open" : ""}`}>
+        {this.selectedItems.map((item: SelectItemBean) => (
+          <z-button-filter
+            filterid={item.id}
+            filtername={item.name}
+            issmall={true}
+            onRemovefilter={() => this.selectItem(item, false)}
+          />
+        ))}
+      </div>
     );
   }
 
@@ -335,16 +361,9 @@ export class ZSelect {
         aria-selected={!!item.selected}
         class={item.disabled && "disabled"}
         id={`${this.htmlid}_${key}`}
-        onClick={() =>
-          this.selectItem(item, this.multiple ? !item.selected : true)
-        }
+        onClick={() => this.selectItem(item, true)}
         onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(
-            e,
-            this.selectItem,
-            item,
-            this.multiple ? !item.selected : true
-          )
+          handleKeyboardSubmit(e, this.selectItem, item, true)
         }
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
@@ -362,6 +381,8 @@ export class ZSelect {
   render() {
     return (
       <div class="selectWrapper">
+        {this.renderLabel()}
+        {this.renderChips()}
         {this.renderInput()}
         {this.renderSelectUl()}
         {this.renderMessage()}

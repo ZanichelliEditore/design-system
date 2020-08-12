@@ -76,8 +76,11 @@ graph TD;
   z-input --> z-input-message
   z-input --> z-select
   z-input-message --> z-icon
+  z-select --> z-input-label
   z-select --> z-input
+  z-select --> z-button-filter
   z-select --> z-input-message
+  z-button-filter --> z-icon
   style z-combobox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

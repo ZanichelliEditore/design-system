@@ -53,4 +53,21 @@ describe("Suite test ZButtonFilter", () => {
       </z-button-filter>
     `);
   });
+
+  it("Test render ZButtonFilter small", async () => {
+    const page = await newSpecPage({
+      components: [ZButtonFilter],
+      html: `<z-button-filter filtername="FILTRO" issmall></z-button-filter>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-button-filter filtername="FILTRO" issmall>
+        <mock:shadow-root>
+          <button class="container isactive small">
+            <z-icon class="close-icon-container" name="close" height="12" width="12"></z-icon>
+            <span class="text-container">FILTRO</span>
+          </button>
+        </mock:shadow-root>
+      </z-button-filter>
+    `);
+  });
 });
