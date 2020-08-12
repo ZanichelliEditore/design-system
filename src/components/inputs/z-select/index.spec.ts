@@ -18,7 +18,7 @@ describe("Suite test ZSelect", () => {
                 id="checkid_input"
                 placeholder="select here"
                 label="default"
-                icon="drop-down"
+                icon="caret-down"
               ></z-input>
               <div class="closed">
                 <div class="ulScrollWrapper">
@@ -61,7 +61,7 @@ describe("Suite test ZSelect", () => {
                 id="checkid_input"
                 placeholder="select here"
                 label="default"
-                icon="drop-down"
+                icon="caret-up"
                 readonly=""
                 status="selecting"
               ></z-input>
@@ -114,7 +114,7 @@ describe("Suite test ZSelect", () => {
               id="checkid_input"
               placeholder="select here"
               label="default"
-              icon="drop-down"
+              icon="caret-up"
               readonly=""
               status="selecting"
               value="primo elemento"
@@ -170,7 +170,7 @@ describe("Suite test ZSelect", () => {
                 id="checkid_input"
                 placeholder="select here"
                 label="default"
-                icon="drop-down"
+                icon="caret-down"
                 disabled=""
                 readonly=""
               ></z-input>
@@ -223,7 +223,7 @@ describe("Suite test ZSelect", () => {
                   id="checkid_input"
                   placeholder="select here"
                   label="default"
-                  icon="drop-down"
+                  icon="caret-down"
                   status="success"
                 ></z-input>
                 <div class="closed">
@@ -275,7 +275,7 @@ describe("Suite test ZSelect", () => {
                 id="checkid_input"
                 placeholder="select here"
                 label="default"
-                icon="drop-down"
+                icon="caret-up"
                 readonly=""
                 status="selecting"
               ></z-input>
@@ -328,7 +328,7 @@ describe("Suite test ZSelect", () => {
               id="checkid_input"
               placeholder="select here"
               label="default"
-              icon="drop-down"
+              icon="caret-up"
               readonly=""
               status="selecting"
             ></z-input>
@@ -382,7 +382,7 @@ describe("Suite test ZSelect", () => {
               id="checkid_input"
               placeholder="select here"
               label="default"
-              icon="drop-down"
+              icon="caret-up"
               hasclearicon=""
               status="selecting"
             ></z-input>
@@ -436,7 +436,7 @@ describe("Suite test ZSelect", () => {
               id="checkid_input"
               placeholder="select here"
               label="default"
-              icon="drop-down"
+              icon="caret-up"
               hasclearicon=""
               status="selecting"
             ></z-input>
