@@ -145,4 +145,48 @@ describe("Suite test ZInput - text", () => {
     await page.waitForChanges();
     expect(page.rootInstance.value).toEqual("");
   });
+
+  it("Test render ZInput vuoto - password nascosta", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input hasmessage="false" htmlid="id" type="password"></z-input>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input hasmessage="false" htmlid="id" type="password">
+        <mock:shadow-root>
+          <div class="textWrapper">
+            <div>
+              <input id="id" class="false input_default undefined hasClearIcon hasIcon" type="password" aria-labelledby="id_label" />
+              <span class="iconsWrapper">
+                <z-icon name="view" class="inputIcon"></z-icon>
+              </span>
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-input>
+    `);
+  });
+
+  it("Test render ZInput vuoto - password visibile", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input hasmessage="false" htmlid="id" type="password"></z-input>`
+    });
+    page.rootInstance.passwordHidden = false;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+      <z-input hasmessage="false" htmlid="id" type="password">
+        <mock:shadow-root>
+          <div class="textWrapper">
+            <div>
+              <input id="id" class="false input_default undefined hasClearIcon hasIcon" type="text" aria-labelledby="id_label" />
+              <span class="iconsWrapper">
+                <z-icon name="view-off" class="inputIcon"></z-icon>
+              </span>
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-input>
+    `);
+  });
 });
