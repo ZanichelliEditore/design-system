@@ -261,7 +261,7 @@ export class ZSelect {
                 .join(", ") // TODO: chips
             : null
         }
-        icon="drop-down" // TODO: drop-up icon
+        icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={this.autocomplete}
         hasmessage={false}
         disabled={this.disabled}
