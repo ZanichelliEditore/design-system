@@ -310,8 +310,8 @@ export class ZSelect {
             }
             aria-multiselectable={!!this.multiple}
             class={`
-            ${this.disabled && " disabled"}
-            ${this.readonly && " readonly"}
+            ${this.disabled ? " disabled" : ""}
+            ${this.readonly ? " readonly" : ""}
             ${
               !this.isOpen && this.status
                 ? " input_" + this.status

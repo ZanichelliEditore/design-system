@@ -206,7 +206,11 @@ export class ZInput {
       <div class="textWrapper">
         {this.renderLabel()}
         <div>
-          <input {...attr} type={type} />
+          <input
+            {...attr}
+            type={type}
+            aria-labelledby={`${this.htmlid}_label`}
+          />
           {this.renderIcons()}
         </div>
         {this.renderMessage()}
