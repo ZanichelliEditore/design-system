@@ -71,6 +71,7 @@ export class ZInput {
   @State() isTyping: boolean = false;
   @State() textareaWrapperHover: string = "";
   @State() textareaWrapperFocus: string = "";
+  @State() passwordHidden: boolean = true;
 
   private timer;
 
@@ -199,7 +200,8 @@ export class ZInput {
 
   renderInputText(type = InputTypeEnum.text) {
     const attr = this.getTextAttributes();
-    if (this.icon) attr.class = attr.class + " hasIcon";
+    if (this.icon || type === InputTypeEnum.password)
+      attr.class = attr.class + " hasIcon";
     if (this.hasclearicon) attr.class = attr.class + " hasClearIcon";
 
     return (
@@ -208,7 +210,11 @@ export class ZInput {
         <div>
           <input
             {...attr}
-            type={type}
+            type={
+              type === InputTypeEnum.password && !this.passwordHidden
+                ? InputTypeEnum.text
+                : type
+            }
             aria-labelledby={`${this.htmlid}_label`}
           />
           {this.renderIcons()}
@@ -233,11 +239,21 @@ export class ZInput {
 
   renderIcons() {
     return (
-      <span class="iconsWrapper">
+      <span class={`iconsWrapper ${this.disabled ? "disabled" : ""}`}>
         {this.renderResetIcon()}
         {this.renderIcon()}
       </span>
     );
+  }
+
+  renderIcon() {
+    if (this.type === InputTypeEnum.password) {
+      return this.renderShowHidePassword();
+    }
+
+    if (!this.icon) return;
+
+    return <z-icon class="inputIcon" name={this.icon} />;
   }
 
   renderResetIcon() {
@@ -253,10 +269,14 @@ export class ZInput {
     );
   }
 
-  renderIcon() {
-    if (!this.icon) return;
-
-    return <z-icon class="inputIcon" name={this.icon} />;
+  renderShowHidePassword() {
+    return (
+      <z-icon
+        class="inputIcon"
+        name={this.passwordHidden ? "view-off" : "view"}
+        onClick={() => (this.passwordHidden = !this.passwordHidden)}
+      />
+    );
   }
 
   renderMessage() {

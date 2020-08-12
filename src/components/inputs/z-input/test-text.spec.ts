@@ -58,7 +58,7 @@ describe("Suite test ZInput - text", () => {
             <z-input-label aria-label="label" id="test_label" value="label" disabled=""></z-input-label>
             <div>
               <input disabled class="false filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
-              <span class="iconsWrapper"></span>
+              <span class="iconsWrapper disabled"></span>
             </div>
           </div>
         </mock:shadow-root>
