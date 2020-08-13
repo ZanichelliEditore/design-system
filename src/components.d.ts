@@ -737,6 +737,10 @@ export namespace Components {
          */
         "readonly"?: boolean;
         /**
+          * set search string value
+         */
+        "setSearchString": (value: string) => Promise<void>;
+        /**
           * set the input value
          */
         "setValue": (value: string | string[]) => Promise<void>;

@@ -108,6 +108,12 @@ export class ZSelect {
     );
   }
 
+  /** set search string value */
+  @Method()
+  async setSearchString(value: string): Promise<void> {
+    this.searchString = value;
+  }
+
   /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
   @Event() optionSelect: EventEmitter;
   emitOptionSelect() {

@@ -55,6 +55,16 @@ Type: `Promise<string | string[]>`
 
 
 
+### `setSearchString(value: string) => Promise<void>`
+
+set search string value
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setValue(value: string | string[]) => Promise<void>`
 
 set the input value
