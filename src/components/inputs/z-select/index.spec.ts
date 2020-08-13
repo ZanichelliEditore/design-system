@@ -120,7 +120,6 @@ describe("Suite test ZSelect", () => {
               icon="caret-up"
               readonly=""
               status="selecting"
-              value="primo elemento"
             ></z-input>
             <div class="open">
               <div class="ulScrollWrapper">
