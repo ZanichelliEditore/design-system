@@ -737,10 +737,6 @@ export namespace Components {
          */
         "readonly"?: boolean;
         /**
-          * set search string value
-         */
-        "setSearchString": (value: string) => Promise<void>;
-        /**
           * set the input value
          */
         "setValue": (value: string | string[]) => Promise<void>;
@@ -1815,10 +1811,6 @@ declare namespace LocalJSX {
           * no result text message
          */
         "noresultslabel"?: string;
-        /**
-          * Emitted on stopTyping, returns autocomplete result array, search string, exact match
-         */
-        "onAutocompleteResult"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
          */

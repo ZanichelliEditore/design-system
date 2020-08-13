@@ -108,36 +108,12 @@ export class ZSelect {
     );
   }
 
-  /** set search string value */
-  @Method()
-  async setSearchString(value: string): Promise<void> {
-    this.searchString = value;
-  }
-
   /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
   @Event() optionSelect: EventEmitter;
   emitOptionSelect() {
     this.optionSelect.emit({
       id: this.htmlid,
       selected: this.getSelectedValues()
-    });
-  }
-
-  /** Emitted on stopTyping, returns autocomplete result array, search string, exact match */
-  @Event() autocompleteResult: EventEmitter;
-  emitAutocompleteResult() {
-    const data = this.renderItemsList.map((item: SelectItemBean) => {
-      item.name = item.name.replace(/<[^>]+>/g, "");
-      return item;
-    });
-    this.autocompleteResult.emit({
-      id: this.htmlid,
-      searchString: this.searchString,
-      exactMatch: !!data.find(
-        (item: SelectItemBean) =>
-          item.name.toLowerCase() === this.searchString.toLowerCase()
-      ),
-      data
     });
   }
 
@@ -322,7 +298,7 @@ export class ZSelect {
         htmlid={`${this.htmlid}_input`}
         placeholder={this.placeholder}
         value={
-          !this.multiple && this.selectedItems.length
+          !this.isOpen && !this.multiple && this.selectedItems.length
             ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
             : null
         }
@@ -350,7 +326,6 @@ export class ZSelect {
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);
         }}
-        onStopTyping={() => this.emitAutocompleteResult()}
         onKeyPress={(e: KeyboardEvent) => {
           if (!this.autocomplete) {
             e.preventDefault();

@@ -27,10 +27,9 @@
 
 ## Events
 
-| Event                | Description                                                                                                          | Type               |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `autocompleteResult` | Emitted on stopTyping, returns autocomplete result array, search string, exact match                                 | `CustomEvent<any>` |
-| `optionSelect`       | Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) | `CustomEvent<any>` |
+| Event          | Description                                                                                                          | Type               |
+| -------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `optionSelect` | Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) | `CustomEvent<any>` |
 
 
 ## Methods
@@ -52,16 +51,6 @@ get the input value
 #### Returns
 
 Type: `Promise<string | string[]>`
-
-
-
-### `setSearchString(value: string) => Promise<void>`
-
-set search string value
-
-#### Returns
-
-Type: `Promise<void>`
 
 
 
