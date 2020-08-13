@@ -129,6 +129,21 @@
   pointer-events: none;
 }
 
+:host > div.selectWrapper > div > div.ulScrollWrapper > ul > li.noResults {
+  color: var(--myz-blue);
+  fill: var(--myz-blue);
+}
+
+:host
+  > div.selectWrapper
+  > div
+  > div.ulScrollWrapper
+  > ul
+  > li.noResults
+  > z-icon {
+  margin-right: var(--basex1);
+}
+
 :host > div.selectWrapper > div.chipsWrapper {
   background: var(--bg-white);
   border: var(--border-size-small) solid var(--bg-grey-200);

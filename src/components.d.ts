@@ -725,6 +725,10 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * no result text message
+         */
+        "noresultslabel"?: string;
+        /**
           * the input placeholder (optional)
          */
         "placeholder"?: string;
@@ -1804,7 +1808,11 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emitted on stopTyping, returns autocomplete result array
+          * no result text message
+         */
+        "noresultslabel"?: string;
+        /**
+          * Emitted on stopTyping, returns autocomplete result array, search string, exact match
          */
         "onAutocompleteResult"?: (event: CustomEvent<any>) => void;
         /**

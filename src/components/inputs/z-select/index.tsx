@@ -56,6 +56,8 @@ export class ZSelect {
   @Prop() autocomplete?: boolean = false;
   /** multiple options can be selected */
   @Prop() multiple?: boolean = false;
+  /** no result text message */
+  @Prop() noresultslabel?: string = "Nessun risultato";
 
   @State() isOpen: boolean = false;
   @State() renderItemsList: SelectItemBean[];
@@ -115,12 +117,21 @@ export class ZSelect {
     });
   }
 
-  /** Emitted on stopTyping, returns autocomplete result array */
+  /** Emitted on stopTyping, returns autocomplete result array, search string, exact match */
   @Event() autocompleteResult: EventEmitter;
   emitAutocompleteResult() {
+    const data = this.renderItemsList.map((item: SelectItemBean) => {
+      item.name = item.name.replace(/<[^>]+>/g, "");
+      return item;
+    });
     this.autocompleteResult.emit({
       id: this.htmlid,
-      data: this.renderItemsList
+      searchString: this.searchString,
+      exactMatch: !!data.find(
+        (item: SelectItemBean) =>
+          item.name.toLowerCase() === this.searchString.toLowerCase()
+      ),
+      data
     });
   }
 
@@ -394,6 +405,8 @@ export class ZSelect {
   }
 
   renderSelectUlItems() {
+    if (!this.renderItemsList.length) return this.renderNoSearchResults();
+
     return this.renderItemsList.map((item: SelectItemBean, key) => (
       <li
         role="option"
@@ -410,6 +423,15 @@ export class ZSelect {
         <span innerHTML={item.name} />
       </li>
     ));
+  }
+
+  renderNoSearchResults() {
+    return (
+      <li class="noResults">
+        <z-icon name="circle-cross-stroke" />
+        {this.noresultslabel}
+      </li>
+    );
   }
 
   renderMessage() {
