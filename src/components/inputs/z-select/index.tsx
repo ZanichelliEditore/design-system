@@ -60,7 +60,6 @@ export class ZSelect {
   @Prop() noresultslabel?: string = "Nessun risultato";
 
   @State() isOpen: boolean = false;
-  @State() renderItemsList: SelectItemBean[];
   @State() selectedItems: SelectItemBean[];
   @State() searchString: null | string;
 
@@ -122,8 +121,7 @@ export class ZSelect {
   }
 
   componentWillRender() {
-    this.resetRenderItemsList();
-    if (this.searchString) this.filterItems(this.searchString);
+    this.filterItems(this.searchString);
   }
 
   getSelectedValues() {
@@ -138,26 +136,24 @@ export class ZSelect {
     return null;
   }
 
-  resetRenderItemsList(): void {
-    const renderItemsList = [];
-    this.itemsList.forEach((item: SelectItemBean) => {
-      renderItemsList.push({ ...item });
-    });
-    this.renderItemsList = renderItemsList;
-  }
-
   filterItems(searchString: string) {
-    this.renderItemsList = this.renderItemsList.filter(item => {
-      const start = item.name.toUpperCase().indexOf(searchString.toUpperCase());
-      const end = start + searchString.length;
-      const newName =
-        item.name.substring(0, start) +
-        item.name.substring(start, end).bold() +
-        item.name.substring(end, item.name.length);
-
-      item.name = newName;
-      return start >= 0;
-    });
+    const prevList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    if (!searchString?.length) {
+      this.itemsList = prevList
+    } else {
+      this.itemsList = prevList.filter((item: SelectItemBean) => {
+        return item.name.toUpperCase().includes(searchString.toUpperCase())
+      }).map((item: SelectItemBean) => {
+        const start = item.name.toUpperCase().indexOf(searchString.toUpperCase());
+        const end = start + searchString.length;
+        const newName =
+          item.name.substring(0, start) +
+          item.name.substring(start, end).bold() +
+          item.name.substring(end, item.name.length);
+        item.name = newName
+        return item 
+      });
+    } 
   }
 
   handleInputChange(e: CustomEvent) {
@@ -386,9 +382,10 @@ export class ZSelect {
   }
 
   renderSelectUlItems() {
-    if (!this.renderItemsList.length) return this.renderNoSearchResults();
+    if (!this.items.length) return this.renderNoSearchResults();
 
-    return this.renderItemsList.map((item: SelectItemBean, key) => (
+    return this.itemsList.map((item: SelectItemBean, key) => {
+      return (
       <li
         role="option"
         tabindex={item.disabled || !this.isOpen ? -1 : 0}
@@ -403,7 +400,7 @@ export class ZSelect {
       >
         <span innerHTML={item.name} />
       </li>
-    ));
+    )})
   }
 
   renderNoSearchResults() {
@@ -422,6 +419,8 @@ export class ZSelect {
   }
 
   render() {
+    console.log('render');
+
     return (
       <div class="selectWrapper">
         {this.renderLabel()}
