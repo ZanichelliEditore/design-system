@@ -13,12 +13,13 @@
 
 ## Properties
 
-| Property     | Attribute    | Description              | Type      | Default     |
-| ------------ | ------------ | ------------------------ | --------- | ----------- |
-| `filterid`   | `filterid`   | filter id                | `string`  | `undefined` |
-| `filtername` | `filtername` | filter text content      | `string`  | `undefined` |
-| `hasicon`    | `hasicon`    | add icon to button       | `boolean` | `true`      |
-| `isfixed`    | `isfixed`    | disable action on button | `boolean` | `false`     |
+| Property     | Attribute    | Description                   | Type      | Default     |
+| ------------ | ------------ | ----------------------------- | --------- | ----------- |
+| `filterid`   | `filterid`   | filter id                     | `string`  | `undefined` |
+| `filtername` | `filtername` | filter text content           | `string`  | `undefined` |
+| `hasicon`    | `hasicon`    | add icon to button            | `boolean` | `true`      |
+| `isfixed`    | `isfixed`    | disable action on button      | `boolean` | `false`     |
+| `issmall`    | `issmall`    | reduce button size (optional) | `boolean` | `false`     |
 
 
 ## Events
@@ -30,6 +31,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-select](../../inputs/z-select)
+
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
@@ -38,6 +43,7 @@
 ```mermaid
 graph TD;
   z-button-filter --> z-icon
+  z-select --> z-button-filter
   style z-button-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

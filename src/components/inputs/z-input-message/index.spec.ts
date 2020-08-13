@@ -12,7 +12,7 @@ describe("Suite test ZInputMessage", () => {
     expect(page.root).toEqualHtml(`
       <z-input-message>
         <mock:shadow-root>
-          <span class="msg_undefined statusMsg">
+          <span class="statusMsg">
             <span></span>
           </span>
         </mock:shadow-root>
@@ -29,7 +29,7 @@ describe("Suite test ZInputMessage", () => {
     expect(page.root).toEqualHtml(`
       <z-input-message message="message">
         <mock:shadow-root>
-          <span class="msg_undefined statusMsg">
+          <span class="statusMsg">
             <span>message</span>
           </span>
         </mock:shadow-root>

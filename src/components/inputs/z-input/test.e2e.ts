@@ -88,15 +88,17 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
     `<z-input htmlid="checkid" type="password"> </z-input>`
   );
   //const select = await page.find("z-input >>> div.textWrapper");
-  const icon = await page.find("z-input >>> div.textWrapper div z-icon");
+  const icon = await page.find(
+    "z-input >>> div.textWrapper div span.iconsWrapper z-icon.inputIcon"
+  );
   //icon will be an open eye on first click
   await icon.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated">
+    `<z-icon class="hydrated inputIcon">
     <mock:shadow-root>
     <svg viewBox="0 0 18 18" width='18' height='18'>
-        <path d="${icons["show-password"]}"></path>
+        <path d="${icons["hide-password"]}"></path>
     </svg>
     </mock:shadow-root>
     </z-icon>`
@@ -105,10 +107,10 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
   await icon.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated">
+    `<z-icon class="hydrated inputIcon">
     <mock:shadow-root>
     <svg viewBox="0 0 18 18" width='18' height='18'>
-        <path d="${icons["hide-password"]}"></path>
+        <path d="${icons["show-password"]}"></path>
     </svg>
     </mock:shadow-root>
     </z-icon>`
@@ -122,15 +124,17 @@ it("Test ZInput - input password - change input type on icon click to show/hide 
     `<z-input htmlid="checkid" type="password"> </z-input>`
   );
   const input = await page.find("z-input >>> div.textWrapper div input");
-  const icon = await page.find("z-input >>> div.textWrapper div z-icon");
+  const icon = await page.find(
+    "z-input >>> div.textWrapper div span.iconsWrapper z-icon.inputIcon"
+  );
   //input will be type text after first click on icon
   await icon.click();
   await page.waitForChanges();
-  expect(input).toEqualAttribute('type', 'text');
+  expect(input).toEqualAttribute("type", "text");
   //input will be type password after second click on icon
   await icon.click();
   await page.waitForChanges();
-  expect(input).toEqualAttribute('type', 'password');
+  expect(input).toEqualAttribute("type", "password");
 });
 
 it("Test ZInput checkbox should emit inputCheck event", async () => {
@@ -253,43 +257,4 @@ it("Test disabled ZInput radio should not emit inputCheck event", async () => {
   await input_radio_unchecked.click();
   await page.waitForChanges();
   expect(checked).toEqual(false);
-});
-
-it("Test ZInput - select should open, close and emit optionSelect event", async () => {
-  const page = await newE2EPage();
-  // Define a window.onCustomEvent function on the page.
-  let selected = null;
-  await page.exposeFunction("onOptionSelect", e => {
-    selected = e.detail.selected;
-  });
-  // Attach an event listener to page to capture a custom event on page load/navigation.
-  const type = "optionSelect";
-  page.evaluateOnNewDocument(type => {
-    document.addEventListener(type, e => {
-      window.onOptionSelect({
-        type,
-        detail: e.detail
-      });
-    });
-  }, type);
-  await page.setContent(
-    `<z-input htmlid="checkid" type="select" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-input>`
-  );
-  const select = await page.find("z-input >>> div.selectWrapper");
-  const ul = await page.find("z-input >>> div.selectWrapper div ul");
-  //select will open on click
-  await select.click();
-  await page.waitForChanges();
-  expect(ul).toHaveClass("open");
-  expect(ul).not.toHaveClass("closed");
-  //select will close on second's element click
-  const li = await page.find(
-    "z-input >>> div.selectWrapper div ul li:nth-child(3)"
-  );
-  await li.click();
-  await page.waitForChanges();
-  expect(ul).toHaveClass("closed");
-  expect(ul).not.toHaveClass("open");
-  //onOptionSelect event check
-  expect(selected).toEqual("item_1");
 });

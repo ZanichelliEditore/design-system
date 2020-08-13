@@ -823,70 +823,22 @@
           </div>
         </div>
 
-        <br /><br />
-        <z-input required></z-input>
-        <z-input
-          type="text"
-          label="default"
-          placeholder="Cerca Autore"
-        ></z-input>
-        <z-input type="text" label="filled" value="testo testo testo"></z-input>
-        <z-input
-          type="text"
-          label="disabled"
-          placeholder="placeholder"
-          disabled
-          value="i'm disabled"
-        ></z-input>
-        <z-input
-          type="text"
-          label="readonly"
-          placeholder="placeholder"
-          readonly
-          value="i'm read-only"
-        ></z-input>
-        <z-input
-        type="password"
-        label="Password"
-        placeholder="Cerca Autore"
-      ></z-input>
-      <z-input
-      type="password"
-      label="Password"
-      disabled
-      placeholder="Disabilitato"></z-input>
-        <z-input
-          type="text"
-          label="success"
-          placeholder="placeholder"
-          status="success"
-          message="message message"
-          value=""
-        >
-        </z-input>
-        <z-input
-          type="text"
-          label="error"
-          placeholder="placeholder"
-          status="error"
-          message="message message"
-          value="testo"
-        >
-        </z-input>
-        <z-input
-          type="text"
-          label="warning"
-          placeholder="placeholder"
-          status="warning"
-          message="message message message message message message message message message message message message message message message message message message"
-        >
-        </z-input>
-        <z-input
-          type="text"
-          label="message"
-          placeholder="placeholder"
-          message="helper message"
-        ></z-input>
+      <br /><br />
+      <z-input required></z-input>
+      <z-input type="text" label="default" placeholder="Cerca Autore"></z-input>
+      <z-input type="text" label="filled" value="testo testo testo"></z-input>
+      <z-input type="text" label="disabled" placeholder="placeholder" disabled value="i'm disabled"></z-input>
+      <z-input type="text" label="readonly" placeholder="placeholder" readonly value="i'm read-only"></z-input>
+      <z-input type="text" label="success" placeholder="placeholder" status="success" message="message message" value="">
+      </z-input>
+      <z-input type="text" label="error" placeholder="placeholder" status="error" message="message message" value="testo">
+      </z-input>
+      <z-input type="text" label="warning" placeholder="placeholder" status="warning"
+        message="message message message message message message message message message message message message message message message message message message">
+      </z-input>
+      <z-input type="text" label="message" placeholder="placeholder" message="helper message"></z-input>
+      <z-input type="password" label="password" value="password" placeholder="Inserisci password"></z-input>
+      <z-input type="password" label="password disabled" value="password" placeholder="Non inscerisci password" disabled></z-input>
 
         <br /><br />
         <z-input type="textarea" required></z-input>
@@ -982,108 +934,25 @@
         ></z-input
         ><br />
 
-        <br /><br />
-        <z-input
-          type="radio"
-          htmlid="radio1"
-          name="radio-selected"
-          value="1"
-        ></z-input
-        ><br />
-        <z-input
-          type="radio"
-          htmlid="radio2"
-          name="radio-selected"
-          value="2"
-          label="opzione 2"
-        ></z-input
-        ><br />
-        <z-input
-          type="radio"
-          htmlid="radio3"
-          name="radio-selected"
-          value="3"
-          labelafter="false"
-          label="opzione 3"
-        ></z-input
-        ><br />
-        <z-input
-          type="radio"
-          htmlid="radio4"
-          name="radio-selected"
-          value="4"
-          label="disabled"
-          disabled
-        ></z-input
-        ><br />
-        <z-input
-          type="radio"
-          htmlid="radio5"
-          name="radio-selected"
-          value="5"
-          label="readonly"
-          readonly
-        ></z-input
-        ><br />
-
-        <br /><br />
-        <div style="width:300px;">
-          <z-input
-            type="select"
-            label="default"
-            placeholder="Seleziona qui"
-            items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'
-          ></z-input>
-          <z-input
-            type="select"
-            label="disabled"
-            placeholder="Seleziona qui"
-            disabled
-            items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":true}]'
-          ></z-input
-          ><br />
-          <z-input
-            type="select"
-            label="readonly"
-            placeholder="Seleziona qui"
-            readonly
-            items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'
-          ></z-input
-          ><br />
-          <z-input
-            type="select"
-            label="success"
-            placeholder="Seleziona qui"
-            status="success"
-            message="message message"
-            items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'
-          ></z-input
-          ><br />
-          <z-input
-            type="select"
-            label="error"
-            placeholder="Seleziona qui"
-            status="error"
-            message="message message"
-            items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'
-          ></z-input
-          ><br />
-          <z-input
-            type="select"
-            label="warning"
-            placeholder="Seleziona qui"
-            status="warning"
-            message="message message message"
-            items='[{"id":"item_1","name":"primo elemento","selected":true},{"id":"item_2","name":"secondo elemento","selected":false}]'
-          ></z-input>
-          <z-input
-            type="select"
-            label="message"
-            placeholder="Seleziona qui"
-            message="helper message"
-            items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'
-          ></z-input>
-        </div>
+      <br /><br />
+      <z-input type="radio" htmlid="radio1" name="radio-selected" value="1"></z-input><br />
+      <z-input type="radio" htmlid="radio2" name="radio-selected" value="2" label="opzione 2"></z-input><br />
+      <z-input type="radio" htmlid="radio3" name="radio-selected" value="3" labelafter="false" label="opzione 3"></z-input><br />
+      <z-input type="radio" htmlid="radio4" name="radio-selected" value="4" label="disabled" disabled></z-input><br />
+      <z-input type="radio" htmlid="radio5" name="radio-selected" value="5" label="readonly" readonly></z-input><br />
+      <br /><br />
+      <div style="width:300px;">
+        <z-input type="select" label="default" placeholder="Seleziona qui" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="disabled" placeholder="Seleziona qui" disabled items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":true}]'></z-input><br />
+        <z-input type="select" label="readonly" placeholder="Seleziona qui" readonly items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input><br />
+        <z-input type="select" label="success" placeholder="Seleziona qui" status="success" message="message message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input><br />
+        <z-input type="select" label="error" placeholder="Seleziona qui" status="error" message="message message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input><br />
+        <z-input type="select" label="warning" placeholder="Seleziona qui" status="warning" message="message message message" items='[{"id":"item_1","name":"primo elemento","selected":true},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="message" placeholder="Seleziona qui" message="helper message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="multiple" placeholder="Seleziona qui" multiple="true" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="autocomplete" placeholder="Seleziona qui" autocomplete="true" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="multiple autocomplete" placeholder="Seleziona qui" autocomplete="true" multiple="true" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'></z-input>
+      </div>
 
         <br /><br />
         <z-otp></z-otp>
