@@ -74,6 +74,7 @@ export class ZInput {
   @State() passwordHidden: boolean = true;
 
   private timer;
+  private selectElem: HTMLZSelectElement;
 
   @Listen("inputCheck", { target: "document" })
   inputCheckListener(e: CustomEvent) {
@@ -94,14 +95,27 @@ export class ZInput {
 
   /** get the input value */
   @Method()
-  async getValue(): Promise<string> {
-    return this.value;
+  async getValue(): Promise<string | string[]> {
+    switch (this.type) {
+      case InputTypeEnum.select:
+        return this.selectElem.getValue();
+      default:
+        return this.value;
+    }
   }
 
   /** set the input value */
   @Method()
-  async setValue(value: string): Promise<void> {
-    this.value = value;
+  async setValue(value: string | string[]): Promise<void> {
+    console.log("z-input setValue");
+    switch (this.type) {
+      case InputTypeEnum.select:
+        this.selectElem.setValue(value);
+        break;
+      default:
+        if (typeof value === "string") this.value = value;
+        break;
+    }
   }
 
   /** get checked status */
@@ -422,6 +436,7 @@ export class ZInput {
         message={this.message}
         autocomplete={this.autocomplete}
         multiple={this.multiple}
+        ref={el => (this.selectElem = el as HTMLZSelectElement)}
       />
     );
   }

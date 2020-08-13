@@ -85,15 +85,33 @@ export class ZSelect {
     return this.selectedItems;
   }
 
+  /** get the input value */
+  @Method()
+  async getValue(): Promise<string | string[]> {
+    return this.getSelectedValues();
+  }
+
+  /** set the input value */
+  @Method()
+  async setValue(value: string | string[]): Promise<void> {
+    let values: string[] = [];
+    if (typeof value === "string") {
+      values.push(value);
+    } else {
+      values = value;
+    }
+
+    this.selectedItems = this.itemsList.filter((item: SelectItemBean) =>
+      values.includes(item.id)
+    );
+  }
+
   /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
   @Event() optionSelect: EventEmitter;
   emitOptionSelect() {
-    const selected = this.multiple
-      ? this.selectedItems.map((item: SelectItemBean) => item.id)
-      : this.selectedItems[0].id;
     this.optionSelect.emit({
       id: this.htmlid,
-      selected
+      selected: this.getSelectedValues()
     });
   }
 
@@ -104,6 +122,18 @@ export class ZSelect {
   componentWillRender() {
     this.resetRenderItemsList();
     if (this.searchString) this.filterItems(this.searchString);
+  }
+
+  getSelectedValues() {
+    if (this.multiple) {
+      return this.selectedItems.map((item: SelectItemBean) => item.id);
+    }
+
+    if (!this.multiple && this.selectedItems.length) {
+      return this.selectedItems[0].id;
+    }
+
+    return null;
   }
 
   resetRenderItemsList(): void {

@@ -160,13 +160,13 @@
 
 ## Methods
 
-### `getValue() => Promise<string>`
+### `getValue() => Promise<string | string[]>`
 
 get the input value
 
 #### Returns
 
-Type: `Promise<string>`
+Type: `Promise<string | string[]>`
 
 
 
@@ -180,7 +180,7 @@ Type: `Promise<boolean>`
 
 
 
-### `setValue(value: string) => Promise<void>`
+### `setValue(value: string | string[]) => Promise<void>`
 
 set the input value
 

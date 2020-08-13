@@ -43,6 +43,26 @@ Type: `Promise<SelectItemBean[]>`
 
 
 
+### `getValue() => Promise<string | string[]>`
+
+get the input value
+
+#### Returns
+
+Type: `Promise<string | string[]>`
+
+
+
+### `setValue(value: string | string[]) => Promise<void>`
+
+set the input value
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 

@@ -363,7 +363,7 @@ export namespace Components {
         /**
           * get the input value
          */
-        "getValue": () => Promise<string>;
+        "getValue": () => Promise<string | string[]>;
         /**
           * render clear icon when typing (optional): available for text
          */
@@ -427,7 +427,7 @@ export namespace Components {
         /**
           * set the input value
          */
-        "setValue": (value: string) => Promise<void>;
+        "setValue": (value: string | string[]) => Promise<void>;
         /**
           * the input status (optional): available for text, password, number, email, textarea, select
          */
@@ -689,6 +689,10 @@ export namespace Components {
          */
         "getSelectedItems": () => Promise<SelectItemBean[]>;
         /**
+          * get the input value
+         */
+        "getValue": () => Promise<string | string[]>;
+        /**
           * show input helper message (optional): available for text, password, number, email, textarea, select
          */
         "hasmessage"?: boolean;
@@ -728,6 +732,10 @@ export namespace Components {
           * the input is readonly
          */
         "readonly"?: boolean;
+        /**
+          * set the input value
+         */
+        "setValue": (value: string | string[]) => Promise<void>;
         /**
           * the input status (optional): available for text, password, number, email, textarea, select
          */
