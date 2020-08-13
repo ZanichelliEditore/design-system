@@ -26,9 +26,10 @@
 
 ## Events
 
-| Event          | Description                                                                                                          | Type               |
-| -------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `optionSelect` | Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) | `CustomEvent<any>` |
+| Event                | Description                                                                                                          | Type               |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `autocompleteResult` | Emitted on stopTyping, returns autocomplete result array                                                             | `CustomEvent<any>` |
+| `optionSelect`       | Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) | `CustomEvent<any>` |
 
 
 ## Methods

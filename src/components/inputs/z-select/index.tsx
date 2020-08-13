@@ -115,6 +115,15 @@ export class ZSelect {
     });
   }
 
+  /** Emitted on stopTyping, returns autocomplete result array */
+  @Event() autocompleteResult: EventEmitter;
+  emitAutocompleteResult() {
+    this.autocompleteResult.emit({
+      id: this.htmlid,
+      data: this.renderItemsList
+    });
+  }
+
   componentWillLoad() {
     this.watchItems();
   }
@@ -324,6 +333,7 @@ export class ZSelect {
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);
         }}
+        onStopTyping={() => this.emitAutocompleteResult()}
         onKeyPress={(e: KeyboardEvent) => {
           if (!this.autocomplete) {
             e.preventDefault();

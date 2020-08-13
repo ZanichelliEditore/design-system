@@ -1804,6 +1804,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Emitted on stopTyping, returns autocomplete result array
+         */
+        "onAutocompleteResult"?: (event: CustomEvent<any>) => void;
+        /**
           * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
          */
         "onOptionSelect"?: (event: CustomEvent<any>) => void;
