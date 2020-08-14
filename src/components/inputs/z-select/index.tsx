@@ -137,28 +137,40 @@ export class ZSelect {
   }
 
   filterItems(searchString: string) {
-    const prevList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    const initialItemsList =
+      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    const prevList = initialItemsList.map((item: SelectItemBean) => {
+      const found = this.selectedItems.find(
+        (selected: SelectItemBean) => selected.id === item.id
+      );
+      item.selected = !!found;
+      return item;
+    });
     if (!searchString?.length) {
-      this.itemsList = prevList
+      this.itemsList = prevList;
     } else {
-      this.itemsList = prevList.filter((item: SelectItemBean) => {
-        return item.name.toUpperCase().includes(searchString.toUpperCase())
-      }).map((item: SelectItemBean) => {
-        const start = item.name.toUpperCase().indexOf(searchString.toUpperCase());
-        const end = start + searchString.length;
-        const newName =
-          item.name.substring(0, start) +
-          item.name.substring(start, end).bold() +
-          item.name.substring(end, item.name.length);
-        item.name = newName
-        return item 
-      });
-    } 
+      this.itemsList = prevList
+        .filter((item: SelectItemBean) => {
+          return item.name.toUpperCase().includes(searchString.toUpperCase());
+        })
+        .map((item: SelectItemBean) => {
+          const start = item.name
+            .toUpperCase()
+            .indexOf(searchString.toUpperCase());
+          const end = start + searchString.length;
+          const newName =
+            item.name.substring(0, start) +
+            item.name.substring(start, end).bold() +
+            item.name.substring(end, item.name.length);
+          item.name = newName;
+          return item;
+        });
+    }
   }
 
   handleInputChange(e: CustomEvent) {
     this.searchString = e.detail.value;
-    if (!this.searchString && !this.isOpen) this.toggleSelectUl();
+    if (!this.isOpen) this.toggleSelectUl();
   }
 
   selectItem(item: null | SelectItemBean, selected: boolean) {
@@ -340,7 +352,7 @@ export class ZSelect {
         {this.selectedItems.map((item: SelectItemBean) => (
           <z-button-filter
             filterid={item.id}
-            filtername={item.name}
+            filtername={item.name.replace(/<[^>]+>/g, "")}
             issmall={true}
             onRemovefilter={() => this.selectItem(item, false)}
           />
@@ -382,31 +394,32 @@ export class ZSelect {
   }
 
   renderSelectUlItems() {
-    if (!this.items.length) return this.renderNoSearchResults();
+    if (!this.itemsList.length) return this.renderNoSearchResults();
 
     return this.itemsList.map((item: SelectItemBean, key) => {
       return (
-      <li
-        role="option"
-        tabindex={item.disabled || !this.isOpen ? -1 : 0}
-        aria-selected={!!item.selected}
-        class={item.disabled && "disabled"}
-        id={`${this.htmlid}_${key}`}
-        onClick={() => this.selectItem(item, true)}
-        onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(e, this.selectItem, item, true)
-        }
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
-      >
-        <span innerHTML={item.name} />
-      </li>
-    )})
+        <li
+          role="option"
+          tabindex={item.disabled || !this.isOpen ? -1 : 0}
+          aria-selected={!!item.selected}
+          class={item.disabled && "disabled"}
+          id={`${this.htmlid}_${key}`}
+          onClick={() => this.selectItem(item, true)}
+          onKeyUp={(e: KeyboardEvent) =>
+            handleKeyboardSubmit(e, this.selectItem, item, true)
+          }
+          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
+        >
+          <span innerHTML={item.name} />
+        </li>
+      );
+    });
   }
 
   renderNoSearchResults() {
     return (
       <li class="noResults">
-        <z-icon name="circle-cross-stroke" />
+        <z-icon name="circle-cross" />
         {this.noresultslabel}
       </li>
     );
@@ -419,8 +432,6 @@ export class ZSelect {
   }
 
   render() {
-    console.log('render');
-
     return (
       <div class="selectWrapper">
         {this.renderLabel()}
