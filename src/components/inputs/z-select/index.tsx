@@ -60,7 +60,6 @@ export class ZSelect {
   @Prop() noresultslabel?: string = "Nessun risultato";
 
   @State() isOpen: boolean = false;
-  @State() renderItemsList: SelectItemBean[];
   @State() selectedItems: SelectItemBean[];
   @State() searchString: null | string;
 
@@ -74,8 +73,8 @@ export class ZSelect {
 
   @Watch("items")
   watchItems() {
-    this.itemsList =
-      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    this.itemsList = this.getInitialItemsArray();
+    // typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedItems = this.itemsList.filter(
       (item: SelectItemBean) => item.selected
     );
@@ -122,8 +121,22 @@ export class ZSelect {
   }
 
   componentWillRender() {
-    this.resetRenderItemsList();
-    if (this.searchString) this.filterItems(this.searchString);
+    this.filterItems(this.searchString);
+  }
+
+  getInitialItemsArray() {
+    return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+  }
+
+  mapSelectedItemsToItemsArray() {
+    const initialItemsList = this.getInitialItemsArray();
+    return initialItemsList.map((item: SelectItemBean) => {
+      const found = this.selectedItems.find(
+        (selected: SelectItemBean) => selected.id === item.id
+      );
+      item.selected = !!found;
+      return item;
+    });
   }
 
   getSelectedValues() {
@@ -138,36 +151,39 @@ export class ZSelect {
     return null;
   }
 
-  resetRenderItemsList(): void {
-    const renderItemsList = [];
-    this.itemsList.forEach((item: SelectItemBean) => {
-      renderItemsList.push({ ...item });
-    });
-    this.renderItemsList = renderItemsList;
-  }
-
   filterItems(searchString: string) {
-    this.renderItemsList = this.renderItemsList.filter(item => {
-      const start = item.name.toUpperCase().indexOf(searchString.toUpperCase());
-      const end = start + searchString.length;
-      const newName =
-        item.name.substring(0, start) +
-        item.name.substring(start, end).bold() +
-        item.name.substring(end, item.name.length);
-
-      item.name = newName;
-      return start >= 0;
-    });
+    const prevList = this.mapSelectedItemsToItemsArray();
+    if (!searchString?.length) {
+      this.itemsList = prevList;
+    } else {
+      this.itemsList = prevList
+        .filter((item: SelectItemBean) => {
+          return item.name.toUpperCase().includes(searchString.toUpperCase());
+        })
+        .map((item: SelectItemBean) => {
+          const start = item.name
+            .toUpperCase()
+            .indexOf(searchString.toUpperCase());
+          const end = start + searchString.length;
+          const newName =
+            item.name.substring(0, start) +
+            item.name.substring(start, end).bold() +
+            item.name.substring(end, item.name.length);
+          item.name = newName;
+          return item;
+        });
+    }
   }
 
   handleInputChange(e: CustomEvent) {
     this.searchString = e.detail.value;
-    if (!this.searchString && !this.isOpen) this.toggleSelectUl();
+    if (!this.isOpen) this.toggleSelectUl();
   }
 
   selectItem(item: null | SelectItemBean, selected: boolean) {
     if (item && item.disabled) return;
 
+    this.itemsList = this.mapSelectedItemsToItemsArray();
     this.itemsList = this.itemsList.map((i: SelectItemBean) => {
       if (!this.multiple) i.selected = false;
       if (i.id === (item ? item.id : null)) i.selected = selected;
@@ -302,7 +318,7 @@ export class ZSelect {
             ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
             : null
         }
-        icon={this.isOpen ? "caret-up" : "caret-down"}
+        icon={this.isOpen ? "drop-up" : "drop-down"}
         hasclearicon={this.autocomplete}
         hasmessage={false}
         disabled={this.disabled}
@@ -344,7 +360,7 @@ export class ZSelect {
         {this.selectedItems.map((item: SelectItemBean) => (
           <z-button-filter
             filterid={item.id}
-            filtername={item.name}
+            filtername={item.name.replace(/<[^>]+>/g, "")}
             issmall={true}
             onRemovefilter={() => this.selectItem(item, false)}
           />
@@ -386,24 +402,26 @@ export class ZSelect {
   }
 
   renderSelectUlItems() {
-    if (!this.renderItemsList.length) return this.renderNoSearchResults();
+    if (!this.itemsList.length) return this.renderNoSearchResults();
 
-    return this.renderItemsList.map((item: SelectItemBean, key) => (
-      <li
-        role="option"
-        tabindex={item.disabled || !this.isOpen ? -1 : 0}
-        aria-selected={!!item.selected}
-        class={item.disabled && "disabled"}
-        id={`${this.htmlid}_${key}`}
-        onClick={() => this.selectItem(item, true)}
-        onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(e, this.selectItem, item, true)
-        }
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
-      >
-        <span innerHTML={item.name} />
-      </li>
-    ));
+    return this.itemsList.map((item: SelectItemBean, key) => {
+      return (
+        <li
+          role="option"
+          tabindex={item.disabled || !this.isOpen ? -1 : 0}
+          aria-selected={!!item.selected}
+          class={item.disabled && "disabled"}
+          id={`${this.htmlid}_${key}`}
+          onClick={() => this.selectItem(item, true)}
+          onKeyUp={(e: KeyboardEvent) =>
+            handleKeyboardSubmit(e, this.selectItem, item, true)
+          }
+          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
+        >
+          <span innerHTML={item.name} />
+        </li>
+      );
+    });
   }
 
   renderNoSearchResults() {

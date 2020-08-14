@@ -19,7 +19,7 @@ describe("Suite test ZSelect", () => {
                 id="checkid_input"
                 htmlid="checkid_input"
                 placeholder="select here"
-                icon="caret-down"
+                icon="drop-down"
               ></z-input>
               <div class="closed">
                 <div class="ulScrollWrapper">
@@ -63,7 +63,7 @@ describe("Suite test ZSelect", () => {
                 id="checkid_input"
                 htmlid="checkid_input"
                 placeholder="select here"
-                icon="caret-up"
+                icon="drop-up"
                 readonly=""
                 status="selecting"
               ></z-input>
@@ -117,7 +117,7 @@ describe("Suite test ZSelect", () => {
               id="checkid_input"
               htmlid="checkid_input"
               placeholder="select here"
-              icon="caret-up"
+              icon="drop-up"
               readonly=""
               status="selecting"
             ></z-input>
@@ -173,7 +173,7 @@ describe("Suite test ZSelect", () => {
                 id="checkid_input"
                 htmlid="checkid_input"
                 placeholder="select here"
-                icon="caret-down"
+                icon="drop-down"
                 disabled=""
                 readonly=""
               ></z-input>
@@ -227,7 +227,7 @@ describe("Suite test ZSelect", () => {
                   id="checkid_input"
                   htmlid="checkid_input"
                   placeholder="select here"
-                  icon="caret-down"
+                  icon="drop-down"
                   status="success"
                 ></z-input>
                 <div class="closed">
@@ -280,7 +280,7 @@ describe("Suite test ZSelect", () => {
                 id="checkid_input"
                 htmlid="checkid_input"
                 placeholder="select here"
-                icon="caret-up"
+                icon="drop-up"
                 readonly=""
                 status="selecting"
               ></z-input>
@@ -334,7 +334,7 @@ describe("Suite test ZSelect", () => {
               id="checkid_input"
               htmlid="checkid_input"
               placeholder="select here"
-              icon="caret-up"
+              icon="drop-up"
               readonly=""
               status="selecting"
             ></z-input>
@@ -392,7 +392,7 @@ describe("Suite test ZSelect", () => {
               id="checkid_input"
               htmlid="checkid_input"
               placeholder="select here"
-              icon="caret-up"
+              icon="drop-up"
               readonly=""
               status="selecting"
             ></z-input>
@@ -448,7 +448,7 @@ describe("Suite test ZSelect", () => {
               id="checkid_input"
               htmlid="checkid_input"
               placeholder="select here"
-              icon="caret-up"
+              icon="drop-up"
               hasclearicon=""
               status="selecting"
             ></z-input>
@@ -503,7 +503,7 @@ describe("Suite test ZSelect", () => {
               id="checkid_input"
               htmlid="checkid_input"
               placeholder="select here"
-              icon="caret-up"
+              icon="drop-up"
               hasclearicon=""
               status="selecting"
             ></z-input>
