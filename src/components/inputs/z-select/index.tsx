@@ -73,8 +73,8 @@ export class ZSelect {
 
   @Watch("items")
   watchItems() {
-    this.itemsList =
-      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    this.itemsList = this.getInitialItemsArray();
+    // typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedItems = this.itemsList.filter(
       (item: SelectItemBean) => item.selected
     );
@@ -124,6 +124,21 @@ export class ZSelect {
     this.filterItems(this.searchString);
   }
 
+  getInitialItemsArray() {
+    return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+  }
+
+  mapSelectedItemsToItemsArray() {
+    const initialItemsList = this.getInitialItemsArray();
+    return initialItemsList.map((item: SelectItemBean) => {
+      const found = this.selectedItems.find(
+        (selected: SelectItemBean) => selected.id === item.id
+      );
+      item.selected = !!found;
+      return item;
+    });
+  }
+
   getSelectedValues() {
     if (this.multiple) {
       return this.selectedItems.map((item: SelectItemBean) => item.id);
@@ -137,15 +152,7 @@ export class ZSelect {
   }
 
   filterItems(searchString: string) {
-    const initialItemsList =
-      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-    const prevList = initialItemsList.map((item: SelectItemBean) => {
-      const found = this.selectedItems.find(
-        (selected: SelectItemBean) => selected.id === item.id
-      );
-      item.selected = !!found;
-      return item;
-    });
+    const prevList = this.mapSelectedItemsToItemsArray();
     if (!searchString?.length) {
       this.itemsList = prevList;
     } else {
@@ -176,6 +183,7 @@ export class ZSelect {
   selectItem(item: null | SelectItemBean, selected: boolean) {
     if (item && item.disabled) return;
 
+    this.itemsList = this.mapSelectedItemsToItemsArray();
     this.itemsList = this.itemsList.map((i: SelectItemBean) => {
       if (!this.multiple) i.selected = false;
       if (i.id === (item ? item.id : null)) i.selected = selected;
