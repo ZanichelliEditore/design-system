@@ -74,7 +74,7 @@ export class ZSelect {
   @Watch("items")
   watchItems() {
     this.itemsList = this.getInitialItemsArray();
-    // typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedItems = this.itemsList.filter(
       (item: SelectItemBean) => item.selected
     );
