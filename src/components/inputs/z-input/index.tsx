@@ -6,7 +6,6 @@ import {
   Method,
   Event,
   EventEmitter,
-  Watch,
   Element,
   Listen
 } from "@stencil/core";
@@ -14,15 +13,9 @@ import {
   InputTypeBean,
   InputTypeEnum,
   InputStatusBean,
-  SelectItemBean,
-  keybordKeyCodeEnum
+  SelectItemBean
 } from "../../../beans";
-import {
-  randomId,
-  handleKeyboardSubmit,
-  getClickedElement,
-  getElementTree
-} from "../../../utils/utils";
+import { randomId } from "../../../utils/utils";
 
 @Component({
   tag: "z-input",
@@ -64,35 +57,24 @@ export class ZInput {
   @Prop() labelafter?: boolean = true;
   /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
   @Prop() typingtimeout?: number = 300;
-  /** items: available for select */
+  /** items (optional): available for select */
   @Prop() items?: SelectItemBean[] | string;
+  /** the input has autocomplete option (optional): available for select */
+  @Prop() autocomplete?: boolean = false;
+  /** multiple options can be selected (optional): available for select */
+  @Prop() multiple?: boolean = false;
+  /** render clear icon when typing (optional): available for text */
+  @Prop() hasclearicon?: boolean = true;
+  /** render icon (optional): available for text, select */
+  @Prop() icon?: string;
 
   @State() isTyping: boolean = false;
   @State() textareaWrapperHover: string = "";
   @State() textareaWrapperFocus: string = "";
-  @State() isOpen: boolean = false;
+  @State() passwordHidden: boolean = true;
 
   private timer;
-  private itemsList: SelectItemBean[] = [];
-  private selectedItem: SelectItemBean;
-
-  constructor() {
-    this.toggleSelectUl = this.toggleSelectUl.bind(this);
-    this.selectItem = this.selectItem.bind(this);
-    this.handleSelectFocus = this.handleSelectFocus.bind(this);
-  }
-
-  @Watch("items")
-  watchItems() {
-    this.itemsList =
-      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-    this.selectedItem = this.itemsList.find(
-      (item: SelectItemBean) => item.selected
-    );
-    if (this.selectedItem) {
-      this.value = this.selectedItem.id;
-    }
-  }
+  private selectElem: HTMLZSelectElement;
 
   @Listen("inputCheck", { target: "document" })
   inputCheckListener(e: CustomEvent) {
@@ -113,14 +95,27 @@ export class ZInput {
 
   /** get the input value */
   @Method()
-  async getValue(): Promise<string> {
-    return this.value;
+  async getValue(): Promise<string | string[]> {
+    switch (this.type) {
+      case InputTypeEnum.select:
+        return this.selectElem.getValue();
+      default:
+        return this.value;
+    }
   }
 
   /** set the input value */
   @Method()
-  async setValue(value: string): Promise<void> {
-    this.value = value;
+  async setValue(value: string | string[]): Promise<void> {
+    console.log("z-input setValue");
+    switch (this.type) {
+      case InputTypeEnum.select:
+        this.selectElem.setValue(value);
+        break;
+      default:
+        if (typeof value === "string") this.value = value;
+        break;
+    }
   }
 
   /** get checked status */
@@ -186,19 +181,8 @@ export class ZInput {
     });
   }
 
-  /** Emitted on select option selection, returns select id, selected option id */
+  /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
   @Event() optionSelect: EventEmitter;
-  emitOptionSelect(item: SelectItemBean) {
-    this.value = item.id;
-    this.selectedItem = item;
-    this.optionSelect.emit({ id: this.htmlid, selected: item.id });
-  }
-
-  componentWillLoad() {
-    if (this.type === InputTypeEnum.select) {
-      this.watchItems();
-    }
-  }
 
   getValidity(type: string) {
     const input = this.hostElement.shadowRoot.querySelector(
@@ -229,16 +213,25 @@ export class ZInput {
   }
 
   renderInputText(type = InputTypeEnum.text) {
+    const attr = this.getTextAttributes();
+    if (this.icon || type === InputTypeEnum.password)
+      attr.class = attr.class + " hasIcon";
+    if (this.hasclearicon) attr.class = attr.class + " hasClearIcon";
+
     return (
       <div class="textWrapper">
         {this.renderLabel()}
         <div>
           <input
-            {...this.getTextAttributes()}
-            type={type}
+            {...attr}
+            type={
+              type === InputTypeEnum.password && !this.passwordHidden
+                ? InputTypeEnum.text
+                : type
+            }
             aria-labelledby={`${this.htmlid}_label`}
           />
-          {this.renderResetIcon()}
+          {this.renderIcons()}
         </div>
         {this.renderMessage()}
       </div>
@@ -258,13 +251,44 @@ export class ZInput {
     );
   }
 
+  renderIcons() {
+    return (
+      <span class={`iconsWrapper ${this.disabled ? "disabled" : ""}`}>
+        {this.renderResetIcon()}
+        {this.renderIcon()}
+      </span>
+    );
+  }
+
+  renderIcon() {
+    if (this.type === InputTypeEnum.password) {
+      return this.renderShowHidePassword();
+    }
+
+    if (!this.icon) return;
+
+    return <z-icon class="inputIcon" name={this.icon} />;
+  }
+
   renderResetIcon() {
-    if (!this.value || this.disabled || this.readonly) return;
+    if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
+      return;
 
     return (
       <z-icon
+        class="resetIcon"
         name="cross"
         onClick={(e: any) => this.emitInputChange("", e.keyCode)}
+      />
+    );
+  }
+
+  renderShowHidePassword() {
+    return (
+      <z-icon
+        class="inputIcon"
+        name={this.passwordHidden ? "show-password" : "hide-password"}
+        onClick={() => (this.passwordHidden = !this.passwordHidden)}
       />
     );
   }
@@ -398,152 +422,23 @@ export class ZInput {
 
   renderSelect() {
     return (
-      <div class="selectWrapper">
-        {this.renderLabel()}
-        {this.renderSelectUl()}
-        {this.renderMessage()}
-      </div>
+      <z-select
+        htmlid={this.htmlid}
+        items={this.items}
+        name={this.name}
+        label={this.label}
+        disabled={this.disabled}
+        readonly={this.readonly}
+        placeholder={this.placeholder}
+        htmltitle={this.htmltitle}
+        status={this.status}
+        hasmessage={this.hasmessage}
+        message={this.message}
+        autocomplete={this.autocomplete}
+        multiple={this.multiple}
+        ref={el => (this.selectElem = el as HTMLZSelectElement)}
+      />
     );
-  }
-
-  renderSelectUl() {
-    return (
-      <div>
-        <ul
-          role="listbox"
-          tabindex={this.disabled || this.readonly ? -1 : 0}
-          id={this.htmlid}
-          aria-activedescendant={this.value}
-          class={`
-            ${this.isOpen ? "open" : "closed"}
-            ${this.disabled && " disabled"}
-            ${this.readonly && " readonly"}
-            ${this.status ? " input_" + this.status : " input_default"}
-            ${this.selectedItem ? " filled" : ""}
-          `}
-          onClick={() => this.toggleSelectUl()}
-          onKeyUp={(e: KeyboardEvent) =>
-            handleKeyboardSubmit(e, this.toggleSelectUl)
-          }
-          onKeyDown={(e: KeyboardEvent) =>
-            this.arrowsSelectNav(
-              e,
-              this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1
-            )
-          }
-        >
-          {this.renderSelectedItem()}
-          {this.renderSelectItems()}
-        </ul>
-      </div>
-    );
-  }
-
-  renderSelectedItem() {
-    return (
-      <li class="selected">
-        {this.selectedItem ? (
-          <span>{this.selectedItem.name}</span>
-        ) : (
-          <span class="placeholder">{this.placeholder}</span>
-        )}
-        <z-icon name="drop-down" />
-      </li>
-    );
-  }
-
-  renderSelectItems() {
-    if (!this.isOpen) return;
-
-    return this.itemsList.map((item: SelectItemBean, key) => (
-      <li
-        role="option"
-        tabindex={item.disabled ? -1 : 0}
-        aria-selected={!!item.selected}
-        class={item.disabled && "disabled"}
-        id={`${this.htmlid}_${key}`}
-        onClick={() => this.selectItem(item)}
-        onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(e, this.selectItem, item)
-        }
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
-      >
-        <span>{item.name}</span>
-      </li>
-    ));
-  }
-
-  selectItem(item: SelectItemBean) {
-    if (item.disabled) return;
-
-    this.itemsList = this.itemsList.map((i: SelectItemBean) => {
-      if (i.selected) i.selected = false;
-      if (i === item) i.selected = true;
-      return i;
-    });
-
-    this.emitOptionSelect(item);
-  }
-
-  arrowsSelectNav(e: KeyboardEvent, key: number) {
-    const arrows = [keybordKeyCodeEnum.ARROW_DOWN, keybordKeyCodeEnum.ARROW_UP];
-    if (!arrows.includes(e.keyCode)) return;
-
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (!this.isOpen) this.toggleSelectUl();
-
-    let index: number;
-    if (e.keyCode === keybordKeyCodeEnum.ARROW_DOWN) {
-      index = key + 1 === this.itemsList.length ? 0 : key + 1;
-    } else if (e.keyCode === keybordKeyCodeEnum.ARROW_UP) {
-      index = key <= 0 ? this.itemsList.length - 1 : key - 1;
-    }
-
-    const focusElem = this.hostElement.shadowRoot.querySelector(
-      `#${this.htmlid}_${index}`
-    ) as HTMLElement;
-    if (focusElem) focusElem.focus();
-  }
-
-  toggleSelectUl(selfFocusOnClose: boolean = false) {
-    if (!this.isOpen) {
-      document.addEventListener("click", this.handleSelectFocus);
-      document.addEventListener("keyup", this.handleSelectFocus);
-    } else {
-      document.removeEventListener("click", this.handleSelectFocus);
-      document.removeEventListener("keyup", this.handleSelectFocus);
-      if (selfFocusOnClose) {
-        const elem = this.hostElement.shadowRoot.querySelector(
-          `#${this.htmlid}`
-        ) as HTMLElement;
-        elem.focus();
-      }
-    }
-
-    this.isOpen = !this.isOpen;
-  }
-
-  handleSelectFocus(e: MouseEvent | KeyboardEvent) {
-    if (e instanceof KeyboardEvent && e.keyCode === keybordKeyCodeEnum.ESC) {
-      e.stopPropagation();
-      return this.toggleSelectUl(true);
-    }
-
-    if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB) {
-      return;
-    }
-
-    const tree = getElementTree(getClickedElement());
-    const parent = tree.find(
-      (elem: any) =>
-        elem.nodeName.toLowerCase() === "ul" && elem.id === this.htmlid
-    );
-
-    if (!parent) {
-      this.toggleSelectUl(e instanceof MouseEvent ? true : false);
-    }
   }
 
   /* END select */

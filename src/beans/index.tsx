@@ -123,7 +123,8 @@ export type InputStatusBean = InputStatusEnum;
 export enum InputStatusEnum {
   success = "success",
   error = "error",
-  warning = "warning"
+  warning = "warning",
+  selecting = "selecting"
 }
 
 export type TooltipPositionBean = TooltipPosition;

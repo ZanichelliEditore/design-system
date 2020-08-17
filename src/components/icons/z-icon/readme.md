@@ -1,8 +1,9 @@
 # z-icon
 
 <!-- readme-group="icon" -->
+
 ```html
-<z-icon name="book-add" ></z-icon>
+<z-icon name="book-add"></z-icon>
 <z-icon name="chevron-down" iconid="zicon"></z-icon>
 <z-icon name="download" iconid="zicon" width="10" height="10"></z-icon>
 ```
@@ -42,6 +43,7 @@
  - [z-modal](../../modal/z-modal)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-pocket](../../notification/z-pocket)
+ - [z-select](../../inputs/z-select)
  - [z-slideshow](../../slideshow/z-slideshow)
  - [z-toggle-button](../../buttons/z-toggle-button)
 
@@ -66,6 +68,7 @@ graph TD;
   z-modal --> z-icon
   z-pagination-bar --> z-icon
   z-pocket --> z-icon
+  z-select --> z-icon
   z-slideshow --> z-icon
   z-toggle-button --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px

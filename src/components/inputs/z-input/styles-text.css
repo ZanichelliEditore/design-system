@@ -14,6 +14,16 @@
 :host > div.textWrapper > div > input:disabled,
 :host > div.textWrapper > div > input[readonly] {
   padding: 0 var(--half-x3);
+  box-sizing: border-box;
+}
+
+:host > div.textWrapper > div > input.hasIcon,
+:host > div.textWrapper > div > input.hasClearIcon {
+  padding-right: var(--basex4);
+}
+
+:host > div.textWrapper > div > input.hasIcon.hasClearIcon {
+  padding-right: var(--basex7);
 }
 
 :host > div.textWrapper > div {
@@ -21,10 +31,17 @@
   z-index: 1;
 }
 
-:host > div.textWrapper > div > z-icon {
+:host > div.textWrapper > div > span.iconsWrapper {
   position: absolute;
   bottom: var(--half-x3);
   right: var(--half-x3);
-  cursor: pointer;
   z-index: 2;
+}
+
+:host > div.textWrapper > div > span.iconsWrapper > z-icon {
+  margin-left: var(--half-x1);
+}
+
+:host > div.textWrapper > div > span.iconsWrapper > z-icon.resetIcon {
+  cursor: pointer;
 }
