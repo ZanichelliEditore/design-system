@@ -3,6 +3,11 @@
   font-weight: var(--font-rg);
 }
 
+.otp-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
 input {
   height: 72px;
   width: var(--basex5);
@@ -17,16 +22,19 @@ input {
 }
 
 input:not(:last-of-type) {
-  margin-right: var(--basex2);
+  margin-right: var(--basex1);
 }
 
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+  input:not(:last-of-type) {
+    margin-right: var(--basex2);
+  }
+}
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1025px) {
   input {
     width: var(--basex6);
   }
-  
 }

@@ -33,7 +33,7 @@ export class ZOtp {
                 this.emitInputChange(this.otp.join(""));
               }}
               onKeyUp={(e: any) => {
-                if (e.keyCode !== keybordKeyCodeEnum.BACKSPACE && e.keyCode !== keybordKeyCodeEnum.DELETE)
+                if (e.keyCode !== keybordKeyCodeEnum.BACKSPACE && e.keyCode !== keybordKeyCodeEnum.DELETE && e.keyCode !== keybordKeyCodeEnum.TAB)
                   i < this.inputNum - 1 && this.otpRef[i + 1].focus();
               }}
               type="text"
