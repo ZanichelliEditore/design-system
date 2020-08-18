@@ -1,5 +1,4 @@
 import { Component, h, Event, EventEmitter, Prop } from "@stencil/core";
-// import { keybordKeyCodeEnum } from "../../../beans";
 
 @Component({
   tag: "z-otp",
