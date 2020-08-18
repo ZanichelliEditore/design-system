@@ -1,5 +1,5 @@
 import { Component, h, Event, EventEmitter, Prop } from "@stencil/core";
-import {keybordKeyCodeEnum} from '../../../beans';
+// import { keybordKeyCodeEnum } from "../../../beans";
 
 @Component({
   tag: "z-otp",
@@ -28,16 +28,20 @@ export class ZOtp {
         {this.otp.map((_elem, i) => {
           return (
             <input
+              onKeyDown={(e: any) => {
+                if (e.keyCode > 47) this.otpRef[i].value = "";
+              }}
+              onKeyUp={(e: any) => {
+                if (e.keyCode > 47) {
+                  i < this.inputNum - 1 && this.otpRef[i + 1].focus();
+                }
+              }}
               onInput={(e: any) => {
                 this.otp[i] = e.target.value;
                 this.emitInputChange(this.otp.join(""));
               }}
-              onKeyUp={(e: any) => {
-                if (e.keyCode !== keybordKeyCodeEnum.BACKSPACE && e.keyCode !== keybordKeyCodeEnum.DELETE && e.keyCode !== keybordKeyCodeEnum.TAB)
-                  i < this.inputNum - 1 && this.otpRef[i + 1].focus();
-              }}
               type="text"
-              minlength="1" 
+              minlength="1"
               maxlength="1"
               autoComplete="off"
               ref={input => (this.otpRef[i] = input)}
