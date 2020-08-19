@@ -75,6 +75,7 @@
 | `activeintlinkid` | `activeintlinkid` | set current active menu link (optional)     | `string`                                                                                                 | `undefined` |
 | `activesublinkid` | `activesublinkid` | set current active sub menu link (optional) | `string`                                                                                                 | `undefined` |
 | `extlinkdata`     | `extlinkdata`     | data to fill external navigation links      | `MenuItem[] \| string`                                                                                   | `undefined` |
+| `hideloginbutton` | `hideloginbutton` | hide login button if true (optional)        | `boolean`                                                                                                | `undefined` |
 | `imagealt`        | `imagealt`        | alternative logo title text (optional)      | `string`                                                                                                 | `undefined` |
 | `intlinkdata`     | `intlinkdata`     | data to fill internal navigation links      | `MenuItem[] \| string`                                                                                   | `undefined` |
 | `ismyz`           | `ismyz`           | graphic flag to set myzanichelli style      | `boolean`                                                                                                | `undefined` |

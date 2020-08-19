@@ -303,6 +303,10 @@ export namespace Components {
          */
         "extlinkdata"?: string | MenuItem[];
         /**
+          * hide login button if true (optional)
+         */
+        "hideloginbutton"?: boolean;
+        /**
           * alternative logo title text (optional)
          */
         "imagealt"?: string;
@@ -1418,6 +1422,10 @@ declare namespace LocalJSX {
           * data to fill external navigation links
          */
         "extlinkdata"?: string | MenuItem[];
+        /**
+          * hide login button if true (optional)
+         */
+        "hideloginbutton"?: boolean;
         /**
           * alternative logo title text (optional)
          */

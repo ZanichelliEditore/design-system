@@ -4,10 +4,3 @@
   --font-rg: 400;
   --font-sb: 600;
 }
-
-:host {
-  --dashboard-font: IBM Plex Sans;
-  --font-lt: 300;
-  --font-rg: 400;
-  --font-sb: 600;
-}

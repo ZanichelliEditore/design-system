@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ZanichelliEditore/design-system/compare/v1.0.6...v1.1.0) (2020-08-11)
+
+
+### Features
+
+* added property to hide login button on z-header with tests ([52b89ea](https://github.com/ZanichelliEditore/design-system/commit/52b89ea0e30f497129ba03172ae5d10ed56f81a7))
+
 ### 1.0.6 (2020-07-27)
 
 
