@@ -51,7 +51,6 @@ export class ZPocket {
   /** Emitted on pocket item CTA click, returns pocket id, item id */
   @Event() pocketButtonClick: EventEmitter;
   emitPocketButtonClick(id: string) {
-    console.log({ id: this.pocketid, item: id });
     this.pocketButtonClick.emit({ id: this.pocketid, item: id });
   }
 
