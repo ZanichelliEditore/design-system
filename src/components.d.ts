@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
+import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PocketItemBean, SelectItemBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 export namespace Components {
@@ -672,6 +672,10 @@ export namespace Components {
           * pocket is open (optional)
          */
         "isopen"?: boolean;
+        /**
+          * array (or JSON string) of alert items (optional). If items is not defined, the slot will be used.
+         */
+        "items"?: string | PocketItemBean[];
         /**
           * pocket id
          */
@@ -1691,6 +1695,14 @@ declare namespace LocalJSX {
           * pocket is open (optional)
          */
         "isopen"?: boolean;
+        /**
+          * array (or JSON string) of alert items (optional). If items is not defined, the slot will be used.
+         */
+        "items"?: string | PocketItemBean[];
+        /**
+          * Emitted on pocket item CTA click, returns pocket id, item id
+         */
+        "onPocketButtonClick"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted on pocket toggle, returns pocket id and open status (boolean)
          */

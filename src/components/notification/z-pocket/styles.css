@@ -85,6 +85,54 @@
   width: 0 !important;
 }
 
+:host > div > div > main > div.itemsWrapper {
+  background: var(--status-warning-yellow-lighter);
+  padding: var(--basex2) var(--basex6);
+}
+
+:host > div > div > main > div.itemsWrapper > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+:host > div > div > main > div.itemsWrapper > div > span {
+  color: var(--text-grey-800);
+  font-size: 18px;
+  display: block;
+  text-align: center;
+}
+
+:host > div > div > main > div.itemsWrapper > div > z-button {
+  display: block;
+  margin-top: 16px;
+}
+
+:host > div > div > main > footer {
+  background: var(--status-warning-yellow-lighter);
+  border-top: var(--border-base) solid var(--bg-white);
+  height: 48px;
+  padding: 0 var(--basex2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+:host > div > div > main > footer > span {
+  color: var(--text-grey-700);
+  font-size: 14px;
+}
+
+:host > div > div > main > footer > z-icon {
+  fill: var(--myz-blue);
+  cursor: pointer;
+}
+
+:host > div > div > main > footer > z-icon.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   :host {

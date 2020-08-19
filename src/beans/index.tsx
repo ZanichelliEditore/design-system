@@ -151,3 +151,16 @@ export type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
+
+export type PocketItemBean = {
+  id: string;
+  message: string;
+  cta?: PocketItemCtaBean;
+};
+
+export type PocketItemCtaBean = {
+  label: string;
+  variant: ButtonVariantBean;
+  icon?: string;
+  issmall?: boolean;
+};

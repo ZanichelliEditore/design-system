@@ -46,6 +46,7 @@
 ### Used by
 
  - [z-header](../../navigation/z-header)
+ - [z-pocket](../../notification/z-pocket)
 
 ### Depends on
 
@@ -56,6 +57,7 @@
 graph TD;
   z-button --> z-icon
   z-header --> z-button
+  z-pocket --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

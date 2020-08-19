@@ -1,5 +1,15 @@
-import { Component, Prop, h, Method, Event, EventEmitter } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Method,
+  Event,
+  EventEmitter,
+  Watch,
+  State
+} from "@stencil/core";
 import { handleKeyboardSubmit } from "../../../utils/utils";
+import { PocketItemBean } from "../../../beans";
 import Hammer from "hammerjs";
 
 /**
@@ -17,9 +27,14 @@ export class ZPocket {
   @Prop({ mutable: true }) isopen?: boolean = true;
   /** pocket is modal (dark background) (optional) */
   @Prop() ismodal?: boolean = false;
+  /** array (or JSON string) of alert items (optional). If items is not defined, the slot will be used. */
+  @Prop() items?: string | PocketItemBean[];
+
+  @State() currentItem: number = 1;
 
   private swipeWrap: HTMLDivElement;
   private mainElem: HTMLElement;
+  private itemsList: null | PocketItemBean[];
 
   /** close z-pocket */
   @Method()
@@ -33,8 +48,24 @@ export class ZPocket {
     this.pocketToggle.emit({ id, open });
   }
 
+  /** Emitted on pocket item CTA click, returns pocket id, item id */
+  @Event() pocketButtonClick: EventEmitter;
+  emitPocketButtonClick(id: string) {
+    console.log({ id: this.pocketid, item: id });
+    this.pocketButtonClick.emit({ id: this.pocketid, item: id });
+  }
+
+  @Watch("items")
+  watchItems() {
+    this.itemsList = this.mapItemsToItemsList();
+  }
+
   constructor() {
     this.togglePocket = this.togglePocket.bind(this);
+  }
+
+  componentWillLoad() {
+    this.itemsList = this.mapItemsToItemsList();
   }
 
   componentDidLoad() {
@@ -49,6 +80,11 @@ export class ZPocket {
     });
   }
 
+  mapItemsToItemsList() {
+    if (!this.items) return null;
+    return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+  }
+
   togglePocket() {
     this.isopen = !this.isopen;
   }
@@ -57,6 +93,94 @@ export class ZPocket {
     if (e.target.dataset.action == "pocketBackground") {
       this.close();
     }
+  }
+
+  renderHeader() {
+    return (
+      <header
+        role="button"
+        tabindex={0}
+        onClick={() => this.togglePocket()}
+        onKeyPress={(ev: KeyboardEvent) =>
+          handleKeyboardSubmit(ev, this.togglePocket)
+        }
+      >
+        <z-icon
+          name={
+            this.isopen ? "circle-chevron-down-fill" : "circle-chevron-up-fill"
+          }
+          width={24}
+          height={24}
+        />
+      </header>
+    );
+  }
+
+  renderMain() {
+    return (
+      <main
+        class={this.isopen && "open"}
+        onTransitionEnd={() =>
+          this.emitPocketToggle(this.pocketid, this.isopen)
+        }
+        ref={el => (this.mainElem = el as HTMLElement)}
+      >
+        {this.renderContent()}
+        {this.renderFooter()}
+      </main>
+    );
+  }
+
+  renderContent() {
+    if (!this.itemsList) return <slot />;
+
+    const item = this.itemsList[this.currentItem - 1];
+
+    return (
+      <div class="itemsWrapper">
+        <div>
+          <span>{item.message}</span>
+          {item.cta ? (
+            <z-button
+              variant={item.cta.variant}
+              icon={item.cta?.icon}
+              issmall={item.cta?.issmall}
+              onClick={() => this.emitPocketButtonClick(item.id)}
+            >
+              {item.cta.label}
+            </z-button>
+          ) : null}
+        </div>
+      </div>
+    );
+  }
+
+  renderFooter() {
+    if (!this.itemsList || this.itemsList.length < 2) return null;
+
+    return (
+      <footer>
+        <z-icon
+          name="circle-chevron-left"
+          width={24}
+          height={24}
+          class={this.currentItem === 1 ? "disabled" : ""}
+          onClick={() => this.currentItem > 1 && this.currentItem--}
+        />
+        <span>
+          {this.currentItem}/{this.itemsList.length}
+        </span>
+        <z-icon
+          name="circle-chevron-right"
+          width={24}
+          height={24}
+          class={this.currentItem === this.itemsList.length ? "disabled" : ""}
+          onClick={() =>
+            this.currentItem < this.itemsList.length && this.currentItem++
+          }
+        />
+      </footer>
+    );
   }
 
   render(): HTMLDivElement {
@@ -76,33 +200,8 @@ export class ZPocket {
           id={this.pocketid}
           ref={el => (this.swipeWrap = el as HTMLDivElement)}
         >
-          <header
-            role="button"
-            tabindex={0}
-            onClick={() => this.togglePocket()}
-            onKeyPress={(ev: KeyboardEvent) =>
-              handleKeyboardSubmit(ev, this.togglePocket)
-            }
-          >
-            <z-icon
-              name={
-                this.isopen
-                  ? "circle-chevron-down-fill"
-                  : "circle-chevron-up-fill"
-              }
-              width={24}
-              height={24}
-            />
-          </header>
-          <main
-            class={this.isopen && "open"}
-            onTransitionEnd={() =>
-              this.emitPocketToggle(this.pocketid, this.isopen)
-            }
-            ref={el => (this.mainElem = el as HTMLElement)}
-          >
-            <slot />
-          </main>
+          {this.renderHeader()}
+          {this.renderMain()}
         </div>
       </div>
     );
