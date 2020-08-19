@@ -137,20 +137,18 @@ export class ZPocket {
     const item = this.itemsList[this.currentItem - 1];
 
     return (
-      <div class="itemsWrapper">
-        <div>
-          <span>{item.message}</span>
-          {item.cta ? (
-            <z-button
-              variant={item.cta.variant}
-              icon={item.cta?.icon}
-              issmall={item.cta?.issmall}
-              onClick={() => this.emitPocketButtonClick(item.id)}
-            >
-              {item.cta.label}
-            </z-button>
-          ) : null}
-        </div>
+      <div>
+        <span>{item.message}</span>
+        {item.cta ? (
+          <z-button
+            variant={item.cta.variant}
+            icon={item.cta?.icon}
+            issmall={item.cta?.issmall}
+            onClick={() => this.emitPocketButtonClick(item.id)}
+          >
+            {item.cta.label}
+          </z-button>
+        ) : null}
       </div>
     );
   }

@@ -85,25 +85,22 @@
   width: 0 !important;
 }
 
-:host > div > div > main > div.itemsWrapper {
+:host > div > div > main > div {
   background: var(--status-warning-yellow-lighter);
   padding: var(--basex2) var(--basex6);
-}
-
-:host > div > div > main > div.itemsWrapper > div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-:host > div > div > main > div.itemsWrapper > div > span {
+:host > div > div > main > div > span {
   color: var(--text-grey-800);
   font-size: 18px;
   display: block;
   text-align: center;
 }
 
-:host > div > div > main > div.itemsWrapper > div > z-button {
+:host > div > div > main > div > z-button {
   display: block;
   margin-top: 16px;
 }
