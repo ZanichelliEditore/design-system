@@ -4,7 +4,7 @@
 
 header {
   position: sticky;
-  top: -10px;
+  top: 0;
   z-index: 99;
   display: grid;
   grid-template-columns: 1fr;
@@ -20,6 +20,7 @@ header {
   grid-template-columns: 2fr 2fr 4fr 100px;
   grid-template-rows: 1fr;
   grid-template-areas: "logo link-int link-ext login";
+  grid-area: main-header;
   grid-column-gap: var(--half-x1);
   align-items: center;
   background-color: var(--bg-grey-900);
@@ -470,8 +471,8 @@ hr {
 @media only screen and (min-width: 768px) {
   header {
     grid-template-columns: 1fr 0.8fr 1.5fr 1.1fr 0.7fr;
-    grid-template-rows: 0.2fr 0.2fr 0.2fr;
-    grid-template-areas: "top-header top-header top-header top-header top-header" "main-header main-header main-header main-header main-header" "dropdown-menu dropdown-menu dropdown-menu dropdown-menu dropdown-menu";
+    grid-template-rows: 0.2fr 0.2fr;
+    grid-template-areas: "main-header main-header main-header main-header main-header" "dropdown-menu dropdown-menu dropdown-menu dropdown-menu dropdown-menu";
     margin-bottom: 0;
   }
 
