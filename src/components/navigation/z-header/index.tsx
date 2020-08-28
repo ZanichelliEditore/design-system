@@ -102,18 +102,6 @@ export class ZHeader {
     this.handleResize();
   }
 
-  renderTopHeader(): HTMLDivElement | undefined {
-    if (!this.ismyz) return;
-
-    return (
-      <div class="top-header">
-        <div class="editors">
-          <slot name="editors" />
-        </div>
-      </div>
-    );
-  }
-
   renderLogoDiv(): HTMLDivElement {
     return (
       <div class="logo">
@@ -345,7 +333,6 @@ export class ZHeader {
   renderDesktopHeader(): HTMLHeadingElement {
     return (
       <header class={!this.ismyz ? "myz-out" : ""}>
-        {this.renderTopHeader()}
         {this.renderMainHeader()}
         {this.renderSubMenu(this.activeMenuItem)}
       </header>
