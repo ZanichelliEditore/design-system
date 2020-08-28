@@ -4,7 +4,7 @@
 
 header {
   position: sticky;
-  top: -32px;
+  top: -10px;
   z-index: 99;
   display: grid;
   grid-template-columns: 1fr;
@@ -27,34 +27,6 @@ header {
   height: auto;
   align-items: center;
   z-index: 10;
-}
-
-.top-header {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "editors";
-  grid-area: top-header;
-  height: 32px;
-  align-items: center;
-  background-color: var(--bg-white);
-}
-
-.editors {
-  grid-area: editors;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  align-items: center;
-  align-content: center;
-}
-
-.editors > ::slotted(img) {
-  height: 32px;
-  width: auto;
-  margin: 0;
-  transform: scale(0.6);
 }
 
 .main-header.myz-out {
