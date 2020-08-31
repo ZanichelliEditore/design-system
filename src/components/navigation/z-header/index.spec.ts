@@ -251,11 +251,6 @@ describe("Suite test ZHeader", () => {
       <z-header activeintlinkid="" extlinkdata='[]' hideloginbutton="false"  imagealt="logo zanichelli" intlinkdata='[]' ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
         <header>
-          <div class="top-header">
-            <div class="editors">
-              <slot name="editors"></slot>
-            </div>
-          </div>
           <div class="main-header" id="main-header">
             <div class="logo">
               <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank></z-logo>
@@ -290,11 +285,6 @@ describe("Suite test ZHeader", () => {
     >
       <mock:shadow-root>
         <header>
-          <div class="top-header">
-            <div class="editors">
-              <slot name="editors" />
-            </div>
-          </div>
           <div id="main-header" class="main-header">
             <div class="logo">
               <z-logo
@@ -358,11 +348,6 @@ describe("Suite test ZHeader", () => {
     >
       <mock:shadow-root>
         <header>
-          <div class="top-header">
-            <div class="editors">
-              <slot name="editors" />
-            </div>
-          </div>
           <div id="main-header" class="main-header">
             <div class="logo">
               <z-logo
@@ -453,11 +438,6 @@ describe("Suite test ZHeader", () => {
     >
       <mock:shadow-root>
         <header>
-          <div class="top-header">
-            <div class="editors">
-              <slot name="editors" />
-            </div>
-          </div>
           <div id="main-header" class="main-header">
             <div class="logo">
               <z-logo
@@ -514,11 +494,6 @@ describe("Suite test ZHeader", () => {
       >
       <mock:shadow-root>
         <header>
-          <div class="top-header">
-            <div class="editors">
-              <slot name="editors"></slot>
-            </div>
-          </div>
           <div class="main-header" id="main-header">
             <div class="logo">
               <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank></z-logo>
