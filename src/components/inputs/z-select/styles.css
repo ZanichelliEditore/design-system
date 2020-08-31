@@ -145,10 +145,7 @@
 }
 
 :host > div.selectWrapper > div.chipsWrapper {
-  background: var(--bg-white);
-  border: var(--border-size-small) solid var(--bg-grey-200);
-  border-bottom: 0px;
-  padding: var(--basex1);
+  padding-bottom: var(--basex1);
 }
 
 :host > div.selectWrapper > div.chipsWrapper > z-button-filter {
