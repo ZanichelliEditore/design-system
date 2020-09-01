@@ -3,6 +3,11 @@
   width: inherit;
 }
 
+:host input::-ms-clear,
+:host input::-ms-reveal {
+  display: none;
+}
+
 /* GENERAL */
 :host input,
 :host textarea,
