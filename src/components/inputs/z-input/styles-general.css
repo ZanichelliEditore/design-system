@@ -4,7 +4,8 @@
 }
 
 /* GENERAL */
-:host input::-ms-clear { 
+:host input::-ms-clear,
+:host input::-ms-reveal {
   display: none;
 }
 
