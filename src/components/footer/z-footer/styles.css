@@ -203,7 +203,7 @@ footer > section.bottom > div.logo > p > span {
     display: grid;
     grid-template-columns: repeat(4, 1fr);;
     grid-template-rows: 1fr;
-    grid-column-gap: 18px;
+    grid-column-gap: var(--grid-tablet-margin);
     padding: var(--basex2) 0 var(--basex1) 0;
     border-bottom: 1px solid var(--bg-white);
     margin: 0;
@@ -233,7 +233,7 @@ footer > section.bottom > div.logo > p > span {
   footer > section.top > nav > .content > ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 18px;
+    grid-column-gap: var(--grid-tablet-margin);
     height: auto;
     align-items: stretch;
     align-content: stretch;
@@ -255,7 +255,7 @@ footer > section.bottom > div.logo > p > span {
 
   footer > section.bottom {
     grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 18px;
+    grid-column-gap: var(--grid-tablet-margin);
     background-color: var(--bg-grey-900);
     padding: 0 var(--basex4);
   }
@@ -297,7 +297,7 @@ footer > section.bottom > div.logo > p > span {
   footer > section.bottom > div.bottom-links > ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 18px;
+    grid-column-gap: var(--grid-tablet-margin);
     height: 54px;
     margin: 0;
     padding: 0;
@@ -318,8 +318,7 @@ footer > section.bottom > div.logo > p > span {
 @media only screen and (min-width: 1152px) {
   footer > section.top {
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 7fr 1fr;
-    grid-column-gap: 18px;
+    grid-column-gap: var(--grid-desktop-margin);
     width: 100%;
     padding: var(--basex3) var(--basex4);
   }
@@ -396,7 +395,7 @@ footer > section.bottom > div.logo > p > span {
 
   footer > section.bottom > div.bottom-links > ul {
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 18px;
+    grid-column-gap: var(--grid-desktop-margin);
     margin: 0;
   }
 

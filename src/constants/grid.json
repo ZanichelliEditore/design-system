@@ -9,7 +9,7 @@
     "grid-tablet-viewport": "768px",
     "grid-tablet-column": "8",
     "grid-tablet-margin": "24px",
-    "grid-tablet-gutter": "24p"
+    "grid-tablet-gutter": "24px"
   },
   "grid-desktop": {
     "grid-desktop-viewport": "1152px",
