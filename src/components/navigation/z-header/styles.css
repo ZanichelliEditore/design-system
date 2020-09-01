@@ -461,8 +461,8 @@ hr {
   height: 0.45em;
   left: 0.16em;
   position: relative;
-  top: 0.24em;
-  transform: rotate(-45deg) scale(1.2);
+  top: -0.12em;
+  transform: rotate(135deg) scale(1.2);
   vertical-align: top;
   width: 0.45em;
   margin-top: 2px;
@@ -472,8 +472,8 @@ hr {
 }
 
 .menu-item.isopen > i::before {
-  top: -0.12em;
-  transform: rotate(135deg) scale(1.2);
+  top: 0.24em;
+  transform: rotate(-45deg) scale(1.2);
   transition: all 0.5s ease;
 }
 
