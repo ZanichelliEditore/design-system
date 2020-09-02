@@ -148,7 +148,7 @@ export class ZPaginationBar {
     return (
       <div ref={el => (this.bar = el as HTMLElement)}>
         <z-icon
-          name="left-chevron"
+          name="chevron-left"
           class={!this.canNavigateLeft() && "disabled"}
           onClick={() => this.navigateLeft()}
           onKeyPress={(ev: KeyboardEvent) =>
@@ -168,7 +168,7 @@ export class ZPaginationBar {
           />
         ))}
         <z-icon
-          name="right-chevron"
+          name="chevron-right"
           class={!this.canNavigateRight() && "disabled"}
           onClick={() => this.navigateRight()}
           onKeyPress={(ev: KeyboardEvent) =>

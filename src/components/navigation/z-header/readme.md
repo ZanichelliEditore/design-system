@@ -4,7 +4,7 @@
 ```html
   <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
-    extlinkdata='[{"id":"MyZanichelli","label":"Link a MyZanichelli","link":"http://www.myzanichelli.it","icon":"left-chevron-circle"}]'
+    extlinkdata='[{"id":"MyZanichelli","label":"Link a MyZanichelli","link":"http://www.myzanichelli.it","icon":"chevron-left-circle"}]'
     userdata='{
         "islogged": true,
         "id": 123456,
@@ -16,7 +16,7 @@
   </z-header>
   <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
-    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-bag"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
     userdata='{
         "islogged": false,
         "id": 123456,
@@ -28,7 +28,7 @@
   </z-header>
   <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
-    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-bag"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
     userdata='{
         "islogged": true,
         "id": 123456,
@@ -41,7 +41,7 @@
   </z-header>
   <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
-    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-bag"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
     userdata='{
         "islogged": false,
         "id": 123456,

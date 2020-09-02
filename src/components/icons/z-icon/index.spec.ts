@@ -55,13 +55,13 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon con polygon", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon name="down-chevron" iconid="zicon"></z-icon>`
+      html: `<z-icon name="chevron-down" iconid="zicon"></z-icon>`
     });
     expect(page.root).toEqualHtml(`
-      <z-icon name="down-chevron" iconid="zicon">
+      <z-icon name="chevron-down" iconid="zicon">
         <mock:shadow-root>
           <svg viewBox="0 0 1000 1000" width='18' height='18' id="zicon">
-            <path d="${icons["down-chevron"]}"></path>
+            <path d="${icons["chevron-down"]}"></path>
           </svg>
         </mock:shadow-root>
       </z-icon>
@@ -71,13 +71,13 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon con polygon con dimensioni", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon name="down-chevron" iconid="zicon" width="10" height="10"></z-icon>`
+      html: `<z-icon name="chevron-down" iconid="zicon" width="10" height="10"></z-icon>`
     });
     expect(page.root).toEqualHtml(`
-      <z-icon name="down-chevron" iconid="zicon" width="10" height="10">
+      <z-icon name="chevron-down" iconid="zicon" width="10" height="10">
         <mock:shadow-root>
           <svg viewBox="0 0 1000 1000" width='10' height='10' id="zicon">
-            <path d="${icons["down-chevron"]}"></path>
+            <path d="${icons["chevron-down"]}"></path>
           </svg>
         </mock:shadow-root>
       </z-icon>
