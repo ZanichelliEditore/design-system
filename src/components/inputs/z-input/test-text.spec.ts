@@ -37,7 +37,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input class="false input_default filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
               <span class="iconsWrapper">
-                <z-icon name="cross" class="resetIcon"></z-icon>
+                <z-icon name="multiply" class="resetIcon"></z-icon>
               </span>
             </div>
           </div>
@@ -99,7 +99,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input class="false filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
               <span class="iconsWrapper">
-                <z-icon name="cross" class="resetIcon"></z-icon>
+                <z-icon name="multiply" class="resetIcon"></z-icon>
               </span>
             </div>
             <z-input-message message="helper message"></z-input-message>
@@ -122,7 +122,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input class="false filled input_success hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
               <span class="iconsWrapper">
-                <z-icon name="cross" class="resetIcon"></z-icon>
+                <z-icon name="multiply" class="resetIcon"></z-icon>
               </span>
             </div>
             <z-input-message message="success message" status="success"></z-input-message>

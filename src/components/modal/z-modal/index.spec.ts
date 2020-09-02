@@ -17,7 +17,7 @@ describe("Suite test ZModal", () => {
                 <header>
                   <div>
                   </div>
-                  <z-icon name="circle-cross-fill" tabindex="0" width="24" height="24" data-action="modalClose" />
+                  <z-icon name="multiply-circle-filled" tabindex="0" width="24" height="24" data-action="modalClose" />
                 </header>
                 <main>
                   <slot name="modalContent" />
@@ -47,7 +47,7 @@ describe("Suite test ZModal", () => {
                     <h1>title</h1>
                     <h2>subtitle</h2>
                   </div>
-                  <z-icon name="circle-cross-fill" tabindex="0" width="24" height="24" data-action="modalClose" data-modal="modal" />
+                  <z-icon name="multiply-circle-filled" tabindex="0" width="24" height="24" data-action="modalClose" data-modal="modal" />
                 </header>
                 <main>
                   <slot name="modalContent" />
@@ -79,7 +79,7 @@ describe("Suite test ZModal", () => {
                 <header>
                   <div>
                   </div>
-                  <z-icon name="circle-cross-fill" tabindex="0" width="24" height="24" data-action="modalClose" />
+                  <z-icon name="multiply-circle-filled" tabindex="0" width="24" height="24" data-action="modalClose" />
                 </header>
                 <main>
                   <slot name="modalContent" />
@@ -106,7 +106,7 @@ describe("Suite test ZModal", () => {
             <div class="scrollWrapper" data-action="modalBackground" data-modal="modal">
               <div id="modal">
                 <div class="iconWrapper">
-                  <z-icon name="circle-cross-fill" tabindex="0" width="24" height="24" data-action="modalClose" data-modal="modal" />
+                  <z-icon name="multiply-circle-filled" tabindex="0" width="24" height="24" data-action="modalClose" data-modal="modal" />
                 </div>
                 <main class="noHeader">
                   <slot name="modalContent" />

@@ -55,7 +55,7 @@ export class ZMenuDropdown {
   renderButtonMenu() {
     return (
       <span class="arrow">
-        <z-icon name="drop-down" width={14} height={14} />
+        <z-icon name="caret-down" width={14} height={14} />
       </span>
     );
   }
@@ -99,7 +99,7 @@ export class ZMenuDropdown {
         }
       >
         <div class="container" onClick={() => this.handleToggle()}>
-          <z-icon name="user" width={14} height={14} />
+          <z-icon name="user-avatar" width={14} height={14} />
           <span class="user">{this.nomeutente}</span>
           {this.renderButtonMenu()}
         </div>

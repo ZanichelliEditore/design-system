@@ -303,7 +303,7 @@ export class ZHeader {
             role="button"
           >
             <span>
-              <z-icon name="user" height={16} width={16} />
+              <z-icon name="user-avatar" height={16} width={16} />
               {userData.name}
             </span>
             <i></i>

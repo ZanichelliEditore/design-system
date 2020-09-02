@@ -27,7 +27,7 @@ export class ZIcon {
   render() {
     return (
       <svg
-        viewBox="0 0 18 18"
+        viewBox="0 0 1000 1000"
         width={this.width}
         height={this.height}
         id={this.iconid}
