@@ -3,7 +3,7 @@
 <!-- readme-group="panel-element" -->
 ```html
 <z-panel-elem linkicon="arrow-quad-down" linklabel="Tutte le prove" elemid="prova3" url="http://online.scuola.zanichelli.it/tutteleprove/"/>
-<z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="arrow-quad-downt" linklabel="Biblioteca" url="https://biblioteca.scuola.zanichelli.it/" elemid="prova1" />
+<z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="arrow-quad-down" linklabel="Biblioteca" url="https://biblioteca.scuola.zanichelli.it/" elemid="prova1" />
 <z-panel-elem isdisabled="true" imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="arrow-quad-down" linklabel="Tutte le prove" url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" elemid="prova2">{descr_slot_name slot}</z-panel-elem>
 ```
 
