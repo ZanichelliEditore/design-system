@@ -22,12 +22,12 @@ describe("Suite test ZMenuDropdown", () => {
       <mock:shadow-root>
         <a role="button" tabindex="0">
           <div class=\"container\">
-            <z-icon name="user" width="14" height="14"></z-icon>
+            <z-icon name="user-avatar" width="14" height="14"></z-icon>
             <span class="user">
               Dario docente
             </span>
             <span class="arrow">
-              <z-icon name="drop-down" width="14" height="14"></z-icon>
+              <z-icon name="caret-down" width="14" height="14"></z-icon>
             </span>
           </div>
         </a>
@@ -46,12 +46,12 @@ describe("Suite test ZMenuDropdown", () => {
       <mock:shadow-root>
       <a role="button" tabindex="0">
         <div class="container">
-          <z-icon width="14" name="user" height="14"></z-icon>
+          <z-icon width="14" name="user-avatar" height="14"></z-icon>
           <span class="user">
             Dario docente
           </span>
           <span class="arrow">
-            <z-icon  height="14" name="drop-down" width="14"></z-icon>
+            <z-icon  height="14" name="caret-down" width="14"></z-icon>
           </span>
         </div>
       </a>
@@ -73,12 +73,12 @@ describe("Suite test ZMenuDropdown", () => {
       <mock:shadow-root>
         <a class="menu-opened" role="button" tabindex="0">
           <div class=\"container\">
-            <z-icon height="14" name="user" width="14"></z-icon>
+            <z-icon height="14" name="user-avatar" width="14"></z-icon>
             <span class="user">
               Dario docente
             </span>
             <span class="arrow">
-              <z-icon height="14" name="drop-down" width="14"></z-icon>
+              <z-icon height="14" name="caret-down" width="14"></z-icon>
             </span>
           </div>
           <ul>

@@ -19,7 +19,7 @@ describe("Suite test ZInput - select", () => {
                     <ul class="closed false input_default" id="checkid" role="listbox" tabindex="0">
                         <li class="selected">
                             <span class="placeholder">select here</span>
-                            <z-icon name="drop-down"/>
+                            <z-icon name="caret-down"/>
                         </li>
                     </ul>
                 </div>
@@ -45,7 +45,7 @@ describe("Suite test ZInput - select", () => {
                     <ul class="open false input_default" id="checkid" role="listbox" tabindex="0">
                         <li class="selected">
                             <span class="placeholder">select here</span>
-                            <z-icon name="drop-down"/>
+                            <z-icon name="caret-down"/>
                         </li>
                         <li id="checkid_0"  role="option" tabindex="0">
                             <span>
@@ -81,7 +81,7 @@ describe("Suite test ZInput - select", () => {
                   <ul class="open false input_default filled" id="checkid" role="listbox" tabindex="0" aria-activedescendant="item_1">
                       <li class="selected">
                           <span>primo elemento</span>
-                          <z-icon name="drop-down"/>
+                          <z-icon name="caret-down"/>
                       </li>
                       <li id="checkid_0" role="option" tabindex="0">
                           <span>
@@ -117,7 +117,7 @@ describe("Suite test ZInput - select", () => {
                     <ul class="closed readonly input_default disabled" id="checkid" role="listbox" tabindex="-1">
                         <li class="selected">
                             <span class="placeholder">select here</span>
-                            <z-icon name="drop-down"/>
+                            <z-icon name="caret-down"/>
                         </li>
                     </ul>
                 </div>
@@ -143,7 +143,7 @@ describe("Suite test ZInput - select", () => {
                     <ul class="closed false input_success" id="checkid" role="listbox" tabindex="0">
                           <li class="selected">
                               <span class="placeholder">select here</span>
-                              <z-icon name="drop-down"/>
+                              <z-icon name="caret-down"/>
                           </li>
                       </ul>
                   </div>
@@ -170,7 +170,7 @@ describe("Suite test ZInput - select", () => {
                     <ul class="open false input_default" id="checkid" role="listbox" tabindex="0">
                         <li class="selected">
                             <span class="placeholder">select here</span>
-                            <z-icon name="drop-down"/>
+                            <z-icon name="caret-down"/>
                         </li>
                         <li id="checkid_0"  role="option" tabindex="0">
                             <span>

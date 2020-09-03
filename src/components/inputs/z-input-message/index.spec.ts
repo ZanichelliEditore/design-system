@@ -47,7 +47,7 @@ describe("Suite test ZInputMessage", () => {
       <z-input-message message="message" status="success">
         <mock:shadow-root>
           <span class="msg_success statusMsg">
-            <z-icon name="circle-check" width="14" height="14"></z-icon>
+            <z-icon name="checkmark-circle" width="14" height="14"></z-icon>
             <span>message</span>
           </span>
         </mock:shadow-root>
