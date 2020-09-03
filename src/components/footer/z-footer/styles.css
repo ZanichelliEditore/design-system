@@ -356,6 +356,10 @@ footer > section.bottom > div.logo > p > span {
     border-bottom: 1px solid var(--bg-grey-050);
   }
 
+  footer > section.top > nav > .content {
+    grid-column: auto;
+  }
+
   footer > section.top > nav > .content > ul {
     display: flex;
     flex-direction: row;
