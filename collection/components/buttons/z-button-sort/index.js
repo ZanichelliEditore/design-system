@@ -27,7 +27,7 @@ export class ZButtonSort {
                 this.sortasc ? this.label : this.desclabel,
                 this.counter && ` (${this.counter})`),
             h("span", null, this.sortasc ? this.sortlabelasc : this.sortlabeldesc),
-            h("z-icon", { name: "drop-up-down", width: 16, height: 16 })));
+            h("z-icon", { name: "caret-up-down", width: 16, height: 16 })));
     }
     static get is() { return "z-button-sort"; }
     static get encapsulation() { return "shadow"; }

@@ -47,13 +47,6 @@ export class ZHeader {
         }
         this.handleResize();
     }
-    renderTopHeader() {
-        if (!this.ismyz)
-            return;
-        return (h("div", { class: "top-header" },
-            h("div", { class: "editors" },
-                h("slot", { name: "editors" }))));
-    }
     renderLogoDiv() {
         return (h("div", { class: "logo" },
             h("z-logo", { link: this.logolink ? this.logolink : null, targetblank: true, width: 144, height: 36, imagealt: this.imagealt })));
@@ -135,14 +128,17 @@ export class ZHeader {
         return (h("div", { class: "login" }, this.isLogged ? (h("z-menu-dropdown", { nomeutente: userData.name, menucontent: JSON.stringify(userData.userlinks) })) : (this.renderLoginButton())));
     }
     renderLoginButton() {
-        return (h("z-button", { htmlid: "login-button", variant: this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary, icon: "enter", issmall: true }, "entra"));
+        if (this.hideloginbutton) {
+            return;
+        }
+        return (h("z-button", { htmlid: "login-button", variant: this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary, icon: "login", issmall: true }, "entra"));
     }
     renderMobileLoginDiv(userData) {
         return (h("div", { id: "mobile-login", class: "mobile-login" },
             h("span", null,
                 h("a", { class: "menu-item", id: "user-data", onClick: () => this.handleToggleMobileMenuItem("user-data"), role: "button" },
                     h("span", null,
-                        h("z-icon", { name: "user", height: 16, width: 16 }),
+                        h("z-icon", { name: "user-avatar", height: 16, width: 16 }),
                         userData.name),
                     h("i", null)),
                 this.renderUserData(userData))));
@@ -162,7 +158,6 @@ export class ZHeader {
     }
     renderDesktopHeader() {
         return (h("header", { class: !this.ismyz ? "myz-out" : "" },
-            this.renderTopHeader(),
             this.renderMainHeader(),
             this.renderSubMenu(this.activeMenuItem)));
     }
@@ -366,6 +361,23 @@ export class ZHeader {
                 "text": "set current active sub menu link (optional)"
             },
             "attribute": "activesublinkid",
+            "reflect": false
+        },
+        "hideloginbutton": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "hide login button if true (optional)"
+            },
+            "attribute": "hideloginbutton",
             "reflect": false
         }
     }; }

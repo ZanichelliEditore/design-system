@@ -25,7 +25,8 @@ export class ZFooter {
         return (h("nav", null,
             h("div", { class: "header" },
                 h("h2", null, group.title),
-                this.isMobile && (h("z-icon", { name: this.isOpen[id] ? "chevron-up" : "chevron-down", width: 16, height: 16, onClick: () => this.handleOnHeaderClick(id) }))),
+                this.isMobile && (h("button", { onClick: () => this.handleOnHeaderClick(id) },
+                    h("z-icon", { name: this.isOpen[id] ? "chevron-up" : "chevron-down", width: 16, height: 16 })))),
             h("div", { class: "content" },
                 h("ul", { class: this.isOpen[id] ? "show" : "" }, group.items.map((item) => (h("li", null,
                     h("a", { href: item.link, target: item.target ? item.target : "_blank" }, item.label))))))));

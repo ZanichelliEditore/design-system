@@ -21,7 +21,7 @@ class ZModal {
         this.modalHeaderActive.emit({ modalid: this.modalid });
     }
     render() {
-        return (h("div", { "data-action": "modalBackground", "data-modal": this.modalid }, h("div", { id: this.modalid }, h("header", { onClick: this.emitModalHeaderActive }, h("div", null, this.modaltitle && h("h1", null, this.modaltitle), this.modalsubtitle && h("h2", null, this.modalsubtitle)), h("z-icon", { name: "circle-cross-fill", width: 24, height: 24, onClick: () => this.emitModalClose(), "data-action": "modalClose", "data-modal": this.modalid, onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitModalClose), tabindex: "0" })), h("main", null, h("slot", { name: "modalContent" })), h("div", { class: "bottomBackground", "data-action": "modalBackground", "data-modal": this.modalid }))));
+        return (h("div", { "data-action": "modalBackground", "data-modal": this.modalid }, h("div", { id: this.modalid }, h("header", { onClick: this.emitModalHeaderActive }, h("div", null, this.modaltitle && h("h1", null, this.modaltitle), this.modalsubtitle && h("h2", null, this.modalsubtitle)), h("z-icon", { name: "multiply-circle-filled", width: 24, height: 24, onClick: () => this.emitModalClose(), "data-action": "modalClose", "data-modal": this.modalid, onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitModalClose), tabindex: "0" })), h("main", null, h("slot", { name: "modalContent" })), h("div", { class: "bottomBackground", "data-action": "modalBackground", "data-modal": this.modalid }))));
     }
 }
 ZModal.style = stylesCss;

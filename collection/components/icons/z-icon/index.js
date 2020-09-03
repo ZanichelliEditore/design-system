@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { icons } from './icons';
+import { icons } from '../icons';
 export class ZIcon {
     constructor() {
         /** icon height (optional) */
@@ -16,7 +16,7 @@ export class ZIcon {
         }
     }
     render() {
-        return (h("svg", { viewBox: "0 0 18 18", width: this.width, height: this.height, id: this.iconid }, this.selectPathOrPolygon(icons[this.name])));
+        return (h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid }, this.selectPathOrPolygon(icons[this.name])));
     }
     static get is() { return "z-icon"; }
     static get encapsulation() { return "shadow"; }

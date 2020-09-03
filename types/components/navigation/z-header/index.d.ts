@@ -19,6 +19,8 @@ export declare class ZHeader {
     activeintlinkid?: string;
     /** set current active sub menu link (optional) */
     activesublinkid?: string;
+    /** hide login button if true (optional) */
+    hideloginbutton?: boolean;
     activeMenuItem: MenuItem;
     currentMenuItem: MenuItem;
     isMobile: boolean;
@@ -33,7 +35,6 @@ export declare class ZHeader {
     handleZListItemLinkClick(): void;
     handleZListItemClick(): void;
     componentWillLoad(): void;
-    renderTopHeader(): HTMLDivElement | undefined;
     renderLogoDiv(): HTMLDivElement;
     renderIntMenu(menuItems: MenuItem[]): HTMLDivElement | undefined;
     renderIntMenuItem(menuItem: MenuItem): HTMLSpanElement;

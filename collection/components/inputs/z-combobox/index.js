@@ -107,7 +107,7 @@ export class ZCombobox {
             h("h2", null,
                 this.label,
                 h("span", null, this.selectedCounter > 0 && ` (${this.selectedCounter})`)),
-            h("z-icon", { name: "drop-down", width: 18, height: 18 })));
+            h("z-icon", { name: "caret-down", width: 18, height: 18 })));
     }
     renderContent() {
         if (!this.isopen)
@@ -138,7 +138,7 @@ export class ZCombobox {
     }
     renderNoSearchResults() {
         return (h("ul", null,
-            h("z-list-item", { id: "no-results", text: this.noresultslabel, listitemid: "no-results", icon: "circle-cross-stroke" })));
+            h("z-list-item", { id: "no-results", text: this.noresultslabel, listitemid: "no-results", icon: "multiply-circle" })));
     }
     renderCloseButton() {
         return (h("div", null,

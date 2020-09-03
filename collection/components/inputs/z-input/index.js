@@ -155,7 +155,7 @@ export class ZInput {
     renderResetIcon() {
         if (!this.value || this.disabled || this.readonly)
             return;
-        return (h("z-icon", { name: "close", onClick: (e) => this.emitInputChange("", e.keyCode) }));
+        return (h("z-icon", { name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
     }
     renderMessage() {
         if (!this.hasmessage)
@@ -201,7 +201,7 @@ export class ZInput {
         return (h("div", { class: "checkboxWrapper" },
             h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, value: this.value, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: () => this.handleCheckboxChange() }),
             h("label", { htmlFor: this.htmlid, class: `checkboxLabel ${this.labelafter ? "after" : "before"}` },
-                h("z-icon", { name: this.checked ? "checkbox-selected" : "checkbox-unchecked", "aria-hidden": true }),
+                h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": true }),
                 this.label && h("span", { innerHTML: this.label }))));
     }
     /* END checkbox */
@@ -240,7 +240,7 @@ export class ZInput {
     renderSelectedItem() {
         return (h("li", { class: "selected" },
             this.selectedItem ? (h("span", null, this.selectedItem.name)) : (h("span", { class: "placeholder" }, this.placeholder)),
-            h("z-icon", { name: "drop-down" })));
+            h("z-icon", { name: "caret-down" })));
     }
     renderSelectItems() {
         if (!this.isOpen)

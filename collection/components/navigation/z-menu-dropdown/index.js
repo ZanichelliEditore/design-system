@@ -21,7 +21,7 @@ export class ZMenuDropdown {
     }
     renderButtonMenu() {
         return (h("span", { class: "arrow" },
-            h("z-icon", { name: "drop-down", width: 14, height: 14 })));
+            h("z-icon", { name: "caret-down", width: 14, height: 14 })));
     }
     retriveMenuClass() {
         if (this.ismenuopen)
@@ -47,7 +47,7 @@ export class ZMenuDropdown {
                 document.addEventListener("keyup", this.handleFocus);
             }, onKeyUp: (e) => handleKeyboardSubmit(e, this.handleToggle) },
             h("div", { class: "container", onClick: () => this.handleToggle() },
-                h("z-icon", { name: "user", width: 14, height: 14 }),
+                h("z-icon", { name: "user-avatar", width: 14, height: 14 }),
                 h("span", { class: "user" }, this.nomeutente),
                 this.renderButtonMenu()),
             this.renderMenuOpen()));

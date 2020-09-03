@@ -14,12 +14,12 @@ export class ZButtonFilter {
     }
     renderFixedPillow(filtername) {
         return (h("button", { class: "container" },
-            this.hasicon && h("z-icon", { class: "close-icon-container", name: "close", height: 12, width: 12 }),
+            this.hasicon && h("z-icon", { class: "close-icon-container", name: "multiply", height: 12, width: 12 }),
             h("span", { class: "text-container" }, filtername)));
     }
     renderDynamicPillow(filtername) {
         return (h("button", { class: "container isactive" },
-            this.hasicon && h("z-icon", { class: "close-icon-container", name: "close", height: 12, width: 12, onClick: this.handleRemovingFilterClick }),
+            this.hasicon && h("z-icon", { class: "close-icon-container", name: "multiply", height: 12, width: 12, onClick: this.handleRemovingFilterClick }),
             h("span", { class: "text-container" }, filtername)));
     }
     render() {

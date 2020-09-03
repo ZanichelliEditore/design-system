@@ -2,9 +2,9 @@ import { Component, Prop, h } from "@stencil/core";
 export class ZInputMessage {
     constructor() {
         this.statusIcons = {
-            success: "circle-check",
-            error: "circle-cross",
-            warning: "circle-warning"
+            success: "checkmark-circle",
+            error: "multiply-circled",
+            warning: "exclamation-circle"
         };
     }
     renderMsgClassName() {

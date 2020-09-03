@@ -98,13 +98,11 @@ div > span.arrow {
 span.arrow > z-icon {
   transform: rotate(360deg);
   transition: all 200ms linear;
-  margin-top: var(--basex1);
 }
 
 .menu-opened span.arrow > z-icon {
   transform: rotate(180deg);
   transition: all 200ms linear;
-  margin-top: -8px;
 }
 
 div > span.user {
@@ -127,7 +125,7 @@ li {
   align-items: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1152px) {
   :host {
     width: inherit;
   }

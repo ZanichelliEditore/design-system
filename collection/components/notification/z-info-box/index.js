@@ -13,7 +13,7 @@ export class ZInfoBox {
     render() {
         return (h("div", { id: this.boxid },
             h("slot", { name: "content" }),
-            this.isclosable && h("z-icon", { name: "close", "data-action": "infoBoxClose", onClick: () => this.emitInfoBoxClose() })));
+            this.isclosable && h("z-icon", { name: "multiply", "data-action": "infoBoxClose", onClick: () => this.emitInfoBoxClose() })));
     }
     static get is() { return "z-info-box"; }
     static get encapsulation() { return "shadow"; }
