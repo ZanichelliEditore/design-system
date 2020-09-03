@@ -5,14 +5,14 @@
 ```html
 <z-card-alert
   slot="alert"
-  iconName="circle-check"
+  iconName="checkmark-circle"
   contenttext="Libro aggiunto ai miei libri"
   actiontext="Annulla"
   type="add"
 ></z-card-alert>
 <z-card-alert
   slot="alert"
-  iconName="circle-check"
+  iconName="checkmark-circle"
   contenttext="Libro rimosso dai tuoi libri"
   actiontext="annulla"
   type="remove"
@@ -20,14 +20,14 @@
 ></z-card-alert>
 <z-card-alert
   slot="alert"
-  iconName="circle-check"
+  iconName="checkmark-circle"
   contenttext="Libro rimosso dai tuoi libri"
   type="remove"
   faded="true"
 ></z-card-alert>
 <z-card-alert
   slot="alert"
-  iconName="circle-check"
+  iconName="checkmark-circle"
   contenttext="Libro aggiunto ai miei libri"
   type="add"
 ></z-card-alert>

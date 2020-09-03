@@ -27,7 +27,7 @@ describe("Suite test ZSlideshow", () => {
        <mock:shadow-root>
          <div>
            <main>
-             <z-icon class="disabled left scroll" height="40" name="circle-chevron-left" role="button" tabindex="0" width="40"></z-icon>
+             <z-icon class="disabled left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-icon>
              <div id="slides" style="width: NaNpx; transform: translate(-NaNpx);">
                <div class="false slide" id="slide0">
                  <img src="https://link1.png" style="width: undefinedpx;">
@@ -39,7 +39,7 @@ describe("Suite test ZSlideshow", () => {
                  <img src="https://link3.png" style="width: undefinedpx;">
                </div>
              </div>
-             <z-icon class="false right scroll" height="40" name="circle-chevron-right" role="button" tabindex="0" width="40"></z-icon>
+             <z-icon class="false right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
            </main>
            <footer>
              <div class="footerLeft">
@@ -74,7 +74,7 @@ describe("Suite test ZSlideshow", () => {
        <mock:shadow-root>
          <div>
            <main>
-             <z-icon class="false left scroll" height="40" name="circle-chevron-left" role="button" tabindex="0" width="40"></z-icon>
+             <z-icon class="false left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-icon>
              <div id="slides" style="width: NaNpx; transform: translate(-NaNpx);">
                <div class="hide slide" id="slide0">
                  <img src="https://link1.png" style="width: undefinedpx;">
@@ -86,7 +86,7 @@ describe("Suite test ZSlideshow", () => {
                  <img src="https://link3.png" style="width: undefinedpx;">
                </div>
              </div>
-             <z-icon class="disabled right scroll" height="40" name="circle-chevron-right" role="button" tabindex="0" width="40"></z-icon>
+             <z-icon class="disabled right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
            </main>
            <footer>
              <div class="footerLeft">
@@ -129,7 +129,7 @@ describe("Suite test ZSlideshow", () => {
              <main>
                <z-icon class="${
                  lengthSlide === 3 ? "disabled" : "false"
-               } left scroll" height="40" name="circle-chevron-left" role="button" tabindex="0" width="40"></z-icon>
+               } left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-icon>
                <div id="slides" style="width: NaNpx; transform: translate(-NaNpx);">
                  <div class="${
                    lengthSlide === 3 ? "false" : "hide"
@@ -149,7 +149,7 @@ describe("Suite test ZSlideshow", () => {
                </div>
                <z-icon class="${
                  lengthSlide === 1 ? "disabled" : "false"
-               } right scroll" height="40" name="circle-chevron-right" role="button" tabindex="0" width="40"></z-icon>
+               } right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
              </main>
              <footer>
                <div class="footerLeft">
@@ -189,7 +189,7 @@ describe("Suite test ZSlideshow", () => {
              <main>
                <z-icon class="${
                  lengthSlide === 3 ? "disabled" : "false"
-               } left scroll" height="40" name="circle-chevron-left" role="button" tabindex="0" width="40"></z-icon>
+               } left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-icon>
                <div id="slides" style="width: NaNpx; transform: translate(-NaNpx);">
                  <div class="${
                    lengthSlide === 3 ? "false" : "hide"
@@ -209,7 +209,7 @@ describe("Suite test ZSlideshow", () => {
                </div>
                <z-icon class="${
                  lengthSlide === 1 ? "disabled" : "false"
-               } right scroll" height="40" name="circle-chevron-right" role="button" tabindex="0" width="40"></z-icon>
+               } right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
              </main>
              <footer>
                <div class="footerLeft">

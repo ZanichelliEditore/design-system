@@ -28,170 +28,113 @@
     </div>
   </z-pocket> -->
 
-    <!-- non zanichelli logged -->
-    <z-header
-      intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]}]'
-      extlinkdata='[{"id":"MyZanichelli","label":"Link a MyZanichelli","link":"http://www.myzanichelli.it","icon":"circle-chevron-left"}]'
-      userdata='{
+  <!-- non zanichelli logged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"MyZanichelli","label":"Link a MyZanichelli","link":"http://www.myzanichelli.it","icon":"chevron-left-circle"}]'
+    userdata='{
         "islogged": true,
         "id": 123456,
         "name": "Dario Docente",
         "usergroup": 15,
-        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
-      }'
-      ismyz="false"
-      imagealt="none"
-    >
-      <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
-      <img
-        src="./assets/images/png/clitt-logo.png"
-        alt="clitt"
-        slot="editors"
-      />
-      <img
-        src="./assets/images/png/bovolenta-logo.png"
-        alt="bovolenta"
-        slot="editors"
-      />
-      <img
-        src="./assets/images/png/lucisano-logo.png"
-        alt="lucisano"
-        slot="editors"
-      />
-    </z-header>
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
+      }' ismyz=false imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
 
-    <p style="height:50px;"></p>
-    <!-- non zanichelli unlogged -->
-    <z-header
-      intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]}]'
-      extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"ask-your-manager"}]'
-      userdata='{
+  <p style="height:50px;"></p>
+  <!-- non zanichelli unlogged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
+    userdata='{
         "islogged": false,
         "id": 123456,
         "name": "Dario Docente",
         "usergroup": 15,
-        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
-      }'
-      ismyz="false"
-      imagealt="none"
-    >
-      <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
-      <img
-        src="./assets/images/png/clitt-logo.png"
-        alt="clitt"
-        slot="editors"
-      />
-      <img
-        src="./assets/images/png/bovolenta-logo.png"
-        alt="bovolenta"
-        slot="editors"
-      />
-      <img
-        src="./assets/images/png/lucisano-logo.png"
-        alt="lucisano"
-        slot="editors"
-      />
-    </z-header>
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
+      }' ismyz=false imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
 
-    <!-- zanichelli docente logged -->
-    <z-header
-      intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]}]'
-      extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"ask-your-manager"}]'
-      userdata='{
+  <!-- zanichelli docente logged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
+    userdata='{
         "islogged": true,
         "id": 123456,
         "name": "Dario Docente",
         "usergroup": 15,
-        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
-      }'
-      ismyz="true"
-      imagealt="none"
-      activeintlinkid="home"
-      activesublinkid="idee"
-    >
-      <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
-      <img
-        src="./assets/images/png/clitt-logo.png"
-        alt="clitt"
-        slot="editors"
-      />
-      <img
-        src="./assets/images/png/bovolenta-logo.png"
-        alt="bovolenta"
-        slot="editors"
-      />
-      <img
-        src="./assets/images/png/lucisano-logo.png"
-        alt="lucisano"
-        slot="editors"
-      />
-    </z-header>
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
+      }' ismyz=true imagealt="none"
+    activeintlinkid="home" activesublinkid="idee">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
 
     <p style="height:50px;"></p>
 
-    <!-- zanichelli unlogged -->
-    <z-header
-      intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]}]'
-      extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"ask-your-manager"}]'
-      userdata='{
+   <!-- zanichelli unlogged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
+    userdata='{
         "islogged": false,
         "id": 123456,
         "name": "Dario Docente",
         "usergroup": 15,
-        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
-      }'
-      ismyz="true"
-      imagealt="none"
-    >
-      <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
-      <img
-        src="./assets/images/png/clitt-logo.png"
-        alt="clitt"
-        slot="editors"
-      />
-      <img
-        src="./assets/images/png/bovolenta-logo.png"
-        alt="bovolenta"
-        slot="editors"
-      />
-      <img
-        src="./assets/images/png/lucisano-logo.png"
-        alt="lucisano"
-        slot="editors"
-      />
-    </z-header>
+        "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
+      }' ismyz=true imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
 
-    <!-- zanichelli studente logged -->
-    <z-header
-      intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"I miei Libri","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]}]'
-      extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"cart"}]'
-      userdata='{
+  <!-- zanichelli studente logged -->
+  <z-header
+    intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"I miei Libri","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+    extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"}]'
+    userdata='{
             "islogged": true,
             "id": 123456,
             "name": "Sandro Studente",
             "usergroup": 14,
-            "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
-          }'
-      ismyz="true"
-      imagealt="none"
-    >
-      <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
-      <img
-        src="./assets/images/png/clitt-logo.png"
-        alt="clitt"
-        slot="editors"
-      />
-      <img
-        src="./assets/images/png/bovolenta-logo.png"
-        alt="bovolenta"
-        slot="editors"
-      />
-      <img
-        src="./assets/images/png/lucisano-logo.png"
-        alt="lucisano"
-        slot="editors"
-      />
-    </z-header>
+            "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
+          }' ismyz=true imagealt="none">
+    <img src="./assets/images/png/cea-logo.png" alt="cea" slot="editors" />
+    <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
+    <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
+    <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
+  </z-header>
+
+  <section id="main-content">
+    <section id="libreria">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In id maximus purus. Nam
+        porttitor mollis ipsum, sed scelerisque ipsum consequat vel. Vivamus a congue neque, ac venenatis arcu. Aliquam
+        venenatis fermentum mauris, ac efficitur lacus pellentesque sed. Fusce sit amet varius tellus, sit amet ultrices
+        nisl. Integer et tincidunt metus. Curabitur tristique interdum tempus.
+
+        Pellentesque quis nulla eu neque efficitur posuere ac quis lectus. In volutpat, est at tempor mollis, ipsum
+        ligula hendrerit ligula, in semper ex nunc non est. Curabitur ut volutpat ex. Phasellus nec bibendum tellus.
+        Etiam faucibus at nunc non consequat. Etiam tristique nibh mi, quis gravida lorem lobortis eget. Etiam ac nunc
+        sed velit laoreet venenatis. Nulla ipsum enim, sodales quis massa vitae, aliquam vehicula mi. Nunc feugiat eros
+        sit amet quam sollicitudin, ut pellentesque nisi lobortis. Nunc efficitur ex et augue convallis aliquam ut ut
+        dolor. Donec dapibus felis lorem, a feugiat lectus eleifend eget. Fusce cursus, velit nec viverra rhoncus, nulla
+        purus scelerisque tellus, vitae cursus tellus ligula a leo. Donec non blandit lectus. Fusce scelerisque libero
+        sit amet consequat mollis. Donec eget porttitor sem, nec ornare nibh.
 
     <section id="main-content">
       <section id="libreria">
@@ -257,24 +200,14 @@
         style="width:1000px; display:flex; flex-wrap:wrap; justify-content:space-between;"
       >
         <z-card>
-          <z-card-header
-            titolo="titolo titolo titolotitolo titolo titolo titolo"
-          >
-            <z-card-icon icon="book-delete" slot="icon" />
+          <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-card-icon icon="book-minus" slot="icon" />
           </z-card-header>
           <z-card-body>
-            <z-card-alert
-              slot="alert"
-              iconName="circle-check"
-              contenttext="Libro aggiunto"
-              actiontext="Annulla"
-              type="add"
-            ></z-card-alert>
-            <z-card-cover
-              slot="cover"
-              titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"
-            />
+            <z-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto"
+              actiontext="Annulla" type="add"></z-card-alert>
+            <z-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
           </z-card-body>
           <z-card-footer
             titolo="titolo"
@@ -289,28 +222,15 @@
           </z-card-footer>
         </z-card>
         <!-- in questo esempio puoi vedere dove stano i faded -->
-        <z-card faded="true">
-          <z-card-header
-            faded="true"
-            titolo="titolo titolo titolotitolo titolo titolo titolo"
-          >
-            <z-card-icon icon="book-delete" slot="icon" />
+        <z-card faded=true>
+          <z-card-header faded=true titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-card-icon icon="book-minus" slot="icon" />
           </z-card-header>
           <z-card-body>
-            <z-card-alert
-              slot="alert"
-              iconName="circle-check"
-              contenttext="Libro rimosso"
-              actiontext="annulla"
-              type="remove"
-              faded="true"
-            ></z-card-alert>
-            <z-card-cover
-              slot="cover"
-              titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg"
-              faded="true"
-            />
+            <z-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro rimosso dai tuoi libri" actiontext="annulla" type="remove"
+              faded=true></z-card-alert>
+            <z-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" faded=true />
           </z-card-body>
           <z-card-footer
             titolo="titolo"
@@ -331,7 +251,7 @@
         </z-card>
         <z-card>
           <z-card-header titolo="titolo">
-            <z-card-icon icon="book-delete" slot="icon" />
+            <z-card-icon icon="book-minus" slot="icon" />
           </z-card-header>
           <z-card-body>
             <z-card-cover
@@ -349,232 +269,27 @@
           </z-card-footer>
         </z-card>
       </div>
-      <br />
-      <div
-        style="width:1400px; display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-template-rows:1fr 1fr; grid-column-gap:16px; grid-row-gap:16px;"
-      >
-        <z-card>
-          <z-card-header
-            titolo="titolo titolo titolotitolo titolo titolo titolo"
-          >
-            <z-card-icon icon="book-delete" slot="icon" />
-          </z-card-header>
-          <z-card-body>
-            <z-card-cover
-              slot="cover"
-              titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"
-            />
-          </z-card-body>
-          <z-card-footer
-            titolo="titolo"
-            autori="autori autori autori autoriautori autori"
-            isbn="97-88-80-8620-710"
-          >
-            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-            <z-card-list
-              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
-              slot="list"
-            />
-          </z-card-footer>
-        </z-card>
-        <z-card ishighlighted>
-          <z-card-header
-            titolo="titolo titolo titolotitolo titolo titolo titolo"
-          >
-            <z-card-icon icon="book-delete" slot="icon" />
-          </z-card-header>
-          <z-card-body>
-            <z-card-alert
-              slot="alert"
-              iconName="circle-check"
-              contenttext="Libro aggiunto"
-              actiontext="Annulla"
-              type="add"
-            ></z-card-alert>
-            <z-card-cover
-              slot="cover"
-              titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"
-            />
-          </z-card-body>
-          <z-card-footer
-            titolo="titolo"
-            autori="autori autori autori autoriautori autori"
-            isbn="97-88-80-8620-710"
-          >
-            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-            <z-card-list
-              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
-              slot="list"
-            />
-          </z-card-footer>
-        </z-card>
-        <z-card ispressed>
-          <z-card-header
-            titolo="titolo titolo titolotitolo titolo titolo titolo"
-          >
-            <z-card-icon icon="book-delete" slot="icon" />
-          </z-card-header>
-          <z-card-body>
-            <z-card-cover
-              slot="cover"
-              titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"
-            />
-          </z-card-body>
-          <z-card-footer
-            titolo="titolo"
-            autori="autori autori autori autoriautori autori"
-            isbn="97-88-80-8620-710"
-          >
-            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-            <z-card-list
-              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
-              slot="list"
-            />
-          </z-card-footer>
-        </z-card>
-        <z-card faded="true">
-          <z-card-header
-            faded="true"
-            titolo="titolo titolo titolotitolo titolo titolo titolo"
-          >
-            <z-card-icon icon="book-delete" slot="icon" />
-          </z-card-header>
-          <z-card-body>
-            <z-card-alert
-              slot="alert"
-              iconName="circle-check"
-              contenttext="Libro rimosso"
-              type="remove"
-              faded="true"
-            ></z-card-alert>
-            <z-card-cover
-              slot="cover"
-              titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"
-              faded="true"
-            />
-          </z-card-body>
-          <z-card-footer
-            titolo="titolo"
-            autori="autori autori autori autoriautori autori"
-            isbn="97-88-80-8620-710"
-            faded="true"
-          >
-            <z-toggle-button
-              label="risorse"
-              slot="toggle"
-              avoidclick="true"
-            ></z-toggle-button>
-            <z-card-list
-              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
-              slot="list"
-            />
-          </z-card-footer>
-        </z-card>
-        <z-card cardtype="reale">
-          <z-card-header
-            titolo="titolo titolo titolotitolo titolo titolo titolo"
-          >
-            <z-card-icon icon="book-delete" slot="icon" />
-          </z-card-header>
-          <z-card-body>
-            <z-card-cover
-              slot="cover"
-              titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg"
-            />
-          </z-card-body>
-          <z-card-footer
-            cardtype="reale"
-            titolo="titolo"
-            autori="autori autori autori autoriautori autori"
-            isbn="97-88-80-8620-710"
-          >
-            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-            <z-card-list
-              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
-              slot="list"
-            />
-          </z-card-footer>
-        </z-card>
-        <z-card cardtype="reale" ishighlighted>
-          <z-card-header
-            titolo="titolo titolo titolotitolo titolo titolo titolo"
-          >
-            <z-card-icon icon="book-delete" slot="icon" />
-          </z-card-header>
-          <z-card-body>
-            <z-card-alert
-              slot="alert"
-              iconName="circle-check"
-              contenttext="Libro aggiunto"
-              type="add"
-            ></z-card-alert>
-            <z-card-cover
-              slot="cover"
-              titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg"
-            />
-          </z-card-body>
-          <z-card-footer
-            cardtype="reale"
-            titolo="Las reglas del juego con risorse digitali Scuolabook risorse digitali Scuolabook Scuolabook risorse digitali ScuolabookScuolabook risorse digitali ScuolabookScuolabook risorse digitali Scuolabook"
-            autori="autori autori autori autoriautori autori"
-            isbn="97-88-80-8620-710"
-          >
-            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-            <z-card-list
-              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
-              slot="list"
-            />
-          </z-card-footer>
-        </z-card>
-
-        <z-card cardtype="reale">
-          <z-card-header
-            cardtype="reale"
-            titolo="titolo titolo titolotitolo titolo titolo titolo"
-          >
-            <z-card-icon icon="book-delete" slot="icon" />
-          </z-card-header>
-          <z-card-body>
-            <z-card-cover
-              slot="cover"
-              titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg"
-            />
-          </z-card-body>
-          <z-card-footer
-            cardtype="reale"
-            titolo="titolo"
-            autori="autori autori autori autoriautori autori"
-            isbn="97-88-80-8620-710"
-          >
-            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-            <z-card-list
-              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
-              slot="list"
-            />
-          </z-card-footer>
-        </z-card>
-      </div>
-
-      <z-card cardtype="reale">
-        <z-card-header
-          cardtype="reale"
-          titolo="titolo titolo titolotitolo titolo titolo titolo"
-        >
-          <z-card-icon icon="book-delete" slot="icon" />
+      <br>
+      <div style="width:1400px; display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-template-rows:1fr 1fr; grid-column-gap:16px; grid-row-gap:16px;">
+      <z-card>
+        <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+          <z-card-icon icon="book-minus" slot="icon" />
         </z-card-header>
         <z-card-body>
-          <z-card-cover
-            slot="cover"
-            titolo="titolo"
-            img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg"
-          />
+          <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+        </z-card-body>
+        <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+          <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+          <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+        </z-card-footer>
+      </z-card>
+      <z-card ishighlighted>
+        <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+          <z-card-icon icon="book-minus" slot="icon" />
+        </z-card-header>
+        <z-card-body>
+          <z-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto" actiontext="Annulla" type="add"></z-card-alert>
+          <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
         </z-card-body>
         <z-card-footer
           cardtype="reale"
@@ -589,13 +304,9 @@
           />
         </z-card-footer>
       </z-card>
-
-      <z-card cardtype="saggio">
-        <z-card-header
-          cardtype="saggio"
-          titolo="titolo titolo titolotitolo titolo titolo titolo"
-        >
-          <z-card-icon icon="book-delete" slot="icon" />
+      <z-card ispressed>
+        <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+          <z-card-icon icon="book-minus" slot="icon" />
         </z-card-header>
         <z-card-body>
           <z-card-cover
@@ -617,8 +328,86 @@
           />
         </z-card-footer>
       </z-card>
+      <z-card faded=true>
+        <z-card-header faded=true titolo="titolo titolo titolotitolo titolo titolo titolo">
+          <z-card-icon icon="book-minus" slot="icon" />
+        </z-card-header>
+        <z-card-body>
+          <z-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro rimosso dai tuoi libri" type="remove" faded=true></z-card-alert>
+          <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" faded=true />
+        </z-card-body>
+        <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710" faded=true>
+          <z-toggle-button label="risorse" slot="toggle" avoidclick=true></z-toggle-button>
+          <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+        </z-card-footer>
+      </z-card>
+    <z-card cardtype="reale">
+      <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+        <z-card-icon icon="book-minus" slot="icon" />
+      </z-card-header>
+      <z-card-body>
+        <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+      </z-card-body>
+      <z-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+        <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+      </z-card-footer>
+    </z-card>
+    <z-card cardtype="reale" ishighlighted>
+      <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+        <z-card-icon icon="book-minus" slot="icon" />
+      </z-card-header>
+      <z-card-body>
+        <z-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto" type="add"></z-card-alert>
+        <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+      </z-card-body>
+      <z-card-footer cardtype="reale" titolo="Las reglas del juego con risorse digitali Scuolabook risorse digitali Scuolabook Scuolabook risorse digitali ScuolabookScuolabook risorse digitali ScuolabookScuolabook risorse digitali Scuolabook" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+        <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+      </z-card-footer>
+    </z-card>
 
-      <br />
+    <z-card cardtype="reale">
+      <z-card-header cardtype="reale" titolo="titolo titolo titolotitolo titolo titolo titolo">
+        <z-card-icon icon="book-minus" slot="icon" />
+      </z-card-header>
+      <z-card-body>
+        <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+      </z-card-body>
+      <z-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+        <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+      </z-card-footer>
+    </z-card>
+  </div>
+
+  <z-card cardtype="reale">
+    <z-card-header cardtype="reale" titolo="titolo titolo titolotitolo titolo titolo titolo">
+      <z-card-icon icon="book-minus" slot="icon" />
+    </z-card-header>
+    <z-card-body>
+      <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+    </z-card-body>
+    <z-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+      <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+      <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+    </z-card-footer>
+  </z-card>
+
+  <z-card cardtype="saggio">
+    <z-card-header cardtype="saggio" titolo="titolo titolo titolotitolo titolo titolo titolo">
+      <z-card-icon icon="book-minus" slot="icon" />
+    </z-card-header>
+    <z-card-body>
+      <z-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+    </z-card-body>
+    <z-card-footer cardtype="saggio" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+      <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+      <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+    </z-card-footer>
+  </z-card>
+
+  <br />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
         fermentum convallis ex, eu faucibus velit dignissim in. Quisque at risus
@@ -790,11 +579,10 @@
         ></z-button-sort>
         <br />
 
-        <br />
-        <z-list
-          inputrawdata='[
-        {"text":"elemento lista","link":"http://www.google.it","listitemid":"id1","icon":"checkbox-selected"},
-        {"text":"elemento lista","link":"http://www.google.it","listitemid":"id2","icon":"checkbox-unchecked"},
+      <br />
+      <z-list inputrawdata='[
+        {"text":"elemento lista","link":"http://www.google.it","listitemid":"id1","icon":"checkbox-checked"},
+        {"text":"elemento lista","link":"http://www.google.it","listitemid":"id2","icon":"checkbox"},
         {"text":""}
         ]'
         >
@@ -1020,48 +808,47 @@
         </z-combobox>
       </section>
       <br /><br />
-      <section
-        id="ideePerInsegnare"
-        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;"
-      >
-        <z-panel-elem
-          imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png"
-          linkicon="external-link-left"
-          linklabel="Biblioteca"
-          url="https://biblioteca.scuola.zanichelli.it/"
-          elemid="prova1"
-        />
+      <z-combobox inputid="combo_1"
+        items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'
+        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta" closesearchtext="CHIUDI">
+      </z-combobox>
+      <br />
+      <z-combobox inputid="combo_2"
+        items='[{"id":"item_1","name":"Brimo elemento","checked":false},{"id":"item_2","name":"sbecondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
+        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta" isopen="false" label="Combo Lunga" closesearchtext="CHIUDI">
+      </z-combobox>
+      <br />
+      <z-combobox inputid="combo_3"
+        items='[{"id":"item_1","name":"Brimo elemento","checked":false},{"id":"item_2","name":"sbecondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
+        label="Combo Select All" closesearchtext="CHIUDI" hascheckall=true>
+      </z-combobox>
+      <br />
+      <z-combobox inputid="combo_4"
+        items='[{"id":"item_1","name":"Brimo elemento","checked":false},{"id":"item_2","name":"sbecondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
+        label="Combo Max 3" closesearchtext="CHIUDI" maxcheckableitems="3">
+      </z-combobox>
+
+    <br /><br />
+      <section id="ideePerInsegnare"
+        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
+        <z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="arrow-quad-down"
+          linklabel="Biblioteca" url="https://biblioteca.scuola.zanichelli.it/" elemid="prova1" />
       </section>
-      <section
-        id="ideePerInsegnare"
-        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;"
-      >
-        <z-panel-elem
-          isdisabled="true"
-          imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png"
-          linkicon="external-link-left"
-          linklabel="Tutte le prove"
-          url="http://online.scuola.zanichelli.it/tutteleprove/"
-          descr_slot_name="xxx1"
-          elemid="prova2"
-        >
+      <section id="ideePerInsegnare"
+        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
+        <z-panel-elem isdisabled="true" imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png"
+          linkicon="arrow-quad-down" linklabel="Tutte le prove"
+          url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" elemid="prova2">
           <span slot="xxx1">
             L’archivio di prove in pdf e word pronto da stampare: prove comuni,
             simulazioni, prove interdisciplinari
           </span>
         </z-panel-elem>
       </section>
-      <section
-        id="ideePerInsegnare"
-        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;"
-      >
-        <z-panel-elem
-          linkicon="external-link-left"
-          linklabel="Tutte le prove"
-          elemid="prova3"
-          url="http://online.scuola.zanichelli.it/tutteleprove/"
-          descr_slot_name="xxx1"
-        />
+      <section id="ideePerInsegnare"
+        style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
+        <z-panel-elem linkicon="arrow-quad-down" linklabel="Tutte le prove" elemid="prova3"
+          url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" />
       </section>
 
       <br /><br />

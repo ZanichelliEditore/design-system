@@ -13,7 +13,7 @@ describe("Suite test ZPaginationBar", () => {
       <z-pagination-bar>
         <mock:shadow-root>
           <div style="undefined: rgba(0,0,0,0);">
-            <z-icon class=\"disabled\" name=\"chevron-left\" tabindex="-1"></z-icon>
+            <z-icon class=\"disabled\" name=\"chevron-left" tabindex="-1"></z-icon>
             <z-icon class=\"disabled\" name=\"chevron-right\" tabindex="-1"></z-icon>
           </div>
         </mock:shadow-root>

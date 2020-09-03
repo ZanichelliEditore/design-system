@@ -87,8 +87,8 @@ export class ZPocket {
             <z-icon
               name={
                 this.isopen
-                  ? "circle-chevron-down-fill"
-                  : "circle-chevron-up-fill"
+                  ? "chevron-down-circle-filled"
+                  : "chevron-up-circle-filled"
               }
               width={24}
               height={24}

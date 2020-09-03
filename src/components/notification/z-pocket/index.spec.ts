@@ -15,7 +15,7 @@ describe("Suite test ZPocket", () => {
           <div data-action="pocketBackground" class="open false">
             <div id="" style="undefined: rgba(0,0,0,0);">
               <header role="button" tabindex="0">
-                <z-icon name="circle-chevron-down-fill" width="24" height="24" />
+                <z-icon name="chevron-down-circle-filled" width="24" height="24" />
               </header>
               <main class="open">
                 <slot />
@@ -39,7 +39,7 @@ describe("Suite test ZPocket", () => {
           <div data-action="pocketBackground" class="false">
             <div id="" style="undefined: rgba(0,0,0,0);">
               <header role="button" tabindex="0">
-                <z-icon name="circle-chevron-up-fill" width="24" height="24" />
+                <z-icon name="chevron-up-circle-filled" width="24" height="24" />
               </header>
               <main>
                 <slot />
@@ -63,7 +63,7 @@ describe("Suite test ZPocket", () => {
           <div data-action="pocketBackground" data-pocket="pocket" class="open modal">
             <div id="pocket" style="undefined: rgba(0,0,0,0);">
               <header role="button" tabindex="0">
-                <z-icon name="circle-chevron-down-fill" width="24" height="24" />
+                <z-icon name="chevron-down-circle-filled" width="24" height="24" />
               </header>
               <main class="open">
                 <slot />
@@ -89,7 +89,7 @@ describe("Suite test ZPocket", () => {
           <div data-action="pocketBackground" data-pocket="pocket" class="open modal">
             <div id="pocket" style="undefined: rgba(0,0,0,0);">
               <header role="button" tabindex="0">
-                <z-icon name="circle-chevron-down-fill" width="24" height="24" />
+                <z-icon name="chevron-down-circle-filled" width="24" height="24" />
               </header>
               <main class="open">
                 <slot />

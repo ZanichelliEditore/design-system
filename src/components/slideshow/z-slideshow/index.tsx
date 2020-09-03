@@ -128,7 +128,7 @@ export class ZSlideshow {
         class={`scroll ${direction} ${disabled && "disabled"}`}
         width={this.getBulletDimension()}
         height={this.getBulletDimension()}
-        name={`circle-chevron-${direction}`}
+        name={`chevron-${direction}-circle`}
         onClick={() => {
           !disabled && this.setCurrentSlide(nextSlide);
         }}

@@ -42,7 +42,7 @@ export class ZButtonFilter {
         {this.hasicon && (
           <z-icon
             class="close-icon-container"
-            name="cross"
+            name="multiply"
             height={12}
             width={12}
           />
@@ -61,7 +61,7 @@ export class ZButtonFilter {
         {this.hasicon && (
           <z-icon
             class="close-icon-container"
-            name="cross"
+            name="multiply"
             height={12}
             width={12}
           />

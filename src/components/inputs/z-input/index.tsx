@@ -277,7 +277,7 @@ export class ZInput {
     return (
       <z-icon
         class="resetIcon"
-        name="cross"
+        name="multiply"
         onClick={(e: any) => this.emitInputChange("", e.keyCode)}
       />
     );
@@ -287,7 +287,7 @@ export class ZInput {
     return (
       <z-icon
         class="inputIcon"
-        name={this.passwordHidden ? "show-password" : "hide-password"}
+        name={this.passwordHidden ? "view-filled" : "view-off-filled"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
       />
     );
@@ -371,7 +371,7 @@ export class ZInput {
           class={`checkboxLabel ${this.labelafter ? "after" : "before"}`}
         >
           <z-icon
-            name={this.checked ? "checkbox-selected" : "checkbox-unchecked"}
+            name={this.checked ? "checkbox-checked" : "checkbox"}
             aria-hidden={true}
           />
           {this.label && <span innerHTML={this.label} />}

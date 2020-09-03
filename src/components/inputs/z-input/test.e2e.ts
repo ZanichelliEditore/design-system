@@ -97,8 +97,8 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
   expect(icon).toEqualHtml(
     `<z-icon class="hydrated inputIcon">
     <mock:shadow-root>
-    <svg viewBox="0 0 18 18" width='18' height='18'>
-        <path d="${icons["hide-password"]}"></path>
+    <svg viewBox="0 0 1000 1000" width='18' height='18'>
+        <path d="${icons["view-off-filled"]}"></path>
     </svg>
     </mock:shadow-root>
     </z-icon>`
@@ -109,8 +109,8 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
   expect(icon).toEqualHtml(
     `<z-icon class="hydrated inputIcon">
     <mock:shadow-root>
-    <svg viewBox="0 0 18 18" width='18' height='18'>
-        <path d="${icons["show-password"]}"></path>
+    <svg viewBox="0 0 1000 1000" width='18' height='18'>
+        <path d="${icons["view-filled"]}"></path>
     </svg>
     </mock:shadow-root>
     </z-icon>`

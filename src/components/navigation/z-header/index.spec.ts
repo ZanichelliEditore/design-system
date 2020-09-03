@@ -98,7 +98,7 @@ describe("Suite test ZHeader", () => {
             <span>
               <a class="menu-item" id="user-data" role="button">
                 <span>
-                  <z-icon height="16" name="user" width="16"></z-icon>
+                  <z-icon height="16" name="user-avatar" width="16"></z-icon>
                   Dario Docente e Professore
                 </span>
                 <i></i>
@@ -159,7 +159,7 @@ describe("Suite test ZHeader", () => {
               <span>
                 <a class="menu-item" id="user-data" role="button">
                   <span>
-                    <z-icon height="16" name="user" width="16"></z-icon>
+                    <z-icon height="16" name="user-avatar" width="16"></z-icon>
                     Dario Docente e Professore
                   </span>
                   <i></i>
