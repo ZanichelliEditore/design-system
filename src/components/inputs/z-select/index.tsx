@@ -318,7 +318,7 @@ export class ZSelect {
             ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
             : null
         }
-        icon={this.isOpen ? "drop-up" : "drop-down"}
+        icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={this.autocomplete}
         hasmessage={false}
         disabled={this.disabled}

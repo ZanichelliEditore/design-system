@@ -180,7 +180,7 @@ export class ZCombobox {
             {this.selectedCounter > 0 && ` (${this.selectedCounter})`}
           </span>
         </h2>
-        <z-icon name="drop-down" width={18} height={18} />
+        <z-icon name="caret-down" width={18} height={18} />
       </div>
     );
   }
@@ -247,7 +247,7 @@ export class ZCombobox {
           id="no-results"
           text={this.noresultslabel}
           listitemid="no-results"
-          icon="circle-cross-stroke"
+          icon="multiply-circle"
         />
       </ul>
     );

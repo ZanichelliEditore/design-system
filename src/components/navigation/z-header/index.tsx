@@ -40,6 +40,8 @@ export class ZHeader {
   @Prop() activeintlinkid?: string;
   /** set current active sub menu link (optional) */
   @Prop() activesublinkid?: string;
+  /** hide login button if true (optional) */
+  @Prop() hideloginbutton?: boolean;
 
   @State() activeMenuItem: MenuItem;
   @State() currentMenuItem: MenuItem;
@@ -98,18 +100,6 @@ export class ZHeader {
       this.isLogged = this.userData.islogged;
     }
     this.handleResize();
-  }
-
-  renderTopHeader(): HTMLDivElement | undefined {
-    if (!this.ismyz) return;
-
-    return (
-      <div class="top-header">
-        <div class="editors">
-          <slot name="editors" />
-        </div>
-      </div>
-    );
   }
 
   renderLogoDiv(): HTMLDivElement {
@@ -284,13 +274,17 @@ export class ZHeader {
   }
 
   renderLoginButton() {
+    if (this.hideloginbutton) {
+      return;
+    }
+
     return (
       <z-button
         htmlid="login-button"
         variant={
           this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary
         }
-        icon="enter"
+        icon="login"
         issmall={true}
       >
         entra
@@ -309,7 +303,7 @@ export class ZHeader {
             role="button"
           >
             <span>
-              <z-icon name="user" height={16} width={16} />
+              <z-icon name="user-avatar" height={16} width={16} />
               {userData.name}
             </span>
             <i></i>
@@ -339,7 +333,6 @@ export class ZHeader {
   renderDesktopHeader(): HTMLHeadingElement {
     return (
       <header class={!this.ismyz ? "myz-out" : ""}>
-        {this.renderTopHeader()}
         {this.renderMainHeader()}
         {this.renderSubMenu(this.activeMenuItem)}
       </header>

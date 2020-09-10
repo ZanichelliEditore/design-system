@@ -130,7 +130,4 @@ describe("Suite test ZInput - select", () => {
       </z-input>
     `);
   });
-
-
-
 });

@@ -277,7 +277,7 @@ export class ZInput {
     return (
       <z-icon
         class="resetIcon"
-        name="close"
+        name="multiply"
         onClick={(e: any) => this.emitInputChange("", e.keyCode)}
       />
     );
@@ -371,7 +371,7 @@ export class ZInput {
           class={`checkboxLabel ${this.labelafter ? "after" : "before"}`}
         >
           <z-icon
-            name={this.checked ? "checkbox-selected" : "checkbox-unchecked"}
+            name={this.checked ? "checkbox-checked" : "checkbox"}
             aria-hidden={true}
           />
           {this.label && <span innerHTML={this.label} />}

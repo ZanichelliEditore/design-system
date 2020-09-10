@@ -1,5 +1,4 @@
-:root,
-:host {
+:root {
   --grid-mobile-viewport: 768px;
   --grid-mobile-column: 4;
   --grid-mobile-margin: 16px;
@@ -10,8 +9,13 @@
   --grid-tablet-margin: 24px;
   --grid-tablet-gutter: 24px;
 
-  --grid-desktop-viewport: 1024px;
+  --grid-desktop-viewport: 1152px;
   --grid-desktop-column: 12;
   --grid-desktop-margin: 24px;
   --grid-desktop-gutter: 24px;
+
+  --grid-wide-viewport: 1366px;
+  --grid-wide-column: 12;
+  --grid-wide-margin: 32px;
+  --grid-wide-gutter: 32px;
 }

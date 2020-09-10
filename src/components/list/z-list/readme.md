@@ -2,7 +2,7 @@
 
 <!-- readme-group="list" -->
 ```html
-<z-list inputrawdata='[{"text":"elemento lista","link":"http://www.google.it","listitemid":"id1","icon":"checkbox-selected"},{"text":"elemento lista","link":"http://www.google.it","listitemid":"id2","icon":"checkbox-unchecked"},{"text":""}]'></z-list>
+<z-list inputrawdata='[{"text":"elemento lista","link":"http://www.google.it","listitemid":"id1","icon":"checkbox-checked"},{"text":"elemento lista","link":"http://www.google.it","listitemid":"id2","icon":"checkbox"},{"text":""}]'></z-list>
 ```
 
 

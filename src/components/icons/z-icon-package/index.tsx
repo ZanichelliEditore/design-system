@@ -1,5 +1,5 @@
 import { Component, h } from '@stencil/core';
-import { icons } from '../z-icon/icons';
+import { icons } from '../icons';
 
 @Component({
   tag: 'z-icon-package',

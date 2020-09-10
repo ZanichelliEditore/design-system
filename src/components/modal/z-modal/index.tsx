@@ -45,7 +45,7 @@ export class ZModal {
               {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
             </div>
             <z-icon
-              name="circle-cross-fill"
+              name="multiply-circle-filled"
               width={24}
               height={24}
               onClick={() => this.emitModalClose()}
