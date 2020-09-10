@@ -6,8 +6,7 @@
   height: 44px;
   width: 100%;
   margin: 0;
-  padding-left: var(--half-x3);
-  padding-right: 32px;
+  padding: 0 var(--half-x9) 0 var(--half-x3);
   box-sizing: border-box;
 }
 

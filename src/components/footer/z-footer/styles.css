@@ -5,6 +5,7 @@
 footer {
   width: auto;
   height: auto;
+  box-sizing: border-box;
   font-family: var(--dashboard-font);
   font-size: 13px;
   padding: var(--basex1) 0 var(--basex1) 0;
@@ -12,15 +13,18 @@ footer {
   color: var(--text-grey-050);
 }
 
+footer * {
+  box-sizing: border-box;
+}
+
 footer > section {
   display: grid;
-  width: auto;
-  height: auto;
 }
 
 footer > section.top > nav {
   display: flex;
   flex-direction: column;
+  justify-items: flex-start;
   overflow: hidden;
   margin: var(--half-x1) 0 var(--half-x1) 0;
   padding: 0;
@@ -28,6 +32,7 @@ footer > section.top > nav {
 }
 
 footer > section.top > nav > .header {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -51,10 +56,20 @@ footer > section.top > nav > .header {
   fill: var(--text-white);
 }
 
-footer > section.top > nav > .header > z-icon {
+footer > section.top > nav > .header > button {
   position: absolute;
-  right: 36px;
-  margin-top: var(--basex1);
+  top: var(--basex1);
+  right: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+footer > section.top > nav > .header > z-icon {
+  display: block;
 }
 
 footer > section.top > nav > .content {
@@ -117,9 +132,9 @@ footer > section.bottom {
 }
 
 footer > section.bottom > div.item {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   grid-column: span 1;
   height: auto;
   width: auto;
@@ -157,13 +172,16 @@ footer > section.bottom > div.bottom-links {
 }
 
 footer > section.bottom > div.item > p {
-  width: 50%;
+  margin: var(--basex1) 0;
   padding: var(--basex1) 0;
-  margin: 0;
 }
 
-footer > section.bottom > div.item:nth-child(1) > p {
-  width: 253px;
+footer > section.bottom > div.item > p:first-child {
+  margin-top: 0;
+}
+
+footer > section.bottom > div.item > p:last-child {
+  margin-bottom: 0;
 }
 
 footer > section.bottom > div.logo > p > span {
@@ -182,11 +200,10 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top > nav {
-    height: fit-content;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: repeat(4, 1fr);;
     grid-template-rows: 1fr;
-    grid-column-gap: 18px;
+    grid-column-gap: var(--grid-tablet-margin);
     padding: var(--basex2) 0 var(--basex1) 0;
     border-bottom: 1px solid var(--bg-white);
     margin: 0;
@@ -207,16 +224,17 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top > nav > .content {
+    grid-column: span 3;
+    width: 100%;
     padding: 0;
     margin: 0;
   }
 
   footer > section.top > nav > .content > ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: var(--grid-tablet-margin);
     height: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
     align-items: stretch;
     align-content: stretch;
     border-bottom: none;
@@ -224,8 +242,7 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top > nav > .content > ul > li {
-    width: 223px;
-    margin: 0 var(--basex1) 0 0;
+    margin: 0;
     padding: var(--half-x1) 0px;
     border: none;
   }
@@ -237,9 +254,10 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom {
-    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: var(--grid-tablet-margin);
     background-color: var(--bg-grey-900);
-    padding: 0 var(--basex2);
+    padding: 0 var(--basex4);
   }
 
   footer > section.bottom > div.item {
@@ -253,11 +271,9 @@ footer > section.bottom > div.logo > p > span {
   footer > section.bottom > div.item:nth-child(2) {
     order: 2;
     border-bottom: none;
-    margin: 0px var(--basex2) 0px var(--basex2);
   }
 
   footer > section.bottom > div.item > p {
-    width: 80%;
     padding-top: 0;
   }
 
@@ -268,20 +284,22 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom > div.logo > z-logo {
+    width: auto;
     height: 39px;
-    width: 220px;
   }
 
   footer > section.bottom > div.bottom-links {
     display: block;
+    grid-column: span 2;
     order: 3;
   }
 
   footer > section.bottom > div.bottom-links > ul {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: var(--grid-tablet-margin);
     height: 54px;
-    margin: 0 var(--half-x1);
+    margin: 0;
     padding: 0;
     font-size: 12px;
   }
@@ -297,13 +315,12 @@ footer > section.bottom > div.logo > p > span {
 }
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 1152px) {
   footer > section.top {
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 7fr 1fr;
-    grid-column-gap: 18px;
+    grid-column-gap: var(--grid-desktop-margin);
+    width: 100%;
     padding: var(--basex3) var(--basex4);
-    height: 100%;
   }
 
   footer > section.top > nav {
@@ -325,20 +342,33 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top > nav > .header {
-    border-bottom: 1px solid var(--bg-grey-050);
-    width: 120px;
+    position: relative;
+    display: inline-flex;
   }
 
-  footer > section.top > nav > .header > h2 {
+  footer > section.top > nav > .header::after {
+    content: '';
+    display: block;
     position: absolute;
+    top: 100%;
+    left: 0;
+    width: 120px;
+    border-bottom: 1px solid var(--bg-grey-050);
+  }
+
+  footer > section.top > nav > .content {
+    grid-column: auto;
+  }
+
+  footer > section.top > nav > .content > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
   footer > section.bottom {
     padding: var(--basex2) var(--basex4);
-  }
-
-  footer > section.bottom > div.item:nth-child(1) > p:nth-of-type(1) {
-    margin-top: var(--basex2);
   }
 
   footer > section.bottom > div.item:nth-child(1) > p:nth-of-type(2) {
@@ -347,7 +377,7 @@ footer > section.bottom > div.logo > p > span {
 
   footer > section.bottom > div.item > p {
     padding-bottom: 0;
-    margin-bottom: var(--basex1);
+    margin-bottom: var(--basex2);
   }
 
   footer > section.bottom > div.item > ul.social {
@@ -364,12 +394,12 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom > div.bottom-links {
-    padding: var(--basex2) 0 0 var(--basex2);
+    padding: var(--basex2) 0 0 0;
   }
 
   footer > section.bottom > div.bottom-links > ul {
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 18px;
+    grid-column-gap: var(--grid-desktop-margin);
     margin: 0;
   }
 
