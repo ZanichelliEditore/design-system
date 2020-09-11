@@ -416,6 +416,7 @@
   position: absolute;
   z-index: 10;
   max-height: 300px;
+  max-width: 100%;
 }
 
 :host > div.selectWrapper > div > ul.closed {
@@ -425,7 +426,6 @@
 :host > div.selectWrapper > div > ul > li {
   padding: 0 var(--half-x3);
   text-align: left;
-  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -439,7 +439,6 @@
 :host > div.selectWrapper > div > ul > li.selected > span {
   width: calc(100% - 40px);
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
