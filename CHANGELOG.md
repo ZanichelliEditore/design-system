@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/ZanichelliEditore/design-system/compare/v1.1.1...v1.2.0) (2020-09-11)
+
+
+### Features
+
+* add complete iconset ([aa31225](https://github.com/ZanichelliEditore/design-system/commit/aa3122551b329804a0f0fea1d7dbebf7f6131ab3))
+
+
+### Bug Fixes
+
+* add more padding so text does not overlap X button on zinput text ([6e56542](https://github.com/ZanichelliEditore/design-system/commit/6e565427d5b97abd35dc52bf978a410d1c7cfd05))
+* add support icon ([e66deea](https://github.com/ZanichelliEditore/design-system/commit/e66deea064db01a86a76106055ac7efae0c8465c))
+* change convert_svg_icons script ([aeaf47f](https://github.com/ZanichelliEditore/design-system/commit/aeaf47f16e801a5472c3e0e296204774b9babec7))
+* typo ([b5ddfe0](https://github.com/ZanichelliEditore/design-system/commit/b5ddfe059d59663dec627269ed48e339966ec8e3))
+* use new icon name and fix css rules for z-icon ([0b6aed8](https://github.com/ZanichelliEditore/design-system/commit/0b6aed851bc66d21ee45f072e70c3ec0778b9b27))
+
+### [1.1.1](https://github.com/ZanichelliEditore/design-system/compare/v1.1.0...v1.1.1) (2020-09-02)
+
 ## [1.1.0](https://github.com/ZanichelliEditore/design-system/compare/v1.0.6...v1.1.0) (2020-08-11)
 
 

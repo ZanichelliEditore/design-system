@@ -35,7 +35,7 @@ describe("Suite test ZInput - text", () => {
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
               <input class="false input_default filled" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
-              <z-icon name="close"></z-icon>
+              <z-icon name="multiply"></z-icon>
             </div>
           </div>
         </mock:shadow-root>
@@ -93,7 +93,7 @@ describe("Suite test ZInput - text", () => {
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
               <input class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
-              <z-icon name="close"></z-icon>
+              <z-icon name="multiply"></z-icon>
             </div>
             <z-input-message message="helper message"></z-input-message>
           </div>
@@ -114,7 +114,7 @@ describe("Suite test ZInput - text", () => {
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
               <input class="false filled input_success" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
-              <z-icon name="close"></z-icon>
+              <z-icon name="multiply"></z-icon>
             </div>
             <z-input-message message="success message" status="success"></z-input-message>
           </div>

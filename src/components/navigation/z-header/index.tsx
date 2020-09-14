@@ -102,18 +102,6 @@ export class ZHeader {
     this.handleResize();
   }
 
-  renderTopHeader(): HTMLDivElement | undefined {
-    if (!this.ismyz) return;
-
-    return (
-      <div class="top-header">
-        <div class="editors">
-          <slot name="editors" />
-        </div>
-      </div>
-    );
-  }
-
   renderLogoDiv(): HTMLDivElement {
     return (
       <div class="logo">
@@ -296,7 +284,7 @@ export class ZHeader {
         variant={
           this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary
         }
-        icon="enter"
+        icon="login"
         issmall={true}
       >
         entra
@@ -315,7 +303,7 @@ export class ZHeader {
             role="button"
           >
             <span>
-              <z-icon name="user" height={16} width={16} />
+              <z-icon name="user-avatar" height={16} width={16} />
               {userData.name}
             </span>
             <i></i>
@@ -345,7 +333,6 @@ export class ZHeader {
   renderDesktopHeader(): HTMLHeadingElement {
     return (
       <header class={!this.ismyz ? "myz-out" : ""}>
-        {this.renderTopHeader()}
         {this.renderMainHeader()}
         {this.renderSubMenu(this.activeMenuItem)}
       </header>

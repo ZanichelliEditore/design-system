@@ -16,7 +16,7 @@ describe("Suite test ZCombobox", () => {
           <div class="false" data-action="combo-undefined">
             <div class="header" role="button" tabindex="0">
               <h2><span></span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
           </div>
         </mock:shadow-root>
@@ -40,7 +40,7 @@ describe("Suite test ZCombobox", () => {
                 label
                 <span></span>
               </h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
           </div>
         </mock:shadow-root>
@@ -64,7 +64,7 @@ describe("Suite test ZCombobox", () => {
                 label
                 <span>(1)</span>
               </h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
           </div>
         </mock:shadow-root>
@@ -83,7 +83,7 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-undefined">
             <div class="header" role="button" tabindex="0">
               <h2><span></span></h2>
-              <z-icon name="drop-down" width="18" height="18"></z-icon>
+              <z-icon name="caret-down" width="18" height="18"></z-icon>
             </div>
             <div class="openComboData">
               <div tabindex="-1">
@@ -107,7 +107,7 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
               <div tabindex="-1">
@@ -138,7 +138,7 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text"></z-input>
@@ -172,7 +172,7 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input>
@@ -206,7 +206,7 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input>
@@ -240,13 +240,13 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="prova"></z-input>
               <div class="search" tabindex="-1">
                 <ul>
-                  <z-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='circle-cross-stroke'></z-list-item>
+                  <z-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='multiply-circle'></z-list-item>
                 </ul>
                 <div>
                   <a role="button" tabindex="0">CHIUDI</a>
@@ -270,7 +270,7 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
               <div class="checkAllWrapper">
@@ -304,7 +304,7 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(2)</span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
               <div class="checkAllWrapper">
@@ -338,7 +338,7 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
               <div tabindex="-1">
@@ -369,7 +369,7 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
               <div class="checkAllWrapper">
@@ -403,7 +403,7 @@ describe("Suite test ZCombobox", () => {
           <div class="open false" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
-              <z-icon name="drop-down" width="18" height="18" />
+              <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
               <div class="checkAllWrapper">

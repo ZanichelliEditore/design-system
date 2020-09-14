@@ -26,7 +26,7 @@ describe("Suite test ZHeader", () => {
             <div class="logo">
               <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank=""></z-logo>
             </div>
-            <z-button htmlid="login-button" variant="secondary" icon="enter" issmall="">entra</z-button>
+            <z-button htmlid="login-button" variant="secondary" icon="login" issmall="">entra</z-button>
           </div>
         </header>
       </mock:shadow-root>
@@ -56,7 +56,7 @@ describe("Suite test ZHeader", () => {
             link="https://www.zanichelli.it"
             targetblank=""></z-logo>
           </div>
-          <z-button htmlid="login-button" variant="tertiary" icon="enter" issmall="">entra</z-button>
+          <z-button htmlid="login-button" variant="tertiary" icon="login" issmall="">entra</z-button>
         </div>
       </header>
     </mock:shadow-root>
@@ -98,7 +98,7 @@ describe("Suite test ZHeader", () => {
             <span>
               <a class="menu-item" id="user-data" role="button">
                 <span>
-                  <z-icon height="16" name="user" width="16"></z-icon>
+                  <z-icon height="16" name="user-avatar" width="16"></z-icon>
                   Dario Docente e Professore
                 </span>
                 <i></i>
@@ -159,7 +159,7 @@ describe("Suite test ZHeader", () => {
               <span>
                 <a class="menu-item" id="user-data" role="button">
                   <span>
-                    <z-icon height="16" name="user" width="16"></z-icon>
+                    <z-icon height="16" name="user-avatar" width="16"></z-icon>
                     Dario Docente e Professore
                   </span>
                   <i></i>
@@ -257,18 +257,13 @@ describe("Suite test ZHeader", () => {
       <z-header activeintlinkid="" extlinkdata='[]' hideloginbutton="false"  imagealt="logo zanichelli" intlinkdata='[]' ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
         <header>
-          <div class="top-header">
-            <div class="editors">
-              <slot name="editors"></slot>
-            </div>
-          </div>
           <div class="main-header" id="main-header">
             <div class="logo">
               <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank></z-logo>
             </div>
             <div></div>
             <div class="login">
-              <z-button htmlid="login-button" variant="secondary" icon="enter" issmall="">entra</z-button>
+              <z-button htmlid="login-button" variant="secondary" icon="login" issmall="">entra</z-button>
             </div>
           </div>
         </header>
@@ -296,11 +291,6 @@ describe("Suite test ZHeader", () => {
     >
       <mock:shadow-root>
         <header>
-          <div class="top-header">
-            <div class="editors">
-              <slot name="editors" />
-            </div>
-          </div>
           <div id="main-header" class="main-header">
             <div class="logo">
               <z-logo
@@ -370,11 +360,6 @@ describe("Suite test ZHeader", () => {
     >
       <mock:shadow-root>
         <header>
-          <div class="top-header">
-            <div class="editors">
-              <slot name="editors" />
-            </div>
-          </div>
           <div id="main-header" class="main-header">
             <div class="logo">
               <z-logo
@@ -387,7 +372,7 @@ describe("Suite test ZHeader", () => {
             </div>
             <div></div>
             <div class="login">
-              <z-button htmlid="login-button" icon="enter" issmall="" variant="secondary">
+              <z-button htmlid="login-button" icon="login" issmall="" variant="secondary">
                 entra
               </z-button>
             </div>
@@ -470,11 +455,6 @@ describe("Suite test ZHeader", () => {
     >
       <mock:shadow-root>
         <header>
-          <div class="top-header">
-            <div class="editors">
-              <slot name="editors" />
-            </div>
-          </div>
           <div id="main-header" class="main-header">
             <div class="logo">
               <z-logo
@@ -537,11 +517,6 @@ describe("Suite test ZHeader", () => {
       >
       <mock:shadow-root>
         <header>
-          <div class="top-header">
-            <div class="editors">
-              <slot name="editors"></slot>
-            </div>
-          </div>
           <div class="main-header" id="main-header">
             <div class="logo">
               <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank></z-logo>

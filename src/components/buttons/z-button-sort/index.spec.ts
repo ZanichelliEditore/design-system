@@ -14,7 +14,7 @@ describe("Suite test ZButtonSort", () => {
           <button>
             <label></label>
             <span>A-Z</span>
-            <z-icon name="drop-up-down" width="16" height="16" />
+            <z-icon name="caret-up-down" width="16" height="16" />
           </button>
         </mock:shadow-root>
       </z-button-sort>
@@ -32,7 +32,7 @@ describe("Suite test ZButtonSort", () => {
           <button>
             <label>label (5)</label>
             <span>A-Z</span>
-            <z-icon name="drop-up-down" width="16" height="16" />
+            <z-icon name="caret-up-down" width="16" height="16" />
           </button>
         </mock:shadow-root>
       </z-button-sort>
@@ -52,7 +52,7 @@ describe("Suite test ZButtonSort", () => {
           <button class="selected">
             <label></label>
             <span>A-Z</span>
-            <z-icon name="drop-up-down" width="16" height="16" />
+            <z-icon name="caret-up-down" width="16" height="16" />
           </button>
         </mock:shadow-root>
       </z-button-sort>
@@ -73,7 +73,7 @@ describe("Suite test ZButtonSort", () => {
           <button class="selected">
             <label></label>
             <span>Z-A</span>
-            <z-icon name="drop-up-down" width="16" height="16" />
+            <z-icon name="caret-up-down" width="16" height="16" />
           </button>
         </mock:shadow-root>
       </z-button-sort>
