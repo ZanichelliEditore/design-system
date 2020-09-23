@@ -38,6 +38,7 @@
 
 ### Used by
 
+ - [z-cookiebar](../../notification/z-cookiebar)
  - [z-header](../z-header)
  - [z-menu-dropdown](../z-menu-dropdown)
  - [z-panel-elem](../../panel/z-panel-elem)
@@ -50,6 +51,7 @@
 ```mermaid
 graph TD;
   z-link --> z-icon
+  z-cookiebar --> z-link
   z-header --> z-link
   z-menu-dropdown --> z-link
   z-panel-elem --> z-link
