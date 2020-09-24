@@ -93,11 +93,6 @@ export type ComboItemBean = {
 
 export type ButtonVariantBean = ButtonVariantEnum;
 
-export enum Theme {
-  dark = "dark",
-  light = "light"
-}
-
 export enum ButtonVariantEnum {
   primary = "primary",
   secondary = "secondary",

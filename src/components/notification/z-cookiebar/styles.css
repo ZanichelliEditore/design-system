@@ -9,7 +9,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgb(51, 51, 51, 0.7);
   border-radius: 0px;
   width: 100%;
   height: 100%;
@@ -21,10 +21,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-:host > div.light {
-  background: rgb(51, 51, 51, 0.7);
 }
 
 :host > div.hidden {
@@ -40,13 +36,10 @@
   margin-left: 8vw;
   margin-right: 8vw;
   height: auto;
-  background: rgb(103, 107, 111);
+  background: rgb(225, 240, 255);
+  border-radius: 4px;
   z-index: 99999;
   box-shadow: 0px -2px 4px 0px rgba(66, 69, 72, 0.4);
-}
-
-.wrapper.light {
-  background: rgb(246, 246, 246);
 }
 
 .content {
@@ -56,7 +49,7 @@
 	justify-content: space-between;
 	align-items: stretch;
   align-content: space-between;
-  color: rgb(255, 255, 255);
+  color: rgb(66, 69, 72);
   border-radius: 4px;
   font-size: 16px;
   letter-spacing: 0px;
@@ -64,41 +57,43 @@
   padding: 24px 16px;
 }
 
-.content.light {
-  background: rgb(246, 246, 246);
-}
-
 .content > div > h2 {
   height: 28px;
   margin: 0;
   padding: 0;
-  color: rgb(255, 255, 255);
+  color: rgb(75, 78, 82);
   border-radius: 0px;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0px;
   line-height: 22px;
-  border-bottom: 2px solid rgb(255, 255, 255);
-}
-
-.content > div > h2.light {
-  color: rgb(66, 69, 72);
-  border-bottom: 2px solid rgb(66, 69, 72);;
+  border-bottom: 2px solid rgb(75, 78, 82);
 }
 
 .content > div > div {
-  padding: 16px 0;
+  padding: 24px 0;
   font-size: 14px;
   letter-spacing: 0.16px;
   line-height: 20px;
 }
 
-.content > div > div.content.light {
-  color: rgb(75, 78, 82);
-}
-
 .content > div > div > p {
   margin: 0;
+}
+
+.content > div > div > p > a {
+  cursor: pointer;
+  font-weight: 600;
+  color: rgb(66, 69, 72);
+  text-decoration: underline;
+  height: 14px;
+  display: inline-flex;
+}
+
+.content > div > div > p > a:visited {
+  color: rgb(66, 69, 72);
+  cursor: pointer;
+  z-index: 99999;
 }
 
 .content > z-button {
@@ -127,8 +122,7 @@
     left: 0;
     right: 0;
     height: auto;
-    background: rgb(103, 107, 111);
-    border-radius: 4px 4px 0px 0px;
+    border-radius: 0px;
     z-index: 99999;
   }
 
@@ -152,6 +146,7 @@
 
   .content > div > div {
     padding-bottom: 0;
+    padding-top: 16px;
   }
 
   .content > z-button {
