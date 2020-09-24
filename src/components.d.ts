@@ -283,7 +283,7 @@ export namespace Components {
          */
         "hide"?: boolean;
         /**
-          * prevent default cookie set action on 'OK' button click (optional)
+          * prevent default cookie set action on 'OK' button click (optional). default false
          */
         "preventcookieset"?: boolean;
     }
@@ -1262,7 +1262,7 @@ declare namespace LocalJSX {
          */
         "hide"?: boolean;
         /**
-          * prevent default cookie set action on 'OK' button click (optional)
+          * prevent default cookie set action on 'OK' button click (optional). default false
          */
         "preventcookieset"?: boolean;
     }

@@ -36,8 +36,8 @@
   margin-left: 8vw;
   margin-right: 8vw;
   height: auto;
-  background: rgb(225, 240, 255);
-  border-radius: 4px;
+  background: var(--myz-blue-lighter);
+  border-radius: var(--half-x1);
   z-index: 99999;
   box-shadow: 0px -2px 4px 0px rgba(66, 69, 72, 0.4);
 }
@@ -49,29 +49,29 @@
 	justify-content: space-between;
 	align-items: stretch;
   align-content: space-between;
-  color: rgb(66, 69, 72);
-  border-radius: 4px;
+  color: var(--text-grey-800);
+  border-radius: var(--half-x1);
   font-size: 16px;
   letter-spacing: 0px;
   line-height: 24px;
-  padding: 24px 16px;
+  padding: var(--basex3) var(--basex2);
 }
 
 .content > div > h2 {
-  height: 28px;
+  height: var(--half-x7);
   margin: 0;
   padding: 0;
   color: rgb(75, 78, 82);
   border-radius: 0px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: var(--font-sb);
   letter-spacing: 0px;
   line-height: 22px;
-  border-bottom: 2px solid rgb(75, 78, 82);
+  border-bottom: var(--border-base) solid rgb(75, 78, 82);
 }
 
 .content > div > div {
-  padding: 24px 0;
+  padding: var(--basex3) 0;
   font-size: 14px;
   letter-spacing: 0.16px;
   line-height: 20px;
@@ -83,15 +83,15 @@
 
 .content > div > div > p > a {
   cursor: pointer;
-  font-weight: 600;
-  color: rgb(66, 69, 72);
+  font-weight: var(--font-sb);
+  color: var(--text-grey-800);
   text-decoration: underline;
   height: 14px;
   display: inline-flex;
 }
 
 .content > div > div > p > a:visited {
-  color: rgb(66, 69, 72);
+  color: var(--text-grey-800);
   cursor: pointer;
   z-index: 99999;
 }
@@ -118,7 +118,7 @@
     top: auto;
     bottom: 0;
     margin: 0 auto;
-    padding: 24px;
+    padding: var(--basex3);
     left: 0;
     right: 0;
     height: auto;
@@ -141,12 +141,12 @@
   }
 
   .content > div > h2 {
-    height: 28px;
+    height: var(--half-x7);
   }
 
   .content > div > div {
     padding-bottom: 0;
-    padding-top: 16px;
+    padding-top: var(--basex2);
   }
 
   .content > z-button {
@@ -162,7 +162,7 @@
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {
   .wrapper {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: var(--basex4);
+    padding-right: var(--basex4);
   }
 }

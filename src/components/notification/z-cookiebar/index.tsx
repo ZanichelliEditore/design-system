@@ -11,7 +11,7 @@ export class ZCookiebar {
   @Prop() bartitle: string;
   /** cookie policy link url  */
   @Prop() cookiepolicyurl: string;
-  /** prevent default cookie set action on 'OK' button click (optional) */
+  /** prevent default cookie set action on 'OK' button click (optional). default false */
   @Prop() preventcookieset?: boolean;
   /** hide cookie bar (optional) */
   @Prop({ mutable: true }) hide?: boolean;
