@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
+import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, Theme } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 export namespace Components {
@@ -282,6 +282,10 @@ export namespace Components {
           * prevent default cookie set action on 'OK' button click (optional)
          */
         "preventcookieset"?: boolean;
+        /**
+          * theme variant (dark | light). default: dark
+         */
+        "theme": Theme;
     }
     interface ZFooter {
         /**
@@ -1257,6 +1261,10 @@ declare namespace LocalJSX {
           * prevent default cookie set action on 'OK' button click (optional)
          */
         "preventcookieset"?: boolean;
+        /**
+          * theme variant (dark | light). default: dark
+         */
+        "theme"?: Theme;
     }
     interface ZFooter {
         /**

@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property           | Attribute          | Description                                                       | Type      | Default     |
-| ------------------ | ------------------ | ----------------------------------------------------------------- | --------- | ----------- |
-| `cookiepolicyurl`  | `cookiepolicyurl`  | cookie policy link url                                            | `string`  | `undefined` |
-| `hide`             | `hide`             | hide cookie bar (optional)                                        | `boolean` | `undefined` |
-| `preventcookieset` | `preventcookieset` | prevent default cookie set action on 'OK' button click (optional) | `boolean` | `undefined` |
+| Property           | Attribute          | Description                                                       | Type                        | Default      |
+| ------------------ | ------------------ | ----------------------------------------------------------------- | --------------------------- | ------------ |
+| `cookiepolicyurl`  | `cookiepolicyurl`  | cookie policy link url                                            | `string`                    | `undefined`  |
+| `hide`             | `hide`             | hide cookie bar (optional)                                        | `boolean`                   | `undefined`  |
+| `preventcookieset` | `preventcookieset` | prevent default cookie set action on 'OK' button click (optional) | `boolean`                   | `undefined`  |
+| `theme`            | `theme`            | theme variant (dark \| light). default: dark                      | `Theme.dark \| Theme.light` | `Theme.dark` |
 
 
 ## Dependencies

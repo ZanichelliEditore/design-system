@@ -23,6 +23,10 @@
   justify-content: center;
 }
 
+:host > div.light {
+  background: rgb(51, 51, 51, 0.7);
+}
+
 :host > div.hidden {
   display: none;
 }
@@ -37,9 +41,12 @@
   margin-right: 8vw;
   height: auto;
   background: rgb(103, 107, 111);
-  border-radius: 4px 4px 0px 0px;
   z-index: 99999;
   box-shadow: 0px -2px 4px 0px rgba(66, 69, 72, 0.4);
+}
+
+.wrapper.light {
+  background: rgb(246, 246, 246);
 }
 
 .content {
@@ -50,21 +57,33 @@
 	align-items: stretch;
   align-content: space-between;
   color: rgb(255, 255, 255);
+  border-radius: 4px;
   font-size: 16px;
   letter-spacing: 0px;
   line-height: 24px;
   padding: 24px 16px;
 }
 
+.content.light {
+  background: rgb(246, 246, 246);
+}
+
 .content > div > h2 {
-  height: 48px;
+  height: 28px;
   margin: 0;
+  padding: 0;
   color: rgb(255, 255, 255);
+  border-radius: 0px;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0px;
   line-height: 22px;
-  border-bottom: 2px solid rgb(255, 255, 255);;
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.content > div > h2.light {
+  color: rgb(66, 69, 72);
+  border-bottom: 2px solid rgb(66, 69, 72);;
 }
 
 .content > div > div {
@@ -72,6 +91,10 @@
   font-size: 14px;
   letter-spacing: 0.16px;
   line-height: 20px;
+}
+
+.content > div > div.content.light {
+  color: rgb(75, 78, 82);
 }
 
 .content > div > div > p {
@@ -118,6 +141,7 @@
     line-height: 24px;
     padding: 0;
   }
+
   .content > div {
     margin-right: 20%;
   }
