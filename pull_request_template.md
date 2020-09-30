@@ -28,6 +28,7 @@
 - [ ] Bugfix (non-breaking change which fixes an issue)
 - [ ] Feature (non-breaking change which adds functionality)
 - [ ] Component (add a Component as approved dy Design System)
+- [ ] Docs (add documentation)
 - [ ] Chore (changes that adds small enhancement)
 - [ ] Breaking (fix or feature that would cause existing functionality to not work as expected)
 
