@@ -1,21 +1,21 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZCookiebar } from "./index";
+import { ZBindingMessage } from "./index";
 
-describe("Suite test ZCookiebar", () => {
-  it("Test render ZCookiebar base", async () => {
+describe("Suite test ZBindingMessage", () => {
+  it("Test render ZBindingMessage base", async () => {
 
     const page = await newSpecPage({
-      components: [ZCookiebar],
-      html: `  <z-cookiebar
+      components: [ZBindingMessage],
+      html: `  <z-binding-message
                   bartitle="Su questo sito usiamo i cookie."
                   preventcookieset="true"
                   cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
-                  hide="false"></z-cookiebar>`
+                  hide="false"></z-binding-message>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-cookiebar
+    <z-binding-message
       bartitle="Su questo sito usiamo i cookie."
       preventcookieset="true"
       cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
@@ -37,22 +37,22 @@ describe("Suite test ZCookiebar", () => {
             </div>
           </div>
         </mock:shadow-root>
-      </z-cookiebar>
+      </z-binding-message>
     `)
   });
 
-  it("Test render ZCookiebar senza titolo", async () => {
+  it("Test render ZBindingMessage senza titolo", async () => {
 
     const page = await newSpecPage({
-      components: [ZCookiebar],
-      html: `  <z-cookiebar
+      components: [ZBindingMessage],
+      html: `  <z-binding-message
                   preventcookieset="true"
                   cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
-                  hide="false"></z-cookiebar>`
+                  hide="false"></z-binding-message>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-cookiebar
+    <z-binding-message
       preventcookieset="true"
       cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
       hide="false">
@@ -73,22 +73,22 @@ describe("Suite test ZCookiebar", () => {
             </div>
           </div>
         </mock:shadow-root>
-      </z-cookiebar>
+      </z-binding-message>
     `)
   });
 
-  it("Test render ZCookiebar nascosto", async () => {
+  it("Test render ZBindingMessage nascosto", async () => {
 
     const page = await newSpecPage({
-      components: [ZCookiebar],
-      html: `  <z-cookiebar
+      components: [ZBindingMessage],
+      html: `  <z-binding-message
                   preventcookieset="true"
                   cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
-                  hide="true"></z-cookiebar>`
+                  hide="true"></z-binding-message>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-cookiebar
+    <z-binding-message
       preventcookieset="true"
       cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
       hide="true">
@@ -109,7 +109,7 @@ describe("Suite test ZCookiebar", () => {
             </div>
           </div>
         </mock:shadow-root>
-      </z-cookiebar>
+      </z-binding-message>
     `)
   });
 });

@@ -11,11 +11,24 @@
 </head>
 
 <body style="background-color: #f9f9f9">
-  <z-cookiebar
-    bartitle="Su questo sito usiamo i cookie."
-    preventcookieset="true"
-    cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
-    hide="false"></z-cookiebar>
+  <div style="background: lightblue; min-height: 120px;margin-bottom:16px">
+    <z-binding-message messagetitle="Su questo sito usiamo i cookie."></z-binding-message>
+  </div>
+  <div style="background: lightblue; min-height: 120px;margin-bottom:16px">
+    <z-binding-message messagetitle="Su questo sito usiamo i cookie.">
+      <p slot="description">Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla privacy relativa ai &nbsp;
+        <a href="https://my.zanichelli.it/privacy#Cookie" target="_blank">cookie</a>.
+      </p>
+    </z-binding-message>
+  </div>
+  <div style="background: lightblue; min-height: 120px;margin-bottom:16px">
+    <z-binding-message messagetitle="Su questo sito usiamo i cookie.">
+      <p slot="description">Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla privacy relativa ai &nbsp;
+        <a href="https://my.zanichelli.it/privacy#Cookie" target="_blank">cookie</a>.
+      </p>
+      <z-button style="width: auto" slot="cta" variant="primary">OK</z-button>
+    </z-binding-message>
+  </div>
   <!-- <z-modal modaltitle="titolotitolo" modalsubtitle="sottotitolo">
     <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
   </z-modal> -->

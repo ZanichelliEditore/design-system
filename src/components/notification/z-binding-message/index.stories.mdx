@@ -1,0 +1,35 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
+
+<Meta title="Notification/ZBindingMessage" component="z-binding-message" />
+
+  # ZBindingMessage
+
+<Preview>
+  <Story name="z-binding-message-emty">
+    {html`
+    <z-binding-message
+      messagetitle="${text('messagetitle', 'Titolo Messaggio')}"
+      ></z-binding-message>
+    `}
+  </Story>
+  <Story name="z-binding-message-with-description">
+    {html`
+    <z-binding-message
+      messagetitle="${text('messagetitle', 'Titolo Messaggio')}"
+      ></z-binding-message>
+    `}
+  </Story>
+      <Story name="z-binding-message-with-description-and-cta">
+    {html`
+    <z-binding-message
+      messagetitle="${text('messagetitle', 'Titolo Messaggio')}"
+      ></z-binding-message>
+    `}
+  </Story>
+</Preview>
+
+<Props of="z-binding-message" />
+
+

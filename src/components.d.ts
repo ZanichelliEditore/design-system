@@ -9,6 +9,12 @@ import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, Inpu
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 export namespace Components {
+    interface ZBindingMessage {
+        /**
+          * message title
+         */
+        "messagetitle": string;
+    }
     interface ZButton {
         /**
           * disable button
@@ -268,24 +274,6 @@ export namespace Components {
           * uncheck all label (optional)
          */
         "uncheckalltext"?: string;
-    }
-    interface ZCookiebar {
-        /**
-          * title cookiebar text
-         */
-        "bartitle": string;
-        /**
-          * cookie policy link url
-         */
-        "cookiepolicyurl": string;
-        /**
-          * hide cookie bar (optional)
-         */
-        "hide"?: boolean;
-        /**
-          * prevent default cookie set action on 'OK' button click (optional). default false
-         */
-        "preventcookieset"?: boolean;
     }
     interface ZFooter {
         /**
@@ -723,6 +711,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLZBindingMessageElement extends Components.ZBindingMessage, HTMLStencilElement {
+    }
+    var HTMLZBindingMessageElement: {
+        prototype: HTMLZBindingMessageElement;
+        new (): HTMLZBindingMessageElement;
+    };
     interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {
     }
     var HTMLZButtonElement: {
@@ -800,12 +794,6 @@ declare global {
     var HTMLZComboboxElement: {
         prototype: HTMLZComboboxElement;
         new (): HTMLZComboboxElement;
-    };
-    interface HTMLZCookiebarElement extends Components.ZCookiebar, HTMLStencilElement {
-    }
-    var HTMLZCookiebarElement: {
-        prototype: HTMLZCookiebarElement;
-        new (): HTMLZCookiebarElement;
     };
     interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {
     }
@@ -934,6 +922,7 @@ declare global {
         new (): HTMLZTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "z-binding-message": HTMLZBindingMessageElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
@@ -947,7 +936,6 @@ declare global {
         "z-card-list": HTMLZCardListElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
-        "z-cookiebar": HTMLZCookiebarElement;
         "z-footer": HTMLZFooterElement;
         "z-header": HTMLZHeaderElement;
         "z-icon": HTMLZIconElement;
@@ -972,6 +960,12 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ZBindingMessage {
+        /**
+          * message title
+         */
+        "messagetitle"?: string;
+    }
     interface ZButton {
         /**
           * disable button
@@ -1247,24 +1241,6 @@ declare namespace LocalJSX {
           * uncheck all label (optional)
          */
         "uncheckalltext"?: string;
-    }
-    interface ZCookiebar {
-        /**
-          * title cookiebar text
-         */
-        "bartitle"?: string;
-        /**
-          * cookie policy link url
-         */
-        "cookiepolicyurl"?: string;
-        /**
-          * hide cookie bar (optional)
-         */
-        "hide"?: boolean;
-        /**
-          * prevent default cookie set action on 'OK' button click (optional). default false
-         */
-        "preventcookieset"?: boolean;
     }
     interface ZFooter {
         /**
@@ -1749,6 +1725,7 @@ declare namespace LocalJSX {
         "type"?: TooltipPosition;
     }
     interface IntrinsicElements {
+        "z-binding-message": ZBindingMessage;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
@@ -1762,7 +1739,6 @@ declare namespace LocalJSX {
         "z-card-list": ZCardList;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
-        "z-cookiebar": ZCookiebar;
         "z-footer": ZFooter;
         "z-header": ZHeader;
         "z-icon": ZIcon;
@@ -1790,6 +1766,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "z-binding-message": LocalJSX.ZBindingMessage & JSXBase.HTMLAttributes<HTMLZBindingMessageElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
@@ -1803,7 +1780,6 @@ declare module "@stencil/core" {
             "z-card-list": LocalJSX.ZCardList & JSXBase.HTMLAttributes<HTMLZCardListElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
-            "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
