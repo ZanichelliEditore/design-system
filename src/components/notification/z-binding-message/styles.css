@@ -1,6 +1,7 @@
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+  width: 100%;
 }
 
 :host > div {
@@ -15,7 +16,7 @@
   font-size: 16px;
   letter-spacing: 0px;
   line-height: 24px;
-  padding: var(--basex3) var(--basex2);
+  /* padding: var(--basex3) var(--basex2); */
 }
 
 :host > div > div > h2 {
