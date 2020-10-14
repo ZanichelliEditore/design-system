@@ -9,32 +9,33 @@ ul {
   height: auto;
 }
 
-ul>li {
+ul > li {
   padding-left: 10px;
-  padding-bottom: var(--half-x1);
   text-indent: -10px;
 }
 
-ul>li>a {
+ul > li > a {
+  display: block;
   font-size: 14px;
   font-weight: var(--font-sb);
   text-decoration: none;
   color: var(--myz-blue);
   letter-spacing: 0.16px;
   line-height: var(--half-x5);
+  padding-top: var(--half-x1);
 }
 
-ul>li>a:before {
+ul > li > a:before {
   content: "•";
   padding-right: 5px;
 }
 
-ul>li>span {
+ul > li > span {
   font-size: 14px;
   font-weight: var(--font-rg);
   text-decoration: none;
   color: var(--text-grey-700);
-  padding: var(--basex1) var(--basex2);
+  padding: 0 var(--basex2);
   letter-spacing: 0.16px;
   line-height: var(--half-x5);
 }
