@@ -15,7 +15,7 @@
   bottom: 0;
   width: auto;
   height: auto;
-  min-height: 248px;
+  max-height: 250px;
   z-index: 1000;
   margin: 28vh 8vw;
   overflow: auto;

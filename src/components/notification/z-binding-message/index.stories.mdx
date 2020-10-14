@@ -9,23 +9,39 @@ import { text, boolean } from '@storybook/addon-knobs';
 <Preview>
   <Story name="z-binding-message-emty">
     {html`
-    <z-binding-message
-      messagetitle="${text('messagetitle', 'Titolo Messaggio')}"
-      ></z-binding-message>
+    <z-binding-message messagetitle="${text('messagetitle', 'Titolo Messaggio')}">
+    </z-binding-message>
     `}
   </Story>
   <Story name="z-binding-message-with-description">
     {html`
-    <z-binding-message
-      messagetitle="${text('messagetitle', 'Titolo Messaggio')}"
-      ></z-binding-message>
+    <z-binding-message messagetitle="${text('messagetitle', 'Titolo Messaggio')}">
+      <p slot="description">Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla privacy relativa ai &nbsp;
+        <a href="https://my.zanichelli.it/privacy#Cookie" target="_blank">cookie</a>.
+      </p>
+    </z-binding-message>
     `}
   </Story>
-      <Story name="z-binding-message-with-description-and-cta">
+  <Story name="z-binding-message-with-description-and-cta">
     {html`
-    <z-binding-message
-      messagetitle="${text('messagetitle', 'Titolo Messaggio')}"
-      ></z-binding-message>
+      <z-binding-message messagetitle="${text('messagetitle', 'Titolo Messaggio')}">
+      <p slot="description">Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla privacy relativa ai &nbsp;
+        <a href="https://my.zanichelli.it/privacy#Cookie" target="_blank">cookie</a>.
+      </p>
+      <z-button slot="cta" variant="primary">OK</z-button>
+      </z-binding-message>
+    `}
+  </Story>
+  <Story name="z-binding-message-into-z-candybar">
+    {html`
+      <z-candybar>
+        <z-binding-message messagetitle="Su questo sito usiamo i cookie." slot="content">
+          <p slot="description">Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla privacy relativa ai &nbsp;
+            <a href="https://my.zanichelli.it/privacy#Cookie" target="_blank">cookie</a>.
+          </p>
+          <z-button slot="cta" variant="primary">OK</z-button>
+        </z-binding-message>
+      </z-candybar>
     `}
   </Story>
 </Preview>
