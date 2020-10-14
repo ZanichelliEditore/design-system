@@ -1,0 +1,168 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host > div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(51, 51, 51, 0.7);
+  border-radius: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+:host > div.hidden {
+  display: none;
+}
+
+.wrapper {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-top: 28vh;
+  margin-bottom: 28vh;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  height: auto;
+  background: var(--myz-blue-lighter);
+  border-radius: var(--half-x1);
+  z-index: 99999;
+  box-shadow: 0px -2px 4px 0px rgba(66, 69, 72, 0.4);
+}
+
+.content {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+  align-content: space-between;
+  color: var(--text-grey-800);
+  border-radius: var(--half-x1);
+  font-size: 16px;
+  letter-spacing: 0px;
+  line-height: 24px;
+  padding: var(--basex3) var(--basex2);
+}
+
+.content > div > h2 {
+  height: var(--half-x7);
+  margin: 0;
+  padding: 0;
+  color: rgb(75, 78, 82);
+  border-radius: 0px;
+  font-size: 18px;
+  font-weight: var(--font-sb);
+  letter-spacing: 0px;
+  line-height: 22px;
+  border-bottom: var(--border-base) solid rgb(75, 78, 82);
+}
+
+.content > div > div {
+  padding: var(--basex3) 0;
+  font-size: 14px;
+  letter-spacing: 0.16px;
+  line-height: 20px;
+}
+
+.content > div > div > p {
+  margin: 0;
+}
+
+.content > div > div > p > a {
+  cursor: pointer;
+  font-weight: var(--font-sb);
+  color: var(--text-grey-800);
+  text-decoration: underline;
+  height: 14px;
+  display: inline-flex;
+}
+
+.content > div > div > p > a:visited {
+  color: var(--text-grey-800);
+  cursor: pointer;
+  z-index: 99999;
+}
+
+.content > z-button {
+  margin: 0;
+  width: 100%;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  :host > div {
+    position: initial;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    margin: 0 auto;
+    padding: var(--basex3);
+    left: 0;
+    right: 0;
+    height: auto;
+    border-radius: 0px;
+    z-index: 99999;
+  }
+
+  .content {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    font-size: 16px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    padding: 0;
+  }
+
+  .content > div {
+    margin-right: 20%;
+  }
+
+  .content > div > h2 {
+    height: var(--half-x7);
+  }
+
+  .content > div > div {
+    padding-bottom: 0;
+    padding-top: var(--basex2);
+  }
+
+  .content > z-button {
+    margin: 0;
+    width: initial;
+  }
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+  .wrapper {
+    padding-left: var(--basex4);
+    padding-right: var(--basex4);
+  }
+}
