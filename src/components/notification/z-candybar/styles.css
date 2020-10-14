@@ -18,7 +18,6 @@
   min-height: 248px;
   z-index: 1000;
   margin: 28vh 8vw;
-  padding: var(--basex2);
   overflow: auto;
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
@@ -41,7 +40,6 @@
     top: auto;
     bottom: 0;
     margin: 0 auto;
-    padding: var(--basex3);
     left: 0;
     right: 0;
     height: auto;
@@ -60,8 +58,4 @@
 
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {
-  :host > div {
-    padding-left: var(--basex4);
-    padding-right: var(--basex4);
-  }
 }
