@@ -1,5 +1,12 @@
 import { Component, Prop, h } from "@stencil/core";
 
+/**
+ * @slot description - set the description message
+ */
+
+/**
+ * @slot cta - use this slot for call to action elements
+ */
 @Component({
   tag: "z-binding-message",
   styleUrl: "styles.css",
