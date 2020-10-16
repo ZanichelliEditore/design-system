@@ -25,11 +25,9 @@ export class ZCardFooter {
   @State() isOpen: boolean = false;
 
   @State() allowTooltipAuthors: boolean = false;
-  @State() allowTooltipIsbn: boolean = false;
 
   private footer?: HTMLElement;
   private ellipsisAuthors?: HTMLElement;
-  private ellipsisIsbn?: HTMLElement;
 
   @Listen("toggleClick")
   handleToggle(): void {
@@ -38,10 +36,6 @@ export class ZCardFooter {
 
   getTitleAuthors(): string {
     return this.allowTooltipAuthors ? this.autori : "";
-  }
-
-  getTitleIsbn(): string {
-    return this.allowTooltipIsbn ? this.isbn : "";
   }
 
   componentDidLoad() {
@@ -53,15 +47,10 @@ export class ZCardFooter {
 
   elementsEllipsis(): void {
     this.allowTooltipAuthors = this.elementAuthorsHasEllipsis() ? true : false;
-    this.allowTooltipIsbn = this.elementIsbnHasEllipsis() ? true : false;
   }
 
   elementAuthorsHasEllipsis(): boolean {
     return this.ellipsisAuthors.offsetWidth < this.ellipsisAuthors.scrollWidth;
-  }
-
-  elementIsbnHasEllipsis(): boolean {
-    return this.ellipsisIsbn.offsetWidth < this.ellipsisIsbn.scrollWidth;
   }
 
   retrieveClass() {
@@ -93,11 +82,8 @@ export class ZCardFooter {
               </span>
             </p>
             <p class="year_isbn">
-              <span
-                class="isbn"
-                ref={el => (this.ellipsisIsbn = el as HTMLElement)}
-              >
-                <span title={this.getTitleIsbn()}>
+              <span class="isbn">
+                <span>
                   <b>{this.isbn}</b> (ed. cartacea)
                 </span>
               </span>
