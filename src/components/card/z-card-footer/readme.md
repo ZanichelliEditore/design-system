@@ -13,14 +13,13 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                     | Type                                                                       | Default     |
-| ------------- | ------------- | ------------------------------- | -------------------------------------------------------------------------- | ----------- |
-| `autori`      | `autori`      | authors name text               | `string`                                                                   | `undefined` |
-| `autorilabel` | `autorilabel` | authors label text              | `string`                                                                   | `"Autore"`  |
-| `cardtype`    | `cardtype`    | card graphic variant (optional) | `LicenseTypeEnum.real \| LicenseTypeEnum.trial \| LicenseTypeEnum.virtual` | `undefined` |
-| `faded`       | `faded`       | faded status                    | `boolean`                                                                  | `undefined` |
-| `isbn`        | `isbn`        | volume isbn                     | `string`                                                                   | `undefined` |
-| `titolo`      | `titolo`      | volume title                    | `string`                                                                   | `undefined` |
+| Property   | Attribute  | Description                     | Type                                                                       | Default     |
+| ---------- | ---------- | ------------------------------- | -------------------------------------------------------------------------- | ----------- |
+| `autori`   | `autori`   | authors name text               | `string`                                                                   | `undefined` |
+| `cardtype` | `cardtype` | card graphic variant (optional) | `LicenseTypeEnum.real \| LicenseTypeEnum.trial \| LicenseTypeEnum.virtual` | `undefined` |
+| `faded`    | `faded`    | faded status                    | `boolean`                                                                  | `undefined` |
+| `isbn`     | `isbn`     | volume isbn                     | `string`                                                                   | `undefined` |
+| `titolo`   | `titolo`   | volume title                    | `string`                                                                   | `undefined` |
 
 
 ## Slots
