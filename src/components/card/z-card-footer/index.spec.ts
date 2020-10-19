@@ -1,7 +1,5 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { shallow, mount, render } from "enzyme";
-
 import { ZCardFooter } from "./index";
 
 describe("Suite test ZCardFooter", () => {
@@ -24,17 +22,15 @@ describe("Suite test ZCardFooter", () => {
               </h2>
               <div>
                 <p class="authors">
-                  Autore:
                   <span><b>
                     Mario Rossi, Paolo Bianchi
                   </b></span>
                 </p>
                 <p class="year_isbn">
                   <span class=\"isbn\">
-                    ISBN (ed. cartacea):
                     <span><b>
                       123456
-                    </b></span>
+                    </b> (ed. cartacea)</span>
                   </span>
                 </p>
               </div>
@@ -67,15 +63,13 @@ describe("Suite test ZCardFooter", () => {
               </h2>
               <div>
                 <p class="authors">
-                  Autore:
                   <span><b>
                     Mario Rossi, Paolo Bianchi
                   </b></span>
                 </p>
                 <p class="year_isbn">
                   <span class=\"isbn\">
-                    ISBN (ed. cartacea):
-                    <span><b></b></span>
+                    <span><b></b> (ed. cartacea)</span>
                   </span>
                 </p>
               </div>
@@ -106,13 +100,11 @@ describe("Suite test ZCardFooter", () => {
               <h2></h2>
               <div>
                 <p class="authors">
-                  Autore:
                   <span><b></b></span>
                 </p>
                 <p class="year_isbn">
                   <span class=\"isbn\">
-                    ISBN (ed. cartacea):
-                    <span><b></b></span>
+                    <span><b></b> (ed. cartacea)</span>
                   </span>
                 </p>
               </div>
@@ -146,15 +138,13 @@ describe("Suite test ZCardFooter", () => {
               </h2>
               <div>
                 <p class="authors">
-                  Autore:
                   <span><b>
                     Mario Rossi, Paolo Bianchi
                   </b></span>
                 </p>
                 <p class="year_isbn">
                   <span class=\"isbn\">
-                    ISBN (ed. cartacea):
-                    <span><b></b></span>
+                    <span><b></b> (ed. cartacea)</span>
                   </span>
                 </p>
               </div>
