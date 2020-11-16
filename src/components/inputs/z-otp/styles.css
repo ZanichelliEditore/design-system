@@ -3,7 +3,7 @@
   font-weight: var(--font-rg);
 }
 
-.otp-container {
+.digits-container {
   display: flex;
   justify-content: flex-start;
 }
@@ -16,9 +16,16 @@ input {
   font-family: var(--dashboard-font);
   text-align: center;
   caret-color: transparent;
+  border-radius: 4px;
+  border: 1px solid;
   box-sizing: border-box;
   padding: 0;
   color: var(--bg-grey-800);
+}
+
+input.error {
+  border-color: var(--status-error-red);
+  background-color: var(--status-error-red-lighter);
 }
 
 input:not(:last-of-type) {

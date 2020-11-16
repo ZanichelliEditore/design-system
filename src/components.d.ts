@@ -619,6 +619,8 @@ export namespace Components {
     }
     interface ZOtp {
         "inputNum"?: number;
+        "message"?: string;
+        "status"?: InputStatusBean;
     }
     interface ZPaginationBar {
         /**
@@ -1792,7 +1794,9 @@ declare namespace LocalJSX {
     }
     interface ZOtp {
         "inputNum"?: number;
+        "message"?: string;
         "onOtpChange"?: (event: CustomEvent<any>) => void;
+        "status"?: InputStatusBean;
     }
     interface ZPaginationBar {
         /**
