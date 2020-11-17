@@ -7,9 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type     | Default |
-| ---------- | ----------- | ----------- | -------- | ------- |
-| `inputNum` | `input-num` |             | `number` | `6`     |
+| Property   | Attribute   | Description | Type                                                                                                       | Default     |
+| ---------- | ----------- | ----------- | ---------------------------------------------------------------------------------------------------------- | ----------- |
+| `inputNum` | `input-num` |             | `number`                                                                                                   | `6`         |
+| `message`  | `message`   |             | `string`                                                                                                   | `undefined` |
+| `status`   | `status`    |             | `InputStatusEnum.error \| InputStatusEnum.selecting \| InputStatusEnum.success \| InputStatusEnum.warning` | `undefined` |
 
 
 ## Events
@@ -18,6 +20,20 @@
 | ----------- | ----------- | ------------------ |
 | `otpChange` |             | `CustomEvent<any>` |
 
+
+## Dependencies
+
+### Depends on
+
+- [z-input-message](../z-input-message)
+
+### Graph
+```mermaid
+graph TD;
+  z-otp --> z-input-message
+  z-input-message --> z-icon
+  style z-otp fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
