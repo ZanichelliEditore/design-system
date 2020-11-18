@@ -13,11 +13,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  width: auto;
-  height: auto;
-  max-height: 250px;
+  max-width: 297px;
+  height: fit-content;
+  min-height: 232px;
   z-index: 1000;
-  margin: 28vh 8vw;
+  margin: auto;
   overflow: auto;
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
@@ -30,8 +30,6 @@
 @media only screen and (min-width: 768px) {
   :host > div {
     position: initial;
-    display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
@@ -44,8 +42,8 @@
     right: 0;
     height: auto;
     min-height: 138px;
+    max-width: 100%;
     border-radius: 0px;
-    z-index: 99999;
   }
 }
 
