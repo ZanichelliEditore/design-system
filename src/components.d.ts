@@ -91,6 +91,8 @@ export namespace Components {
          */
         "sortlabeldesc"?: string;
     }
+    interface ZCandybar {
+    }
     interface ZCard {
         /**
           * graphic variant (optional)
@@ -723,6 +725,12 @@ declare global {
         prototype: HTMLZButtonSortElement;
         new (): HTMLZButtonSortElement;
     };
+    interface HTMLZCandybarElement extends Components.ZCandybar, HTMLStencilElement {
+    }
+    var HTMLZCandybarElement: {
+        prototype: HTMLZCandybarElement;
+        new (): HTMLZCandybarElement;
+    };
     interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
     }
     var HTMLZCardElement: {
@@ -913,6 +921,7 @@ declare global {
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
+        "z-candybar": HTMLZCandybarElement;
         "z-card": HTMLZCardElement;
         "z-card-alert": HTMLZCardAlertElement;
         "z-card-body": HTMLZCardBodyElement;
@@ -1036,6 +1045,8 @@ declare namespace LocalJSX {
           * sort label content (descending) (optional)
          */
         "sortlabeldesc"?: string;
+    }
+    interface ZCandybar {
     }
     interface ZCard {
         /**
@@ -1709,6 +1720,7 @@ declare namespace LocalJSX {
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
+        "z-candybar": ZCandybar;
         "z-card": ZCard;
         "z-card-alert": ZCardAlert;
         "z-card-body": ZCardBody;
@@ -1749,6 +1761,7 @@ declare module "@stencil/core" {
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
+            "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-card-alert": LocalJSX.ZCardAlert & JSXBase.HTMLAttributes<HTMLZCardAlertElement>;
             "z-card-body": LocalJSX.ZCardBody & JSXBase.HTMLAttributes<HTMLZCardBodyElement>;
