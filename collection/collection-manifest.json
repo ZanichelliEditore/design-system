@@ -29,6 +29,7 @@
     "./components/navigation/z-header/index.js",
     "./components/navigation/z-link/index.js",
     "./components/navigation/z-menu-dropdown/index.js",
+    "./components/notification/z-candybar/index.js",
     "./components/notification/z-info-box/index.js",
     "./components/notification/z-tooltip/index.js",
     "./components/pagination/z-pagination-bar/index.js",
