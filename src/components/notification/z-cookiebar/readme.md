@@ -16,10 +16,9 @@
 
 ## Events
 
-| Event           | Description                               | Type               |
-| --------------- | ----------------------------------------- | ------------------ |
-| `okButtonClick` | emitted on OK button click, returns event | `CustomEvent<any>` |
-| `okButtonKeyUp` | emitted on OK button keyUp, returns event | `CustomEvent<any>` |
+| Event    | Description                               | Type               |
+| -------- | ----------------------------------------- | ------------------ |
+| `accept` | emitted on OK button click, returns event | `CustomEvent<any>` |
 
 
 ## Dependencies

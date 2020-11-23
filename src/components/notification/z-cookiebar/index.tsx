@@ -15,13 +15,13 @@ export class ZCookiebar {
   @Prop() callback?: () => any;
 
   /** emitted on OK button click, returns event */
-  @Event() okButtonClick: EventEmitter;
-  emitOkButtonClick(ev: MouseEvent) {
-    this.okButtonClick.emit({ev});
+  @Event() accept: EventEmitter;
+  emitAccept(ev: MouseEvent | KeyboardEvent) {
+    this.accept.emit({ev});
   }
 
   handleOkButtonClick(ev: MouseEvent) {
-    this.emitOkButtonClick(ev);
+    this.emitAccept(ev);
     if (
       typeof this.callback !== "undefined" &&
       typeof this.callback === "function"
@@ -30,14 +30,8 @@ export class ZCookiebar {
     }
   }
 
-  /** emitted on OK button keyUp, returns event */
-  @Event() okButtonKeyUp: EventEmitter;
-  emitOkButtonKeyUp(ev: KeyboardEvent) {
-    this.okButtonKeyUp.emit({ev});
-  }
-
   handleOkButtonKeyUp(ev: KeyboardEvent) {
-    this.emitOkButtonKeyUp(ev);
+    this.emitAccept(ev);
     if (ev.code === "Enter") {
       if (
         typeof this.callback !== "undefined" &&

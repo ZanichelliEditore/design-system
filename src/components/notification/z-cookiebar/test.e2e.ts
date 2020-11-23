@@ -5,16 +5,15 @@ it("Test OK button should emit okButtonClick event", async () => {
 
   let clicked = false;
   // Expose a handler to the page
-  await page.exposeFunction("onOkButtonClick", ({ type, detail }) => {
+  await page.exposeFunction("onAccept", ({ type, detail }) => {
     clicked = true;
-    // console.log(`Event fired: ${type}, detail: ${detail}`);
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
-  const type = "okButtonClick";
+  const type = "accept";
   await page.evaluateOnNewDocument(type => {
     document.addEventListener(type, e => {
-      window.onOkButtonClick({ type, detail: e.detail });
+      window.onAccept({ type, detail: e.detail });
     });
   }, type);
 

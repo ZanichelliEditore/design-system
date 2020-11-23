@@ -1271,11 +1271,7 @@ declare namespace LocalJSX {
         /**
           * emitted on OK button click, returns event
          */
-        "onOkButtonClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * emitted on OK button keyUp, returns event
-         */
-        "onOkButtonKeyUp"?: (event: CustomEvent<any>) => void;
+        "onAccept"?: (event: CustomEvent<any>) => void;
     }
     interface ZFooter {
         /**
