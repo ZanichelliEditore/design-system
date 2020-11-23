@@ -271,6 +271,20 @@ export namespace Components {
          */
         "uncheckalltext"?: string;
     }
+    interface ZCookiebar {
+        /**
+          * callback to handle ok button action (optional)
+         */
+        "callback"?: () => any;
+        /**
+          * cookie policy link url
+         */
+        "cookiepolicyurl": string;
+        /**
+          * hide cookie bar (optional)
+         */
+        "hide"?: boolean;
+    }
     interface ZFooter {
         /**
           * set copyright user (optional)
@@ -791,6 +805,12 @@ declare global {
         prototype: HTMLZComboboxElement;
         new (): HTMLZComboboxElement;
     };
+    interface HTMLZCookiebarElement extends Components.ZCookiebar, HTMLStencilElement {
+    }
+    var HTMLZCookiebarElement: {
+        prototype: HTMLZCookiebarElement;
+        new (): HTMLZCookiebarElement;
+    };
     interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {
     }
     var HTMLZFooterElement: {
@@ -932,6 +952,7 @@ declare global {
         "z-card-list": HTMLZCardListElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
+        "z-cookiebar": HTMLZCookiebarElement;
         "z-footer": HTMLZFooterElement;
         "z-header": HTMLZHeaderElement;
         "z-icon": HTMLZIconElement;
@@ -1233,6 +1254,28 @@ declare namespace LocalJSX {
           * uncheck all label (optional)
          */
         "uncheckalltext"?: string;
+    }
+    interface ZCookiebar {
+        /**
+          * callback to handle ok button action (optional)
+         */
+        "callback"?: () => any;
+        /**
+          * cookie policy link url
+         */
+        "cookiepolicyurl"?: string;
+        /**
+          * hide cookie bar (optional)
+         */
+        "hide"?: boolean;
+        /**
+          * emitted on OK button click, returns event
+         */
+        "onOkButtonClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * emitted on OK button keyUp, returns event
+         */
+        "onOkButtonKeyUp"?: (event: CustomEvent<any>) => void;
     }
     interface ZFooter {
         /**
@@ -1731,6 +1774,7 @@ declare namespace LocalJSX {
         "z-card-list": ZCardList;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
+        "z-cookiebar": ZCookiebar;
         "z-footer": ZFooter;
         "z-header": ZHeader;
         "z-icon": ZIcon;
@@ -1772,6 +1816,7 @@ declare module "@stencil/core" {
             "z-card-list": LocalJSX.ZCardList & JSXBase.HTMLAttributes<HTMLZCardListElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
+            "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
