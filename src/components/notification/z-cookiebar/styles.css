@@ -9,10 +9,10 @@ z-candybar.hidden {
 
 .content {
   display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
   align-content: space-between;
   color: var(--text-grey-800);
   border-radius: var(--half-x1);
@@ -68,7 +68,6 @@ z-candybar.hidden {
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-
   .content {
     width: 100%;
     flex-direction: row;
