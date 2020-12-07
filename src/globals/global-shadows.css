@@ -1,0 +1,15 @@
+:root {
+  --shadow-base-color: rgb(66, 69, 72);
+  --shadow-minus-basex2: 0 2px 4px 0 rgba(var(--shadow-base-color) 0.35);
+  --shadow-minus-basex4: 0 4px 8px 0 rgba(var(--shadow-base-color) 0.35);
+  --shadow-zero: 0 0 0 0 rgba(var(--shadow-base-color) 0.40);
+  --shadow-base: 0 1px 2px 0 rgba(var(--shadow-base-color) 0.40);
+  --shadow-basex2: 0 2px 4px 0 rgba(var(--shadow-base-color) 0.40);
+  --shadow-basex3: 0 3px 6px 0 rgba(var(--shadow-base-color) 0.40);
+  --shadow-basex4: 0 4px 8px 0 rgba(var(--shadow-base-color) 0.40);
+  --shadow-basex6: 0 6px 12px 0 rgba(var(--shadow-base-color) 0.40);
+  --shadow-basex8: 0 8px 16px 0 rgba(var(--shadow-base-color) 0.40);
+  --shadow-basex12: 0 12px 24px 0 rgba(var(--shadow-base-color) 0.35);
+  --shadow-basex16: 0 16px 32px 0 rgba(var(--shadow-base-color) 0.35);
+  --shadow-basex24: 0 24px 48px 0 rgba(var(--shadow-base-color) 0.35);
+}
