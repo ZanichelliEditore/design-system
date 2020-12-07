@@ -57,7 +57,7 @@ button:disabled {
 
 button:disabled > span {
   background: none;
-  box-shadow: 0 0 0 0 transparent;
+  box-shadow: var(--shadow-zero);
   pointer-events: none;
 }
 

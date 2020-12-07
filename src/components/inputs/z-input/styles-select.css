@@ -67,7 +67,7 @@
 
 :host > div.selectWrapper > div > ul.open > li.selected {
   border-color: var(--myz-blue) !important;
-  box-shadow: 0 0 0 0 transparent;
+  box-shadow: var(--shadow-zero);
   color: var(--myz-blue);
 }
 
