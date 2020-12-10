@@ -1,0 +1,18 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+polygon {
+  fill: var(--myz-red);
+}
+
+path {
+  fill: var(--bg-white);
+}
