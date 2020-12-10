@@ -13,7 +13,7 @@ button.container {
 
   padding: 0 var(--basex2);
 
-  cursor : pointer;
+  cursor: pointer;
 
   letter-spacing: 0.17px;
   font-family: var(--dashboard-font);
@@ -23,6 +23,11 @@ button.container {
   opacity: 1;
 
   transition: all 200ms linear;
+}
+
+button.container.small {
+  min-height: 24px;
+  line-height: 24px;
 }
 
 button.container:focus {
