@@ -32,6 +32,7 @@ export var InputStatusEnum;
     InputStatusEnum["success"] = "success";
     InputStatusEnum["error"] = "error";
     InputStatusEnum["warning"] = "warning";
+    InputStatusEnum["selecting"] = "selecting";
 })(InputStatusEnum || (InputStatusEnum = {}));
 export var TooltipPosition;
 (function (TooltipPosition) {

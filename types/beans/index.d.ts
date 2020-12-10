@@ -105,7 +105,8 @@ export declare type InputStatusBean = InputStatusEnum;
 export declare enum InputStatusEnum {
     success = "success",
     error = "error",
-    warning = "warning"
+    warning = "warning",
+    selecting = "selecting"
 }
 export declare type TooltipPositionBean = TooltipPosition;
 export declare enum TooltipPosition {

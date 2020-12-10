@@ -1,6 +1,6 @@
-import { Component, Prop, State, h, Method, Event, Watch, Element, Listen } from "@stencil/core";
-import { InputTypeEnum, keybordKeyCodeEnum } from "../../../beans";
-import { randomId, handleKeyboardSubmit, getClickedElement, getElementTree } from "../../../utils/utils";
+import { Component, Prop, State, h, Method, Event, Element, Listen } from "@stencil/core";
+import { InputTypeEnum } from "../../../beans";
+import { randomId } from "../../../utils/utils";
 export class ZInput {
     constructor() {
         /** the id of the input element */
@@ -19,22 +19,16 @@ export class ZInput {
         this.labelafter = true;
         /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
         this.typingtimeout = 300;
+        /** the input has autocomplete option (optional): available for select */
+        this.autocomplete = false;
+        /** multiple options can be selected (optional): available for select */
+        this.multiple = false;
+        /** render clear icon when typing (optional): available for text */
+        this.hasclearicon = true;
         this.isTyping = false;
         this.textareaWrapperHover = "";
         this.textareaWrapperFocus = "";
-        this.isOpen = false;
-        this.itemsList = [];
-        this.toggleSelectUl = this.toggleSelectUl.bind(this);
-        this.selectItem = this.selectItem.bind(this);
-        this.handleSelectFocus = this.handleSelectFocus.bind(this);
-    }
-    watchItems() {
-        this.itemsList =
-            typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-        this.selectedItem = this.itemsList.find((item) => item.selected);
-        if (this.selectedItem) {
-            this.value = this.selectedItem.id;
-        }
+        this.passwordHidden = true;
     }
     inputCheckListener(e) {
         const data = e.detail;
@@ -51,11 +45,25 @@ export class ZInput {
     }
     /** get the input value */
     async getValue() {
-        return this.value;
+        switch (this.type) {
+            case InputTypeEnum.select:
+                return this.selectElem.getValue();
+            default:
+                return this.value;
+        }
     }
     /** set the input value */
     async setValue(value) {
-        this.value = value;
+        console.log("z-input setValue");
+        switch (this.type) {
+            case InputTypeEnum.select:
+                this.selectElem.setValue(value);
+                break;
+            default:
+                if (typeof value === "string")
+                    this.value = value;
+                break;
+        }
     }
     /** get checked status */
     async isChecked() {
@@ -106,16 +114,6 @@ export class ZInput {
             validity: this.getValidity("input")
         });
     }
-    emitOptionSelect(item) {
-        this.value = item.id;
-        this.selectedItem = item;
-        this.optionSelect.emit({ id: this.htmlid, selected: item.id });
-    }
-    componentWillLoad() {
-        if (this.type === InputTypeEnum.select) {
-            this.watchItems();
-        }
-    }
     getValidity(type) {
         const input = this.hostElement.shadowRoot.querySelector(type);
         return input.validity;
@@ -140,11 +138,18 @@ export class ZInput {
         };
     }
     renderInputText(type = InputTypeEnum.text) {
+        const attr = this.getTextAttributes();
+        if (this.icon || type === InputTypeEnum.password)
+            attr.class = attr.class + " hasIcon";
+        if (this.hasclearicon)
+            attr.class = attr.class + " hasClearIcon";
         return (h("div", { class: "textWrapper" },
             this.renderLabel(),
             h("div", null,
-                h("input", Object.assign({}, this.getTextAttributes(), { type: type, "aria-labelledby": `${this.htmlid}_label` })),
-                this.renderResetIcon()),
+                h("input", Object.assign({}, attr, { type: type === InputTypeEnum.password && !this.passwordHidden
+                        ? InputTypeEnum.text
+                        : type, "aria-labelledby": `${this.htmlid}_label` })),
+                this.renderIcons()),
             this.renderMessage()));
     }
     renderLabel() {
@@ -152,10 +157,26 @@ export class ZInput {
             return;
         return (h("z-input-label", { value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_label` }));
     }
-    renderResetIcon() {
-        if (!this.value || this.disabled || this.readonly)
+    renderIcons() {
+        return (h("span", { class: `iconsWrapper ${this.disabled ? "disabled" : ""}` },
+            this.renderResetIcon(),
+            this.renderIcon()));
+    }
+    renderIcon() {
+        if (this.type === InputTypeEnum.password) {
+            return this.renderShowHidePassword();
+        }
+        if (!this.icon)
             return;
-        return (h("z-icon", { name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
+        return h("z-icon", { class: "inputIcon", name: this.icon });
+    }
+    renderResetIcon() {
+        if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
+            return;
+        return (h("z-icon", { class: "resetIcon", name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
+    }
+    renderShowHidePassword() {
+        return (h("z-icon", { class: "inputIcon", name: this.passwordHidden ? "view" : "view-off", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
     }
     renderMessage() {
         if (!this.hasmessage)
@@ -220,92 +241,7 @@ export class ZInput {
     /* END radio */
     /* START select */
     renderSelect() {
-        return (h("div", { class: "selectWrapper" },
-            this.renderLabel(),
-            this.renderSelectUl(),
-            this.renderMessage()));
-    }
-    renderSelectUl() {
-        return (h("div", null,
-            h("ul", { role: "listbox", tabindex: this.disabled || this.readonly ? -1 : 0, id: this.htmlid, "aria-activedescendant": this.value, class: `
-            ${this.isOpen ? "open" : "closed"}
-            ${this.disabled && " disabled"}
-            ${this.readonly && " readonly"}
-            ${this.status ? " input_" + this.status : " input_default"}
-            ${this.selectedItem ? " filled" : ""}
-          `, onClick: () => this.toggleSelectUl(), onKeyUp: (e) => handleKeyboardSubmit(e, this.toggleSelectUl), onKeyDown: (e) => this.arrowsSelectNav(e, this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1) },
-                this.renderSelectedItem(),
-                this.renderSelectItems())));
-    }
-    renderSelectedItem() {
-        return (h("li", { class: "selected" },
-            this.selectedItem ? (h("span", null, this.selectedItem.name)) : (h("span", { class: "placeholder" }, this.placeholder)),
-            h("z-icon", { name: "caret-down" })));
-    }
-    renderSelectItems() {
-        if (!this.isOpen)
-            return;
-        return this.itemsList.map((item, key) => (h("li", { role: "option", tabindex: item.disabled ? -1 : 0, "aria-selected": !!item.selected, class: item.disabled && "disabled", id: `${this.htmlid}_${key}`, onClick: () => this.selectItem(item), onKeyUp: (e) => handleKeyboardSubmit(e, this.selectItem, item), onKeyDown: (e) => this.arrowsSelectNav(e, key) },
-            h("span", null, item.name))));
-    }
-    selectItem(item) {
-        if (item.disabled)
-            return;
-        this.itemsList = this.itemsList.map((i) => {
-            if (i.selected)
-                i.selected = false;
-            if (i === item)
-                i.selected = true;
-            return i;
-        });
-        this.emitOptionSelect(item);
-    }
-    arrowsSelectNav(e, key) {
-        const arrows = [keybordKeyCodeEnum.ARROW_DOWN, keybordKeyCodeEnum.ARROW_UP];
-        if (!arrows.includes(e.keyCode))
-            return;
-        e.preventDefault();
-        e.stopPropagation();
-        if (!this.isOpen)
-            this.toggleSelectUl();
-        let index;
-        if (e.keyCode === keybordKeyCodeEnum.ARROW_DOWN) {
-            index = key + 1 === this.itemsList.length ? 0 : key + 1;
-        }
-        else if (e.keyCode === keybordKeyCodeEnum.ARROW_UP) {
-            index = key <= 0 ? this.itemsList.length - 1 : key - 1;
-        }
-        const focusElem = this.hostElement.shadowRoot.getElementById(`${this.htmlid}_${index}`);
-        if (focusElem)
-            focusElem.focus();
-    }
-    toggleSelectUl(selfFocusOnClose = false) {
-        if (!this.isOpen) {
-            document.addEventListener("click", this.handleSelectFocus);
-            document.addEventListener("keyup", this.handleSelectFocus);
-        }
-        else {
-            document.removeEventListener("click", this.handleSelectFocus);
-            document.removeEventListener("keyup", this.handleSelectFocus);
-            if (selfFocusOnClose) {
-                this.hostElement.shadowRoot.getElementById(this.htmlid).focus();
-            }
-        }
-        this.isOpen = !this.isOpen;
-    }
-    handleSelectFocus(e) {
-        if (e instanceof KeyboardEvent && e.keyCode === keybordKeyCodeEnum.ESC) {
-            e.stopPropagation();
-            return this.toggleSelectUl(true);
-        }
-        if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB) {
-            return;
-        }
-        const tree = getElementTree(getClickedElement());
-        const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "ul" && elem.id === this.htmlid);
-        if (!parent) {
-            this.toggleSelectUl(e instanceof MouseEvent ? true : false);
-        }
+        return (h("z-select", { htmlid: this.htmlid, items: this.items, name: this.name, label: this.label, disabled: this.disabled, readonly: this.readonly, placeholder: this.placeholder, htmltitle: this.htmltitle, status: this.status, hasmessage: this.hasmessage, message: this.message, autocomplete: this.autocomplete, multiple: this.multiple, ref: el => (this.selectElem = el) }));
     }
     /* END select */
     render() {
@@ -538,7 +474,7 @@ export class ZInput {
             "mutable": false,
             "complexType": {
                 "original": "InputStatusBean",
-                "resolved": "InputStatusEnum.error | InputStatusEnum.success | InputStatusEnum.warning",
+                "resolved": "InputStatusEnum.error | InputStatusEnum.selecting | InputStatusEnum.success | InputStatusEnum.warning",
                 "references": {
                     "InputStatusBean": {
                         "location": "import",
@@ -643,9 +579,80 @@ export class ZInput {
             "optional": true,
             "docs": {
                 "tags": [],
-                "text": "items: available for select"
+                "text": "items (optional): available for select"
             },
             "attribute": "items",
+            "reflect": false
+        },
+        "autocomplete": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "the input has autocomplete option (optional): available for select"
+            },
+            "attribute": "autocomplete",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "multiple": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "multiple options can be selected (optional): available for select"
+            },
+            "attribute": "multiple",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "hasclearicon": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "render clear icon when typing (optional): available for text"
+            },
+            "attribute": "hasclearicon",
+            "reflect": false,
+            "defaultValue": "true"
+        },
+        "icon": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "render icon (optional): available for text, select"
+            },
+            "attribute": "icon",
             "reflect": false
         }
     }; }
@@ -653,7 +660,7 @@ export class ZInput {
         "isTyping": {},
         "textareaWrapperHover": {},
         "textareaWrapperFocus": {},
-        "isOpen": {}
+        "passwordHidden": {}
     }; }
     static get events() { return [{
             "method": "inputChange",
@@ -723,7 +730,7 @@ export class ZInput {
             "composed": true,
             "docs": {
                 "tags": [],
-                "text": "Emitted on select option selection, returns select id, selected option id"
+                "text": "Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)"
             },
             "complexType": {
                 "original": "any",
@@ -734,14 +741,14 @@ export class ZInput {
     static get methods() { return {
         "getValue": {
             "complexType": {
-                "signature": "() => Promise<string>",
+                "signature": "() => Promise<string | string[]>",
                 "parameters": [],
                 "references": {
                     "Promise": {
                         "location": "global"
                     }
                 },
-                "return": "Promise<string>"
+                "return": "Promise<string | string[]>"
             },
             "docs": {
                 "text": "get the input value",
@@ -750,7 +757,7 @@ export class ZInput {
         },
         "setValue": {
             "complexType": {
-                "signature": "(value: string) => Promise<void>",
+                "signature": "(value: string | string[]) => Promise<void>",
                 "parameters": [{
                         "tags": [],
                         "text": ""
@@ -785,10 +792,6 @@ export class ZInput {
         }
     }; }
     static get elementRef() { return "hostElement"; }
-    static get watchers() { return [{
-            "propName": "items",
-            "methodName": "watchItems"
-        }]; }
     static get listeners() { return [{
             "name": "inputCheck",
             "method": "inputCheckListener",

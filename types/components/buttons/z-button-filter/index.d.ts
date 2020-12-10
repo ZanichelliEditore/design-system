@@ -8,6 +8,8 @@ export declare class ZButtonFilter {
     hasicon: boolean;
     /** filter id */
     filterid: string;
+    /** reduce button size (optional) */
+    issmall?: boolean;
     /** remove filter click event, returns filterid */
     removefilter: EventEmitter;
     constructor();

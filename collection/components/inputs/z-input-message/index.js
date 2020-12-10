@@ -12,7 +12,7 @@ export class ZInputMessage {
     }
     render() {
         return (h("span", { class: `statusMsg ${this.renderMsgClassName()}` },
-            this.status && this.message ? (h("z-icon", { name: this.statusIcons[this.status], width: 14, height: 14 })) : null,
+            this.status && this.statusIcons[this.status] && this.message ? (h("z-icon", { name: this.statusIcons[this.status], width: 14, height: 14 })) : null,
             h("span", { innerHTML: this.message })));
     }
     static get is() { return "z-input-message"; }
@@ -46,7 +46,7 @@ export class ZInputMessage {
             "mutable": false,
             "complexType": {
                 "original": "InputStatusBean",
-                "resolved": "InputStatusEnum.error | InputStatusEnum.success | InputStatusEnum.warning",
+                "resolved": "InputStatusEnum.error | InputStatusEnum.selecting | InputStatusEnum.success | InputStatusEnum.warning",
                 "references": {
                     "InputStatusBean": {
                         "location": "import",

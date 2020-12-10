@@ -34,22 +34,27 @@ export declare class ZInput {
     labelafter?: boolean;
     /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
     typingtimeout?: number;
-    /** items: available for select */
+    /** items (optional): available for select */
     items?: SelectItemBean[] | string;
+    /** the input has autocomplete option (optional): available for select */
+    autocomplete?: boolean;
+    /** multiple options can be selected (optional): available for select */
+    multiple?: boolean;
+    /** render clear icon when typing (optional): available for text */
+    hasclearicon?: boolean;
+    /** render icon (optional): available for text, select */
+    icon?: string;
     isTyping: boolean;
     textareaWrapperHover: string;
     textareaWrapperFocus: string;
-    isOpen: boolean;
+    passwordHidden: boolean;
     private timer;
-    private itemsList;
-    private selectedItem;
-    constructor();
-    watchItems(): void;
+    private selectElem;
     inputCheckListener(e: CustomEvent): void;
     /** get the input value */
-    getValue(): Promise<string>;
+    getValue(): Promise<string | string[]>;
     /** set the input value */
-    setValue(value: string): Promise<void>;
+    setValue(value: string | string[]): Promise<void>;
     /** get checked status */
     isChecked(): Promise<boolean>;
     /** Emitted on input value change, returns value, keycode, validity */
@@ -64,10 +69,8 @@ export declare class ZInput {
     /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
     inputCheck: EventEmitter;
     emitInputCheck(checked: boolean): void;
-    /** Emitted on select option selection, returns select id, selected option id */
+    /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
     optionSelect: EventEmitter;
-    emitOptionSelect(item: SelectItemBean): void;
-    componentWillLoad(): void;
     getValidity(type: string): ValidityState;
     getTextAttributes(): {
         id: string;
@@ -83,7 +86,10 @@ export declare class ZInput {
     };
     renderInputText(type?: InputTypeEnum): any;
     renderLabel(): any;
+    renderIcons(): any;
+    renderIcon(): any;
     renderResetIcon(): any;
+    renderShowHidePassword(): any;
     renderMessage(): any;
     renderTextarea(): any;
     renderTextareaBody(): any;
@@ -98,12 +104,5 @@ export declare class ZInput {
     handleRadioChange(): void;
     renderRadio(): any;
     renderSelect(): any;
-    renderSelectUl(): any;
-    renderSelectedItem(): any;
-    renderSelectItems(): any[];
-    selectItem(item: SelectItemBean): void;
-    arrowsSelectNav(e: KeyboardEvent, key: number): void;
-    toggleSelectUl(selfFocusOnClose?: boolean): void;
-    handleSelectFocus(e: MouseEvent | KeyboardEvent): void;
     render(): any;
 }
