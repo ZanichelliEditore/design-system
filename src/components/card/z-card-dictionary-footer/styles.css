@@ -1,0 +1,38 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host > div.faded {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+:host > div > footer {
+  box-sizing: border-box;
+  border-radius: 0px 0px var(--radius-base) var(--radius-base);
+  border-top: var(--border-base) solid var(--bg-grey-200);
+  padding: var(--basex1) var(--basex2) 0;
+  height: 139px;
+  width: 256px;
+  color: var(--text-grey-800);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+:host > div > footer > div.top,
+:host > div > footer > div.bottom {
+  height: 60px;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}

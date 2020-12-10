@@ -151,3 +151,17 @@ export type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
+
+export type DictionaryData = {
+  author: string;
+  year: string;
+  title: string;
+  description: string;
+  online_license: DictionaryLicenseData;
+  offline_license: DictionaryLicenseData;
+};
+
+export type DictionaryLicenseData = {
+  expiration: string;
+  installations: string;
+};

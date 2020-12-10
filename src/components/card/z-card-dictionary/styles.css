@@ -1,0 +1,77 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host > div {
+  position: relative;
+  height: 523px;
+  width: 272px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+}
+
+:host > div > div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+:host > div.flipped {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+:host > div > div.front {
+  height: 523px;
+  width: 256px;
+  z-index: 2;
+  top: 0;
+  left: var(--basex1);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+:host > div > div.front > z-button {
+  position: absolute;
+  z-index: 3;
+  top: var(--basex7);
+  left: calc(-1 * var(--basex1));
+}
+
+:host > div > div.back {
+  height: 523px;
+  width: 272px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+}
+
+:host > div > div.back div.info {
+  position: absolute;
+  left: 0px;
+  top: 50px;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}
