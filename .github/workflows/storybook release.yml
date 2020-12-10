@@ -7,37 +7,38 @@ on:
     types: [published]
 
 jobs:
-  # BUILD THE STORYBOOK
-  build:
-    name: Build storybook
+  # BUILD THE STORYBOOK AND DEPLOY STORYBOOK TO GITHUB PAGES
+  build-deploy:
+    name: Build and deploy storybook
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/setup-node@v1
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
-      - name: Save build artifacts for later jobs (cache)
-        if: github.event_name == 'push' || github.event_name == 'pull_request'
-        uses: actions/cache@v1
-        with:
-          path: ./storybook
-          key: build-storybook-${{ github.sha }}
-      - run: yarn build-storybook
-
-  # DEPLOY STORYBOOK TO GITHUB PAGES
-  deploy:
-    name: Deploy storybook
-    runs-on: ubuntu-18.04
-    needs: build
-    steps:
-      - name: Retrieve build artifacts (cache)
-        if: github.event_name == 'push' || github.event_name == 'pull_request'
-        uses: actions/cache@v1
-        with:
-          path: ./storybook
-          key: build-storybook-${{ github.sha }}
+      - name: Build Storybook
+        run: yarn build-storybook
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./storybook
+
+
+  # DEPLOY STORYBOOK TO GITHUB PAGES
+  # deploy:
+  #   name: Deploy storybook
+  #   runs-on: ubuntu-18.04
+  #   needs: build
+  #   steps:
+  #     - name: Retrieve build artifacts (cache)
+  #       if: github.event_name == 'push' || github.event_name == 'pull_request'
+  #       uses: actions/cache@v1
+  #       with:
+  #         path: ./storybook
+  #         key: build-storybook-${{ github.sha }}
+  #     - name: Deploy
+  #       uses: peaceiris/actions-gh-pages@v3
+  #       with:
+  #         github_token: ${{ secrets.GITHUB_TOKEN }}
+  #         publish_dir: ./storybook
