@@ -4,7 +4,7 @@ on:
   release:
     branches:
       - storybook-release
-    types: [released]
+    types: [published]
 
 jobs:
   # BUILD THE STORYBOOK
