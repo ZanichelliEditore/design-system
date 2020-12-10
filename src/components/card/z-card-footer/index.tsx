@@ -22,6 +22,8 @@ export class ZCardFooter {
   /** card graphic variant (optional) */
   @Prop() cardtype?: LicenseTypeEnum;
 
+  @Prop() opened?: boolean = false;
+
   @State() isOpen: boolean = false;
 
   @State() allowTooltipAuthors: boolean = false;
@@ -43,6 +45,8 @@ export class ZCardFooter {
       if (["visibility", "height"].includes(event.propertyName))
         this.elementsEllipsis();
     };
+
+    if (this.opened) this.isOpen = true;
   }
 
   elementsEllipsis(): void {
