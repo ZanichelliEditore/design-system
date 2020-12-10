@@ -3,6 +3,11 @@
   width: inherit;
 }
 
+:host input::-ms-clear,
+:host input::-ms-reveal {
+  display: none;
+}
+
 /* GENERAL */
 :host input,
 :host textarea,
@@ -100,6 +105,15 @@
 :host .input_warning.hover {
   background: var(--status-warning-yellow-lighter) !important;
   border-color: var(--status-warning-yellow) !important;
+}
+
+:host .input_selecting,
+:host .input_selecting:hover,
+:host input[readonly].input_selecting,
+:host input[readonly].input_selecting:hover {
+  border-color: var(--myz-blue) !important;
+  box-shadow: 0 0 0 0 transparent !important;
+  color: var(--myz-blue) !important;
 }
 
 /* TYPING */

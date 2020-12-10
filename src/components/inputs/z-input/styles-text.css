@@ -7,6 +7,16 @@
   width: 100%;
   margin: 0;
   padding: 0 var(--half-x9) 0 var(--half-x3);
+  box-sizing: border-box;
+}
+
+:host > div.textWrapper > div > input.hasIcon,
+:host > div.textWrapper > div > input.hasClearIcon {
+  padding-right: var(--basex4);
+}
+
+:host > div.textWrapper > div > input.hasIcon.hasClearIcon {
+  padding-right: var(--basex7);
 }
 
 :host > div.textWrapper > div {
@@ -14,10 +24,22 @@
   z-index: 1;
 }
 
-:host > div.textWrapper > div > z-icon {
+:host > div.textWrapper > div > span.iconsWrapper {
   position: absolute;
   bottom: var(--half-x3);
   right: var(--half-x3);
-  cursor: pointer;
   z-index: 2;
+  height: 18px;
+  display: flex;
+}
+
+:host > div.textWrapper > div > span.iconsWrapper > z-icon {
+  display: block;
+  height: 18px;
+  width: 18px;
+  margin-left: var(--half-x1);
+}
+
+:host > div.textWrapper > div > span.iconsWrapper > z-icon.resetIcon {
+  cursor: pointer;
 }
