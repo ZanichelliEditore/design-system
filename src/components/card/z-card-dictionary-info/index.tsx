@@ -35,6 +35,7 @@ export class ZCardDictionaryInfo {
           height={18}
           width={18}
           onClick={() => this.emitCloseInfo()}
+          tabindex="0"
         />
         <div>
           <section>
@@ -47,16 +48,24 @@ export class ZCardDictionaryInfo {
             {this.cardData.description}
           </section>
           <section>
-            Licenza online
-            <br />
+            <span class="licenze_heading">
+              <span>Licenza online</span>
+              <span class="expired">
+                {this.cardData.online_license.expired ? "SCADUTA" : ""}
+              </span>
+            </span>
             Scadenza il <b>{this.cardData.online_license.expiration}</b>
             <br />
             Installazioni disponibili:{" "}
             <b>{this.cardData.online_license.installations}</b>
           </section>
           <section>
-            Licenza offline
-            <br />
+            <span class="licenze_heading">
+              <span>Licenza offline</span>
+              <span class="expired">
+                {this.cardData.offline_license.expired ? "SCADUTA" : ""}
+              </span>
+            </span>
             Scadenza il <b>{this.cardData.offline_license.expiration}</b>
             <br />
             Installazioni disponibili:{" "}

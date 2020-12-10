@@ -151,6 +151,7 @@ export namespace Components {
     }
     interface ZCardDictionary {
         "cover": string;
+        "disabled": boolean;
         "flipped": boolean;
         "name": string;
     }
@@ -1145,6 +1146,7 @@ declare namespace LocalJSX {
     }
     interface ZCardDictionary {
         "cover"?: string;
+        "disabled"?: boolean;
         "flipped"?: boolean;
         "name"?: string;
     }

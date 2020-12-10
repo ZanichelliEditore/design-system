@@ -34,6 +34,17 @@
   border-bottom: none;
 }
 
+:host > div > div > section > span.licenze_heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+:host > div > div > section > span.licenze_heading > span.expired {
+  color: var(--myz-red);
+  font-size: 12px;
+  font-weight: 600;
+}
+
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
 }

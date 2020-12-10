@@ -163,5 +163,6 @@ export type DictionaryData = {
 
 export type DictionaryLicenseData = {
   expiration: string;
+  expired: boolean;
   installations: string;
 };

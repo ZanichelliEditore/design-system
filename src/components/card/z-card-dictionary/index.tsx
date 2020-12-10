@@ -13,6 +13,7 @@ import { ButtonVariantEnum } from "../../../beans";
 export class ZCardDictionary {
   @Prop() name: string;
   @Prop() cover: string;
+  @Prop() disabled: boolean = false;
   @Prop({ mutable: true }) flipped: boolean = false;
 
   @Listen("closeInfo")
@@ -27,7 +28,12 @@ export class ZCardDictionary {
           <z-card>
             <z-card-header titolo={this.name}></z-card-header>
             <z-card-body>
-              <z-card-cover slot="cover" titolo={this.name} img={this.cover} />
+              <z-card-cover
+                slot="cover"
+                titolo={this.name}
+                img={this.cover}
+                faded={this.disabled}
+              />
             </z-card-body>
             <slot />
           </z-card>

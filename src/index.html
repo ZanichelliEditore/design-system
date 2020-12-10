@@ -345,21 +345,56 @@
 
   <br /><br />
 
-  <z-card-dictionary name="Lo Zingarelli" cover="https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg">
-    <z-card-dictionary-footer>
-      <div slot="top">Vocabolario della lingua italiana</div>
-      <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
-    </z-card-dictionary-footer>
-    <z-card-dictionary-info
-      slot="back-info"
-      data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","online_license":{"expiration":"31/12/2021","installations":"1"},"offline_license":{"expiration":"30/06/2021","installations":"2"}}'
-    >
-      <z-button variant="tertiary" icon="gear">Gestisci Licenze</z-button>
-    </z-card-dictionary-info>
-    <z-card-dictionary-footer slot="back-footer">
-      <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
-    </z-card-dictionary-footer>
-  </z-card-dictionary>
+  <div style="display:flex;">
+    <z-card-dictionary name="Lo Zingarelli" cover="https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg">
+      <z-card-dictionary-footer>
+        <div slot="top">Vocabolario della lingua italiana</div>
+        <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
+      </z-card-dictionary-footer>
+      <z-card-dictionary-info
+        slot="back-info"
+        data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","online_license":{"expiration":"31/12/2021","installations":"1"},"offline_license":{"expiration":"30/06/2021","installations":"2"}}'
+      >
+        <z-button variant="tertiary" icon="gear">Gestisci Licenze</z-button>
+      </z-card-dictionary-info>
+      <z-card-dictionary-footer slot="back-footer">
+        <div slot="bottom"><z-button variant="primary" style="width:100%;" tabindex="1">VAI AL PRODOTTO</z-button></div>
+      </z-card-dictionary-footer>
+    </z-card-dictionary>
+
+    <z-card-dictionary name="Lo Zingarelli" cover="https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg">
+      <z-card-dictionary-footer>
+        <div slot="top"><z-button variant="secondary" style="width:100%;">UPGRADE</z-button></div>
+        <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
+      </z-card-dictionary-footer>
+      <z-card-dictionary-info
+        slot="back-info"
+        data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","online_license":{"expiration":"31/12/2021","installations":"1"},"offline_license":{"expiration":"30/06/2021","installations":"2"}}'
+      >
+        <z-button variant="tertiary" icon="gear" style="width:100%; display:block; margin-bottom:16px;">Gestisci Licenze</z-button>
+        <z-button variant="secondary" style="width:100%;">UPGRADE</z-button>
+      </z-card-dictionary-info>
+      <z-card-dictionary-footer slot="back-footer">
+        <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
+      </z-card-dictionary-footer>
+    </z-card-dictionary>
+
+    <z-card-dictionary disabled="true" name="Lo Zingarelli" cover="https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg">
+      <z-card-dictionary-footer>
+        <div slot="top"><span style="color:red;">La licenza di consultazione dell'opera è scaduta</span></div>
+        <div slot="bottom"><z-button variant="primary" style="width:100%;">ACQUISTA</z-button></div>
+      </z-card-dictionary-footer>
+      <z-card-dictionary-info
+        slot="back-info"
+        data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","online_license":{"expiration":"31/12/2021","installations":"1","expired":true},"offline_license":{"expiration":"30/06/2021","installations":"2","expired":true}}'
+      >
+        <z-button variant="tertiary" icon="gear">Gestisci Licenze</z-button>
+      </z-card-dictionary-info>
+      <z-card-dictionary-footer slot="back-footer">
+        <div slot="bottom"><z-button variant="primary" style="width:100%;">ACQUISTA</z-button></div>
+      </z-card-dictionary-footer>
+    </z-card-dictionary>
+  </div>
 
   <br /><br />
       <p>
