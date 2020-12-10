@@ -1,6 +1,6 @@
 :root {
-  --shadow-inset-2: 0 2px 4px 0 rgba(66, 69, 72, 0.35);
-  --shadow-inset-4: 0 4px 8px 0 rgba(66, 69, 72, 0.35);
+  --shadow-inset-2: inset 0 2px 4px 0 rgba(66, 69, 72, 0.35);
+  --shadow-inset-4: inset 0 4px 8px 0 rgba(66, 69, 72, 0.35);
   --shadow-0: 0 0 0 0 rgba(66, 69, 72, 0.40);
   --shadow-1: 0 1px 2px 0 rgba(66, 69, 72, 0.40);
   --shadow-2: 0 2px 4px 0 rgba(66, 69, 72, 0.40);
