@@ -1,0 +1,436 @@
+:host {
+  display: inline-block;
+  width: inherit;
+}
+
+:host input::-ms-clear,
+:host input::-ms-reveal {
+  display: none;
+}
+
+/* GENERAL */
+:host input,
+:host textarea,
+:host ul[role="listbox"] {
+  background: var(--bg-white);
+  border-radius: 0px;
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  border-color: var(--bg-grey-200);
+  box-sizing: border-box;
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: 16px;
+  outline: none;
+}
+
+/* FILLED */
+:host .filled {
+  border-color: var(--text-grey-800) !important;
+}
+
+/* FOCUS */
+:host input:focus,
+:host ul[role="listbox"].closed:focus,
+:host li[role="option"]:focus,
+:host .focus {
+  border-color: transparent;
+  box-shadow: 0 0 2px 2px var(--accent-dark);
+  outline: none;
+}
+
+/* HOVER */
+:host input:hover,
+:host textarea:hover,
+:host ul[role="listbox"].closed:hover,
+:host .hover {
+  background: var(--bg-grey-050) !important;
+  border-color: var(--text-grey-800) !important;
+}
+
+/* READONLY */
+:host input[readonly],
+:host .readonly,
+:host input[readonly].filled,
+:host .readonly.filled,
+:host ul[role="listbox"].closed.readonly {
+  border-color: var(--text-grey-200) !important;
+  color: var(--text-grey-800) !important;
+  pointer-events: none;
+}
+
+/* READONLY - hover */
+:host input[readonly]:hover,
+:host textarea[readonly]:hover,
+:host .readonly.hover,
+:host ul[role="listbox"].closed[readonly]:hover {
+  background: var(--bg-white);
+}
+
+/* DISABLED */
+:host input:disabled,
+:host .disabled,
+:host .filled:disabled,
+:host input:disabled:hover,
+:host textarea:disabled:hover,
+:host .disabled.hover,
+:host ul[role="listbox"].closed.disabled,
+:host ul[role="listbox"].closed.disabled:hover {
+  background: var(--bg-white) !important;
+  border-color: var(--bg-grey-200) !important;
+  box-shadow: none !important;
+  color: var(--text-grey-700) !important;
+  fill: var(--bg-grey-200) !important;
+  pointer-events: none;
+}
+
+/* STATUSES (success, warning, error) */
+:host .input_success,
+:host .input_success:hover,
+:host .input_success.hover {
+  background: var(--status-success-green-lighter) !important;
+  border-color: var(--status-success-green) !important;
+}
+
+:host .input_error,
+:host .input_error:hover,
+:host .input_error.hover {
+  background: var(--status-error-red-lighter) !important;
+  border-color: var(--status-error-red) !important;
+}
+
+:host .input_warning,
+:host .input_warning:hover,
+:host .input_warning.hover {
+  background: var(--status-warning-yellow-lighter) !important;
+  border-color: var(--status-warning-yellow) !important;
+}
+
+:host .input_selecting,
+:host .input_selecting:hover,
+:host input[readonly].input_selecting,
+:host input[readonly].input_selecting:hover {
+  border-color: var(--myz-blue) !important;
+  box-shadow: 0 0 0 0 transparent !important;
+  color: var(--myz-blue) !important;
+}
+
+/* TYPING */
+:host input:focus.istyping,
+:host .focus.istyping {
+  border-color: var(--myz-blue) !important;
+  box-shadow: 0 0 0 0 transparent;
+  color: var(--myz-blue);
+}
+
+/* PLACEHOLDER */
+:host input::placeholder,
+:host textarea::placeholder {
+  color: var(--text-grey-700);
+}
+::-webkit-input-placeholder,
+::-webkit-textarea-placeholder {
+  color: var(--text-grey-700);
+}
+:-ms-input-placeholder,
+:-ms-textarea-placeholder {
+  color: var(--text-grey-700);
+}
+::-moz-placeholder {
+  color: var(--text-grey-700);
+}
+:-moz-placeholder {
+  color: var(--text-grey-700);
+}
+
+:host > div.textWrapper > div {
+  fill: var(--text-grey-800);
+}
+
+:host > div.textWrapper > div > input {
+  height: 44px;
+  width: 100%;
+  margin: 0;
+  padding: 0 var(--half-x9) 0 var(--half-x3);
+  box-sizing: border-box;
+}
+
+:host > div.textWrapper > div > input.hasIcon,
+:host > div.textWrapper > div > input.hasClearIcon {
+  padding-right: var(--basex4);
+}
+
+:host > div.textWrapper > div > input.hasIcon.hasClearIcon {
+  padding-right: var(--basex7);
+}
+
+:host > div.textWrapper > div {
+  position: relative;
+  z-index: 1;
+}
+
+:host > div.textWrapper > div > span.iconsWrapper {
+  position: absolute;
+  bottom: var(--half-x3);
+  right: var(--half-x3);
+  z-index: 2;
+  height: 18px;
+  display: flex;
+}
+
+:host > div.textWrapper > div > span.iconsWrapper > z-icon {
+  display: block;
+  height: 18px;
+  width: 18px;
+  margin-left: var(--half-x1);
+}
+
+:host > div.textWrapper > div > span.iconsWrapper > z-icon.resetIcon {
+  cursor: pointer;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper {
+  background: var(--bg-white);
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  padding: var(--half-x3);
+}
+
+:host > div.textWrapper > div > div.textareaWrapper > textarea {
+  min-height: 132px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  resize: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--myz-blue) var(--bg-grey-200);
+  border-color: transparent;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper > textarea:hover {
+  border-color: transparent !important;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper > textarea.filled,
+:host > div.textWrapper > div > div.textareaWrapper > textarea.input_success,
+:host > div.textWrapper > div > div.textareaWrapper > textarea.input_warning,
+:host > div.textWrapper > div > div.textareaWrapper > textarea.input_error {
+  border: none;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper.input_success.disabled,
+:host > div.textWrapper > div > div.textareaWrapper.input_warning.disabled,
+:host > div.textWrapper > div > div.textareaWrapper.input_error.disabled {
+  background: var(--bg-white) !important;
+  border-color: var(--bg-grey-200) !important;
+}
+
+:host > div.textWrapper > div > div.textareaWrapper > textarea.istyping {
+  color: var(--myz-blue);
+}
+
+::-webkit-scrollbar {
+  background: linear-gradient(
+    90deg,
+    var(--bg-white) 2px,
+    var(--bg-grey-200) 4px,
+    var(--bg-white) 8px
+  );
+  border-radius: var(--radius-base);
+  width: 10px;
+  margin-right: 20px;
+  padding-right: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--myz-blue);
+  border-radius: var(--radius-base);
+  width: 10px;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+:host > .checkboxWrapper {
+  display: inline-block;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: inherit;
+  position: relative;
+}
+
+:host > .checkboxWrapper > input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+:host label {
+  display: block;
+}
+
+:host label.disabledLabel {
+  color: var(--text-grey-700);
+}
+
+:host > .checkboxWrapper > label.checkboxLabel {
+  display: inline-flex;
+  line-height: 16px;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+  margin: 0;
+}
+
+:host > .checkboxWrapper > label.checkboxLabel.after {
+  flex-direction: row;
+}
+
+:host > .checkboxWrapper > label.checkboxLabel.before {
+  flex-direction: row-reverse;
+}
+
+:host > .checkboxWrapper > label.checkboxLabel.after > span {
+  margin-left: var(--basex1);
+}
+
+:host > .checkboxWrapper > label.checkboxLabel.before > span {
+  margin-right: var(--basex1);
+}
+
+:host > .checkboxWrapper > label.checkboxLabel > z-icon {
+  fill: var(--myz-blue);
+  height: 18px;
+  width: 18px;
+}
+
+/* focus */
+:host
+  > .checkboxWrapper
+  > input[type="checkbox"]:focus
+  + label.checkboxLabel
+  > z-icon {
+  box-shadow: 0 0 2px 2px var(--accent-dark);
+  border-radius: 2px;
+}
+
+/* disabled */
+:host
+  > .checkboxWrapper
+  > input[type="checkbox"]:disabled
+  + label.checkboxLabel
+  > z-icon {
+  fill: var(--bg-grey-700);
+  cursor: default;
+}
+
+/* readonly */
+:host
+  > .checkboxWrapper
+  > input[type="checkbox"][readonly]
+  + label.checkboxLabel
+  > z-icon {
+  fill: var(--bg-grey-800);
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+:host > .radioWrapper {
+  display: inline-block;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: inherit;
+  position: relative;
+}
+
+:host > .radioWrapper > input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+:host label {
+  display: block;
+}
+
+:host label.disabledLabel {
+  color: var(--text-grey-700);
+}
+
+:host > .radioWrapper > label.radioLabel {
+  display: inline-flex;
+  line-height: 16px;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+  margin: 0;
+}
+
+:host > .radioWrapper > label.radioLabel.after {
+  flex-direction: row;
+}
+
+:host > .radioWrapper > label.radioLabel.before {
+  flex-direction: row-reverse;
+}
+
+:host > .radioWrapper > label.radioLabel.after > span {
+  margin-left: var(--basex1);
+}
+
+:host > .radioWrapper > label.radioLabel.before > span {
+  margin-right: var(--basex1);
+}
+
+:host > .radioWrapper > label.radioLabel > z-icon {
+  fill: var(--myz-blue);
+  height: 18px;
+  width: 18px;
+}
+
+/* focus */
+:host > .radioWrapper > input[type="radio"]:focus + label.radioLabel > z-icon {
+  box-shadow: 0 0 2px 2px var(--accent-dark);
+  border-radius: 50%;
+}
+
+/* disabled */
+:host
+  > .radioWrapper
+  > input[type="radio"]:disabled
+  + label.radioLabel
+  > z-icon {
+  fill: var(--bg-grey-700);
+  cursor: default;
+}
+
+/* readonly */
+:host
+  > .radioWrapper
+  > input[type="radio"][readonly]
+  + label.radioLabel
+  > z-icon {
+  fill: var(--bg-grey-800);
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
