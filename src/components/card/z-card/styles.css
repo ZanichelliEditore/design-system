@@ -29,7 +29,7 @@ div.highlighted {
 
 /* PRESSED status */
 div.pressed {
-  box-shadow: var(--shadow-4);
+  box-shadow: var(--shadow-8);
   outline: none;
 }
 
