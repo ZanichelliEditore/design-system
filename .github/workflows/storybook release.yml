@@ -23,22 +23,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./storybook
-
-
-  # DEPLOY STORYBOOK TO GITHUB PAGES
-  # deploy:
-  #   name: Deploy storybook
-  #   runs-on: ubuntu-18.04
-  #   needs: build
-  #   steps:
-  #     - name: Retrieve build artifacts (cache)
-  #       if: github.event_name == 'push' || github.event_name == 'pull_request'
-  #       uses: actions/cache@v1
-  #       with:
-  #         path: ./storybook
-  #         key: build-storybook-${{ github.sha }}
-  #     - name: Deploy
-  #       uses: peaceiris/actions-gh-pages@v3
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         publish_dir: ./storybook
