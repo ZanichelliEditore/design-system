@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description             | Type                                                                          | Default     |
-| --------- | --------- | ----------------------- | ----------------------------------------------------------------------------- | ----------- |
-| `message` | `message` | input helper message    | `string`                                                                      | `undefined` |
-| `status`  | `status`  | input status (optional) | `InputStatusEnum.error \| InputStatusEnum.success \| InputStatusEnum.warning` | `undefined` |
+| Property  | Attribute | Description             | Type                                                                                                       | Default     |
+| --------- | --------- | ----------------------- | ---------------------------------------------------------------------------------------------------------- | ----------- |
+| `message` | `message` | input helper message    | `string`                                                                                                   | `undefined` |
+| `status`  | `status`  | input status (optional) | `InputStatusEnum.error \| InputStatusEnum.selecting \| InputStatusEnum.success \| InputStatusEnum.warning` | `undefined` |
 
 
 ## Dependencies
@@ -18,6 +18,7 @@
 ### Used by
 
  - [z-input](../z-input)
+ - [z-select](../z-select)
 
 ### Depends on
 
@@ -28,6 +29,7 @@
 graph TD;
   z-input-message --> z-icon
   z-input --> z-input-message
+  z-select --> z-input-message
   style z-input-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,0 +1,27 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
+
+<Meta title="Inputs/ZSelect" component="z-input-select" />
+
+# ZSelect
+
+<Preview>
+  <Story name="ZSelect-sample">
+    {html`<z-select
+      label="${text('label', 'Label')}"
+      placeholder="${text('placeholder', 'Placeholder')}"
+      disabled="${boolean('disabled', false)}"
+      readonly="${boolean('readonly', false)}"
+      status="${text('status', 'success')}"
+      message="${text('message', 'success message')}"
+      hasmessage="${boolean('hasmessage', true)}"
+      autocomplete="${boolean('autocomplete', true)}"
+      multiple="${boolean('multiple', false)}"
+      noresultslabel="${text('noresultslabel', 'Nessun risultato')}"
+      items='[{"id":"item_1","name":"First Item","selected":false},{"id":"item_2","name":"Second Item","selected":false},{"id":"item_3","name":"Third Item","selected":false}]'
+    ></z-select>`}
+  </Story>
+</Preview>
+
+<Props of="z-select" />
