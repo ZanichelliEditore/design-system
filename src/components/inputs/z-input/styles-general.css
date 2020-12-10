@@ -106,7 +106,7 @@
 :host input:focus.istyping,
 :host .focus.istyping {
   border-color: var(--myz-blue) !important;
-  box-shadow: var(--shadow-zero);
+  box-shadow: var(--shadow-0);
   color: var(--myz-blue);
 }
 
