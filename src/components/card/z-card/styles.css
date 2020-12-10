@@ -23,13 +23,13 @@ div.faded {
 
 /* HIGHLIGHTED status */
 div.highlighted {
-  box-shadow: 0px 4px 8px 0px rgba(66, 69, 72, 0.4);
+  box-shadow: var(--shadow-4);
   outline: none;
 }
 
 /* PRESSED status */
 div.pressed {
-  box-shadow: 0px 8px 16px 0px rgba(66, 69, 72, 0.4);
+  box-shadow: var(--shadow-4);
   outline: none;
 }
 

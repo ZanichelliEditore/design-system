@@ -48,7 +48,7 @@ button:focus > span {
 button:active > span {
   background: var(--bg-white);
   border-radius: var(--radius-base);
-  box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.4);
+  box-shadow: var(--shadow-2);
 }
 
 button:disabled {
