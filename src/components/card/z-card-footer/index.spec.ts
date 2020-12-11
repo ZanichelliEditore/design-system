@@ -157,4 +157,42 @@ describe("Suite test ZCardFooter", () => {
       </z-card-footer>
     `);
   });
+
+  it("Test render ZCardFooter aperto tramite prop", async () => {
+    const page = await newSpecPage({
+      components: [ZCardFooter],
+      html: `<z-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019" opened=true></z-card-footer>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" titolo=\"titolo\" opened=true>
+        <mock:shadow-root>
+          <div>
+            <footer class="isopen">
+              <span class=\"toggle\">
+                <slot name=\"toggle\"></slot>
+              </span>
+              <h2>
+                titolo
+              </h2>
+              <div>
+                <p class="authors">
+                  <span><b>
+                    Mario Rossi, Paolo Bianchi
+                  </b></span>
+                </p>
+                <p class="year_isbn">
+                  <span class=\"isbn\">
+                    <span><b></b> (ed. cartacea)</span>
+                  </span>
+                </p>
+              </div>
+              <div class="slot-handler visible">
+                <slot name="list"></slot>
+              </div>
+            </footer>
+          </div>
+        </mock:shadow-root>
+      </z-card-footer>
+    `);
+  });
 });
