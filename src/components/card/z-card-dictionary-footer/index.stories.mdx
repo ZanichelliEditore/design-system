@@ -1,16 +1,22 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from "@storybook/addon-knobs";
 
-<Meta title="ZCardDictionaryFooter" component="z-card-dictionary-footer" />
+## Stories
+
+<Meta title="Card/ZCardDictionaryFooter" component="z-card-dictionary-footer" />
 
 # ZCardDictionaryFooter
 
 <Preview>
-  <Story name="ZCardDictionaryFooter-sample">
-    {html`<z-card-dictionary-footer></z-card-dictionary-footer>`}
+  <Story name="z-card-dictionary-footer">
+    {html`
+      <z-card-dictionary-footer>
+        <span slot="top">Top footer content</span>
+        <span slot="bottom">Bottom footer content</span>
+      </z-card-dictionary-footer>
+    `}
   </Story>
 </Preview>
 
 <Props of="z-card-dictionary-footer" />
-
-

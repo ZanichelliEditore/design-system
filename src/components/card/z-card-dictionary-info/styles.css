@@ -12,6 +12,7 @@
   border-radius: 0px;
   box-sizing: border-box;
   padding: var(--basex1) var(--basex3);
+  position: relative;
 }
 
 :host > div > z-icon {
