@@ -101,6 +101,8 @@ export namespace Components {
          */
         "sortlabeldesc"?: string;
     }
+    interface ZCandybar {
+    }
     interface ZCard {
         /**
           * graphic variant (optional)
@@ -274,24 +276,6 @@ export namespace Components {
           * uncheck all label (optional)
          */
         "uncheckalltext"?: string;
-    }
-    interface ZCookiebar {
-        /**
-          * title cookiebar text
-         */
-        "bartitle": string;
-        /**
-          * cookie policy link url
-         */
-        "cookiepolicyurl": string;
-        /**
-          * hide cookie bar (optional)
-         */
-        "hide"?: boolean;
-        /**
-          * prevent default cookie set action on 'OK' button click (optional). default false
-         */
-        "preventcookieset"?: boolean;
     }
     interface ZFooter {
         /**
@@ -876,6 +860,12 @@ declare global {
         prototype: HTMLZButtonSortElement;
         new (): HTMLZButtonSortElement;
     };
+    interface HTMLZCandybarElement extends Components.ZCandybar, HTMLStencilElement {
+    }
+    var HTMLZCandybarElement: {
+        prototype: HTMLZCandybarElement;
+        new (): HTMLZCandybarElement;
+    };
     interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
     }
     var HTMLZCardElement: {
@@ -935,12 +925,6 @@ declare global {
     var HTMLZComboboxElement: {
         prototype: HTMLZComboboxElement;
         new (): HTMLZComboboxElement;
-    };
-    interface HTMLZCookiebarElement extends Components.ZCookiebar, HTMLStencilElement {
-    }
-    var HTMLZCookiebarElement: {
-        prototype: HTMLZCookiebarElement;
-        new (): HTMLZCookiebarElement;
     };
     interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {
     }
@@ -1097,6 +1081,7 @@ declare global {
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
+        "z-candybar": HTMLZCandybarElement;
         "z-card": HTMLZCardElement;
         "z-card-alert": HTMLZCardAlertElement;
         "z-card-body": HTMLZCardBodyElement;
@@ -1107,7 +1092,6 @@ declare global {
         "z-card-list": HTMLZCardListElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
-        "z-cookiebar": HTMLZCookiebarElement;
         "z-footer": HTMLZFooterElement;
         "z-header": HTMLZHeaderElement;
         "z-icon": HTMLZIconElement;
@@ -1235,6 +1219,8 @@ declare namespace LocalJSX {
           * sort label content (descending) (optional)
          */
         "sortlabeldesc"?: string;
+    }
+    interface ZCandybar {
     }
     interface ZCard {
         /**
@@ -1417,24 +1403,6 @@ declare namespace LocalJSX {
           * uncheck all label (optional)
          */
         "uncheckalltext"?: string;
-    }
-    interface ZCookiebar {
-        /**
-          * title cookiebar text
-         */
-        "bartitle"?: string;
-        /**
-          * cookie policy link url
-         */
-        "cookiepolicyurl"?: string;
-        /**
-          * hide cookie bar (optional)
-         */
-        "hide"?: boolean;
-        /**
-          * prevent default cookie set action on 'OK' button click (optional). default false
-         */
-        "preventcookieset"?: boolean;
     }
     interface ZFooter {
         /**
@@ -2039,6 +2007,7 @@ declare namespace LocalJSX {
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
+        "z-candybar": ZCandybar;
         "z-card": ZCard;
         "z-card-alert": ZCardAlert;
         "z-card-body": ZCardBody;
@@ -2049,7 +2018,6 @@ declare namespace LocalJSX {
         "z-card-list": ZCardList;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
-        "z-cookiebar": ZCookiebar;
         "z-footer": ZFooter;
         "z-header": ZHeader;
         "z-icon": ZIcon;
@@ -2085,6 +2053,7 @@ declare module "@stencil/core" {
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
+            "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-card-alert": LocalJSX.ZCardAlert & JSXBase.HTMLAttributes<HTMLZCardAlertElement>;
             "z-card-body": LocalJSX.ZCardBody & JSXBase.HTMLAttributes<HTMLZCardBodyElement>;
@@ -2095,7 +2064,6 @@ declare module "@stencil/core" {
             "z-card-list": LocalJSX.ZCardList & JSXBase.HTMLAttributes<HTMLZCardListElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
-            "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
