@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -23,6 +23,7 @@
     "test.watch": "stencil test --spec --watch",
     "test.e2e": "stencil test --e2e",
     "release": "standard-version",
+    "githbub-release": "release-it",
     "start-storybook": "yarn build && start-storybook -p 3003 -s ./dist,./src/assets --ci",
     "build-storybook": "yarn build && build-storybook -c .storybook -s ./dist,./src/assets . -o storybook"
   },
@@ -44,6 +45,7 @@
     "lit-html": "^1.1.2",
     "plop": "^2.1.0",
     "puppeteer": "1.20.0",
+    "release-it": "^14.2.2",
     "standard-version": "^8.0.2",
     "storybook-addons-abstract": "^5.0.6"
   },
