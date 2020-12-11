@@ -56,39 +56,39 @@ export class ZCardDictionaryInfo {
   }
 
   renderOnlineLicenzeSection() {
-    if (!this?.cardData?.online_license) return;
+    if (!this?.cardData?.onlineLicense) return;
 
     return (
       <section>
-        <span class="licenze_heading">
+        <span class="license-heading">
           <span>Licenza online</span>
           <span class="expired">
-            {this.cardData.online_license.expired ? "SCADUTA" : ""}
+            {this.cardData.onlineLicense.expired ? "SCADUTA" : ""}
           </span>
         </span>
-        Scadenza il <b>{this.cardData.online_license.expiration}</b>
+        Scadenza il <b>{this.cardData.onlineLicense.expiration}</b>
         <br />
         Installazioni disponibili:{" "}
-        <b>{this.cardData.online_license.installations}</b>
+        <b>{this.cardData.onlineLicense.installations}</b>
       </section>
     );
   }
 
   renderOfflineLicenzeSection() {
-    if (!this?.cardData?.offline_license) return;
+    if (!this?.cardData?.offlineLicense) return;
 
     return (
       <section>
-        <span class="licenze_heading">
+        <span class="license-heading">
           <span>Licenza offline</span>
           <span class="expired">
-            {this.cardData.offline_license.expired ? "SCADUTA" : ""}
+            {this.cardData.offlineLicense.expired ? "SCADUTA" : ""}
           </span>
         </span>
-        Scadenza il <b>{this.cardData.offline_license.expiration}</b>
+        Scadenza il <b>{this.cardData.offlineLicense.expiration}</b>
         <br />
         Installazioni disponibili:{" "}
-        <b>{this.cardData.offline_license.installations}</b>
+        <b>{this.cardData.offlineLicense.installations}</b>
       </section>
     );
   }

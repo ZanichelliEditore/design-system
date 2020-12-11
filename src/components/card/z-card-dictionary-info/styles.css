@@ -35,12 +35,12 @@
   border-bottom: none;
 }
 
-:host > div > div > section > span.licenze_heading {
+:host > div > div > section > span.license-heading {
   display: flex;
   justify-content: space-between;
 }
 
-:host > div > div > section > span.licenze_heading > span.expired {
+:host > div > div > section > span.license-heading > span.expired {
   color: var(--myz-red);
   font-size: 12px;
   font-weight: 600;

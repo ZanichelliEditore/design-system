@@ -33,11 +33,11 @@ describe("Suite test ZCardDictionaryInfo", () => {
   it("Test render ZCardDictionaryInfo - with data", async () => {
     const page = await newSpecPage({
       components: [ZCardDictionaryInfo],
-      html: `<z-card-dictionary-info data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","online_license":{"expiration":"31/12/2021","installations":"1","expired":true},"offline_license":{"expiration":"30/06/2021","installations":"2","expired":false}}'></z-card-dictionary-info>`
+      html: `<z-card-dictionary-info data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'></z-card-dictionary-info>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-dictionary-info data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","online_license":{"expiration":"31/12/2021","installations":"1","expired":true},"offline_license":{"expiration":"30/06/2021","installations":"2","expired":false}}'>
+    <z-card-dictionary-info data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'>
       <mock:shadow-root>
         <div>
           <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="0"></z-icon>
@@ -54,7 +54,7 @@ describe("Suite test ZCardDictionaryInfo", () => {
             </section>
 
             <section>
-              <span class="licenze_heading">
+              <span class="license-heading">
                 <span>Licenza online</span>
                 <span class="expired">SCADUTA</span>
               </span>
@@ -64,7 +64,7 @@ describe("Suite test ZCardDictionaryInfo", () => {
             </section>
 
             <section>
-              <span class="licenze_heading">
+              <span class="license-heading">
                 <span>Licenza offline</span>
                 <span class="expired"></span>
               </span>

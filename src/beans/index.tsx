@@ -158,8 +158,8 @@ export type DictionaryData = {
   year: string;
   title: string;
   description: string;
-  online_license: DictionaryLicenseData;
-  offline_license: DictionaryLicenseData;
+  onlineLicense: DictionaryLicenseData;
+  offlineLicense: DictionaryLicenseData;
 };
 
 export type DictionaryLicenseData = {

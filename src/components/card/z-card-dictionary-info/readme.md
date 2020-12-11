@@ -1,15 +1,13 @@
 # z-card-dictionary-info
 
-
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property | Attribute | Description     | Type                                                                                                                                                             | Default     |
-| -------- | --------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `data`   | `data`    | dictionary info | `string \| { author: string; year: string; title: string; description: string; online_license: DictionaryLicenseData; offline_license: DictionaryLicenseData; }` | `undefined` |
+| Property | Attribute | Description     | Type                                                                                                                                                           | Default     |
+| -------- | --------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `data`   | `data`    | dictionary info | `string \| { author: string; year: string; title: string; description: string; onlineLicense: DictionaryLicenseData; offlineLicense: DictionaryLicenseData; }` | `undefined` |
 
 
 ## Events
