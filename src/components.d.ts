@@ -154,18 +154,29 @@ export namespace Components {
         "titolo": string;
     }
     interface ZCardDictionary {
+        /**
+          * card cover
+         */
         "cover": string;
+        /**
+          * card is disabled
+         */
         "disabled": boolean;
+        /**
+          * card is flipped
+         */
         "flipped": boolean;
+        /**
+          * card title
+         */
         "name": string;
     }
     interface ZCardDictionaryFooter {
-        /**
-          * faded status
-         */
-        "faded": boolean;
     }
     interface ZCardDictionaryInfo {
+        /**
+          * dictionary info
+         */
         "data": string | DictionaryData;
     }
     interface ZCardFooter {
@@ -1246,19 +1257,33 @@ declare namespace LocalJSX {
         "titolo"?: string;
     }
     interface ZCardDictionary {
+        /**
+          * card cover
+         */
         "cover"?: string;
+        /**
+          * card is disabled
+         */
         "disabled"?: boolean;
+        /**
+          * card is flipped
+         */
         "flipped"?: boolean;
+        /**
+          * card title
+         */
         "name"?: string;
     }
     interface ZCardDictionaryFooter {
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
     }
     interface ZCardDictionaryInfo {
+        /**
+          * dictionary info
+         */
         "data"?: string | DictionaryData;
+        /**
+          * flip card to front
+         */
         "onCloseInfo"?: (event: CustomEvent<any>) => void;
     }
     interface ZCardFooter {

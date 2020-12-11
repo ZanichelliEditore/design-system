@@ -10,10 +10,12 @@ import { DictionaryData } from "../../../beans";
   shadow: true
 })
 export class ZCardDictionaryInfo {
+  /** dictionary info */
   @Prop() data: string | DictionaryData;
 
   private cardData: DictionaryData;
 
+  /** flip card to front */
   @Event() closeInfo: EventEmitter;
   emitCloseInfo() {
     this.closeInfo.emit();

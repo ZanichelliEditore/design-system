@@ -45,6 +45,7 @@
 
 ### Used by
 
+ - [z-card-dictionary](../../card/z-card-dictionary)
  - [z-header](../../navigation/z-header)
 
 ### Depends on
@@ -55,6 +56,7 @@
 ```mermaid
 graph TD;
   z-button --> z-icon
+  z-card-dictionary --> z-button
   z-header --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

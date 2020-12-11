@@ -3,7 +3,8 @@ import { ButtonVariantEnum } from "../../../beans";
 
 /**
  * @slot  - generic card slot
- * @slot info - dictionary info
+ * @slot back-info - flipped card info
+ * @slot back-footer - flipped card footer
  */
 @Component({
   tag: "z-card-dictionary",
@@ -11,9 +12,13 @@ import { ButtonVariantEnum } from "../../../beans";
   shadow: true
 })
 export class ZCardDictionary {
+  /** card title */
   @Prop() name: string;
+  /** card cover */
   @Prop() cover: string;
+  /** card is disabled */
   @Prop() disabled: boolean = false;
+  /** card is flipped */
   @Prop({ mutable: true }) flipped: boolean = false;
 
   @Listen("closeInfo")
