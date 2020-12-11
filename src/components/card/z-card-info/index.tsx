@@ -5,11 +5,11 @@ import { DictionaryData } from "../../../beans";
  * @slot  - content
  */
 @Component({
-  tag: "z-card-dictionary-info",
+  tag: "z-card-info",
   styleUrl: "styles.css",
   shadow: true
 })
-export class ZCardDictionaryInfo {
+export class zCardInfo {
   /** dictionary info */
   @Prop() data: string | DictionaryData;
 

@@ -1,4 +1,4 @@
-# z-card-dictionary-info
+# z-card-info
 
 <!-- Auto Generated Below -->
 
@@ -33,8 +33,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  z-card-dictionary-info --> z-icon
-  style z-card-dictionary-info fill:#f9f,stroke:#333,stroke-width:4px
+  z-card-info --> z-icon
+  style z-card-info fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
