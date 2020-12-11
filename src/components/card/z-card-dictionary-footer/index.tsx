@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, h } from "@stencil/core";
 
 /**
  * @slot top - footer top content
@@ -10,12 +10,9 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZCardDictionaryFooter {
-  /** faded status */
-  @Prop() faded: boolean = false;
-
   render() {
     return (
-      <div class={this.faded && "faded"}>
+      <div>
         <footer>
           <div class="top">
             <slot name="top" />

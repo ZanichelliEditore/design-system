@@ -3,11 +3,6 @@
   font-weight: var(--font-rg);
 }
 
-:host > div.faded {
-  opacity: 0.3;
-  pointer-events: none;
-}
-
 :host > div > footer {
   box-sizing: border-box;
   border-radius: 0px 0px var(--radius-base) var(--radius-base);

@@ -3,8 +3,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZCardDictionaryFooter } from "./index";
 
 describe("Suite test ZCardDictionaryFooter", () => {
-  it("Test render ZCardDictionaryFooter vuoto", async () => {
-
+  it("Test render ZCardDictionaryFooter - empty", async () => {
     const page = await newSpecPage({
       components: [ZCardDictionaryFooter],
       html: `<z-card-dictionary-footer></z-card-dictionary-footer>`
@@ -14,12 +13,17 @@ describe("Suite test ZCardDictionaryFooter", () => {
       <z-card-dictionary-footer>
         <mock:shadow-root>
           <div>
-            This is your z-card-dictionary-footer component
-            This is your default prop:
+            <footer>
+              <div class="top">
+                <slot name="top"></slot>
+              </div>
+              <div class="bottom">
+                <slot name="bottom"></slot>
+              </div>
+            </footer>
           </div>
         </mock:shadow-root>
       </z-card-dictionary-footer>
-    `)
+    `);
   });
 });
-
