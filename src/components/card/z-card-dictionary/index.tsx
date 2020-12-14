@@ -3,8 +3,7 @@ import { ButtonVariantEnum } from "../../../beans";
 
 /**
  * @slot  - generic card slot
- * @slot back-info - flipped card info
- * @slot back-footer - flipped card footer
+ * @slot info - flipped card info
  */
 @Component({
   tag: "z-card-dictionary",

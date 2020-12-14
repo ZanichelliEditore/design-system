@@ -18,11 +18,10 @@
 
 ## Slots
 
-| Slot            | Description         |
-| --------------- | ------------------- |
-|                 | generic card slot   |
-| `"back-footer"` | flipped card footer |
-| `"back-info"`   | flipped card info   |
+| Slot     | Description       |
+| -------- | ----------------- |
+|          | generic card slot |
+| `"info"` | flipped card info |
 
 
 ## Dependencies
