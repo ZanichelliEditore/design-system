@@ -20,10 +20,16 @@ export class ZCardDictionary {
   @Prop() disabled: boolean = false;
   /** card is flipped */
   @Prop({ mutable: true }) flipped: boolean = false;
+  /** flip button label */
+  @Prop() flipbuttonlabel: string = 'INFO';
 
-  @Listen("closeInfo")
-  handleToggle(): void {
-    this.flipped = false;
+  @Listen("flipCard")
+  handleFlipCard(e: CustomEvent){
+    this.flipCard(e.detail);
+  }
+
+  flipCard(showBack: boolean = true): void {
+    this.flipped = showBack;
   }
 
   renderFront() {
@@ -46,9 +52,9 @@ export class ZCardDictionary {
           variant={ButtonVariantEnum.secondary}
           icon="informationsource"
           issmall={true}
-          onClick={() => (this.flipped = true)}
+          onClick={() => this.flipCard(true)}
         >
-          INFO
+          {this.flipbuttonlabel}
         </z-button>
       </div>
     );

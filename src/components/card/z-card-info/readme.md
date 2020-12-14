@@ -12,9 +12,9 @@
 
 ## Events
 
-| Event       | Description        | Type               |
-| ----------- | ------------------ | ------------------ |
-| `closeInfo` | flip card to front | `CustomEvent<any>` |
+| Event      | Description        | Type               |
+| ---------- | ------------------ | ------------------ |
+| `flipCard` | flip card to front | `CustomEvent<any>` |
 
 
 ## Slots

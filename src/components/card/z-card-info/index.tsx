@@ -16,9 +16,9 @@ export class zCardInfo {
   private cardData: DictionaryData;
 
   /** flip card to front */
-  @Event() closeInfo: EventEmitter;
-  emitCloseInfo() {
-    this.closeInfo.emit();
+  @Event() flipCard: EventEmitter;
+  emitFlipCard(showBack: boolean = false) {
+    this.flipCard.emit(showBack);
   }
 
   componentWillLoad() {
@@ -35,7 +35,7 @@ export class zCardInfo {
         name="multiply-circled-filled"
         height={18}
         width={18}
-        onClick={() => this.emitCloseInfo()}
+        onClick={() => this.emitFlipCard(false)}
         tabindex="0"
       />
     );

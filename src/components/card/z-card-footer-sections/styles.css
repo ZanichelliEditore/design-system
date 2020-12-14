@@ -9,7 +9,6 @@
   border-top: var(--border-base) solid var(--bg-grey-200);
   padding: var(--basex1) var(--basex2) 0;
   height: 139px;
-  width: 256px;
   color: var(--text-grey-800);
   font-size: 16px;
   line-height: 24px;

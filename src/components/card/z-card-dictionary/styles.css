@@ -5,7 +5,7 @@
 
 :host > div {
   position: relative;
-  height: 523px;
+  height: 522px;
   width: 272px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -30,7 +30,7 @@
 }
 
 :host > div > div.front {
-  height: 523px;
+  height: 522px;
   width: 256px;
   z-index: 2;
   top: 0;
