@@ -8,7 +8,7 @@
   border-radius: 0px 0px var(--radius-base) var(--radius-base);
   border-top: var(--border-base) solid var(--bg-grey-200);
   padding: var(--basex1) var(--basex2) 0;
-  height: 130px;
+  height: 128px;
   color: var(--text-grey-800);
   font-size: 16px;
   line-height: 24px;

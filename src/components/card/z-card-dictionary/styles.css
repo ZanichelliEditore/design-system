@@ -7,8 +7,6 @@
   position: relative;
   height: 522px;
   width: 272px;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
   transition: -webkit-transform 0.5s ease-out;
   transition: transform 0.5s ease-out;
   transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
@@ -24,13 +22,13 @@
   transition: transform 0.5s ease-out;
   transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
   margin-left: -10px;
-  margin-top: -2px;
   z-index: 2;
 }
 
 :host > div .content.flipped {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
+  margin-top: -2px;
 }
 
 :host > div .front,
@@ -45,7 +43,6 @@
 }
 
 :host > div .front {
-  height: 522px;
   width: 256px;
   z-index: 2;
   top: 0;
@@ -62,7 +59,6 @@
 }
 
 :host > div .back {
-  height: 523px;
   width: 272px;
   z-index: 1;
   top: 0;
