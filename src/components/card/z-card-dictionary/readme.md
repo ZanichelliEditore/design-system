@@ -11,7 +11,7 @@
 | ----------------- | ----------------- | ----------------- | --------- | ----------- |
 | `cover`           | `cover`           | card cover        | `string`  | `undefined` |
 | `disabled`        | `disabled`        | card is disabled  | `boolean` | `false`     |
-| `flipbuttonlabel` | `flipbuttonlabel` | flip button label | `string`  | `'INFO'`    |
+| `flipbuttonlabel` | `flipbuttonlabel` | flip button label | `string`  | `"INFO"`    |
 | `flipped`         | `flipped`         | card is flipped   | `boolean` | `false`     |
 | `name`            | `name`            | card title        | `string`  | `undefined` |
 
@@ -30,19 +30,19 @@
 ### Depends on
 
 - [z-card](../z-card)
+- [z-card-header](../z-card-header)
 - [z-card-body](../z-card-body)
 - [z-card-cover](../z-card-cover)
 - [z-button](../../buttons/z-button)
-- [z-card-header](../z-card-header)
 
 ### Graph
 ```mermaid
 graph TD;
   z-card-dictionary --> z-card
+  z-card-dictionary --> z-card-header
   z-card-dictionary --> z-card-body
   z-card-dictionary --> z-card-cover
   z-card-dictionary --> z-button
-  z-card-dictionary --> z-card-header
   z-button --> z-icon
   style z-card-dictionary fill:#f9f,stroke:#333,stroke-width:4px
 ```

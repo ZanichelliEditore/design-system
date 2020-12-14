@@ -11,27 +11,22 @@ describe("Suite test ZCardDictionary", () => {
     expect(page.root).toEqualHtml(`
       <z-card-dictionary>
         <mock:shadow-root>
-          <div class="">
-            <div class="front">
-              <z-card>
-                <z-card-header></z-card-header>
-                <z-card-body>
-                  <z-card-cover slot="cover"></z-card-cover>
-                </z-card-body>
-                <slot></slot>
-              </z-card>
-              <z-button variant="secondary" icon="informationsource" issmall="">INFO</z-button>
-            </div>
-            <div class="back">
-              <z-card>
-                <z-card-header></z-card-header>
-                <z-card-body></z-card-body>
-                <div class="info">
-                  <slot name="back-info"></slot>
+          <div>
+            <z-card>
+              <z-card-header></z-card-header>
+              <div class="content">
+                <div class="front">
+                  <z-card-body>
+                    <z-card-cover slot="cover"></z-card-cover>
+                  </z-card-body>
+                  <z-button variant="secondary" icon="informationsource" issmall="">INFO</z-button>
                 </div>
-                <slot name="back-footer"></slot>
-              </z-card>
-            </div>
+                <div class="back">
+                  <slot name="info"></slot>
+                </div>
+              </div>
+              <slot></slot>
+            </z-card>
           </div>
         </mock:shadow-root>
       </z-card-dictionary>
@@ -46,27 +41,22 @@ describe("Suite test ZCardDictionary", () => {
     expect(page.root).toEqualHtml(`
       <z-card-dictionary name="title" cover="img-url" flipped="true" disabled="true">
         <mock:shadow-root>
-          <div class="flipped">
-            <div class="front">
-              <z-card>
-                <z-card-header titolo="title"></z-card-header>
-                <z-card-body>
-                  <z-card-cover titolo="title" img="img-url" slot="cover" faded=""></z-card-cover>
-                </z-card-body>
-                <slot></slot>
-              </z-card>
-              <z-button variant="secondary" icon="informationsource" issmall="">INFO</z-button>
-            </div>
-            <div class="back">
-              <z-card>
-                <z-card-header titolo="title"></z-card-header>
-                <z-card-body></z-card-body>
-                <div class="info">
-                  <slot name="back-info"></slot>
+          <div>
+            <z-card>
+              <z-card-header titolo="title"></z-card-header>
+              <div class="content flipped">
+                <div class="front">
+                  <z-card-body>
+                    <z-card-cover titolo="title" img="img-url" slot="cover" faded=""></z-card-cover>
+                  </z-card-body>
+                  <z-button variant="secondary" icon="informationsource" issmall="">INFO</z-button>
                 </div>
-                <slot name="back-footer"></slot>
-              </z-card>
-            </div>
+                <div class="back">
+                  <slot name="info"></slot>
+                </div>
+              </div>
+              <slot></slot>
+            </z-card>
           </div>
         </mock:shadow-root>
       </z-card-dictionary>

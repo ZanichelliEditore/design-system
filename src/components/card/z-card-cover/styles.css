@@ -1,7 +1,9 @@
 img {
   display: block;
-  max-height: 340px;
   margin: auto auto;
+  height: 340px;
+  width: 100%;
+  object-fit: cover;
 }
 
 img.faded {
