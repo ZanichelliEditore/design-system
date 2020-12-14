@@ -1,16 +1,16 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZCardDictionaryFooter } from "./index";
+import { zCardFooterSections } from "./index";
 
-describe("Suite test ZCardDictionaryFooter", () => {
-  it("Test render ZCardDictionaryFooter - empty", async () => {
+describe("Suite test zCardFooterSections", () => {
+  it("Test render zCardFooterSections - empty", async () => {
     const page = await newSpecPage({
-      components: [ZCardDictionaryFooter],
-      html: `<z-card-dictionary-footer></z-card-dictionary-footer>`
+      components: [zCardFooterSections],
+      html: `<z-card-footer-sections></z-card-footer-sections>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-card-dictionary-footer>
+      <z-card-footer-sections>
         <mock:shadow-root>
           <div>
             <footer>
@@ -23,7 +23,7 @@ describe("Suite test ZCardDictionaryFooter", () => {
             </footer>
           </div>
         </mock:shadow-root>
-      </z-card-dictionary-footer>
+      </z-card-footer-sections>
     `);
   });
 });

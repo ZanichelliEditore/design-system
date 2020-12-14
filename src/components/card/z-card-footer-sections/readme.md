@@ -1,4 +1,4 @@
-# z-card-dictionary-footer
+# z-card-footer-sections
 
 
 

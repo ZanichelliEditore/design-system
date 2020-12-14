@@ -15,19 +15,19 @@ import { text, boolean } from '@storybook/addon-knobs';
         disabled="${boolean('disabled', false)}"
         flipped="${boolean('flipped', false)}"
       >
-        <z-card-dictionary-footer>
+        <z-card-footer-sections>
           <div slot="top">Vocabolario della lingua italiana</div>
           <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
-        </z-card-dictionary-footer>
+        </z-card-footer-sections>
         <z-card-info
           slot="back-info"
           data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1"},"offlineLicense":{"expiration":"30/06/2021","installations":"2"}}'
         >
           <z-button variant="tertiary" icon="gear">Gestisci Licenze</z-button>
         </z-card-info>
-        <z-card-dictionary-footer slot="back-footer">
+        <z-card-footer-sections slot="back-footer">
           <div slot="bottom"><z-button variant="primary" style="width:100%;" tabindex="1">VAI AL PRODOTTO</z-button></div>
-        </z-card-dictionary-footer>
+        </z-card-footer-sections>
       </z-card-dictionary>
     `}
   </Story>

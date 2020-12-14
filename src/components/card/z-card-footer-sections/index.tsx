@@ -5,11 +5,11 @@ import { Component, h } from "@stencil/core";
  * @slot bottom - footer bottom content
  */
 @Component({
-  tag: "z-card-dictionary-footer",
+  tag: "z-card-footer-sections",
   styleUrl: "styles.css",
   shadow: true
 })
-export class ZCardDictionaryFooter {
+export class zCardFooterSections {
   render() {
     return (
       <div>
