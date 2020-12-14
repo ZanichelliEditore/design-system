@@ -8,7 +8,7 @@ import { LicenseTypeEnum } from "../../../beans/index";
 @Component({
   tag: "z-card-footer",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: true
 })
 export class ZCardFooter {
   /** volume title */
@@ -35,7 +35,7 @@ export class ZCardFooter {
     return {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial,
+      trial: this.cardtype === LicenseTypeEnum.trial
     };
   }
 
@@ -47,17 +47,19 @@ export class ZCardFooter {
             <slot name="toggle" />
           </span>
           <h2>{this.titolo}</h2>
-          <div>
-            <p class="authors">
-              {this.autorilabel}: <b>{this.autori}</b>
-            </p>
-            <p class="year_isbn">
-              <span class="isbn">
-                ISBN (ed. cartacea): <b>{this.isbn}</b>
-              </span>
-            </p>
+          <div class="content">
+            <div>
+              <p class="authors">
+                {this.autorilabel}: <b>{this.autori}</b>
+              </p>
+              <p class="year_isbn">
+                <span class="isbn">
+                  ISBN (ed. cartacea): <b>{this.isbn}</b>
+                </span>
+              </p>
+            </div>
+            {this.isOpen && <slot name="list" />}
           </div>
-          {this.isOpen && <slot name="list" />}
         </footer>
       </div>
     );
