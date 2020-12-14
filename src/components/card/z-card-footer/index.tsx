@@ -21,7 +21,7 @@ export class ZCardFooter {
   @Prop() faded: boolean;
   /** card graphic variant (optional) */
   @Prop() cardtype?: LicenseTypeEnum;
-
+  /** footer opened by default (optional) */
   @Prop() opened?: boolean = false;
 
   @State() isOpen: boolean = false;

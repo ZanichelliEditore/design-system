@@ -174,6 +174,9 @@ export namespace Components {
           * volume isbn
          */
         "isbn": string;
+        /**
+          * footer opened by default (optional)
+         */
         "opened"?: boolean;
         /**
           * volume title
@@ -1314,6 +1317,9 @@ declare namespace LocalJSX {
           * volume isbn
          */
         "isbn"?: string;
+        /**
+          * footer opened by default (optional)
+         */
         "opened"?: boolean;
         /**
           * volume title
