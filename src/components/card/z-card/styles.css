@@ -4,7 +4,7 @@ div {
   flex-direction: column;
   width: auto;
   box-sizing: border-box;
-  width: 256px;
+  width: 256px; /* TODO: width must be 100% - must be handled in dashboard */
   height: 522px;
   border: var(--border-base) solid var(--bg-grey-200);
   border-radius: var(--radius-base);
