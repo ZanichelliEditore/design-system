@@ -14,7 +14,7 @@ describe("Suite test zCardInfo", () => {
         <mock:shadow-root>
           <div>
             <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="0"></z-icon>
-            <div>
+            <div class="content-wrapper">
               <section>
                 Autore: <b></b>
                 <br />
@@ -23,7 +23,9 @@ describe("Suite test zCardInfo", () => {
                 <br />
               </section>
             </div>
-            <slot></slot>
+            <div class="cta-wrapper">
+              <slot></slot>
+            </div>
           </div>
         </mock:shadow-root>
       </z-card-info>
@@ -41,7 +43,7 @@ describe("Suite test zCardInfo", () => {
       <mock:shadow-root>
         <div>
           <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="0"></z-icon>
-          <div>
+          <div class="content-wrapper">
 
             <section>
               Autore: <b>Nicola Zingarelli</b>
@@ -74,7 +76,10 @@ describe("Suite test zCardInfo", () => {
             </section>
 
           </div>
-          <slot></slot>
+
+          <div class="cta-wrapper">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
     </z-card-info>

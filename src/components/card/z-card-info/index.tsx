@@ -97,12 +97,14 @@ export class zCardInfo {
     return (
       <div>
         {this.renderCloseIcon()}
-        <div>
+        <div class="content-wrapper">
           {this.renderGeneralSection()}
           {this.renderOnlineLicenzeSection()}
           {this.renderOfflineLicenzeSection()}
         </div>
-        <slot />
+        <div class="cta-wrapper">
+          <slot />
+        </div>
       </div>
     );
   }

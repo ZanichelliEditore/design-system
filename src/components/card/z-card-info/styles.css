@@ -12,7 +12,7 @@
   box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.35);
   border-radius: 0px;
   box-sizing: border-box;
-  padding: var(--basex1) var(--basex3);
+  padding: var(--basex2) var(--basex3);
   position: relative;
 }
 
@@ -24,7 +24,22 @@
   right: var(--basex1);
 }
 
-:host > div > div > section {
+:host > div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+:host > div > div.cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100%;
+}
+
+:host > div > div.content-wrapper > section {
   border-bottom: var(--border-size-small) solid var(--bg-grey-700);
   color: var(--text-grey-800);
   padding: var(--basex1) 0;
@@ -32,16 +47,21 @@
   line-height: 20px;
 }
 
-:host > div > div > section:last-child {
+:host > div > div.content-wrapper > section:last-child {
   border-bottom: none;
 }
 
-:host > div > div > section > span.license-heading {
+:host > div > div.content-wrapper > section > span.license-heading {
   display: flex;
   justify-content: space-between;
 }
 
-:host > div > div > section > span.license-heading > span.expired {
+:host
+  > div
+  > div.content-wrapper
+  > section
+  > span.license-heading
+  > span.expired {
   color: var(--myz-red);
   font-size: 12px;
   font-weight: 600;
