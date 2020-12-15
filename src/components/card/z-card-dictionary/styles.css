@@ -15,13 +15,12 @@
 :host > div .content {
   position: relative;
   height: 522px;
-  width: 272px;
+  width: 100%;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: -webkit-transform 0.5s ease-out;
   transition: transform 0.5s ease-out;
   transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
-  margin-left: -10px;
   z-index: 2;
 }
 
@@ -43,10 +42,9 @@
 }
 
 :host > div .front {
-  width: 256px;
   z-index: 2;
   top: 0;
-  left: var(--basex1);
+  left: 0;
   -webkit-transform: rotateY(0deg);
   transform: rotateY(0deg);
 }
@@ -59,7 +57,8 @@
 }
 
 :host > div .back {
-  width: 272px;
+  padding: 0 var(--basex1);
+  margin-left: calc(-1 * var(--basex1));
   z-index: 1;
   top: 0;
   left: 0;
