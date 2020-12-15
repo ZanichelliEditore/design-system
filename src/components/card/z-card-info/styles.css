@@ -5,7 +5,8 @@
 
 :host > div {
   background: var(--bg-white);
-  width: 272px;
+  width: calc(100% + var(--basex2));
+  margin-left: calc(-1 * var(--basex1));
   height: 402px;
   border: var(--border-size-small) solid var(--myz-blue);
   box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.35);
