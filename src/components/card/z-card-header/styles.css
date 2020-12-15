@@ -2,6 +2,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: space-between;
   width: auto;
   height: var(--basex6);
   position: relative;
@@ -21,7 +22,6 @@ h2 {
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   color: var(--text-grey-800);
-  width: 80%;
   height: var(--basex2);
   font-size: 12px;
   text-transform: uppercase;

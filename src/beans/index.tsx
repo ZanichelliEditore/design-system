@@ -170,3 +170,18 @@ export enum DeviceEnum {
 }
 
 export type DeviceType = DeviceEnum;
+
+export type DictionaryData = {
+  author: string;
+  year: string;
+  title: string;
+  description: string;
+  onlineLicense: DictionaryLicenseData;
+  offlineLicense: DictionaryLicenseData;
+};
+
+export type DictionaryLicenseData = {
+  expiration: string;
+  expired: boolean;
+  installations: string;
+};

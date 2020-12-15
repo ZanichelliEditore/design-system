@@ -20,22 +20,24 @@ describe("Suite test ZCardFooter", () => {
               <h2>
                 titolo
               </h2>
-              <div>
-                <p class="authors">
-                  <span><b>
-                    Mario Rossi, Paolo Bianchi
-                  </b></span>
-                </p>
-                <p class="year_isbn">
-                  <span class=\"isbn\">
+              <div class="content">
+                <div>
+                  <p class="authors">
                     <span><b>
-                      123456
-                    </b> (ed. cartacea)</span>
-                  </span>
-                </p>
-              </div>
-              <div class="hidden slot-handler">
-                <slot name="list"></slot>
+                      Mario Rossi, Paolo Bianchi
+                    </b></span>
+                  </p>
+                  <p class="year_isbn">
+                    <span class=\"isbn\">
+                      <span><b>
+                        123456
+                      </b> (ed. cartacea)</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="hidden slot-handler">
+                  <slot name="list"></slot>
+                </div>
               </div>
             </footer>
           </div>
@@ -61,20 +63,22 @@ describe("Suite test ZCardFooter", () => {
               <h2>
                 titolo
               </h2>
-              <div>
-                <p class="authors">
-                  <span><b>
-                    Mario Rossi, Paolo Bianchi
-                  </b></span>
-                </p>
-                <p class="year_isbn">
-                  <span class=\"isbn\">
-                    <span><b></b> (ed. cartacea)</span>
-                  </span>
-                </p>
-              </div>
-              <div class="hidden slot-handler">
-                <slot name="list"></slot>
+              <div class="content">
+                <div>
+                  <p class="authors">
+                    <span><b>
+                      Mario Rossi, Paolo Bianchi
+                    </b></span>
+                  </p>
+                  <p class="year_isbn">
+                    <span class=\"isbn\">
+                      <span><b></b> (ed. cartacea)</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="hidden slot-handler">
+                  <slot name="list"></slot>
+                </div>
               </div>
             </footer>
           </div>
@@ -98,18 +102,20 @@ describe("Suite test ZCardFooter", () => {
                 <slot name=\"toggle\"></slot>
               </span>
               <h2></h2>
-              <div>
-                <p class="authors">
-                  <span><b></b></span>
-                </p>
-                <p class="year_isbn">
-                  <span class=\"isbn\">
-                    <span><b></b> (ed. cartacea)</span>
-                  </span>
-                </p>
-              </div>
-              <div class="hidden slot-handler">
-                <slot name="list"></slot>
+              <div class="content">
+                <div>
+                  <p class="authors">
+                    <span><b></b></span>
+                  </p>
+                  <p class="year_isbn">
+                    <span class=\"isbn\">
+                      <span><b></b> (ed. cartacea)</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="hidden slot-handler">
+                  <slot name="list"></slot>
+                </div>
               </div>
             </footer>
           </div>
@@ -136,20 +142,22 @@ describe("Suite test ZCardFooter", () => {
               <h2>
                 titolo
               </h2>
-              <div>
-                <p class="authors">
-                  <span><b>
-                    Mario Rossi, Paolo Bianchi
-                  </b></span>
-                </p>
-                <p class="year_isbn">
-                  <span class=\"isbn\">
-                    <span><b></b> (ed. cartacea)</span>
-                  </span>
-                </p>
-              </div>
-              <div class="slot-handler visible">
-                <slot name="list"></slot>
+              <div class="content">
+                <div>
+                  <p class="authors">
+                    <span><b>
+                      Mario Rossi, Paolo Bianchi
+                    </b></span>
+                  </p>
+                  <p class="year_isbn">
+                    <span class=\"isbn\">
+                      <span><b></b> (ed. cartacea)</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="slot-handler visible">
+                  <slot name="list"></slot>
+                </div>
               </div>
             </footer>
           </div>
@@ -174,20 +182,22 @@ describe("Suite test ZCardFooter", () => {
               <h2>
                 titolo
               </h2>
-              <div>
-                <p class="authors">
-                  <span><b>
-                    Mario Rossi, Paolo Bianchi
-                  </b></span>
-                </p>
-                <p class="year_isbn">
-                  <span class=\"isbn\">
-                    <span><b></b> (ed. cartacea)</span>
-                  </span>
-                </p>
-              </div>
-              <div class="slot-handler visible">
-                <slot name="list"></slot>
+              <div class="content">
+                <div>
+                  <p class="authors">
+                    <span><b>
+                      Mario Rossi, Paolo Bianchi
+                    </b></span>
+                  </p>
+                  <p class="year_isbn">
+                    <span class=\"isbn\">
+                      <span><b></b> (ed. cartacea)</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="slot-handler visible">
+                  <slot name="list"></slot>
+                </div>
               </div>
             </footer>
           </div>

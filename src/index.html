@@ -404,7 +404,7 @@
         <z-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
       </z-card-footer>
     </z-card>
-  
+
 
   <z-card cardtype="reale">
     <z-card-header cardtype="reale" titolo="titolo titolo titolotitolo titolo titolo titolo">
@@ -432,24 +432,91 @@
     </z-card-footer>
   </z-card>
 
-          <z-card>
-          <z-card-header titolo="Biologia molecolare, genetica, corpo umano">
-            <z-card-icon icon="book-minus" slot="icon" />
-          </z-card-header>
-          <z-card-body>
-            <z-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto"
-              actiontext="Annulla" type="add"></z-card-alert>
-            <z-card-cover slot="cover" titolo="titolo"
-              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
-          </z-card-body>
-          <z-card-footer titolo="Biologia molecolare, genetica, corpo umano" autori="Helena Curtis, N Sue Barnes, Adriana Schnek, Alicia Massarini"
-            isbn="9788808720979" opened=true>
-            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-            <z-card-list
-              listdata='[{"isLink":true,"value":"Leggi il libro online","url":"https://booktab.it/"},{"isLink":true,"value":"Leggi su Interactive ebook","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"TUTOR","url":"https://zte.zanichelli.it/"},{"isLink":true,"value":"Vai alla scheda catalogo","url":"https://www.zanichelli.it/"}]'
-              slot="list" />
-          </z-card-footer>
-        </z-card>
+  <z-card>
+    <z-card-header titolo="Biologia molecolare, genetica, corpo umano">
+      <z-card-icon icon="book-minus" slot="icon" />
+    </z-card-header>
+    <z-card-body>
+      <z-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto"
+        actiontext="Annulla" type="add"></z-card-alert>
+      <z-card-cover slot="cover" titolo="titolo"
+        img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+    </z-card-body>
+    <z-card-footer titolo="Biologia molecolare, genetica, corpo umano" autori="Helena Curtis, N Sue Barnes, Adriana Schnek, Alicia Massarini"
+      isbn="9788808720979" opened=true>
+      <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+      <z-card-list
+        listdata='[{"isLink":true,"value":"Leggi il libro online","url":"https://booktab.it/"},{"isLink":true,"value":"Leggi su Interactive ebook","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"TUTOR","url":"https://zte.zanichelli.it/"},{"isLink":true,"value":"Vai alla scheda catalogo","url":"https://www.zanichelli.it/"}]'
+        slot="list" />
+    </z-card-footer>
+  </z-card>
+</div>
+
+  <br /><br />
+
+  <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+    <z-card-dictionary name="Lo Zingarelli" cover="https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg">
+      <z-card-footer-sections>
+        <div slot="top">Vocabolario della lingua italiana</div>
+        <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
+      </z-card-footer-sections>
+      <z-card-info
+        slot="info"
+        data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1"},"offlineLicense":{"expiration":"30/06/2021","installations":"2"}}'
+      >
+        <z-button variant="tertiary" icon="gear">Gestisci Licenze</z-button>
+      </z-card-info>
+    </z-card-dictionary>
+
+    <z-card-dictionary name="Lo Zingarelli" cover="https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg" flipped="true">
+      <z-card-footer-sections>
+        <div slot="top">Vocabolario della lingua italiana</div>
+        <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
+      </z-card-footer-sections>
+      <z-card-info
+        slot="info"
+        data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1"},"offlineLicense":{"expiration":"30/06/2021","installations":"2"}}'
+      >
+        <z-button variant="tertiary" icon="gear">Gestisci Licenze</z-button>
+      </z-card-info>
+    </z-card-dictionary>
+
+    <z-card-dictionary name="Lo Zingarelli" cover="https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg">
+      <z-card-footer-sections>
+        <div slot="top"><z-button variant="secondary" style="width:100%;">UPGRADE</z-button></div>
+        <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
+      </z-card-footer-sections>
+      <z-card-info
+        slot="info"
+        data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1"},"offlineLicense":{"expiration":"30/06/2021","installations":"2"}}'
+      >
+        <z-button variant="tertiary" icon="gear" style="width:100%; display:block;">Gestisci Licenze</z-button>
+        <z-button variant="secondary" style="width:100%;">UPGRADE</z-button>
+      </z-card-info>
+    </z-card-dictionary>
+
+    <z-card-dictionary disabled="true" name="Lo Zingarelli" cover="https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg">
+      <z-card-footer-sections>
+        <div slot="top"><span style="color:red;">La licenza di consultazione dell'opera è scaduta</span></div>
+        <div slot="bottom"><z-button variant="primary" style="width:100%;">ACQUISTA</z-button></div>
+      </z-card-footer-sections>
+      <z-card-info
+        slot="info"
+        data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":true}}'
+      >
+        <z-button variant="tertiary" icon="gear">Gestisci Licenze</z-button>
+      </z-card-info>
+    </z-card-dictionary>
+  </div>
+
+  <br /><br />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In id maximus purus. Nam
+        porttitor mollis ipsum, sed scelerisque ipsum consequat vel. Vivamus a congue neque, ac venenatis arcu. Aliquam
+        venenatis fermentum mauris, ac efficitur lacus pellentesque sed. Fusce sit amet varius tellus, sit amet ultrices
+        nisl. Integer et tincidunt metus. Curabitur tristique interdum tempus.
 
   </div>
 

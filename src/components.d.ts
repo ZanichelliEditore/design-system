@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
+import { ButtonVariantBean, ComboItemBean, DictionaryData, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 export namespace Components {
     interface ZAlert {
@@ -159,6 +159,28 @@ export namespace Components {
          */
         "titolo": string;
     }
+    interface ZCardDictionary {
+        /**
+          * card cover
+         */
+        "cover": string;
+        /**
+          * card is disabled
+         */
+        "disabled": boolean;
+        /**
+          * flip button label
+         */
+        "flipbuttonlabel": string;
+        /**
+          * card is flipped
+         */
+        "flipped": boolean;
+        /**
+          * card title
+         */
+        "name": string;
+    }
     interface ZCardFooter {
         /**
           * authors name text
@@ -185,6 +207,8 @@ export namespace Components {
          */
         "titolo": string;
     }
+    interface ZCardFooterSections {
+    }
     interface ZCardHeader {
         /**
           * card graphic variant (optional)
@@ -208,6 +232,12 @@ export namespace Components {
           * disabled status flag
          */
         "isdisabled": boolean;
+    }
+    interface ZCardInfo {
+        /**
+          * dictionary info
+         */
+        "data": string | DictionaryData;
     }
     interface ZCardList {
         /**
@@ -894,11 +924,23 @@ declare global {
         prototype: HTMLZCardCoverElement;
         new (): HTMLZCardCoverElement;
     };
+    interface HTMLZCardDictionaryElement extends Components.ZCardDictionary, HTMLStencilElement {
+    }
+    var HTMLZCardDictionaryElement: {
+        prototype: HTMLZCardDictionaryElement;
+        new (): HTMLZCardDictionaryElement;
+    };
     interface HTMLZCardFooterElement extends Components.ZCardFooter, HTMLStencilElement {
     }
     var HTMLZCardFooterElement: {
         prototype: HTMLZCardFooterElement;
         new (): HTMLZCardFooterElement;
+    };
+    interface HTMLZCardFooterSectionsElement extends Components.ZCardFooterSections, HTMLStencilElement {
+    }
+    var HTMLZCardFooterSectionsElement: {
+        prototype: HTMLZCardFooterSectionsElement;
+        new (): HTMLZCardFooterSectionsElement;
     };
     interface HTMLZCardHeaderElement extends Components.ZCardHeader, HTMLStencilElement {
     }
@@ -911,6 +953,12 @@ declare global {
     var HTMLZCardIconElement: {
         prototype: HTMLZCardIconElement;
         new (): HTMLZCardIconElement;
+    };
+    interface HTMLZCardInfoElement extends Components.ZCardInfo, HTMLStencilElement {
+    }
+    var HTMLZCardInfoElement: {
+        prototype: HTMLZCardInfoElement;
+        new (): HTMLZCardInfoElement;
     };
     interface HTMLZCardListElement extends Components.ZCardList, HTMLStencilElement {
     }
@@ -1090,9 +1138,12 @@ declare global {
         "z-card-alert": HTMLZCardAlertElement;
         "z-card-body": HTMLZCardBodyElement;
         "z-card-cover": HTMLZCardCoverElement;
+        "z-card-dictionary": HTMLZCardDictionaryElement;
         "z-card-footer": HTMLZCardFooterElement;
+        "z-card-footer-sections": HTMLZCardFooterSectionsElement;
         "z-card-header": HTMLZCardHeaderElement;
         "z-card-icon": HTMLZCardIconElement;
+        "z-card-info": HTMLZCardInfoElement;
         "z-card-list": HTMLZCardListElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
@@ -1286,6 +1337,28 @@ declare namespace LocalJSX {
          */
         "titolo"?: string;
     }
+    interface ZCardDictionary {
+        /**
+          * card cover
+         */
+        "cover"?: string;
+        /**
+          * card is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * flip button label
+         */
+        "flipbuttonlabel"?: string;
+        /**
+          * card is flipped
+         */
+        "flipped"?: boolean;
+        /**
+          * card title
+         */
+        "name"?: string;
+    }
     interface ZCardFooter {
         /**
           * authors name text
@@ -1312,6 +1385,8 @@ declare namespace LocalJSX {
          */
         "titolo"?: string;
     }
+    interface ZCardFooterSections {
+    }
     interface ZCardHeader {
         /**
           * card graphic variant (optional)
@@ -1335,6 +1410,16 @@ declare namespace LocalJSX {
           * disabled status flag
          */
         "isdisabled"?: boolean;
+    }
+    interface ZCardInfo {
+        /**
+          * dictionary info
+         */
+        "data"?: string | DictionaryData;
+        /**
+          * flip card to front
+         */
+        "onFlipCard"?: (event: CustomEvent<any>) => void;
     }
     interface ZCardList {
         /**
@@ -2020,9 +2105,12 @@ declare namespace LocalJSX {
         "z-card-alert": ZCardAlert;
         "z-card-body": ZCardBody;
         "z-card-cover": ZCardCover;
+        "z-card-dictionary": ZCardDictionary;
         "z-card-footer": ZCardFooter;
+        "z-card-footer-sections": ZCardFooterSections;
         "z-card-header": ZCardHeader;
         "z-card-icon": ZCardIcon;
+        "z-card-info": ZCardInfo;
         "z-card-list": ZCardList;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
@@ -2066,9 +2154,12 @@ declare module "@stencil/core" {
             "z-card-alert": LocalJSX.ZCardAlert & JSXBase.HTMLAttributes<HTMLZCardAlertElement>;
             "z-card-body": LocalJSX.ZCardBody & JSXBase.HTMLAttributes<HTMLZCardBodyElement>;
             "z-card-cover": LocalJSX.ZCardCover & JSXBase.HTMLAttributes<HTMLZCardCoverElement>;
+            "z-card-dictionary": LocalJSX.ZCardDictionary & JSXBase.HTMLAttributes<HTMLZCardDictionaryElement>;
             "z-card-footer": LocalJSX.ZCardFooter & JSXBase.HTMLAttributes<HTMLZCardFooterElement>;
+            "z-card-footer-sections": LocalJSX.ZCardFooterSections & JSXBase.HTMLAttributes<HTMLZCardFooterSectionsElement>;
             "z-card-header": LocalJSX.ZCardHeader & JSXBase.HTMLAttributes<HTMLZCardHeaderElement>;
             "z-card-icon": LocalJSX.ZCardIcon & JSXBase.HTMLAttributes<HTMLZCardIconElement>;
+            "z-card-info": LocalJSX.ZCardInfo & JSXBase.HTMLAttributes<HTMLZCardInfoElement>;
             "z-card-list": LocalJSX.ZCardList & JSXBase.HTMLAttributes<HTMLZCardListElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;

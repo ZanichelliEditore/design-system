@@ -76,25 +76,27 @@ export class ZCardFooter {
             <slot name="toggle" />
           </span>
           <h2>{this.titolo}</h2>
-          <div>
-            <p
-              class="authors"
-              ref={el => (this.ellipsisAuthors = el as HTMLElement)}
-            >
-              <span title={this.getTitleAuthors()}>
-                <b>{this.autori}</b>
-              </span>
-            </p>
-            <p class="year_isbn">
-              <span class="isbn">
-                <span>
-                  <b>{this.isbn}</b> (ed. cartacea)
+          <div class="content">
+            <div>
+              <p
+                class="authors"
+                ref={el => (this.ellipsisAuthors = el as HTMLElement)}
+              >
+                <span title={this.getTitleAuthors()}>
+                  <b>{this.autori}</b>
                 </span>
-              </span>
-            </p>
-          </div>
-          <div class={`slot-handler ${this.isOpen ? "visible" : "hidden"}`}>
-            <slot name="list" />
+              </p>
+              <p class="year_isbn">
+                <span class="isbn">
+                  <span>
+                    <b>{this.isbn}</b> (ed. cartacea)
+                  </span>
+                </span>
+              </p>
+            </div>
+            <div class={`slot-handler ${this.isOpen ? "visible" : "hidden"}`}>
+              <slot name="list" />
+            </div>
           </div>
         </footer>
       </div>

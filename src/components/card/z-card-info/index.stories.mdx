@@ -1,0 +1,20 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="Card/zCardInfo" component="z-card-info" />
+
+# zCardInfo
+
+<Preview>
+  <Story name="zCardInfo-sample">
+    {html`
+      <z-card-info
+        data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'
+      >
+        <z-button variant="secondary">CTA</z-button>
+      </z-card-info>
+    `}
+  </Story>
+</Preview>
+
+<Props of="z-card-info" />
