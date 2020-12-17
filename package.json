@@ -45,7 +45,6 @@
     "lit-html": "^1.1.2",
     "plop": "^2.1.0",
     "puppeteer": "1.20.0",
-    "release-it": "^14.2.2",
     "standard-version": "^8.0.2",
     "storybook-addons-abstract": "^5.0.6"
   },

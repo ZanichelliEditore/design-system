@@ -91,16 +91,6 @@ yarn release --release-as 1.1.0
 
 In general, you can pass any flag supported by standard-version, please refer to their [CLI usage](https://github.com/conventional-changelog/standard-version#cli-usage) documentation.
 
-**Publish a github release**
-
-* Make sure you have a github access token exported as env variable ([docs](https://github.com/release-it/release-it/blob/master/docs/environment-variables.md))
-* Run release-it:
-
-```
-yarn github-release
-```
-* Follow the cli instruction to release
-
 ----
 
 ## Documentation
