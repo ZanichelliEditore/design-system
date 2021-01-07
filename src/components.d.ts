@@ -843,6 +843,10 @@ export namespace Components {
           * label text
          */
         "label": string;
+        /**
+          * open by default (optional)
+         */
+        "opened"?: boolean;
     }
     interface ZTooltip {
         /**
@@ -2031,6 +2035,10 @@ declare namespace LocalJSX {
           * emitted on toggle button click, returns isOpen
          */
         "onToggleClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * open by default (optional)
+         */
+        "opened"?: boolean;
     }
     interface ZTooltip {
         /**

@@ -12,6 +12,8 @@ export class ZToggleButton {
   @Prop() isdisabled?: boolean = false;
   /** avoidclick status flag */
   @Prop() avoidclick: boolean;
+  /** open by default (optional) */
+  @Prop() opened?: boolean = false;
 
   @State() isOpen: boolean = false;
 
@@ -22,6 +24,10 @@ export class ZToggleButton {
 
     this.isOpen = !this.isOpen;
     this.toggleClick.emit(this.isOpen);
+  }
+
+  componentDidLoad() {
+    if (this.opened) this.isOpen = true;
   }
 
   retrieveButtonClass() {

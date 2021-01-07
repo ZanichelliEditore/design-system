@@ -14,7 +14,8 @@ import { text, boolean } from '@storybook/addon-knobs';
       <z-toggle-button
         label="${text('label', 'Toggle')}"
         avoidClick="${boolean('avoidClick', true)}"
-        isdisabled="${boolean('isdisabled', true)}"
+        isdisabled="${boolean('isdisabled', false)}"
+        opened="${boolean('opened', false)}"
       ></z-toggle-button>`}
   </Story>
 </Preview>
