@@ -74,6 +74,24 @@ describe("Suite test ZToggleButton", () => {
     `);
   });
 
+  it("Test render ZToggleButton opened", async () => {
+    const page = await newSpecPage({
+      components: [ZToggleButton],
+      html: `<z-toggle-button label="label" opened="true"></z-toggle-button>`
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-toggle-button opened="true" label="label">
+        <mock:shadow-root>
+          <button class="isopen" tabindex="0">
+            <z-icon height="16" name="chevron-down" width="16"></z-icon>
+            label
+          </button>
+        </mock:shadow-root>
+      </z-toggle-button>
+    `);
+  });
+
   it("Test click ZToggleButton", async () => {
     const page = await newSpecPage({
       components: [ZToggleButton],
