@@ -1,4 +1,5 @@
 import { Config } from "@stencil/core";
+import { reactOutputTarget } from "@stencil/react-output-target";
 
 export const config: Config = {
   namespace: "web-components-library",
@@ -7,6 +8,10 @@ export const config: Config = {
       type: "dist",
       esmLoaderPath: "../loader"
     },
+    reactOutputTarget({
+      componentCorePackage: require('./package.json').name,
+      proxiesFile: './react/src/components.ts',
+    }),
     {
       type: "docs-readme"
     },
