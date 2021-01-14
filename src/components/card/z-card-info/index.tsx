@@ -12,7 +12,7 @@ import { DictionaryData } from "../../../beans";
 export class zCardInfo {
   /** dictionary info */
   @Prop() data: string | DictionaryData;
-  @Prop() accessibility?: boolean = true;
+  @Prop() accessibility?: boolean = false;
 
   private cardData: DictionaryData;
 

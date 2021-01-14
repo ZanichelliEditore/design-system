@@ -7,7 +7,7 @@
 
 | Property        | Attribute       | Description     | Type                                                                                                                                                           | Default     |
 | --------------- | --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `accessibility` | `accessibility` |                 | `boolean`                                                                                                                                                      | `true`      |
+| `accessibility` | `accessibility` |                 | `boolean`                                                                                                                                                      | `false`     |
 | `data`          | `data`          | dictionary info | `string \| { author: string; year: string; title: string; description: string; onlineLicense: DictionaryLicenseData; offlineLicense: DictionaryLicenseData; }` | `undefined` |
 
 
