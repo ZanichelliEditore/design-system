@@ -228,6 +228,7 @@ export namespace Components {
         "isdisabled": boolean;
     }
     interface ZCardInfo {
+        "accessibility"?: boolean;
         /**
           * dictionary info
          */
@@ -1281,6 +1282,10 @@ declare namespace LocalJSX {
           * card title
          */
         "name"?: string;
+        /**
+          * when card is flipped
+         */
+        "onCardFlipped"?: (event: CustomEvent<any>) => void;
     }
     interface ZCardFooter {
         /**
@@ -1335,6 +1340,7 @@ declare namespace LocalJSX {
         "isdisabled"?: boolean;
     }
     interface ZCardInfo {
+        "accessibility"?: boolean;
         /**
           * dictionary info
          */

@@ -12,6 +12,7 @@ import { DictionaryData } from "../../../beans";
 export class zCardInfo {
   /** dictionary info */
   @Prop() data: string | DictionaryData;
+  @Prop() accessibility?: boolean = true;
 
   private cardData: DictionaryData;
 
@@ -36,7 +37,7 @@ export class zCardInfo {
         height={18}
         width={18}
         onClick={() => this.emitFlipCard(false)}
-        tabindex="0"
+        tabindex={this.accessibility ? "0" : "-1"} //la prop modifica questo valore a -1
       />
     );
   }
