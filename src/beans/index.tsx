@@ -152,3 +152,10 @@ export type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
+
+export enum PocketStatusEnum {
+  preview = "preview",
+  open = "open",
+  closed = "closed"
+}
+export type PocketStatus = PocketStatusEnum;

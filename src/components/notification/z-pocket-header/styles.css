@@ -1,0 +1,49 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+:host > header {
+  background: var(--bg-white);
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  border-radius: 8px 8px 0px 0px;
+  height: 36px;
+  /* width: 100%; */
+  cursor: pointer;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+:host > header:focus {
+  outline: none;
+}
+
+:host > header::-moz-focus-inner {
+  border: 0;
+}
+
+/* :host > header > z-icon {
+  fill: var(--myz-blue);
+}
+
+:host > header:focus > z-icon {
+  outline: 1px dotted;
+} */
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}
