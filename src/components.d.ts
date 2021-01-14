@@ -581,6 +581,9 @@ export namespace Components {
          */
         "nomeutente": string;
     }
+    interface ZMessage {
+        "myProp": string;
+    }
     interface ZMessagesPocket {
         /**
           * number of messages
@@ -590,6 +593,10 @@ export namespace Components {
           * pocket id
          */
         "pocketid": string;
+        /**
+          * pocket status
+         */
+        "status": PocketStatus;
     }
     interface ZModal {
         /**
@@ -1003,6 +1010,12 @@ declare global {
         prototype: HTMLZMenuDropdownElement;
         new (): HTMLZMenuDropdownElement;
     };
+    interface HTMLZMessageElement extends Components.ZMessage, HTMLStencilElement {
+    }
+    var HTMLZMessageElement: {
+        prototype: HTMLZMessageElement;
+        new (): HTMLZMessageElement;
+    };
     interface HTMLZMessagesPocketElement extends Components.ZMessagesPocket, HTMLStencilElement {
     }
     var HTMLZMessagesPocketElement: {
@@ -1109,6 +1122,7 @@ declare global {
         "z-list-item": HTMLZListItemElement;
         "z-logo": HTMLZLogoElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
+        "z-message": HTMLZMessageElement;
         "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-modal": HTMLZModalElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
@@ -1737,6 +1751,9 @@ declare namespace LocalJSX {
          */
         "nomeutente"?: string;
     }
+    interface ZMessage {
+        "myProp"?: string;
+    }
     interface ZMessagesPocket {
         /**
           * number of messages
@@ -1746,6 +1763,10 @@ declare namespace LocalJSX {
           * pocket id
          */
         "pocketid"?: string;
+        /**
+          * pocket status
+         */
+        "status"?: PocketStatus;
     }
     interface ZModal {
         /**
@@ -2039,6 +2060,7 @@ declare namespace LocalJSX {
         "z-list-item": ZListItem;
         "z-logo": ZLogo;
         "z-menu-dropdown": ZMenuDropdown;
+        "z-message": ZMessage;
         "z-messages-pocket": ZMessagesPocket;
         "z-modal": ZModal;
         "z-pagination-bar": ZPaginationBar;
@@ -2085,6 +2107,7 @@ declare module "@stencil/core" {
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
+            "z-message": LocalJSX.ZMessage & JSXBase.HTMLAttributes<HTMLZMessageElement>;
             "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;

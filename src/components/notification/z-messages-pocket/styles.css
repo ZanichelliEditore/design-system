@@ -4,6 +4,7 @@
 }
 
 :host > z-pocket {
+  left: 0;
   width: 100%;
 }
 
@@ -31,14 +32,26 @@
   margin-left: var(--basex1);
 }
 
-:host > z-pocket > z-pocket-body > div {
+:host > z-pocket > z-pocket-body > div.body {
   overflow: hidden;
   margin: 0 var(--basex1);
   padding: var(--basex1);
-  /* background: lime; */
 }
 
-:host > z-pocket.open > z-pocket-body > div {
+:host > z-pocket.preview > z-pocket-body {
+  position: relative;
+}
+
+:host > z-pocket.preview > z-pocket-body > div.gradient {
+  background-image: linear-gradient(rgba(255, 0, 0, 0), white);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+:host > z-pocket.open > z-pocket-body > div.body {
   max-height: calc(100vh - 166px);
   overflow: auto;
   scrollbar-width: none;
@@ -54,7 +67,7 @@
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  :host > z-pocket.open > z-pocket-body > div {
+  :host > z-pocket.open > z-pocket-body > div.body {
     scrollbar-width: thin;
     scrollbar-color: var(--myz-blue) var(--bg-grey-200);
   }

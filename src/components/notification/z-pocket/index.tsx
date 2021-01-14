@@ -71,6 +71,11 @@ export class ZPocket {
   //   this.togglePocket = this.togglePocket.bind(this);
   // }
 
+  componentWillLoad() {
+    console.log("componentWillLoad " + this.status);
+    this.emitPocketToggle(this.pocketid, this.status);
+  }
+
   componentDidLoad() {
     // console.log(this.mainElem.scrollTop);
     // INFO: swipe handling
