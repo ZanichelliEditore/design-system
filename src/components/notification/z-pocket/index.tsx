@@ -5,7 +5,8 @@ import {
   Method,
   Event,
   EventEmitter,
-  Listen
+  Listen,
+  Element
 } from "@stencil/core";
 // import { handleKeyboardSubmit } from "../../../utils/utils";
 import Hammer from "hammerjs";
@@ -20,6 +21,8 @@ import { PocketStatus, PocketStatusEnum } from "../../../beans";
   shadow: true
 })
 export class ZPocket {
+  @Element() hostElement: HTMLElement;
+
   /** pocket id */
   @Prop() pocketid: string;
   /** pocket status */
@@ -29,6 +32,8 @@ export class ZPocket {
 
   private swipeWrap: HTMLDivElement;
   // private mainElem: HTMLElement;
+
+  private panDownCanClose: boolean = true;
 
   /** open z-pocket */
   @Method()
@@ -45,14 +50,14 @@ export class ZPocket {
   /** Emitted on pocket toggle, returns pocket id and status */
   @Event() pocketToggle: EventEmitter;
   emitPocketToggle(id: string, status: PocketStatus) {
-    console.log("emitPocketToggle " + status);
+    // console.log("emitPocketToggle " + status);
     this.pocketToggle.emit({ id, status });
   }
 
   @Listen("pocketHeaderClick")
   handlePocketHeaderClick(e: CustomEvent): void {
     if (e.detail.id === this.pocketid) {
-      console.log("handlePocketHeaderClick " + this.pocketid);
+      // console.log("handlePocketHeaderClick " + this.pocketid);
       switch (this.status) {
         case PocketStatusEnum.preview:
         case PocketStatusEnum.closed:
@@ -72,15 +77,21 @@ export class ZPocket {
   // }
 
   componentWillLoad() {
-    console.log("componentWillLoad " + this.status);
+    // console.log("componentWillLoad " + this.status);
     this.emitPocketToggle(this.pocketid, this.status);
   }
 
   componentDidLoad() {
-    // console.log(this.mainElem.scrollTop);
     // INFO: swipe handling
     const mc = new Hammer(this.swipeWrap);
     mc.get("pan").set({ direction: Hammer.DIRECTION_VERTICAL });
+    mc.on("panstart", (e: HammerInput) => {
+      const pocketBody = this.hostElement.querySelector("z-pocket-body");
+      const panStartY = e.center.y;
+      const zPocketOffset = this.hostElement.offsetTop;
+      const zPocketBodyOffset = pocketBody.offsetTop;
+      this.panDownCanClose = panStartY <= zPocketOffset + zPocketBodyOffset;
+    });
     mc.on("panup", () => {
       if (this.status !== PocketStatusEnum.open) {
         this.status = PocketStatusEnum.open;
@@ -88,11 +99,7 @@ export class ZPocket {
       }
     });
     mc.on("pandown", () => {
-      if (
-        this.status !== PocketStatusEnum.closed
-        // &&
-        // this.mainElem.scrollTop === 0 // TODO: questo funge?
-      ) {
+      if (this.status !== PocketStatusEnum.closed && this.panDownCanClose) {
         this.status = PocketStatusEnum.closed;
         this.emitPocketToggle(this.pocketid, this.status);
         // todo: emit ogni volta che cambia status
