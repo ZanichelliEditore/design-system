@@ -6,7 +6,8 @@ import {
   Event,
   EventEmitter,
   Listen,
-  Element
+  Element,
+  Watch
 } from "@stencil/core";
 // import { handleKeyboardSubmit } from "../../../utils/utils";
 import Hammer from "hammerjs";
@@ -68,8 +69,14 @@ export class ZPocket {
           break;
       }
 
-      this.emitPocketToggle(this.pocketid, this.status);
+      // this.emitPocketToggle(this.pocketid, this.status);
     }
+  }
+
+  @Watch("status")
+  watchStatusHandler(newVal: PocketStatus) {
+    console.log("pocket status watcher: " + newVal);
+    this.emitPocketToggle(this.pocketid, newVal);
   }
 
   // constructor() {
@@ -95,14 +102,13 @@ export class ZPocket {
     mc.on("panup", () => {
       if (this.status !== PocketStatusEnum.open) {
         this.status = PocketStatusEnum.open;
-        this.emitPocketToggle(this.pocketid, this.status);
+        // this.emitPocketToggle(this.pocketid, this.status);
       }
     });
     mc.on("pandown", () => {
       if (this.status !== PocketStatusEnum.closed && this.panDownCanClose) {
         this.status = PocketStatusEnum.closed;
-        this.emitPocketToggle(this.pocketid, this.status);
-        // todo: emit ogni volta che cambia status
+        // this.emitPocketToggle(this.pocketid, this.status);
       }
     });
   }

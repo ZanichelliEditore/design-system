@@ -11,6 +11,8 @@
   background: var(--bg-white);
   border-left: var(--border-size-small) solid var(--bg-grey-200);
   border-right: var(--border-size-small) solid var(--bg-grey-200);
+  overflow: auto;
+  scrollbar-width: none;
 }
 
 /* :host > main > div {
@@ -38,7 +40,7 @@
 } */
 
 :host > main.preview {
-  max-height: 157px;
+  max-height: 225px;
   /* overflow: hidden; */
   transition: all 200ms ease-in-out, top 200ms ease-in-out;
 }
@@ -56,12 +58,15 @@
   /* overflow: hidden; */
 }
 
-/* :host ::-webkit-scrollbar {
+:host ::-webkit-scrollbar {
   width: 0;
-} */
+}
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
+  :host > main.preview {
+    max-height: 157px;
+  }
 }
 
 /* Desktop breakpoint */
