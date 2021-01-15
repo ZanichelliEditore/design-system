@@ -7,13 +7,14 @@
 
 ## Properties
 
-| Property          | Attribute         | Description       | Type      | Default     |
-| ----------------- | ----------------- | ----------------- | --------- | ----------- |
-| `cover`           | `cover`           | card cover        | `string`  | `undefined` |
-| `disabled`        | `disabled`        | card is disabled  | `boolean` | `false`     |
-| `flipbuttonlabel` | `flipbuttonlabel` | flip button label | `string`  | `"INFO"`    |
-| `flipped`         | `flipped`         | card is flipped   | `boolean` | `false`     |
-| `name`            | `name`            | card title        | `string`  | `undefined` |
+| Property             | Attribute            | Description             | Type      | Default     |
+| -------------------- | -------------------- | ----------------------- | --------- | ----------- |
+| `cover`              | `cover`              | card cover              | `string`  | `undefined` |
+| `disabled`           | `disabled`           | card is disabled        | `boolean` | `false`     |
+| `disabledinfobutton` | `disabledinfobutton` | info button is disabled | `boolean` | `false`     |
+| `flipbuttonlabel`    | `flipbuttonlabel`    | flip button label       | `string`  | `"INFO"`    |
+| `flipped`            | `flipped`            | card is flipped         | `boolean` | `false`     |
+| `name`               | `name`               | card title              | `string`  | `undefined` |
 
 
 ## Events

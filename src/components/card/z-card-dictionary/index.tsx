@@ -21,6 +21,8 @@ export class ZCardDictionary {
   @Prop({ mutable: true }) flipped: boolean = false;
   /** flip button label */
   @Prop() flipbuttonlabel: string = "INFO";
+  /** info button is disabled */
+  @Prop() disabledinfobutton: boolean = false;
 
   @Listen("flipCard")
   handleFlipCard(e: CustomEvent) {
@@ -55,6 +57,7 @@ export class ZCardDictionary {
                 icon="informationsource"
                 issmall={true}
                 onClick={() => this.flipCard(true)}
+                disabled={this.disabledinfobutton}
               >
                 {this.flipbuttonlabel}
               </z-button>

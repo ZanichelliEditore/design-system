@@ -12,6 +12,7 @@ import { DictionaryData } from "../../../beans";
 export class zCardInfo {
   /** dictionary info */
   @Prop() data: string | DictionaryData;
+  /** active accessibility for close icon */
   @Prop() accessibility?: boolean = false;
 
   private cardData: DictionaryData;
