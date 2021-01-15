@@ -1,6 +1,9 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 import { handleKeyboardSubmit } from "../../../utils/utils";
 
+/**
+ * @slot  - pocket header content
+ */
 @Component({
   tag: "z-pocket-header",
   styleUrl: "styles.css",
@@ -10,15 +13,14 @@ export class ZPocketHeader {
   /** pocket id */
   @Prop() pocketid: string;
 
-  constructor() {
-    this.emitPocketHeaderClick = this.emitPocketHeaderClick.bind(this);
-  }
-
   /** Emitted on pocket header click */
   @Event() pocketHeaderClick: EventEmitter;
   emitPocketHeaderClick() {
-    console.log("emitPocketHeaderClick " + this.pocketid);
     this.pocketHeaderClick.emit({ id: this.pocketid });
+  }
+
+  constructor() {
+    this.emitPocketHeaderClick = this.emitPocketHeaderClick.bind(this);
   }
 
   render() {

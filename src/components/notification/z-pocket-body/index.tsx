@@ -1,6 +1,9 @@
 import { Component, h, Prop, Listen } from "@stencil/core";
 import { PocketStatus, PocketStatusEnum } from "../../../beans";
 
+/**
+ * @slot  - pocket body content
+ */
 @Component({
   tag: "z-pocket-body",
   styleUrl: "styles.css",
@@ -15,7 +18,6 @@ export class ZPocketBody {
   @Listen("pocketToggle", { target: "body" })
   handlePocketToggle(e: CustomEvent): void {
     if (e.detail.id === this.pocketid) {
-      console.log("handlePocketToggle " + e.detail.status);
       this.status = e.detail.status;
     }
   }
@@ -23,7 +25,6 @@ export class ZPocketBody {
   render() {
     return (
       <main class={this.status}>
-        {/* <div>STATUS: {this.status}</div> */}
         <slot />
       </main>
     );

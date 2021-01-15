@@ -2,6 +2,9 @@ import { Component, Prop, h, Listen /* , State */ } from "@stencil/core";
 import { PocketStatus, PocketStatusEnum } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
+/**
+ * @slot  - pocket body content
+ */
 @Component({
   tag: "z-messages-pocket",
   styleUrl: "styles.css",
@@ -15,14 +18,11 @@ export class ZMessagesPocket {
   /** pocket status */
   @Prop({ mutable: true }) status: PocketStatus = PocketStatusEnum.preview;
 
-  // @State() status: PocketStatus = PocketStatusEnum.preview;
-
   private pocketElem: HTMLZPocketElement;
 
   @Listen("pocketToggle", { target: "body" })
   handlePocketToggle(e: CustomEvent): void {
     if (e.detail.id === this.pocketid) {
-      // console.log("handlePocketToggle " + e.detail.status);
       this.status = e.detail.status;
     }
   }
@@ -38,7 +38,6 @@ export class ZMessagesPocket {
   }
 
   renderHeader() {
-    // return <z-pocket-header pocketid={this.pocketid}>HEADER</z-pocket-header>;
     let message: HTMLElement;
     let icon: string;
     switch (this.status) {
@@ -77,7 +76,6 @@ export class ZMessagesPocket {
   }
 
   render() {
-    // console.log("render ZMessagesPocket", this.status);
     return (
       <z-pocket
         pocketid={this.pocketid}
@@ -86,9 +84,6 @@ export class ZMessagesPocket {
         ref={el => (this.pocketElem = el as HTMLZPocketElement)}
       >
         {this.renderHeader()}
-        {/* <z-pocket-header pocketid={this.pocketid}>
-          {this.renderHeader()}
-        </z-pocket-header> */}
         {this.renderBody()}
       </z-pocket>
     );

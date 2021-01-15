@@ -7,7 +7,6 @@
 }
 
 :host > main {
-  /* background: yellow; */
   background: var(--bg-white);
   border-left: var(--border-size-small) solid var(--bg-grey-200);
   border-right: var(--border-size-small) solid var(--bg-grey-200);
@@ -15,47 +14,19 @@
   scrollbar-width: none;
 }
 
-/* :host > main > div {
-  background: lime;
-  overflow: hidden;
-} */
-
-/* :host > main.preview > div {
-  height: 200px;
-  overflow: hidden;
-  transition: all 200ms ease-in-out, top 200ms ease-in-out;
-}
-
-:host > main.open > div {
-  max-height: calc(100vh - 150px);
-  transition: all 200ms ease-in-out, top 200ms ease-in-out;
-  overflow: auto;
-  scrollbar-width: none;
-}
-
-:host > main.closed > div {
-  height: 0px;
-  transition: all 200ms ease-in-out, top 200ms ease-in-out;
-  overflow: hidden;
-} */
-
 :host > main.preview {
   max-height: 225px;
-  /* overflow: hidden; */
   transition: all 200ms ease-in-out, top 200ms ease-in-out;
 }
 
 :host > main.open {
   max-height: calc(100vh - 150px);
   transition: all 200ms ease-in-out, top 200ms ease-in-out;
-  /* overflow: auto;
-  scrollbar-width: none; */
 }
 
 :host > main.closed {
   height: 0px;
   transition: all 200ms ease-in-out, top 200ms ease-in-out;
-  /* overflow: hidden; */
 }
 
 :host ::-webkit-scrollbar {
@@ -71,27 +42,6 @@
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  /* :host > main.open > div {
-    scrollbar-width: thin;
-    scrollbar-color: var(--myz-blue) var(--bg-grey-200);
-  }
-
-  :host ::-webkit-scrollbar {
-    background: linear-gradient(
-      90deg,
-      var(--bg-white) 2px,
-      var(--bg-grey-200) 4px,
-      var(--bg-white) 8px
-    );
-    border-radius: var(--radius-base);
-    width: 10px;
-  }
-
-  :host ::-webkit-scrollbar-thumb {
-    background-color: var(--myz-blue);
-    border-radius: var(--radius-base);
-    width: 10px;
-  } */
 }
 
 /* Wide breakpoint */

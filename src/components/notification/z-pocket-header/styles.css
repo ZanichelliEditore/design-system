@@ -11,7 +11,6 @@
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-radius: 8px 8px 0px 0px;
   height: 36px;
-  /* width: 100%; */
   cursor: pointer;
   display: flex;
   flex-wrap: nowrap;
@@ -27,14 +26,6 @@
 :host > header::-moz-focus-inner {
   border: 0;
 }
-
-/* :host > header > z-icon {
-  fill: var(--myz-blue);
-}
-
-:host > header:focus > z-icon {
-  outline: 1px dotted;
-} */
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
