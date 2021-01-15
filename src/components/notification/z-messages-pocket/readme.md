@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description        | Type     | Default     |
-| ---------- | ---------- | ------------------ | -------- | ----------- |
-| `messages` | `messages` | number of messages | `number` | `undefined` |
-| `pocketid` | `pocketid` | pocket id          | `string` | `undefined` |
+| Property   | Attribute  | Description        | Type                                                                           | Default                    |
+| ---------- | ---------- | ------------------ | ------------------------------------------------------------------------------ | -------------------------- |
+| `messages` | `messages` | number of messages | `number`                                                                       | `undefined`                |
+| `pocketid` | `pocketid` | pocket id          | `string`                                                                       | `undefined`                |
+| `status`   | `status`   | pocket status      | `PocketStatusEnum.closed \| PocketStatusEnum.open \| PocketStatusEnum.preview` | `PocketStatusEnum.preview` |
 
 
 ## Dependencies

@@ -42,6 +42,7 @@
  - [z-messages-pocket](../../notification/z-messages-pocket)
  - [z-modal](../../modal/z-modal)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
+ - [z-pocket-message](../../notification/z-pocket-message)
  - [z-select](../../inputs/z-select)
  - [z-toggle-button](../../buttons/z-toggle-button)
 
@@ -66,6 +67,7 @@ graph TD;
   z-messages-pocket --> z-icon
   z-modal --> z-icon
   z-pagination-bar --> z-icon
+  z-pocket-message --> z-icon
   z-select --> z-icon
   z-toggle-button --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px

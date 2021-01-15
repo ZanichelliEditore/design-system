@@ -6,11 +6,11 @@ import { Component, Prop, h } from "@stencil/core";
  * @slot cta-2 - second CTA
  */
 @Component({
-  tag: "z-message",
+  tag: "z-pocket-message",
   styleUrl: "styles.css",
   shadow: true
 })
-export class ZMessage {
+export class ZPocketMessage {
   @Prop() myProp: string;
 
   render() {

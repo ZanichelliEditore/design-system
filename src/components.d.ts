@@ -581,9 +581,6 @@ export namespace Components {
          */
         "nomeutente": string;
     }
-    interface ZMessage {
-        "myProp": string;
-    }
     interface ZMessagesPocket {
         /**
           * number of messages
@@ -731,6 +728,9 @@ export namespace Components {
           * pocket id
          */
         "pocketid": string;
+    }
+    interface ZPocketMessage {
+        "myProp": string;
     }
     interface ZSelect {
         /**
@@ -1010,12 +1010,6 @@ declare global {
         prototype: HTMLZMenuDropdownElement;
         new (): HTMLZMenuDropdownElement;
     };
-    interface HTMLZMessageElement extends Components.ZMessage, HTMLStencilElement {
-    }
-    var HTMLZMessageElement: {
-        prototype: HTMLZMessageElement;
-        new (): HTMLZMessageElement;
-    };
     interface HTMLZMessagesPocketElement extends Components.ZMessagesPocket, HTMLStencilElement {
     }
     var HTMLZMessagesPocketElement: {
@@ -1063,6 +1057,12 @@ declare global {
     var HTMLZPocketHeaderElement: {
         prototype: HTMLZPocketHeaderElement;
         new (): HTMLZPocketHeaderElement;
+    };
+    interface HTMLZPocketMessageElement extends Components.ZPocketMessage, HTMLStencilElement {
+    }
+    var HTMLZPocketMessageElement: {
+        prototype: HTMLZPocketMessageElement;
+        new (): HTMLZPocketMessageElement;
     };
     interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
     }
@@ -1122,7 +1122,6 @@ declare global {
         "z-list-item": HTMLZListItemElement;
         "z-logo": HTMLZLogoElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
-        "z-message": HTMLZMessageElement;
         "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-modal": HTMLZModalElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
@@ -1131,6 +1130,7 @@ declare global {
         "z-pocket": HTMLZPocketElement;
         "z-pocket-body": HTMLZPocketBodyElement;
         "z-pocket-header": HTMLZPocketHeaderElement;
+        "z-pocket-message": HTMLZPocketMessageElement;
         "z-select": HTMLZSelectElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
@@ -1751,9 +1751,6 @@ declare namespace LocalJSX {
          */
         "nomeutente"?: string;
     }
-    interface ZMessage {
-        "myProp"?: string;
-    }
     interface ZMessagesPocket {
         /**
           * number of messages
@@ -1922,6 +1919,9 @@ declare namespace LocalJSX {
          */
         "pocketid"?: string;
     }
+    interface ZPocketMessage {
+        "myProp"?: string;
+    }
     interface ZSelect {
         /**
           * the input has autocomplete option
@@ -2060,7 +2060,6 @@ declare namespace LocalJSX {
         "z-list-item": ZListItem;
         "z-logo": ZLogo;
         "z-menu-dropdown": ZMenuDropdown;
-        "z-message": ZMessage;
         "z-messages-pocket": ZMessagesPocket;
         "z-modal": ZModal;
         "z-pagination-bar": ZPaginationBar;
@@ -2069,6 +2068,7 @@ declare namespace LocalJSX {
         "z-pocket": ZPocket;
         "z-pocket-body": ZPocketBody;
         "z-pocket-header": ZPocketHeader;
+        "z-pocket-message": ZPocketMessage;
         "z-select": ZSelect;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
@@ -2107,7 +2107,6 @@ declare module "@stencil/core" {
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
-            "z-message": LocalJSX.ZMessage & JSXBase.HTMLAttributes<HTMLZMessageElement>;
             "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
@@ -2116,6 +2115,7 @@ declare module "@stencil/core" {
             "z-pocket": LocalJSX.ZPocket & JSXBase.HTMLAttributes<HTMLZPocketElement>;
             "z-pocket-body": LocalJSX.ZPocketBody & JSXBase.HTMLAttributes<HTMLZPocketBodyElement>;
             "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
+            "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;

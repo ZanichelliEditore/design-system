@@ -7,18 +7,18 @@ describe("Suite test ZMessage", () => {
 
     const page = await newSpecPage({
       components: [ZMessage],
-      html: `<z-message></z-message>`
+      html: `<z-pocket-message></z-pocket-message>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-message>
+      <z-pocket-message>
         <mock:shadow-root>
           <div>
             This is your z-message component
             This is your default prop:
           </div>
         </mock:shadow-root>
-      </z-message>
+      </z-pocket-message>
     `)
   });
 });
