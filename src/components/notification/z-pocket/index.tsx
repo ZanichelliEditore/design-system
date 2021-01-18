@@ -116,7 +116,9 @@ export class ZPocket {
           class="contentWrapper"
           ref={el => (this.swipeWrap = el as HTMLDivElement)}
         >
-          <slot />
+          <div>
+            <slot />
+          </div>
         </div>
       </div>
     );

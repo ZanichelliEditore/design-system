@@ -4,7 +4,6 @@
 }
 
 :host > z-pocket {
-  width: calc(100% - 8px);
   left: 0;
 }
 
