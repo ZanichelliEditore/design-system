@@ -3,15 +3,11 @@
   font-weight: var(--font-rg);
   width: inherit;
   height: 100%;
-
-  background: grey;
 }
 
 :host > div {
   width: inherit;
   height: 100%;
-
-  background: salmon;
 }
 
 :host > div > div.background {
@@ -23,8 +19,6 @@
   z-index: 99998;
   width: 0;
   height: 0;
-
-  background: lime;
 }
 
 :host > div > div.background.open {

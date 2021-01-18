@@ -103,9 +103,6 @@ export class ZPocket {
   }
 
   render(): HTMLDivElement {
-    document.body.style.overflow =
-      this.status === PocketStatusEnum.open ? "hidden" : "auto";
-
     return (
       <div>
         <div
