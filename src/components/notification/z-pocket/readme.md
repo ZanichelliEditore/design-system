@@ -43,9 +43,9 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot             | Description    |
-| ---------------- | -------------- |
-| `"generic slot"` | pocket content |
+| Slot | Description    |
+| ---- | -------------- |
+|      | pocket content |
 
 
 ## Dependencies

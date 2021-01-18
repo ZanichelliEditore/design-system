@@ -18,7 +18,7 @@ export class ZMessagesPocket {
   /** pocket status */
   @Prop({ mutable: true }) status: PocketStatus = PocketStatusEnum.preview;
 
-  private pocketElem: HTMLZPocketElement;
+  private pocketBodyElem: HTMLZPocketBodyElement;
 
   @Listen("pocketToggle", { target: "body" })
   handlePocketToggle(e: CustomEvent): void {
@@ -30,8 +30,8 @@ export class ZMessagesPocket {
   componentDidLoad() {
     const isMobile = window.innerWidth <= mobileBreakpoint;
     if (
-      (isMobile && this.pocketElem.clientHeight < 260) ||
-      this.pocketElem.clientHeight < 190
+      (isMobile && this.pocketBodyElem.clientHeight < 225) ||
+      this.pocketBodyElem.clientHeight < 157
     ) {
       this.status = PocketStatusEnum.open;
     }
@@ -66,7 +66,10 @@ export class ZMessagesPocket {
 
   renderBody() {
     return (
-      <z-pocket-body pocketid={this.pocketid}>
+      <z-pocket-body
+        pocketid={this.pocketid}
+        ref={el => (this.pocketBodyElem = el as HTMLZPocketBodyElement)}
+      >
         <div class="body">
           <slot />
         </div>
@@ -81,7 +84,6 @@ export class ZMessagesPocket {
         pocketid={this.pocketid}
         status={this.status}
         class={this.status}
-        ref={el => (this.pocketElem = el as HTMLZPocketElement)}
       >
         {this.renderHeader()}
         {this.renderBody()}

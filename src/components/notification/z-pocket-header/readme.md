@@ -19,6 +19,13 @@
 | `pocketHeaderClick` | Emitted on pocket header click | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot | Description           |
+| ---- | --------------------- |
+|      | pocket header content |
+
+
 ## Dependencies
 
 ### Used by

@@ -14,6 +14,13 @@
 | `status`   | `status`   | pocket status      | `PocketStatusEnum.closed \| PocketStatusEnum.open \| PocketStatusEnum.preview` | `PocketStatusEnum.preview` |
 
 
+## Slots
+
+| Slot | Description         |
+| ---- | ------------------- |
+|      | pocket body content |
+
+
 ## Dependencies
 
 ### Depends on

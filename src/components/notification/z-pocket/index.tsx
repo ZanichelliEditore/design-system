@@ -107,14 +107,16 @@ export class ZPocket {
       this.status === PocketStatusEnum.open ? "hidden" : "auto";
 
     return (
-      <div
-        data-action="pocketBackground"
-        data-pocket={this.pocketid}
-        class={this.status}
-        onClick={(e: any) => this.handleBackgroundClick(e)}
-      >
+      <div>
+        <div
+          data-action="pocketBackground"
+          data-pocket={this.pocketid}
+          class={`background ${this.status}`}
+          onClick={(e: any) => this.handleBackgroundClick(e)}
+        />
         <div
           id={this.pocketid}
+          class="contentWrapper"
           ref={el => (this.swipeWrap = el as HTMLDivElement)}
         >
           <slot />

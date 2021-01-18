@@ -1,18 +1,46 @@
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  display: block;
   width: inherit;
-  position: fixed;
-  bottom: 0;
-  z-index: 99999;
-  overflow: hidden;
+  height: 100%;
+
+  background: grey;
 }
 
-:host > div > div {
+:host > div {
+  width: inherit;
+  height: 100%;
+
+  background: salmon;
+}
+
+:host > div > div.background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 99998;
+  width: 0;
+  height: 0;
+
+  background: lime;
+}
+
+:host > div > div.background.open {
+  height: 100%;
+  width: 100%;
+}
+
+:host > div > div.contentWrapper {
   border-radius: 8px 8px 0px 0px;
   box-shadow: 0px -2px 4px 0px rgba(66, 69, 72, 0.4);
   margin: 4px 4px 0 4px;
+  position: fixed;
+  z-index: 99999;
+  bottom: 0;
+  left: 0;
+  width: inherit;
 }
 
 /* Tablet breakpoint */
@@ -21,10 +49,6 @@
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  :host > div.open {
-    /* max-height: 100%; */
-    max-height: calc(100vh - 16px);
-  }
 }
 
 /* Wide breakpoint */

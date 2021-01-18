@@ -20,7 +20,7 @@
 }
 
 :host > main.open {
-  max-height: calc(100vh - 150px);
+  max-height: calc(100vh - 48px);
   transition: all 200ms ease-in-out, top 200ms ease-in-out;
 }
 
