@@ -730,7 +730,6 @@ export namespace Components {
         "pocketid": string;
     }
     interface ZPocketMessage {
-        "myProp": string;
     }
     interface ZSelect {
         /**
@@ -1920,7 +1919,6 @@ declare namespace LocalJSX {
         "pocketid"?: string;
     }
     interface ZPocketMessage {
-        "myProp"?: string;
     }
     interface ZSelect {
         /**

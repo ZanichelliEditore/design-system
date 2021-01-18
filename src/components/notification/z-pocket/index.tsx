@@ -51,7 +51,7 @@ export class ZPocket {
 
   @Listen("pocketHeaderClick")
   handlePocketHeaderClick(e: CustomEvent): void {
-    if (e.detail.id === this.pocketid) {
+    if (e.detail.id && e.detail.id === this.pocketid) {
       switch (this.status) {
         case PocketStatusEnum.preview:
         case PocketStatusEnum.closed:

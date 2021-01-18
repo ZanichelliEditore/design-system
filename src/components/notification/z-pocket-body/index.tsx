@@ -17,7 +17,7 @@ export class ZPocketBody {
 
   @Listen("pocketToggle", { target: "body" })
   handlePocketToggle(e: CustomEvent): void {
-    if (e.detail.id === this.pocketid) {
+    if (e.detail.id && e.detail.id === this.pocketid) {
       this.status = e.detail.status;
     }
   }

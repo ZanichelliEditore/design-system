@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, h } from "@stencil/core";
 
 /**
  * @slot  - message body
@@ -11,8 +11,6 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZPocketMessage {
-  @Prop() myProp: string;
-
   render() {
     return (
       <div>
