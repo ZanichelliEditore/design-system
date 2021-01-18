@@ -15,7 +15,7 @@ describe("Suite test ZPocket", () => {
           <div>
             <div data-action="pocketBackground" class="background preview"></div>
             <div id="" class="contentWrapper" style="undefined: rgba(0,0,0,0);">
-              <slot></slot>
+              <div><slot></slot></div>
             </div>
           </div>
         </mock:shadow-root>
@@ -35,7 +35,7 @@ describe("Suite test ZPocket", () => {
           <div>
             <div data-action="pocketBackground" class="background closed"></div>
             <div id="" class="contentWrapper" style="undefined: rgba(0,0,0,0);">
-              <slot></slot>
+              <div><slot></slot></div>
             </div>
           </div>
         </mock:shadow-root>
@@ -55,7 +55,7 @@ describe("Suite test ZPocket", () => {
           <div>
             <div data-action="pocketBackground" class="background open"></div>
             <div id="" class="contentWrapper" style="undefined: rgba(0,0,0,0);">
-              <slot></slot>
+              <div><slot></slot></div>
             </div>
           </div>
         </mock:shadow-root>
@@ -75,7 +75,7 @@ describe("Suite test ZPocket", () => {
           <div>
             <div data-action="pocketBackground" data-pocket="pocket" class="background preview"></div>
             <div id="pocket" class="contentWrapper" style="undefined: rgba(0,0,0,0);">
-              <slot></slot>
+              <div><slot></slot></div>
             </div>
           </div>
         </mock:shadow-root>
@@ -97,7 +97,7 @@ describe("Suite test ZPocket", () => {
           <div>
             <div data-action="pocketBackground" class="background open"></div>
             <div id="" class="contentWrapper" style="undefined: rgba(0,0,0,0);">
-              <slot></slot>
+              <div><slot></slot></div>
             </div>
           </div>
         </mock:shadow-root>
