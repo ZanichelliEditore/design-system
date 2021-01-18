@@ -1,13 +1,34 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, select } from '@storybook/addon-knobs';
 
-<Meta title="ZMessagesPocket" component="z-messages-pocket" />
+<Meta title="Notification/ZMessagesPocket" component="z-messages-pocket" />
 
 # ZMessagesPocket
 
 <Preview>
   <Story name="ZMessagesPocket-sample">
-    {html`<z-messages-pocket></z-messages-pocket>`}
+    {html`<z-messages-pocket
+      pocketid="${text('pocketid', 'my-pocket')}"
+      messages="${text('messages', '3')}"
+      status="${select('status', {preview: 'preview', open: 'open', closed: 'closed'}, 'preview')}"
+    >
+      <z-pocket-message>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
+        faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi
+        at imperdiet.
+      </z-pocket-message>
+      <z-pocket-message>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
+        faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi
+        at imperdiet.
+      </z-pocket-message>
+      <z-pocket-message>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
+        faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi
+        at imperdiet.
+      </z-pocket-message>
+    </z-messages-pocket>`}
   </Story>
 </Preview>
 
