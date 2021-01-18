@@ -163,10 +163,6 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * info button is disabled
-         */
-        "disabledinfobutton": boolean;
-        /**
           * flip button label
          */
         "flipbuttonlabel": string;
@@ -1277,10 +1273,6 @@ declare namespace LocalJSX {
           * card is disabled
          */
         "disabled"?: boolean;
-        /**
-          * info button is disabled
-         */
-        "disabledinfobutton"?: boolean;
         /**
           * flip button label
          */
