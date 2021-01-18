@@ -1,4 +1,6 @@
-# z-pocket
+# z-pocket-body
+
+
 
 <!-- Auto Generated Below -->
 
@@ -11,41 +13,11 @@
 | `status`   | `status`   | pocket status | `PocketStatusEnum.closed \| PocketStatusEnum.open \| PocketStatusEnum.preview` | `PocketStatusEnum.preview` |
 
 
-## Events
-
-| Event          | Description                                            | Type               |
-| -------------- | ------------------------------------------------------ | ------------------ |
-| `pocketToggle` | Emitted on pocket toggle, returns pocket id and status | `CustomEvent<any>` |
-
-
-## Methods
-
-### `close() => Promise<void>`
-
-close z-pocket
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `open() => Promise<void>`
-
-open z-pocket
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-
 ## Slots
 
-| Slot | Description    |
-| ---- | -------------- |
-|      | pocket content |
+| Slot | Description         |
+| ---- | ------------------- |
+|      | pocket body content |
 
 
 ## Dependencies
@@ -57,8 +29,8 @@ Type: `Promise<void>`
 ### Graph
 ```mermaid
 graph TD;
-  z-messages-pocket --> z-pocket
-  style z-pocket fill:#f9f,stroke:#333,stroke-width:4px
+  z-messages-pocket --> z-pocket-body
+  style z-pocket-body fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

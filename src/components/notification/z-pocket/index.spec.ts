@@ -12,14 +12,10 @@ describe("Suite test ZPocket", () => {
     expect(page.root).toEqualHtml(`
       <z-pocket>
         <mock:shadow-root>
-          <div data-action="pocketBackground" class="open false">
-            <div id="" style="undefined: rgba(0,0,0,0);">
-              <header role="button" tabindex="0">
-                <z-icon name="chevron-down-circle-filled" width="24" height="24" />
-              </header>
-              <main class="open">
-                <slot />
-              </main>
+          <div>
+            <div data-action="pocketBackground" class="background preview"></div>
+            <div id="" class="contentWrapper" style="undefined: rgba(0,0,0,0);">
+              <slot></slot>
             </div>
           </div>
         </mock:shadow-root>
@@ -30,20 +26,36 @@ describe("Suite test ZPocket", () => {
   it("Test render ZPocket - closed", async () => {
     const page = await newSpecPage({
       components: [ZPocket],
-      html: `<z-pocket isopen="false"></z-pocket>`
+      html: `<z-pocket status="closed"></z-pocket>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-pocket isopen="false">
+      <z-pocket status="closed">
         <mock:shadow-root>
-          <div data-action="pocketBackground" class="false">
-            <div id="" style="undefined: rgba(0,0,0,0);">
-              <header role="button" tabindex="0">
-                <z-icon name="chevron-up-circle-filled" width="24" height="24" />
-              </header>
-              <main>
-                <slot />
-              </main>
+          <div>
+            <div data-action="pocketBackground" class="background closed"></div>
+            <div id="" class="contentWrapper" style="undefined: rgba(0,0,0,0);">
+              <slot></slot>
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-pocket>
+    `);
+  });
+
+  it("Test render ZPocket - open", async () => {
+    const page = await newSpecPage({
+      components: [ZPocket],
+      html: `<z-pocket status="open"></z-pocket>`
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-pocket status="open">
+        <mock:shadow-root>
+          <div>
+            <div data-action="pocketBackground" class="background open"></div>
+            <div id="" class="contentWrapper" style="undefined: rgba(0,0,0,0);">
+              <slot></slot>
             </div>
           </div>
         </mock:shadow-root>
@@ -54,20 +66,16 @@ describe("Suite test ZPocket", () => {
   it("Test render ZPocket - with props", async () => {
     const page = await newSpecPage({
       components: [ZPocket],
-      html: `<z-pocket pocketid="pocket" ismodal="true"></z-pocket>`
+      html: `<z-pocket pocketid="pocket" status="preview"></z-pocket>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-pocket pocketid="pocket" ismodal="true">
+      <z-pocket pocketid="pocket" status="preview">
         <mock:shadow-root>
-          <div data-action="pocketBackground" data-pocket="pocket" class="open modal">
-            <div id="pocket" style="undefined: rgba(0,0,0,0);">
-              <header role="button" tabindex="0">
-                <z-icon name="chevron-down-circle-filled" width="24" height="24" />
-              </header>
-              <main class="open">
-                <slot />
-              </main>
+          <div>
+            <div data-action="pocketBackground" data-pocket="pocket" class="background preview"></div>
+            <div id="pocket" class="contentWrapper" style="undefined: rgba(0,0,0,0);">
+              <slot></slot>
             </div>
           </div>
         </mock:shadow-root>
@@ -78,22 +86,18 @@ describe("Suite test ZPocket", () => {
   it("Test render ZPocket - with content", async () => {
     const page = await newSpecPage({
       components: [ZPocket],
-      html: `<z-pocket pocketid="pocket" ismodal="true">
+      html: `<z-pocket status="open">
         <div>z-pocket main content</div>
       </z-pocket>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-pocket pocketid="pocket" ismodal="true">
+      <z-pocket status="open">
         <mock:shadow-root>
-          <div data-action="pocketBackground" data-pocket="pocket" class="open modal">
-            <div id="pocket" style="undefined: rgba(0,0,0,0);">
-              <header role="button" tabindex="0">
-                <z-icon name="chevron-down-circle-filled" width="24" height="24" />
-              </header>
-              <main class="open">
-                <slot />
-              </main>
+          <div>
+            <div data-action="pocketBackground" class="background open"></div>
+            <div id="" class="contentWrapper" style="undefined: rgba(0,0,0,0);">
+              <slot></slot>
             </div>
           </div>
         </mock:shadow-root>

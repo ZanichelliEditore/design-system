@@ -1,9 +1,19 @@
-import { Component, Prop, h, Method, Event, EventEmitter } from "@stencil/core";
-import { handleKeyboardSubmit } from "../../../utils/utils";
+import {
+  Component,
+  Prop,
+  h,
+  Method,
+  Event,
+  EventEmitter,
+  Listen,
+  Element,
+  Watch
+} from "@stencil/core";
 import Hammer from "hammerjs";
+import { PocketStatus, PocketStatusEnum } from "../../../beans";
 
 /**
- * @slot generic slot - pocket content
+ * @slot  - pocket content
  */
 @Component({
   tag: "z-pocket",
@@ -11,46 +21,79 @@ import Hammer from "hammerjs";
   shadow: true
 })
 export class ZPocket {
+  @Element() hostElement: HTMLElement;
+
   /** pocket id */
   @Prop() pocketid: string;
-  /** pocket is open (optional) */
-  @Prop({ mutable: true }) isopen?: boolean = true;
-  /** pocket is modal (dark background) (optional) */
-  @Prop() ismodal?: boolean = false;
+  /** pocket status */
+  @Prop({ mutable: true }) status: PocketStatus = PocketStatusEnum.preview;
 
   private swipeWrap: HTMLDivElement;
-  private mainElem: HTMLElement;
+  private panDownCanClose: boolean = true;
+
+  /** open z-pocket */
+  @Method()
+  async open() {
+    this.status = PocketStatusEnum.open;
+  }
 
   /** close z-pocket */
   @Method()
   async close() {
-    this.isopen = false;
+    this.status = PocketStatusEnum.closed;
   }
 
-  /** Emitted on pocket toggle, returns pocket id and open status (boolean) */
+  /** Emitted on pocket toggle, returns pocket id and status */
   @Event() pocketToggle: EventEmitter;
-  emitPocketToggle(id: string, open: boolean) {
-    this.pocketToggle.emit({ id, open });
+  emitPocketToggle(id: string, status: PocketStatus) {
+    this.pocketToggle.emit({ id, status });
   }
 
-  constructor() {
-    this.togglePocket = this.togglePocket.bind(this);
+  @Listen("pocketHeaderClick")
+  handlePocketHeaderClick(e: CustomEvent): void {
+    if (e.detail.id && e.detail.id === this.pocketid) {
+      switch (this.status) {
+        case PocketStatusEnum.preview:
+        case PocketStatusEnum.closed:
+          this.status = PocketStatusEnum.open;
+          break;
+        case PocketStatusEnum.open:
+          this.status = PocketStatusEnum.closed;
+          break;
+      }
+    }
+  }
+
+  @Watch("status")
+  watchStatusHandler(newVal: PocketStatus) {
+    this.emitPocketToggle(this.pocketid, newVal);
+  }
+
+  componentWillLoad() {
+    this.emitPocketToggle(this.pocketid, this.status);
   }
 
   componentDidLoad() {
     // INFO: swipe handling
     const mc = new Hammer(this.swipeWrap);
     mc.get("pan").set({ direction: Hammer.DIRECTION_VERTICAL });
+    mc.on("panstart", (e: HammerInput) => {
+      const pocketBody = this.hostElement.querySelector("z-pocket-body");
+      const panStartY = e.center.y;
+      const zPocketOffset = this.hostElement.offsetTop;
+      const zPocketBodyOffset = pocketBody.offsetTop;
+      this.panDownCanClose = panStartY <= zPocketOffset + zPocketBodyOffset;
+    });
     mc.on("panup", () => {
-      if (!this.isopen) this.isopen = true;
+      if (this.status !== PocketStatusEnum.open) {
+        this.status = PocketStatusEnum.open;
+      }
     });
     mc.on("pandown", () => {
-      if (this.isopen && this.mainElem.scrollTop === 0) this.isopen = false;
+      if (this.status !== PocketStatusEnum.closed && this.panDownCanClose) {
+        this.status = PocketStatusEnum.closed;
+      }
     });
-  }
-
-  togglePocket() {
-    this.isopen = !this.isopen;
   }
 
   handleBackgroundClick(e: any) {
@@ -60,49 +103,20 @@ export class ZPocket {
   }
 
   render(): HTMLDivElement {
-    document.body.style.overflow = this.isopen ? "hidden" : "auto";
-
     return (
-      <div
-        data-action="pocketBackground"
-        data-pocket={this.pocketid}
-        class={`
-          ${this.isopen && "open"}
-          ${this.ismodal && this.isopen && " modal"}
-        `}
-        onClick={(e: any) => this.handleBackgroundClick(e)}
-      >
+      <div>
+        <div
+          data-action="pocketBackground"
+          data-pocket={this.pocketid}
+          class={`background ${this.status}`}
+          onClick={(e: any) => this.handleBackgroundClick(e)}
+        />
         <div
           id={this.pocketid}
+          class="contentWrapper"
           ref={el => (this.swipeWrap = el as HTMLDivElement)}
         >
-          <header
-            role="button"
-            tabindex={0}
-            onClick={() => this.togglePocket()}
-            onKeyPress={(ev: KeyboardEvent) =>
-              handleKeyboardSubmit(ev, this.togglePocket)
-            }
-          >
-            <z-icon
-              name={
-                this.isopen
-                  ? "chevron-down-circle-filled"
-                  : "chevron-up-circle-filled"
-              }
-              width={24}
-              height={24}
-            />
-          </header>
-          <main
-            class={this.isopen && "open"}
-            onTransitionEnd={() =>
-              this.emitPocketToggle(this.pocketid, this.isopen)
-            }
-            ref={el => (this.mainElem = el as HTMLElement)}
-          >
-            <slot />
-          </main>
+          <slot />
         </div>
       </div>
     );

@@ -107,7 +107,6 @@ export class ZInput {
   /** set the input value */
   @Method()
   async setValue(value: string | string[]): Promise<void> {
-    console.log("z-input setValue");
     switch (this.type) {
       case InputTypeEnum.select:
         this.selectElem.setValue(value);
