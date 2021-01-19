@@ -20,8 +20,12 @@ export class zCardInfo {
 
   /** flip card to front */
   @Event() flipCard: EventEmitter;
-  emitFlipCard(showBack: boolean = false, flipCard: EventEmitter) {
-    flipCard.emit(showBack);
+  emitFlipCard(showBack: boolean = false) {
+    this.flipCard.emit(showBack);
+  }
+
+  constructor() {
+    this.emitFlipCard = this.emitFlipCard.bind(this);
   }
 
   componentWillLoad() {
@@ -38,10 +42,10 @@ export class zCardInfo {
         name="multiply-circled-filled"
         height={18}
         width={18}
-        onClick={() => this.emitFlipCard(false, this.flipCard)}
+        onClick={() => this.emitFlipCard(false)}
         tabindex={this.accessibility ? "0" : "-1"}
         onKeyUp={(e: KeyboardEvent) => {
-          handleKeyboardSubmit(e, this.emitFlipCard, false, this.flipCard);
+          handleKeyboardSubmit(e, this.emitFlipCard, false);
         }}
       />
     );
