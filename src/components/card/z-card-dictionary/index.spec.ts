@@ -79,7 +79,7 @@ describe("Suite test ZCardDictionary", () => {
                   <z-card-body>
                     <z-card-cover titolo="title" img="img-url" slot="cover"></z-card-cover>
                   </z-card-body>
-                  <z-button variant="secondary" icon="informationsource" issmall="">INFO</z-button>
+                  <z-button disabled variant="secondary" icon="informationsource" issmall="">INFO</z-button>
                 </div>
                 <div class="back">
                   <slot name="info"></slot>
