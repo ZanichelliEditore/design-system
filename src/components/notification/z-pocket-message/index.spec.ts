@@ -14,14 +14,12 @@ describe("Suite test ZMessage", () => {
         <mock:shadow-root>
           <div>
             <z-icon name="exclamation-circle"></z-icon>
-            <div>
-              <div class="content">
-                <slot></slot>
-              </div>
-              <div class="ctaWrapper">
-                <slot name="cta-1"></slot>
-                <slot name="cta-2"></slot>
-              </div>
+            <div class="content">
+              <slot></slot>
+            </div>
+            <div class="ctaWrapper">
+              <slot name="cta-1"></slot>
+              <slot name="cta-2"></slot>
             </div>
           </div>
         </mock:shadow-root>
@@ -40,14 +38,12 @@ describe("Suite test ZMessage", () => {
         <mock:shadow-root>
           <div>
             <z-icon name="exclamation-circle"></z-icon>
-            <div>
-              <div class="content">
-                <slot></slot>
-              </div>
-              <div class="ctaWrapper">
-                <slot name="cta-1"></slot>
-                <slot name="cta-2"></slot>
-              </div>
+            <div class="content">
+              <slot></slot>
+            </div>
+            <div class="ctaWrapper">
+              <slot name="cta-1"></slot>
+              <slot name="cta-2"></slot>
             </div>
           </div>
         </mock:shadow-root>
@@ -71,14 +67,12 @@ describe("Suite test ZMessage", () => {
         <mock:shadow-root>
           <div>
             <z-icon name="exclamation-circle"></z-icon>
-            <div>
-              <div class="content">
-                <slot></slot>
-              </div>
-              <div class="ctaWrapper">
-                <slot name="cta-1"></slot>
-                <slot name="cta-2"></slot>
-              </div>
+            <div class="content">
+              <slot></slot>
+            </div>
+            <div class="ctaWrapper">
+              <slot name="cta-1"></slot>
+              <slot name="cta-2"></slot>
             </div>
           </div>
         </mock:shadow-root>
