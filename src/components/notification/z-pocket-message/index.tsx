@@ -15,14 +15,12 @@ export class ZPocketMessage {
     return (
       <div>
         <z-icon name="exclamation-circle" />
-        <div>
-          <div class="content">
-            <slot />
-          </div>
-          <div class="ctaWrapper">
-            <slot name="cta-1" />
-            <slot name="cta-2" />
-          </div>
+        <div class="content">
+          <slot />
+        </div>
+        <div class="ctaWrapper">
+          <slot name="cta-1" />
+          <slot name="cta-2" />
         </div>
       </div>
     );
