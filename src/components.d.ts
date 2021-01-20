@@ -238,6 +238,10 @@ export namespace Components {
           * dictionary info
          */
         "data": string | DictionaryData;
+        /**
+          * tabindex link attribute (optional)
+         */
+        "htmltabindex"?: number;
     }
     interface ZCardList {
         /**
@@ -1422,6 +1426,10 @@ declare namespace LocalJSX {
           * card title
          */
         "name"?: string;
+        /**
+          * when card is flipped
+         */
+        "onCardFlipped"?: (event: CustomEvent<any>) => void;
     }
     interface ZCardFooter {
         /**
@@ -1480,6 +1488,10 @@ declare namespace LocalJSX {
           * dictionary info
          */
         "data"?: string | DictionaryData;
+        /**
+          * tabindex link attribute (optional)
+         */
+        "htmltabindex"?: number;
         /**
           * flip card to front
          */

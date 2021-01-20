@@ -16,6 +16,13 @@
 | `name`            | `name`            | card title        | `string`  | `undefined` |
 
 
+## Events
+
+| Event         | Description          | Type               |
+| ------------- | -------------------- | ------------------ |
+| `cardFlipped` | when card is flipped | `CustomEvent<any>` |
+
+
 ## Slots
 
 | Slot     | Description       |

@@ -1,4 +1,4 @@
-import { Component, Prop, h, Listen } from "@stencil/core";
+import { Component, Prop, h, Listen, Event, EventEmitter } from "@stencil/core";
 import { ButtonVariantEnum } from "../../../beans";
 
 /**
@@ -27,8 +27,11 @@ export class ZCardDictionary {
     this.flipCard(e.detail);
   }
 
+  /** when card is flipped */
+  @Event() cardFlipped: EventEmitter;
   flipCard(showBack: boolean = true): void {
     this.flipped = showBack;
+    this.cardFlipped.emit(showBack);
   }
 
   render() {
@@ -51,6 +54,7 @@ export class ZCardDictionary {
                 icon="informationsource"
                 issmall={true}
                 onClick={() => this.flipCard(true)}
+                disabled={this.flipped}
               >
                 {this.flipbuttonlabel}
               </z-button>

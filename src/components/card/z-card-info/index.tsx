@@ -1,5 +1,6 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 import { DictionaryData } from "../../../beans";
+import { handleKeyboardSubmit } from "../../../utils/utils";
 
 /**
  * @slot  - content
@@ -12,6 +13,8 @@ import { DictionaryData } from "../../../beans";
 export class zCardInfo {
   /** dictionary info */
   @Prop() data: string | DictionaryData;
+  /** tabindex link attribute (optional) */
+  @Prop() htmltabindex?: number = 0;
 
   private cardData: DictionaryData;
 
@@ -19,6 +22,10 @@ export class zCardInfo {
   @Event() flipCard: EventEmitter;
   emitFlipCard(showBack: boolean = false) {
     this.flipCard.emit(showBack);
+  }
+
+  constructor() {
+    this.emitFlipCard = this.emitFlipCard.bind(this);
   }
 
   componentWillLoad() {
@@ -36,7 +43,10 @@ export class zCardInfo {
         height={18}
         width={18}
         onClick={() => this.emitFlipCard(false)}
-        tabindex="0"
+        tabindex={this.htmltabindex}
+        onKeyUp={(e: KeyboardEvent) => {
+          handleKeyboardSubmit(e, this.emitFlipCard, false);
+        }}
       />
     );
   }
