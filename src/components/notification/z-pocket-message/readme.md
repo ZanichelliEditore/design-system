@@ -7,11 +7,10 @@
 
 ## Slots
 
-| Slot      | Description  |
-| --------- | ------------ |
-|           | message body |
-| `"cta-1"` | first CTA    |
-| `"cta-2"` | second CTA   |
+| Slot    | Description  |
+| ------- | ------------ |
+|         | message body |
+| `"cta"` | message CTAs |
 
 
 ## Dependencies

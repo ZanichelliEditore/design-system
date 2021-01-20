@@ -18,8 +18,7 @@ describe("Suite test ZMessage", () => {
               <slot></slot>
             </div>
             <div class="ctaWrapper">
-              <slot name="cta-1"></slot>
-              <slot name="cta-2"></slot>
+              <slot name="cta"></slot>
             </div>
           </div>
         </mock:shadow-root>
@@ -42,8 +41,7 @@ describe("Suite test ZMessage", () => {
               <slot></slot>
             </div>
             <div class="ctaWrapper">
-              <slot name="cta-1"></slot>
-              <slot name="cta-2"></slot>
+              <slot name="cta"></slot>
             </div>
           </div>
         </mock:shadow-root>
@@ -57,8 +55,8 @@ describe("Suite test ZMessage", () => {
       components: [ZPocketMessage],
       html: `<z-pocket-message>
         message content
-        <z-button slot="cta-1">cta 1</z-button>
-        <z-button slot="cta-2">cta 2</z-button>
+        <z-button slot="cta">cta 1</z-button>
+        <z-button slot="cta">cta 2</z-button>
       </z-pocket-message>`
     });
 
@@ -71,14 +69,13 @@ describe("Suite test ZMessage", () => {
               <slot></slot>
             </div>
             <div class="ctaWrapper">
-              <slot name="cta-1"></slot>
-              <slot name="cta-2"></slot>
+              <slot name="cta"></slot>
             </div>
           </div>
         </mock:shadow-root>
         message content
-        <z-button slot="cta-1">cta 1</z-button>
-        <z-button slot="cta-2">cta 2</z-button>
+        <z-button slot="cta">cta 1</z-button>
+        <z-button slot="cta">cta 2</z-button>
       </z-pocket-message>
     `);
   });
