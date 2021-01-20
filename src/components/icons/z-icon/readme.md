@@ -41,9 +41,10 @@
  - [z-link](../../navigation/z-link)
  - [z-list-item](../../list/z-list-item)
  - [z-menu-dropdown](../../navigation/z-menu-dropdown)
+ - [z-messages-pocket](../../notification/z-messages-pocket)
  - [z-modal](../../modal/z-modal)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
- - [z-pocket](../../notification/z-pocket)
+ - [z-pocket-message](../../notification/z-pocket-message)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../slideshow/z-slideshow)
  - [z-toggle-button](../../buttons/z-toggle-button)
@@ -67,9 +68,10 @@ graph TD;
   z-link --> z-icon
   z-list-item --> z-icon
   z-menu-dropdown --> z-icon
+  z-messages-pocket --> z-icon
   z-modal --> z-icon
   z-pagination-bar --> z-icon
-  z-pocket --> z-icon
+  z-pocket-message --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon
   z-toggle-button --> z-icon
