@@ -25,5 +25,8 @@ export const config: Config = {
     appendChildSlotFix: true,
     cloneNodeFix: true,
     slotChildNodesFix: true,
+  },
+  testing: {
+    timers: 'fake'
   }
 };
