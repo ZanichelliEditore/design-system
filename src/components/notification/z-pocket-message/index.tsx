@@ -2,8 +2,7 @@ import { Component, h } from "@stencil/core";
 
 /**
  * @slot  - message body
- * @slot cta-1 - first CTA
- * @slot cta-2 - second CTA
+ * @slot cta - message CTAs
  */
 @Component({
   tag: "z-pocket-message",
@@ -19,8 +18,7 @@ export class ZPocketMessage {
           <slot />
         </div>
         <div class="ctaWrapper">
-          <slot name="cta-1" />
-          <slot name="cta-2" />
+          <slot name="cta" />
         </div>
       </div>
     );
