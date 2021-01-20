@@ -13,7 +13,7 @@ describe("Suite test zCardInfo", () => {
       <z-card-info>
         <mock:shadow-root>
           <div>
-            <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="-1"></z-icon>
+            <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="0"></z-icon>
             <div class="content-wrapper">
               <section>
                 Autore: <b></b>
@@ -42,7 +42,7 @@ describe("Suite test zCardInfo", () => {
     <z-card-info data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'>
       <mock:shadow-root>
         <div>
-          <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="-1"></z-icon>
+          <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="0"></z-icon>
           <div class="content-wrapper">
 
             <section>
@@ -86,17 +86,17 @@ describe("Suite test zCardInfo", () => {
   `);
 });
 
-  it("Test render zCardInfo - accessibility", async () => {
+  it("Test render zCardInfo - htmltabindex", async () => {
     const page = await newSpecPage({
       components: [zCardInfo],
-      html: `<z-card-info accessibility='true' data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'></z-card-info>`
+      html: `<z-card-info htmltabindex='-1' data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'></z-card-info>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-card-info accessibility='true' data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'>
+    <z-card-info htmltabindex='-1' data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'>
       <mock:shadow-root>
         <div>
-          <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="0"></z-icon>
+          <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="-1"></z-icon>
           <div class="content-wrapper">
 
             <section>

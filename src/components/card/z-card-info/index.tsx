@@ -13,8 +13,8 @@ import { handleKeyboardSubmit } from "../../../utils/utils";
 export class zCardInfo {
   /** dictionary info */
   @Prop() data: string | DictionaryData;
-  /** active accessibility for close icon */
-  @Prop() accessibility?: boolean = false;
+  /** tabindex link attribute (optional) */
+  @Prop() htmltabindex?: number = 0;
 
   private cardData: DictionaryData;
 
@@ -43,7 +43,7 @@ export class zCardInfo {
         height={18}
         width={18}
         onClick={() => this.emitFlipCard(false)}
-        tabindex={this.accessibility ? "0" : "-1"}
+        tabindex={this.htmltabindex}
         onKeyUp={(e: KeyboardEvent) => {
           handleKeyboardSubmit(e, this.emitFlipCard, false);
         }}
