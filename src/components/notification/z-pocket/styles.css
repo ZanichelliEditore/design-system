@@ -3,11 +3,13 @@
   font-weight: var(--font-rg);
   width: inherit;
   height: 100%;
+  margin: inherit;
 }
 
 :host > div {
   width: inherit;
   height: 100%;
+  margin: inherit;
 }
 
 :host > div > div.background {
@@ -16,7 +18,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 99998;
+  z-index: 998;
   width: 0;
   height: 0;
 }
@@ -28,10 +30,11 @@
 
 :host > div > div.contentWrapper {
   position: fixed;
-  z-index: 99999;
+  z-index: 999;
   bottom: 0;
   left: 0;
   width: inherit;
+  margin: inherit;
 }
 
 :host > div > div.contentWrapper > div {
