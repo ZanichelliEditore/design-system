@@ -1914,6 +1914,10 @@ declare namespace LocalJSX {
          */
         "onPocketHeaderClick"?: (event: CustomEvent<any>) => void;
         /**
+          * Emitted on pocket header pan
+         */
+        "onPocketHeaderPan"?: (event: CustomEvent<any>) => void;
+        /**
           * pocket id
          */
         "pocketid"?: string;

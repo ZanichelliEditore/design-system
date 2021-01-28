@@ -68,16 +68,16 @@
   }
 
   :host > z-pocket.closed {
-    margin-left: 0;
+    margin: 0 calc((100% - 158px) / 2);
+  }
+
+  :host > z-pocket.open > z-pocket-body > div.body {
+    max-height: 326px;
   }
 }
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  :host > z-pocket.closed {
-    margin: 0 calc((100% - 158px) / 2);
-  }
-
   :host > z-pocket.open > z-pocket-body > div.body {
     scrollbar-width: thin;
     scrollbar-color: var(--myz-blue) var(--bg-grey-200);

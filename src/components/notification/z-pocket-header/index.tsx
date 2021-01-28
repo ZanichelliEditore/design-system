@@ -1,5 +1,6 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 import { handleKeyboardSubmit } from "../../../utils/utils";
+import Hammer from "hammerjs";
 
 /**
  * @slot  - pocket header content
@@ -13,14 +14,30 @@ export class ZPocketHeader {
   /** pocket id */
   @Prop() pocketid: string;
 
+  private swipeWrap: HTMLHeadingElement;
+
   /** Emitted on pocket header click */
   @Event() pocketHeaderClick: EventEmitter;
   emitPocketHeaderClick() {
     this.pocketHeaderClick.emit({ id: this.pocketid });
   }
 
+  /** Emitted on pocket header pan */
+  @Event() pocketHeaderPan: EventEmitter;
+  emitPocketHeaderPan(direction: string) {
+    this.pocketHeaderPan.emit({ id: this.pocketid, direction });
+  }
+
   constructor() {
     this.emitPocketHeaderClick = this.emitPocketHeaderClick.bind(this);
+  }
+
+  componentDidLoad() {
+    // INFO: swipe handling
+    const mc = new Hammer(this.swipeWrap);
+    mc.get("pan").set({ direction: Hammer.DIRECTION_VERTICAL });
+    mc.on("panup", () => this.emitPocketHeaderPan("up"));
+    mc.on("pandown", () => this.emitPocketHeaderPan("down"));
   }
 
   render() {
@@ -32,6 +49,7 @@ export class ZPocketHeader {
         onKeyPress={(ev: KeyboardEvent) =>
           handleKeyboardSubmit(ev, this.emitPocketHeaderClick)
         }
+        ref={el => (this.swipeWrap = el as HTMLHeadingElement)}
       >
         <slot />
       </header>

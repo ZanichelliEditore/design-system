@@ -12,7 +12,7 @@ describe("Suite test ZPocketHeader", () => {
     expect(page.root).toEqualHtml(`
       <z-pocket-header>
         <mock:shadow-root>
-          <header role="button" tabindex="0">
+          <header role="button" tabindex="0" style="undefined: rgba(0,0,0,0);">
             <slot></slot>
           </header>
         </mock:shadow-root>
@@ -29,7 +29,7 @@ describe("Suite test ZPocketHeader", () => {
     expect(page.root).toEqualHtml(`
       <z-pocket-header pocketid="pocket">
         <mock:shadow-root>
-          <header role="button" tabindex="0">
+          <header role="button" tabindex="0" style="undefined: rgba(0,0,0,0);">
             <slot></slot>
           </header>
         </mock:shadow-root>
@@ -46,7 +46,7 @@ describe("Suite test ZPocketHeader", () => {
     expect(page.root).toEqualHtml(`
       <z-pocket-header>
         <mock:shadow-root>
-          <header role="button" tabindex="0">
+          <header role="button" tabindex="0" style="undefined: rgba(0,0,0,0);">
             <slot></slot>
           </header>
         </mock:shadow-root>
