@@ -5,7 +5,6 @@
 
 :host > z-pocket {
   width: 100%;
-  left: 0;
 }
 
 :host > z-pocket.closed {
@@ -63,6 +62,18 @@
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
+  :host > z-pocket {
+    width: 768px;
+    margin: 0 calc((100% - 768px) / 2);
+  }
+
+  :host > z-pocket.closed {
+    margin: 0 calc((100% - 158px) / 2);
+  }
+
+  :host > z-pocket.open > z-pocket-body > div.body {
+    max-height: 326px;
+  }
 }
 
 /* Desktop breakpoint */

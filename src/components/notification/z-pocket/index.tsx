@@ -9,7 +9,6 @@ import {
   Element,
   Watch
 } from "@stencil/core";
-import Hammer from "hammerjs";
 import { PocketStatus, PocketStatusEnum } from "../../../beans";
 
 /**
@@ -27,9 +26,6 @@ export class ZPocket {
   @Prop() pocketid: string;
   /** pocket status */
   @Prop({ mutable: true }) status: PocketStatus = PocketStatusEnum.preview;
-
-  private swipeWrap: HTMLDivElement;
-  private panDownCanClose: boolean = true;
 
   /** open z-pocket */
   @Method()
@@ -64,6 +60,17 @@ export class ZPocket {
     }
   }
 
+  @Listen("pocketHeaderPan")
+  handlePocketHeaderPan(e: CustomEvent): void {
+    if (e.detail.id && e.detail.id === this.pocketid) {
+      if (e.detail.direction === "up") {
+        this.status = PocketStatusEnum.open;
+      } else if (e.detail.direction === "down") {
+        this.status = PocketStatusEnum.closed;
+      }
+    }
+  }
+
   @Watch("status")
   watchStatusHandler(newVal: PocketStatus) {
     this.emitPocketToggle(this.pocketid, newVal);
@@ -71,29 +78,6 @@ export class ZPocket {
 
   componentWillLoad() {
     this.emitPocketToggle(this.pocketid, this.status);
-  }
-
-  componentDidLoad() {
-    // INFO: swipe handling
-    const mc = new Hammer(this.swipeWrap);
-    mc.get("pan").set({ direction: Hammer.DIRECTION_VERTICAL });
-    mc.on("panstart", (e: HammerInput) => {
-      const pocketBody = this.hostElement.querySelector("z-pocket-body");
-      const panStartY = e.center.y;
-      const zPocketOffset = this.hostElement.offsetTop;
-      const zPocketBodyOffset = pocketBody.offsetTop;
-      this.panDownCanClose = panStartY <= zPocketOffset + zPocketBodyOffset;
-    });
-    mc.on("panup", () => {
-      if (this.status !== PocketStatusEnum.open) {
-        this.status = PocketStatusEnum.open;
-      }
-    });
-    mc.on("pandown", () => {
-      if (this.status !== PocketStatusEnum.closed && this.panDownCanClose) {
-        this.status = PocketStatusEnum.closed;
-      }
-    });
   }
 
   handleBackgroundClick(e: any) {
@@ -111,11 +95,7 @@ export class ZPocket {
           class={`background ${this.status}`}
           onClick={(e: any) => this.handleBackgroundClick(e)}
         />
-        <div
-          id={this.pocketid}
-          class="contentWrapper"
-          ref={el => (this.swipeWrap = el as HTMLDivElement)}
-        >
+        <div id={this.pocketid} class="contentWrapper">
           <div>
             <slot />
           </div>

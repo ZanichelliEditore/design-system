@@ -17,6 +17,7 @@
 | Event               | Description                    | Type               |
 | ------------------- | ------------------------------ | ------------------ |
 | `pocketHeaderClick` | Emitted on pocket header click | `CustomEvent<any>` |
+| `pocketHeaderPan`   | Emitted on pocket header pan   | `CustomEvent<any>` |
 
 
 ## Slots
