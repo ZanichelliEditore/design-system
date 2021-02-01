@@ -12,12 +12,19 @@
 <z-button label="button" type="tertiary" isdisabled></z-button>
 <z-button label="button" type="primary" issmall></z-button>
 <z-button label="button" type="primary" issmall icon="download"></z-button>
-<z-button label="button" type="primary" issmall isdisabled icon="download"></z-button>
+<z-button
+  label="button"
+  type="primary"
+  issmall
+  isdisabled
+  icon="download"
+></z-button>
 <z-button label="button" type="secondary" issmall></z-button>
 <z-button label="button" type="secondary" issmall isdisabled></z-button>
 <z-button label="button" type="tertiary" issmall></z-button>
 <z-button label="button" type="tertiary" issmall isdisabled></z-button>
 ```
+
 <!-- Auto Generated Below -->
 
 
@@ -46,6 +53,7 @@
 ### Used by
 
  - [z-card-dictionary](../../card/z-card-dictionary)
+ - [z-cookiebar](../../notification/z-cookiebar)
  - [z-header](../../navigation/z-header)
 
 ### Depends on
@@ -57,6 +65,7 @@
 graph TD;
   z-button --> z-icon
   z-card-dictionary --> z-button
+  z-cookiebar --> z-button
   z-header --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
