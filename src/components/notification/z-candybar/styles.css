@@ -1,6 +1,11 @@
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+  align-content: center;
 }
 
 :host > div {
@@ -9,10 +14,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 30vh;
   max-width: 297px;
   height: fit-content;
   min-height: 232px;
