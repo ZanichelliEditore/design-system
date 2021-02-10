@@ -18,7 +18,7 @@
 
 | Event    | Description                               | Type               |
 | -------- | ----------------------------------------- | ------------------ |
-| `accept` | emitted on OK button click, returns event | `CustomEvent<any>` |
+| `accept` | emitted on ACCETTA button click, returns event | `CustomEvent<any>` |
 
 
 ## Dependencies
