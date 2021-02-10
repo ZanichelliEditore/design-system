@@ -63,7 +63,7 @@ export class ZCookiebar {
           onClick={(ev: MouseEvent) => this.handleOkButtonClick(ev)}
           onKeyUp={(ev: KeyboardEvent) => this.handleOkButtonKeyUp(ev)}
         >
-          OK
+          ACCETTA
         </z-button>
       </div>
     );

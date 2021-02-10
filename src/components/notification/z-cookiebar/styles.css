@@ -23,16 +23,13 @@ z-candybar.hidden {
 }
 
 .content > div > h2 {
-  height: var(--half-x7);
   margin: 0;
   padding: 0;
-  color: rgb(75, 78, 82);
+  color: var(--text-grey-800);
   border-radius: 0px;
   font-size: 18px;
   font-weight: var(--font-sb);
   letter-spacing: 0px;
-  line-height: 22px;
-  border-bottom: var(--border-base) solid rgb(75, 78, 82);
 }
 
 .content > div > div {
@@ -75,11 +72,11 @@ z-candybar.hidden {
     font-size: 16px;
     letter-spacing: 0px;
     line-height: 24px;
-    padding: var(--basex3);
+    padding: var(--basex4) var(--basex3);
   }
 
   .content > div {
-    margin-right: 20%;
+    width: 560px;
   }
 
   .content > div > h2 {
@@ -87,8 +84,7 @@ z-candybar.hidden {
   }
 
   .content > div > div {
-    padding-bottom: 0;
-    padding-top: var(--basex2);
+    padding: 0;
   }
 
   .content > z-button {
@@ -99,6 +95,9 @@ z-candybar.hidden {
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
+  .content > div {
+    width: 935px;
+  }
 }
 
 /* Wide breakpoint */
