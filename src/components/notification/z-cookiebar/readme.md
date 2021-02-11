@@ -16,8 +16,8 @@
 
 ## Events
 
-| Event    | Description                               | Type               |
-| -------- | ----------------------------------------- | ------------------ |
+| Event    | Description                                    | Type               |
+| -------- | ---------------------------------------------- | ------------------ |
 | `accept` | emitted on ACCETTA button click, returns event | `CustomEvent<any>` |
 
 

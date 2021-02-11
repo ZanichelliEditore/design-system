@@ -23,7 +23,6 @@ export class ZCookiebar {
   handleOkButtonClick(ev: MouseEvent) {
     this.emitAccept(ev);
     if (
-      typeof this.callback !== "undefined" &&
       typeof this.callback === "function"
     ) {
       this.callback();
