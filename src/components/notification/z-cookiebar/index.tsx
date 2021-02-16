@@ -14,7 +14,7 @@ export class ZCookiebar {
   /** callback to handle ok button action (optional) */
   @Prop() callback?: () => any;
 
-  /** emitted on OK button click, returns event */
+  /** emitted on ACCETTA button click, returns event */
   @Event() accept: EventEmitter;
   emitAccept(ev: MouseEvent | KeyboardEvent) {
     this.accept.emit({ev});
@@ -23,7 +23,6 @@ export class ZCookiebar {
   handleOkButtonClick(ev: MouseEvent) {
     this.emitAccept(ev);
     if (
-      typeof this.callback !== "undefined" &&
       typeof this.callback === "function"
     ) {
       this.callback();
@@ -63,7 +62,7 @@ export class ZCookiebar {
           onClick={(ev: MouseEvent) => this.handleOkButtonClick(ev)}
           onKeyUp={(ev: KeyboardEvent) => this.handleOkButtonKeyUp(ev)}
         >
-          OK
+          ACCETTA
         </z-button>
       </div>
     );

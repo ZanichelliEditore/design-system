@@ -1608,7 +1608,7 @@ declare namespace LocalJSX {
          */
         "hide"?: boolean;
         /**
-          * emitted on OK button click, returns event
+          * emitted on ACCETTA button click, returns event
          */
         "onAccept"?: (event: CustomEvent<any>) => void;
     }
