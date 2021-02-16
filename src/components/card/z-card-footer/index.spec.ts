@@ -23,15 +23,15 @@ describe("Suite test ZCardFooter", () => {
               <div class="content">
                 <div>
                   <p class="authors">
-                    <span><b>
+                    <span><span class="bold">
                       Mario Rossi, Paolo Bianchi
-                    </b></span>
+                    </span></span>
                   </p>
                   <p class="year_isbn">
                     <span class=\"isbn\">
-                      <span><b>
+                      <span><span class="bold">
                         123456
-                      </b> (ed. cartacea)</span>
+                      </span> (ed. cartacea)</span>
                     </span>
                   </p>
                 </div>
@@ -66,13 +66,13 @@ describe("Suite test ZCardFooter", () => {
               <div class="content">
                 <div>
                   <p class="authors">
-                    <span><b>
+                    <span><span class="bold">
                       Mario Rossi, Paolo Bianchi
-                    </b></span>
+                    </span></span>
                   </p>
                   <p class="year_isbn">
                     <span class=\"isbn\">
-                      <span><b></b> (ed. cartacea)</span>
+                      <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
                 </div>
@@ -105,11 +105,11 @@ describe("Suite test ZCardFooter", () => {
               <div class="content">
                 <div>
                   <p class="authors">
-                    <span><b></b></span>
+                    <span><span class="bold"></span></span>
                   </p>
                   <p class="year_isbn">
                     <span class=\"isbn\">
-                      <span><b></b> (ed. cartacea)</span>
+                      <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
                 </div>
@@ -145,13 +145,13 @@ describe("Suite test ZCardFooter", () => {
               <div class="content">
                 <div>
                   <p class="authors">
-                    <span><b>
+                    <span><span class="bold">
                       Mario Rossi, Paolo Bianchi
-                    </b></span>
+                    </span></span>
                   </p>
                   <p class="year_isbn">
                     <span class=\"isbn\">
-                      <span><b></b> (ed. cartacea)</span>
+                      <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
                 </div>
@@ -185,13 +185,13 @@ describe("Suite test ZCardFooter", () => {
               <div class="content">
                 <div>
                   <p class="authors">
-                    <span><b>
+                    <span><span class="bold">
                       Mario Rossi, Paolo Bianchi
-                    </b></span>
+                    </span></span>
                   </p>
                   <p class="year_isbn">
                     <span class=\"isbn\">
-                      <span><b></b> (ed. cartacea)</span>
+                      <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
                 </div>

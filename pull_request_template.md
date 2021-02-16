@@ -32,9 +32,11 @@
 - [ ] Chore (changes that adds small enhancement)
 - [ ] Breaking (fix or feature that would cause existing functionality to not work as expected)
 
-### Abstract and Screenshots
+### Abstract
 <!--- Refers to Design System Abstract sheets or collections -->
 <!--- Add Screenshots if appropriate -->
+
+### Screenshots
 
 ### Note
 <!-- Adds description, notes, any blocks -->
