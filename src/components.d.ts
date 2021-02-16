@@ -159,10 +159,6 @@ export namespace Components {
          */
         "autori": string;
         /**
-          * authors label text
-         */
-        "autorilabel": string;
-        /**
           * card graphic variant (optional)
          */
         "cardtype"?: LicenseTypeEnum;
@@ -1214,10 +1210,6 @@ declare namespace LocalJSX {
           * authors name text
          */
         "autori"?: string;
-        /**
-          * authors label text
-         */
-        "autorilabel"?: string;
         /**
           * card graphic variant (optional)
          */

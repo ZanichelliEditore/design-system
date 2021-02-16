@@ -8,13 +8,11 @@ import { LicenseTypeEnum } from "../../../beans/index";
 @Component({
   tag: "z-card-footer",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: true
 })
 export class ZCardFooter {
   /** volume title */
   @Prop() titolo: string;
-  /** authors label text */
-  @Prop() autorilabel: string = "Autore";
   /** authors name text */
   @Prop() autori: string;
   /** volume isbn */
@@ -26,38 +24,74 @@ export class ZCardFooter {
 
   @State() isOpen: boolean = false;
 
+  @State() allowTooltipAuthors: boolean = false;
+
+  private ellipsisAuthors?: HTMLElement;
+
   @Listen("toggleClick")
   handleToggle(): void {
     this.isOpen = !this.isOpen;
+  }
+
+  getTitleAuthors(): string {
+    return this.allowTooltipAuthors ? this.autori : "";
+  }
+
+  elementsEllipsis(): void {
+    this.allowTooltipAuthors = this.elementAuthorsHasEllipsis() ? true : false;
+  }
+
+  elementAuthorsHasEllipsis(): boolean {
+    return this.ellipsisAuthors.offsetWidth < this.ellipsisAuthors.scrollWidth;
   }
 
   retrieveClass() {
     return {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial,
+      trial: this.cardtype === LicenseTypeEnum.trial
     };
+  }
+
+  footerTransitionHandler(e: TransitionEvent) {
+    if (["visibility", "height"].includes(e.propertyName)) {
+      this.elementsEllipsis();
+    }
   }
 
   render() {
     return (
       <div class={this.faded && "faded"}>
-        <footer class={this.retrieveClass()}>
+        <footer
+          class={this.retrieveClass()}
+          onTransitionEnd={(e: TransitionEvent) =>
+            this.footerTransitionHandler(e)
+          }
+        >
           <span class="toggle">
             <slot name="toggle" />
           </span>
           <h2>{this.titolo}</h2>
           <div>
-            <p class="authors">
-              {this.autorilabel}: <b>{this.autori}</b>
+            <p
+              class="authors"
+              ref={el => (this.ellipsisAuthors = el as HTMLElement)}
+            >
+              <span title={this.getTitleAuthors()}>
+                <span class="bold">{this.autori}</span>
+              </span>
             </p>
             <p class="year_isbn">
               <span class="isbn">
-                ISBN (ed. cartacea): <b>{this.isbn}</b>
+                <span>
+                  <span class="bold">{this.isbn}</span> (ed. cartacea)
+                </span>
               </span>
             </p>
           </div>
-          {this.isOpen && <slot name="list" />}
+          <div class={`slot-handler ${this.isOpen ? "visible" : "hidden"}`}>
+            <slot name="list" />
+          </div>
         </footer>
       </div>
     );
