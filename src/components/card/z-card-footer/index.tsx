@@ -26,7 +26,6 @@ export class ZCardFooter {
 
   @State() allowTooltipAuthors: boolean = false;
 
-  private footer?: HTMLElement;
   private ellipsisAuthors?: HTMLElement;
 
   @Listen("toggleClick")
@@ -36,13 +35,6 @@ export class ZCardFooter {
 
   getTitleAuthors(): string {
     return this.allowTooltipAuthors ? this.autori : "";
-  }
-
-  componentDidLoad() {
-    this.footer.ontransitionend = event => {
-      if (["visibility", "height"].includes(event.propertyName))
-        this.elementsEllipsis();
-    };
   }
 
   elementsEllipsis(): void {
@@ -61,12 +53,20 @@ export class ZCardFooter {
     };
   }
 
+  footerTransitionHandler(e: TransitionEvent) {
+    if (["visibility", "height"].includes(e.propertyName)) {
+      this.elementsEllipsis();
+    }
+  }
+
   render() {
     return (
       <div class={this.faded && "faded"}>
         <footer
-          ref={el => (this.footer = el as HTMLElement)}
           class={this.retrieveClass()}
+          onTransitionEnd={(e: TransitionEvent) =>
+            this.footerTransitionHandler(e)
+          }
         >
           <span class="toggle">
             <slot name="toggle" />
@@ -78,13 +78,13 @@ export class ZCardFooter {
               ref={el => (this.ellipsisAuthors = el as HTMLElement)}
             >
               <span title={this.getTitleAuthors()}>
-                <b>{this.autori}</b>
+                <span class="bold">{this.autori}</span>
               </span>
             </p>
             <p class="year_isbn">
               <span class="isbn">
                 <span>
-                  <b>{this.isbn}</b> (ed. cartacea)
+                  <span class="bold">{this.isbn}</span> (ed. cartacea)
                 </span>
               </span>
             </p>

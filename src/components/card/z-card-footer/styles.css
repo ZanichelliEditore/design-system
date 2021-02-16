@@ -20,7 +20,7 @@ footer.trial {
   border-top: var(--border-base) solid var(--accent);
 }
 
-footer b {
+footer .bold {
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
 }
