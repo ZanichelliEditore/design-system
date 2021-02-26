@@ -12,7 +12,7 @@
 
 :host li > span {
   line-height: 14px;
-  padding: var(--basex2) 0;
+  padding: calc(var(--space-unit) * 2) 0;
   display: flex;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
@@ -40,8 +40,8 @@ a, a:visited, a:active {
 :host li span z-icon {
   color: var(--myz-blue);
   fill: var(--myz-blue);
-  height: var(--basex2);
-  width: var(--basex2);
+  height: calc(var(--space-unit) * 2);
+  width: calc(var(--space-unit) * 2);
   padding: 0 var(--half-x3) 0 0;
   background-size: contain;
   background-repeat: no-repeat;

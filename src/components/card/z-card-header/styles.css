@@ -22,13 +22,13 @@ h2 {
   font-weight: var(--font-sb);
   color: var(--text-grey-800);
   width: 80%;
-  height: var(--basex2);
+  height: calc(var(--space-unit) * 2);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.22px;
-  line-height: var(--basex2);
+  line-height: calc(var(--space-unit) * 2);
   margin: 0px;
-  padding: var(--basex2);
+  padding: calc(var(--space-unit) * 2);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

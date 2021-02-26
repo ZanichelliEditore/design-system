@@ -78,7 +78,7 @@ z-logo {
   letter-spacing: 0.18px;
   line-height: 32px;
   text-decoration: none;
-  margin: var(--basex1);
+  margin: var(--space-unit);
   padding-bottom: var(--half-x1);
 }
 
@@ -111,7 +111,7 @@ z-logo {
 }
 
 .mobile-header > z-button {
-  margin: 0 var(--basex2);
+  margin: 0 calc(var(--space-unit) * 2);
 }
 
 .mobile-content {
@@ -164,7 +164,7 @@ hr {
   align-items: center;
   align-content: center;
   color: var(--bg-white);
-  padding: var(--basex2) var(--basex3);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 3);
   cursor: pointer;
 }
 
@@ -176,7 +176,7 @@ hr {
   grid-area: menu-toggle;
   display: flex;
   flex-direction: column;
-  margin: 0 var(--basex1);
+  margin: 0 var(--space-unit);
 }
 
 /* MOBILE MENU & ANIMATION */
@@ -233,7 +233,7 @@ hr {
   grid-area: login;
   display: flex;
   justify-content: flex-end;
-  padding: 0 var(--basex2);
+  padding: 0 calc(var(--space-unit) * 2);
 }
 
 .login > z-button {
@@ -248,7 +248,7 @@ hr {
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding: var(--basex2) 0px var(--basex4) 0px;
+  padding: calc(var(--space-unit) * 2) 0px var(--basex4) 0px;
 }
 
 .link-ext {
@@ -344,7 +344,7 @@ hr {
 }
 
 .link-int > span > .menu-item > i {
-  padding-top: var(--basex2);
+  padding-top: calc(var(--space-unit) * 2);
   height: 28px;
   width: 24px;
   text-align: right;
@@ -408,7 +408,7 @@ hr {
 }
 
 .mobile-login > span > .menu-item > i {
-  padding-top: var(--basex2);
+  padding-top: calc(var(--space-unit) * 2);
   height: 28px;
   width: 24px;
   text-align: right;
@@ -421,7 +421,7 @@ hr {
 }
 
 .mobile-login > span > .menu-item > span > z-icon {
-  padding-right: var(--basex1);
+  padding-right: var(--space-unit);
   fill: var(--bg-white);
 }
 
@@ -495,7 +495,7 @@ hr {
     grid-template-rows: 1fr;
     grid-template-areas: "dropdown-links";
     grid-area: dropdown-menu;
-    grid-column-gap: var(--basex1);
+    grid-column-gap: var(--space-unit);
     background: var(--bg-grey-200);
     height: 32px;
     visibility: visible;
@@ -581,8 +581,8 @@ hr {
   .link-ext-span {
     width: auto;
     line-height: 14px;
-    margin: var(--basex1);
-    padding: var(--half-x1) var(--basex1);
+    margin: var(--space-unit);
+    padding: var(--half-x1) var(--space-unit);
   }
 }
 

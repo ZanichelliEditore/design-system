@@ -8,7 +8,7 @@ button {
   border-radius: var(--radius-base);
   height: 44px;
   text-transform: uppercase;
-  padding: 0px var(--basex2);
+  padding: 0px calc(var(--space-unit) * 2);
   cursor: pointer;
   white-space: nowrap;
   outline: none;

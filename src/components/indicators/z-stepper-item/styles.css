@@ -1,6 +1,6 @@
 :host {
   position: relative;
-  width: calc(var(--basex4) + var(--basex1));
+  width: calc(var(--basex4) + var(--space-unit));
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 }
@@ -12,13 +12,13 @@
 :host(:not(:last-child))::after {
   position: absolute;
   top: var(--basex4);
-  left: var(--basex3);
-  right: var(--basex2);
+  left: calc(var(--space-unit) * 3);
+  right: calc(var(--space-unit) * 2);
   z-index: 1;
   content: '';
   display: block;
   width: auto;
-  margin: 0 calc(-1 * var(--basex2)) 0 var(--basex2);
+  margin: 0 calc(-1 * calc(var(--space-unit) * 2)) 0 calc(var(--space-unit) * 2);
   border-bottom: solid 2px var(--bg-grey-700);
 }
 
@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(var(--basex4) + var(--basex1));
+  width: calc(var(--basex4) + var(--space-unit));
   padding: 0;
   color: inherit;
   font-family: inherit;
@@ -62,7 +62,7 @@
   align-items: center;
   width: var(--basex4);
   height: var(--basex4);
-  margin: var(--basex2);
+  margin: calc(var(--space-unit) * 2);
   font-size: 14px;
   font-weight: var(--font-sb);
   line-height: 1;

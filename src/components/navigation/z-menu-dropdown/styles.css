@@ -59,7 +59,7 @@ a:active {
 }
 
 .menu-opened {
-  padding-bottom: var(--basex2);
+  padding-bottom: calc(var(--space-unit) * 2);
   width: auto !important;
   min-width: 147px;
   position: inherit;
@@ -91,8 +91,8 @@ div > span.arrow {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: var(--basex1);
-  padding-right: var(--basex1);
+  padding-left: var(--space-unit);
+  padding-right: var(--space-unit);
 }
 
 span.arrow > z-icon {
@@ -120,7 +120,7 @@ ul {
 }
 
 li {
-  height: var(--basex3);
+  height: calc(var(--space-unit) * 3);
   display: flex;
   align-items: center;
 }

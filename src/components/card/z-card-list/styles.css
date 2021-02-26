@@ -1,7 +1,7 @@
 ul {
   font-family: var(--dashboard-font);
   color: var(--myz-blue);
-  margin: 0 var(--basex2);
+  margin: 0 calc(var(--space-unit) * 2);
   padding: 0px;
   overflow: hidden;
   list-style: none;
@@ -35,7 +35,7 @@ ul > li > span {
   font-weight: var(--font-rg);
   text-decoration: none;
   color: var(--text-grey-700);
-  padding: 0 var(--basex2);
+  padding: 0 calc(var(--space-unit) * 2);
   letter-spacing: 0.16px;
   line-height: var(--half-x5);
 }

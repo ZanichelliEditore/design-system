@@ -15,7 +15,7 @@
   z-index: 10;
   min-height: 48px;
   margin: 0;
-  padding: 0 var(--basex2);
+  padding: 0 calc(var(--space-unit) * 2);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +33,7 @@
   font-size: 16px;
   line-height: 24px;
   margin: 0;
-  padding: var(--basex1) 0;
+  padding: var(--space-unit) 0;
 }
 
 :host > div > .header > h2 > span {
@@ -59,7 +59,7 @@
   border-top: 0px;
   position: relative;
   z-index: 12;
-  padding: var(--basex1) var(--basex2);
+  padding: var(--space-unit) calc(var(--space-unit) * 2);
 }
 
 :host > div.open > div.openComboData > div {
@@ -71,7 +71,7 @@
 }
 
 :host > div.open > div.openComboData > z-input {
-  margin-bottom: var(--basex2);
+  margin-bottom: calc(var(--space-unit) * 2);
   width: 100%;
 }
 
@@ -100,7 +100,7 @@
 
 :host > div.open > z-input {
   color: var(--myz-blue);
-  margin: 0 var(--basex2);
+  margin: 0 calc(var(--space-unit) * 2);
   width: 238px;
   position: relative;
   z-index: 1;
@@ -114,7 +114,7 @@
 }
 
 :host > div.open > div.openComboData > div.search > ul {
-  padding: var(--basex1) var(--basex2);
+  padding: var(--space-unit) calc(var(--space-unit) * 2);
   max-height: 180px;
   overflow: auto;
   scrollbar-width: thin;
@@ -140,6 +140,6 @@
 }
 
 :host > div.open > div.openComboData > div.checkAllWrapper {
-  padding: var(--basex2) var(--half-x1);
+  padding: calc(var(--space-unit) * 2) var(--half-x1);
   text-align: left;
 }
