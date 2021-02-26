@@ -15,11 +15,11 @@ z-candybar.hidden {
   align-items: stretch;
   align-content: space-between;
   color: var(--text-grey-800);
-  border-radius: var(--half-x1);
+  border-radius: calc(var(--space-unit) * .5px);
   font-size: 16px;
   letter-spacing: 0px;
   line-height: 24px;
-  padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2px);
 }
 
 .content > div > h2 {
@@ -72,7 +72,7 @@ z-candybar.hidden {
     font-size: 16px;
     letter-spacing: 0px;
     line-height: 24px;
-    padding: var(--basex4) calc(var(--space-unit) * 3);
+    padding: calc(var(--space-unit) * 4px) calc(var(--space-unit) * 3);
   }
 
   .content > div {
@@ -80,7 +80,7 @@ z-candybar.hidden {
   }
 
   .content > div > h2 {
-    height: var(--half-x7);
+    height: calc(var(--space-unit) * 3.5px);
   }
 
   .content > div > div {
@@ -103,7 +103,7 @@ z-candybar.hidden {
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {
   .content {
-    padding-left: var(--basex4);
-    padding-right: var(--basex4);
+    padding-left: calc(var(--space-unit) * 4px);
+    padding-right: calc(var(--space-unit) * 4px);
   }
 }

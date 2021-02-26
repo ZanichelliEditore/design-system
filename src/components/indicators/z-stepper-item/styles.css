@@ -1,6 +1,6 @@
 :host {
   position: relative;
-  width: calc(var(--basex4) + var(--space-unit));
+  width: calc(calc(var(--space-unit) * 4px) + calc(var(--space-unit) * 1px));
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 }
@@ -11,14 +11,14 @@
 
 :host(:not(:last-child))::after {
   position: absolute;
-  top: var(--basex4);
+  top: calc(var(--space-unit) * 4px);
   left: calc(var(--space-unit) * 3);
-  right: calc(var(--space-unit) * 2);
+  right: calc(var(--space-unit) * 2px);
   z-index: 1;
   content: '';
   display: block;
   width: auto;
-  margin: 0 calc(-1 * calc(var(--space-unit) * 2)) 0 calc(var(--space-unit) * 2);
+  margin: 0 calc(-1 * calc(var(--space-unit) * 2px)) 0 calc(var(--space-unit) * 2px);
   border-bottom: solid 2px var(--bg-grey-700);
 }
 
@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(var(--basex4) + var(--space-unit));
+  width: calc(calc(var(--space-unit) * 4px) + calc(var(--space-unit) * 1px));
   padding: 0;
   color: inherit;
   font-family: inherit;
@@ -41,7 +41,7 @@
 
 .stepper-item span {
   display: none;
-  width: calc(100% + var(--basex4));
+  width: calc(100% + calc(var(--space-unit) * 4px));
   text-align: center;
 }
 
@@ -60,9 +60,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--basex4);
-  height: var(--basex4);
-  margin: calc(var(--space-unit) * 2);
+  width: calc(var(--space-unit) * 4px);
+  height: calc(var(--space-unit) * 4px);
+  margin: calc(var(--space-unit) * 2px);
   font-size: 14px;
   font-weight: var(--font-sb);
   line-height: 1;
@@ -91,16 +91,16 @@
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   :host {
-    width: calc(var(--basex4) + var(--basex6));
+    width: calc(calc(var(--space-unit) * 4px) + calc(var(--space-unit) * 6px));
   }
 
   :host(:not(:last-child))::after {
-    top: var(--basex5);
-    left: calc(var(--basex4) + var(--basex4));
+    top: calc(var(--space-unit) * 5px);
+    left: calc(calc(var(--space-unit) * 4px) + calc(var(--space-unit) * 4px));
   }
 
   .stepper-item {
-    width: calc(var(--basex6) + var(--basex4));
+    width: calc(calc(var(--space-unit) * 6px) + calc(var(--space-unit) * 4px));
   }
 
   .stepper-item span {
@@ -108,8 +108,8 @@
   }
 
   .indicator {
-    width: var(--basex6);
-    height: var(--basex6);
+    width: calc(var(--space-unit) * 6px);
+    height: calc(var(--space-unit) * 6px);
     font-size: 16px;
   }
 }

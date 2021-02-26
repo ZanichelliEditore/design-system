@@ -16,7 +16,7 @@
   grid-template-rows: 1fr;
   grid-column-gap: 8px;
   align-items: center;
-  padding: 0 var(--space-unit);
+  padding: 0 calc(var(--space-unit) * 1px);
   outline: none;
 }
 
@@ -30,7 +30,7 @@
 
 :host div.removeAlert {
   background: var(--status-warning-yellow-lighter);
-  border: var(--border-base) solid var(--bg-grey-200);
+  border: var(--border-size-medium) solid var(--bg-grey-200);
   border-top: none;
 }
 

@@ -3,18 +3,18 @@ header {
   flex-direction: row;
   align-items: flex-start;
   width: auto;
-  height: var(--basex6);
+  height: calc(var(--space-unit) * 6px);
   position: relative;
-  border-bottom: var(--border-base) solid var(--bg-grey-200);
-  border-radius: var(--radius-base) var(--radius-base) var(--radius-min)
-    var(--radius-min);
+  border-bottom: var(--border-size-medium) solid var(--bg-grey-200);
+  border-radius: var(--border-radius) var(--border-radius) var(----border-no-radius)
+    var(----border-no-radius);
   background-color: var(--bg-white);
 }
 
 header.real,
 header.trial {
   background-color: var(--accent-lighter);
-  border-bottom: var(--border-base) solid var(--accent);
+  border-bottom: var(--border-size-medium) solid var(--accent);
 }
 
 h2 {
@@ -22,27 +22,27 @@ h2 {
   font-weight: var(--font-sb);
   color: var(--text-grey-800);
   width: 80%;
-  height: calc(var(--space-unit) * 2);
+  height: calc(var(--space-unit) * 2px);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.22px;
-  line-height: calc(var(--space-unit) * 2);
+  line-height: calc(var(--space-unit) * 2px);
   margin: 0px;
-  padding: calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 2px);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .faded {
-  border-top: var(--border-base) solid var(--bg-grey-200);
-  border-right: var(--border-base) solid var(--bg-grey-200);
-  border-left: var(--border-base) solid var(--bg-grey-200);
+  border-top: var(--border-size-medium) solid var(--bg-grey-200);
+  border-right: var(--border-size-medium) solid var(--bg-grey-200);
+  border-left: var(--border-size-medium) solid var(--bg-grey-200);
 }
 
 .faded.real,
 .faded.trial {
-  border-top: var(--border-base) solid var(--accent);
-  border-right: var(--border-base) solid var(--accent);
-  border-left: var(--border-base) solid var(--accent);
+  border-top: var(--border-size-medium) solid var(--accent);
+  border-right: var(--border-size-medium) solid var(--accent);
+  border-left: var(--border-size-medium) solid var(--accent);
 }

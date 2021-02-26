@@ -19,7 +19,7 @@ a:active {
   display: block;
   background: var(--bg-grey-050);
   color: var(--text-grey-800);
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   border: 1px solid transparent;
   width: 147px;
   outline: none;
@@ -59,7 +59,7 @@ a:active {
 }
 
 .menu-opened {
-  padding-bottom: calc(var(--space-unit) * 2);
+  padding-bottom: calc(var(--space-unit) * 2px);
   width: auto !important;
   min-width: 147px;
   position: inherit;
@@ -84,15 +84,15 @@ div > img,
 div > z-icon {
   width: 14px;
   height: 14px;
-  padding-left: var(--half-x3);
+  padding-left: calc(var(--space-unit) * 1.5px);
 }
 
 div > span.arrow {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: var(--space-unit);
-  padding-right: var(--space-unit);
+  padding-left: calc(var(--space-unit) * 1px);
+  padding-right: calc(var(--space-unit) * 1px);
 }
 
 span.arrow > z-icon {
@@ -106,7 +106,7 @@ span.arrow > z-icon {
 }
 
 div > span.user {
-  padding-left: var(--half-x1);
+  padding-left: calc(var(--space-unit) * .5px);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -115,7 +115,7 @@ div > span.user {
 
 ul {
   list-style: none;
-  padding-inline-start: var(--basex4);
+  padding-inline-start: calc(var(--space-unit) * 4px);
   margin: 0px;
 }
 
