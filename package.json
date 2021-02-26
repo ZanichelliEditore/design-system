@@ -48,7 +48,6 @@
     "plop": "^2.1.0",
     "puppeteer": "1.20.0",
     "standard-version": "^8.0.2",
-    "storybook": "^6.1.20",
     "storybook-addons-abstract": "^5.0.6"
   },
   "pre-commit": {
