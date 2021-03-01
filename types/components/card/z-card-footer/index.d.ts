@@ -6,8 +6,6 @@ import { LicenseTypeEnum } from "../../../beans/index";
 export declare class ZCardFooter {
     /** volume title */
     titolo: string;
-    /** authors label text */
-    autorilabel: string;
     /** authors name text */
     autori: string;
     /** volume isbn */
@@ -17,11 +15,17 @@ export declare class ZCardFooter {
     /** card graphic variant (optional) */
     cardtype?: LicenseTypeEnum;
     isOpen: boolean;
+    allowTooltipAuthors: boolean;
+    private ellipsisAuthors?;
     handleToggle(): void;
+    getTitleAuthors(): string;
+    elementsEllipsis(): void;
+    elementAuthorsHasEllipsis(): boolean;
     retrieveClass(): {
         isopen: boolean;
         real: boolean;
         trial: boolean;
     };
+    footerTransitionHandler(e: TransitionEvent): void;
     render(): any;
 }

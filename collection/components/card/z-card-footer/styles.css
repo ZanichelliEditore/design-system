@@ -20,7 +20,7 @@ footer.trial {
   border-top: var(--border-base) solid var(--accent);
 }
 
-footer b {
+footer .bold {
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
 }
@@ -39,6 +39,7 @@ footer > h2 {
 }
 
 footer.isopen > h2 {
+  font-size: 14px;
   font-weight: var(--font-sb);
   transition: all 200ms linear;
   background-color: var(--bg-neutral-200);
@@ -49,10 +50,18 @@ footer.isopen.trial > h2 {
   background-color: var(--accent);
 }
 
-footer > div {
+footer > div:not(.slot-handler) {
   padding: var(--basex1) var(--basex2);
   height: 40px;
   overflow: hidden;
+}
+
+footer .visible {
+  display: block;
+}
+
+footer .hidden {
+  display: none;
 }
 
 footer > div > p {
@@ -78,24 +87,19 @@ footer > div > p.year_isbn > span.isbn {
   overflow: hidden;
 }
 
-footer.isopen > div {
-  height: 70px;
+footer.isopen > div:not(.slot-handler) {
+  height: 68px;
 }
 
-footer.isopen > div > p.year_isbn {
-  flex-direction: column;
-  height: 50px;
-  padding-left: 0px;
-}
-
-footer.isopen > div > p.year_isbn > span.isbn {
-  display: inline-grid;
-  padding-left: 0px;
+footer.isopen > div > p.authors {
+  height: 40px;
+  white-space: initial;
+  text-overflow: initial;
 }
 
 footer.isopen {
   height: 300px;
-  top: -169px;
+  top: -200px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
 

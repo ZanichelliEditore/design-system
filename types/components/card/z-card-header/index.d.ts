@@ -9,6 +9,11 @@ export declare class ZCardHeader {
     faded: boolean;
     /** card graphic variant (optional) */
     cardtype?: LicenseTypeEnum;
+    allowTooltip: boolean;
+    private ellipsis?;
+    getTitle(): string;
+    componentDidLoad(): void;
+    elementHasEllipsis(): boolean;
     retrieveClass(): {
         real: boolean;
         trial: boolean;

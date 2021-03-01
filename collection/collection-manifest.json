@@ -31,6 +31,7 @@
     "./components/navigation/z-link/index.js",
     "./components/navigation/z-menu-dropdown/index.js",
     "./components/notification/z-candybar/index.js",
+    "./components/notification/z-cookiebar/index.js",
     "./components/notification/z-info-box/index.js",
     "./components/notification/z-tooltip/index.js",
     "./components/pagination/z-pagination-bar/index.js",
@@ -39,8 +40,8 @@
   ],
   "compiler": {
     "name": "@stencil/core",
-    "version": "1.14.0",
-    "typescriptVersion": "3.9.3"
+    "version": "1.17.4",
+    "typescriptVersion": "3.9.7"
   },
   "collections": [],
   "bundles": []

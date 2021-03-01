@@ -1,19 +1,32 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, State, h } from "@stencil/core";
 import { LicenseTypeEnum } from "../../../beans/index";
 /**
  * @slot icon - card header icon slot
  */
 export class ZCardHeader {
+    constructor() {
+        this.allowTooltip = false;
+    }
+    getTitle() {
+        return this.allowTooltip ? this.titolo : "";
+    }
+    componentDidLoad() {
+        if (this.elementHasEllipsis())
+            this.allowTooltip = true;
+    }
+    elementHasEllipsis() {
+        return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
+    }
     retrieveClass() {
         return {
             real: this.cardtype === LicenseTypeEnum.real,
             trial: this.cardtype === LicenseTypeEnum.trial,
-            faded: this.faded,
+            faded: this.faded
         };
     }
     render() {
         return (h("header", { class: this.retrieveClass() },
-            h("h2", null, this.titolo),
+            h("h2", { ref: el => (this.ellipsis = el), title: this.getTitle() }, this.titolo),
             h("slot", { name: "icon" })));
     }
     static get is() { return "z-card-header"; }
@@ -81,5 +94,8 @@ export class ZCardHeader {
             "attribute": "cardtype",
             "reflect": false
         }
+    }; }
+    static get states() { return {
+        "allowTooltip": {}
     }; }
 }

@@ -230,9 +230,24 @@ export declare const setMode: (handler: ResolutionHandler) => void;
  */
 export declare function getMode<T = string | undefined>(ref: any): T;
 /**
- * getAssetPath
+ * Get the base path to where the assets can be found. Use `setAssetPath(path)`
+ * if the path needs to be customized.
  */
 export declare function getAssetPath(path: string): string;
+/**
+ * Used to manually set the base path where assets can be found. For lazy-loaded
+ * builds the asset path is automatically set and assets copied to the correct
+ * build directory. However, for custom elements builds, the `setAssetPath(path)` could
+ * be used to customize the asset path depending on how the script file is consumed.
+ * If the script is used as "module", it's recommended to use "import.meta.url", such
+ * as `setAssetPath(import.meta.url)`. Other options include
+ * `setAssetPath(document.currentScript.src)`, or using a bundler's replace plugin to
+ * dynamically set the path at build time, such as `setAssetPath(process.env.ASSET_PATH)`.
+ * But do note that this configuration depends on how your script is bundled, or lack of
+ * bunding, and where your assets can be loaded from. Additionally custom bundling
+ * will have to ensure the static assets are copied to its build directory.
+ */
+export declare function setAssetPath(path: string): string;
 /**
  * getElement
  */
@@ -347,6 +362,15 @@ export interface ComponentInterface {
      * componentDidLoad will only be called once.
      */
     componentDidLoad?(): void;
+    /**
+     * A `@Prop` or `@State` property changed and a rerender is about to be requested.
+     *
+     * Called multiple times throughout the life of
+     * the component as its properties change.
+     *
+     * componentShouldUpdate is not called on the first render.
+     */
+    componentShouldUpdate?(newVal: any, oldVal: any, propName: string): boolean | void;
     /**
      * The component is about to update and re-render.
      *
@@ -785,8 +809,8 @@ export declare namespace JSXBase {
         accept?: string;
         allowdirs?: boolean;
         alt?: string;
-        autoCapitalize?: string;
-        autocapitalize?: string;
+        autoCapitalize?: any;
+        autocapitalize?: any;
         autoComplete?: string;
         autocomplete?: string;
         autoFocus?: boolean;
@@ -999,6 +1023,8 @@ export declare namespace JSXBase {
         name?: string;
         required?: boolean;
         size?: number;
+        autoComplete?: string;
+        autocomplete?: string;
     }
     interface SourceHTMLAttributes<T> extends HTMLAttributes<T> {
         media?: string;
@@ -1045,6 +1071,7 @@ export declare namespace JSXBase {
         rowSpan?: number;
     }
     interface ThHTMLAttributes<T> extends HTMLAttributes<T> {
+        abbr?: string;
         colSpan?: number;
         headers?: string;
         rowSpan?: number;
@@ -1107,8 +1134,8 @@ export declare namespace JSXBase {
         resource?: string;
         typeof?: string;
         vocab?: string;
-        autoCapitalize?: string;
-        autocapitalize?: string;
+        autoCapitalize?: any;
+        autocapitalize?: any;
         autoCorrect?: string;
         autocorrect?: string;
         autoSave?: string;
@@ -1292,8 +1319,8 @@ export declare namespace JSXBase {
         'primitiveUnits'?: number | string;
         'r'?: number | string;
         'radius'?: number | string;
-        'ref-x'?: number | string;
-        'ref-y'?: number | string;
+        'refX'?: number | string;
+        'refY'?: number | string;
         'rendering-intent'?: number | string;
         'repeatCount'?: number | string;
         'repeatDur'?: number | string;
@@ -1511,4 +1538,15 @@ export declare namespace JSXBase {
         onTransitionEnd?: (event: TransitionEvent) => void;
         onTransitionEndCapture?: (event: TransitionEvent) => void;
     }
+}
+export interface CustomElementsDefineOptions {
+    exclude?: string[];
+    resourcesUrl?: string;
+    syncQueue?: boolean;
+    transformTagName?: (tagName: string) => string;
+    jmp?: (c: Function) => any;
+    raf?: (c: FrameRequestCallback) => number;
+    ael?: (el: EventTarget, eventName: string, listener: EventListenerOrEventListenerObject, options: boolean | AddEventListenerOptions) => void;
+    rel?: (el: EventTarget, eventName: string, listener: EventListenerOrEventListenerObject, options: boolean | AddEventListenerOptions) => void;
+    ce?: (eventName: string, opts?: any) => CustomEvent;
 }
