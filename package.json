@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "1.2.0-react.2",
+  "version": "1.2.0",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -69,7 +69,7 @@
     }
   },
   "peerDependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "*",
+    "react-dom": "*"
   }
 }
