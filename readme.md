@@ -205,13 +205,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '@zanichelli/albe-web-components/www/build/web-components-library.css';
 import { defineCustomElements, applyPolyfills } from '@zanichelli/albe-web-components/loader';
-import { Zbutton } from '@zanichelli/albe-web-components/react';
+import { ZButton } from '@zanichelli/albe-web-components/react';
 
 applyPolyfills().then(() => {
   defineCustomElements(window);
 });
 
-ReactDOM.render(<Zbutton>Click me</ZButton>, document.getElementById('root'));
+ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById('root'));
 ```
 
 ## Component definition
