@@ -67,6 +67,17 @@
   font-weight: 600;
 }
 
+:host
+  > div
+  > div.content-wrapper
+  > section
+  > span.license-heading
+  > span.expiring {
+  color: #85641a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
 }

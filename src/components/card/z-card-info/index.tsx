@@ -75,10 +75,12 @@ export class zCardInfo {
           <span class="expired">
             {this.cardData.onlineLicense.expired ? "SCADUTA" : ""}
           </span>
+          <span class="expiring">
+            {this.cardData.onlineLicense.expiring ? "IN SCADENZA" : ""}
+          </span>
         </span>
         Scadenza il <b>{this.cardData.onlineLicense.expiration}</b>
         <br />
-        Installazioni disponibili:{" "}
         <b>{this.cardData.onlineLicense.installations}</b>
       </section>
     );
@@ -93,6 +95,9 @@ export class zCardInfo {
           <span>Licenza offline</span>
           <span class="expired">
             {this.cardData.offlineLicense.expired ? "SCADUTA" : ""}
+          </span>
+          <span class="expiring">
+            {this.cardData.offlineLicense.expiring ? "IN SCADENZA" : ""}
           </span>
         </span>
         Scadenza il <b>{this.cardData.offlineLicense.expiration}</b>
