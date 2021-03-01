@@ -13,24 +13,21 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "dist",
+    "outDir": "react",
     "removeComments": false,
     "sourceMap": true,
     "jsx": "react",
     "target": "es2015",
-    "baseUrl": "..",
+    "baseUrl": ".",
     "paths": {
-      "react": [
-        "./node_modules/react"
-      ],
       "@zanichelli/albe-web-components": [
         "./"
       ]
     }
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
+    "src-react/**/*.ts",
+    "src-react/**/*.tsx"
   ],
   "exclude": [
     "**/__tests__/**"

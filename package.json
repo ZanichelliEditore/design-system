@@ -14,14 +14,12 @@
     "dist/",
     "loader/",
     "www/",
-    "react/dist/",
-    "react/index.js",
-    "react/index.d.ts"
+    "react/"
   ],
   "scripts": {
     "build": "yarn build.wc && yarn build.react",
     "build.wc": "stencil build --docs",
-    "build.react": "rm -rf react/dist && tsc -p react",
+    "build.react": "rm -rf react && tsc --build tsconfig.react.json",
     "start": "stencil build --dev --watch --serve",
     "generate": "plop --plopfile internals/generators/index.js",
     "test": "stencil test --spec",

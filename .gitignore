@@ -1,8 +1,9 @@
 dist/
 www/
 loader/
-react/src
-!react/src/index.ts
+react/
+src-react/
+!src-react/index.ts
 
 custom-elements.json
 src/components/baseComponentLayer/index.tsx

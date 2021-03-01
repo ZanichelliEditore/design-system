@@ -10,7 +10,7 @@ export const config: Config = {
     },
     reactOutputTarget({
       componentCorePackage: require('./package.json').name,
-      proxiesFile: './react/src/components.ts',
+      proxiesFile: './src-react/components.ts',
     }),
     {
       type: "docs-readme"
