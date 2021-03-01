@@ -2,6 +2,56 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/ZanichelliEditore/design-system/compare/v1.2.0...v1.3.0) (2021-03-01)
+
+
+### Features
+
+* add and configure husky and commitlint packages ([1dd05cc](https://github.com/ZanichelliEditore/design-system/commit/1dd05cc8277408693bcedffc71e13cbe2d7cca4c))
+* added css vars ([e20fc94](https://github.com/ZanichelliEditore/design-system/commit/e20fc94a1f719aa30cdd77fd9a7c3b5689f09e7c))
+* added light theme ([165f2bc](https://github.com/ZanichelliEditore/design-system/commit/165f2bcf50ceb7578c90355de9478855a1d1de40))
+* added readme ([ca6ae6d](https://github.com/ZanichelliEditore/design-system/commit/ca6ae6d814f8d1ba15a0e621ecccf195c9ae8edd))
+* added shadow tokens ([44822be](https://github.com/ZanichelliEditore/design-system/commit/44822be5dcc7ea4ec1f9a8744b2eaa0141833074))
+* autocompleteResult event ([61e9171](https://github.com/ZanichelliEditore/design-system/commit/61e91715d6f23c01db3df864fa1098aaaf2413e9))
+* changed style ([8dd6421](https://github.com/ZanichelliEditore/design-system/commit/8dd6421d83459475d613aa51b7ec9dd6ba56c3f0))
+* cookiebar component basic ([974c9e8](https://github.com/ZanichelliEditore/design-system/commit/974c9e843560057cb001cefd42b78a2620d3f9ec))
+* deleted old github pipeline ([5347ede](https://github.com/ZanichelliEditore/design-system/commit/5347edeb83cd6669a0c669106d78872bbbd1f24c))
+* deleted release-it script ([bbdcaae](https://github.com/ZanichelliEditore/design-system/commit/bbdcaae9e2492ac26a08be771063530f1022a0ff))
+* edit event name ([3b75884](https://github.com/ZanichelliEditore/design-system/commit/3b75884907cfdc3f07b9f9634d7d930175f089bd))
+* edited styles ([f1234fe](https://github.com/ZanichelliEditore/design-system/commit/f1234fef7f25edf7b9067596501a016f24260e66))
+* getValue/setValue backword compatibility ([2d776da](https://github.com/ZanichelliEditore/design-system/commit/2d776da160f4448612460453496023196c73386f))
+* input icons style ([fc2bfc3](https://github.com/ZanichelliEditore/design-system/commit/fc2bfc3965909cdfade896190c28df247cd1c0f5))
+* input password - added tests ([c7697d0](https://github.com/ZanichelliEditore/design-system/commit/c7697d09191ce1f455ba8aea525c7b6ba3380566))
+* input password show/hide ([f0e8850](https://github.com/ZanichelliEditore/design-system/commit/f0e885009f7d2c0b26552cd3ef0220c4bf7816ed))
+* integrate z-select in z-input ([842972b](https://github.com/ZanichelliEditore/design-system/commit/842972b35d3d336d18239aa87d2bab3b2dd73bee))
+* multi select ([324c804](https://github.com/ZanichelliEditore/design-system/commit/324c8049a784fb17a5f85bd2c8b6f6207ef35188))
+* multiselect with chips ([016be8a](https://github.com/ZanichelliEditore/design-system/commit/016be8a81526e80d5d849d41e3a6b81b60b05b1c))
+* MYZ-7346 card tooltips ([eafd430](https://github.com/ZanichelliEditore/design-system/commit/eafd4300a5a9953bda05d6e78e4e0820025d3cda))
+* no results message ([ecc68b6](https://github.com/ZanichelliEditore/design-system/commit/ecc68b6e3cec750bd31868cf5311595d09143eb9))
+* setSearchString value ([91fc864](https://github.com/ZanichelliEditore/design-system/commit/91fc864ca8781f16078db16a799911792e4e0a38))
+* storybook release github workflow ([dfb7eae](https://github.com/ZanichelliEditore/design-system/commit/dfb7eae2f7f9b604fc4d96c3c06552909c0f4ca0))
+* wip multi select ([4440691](https://github.com/ZanichelliEditore/design-system/commit/4440691af78381d68d5149bec37a7be772a6a40e))
+* z-candybar development ([df46efc](https://github.com/ZanichelliEditore/design-system/commit/df46efc978d016cb862faa8bc919286d1664eb3d))
+* z-cookibar pattern component ([452f1c7](https://github.com/ZanichelliEditore/design-system/commit/452f1c7ce7fd8e360324c11499afec8c0d9df924))
+* z-select focus handling ([37f7d20](https://github.com/ZanichelliEditore/design-system/commit/37f7d20bc9224ddbfa29fab286d576add9cfc372))
+* z-select open handling + scroll to element by letter ([b0556a7](https://github.com/ZanichelliEditore/design-system/commit/b0556a786be5ffdcc633e5e773300ffa24c8e9fb))
+* z-select tests ([173532d](https://github.com/ZanichelliEditore/design-system/commit/173532d9bca828e4552feeb027ba3ddfedd72810))
+
+
+### Bug Fixes
+
+* input icon positioning ([1cb782c](https://github.com/ZanichelliEditore/design-system/commit/1cb782c9ae26a6534ab67ddbc977561706c89105))
+* MYZ-7346 removed extra ellipsis ([6b7bd5d](https://github.com/ZanichelliEditore/design-system/commit/6b7bd5dc84ed182a9860bfea88ff0b17a90fb496))
+* PR fix in css ([b8a6ea2](https://github.com/ZanichelliEditore/design-system/commit/b8a6ea26272d155c70d6a02a6a317565d809a3d0))
+* removed listener from componentDidLoad + css fix ([6cab36c](https://github.com/ZanichelliEditore/design-system/commit/6cab36cafa33458f5a6d618cb8dadcbbd05ae786))
+* tests ([03cefa5](https://github.com/ZanichelliEditore/design-system/commit/03cefa5095e40d684b6494c50e66783d8d8b7ece))
+* use commonjs exports for react ([7837b8d](https://github.com/ZanichelliEditore/design-system/commit/7837b8d76d5a4462d1a6a7867acad58cb192a5b9))
+* z-header second row height ([8fe4a0e](https://github.com/ZanichelliEditore/design-system/commit/8fe4a0e3760ab9862a958c551e3e1fa52bc3aa01))
+* z-input-message status icon ([e9719f3](https://github.com/ZanichelliEditore/design-system/commit/e9719f355cea85857dfe89a2e79e49b5b4cb983e))
+* z-select performances ([85b5c47](https://github.com/ZanichelliEditore/design-system/commit/85b5c476e568932db07044ba11c7f50316ccb500))
+* z-stepper docs ([9aeb2b6](https://github.com/ZanichelliEditore/design-system/commit/9aeb2b6aef2f6bae25402813c260620930570fcd))
+* zStepperItem test ([c09bdae](https://github.com/ZanichelliEditore/design-system/commit/c09bdaecef0e21bcedc01ee6f7d3fb0054baa801))
+
 ## [1.2.0](https://github.com/ZanichelliEditore/design-system/compare/v1.1.1...v1.2.0) (2020-09-11)
 
 
