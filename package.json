@@ -55,7 +55,7 @@
     "puppeteer": "1.20.0",
     "rimraf": "^3.0.2",
     "standard-version": "^8.0.2",
-    "storybook-addons-abstract": "^5.0.6"
+    "storybook-addons-abstract": "^6.0.3"
   },
   "pre-commit": {
     "colors": true,
