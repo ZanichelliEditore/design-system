@@ -79,7 +79,7 @@ export class zCardInfo {
             {this.cardData.onlineLicense.expiring ? "IN SCADENZA" : ""}
           </span>
         </span>
-        Scadenza il <b>{this.cardData.onlineLicense.expiration}</b>
+        Scadenza: <b>{this.cardData.onlineLicense.expiration}</b>
         <br />
         <b>{this.cardData.onlineLicense.installations}</b>
       </section>
@@ -100,7 +100,7 @@ export class zCardInfo {
             {this.cardData.offlineLicense.expiring ? "IN SCADENZA" : ""}
           </span>
         </span>
-        Scadenza il <b>{this.cardData.offlineLicense.expiration}</b>
+        Scadenza: <b>{this.cardData.offlineLicense.expiration}</b>
         <br />
         Installazioni disponibili:{" "}
         <b>{this.cardData.offlineLicense.installations}</b>
