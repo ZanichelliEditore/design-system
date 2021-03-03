@@ -65,6 +65,22 @@ export class zCardInfo {
     );
   }
 
+  setExpirationLicenseMessage(type: string) {
+    if (
+      (type === "online" && this.cardData.onlineLicense.expired) ||
+      (type === "offline" && this.cardData.offlineLicense.expired)
+    ) {
+      return <span class="expired">SCADUTA</span>;
+    }
+
+    if (
+      (type === "online" && this.cardData.onlineLicense.expiring) ||
+      (type === "offline" && this.cardData.offlineLicense.expiring)
+    ) {
+      return <span class="expiring">IN SCADENZA</span>;
+    }
+  }
+
   renderOnlineLicenzeSection() {
     if (!this?.cardData?.onlineLicense) return;
 
@@ -72,14 +88,10 @@ export class zCardInfo {
       <section>
         <span class="license-heading">
           <span>Licenza online</span>
-          <span class="expired">
-            {this.cardData.onlineLicense.expired ? "SCADUTA" : ""}
-          </span>
+          {this.setExpirationLicenseMessage("online")}
         </span>
-        Scadenza il <b>{this.cardData.onlineLicense.expiration}</b>
+        Scadenza: <b>{this.cardData.onlineLicense.expiration}</b>
         <br />
-        Installazioni disponibili:{" "}
-        <b>{this.cardData.onlineLicense.installations}</b>
       </section>
     );
   }
@@ -91,11 +103,9 @@ export class zCardInfo {
       <section>
         <span class="license-heading">
           <span>Licenza offline</span>
-          <span class="expired">
-            {this.cardData.offlineLicense.expired ? "SCADUTA" : ""}
-          </span>
+          {this.setExpirationLicenseMessage("offline")}
         </span>
-        Scadenza il <b>{this.cardData.offlineLicense.expiration}</b>
+        Scadenza: <b>{this.cardData.offlineLicense.expiration}</b>
         <br />
         Installazioni disponibili:{" "}
         <b>{this.cardData.offlineLicense.installations}</b>
