@@ -66,20 +66,18 @@ export class zCardInfo {
   }
 
   setExpirationLicenseMessage(type: string) {
-    switch (type) {
-      case "online":
-        if (this.cardData.onlineLicense.expired)
-          return <span class="expired">SCADUTA</span>;
+    if (
+      (type === "online" && this.cardData.onlineLicense.expired) ||
+      (type === "offline" && this.cardData.offlineLicense.expired)
+    ) {
+      return <span class="expired">SCADUTA</span>;
+    }
 
-        if (this.cardData.onlineLicense.expiring)
-          return <span class="expiring">IN SCADENZA</span>;
-
-      case "offline":
-        if (this.cardData.offlineLicense.expired)
-          return <span class="expired">SCADUTA</span>;
-
-        if (this.cardData.offlineLicense.expiring)
-          return <span class="expiring">IN SCADENZA</span>;
+    if (
+      (type === "online" && this.cardData.onlineLicense.expiring) ||
+      (type === "offline" && this.cardData.offlineLicense.expiring)
+    ) {
+      return <span class="expiring">IN SCADENZA</span>;
     }
   }
 
