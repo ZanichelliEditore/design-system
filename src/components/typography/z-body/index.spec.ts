@@ -4,22 +4,18 @@ import { ZBody } from "./index";
 
 describe("Suite test ZBody", () => {
   it("Test render ZBody vuoto", async () => {
-
     const page = await newSpecPage({
       components: [ZBody],
-      html: `<z-body></z-body>`
+      html: `<z-body level="b1" variant="regular">This is a test</z-body>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-body>
+      <z-body class="regular" level="b1" variant="regular">
         <mock:shadow-root>
-          <div>
-            This is your z-body component
-            This is your default prop:
-          </div>
+          <p class="body-1"><slot></slot></p>
         </mock:shadow-root>
+        This is a test
       </z-body>
-    `)
+    `);
   });
 });
-

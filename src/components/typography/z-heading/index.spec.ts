@@ -4,22 +4,18 @@ import { ZHeading } from "./index";
 
 describe("Suite test ZHeading", () => {
   it("Test render ZHeading vuoto", async () => {
-
     const page = await newSpecPage({
       components: [ZHeading],
-      html: `<z-heading></z-heading>`
+      html: `<z-heading variant="light" level="h1">Lorem ipsum dolor sit amet</z-heading>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-heading>
+    <z-heading variant="light" level="h1" class="light">
         <mock:shadow-root>
-          <div>
-            This is your z-heading component
-            This is your default prop:
-          </div>
+        <h1 class="heading-h1"><slot></slot></h1>
         </mock:shadow-root>
+        Lorem ipsum dolor sit amet
       </z-heading>
-    `)
+    `);
   });
 });
-
