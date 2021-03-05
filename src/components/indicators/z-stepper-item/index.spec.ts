@@ -105,7 +105,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item href="#/test" disabled>
         <mock:shadow-root>
-          <a class="stepper-item"  href="false">
+          <a class="stepper-item" href="false">
             <div class="indicator"></div>
             <span><slot></slot></span>
           </a>

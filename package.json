@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "1.2.0",
+  "version": "1.4.1",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -13,10 +13,13 @@
   "files": [
     "dist/",
     "loader/",
-    "www/"
+    "www/",
+    "react/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
+    "build": "mkdirp react && yarn build.wc && yarn build.react",
+    "build.wc": "stencil build --docs",
+    "build.react": "rimraf react && tsc --build tsconfig.react.json",
     "start": "stencil build --dev --watch --serve",
     "generate": "plop --plopfile internals/generators/index.js",
     "test": "stencil test --spec",
@@ -35,6 +38,10 @@
     "@storybook/addon-docs": "^6.1.20",
     "@storybook/addon-knobs": "^6.1.20",
     "@storybook/addon-viewport": "^6.1.20",
+    "@stencil/react-output-target": "^0.0.9",
+    "@types/react-dom": "^17.0.0",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/web-components": "^6.1.20",
     "@types/hammerjs": "^2.0.39",
@@ -65,6 +72,10 @@
     "scripts": {
       "prerelease": "yarn build"
     }
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
   },
   "husky": {
     "hooks": {
