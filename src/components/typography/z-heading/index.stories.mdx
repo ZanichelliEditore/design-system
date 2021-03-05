@@ -1,0 +1,55 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="Typography/ZHeading" component="z-heading" />
+
+# ZHeading
+
+<Preview>
+  <Story name="h1">
+    {html`
+      <z-heading variant="regular" level="h1">Lorem ipsum dolor sit amet </z-heading>
+      <z-heading variant="semibold" level="h1">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="h1">Lorem ipsum dolor sit amet</z-heading>
+    `}
+  </Story>
+  <Story name="h1-sm">
+    {html`
+      <z-heading variant="regular" level="h1-sm">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="h1-sm">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="h1-sm">Lorem ipsum dolor sit amet</z-heading>
+    `}
+  </Story>
+  <Story name="h2">
+    {html`
+      <z-heading variant="regular" level="h2">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="h2">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="h2">Lorem ipsum dolor sit amet</z-heading>
+    `}
+  </Story>
+  <Story name="h2-sm">
+    {html`
+      <z-heading variant="regular" level="h2-sm">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="h2-sm">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="h2-sm">Lorem ipsum dolor sit amet</z-heading>
+    `}
+  </Story>
+  <Story name="h3">
+    {html`
+      <z-heading variant="regular" level="h3">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="h3">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="h3">Lorem ipsum dolor sit amet</z-heading>
+    `}
+  </Story>
+  <Story name="h4">
+    {html`
+      <z-heading variant="regular" level="h4">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="h4">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="h4">Lorem ipsum dolor sit amet</z-heading>
+    `}
+  </Story>
+</Preview>
+
+<Props of="z-heading" />
+
+

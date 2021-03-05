@@ -9,6 +9,10 @@ import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, Inpu
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 export namespace Components {
+    interface ZBody {
+        "level": "b1" | "b2" | "b3" | "b4" | "b5";
+        "variant": "regular" | "semibold";
+    }
     interface ZButton {
         /**
           * disable button
@@ -332,6 +336,10 @@ export namespace Components {
           * data to fill user dropdown menu (optional)
          */
         "userdata"?: string | HeaderUserData;
+    }
+    interface ZHeading {
+        "level": "h1" | "h1-sm" | "h2" | "h2-sm" | "h3" | "h4";
+        "variant": "regular" | "semibold" | "light";
     }
     interface ZIcon {
         /**
@@ -807,6 +815,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
+    }
+    var HTMLZBodyElement: {
+        prototype: HTMLZBodyElement;
+        new (): HTMLZBodyElement;
+    };
     interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {
     }
     var HTMLZButtonElement: {
@@ -908,6 +922,12 @@ declare global {
     var HTMLZHeaderElement: {
         prototype: HTMLZHeaderElement;
         new (): HTMLZHeaderElement;
+    };
+    interface HTMLZHeadingElement extends Components.ZHeading, HTMLStencilElement {
+    }
+    var HTMLZHeadingElement: {
+        prototype: HTMLZHeadingElement;
+        new (): HTMLZHeadingElement;
     };
     interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {
     }
@@ -1030,6 +1050,7 @@ declare global {
         new (): HTMLZTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
@@ -1047,6 +1068,7 @@ declare global {
         "z-cookiebar": HTMLZCookiebarElement;
         "z-footer": HTMLZFooterElement;
         "z-header": HTMLZHeaderElement;
+        "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
         "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
@@ -1070,6 +1092,10 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ZBody {
+        "level"?: "b1" | "b2" | "b3" | "b4" | "b5";
+        "variant"?: "regular" | "semibold";
+    }
     interface ZButton {
         /**
           * disable button
@@ -1413,6 +1439,10 @@ declare namespace LocalJSX {
           * data to fill user dropdown menu (optional)
          */
         "userdata"?: string | HeaderUserData;
+    }
+    interface ZHeading {
+        "level"?: "h1" | "h1-sm" | "h2" | "h2-sm" | "h3" | "h4";
+        "variant"?: "regular" | "semibold" | "light";
     }
     interface ZIcon {
         /**
@@ -1927,6 +1957,7 @@ declare namespace LocalJSX {
         "type"?: TooltipPosition;
     }
     interface IntrinsicElements {
+        "z-body": ZBody;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
@@ -1944,6 +1975,7 @@ declare namespace LocalJSX {
         "z-cookiebar": ZCookiebar;
         "z-footer": ZFooter;
         "z-header": ZHeader;
+        "z-heading": ZHeading;
         "z-icon": ZIcon;
         "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
@@ -1970,6 +2002,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
@@ -1987,6 +2020,7 @@ declare module "@stencil/core" {
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
+            "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
