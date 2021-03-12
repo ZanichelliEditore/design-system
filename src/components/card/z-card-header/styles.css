@@ -3,7 +3,7 @@ header {
   flex-direction: row;
   align-items: flex-start;
   width: auto;
-  height: calc(var(--space-unit) * 6px);
+  height: calc(var(--space-unit) * 6);
   position: relative;
   border-bottom: var(--border-size-medium) solid var(--bg-grey-200);
   border-radius: var(--border-radius) var(--border-radius) var(----border-no-radius)
@@ -22,13 +22,13 @@ h2 {
   font-weight: var(--font-sb);
   color: var(--text-grey-800);
   width: 80%;
-  height: calc(var(--space-unit) * 2px);
+  height: calc(var(--space-unit) * 2);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.22px;
-  line-height: calc(var(--space-unit) * 2px);
+  line-height: calc(var(--space-unit) * 2);
   margin: 0px;
-  padding: calc(var(--space-unit) * 2px);
+  padding: calc(var(--space-unit) * 2);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

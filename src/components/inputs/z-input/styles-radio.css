@@ -40,11 +40,11 @@
 }
 
 :host > .radioWrapper > label.radioLabel.after > span {
-  margin-left: calc(var(--space-unit) * 1px);
+  margin-left: var(--spcae-unit);
 }
 
 :host > .radioWrapper > label.radioLabel.before > span {
-  margin-right: calc(var(--space-unit) * 1px);
+  margin-right: var(--spcae-unit);
 }
 
 :host > .radioWrapper > label.radioLabel > z-icon {

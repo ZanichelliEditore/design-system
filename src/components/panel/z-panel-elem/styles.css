@@ -22,7 +22,7 @@
 
 .panel-elem-link {
   border-radius: var(----border-no-radius);
-  margin: calc(var(--space-unit) * 1px) auto 0;
+  margin: var(--spcae-unit) auto 0;
   text-align: center;
   font-size: 12px;
 }
@@ -35,5 +35,5 @@
   letter-spacing: 0.16px;
   text-align: center;
   margin: 0;
-  padding-top: calc(var(--space-unit) * 1px);
+  padding-top: var(--spcae-unit);
 }

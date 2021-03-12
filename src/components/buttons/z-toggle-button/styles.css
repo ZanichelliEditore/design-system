@@ -13,7 +13,7 @@ button {
   font-size: 14px;
   outline: none;
   padding-left: 0px;
-  padding-right: calc(var(--space-unit) * 2px);
+  padding-right: calc(var(--space-unit) * 2);
   transition: all 200ms linear;
   cursor: pointer;
 }
@@ -48,7 +48,7 @@ button:disabled {
 
 z-icon {
   display: inline-block;
-  margin: 0 calc(var(--space-unit) * 1px) 0 calc(var(--space-unit) * 2px);
+  margin: 0 var(--spcae-unit) 0 calc(var(--space-unit) * 2);
   transform: rotate(360deg);
   transition: all 200ms linear;
 }

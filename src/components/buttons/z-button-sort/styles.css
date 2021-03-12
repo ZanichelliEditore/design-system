@@ -6,7 +6,7 @@ button {
   fill: var(--myz-blue);
   background-color: var(--bg-white);
   outline: none;
-  padding: 0 calc(var(--space-unit) * 1px);
+  padding: 0 var(--spcae-unit);
   cursor: pointer;
 }
 
@@ -46,7 +46,7 @@ button>label {
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
-  margin-right: calc(var(--space-unit) * 2px);
+  margin-right: calc(var(--space-unit) * 2);
 }
 
 button>span {

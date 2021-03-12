@@ -7,7 +7,7 @@
   line-height: 16px;
   text-transform: uppercase;
   text-align: left;
-  margin: calc(var(--space-unit) * 1px) 0;
+  margin: var(--spcae-unit) 0;
 }
 
 :host > label.disabled {

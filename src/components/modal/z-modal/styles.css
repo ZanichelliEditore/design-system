@@ -46,12 +46,12 @@
 :host>div>div>header>z-icon {
   cursor: pointer;
   fill: var(--myz-blue);
-  margin: calc(var(--space-unit) * 2px) calc(var(--space-unit) * 2px);
+  margin: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
   transform: scale(0.9);
 }
 
 :host>div>div>header>div {
-  margin: calc(var(--space-unit) * 2px) calc(var(--space-unit) * 2px);
+  margin: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
 }
 
 :host>div>div>header>div>h1,
@@ -71,7 +71,7 @@
 :host>div>div>header>div>h2 {
   font-size: 16px;
   line-height: 24px;
-  margin-top: calc(var(--space-unit) * 1px);
+  margin-top: var(--spcae-unit);
 }
 
 :host>div>div>main {
@@ -87,7 +87,7 @@
     width: auto;
     min-width: 300px;
     min-height: 300px;
-    margin-top: calc(var(--space-unit) * 6px);
+    margin-top: calc(var(--space-unit) * 6);
     background: none;
   }
 
@@ -96,12 +96,12 @@
   }
 
   :host>div>div>header>z-icon {
-    margin: calc(var(--space-unit) * 1.5px) calc(var(--space-unit) * 3) calc(var(--space-unit) * 1.5px) 0px;
+    margin: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 3) calc(var(--space-unit) * 1.5) 0px;
     transform: scale(1);
   }
 
   :host>div>div>header>div {
-    margin: calc(var(--space-unit) * 1.5px) calc(var(--space-unit) * 3);
+    margin: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 3);
   }
 
   :host>div>div>main {
@@ -110,6 +110,6 @@
 
   :host>div>div>div.bottomBackground {
     background: transparent;
-    height: calc(var(--space-unit) * 4px);
+    height: calc(var(--space-unit) * 4);
   }
 }

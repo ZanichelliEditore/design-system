@@ -8,7 +8,7 @@ footer {
   box-sizing: border-box;
   font-family: var(--dashboard-font);
   font-size: 13px;
-  padding: calc(var(--space-unit) * 1px) 0 calc(var(--space-unit) * 1px) 0;
+  padding: var(--spcae-unit) 0 var(--spcae-unit) 0;
   background-color: var(--bg-grey-900);
   color: var(--text-grey-050);
 }
@@ -39,17 +39,17 @@ footer > section.top > nav > .header {
   justify-content: flex-start;
   align-items: stretch;
   align-content: flex-start;
-  margin-left: calc(var(--space-unit) * 4px);
-  margin-right: calc(var(--space-unit) * 4px);
-  padding-bottom: calc(var(--space-unit) * 1px);
-  height: calc(var(--space-unit) * 4px);
+  margin-left: calc(var(--space-unit) * 4);
+  margin-right: calc(var(--space-unit) * 4);
+  padding-bottom: var(--spcae-unit);
+  height: calc(var(--space-unit) * 4);
   border-bottom: 1px solid var(--bg-grey-050);
   line-height: 1;
 }
 
 footer > section.top > nav > .header > h2 {
-  font-size: calc(var(--space-unit) * 2px);
-  margin: calc(var(--space-unit) * 1px) 0 calc(var(--space-unit) * 1px) 0;
+  font-size: calc(var(--space-unit) * 2);
+  margin: var(--spcae-unit) 0 var(--spcae-unit) 0;
 }
 
 footer > section.top > nav > .header {
@@ -58,7 +58,7 @@ footer > section.top > nav > .header {
 
 footer > section.top > nav > .header > button {
   position: absolute;
-  top: calc(var(--space-unit) * 1px);
+  top: var(--spcae-unit);
   right: 0;
   margin: 0;
   padding: 0;
@@ -73,8 +73,8 @@ footer > section.top > nav > .header > z-icon {
 }
 
 footer > section.top > nav > .content {
-  padding-left: calc(var(--space-unit) * 4px);
-  padding-right: calc(var(--space-unit) * 4px);
+  padding-left: calc(var(--space-unit) * 4);
+  padding-right: calc(var(--space-unit) * 4);
   background-color: var(--text-grey-800);
   background-color: var(--text-grey-800);
 }
@@ -83,13 +83,13 @@ footer > section.top > nav > .content > ul {
   display: none;
   height: 0;
   transition: 0.3s ease;
-  padding: calc(var(--space-unit) * .5px) 0 calc(var(--space-unit) * 2px) 0;
+  padding: calc(var(--space-unit) * .5px) 0 calc(var(--space-unit) * 2) 0;
 }
 
 footer > section.top > nav > .content > ul > li {
   width: 100%;
   margin: 0;
-  padding: calc(var(--space-unit) * 1px) 0 calc(var(--space-unit) * 1px) 0;
+  padding: var(--spcae-unit) 0 var(--spcae-unit) 0;
   border-bottom: 1px solid var(--bg-grey-050);
 }
 
@@ -138,7 +138,7 @@ footer > section.bottom > div.item {
   grid-column: span 1;
   height: auto;
   width: auto;
-  padding: calc(var(--space-unit) * 2px) 0;
+  padding: calc(var(--space-unit) * 2) 0;
   margin: 0 calc(var(--space-unit) * 3);
 }
 
@@ -172,8 +172,8 @@ footer > section.bottom > div.bottom-links {
 }
 
 footer > section.bottom > div.item > p {
-  margin: calc(var(--space-unit) * 1px) 0;
-  padding: calc(var(--space-unit) * 1px) 0;
+  margin: var(--spcae-unit) 0;
+  padding: var(--spcae-unit) 0;
 }
 
 footer > section.bottom > div.item > p:first-child {
@@ -195,7 +195,7 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top {
-    padding: calc(var(--space-unit) * 2px) calc(var(--space-unit) * 4px);
+    padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
     background-color: var(--text-grey-800);
   }
 
@@ -204,7 +204,7 @@ footer > section.bottom > div.logo > p > span {
     grid-template-columns: repeat(4, 1fr);;
     grid-template-rows: 1fr;
     grid-column-gap: var(--grid-tablet-margin);
-    padding: calc(var(--space-unit) * 2px) 0 calc(var(--space-unit) * 1px) 0;
+    padding: calc(var(--space-unit) * 2) 0 var(--spcae-unit) 0;
     border-bottom: 1px solid var(--bg-white);
     margin: 0;
   }
@@ -257,7 +257,7 @@ footer > section.bottom > div.logo > p > span {
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: var(--grid-tablet-margin);
     background-color: var(--bg-grey-900);
-    padding: 0 calc(var(--space-unit) * 4px);
+    padding: 0 calc(var(--space-unit) * 4);
   }
 
   footer > section.bottom > div.item {
@@ -305,7 +305,7 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom > div.bottom-links > ul > li {
-    margin-bottom: calc(var(--space-unit) * 1px);
+    margin-bottom: var(--spcae-unit);
     list-style: none;
   }
 
@@ -320,7 +320,7 @@ footer > section.bottom > div.logo > p > span {
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: var(--grid-desktop-margin);
     width: 100%;
-    padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 4px);
+    padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 4);
   }
 
   footer > section.top > nav {
@@ -337,7 +337,7 @@ footer > section.bottom > div.logo > p > span {
     line-height: 1;
     font-weight: 600;
     color: var(--text-grey-050);
-    padding: 0 0 calc(var(--space-unit) * 1px);
+    padding: 0 0 var(--spcae-unit);
     margin: 0;
   }
 
@@ -368,7 +368,7 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom {
-    padding: calc(var(--space-unit) * 2px) calc(var(--space-unit) * 4px);
+    padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
   }
 
   footer > section.bottom > div.item:nth-child(1) > p:nth-of-type(2) {
@@ -377,7 +377,7 @@ footer > section.bottom > div.logo > p > span {
 
   footer > section.bottom > div.item > p {
     padding-bottom: 0;
-    margin-bottom: calc(var(--space-unit) * 2px);
+    margin-bottom: calc(var(--space-unit) * 2);
   }
 
   footer > section.bottom > div.item > ul.social {
@@ -385,16 +385,16 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom > div.item > ul.social > li {
-    margin-right: calc(var(--space-unit) * 1.5px);
+    margin-right: calc(var(--space-unit) * 1.5);
   }
 
   footer > section.bottom > div.item > ul.social img {
-    width: calc(var(--space-unit) * 2px);
-    height: calc(var(--space-unit) * 2px);
+    width: calc(var(--space-unit) * 2);
+    height: calc(var(--space-unit) * 2);
   }
 
   footer > section.bottom > div.bottom-links {
-    padding: calc(var(--space-unit) * 2px) 0 0 0;
+    padding: calc(var(--space-unit) * 2) 0 0 0;
   }
 
   footer > section.bottom > div.bottom-links > ul {
@@ -404,6 +404,6 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom > div.bottom-links > ul > li {
-    margin-bottom: calc(var(--space-unit) * 2px);
+    margin-bottom: calc(var(--space-unit) * 2);
   }
 }

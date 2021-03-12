@@ -59,7 +59,7 @@ a:active {
 }
 
 .menu-opened {
-  padding-bottom: calc(var(--space-unit) * 2px);
+  padding-bottom: calc(var(--space-unit) * 2);
   width: auto !important;
   min-width: 147px;
   position: inherit;
@@ -84,15 +84,15 @@ div > img,
 div > z-icon {
   width: 14px;
   height: 14px;
-  padding-left: calc(var(--space-unit) * 1.5px);
+  padding-left: calc(var(--space-unit) * 1.5);
 }
 
 div > span.arrow {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: calc(var(--space-unit) * 1px);
-  padding-right: calc(var(--space-unit) * 1px);
+  padding-left: var(--spcae-unit);
+  padding-right: var(--spcae-unit);
 }
 
 span.arrow > z-icon {
@@ -115,7 +115,7 @@ div > span.user {
 
 ul {
   list-style: none;
-  padding-inline-start: calc(var(--space-unit) * 4px);
+  padding-inline-start: calc(var(--space-unit) * 4);
   margin: 0px;
 }
 

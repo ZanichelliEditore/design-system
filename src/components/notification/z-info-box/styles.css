@@ -5,7 +5,7 @@
 
 :host>div {
   background: var(--accent-lighter);
-  padding: calc(var(--space-unit) * 2px);
+  padding: calc(var(--space-unit) * 2);
   border-radius: var(--border-radius);
   display: flex;
   width: inherit;
@@ -19,5 +19,5 @@
 :host>div>z-icon {
   fill: var(--myz-blue);
   cursor: pointer;
-  margin-left: calc(var(--space-unit) * 2px);
+  margin-left: calc(var(--space-unit) * 2);
 }

@@ -3072,10 +3072,10 @@
   resolved "https://registry.npmjs.org/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zanichelli/albe-design-tokens@^0.1.11":
-  version "0.1.11"
-  resolved "https://registry.npmjs.org/@zanichelli/albe-design-tokens/-/albe-design-tokens-0.1.11.tgz#338f9d1490ae815885556252348ee53432f24882"
-  integrity sha512-UgCaCKbwEd9qQA60J19Dn+fNpG6BeZo8Le3NrCxtEqWin8h8Vc4mBIc4gnoPUJEV9yG2IOS160LECw47z2Mb0A==
+"@zanichelli/albe-design-tokens@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/@zanichelli/albe-design-tokens/-/albe-design-tokens-0.1.2.tgz#b43375a231661746d0d13cefac2e942d9fcc5359"
+  integrity sha512-oNKs/KZRJzqhJ2CBRnIXJS+2SqoafVjqrja7ViUqcTqt7crOnnFouQ7VJNHw1wCUx/sZ4rz19a8TLobXPRAjSA==
   dependencies:
     JSONStream "^1.3.5"
     add-stream "^1.0.0"

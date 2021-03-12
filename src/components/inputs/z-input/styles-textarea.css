@@ -1,7 +1,7 @@
 :host > div.textWrapper > div > div.textareaWrapper {
   background: var(--bg-white);
   border: var(--border-size-small) solid var(--bg-grey-200);
-  padding: calc(var(--space-unit) * 1.5px);
+  padding: calc(var(--space-unit) * 1.5);
 }
 
 :host > div.textWrapper > div > div.textareaWrapper > textarea {

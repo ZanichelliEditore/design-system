@@ -16,7 +16,7 @@
   grid-template-rows: 1fr;
   grid-column-gap: 8px;
   align-items: center;
-  padding: 0 calc(var(--space-unit) * 1px);
+  padding: 0 var(--spcae-unit);
   outline: none;
 }
 

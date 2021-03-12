@@ -78,7 +78,7 @@ z-logo {
   letter-spacing: 0.18px;
   line-height: 32px;
   text-decoration: none;
-  margin: calc(var(--space-unit) * 1px);
+  margin: var(--spcae-unit);
   padding-bottom: calc(var(--space-unit) * .5px);
 }
 
@@ -111,7 +111,7 @@ z-logo {
 }
 
 .mobile-header > z-button {
-  margin: 0 calc(var(--space-unit) * 2px);
+  margin: 0 calc(var(--space-unit) * 2);
 }
 
 .mobile-content {
@@ -145,7 +145,7 @@ hr {
   display: block;
   position: relative;
   padding: 0;
-  margin: 0px calc(var(--space-unit) * 4px);
+  margin: 0px calc(var(--space-unit) * 4);
   height: 0;
   width: calc(100% - 64px);
   max-height: 0;
@@ -164,7 +164,7 @@ hr {
   align-items: center;
   align-content: center;
   color: var(--bg-white);
-  padding: calc(var(--space-unit) * 2px) calc(var(--space-unit) * 3);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 3);
   cursor: pointer;
 }
 
@@ -176,7 +176,7 @@ hr {
   grid-area: menu-toggle;
   display: flex;
   flex-direction: column;
-  margin: 0 calc(var(--space-unit) * 1px);
+  margin: 0 var(--spcae-unit);
 }
 
 /* MOBILE MENU & ANIMATION */
@@ -233,7 +233,7 @@ hr {
   grid-area: login;
   display: flex;
   justify-content: flex-end;
-  padding: 0 calc(var(--space-unit) * 2px);
+  padding: 0 calc(var(--space-unit) * 2);
 }
 
 .login > z-button {
@@ -248,7 +248,7 @@ hr {
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding: calc(var(--space-unit) * 2px) 0px calc(var(--space-unit) * 4px) 0px;
+  padding: calc(var(--space-unit) * 2) 0px calc(var(--space-unit) * 4) 0px;
 }
 
 .link-ext {
@@ -273,7 +273,7 @@ hr {
   margin: calc(var(--space-unit) * .5px) auto;
   box-sizing: border-box;
   margin: 0px auto 0px auto;
-  padding: 0px calc(var(--space-unit) * 4px) 0px calc(var(--space-unit) * 4px);
+  padding: 0px calc(var(--space-unit) * 4) 0px calc(var(--space-unit) * 4);
   line-height: 44px;
 }
 
@@ -330,7 +330,7 @@ hr {
   width: 100%;
   box-sizing: border-box;
   margin: 0px auto 0px auto;
-  padding: 0px calc(var(--space-unit) * 4px) 0px calc(var(--space-unit) * 4px);
+  padding: 0px calc(var(--space-unit) * 4) 0px calc(var(--space-unit) * 4);
   line-height: 44px;
 }
 
@@ -344,7 +344,7 @@ hr {
 }
 
 .link-int > span > .menu-item > i {
-  padding-top: calc(var(--space-unit) * 2px);
+  padding-top: calc(var(--space-unit) * 2);
   height: 28px;
   width: 24px;
   text-align: right;
@@ -399,7 +399,7 @@ hr {
   width: 100%;
   box-sizing: border-box;
   margin: 0px auto 0px auto;
-  padding: 0px calc(var(--space-unit) * 4px) 0px calc(var(--space-unit) * 4px);
+  padding: 0px calc(var(--space-unit) * 4) 0px calc(var(--space-unit) * 4);
   line-height: 44px;
 }
 
@@ -408,7 +408,7 @@ hr {
 }
 
 .mobile-login > span > .menu-item > i {
-  padding-top: calc(var(--space-unit) * 2px);
+  padding-top: calc(var(--space-unit) * 2);
   height: 28px;
   width: 24px;
   text-align: right;
@@ -421,7 +421,7 @@ hr {
 }
 
 .mobile-login > span > .menu-item > span > z-icon {
-  padding-right: calc(var(--space-unit) * 1px);
+  padding-right: var(--spcae-unit);
   fill: var(--bg-white);
 }
 
@@ -456,7 +456,7 @@ hr {
   width: 100%;
   box-sizing: border-box;
   margin: 0px auto 0px auto;
-  padding: 0px calc(var(--space-unit) * 4px) 0px calc(var(--space-unit) * 4px);
+  padding: 0px calc(var(--space-unit) * 4) 0px calc(var(--space-unit) * 4);
   line-height: 44px;
   max-height: 0px;
   transition: max-height 0.3s ease;
@@ -495,7 +495,7 @@ hr {
     grid-template-rows: 1fr;
     grid-template-areas: "dropdown-links";
     grid-area: dropdown-menu;
-    grid-column-gap: calc(var(--space-unit) * 1px);
+    grid-column-gap: var(--spcae-unit);
     background: var(--bg-grey-200);
     height: 32px;
     visibility: visible;
@@ -542,7 +542,7 @@ hr {
     font-weight: var(--font-sb);
     text-decoration: none;
     outline: none;
-    padding: calc(var(--space-unit) * 1.5px);
+    padding: calc(var(--space-unit) * 1.5);
   }
 
   .link-int > span > svg {
@@ -581,8 +581,8 @@ hr {
   .link-ext-span {
     width: auto;
     line-height: 14px;
-    margin: calc(var(--space-unit) * 1px);
-    padding: calc(var(--space-unit) * .5px) calc(var(--space-unit) * 1px);
+    margin: var(--spcae-unit);
+    padding: calc(var(--space-unit) * .5px) var(--spcae-unit);
   }
 }
 

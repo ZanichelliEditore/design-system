@@ -2,7 +2,7 @@
   display: inline-block;
   min-height: 28px;
   line-height: 28px;
-  padding: 0 calc(var(--space-unit) * 1.5px);
+  padding: 0 calc(var(--space-unit) * 1.5);
   background-color: var(--bg-white);
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-radius: 14px;

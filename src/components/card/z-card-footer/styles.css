@@ -32,7 +32,7 @@ footer > h2 {
   line-height: 22px;
   height: 40px;
   margin: 0px;
-  padding: calc(var(--space-unit) * 2px) calc(var(--space-unit) * 2px) calc(var(--space-unit) * 1px) calc(var(--space-unit) * 2px);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2) var(--spcae-unit) calc(var(--space-unit) * 2);
   overflow: hidden;
   background-color: var(--bg-white);
   transition: all 200ms linear;
@@ -51,7 +51,7 @@ footer.isopen.trial > h2 {
 }
 
 footer > div:not(.slot-handler) {
-  padding: calc(var(--space-unit) * 1px) calc(var(--space-unit) * 2px);
+  padding: var(--spcae-unit) calc(var(--space-unit) * 2);
   height: 40px;
   overflow: hidden;
 }
@@ -76,7 +76,7 @@ footer > div > p {
 }
 
 footer > div > p.year_isbn {
-  padding-top: calc(var(--space-unit) * 1px);
+  padding-top: var(--spcae-unit);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
