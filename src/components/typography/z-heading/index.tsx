@@ -3,7 +3,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
 @Component({
   tag: "z-heading",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: true
 })
 export class ZHeading {
   @Prop() level: "h1" | "h1-sm" | "h2" | "h2-sm" | "h3" | "h4";
@@ -54,9 +54,10 @@ export class ZHeading {
     return (
       <Host
         class={{
+          "no-margin": true,
           regular: this.variant === "regular",
           semibold: this.variant === "semibold",
-          light: this.variant === "light",
+          light: this.variant === "light"
         }}
       >
         {this.content()}

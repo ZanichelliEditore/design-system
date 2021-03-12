@@ -20,7 +20,7 @@
     "build": "mkdirp react && yarn build.wc && yarn build.react",
     "build.wc": "stencil build --docs",
     "build.react": "rimraf react && tsc --build tsconfig.react.json",
-    "start": "stencil build --dev --watch --serve",
+    "start": "stencil build --dev --watch --serve --no-open",
     "generate": "plop --plopfile internals/generators/index.js",
     "test": "stencil test --spec",
     "test.watch": "stencil test --spec --watch",

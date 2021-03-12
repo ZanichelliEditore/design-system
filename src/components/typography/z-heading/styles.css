@@ -2,6 +2,10 @@
   font-family: var(--dashboard-font);
 }
 
+:host(.no-margin) > * {
+  margin: 0;
+}
+
 :host(.regular) > * {
   font-weight: var(--font-rg);
 }
