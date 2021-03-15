@@ -211,7 +211,7 @@ export class ZInput {
     };
   }
 
-  renderInputText(type = InputTypeEnum.text) {
+  renderInputText(type: InputTypeBean = InputTypeEnum.text) {
     const attr = this.getTextAttributes();
     if (this.icon || type === InputTypeEnum.password)
       attr.class = attr.class + " hasIcon";
@@ -358,11 +358,11 @@ export class ZInput {
           type="checkbox"
           name={this.name}
           checked={this.checked}
-          value={this.value}
           disabled={this.disabled}
           readonly={this.readonly}
           required={this.required}
           onChange={() => this.handleCheckboxChange()}
+          value={this.value}
         />
 
         <label
@@ -396,10 +396,10 @@ export class ZInput {
           type="radio"
           name={this.name}
           checked={this.checked}
-          value={this.value}
           disabled={this.disabled}
           readonly={this.readonly}
           onChange={() => this.handleRadioChange()}
+          value={this.value}
         />
 
         <label
