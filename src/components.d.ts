@@ -10,6 +10,7 @@ import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans
 import { ListItemBean } from "./beans/index.js";
 export namespace Components {
     interface ZBody {
+        "component": string;
         "level": "b1" | "b2" | "b3" | "b4" | "b5";
         "variant": "regular" | "semibold";
     }
@@ -338,7 +339,8 @@ export namespace Components {
         "userdata"?: string | HeaderUserData;
     }
     interface ZHeading {
-        "level": "h1" | "h1-sm" | "h2" | "h2-sm" | "h3" | "h4";
+        "component": string;
+        "level": "h1" | "h2" | "h3" | "h4";
         "variant": "regular" | "semibold" | "light";
     }
     interface ZIcon {
@@ -813,6 +815,12 @@ export namespace Components {
          */
         "type": TooltipPosition;
     }
+    interface ZTypography {
+        "component": string;
+        "level": "h1" | "h2" | "h3" | "h4" | "b1" | "b2" | "b3" | "b4" | "b5";
+        "margin": boolean;
+        "variant": "regular" | "semibold" | "light";
+    }
 }
 declare global {
     interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
@@ -1049,6 +1057,12 @@ declare global {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
+    interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
+    }
+    var HTMLZTypographyElement: {
+        prototype: HTMLZTypographyElement;
+        new (): HTMLZTypographyElement;
+    };
     interface HTMLElementTagNameMap {
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
@@ -1089,10 +1103,12 @@ declare global {
         "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
+        "z-typography": HTMLZTypographyElement;
     }
 }
 declare namespace LocalJSX {
     interface ZBody {
+        "component"?: string;
         "level"?: "b1" | "b2" | "b3" | "b4" | "b5";
         "variant"?: "regular" | "semibold";
     }
@@ -1441,7 +1457,8 @@ declare namespace LocalJSX {
         "userdata"?: string | HeaderUserData;
     }
     interface ZHeading {
-        "level"?: "h1" | "h1-sm" | "h2" | "h2-sm" | "h3" | "h4";
+        "component"?: string;
+        "level"?: "h1" | "h2" | "h3" | "h4";
         "variant"?: "regular" | "semibold" | "light";
     }
     interface ZIcon {
@@ -1956,6 +1973,12 @@ declare namespace LocalJSX {
          */
         "type"?: TooltipPosition;
     }
+    interface ZTypography {
+        "component"?: string;
+        "level"?: "h1" | "h2" | "h3" | "h4" | "b1" | "b2" | "b3" | "b4" | "b5";
+        "margin"?: boolean;
+        "variant"?: "regular" | "semibold" | "light";
+    }
     interface IntrinsicElements {
         "z-body": ZBody;
         "z-button": ZButton;
@@ -1996,6 +2019,7 @@ declare namespace LocalJSX {
         "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
+        "z-typography": ZTypography;
     }
 }
 export { LocalJSX as JSX };
@@ -2041,6 +2065,7 @@ declare module "@stencil/core" {
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
+            "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
         }
     }
 }
