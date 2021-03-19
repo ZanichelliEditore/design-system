@@ -8,10 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
+import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZBody {
         "component": string;
-        "level": "b1" | "b2" | "b3" | "b4" | "b5";
+        "level": 1 | 2 | 3 | 4 | 5;
         "variant": "regular" | "semibold";
     }
     interface ZButton {
@@ -340,7 +341,7 @@ export namespace Components {
     }
     interface ZHeading {
         "component": string;
-        "level": "h1" | "h2" | "h3" | "h4";
+        "level": 1 | 2 | 3 | 4;
         "variant": "regular" | "semibold" | "light";
     }
     interface ZIcon {
@@ -817,7 +818,7 @@ export namespace Components {
     }
     interface ZTypography {
         "component": string;
-        "level": "h1" | "h2" | "h3" | "h4" | "b1" | "b2" | "b3" | "b4" | "b5";
+        "level": ZTypographyLevels;
         "margin": boolean;
         "variant": "regular" | "semibold" | "light";
     }
@@ -1109,7 +1110,7 @@ declare global {
 declare namespace LocalJSX {
     interface ZBody {
         "component"?: string;
-        "level"?: "b1" | "b2" | "b3" | "b4" | "b5";
+        "level"?: 1 | 2 | 3 | 4 | 5;
         "variant"?: "regular" | "semibold";
     }
     interface ZButton {
@@ -1458,7 +1459,7 @@ declare namespace LocalJSX {
     }
     interface ZHeading {
         "component"?: string;
-        "level"?: "h1" | "h2" | "h3" | "h4";
+        "level"?: 1 | 2 | 3 | 4;
         "variant"?: "regular" | "semibold" | "light";
     }
     interface ZIcon {
@@ -1975,7 +1976,7 @@ declare namespace LocalJSX {
     }
     interface ZTypography {
         "component"?: string;
-        "level"?: "h1" | "h2" | "h3" | "h4" | "b1" | "b2" | "b3" | "b4" | "b5";
+        "level"?: ZTypographyLevels;
         "margin"?: boolean;
         "variant"?: "regular" | "semibold" | "light";
     }

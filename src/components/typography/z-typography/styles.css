@@ -23,14 +23,11 @@
   line-height: 40px;
  }
 
- :host(.h1-sm) > *,
  :host(.h2) > * {
   font-size: 28px;
   line-height: 36px;
  }
 
-
- :host(.h2-sm) > *,
  :host(.h3) > * {
   font-size: 24px;
   line-height: 32px;
