@@ -517,7 +517,7 @@ export namespace Components {
     }
     interface ZList {
         /**
-          * json stringified list data (optional)
+          * json stringified list data (mutable, optional)
          */
         "inputrawdata"?: string;
         /**
@@ -1614,7 +1614,7 @@ declare namespace LocalJSX {
     }
     interface ZList {
         /**
-          * json stringified list data (optional)
+          * json stringified list data (mutable, optional)
          */
         "inputrawdata"?: string;
         /**

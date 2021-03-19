@@ -34,7 +34,7 @@ export class ZInput {
   /** the input label */
   @Prop() label?: string;
   /** the input value */
-  @Prop() value?: string;
+  @Prop({mutable : true}) value?: string;
   /** the input is disabled */
   @Prop() disabled?: boolean = false;
   /** the input is readonly */
@@ -222,12 +222,12 @@ export class ZInput {
         {this.renderLabel()}
         <div>
           <input
-            {...attr}
             type={
               type === InputTypeEnum.password && !this.passwordHidden
                 ? InputTypeEnum.text
                 : type
             }
+            {...attr}
             aria-labelledby={`${this.htmlid}_label`}
           />
           {this.renderIcons()}

@@ -37,10 +37,6 @@ export class ZButtonSort {
     });
   }
 
-  componentDidLoad() {
-    this.desclabel = this.label;
-  }
-
   render() {
     return (
       <button
@@ -49,7 +45,7 @@ export class ZButtonSort {
         onClick={() => this.emitButtonSortClick()}
       >
         <label>
-          {this.sortasc ? this.label : this.desclabel}
+          {!this.sortasc && this.desclabel ? this.desclabel : this.label}
           {this.counter && ` (${this.counter})`}
         </label>
         <span>{this.sortasc ? this.sortlabelasc : this.sortlabeldesc}</span>
