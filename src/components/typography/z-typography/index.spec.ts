@@ -10,7 +10,7 @@ describe("Suite test ZTypography", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-typography class="no-margin regular">
+      <z-typography class="regular">
         <mock:shadow-root>
            <span>
              <slot></slot>

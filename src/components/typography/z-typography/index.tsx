@@ -20,7 +20,6 @@ export class ZTypography {
   @Prop() component: string;
   @Element() hostElement: HTMLElement;
   @Prop() variant: "regular" | "semibold" | "light" = "regular";
-  @Prop() margin: boolean;
   @Prop() level: ZTypographyLevels;
 
   render() {
@@ -28,13 +27,10 @@ export class ZTypography {
     el.innerHTML = `<slot />`;
     this.hostElement.shadowRoot.appendChild<HTMLElement>(el);
 
-    console.log(this.level);
-
     return (
       <Host
         class={{
           [this.level]: Boolean(this.level),
-          "no-margin": !this.margin,
           regular: this.variant === "regular",
           semibold: this.variant === "semibold",
           light: this.variant === "light"

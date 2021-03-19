@@ -819,7 +819,6 @@ export namespace Components {
     interface ZTypography {
         "component": string;
         "level": ZTypographyLevels;
-        "margin": boolean;
         "variant": "regular" | "semibold" | "light";
     }
 }
@@ -1977,7 +1976,6 @@ declare namespace LocalJSX {
     interface ZTypography {
         "component"?: string;
         "level"?: ZTypographyLevels;
-        "margin"?: boolean;
         "variant"?: "regular" | "semibold" | "light";
     }
     interface IntrinsicElements {

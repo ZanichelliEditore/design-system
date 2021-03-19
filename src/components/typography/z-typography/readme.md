@@ -11,7 +11,6 @@
 | ----------- | ----------- | ----------- | ---------------------------------------------------------------------- | ----------- |
 | `component` | `component` |             | `string`                                                               | `undefined` |
 | `level`     | `level`     |             | `"b1" \| "b2" \| "b3" \| "b4" \| "b5" \| "h1" \| "h2" \| "h3" \| "h4"` | `undefined` |
-| `margin`    | `margin`    |             | `boolean`                                                              | `undefined` |
 | `variant`   | `variant`   |             | `"light" \| "regular" \| "semibold"`                                   | `"regular"` |
 
 
