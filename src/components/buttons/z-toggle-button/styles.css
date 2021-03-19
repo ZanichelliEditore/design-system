@@ -48,7 +48,7 @@ button:disabled {
 
 z-icon {
   display: inline-block;
-  margin: 0 var(--spcae-unit) 0 calc(var(--space-unit) * 2);
+  margin: 0 var(--space-unit) 0 calc(var(--space-unit) * 2);
   transform: rotate(360deg);
   transition: all 200ms linear;
 }

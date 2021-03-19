@@ -6,7 +6,7 @@
   min-height: 16px;
   color: var(--text-grey-700);
   fill: var(--text-grey-700);
-  margin-top: var(--spcae-unit);
+  margin-top: var(--space-unit);
   display: flex;
 }
 
@@ -26,6 +26,6 @@
 }
 
 :host span.statusMsg > z-icon {
-  margin-right: var(--spcae-unit);
+  margin-right: var(--space-unit);
   margin-top: 1px;
 }

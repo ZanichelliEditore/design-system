@@ -46,7 +46,7 @@
 :host > div.selectWrapper > div > div.ulScrollWrapper {
   background: var(--bg-white);
   position: absolute;
-  padding: calc(var(--space-unit) * .5px) var(--spcae-unit);
+  padding: calc(var(--space-unit) * .5px) var(--space-unit);
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-top: none;
   width: 100%;
@@ -141,11 +141,11 @@
   > ul
   > li.noResults
   > z-icon {
-  margin-right: var(--spcae-unit);
+  margin-right: var(--space-unit);
 }
 
 :host > div.selectWrapper > div.chipsWrapper {
-  padding-bottom: var(--spcae-unit);
+  padding-bottom: var(--space-unit);
 }
 
 :host > div.selectWrapper > div.chipsWrapper > z-button-filter {

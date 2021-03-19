@@ -78,7 +78,7 @@ z-logo {
   letter-spacing: 0.18px;
   line-height: 32px;
   text-decoration: none;
-  margin: var(--spcae-unit);
+  margin: var(--space-unit);
   padding-bottom: calc(var(--space-unit) * .5px);
 }
 
@@ -176,7 +176,7 @@ hr {
   grid-area: menu-toggle;
   display: flex;
   flex-direction: column;
-  margin: 0 var(--spcae-unit);
+  margin: 0 var(--space-unit);
 }
 
 /* MOBILE MENU & ANIMATION */
@@ -421,7 +421,7 @@ hr {
 }
 
 .mobile-login > span > .menu-item > span > z-icon {
-  padding-right: var(--spcae-unit);
+  padding-right: var(--space-unit);
   fill: var(--bg-white);
 }
 
@@ -495,7 +495,7 @@ hr {
     grid-template-rows: 1fr;
     grid-template-areas: "dropdown-links";
     grid-area: dropdown-menu;
-    grid-column-gap: var(--spcae-unit);
+    grid-column-gap: var(--space-unit);
     background: var(--bg-grey-200);
     height: 32px;
     visibility: visible;
@@ -581,8 +581,8 @@ hr {
   .link-ext-span {
     width: auto;
     line-height: 14px;
-    margin: var(--spcae-unit);
-    padding: calc(var(--space-unit) * .5px) var(--spcae-unit);
+    margin: var(--space-unit);
+    padding: calc(var(--space-unit) * .5px) var(--space-unit);
   }
 }
 

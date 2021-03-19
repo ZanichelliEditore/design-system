@@ -6,7 +6,7 @@ button {
   fill: var(--myz-blue);
   background-color: var(--bg-white);
   outline: none;
-  padding: 0 var(--spcae-unit);
+  padding: 0 var(--space-unit);
   cursor: pointer;
 }
 

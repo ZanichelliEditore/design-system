@@ -71,7 +71,7 @@
 :host>div>div>header>div>h2 {
   font-size: 16px;
   line-height: 24px;
-  margin-top: var(--spcae-unit);
+  margin-top: var(--space-unit);
 }
 
 :host>div>div>main {
