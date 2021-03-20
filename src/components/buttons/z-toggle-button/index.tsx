@@ -26,7 +26,7 @@ export class ZToggleButton {
     this.toggleClick.emit(this.isOpen);
   }
 
-  componentDidLoad() {
+  componentWillLoad() {
     if (this.opened) this.isOpen = true;
   }
 

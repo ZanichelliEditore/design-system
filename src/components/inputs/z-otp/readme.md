@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type                                                                                                       | Default     |
-| ---------- | ----------- | ----------- | ---------------------------------------------------------------------------------------------------------- | ----------- |
-| `inputNum` | `input-num` |             | `number`                                                                                                   | `6`         |
-| `message`  | `message`   |             | `string`                                                                                                   | `undefined` |
-| `status`   | `status`    |             | `InputStatusEnum.error \| InputStatusEnum.selecting \| InputStatusEnum.success \| InputStatusEnum.warning` | `undefined` |
+| Property   | Attribute   | Description | Type                                               | Default     |
+| ---------- | ----------- | ----------- | -------------------------------------------------- | ----------- |
+| `inputNum` | `input-num` |             | `number`                                           | `6`         |
+| `message`  | `message`   |             | `string`                                           | `undefined` |
+| `status`   | `status`    |             | `"error" \| "selecting" \| "success" \| "warning"` | `undefined` |
 
 
 ## Events

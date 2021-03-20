@@ -35,7 +35,7 @@ export enum LicenseTypeEnum {
   virtual = "virtuale",
   trial = "saggio"
 }
-export type LicenseType = LicenseTypeEnum;
+export type LicenseType = keyof typeof LicenseTypeEnum;
 
 export type CardBean = {
   id: string;
@@ -105,7 +105,7 @@ export enum ButtonTypeEnum {
   button = "button"
 }
 
-export type InputTypeBean = InputTypeEnum;
+export type InputTypeBean = keyof typeof InputTypeEnum;
 
 export enum InputTypeEnum {
   text = "text",
@@ -118,7 +118,7 @@ export enum InputTypeEnum {
   select = "select"
 }
 
-export type InputStatusBean = InputStatusEnum;
+export type InputStatusBean = keyof typeof InputStatusEnum;
 
 export enum InputStatusEnum {
   success = "success",
@@ -127,7 +127,7 @@ export enum InputStatusEnum {
   selecting = "selecting"
 }
 
-export type TooltipPositionBean = TooltipPosition;
+export type TooltipPositionBean = keyof typeof TooltipPosition;
 
 export enum TooltipPosition {
   TOP = "TOP",

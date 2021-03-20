@@ -3,7 +3,7 @@ import { tabletBreakpoint } from "../../../constants/breakpoints";
 @Component({
   tag: "z-button-sort",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZButtonSort {
   /** id, should be unique */
@@ -11,7 +11,7 @@ export class ZButtonSort {
   /** label content (ascending) */
   @Prop() label: string;
   /** label content (descending) */
-  @Prop() desclabel?: string = this.label;
+  @Prop() desclabel?: string;
   /** occurrencies counter (optional) */
   @Prop() counter?: number;
   /** sort label content (ascending) (optional) */
@@ -37,7 +37,7 @@ export class ZButtonSort {
     }
     this.buttonSortClick.emit({
       buttonid: this.buttonid,
-      sortAsc: this.sortasc
+      sortAsc: this.sortasc,
     });
   }
 
@@ -66,10 +66,10 @@ export class ZButtonSort {
       >
         <label>
           <span
-            ref={el => (this.ellipsis = el as HTMLSpanElement)}
+            ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
             class="ellipsis"
           >
-            {this.sortasc ? this.label : this.desclabel}
+            {!this.sortasc && this.desclabel ? this.desclabel : this.label}
           </span>
           <span class="counter">{this.counter && ` (${this.counter})`}</span>
           <span class="sort">

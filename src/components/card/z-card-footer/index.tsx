@@ -39,7 +39,7 @@ export class ZCardFooter {
     return this.allowTooltipAuthors ? this.autori : "";
   }
 
-  componentDidLoad() {
+  componentWillLoad() {
     if (this.opened) this.isOpen = true;
   }
 

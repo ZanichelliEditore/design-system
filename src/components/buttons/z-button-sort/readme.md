@@ -18,16 +18,16 @@
 
 ## Properties
 
-| Property        | Attribute       | Description                                | Type      | Default      |
-| --------------- | --------------- | ------------------------------------------ | --------- | ------------ |
-| `buttonid`      | `buttonid`      | id, should be unique                       | `string`  | `undefined`  |
-| `counter`       | `counter`       | occurrencies counter (optional)            | `number`  | `undefined`  |
-| `desclabel`     | `desclabel`     | label content (descending)                 | `string`  | `this.label` |
-| `isselected`    | `isselected`    | selected flag (optional)                   | `boolean` | `false`      |
-| `label`         | `label`         | label content (ascending)                  | `string`  | `undefined`  |
-| `sortasc`       | `sortasc`       | sortable flag (optional)                   | `boolean` | `true`       |
-| `sortlabelasc`  | `sortlabelasc`  | sort label content (ascending) (optional)  | `string`  | `"A-Z"`      |
-| `sortlabeldesc` | `sortlabeldesc` | sort label content (descending) (optional) | `string`  | `"Z-A"`      |
+| Property        | Attribute       | Description                                | Type      | Default     |
+| --------------- | --------------- | ------------------------------------------ | --------- | ----------- |
+| `buttonid`      | `buttonid`      | id, should be unique                       | `string`  | `undefined` |
+| `counter`       | `counter`       | occurrencies counter (optional)            | `number`  | `undefined` |
+| `desclabel`     | `desclabel`     | label content (descending)                 | `string`  | `undefined` |
+| `isselected`    | `isselected`    | selected flag (optional)                   | `boolean` | `false`     |
+| `label`         | `label`         | label content (ascending)                  | `string`  | `undefined` |
+| `sortasc`       | `sortasc`       | sortable flag (optional)                   | `boolean` | `true`      |
+| `sortlabelasc`  | `sortlabelasc`  | sort label content (ascending) (optional)  | `string`  | `"A-Z"`     |
+| `sortlabeldesc` | `sortlabeldesc` | sort label content (descending) (optional) | `string`  | `"Z-A"`     |
 
 
 ## Events
