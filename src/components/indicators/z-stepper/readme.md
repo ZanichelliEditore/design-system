@@ -2,13 +2,13 @@
 
 ```html
 <z-stepper>
-  <z-stepper-item index="1" status="active"></z-stepper-item>
-  <z-stepper-item index="2"></z-stepper-item>
-  <z-stepper-item index="3"></z-stepper-item>
+  <z-stepper-item index="1" disabled></z-stepper-item>
+  <z-stepper-item index="2" pressed></z-stepper-item>
+  <z-stepper-item index="3" disabled></z-stepper-item>
 </z-stepper>
 <z-stepper>
-  <z-stepper-item index="1" status="done">I tuoi dati</z-stepper-item>
-  <z-stepper-item index="2" status="active">Le tue credenziali</z-stepper-item>
+  <z-stepper-item index="1" pressed>I tuoi dati</z-stepper-item>
+  <z-stepper-item index="2">Le tue credenziali</z-stepper-item>
   <z-stepper-item index="3">Conferma</z-stepper-item>
 </z-stepper>
 ```

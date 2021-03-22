@@ -471,7 +471,7 @@ hr {
 @media only screen and (min-width: 768px) {
   header {
     grid-template-columns: 1fr 0.8fr 1.5fr 1.1fr 0.7fr;
-    grid-template-rows: 0.2fr 0.2fr;
+    grid-template-rows: 0.2fr auto;
     grid-template-areas: "main-header main-header main-header main-header main-header" "dropdown-menu dropdown-menu dropdown-menu dropdown-menu dropdown-menu";
     margin-bottom: 0;
   }

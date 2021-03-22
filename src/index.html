@@ -11,7 +11,32 @@
 </head>
 
 <body style="background-color: #f9f9f9">
-
+  <!-- <z-candybar>
+    <div class="content" slot="content">
+      <div>
+        <h2>Titolo</h2>
+        <div>
+          <p>
+            Se continui a navigare ci permetti di farlo secondo le regole
+            spiegate nella nostra informativa sulla privacy relativa ai
+            Se continui a navigare ci permetti di farlo secondo le regole
+            spiegate nella nostra informativa sulla privacy relativa ai
+            Se continui a navigare ci permetti di farlo secondo le regole
+            spiegate nella nostra informativa sulla privacy relativa ai
+            Se continui a navigare ci permetti di farlo secondo le regole
+            spiegate nella nostra informativa sulla privacy relativa ai
+            &nbsp;
+            <a href="#" target="_blank">cookie</a>.
+          </p>
+        </div>
+      </div>
+      <z-button variant="primary">OK</z-button>
+    </div>
+  </z-candybar> -->
+  <z-cookiebar
+    cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
+    hide="false">
+  </z-cookiebar>
   <!-- <z-modal modaltitle="titolotitolo" modalsubtitle="sottotitolo">
     <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
   </z-modal> -->
@@ -152,7 +177,7 @@
     <section id="ambienti">
       <div style="width:1000px; display:flex; flex-wrap:wrap; justify-content:space-between;">
         <z-card>
-          <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+          <z-card-header titolo="Biologia molecolare, genetica, corpo umano">
             <z-card-icon icon="book-minus" slot="icon" />
           </z-card-header>
           <z-card-body>
@@ -161,11 +186,11 @@
             <z-card-cover slot="cover" titolo="titolo"
               img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
           </z-card-body>
-          <z-card-footer titolo="titolo" autori="autori autori autori autoriautori autori"
-            isbn="97-88-80-8620-710">
+          <z-card-footer titolo="Biologia molecolare, genetica, corpo umano" autori="Helena Curtis, N Sue Barnes, Adriana Schnek, Alicia Massarini"
+            isbn="9788808720979">
             <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
             <z-card-list
-              listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              listdata='[{"isLink":true,"value":"Leggi il libro online","url":"https://booktab.it/"},{"isLink":true,"value":"Leggi su Interactive ebook","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"TUTOR","url":"https://zte.zanichelli.it/"},{"isLink":true,"value":"Vai alla scheda catalogo","url":"https://www.zanichelli.it/"}]'
               slot="list" />
           </z-card-footer>
         </z-card>
@@ -482,6 +507,8 @@
         message="message message message message message message message message message message message message message message message message message message">
       </z-input>
       <z-input type="text" label="message" placeholder="placeholder" message="helper message"></z-input>
+      <z-input type="password" label="password" value="password" placeholder="Inserisci password"></z-input>
+      <z-input type="password" label="password disabled" value="password" placeholder="Non inscerisci password" disabled></z-input>
 
       <br /><br />
       <z-input type="textarea" required></z-input>
@@ -519,6 +546,9 @@
         <z-input type="select" label="error" placeholder="Seleziona qui" status="error" message="message message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input><br />
         <z-input type="select" label="warning" placeholder="Seleziona qui" status="warning" message="message message message" items='[{"id":"item_1","name":"primo elemento","selected":true},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
         <z-input type="select" label="message" placeholder="Seleziona qui" message="helper message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="multiple" placeholder="Seleziona qui" multiple="true" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="autocomplete" placeholder="Seleziona qui" autocomplete="true" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="multiple autocomplete" placeholder="Seleziona qui" autocomplete="true" multiple="true" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'></z-input>
       </div>
 
       <br /><br />

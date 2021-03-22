@@ -8,7 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
+import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
+    interface ZBody {
+        "component": string;
+        "level": 1 | 2 | 3 | 4 | 5;
+        "variant": "regular" | "semibold";
+    }
     interface ZButton {
         /**
           * disable button
@@ -56,6 +62,10 @@ export namespace Components {
           * disable action on button
          */
         "isfixed": boolean;
+        /**
+          * reduce button size (optional)
+         */
+        "issmall"?: boolean;
     }
     interface ZButtonSort {
         /**
@@ -90,6 +100,8 @@ export namespace Components {
           * sort label content (descending) (optional)
          */
         "sortlabeldesc"?: string;
+    }
+    interface ZCandybar {
     }
     interface ZCard {
         /**
@@ -152,10 +164,6 @@ export namespace Components {
           * authors name text
          */
         "autori": string;
-        /**
-          * authors label text
-         */
-        "autorilabel": string;
         /**
           * card graphic variant (optional)
          */
@@ -269,6 +277,20 @@ export namespace Components {
          */
         "uncheckalltext"?: string;
     }
+    interface ZCookiebar {
+        /**
+          * callback to handle ok button action (optional)
+         */
+        "callback"?: () => any;
+        /**
+          * cookie policy link url
+         */
+        "cookiepolicyurl": string;
+        /**
+          * hide cookie bar (optional)
+         */
+        "hide"?: boolean;
+    }
     interface ZFooter {
         /**
           * set copyright user (optional)
@@ -317,6 +339,11 @@ export namespace Components {
          */
         "userdata"?: string | HeaderUserData;
     }
+    interface ZHeading {
+        "component": string;
+        "level": 1 | 2 | 3 | 4;
+        "variant": "regular" | "semibold" | "light";
+    }
     interface ZIcon {
         /**
           * icon height (optional)
@@ -349,6 +376,10 @@ export namespace Components {
     }
     interface ZInput {
         /**
+          * the input has autocomplete option (optional): available for select
+         */
+        "autocomplete"?: boolean;
+        /**
           * checked: available for checkbox, radio
          */
         "checked"?: boolean;
@@ -359,7 +390,11 @@ export namespace Components {
         /**
           * get the input value
          */
-        "getValue": () => Promise<string>;
+        "getValue": () => Promise<string | string[]>;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
         /**
           * show input helper message (optional): available for text, password, number, email, textarea, select
          */
@@ -373,11 +408,15 @@ export namespace Components {
          */
         "htmltitle"?: string;
         /**
+          * render icon (optional): available for text, select
+         */
+        "icon"?: string;
+        /**
           * get checked status
          */
         "isChecked": () => Promise<boolean>;
         /**
-          * items: available for select
+          * items (optional): available for select
          */
         "items"?: SelectItemBean[] | string;
         /**
@@ -392,6 +431,10 @@ export namespace Components {
           * input helper message (optional): available for text, password, number, email, textarea, select
          */
         "message"?: string;
+        /**
+          * multiple options can be selected (optional): available for select
+         */
+        "multiple"?: boolean;
         /**
           * the input name
          */
@@ -411,7 +454,7 @@ export namespace Components {
         /**
           * set the input value
          */
-        "setValue": (value: string) => Promise<void>;
+        "setValue": (value: string | string[]) => Promise<void>;
         /**
           * the input status (optional): available for text, password, number, email, textarea, select
          */
@@ -659,6 +702,76 @@ export namespace Components {
          */
         "url": string;
     }
+    interface ZSelect {
+        /**
+          * the input has autocomplete option
+         */
+        "autocomplete"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * get the input selected options
+         */
+        "getSelectedItems": () => Promise<SelectItemBean[]>;
+        /**
+          * get the input value
+         */
+        "getValue": () => Promise<string | string[]>;
+        /**
+          * show input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "hasmessage"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid": string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * the input select options
+         */
+        "items": SelectItemBean[] | string;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "message"?: string;
+        /**
+          * multiple options can be selected
+         */
+        "multiple"?: boolean;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * no result text message
+         */
+        "noresultslabel"?: string;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * set the input value
+         */
+        "setValue": (value: string | string[]) => Promise<void>;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea, select
+         */
+        "status"?: InputStatusBean;
+    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -703,8 +816,19 @@ export namespace Components {
          */
         "type": TooltipPosition;
     }
+    interface ZTypography {
+        "component": string;
+        "level": ZTypographyLevels;
+        "variant": "regular" | "semibold" | "light";
+    }
 }
 declare global {
+    interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
+    }
+    var HTMLZBodyElement: {
+        prototype: HTMLZBodyElement;
+        new (): HTMLZBodyElement;
+    };
     interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {
     }
     var HTMLZButtonElement: {
@@ -722,6 +846,12 @@ declare global {
     var HTMLZButtonSortElement: {
         prototype: HTMLZButtonSortElement;
         new (): HTMLZButtonSortElement;
+    };
+    interface HTMLZCandybarElement extends Components.ZCandybar, HTMLStencilElement {
+    }
+    var HTMLZCandybarElement: {
+        prototype: HTMLZCandybarElement;
+        new (): HTMLZCandybarElement;
     };
     interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
     }
@@ -783,6 +913,12 @@ declare global {
         prototype: HTMLZComboboxElement;
         new (): HTMLZComboboxElement;
     };
+    interface HTMLZCookiebarElement extends Components.ZCookiebar, HTMLStencilElement {
+    }
+    var HTMLZCookiebarElement: {
+        prototype: HTMLZCookiebarElement;
+        new (): HTMLZCookiebarElement;
+    };
     interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {
     }
     var HTMLZFooterElement: {
@@ -794,6 +930,12 @@ declare global {
     var HTMLZHeaderElement: {
         prototype: HTMLZHeaderElement;
         new (): HTMLZHeaderElement;
+    };
+    interface HTMLZHeadingElement extends Components.ZHeading, HTMLStencilElement {
+    }
+    var HTMLZHeadingElement: {
+        prototype: HTMLZHeadingElement;
+        new (): HTMLZHeadingElement;
     };
     interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {
     }
@@ -885,6 +1027,12 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
+    }
+    var HTMLZSelectElement: {
+        prototype: HTMLZSelectElement;
+        new (): HTMLZSelectElement;
+    };
     interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
     }
     var HTMLZStepperElement: {
@@ -909,10 +1057,18 @@ declare global {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
+    interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
+    }
+    var HTMLZTypographyElement: {
+        prototype: HTMLZTypographyElement;
+        new (): HTMLZTypographyElement;
+    };
     interface HTMLElementTagNameMap {
+        "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
+        "z-candybar": HTMLZCandybarElement;
         "z-card": HTMLZCardElement;
         "z-card-alert": HTMLZCardAlertElement;
         "z-card-body": HTMLZCardBodyElement;
@@ -923,8 +1079,10 @@ declare global {
         "z-card-list": HTMLZCardListElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
+        "z-cookiebar": HTMLZCookiebarElement;
         "z-footer": HTMLZFooterElement;
         "z-header": HTMLZHeaderElement;
+        "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
         "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
@@ -940,13 +1098,20 @@ declare global {
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-select": HTMLZSelectElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
+        "z-typography": HTMLZTypographyElement;
     }
 }
 declare namespace LocalJSX {
+    interface ZBody {
+        "component"?: string;
+        "level"?: 1 | 2 | 3 | 4 | 5;
+        "variant"?: "regular" | "semibold";
+    }
     interface ZButton {
         /**
           * disable button
@@ -995,6 +1160,10 @@ declare namespace LocalJSX {
          */
         "isfixed"?: boolean;
         /**
+          * reduce button size (optional)
+         */
+        "issmall"?: boolean;
+        /**
           * remove filter click event, returns filterid
          */
         "onRemovefilter"?: (event: CustomEvent<any>) => void;
@@ -1036,6 +1205,8 @@ declare namespace LocalJSX {
           * sort label content (descending) (optional)
          */
         "sortlabeldesc"?: string;
+    }
+    interface ZCandybar {
     }
     interface ZCard {
         /**
@@ -1102,10 +1273,6 @@ declare namespace LocalJSX {
           * authors name text
          */
         "autori"?: string;
-        /**
-          * authors label text
-         */
-        "autorilabel"?: string;
         /**
           * card graphic variant (optional)
          */
@@ -1223,6 +1390,24 @@ declare namespace LocalJSX {
          */
         "uncheckalltext"?: string;
     }
+    interface ZCookiebar {
+        /**
+          * callback to handle ok button action (optional)
+         */
+        "callback"?: () => any;
+        /**
+          * cookie policy link url
+         */
+        "cookiepolicyurl"?: string;
+        /**
+          * hide cookie bar (optional)
+         */
+        "hide"?: boolean;
+        /**
+          * emitted on ACCETTA button click, returns event
+         */
+        "onAccept"?: (event: CustomEvent<any>) => void;
+    }
     interface ZFooter {
         /**
           * set copyright user (optional)
@@ -1271,6 +1456,11 @@ declare namespace LocalJSX {
          */
         "userdata"?: string | HeaderUserData;
     }
+    interface ZHeading {
+        "component"?: string;
+        "level"?: 1 | 2 | 3 | 4;
+        "variant"?: "regular" | "semibold" | "light";
+    }
     interface ZIcon {
         /**
           * icon height (optional)
@@ -1307,6 +1497,10 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
+          * the input has autocomplete option (optional): available for select
+         */
+        "autocomplete"?: boolean;
+        /**
           * checked: available for checkbox, radio
          */
         "checked"?: boolean;
@@ -1314,6 +1508,10 @@ declare namespace LocalJSX {
           * the input is disabled
          */
         "disabled"?: boolean;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
         /**
           * show input helper message (optional): available for text, password, number, email, textarea, select
          */
@@ -1327,7 +1525,11 @@ declare namespace LocalJSX {
          */
         "htmltitle"?: string;
         /**
-          * items: available for select
+          * render icon (optional): available for text, select
+         */
+        "icon"?: string;
+        /**
+          * items (optional): available for select
          */
         "items"?: SelectItemBean[] | string;
         /**
@@ -1343,6 +1545,10 @@ declare namespace LocalJSX {
          */
         "message"?: string;
         /**
+          * multiple options can be selected (optional): available for select
+         */
+        "multiple"?: boolean;
+        /**
           * the input name
          */
         "name"?: string;
@@ -1355,7 +1561,7 @@ declare namespace LocalJSX {
          */
         "onInputCheck"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted on select option selection, returns select id, selected option id
+          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
          */
         "onOptionSelect"?: (event: CustomEvent<any>) => void;
         /**
@@ -1657,6 +1863,68 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface ZSelect {
+        /**
+          * the input has autocomplete option
+         */
+        "autocomplete"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * show input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "hasmessage"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid"?: string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * the input select options
+         */
+        "items"?: SelectItemBean[] | string;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "message"?: string;
+        /**
+          * multiple options can be selected
+         */
+        "multiple"?: boolean;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * no result text message
+         */
+        "noresultslabel"?: string;
+        /**
+          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
+         */
+        "onOptionSelect"?: (event: CustomEvent<any>) => void;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea, select
+         */
+        "status"?: InputStatusBean;
+    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -1705,10 +1973,17 @@ declare namespace LocalJSX {
          */
         "type"?: TooltipPosition;
     }
+    interface ZTypography {
+        "component"?: string;
+        "level"?: ZTypographyLevels;
+        "variant"?: "regular" | "semibold" | "light";
+    }
     interface IntrinsicElements {
+        "z-body": ZBody;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
+        "z-candybar": ZCandybar;
         "z-card": ZCard;
         "z-card-alert": ZCardAlert;
         "z-card-body": ZCardBody;
@@ -1719,8 +1994,10 @@ declare namespace LocalJSX {
         "z-card-list": ZCardList;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
+        "z-cookiebar": ZCookiebar;
         "z-footer": ZFooter;
         "z-header": ZHeader;
+        "z-heading": ZHeading;
         "z-icon": ZIcon;
         "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
@@ -1736,19 +2013,23 @@ declare namespace LocalJSX {
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-select": ZSelect;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
+        "z-typography": ZTypography;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
+            "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-card-alert": LocalJSX.ZCardAlert & JSXBase.HTMLAttributes<HTMLZCardAlertElement>;
             "z-card-body": LocalJSX.ZCardBody & JSXBase.HTMLAttributes<HTMLZCardBodyElement>;
@@ -1759,8 +2040,10 @@ declare module "@stencil/core" {
             "z-card-list": LocalJSX.ZCardList & JSXBase.HTMLAttributes<HTMLZCardListElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
+            "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
+            "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
@@ -1776,10 +2059,12 @@ declare module "@stencil/core" {
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
+            "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
         }
     }
 }

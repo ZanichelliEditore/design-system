@@ -71,7 +71,7 @@ In this repository we follow the [Conventional Commits Specification](https://ww
 
 Standard-version automatically detects the type of the update (patch, minor or major) following the [Semantic Versioning](https://semver.org/) specification.
 
-**Publish a new version**
+**Publish a new version on NPM registry**
 
 * Make sure you are logged in NPM
 * Run standard-version:
@@ -90,6 +90,10 @@ yarn release --release-as 1.1.0
 ```
 
 In general, you can pass any flag supported by standard-version, please refer to their [CLI usage](https://github.com/conventional-changelog/standard-version#cli-usage) documentation.
+
+**Publish the new release on GitHub**
+
+You need to [manually create the GitHub release](https://github.com/ZanichelliEditore/design-system/releases/new) in order to update the Storybook documentation.
 
 ----
 
@@ -192,6 +196,26 @@ Then use the relative tag as a usual component in your markup.
 <section>
   <z-button label="button" type="primary">Click me!</z-button>
 </section>
+```
+
+### Using React bindings
+
+Albe's Web Components come with automatically generated React bindings. This means that you can use Web Components in a React application without the need to wrap component references, with full intellisense support thanks to TypeScript definition files for bindings.
+
+You still need to import and run polyfills, then you can import Component references from the React submodule:
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import '@zanichelli/albe-web-components/www/build/web-components-library.css';
+import { defineCustomElements, applyPolyfills } from '@zanichelli/albe-web-components/loader';
+import { ZButton } from '@zanichelli/albe-web-components/react';
+
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});
+
+ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById('root'));
 ```
 
 ## Component definition

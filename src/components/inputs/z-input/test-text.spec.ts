@@ -15,7 +15,8 @@ describe("Suite test ZInput - text", () => {
         <mock:shadow-root>
           <div class="textWrapper">
             <div>
-              <input id="id" class="false input_default undefined" type="text" aria-labelledby="id_label" />
+              <input id="id" class="false input_default undefined hasClearIcon" type="text" aria-labelledby="id_label" />
+              <span class="iconsWrapper"></span>
             </div>
           </div>
         </mock:shadow-root>
@@ -34,8 +35,10 @@ describe("Suite test ZInput - text", () => {
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input class="false input_default filled" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
-              <z-icon name="multiply"></z-icon>
+              <input class="false input_default filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <span class="iconsWrapper">
+                <z-icon name="multiply" class="resetIcon"></z-icon>
+              </span>
             </div>
           </div>
         </mock:shadow-root>
@@ -54,7 +57,8 @@ describe("Suite test ZInput - text", () => {
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label" disabled=""></z-input-label>
             <div>
-              <input disabled class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <input disabled class="false filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <span class="iconsWrapper disabled"></span>
             </div>
           </div>
         </mock:shadow-root>
@@ -73,7 +77,8 @@ describe("Suite test ZInput - text", () => {
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input readonly class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <input readonly class="false filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <span class="iconsWrapper"></span>
             </div>
           </div>
         </mock:shadow-root>
@@ -92,8 +97,10 @@ describe("Suite test ZInput - text", () => {
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input class="false filled input_default" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
-              <z-icon name="multiply"></z-icon>
+              <input class="false filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <span class="iconsWrapper">
+                <z-icon name="multiply" class="resetIcon"></z-icon>
+              </span>
             </div>
             <z-input-message message="helper message"></z-input-message>
           </div>
@@ -113,8 +120,10 @@ describe("Suite test ZInput - text", () => {
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input class="false filled input_success" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
-              <z-icon name="multiply"></z-icon>
+              <input class="false filled input_success hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <span class="iconsWrapper">
+                <z-icon name="multiply" class="resetIcon"></z-icon>
+              </span>
             </div>
             <z-input-message message="success message" status="success"></z-input-message>
           </div>
@@ -135,5 +144,49 @@ describe("Suite test ZInput - text", () => {
     icon.click();
     await page.waitForChanges();
     expect(page.rootInstance.value).toEqual("");
+  });
+
+  it("Test render ZInput vuoto - password nascosta", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input hasmessage="false" htmlid="id" type="password"></z-input>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input hasmessage="false" htmlid="id" type="password">
+        <mock:shadow-root>
+          <div class="textWrapper">
+            <div>
+              <input id="id" class="false input_default undefined hasClearIcon hasIcon" type="password" aria-labelledby="id_label" />
+              <span class="iconsWrapper">
+                <z-icon name="view" class="inputIcon"></z-icon>
+              </span>
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-input>
+    `);
+  });
+
+  it("Test render ZInput vuoto - password visibile", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input hasmessage="false" htmlid="id" type="password"></z-input>`
+    });
+    page.rootInstance.passwordHidden = false;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+      <z-input hasmessage="false" htmlid="id" type="password">
+        <mock:shadow-root>
+          <div class="textWrapper">
+            <div>
+              <input id="id" class="false input_default undefined hasClearIcon hasIcon" type="text" aria-labelledby="id_label" />
+              <span class="iconsWrapper">
+                <z-icon name="view-off" class="inputIcon"></z-icon>
+              </span>
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-input>
+    `);
   });
 });

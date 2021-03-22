@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "1.2.0",
+  "version": "1.4.1",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -13,11 +13,14 @@
   "files": [
     "dist/",
     "loader/",
-    "www/"
+    "www/",
+    "react/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
+    "build": "mkdirp react && yarn build.wc && yarn build.react",
+    "build.wc": "stencil build --docs",
+    "build.react": "rimraf react && tsc --build tsconfig.react.json",
+    "start": "stencil build --dev --watch --serve --no-open",
     "generate": "plop --plopfile internals/generators/index.js",
     "test": "stencil test --spec",
     "test.watch": "stencil test --spec --watch",
@@ -28,7 +31,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@stencil/core": "^1.14.0",
+    "@stencil/react-output-target": "^0.0.9",
     "@storybook/addon-a11y": "^5.3.14",
     "@storybook/addon-docs": "^5.3.13",
     "@storybook/addon-knobs": "^5.3.14",
@@ -38,14 +44,18 @@
     "@types/hammerjs": "^2.0.36",
     "@types/jest": "25.2.3",
     "@types/puppeteer": "1.20.3",
+    "@types/react-dom": "^17.0.0",
     "babel-loader": "^8.0.6",
+    "husky": "^4.3.8",
     "jest": "24.9.0",
     "jest-cli": "26.0.1",
     "lit-html": "^1.1.2",
+    "mkdirp": "^1.0.4",
     "plop": "^2.1.0",
     "puppeteer": "1.20.0",
+    "rimraf": "^3.0.2",
     "standard-version": "^8.0.2",
-    "storybook-addons-abstract": "^5.0.6"
+    "storybook-addons-abstract": "^6.0.3"
   },
   "pre-commit": {
     "colors": true,
@@ -61,6 +71,15 @@
   "standard-version": {
     "scripts": {
       "prerelease": "yarn build"
+    }
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }

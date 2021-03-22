@@ -14,6 +14,8 @@ export class ZButtonFilter {
   @Prop() hasicon: boolean = true;
   /** filter id */
   @Prop() filterid: string;
+  /** reduce button size (optional) */
+  @Prop() issmall?: boolean = false;
 
   /** remove filter click event, returns filterid */
   @Event({
@@ -37,7 +39,14 @@ export class ZButtonFilter {
   renderFixedPillow(filtername) {
     return (
       <button class="container">
-        {this.hasicon && <z-icon class="close-icon-container" name="multiply" height={12} width={12} />}
+        {this.hasicon && (
+          <z-icon
+            class="close-icon-container"
+            name="multiply"
+            height={12}
+            width={12}
+          />
+        )}
         <span class="text-container">{filtername}</span>
       </button>
     );
@@ -45,8 +54,18 @@ export class ZButtonFilter {
 
   renderDynamicPillow(filtername) {
     return (
-      <button class="container isactive">
-        {this.hasicon && <z-icon class="close-icon-container" name="multiply" height={12} width={12} onClick={this.handleRemovingFilterClick} />}
+      <button
+        class={`container isactive ${this.issmall ? "small" : ""}`}
+        onClick={this.handleRemovingFilterClick}
+      >
+        {this.hasicon && (
+          <z-icon
+            class="close-icon-container"
+            name="multiply"
+            height={12}
+            width={12}
+          />
+        )}
         <span class="text-container">{filtername}</span>
       </button>
     );
