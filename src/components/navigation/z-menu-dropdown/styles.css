@@ -19,7 +19,7 @@ a:active {
   background: var(--bg-grey-050);
   color: var(--text-grey-800);
   border-radius: var(--radius-base);
-  border: 1px solid transparent;
+  border: var(--border-size-small) solid transparent;
   width: 88px;
   outline: none;
 }
