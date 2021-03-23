@@ -34,7 +34,7 @@ export class ZInput {
   /** the input label */
   @Prop() label?: string;
   /** the input value */
-  @Prop() value?: string;
+  @Prop({mutable : true}) value?: string;
   /** the input is disabled */
   @Prop() disabled?: boolean = false;
   /** the input is readonly */
@@ -107,7 +107,6 @@ export class ZInput {
   /** set the input value */
   @Method()
   async setValue(value: string | string[]): Promise<void> {
-    console.log("z-input setValue");
     switch (this.type) {
       case InputTypeEnum.select:
         this.selectElem.setValue(value);
@@ -212,7 +211,7 @@ export class ZInput {
     };
   }
 
-  renderInputText(type = InputTypeEnum.text) {
+  renderInputText(type: InputTypeBean = InputTypeEnum.text) {
     const attr = this.getTextAttributes();
     if (this.icon || type === InputTypeEnum.password)
       attr.class = attr.class + " hasIcon";
@@ -223,12 +222,12 @@ export class ZInput {
         {this.renderLabel()}
         <div>
           <input
-            {...attr}
             type={
               type === InputTypeEnum.password && !this.passwordHidden
                 ? InputTypeEnum.text
                 : type
             }
+            {...attr}
             aria-labelledby={`${this.htmlid}_label`}
           />
           {this.renderIcons()}
@@ -359,11 +358,11 @@ export class ZInput {
           type="checkbox"
           name={this.name}
           checked={this.checked}
-          value={this.value}
           disabled={this.disabled}
           readonly={this.readonly}
           required={this.required}
           onChange={() => this.handleCheckboxChange()}
+          value={this.value}
         />
 
         <label
@@ -397,10 +396,10 @@ export class ZInput {
           type="radio"
           name={this.name}
           checked={this.checked}
-          value={this.value}
           disabled={this.disabled}
           readonly={this.readonly}
           onChange={() => this.handleRadioChange()}
+          value={this.value}
         />
 
         <label

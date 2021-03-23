@@ -25,10 +25,10 @@ describe("Suite test ZInput - checkbox", () => {
   it("Test render ZInput with attributes", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input htmlid="checkid" type="checkbox" name="name" value="value" label="checkbox label"></z-input>`
+      html: `<z-input htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value"></z-input>`
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox" name="name" value="value" label="checkbox label">
+      <z-input htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value">
         <mock:shadow-root>
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" name="name" value="value" />

@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description             | Type                                                                                                       | Default     |
-| --------- | --------- | ----------------------- | ---------------------------------------------------------------------------------------------------------- | ----------- |
-| `message` | `message` | input helper message    | `string`                                                                                                   | `undefined` |
-| `status`  | `status`  | input status (optional) | `InputStatusEnum.error \| InputStatusEnum.selecting \| InputStatusEnum.success \| InputStatusEnum.warning` | `undefined` |
+| Property  | Attribute | Description             | Type                                               | Default     |
+| --------- | --------- | ----------------------- | -------------------------------------------------- | ----------- |
+| `message` | `message` | input helper message    | `string`                                           | `undefined` |
+| `status`  | `status`  | input status (optional) | `"error" \| "selecting" \| "success" \| "warning"` | `undefined` |
 
 
 ## Dependencies

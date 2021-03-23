@@ -48,10 +48,10 @@ describe("Suite test ZInput - textarea", () => {
   it("Test render ZInput textarea status/messages", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' status='error' message='error message'></z-input>`
+      html: `<z-input type='textarea' htmlid='test' placeholder='placeholder' label='label' status='error' message='error message' value='value'></z-input>`
     });
     expect(page.root).toEqualHtml(`
-      <z-input type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' status='error' message='error message'>
+      <z-input type='textarea' htmlid='test' placeholder='placeholder' label='label' status='error' message='error message' value='value'>
         <mock:shadow-root>
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
