@@ -4,13 +4,13 @@
 
 button {
   height: 36px;
-  border: var(--border-base) solid var(--myz-blue);
-  border-radius: var(--radius-base);
+  border: var(--border-size-medium) solid var(--myz-blue);
+  border-radius: var(--border-radius);
   color: var(--myz-blue);
   fill: var(--myz-blue);
   background-color: var(--bg-white);
   outline: none;
-  padding: 0 var(--basex1);
+  padding: 0 var(--space-unit);
   cursor: pointer;
 }
 
@@ -65,6 +65,7 @@ button > label > span.ellipsis {
 button > label > span.counter {
   margin-left: var(--half-x1);
   margin-right: var(--basex2);
+  margin-right: calc(var(--space-unit) * 2);
 }
 
 button > label > span.sort {
@@ -76,11 +77,11 @@ button > span {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
-  margin-right: var(--half-x1);
+  margin-right: calc(var(--space-unit) * .5px);
 }
 
 button > z-icon {
-  padding-top: var(--half-x1);
+  padding-top: calc(var(--space-unit) * .5px);
 }
 
 /* Tablet breakpoint */

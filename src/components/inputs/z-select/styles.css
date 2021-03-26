@@ -46,7 +46,7 @@
 :host > div.selectWrapper > div > div.ulScrollWrapper {
   background: var(--bg-white);
   position: absolute;
-  padding: var(--half-x1) var(--basex1);
+  padding: calc(var(--space-unit) * .5px) var(--space-unit);
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-top: none;
   width: 100%;
@@ -80,7 +80,7 @@
     var(--bg-grey-200) 4px,
     var(--bg-white) 8px
   );
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   width: 10px;
 }
 
@@ -90,7 +90,7 @@
   > div.ulScrollWrapper
   > ul::-webkit-scrollbar-thumb {
   background-color: var(--myz-blue);
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   width: 10px;
 }
 
@@ -99,7 +99,7 @@
   align-items: center;
   box-sizing: border-box;
   min-height: 44px;
-  padding: var(--half-x3);
+  padding: calc(var(--space-unit) * 1.5);
   text-align: left;
   cursor: pointer;
   border-bottom: var(--border-size-small) solid var(--bg-grey-200);
@@ -141,11 +141,11 @@
   > ul
   > li.noResults
   > z-icon {
-  margin-right: var(--basex1);
+  margin-right: var(--space-unit);
 }
 
 :host > div.selectWrapper > div.chipsWrapper {
-  padding-bottom: var(--basex1);
+  padding-bottom: var(--space-unit);
 }
 
 :host > div.selectWrapper > div.chipsWrapper > z-button-filter {

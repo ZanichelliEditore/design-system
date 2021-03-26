@@ -1,5 +1,3 @@
-@import url("../../../globals/global-text.css");
-
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
@@ -11,7 +9,7 @@
 }
 
 .panel-elem-icon {
-  margin: auto var(--basex3);
+  margin: auto calc(var(--space-unit) * 3);
 }
 
 .panel-elem-icon img {
@@ -23,8 +21,8 @@
 }
 
 .panel-elem-link {
-  border-radius: var(--radius-min);
-  margin: var(--basex1) auto 0;
+  border-radius: var(----border-no-radius);
+  margin: var(--space-unit) auto 0;
   text-align: center;
   font-size: 12px;
 }
@@ -37,5 +35,5 @@
   letter-spacing: 0.16px;
   text-align: center;
   margin: 0;
-  padding-top: var(--basex1);
+  padding-top: var(--space-unit);
 }

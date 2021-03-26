@@ -24,7 +24,7 @@
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
   background: var(--myz-blue-lighter);
-  border-radius: var(--half-x1);
+  border-radius: calc(var(--space-unit) * .5px);
   box-shadow: 0px -2px 4px 0px rgba(66, 69, 72, 0.4);
 }
 

@@ -29,6 +29,7 @@ export class ZButtonSort {
 
   /** sorting direction click event, returns buttonid and sortAsc */
   @Event() buttonSortClick: EventEmitter;
+
   emitButtonSortClick() {
     if (!this.isselected) {
       this.isselected = true;
@@ -42,6 +43,7 @@ export class ZButtonSort {
   }
 
   componentDidLoad() {
+    this.desclabel = this.label;
     if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
       this.allowTooltip = true;
   }

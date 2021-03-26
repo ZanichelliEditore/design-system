@@ -6,8 +6,8 @@ div {
   box-sizing: border-box;
   width: 256px; /* TODO: width must be 100% - must be handled in dashboard */
   height: 522px;
-  border: var(--border-base) solid var(--bg-grey-200);
-  border-radius: var(--radius-base);
+  border: var(--border-size-medium) solid var(--bg-grey-200);
+  border-radius: var(--border-radius);
 }
 
 div.real,
