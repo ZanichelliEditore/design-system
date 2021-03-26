@@ -2,6 +2,12 @@ import { newE2EPage } from "@stencil/core/testing";
 
 import { icons } from "../../icons/icons";
 
+type CustomWindow = Window &
+  typeof globalThis & {
+    onInputChange: (a) => unknown;
+    onInputCheck: (a) => unknown;
+  };
+
 it("Test ZInput should emit inputChange event", async () => {
   const page = await newE2EPage();
 
@@ -15,7 +21,7 @@ it("Test ZInput should emit inputChange event", async () => {
   const type = "inputChange";
   page.evaluateOnNewDocument(type => {
     document.addEventListener(type, e => {
-      window.onInputChange({ type, detail: e.detail });
+      (window as CustomWindow).onInputChange({ type, detail: e.detail });
     });
   }, type);
 
@@ -46,7 +52,7 @@ it("Test disabled ZInput should not change / emit inputChange event", async () =
   const type = "inputChange";
   page.evaluateOnNewDocument(type => {
     document.addEventListener(type, e => {
-      window.onInputChange({ type, detail: e.detail });
+      (window as CustomWindow).onInputChange({ type, detail: e.detail });
     });
   }, type);
 
@@ -150,7 +156,7 @@ it("Test ZInput checkbox should emit inputCheck event", async () => {
   const type = "inputCheck";
   page.evaluateOnNewDocument(type => {
     document.addEventListener(type, e => {
-      window.onInputCheck({
+      (window as CustomWindow).onInputCheck({
         type,
         detail: e.detail
       });
@@ -184,7 +190,7 @@ it("Test disabled ZInput checkbox should not emit inputCheck event", async () =>
   const type = "inputCheck";
   page.evaluateOnNewDocument(type => {
     document.addEventListener(type, e => {
-      window.onInputCheck({
+      (window as CustomWindow).onInputCheck({
         type,
         detail: e.detail
       });
@@ -212,7 +218,7 @@ it("Test ZInput radio should emit inputCheck event", async () => {
   const type = "inputCheck";
   page.evaluateOnNewDocument(type => {
     document.addEventListener(type, e => {
-      window.onInputCheck({
+      (window as CustomWindow).onInputCheck({
         type,
         detail: e.detail
       });
@@ -244,7 +250,7 @@ it("Test disabled ZInput radio should not emit inputCheck event", async () => {
   const type = "inputCheck";
   page.evaluateOnNewDocument(type => {
     document.addEventListener(type, e => {
-      window.onInputCheck({
+      (window as CustomWindow).onInputCheck({
         type,
         detail: e.detail
       });

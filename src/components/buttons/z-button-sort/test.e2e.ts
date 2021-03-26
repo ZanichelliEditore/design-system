@@ -1,5 +1,10 @@
 import { newE2EPage } from "@stencil/core/testing";
 
+type CustomWindow = Window &
+  typeof globalThis & {
+    onButtonSortClick: (a) => unknown;
+  };
+
 it("Test ZButtonSort should emit buttonSortClick event", async () => {
   const page = await newE2EPage();
 
@@ -15,7 +20,7 @@ it("Test ZButtonSort should emit buttonSortClick event", async () => {
   const type = "buttonSortClick";
   page.evaluateOnNewDocument(type => {
     document.addEventListener(type, e => {
-      window.onButtonSortClick({ type, detail: e.detail });
+      (window as CustomWindow).onButtonSortClick({ type, detail: e.detail });
     });
   }, type);
 

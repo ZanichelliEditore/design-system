@@ -28,12 +28,15 @@ export class ZFooter {
     this.isOpen = Array<boolean>(this.jsonData.zanichelliLinks.length).fill(
       false
     );
-  }
-
-  componentDidLoad() {
     window.addEventListener("resize", this.resize.bind(this));
     this.resize();
+
   }
+
+  // componentDidLoad() {
+  //   window.addEventListener("resize", this.resize.bind(this));
+  //   this.resize();
+  // }
 
   resize() {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
