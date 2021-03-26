@@ -13,7 +13,7 @@ a {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  padding: calc(var(--space-unit) * .5px) 0;
+  padding: calc(var(--space-unit) * .5) 0;
   border-top: var(--border-size-medium) solid transparent;
   border-bottom: var(--border-size-medium) solid transparent;
 }

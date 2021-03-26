@@ -106,7 +106,7 @@ span.arrow > z-icon {
 }
 
 div > span.user {
-  padding-left: calc(var(--space-unit) * .5px);
+  padding-left: calc(var(--space-unit) * .5);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
