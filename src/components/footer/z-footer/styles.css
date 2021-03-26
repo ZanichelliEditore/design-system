@@ -26,7 +26,7 @@ footer > section.top > nav {
   flex-direction: column;
   justify-items: flex-start;
   overflow: hidden;
-  margin: calc(var(--space-unit) * .5px) 0 calc(var(--space-unit) * .5px) 0;
+  margin: calc(var(--space-unit) * .5) 0 calc(var(--space-unit) * .5) 0;
   padding: 0;
   border-bottom: none;
 }
@@ -83,7 +83,7 @@ footer > section.top > nav > .content > ul {
   display: none;
   height: 0;
   transition: 0.3s ease;
-  padding: calc(var(--space-unit) * .5px) 0 calc(var(--space-unit) * 2) 0;
+  padding: calc(var(--space-unit) * .5) 0 calc(var(--space-unit) * 2) 0;
 }
 
 footer > section.top > nav > .content > ul > li {
@@ -243,7 +243,7 @@ footer > section.bottom > div.logo > p > span {
 
   footer > section.top > nav > .content > ul > li {
     margin: 0;
-    padding: calc(var(--space-unit) * .5px) 0px;
+    padding: calc(var(--space-unit) * .5) 0px;
     border: none;
   }
 
