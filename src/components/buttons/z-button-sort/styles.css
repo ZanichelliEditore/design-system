@@ -77,11 +77,11 @@ button > span {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
-  margin-right: calc(var(--space-unit) * .5px);
+  margin-right: calc(var(--space-unit) * .5);
 }
 
 button > z-icon {
-  padding-top: calc(var(--space-unit) * .5px);
+  padding-top: calc(var(--space-unit) * .5);
 }
 
 /* Tablet breakpoint */
