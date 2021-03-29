@@ -26,10 +26,6 @@ export class ZButtonSort {
   /** sorting direction click event, returns buttonid and sortAsc */
   @Event() buttonSortClick: EventEmitter;
 
-  componentDidLoad() {
-    this.desclabel = this.label;
-  }
-
   emitButtonSortClick() {
     if (!this.isselected) {
       this.isselected = true;
