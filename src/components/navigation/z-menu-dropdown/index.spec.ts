@@ -7,7 +7,7 @@ describe("Suite test ZMenuDropdown", () => {
     expect(() => {
       newSpecPage({
         components: [ZMenuDropdown],
-        html: `<z-menu-dropdown menucontent=''></z-menu-dropdown>`,
+        html: `<z-menu-dropdown menucontent=''></z-menu-dropdown>`
       });
     }).toThrowError;
   });
@@ -15,16 +15,18 @@ describe("Suite test ZMenuDropdown", () => {
   it("Test  ZMenuDropdown con lista", async () => {
     const page = await newSpecPage({
       components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`,
+      html: `<z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`
     });
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
         <a role="button" tabindex="0">
           <div class=\"container\">
-            <z-icon name="user-avatar" width="14" height="14"></z-icon>
-            <span class="user">
-              Dario docente
+            <span class="user-wrapper">
+              <z-icon name="user-avatar" width="14" height="14"></z-icon>
+              <span class="user">
+                Dario docente
+              </span>
             </span>
             <span class="arrow">
               <z-icon name="caret-down" width="14" height="14"></z-icon>
@@ -39,16 +41,18 @@ describe("Suite test ZMenuDropdown", () => {
   it("Test ZMenuDropdown con lista on click", async () => {
     const page = await newSpecPage({
       components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`,
+      html: `<z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`
     });
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
       <a role="button" tabindex="0">
         <div class="container">
-          <z-icon width="14" name="user-avatar" height="14"></z-icon>
-          <span class="user">
-            Dario docente
+          <span class="user-wrapper">
+            <z-icon width="14" name="user-avatar" height="14"></z-icon>
+            <span class="user">
+              Dario docente
+            </span>
           </span>
           <span class="arrow">
             <z-icon  height="14" name="caret-down" width="14"></z-icon>
@@ -73,9 +77,11 @@ describe("Suite test ZMenuDropdown", () => {
       <mock:shadow-root>
         <a class="menu-opened" role="button" tabindex="0">
           <div class=\"container\">
-            <z-icon height="14" name="user-avatar" width="14"></z-icon>
-            <span class="user">
-              Dario docente
+           <span class="user-wrapper">
+              <z-icon height="14" name="user-avatar" width="14"></z-icon>
+              <span class="user">
+                Dario docente
+              </span>
             </span>
             <span class="arrow">
               <z-icon height="14" name="caret-down" width="14"></z-icon>
