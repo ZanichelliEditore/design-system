@@ -8,7 +8,7 @@ import { handleKeyboardSubmit } from "../../../utils/utils";
 @Component({
   tag: "z-card-info",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class zCardInfo {
   /** dictionary info */
@@ -29,6 +29,14 @@ export class zCardInfo {
   }
 
   componentWillLoad() {
+    this.setStringOrArray();
+  }
+
+  componentWillUpdate() {
+    this.setStringOrArray();
+  }
+
+  setStringOrArray() {
     if (typeof this.data === "string") {
       this.cardData = JSON.parse(this.data);
     } else {
