@@ -151,21 +151,18 @@ footer > section.bottom > div.item:nth-child(2) {
   border-bottom: 1px solid var(--bg-grey-050);
 }
 
-footer > section.bottom > div.item > ul.social {
+footer > section.bottom > div.item > div.social {
   display: flex;
   width: auto;
   padding: 0;
   margin-bottom: 0px;
+  /* background-color: darkmagenta !important; */
 }
 
-footer > section.bottom > div.item > ul.social > li {
-  list-style: none;
-  margin-right: 14px;
-}
-
-footer > section.bottom > div.item > ul.social img {
+/* footer > section.bottom > div.item > div.social  {
+  background-color: red;
   width: var(--basex3);
-}
+} */
 
 footer > section.bottom > div.bottom-links {
   display: none;
@@ -201,7 +198,7 @@ footer > section.bottom > div.logo > p > span {
 
   footer > section.top > nav {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: var(--grid-tablet-margin);
     padding: var(--basex2) 0 var(--basex1) 0;
@@ -277,11 +274,11 @@ footer > section.bottom > div.logo > p > span {
     padding-top: 0;
   }
 
-  footer > section.bottom > div.item > ul.social img {
+  /* footer > section.bottom > div.item > div.social img {
     width: var(--basex3);
     height: var(--basex3);
     border: none;
-  }
+  } */
 
   footer > section.bottom > div.logo > z-logo {
     width: auto;
@@ -294,22 +291,17 @@ footer > section.bottom > div.logo > p > span {
     order: 3;
   }
 
-  footer > section.bottom > div.bottom-links > ul {
+  footer > section.bottom > div.bottom-links {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fill, 30px);
     grid-column-gap: var(--grid-tablet-margin);
-    height: 54px;
     margin: 0;
     padding: 0;
     font-size: 12px;
   }
 
-  footer > section.bottom > div.bottom-links > ul > li {
-    margin-bottom: var(--basex1);
-    list-style: none;
-  }
-
-  footer > section.bottom > div.bottom-links > ul > li > a {
+  footer > section.bottom > div.bottom-links > [name="links"]::slotted(a) {
     color: var(--text-white);
   }
 }
@@ -347,7 +339,7 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top > nav > .header::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 100%;
@@ -380,30 +372,50 @@ footer > section.bottom > div.logo > p > span {
     margin-bottom: var(--basex2);
   }
 
-  footer > section.bottom > div.item > ul.social {
+  footer > section.bottom > div.item > div.social {
     margin-top: 0;
   }
 
-  footer > section.bottom > div.item > ul.social > li {
+  /* footer > section.bottom > div.item > ul.social > li {
     margin-right: var(--half-x3);
   }
 
   footer > section.bottom > div.item > ul.social img {
     width: var(--basex2);
     height: var(--basex2);
-  }
+  } */
 
   footer > section.bottom > div.bottom-links {
     padding: var(--basex2) 0 0 0;
   }
 
-  footer > section.bottom > div.bottom-links > ul {
+  footer > section.bottom > div.bottom-links {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: var(--grid-desktop-margin);
     margin: 0;
   }
 
-  footer > section.bottom > div.bottom-links > ul > li {
+  /* footer > section.bottom > div.bottom-links > ul > li {
     margin-bottom: var(--basex2);
-  }
+  } */
+}
+
+footer > section.top {
+  background-color: red;
+}
+
+footer .item.logo {
+  background-color: blue;
+}
+
+footer .address {
+  background-color: darkgray;
+}
+
+footer .social {
+  background-color: lime;
+}
+
+footer .item.bottom-links {
+  background-color: mediumaquamarine;
 }

@@ -293,13 +293,23 @@ export namespace Components {
     }
     interface ZFooter {
         /**
-          * set copyright user (optional)
-         */
-        "copyrightuser"?: any;
-        /**
           * JSON stringified data to fill the footer
          */
         "data": string;
+    }
+    interface ZFooterSocial {
+        /**
+          * social description
+         */
+        "description"?: string;
+        /**
+          * icon url
+         */
+        "icon": string;
+        /**
+          * social link
+         */
+        "link": string;
     }
     interface ZHeader {
         /**
@@ -925,6 +935,12 @@ declare global {
         prototype: HTMLZFooterElement;
         new (): HTMLZFooterElement;
     };
+    interface HTMLZFooterSocialElement extends Components.ZFooterSocial, HTMLStencilElement {
+    }
+    var HTMLZFooterSocialElement: {
+        prototype: HTMLZFooterSocialElement;
+        new (): HTMLZFooterSocialElement;
+    };
     interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {
     }
     var HTMLZHeaderElement: {
@@ -1081,6 +1097,7 @@ declare global {
         "z-combobox": HTMLZComboboxElement;
         "z-cookiebar": HTMLZCookiebarElement;
         "z-footer": HTMLZFooterElement;
+        "z-footer-social": HTMLZFooterSocialElement;
         "z-header": HTMLZHeaderElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
@@ -1410,13 +1427,23 @@ declare namespace LocalJSX {
     }
     interface ZFooter {
         /**
-          * set copyright user (optional)
-         */
-        "copyrightuser"?: any;
-        /**
           * JSON stringified data to fill the footer
          */
         "data"?: string;
+    }
+    interface ZFooterSocial {
+        /**
+          * social description
+         */
+        "description"?: string;
+        /**
+          * icon url
+         */
+        "icon"?: string;
+        /**
+          * social link
+         */
+        "link"?: string;
     }
     interface ZHeader {
         /**
@@ -1996,6 +2023,7 @@ declare namespace LocalJSX {
         "z-combobox": ZCombobox;
         "z-cookiebar": ZCookiebar;
         "z-footer": ZFooter;
+        "z-footer-social": ZFooterSocial;
         "z-header": ZHeader;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
@@ -2042,6 +2070,7 @@ declare module "@stencil/core" {
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
+            "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;

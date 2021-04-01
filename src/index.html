@@ -33,10 +33,10 @@
       <z-button variant="primary">OK</z-button>
     </div>
   </z-candybar> -->
-  <z-cookiebar
+  <!-- <z-cookiebar
     cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
     hide="false">
-  </z-cookiebar>
+  </z-cookiebar> -->
   <!-- <z-modal modaltitle="titolotitolo" modalsubtitle="sottotitolo">
     <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
   </z-modal> -->
@@ -691,6 +691,11 @@
     </section>
   </section>
 
+
+  <z-footer-social icon="https://staticmy.zanichelli.it/footer/images/png/mail.png" link= description="Mail">
+    
+  </z-footer-social>
+
   <z-footer copyrightuser='Zanichelli' data='{
       "zanichelliLinks": [{
           "title": "Zanichelli.it",
@@ -856,7 +861,31 @@
           "label": "Privacy",
           "link": "https://my.zanichelli.it/privacy"
       }]
-  }'></z-footer>
+  }'>
+  
+  <z-footer-social slot="social" link="http://www.youtube.com/user/zanichellieditore" icon="https://staticmy.zanichelli.it/footer/images/png/youtube.png" description="YouTube" >
+  </z-footer-social>
+  <z-footer-social slot="social" link="https://it-it.facebook.com/zanichelliscuola" icon="https://staticmy.zanichelli.it/footer/images/png/facebook.png" description="Facebook" >
+  </z-footer-social>
+  <z-footer-social slot="social" link="https://twitter.com/zanichelli_ed" icon="https://staticmy.zanichelli.it/footer/images/png/twitter.png" description="Twitter" >
+  </z-footer-social>
+  <z-footer-social slot="social" link= "https://www.instagram.com/zanichellieditore/" icon="https://staticmy.zanichelli.it/footer/images/png/instagram.png" description="Instagram" >
+  </z-footer-social>
+  <z-footer-social slot="social" link= "mailto:zanichelli@zanichelli.com" icon="https://staticmy.zanichelli.it/footer/images/png/mail.png" description="Mail" >
+  </z-footer-social>
+
+  <a slot="links" href="https://www.zanichelli.it/chi-siamo/via-irnerio-34" target="_blank">Chi siamo</a>
+  <a slot="links" href="https://www.zanichelli.it/contatti-e-recapiti" target="_blank">Contatti e recapiti</a>
+  <a slot="links" href="https://www.zanichelli.it/comunicazione/area-stampa" target="_blank">Area stampa</a>
+  <a slot="links" href="https://www.zanichelli.it/contatti/acquisti-e-recesso" target="_blank">Per acqusti online</a>
+  <a slot="links" href="https://www.zanichelli.it/contatti/filiali-e-agenzie" target="_blank">Filiali e agenzie</a>
+  <a slot="links" href="https://my.zanichelli.it/privacy" target="_blank">Privacy</a>
+  <a slot="links" href="https://my.zanichelli.it/condizioni-uso" target="_blank">Condizioni d’uso</a>
+  <a slot="links" href="https://my.zanichelli.it/domande-frequenti" target="_blank">Domande frequenti</a>
+
+
+
+</z-footer>
 
 </body>
 

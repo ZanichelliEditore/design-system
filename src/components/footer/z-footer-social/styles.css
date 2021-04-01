@@ -1,0 +1,24 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  display: inline-block;
+}
+
+:host > a > img {
+  width: 24px;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+  :host > a > img {
+    width: 16px;
+  }
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}

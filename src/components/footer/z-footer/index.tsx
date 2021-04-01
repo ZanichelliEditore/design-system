@@ -4,8 +4,6 @@ import {
   FooterBean,
   FooterGroupBean,
   FooterGroupItemBean,
-  MyzLinkBean,
-  FooterSocialBean
 } from "../../../beans/index.js";
 
 @Component({
@@ -16,8 +14,6 @@ import {
 export class ZFooter {
   /** JSON stringified data to fill the footer */
   @Prop() data: string;
-  /** set copyright user (optional)  */
-  @Prop() copyrightuser?;
   @State() isOpen: boolean[] = [];
   @State() isMobile: boolean;
 
@@ -97,6 +93,7 @@ export class ZFooter {
     }
 
     return (
+      // main slot
       <section class="top">
         {zanichelliLinksToRender.map(
           (item: FooterGroupBean, id: number): HTMLElement =>
@@ -107,66 +104,66 @@ export class ZFooter {
   }
 
   renderZLogo(): HTMLElement {
-    const myzLink: MyzLinkBean = this.jsonData.myzLink;
+
 
     return (
       <z-logo
-        link={myzLink.link}
+        link="https://www.zanichelli.it"
         width={144}
         height={38}
-        imagealt={myzLink.label}
+        imagealt="Home Zanichelli"
         targetblank={true}
       />
     );
   }
 
   renderAddress(): HTMLElement {
-    const zanichelliAddress: string = this.jsonData.zanichelliAddress;
-
-    return <p>{zanichelliAddress}</p>;
+    // fixed
+    return <p class="address">Zanichelli editore S.p.A. via Irnerio 34, 40126 Bologna<br/>Fax 051 - 249.782 / 293.224 | Tel. 051 - 293.111 / 245.024<br/>Partita IVA 03978000374</p>;
   }
 
   renderSocial(): HTMLElement {
-    const social: FooterSocialBean[] = this.jsonData.social;
-
     return (
-      <ul class="social">
-        {social.map(
-          (item: FooterSocialBean): HTMLElement => (
-            <li>
-              <a href={item.link} target="_blank">
-                <img src={item.icon} alt={item.description} />
-              </a>
-            </li>
-          )
-        )}
-      </ul>
-    );
+      <div class="social">
+        <slot name="social"/>
+      </div>
+    )
+    // return (
+    //   <ul class="social">
+    //     {social.map(
+    //       (item: FooterSocialBean): HTMLElement => (
+    //         <li>
+    //           <a href={item.link} target="_blank">
+    //             <img src={item.icon} alt={item.description} />
+    //           </a>
+    //         </li>
+    //       )
+    //     )}
+    //   </ul>
+    // );
   }
 
   renderCopyright(): HTMLElement {
-    if (!!this.copyrightuser) {
+
       return (
         <p>
-          Copyright – 2018-{new Date().getFullYear()} {this.copyrightuser}
+          Copyright – 2018-{new Date().getFullYear()} Zanichelli
           <span> All rights reserved </span>
         </p>
-      );
-    } else return;
+      )
   }
 
   renderCertification(): HTMLElement {
-    const certification: string = this.jsonData.certification;
 
-    return <p>{certification}</p>;
+    return <p>Zanichelli editore S.p.A. opera con sistema qualità certificato CertiCarGraf n. 477<br/>secondo la norma UNI EN ISO 9001:2015</p>;
   }
 
   renderBottomLinks(): HTMLElement {
-    const bottomLinks: FooterGroupItemBean[] = this.jsonData.bottomLinks;
     if (!this.isMobile) {
       return (
         <div class="item bottom-links">
-          <ul>
+          <slot name="links"/>
+          {/* <ul>
             {bottomLinks.map(
               (item: FooterGroupItemBean): HTMLElement => (
                 <li>
@@ -179,7 +176,7 @@ export class ZFooter {
                 </li>
               )
             )}
-          </ul>
+          </ul> */}
         </div>
       );
     }
@@ -189,6 +186,7 @@ export class ZFooter {
     return (
       <section class="bottom">
         <div class="item logo">
+          {/* fixed */}
           {this.renderZLogo()}
           {this.renderCopyright()}
           {this.renderCertification()}

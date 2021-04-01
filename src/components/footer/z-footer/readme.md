@@ -175,10 +175,9 @@
 
 ## Properties
 
-| Property        | Attribute       | Description                              | Type     | Default     |
-| --------------- | --------------- | ---------------------------------------- | -------- | ----------- |
-| `copyrightuser` | `copyrightuser` | set copyright user (optional)            | `any`    | `undefined` |
-| `data`          | `data`          | JSON stringified data to fill the footer | `string` | `undefined` |
+| Property | Attribute | Description                              | Type     | Default     |
+| -------- | --------- | ---------------------------------------- | -------- | ----------- |
+| `data`   | `data`    | JSON stringified data to fill the footer | `string` | `undefined` |
 
 
 ## Dependencies
