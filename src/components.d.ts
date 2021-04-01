@@ -307,6 +307,12 @@ export namespace Components {
          */
         "link": string;
     }
+    interface ZFooterSection {
+        /**
+          * section title
+         */
+        "name": string;
+    }
     interface ZFooterSocial {
         /**
           * social description
@@ -951,6 +957,12 @@ declare global {
         prototype: HTMLZFooterLinkElement;
         new (): HTMLZFooterLinkElement;
     };
+    interface HTMLZFooterSectionElement extends Components.ZFooterSection, HTMLStencilElement {
+    }
+    var HTMLZFooterSectionElement: {
+        prototype: HTMLZFooterSectionElement;
+        new (): HTMLZFooterSectionElement;
+    };
     interface HTMLZFooterSocialElement extends Components.ZFooterSocial, HTMLStencilElement {
     }
     var HTMLZFooterSocialElement: {
@@ -1114,6 +1126,7 @@ declare global {
         "z-cookiebar": HTMLZCookiebarElement;
         "z-footer": HTMLZFooterElement;
         "z-footer-link": HTMLZFooterLinkElement;
+        "z-footer-section": HTMLZFooterSectionElement;
         "z-footer-social": HTMLZFooterSocialElement;
         "z-header": HTMLZHeaderElement;
         "z-heading": HTMLZHeadingElement;
@@ -1457,6 +1470,12 @@ declare namespace LocalJSX {
           * link
          */
         "link"?: string;
+    }
+    interface ZFooterSection {
+        /**
+          * section title
+         */
+        "name"?: string;
     }
     interface ZFooterSocial {
         /**
@@ -2051,6 +2070,7 @@ declare namespace LocalJSX {
         "z-cookiebar": ZCookiebar;
         "z-footer": ZFooter;
         "z-footer-link": ZFooterLink;
+        "z-footer-section": ZFooterSection;
         "z-footer-social": ZFooterSocial;
         "z-header": ZHeader;
         "z-heading": ZHeading;
@@ -2099,6 +2119,7 @@ declare module "@stencil/core" {
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
+            "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
             "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
