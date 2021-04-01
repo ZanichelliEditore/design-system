@@ -156,7 +156,6 @@ footer > section.bottom > div.item > div.social {
   width: auto;
   padding: 0;
   margin-bottom: 0px;
-  /* background-color: darkmagenta !important; */
 }
 
 /* footer > section.bottom > div.item > div.social  {
@@ -296,13 +295,7 @@ footer > section.bottom > div.logo > p > span {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(auto-fill, 30px);
     grid-column-gap: var(--grid-tablet-margin);
-    margin: 0;
-    padding: 0;
     font-size: 12px;
-  }
-
-  footer > section.bottom > div.bottom-links > [name="links"]::slotted(a) {
-    color: var(--text-white);
   }
 }
 
