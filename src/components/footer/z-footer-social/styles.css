@@ -2,9 +2,6 @@
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 }
-:host > a {
-  margin-right: 14px;
-}
 
 :host > a > img {
   width: var(--basex3);

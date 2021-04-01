@@ -1,6 +1,11 @@
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+  width: 100%;
+  margin: 0;
+  padding: var(--basex1) 0 var(--basex1) 0;
+  border-bottom: 1px solid var(--bg-grey-050);
+  text-decoration: none;
 }
 
 :host > a {
@@ -8,6 +13,10 @@
 }
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
+  :host {
+    border-bottom: none;
+    text-decoration: underline;
+  }
 }
 
 /* Desktop breakpoint */

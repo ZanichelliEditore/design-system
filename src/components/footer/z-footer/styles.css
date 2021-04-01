@@ -152,8 +152,10 @@ footer > section.bottom > div.item:nth-child(2) {
 }
 
 footer > section.bottom > div.item > div.social {
-  display: flex;
-  width: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(auto-fill, 24px);
+  column-gap: 12px;
   padding: 0;
   margin-bottom: 0px;
 }
@@ -293,7 +295,7 @@ footer > section.bottom > div.logo > p > span {
   footer > section.bottom > div.bottom-links {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(auto-fill, 30px);
+    grid-template-rows: repeat(auto-fill, 24px);
     grid-column-gap: var(--grid-tablet-margin);
     font-size: 12px;
   }
