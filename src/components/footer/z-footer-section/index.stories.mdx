@@ -1,22 +1,20 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text } from '@storybook/addon-knobs';
+import { text } from "@storybook/addon-knobs";
 
 ## Stories
 
 <Meta title="Footer/ZFooterSection" component="z-footer-section" />
 
-# ZFooter
+# ZFooterSection
 
 <Preview>
   <Story name="z-footer-section">
-    {html`
-      <z-footer-section name="${text('name', 'Section title')}">
-        <z-footer-link label="section link"></z-footer-link>
-        <z-footer-link label="section link"></z-footer-link>
-      </z-footer-section>`}
+    {html` <z-footer-section name="${text("name", "Section title")}">
+      <z-footer-link>section link</z-footer-link>
+      <z-footer-link>section link</z-footer-link>
+    </z-footer-section>`}
   </Story>
 </Preview>
 
 <Props of="z-footer-section" />
-
