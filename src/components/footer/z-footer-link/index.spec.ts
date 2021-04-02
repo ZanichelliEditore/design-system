@@ -32,4 +32,20 @@ describe("Suite test ZFooterLink", () => {
       </z-footer-link>
     `);
   });
+
+  it("Test render ZFooterLink with slot", async () => {
+    const page = await newSpecPage({
+      components: [ZFooterLink],
+      html: `<z-footer-link href="url">etichetta</z-footer-link>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-footer-link href="url">
+        <mock:shadow-root>
+          <a href="url" target="_blank"></a>
+        </mock:shadow-root>
+        etichetta
+      </z-footer-link>
+    `);
+  });
 });
