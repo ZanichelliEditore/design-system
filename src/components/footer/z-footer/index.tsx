@@ -47,7 +47,7 @@ export class ZFooter {
     return (
       <p>
         Copyright – 2018-{new Date().getFullYear()} Zanichelli
-        <span> All rights reserved </span>
+        <span>All rights reserved</span>
       </p>
     );
   }
