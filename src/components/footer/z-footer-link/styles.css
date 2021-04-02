@@ -1,21 +1,26 @@
 :host {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  width: 100%;
-  margin: 0;
-  padding: var(--basex1) 0 var(--basex1) 0;
-  border-bottom: 1px solid var(--bg-grey-050);
-  text-decoration: none;
 }
 
 :host > a {
+  display: inline-block;
   color: var(--text-white);
+  padding: var(--half-x3) 0;
+  border-bottom: 1px solid var(--bg-grey-050);
+  text-decoration: none;
+  font-size: 14px;
+  width: 100%;
 }
+
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-  :host {
+  :host a {
+    font-size: 12px;
     border-bottom: none;
     text-decoration: underline;
+    padding: 0;
+    width: initial;
   }
 }
 

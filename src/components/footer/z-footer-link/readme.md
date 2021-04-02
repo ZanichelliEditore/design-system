@@ -10,7 +10,13 @@
 | Property | Attribute | Description | Type     | Default     |
 | -------- | --------- | ----------- | -------- | ----------- |
 | `href`   | `href`    | link        | `string` | `undefined` |
-| `label`  | `label`   | label       | `string` | `undefined` |
+
+
+## Slots
+
+| Slot | Description |
+| ---- | ----------- |
+|      | link label  |
 
 
 ----------------------------------------------
