@@ -10,8 +10,8 @@
 | Property      | Attribute     | Description        | Type     | Default     |
 | ------------- | ------------- | ------------------ | -------- | ----------- |
 | `description` | `description` | social description | `string` | `undefined` |
+| `href`        | `href`        | social link        | `string` | `undefined` |
 | `icon`        | `icon`        | icon url           | `string` | `undefined` |
-| `link`        | `link`        | social link        | `string` | `undefined` |
 
 
 ----------------------------------------------

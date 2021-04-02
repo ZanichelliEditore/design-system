@@ -9,11 +9,11 @@ export class ZFooterLink {
   /** label */
   @Prop() label: string;
   /** link */
-  @Prop() link: string;
+  @Prop() href: string;
 
   render() {
     return (
-      <a href={this.link} target="_blank">
+      <a href={this.href} target="_blank">
         {this.label}
       </a>
     );

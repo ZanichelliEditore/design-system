@@ -299,13 +299,13 @@ export namespace Components {
     }
     interface ZFooterLink {
         /**
+          * link
+         */
+        "href": string;
+        /**
           * label
          */
         "label": string;
-        /**
-          * link
-         */
-        "link": string;
     }
     interface ZFooterSection {
         /**
@@ -319,13 +319,13 @@ export namespace Components {
          */
         "description"?: string;
         /**
+          * social link
+         */
+        "href": string;
+        /**
           * icon url
          */
         "icon": string;
-        /**
-          * social link
-         */
-        "link": string;
     }
     interface ZHeader {
         /**
@@ -1463,13 +1463,13 @@ declare namespace LocalJSX {
     }
     interface ZFooterLink {
         /**
+          * link
+         */
+        "href"?: string;
+        /**
           * label
          */
         "label"?: string;
-        /**
-          * link
-         */
-        "link"?: string;
     }
     interface ZFooterSection {
         /**
@@ -1483,13 +1483,13 @@ declare namespace LocalJSX {
          */
         "description"?: string;
         /**
+          * social link
+         */
+        "href"?: string;
+        /**
           * icon url
          */
         "icon"?: string;
-        /**
-          * social link
-         */
-        "link"?: string;
     }
     interface ZHeader {
         /**
