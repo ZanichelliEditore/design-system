@@ -11,8 +11,13 @@ import { text } from "@storybook/addon-knobs";
 <Preview>
   <Story name="z-footer-section">
     {html` <z-footer-section name="${text("name", "Section title")}">
-      <z-footer-link>section link</z-footer-link>
-      <z-footer-link>section link</z-footer-link>
+      ${text("content", "ZFooterSection content")}
+    </z-footer-section>`}
+  </Story>
+  <Story name="use-case">
+    {html` <z-footer-section name="Zanichelli">
+      <z-footer-link>Footer link</z-footer-link>
+      <z-footer-link>Footer link</z-footer-link>
     </z-footer-section>`}
   </Story>
 </Preview>
