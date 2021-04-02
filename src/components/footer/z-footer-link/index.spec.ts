@@ -12,7 +12,9 @@ describe("Suite test ZFooterLink", () => {
     expect(page.root).toEqualHtml(`
       <z-footer-link>
         <mock:shadow-root>
-          <a target="_blank"></a>
+          <a target="_blank">
+            <slot></slot>
+          </a>
         </mock:shadow-root>
       </z-footer-link>
     `);
@@ -21,14 +23,17 @@ describe("Suite test ZFooterLink", () => {
   it("Test render ZFooterLink with params", async () => {
     const page = await newSpecPage({
       components: [ZFooterLink],
-      html: `<z-footer-link label="chi siamo" href="http://www.google.it"></z-footer-link>`,
+      html: `<z-footer-link href="url">label</z-footer-link>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-footer-link label="chi siamo" href="http://www.google.it">
+      <z-footer-link href="url">
         <mock:shadow-root>
-          <a href=\"http://www.google.it\" target=\"_blank\">chi siamo</a>
+          <a href="url" target="_blank">
+            <slot></slot>
+          </a>
         </mock:shadow-root>
+        label
       </z-footer-link>
     `);
   });
@@ -42,7 +47,9 @@ describe("Suite test ZFooterLink", () => {
     expect(page.root).toEqualHtml(`
       <z-footer-link href="url">
         <mock:shadow-root>
-          <a href="url" target="_blank"></a>
+          <a href="url" target="_blank">
+            <slot></slot>
+          </a>
         </mock:shadow-root>
         etichetta
       </z-footer-link>

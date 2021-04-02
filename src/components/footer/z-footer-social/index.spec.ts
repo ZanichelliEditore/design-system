@@ -23,14 +23,14 @@ describe("Suite test ZFooterSocial", () => {
   it("Test render ZFooterSocial with params", async () => {
     const page = await newSpecPage({
       components: [ZFooterSocial],
-      html: `<z-footer-social href="http://www.google.it" icon="icon.png" description="Youtube"></z-footer-social>`,
+      html: `<z-footer-social href="url" icon="icon.png" description="Youtube"></z-footer-social>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-footer-social href="http://www.google.it" icon="icon.png" description="Youtube">
+      <z-footer-social href="url" icon="icon.png" description="Youtube">
         <mock:shadow-root>
-        <a href=\"http://www.google.it\" target=\"_blank\">
-          <img alt=\"Youtube\" src\="icon.png\"></img>
+        <a href="url" target="_blank">
+          <img alt="Youtube" src="icon.png"></img>
         </a>
         </mock:shadow-root>
       </z-footer-social>
