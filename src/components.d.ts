@@ -292,20 +292,12 @@ export namespace Components {
         "hide"?: boolean;
     }
     interface ZFooter {
-        /**
-          * JSON stringified data to fill the footer
-         */
-        "data": string;
     }
     interface ZFooterLink {
         /**
           * link
          */
         "href": string;
-        /**
-          * label
-         */
-        "label": string;
     }
     interface ZFooterSection {
         /**
@@ -1456,20 +1448,12 @@ declare namespace LocalJSX {
         "onAccept"?: (event: CustomEvent<any>) => void;
     }
     interface ZFooter {
-        /**
-          * JSON stringified data to fill the footer
-         */
-        "data"?: string;
     }
     interface ZFooterLink {
         /**
           * link
          */
         "href"?: string;
-        /**
-          * label
-         */
-        "label"?: string;
     }
     interface ZFooterSection {
         /**

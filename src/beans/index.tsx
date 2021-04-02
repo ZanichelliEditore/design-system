@@ -1,35 +1,3 @@
-export type FooterBean = {
-  zanichelliLinks: FooterGroupBean[];
-  myzLink: MyzLinkBean;
-  zanichelliAddress: string;
-  social: FooterSocialBean[];
-  certification: string;
-  bottomLinks: FooterGroupItemBean[];
-};
-
-export type FooterGroupItemBean = {
-  label: string;
-  link: string;
-  target?: string;
-};
-
-export type FooterGroupBean = {
-  title: string;
-  items: FooterGroupItemBean[];
-};
-
-export type MyzLinkBean = {
-  label: string;
-  img: string;
-  link: string;
-};
-
-export type FooterSocialBean = {
-  icon: string;
-  link: string;
-  description?: string;
-};
-
 export enum LicenseTypeEnum {
   real = "reale",
   virtual = "virtuale",

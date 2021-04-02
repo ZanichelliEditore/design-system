@@ -14,7 +14,7 @@ export class ZFooterSection {
 
   @State() isOpen: boolean = false;
 
-  renderToggleButton() {
+  renderToggleButton(): HTMLButtonElement {
     return (
       <button class="toggleButton" onClick={() => (this.isOpen = !this.isOpen)}>
         <z-icon
@@ -26,7 +26,7 @@ export class ZFooterSection {
     );
   }
 
-  render() {
+  render(): HTMLElement {
     return (
       <nav>
         <div class="header">

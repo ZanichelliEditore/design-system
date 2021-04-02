@@ -173,24 +173,24 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
+## Slots
 
-| Property | Attribute | Description                              | Type     | Default     |
-| -------- | --------- | ---------------------------------------- | -------- | ----------- |
-| `data`   | `data`    | JSON stringified data to fill the footer | `string` | `undefined` |
+| Slot       | Description       |
+| ---------- | ----------------- |
+|            | main navigation   |
+| `"links"`  | bottom navigation |
+| `"social"` | social links      |
 
 
 ## Dependencies
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
 - [z-logo](../../logo/z-logo)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-footer --> z-icon
   z-footer --> z-logo
   style z-footer fill:#f9f,stroke:#333,stroke-width:4px
 ```

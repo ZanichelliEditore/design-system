@@ -21,7 +21,7 @@ footer > section {
   display: grid;
 }
 
-footer > section.top > nav {
+/* footer > section.top > nav {
   display: flex;
   flex-direction: column;
   justify-items: flex-start;
@@ -119,7 +119,7 @@ footer > section.top > nav > div > ul > li > a {
   font-size: 14px;
   line-height: 2;
 }
-
+ */
 footer > section.bottom {
   display: grid;
   grid-template-columns: 1fr;
@@ -197,7 +197,7 @@ footer > section.bottom > div.logo > p > span {
     background-color: var(--text-grey-800);
   }
 
-  footer > section.top > nav {
+  /* footer > section.top > nav {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
@@ -249,7 +249,7 @@ footer > section.bottom > div.logo > p > span {
     font-size: 12px;
     line-height: 1;
     border-bottom: 1px solid var(--bg-white);
-  }
+  } */
 
   footer > section.bottom {
     grid-template-columns: repeat(4, 1fr);
@@ -310,7 +310,7 @@ footer > section.bottom > div.logo > p > span {
     padding: var(--basex3) var(--basex4);
   }
 
-  footer > section.top > nav {
+  /* footer > section.top > nav {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 40px 4fr;
@@ -352,7 +352,7 @@ footer > section.bottom > div.logo > p > span {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-  }
+  } */
 
   footer > section.bottom {
     padding: var(--basex2) var(--basex4);
@@ -395,7 +395,7 @@ footer > section.bottom > div.logo > p > span {
   } */
 }
 
-footer > section.top {
+/* footer > section.top {
   background-color: red;
 }
 
@@ -413,4 +413,4 @@ footer .social {
 
 footer .item.bottom-links {
   background-color: mediumaquamarine;
-}
+} */
