@@ -1,0 +1,33 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host > a {
+  display: inline-block;
+  color: var(--text-white);
+  padding: var(--half-x3) 0;
+  border-bottom: 1px solid var(--bg-grey-050);
+  text-decoration: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  :host a {
+    font-size: 12px;
+    border-bottom: none;
+    text-decoration: underline;
+    padding: 0;
+    width: initial;
+  }
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}

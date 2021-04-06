@@ -33,7 +33,7 @@ export type FooterSocialBean = {
 export enum LicenseTypeEnum {
   real = "reale",
   virtual = "virtuale",
-  trial = "saggio"
+  trial = "saggio",
 }
 export type LicenseType = keyof typeof LicenseTypeEnum;
 
@@ -96,13 +96,13 @@ export type ButtonVariantBean = ButtonVariantEnum;
 export enum ButtonVariantEnum {
   primary = "primary",
   secondary = "secondary",
-  tertiary = "tertiary"
+  tertiary = "tertiary",
 }
 
 export enum ButtonTypeEnum {
   submit = "submit",
   reset = "reset",
-  button = "button"
+  button = "button",
 }
 
 export type InputTypeBean = keyof typeof InputTypeEnum;
@@ -115,7 +115,7 @@ export enum InputTypeEnum {
   textarea = "textarea",
   checkbox = "checkbox",
   radio = "radio",
-  select = "select"
+  select = "select",
 }
 
 export type InputStatusBean = keyof typeof InputStatusEnum;
@@ -124,7 +124,7 @@ export enum InputStatusEnum {
   success = "success",
   error = "error",
   warning = "warning",
-  selecting = "selecting"
+  selecting = "selecting",
 }
 
 export type TooltipPositionBean = keyof typeof TooltipPosition;
@@ -134,7 +134,7 @@ export enum TooltipPosition {
   BOTTOM = "BOTTOM",
   LEFT = "LEFT",
   RIGHT = "RIGHT",
-  NO_ARROW = "NO_ARROW"
+  NO_ARROW = "NO_ARROW",
 }
 
 export enum keybordKeyCodeEnum {
@@ -145,7 +145,7 @@ export enum keybordKeyCodeEnum {
   ARROW_UP = 38,
   ARROW_DOWN = 40,
   BACKSPACE = 8,
-  DELETE = 46
+  DELETE = 46,
 }
 
 export type SelectItemBean = {
@@ -158,7 +158,7 @@ export type SelectItemBean = {
 export enum AlertTypesEnum {
   success = "success",
   warning = "warning",
-  error = "error"
+  error = "error",
 }
 
 export type AlertTypes = AlertTypesEnum;
@@ -166,7 +166,7 @@ export type AlertTypes = AlertTypesEnum;
 export enum DeviceEnum {
   mobile = "mobile",
   tablet = "tablet",
-  desktop = "desktop"
+  desktop = "desktop",
 }
 
 export type DeviceType = DeviceEnum;
@@ -190,6 +190,6 @@ export type DictionaryLicenseData = {
 export enum PocketStatusEnum {
   preview = "preview",
   open = "open",
-  closed = "closed"
+  closed = "closed",
 }
 export type PocketStatus = PocketStatusEnum;

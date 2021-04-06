@@ -32,7 +32,7 @@
  - [z-card-icon](../../card/z-card-icon)
  - [z-card-info](../../card/z-card-info)
  - [z-combobox](../../inputs/z-combobox)
- - [z-footer](../../footer/z-footer)
+ - [z-footer-section](../../footer/z-footer-section)
  - [z-header](../../navigation/z-header)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
@@ -59,7 +59,7 @@ graph TD;
   z-card-icon --> z-icon
   z-card-info --> z-icon
   z-combobox --> z-icon
-  z-footer --> z-icon
+  z-footer-section --> z-icon
   z-header --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon

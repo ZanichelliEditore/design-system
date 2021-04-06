@@ -1,0 +1,22 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from "@storybook/addon-knobs";
+
+## Stories
+
+<Meta title="Footer/ZFooterLink" component="z-footer-link" />
+
+# ZFooterLink
+
+<Preview>
+  <Story name="ZFooterLink">
+    {html`
+      <div style="background: #ccc;">
+        <z-footer-link href="${text("href", "https://www.zanichelli.it")}"
+          >${text("label", "zanichelli")}</z-footer-link>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+<Props of="z-footer-link" />

@@ -1,0 +1,25 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text } from "@storybook/addon-knobs";
+
+## Stories
+
+<Meta title="Footer/ZFooterSection" component="z-footer-section" />
+
+# ZFooterSection
+
+<Preview>
+  <Story name="z-footer-section">
+    {html` <z-footer-section name="${text("name", "Section title")}">
+      ${text("content", "ZFooterSection content")}
+    </z-footer-section>`}
+  </Story>
+  <Story name="use-case">
+    {html` <z-footer-section name="Zanichelli">
+      <z-footer-link>Footer link</z-footer-link>
+      <z-footer-link>Footer link</z-footer-link>
+    </z-footer-section>`}
+  </Story>
+</Preview>
+
+<Props of="z-footer-section" />
