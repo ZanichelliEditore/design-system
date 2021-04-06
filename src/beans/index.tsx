@@ -1,7 +1,39 @@
+export type FooterBean = {
+  zanichelliLinks: FooterGroupBean[];
+  myzLink: MyzLinkBean;
+  zanichelliAddress: string;
+  social: FooterSocialBean[];
+  certification: string;
+  bottomLinks: FooterGroupItemBean[];
+};
+
+export type FooterGroupItemBean = {
+  label: string;
+  link: string;
+  target?: string;
+};
+
+export type FooterGroupBean = {
+  title: string;
+  items: FooterGroupItemBean[];
+};
+
+export type MyzLinkBean = {
+  label: string;
+  img: string;
+  link: string;
+};
+
+export type FooterSocialBean = {
+  icon: string;
+  link: string;
+  description?: string;
+};
+
 export enum LicenseTypeEnum {
   real = "reale",
   virtual = "virtuale",
-  trial = "saggio"
+  trial = "saggio",
 }
 export type LicenseType = keyof typeof LicenseTypeEnum;
 
@@ -64,13 +96,13 @@ export type ButtonVariantBean = ButtonVariantEnum;
 export enum ButtonVariantEnum {
   primary = "primary",
   secondary = "secondary",
-  tertiary = "tertiary"
+  tertiary = "tertiary",
 }
 
 export enum ButtonTypeEnum {
   submit = "submit",
   reset = "reset",
-  button = "button"
+  button = "button",
 }
 
 export type InputTypeBean = keyof typeof InputTypeEnum;
@@ -83,7 +115,7 @@ export enum InputTypeEnum {
   textarea = "textarea",
   checkbox = "checkbox",
   radio = "radio",
-  select = "select"
+  select = "select",
 }
 
 export type InputStatusBean = keyof typeof InputStatusEnum;
@@ -92,7 +124,7 @@ export enum InputStatusEnum {
   success = "success",
   error = "error",
   warning = "warning",
-  selecting = "selecting"
+  selecting = "selecting",
 }
 
 export type TooltipPositionBean = keyof typeof TooltipPosition;
@@ -102,7 +134,7 @@ export enum TooltipPosition {
   BOTTOM = "BOTTOM",
   LEFT = "LEFT",
   RIGHT = "RIGHT",
-  NO_ARROW = "NO_ARROW"
+  NO_ARROW = "NO_ARROW",
 }
 
 export enum keybordKeyCodeEnum {
@@ -111,7 +143,7 @@ export enum keybordKeyCodeEnum {
   ESC = 27,
   ENTER = 13,
   ARROW_UP = 38,
-  ARROW_DOWN = 40
+  ARROW_DOWN = 40,
 }
 
 export type SelectItemBean = {
