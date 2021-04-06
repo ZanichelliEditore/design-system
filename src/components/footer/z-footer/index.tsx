@@ -20,11 +20,11 @@ export class ZFooter {
 
   componentWillLoad() {
     if (this.data) {
-      console.warn("z-footer: `data` prop is deprecated. Use slots instead.");
+      console.warn("z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead.");
       this.jsonData = JSON.parse(this.data);
     }
     if (this.copyrightuser) {
-      console.warn("z-footer: `copyrightuser` prop is deprecated.");
+      console.warn("z-footer: `copyrightuser` prop is deprecated and will be removed in a future version.");
     }
   }
 
