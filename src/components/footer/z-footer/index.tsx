@@ -1,4 +1,4 @@
-import { Component, h } from "@stencil/core";
+import { Component, h, Prop } from "@stencil/core";
 
 /**
  * @slot - main navigation
@@ -11,6 +11,23 @@ import { Component, h } from "@stencil/core";
   shadow: true,
 })
 export class ZFooter {
+  /** deprecated - JSON stringified data to fill the footer */
+  @Prop() data?: string;
+  /** deprecated - set copyright user */
+  @Prop() copyrightuser?: string;
+
+  private jsonData;
+
+  componentWillLoad() {
+    if (this.data) {
+      console.warn("z-footer: `data` prop is deprecated. Use slots instead.");
+      this.jsonData = JSON.parse(this.data);
+    }
+    if (this.copyrightuser) {
+      console.warn("z-footer: `copyrightuser` prop is deprecated.");
+    }
+  }
+
   renderZLogo(): HTMLZLogoElement {
     return (
       <z-logo
@@ -39,6 +56,7 @@ export class ZFooter {
     return (
       <div class="social">
         <slot name="social" />
+        {this.renderFooterSocialJsonData()}
       </div>
     );
   }
@@ -67,6 +85,7 @@ export class ZFooter {
     return (
       <div class="item bottom-links">
         <slot name="links" />
+        {this.renderFooterBottomJsonData()}
       </div>
     );
   }
@@ -92,7 +111,60 @@ export class ZFooter {
     return (
       <section class="top">
         <slot />
+        {this.renderFooterTopJsonData()}
       </section>
+    );
+  }
+
+  // INFO: backward compatibility
+  renderFooterTopJsonData(): null | HTMLElement {
+    if (!this.jsonData || !this.jsonData.zanichelliLinks) return null;
+
+    const zanichelliLinks = this.jsonData.zanichelliLinks;
+    if (this.jsonData.bottomLinks) {
+      const bottomLinks = this.jsonData.bottomLinks;
+      zanichelliLinks.push({
+        title: "Altre informazioni",
+        items: bottomLinks,
+      });
+    }
+
+    return zanichelliLinks.map(
+      (item): HTMLElement => (
+        <z-footer-section name={item.title}>
+          {item.items.map((item) => (
+            <z-footer-link href={item.link}>{item.label}</z-footer-link>
+          ))}
+        </z-footer-section>
+      )
+    );
+  }
+
+  // INFO: backward compatibility
+  renderFooterBottomJsonData(): null | HTMLElement {
+    if (!this.jsonData || !this.jsonData.bottomLinks) return null;
+
+    const bottomLinks = this.jsonData.bottomLinks;
+    return bottomLinks.map(
+      (item): HTMLElement => (
+        <z-footer-link href={item.link}>{item.label}</z-footer-link>
+      )
+    );
+  }
+
+  // INFO: backward compatibility
+  renderFooterSocialJsonData(): null | HTMLElement {
+    if (!this.jsonData || !this.jsonData.social) return null;
+
+    const social = this.jsonData.social;
+    return social.map(
+      (item): HTMLElement => (
+        <z-footer-social
+          href={item.link}
+          icon={item.icon}
+          description={item.description}
+        />
+      )
     );
   }
 

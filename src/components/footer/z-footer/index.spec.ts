@@ -155,6 +155,131 @@ describe("Suite test ZFooter", () => {
       `
     );
   });
+
+  it("Test render ZFooter - JSON data backward compatibility", async () => {
+    const page = await newSpecPage({
+      components: [ZFooter],
+      html: `<z-footer data='{
+        "zanichelliLinks": [
+          {
+            "title": "Zanichelli.it",
+            "items": [
+              {
+                "label": "Home zanichelli.it",
+                "link": "https://www.zanichelli.it"
+              },
+              {
+                "label": "Ricerca in catalogo",
+                "link": "https://www.zanichelli.it/ricerca",
+                "target": "_self"
+              }
+            ]
+          },
+          {
+            "title": "Scuola",
+            "items": [
+              {
+                "label": "Home scuola",
+                "link": "https://www.zanichelli.it/scuola/in-primo-piano"
+              }
+            ]
+          }
+        ],
+        "myzLink": {},
+        "social": [
+          {"icon": "facebook.png", "link": "https://it-it.facebook.com/zanichelliscuola", "description" : "facebook"},
+          {"icon": "youtube.png", "link": "https://www.youtube.com/user/zanichellieditore", "description" : "youtube"}
+        ],
+        "bottomLinks": [
+          {"label": "Chi siamo", "link": "https://www.zanichelli.it/chi-siamo/via-irnerio-34"},
+          {"label": "Contatti e recapiti", "link": "https://www.zanichelli.it/contatti-e-recapiti", "target": "_self"}
+        ]
+      }'></z-footer>`,
+    });
+    expect(page.root).toEqualHtml(
+      `
+        <z-footer data='{
+        "zanichelliLinks": [
+          {
+            "title": "Zanichelli.it",
+            "items": [
+              {
+                "label": "Home zanichelli.it",
+                "link": "https://www.zanichelli.it"
+              },
+              {
+                "label": "Ricerca in catalogo",
+                "link": "https://www.zanichelli.it/ricerca",
+                "target": "_self"
+              }
+            ]
+          },
+          {
+            "title": "Scuola",
+            "items": [
+              {
+                "label": "Home scuola",
+                "link": "https://www.zanichelli.it/scuola/in-primo-piano"
+              }
+            ]
+          }
+        ],
+        "myzLink": {},
+        "social": [
+          {"icon": "facebook.png", "link": "https://it-it.facebook.com/zanichelliscuola", "description" : "facebook"},
+          {"icon": "youtube.png", "link": "https://www.youtube.com/user/zanichellieditore", "description" : "youtube"}
+        ],
+        "bottomLinks": [
+          {"label": "Chi siamo", "link": "https://www.zanichelli.it/chi-siamo/via-irnerio-34"},
+          {"label": "Contatti e recapiti", "link": "https://www.zanichelli.it/contatti-e-recapiti", "target": "_self"}
+        ]
+      }'>
+          <mock:shadow-root>
+            <footer>
+              <section class="top">
+                <slot></slot>
+                <z-footer-section name="Zanichelli.it">
+                  <z-footer-link href="https://www.zanichelli.it">Home zanichelli.it</z-footer-link>
+                  <z-footer-link href="https://www.zanichelli.it/ricerca">Ricerca in catalogo</z-footer-link>
+                </z-footer-section>
+                <z-footer-section name="Scuola">
+                  <z-footer-link href="https://www.zanichelli.it/scuola/in-primo-piano">Home scuola</z-footer-link>
+                </z-footer-section>
+                <z-footer-section name="Altre informazioni">
+                  <z-footer-link href="https://www.zanichelli.it/chi-siamo/via-irnerio-34">
+                    Chi siamo
+                  </z-footer-link>
+                  <z-footer-link href="https://www.zanichelli.it/contatti-e-recapiti">
+                    Contatti e recapiti
+                  </z-footer-link>
+                </z-footer-section>
+              </section>
+              <section class="bottom">
+                <div class="item logo">
+                  ${expectedLogo()}
+                  <p>${expectedCopyright()}</p>
+                  <p>${expectedCertifications()}</p>
+                </div>
+                <div class="item">
+                  <p>${expectedAddress()}</p>
+                  <div class="social">
+                    <slot name="social"></slot>
+                    <z-footer-social icon="facebook.png" href="https://it-it.facebook.com/zanichelliscuola" description="facebook"></z-footer-social>
+                    <z-footer-social icon="youtube.png" href="https://www.youtube.com/user/zanichellieditore" description="youtube"></z-footer-social>
+                  </div>
+                </div>
+                <div class="item bottom-links">
+                  <slot name="links"></slot>
+                  <z-footer-link href="https://www.zanichelli.it/chi-siamo/via-irnerio-34">Chi siamo</z-footer-link>
+                  <z-footer-link href="https://www.zanichelli.it/contatti-e-recapiti">Contatti e recapiti</z-footer-link>
+                </div>
+              </section>
+            </footer>
+          </mock:shadow-root>
+        </z-footer>
+      `
+    );
+  });
 });
 
 const expectedLogo = () => `

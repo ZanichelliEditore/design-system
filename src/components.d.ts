@@ -292,6 +292,14 @@ export namespace Components {
         "hide"?: boolean;
     }
     interface ZFooter {
+        /**
+          * deprecated - set copyright user
+         */
+        "copyrightuser"?: string;
+        /**
+          * deprecated - JSON stringified data to fill the footer
+         */
+        "data"?: string;
     }
     interface ZFooterLink {
         /**
@@ -1448,6 +1456,14 @@ declare namespace LocalJSX {
         "onAccept"?: (event: CustomEvent<any>) => void;
     }
     interface ZFooter {
+        /**
+          * deprecated - set copyright user
+         */
+        "copyrightuser"?: string;
+        /**
+          * deprecated - JSON stringified data to fill the footer
+         */
+        "data"?: string;
     }
     interface ZFooterLink {
         /**

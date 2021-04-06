@@ -93,6 +93,11 @@ footer > section.bottom > div.logo > p > span {
     background-color: var(--text-grey-800);
   }
 
+  /* backward compatibility */
+  footer > section.top > z-footer-section:last-child {
+    display: none;
+  }
+
   footer > section.bottom {
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: var(--grid-tablet-margin);
