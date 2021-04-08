@@ -1,7 +1,7 @@
 :host > div.textWrapper > div > div.textareaWrapper {
   background: var(--bg-white);
   border: var(--border-size-small) solid var(--bg-grey-200);
-  padding: var(--half-x3);
+  padding: calc(var(--space-unit) * 1.5);
 }
 
 :host > div.textWrapper > div > div.textareaWrapper > textarea {
@@ -44,7 +44,7 @@
     var(--bg-grey-200) 4px,
     var(--bg-white) 8px
   );
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   width: 10px;
   margin-right: 20px;
   padding-right: 20px;
@@ -52,7 +52,7 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--myz-blue);
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   width: 10px;
   margin-right: 20px;
   padding: 20px;

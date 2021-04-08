@@ -95,7 +95,7 @@ li {
 
 /* Expanded dropdown menu */
 .menu-opened {
-  padding-bottom: var(--basex2);
+  padding-bottom: calc(var(--space-unit) * 2);
   width: auto !important;
   min-width: 147px;
   position: inherit;

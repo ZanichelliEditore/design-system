@@ -3,12 +3,12 @@ button {
   font-weight: var(--font-sb);
   font-size: 14px;
   letter-spacing: 0.3px;
-  border-width: var(--border-base);
+  border-width: var(--border-size-medium);
   border-style: solid;
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   height: 44px;
   text-transform: uppercase;
-  padding: 0px var(--basex2);
+  padding: 0px calc(var(--space-unit) * 2);
   cursor: pointer;
   white-space: nowrap;
   outline: none;
@@ -138,7 +138,7 @@ button.tertiary:disabled {
 }
 
 button > z-icon {
-  margin-right: var(--half-x3);
+  margin-right: calc(var(--space-unit) * 1.5);
 }
 
 button:disabled {

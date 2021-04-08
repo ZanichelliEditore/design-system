@@ -40,11 +40,11 @@
 }
 
 :host > .checkboxWrapper > label.checkboxLabel.after > span {
-  margin-left: var(--basex1);
+  margin-left: var(--space-unit);
 }
 
 :host > .checkboxWrapper > label.checkboxLabel.before > span {
-  margin-right: var(--basex1);
+  margin-right: var(--space-unit);
 }
 
 :host > .checkboxWrapper > label.checkboxLabel > z-icon {

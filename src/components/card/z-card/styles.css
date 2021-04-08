@@ -7,8 +7,8 @@ div {
   box-sizing: border-box;
   width: 256px;
   height: 522px;
-  border: var(--border-base) solid var(--bg-grey-200);
-  border-radius: var(--radius-base);
+  border: var(--border-size-medium) solid var(--bg-grey-200);
+  border-radius: var(--border-radius);
 }
 
 div.real,
