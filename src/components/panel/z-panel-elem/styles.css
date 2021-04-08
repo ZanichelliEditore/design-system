@@ -21,7 +21,7 @@
 }
 
 .panel-elem-link {
-  border-radius: var(----border-no-radius);
+  border-radius: var(--border-no-radius);
   margin: var(--space-unit) auto 0;
   text-align: center;
   font-size: 12px;

@@ -7,8 +7,8 @@ header {
   height: calc(var(--space-unit) * 6);
   position: relative;
   border-bottom: var(--border-size-medium) solid var(--bg-grey-200);
-  border-radius: var(--border-radius) var(--border-radius) var(----border-no-radius)
-    var(----border-no-radius);
+  border-radius: var(--border-radius) var(--border-radius) var(--border-no-radius)
+    var(--border-no-radius);
   background-color: var(--bg-white);
 }
 

@@ -99,8 +99,10 @@ export class ZMenuDropdown {
         }
       >
         <div class="container" onClick={() => this.handleToggle()}>
-          <z-icon name="user-avatar" width={14} height={14} />
-          <span class="user">{this.nomeutente}</span>
+          <span class="user-wrapper">
+            <z-icon name="user-avatar" width={14} height={14} />
+            <span class="user">{this.nomeutente}</span>
+          </span>
           {this.renderButtonMenu()}
         </div>
         {this.renderMenuOpen()}
