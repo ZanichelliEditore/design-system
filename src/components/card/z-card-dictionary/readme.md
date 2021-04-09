@@ -13,6 +13,7 @@
 | `disabled`        | `disabled`        | card is disabled  | `boolean` | `false`     |
 | `flipbuttonlabel` | `flipbuttonlabel` | flip button label | `string`  | `"INFO"`    |
 | `flipped`         | `flipped`         | card is flipped   | `boolean` | `false`     |
+| `hideinfobtn`     | `hideinfobtn`     | hide info button  | `boolean` | `false`     |
 | `name`            | `name`            | card title        | `string`  | `undefined` |
 
 

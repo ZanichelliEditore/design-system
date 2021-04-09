@@ -21,6 +21,8 @@ export class ZCardDictionary {
   @Prop({ mutable: true }) flipped: boolean = false;
   /** flip button label */
   @Prop() flipbuttonlabel: string = "INFO";
+  /** hide info button */
+  @Prop() hideinfobtn: boolean = false;
 
   @Listen("flipCard")
   handleFlipCard(e: CustomEvent) {
@@ -50,6 +52,7 @@ export class ZCardDictionary {
                 />
               </z-card-body>
               <z-button
+                class={this.hideinfobtn ? "hideInfo" : ""}
                 variant={ButtonVariantEnum.secondary}
                 icon="informationsource"
                 issmall={true}
