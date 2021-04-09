@@ -5,9 +5,9 @@
 
 :host > a {
   display: inline-block;
-  color: var(--text-white);
-  padding: var(--half-x3) 0;
-  border-bottom: 1px solid var(--bg-grey-050);
+  color: var(--color-white);
+  padding: calc(var(--space-unit) / 2 * 3) 0;
+  border-bottom: 1px solid var(--gray50);
   text-decoration: none;
   font-size: 14px;
   width: 100%;
