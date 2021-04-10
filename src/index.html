@@ -26,25 +26,35 @@
         link="https://www.zanichelli.it"
         targetblank
       ></z-logo>
-      <z-icon
-        slot="actions"
-        name="support-filled"
-        height="18"
-        width="18"
-      ></z-icon>
-      <z-icon
-        slot="actions"
-        name="shopping-cart-filled"
-        height="18"
-        width="18"
-      ></z-icon>
-      <z-icon
+      <a slot="actions" href="#">
+        <z-icon name="support-filled" height="18" width="18"></z-icon>
+      </a>
+      <a slot="actions" href="#">
+        <z-icon name="shopping-cart-filled" height="18" width="18"></z-icon>
+      </a>
+      <z-user-dropdown
+        islogged="false"
         slot="login"
-        name="enter"
-        height="18"
-        width="18"
-      ></z-icon>
-      <span slot="login">Entra</span>
+        >
+      </z-user-dropdown>
+      <z-app-menu slot="app-menu"></z-app-menu>
+    </z-topbar>
+    <br />
+    <z-topbar>
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-user-dropdown
+        islogged="true"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+        >
+      </z-user-dropdown>
       <z-app-menu slot="app-menu"></z-app-menu>
     </z-topbar>
     <div style="background: lightgray; height: 5000px;"></div>

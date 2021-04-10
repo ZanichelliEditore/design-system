@@ -18,9 +18,9 @@ export class ZAppMenu {
 
   render() {
     return (
-      <div>
+      <button>
         {this.renderDots()}
-      </div>
+      </button>
     );
   }
 }

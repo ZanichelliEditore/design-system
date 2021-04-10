@@ -831,6 +831,21 @@ export namespace Components {
         "level": ZTypographyLevels;
         "variant": "regular" | "semibold" | "light";
     }
+    interface ZUserDropdown {
+        /**
+          * unique button id
+         */
+        "buttonid": string;
+        "islogged": boolean;
+        /**
+          * Json stringified or array to fill menu dropdown
+         */
+        "menucontent"?: string | MenuItem[];
+        /**
+          * user name text
+         */
+        "nomeutente": string;
+    }
 }
 declare global {
     interface HTMLZAppMenuElement extends Components.ZAppMenu, HTMLStencilElement {
@@ -1085,6 +1100,12 @@ declare global {
         prototype: HTMLZTypographyElement;
         new (): HTMLZTypographyElement;
     };
+    interface HTMLZUserDropdownElement extends Components.ZUserDropdown, HTMLStencilElement {
+    }
+    var HTMLZUserDropdownElement: {
+        prototype: HTMLZUserDropdownElement;
+        new (): HTMLZUserDropdownElement;
+    };
     interface HTMLElementTagNameMap {
         "z-app-menu": HTMLZAppMenuElement;
         "z-body": HTMLZBodyElement;
@@ -1128,6 +1149,7 @@ declare global {
         "z-tooltip": HTMLZTooltipElement;
         "z-topbar": HTMLZTopbarElement;
         "z-typography": HTMLZTypographyElement;
+        "z-user-dropdown": HTMLZUserDropdownElement;
     }
 }
 declare namespace LocalJSX {
@@ -2012,6 +2034,21 @@ declare namespace LocalJSX {
         "level"?: ZTypographyLevels;
         "variant"?: "regular" | "semibold" | "light";
     }
+    interface ZUserDropdown {
+        /**
+          * unique button id
+         */
+        "buttonid"?: string;
+        "islogged"?: boolean;
+        /**
+          * Json stringified or array to fill menu dropdown
+         */
+        "menucontent"?: string | MenuItem[];
+        /**
+          * user name text
+         */
+        "nomeutente"?: string;
+    }
     interface IntrinsicElements {
         "z-app-menu": ZAppMenu;
         "z-body": ZBody;
@@ -2055,6 +2092,7 @@ declare namespace LocalJSX {
         "z-tooltip": ZTooltip;
         "z-topbar": ZTopbar;
         "z-typography": ZTypography;
+        "z-user-dropdown": ZUserDropdown;
     }
 }
 export { LocalJSX as JSX };
@@ -2103,6 +2141,7 @@ declare module "@stencil/core" {
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-topbar": LocalJSX.ZTopbar & JSXBase.HTMLAttributes<HTMLZTopbarElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
+            "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
         }
     }
 }

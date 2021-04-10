@@ -15,12 +15,12 @@
 }
 
 .left {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
 }
 
 .left > #hashtag {
@@ -28,20 +28,20 @@
 }
 
 .right {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-end;
-	align-items: center;
-	align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
 }
 
-.right > ::slotted(z-icon) {
+.right > ::slotted(a) {
   padding: 6px;
   fill: rgb(255, 255, 255);
 }
 
-.right > button {
+.right > ::slotted(button) {
   display: flex;
   margin: 0;
   background: transparent;
@@ -50,27 +50,19 @@
   font-size: 16px;
 }
 
-.right > button > ::slotted(z-icon) {
-  padding: 6px;
-  fill: rgb(255, 255, 255);
-}
-
-.right > button > ::slotted(span) {
-  padding: 6px;
-  color: rgb(255, 255, 255);
-  font-weight: 600;
-}
-
 .right > ::slotted(z-app-menu) {
   padding: 6px;
   color: aliceblue;
 }
 
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+}
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {}
+@media only screen and (min-width: 1152px) {
+}
 
 /* Wide breakpoint */
-@media only screen and (min-width: 1366px) {}
+@media only screen and (min-width: 1366px) {
+}

@@ -3,7 +3,7 @@
   font-weight: var(--font-rg);
 }
 
-div {
+button {
   background-color: transparent;
   height: 20px;
   width: 20px;
@@ -12,8 +12,11 @@ div {
   grid-template-rows: repeat(3, 1fr);
   align-items: center;
   gap: 4px;
+  border: none;
+  padding: 0;
 }
-div > span {
+
+button > span {
   background: rgb(255, 255, 255);
   width: 4px;
   height: 4px;

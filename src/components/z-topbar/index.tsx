@@ -1,11 +1,10 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h } from "@stencil/core";
 
 @Component({
-  tag: 'z-topbar',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-topbar",
+  styleUrl: "styles.css",
+  shadow: true,
 })
-
 export class ZTopbar {
   @Prop() hashtag: string;
 
@@ -18,9 +17,7 @@ export class ZTopbar {
         </div>
         <div class="right">
           <slot name="actions"></slot>
-          <button>
-            <slot name="login"></slot>
-          </button>
+          <slot name="login"></slot>
           <slot name="app-menu"></slot>
         </div>
       </div>
