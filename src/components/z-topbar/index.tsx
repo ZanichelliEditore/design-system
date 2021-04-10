@@ -43,14 +43,13 @@ export class ZTopbar {
   }
 
   render() {
-    console.log(`right ${(this.isMobile || this.logged) && 'hide-actions'}`)
     return (
       <div>
         <div class="left">
           <slot name="logo"></slot>
           <span id="hashtag">{this.hashtag}</span>
         </div>
-        <div class={`right ${(this.logged && this.isMobile ) && 'hide-actions'}`}>
+        <div class={`right ${this.logged && this.isMobile && "hide-actions"}`}>
           <slot name="actions"></slot>
           <slot name="login"></slot>
           <slot name="app-menu"></slot>
