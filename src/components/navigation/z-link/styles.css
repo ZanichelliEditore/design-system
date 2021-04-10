@@ -56,6 +56,11 @@ a.active:visited {
   border-bottom: var(--border-size-medium) solid var(--myz-blue);
 }
 
+a.big {
+  font-size: 16px;
+  font-weight: 600;
+}
+
 a > z-icon {
   margin-right: 8px;
 }

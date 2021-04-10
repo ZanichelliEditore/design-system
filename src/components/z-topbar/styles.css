@@ -36,18 +36,12 @@
   align-content: center;
 }
 
-.right > ::slotted(a) {
-  padding: 6px;
-  fill: rgb(255, 255, 255);
+.right > ::slotted(z-link) {
+  padding: 4px;
 }
 
-.right > ::slotted(button) {
-  display: flex;
-  margin: 0;
-  background: transparent;
-  border: none;
-  padding: 0;
-  font-size: 16px;
+.right > ::slotted(z-user-dropdown) {
+  padding: 4px 0;
 }
 
 .right > ::slotted(z-app-menu) {

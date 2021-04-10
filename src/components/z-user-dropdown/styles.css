@@ -3,6 +3,12 @@
   font-weight: var(--font-rg);
 }
 
+z-link {
+  font-weight: 600;
+  font-size: 12px;
+  padding: 6px;
+}
+
 button {
   display: flex;
   margin: 0;
@@ -12,7 +18,6 @@ button {
   font-size: 16px;
   padding: 6px;
 }
-
 
 button > z-icon {
   padding: 0 2px;
@@ -50,11 +55,6 @@ ul > li:first-child {
 
 ul > li:last-child {
   border-bottom: none;
-}
-
-ul > li > ::slotted(z-link) {
-  font-weight: 600;
-  line-height: 22px;
 }
 
 /* Tablet breakpoint */

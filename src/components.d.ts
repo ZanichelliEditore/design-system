@@ -501,6 +501,10 @@ export namespace Components {
     }
     interface ZLink {
         /**
+          * big link version
+         */
+        "big"?: boolean;
+        /**
           * link url (optional)
          */
         "href"?: string;
@@ -1675,6 +1679,10 @@ declare namespace LocalJSX {
         "status"?: InputStatusBean;
     }
     interface ZLink {
+        /**
+          * big link version
+         */
+        "big"?: boolean;
         /**
           * link url (optional)
          */

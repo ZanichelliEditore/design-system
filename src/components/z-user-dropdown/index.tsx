@@ -44,10 +44,13 @@ export class ZUserDropdown {
 
   renderGuestButton() {
     return (
-      <button>
-        <z-icon name="enter" height={18} width={18}></z-icon>
-        <span>Entra</span>
-      </button>
+      <z-link big={true} icon="enter" iswhite>
+        Entra
+      </z-link>
+      // <button>
+      //   <z-icon name="enter" height={18} width={18}></z-icon>
+      //   <span>Entra</span>
+      // </button>
     );
   }
 
@@ -64,14 +67,19 @@ export class ZUserDropdown {
     return (
       this.ismenuopen && (
         <ul>
-          {this.linkarray.map(link => {
+          {this.linkarray.map((link) => {
             return (
               <li id={link.id}>
-              <z-link iswhite href={link.link} target="_blank" icon={link.icon}>
-                {link.label}
-              </z-link>
-            </li>
-            )
+                <z-link
+                  iswhite
+                  href={link.link}
+                  target="_blank"
+                  icon={link.icon}
+                >
+                  {link.label}
+                </z-link>
+              </li>
+            );
           })}
         </ul>
       )
