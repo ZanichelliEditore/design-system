@@ -7,12 +7,20 @@ import { Component, Prop, h } from '@stencil/core';
 })
 
 export class ZTopbar {
-  @Prop() myProp: string;
+  @Prop() hashtag: string;
 
   render() {
     return (
       <div>
-        <slot name="logo"></slot>
+        <div class="left">
+          <slot name="logo"></slot>
+          <span id="hashtag">{this.hashtag}</span>
+        </div>
+        <div class="right">
+          <slot name="icons"></slot>
+          <slot name="login"></slot>
+          <slot name="switcher"></slot>
+        </div>
       </div>
     );
   }

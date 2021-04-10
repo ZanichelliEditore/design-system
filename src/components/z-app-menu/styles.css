@@ -1,0 +1,34 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+div {
+  background-color: transparent;
+  height: 20px;
+  width: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  gap: 4px;
+}
+div > span {
+  background: #fff;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+}
+
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}

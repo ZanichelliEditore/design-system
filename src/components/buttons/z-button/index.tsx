@@ -30,6 +30,8 @@ export class ZButton {
   @Prop() issmall?: boolean = false;
   /** add an icon to button (optional) */
   @Prop() icon?: string;
+  /** text color (optional - default myz-blue) */
+  @Prop() textcolor?: string;
 
   render() {
     this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
@@ -41,6 +43,7 @@ export class ZButton {
         type={this.type}
         disabled={this.disabled}
         class={`${this.variant} ${this.issmall && "small"}`}
+        style={{fill:`${this.textcolor}`, color:`${this.textcolor}`}}
       >
         {this.icon && <z-icon name={this.icon} width={16} height={16} />}
         <slot />
