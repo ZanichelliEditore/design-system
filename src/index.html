@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/web-components-library.css"
+    />
+    <script type="module" src="/build/web-components-library.esm.js"></script>
+    <script nomodule src="/build/web-components-library.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>Stencil Component Starter</title>
-  <link rel="stylesheet" type="text/css" href="/build/web-components-library.css">
-  <script type="module" src="/build/web-components-library.esm.js"></script>
-  <script nomodule src="/build/web-components-library.js"></script>
-</head>
-
-<body style="margin:0 auto;">
-  <z-topbar>
-    <z-logo
-      slot="logo"
-      width="138"
-      height="36"
-      imagealt="zanichelli-logo"
-      link="https://www.zanichelli.it"
-      targetblank
-    ></z-logo>
-    <z-icon slot="icons" name="support-filled" height="18" width="18"></z-icon>
-    <z-icon slot="icons" name="shopping-cart-filled" height="18" width="18"></z-icon>
-    <z-button
-      issmall
-      slot="login"
-      variant="tertiary"
-      disabled="false"
-      icon="enter"
-      textcolor="white"
-    >
-      Entra
-    </z-button>
-    <z-app-menu slot="switcher"></z-app-menu>
-  </z-topbar>
-  <div style="background: red; height:5000px">
-
-  </div>
-</body>
-
+  <body style="margin: 0 auto;">
+    <z-topbar>
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-icon
+        slot="actions"
+        name="support-filled"
+        height="18"
+        width="18"
+      ></z-icon>
+      <z-icon
+        slot="actions"
+        name="shopping-cart-filled"
+        height="18"
+        width="18"
+      ></z-icon>
+      <z-icon
+        slot="login"
+        name="enter"
+        height="18"
+        width="18"
+      ></z-icon>
+      <span slot="login">Entra</span>
+      <z-app-menu slot="app-menu"></z-app-menu>
+    </z-topbar>
+    <div style="background: lightgray; height: 5000px;"></div>
+  </body>
 </html>

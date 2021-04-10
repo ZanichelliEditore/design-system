@@ -8,18 +8,18 @@ import { Component, Prop, h } from "@stencil/core";
 export class ZAppMenu {
   @Prop() myProp: string;
 
+  renderDots(num = 9) {
+    const result = [];
+    for (let index = 0; index < num; index++) {
+      result.push(<span></span>)
+    }
+    return result;
+  }
+
   render() {
     return (
       <div>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        {this.renderDots()}
       </div>
     );
   }

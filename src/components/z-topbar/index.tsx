@@ -17,9 +17,11 @@ export class ZTopbar {
           <span id="hashtag">{this.hashtag}</span>
         </div>
         <div class="right">
-          <slot name="icons"></slot>
-          <slot name="login"></slot>
-          <slot name="switcher"></slot>
+          <slot name="actions"></slot>
+          <button>
+            <slot name="login"></slot>
+          </button>
+          <slot name="app-menu"></slot>
         </div>
       </div>
     );

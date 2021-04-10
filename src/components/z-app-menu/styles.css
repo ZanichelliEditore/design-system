@@ -14,7 +14,7 @@ div {
   gap: 4px;
 }
 div > span {
-  background: #fff;
+  background: rgb(255, 255, 255);
   width: 4px;
   height: 4px;
   border-radius: 50%;
