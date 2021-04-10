@@ -816,6 +816,9 @@ export namespace Components {
          */
         "type": TooltipPosition;
     }
+    interface ZTopbar {
+        "myProp": string;
+    }
     interface ZTypography {
         "component": string;
         "level": ZTypographyLevels;
@@ -1057,6 +1060,12 @@ declare global {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
+    interface HTMLZTopbarElement extends Components.ZTopbar, HTMLStencilElement {
+    }
+    var HTMLZTopbarElement: {
+        prototype: HTMLZTopbarElement;
+        new (): HTMLZTopbarElement;
+    };
     interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
     }
     var HTMLZTypographyElement: {
@@ -1103,6 +1112,7 @@ declare global {
         "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
+        "z-topbar": HTMLZTopbarElement;
         "z-typography": HTMLZTypographyElement;
     }
 }
@@ -1973,6 +1983,9 @@ declare namespace LocalJSX {
          */
         "type"?: TooltipPosition;
     }
+    interface ZTopbar {
+        "myProp"?: string;
+    }
     interface ZTypography {
         "component"?: string;
         "level"?: ZTypographyLevels;
@@ -2018,6 +2031,7 @@ declare namespace LocalJSX {
         "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
+        "z-topbar": ZTopbar;
         "z-typography": ZTypography;
     }
 }
@@ -2064,6 +2078,7 @@ declare module "@stencil/core" {
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
+            "z-topbar": LocalJSX.ZTopbar & JSXBase.HTMLAttributes<HTMLZTopbarElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
         }
     }

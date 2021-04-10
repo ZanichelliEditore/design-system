@@ -2628,7 +2628,7 @@
   resolved "https://registry.npmjs.org/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zanichelli/albe-design-tokens@^0.1.51":
+"@zanichelli/albe-design-tokens@^0.1.61":
   version "0.1.61"
   resolved "https://registry.npmjs.org/@zanichelli/albe-design-tokens/-/albe-design-tokens-0.1.61.tgz#1bcd9fc751d0025e2e32f44239e5fb3a5e003d1a"
   integrity sha512-o1Gjeihw6/T0yx017KH4GdsHQuSn4fDgywwMgXq4w8SJu3O6g/F+83kJqEbdSvrJHtFv7FAZQw+M31MX65XnyQ==
