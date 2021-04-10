@@ -47,10 +47,6 @@ export class ZUserDropdown {
       <z-link big={true} icon="enter" iswhite>
         Entra
       </z-link>
-      // <button>
-      //   <z-icon name="enter" height={18} width={18}></z-icon>
-      //   <span>Entra</span>
-      // </button>
     );
   }
 
@@ -72,6 +68,7 @@ export class ZUserDropdown {
               <li id={link.id}>
                 <z-link
                   iswhite
+                  big
                   href={link.link}
                   target="_blank"
                   icon={link.icon}
