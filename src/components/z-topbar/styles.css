@@ -36,6 +36,10 @@
   align-content: center;
 }
 
+.right.hide-actions > slot[name="actions"] {
+  display: none;
+}
+
 .right > ::slotted(z-link) {
   padding: 4px;
 }
@@ -51,6 +55,10 @@
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
+  :host > div {
+    grid-template-columns: repeat(2, auto);
+  }
+
   .left > #hashtag {
     display: initial;
     color: rgb(255, 255, 255);

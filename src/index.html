@@ -33,7 +33,8 @@
         slot="actions"
         href="#"
         target="_blank"
-      >Supporto</z-link>
+        >Supporto</z-link
+      >
       <z-link
         iswhite
         big
@@ -41,12 +42,19 @@
         slot="actions"
         href="#"
         target="_blank"
-      >Carrello</z-link>
-      <z-user-dropdown islogged="false" slot="login"> </z-user-dropdown>
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="docente di calabresi per italiani"
+        islogged="false"
+        slot="login"
+      ></z-user-dropdown>
       <z-app-menu slot="app-menu"></z-app-menu>
     </z-topbar>
-    <br />
-    <z-topbar hashtag="faresci">
+
+    <p>Logged</p>
+
+    <z-topbar hashtag="faresci" logged>
       <z-logo
         slot="logo"
         width="138"
@@ -55,7 +63,26 @@
         link="https://www.zanichelli.it"
         targetblank
       ></z-logo>
+      <z-link
+        iswhite
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        target="_blank"
+        >Supporto</z-link
+      >
+      <z-link
+        iswhite
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        target="_blank"
+        >Carrello</z-link
+      >
       <z-user-dropdown
+        userfullname="docente di italiano per calabresi"
         islogged="true"
         slot="login"
         menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'

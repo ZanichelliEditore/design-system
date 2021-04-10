@@ -6,10 +6,12 @@ import { Component, Prop, Element, h, State } from "@stencil/core";
   shadow: true,
 })
 export class ZTopbar {
+  @Prop() logged?: boolean;
   @Prop() hashtag: string;
   @Element() hostElement: HTMLElement;
 
   @State() zLinksValues: string[];
+  @State() isMobile: boolean;
 
   componentWillLoad() {
     window.addEventListener("resize", () => {
@@ -27,10 +29,12 @@ export class ZTopbar {
         (child) => child.nodeName === "Z-LINK"
       );
       if (window.innerWidth <= 767) {
+        this.isMobile = true;
         zLinks.forEach((link) => {
           link.childNodes[0].nodeValue = "";
         });
       } else {
+        this.isMobile = false;
         zLinks.forEach((link, i) => {
           link.childNodes[0].nodeValue = this.zLinksValues[i];
         });
@@ -39,13 +43,14 @@ export class ZTopbar {
   }
 
   render() {
+    console.log(`right ${(this.isMobile || this.logged) && 'hide-actions'}`)
     return (
       <div>
         <div class="left">
           <slot name="logo"></slot>
           <span id="hashtag">{this.hashtag}</span>
         </div>
-        <div class="right">
+        <div class={`right ${(this.logged && this.isMobile ) && 'hide-actions'}`}>
           <slot name="actions"></slot>
           <slot name="login"></slot>
           <slot name="app-menu"></slot>

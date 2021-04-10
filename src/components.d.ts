@@ -829,6 +829,7 @@ export namespace Components {
     }
     interface ZTopbar {
         "hashtag": string;
+        "logged"?: boolean;
     }
     interface ZTypography {
         "component": string;
@@ -846,9 +847,9 @@ export namespace Components {
          */
         "menucontent"?: string | MenuItem[];
         /**
-          * user name text
+          * user full name
          */
-        "nomeutente": string;
+        "userfullname"?: string;
     }
 }
 declare global {
@@ -2036,6 +2037,7 @@ declare namespace LocalJSX {
     }
     interface ZTopbar {
         "hashtag"?: string;
+        "logged"?: boolean;
     }
     interface ZTypography {
         "component"?: string;
@@ -2053,9 +2055,9 @@ declare namespace LocalJSX {
          */
         "menucontent"?: string | MenuItem[];
         /**
-          * user name text
+          * user full name
          */
-        "nomeutente"?: string;
+        "userfullname"?: string;
     }
     interface IntrinsicElements {
         "z-app-menu": ZAppMenu;

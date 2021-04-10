@@ -8,8 +8,8 @@ import { MenuItem } from "../../beans";
 })
 export class ZUserDropdown {
   @Prop() islogged: boolean;
-  /** user name text */
-  @Prop() nomeutente: string;
+  /** user full name */
+  @Prop() userfullname?: string;
   /** Json stringified or array to fill menu dropdown */
   @Prop() menucontent?: string | MenuItem[];
   /** unique button id */
@@ -54,6 +54,9 @@ export class ZUserDropdown {
     return (
       <button onClick={() => this.handleToggle()}>
         <z-icon name="user-avatar-filled" height={18} width={18}></z-icon>
+        <span class="userfullname">
+          {this.userfullname}
+        </span>
         {this.renderCaretIcon()}
       </button>
     );
