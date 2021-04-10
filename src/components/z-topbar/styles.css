@@ -46,11 +46,20 @@
 
 .right > ::slotted(z-app-menu) {
   padding: 6px;
-  color: aliceblue;
+  color: rgb(255, 255, 255);;
 }
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
+  .left > #hashtag {
+    display: initial;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    padding: 8px 16px;
+  }
+  .left > #hashtag::before {
+    content: '#';
+  }
 }
 
 /* Desktop breakpoint */
