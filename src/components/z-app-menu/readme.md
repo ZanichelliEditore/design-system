@@ -5,11 +5,11 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
+## Events
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `myProp` | `my-prop` |             | `string` | `undefined` |
+| Event            | Description                                                | Type               |
+| ---------------- | ---------------------------------------------------------- | ------------------ |
+| `appButtonClick` | emitted on app button icon click, returns open/cloed state | `CustomEvent<any>` |
 
 
 ----------------------------------------------

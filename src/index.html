@@ -90,6 +90,17 @@
       </z-user-dropdown>
       <z-app-menu slot="app-menu"></z-app-menu>
     </z-topbar>
+
+    <p>User Dropdown</p>
+    <div style="background-color: grey; height: 300px;">
+      <z-user-dropdown
+        userfullname="docente di italiano per calabresi"
+        islogged="true"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+    </div>
     <div style="background: lightgray; height: 5000px;"></div>
   </body>
 </html>

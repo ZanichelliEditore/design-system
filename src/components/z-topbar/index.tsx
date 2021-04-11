@@ -1,4 +1,5 @@
-import { Component, Prop, Element, h, State } from "@stencil/core";
+import { Component, Prop, Element, h, State, Listen } from "@stencil/core";
+import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
   tag: "z-topbar",
@@ -13,28 +14,29 @@ export class ZTopbar {
   @State() zLinksValues: string[];
   @State() isMobile: boolean;
 
+  @Listen("resize", { target: "window" })
+  handleResize(): void {
+    this.toggleLinkLabels();
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
+  }
+
   componentWillLoad() {
-    window.addEventListener("resize", () => {
-      this.checkIfMobile();
-    });
     this.zLinksValues = Array.from(this.hostElement.children)
       .filter((child) => child.nodeName === "Z-LINK")
       .map((link) => link.childNodes[0].nodeValue);
-    this.checkIfMobile();
+    this.toggleLinkLabels();
   }
 
-  checkIfMobile() {
+  toggleLinkLabels() {
     if (this.hostElement) {
       const zLinks = Array.from(this.hostElement.children).filter(
         (child) => child.nodeName === "Z-LINK"
       );
-      if (window.innerWidth <= 767) {
-        this.isMobile = true;
+      if (this.isMobile) {
         zLinks.forEach((link) => {
           link.childNodes[0].nodeValue = "";
         });
       } else {
-        this.isMobile = false;
         zLinks.forEach((link, i) => {
           link.childNodes[0].nodeValue = this.zLinksValues[i];
         });

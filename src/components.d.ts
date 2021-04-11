@@ -11,7 +11,6 @@ import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZAppMenu {
-        "myProp": string;
     }
     interface ZBody {
         "component": string;
@@ -1163,7 +1162,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ZAppMenu {
-        "myProp"?: string;
+        /**
+          * emitted on app button icon click, returns open/cloed state
+         */
+        "onAppButtonClick"?: (event: CustomEvent<any>) => void;
     }
     interface ZBody {
         "component"?: string;
