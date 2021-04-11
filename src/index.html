@@ -16,7 +16,9 @@
     <script nomodule src="/build/web-components-library.js"></script>
   </head>
 
-  <body style="margin: 0 auto; background: lightgray; height: 1000px;">
+  <body style="margin: 0 auto; background: lightgray; height: 2000px;">
+    <p>Not Logged</p>
+
     <z-topbar hashtag="faresci">
       <z-logo
         slot="logo"
@@ -86,10 +88,10 @@
         menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
       </z-user-dropdown>
-      <z-app-menu id="app-menu" slot="app-menu"></z-app-menu>
+      <z-app-menu slot="app-menu"></z-app-menu>
     </z-topbar>
 
-    <p>User Dropdown, App Menu</p>
+    <p>User Dropdown</p>
     <div
       style="
         background-color: grey;
@@ -106,11 +108,49 @@
       >
       </z-user-dropdown>
     </div>
-    <div style="background-color: rgb(66, 69, 72); padding: 16px;">
+
+    <p>App Menu</p>
+
+    <div style="background-color: rgb(66, 69, 72); width: fit-content; padding: 16px;">
       <z-app-menu id="app-menu" slot="app-menu"></z-app-menu>
     </div>
 
     <p>Light Variant</p>
+    <z-topbar variant="light" hashtag="faresci">
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="black"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="black"
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        variant="light"
+        userfullname="docente di calabresi per italiani"
+        islogged="false"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-menu variant="light" slot="app-menu"></z-app-menu>
+    </z-topbar>
+
+    <p>Logged</p>
 
     <z-topbar variant="light" hashtag="faresci" logged>
       <z-logo
@@ -147,11 +187,7 @@
         menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
       </z-user-dropdown>
-      <z-app-menu
-        variant="light"
-        id="app-menu"
-        slot="app-menu"
-      ></z-app-menu>
+      <z-app-menu variant="light" id="app-menu" slot="app-menu"></z-app-menu>
     </z-topbar>
     <script>
       function openModal(e) {
