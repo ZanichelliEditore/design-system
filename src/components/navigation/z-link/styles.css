@@ -38,6 +38,15 @@ a.disabled:hover {
   text-decoration: none;
 }
 
+a.black,
+a.black:active,
+a.black:visited,
+a.black:hover {
+  color: rgb(66, 69, 72);;
+  fill: rgb(66, 69, 72);;
+  text-decoration: none;
+}
+
 a.white,
 a.white:active,
 a.white:visited,

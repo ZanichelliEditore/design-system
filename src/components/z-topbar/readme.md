@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type     | Default     |
-| --------- | --------- | ----------- | -------- | ----------- |
-| `hashtag` | `hashtag` |             | `string` | `undefined` |
+| Property  | Attribute | Description | Type      | Default     |
+| --------- | --------- | ----------- | --------- | ----------- |
+| `hashtag` | `hashtag` |             | `string`  | `undefined` |
+| `logged`  | `logged`  |             | `boolean` | `undefined` |
 
 
 ----------------------------------------------

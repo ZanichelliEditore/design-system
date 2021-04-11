@@ -44,7 +44,7 @@ export class ZUserDropdown {
 
   renderGuestButton() {
     return (
-      <z-link big={true} icon="enter" iswhite>
+      <z-link big={true} icon="enter" textcolor="white">
         Entra
       </z-link>
     );
@@ -52,7 +52,7 @@ export class ZUserDropdown {
 
   renderLoggedButton() {
     return (
-      <button onClick={() => this.handleToggle()}>
+      <button class={`${this.ismenuopen ? 'open' : ''}`} onClick={() => this.handleToggle()}>
         <z-icon name="user-avatar-filled" height={18} width={18}></z-icon>
         <span class="userfullname">
           {this.userfullname}
@@ -70,7 +70,7 @@ export class ZUserDropdown {
             return (
               <li id={link.id}>
                 <z-link
-                  iswhite
+                  textcolor={window.innerWidth <= 768 ? 'white' : 'black'}
                   big
                   href={link.link}
                   target="_blank"

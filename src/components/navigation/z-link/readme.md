@@ -15,17 +15,18 @@
 
 ## Properties
 
-| Property       | Attribute      | Description                        | Type      | Default     |
-| -------------- | -------------- | ---------------------------------- | --------- | ----------- |
-| `big`          | `big`          | big link version                   | `boolean` | `false`     |
-| `href`         | `href`         | link url (optional)                | `string`  | `undefined` |
-| `htmlid`       | `htmlid`       | link id (optional)                 | `string`  | `undefined` |
-| `htmltabindex` | `htmltabindex` | tabindex link attribute (optional) | `number`  | `0`         |
-| `icon`         | `icon`         | link icon name (optional)          | `string`  | `undefined` |
-| `isactive`     | `isactive`     | active link flag (optional)        | `boolean` | `false`     |
-| `isdisabled`   | `isdisabled`   | disable link flag (optional)       | `boolean` | `false`     |
-| `iswhite`      | `iswhite`      | white variant flag (optional)      | `boolean` | `false`     |
-| `target`       | `target`       | link target (optional)             | `string`  | `"_self"`   |
+| Property       | Attribute      | Description                        | Type                           | Default     |
+| -------------- | -------------- | ---------------------------------- | ------------------------------ | ----------- |
+| `big`          | `big`          | big link version                   | `boolean`                      | `false`     |
+| `href`         | `href`         | link url (optional)                | `string`                       | `undefined` |
+| `htmlid`       | `htmlid`       | link id (optional)                 | `string`                       | `undefined` |
+| `htmltabindex` | `htmltabindex` | tabindex link attribute (optional) | `number`                       | `0`         |
+| `icon`         | `icon`         | link icon name (optional)          | `string`                       | `undefined` |
+| `isactive`     | `isactive`     | active link flag (optional)        | `boolean`                      | `false`     |
+| `isdisabled`   | `isdisabled`   | disable link flag (optional)       | `boolean`                      | `false`     |
+| `iswhite`      | `iswhite`      | white variant flag (optional)      | `boolean`                      | `false`     |
+| `target`       | `target`       | link target (optional)             | `string`                       | `"_self"`   |
+| `textcolor`    | `textcolor`    | link text variant (optional)       | `"black" \| "blue" \| "white"` | `'blue'`    |
 
 
 ## Events

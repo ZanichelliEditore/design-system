@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                                     | Type                   | Default     |
-| ------------- | ------------- | ----------------------------------------------- | ---------------------- | ----------- |
-| `buttonid`    | `buttonid`    | unique button id                                | `string`               | `undefined` |
-| `islogged`    | `islogged`    |                                                 | `boolean`              | `undefined` |
-| `menucontent` | `menucontent` | Json stringified or array to fill menu dropdown | `MenuItem[] \| string` | `undefined` |
-| `nomeutente`  | `nomeutente`  | user name text                                  | `string`               | `undefined` |
+| Property       | Attribute      | Description                                     | Type                   | Default     |
+| -------------- | -------------- | ----------------------------------------------- | ---------------------- | ----------- |
+| `buttonid`     | `buttonid`     | unique button id                                | `string`               | `undefined` |
+| `islogged`     | `islogged`     |                                                 | `boolean`              | `undefined` |
+| `menucontent`  | `menucontent`  | Json stringified or array to fill menu dropdown | `MenuItem[] \| string` | `undefined` |
+| `userfullname` | `userfullname` | user full name                                  | `string`               | `undefined` |
 
 
 ## Dependencies

@@ -536,6 +536,10 @@ export namespace Components {
           * link target (optional)
          */
         "target"?: string;
+        /**
+          * link text variant (optional)
+         */
+        "textcolor"?: 'white' | 'blue' | 'black';
     }
     interface ZList {
         /**
@@ -1720,6 +1724,10 @@ declare namespace LocalJSX {
           * link target (optional)
          */
         "target"?: string;
+        /**
+          * link text variant (optional)
+         */
+        "textcolor"?: 'white' | 'blue' | 'black';
     }
     interface ZList {
         /**
