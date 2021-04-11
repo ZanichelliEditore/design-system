@@ -28,6 +28,10 @@ export class ZAppMenu {
   }
 
   render() {
-    return <button onClick={() => this.emitAppButtonClick()}>{this.renderDots()}</button>;
+    return (
+      <button onClick={() => this.emitAppButtonClick()}>
+        {this.renderDots()}
+      </button>
+    );
   }
 }

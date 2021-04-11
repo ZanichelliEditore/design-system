@@ -32,7 +32,6 @@
         icon="support-filled"
         slot="actions"
         href="#"
-        target="_blank"
         >Supporto</z-link
       >
       <z-link
@@ -41,7 +40,6 @@
         icon="shopping-cart-filled"
         slot="actions"
         href="#"
-        target="_blank"
         >Carrello</z-link
       >
       <z-user-dropdown
@@ -64,21 +62,21 @@
         targetblank
       ></z-logo>
       <z-link
+        onclick="openModal(this)"
         textcolor="white"
         big
         icon="support-filled"
         slot="actions"
         href="#"
-        target="_blank"
         >Supporto</z-link
       >
       <z-link
+        onclick="openModal(this)"
         iswhite
         big
         icon="shopping-cart-filled"
         slot="actions"
         href="#"
-        target="_blank"
         >Carrello</z-link
       >
       <z-user-dropdown
@@ -88,7 +86,10 @@
         menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
       </z-user-dropdown>
-      <z-app-menu slot="app-menu"></z-app-menu>
+      <z-app-menu
+        id="app-menu"
+        slot="app-menu"
+        ></z-app-menu>
     </z-topbar>
 
     <p>User Dropdown</p>
@@ -102,5 +103,13 @@
       </z-user-dropdown>
     </div>
     <div style="background: lightgray; height: 5000px;"></div>
+
+    <script>
+      function openModal(e) {
+        console.log(e);
+      }
+      const appMenu = document.getElementById('app-menu');
+      appMenu.addEventListener('appButtonClick', (e) => openModal(e));
+    </script>
   </body>
 </html>
