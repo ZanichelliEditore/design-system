@@ -1,5 +1,6 @@
 import { Component, Prop, State, h } from "@stencil/core";
 import { MenuItem } from "../../beans";
+import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
   tag: "z-user-dropdown",
@@ -64,7 +65,7 @@ export class ZUserDropdown {
 
   retrieveLiTextColor(): 'white' | 'black' {
     if (this.variant === 'light') return 'black';
-    return window.innerWidth <= 768 ? 'white' : 'black'
+    return window.innerWidth <= mobileBreakpoint ? 'white' : 'black'
   }
 
   renderDropdownMenu() {
