@@ -7,6 +7,7 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
   shadow: true,
 })
 export class ZTopbar {
+  @Prop() variant?: 'light' | 'dark' = 'dark';
   @Prop() logged?: boolean;
   @Prop() hashtag: string;
   @Element() hostElement: HTMLElement;
@@ -46,7 +47,7 @@ export class ZTopbar {
 
   render() {
     return (
-      <div>
+      <div class={this.variant}>
         <div class="left">
           <slot name="logo"></slot>
           <span id="hashtag">{this.hashtag}</span>

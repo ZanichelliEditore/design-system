@@ -13,7 +13,7 @@ export class ZUserDropdown {
   /** Json stringified or array to fill menu dropdown */
   @Prop() menucontent?: string | MenuItem[];
   /** unique button id */
-  @Prop() buttonid: string;
+  @Prop() variant?: 'light' | 'dark' = 'dark';
 
   @State() ismenuopen: boolean = false;
 
@@ -44,7 +44,7 @@ export class ZUserDropdown {
 
   renderGuestButton() {
     return (
-      <z-link big={true} icon="enter" textcolor="white">
+      <z-link big={true} icon="enter" textcolor={this.variant === 'light' ? 'black' : 'white'}>
         Entra
       </z-link>
     );
@@ -52,7 +52,7 @@ export class ZUserDropdown {
 
   renderLoggedButton() {
     return (
-      <button class={`${this.ismenuopen ? 'open' : ''}`} onClick={() => this.handleToggle()}>
+      <button class={`${this.ismenuopen ? 'open' : ''} ${this.variant}`} onClick={() => this.handleToggle()}>
         <z-icon name="user-avatar-filled" height={18} width={18}></z-icon>
         <span class="userfullname">
           {this.userfullname}
@@ -62,15 +62,20 @@ export class ZUserDropdown {
     );
   }
 
+  retrieveLiTextColor(): 'white' | 'black' {
+    if (this.variant === 'light') return 'black';
+    return window.innerWidth <= 768 ? 'white' : 'black'
+  }
+
   renderDropdownMenu() {
     return (
       this.ismenuopen && (
-        <ul>
+        <ul class={this.variant}>
           {this.linkarray.map((link) => {
             return (
               <li id={link.id}>
                 <z-link
-                  textcolor={window.innerWidth <= 768 ? 'white' : 'black'}
+                  textcolor={this.retrieveLiTextColor()}
                   big
                   href={link.link}
                   target="_blank"

@@ -11,6 +11,7 @@ import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZAppMenu {
+        "variant": 'light' | 'dark';
     }
     interface ZBody {
         "component": string;
@@ -833,6 +834,7 @@ export namespace Components {
     interface ZTopbar {
         "hashtag": string;
         "logged"?: boolean;
+        "variant"?: 'light' | 'dark';
     }
     interface ZTypography {
         "component": string;
@@ -840,10 +842,6 @@ export namespace Components {
         "variant": "regular" | "semibold" | "light";
     }
     interface ZUserDropdown {
-        /**
-          * unique button id
-         */
-        "buttonid": string;
         "islogged": boolean;
         /**
           * Json stringified or array to fill menu dropdown
@@ -853,6 +851,10 @@ export namespace Components {
           * user full name
          */
         "userfullname"?: string;
+        /**
+          * unique button id
+         */
+        "variant"?: 'light' | 'dark';
     }
 }
 declare global {
@@ -1166,6 +1168,7 @@ declare namespace LocalJSX {
           * emitted on app button icon click, returns open/cloed state
          */
         "onAppButtonClick"?: (event: CustomEvent<any>) => void;
+        "variant"?: 'light' | 'dark';
     }
     interface ZBody {
         "component"?: string;
@@ -2048,6 +2051,7 @@ declare namespace LocalJSX {
     interface ZTopbar {
         "hashtag"?: string;
         "logged"?: boolean;
+        "variant"?: 'light' | 'dark';
     }
     interface ZTypography {
         "component"?: string;
@@ -2055,10 +2059,6 @@ declare namespace LocalJSX {
         "variant"?: "regular" | "semibold" | "light";
     }
     interface ZUserDropdown {
-        /**
-          * unique button id
-         */
-        "buttonid"?: string;
         "islogged"?: boolean;
         /**
           * Json stringified or array to fill menu dropdown
@@ -2068,6 +2068,10 @@ declare namespace LocalJSX {
           * user full name
          */
         "userfullname"?: string;
+        /**
+          * unique button id
+         */
+        "variant"?: 'light' | 'dark';
     }
     interface IntrinsicElements {
         "z-app-menu": ZAppMenu;

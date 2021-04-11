@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, State } from "@stencil/core";
+import { Component, Event, EventEmitter, h, Prop, State } from "@stencil/core";
 
 @Component({
   tag: "z-app-menu",
@@ -6,6 +6,7 @@ import { Component, Event, EventEmitter, h, State } from "@stencil/core";
   shadow: true,
 })
 export class ZAppMenu {
+  @Prop() variant: 'light' | 'dark' = 'dark';
   @State() isopen: boolean = false;
 
   constructor() {
@@ -22,7 +23,7 @@ export class ZAppMenu {
   renderDots(num = 9) {
     const result = [];
     for (let index = 0; index < num; index++) {
-      result.push(<span></span>);
+      result.push(<span class={this.variant}></span>);
     }
     return result;
   }

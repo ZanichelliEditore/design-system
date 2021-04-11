@@ -23,6 +23,9 @@ button > span {
   border-radius: 50%;
 }
 
+button > span.light {
+  background: rgb(51, 51, 51);
+}
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {

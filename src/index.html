@@ -16,7 +16,7 @@
     <script nomodule src="/build/web-components-library.js"></script>
   </head>
 
-  <body style="margin: 0 auto;">
+  <body style="margin: 0 auto; background: lightgray; height: 1000px;">
     <z-topbar hashtag="faresci">
       <z-logo
         slot="logo"
@@ -50,7 +50,7 @@
       <z-app-menu slot="app-menu"></z-app-menu>
     </z-topbar>
 
-    <p>Logged</p>
+    <p style="height:100px; display: table-cell;vertical-align: bottom;">Logged</p>
 
     <z-topbar hashtag="faresci" logged>
       <z-logo
@@ -86,30 +86,80 @@
         menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
       </z-user-dropdown>
-      <z-app-menu
-        id="app-menu"
-        slot="app-menu"
-        ></z-app-menu>
+      <z-app-menu id="app-menu" slot="app-menu"></z-app-menu>
     </z-topbar>
 
-    <p>User Dropdown</p>
-    <div style="background-color: grey; height: 300px;">
+    <p style="height:200px; display: table-cell;vertical-align: bottom;">Light Variant</p>
+
+    <z-topbar variant="light" hashtag="faresci" logged>
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-link
+        onclick="openModal(this)"
+        textcolor="black"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        >Supporto</z-link
+      >
+      <z-link
+        onclick="openModal(this)"
+        textcolor="black"
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
       <z-user-dropdown
+        variant="light"
         userfullname="docente di italiano per calabresi"
         islogged="true"
         slot="login"
         menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
       </z-user-dropdown>
-    </div>
-    <div style="background: lightgray; height: 5000px;"></div>
+      <z-app-menu
+        variant="light"
+        id="app-menu"
+        slot="app-menu"
+      ></z-app-menu>
+    </z-topbar>
 
+    <p>User Dropdown, App Menu</p>
+    <div
+      style="
+        float: left;
+        background-color: grey;
+        height: 220px;
+        padding: 16px;
+        width: fit-content;
+      "
+    >
+      <z-user-dropdown
+        userfullname="docente di calabrese per italiani"
+        islogged="true"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+    </div>
+    <div style="float: left; background-color: rgb(66, 69, 72); margin: 16px;">
+      <z-app-menu id="app-menu" slot="app-menu"></z-app-menu>
+    </div>
     <script>
       function openModal(e) {
         console.log(e);
       }
-      const appMenu = document.getElementById('app-menu');
-      appMenu.addEventListener('appButtonClick', (e) => openModal(e));
+      const appMenu = document.getElementById("app-menu");
+      appMenu.addEventListener("appButtonClick", (e) => openModal(e));
     </script>
   </body>
 </html>

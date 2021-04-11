@@ -12,6 +12,11 @@
   padding: 6px;
   position: sticky;
   top: 0;
+  z-index: 99;
+}
+
+:host > div.light {
+  background: rgb(255, 255, 255);
 }
 
 .left {
@@ -50,7 +55,6 @@
 
 .right > ::slotted(z-app-menu) {
   padding: 6px;
-  color: rgb(255, 255, 255);;
 }
 
 /* Tablet breakpoint */
@@ -66,7 +70,7 @@
     padding: 8px 16px;
   }
   .left > #hashtag::before {
-    content: '#';
+    content: "#";
   }
 }
 
