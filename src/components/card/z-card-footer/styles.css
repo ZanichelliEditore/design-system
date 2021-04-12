@@ -51,6 +51,7 @@ footer.isopen.trial > h2 {
 }
 
 footer > div:not(.slot-handler) {
+  padding: var(--space-unit) calc(var(--space-unit) * 2);
   height: 40px;
   overflow: hidden;
 }
