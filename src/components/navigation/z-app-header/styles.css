@@ -38,8 +38,15 @@
   --app-header-typography-11-tracking: calc(-2.2 / 1em);
   --app-header-typography-12-tracking: calc(-2.4 / 1em);
 
-  padding-top: calc(var(--space-unit) * 3.5);
-  padding-bottom: calc(var(--space-unit) * 4.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+:host(:not(:empty)) {
+  margin-top: calc(var(--space-unit) * 3.5);
+  margin-bottom: calc(var(--space-unit) * 4.5);
 }
 
 ::slotted(*) {
