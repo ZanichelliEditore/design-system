@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'z-app-header',
@@ -7,14 +7,10 @@ import { Component, Prop, h } from '@stencil/core';
 })
 
 export class ZAppHeader {
-  @Prop() myProp: string;
-
   render() {
-    return (
-      <div>
-        This is your z-app-header component
-        This is your default prop: {this.myProp}
-      </div>
-    );
+    return [
+      <slot name="title"></slot>,
+      <slot name="subtitle"></slot>,
+    ];
   }
 }
