@@ -9,7 +9,8 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
 export class ZAppTopbar {
   @Prop() variant?: 'light' | 'dark' = 'dark';
   @Prop() logged?: boolean;
-  @Prop() hashtag: string;
+  @Prop() hashtag?: string;
+
   @Element() hostElement: HTMLElement;
 
   @State() zLinksValues: string[];
@@ -51,7 +52,7 @@ export class ZAppTopbar {
       <div class={this.variant}>
         <div class="left">
           <slot name="logo"></slot>
-          <span id="hashtag">{this.hashtag}</span>
+          {this.hashtag && <span id="hashtag">{this.hashtag.replace(/\s/g, '')}</span>}
         </div>
         <div class={`right ${this.logged && this.isMobile && "hide-actions"}`}>
           <slot name="actions"></slot>

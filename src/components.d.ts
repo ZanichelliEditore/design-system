@@ -14,7 +14,7 @@ export namespace Components {
         "variant": 'light' | 'dark';
     }
     interface ZAppTopbar {
-        "hashtag": string;
+        "hashtag"?: string;
         "logged"?: boolean;
         "variant"?: 'light' | 'dark';
     }

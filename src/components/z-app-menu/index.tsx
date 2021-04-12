@@ -30,7 +30,7 @@ export class ZAppMenu {
 
   render() {
     return (
-      <button onClick={() => this.emitAppButtonClick()}>
+      <button title="app-menu" onClick={() => this.emitAppButtonClick()}>
         {this.renderDots()}
       </button>
     );

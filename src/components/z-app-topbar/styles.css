@@ -14,6 +14,7 @@
   position: sticky;
   top: 0;
   z-index: 99;
+  height: 40px;
 }
 
 :host > div.light {
@@ -21,6 +22,8 @@
 }
 
 .left {
+  grid-column-start: 1;
+  grid-column-end: 2;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -34,8 +37,10 @@
 }
 
 .right {
+  grid-column-start: 2;
+  grid-column-end: 3;
   display: grid;
-  grid-template-columns: auto auto auto 32px;
+  grid-template-columns: auto auto auto auto;
   align-items: center;
   justify-content: end;
 }
