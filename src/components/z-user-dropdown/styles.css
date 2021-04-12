@@ -109,10 +109,6 @@ ul > li:last-child {
     color: rgb(66, 69, 72);
   }
 
-  button.open > .userfullname {
-    max-width: 100%;
-  }
-
   ul {
     position: initial;
     left: initial;

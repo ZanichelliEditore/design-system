@@ -13,6 +13,11 @@ export namespace Components {
     interface ZAppMenu {
         "variant": 'light' | 'dark';
     }
+    interface ZAppTopbar {
+        "hashtag": string;
+        "logged"?: boolean;
+        "variant"?: 'light' | 'dark';
+    }
     interface ZBody {
         "component": string;
         "level": 1 | 2 | 3 | 4 | 5;
@@ -831,11 +836,6 @@ export namespace Components {
          */
         "type": TooltipPosition;
     }
-    interface ZTopbar {
-        "hashtag": string;
-        "logged"?: boolean;
-        "variant"?: 'light' | 'dark';
-    }
     interface ZTypography {
         "component": string;
         "level": ZTypographyLevels;
@@ -863,6 +863,12 @@ declare global {
     var HTMLZAppMenuElement: {
         prototype: HTMLZAppMenuElement;
         new (): HTMLZAppMenuElement;
+    };
+    interface HTMLZAppTopbarElement extends Components.ZAppTopbar, HTMLStencilElement {
+    }
+    var HTMLZAppTopbarElement: {
+        prototype: HTMLZAppTopbarElement;
+        new (): HTMLZAppTopbarElement;
     };
     interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
     }
@@ -1098,12 +1104,6 @@ declare global {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
-    interface HTMLZTopbarElement extends Components.ZTopbar, HTMLStencilElement {
-    }
-    var HTMLZTopbarElement: {
-        prototype: HTMLZTopbarElement;
-        new (): HTMLZTopbarElement;
-    };
     interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
     }
     var HTMLZTypographyElement: {
@@ -1118,6 +1118,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "z-app-menu": HTMLZAppMenuElement;
+        "z-app-topbar": HTMLZAppTopbarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
@@ -1157,7 +1158,6 @@ declare global {
         "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
-        "z-topbar": HTMLZTopbarElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
     }
@@ -1168,6 +1168,11 @@ declare namespace LocalJSX {
           * emitted on app button icon click, returns open/cloed state
          */
         "onAppButtonClick"?: (event: CustomEvent<any>) => void;
+        "variant"?: 'light' | 'dark';
+    }
+    interface ZAppTopbar {
+        "hashtag"?: string;
+        "logged"?: boolean;
         "variant"?: 'light' | 'dark';
     }
     interface ZBody {
@@ -2048,11 +2053,6 @@ declare namespace LocalJSX {
          */
         "type"?: TooltipPosition;
     }
-    interface ZTopbar {
-        "hashtag"?: string;
-        "logged"?: boolean;
-        "variant"?: 'light' | 'dark';
-    }
     interface ZTypography {
         "component"?: string;
         "level"?: ZTypographyLevels;
@@ -2075,6 +2075,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "z-app-menu": ZAppMenu;
+        "z-app-topbar": ZAppTopbar;
         "z-body": ZBody;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
@@ -2114,7 +2115,6 @@ declare namespace LocalJSX {
         "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
-        "z-topbar": ZTopbar;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
     }
@@ -2124,6 +2124,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "z-app-menu": LocalJSX.ZAppMenu & JSXBase.HTMLAttributes<HTMLZAppMenuElement>;
+            "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
@@ -2163,7 +2164,6 @@ declare module "@stencil/core" {
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
-            "z-topbar": LocalJSX.ZTopbar & JSXBase.HTMLAttributes<HTMLZTopbarElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
         }

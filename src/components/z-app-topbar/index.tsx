@@ -2,11 +2,11 @@ import { Component, Prop, Element, h, State, Listen } from "@stencil/core";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
-  tag: "z-topbar",
+  tag: "z-app-topbar",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZTopbar {
+export class ZAppTopbar {
   @Prop() variant?: 'light' | 'dark' = 'dark';
   @Prop() logged?: boolean;
   @Prop() hashtag: string;

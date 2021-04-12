@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property  | Attribute | Description | Type                | Default  |
+| --------- | --------- | ----------- | ------------------- | -------- |
+| `variant` | `variant` |             | `"dark" \| "light"` | `'dark'` |
+
+
 ## Events
 
 | Event            | Description                                                | Type               |

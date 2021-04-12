@@ -53,7 +53,7 @@ export class ZUserDropdown {
 
   renderLoggedButton() {
     return (
-      <button class={`${this.ismenuopen ? 'open' : ''} ${this.variant}`} onClick={() => this.handleToggle()}>
+      <button title={this.userfullname} class={`${this.ismenuopen ? 'open' : ''} ${this.variant}`} onClick={() => this.handleToggle()}>
         <z-icon name="user-avatar-filled" height={18} width={18}></z-icon>
         <span class="userfullname">
           {this.userfullname}
