@@ -8,6 +8,7 @@
   border-radius: 0px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
   align-items: center;
   padding: 6px;
   position: sticky;
@@ -33,12 +34,10 @@
 }
 
 .right {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: auto auto auto 32px;
   align-items: center;
-  align-content: center;
+  justify-content: end;
 }
 
 .right.hide-actions > slot[name="actions"] {
@@ -51,10 +50,14 @@
 
 .right > ::slotted(z-user-dropdown) {
   padding: 4px 0;
+  grid-column-start: 3;
+  grid-column-end: 4;
 }
 
 .right > ::slotted(z-app-menu) {
   padding: 6px;
+  grid-column-start: 4;
+  grid-column-end: 5;
 }
 
 /* Tablet breakpoint */

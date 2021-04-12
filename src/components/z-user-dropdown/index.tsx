@@ -94,10 +94,10 @@ export class ZUserDropdown {
 
   render() {
     return (
-      <span>
+      <div class={`${this.ismenuopen ? 'open' : ''}`}>
         {this.islogged ? this.renderLoggedButton() : this.renderGuestButton()}
         {this.islogged && this.renderDropdownMenu()}
-      </span>
+      </div>
     );
   }
 }
