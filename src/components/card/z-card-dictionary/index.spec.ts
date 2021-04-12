@@ -92,4 +92,34 @@ describe("Suite test ZCardDictionary", () => {
       </z-card-dictionary>
     `);
   });
+
+  it("Test render ZCardDictionary - with props info button hidden", async () => {
+    const page = await newSpecPage({
+      components: [ZCardDictionary],
+      html: `<z-card-dictionary hideinfobtn="true" name="title" cover="img-url" disabled="true"></z-card-dictionary>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-card-dictionary name="title" cover="img-url" disabled="true" hideinfobtn="true" >
+        <mock:shadow-root>
+          <div>
+            <z-card>
+              <z-card-header titolo="title"></z-card-header>
+              <div class="content">
+                <div class="front">
+                  <z-card-body>
+                    <z-card-cover titolo="title" img="img-url" slot="cover" faded=""></z-card-cover>
+                  </z-card-body>
+                  <z-button class="hideInfo" variant="secondary" icon="informationsource" issmall="">INFO</z-button>
+                </div>
+                <div class="back">
+                  <slot name="info"></slot>
+                </div>
+              </div>
+              <slot></slot>
+            </z-card>
+          </div>
+        </mock:shadow-root>
+      </z-card-dictionary>
+    `);
+  });
 });

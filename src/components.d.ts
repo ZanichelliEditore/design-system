@@ -183,6 +183,10 @@ export namespace Components {
          */
         "flipped": boolean;
         /**
+          * hide info button
+         */
+        "hideinfobtn": boolean;
+        /**
           * card title
          */
         "name": string;
@@ -1532,6 +1536,10 @@ declare namespace LocalJSX {
           * card is flipped
          */
         "flipped"?: boolean;
+        /**
+          * hide info button
+         */
+        "hideinfobtn"?: boolean;
         /**
           * card title
          */

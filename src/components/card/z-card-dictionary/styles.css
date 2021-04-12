@@ -68,6 +68,10 @@
   justify-content: center;
 }
 
+.hideInfo {
+  display: none;
+}
+
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
 }
