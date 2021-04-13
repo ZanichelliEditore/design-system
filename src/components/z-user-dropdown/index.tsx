@@ -1,5 +1,5 @@
 import { Component, Prop, State, h } from "@stencil/core";
-import { MenuItem } from "../../beans";
+import { MenuItem, ThemeVariant, ThemeVariantBean } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
@@ -8,17 +8,18 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
   shadow: true,
 })
 export class ZUserDropdown {
+  /** logged status flag */
   @Prop() islogged: boolean;
   /** user full name */
   @Prop() userfullname?: string;
   /** Json stringified or array to fill menu dropdown */
   @Prop() menucontent?: string | MenuItem[];
-  /** unique button id */
-  @Prop() variant?: 'light' | 'dark' = 'dark';
+  /** theme variant, default 'dark' */
+  @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
 
   @State() ismenuopen: boolean = false;
 
-  linkarray: MenuItem[];
+  private linkarray: MenuItem[];
 
   componentWillRender() {
     this.linkarray =
@@ -45,7 +46,7 @@ export class ZUserDropdown {
 
   renderGuestButton() {
     return (
-      <z-link big={true} icon="enter" textcolor={this.variant === 'light' ? 'black' : 'white'}>
+      <z-link big={true} icon="enter" textcolor={this.theme === ThemeVariant.light ? 'black' : 'white'}>
         Entra
       </z-link>
     );
@@ -53,7 +54,7 @@ export class ZUserDropdown {
 
   renderLoggedButton() {
     return (
-      <button title={this.userfullname} class={`${this.ismenuopen ? 'open' : ''} ${this.variant}`} onClick={() => this.handleToggle()}>
+      <button title={this.userfullname} class={`${this.ismenuopen ? 'open' : ''} ${this.theme}`} onClick={() => this.handleToggle()}>
         <z-icon name="user-avatar-filled" height={18} width={18}></z-icon>
         <span class="userfullname">
           {this.userfullname}
@@ -64,14 +65,14 @@ export class ZUserDropdown {
   }
 
   retrieveLiTextColor(): 'white' | 'black' {
-    if (this.variant === 'light') return 'black';
+    if (this.theme === ThemeVariant.light) return 'black';
     return window.innerWidth <= mobileBreakpoint ? 'white' : 'black'
   }
 
   renderDropdownMenu() {
     return (
       this.ismenuopen && (
-        <ul class={this.variant}>
+        <ul class={this.theme}>
           {this.linkarray.map((link) => {
             return (
               <li id={link.id}>

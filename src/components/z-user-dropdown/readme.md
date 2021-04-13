@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property       | Attribute      | Description                                     | Type                   | Default     |
-| -------------- | -------------- | ----------------------------------------------- | ---------------------- | ----------- |
-| `islogged`     | `islogged`     |                                                 | `boolean`              | `undefined` |
-| `menucontent`  | `menucontent`  | Json stringified or array to fill menu dropdown | `MenuItem[] \| string` | `undefined` |
-| `userfullname` | `userfullname` | user full name                                  | `string`               | `undefined` |
-| `variant`      | `variant`      | unique button id                                | `"dark" \| "light"`    | `'dark'`    |
+| Property       | Attribute      | Description                                     | Type                   | Default             |
+| -------------- | -------------- | ----------------------------------------------- | ---------------------- | ------------------- |
+| `islogged`     | `islogged`     | logged status flag                              | `boolean`              | `undefined`         |
+| `menucontent`  | `menucontent`  | Json stringified or array to fill menu dropdown | `MenuItem[] \| string` | `undefined`         |
+| `theme`        | `theme`        | theme variant, default 'dark'                   | `"dark" \| "light"`    | `ThemeVariant.dark` |
+| `userfullname` | `userfullname` | user full name                                  | `string`               | `undefined`         |
 
 
 ## Dependencies

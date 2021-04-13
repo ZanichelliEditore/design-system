@@ -5,13 +5,16 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
+import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, ThemeVariantBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZAppSwitcher {
-        "variant": 'light' | 'dark';
+        /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
     }
     interface ZAppTopbar {
         "hashtag"?: string;
@@ -842,19 +845,22 @@ export namespace Components {
         "variant": "regular" | "semibold" | "light";
     }
     interface ZUserDropdown {
+        /**
+          * logged status flag
+         */
         "islogged": boolean;
         /**
           * Json stringified or array to fill menu dropdown
          */
         "menucontent"?: string | MenuItem[];
         /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
+        /**
           * user full name
          */
         "userfullname"?: string;
-        /**
-          * unique button id
-         */
-        "variant"?: 'light' | 'dark';
     }
 }
 declare global {
@@ -1168,7 +1174,10 @@ declare namespace LocalJSX {
           * emitted on app button icon click, returns open/cloed state
          */
         "onAppButtonClick"?: (event: CustomEvent<any>) => void;
-        "variant"?: 'light' | 'dark';
+        /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
     }
     interface ZAppTopbar {
         "hashtag"?: string;
@@ -2059,19 +2068,22 @@ declare namespace LocalJSX {
         "variant"?: "regular" | "semibold" | "light";
     }
     interface ZUserDropdown {
+        /**
+          * logged status flag
+         */
         "islogged"?: boolean;
         /**
           * Json stringified or array to fill menu dropdown
          */
         "menucontent"?: string | MenuItem[];
         /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
+        /**
           * user full name
          */
         "userfullname"?: string;
-        /**
-          * unique button id
-         */
-        "variant"?: 'light' | 'dark';
     }
     interface IntrinsicElements {
         "z-app-switcher": ZAppSwitcher;

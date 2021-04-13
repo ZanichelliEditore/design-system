@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                | Default  |
-| --------- | --------- | ----------- | ------------------- | -------- |
-| `variant` | `variant` |             | `"dark" \| "light"` | `'dark'` |
+| Property | Attribute | Description                   | Type                | Default             |
+| -------- | --------- | ----------------------------- | ------------------- | ------------------- |
+| `theme`  | `theme`   | theme variant, default 'dark' | `"dark" \| "light"` | `ThemeVariant.dark` |
 
 
 ## Events

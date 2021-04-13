@@ -1,4 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop, State } from "@stencil/core";
+import { ThemeVariant, ThemeVariantBean } from "../../beans";
 
 @Component({
   tag: "z-app-switcher",
@@ -6,7 +7,8 @@ import { Component, Event, EventEmitter, h, Prop, State } from "@stencil/core";
   shadow: true,
 })
 export class ZAppSwitcher {
-  @Prop() variant: 'light' | 'dark' = 'dark';
+  /** theme variant, default 'dark' */
+  @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
   @State() isopen: boolean = false;
 
   constructor() {
@@ -23,7 +25,7 @@ export class ZAppSwitcher {
   renderDots(num = 9) {
     const result = [];
     for (let index = 0; index < num; index++) {
-      result.push(<span class={this.variant}></span>);
+      result.push(<span class={this.theme}></span>);
     }
     return result;
   }

@@ -58,11 +58,11 @@ describe("Suite test ZAppSwitcher", () => {
 
     const page = await newSpecPage({
       components: [ZAppSwitcher],
-      html: `<z-app-switcher variant="light"></z-app-switcher>`
+      html: `<z-app-switcher theme="light"></z-app-switcher>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-switcher variant="light">
+      <z-app-switcher theme="light">
         <mock:shadow-root>
           <button title="app-switcher">
             <span class="light"></span>
