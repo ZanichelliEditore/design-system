@@ -8,8 +8,11 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
   shadow: true,
 })
 export class ZAppTopbar {
+  /** theme variant, default 'dark' */
   @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
+  /** logged status flag */
   @Prop() logged?: boolean;
+  /** optional hashtag string*/
   @Prop() hashtag?: string;
 
   @Element() hostElement: HTMLElement;

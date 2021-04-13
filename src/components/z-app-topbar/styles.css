@@ -80,6 +80,9 @@
   .left > #hashtag::before {
     content: "#";
   }
+  .right > ::slotted(z-app-switcher) {
+    padding: 6px 16px;
+  }
 }
 
 /* Desktop breakpoint */

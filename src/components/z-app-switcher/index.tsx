@@ -15,7 +15,7 @@ export class ZAppSwitcher {
     this.emitAppButtonClick = this.emitAppButtonClick.bind(this);
   }
 
-  /** emitted on app button icon click, returns open/cloed state */
+  /** emitted on app button icon click, returns open/closed state */
   @Event() appButtonClick: EventEmitter;
   emitAppButtonClick() {
     this.isopen = !this.isopen;

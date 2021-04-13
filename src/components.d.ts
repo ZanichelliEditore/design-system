@@ -17,9 +17,18 @@ export namespace Components {
         "theme"?: ThemeVariantBean;
     }
     interface ZAppTopbar {
+        /**
+          * optional hashtag string
+         */
         "hashtag"?: string;
+        /**
+          * logged status flag
+         */
         "logged"?: boolean;
-        "variant"?: 'light' | 'dark';
+        /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
     }
     interface ZBody {
         "component": string;
@@ -47,10 +56,6 @@ export namespace Components {
           * name
          */
         "name"?: string;
-        /**
-          * text color (optional - default myz-blue)
-         */
-        "textcolor"?: string;
         /**
           * button type
          */
@@ -848,7 +853,7 @@ export namespace Components {
         /**
           * logged status flag
          */
-        "islogged"?: boolean;
+        "logged"?: boolean;
         /**
           * Json stringified or array to fill menu dropdown
          */
@@ -1171,7 +1176,7 @@ declare global {
 declare namespace LocalJSX {
     interface ZAppSwitcher {
         /**
-          * emitted on app button icon click, returns open/cloed state
+          * emitted on app button icon click, returns open/closed state
          */
         "onAppButtonClick"?: (event: CustomEvent<any>) => void;
         /**
@@ -1180,9 +1185,18 @@ declare namespace LocalJSX {
         "theme"?: ThemeVariantBean;
     }
     interface ZAppTopbar {
+        /**
+          * optional hashtag string
+         */
         "hashtag"?: string;
+        /**
+          * logged status flag
+         */
         "logged"?: boolean;
-        "variant"?: 'light' | 'dark';
+        /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
     }
     interface ZBody {
         "component"?: string;
@@ -1210,10 +1224,6 @@ declare namespace LocalJSX {
           * name
          */
         "name"?: string;
-        /**
-          * text color (optional - default myz-blue)
-         */
-        "textcolor"?: string;
         /**
           * button type
          */
@@ -2071,7 +2081,7 @@ declare namespace LocalJSX {
         /**
           * logged status flag
          */
-        "islogged"?: boolean;
+        "logged"?: boolean;
         /**
           * Json stringified or array to fill menu dropdown
          */

@@ -9,7 +9,7 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
 })
 export class ZUserDropdown {
   /** logged status flag */
-  @Prop() islogged?: boolean;
+  @Prop() logged?: boolean;
   /** user full name */
   @Prop() userfullname?: string;
   /** Json stringified or array to fill menu dropdown */
@@ -96,8 +96,8 @@ export class ZUserDropdown {
   render() {
     return (
       <div class={`${this.ismenuopen ? 'open' : ''}`}>
-        {this.islogged ? this.renderLoggedButton() : this.renderGuestButton()}
-        {this.islogged && this.renderDropdownMenu()}
+        {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
+        {this.logged && this.renderDropdownMenu()}
       </div>
     );
   }
