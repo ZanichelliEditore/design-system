@@ -45,8 +45,8 @@
 }
 
 :host(:not(:empty)) {
-  margin-top: calc(var(--space-unit) * 3.5);
-  margin-bottom: calc(var(--space-unit) * 4.5);
+  padding-top: calc(var(--space-unit) * 3.5);
+  padding-bottom: calc(var(--space-unit) * 4.5);
 }
 
 ::slotted(*) {
