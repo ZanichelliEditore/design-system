@@ -1,19 +1,19 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZAppMenu } from "./index";
+import { ZAppSwitcher } from "./index";
 
-describe("Suite test ZAppMenu", () => {
-  it("Test render ZAppMenu default", async () => {
+describe("Suite test ZAppSwitcher", () => {
+  it("Test render ZAppSwitcher default", async () => {
 
     const page = await newSpecPage({
-      components: [ZAppMenu],
-      html: `<z-app-menu></z-app-menu>`
+      components: [ZAppSwitcher],
+      html: `<z-app-switcher></z-app-switcher>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-menu>
+      <z-app-switcher>
         <mock:shadow-root>
-          <button>
+          <button title="app-switcher">
             <span class="dark"></span>
             <span class="dark"></span>
             <span class="dark"></span>
@@ -25,21 +25,21 @@ describe("Suite test ZAppMenu", () => {
             <span class="dark"></span>
           </button>
         </mock:shadow-root>
-      </z-app-menu>
+      </z-app-switcher>
     `)
   });
 
-  it("Test render ZAppMenu dark", async () => {
+  it("Test render ZAppSwitcher dark", async () => {
 
     const page = await newSpecPage({
-      components: [ZAppMenu],
-      html: `<z-app-menu variant="dark"></z-app-menu>`
+      components: [ZAppSwitcher],
+      html: `<z-app-switcher variant="dark"></z-app-switcher>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-menu variant="dark">
+      <z-app-switcher variant="dark">
         <mock:shadow-root>
-          <button>
+          <button title="app-switcher">
             <span class="dark"></span>
             <span class="dark"></span>
             <span class="dark"></span>
@@ -51,20 +51,20 @@ describe("Suite test ZAppMenu", () => {
             <span class="dark"></span>
           </button>
         </mock:shadow-root>
-      </z-app-menu>
+      </z-app-switcher>
     `)
   });
-  it("Test render ZAppMenu light", async () => {
+  it("Test render ZAppSwitcher light", async () => {
 
     const page = await newSpecPage({
-      components: [ZAppMenu],
-      html: `<z-app-menu variant="light"></z-app-menu>`
+      components: [ZAppSwitcher],
+      html: `<z-app-switcher variant="light"></z-app-switcher>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-menu variant="light">
+      <z-app-switcher variant="light">
         <mock:shadow-root>
-          <button>
+          <button title="app-switcher">
             <span class="light"></span>
             <span class="light"></span>
             <span class="light"></span>
@@ -76,7 +76,7 @@ describe("Suite test ZAppMenu", () => {
             <span class="light"></span>
           </button>
         </mock:shadow-root>
-      </z-app-menu>
+      </z-app-switcher>
     `)
   });
 });

@@ -57,7 +57,7 @@ export class ZAppTopbar {
         <div class={`right ${this.logged && this.isMobile && "hide-actions"}`}>
           <slot name="actions"></slot>
           <slot name="login"></slot>
-          <slot name="app-menu"></slot>
+          <slot name="app-switcher"></slot>
         </div>
       </div>
     );

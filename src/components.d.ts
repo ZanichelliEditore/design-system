@@ -10,7 +10,7 @@ import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
-    interface ZAppMenu {
+    interface ZAppSwitcher {
         "variant": 'light' | 'dark';
     }
     interface ZAppTopbar {
@@ -858,11 +858,11 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLZAppMenuElement extends Components.ZAppMenu, HTMLStencilElement {
+    interface HTMLZAppSwitcherElement extends Components.ZAppSwitcher, HTMLStencilElement {
     }
-    var HTMLZAppMenuElement: {
-        prototype: HTMLZAppMenuElement;
-        new (): HTMLZAppMenuElement;
+    var HTMLZAppSwitcherElement: {
+        prototype: HTMLZAppSwitcherElement;
+        new (): HTMLZAppSwitcherElement;
     };
     interface HTMLZAppTopbarElement extends Components.ZAppTopbar, HTMLStencilElement {
     }
@@ -1117,7 +1117,7 @@ declare global {
         new (): HTMLZUserDropdownElement;
     };
     interface HTMLElementTagNameMap {
-        "z-app-menu": HTMLZAppMenuElement;
+        "z-app-switcher": HTMLZAppSwitcherElement;
         "z-app-topbar": HTMLZAppTopbarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
@@ -1163,7 +1163,7 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface ZAppMenu {
+    interface ZAppSwitcher {
         /**
           * emitted on app button icon click, returns open/cloed state
          */
@@ -2074,7 +2074,7 @@ declare namespace LocalJSX {
         "variant"?: 'light' | 'dark';
     }
     interface IntrinsicElements {
-        "z-app-menu": ZAppMenu;
+        "z-app-switcher": ZAppSwitcher;
         "z-app-topbar": ZAppTopbar;
         "z-body": ZBody;
         "z-button": ZButton;
@@ -2123,7 +2123,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "z-app-menu": LocalJSX.ZAppMenu & JSXBase.HTMLAttributes<HTMLZAppMenuElement>;
+            "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
             "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;

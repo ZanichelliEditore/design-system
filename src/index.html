@@ -79,7 +79,7 @@
       islogged="false"
       slot="login"
       ></z-user-dropdown>
-      <z-app-menu slot="app-menu"></z-app-menu>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
 
 
@@ -133,7 +133,7 @@
         islogged="false"
         slot="login"
       ></z-user-dropdown>
-      <z-app-menu slot="app-menu"></z-app-menu>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
 
     <p>wihtout links</p>
@@ -154,7 +154,7 @@
         menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
       </z-user-dropdown>
-      <z-app-menu slot="app-menu"></z-app-menu>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
 
     <p>Logo and Links</p>
@@ -224,7 +224,7 @@
         menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
       </z-user-dropdown>
-      <z-app-menu slot="app-menu"></z-app-menu>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
 
     <p>User Dropdown</p>
@@ -247,7 +247,7 @@
         padding: 16px;
       "
     >
-      <z-app-menu id="app-menu" slot="app-menu"></z-app-menu>
+      <z-app-switcher id="app-switcher" slot="app-switcher"></z-app-switcher>
     </div>
 
     <p>Light Variant</p>
@@ -282,7 +282,7 @@
         islogged="false"
         slot="login"
       ></z-user-dropdown>
-      <z-app-menu variant="light" slot="app-menu"></z-app-menu>
+      <z-app-switcher variant="light" slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
 
     <p>Logged</p>
@@ -322,7 +322,7 @@
         menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
       </z-user-dropdown>
-      <z-app-menu variant="light" id="app-menu-2" slot="app-menu"></z-app-menu>
+      <z-app-switcher variant="light" id="app-switcher-2" slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
 
   <!-- non zanichelli logged -->
@@ -1145,7 +1145,7 @@
       function openModal(e) {
         console.log(e);
       }
-      const appMenu = document.getElementById("app-menu");
+      const appMenu = document.getElementById("app-switcher");
       appMenu.addEventListener("appButtonClick", (e) => openModal(e));
     </script>
   </body>

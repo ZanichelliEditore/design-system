@@ -1,11 +1,11 @@
 import { Component, Event, EventEmitter, h, Prop, State } from "@stencil/core";
 
 @Component({
-  tag: "z-app-menu",
+  tag: "z-app-switcher",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZAppMenu {
+export class ZAppSwitcher {
   @Prop() variant: 'light' | 'dark' = 'dark';
   @State() isopen: boolean = false;
 
@@ -30,7 +30,7 @@ export class ZAppMenu {
 
   render() {
     return (
-      <button title="app-menu" onClick={() => this.emitAppButtonClick()}>
+      <button title="app-switcher" onClick={() => this.emitAppButtonClick()}>
         {this.renderDots()}
       </button>
     );
