@@ -1,4 +1,5 @@
 import { Component, Prop, Element, h, State, Listen } from "@stencil/core";
+import { ThemeVariant, ThemeVariantBean } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
@@ -7,7 +8,7 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
   shadow: true,
 })
 export class ZAppTopbar {
-  @Prop() variant?: 'light' | 'dark' = 'dark';
+  @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
   @Prop() logged?: boolean;
   @Prop() hashtag?: string;
 
@@ -49,7 +50,7 @@ export class ZAppTopbar {
 
   render() {
     return (
-      <div class={this.variant}>
+      <div class={this.theme}>
         <div class="left">
           <slot name="logo"></slot>
           {this.hashtag && <span id="hashtag">{this.hashtag.replace(/\s/g, '')}</span>}

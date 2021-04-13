@@ -46,61 +46,6 @@
     <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
   </z-modal> -->
 
-  <p>Empty</p>
-
-  <z-app-topbar></z-app-topbar>
-
-    <p>Logo Only</p>
-
-    <z-app-topbar>
-      <z-logo
-        slot="logo"
-        width="138"
-        height="36"
-        imagealt="zanichelli-logo"
-        link="https://www.zanichelli.it"
-        targetblank
-      ></z-logo>
-    </z-app-topbar>
-
-    <p>Logo User Dropdown And App Menu</p>
-
-    <z-app-topbar>
-      <z-logo
-        slot="logo"
-        width="138"
-        height="36"
-        imagealt="zanichelli-logo"
-        link="https://www.zanichelli.it"
-        targetblank
-      ></z-logo>
-      <z-user-dropdown
-      userfullname="docente di calabresi per italiani"
-      islogged="false"
-      slot="login"
-      ></z-user-dropdown>
-      <z-app-switcher slot="app-switcher"></z-app-switcher>
-    </z-app-topbar>
-
-
-    <p>Logo Hashtag and User Dropdown</p>
-
-    <z-app-topbar hashtag="apoteosi">
-      <z-logo
-        slot="logo"
-        width="138"
-        height="36"
-        imagealt="zanichelli-logo"
-        link="https://www.zanichelli.it"
-        targetblank
-      ></z-logo>
-      <z-user-dropdown
-      userfullname="docente di calabresi per italiani"
-      islogged="false"
-      slot="login"
-      ></z-user-dropdown>
-    </z-app-topbar>
-
     <p>Not Logged</p>
 
     <z-app-topbar hashtag="via crucis">
@@ -134,58 +79,6 @@
         slot="login"
       ></z-user-dropdown>
       <z-app-switcher slot="app-switcher"></z-app-switcher>
-    </z-app-topbar>
-
-    <p>wihtout links</p>
-
-    <z-app-topbar hashtag="faresci" logged>
-      <z-logo
-        slot="logo"
-        width="138"
-        height="36"
-        imagealt="zanichelli-logo"
-        link="https://www.zanichelli.it"
-        targetblank
-      ></z-logo>
-      <z-user-dropdown
-        userfullname="Fabio Funzionario"
-        islogged="true"
-        slot="login"
-        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
-      >
-      </z-user-dropdown>
-      <z-app-switcher slot="app-switcher"></z-app-switcher>
-    </z-app-topbar>
-
-    <p>Logo and Links</p>
-
-    <z-app-topbar hashtag="faresci" logged>
-      <z-logo
-        slot="logo"
-        width="138"
-        height="36"
-        imagealt="zanichelli-logo"
-        link="https://www.zanichelli.it"
-        targetblank
-      ></z-logo>
-      <z-link
-        onclick="openModal(this)"
-        textcolor="white"
-        big
-        icon="support-filled"
-        slot="actions"
-        href="#"
-        >Supporto</z-link
-      >
-      <z-link
-        onclick="openModal(this)"
-        iswhite
-        big
-        icon="shopping-cart-filled"
-        slot="actions"
-        href="#"
-        >Carrello</z-link
-      >
     </z-app-topbar>
 
     <p>Logged</p>
@@ -256,7 +149,7 @@
     </div>
 
     <p>Light Variant</p>
-    <z-app-topbar variant="light" hashtag="faresci">
+    <z-app-topbar theme="light" hashtag="faresci">
       <z-logo
         slot="logo"
         width="138"
@@ -292,7 +185,7 @@
 
     <p>Logged</p>
 
-    <z-app-topbar variant="light" hashtag="faresci" logged>
+    <z-app-topbar theme="light" hashtag="faresci" logged>
       <z-logo
         slot="logo"
         width="138"
