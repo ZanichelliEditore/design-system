@@ -59,7 +59,7 @@
   grid-column-end: 4;
 }
 
-.right > ::slotted(z-app-menu) {
+.right > ::slotted(z-app-switcher) {
   padding: 6px;
   grid-column-start: 4;
   grid-column-end: 5;

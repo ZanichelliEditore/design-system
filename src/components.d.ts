@@ -848,7 +848,7 @@ export namespace Components {
         /**
           * logged status flag
          */
-        "islogged": boolean;
+        "islogged"?: boolean;
         /**
           * Json stringified or array to fill menu dropdown
          */

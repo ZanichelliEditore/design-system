@@ -83,7 +83,29 @@ ul > li:last-child {
   }
 
   :host > div.open {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+  }
+
+  button.open {
+    background-color: rgb(255, 255, 255);
+    border-top: 1px solid rgb(255, 255, 255);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
   }
 
   button > .userfullname {
@@ -92,13 +114,6 @@ ul > li:last-child {
     overflow: hidden;
     max-width: 250px;
     text-overflow: ellipsis;
-  }
-
-  button.open {
-    background-color: rgb(255, 255, 255);
-    border-top: 1px solid rgb(255, 255, 255);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
   }
 
   button.open > z-icon {
@@ -133,12 +148,10 @@ ul > li:last-child {
   ul > li:last-child {
     border-bottom: none;
   }
-
 }
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-
 }
 
 /* Wide breakpoint */

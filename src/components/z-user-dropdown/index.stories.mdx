@@ -8,16 +8,15 @@ import { text, boolean } from '@storybook/addon-knobs';
 
 <Preview>
   <Story name="ZUserDropdown-not-logged">
-    {html`<div style="display: flex; background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: 200px">
+    {html`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">
     <z-user-dropdown
       userfullname="${text("userfullname", "Dario Docente")}"
-      islogged="${boolean("islogged", false)}"
       menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
     ></z-user-dropdown>
     </div>`}
   </Story>
   <Story name="ZUserDropdown-logged">
-    {html`<div style="display: flex; background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: 200px">
+    {html`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">
     <z-user-dropdown
       userfullname="${text("userfullname", "Dario Docente")}"
       islogged="${boolean("islogged", true)}"
@@ -26,7 +25,7 @@ import { text, boolean } from '@storybook/addon-knobs';
     </div>`}
   </Story>
   <Story name="ZUserDropdown-not-logged-light">
-    {html`<div style="display: flex; padding:16px; hight: 200px; width: 200px">
+    {html`<div style="padding:16px; hight: 200px; width: fit-content">
     <z-user-dropdown
       theme="${text("theme", "light")}"
       userfullname="${text("userfullname", "Dario Docente")}"
@@ -36,7 +35,7 @@ import { text, boolean } from '@storybook/addon-knobs';
     </div>`}
   </Story>
   <Story name="ZUserDropdown-logged-light">
-    {html`<div style="display: flex; padding:16px; hight: 200px; width: 200px">
+    {html`<div style="padding:16px; hight: 200px; width: fit-content">
     <z-user-dropdown
       theme="${text("theme", "light")}"
       userfullname="${text("userfullname", "Dario Docente")}"
