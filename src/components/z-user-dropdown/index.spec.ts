@@ -12,11 +12,11 @@ describe("Suite test ZUserDropdown", () => {
     expect(page.root).toEqualHtml(`
       <z-user-dropdown>
         <mock:shadow-root>
-            <span>
+            <div>
               <z-link big="" icon="enter" textcolor="white">
                 Entra
               </z-link>
-            </span>
+            </div>
         </mock:shadow-root>
       </z-user-dropdown>
     `);
@@ -33,13 +33,16 @@ describe("Suite test ZUserDropdown", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-user-dropdown>
+      <z-user-dropdown
+        userfullname="Sandro Studente"
+        menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
         <mock:shadow-root>
-            <span>
+            <div>
               <z-link big="" icon="enter" textcolor="white">
                 Entra
               </z-link>
-            </span>
+            </div>
         </mock:shadow-root>
       </z-user-dropdown>
     `);
@@ -56,13 +59,21 @@ describe("Suite test ZUserDropdown", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-user-dropdown>
+      <z-user-dropdown
+        userfullname="Sandro Studente"
+        islogged="true"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
         <mock:shadow-root>
-            <span>
-              <z-link big="" icon="enter" textcolor="white">
-                Entra
-              </z-link>
-            </span>
+            <div>
+              <button class="dark" title="Sandro Studente">
+                <z-icon height="18" name="user-avatar-filled" width="18"></z-icon>
+                <span class="userfullname">
+                  Sandro Studente
+                </span>
+                <z-icon height="18" name="caret-down-filled" slot="login" width="18"></z-icon>
+              </button>
+            </div>
         </mock:shadow-root>
       </z-user-dropdown>
     `);
@@ -78,13 +89,17 @@ describe("Suite test ZUserDropdown", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-user-dropdown>
+      <z-user-dropdown
+        theme="light"
+        userfullname="Sandro Studente"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
         <mock:shadow-root>
-            <span>
-              <z-link big="" icon="enter" textcolor="white">
+            <div>
+              <z-link big="" icon="enter" textcolor="black">
                 Entra
               </z-link>
-            </span>
+            </div>
         </mock:shadow-root>
       </z-user-dropdown>
     `);
@@ -101,13 +116,22 @@ describe("Suite test ZUserDropdown", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-user-dropdown>
+      <z-user-dropdown
+        theme="light"
+        userfullname="Sandro Studente"
+        islogged="true"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
         <mock:shadow-root>
-            <span>
-              <z-link big="" icon="enter" textcolor="white">
-                Entra
-              </z-link>
-            </span>
+            <div>
+              <button class="light" title="Sandro Studente">
+                <z-icon height="18" name="user-avatar-filled" width="18"></z-icon>
+                <span class="userfullname">
+                  Sandro Studente
+                </span>
+                <z-icon height="18" name="caret-down-filled" slot="login" width="18"></z-icon>
+              </button>
+            </div>
         </mock:shadow-root>
       </z-user-dropdown>
     `);
