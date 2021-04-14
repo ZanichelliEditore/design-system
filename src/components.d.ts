@@ -313,13 +313,39 @@ export namespace Components {
     }
     interface ZFooter {
         /**
-          * set copyright user (optional)
+          * deprecated - set copyright user
          */
-        "copyrightuser"?: any;
+        "copyrightuser"?: string;
         /**
-          * JSON stringified data to fill the footer
+          * deprecated - JSON stringified data to fill the footer
          */
-        "data": string;
+        "data"?: string;
+    }
+    interface ZFooterLink {
+        /**
+          * link
+         */
+        "href": string;
+    }
+    interface ZFooterSection {
+        /**
+          * section title
+         */
+        "name": string;
+    }
+    interface ZFooterSocial {
+        /**
+          * social description
+         */
+        "description"?: string;
+        /**
+          * social link
+         */
+        "href": string;
+        /**
+          * icon url
+         */
+        "icon": string;
     }
     interface ZHeader {
         /**
@@ -983,6 +1009,24 @@ declare global {
         prototype: HTMLZFooterElement;
         new (): HTMLZFooterElement;
     };
+    interface HTMLZFooterLinkElement extends Components.ZFooterLink, HTMLStencilElement {
+    }
+    var HTMLZFooterLinkElement: {
+        prototype: HTMLZFooterLinkElement;
+        new (): HTMLZFooterLinkElement;
+    };
+    interface HTMLZFooterSectionElement extends Components.ZFooterSection, HTMLStencilElement {
+    }
+    var HTMLZFooterSectionElement: {
+        prototype: HTMLZFooterSectionElement;
+        new (): HTMLZFooterSectionElement;
+    };
+    interface HTMLZFooterSocialElement extends Components.ZFooterSocial, HTMLStencilElement {
+    }
+    var HTMLZFooterSocialElement: {
+        prototype: HTMLZFooterSocialElement;
+        new (): HTMLZFooterSocialElement;
+    };
     interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {
     }
     var HTMLZHeaderElement: {
@@ -1147,6 +1191,9 @@ declare global {
         "z-combobox": HTMLZComboboxElement;
         "z-cookiebar": HTMLZCookiebarElement;
         "z-footer": HTMLZFooterElement;
+        "z-footer-link": HTMLZFooterLinkElement;
+        "z-footer-section": HTMLZFooterSectionElement;
+        "z-footer-social": HTMLZFooterSocialElement;
         "z-header": HTMLZHeaderElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
@@ -1501,13 +1548,39 @@ declare namespace LocalJSX {
     }
     interface ZFooter {
         /**
-          * set copyright user (optional)
+          * deprecated - set copyright user
          */
-        "copyrightuser"?: any;
+        "copyrightuser"?: string;
         /**
-          * JSON stringified data to fill the footer
+          * deprecated - JSON stringified data to fill the footer
          */
         "data"?: string;
+    }
+    interface ZFooterLink {
+        /**
+          * link
+         */
+        "href"?: string;
+    }
+    interface ZFooterSection {
+        /**
+          * section title
+         */
+        "name"?: string;
+    }
+    interface ZFooterSocial {
+        /**
+          * social description
+         */
+        "description"?: string;
+        /**
+          * social link
+         */
+        "href"?: string;
+        /**
+          * icon url
+         */
+        "icon"?: string;
     }
     interface ZHeader {
         /**
@@ -2115,6 +2188,9 @@ declare namespace LocalJSX {
         "z-combobox": ZCombobox;
         "z-cookiebar": ZCookiebar;
         "z-footer": ZFooter;
+        "z-footer-link": ZFooterLink;
+        "z-footer-section": ZFooterSection;
+        "z-footer-social": ZFooterSocial;
         "z-header": ZHeader;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
@@ -2164,6 +2240,9 @@ declare module "@stencil/core" {
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
+            "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
+            "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
+            "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
