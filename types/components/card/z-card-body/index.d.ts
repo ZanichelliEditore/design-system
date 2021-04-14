@@ -3,5 +3,5 @@
  * @slot cover - book cover slot
  */
 export declare class ZCardBody {
-    render(): any;
+  render(): any;
 }

@@ -1,3 +1,3 @@
 export declare class ZIconPackage {
-    render(): any;
+  render(): any;
 }

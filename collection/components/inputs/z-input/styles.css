@@ -152,17 +152,17 @@
   height: 44px;
   width: 100%;
   margin: 0;
-  padding: 0 var(--half-x9) 0 var(--half-x3);
+  padding: 0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);
   box-sizing: border-box;
 }
 
 :host > div.textWrapper > div > input.hasIcon,
 :host > div.textWrapper > div > input.hasClearIcon {
-  padding-right: var(--basex4);
+  padding-right: calc(var(--space-unit) * 4);
 }
 
 :host > div.textWrapper > div > input.hasIcon.hasClearIcon {
-  padding-right: var(--basex7);
+  padding-right: calc(var(--space-unit) * 7);
 }
 
 :host > div.textWrapper > div {
@@ -172,8 +172,8 @@
 
 :host > div.textWrapper > div > span.iconsWrapper {
   position: absolute;
-  bottom: var(--half-x3);
-  right: var(--half-x3);
+  bottom: calc(var(--space-unit) * 1.5);
+  right: calc(var(--space-unit) * 1.5);
   z-index: 2;
   height: 18px;
   display: flex;
@@ -183,7 +183,7 @@
   display: block;
   height: 18px;
   width: 18px;
-  margin-left: var(--half-x1);
+  margin-left: calc(var(--space-unit) * .5);
 }
 
 :host > div.textWrapper > div > span.iconsWrapper > z-icon.resetIcon {
@@ -193,7 +193,7 @@
 :host > div.textWrapper > div > div.textareaWrapper {
   background: var(--bg-white);
   border: var(--border-size-small) solid var(--bg-grey-200);
-  padding: var(--half-x3);
+  padding: calc(var(--space-unit) * 1.5);
 }
 
 :host > div.textWrapper > div > div.textareaWrapper > textarea {
@@ -236,7 +236,7 @@
     var(--bg-grey-200) 4px,
     var(--bg-white) 8px
   );
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   width: 10px;
   margin-right: 20px;
   padding-right: 20px;
@@ -244,7 +244,7 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--myz-blue);
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   width: 10px;
   margin-right: 20px;
   padding: 20px;
@@ -292,11 +292,11 @@
 }
 
 :host > .checkboxWrapper > label.checkboxLabel.after > span {
-  margin-left: var(--basex1);
+  margin-left: var(--space-unit);
 }
 
 :host > .checkboxWrapper > label.checkboxLabel.before > span {
-  margin-right: var(--basex1);
+  margin-right: var(--space-unit);
 }
 
 :host > .checkboxWrapper > label.checkboxLabel > z-icon {
@@ -386,11 +386,11 @@
 }
 
 :host > .radioWrapper > label.radioLabel.after > span {
-  margin-left: var(--basex1);
+  margin-left: var(--space-unit);
 }
 
 :host > .radioWrapper > label.radioLabel.before > span {
-  margin-right: var(--basex1);
+  margin-right: var(--space-unit);
 }
 
 :host > .radioWrapper > label.radioLabel > z-icon {

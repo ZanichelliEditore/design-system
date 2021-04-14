@@ -1,24 +1,25 @@
-import { FooterBean, FooterGroupBean } from "../../../beans/index.js";
+/**
+ * @slot - main navigation
+ * @slot links - bottom navigation
+ * @slot social - social links
+ */
 export declare class ZFooter {
-    /** JSON stringified data to fill the footer */
-    data: string;
-    /** set copyright user (optional)  */
-    copyrightuser?: any;
-    isOpen: boolean[];
-    isMobile: boolean;
-    jsonData: FooterBean;
-    componentWillLoad(): void;
-    componentDidLoad(): void;
-    resize(): void;
-    handleOnHeaderClick(id: number): void;
-    renderFooterSection(id: number, group: FooterGroupBean): HTMLElement;
-    renderFooterTop(): HTMLElement;
-    renderZLogo(): HTMLElement;
-    renderAddress(): HTMLElement;
-    renderSocial(): HTMLElement;
-    renderCopyright(): HTMLElement;
-    renderCertification(): HTMLElement;
-    renderBottomLinks(): HTMLElement;
-    renderFooterBottom(): HTMLElement;
-    render(): any;
+  /** deprecated - JSON stringified data to fill the footer */
+  data?: string;
+  /** deprecated - set copyright user */
+  copyrightuser?: string;
+  private jsonData;
+  componentWillLoad(): void;
+  renderZLogo(): HTMLZLogoElement;
+  renderAddress(): HTMLParagraphElement;
+  renderSocial(): HTMLDivElement;
+  renderCopyright(): HTMLParagraphElement;
+  renderCertification(): HTMLParagraphElement;
+  renderBottomLinks(): HTMLDivElement;
+  renderFooterBottom(): HTMLElement;
+  renderFooterTop(): HTMLElement;
+  renderFooterTopJsonData(): null | HTMLElement;
+  renderFooterBottomJsonData(): null | HTMLElement;
+  renderFooterSocialJsonData(): null | HTMLElement;
+  render(): HTMLElement;
 }

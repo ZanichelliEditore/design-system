@@ -1,5 +1,6 @@
 {
   "entries": [
+    "./components/typography/z-typography/index.js",
     "./components/buttons/z-button/index.js",
     "./components/buttons/z-button-filter/index.js",
     "./components/buttons/z-button-sort/index.js",
@@ -14,6 +15,9 @@
     "./components/card/z-card-icon/index.js",
     "./components/card/z-card-list/index.js",
     "./components/footer/z-footer/index.js",
+    "./components/footer/z-footer-link/index.js",
+    "./components/footer/z-footer-section/index.js",
+    "./components/footer/z-footer-social/index.js",
     "./components/icons/z-icon/index.js",
     "./components/icons/z-icon-package/index.js",
     "./components/indicators/z-stepper/index.js",
@@ -36,12 +40,14 @@
     "./components/notification/z-tooltip/index.js",
     "./components/pagination/z-pagination-bar/index.js",
     "./components/pagination/z-pagination-page/index.js",
-    "./components/panel/z-panel-elem/index.js"
+    "./components/panel/z-panel-elem/index.js",
+    "./components/typography/z-body/index.js",
+    "./components/typography/z-heading/index.js"
   ],
   "compiler": {
     "name": "@stencil/core",
-    "version": "1.17.4",
-    "typescriptVersion": "3.9.7"
+    "version": "2.5.1",
+    "typescriptVersion": "4.2.3"
   },
   "collections": [],
   "bundles": []

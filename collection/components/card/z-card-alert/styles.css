@@ -12,11 +12,11 @@
   position: relative;
   height: 48px;
   display: grid;
-  grid-template-columns: 34px auto 62px;
+  grid-template-columns: 34px auto 48px;
   grid-template-rows: 1fr;
   grid-column-gap: 8px;
   align-items: center;
-  padding: 0 var(--basex1);
+  padding: 0 var(--space-unit);
   outline: none;
 }
 
@@ -30,14 +30,13 @@
 
 :host div.removeAlert {
   background: var(--status-warning-yellow-lighter);
-  border: var(--border-base) solid var(--bg-grey-200);
+  border: var(--border-size-medium) solid var(--bg-grey-200);
   border-top: none;
 }
 
 :host div>.contentText {
   color: var(--text-grey-800);
   font-size: 14px;
-  height: 20px;
   letter-spacing: 0.16px;
   line-height: 20px;
 }

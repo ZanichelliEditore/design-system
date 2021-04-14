@@ -1,150 +1,144 @@
-import { Component, Prop, State, h } from "@stencil/core";
-import { mobileBreakpoint } from "../../../constants/breakpoints";
+import { Component, h, Prop } from "@stencil/core";
+/**
+ * @slot - main navigation
+ * @slot links - bottom navigation
+ * @slot social - social links
+ */
 export class ZFooter {
-    constructor() {
-        this.isOpen = [];
+  componentWillLoad() {
+    if (this.data) {
+      console.warn("z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead.");
+      this.jsonData = JSON.parse(this.data);
     }
-    componentWillLoad() {
-        this.jsonData = JSON.parse(this.data);
-        this.isOpen = Array(this.jsonData.zanichelliLinks.length).fill(false);
+    if (this.copyrightuser) {
+      console.warn("z-footer: `copyrightuser` prop is deprecated and will be removed in a future version.");
     }
-    componentDidLoad() {
-        window.addEventListener("resize", this.resize.bind(this));
-        this.resize();
+  }
+  renderZLogo() {
+    return (h("z-logo", { link: "https://www.zanichelli.it", width: 144, height: 38, imagealt: "Home Zanichelli", targetblank: true }));
+  }
+  renderAddress() {
+    return (h("p", null,
+      "Zanichelli editore S.p.A. via Irnerio 34, 40126 Bologna",
+      h("br", null),
+      "Fax 051 - 249.782 / 293.224 | Tel. 051 - 293.111 / 245.024",
+      h("br", null),
+      "Partita IVA 03978000374"));
+  }
+  renderSocial() {
+    return (h("div", { class: "social" },
+      h("slot", { name: "social" }),
+      this.renderFooterSocialJsonData()));
+  }
+  renderCopyright() {
+    return (h("p", null,
+      "Copyright \u2013 2018-",
+      new Date().getFullYear(),
+      " Zanichelli",
+      h("span", null, "All rights reserved")));
+  }
+  renderCertification() {
+    return (h("p", null,
+      "Zanichelli editore S.p.A. opera con sistema qualit\u00E0 certificato CertiCarGraf n. 477",
+      h("br", null),
+      "secondo la norma UNI EN ISO 9001:2015"));
+  }
+  renderBottomLinks() {
+    return (h("div", { class: "item bottom-links" },
+      h("slot", { name: "links" }),
+      this.renderFooterBottomJsonData()));
+  }
+  renderFooterBottom() {
+    return (h("section", { class: "bottom" },
+      h("div", { class: "item logo" },
+        this.renderZLogo(),
+        this.renderCopyright(),
+        this.renderCertification()),
+      h("div", { class: "item" },
+        this.renderAddress(),
+        this.renderSocial()),
+      this.renderBottomLinks()));
+  }
+  renderFooterTop() {
+    return (h("section", { class: "top" },
+      h("slot", null),
+      this.renderFooterTopJsonData()));
+  }
+  // INFO: backward compatibility
+  renderFooterTopJsonData() {
+    if (!this.jsonData || !this.jsonData.zanichelliLinks)
+      return null;
+    const zanichelliLinks = this.jsonData.zanichelliLinks;
+    if (this.jsonData.bottomLinks) {
+      const bottomLinks = this.jsonData.bottomLinks;
+      zanichelliLinks.push({
+        title: "Altre informazioni",
+        items: bottomLinks,
+      });
     }
-    resize() {
-        this.isMobile = window.innerWidth <= mobileBreakpoint;
+    return zanichelliLinks.map((item) => (h("z-footer-section", { name: item.title }, item.items.map((item) => (h("z-footer-link", { href: item.link }, item.label))))));
+  }
+  // INFO: backward compatibility
+  renderFooterBottomJsonData() {
+    if (!this.jsonData || !this.jsonData.bottomLinks)
+      return null;
+    const bottomLinks = this.jsonData.bottomLinks;
+    return bottomLinks.map((item) => (h("z-footer-link", { href: item.link }, item.label)));
+  }
+  // INFO: backward compatibility
+  renderFooterSocialJsonData() {
+    if (!this.jsonData || !this.jsonData.social)
+      return null;
+    const social = this.jsonData.social;
+    return social.map((item) => (h("z-footer-social", { href: item.link, icon: item.icon, description: item.description })));
+  }
+  render() {
+    return (h("footer", null,
+      this.renderFooterTop(),
+      this.renderFooterBottom()));
+  }
+  static get is() { return "z-footer"; }
+  static get encapsulation() { return "shadow"; }
+  static get originalStyleUrls() { return {
+    "$": ["styles.css"]
+  }; }
+  static get styleUrls() { return {
+    "$": ["styles.css"]
+  }; }
+  static get properties() { return {
+    "data": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "deprecated - JSON stringified data to fill the footer"
+      },
+      "attribute": "data",
+      "reflect": false
+    },
+    "copyrightuser": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "deprecated - set copyright user"
+      },
+      "attribute": "copyrightuser",
+      "reflect": false
     }
-    handleOnHeaderClick(id) {
-        // stencil non si accorge delle modifiche su isOpen quindi copio l'array prima
-        var open = this.isOpen.slice(0);
-        open[id] = !open[id];
-        this.isOpen = [...open];
-    }
-    renderFooterSection(id, group) {
-        return (h("nav", null,
-            h("div", { class: "header" },
-                h("h2", null, group.title),
-                this.isMobile && (h("button", { onClick: () => this.handleOnHeaderClick(id) },
-                    h("z-icon", { name: this.isOpen[id] ? "chevron-up" : "chevron-down", width: 16, height: 16 })))),
-            h("div", { class: "content" },
-                h("ul", { class: this.isOpen[id] ? "show" : "" }, group.items.map((item) => (h("li", null,
-                    h("a", { href: item.link, target: item.target ? item.target : "_blank" }, item.label))))))));
-    }
-    renderFooterTop() {
-        const zanichelliLinks = this.jsonData.zanichelliLinks;
-        const bottomLinks = this.jsonData.bottomLinks;
-        const zanichelliLinksToRender = zanichelliLinks.slice();
-        if (this.isMobile) {
-            zanichelliLinksToRender.push({
-                title: "Altre informazioni",
-                items: bottomLinks
-            });
-        }
-        return (h("section", { class: "top" }, zanichelliLinksToRender.map((item, id) => this.renderFooterSection(id, item))));
-    }
-    renderZLogo() {
-        const myzLink = this.jsonData.myzLink;
-        return (h("z-logo", { link: myzLink.link, width: 144, height: 38, imagealt: myzLink.label, targetblank: true }));
-    }
-    renderAddress() {
-        const zanichelliAddress = this.jsonData.zanichelliAddress;
-        return h("p", null, zanichelliAddress);
-    }
-    renderSocial() {
-        const social = this.jsonData.social;
-        return (h("ul", { class: "social" }, social.map((item) => (h("li", null,
-            h("a", { href: item.link, target: "_blank" },
-                h("img", { src: item.icon, alt: item.description })))))));
-    }
-    renderCopyright() {
-        if (!!this.copyrightuser) {
-            return (h("p", null,
-                "Copyright \u2013 2018-",
-                new Date().getFullYear(),
-                " ",
-                this.copyrightuser,
-                h("span", null, " All rights reserved ")));
-        }
-        else
-            return;
-    }
-    renderCertification() {
-        const certification = this.jsonData.certification;
-        return h("p", null, certification);
-    }
-    renderBottomLinks() {
-        const bottomLinks = this.jsonData.bottomLinks;
-        if (!this.isMobile) {
-            return (h("div", { class: "item bottom-links" },
-                h("ul", null, bottomLinks.map((item) => (h("li", null,
-                    h("a", { href: item.link, target: item.target ? item.target : "_blank" }, item.label)))))));
-        }
-    }
-    renderFooterBottom() {
-        return (h("section", { class: "bottom" },
-            h("div", { class: "item logo" },
-                this.renderZLogo(),
-                this.renderCopyright(),
-                this.renderCertification()),
-            h("div", { class: "item" },
-                this.renderAddress(),
-                this.renderSocial()),
-            this.renderBottomLinks()));
-    }
-    render() {
-        if (this.jsonData) {
-            return (h("footer", null,
-                this.renderFooterTop(),
-                this.renderFooterBottom()));
-        }
-    }
-    static get is() { return "z-footer"; }
-    static get encapsulation() { return "shadow"; }
-    static get originalStyleUrls() { return {
-        "$": ["styles.css"]
-    }; }
-    static get styleUrls() { return {
-        "$": ["styles.css"]
-    }; }
-    static get properties() { return {
-        "data": {
-            "type": "string",
-            "mutable": false,
-            "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-            },
-            "required": false,
-            "optional": false,
-            "docs": {
-                "tags": [],
-                "text": "JSON stringified data to fill the footer"
-            },
-            "attribute": "data",
-            "reflect": false
-        },
-        "copyrightuser": {
-            "type": "any",
-            "mutable": false,
-            "complexType": {
-                "original": "any",
-                "resolved": "any",
-                "references": {}
-            },
-            "required": false,
-            "optional": true,
-            "docs": {
-                "tags": [],
-                "text": "set copyright user (optional)"
-            },
-            "attribute": "copyrightuser",
-            "reflect": false
-        }
-    }; }
-    static get states() { return {
-        "isOpen": {},
-        "isMobile": {}
-    }; }
+  }; }
 }

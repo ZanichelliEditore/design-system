@@ -9,13 +9,13 @@
 
 :host > div > .header {
   background-color: var(--bg-white);
-  border-radius: var(--radius-base);
-  border: var(--border-base) solid var(--bg-grey-200);
+  border-radius: var(--border-radius);
+  border: var(--border-size-medium) solid var(--bg-grey-200);
   position: relative;
   z-index: 10;
   min-height: 48px;
   margin: 0;
-  padding: 0 var(--basex2);
+  padding: 0 calc(var(--space-unit) * 2);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +23,7 @@
 }
 
 :host > div.open > .header {
-  border-radius: var(--radius-base) var(--radius-base) 0 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 :host > div > .header > h2 {
@@ -33,7 +33,7 @@
   font-size: 16px;
   line-height: 24px;
   margin: 0;
-  padding: var(--basex1) 0;
+  padding: var(--space-unit) 0;
 }
 
 :host > div > .header > h2 > span {
@@ -54,12 +54,12 @@
 
 :host > div.open > div.openComboData {
   background-color: var(--bg-white);
-  border-radius: 0 0 var(--radius-base) var(--radius-base);
-  border: var(--border-base) solid var(--bg-grey-200);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  border: var(--border-size-medium) solid var(--bg-grey-200);
   border-top: 0px;
   position: relative;
   z-index: 12;
-  padding: var(--basex1) var(--basex2);
+  padding: var(--space-unit) calc(var(--space-unit) * 2);
 }
 
 :host > div.open > div.openComboData > div {
@@ -71,7 +71,7 @@
 }
 
 :host > div.open > div.openComboData > z-input {
-  margin-bottom: var(--basex2);
+  margin-bottom: calc(var(--space-unit) * 2);
   width: 100%;
 }
 
@@ -88,19 +88,19 @@
     var(--bg-grey-200) 4px,
     var(--bg-white) 8px
   );
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--myz-blue);
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   width: 10px;
 }
 
 :host > div.open > z-input {
   color: var(--myz-blue);
-  margin: 0 var(--basex2);
+  margin: 0 calc(var(--space-unit) * 2);
   width: 238px;
   position: relative;
   z-index: 1;
@@ -114,7 +114,7 @@
 }
 
 :host > div.open > div.openComboData > div.search > ul {
-  padding: var(--basex1) var(--basex2);
+  padding: var(--space-unit) calc(var(--space-unit) * 2);
   max-height: 180px;
   overflow: auto;
   scrollbar-width: thin;
@@ -140,6 +140,6 @@
 }
 
 :host > div.open > div.openComboData > div.checkAllWrapper {
-  padding: var(--basex2) var(--half-x1);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * .5);
   text-align: left;
 }

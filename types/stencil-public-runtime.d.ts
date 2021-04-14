@@ -43,10 +43,6 @@ export interface ComponentOptions {
      * Array of relative links to folders of assets required by the component.
      */
     assetsDirs?: string[];
-    /**
-     * @deprecated Use `assetsDirs` instead
-     */
-    assetsDir?: string;
 }
 export interface ShadowRootOptions {
     /**
@@ -81,14 +77,6 @@ export interface PropOptions {
      * In this case you can set the `reflect` option to `true`, since it defaults to `false`:
      */
     reflect?: boolean;
-    /** @deprecated: "attr" has been deprecated, please use "attribute" instead. */
-    attr?: string;
-    /** @deprecated "context" has been deprecated. */
-    context?: string;
-    /** @deprecated "connect" has been deprecated, please use ES modules and/or dynamic imports instead. */
-    connect?: string;
-    /** @deprecated "reflectToAttr" has been deprecated, please use "reflect" instead. */
-    reflectToAttr?: boolean;
 }
 export interface MethodDecorator {
     (opts?: MethodOptions): CustomMethodDecorator<any>;
@@ -145,7 +133,7 @@ export interface ListenOptions {
      */
     passive?: boolean;
 }
-export declare type ListenTargetOptions = 'parent' | 'body' | 'document' | 'window';
+export declare type ListenTargetOptions = 'body' | 'document' | 'window';
 export interface StateDecorator {
     (): PropertyDecorator;
 }
@@ -163,6 +151,12 @@ export interface UserBuildConditionals {
  * include or exclude code depending on the build.
  */
 export declare const Build: UserBuildConditionals;
+/**
+ * The `Env` object provides access to the "env" object declared in the project's `stencil.config.ts`.
+ */
+export declare const Env: {
+    [prop: string]: string | undefined;
+};
 /**
  * The `@Component()` decorator is used to provide metadata about the component class.
  * https://stenciljs.com/docs/component
@@ -221,6 +215,7 @@ export declare const State: StateDecorator;
  */
 export declare const Watch: WatchDecorator;
 export declare type ResolutionHandler = (elm: HTMLElement) => string | undefined | null;
+export declare type ErrorHandler = (err: any, element?: HTMLElement) => void;
 /**
  * `setMode()` is used for libraries which provide multiple "modes" for styles.
  */
@@ -264,8 +259,6 @@ export declare function forceUpdate(ref: any): void;
 export declare function getRenderingRef(): any;
 export interface HTMLStencilElement extends HTMLElement {
     componentOnReady(): Promise<this>;
-    /** @deprecated */
-    forceUpdate(): void;
 }
 /**
  * Schedules a DOM-write task. The provided callback will be executed
@@ -281,6 +274,11 @@ export declare function writeTask(task: RafCallback): void;
  * For further information: https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing
  */
 export declare function readTask(task: RafCallback): void;
+/**
+ * `setErrorHandler()` can be used to inject a custom global error handler.
+ * Unhandled exception raised while rendering, during event handling, or lifecycles will trigger the custom event handler.
+ */
+export declare const setErrorHandler: (handler: ErrorHandler) => void;
 /**
  * This file gets copied to all distributions of stencil component collections.
  * - no imports
@@ -330,13 +328,6 @@ export interface ComponentDidUpdate {
      * first render.
      */
     componentDidUpdate(): void;
-}
-export interface ComponentDidUnload {
-    /**
-     * The component did unload and the element
-     * will be destroyed.
-     */
-    componentDidUnload(): void;
 }
 export interface ComponentInterface {
     connectedCallback?(): void;
@@ -442,24 +433,36 @@ export interface ChildNode {
  */
 export declare const Host: FunctionalComponent<HostAttributes>;
 /**
+ * Fragment
+ */
+export declare const Fragment: FunctionalComponent<{}>;
+/**
  * The "h" namespace is used to import JSX types for elements and attributes.
  * It is imported in order to avoid conflicting global JSX issues.
  */
 export declare namespace h {
     function h(sel: any): VNode;
-    function h(sel: Node, data: VNodeData): VNode;
-    function h(sel: any, data: VNodeData): VNode;
+    function h(sel: Node, data: VNodeData | null): VNode;
+    function h(sel: any, data: VNodeData | null): VNode;
     function h(sel: any, text: string): VNode;
     function h(sel: any, children: Array<VNode | undefined | null>): VNode;
-    function h(sel: any, data: VNodeData, text: string): VNode;
-    function h(sel: any, data: VNodeData, children: Array<VNode | undefined | null>): VNode;
-    function h(sel: any, data: VNodeData, children: VNode): VNode;
+    function h(sel: any, data: VNodeData | null, text: string): VNode;
+    function h(sel: any, data: VNodeData | null, children: Array<VNode | undefined | null>): VNode;
+    function h(sel: any, data: VNodeData | null, children: VNode): VNode;
     namespace JSX {
         interface IntrinsicElements extends LocalJSX.IntrinsicElements, JSXBase.IntrinsicElements {
             [tagName: string]: any;
         }
     }
 }
+export declare function h(sel: any): VNode;
+export declare function h(sel: Node, data: VNodeData | null): VNode;
+export declare function h(sel: any, data: VNodeData | null): VNode;
+export declare function h(sel: any, text: string): VNode;
+export declare function h(sel: any, children: Array<VNode | undefined | null>): VNode;
+export declare function h(sel: any, data: VNodeData | null, text: string): VNode;
+export declare function h(sel: any, data: VNodeData | null, children: Array<VNode | undefined | null>): VNode;
+export declare function h(sel: any, data: VNodeData | null, children: VNode): VNode;
 export interface VNode {
     $flags$: number;
     $tag$: string | number | Function;
@@ -1436,10 +1439,10 @@ export declare namespace JSXBase {
         onCompositionUpdateCapture?: (event: CompositionEvent) => void;
         onFocus?: (event: FocusEvent) => void;
         onFocusCapture?: (event: FocusEvent) => void;
-        onFocusIn?: (event: FocusEvent) => void;
-        onFocusInCapture?: (event: FocusEvent) => void;
-        onFocusOut?: (event: FocusEvent) => void;
-        onFocusOutCapture?: (event: FocusEvent) => void;
+        onFocusin?: (event: FocusEvent) => void;
+        onFocusinCapture?: (event: FocusEvent) => void;
+        onFocusout?: (event: FocusEvent) => void;
+        onFocusoutCapture?: (event: FocusEvent) => void;
         onBlur?: (event: FocusEvent) => void;
         onBlurCapture?: (event: FocusEvent) => void;
         onChange?: (event: Event) => void;

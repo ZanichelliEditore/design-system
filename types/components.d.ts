@@ -8,7 +8,13 @@ import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
+import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
+    interface ZBody {
+        "component": string;
+        "level": 1 | 2 | 3 | 4 | 5;
+        "variant": "regular" | "semibold";
+    }
     interface ZButton {
         /**
           * disable button
@@ -287,13 +293,39 @@ export namespace Components {
     }
     interface ZFooter {
         /**
-          * set copyright user (optional)
+          * deprecated - set copyright user
          */
-        "copyrightuser"?: any;
+        "copyrightuser"?: string;
         /**
-          * JSON stringified data to fill the footer
+          * deprecated - JSON stringified data to fill the footer
          */
-        "data": string;
+        "data"?: string;
+    }
+    interface ZFooterLink {
+        /**
+          * link
+         */
+        "href": string;
+    }
+    interface ZFooterSection {
+        /**
+          * section title
+         */
+        "name": string;
+    }
+    interface ZFooterSocial {
+        /**
+          * social description
+         */
+        "description"?: string;
+        /**
+          * social link
+         */
+        "href": string;
+        /**
+          * icon url
+         */
+        "icon": string;
     }
     interface ZHeader {
         /**
@@ -332,6 +364,11 @@ export namespace Components {
           * data to fill user dropdown menu (optional)
          */
         "userdata"?: string | HeaderUserData;
+    }
+    interface ZHeading {
+        "component": string;
+        "level": 1 | 2 | 3 | 4;
+        "variant": "regular" | "semibold" | "light";
     }
     interface ZIcon {
         /**
@@ -517,7 +554,7 @@ export namespace Components {
     }
     interface ZList {
         /**
-          * json stringified list data (optional)
+          * json stringified list data (mutable, optional)
          */
         "inputrawdata"?: string;
         /**
@@ -805,8 +842,19 @@ export namespace Components {
          */
         "type": TooltipPosition;
     }
+    interface ZTypography {
+        "component": string;
+        "level": ZTypographyLevels;
+        "variant": "regular" | "semibold" | "light";
+    }
 }
 declare global {
+    interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
+    }
+    var HTMLZBodyElement: {
+        prototype: HTMLZBodyElement;
+        new (): HTMLZBodyElement;
+    };
     interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {
     }
     var HTMLZButtonElement: {
@@ -903,11 +951,35 @@ declare global {
         prototype: HTMLZFooterElement;
         new (): HTMLZFooterElement;
     };
+    interface HTMLZFooterLinkElement extends Components.ZFooterLink, HTMLStencilElement {
+    }
+    var HTMLZFooterLinkElement: {
+        prototype: HTMLZFooterLinkElement;
+        new (): HTMLZFooterLinkElement;
+    };
+    interface HTMLZFooterSectionElement extends Components.ZFooterSection, HTMLStencilElement {
+    }
+    var HTMLZFooterSectionElement: {
+        prototype: HTMLZFooterSectionElement;
+        new (): HTMLZFooterSectionElement;
+    };
+    interface HTMLZFooterSocialElement extends Components.ZFooterSocial, HTMLStencilElement {
+    }
+    var HTMLZFooterSocialElement: {
+        prototype: HTMLZFooterSocialElement;
+        new (): HTMLZFooterSocialElement;
+    };
     interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {
     }
     var HTMLZHeaderElement: {
         prototype: HTMLZHeaderElement;
         new (): HTMLZHeaderElement;
+    };
+    interface HTMLZHeadingElement extends Components.ZHeading, HTMLStencilElement {
+    }
+    var HTMLZHeadingElement: {
+        prototype: HTMLZHeadingElement;
+        new (): HTMLZHeadingElement;
     };
     interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {
     }
@@ -1029,7 +1101,14 @@ declare global {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
+    interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
+    }
+    var HTMLZTypographyElement: {
+        prototype: HTMLZTypographyElement;
+        new (): HTMLZTypographyElement;
+    };
     interface HTMLElementTagNameMap {
+        "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
@@ -1046,7 +1125,11 @@ declare global {
         "z-combobox": HTMLZComboboxElement;
         "z-cookiebar": HTMLZCookiebarElement;
         "z-footer": HTMLZFooterElement;
+        "z-footer-link": HTMLZFooterLinkElement;
+        "z-footer-section": HTMLZFooterSectionElement;
+        "z-footer-social": HTMLZFooterSocialElement;
         "z-header": HTMLZHeaderElement;
+        "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
         "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
@@ -1067,9 +1150,15 @@ declare global {
         "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
+        "z-typography": HTMLZTypographyElement;
     }
 }
 declare namespace LocalJSX {
+    interface ZBody {
+        "component"?: string;
+        "level"?: 1 | 2 | 3 | 4 | 5;
+        "variant"?: "regular" | "semibold";
+    }
     interface ZButton {
         /**
           * disable button
@@ -1368,13 +1457,39 @@ declare namespace LocalJSX {
     }
     interface ZFooter {
         /**
-          * set copyright user (optional)
+          * deprecated - set copyright user
          */
-        "copyrightuser"?: any;
+        "copyrightuser"?: string;
         /**
-          * JSON stringified data to fill the footer
+          * deprecated - JSON stringified data to fill the footer
          */
         "data"?: string;
+    }
+    interface ZFooterLink {
+        /**
+          * link
+         */
+        "href"?: string;
+    }
+    interface ZFooterSection {
+        /**
+          * section title
+         */
+        "name"?: string;
+    }
+    interface ZFooterSocial {
+        /**
+          * social description
+         */
+        "description"?: string;
+        /**
+          * social link
+         */
+        "href"?: string;
+        /**
+          * icon url
+         */
+        "icon"?: string;
     }
     interface ZHeader {
         /**
@@ -1413,6 +1528,11 @@ declare namespace LocalJSX {
           * data to fill user dropdown menu (optional)
          */
         "userdata"?: string | HeaderUserData;
+    }
+    interface ZHeading {
+        "component"?: string;
+        "level"?: 1 | 2 | 3 | 4;
+        "variant"?: "regular" | "semibold" | "light";
     }
     interface ZIcon {
         /**
@@ -1614,7 +1734,7 @@ declare namespace LocalJSX {
     }
     interface ZList {
         /**
-          * json stringified list data (optional)
+          * json stringified list data (mutable, optional)
          */
         "inputrawdata"?: string;
         /**
@@ -1926,7 +2046,13 @@ declare namespace LocalJSX {
          */
         "type"?: TooltipPosition;
     }
+    interface ZTypography {
+        "component"?: string;
+        "level"?: ZTypographyLevels;
+        "variant"?: "regular" | "semibold" | "light";
+    }
     interface IntrinsicElements {
+        "z-body": ZBody;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
@@ -1943,7 +2069,11 @@ declare namespace LocalJSX {
         "z-combobox": ZCombobox;
         "z-cookiebar": ZCookiebar;
         "z-footer": ZFooter;
+        "z-footer-link": ZFooterLink;
+        "z-footer-section": ZFooterSection;
+        "z-footer-social": ZFooterSocial;
         "z-header": ZHeader;
+        "z-heading": ZHeading;
         "z-icon": ZIcon;
         "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
@@ -1964,12 +2094,14 @@ declare namespace LocalJSX {
         "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
+        "z-typography": ZTypography;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
@@ -1986,7 +2118,11 @@ declare module "@stencil/core" {
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
+            "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
+            "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
+            "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
+            "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
@@ -2007,6 +2143,7 @@ declare module "@stencil/core" {
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
+            "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
         }
     }
 }

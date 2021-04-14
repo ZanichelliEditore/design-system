@@ -1,6 +1,6 @@
 declare const icons: {
-    iconuserlogo: string;
-    iconarrowup: string;
-    iconarrowdown: string;
+  iconuserlogo: string;
+  iconarrowup: string;
+  iconarrowdown: string;
 };
 export default icons;

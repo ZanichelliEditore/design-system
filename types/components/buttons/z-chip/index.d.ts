@@ -1,5 +1,5 @@
 export declare class ZChip {
-    regulartext?: string;
-    boldtext?: number;
-    render(): any;
+  regulartext?: string;
+  boldtext?: number;
+  render(): any;
 }
