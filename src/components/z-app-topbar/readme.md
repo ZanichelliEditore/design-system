@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                | Default             |
-| --------- | --------- | ----------- | ------------------- | ------------------- |
-| `hashtag` | `hashtag` |             | `string`            | `undefined`         |
-| `logged`  | `logged`  |             | `boolean`           | `undefined`         |
-| `theme`   | `theme`   |             | `"dark" \| "light"` | `ThemeVariant.dark` |
+| Property  | Attribute | Description                   | Type                | Default             |
+| --------- | --------- | ----------------------------- | ------------------- | ------------------- |
+| `hashtag` | `hashtag` | optional hashtag string       | `string`            | `undefined`         |
+| `logged`  | `logged`  | logged status flag            | `boolean`           | `undefined`         |
+| `theme`   | `theme`   | theme variant, default 'dark' | `"dark" \| "light"` | `ThemeVariant.dark` |
 
 
 ----------------------------------------------

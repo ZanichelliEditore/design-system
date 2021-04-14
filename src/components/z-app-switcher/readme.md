@@ -14,9 +14,9 @@
 
 ## Events
 
-| Event            | Description                                                | Type               |
-| ---------------- | ---------------------------------------------------------- | ------------------ |
-| `appButtonClick` | emitted on app button icon click, returns open/cloed state | `CustomEvent<any>` |
+| Event            | Description                                                 | Type               |
+| ---------------- | ----------------------------------------------------------- | ------------------ |
+| `appButtonClick` | emitted on app button icon click, returns open/closed state | `CustomEvent<any>` |
 
 
 ----------------------------------------------
