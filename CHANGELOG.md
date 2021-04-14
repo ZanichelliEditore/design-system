@@ -2,6 +2,65 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/ZanichelliEditore/design-system/compare/v1.4.1...v1.5.0) (2021-04-14)
+
+
+### Features
+
+* added tests ([20a0924](https://github.com/ZanichelliEditore/design-system/commit/20a0924e3b06bbe0e004f3e927031ecd7c11721d))
+* added z-headign and z-body ([fc3daee](https://github.com/ZanichelliEditore/design-system/commit/fc3daeebdccd16e374295a724ac04dda8aedbe2f))
+* spacing and storybook ([5cde0f9](https://github.com/ZanichelliEditore/design-system/commit/5cde0f9897ab2367b302b2fa9e88865cf50601d9))
+* storybook ([18238e7](https://github.com/ZanichelliEditore/design-system/commit/18238e79ef47db90c923398fae02fb7ce06308d5))
+* storybook ([b3e247f](https://github.com/ZanichelliEditore/design-system/commit/b3e247fea7a83a02a6c1a2cbb2a9cc5a620fa25d))
+* upgraded packages to last version ([c01ec66](https://github.com/ZanichelliEditore/design-system/commit/c01ec665290b301caa3c4196b38627b8a5938bd0))
+* wip storybook ([91fda2f](https://github.com/ZanichelliEditore/design-system/commit/91fda2f3c2830fa9b6d36f55974cdfcda748c6ed))
+* z-footer-link slot test ([00e1e78](https://github.com/ZanichelliEditore/design-system/commit/00e1e78e651a884f1739d8730b5193ba19cba9d8))
+* z-footer-link test ([d8dd2db](https://github.com/ZanichelliEditore/design-system/commit/d8dd2db7f84d87a35f15b0940ab96310930e8ac5))
+* z-footer-section ([0b249c3](https://github.com/ZanichelliEditore/design-system/commit/0b249c3735e41f2b206c4aa4bdcad6584a8a1efb))
+* z-footer-social test, z-footer-link test ([e220f7b](https://github.com/ZanichelliEditore/design-system/commit/e220f7b72d37eb5c604f068eced6060bd42f509c))
+* z-typography component shadows and populate both head and body ([7534368](https://github.com/ZanichelliEditore/design-system/commit/7534368d01cb04951f047781da26ac24ac0cae3e))
+* z-typography component shadows and populate both head and body ([a7fddd1](https://github.com/ZanichelliEditore/design-system/commit/a7fddd1eabea313baf80b182b523ff35a183ceb2))
+
+
+### Bug Fixes
+
+* added br in stories ([0916e8b](https://github.com/ZanichelliEditore/design-system/commit/0916e8bbb57a26940f048ab5e81d90fa78cc2f16))
+* added design tokens ([4df2165](https://github.com/ZanichelliEditore/design-system/commit/4df216584c215c9203569f85e91b276b12c1706d))
+* added package-lock ([f552472](https://github.com/ZanichelliEditore/design-system/commit/f552472fe3c7085c3ebe714bfa8a5cfcfef7319e))
+* added published package ([f5c2000](https://github.com/ZanichelliEditore/design-system/commit/f5c2000b8bd8409474e300ddab4c8e05ed6a8f14))
+* build and test.e2e ([34bd257](https://github.com/ZanichelliEditore/design-system/commit/34bd257ba8deb7d57453231ca84d357209f9110f))
+* changed prop name ([c16eee0](https://github.com/ZanichelliEditore/design-system/commit/c16eee08320638c2841b436643d0fd84e08c61fd))
+* css ([fb85d54](https://github.com/ZanichelliEditore/design-system/commit/fb85d54800281c7e65e405d5acc0335619b55e5f))
+* css variables ([139a3d1](https://github.com/ZanichelliEditore/design-system/commit/139a3d1c467476bcf37e9d3d20b5afa93a9163c2))
+* desclabel after component did load ([bb69fd2](https://github.com/ZanichelliEditore/design-system/commit/bb69fd2bd6bb7d4c81d68f2d4aa3993cec3e019e))
+* design-tokens missing style ([e8023b4](https://github.com/ZanichelliEditore/design-system/commit/e8023b4aaaa58dcdd6c269913b3978ff0ced351b))
+* docs ([e748292](https://github.com/ZanichelliEditore/design-system/commit/e74829292860b6afe68beec8c63a2c0f1af01c02))
+* failed test ([9d05352](https://github.com/ZanichelliEditore/design-system/commit/9d05352abb1107d897b6d1c755587453f226b505))
+* fied tests ([326496d](https://github.com/ZanichelliEditore/design-system/commit/326496ddc0889768cc82d5a222ad2e384c59a082))
+* fixed husky config ([f1f0651](https://github.com/ZanichelliEditore/design-system/commit/f1f06517b620c2caf1a083e87d2517d91ebbe3b7))
+* level as number ([8b464c2](https://github.com/ZanichelliEditore/design-system/commit/8b464c22a158a71491b8ac6298b521aec362dde6))
+* minor typos and tests removed no-margin as prop ([a790958](https://github.com/ZanichelliEditore/design-system/commit/a790958397db077c4d8825e69eddb8015459c2be))
+* minor typos fix ([6202594](https://github.com/ZanichelliEditore/design-system/commit/62025949c156bf8b055a711c45293a88d1b4a610))
+* minor typos fix ([1adf8a2](https://github.com/ZanichelliEditore/design-system/commit/1adf8a218349972cc4dad0ad5808151fcf812398))
+* new tokens applyed ([29eee04](https://github.com/ZanichelliEditore/design-system/commit/29eee04a472dbc082d7c6a59e8fc6584f14e2341))
+* rebased on master ([9da7343](https://github.com/ZanichelliEditore/design-system/commit/9da73439162bf27b44452643e3e6ca2756cfb98e))
+* removed margin in headings ([b5f6f79](https://github.com/ZanichelliEditore/design-system/commit/b5f6f79d68a6061e24a0bbf4a41a38a1cc16f9c4))
+* removed px ([2253e58](https://github.com/ZanichelliEditore/design-system/commit/2253e58a7f6708b88b19128b072e6a9c7e178801))
+* removed typos in vars ([a0ec8dc](https://github.com/ZanichelliEditore/design-system/commit/a0ec8dca16fbdc67c983a98c27ac395c63c67bbf))
+* removed unrelated change ([c763701](https://github.com/ZanichelliEditore/design-system/commit/c7637017c069117ce72bea3c1cf4df7f7afb9589))
+* removed unrelated changes ([ebbf23a](https://github.com/ZanichelliEditore/design-system/commit/ebbf23a59bf4472b2878dc78d5d91b89b94c8473))
+* removed unused console log ([a57decb](https://github.com/ZanichelliEditore/design-system/commit/a57decbe42c4b294b50207e39e47a68b88eabb0a))
+* removed useless story ([5a6b426](https://github.com/ZanichelliEditore/design-system/commit/5a6b4263414592c3539438f78678d487829768c2))
+* resolved conflicts ([70ed7c4](https://github.com/ZanichelliEditore/design-system/commit/70ed7c49eead540a2917b775a1ecc025b99fa7d9))
+* resolved conflicts ([e9edccd](https://github.com/ZanichelliEditore/design-system/commit/e9edccde1132f535fa247ca5433b20781f76c5a4))
+* restored beans ([031102a](https://github.com/ZanichelliEditore/design-system/commit/031102a8afb871405ffe10e7b3e5dbddcba42229))
+* restored import in global css ([73dcae0](https://github.com/ZanichelliEditore/design-system/commit/73dcae0bcedf137fcf91c0f15dbdb7d9a6a6696d))
+* space unit occurrencies ([8e0f0d5](https://github.com/ZanichelliEditore/design-system/commit/8e0f0d5e53227a589bf5d81a65b8cccbed58a87b))
+* storybook fix by adding react-dom dev dependency ([e94e50e](https://github.com/ZanichelliEditore/design-system/commit/e94e50e518b918167aa2f254e29902e12c3a5ed2))
+* test and build fixing ([4130f7b](https://github.com/ZanichelliEditore/design-system/commit/4130f7ba2d4e0fdc218001488403e3d3faa50956))
+* typo in space unit ([75ac1c1](https://github.com/ZanichelliEditore/design-system/commit/75ac1c17234df8c6ea223ea8fdbccd352f84cd47))
+* updated design token version ([7156c63](https://github.com/ZanichelliEditore/design-system/commit/7156c63dad3486516383dd67d984c7d3cc9d3f60))
+
 ### [1.4.1](https://github.com/ZanichelliEditore/design-system/compare/v1.4.0...v1.4.1) (2021-03-01)
 
 ## [1.4.0](https://github.com/ZanichelliEditore/design-system/compare/v1.5.0...v1.4.0) (2021-03-01)

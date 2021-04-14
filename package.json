@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -68,7 +68,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@zanichelli/albe-design-tokens": "^0.1.63",
+    "@zanichelli/albe-design-tokens": "^0.2.0",
     "hammerjs": "^2.0.8"
   },
   "standard-version": {
