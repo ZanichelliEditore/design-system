@@ -65,15 +65,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.4.0](https://github.com/ZanichelliEditore/design-system/compare/v1.5.0...v1.4.0) (2021-03-01)
 
-### [1.3.3](https://github.com/ZanichelliEditore/design-system/compare/v1.5.0...v1.3.3) (2021-03-01)
-
-### [1.3.2](https://github.com/ZanichelliEditore/design-system/compare/v1.5.0...v1.3.2) (2021-03-01)
-
-### [1.3.1](https://github.com/ZanichelliEditore/design-system/compare/v1.5.0...v1.3.1) (2021-03-01)
-
-## [1.5.0](https://github.com/ZanichelliEditore/design-system/compare/v1.2.0...v1.5.0) (2021-03-01)
-
-
 ### Features
 
 * add and configure husky and commitlint packages ([1dd05cc](https://github.com/ZanichelliEditore/design-system/commit/1dd05cc8277408693bcedffc71e13cbe2d7cca4c))
@@ -120,6 +111,12 @@ All notable changes to this project will be documented in this file. See [standa
 * z-select performances ([85b5c47](https://github.com/ZanichelliEditore/design-system/commit/85b5c476e568932db07044ba11c7f50316ccb500))
 * z-stepper docs ([9aeb2b6](https://github.com/ZanichelliEditore/design-system/commit/9aeb2b6aef2f6bae25402813c260620930570fcd))
 * zStepperItem test ([c09bdae](https://github.com/ZanichelliEditore/design-system/commit/c09bdaecef0e21bcedc01ee6f7d3fb0054baa801))
+
+### [1.3.3](https://github.com/ZanichelliEditore/design-system/compare/v1.5.0...v1.3.3) (2021-03-01)
+
+### [1.3.2](https://github.com/ZanichelliEditore/design-system/compare/v1.5.0...v1.3.2) (2021-03-01)
+
+### [1.3.1](https://github.com/ZanichelliEditore/design-system/compare/v1.5.0...v1.3.1) (2021-03-01)
 
 ## [1.3.0](https://github.com/ZanichelliEditore/design-system/compare/v1.2.0...v1.3.0) (2021-03-01)
 
