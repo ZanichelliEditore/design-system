@@ -4,43 +4,43 @@
 }
 
 z-link {
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: var(--font-sb);
+  font-size: calc(var(--space-unit) * 1.5);
   padding: 6px;
 }
 
 button {
   display: flex;
   margin: 0;
-  background: rgb(51, 51, 51);
+  background: var(--bg-grey-900);
   border: none;
   padding: 0;
-  font-size: 16px;
+  font-size: calc(var(--space-unit) * 2);
   padding: 6px;
 }
 
 button > z-icon {
   padding: 0 2px;
-  fill: rgb(255, 255, 255);
+  fill: var(--bg-white);
 }
 
 button > span {
   padding: 0 6px;
-  color: rgb(255, 255, 255);
-  font-weight: 600;
+  color: var(--text-white);
+  font-weight: var(--font-sb);
   line-height: 19px;
 }
 
 button.light {
-  background: rgb(255, 255, 255);
+  background: var(--bg-white);
 }
 
 button.light > z-icon {
-  fill: rgb(51, 51, 51);
+  fill: var(--bg-grey-900);
 }
 
 button.light > span {
-  color: rgb(51, 51, 51);
+  color: var(--bg-grey-900);
 }
 
 button > .userfullname {
@@ -50,26 +50,26 @@ button > .userfullname {
 ul {
   position: absolute;
   left: 0;
-  padding: 8px 0 0 0;
+  padding: var(--space-unit)  0 0 0;
   width: 100%;
   margin: 0;
-  background: rgb(51, 51, 51);
+  background: var(--bg-grey-900);
 }
 
 ul.light {
-  background: rgb(255, 255, 255);
+  background: var(--bg-white);
 }
 
 ul > li {
   display: flex;
   justify-content: flex-end;
-  padding: 8px;
-  margin: 0 8px;
-  border-bottom: 2px solid rgb(103, 107, 111);
+  padding: var(--space-unit);
+  margin: 0 var(--space-unit);
+  border-bottom: var(--border-base) solid var(--bg-grey-700);
 }
 
 ul > li:first-child {
-  border-top: 2px solid rgb(103, 107, 111);
+  border-top: var(--border-base) solid var(--bg-grey-700);
 }
 
 ul > li:last-child {
@@ -79,7 +79,7 @@ ul > li:last-child {
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   :host {
-    height: 32px;
+    height: calc(var(--space-unit) * 4);
   }
 
   :host > div.open {
@@ -89,7 +89,7 @@ ul > li:last-child {
     justify-content: flex-start;
     align-items: stretch;
     align-content: stretch;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);
   }
 
   button {
@@ -102,10 +102,10 @@ ul > li:last-child {
   }
 
   button.open {
-    background-color: rgb(255, 255, 255);
-    border-top: 1px solid rgb(255, 255, 255);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    background-color: var(--bg-white);
+    border-top: var(--border-size-small) solid var(--bg-white);
+    border-top-left-radius: calc(var(--space-unit) * .5);
+    border-top-right-radius: calc(var(--space-unit) * .5);
   }
 
   button > .userfullname {
@@ -117,11 +117,11 @@ ul > li:last-child {
   }
 
   button.open > z-icon {
-    fill: rgb(66, 69, 72);
+    fill: var(--bg-grey-800);
   }
 
   button.open > span {
-    color: rgb(66, 69, 72);
+    color: var(--bg-grey-800);
   }
 
   ul {
@@ -130,15 +130,15 @@ ul > li:last-child {
     padding: 0;
     margin-top: 0;
     width: initial;
-    background-color: rgb(255, 255, 255);
-    border-bottom: 1px solid rgb(255, 255, 255);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    background-color: var(--bg-white);
+    border-bottom: var(--border-size-small) solid var(--bg-white);
+    border-bottom-left-radius: var(--border-radius-base);
+    border-bottom-right-radius: var(--border-radius-base);
   }
 
   ul > li {
-    color: rgb(66, 69, 72);
-    border-bottom: 2px solid rgb(202, 204, 206);
+    color: var(--bg-grey-800);
+    border-bottom: var(--border-base) solid rgb(202, 204, 206);
   }
 
   ul > li:first-child {

@@ -4,8 +4,8 @@
 }
 
 :host > div {
-  background: rgb(51, 51, 51);
-  border-radius: 0px;
+  background: var(--bg-grey-900);
+  border-radius: var(--border-radius-min);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
@@ -14,11 +14,11 @@
   position: sticky;
   top: 0;
   z-index: 99;
-  height: 40px;
+  height: calc(var(--space-unit) * 5);
 }
 
 :host > div.light {
-  background: rgb(255, 255, 255);
+  background: var(--bg-white);
 }
 
 .left {
@@ -50,11 +50,11 @@
 }
 
 .right > ::slotted(z-link) {
-  padding: 4px;
+  padding: calc(var(--space-unit) * .5);
 }
 
 .right > ::slotted(z-user-dropdown) {
-  padding: 4px 0;
+  padding: calc(var(--space-unit) * .5) 0;
   grid-column-start: 3;
   grid-column-end: 4;
 }
@@ -73,15 +73,15 @@
 
   .left > #hashtag {
     display: initial;
-    color: rgb(255, 255, 255);
+    color: var(--bg-white);
     text-transform: uppercase;
-    padding: 8px 16px;
+    padding: var(--space-unit) calc(var(--space-unit) * 2);
   }
   .left > #hashtag::before {
     content: "#";
   }
   .right > ::slotted(z-app-switcher) {
-    padding: 6px 16px;
+    padding: 6px calc(var(--space-unit) * 2);
   }
 }
 
