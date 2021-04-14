@@ -1,0 +1,40 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+button {
+  background-color: transparent;
+  height: 20px;
+  width: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  gap: 4px;
+  border: none;
+  padding: 0;
+}
+
+button > span {
+  background: rgb(255, 255, 255);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+}
+
+button > span.light {
+  background: rgb(51, 51, 51);
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}
