@@ -43,7 +43,7 @@
  - [z-header](../z-header)
  - [z-menu-dropdown](../z-menu-dropdown)
  - [z-panel-elem](../../panel/z-panel-elem)
- - [z-user-dropdown](../../z-user-dropdown)
+ - [z-user-dropdown](../z-user-dropdown)
 
 ### Depends on
 

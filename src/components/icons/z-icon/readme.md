@@ -43,7 +43,7 @@
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-select](../../inputs/z-select)
  - [z-toggle-button](../../buttons/z-toggle-button)
- - [z-user-dropdown](../../z-user-dropdown)
+ - [z-user-dropdown](../../navigation/z-user-dropdown)
 
 ### Graph
 ```mermaid
