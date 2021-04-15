@@ -10,6 +10,8 @@ import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
+    interface ZAppHeader {
+    }
     interface ZAppSwitcher {
         /**
           * theme variant, default 'dark'
@@ -895,6 +897,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
+    }
+    var HTMLZAppHeaderElement: {
+        prototype: HTMLZAppHeaderElement;
+        new (): HTMLZAppHeaderElement;
+    };
     interface HTMLZAppSwitcherElement extends Components.ZAppSwitcher, HTMLStencilElement {
     }
     var HTMLZAppSwitcherElement: {
@@ -1172,6 +1180,7 @@ declare global {
         new (): HTMLZUserDropdownElement;
     };
     interface HTMLElementTagNameMap {
+        "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
         "z-app-topbar": HTMLZAppTopbarElement;
         "z-body": HTMLZBodyElement;
@@ -1221,6 +1230,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ZAppHeader {
+    }
     interface ZAppSwitcher {
         /**
           * emitted on app button icon click, returns open/closed state
@@ -2169,6 +2180,7 @@ declare namespace LocalJSX {
         "userfullname"?: string;
     }
     interface IntrinsicElements {
+        "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
         "z-app-topbar": ZAppTopbar;
         "z-body": ZBody;
@@ -2221,6 +2233,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
             "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
