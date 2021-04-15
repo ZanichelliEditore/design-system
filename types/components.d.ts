@@ -10,6 +10,8 @@ import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
+    interface ZAppHeader {
+    }
     interface ZBody {
         "component": string;
         "level": 1 | 2 | 3 | 4 | 5;
@@ -849,6 +851,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
+    }
+    var HTMLZAppHeaderElement: {
+        prototype: HTMLZAppHeaderElement;
+        new (): HTMLZAppHeaderElement;
+    };
     interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
     }
     var HTMLZBodyElement: {
@@ -1108,6 +1116,7 @@ declare global {
         new (): HTMLZTypographyElement;
     };
     interface HTMLElementTagNameMap {
+        "z-app-header": HTMLZAppHeaderElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
@@ -1154,6 +1163,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ZAppHeader {
+    }
     interface ZBody {
         "component"?: string;
         "level"?: 1 | 2 | 3 | 4 | 5;
@@ -2052,6 +2063,7 @@ declare namespace LocalJSX {
         "variant"?: "regular" | "semibold" | "light";
     }
     interface IntrinsicElements {
+        "z-app-header": ZAppHeader;
         "z-body": ZBody;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
@@ -2101,6 +2113,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;

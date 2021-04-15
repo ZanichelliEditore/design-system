@@ -31,6 +31,7 @@
     "./components/list/z-list-item/index.js",
     "./components/logo/z-logo/index.js",
     "./components/modal/z-modal/index.js",
+    "./components/navigation/z-app-header/index.js",
     "./components/navigation/z-header/index.js",
     "./components/navigation/z-link/index.js",
     "./components/navigation/z-menu-dropdown/index.js",
