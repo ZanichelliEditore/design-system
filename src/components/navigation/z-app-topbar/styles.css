@@ -40,7 +40,7 @@
   grid-column-start: 2;
   grid-column-end: 3;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, auto);
   align-items: center;
   justify-content: end;
 }
@@ -55,14 +55,10 @@
 
 .right > ::slotted(z-user-dropdown) {
   padding: calc(var(--space-unit) * .5) 0;
-  grid-column-start: 3;
-  grid-column-end: 4;
 }
 
 .right > ::slotted(z-app-switcher) {
   padding: 6px;
-  grid-column-start: 4;
-  grid-column-end: 5;
 }
 
 /* Tablet breakpoint */
