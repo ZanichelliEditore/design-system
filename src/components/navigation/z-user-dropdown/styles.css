@@ -10,6 +10,7 @@ z-link {
 }
 
 button {
+  cursor: pointer;
   display: flex;
   margin: 0;
   background: var(--bg-grey-900);
