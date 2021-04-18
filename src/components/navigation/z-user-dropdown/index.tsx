@@ -1,4 +1,4 @@
-import { Component, Prop, State, h } from "@stencil/core";
+import { Component, Prop, State, Event, h, EventEmitter } from "@stencil/core";
 import { MenuItem, ThemeVariant, ThemeVariantBean } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
@@ -28,8 +28,15 @@ export class ZUserDropdown {
         : this.menucontent;
   }
 
+  /** Emitted on enter or user Button click, returns ismenuopen (bool) */
+  @Event() userButtonClick: EventEmitter;
+  emitUserButtonClick() {
+    this.userButtonClick.emit(this.ismenuopen);
+  }
+
   handleToggle() {
     this.ismenuopen = !this.ismenuopen;
+    this.emitUserButtonClick();
   }
 
   renderCaretIcon() {
@@ -46,7 +53,12 @@ export class ZUserDropdown {
 
   renderGuestButton() {
     return (
-      <z-link big={true} icon="enter" textcolor={this.theme === ThemeVariant.light ? 'black' : 'white'}>
+      <z-link
+        onClick={() => this.emitUserButtonClick()}
+        big={true}
+        icon="enter"
+        textcolor={this.theme === ThemeVariant.light ? "black" : "white"}
+      >
         Entra
       </z-link>
     );
@@ -54,19 +66,21 @@ export class ZUserDropdown {
 
   renderLoggedButton() {
     return (
-      <button title={this.userfullname} class={`${this.ismenuopen ? 'open' : ''} ${this.theme}`} onClick={() => this.handleToggle()}>
+      <button
+        title={this.userfullname}
+        class={`${this.ismenuopen ? "open" : ""} ${this.theme}`}
+        onClick={() => this.handleToggle()}
+      >
         <z-icon name="user-avatar-filled" height={18} width={18}></z-icon>
-        <span class="userfullname">
-          {this.userfullname}
-        </span>
+        <span class="userfullname">{this.userfullname}</span>
         {this.renderCaretIcon()}
       </button>
     );
   }
 
-  retrieveLiTextColor(): 'white' | 'black' {
-    if (this.theme === ThemeVariant.light) return 'black';
-    return window.innerWidth <= mobileBreakpoint ? 'white' : 'black'
+  retrieveLiTextColor(): "white" | "black" {
+    if (this.theme === ThemeVariant.light) return "black";
+    return window.innerWidth <= mobileBreakpoint ? "white" : "black";
   }
 
   renderDropdownMenu() {
@@ -95,7 +109,7 @@ export class ZUserDropdown {
 
   render() {
     return (
-      <div class={`${this.ismenuopen ? 'open' : ''}`}>
+      <div class={`${this.ismenuopen ? "open" : ""}`}>
         {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
         {this.logged && this.renderDropdownMenu()}
       </div>

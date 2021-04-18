@@ -15,6 +15,13 @@
 | `userfullname` | `userfullname` | user full name                                  | `string`               | `undefined`         |
 
 
+## Events
+
+| Event             | Description                                                    | Type               |
+| ----------------- | -------------------------------------------------------------- | ------------------ |
+| `userButtonClick` | Emitted on enter or user Button click, returns this.ismenuopen | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Depends on

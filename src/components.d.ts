@@ -2171,6 +2171,10 @@ declare namespace LocalJSX {
          */
         "menucontent"?: string | MenuItem[];
         /**
+          * Emitted on enter or user Button click, returns ismenuopen (bool)
+         */
+        "onUserButtonClick"?: (event: CustomEvent<any>) => void;
+        /**
           * theme variant, default 'dark'
          */
         "theme"?: ThemeVariantBean;
