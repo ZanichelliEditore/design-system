@@ -1,4 +1,4 @@
-import { Component, Prop, State, Event, h, EventEmitter } from "@stencil/core";
+import { Component, Prop, State, Event, Listen, h, EventEmitter } from "@stencil/core";
 import { MenuItem, ThemeVariant, ThemeVariantBean } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
@@ -21,6 +21,10 @@ export class ZUserDropdown {
 
   private linkarray: MenuItem[];
 
+  constructor() {
+    this.handleToggle = this.handleToggle.bind(this);
+  }
+
   componentWillRender() {
     this.linkarray =
       typeof this.menucontent === "string"
@@ -32,6 +36,13 @@ export class ZUserDropdown {
   @Event() userButtonClick: EventEmitter;
   emitUserButtonClick() {
     this.userButtonClick.emit(this.ismenuopen);
+  }
+
+  @Listen('click', { target: 'window' })
+  handleClickOutside(e: MouseEvent) {
+    if ((e.target as HTMLElement).nodeName !== 'Z-USER-DROPDOWN') {
+      this.ismenuopen = false
+    }
   }
 
   handleToggle() {
