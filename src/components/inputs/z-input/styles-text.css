@@ -12,7 +12,7 @@
 
 :host > div.textWrapper > div > input:disabled,
 :host > div.textWrapper > div > input[readonly] {
-  padding: 0 var(--half-x3);
+  padding: 0 calc(var(--space-unit) * 1.5);
   box-sizing: border-box;
 }
 
@@ -43,7 +43,7 @@
   display: block;
   height: 18px;
   width: 18px;
-  margin-left: calc(var(--space-unit) * .5);
+  margin-left: calc(var(--space-unit) * 0.5);
 }
 
 :host > div.textWrapper > div > span.iconsWrapper > z-icon.resetIcon {

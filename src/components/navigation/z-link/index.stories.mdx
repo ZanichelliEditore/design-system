@@ -36,6 +36,35 @@ import { text, number, boolean } from '@storybook/addon-knobs';
         isactive="${boolean('isactive', false)}"
       >z-link</z-link>`}
   </Story>
+    <Story name="z-link big">
+    {html`
+      <z-link
+        style="background-color:black"
+        href="${text('href', 'www.zanichelli.it')}"
+        target="${text('target', '_blank')}"
+        icon="${text('icon', 'download')}"
+        htmlid="${number('htmlid', 1)}"
+        htmltabindex="${number('htmltabindex', 1)}"
+        iswhite="${boolean('iswhite', true)}"
+        isdisabled="${boolean('isdisabled', false)}"
+        isactive="${boolean('isactive', false)}"
+        big="${boolean('big', true)}"
+      >z-link</z-link>`}
+  </Story>
+      <Story name="z-link textcolor black">
+    {html`
+      <z-link
+        style="background-color:black"
+        href="${text('href', 'www.zanichelli.it')}"
+        target="${text('target', '_blank')}"
+        icon="${text('icon', 'download')}"
+        htmlid="${number('htmlid', 1)}"
+        htmltabindex="${number('htmltabindex', 1)}"
+        isdisabled="${boolean('isdisabled', false)}"
+        isactive="${boolean('isactive', false)}"
+        textcolor="${texr('textcolor', 'black')}"
+      >z-link</z-link>`}
+  </Story>
 </Preview>
 
   <Props of="z-link" />

@@ -2,15 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.7.0](https://github.com/ZanichelliEditore/design-system/compare/v1.6.0...v1.7.0) (2021-04-15)
-
-
-### Features
-
-* app-header component variables ([522582e](https://github.com/ZanichelliEditore/design-system/commit/522582e4bfd01a0f98df2f0433682d047147f2c8))
-* updated setup-node@v2 in storybook release workflow ([a4d7afd](https://github.com/ZanichelliEditore/design-system/commit/a4d7afd9e6864d3b82f95f6a129b5c15e1222ad8))
-* z-app-header implementation ([9b2b417](https://github.com/ZanichelliEditore/design-system/commit/9b2b4178f5efd0d9fd248e622c1ce81cb84b8b1b))
-
 ## [1.6.0](https://github.com/ZanichelliEditore/design-system/compare/v1.4.1...v1.6.0) (2021-04-14)
 
 
@@ -73,6 +64,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.5.0](https://github.com/ZanichelliEditore/design-system/compare/v1.4.1...v1.5.0) (2021-04-14)
 
+### [1.4.1](https://github.com/ZanichelliEditore/design-system/compare/v1.4.0...v1.4.1) (2021-03-01)
+
+## [1.4.0](https://github.com/ZanichelliEditore/design-system/compare/v1.5.0...v1.4.0) (2021-03-01)
 
 ### Features
 

@@ -88,7 +88,7 @@ describe("Suite test ZLogo", () => {
       <z-logo link="http://www.zanichelli.it/">
         <mock:shadow-root>
           <div>
-            <a href="http://www.zanichelli.it/">
+            <a href="http://www.zanichelli.it/" style="width: 163px; height: 42px;">
               <svg
                 width=163px
                 height=42px
@@ -128,7 +128,7 @@ describe("Suite test ZLogo", () => {
       <z-logo link="http://www.zanichelli.it/" targetblank>
         <mock:shadow-root>
           <div>
-            <a href="http://www.zanichelli.it/" target="_blank">
+            <a href="http://www.zanichelli.it/" target="_blank" style="width: 163px; height: 42px;">
               <svg
                 width=163px
                 height=42px

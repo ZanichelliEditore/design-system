@@ -23,8 +23,12 @@ export class ZLink {
   @Prop() isactive?: boolean = false;
   /** white variant flag (optional) */
   @Prop() iswhite?: boolean = false;
+  /** link text variant (optional) */
+  @Prop() textcolor?: 'white' | 'blue' | 'black' = 'blue';
   /** link icon name (optional) */
   @Prop() icon?: string;
+  /** big link version */
+  @Prop() big?: boolean = false;
 
   /** emitted on link click, returns linkId */
   @Event() zLinkClick: EventEmitter;
@@ -32,6 +36,12 @@ export class ZLink {
   constructor() {
     this.emitZLinkClick = this.emitZLinkClick.bind(this);
     this.emitZLinkInteraction = this.emitZLinkInteraction.bind(this);
+  }
+
+  componentWillRender() {
+    if (this.iswhite) {
+      console.warn('z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead')
+    }
   }
 
   emitZLinkClick(e: MouseEvent, linkId) {
@@ -49,13 +59,20 @@ export class ZLink {
         href={this.href ? this.href : null}
         class={`${this.isdisabled && "disabled"}
           ${this.isactive && "active"}
-          ${this.iswhite && "white"}`}
+          ${this.textcolor}
+          ${this.iswhite && "white"}
+          ${this.big && "big"}`
+        }
         target={this.target}
         role={this.href ? "link" : "button"}
         tabindex={this.htmltabindex}
         onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.htmlid)}
       >
-        {this.icon && <z-icon name={this.icon} width={12} height={12} />}
+        {this.icon && <z-icon
+          name={this.icon}
+          width={this.big ? 18 : 12}
+          height={this.big ? 18 : 12}
+          />}
         <slot />
       </a>
     );

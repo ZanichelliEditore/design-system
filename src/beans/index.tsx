@@ -193,3 +193,10 @@ export enum PocketStatusEnum {
   closed = "closed",
 }
 export type PocketStatus = PocketStatusEnum;
+
+export type ThemeVariantBean = keyof typeof ThemeVariant;
+
+export enum ThemeVariant {
+  dark = "dark",
+  light = "light",
+}

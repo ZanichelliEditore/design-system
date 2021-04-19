@@ -15,8 +15,7 @@
     <script type="module" src="/build/web-components-library.esm.js"></script>
     <script nomodule src="/build/web-components-library.js"></script>
   </head>
-
-<body style="background-color: #f9f9f9">
+<body style="width: 100%;margin: 0; background-color: #f9f9f9;">
   <!-- <z-candybar>
     <div class="content" slot="content">
       <div>
@@ -86,8 +85,179 @@
     </z-pocket-message>
   </z-messages-pocket> -->
 
+    <p>Not Logged</p>
+
+    <z-app-topbar hashtag="via crucis">
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="white"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="white"
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="docente di calabresi per italiani"
+        logged="false"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+
+    <p>Logged</p>
+
+    <z-app-topbar hashtag="faresci" logged>
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-link
+        onclick="openModal(this)"
+        textcolor="white"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        >Supporto</z-link
+      >
+      <z-link
+        onclick="openModal(this)"
+        iswhite
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="Fabio Funzionario"
+        logged="true"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+
+    <p>User Dropdown</p>
+    <div style="height: 150px; width: fit-content;">
+      <z-user-dropdown
+        userfullname="Sandro Studente"
+        islogged="true"
+        menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+    </div>
+
+    <p>App Menu</p>
+
+    <div
+      style="
+        background-color: rgb(66, 69, 72);
+        width: fit-content;
+        padding: 16px;
+      "
+    >
+      <z-app-switcher id="app-switcher" slot="app-switcher"></z-app-switcher>
+    </div>
+
+    <p>Light Variant</p>
+    <z-app-topbar theme="light" hashtag="faresci">
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="black"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="black"
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        theme="light"
+        userfullname="docente di calabresi per italiani"
+        islogged="false"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher theme="light" slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+
+    <p>Logged</p>
+
+    <z-app-topbar theme="light" hashtag="faresci" logged>
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-link
+        onclick="openModal(this)"
+        textcolor="black"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        >Supporto</z-link
+      >
+      <z-link
+        onclick="openModal(this)"
+        textcolor="black"
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        theme="light"
+        userfullname="Dario Docente di Lingua e Letteratura"
+        logged="true"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+      <z-app-switcher theme="light" id="app-switcher-2" slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+
   <!-- non zanichelli logged -->
-  <z-header
+  <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"MyZanichelli","label":"Link a MyZanichelli","link":"http://www.myzanichelli.it","icon":"chevron-left-circle"}]'
     userdata='{
@@ -103,9 +273,9 @@
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
   </z-header>
 
-  <p style="height:50px;"></p>
+  <p style="height:50px;"></p> -->
   <!-- non zanichelli unlogged -->
-  <z-header
+  <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
     userdata='{
@@ -119,10 +289,10 @@
     <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
     <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
-  </z-header>
+  </z-header> -->
 
   <!-- zanichelli docente logged -->
-  <z-header
+  <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
     userdata='{
@@ -139,10 +309,10 @@
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
   </z-header>
 
-    <p style="height:50px;"></p>
+  <p style="height:50px;"></p> -->
 
    <!-- zanichelli unlogged -->
-  <z-header
+  <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
     userdata='{
@@ -156,10 +326,10 @@
     <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
     <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
-  </z-header>
+  </z-header> -->
 
   <!-- zanichelli studente logged -->
-  <z-header
+  <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"I miei Libri","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"}]'
     userdata='{
@@ -173,7 +343,7 @@
     <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
     <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
-  </z-header>
+  </z-header> -->
 
   <section id="main-content">
     <section id="libreria">
