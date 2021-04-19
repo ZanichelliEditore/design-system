@@ -43,7 +43,6 @@ export class ZUserDropdown {
     const direction = this.ismenuopen ? "up" : "down";
     return (
       <z-icon
-        slot="login"
         name={`caret-${direction}-filled`}
         height={18}
         width={18}
