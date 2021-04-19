@@ -71,7 +71,7 @@ describe("Suite test ZUserDropdown", () => {
                 <span class="userfullname">
                   Sandro Studente
                 </span>
-                <z-icon height="18" name="caret-down-filled" slot="login" width="18"></z-icon>
+                <z-icon height="18" name="caret-down-filled" width="18"></z-icon>
               </button>
             </div>
         </mock:shadow-root>
@@ -129,7 +129,7 @@ describe("Suite test ZUserDropdown", () => {
                 <span class="userfullname">
                   Sandro Studente
                 </span>
-                <z-icon height="18" name="caret-down-filled" slot="login" width="18"></z-icon>
+                <z-icon height="18" name="caret-down-filled" width="18"></z-icon>
               </button>
             </div>
         </mock:shadow-root>
