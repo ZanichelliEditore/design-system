@@ -11,13 +11,13 @@ footer {
   width: auto;
   top: 0px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
-  border-radius: 0px 0px var(--radius-base) var(--radius-base);
-  border-top: var(--border-base) solid var(--bg-grey-200);
+  border-radius: 0px 0px var(--border-radius) var(--border-radius);
+  border-top: var(--border-size-medium) solid var(--bg-grey-200);
 }
 
 footer.real,
 footer.trial {
-  border-top: var(--border-base) solid var(--accent);
+  border-top: var(--border-size-medium) solid var(--accent);
 }
 
 footer .bold {
@@ -32,7 +32,8 @@ footer > h2 {
   line-height: 22px;
   height: 40px;
   margin: 0px;
-  padding: var(--basex2) var(--basex2) var(--basex1) var(--basex2);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2)
+    var(--space-unit) calc(var(--space-unit) * 2);
   overflow: hidden;
   background-color: var(--bg-white);
   transition: all 200ms linear;
@@ -79,7 +80,7 @@ footer > div.content > div > p {
 }
 
 footer > div.content > div > p.year_isbn {
-  padding-top: var(--basex1);
+  padding-top: var(--space-unit);
   display: flex;
   flex-direction: row;
   justify-content: space-between;

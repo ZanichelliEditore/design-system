@@ -4,7 +4,7 @@
 }
 
 :host > a > img {
-  width: var(--basex3);
+  width: calc(var(--space-unit) * 3);
 }
 
 /* Tablet breakpoint */

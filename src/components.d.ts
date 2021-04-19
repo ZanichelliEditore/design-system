@@ -16,6 +16,8 @@ export namespace Components {
          */
         "type": AlertTypes;
     }
+    interface ZAppHeader {
+    }
     interface ZBody {
         "component": string;
         "level": 1 | 2 | 3 | 4 | 5;
@@ -976,6 +978,12 @@ declare global {
         prototype: HTMLZAlertElement;
         new (): HTMLZAlertElement;
     };
+    interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
+    }
+    var HTMLZAppHeaderElement: {
+        prototype: HTMLZAppHeaderElement;
+        new (): HTMLZAppHeaderElement;
+    };
     interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
     }
     var HTMLZBodyElement: {
@@ -1296,6 +1304,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "z-alert": HTMLZAlertElement;
+        "z-app-header": HTMLZAppHeaderElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
@@ -1357,6 +1366,8 @@ declare namespace LocalJSX {
           * alert variant type
          */
         "type"?: AlertTypes;
+    }
+    interface ZAppHeader {
     }
     interface ZBody {
         "component"?: string;
@@ -2385,6 +2396,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "z-alert": ZAlert;
+        "z-app-header": ZAppHeader;
         "z-body": ZBody;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
@@ -2445,6 +2457,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
+            "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;

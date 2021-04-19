@@ -8,9 +8,9 @@ footer {
   box-sizing: border-box;
   font-family: var(--dashboard-font);
   font-size: 13px;
-  padding: var(--basex1) 0 var(--basex1) 0;
+  padding: var(--space-unit) 0 var(--space-unit) 0;
   background-color: var(--bg-grey-900);
-  color: var(--text-grey-050);
+  color: var(--gray50);
 }
 
 footer * {
@@ -39,8 +39,8 @@ footer > section.bottom > div.item {
   grid-column: span 1;
   height: auto;
   width: auto;
-  padding: var(--basex2) 0;
-  margin: 0 var(--basex3);
+  padding: calc(var(--space-unit) * 2) 0;
+  margin: 0 calc(var(--space-unit) * 3);
 }
 
 footer > section.bottom > div.item:nth-child(1) {
@@ -49,7 +49,7 @@ footer > section.bottom > div.item:nth-child(1) {
 
 footer > section.bottom > div.item:nth-child(2) {
   order: 1;
-  border-bottom: 1px solid var(--bg-grey-050);
+  border-bottom: 1px solid var(--gray50);
 }
 
 footer > section.bottom > div.item > div.social {
@@ -66,8 +66,8 @@ footer > section.bottom > div.bottom-links {
 }
 
 footer > section.bottom > div.item > p {
-  margin: var(--basex1) 0;
-  padding: var(--basex1) 0;
+  margin: var(--space-unit) 0;
+  padding: var(--space-unit) 0;
 }
 
 footer > section.bottom > div.item > p:first-child {
@@ -89,7 +89,7 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.top {
-    padding: var(--basex2) var(--basex4);
+    padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
     background-color: var(--text-grey-800);
   }
 
@@ -102,7 +102,7 @@ footer > section.bottom > div.logo > p > span {
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: var(--grid-tablet-margin);
     background-color: var(--bg-grey-900);
-    padding: 0 var(--basex4);
+    padding: 0 calc(var(--space-unit) * 4);
   }
 
   footer > section.bottom > div.item {
@@ -148,11 +148,11 @@ footer > section.bottom > div.logo > p > span {
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: var(--grid-desktop-margin);
     width: 100%;
-    padding: var(--basex3) var(--basex4);
+    padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 4);
   }
 
   footer > section.bottom {
-    padding: var(--basex2) var(--basex4);
+    padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
   }
 
   footer > section.bottom > div.item:nth-child(1) > p:nth-of-type(2) {
@@ -161,7 +161,7 @@ footer > section.bottom > div.logo > p > span {
 
   footer > section.bottom > div.item > p {
     padding-bottom: 0;
-    margin-bottom: var(--basex2);
+    margin-bottom: calc(var(--space-unit) * 2);
   }
 
   footer > section.bottom > div.item > div.social {
@@ -169,7 +169,7 @@ footer > section.bottom > div.logo > p > span {
   }
 
   footer > section.bottom > div.bottom-links {
-    padding: var(--basex2) 0 0 0;
+    padding: calc(var(--space-unit) * 2) 0 0 0;
   }
 
   footer > section.bottom > div.bottom-links {

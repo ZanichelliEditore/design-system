@@ -13,9 +13,9 @@ a {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  padding: var(--half-x1) 0;
-  border-top: var(--border-base) solid transparent;
-  border-bottom: var(--border-base) solid transparent;
+  padding: calc(var(--space-unit) * .5) 0;
+  border-top: var(--border-size-medium) solid transparent;
+  border-bottom: var(--border-size-medium) solid transparent;
 }
 
 a:hover {
@@ -53,7 +53,7 @@ a.active:visited {
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
   text-decoration: none;
-  border-bottom: var(--border-base) solid var(--myz-blue);
+  border-bottom: var(--border-size-medium) solid var(--myz-blue);
 }
 
 a > z-icon {

@@ -15,12 +15,12 @@
   max-width: 200px;
   margin: 0 auto;
   display: inline-block;
-  border-radius: var(--radius-base);
+  border-radius: var(--border-radius);
   text-align: center;
   background: var(--bg-white);
   border: 1px solid var(--bg-grey-200);
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
-  padding: var(--basex2);
+  padding: calc(var(--space-unit) * 2);
 }
 
 /* Tooltip Top */

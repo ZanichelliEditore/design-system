@@ -3,7 +3,7 @@ import { reactOutputTarget } from "@stencil/react-output-target";
 
 export const config: Config = {
   namespace: "web-components-library",
-  srcDir: 'src',
+  srcDir: "src",
   // buildEs5: true,
   outputTargets: [
     {
@@ -26,10 +26,5 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
-  globalStyle: "src/globals/global-styles.css",
-  extras: {
-    appendChildSlotFix: true,
-    cloneNodeFix: true,
-    slotChildNodesFix: true,
-  }
+  globalStyle: "src/global.css",
 };

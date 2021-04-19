@@ -43,7 +43,6 @@
 :host div > .contentText {
   color: var(--text-grey-800);
   font-size: 14px;
-  height: 20px;
   letter-spacing: 0.16px;
   line-height: 20px;
 }

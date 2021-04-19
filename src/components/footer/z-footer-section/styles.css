@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-items: flex-start;
   overflow: hidden;
-  margin: var(--half-x1) 0 var(--half-x1) 0;
+  margin: calc(var(--space-unit) / 2) 0 calc(var(--space-unit) / 2) 0;
   padding: 0;
 }
 
@@ -21,25 +21,25 @@
   justify-content: flex-start;
   align-items: stretch;
   align-content: flex-start;
-  margin: 0 var(--basex4);
-  height: var(--basex4);
-  border-bottom: 1px solid var(--bg-grey-050);
+  margin: 0 calc(var(--space-unit) * 4);
+  height: calc(var(--space-unit) * 4);
+  border-bottom: 1px solid var(--gray50);
   line-height: 1;
 }
 
 :host > nav > .header > h2 {
-  color: var(--text-white);
-  font-size: var(--basex2);
-  margin: var(--basex1) 0 var(--basex1) 0;
+  color: var(--color-white);
+  font-size: 16px;
+  margin: var(--space-unit) 0 var(--space-unit) 0;
 }
 
 :host > nav > .header {
-  fill: var(--text-white);
+  fill: var(--color-white);
 }
 
 :host > nav > .header > button {
   position: absolute;
-  top: var(--basex1);
+  top: var(--space-unit);
   right: 0;
   margin: 0;
   padding: 0;
@@ -58,7 +58,7 @@
   display: none;
   height: 0;
   transition: 0.3s ease;
-  padding: var(--basex3) var(--basex4);
+  padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 4);
 }
 
 :host > nav > .content.show {
@@ -74,8 +74,8 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: var(--grid-tablet-margin);
-    padding: var(--basex2) 0;
-    border-bottom: 1px solid var(--bg-white);
+    padding: calc(var(--space-unit) * 2) 0;
+    border-bottom: 1px solid var(--color-white);
     margin: 0;
     background-color: var(--bg-grey-800);
   }
@@ -104,7 +104,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: var(--grid-tablet-margin);
-    grid-row-gap: var(--basex1);
+    grid-row-gap: var(--space-unit);
     height: auto;
     align-items: stretch;
     align-content: stretch;
@@ -133,8 +133,8 @@
     font-size: 16px;
     line-height: 1;
     font-weight: 600;
-    color: var(--text-grey-050);
-    padding: 0 0 var(--basex1);
+    color: var(--gray50);
+    padding: 0 0 var(--space-unit);
     margin: 0;
   }
 
@@ -145,7 +145,7 @@
     top: 100%;
     left: 0;
     width: 120px;
-    border-bottom: 1px solid var(--bg-grey-050);
+    border-bottom: 1px solid var(--gray50);
   }
 
   :host > nav > .content,
