@@ -17,9 +17,9 @@
 
 ## Events
 
-| Event             | Description                                                    | Type               |
-| ----------------- | -------------------------------------------------------------- | ------------------ |
-| `userButtonClick` | Emitted on enter or user Button click, returns this.ismenuopen | `CustomEvent<any>` |
+| Event             | Description                                                      | Type               |
+| ----------------- | ---------------------------------------------------------------- | ------------------ |
+| `userButtonClick` | Emitted on enter or user Button click, returns ismenuopen (bool) | `CustomEvent<any>` |
 
 
 ## Dependencies
