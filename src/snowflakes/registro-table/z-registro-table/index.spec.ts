@@ -12,17 +12,7 @@ describe("Suite test ZRegistroTable", () => {
     expect(page.root).toEqualHtml(`
       <z-registro-table>
         <mock:shadow-root>
-          <table>
-            <thead>
-              <slot name=\"header\"></slot>
-            </thead>
-            <tbody>
-              <slot name=\"body\"></slot>
-            </tbody>
-            <tfoot>
-              <slot name=\"footer\"></slot>
-            </tfoot>
-          </table>
+          <slot />
         </mock:shadow-root>
       </z-registro-table>
     `);

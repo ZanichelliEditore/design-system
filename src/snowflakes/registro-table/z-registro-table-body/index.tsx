@@ -1,16 +1,16 @@
 import { Component, h } from "@stencil/core";
 
 @Component({
-  tag: "z-registro-table",
+  tag: "z-registro-table-body",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZRegistroTable {
+export class ZRegistroTableBody {
   render() {
     return (
-      <table>
+      <tbody>
         <slot />
-      </table>
+      </tbody>
     );
   }
 }
