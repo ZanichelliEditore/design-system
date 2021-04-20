@@ -83,6 +83,10 @@ ul > li:last-child {
     height: calc(var(--space-unit) * 4);
   }
 
+  :host > div {
+    padding: 0;
+  }
+
   :host > div.open {
     display: flex;
     flex-direction: column;
@@ -91,6 +95,10 @@ ul > li:last-child {
     align-items: stretch;
     align-content: stretch;
     box-shadow: 0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);
+    background: var(--bg-white);
+    border-radius: calc(var(--space-unit) * .5);
+    padding: calc(var(--space-unit) * .5) 0;
+    transform: translate(0, -4px);
   }
 
   button {
@@ -100,8 +108,12 @@ ul > li:last-child {
     justify-content: flex-end;
     align-items: center;
     align-content: center;
+    padding: 6px var(--space-unit);
   }
 
+  button > span {
+    padding: 0 var(--space-unit);
+  }
   button.open {
     background-color: var(--bg-white);
     border-top: var(--border-size-small) solid var(--bg-white);
@@ -118,11 +130,11 @@ ul > li:last-child {
   }
 
   button.open > z-icon {
-    fill: var(--bg-grey-800);
+    fill: var(--gray900);
   }
 
   button.open > span {
-    color: var(--bg-grey-800);
+    color: var(--gray900);
   }
 
   ul {
@@ -138,8 +150,9 @@ ul > li:last-child {
   }
 
   ul > li {
-    color: var(--bg-grey-800);
+    color: var(--gray900);
     border-bottom: var(--border-base) solid rgb(202, 204, 206);
+    padding: calc(var(--space-unit) * .5) var(--space-unit);
   }
 
   ul > li:first-child {

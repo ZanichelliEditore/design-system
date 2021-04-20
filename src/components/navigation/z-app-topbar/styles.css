@@ -10,7 +10,7 @@
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   align-items: center;
-  padding: 6px;
+  padding: calc(var(--space-unit) * .5);
   position: sticky;
   top: 0;
   z-index: 99;
