@@ -42,8 +42,8 @@ a.black,
 a.black:active,
 a.black:visited,
 a.black:hover {
-  color: rgb(66, 69, 72);;
-  fill: rgb(66, 69, 72);;
+  color: var(--bg-grey-900);
+  fill: var(--bg-grey-900);
   text-decoration: none;
 }
 
