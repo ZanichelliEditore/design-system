@@ -76,8 +76,13 @@
   .left > #hashtag::before {
     content: "#";
   }
+
+  .right {
+    grid-column-gap: var(--space-unit);
+  }
+
   .right > ::slotted(z-app-switcher) {
-    padding: 6px calc(var(--space-unit) * 2);
+    padding: 6px calc(var(--space-unit) * 2) 6px var(--space-unit);
   }
 }
 
