@@ -1,16 +1,19 @@
-import { Component, h } from "@stencil/core";
+import { Component, Element, h } from "@stencil/core";
 
 @Component({
   tag: "z-registro-table-footer",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZRegistroTableFooter {
+  @Element() host: HTMLElement;
+
+  componentWillRender() {
+    this.host.setAttribute("role", "rowgroup");
+  }
+
   render() {
-    return (
-      <tfoot>
-        <slot />
-      </tfoot>
-    );
+    return <slot />;
   }
 }

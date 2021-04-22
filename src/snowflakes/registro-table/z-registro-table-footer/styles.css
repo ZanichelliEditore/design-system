@@ -1,13 +1,5 @@
 :host {
+  display: table-footer-group;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 }
-
-/* Tablet breakpoint */
-@media only screen and (min-width: 768px) {}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {}

@@ -1,16 +1,19 @@
-import { Component, h } from "@stencil/core";
+import { Component, Element, h } from "@stencil/core";
 
 @Component({
   tag: "z-registro-table-header",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZRegistroTableHeader {
+  @Element() host: HTMLElement;
+
+  componentWillRender() {
+    this.host.setAttribute("role", "columnheader");
+  }
+
   render() {
-    return (
-      <th>
-        <slot />
-      </th>
-    );
+    return <slot />;
   }
 }

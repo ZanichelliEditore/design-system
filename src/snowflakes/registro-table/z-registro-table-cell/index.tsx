@@ -1,16 +1,19 @@
-import { Component, h } from "@stencil/core";
+import { Component, Element, h } from "@stencil/core";
 
 @Component({
   tag: "z-registro-table-cell",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZRegistroTableCell {
+  @Element() host: HTMLElement;
+
+  componentWillRender() {
+    this.host.setAttribute("role", "cell");
+  }
+
   render() {
-    return (
-      <td>
-        <slot />
-      </td>
-    );
+    return <slot />;
   }
 }
