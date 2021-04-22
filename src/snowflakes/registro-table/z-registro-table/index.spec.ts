@@ -9,12 +9,6 @@ describe("Suite test ZRegistroTable", () => {
       html: `<z-registro-table></z-registro-table>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <z-registro-table>
-        <mock:shadow-root>
-          <slot />
-        </mock:shadow-root>
-      </z-registro-table>
-    `);
+    expect(page.root.getAttribute("role")).toEqual("table");
   });
 });

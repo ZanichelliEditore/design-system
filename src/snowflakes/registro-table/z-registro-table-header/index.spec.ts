@@ -9,12 +9,6 @@ describe("Suite test ZRegistroTableHeader", () => {
       html: `<z-registro-table-header></z-registro-table-header>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <z-registro-table-header>
-        <mock:shadow-root>
-          <slot />
-        </mock:shadow-root>
-      </z-registro-table-header>
-    `);
+    expect(page.root.getAttribute("role")).toEqual("columnheader");
   });
 });
