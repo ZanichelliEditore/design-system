@@ -1,0 +1,35 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="Navigation/ZMenu" component="z-menu" />
+
+# ZMenu
+
+<Preview>
+  <Story name="ZMenu-sample">
+    {html`
+      <z-menu active>
+          <h3>Voce di menu</h3>
+          <z-menu slot="item">
+              <a href="#">Item 1</a>
+          </z-menu>
+          <z-menu slot="item">
+              <a href="#">Item 2</a>
+          </z-menu>
+          <z-menu slot="item" active>
+              <h3>Item 3</h3>
+              <a href="#" slot="item">Item 3.1</a>
+              <a href="#" slot="item">Item 3.2</a>
+              <a href="#" slot="item">Item 3.3</a>
+          </z-menu>
+          <z-menu slot="item">
+              <a href="#">Item 4</a>
+          </z-menu>
+      </z-menu>
+    `}
+  </Story>
+</Preview>
+
+<Props of="z-menu" />
+
+
