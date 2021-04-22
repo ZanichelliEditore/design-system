@@ -1,4 +1,5 @@
 import { Component, Prop, Element, h, State, Listen } from "@stencil/core";
+import { HostElement } from "@stencil/core/internal";
 import { ThemeVariant, ThemeVariantBean } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
@@ -15,7 +16,7 @@ export class ZAppTopbar {
   /** optional hashtag string*/
   @Prop() hashtag?: string;
 
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HostElement;
 
   @State() zLinksValues: string[];
   @State() isMobile: boolean;
