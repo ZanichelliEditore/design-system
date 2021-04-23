@@ -1,0 +1,19 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="Buttons/ZStoriaButton" component="z-storia-button" />
+
+# ZStoriaButton
+
+<Preview>
+  <Story name="ZStoriaButton-button">
+    {html`<z-storia-button variant="primary">
+        <button>Invio</button>
+      </z-storia-button>`}
+  </Story>
+  <Story name="ZStoriaButton-link">
+    {html`<z-storia-button variant="secondary">
+        <a href="https://wikipedia.com" target="_blank">Wikipedia</a>
+      </z-storia-button>`}
+  </Story>
+</Preview>
