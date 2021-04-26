@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.1-registro-RC2](https://github.com/ZanichelliEditore/design-system/compare/v1.7.1-registro-RC1...v1.7.1-registro-RC2) (2021-04-26)
+
 ### [1.7.1-registro-RC1](https://github.com/ZanichelliEditore/design-system/compare/v1.7.0...v1.7.1-registro-RC1) (2021-04-26)
 
 
