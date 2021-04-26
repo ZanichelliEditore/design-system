@@ -23,15 +23,21 @@ export class ZAppTopbar {
 
   @Listen("resize", { target: "window" })
   handleResize(): void {
-    this.toggleLinkLabels();
     this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.toggleLinkLabels();
+  }
+
+  @Listen("orientationchange", { target: "window" })
+  handleOrientationChange(): void {
+    this.isMobile = screen.width <= mobileBreakpoint;
+    this.toggleLinkLabels();
   }
 
   componentWillLoad() {
     this.zLinksValues = Array.from(this.hostElement.children)
       .filter((child) => child.nodeName === "Z-LINK")
       .map((link) => link.childNodes[0].nodeValue);
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.isMobile = screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
     this.toggleLinkLabels();
   }
 
