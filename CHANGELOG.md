@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/ZanichelliEditore/design-system/compare/v1.7.0...v1.8.0) (2021-04-26)
+
+
+### Features
+
+* added z-storia-button ([5f89582](https://github.com/ZanichelliEditore/design-system/commit/5f89582dc6ce13f5f6524a9063ba26a3c7ef1a18))
+
 ## [1.7.0](https://github.com/ZanichelliEditore/design-system/compare/v1.6.0...v1.7.0) (2021-04-15)
 
 
