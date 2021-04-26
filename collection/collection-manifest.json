@@ -5,6 +5,7 @@
     "./components/buttons/z-button-filter/index.js",
     "./components/buttons/z-button-sort/index.js",
     "./components/buttons/z-chip/index.js",
+    "./components/buttons/z-storia-button/index.js",
     "./components/buttons/z-toggle-button/index.js",
     "./components/card/z-card/index.js",
     "./components/card/z-card-alert/index.js",

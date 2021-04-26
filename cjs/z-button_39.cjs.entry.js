@@ -3,7 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-25d17ad3.js');
-const utils = require('./utils-c7d865d4.js');
+const index$1 = require('./index-fea2018a.js');
+const utils = require('./utils-59f4abdb.js');
 
 const stylesCss$C = "button{font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);height:44px;text-transform:uppercase;padding:0px calc(var(--space-unit) * 2);cursor:pointer;white-space:nowrap;outline:none;width:inherit}button::-moz-focus-inner{border:0}button.small{height:36px}button.primary{background-color:var(--myz-blue);border-color:var(--myz-blue);color:var(--bg-white);fill:var(--bg-white)}button.primary:hover{background-color:var(--myz-blue-dark);border-color:var(--myz-blue-dark);color:var(--bg-white);fill:var(--bg-white)}button.primary:focus{background-color:var(--myz-blue);border-color:var(--myz-blue);color:var(--bg-white);fill:var(--bg-white);box-shadow:0px 0px 2px 2px var(--accent-dark)}button.primary:active{background-color:var(--myz-blue-light);border-color:var(--myz-blue-light);color:var(--bg-white);fill:var(--bg-white);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.primary:disabled{background-color:var(--bg-neutral-200);border-color:var(--bg-neutral-200);color:var(--text-grey-700);fill:var(--text-grey-700)}button.secondary{background-color:var(--bg-white);border-color:var(--myz-blue);color:var(--myz-blue);fill:var(--myz-blue)}button.secondary:hover{background-color:var(--bg-white);border-color:var(--myz-blue-dark);color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}button.secondary:focus{background-color:var(--bg-white);border-color:var(--myz-blue);color:var(--myz-blue);fill:var(--myz-blue);box-shadow:0px 0px 2px 2px var(--accent-dark)}button.secondary:active{background-color:var(--bg-white);border-color:var(--myz-blue-light);color:var(--myz-blue-light);fill:var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.secondary:disabled{background-color:var(--bg-white);border-color:var(--bg-neutral-200);color:var(--text-grey-700);fill:var(--text-grey-700)}button.tertiary{background-color:transparent;border-color:transparent;color:var(--myz-blue);fill:var(--myz-blue)}button.tertiary:hover{background-color:transparent;border-color:transparent;color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}button.tertiary:focus{background-color:var(--bg-white);border-color:var(--bg-white);color:var(--myz-blue);fill:var(--myz-blue);box-shadow:0px 0px 2px 2px var(--accent-dark)}button.tertiary:active{background-color:var(--bg-white);border-color:var(--bg-white);color:var(--myz-blue-light);fill:var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.tertiary:disabled{background-color:transparent;border-color:transparent;color:var(--text-grey-700);fill:var(--text-grey-700)}button>z-icon{margin-right:calc(var(--space-unit) * 1.5)}button:disabled{pointer-events:none}";
 
@@ -13,9 +14,9 @@ const ZButton = class {
     /** disable button */
     this.disabled = false;
     /** button type */
-    this.type = utils.ButtonTypeEnum.button;
+    this.type = index$1.ButtonTypeEnum.button;
     /** graphic variant */
-    this.variant = utils.ButtonVariantEnum.primary;
+    this.variant = index$1.ButtonVariantEnum.primary;
     /** reduce button size (optional) */
     this.issmall = false;
   }
@@ -118,9 +119,9 @@ const ZCardComponent = class {
   }
   retrieveClass() {
     let elemClasses = "";
-    if (this.cardtype === utils.LicenseTypeEnum.real)
+    if (this.cardtype === index$1.LicenseTypeEnum.real)
       elemClasses += "real";
-    else if (this.cardtype === utils.LicenseTypeEnum.trial)
+    else if (this.cardtype === index$1.LicenseTypeEnum.trial)
       elemClasses += "trial";
     if (this.faded) {
       elemClasses += " faded";
@@ -234,8 +235,8 @@ const ZCardFooter = class {
   retrieveClass() {
     return {
       isopen: this.isOpen,
-      real: this.cardtype === utils.LicenseTypeEnum.real,
-      trial: this.cardtype === utils.LicenseTypeEnum.trial
+      real: this.cardtype === index$1.LicenseTypeEnum.real,
+      trial: this.cardtype === index$1.LicenseTypeEnum.trial
     };
   }
   footerTransitionHandler(e) {
@@ -268,8 +269,8 @@ const ZCardHeader = class {
   }
   retrieveClass() {
     return {
-      real: this.cardtype === utils.LicenseTypeEnum.real,
-      trial: this.cardtype === utils.LicenseTypeEnum.trial,
+      real: this.cardtype === index$1.LicenseTypeEnum.real,
+      trial: this.cardtype === index$1.LicenseTypeEnum.trial,
       faded: this.faded
     };
   }
@@ -361,7 +362,7 @@ const ZCombobox = class {
     this.maxcheckableitems = 0;
     this.renderItemsList = []; // used for render only
     this.itemsList = [];
-    this.inputType = utils.InputTypeEnum.text;
+    this.inputType = index$1.InputTypeEnum.text;
     this.closeComboBox = this.closeComboBox.bind(this);
     this.closeFilterItems = this.closeFilterItems.bind(this);
   }
@@ -439,7 +440,7 @@ const ZCombobox = class {
   }
   renderHeader() {
     return (index.h("div", { class: "header", onClick: () => this.closeComboBox(), onKeyDown: (ev) => {
-        if (ev.keyCode === utils.keybordKeyCodeEnum.SPACE)
+        if (ev.keyCode === index$1.keybordKeyCodeEnum.SPACE)
           ev.preventDefault();
       }, onKeyUp: (ev) => utils.handleKeyboardSubmit(ev, this.closeComboBox), role: "button", tabindex: 0 }, index.h("h2", null, this.label, index.h("span", null, this.selectedCounter > 0 && ` (${this.selectedCounter})`)), index.h("z-icon", { name: "caret-down", width: 18, height: 18 })));
   }
@@ -459,7 +460,7 @@ const ZCombobox = class {
     if (!items.length && this.searchValue)
       return this.renderNoSearchResults();
     return (index.h("ul", null, items.map((item, i) => {
-      return (index.h("z-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: i === items.length - 1 ? false : true }, index.h("z-input", { type: utils.InputTypeEnum.checkbox, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked &&
+      return (index.h("z-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: i === items.length - 1 ? false : true }, index.h("z-input", { type: index$1.InputTypeEnum.checkbox, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked &&
           this.maxcheckableitems &&
           this.maxcheckableitems === this.selectedCounter })));
     })));
@@ -483,7 +484,7 @@ const ZCombobox = class {
     if (this.searchValue)
       return;
     const allChecked = this.selectedCounter === this.itemsList.length;
-    return (index.h("div", { class: "checkAllWrapper" }, index.h("z-input", { type: utils.InputTypeEnum.checkbox, checked: allChecked, htmlid: `combo-checkbox-${this.inputid}-check-all`, label: allChecked ? this.uncheckalltext : this.checkalltext, disabled: this.maxcheckableitems &&
+    return (index.h("div", { class: "checkAllWrapper" }, index.h("z-input", { type: index$1.InputTypeEnum.checkbox, checked: allChecked, htmlid: `combo-checkbox-${this.inputid}-check-all`, label: allChecked ? this.uncheckalltext : this.checkalltext, disabled: this.maxcheckableitems &&
         this.maxcheckableitems < this.itemsList.length })));
   }
   render() {
@@ -521,7 +522,7 @@ const ZCookiebar = class {
     }
   }
   renderContentSlot() {
-    return (index.h("div", { class: "content", slot: "content" }, index.h("div", null, index.h("h2", null, "Su questo sito usiamo i cookie."), index.h("div", null, index.h("p", null, "Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla privacy relativa ai \u00A0", index.h("a", { href: this.cookiepolicyurl, target: "_blank" }, "cookie"), "."))), index.h("z-button", { variant: utils.ButtonVariantEnum.primary, onClick: (ev) => this.handleOkButtonClick(ev), onKeyUp: (ev) => this.handleOkButtonKeyUp(ev) }, "ACCETTA")));
+    return (index.h("div", { class: "content", slot: "content" }, index.h("div", null, index.h("h2", null, "Su questo sito usiamo i cookie."), index.h("div", null, index.h("p", null, "Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla privacy relativa ai \u00A0", index.h("a", { href: this.cookiepolicyurl, target: "_blank" }, "cookie"), "."))), index.h("z-button", { variant: index$1.ButtonVariantEnum.primary, onClick: (ev) => this.handleOkButtonClick(ev), onKeyUp: (ev) => this.handleOkButtonKeyUp(ev) }, "ACCETTA")));
   }
   render() {
     return index.h("z-candybar", { class: `${this.hide ? "hidden" : ""}` }, this.renderContentSlot());
@@ -763,7 +764,7 @@ const ZHeader = class {
     if (this.hideloginbutton) {
       return;
     }
-    return (index.h("z-button", { htmlid: "login-button", variant: this.ismyz ? utils.ButtonVariantEnum.secondary : utils.ButtonVariantEnum.tertiary, icon: "login", issmall: true }, "entra"));
+    return (index.h("z-button", { htmlid: "login-button", variant: this.ismyz ? index$1.ButtonVariantEnum.secondary : index$1.ButtonVariantEnum.tertiary, icon: "login", issmall: true }, "entra"));
   }
   renderMobileLoginDiv(userData) {
     return (index.h("div", { id: "mobile-login", class: "mobile-login" }, index.h("span", null, index.h("a", { class: "menu-item", id: "user-data", onClick: () => this.handleToggleMobileMenuItem("user-data"), role: "button" }, index.h("span", null, index.h("z-icon", { name: "user-avatar", height: 16, width: 16 }), userData.name), index.h("i", null)), this.renderUserData(userData))));
@@ -1303,8 +1304,8 @@ const ZInput = class {
   inputCheckListener(e) {
     const data = e.detail;
     switch (this.type) {
-      case utils.InputTypeEnum.radio:
-        if (data.type === utils.InputTypeEnum.radio &&
+      case index$1.InputTypeEnum.radio:
+        if (data.type === index$1.InputTypeEnum.radio &&
           data.name === this.name &&
           data.id !== this.htmlid) {
           this.checked = false;
@@ -1316,7 +1317,7 @@ const ZInput = class {
   /** get the input value */
   async getValue() {
     switch (this.type) {
-      case utils.InputTypeEnum.select:
+      case index$1.InputTypeEnum.select:
         return this.selectElem.getValue();
       default:
         return this.value;
@@ -1325,7 +1326,7 @@ const ZInput = class {
   /** set the input value */
   async setValue(value) {
     switch (this.type) {
-      case utils.InputTypeEnum.select:
+      case index$1.InputTypeEnum.select:
         this.selectElem.setValue(value);
         break;
       default:
@@ -1337,8 +1338,8 @@ const ZInput = class {
   /** get checked status */
   async isChecked() {
     switch (this.type) {
-      case utils.InputTypeEnum.checkbox:
-      case utils.InputTypeEnum.radio:
+      case index$1.InputTypeEnum.checkbox:
+      case index$1.InputTypeEnum.radio:
         return this.checked;
       default:
         return false;
@@ -1349,7 +1350,7 @@ const ZInput = class {
       this.emitStartTyping();
     }
     let validity = {};
-    if (this.type === utils.InputTypeEnum.textarea) {
+    if (this.type === index$1.InputTypeEnum.textarea) {
       validity = this.getValidity("textarea");
     }
     else {
@@ -1406,14 +1407,14 @@ const ZInput = class {
       onInput: (e) => this.emitInputChange(e.target.value, e.keyCode)
     };
   }
-  renderInputText(type = utils.InputTypeEnum.text) {
+  renderInputText(type = index$1.InputTypeEnum.text) {
     const attr = this.getTextAttributes();
-    if (this.icon || type === utils.InputTypeEnum.password)
+    if (this.icon || type === index$1.InputTypeEnum.password)
       attr.class = attr.class + " hasIcon";
     if (this.hasclearicon)
       attr.class = attr.class + " hasClearIcon";
-    return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", null, index.h("input", Object.assign({ type: type === utils.InputTypeEnum.password && !this.passwordHidden
-        ? utils.InputTypeEnum.text
+    return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", null, index.h("input", Object.assign({ type: type === index$1.InputTypeEnum.password && !this.passwordHidden
+        ? index$1.InputTypeEnum.text
         : type }, attr, { "aria-labelledby": `${this.htmlid}_label` })), this.renderIcons()), this.renderMessage()));
   }
   renderLabel() {
@@ -1425,7 +1426,7 @@ const ZInput = class {
     return (index.h("span", { class: `iconsWrapper ${this.disabled ? "disabled" : ""}` }, this.renderResetIcon(), this.renderIcon()));
   }
   renderIcon() {
-    if (this.type === utils.InputTypeEnum.password) {
+    if (this.type === index$1.InputTypeEnum.password) {
       return this.renderShowHidePassword();
     }
     if (!this.icon)
@@ -1496,18 +1497,18 @@ const ZInput = class {
   /* END select */
   render() {
     switch (this.type) {
-      case utils.InputTypeEnum.text:
-      case utils.InputTypeEnum.password:
-      case utils.InputTypeEnum.number:
-      case utils.InputTypeEnum.email:
+      case index$1.InputTypeEnum.text:
+      case index$1.InputTypeEnum.password:
+      case index$1.InputTypeEnum.number:
+      case index$1.InputTypeEnum.email:
         return this.renderInputText(this.type);
-      case utils.InputTypeEnum.textarea:
+      case index$1.InputTypeEnum.textarea:
         return this.renderTextarea();
-      case utils.InputTypeEnum.checkbox:
+      case index$1.InputTypeEnum.checkbox:
         return this.renderCheckbox();
-      case utils.InputTypeEnum.radio:
+      case index$1.InputTypeEnum.radio:
         return this.renderRadio();
-      case utils.InputTypeEnum.select:
+      case index$1.InputTypeEnum.select:
         return this.renderSelect();
       default:
         return this.renderInputText();
@@ -1689,7 +1690,7 @@ const ZMenuDropdown = class {
     this.ismenuopen = !this.ismenuopen;
   }
   handleFocus(e) {
-    if (e instanceof KeyboardEvent && e.keyCode !== utils.keybordKeyCodeEnum.TAB)
+    if (e instanceof KeyboardEvent && e.keyCode !== index$1.keybordKeyCodeEnum.TAB)
       return;
     const tree = utils.getElementTree(utils.getClickedElement());
     const menuParent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-menu-dropdown");
@@ -4652,7 +4653,7 @@ const ZSelect = class {
       this.searchString = null;
   }
   arrowsSelectNav(e, key) {
-    const arrows = [utils.keybordKeyCodeEnum.ARROW_DOWN, utils.keybordKeyCodeEnum.ARROW_UP];
+    const arrows = [index$1.keybordKeyCodeEnum.ARROW_DOWN, index$1.keybordKeyCodeEnum.ARROW_UP];
     if (!arrows.includes(e.keyCode))
       return;
     e.preventDefault();
@@ -4660,10 +4661,10 @@ const ZSelect = class {
     if (!this.isOpen)
       this.toggleSelectUl();
     let index;
-    if (e.keyCode === utils.keybordKeyCodeEnum.ARROW_DOWN) {
+    if (e.keyCode === index$1.keybordKeyCodeEnum.ARROW_DOWN) {
       index = key + 1 === this.itemsList.length ? 0 : key + 1;
     }
-    else if (e.keyCode === utils.keybordKeyCodeEnum.ARROW_UP) {
+    else if (e.keyCode === index$1.keybordKeyCodeEnum.ARROW_UP) {
       index = key <= 0 ? this.itemsList.length - 1 : key - 1;
     }
     this.focusSelectItem(index);
@@ -4701,13 +4702,13 @@ const ZSelect = class {
     this.toggleSelectUl();
   }
   handleSelectFocus(e) {
-    if (e instanceof KeyboardEvent && e.keyCode === utils.keybordKeyCodeEnum.ESC) {
+    if (e instanceof KeyboardEvent && e.keyCode === index$1.keybordKeyCodeEnum.ESC) {
       e.stopPropagation();
       return this.toggleSelectUl(true);
     }
     if (e instanceof KeyboardEvent &&
-      e.keyCode !== utils.keybordKeyCodeEnum.TAB &&
-      e.keyCode !== utils.keybordKeyCodeEnum.ENTER) {
+      e.keyCode !== index$1.keybordKeyCodeEnum.TAB &&
+      e.keyCode !== index$1.keybordKeyCodeEnum.ENTER) {
       return;
     }
     const tree = utils.getElementTree(utils.getClickedElement());
@@ -4735,7 +4736,7 @@ const ZSelect = class {
   renderInput() {
     return (index.h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && !this.multiple && this.selectedItems.length
         ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
-        : null, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.autocomplete, hasmessage: false, disabled: this.disabled, readonly: this.readonly || (!this.autocomplete && this.isOpen), status: this.isOpen ? utils.InputStatusEnum.selecting : this.status, onClick: (e) => {
+        : null, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.autocomplete, hasmessage: false, disabled: this.disabled, readonly: this.readonly || (!this.autocomplete && this.isOpen), status: this.isOpen ? index$1.InputStatusEnum.selecting : this.status, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13)
@@ -4854,17 +4855,17 @@ const stylesCss = ":host{color:var(--text-grey-800);fill:var(--text-grey-800);fo
 const ZTooltip = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
-    this.direction = utils.TooltipPosition[(this.type).toUpperCase()];
+    this.direction = index$1.TooltipPosition[(this.type).toUpperCase()];
   }
   getArrowClass() {
     switch (this.direction) {
-      case utils.TooltipPosition.TOP:
+      case index$1.TooltipPosition.TOP:
         return "tooltip tooltip-bottom-arrow";
-      case utils.TooltipPosition.BOTTOM:
+      case index$1.TooltipPosition.BOTTOM:
         return "tooltip tooltip-top-arrow";
-      case utils.TooltipPosition.LEFT:
+      case index$1.TooltipPosition.LEFT:
         return "tooltip tooltip-right-arrow";
-      case utils.TooltipPosition.RIGHT:
+      case index$1.TooltipPosition.RIGHT:
         return "tooltip tooltip-left-arrow";
     }
   }
