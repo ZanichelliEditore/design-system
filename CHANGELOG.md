@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.1](https://github.com/ZanichelliEditore/design-system/compare/v1.8.0...v1.8.1) (2021-04-26)
+
+
+### Features
+
+* **clav-33:** add aria tag to table components ([5a3b579](https://github.com/ZanichelliEditore/design-system/commit/5a3b579c71b85955ee9ade0e3b2c106203dccb39))
+* **clav-33:** add wrapper for table components ([b591d87](https://github.com/ZanichelliEditore/design-system/commit/b591d87a23379ce199ba76db665897efdb3225d7))
+* **clav-33:** add z-registro-table to snoflakes ([0617868](https://github.com/ZanichelliEditore/design-system/commit/061786874f4aea0d7a3cffd3625b68907bb8480a))
+
 ## [1.8.0](https://github.com/ZanichelliEditore/design-system/compare/v1.7.0...v1.8.0) (2021-04-26)
 
 
