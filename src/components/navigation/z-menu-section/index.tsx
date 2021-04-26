@@ -5,17 +5,16 @@ import {
   State,
   Event,
   EventEmitter,
-  Element,
-  Host
+  Element
 } from '@stencil/core';
 
 @Component({
-  tag: 'z-menu',
+  tag: 'z-menu-section',
   styleUrl: 'styles.css',
   shadow: true
 })
 
-export class ZMenu {
+export class ZMenuSection {
   @Prop({ reflect: true }) active?: boolean;
   @State() open?: boolean;
 
@@ -40,19 +39,19 @@ export class ZMenu {
   }
 
   render() {
-    return <Host open={this.open}>
+    return [
       <div class="label" onClick={this.toggle.bind(this)}>
         <slot></slot>
         {this.hasContent && <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />}
-      </div>
-      {this.open && <div class="content">
+      </div>,
+      this.open && <div class="content">
         <div class="header">
           <slot name="header"></slot>
         </div>
         <div class="items">
           <slot name="item"></slot>
         </div>
-      </div>}
-    </Host>
+      </div>
+    ];
   }
 }

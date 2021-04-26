@@ -633,6 +633,9 @@ export namespace Components {
          */
         "nomeutente": string;
     }
+    interface ZMenuSection {
+        "active"?: boolean;
+    }
     interface ZModal {
         /**
           * unique id
@@ -1078,6 +1081,12 @@ declare global {
         prototype: HTMLZMenuDropdownElement;
         new (): HTMLZMenuDropdownElement;
     };
+    interface HTMLZMenuSectionElement extends Components.ZMenuSection, HTMLStencilElement {
+    }
+    var HTMLZMenuSectionElement: {
+        prototype: HTMLZMenuSectionElement;
+        new (): HTMLZMenuSectionElement;
+    };
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
     }
     var HTMLZModalElement: {
@@ -1216,6 +1225,7 @@ declare global {
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
+        "z-menu-section": HTMLZMenuSectionElement;
         "z-modal": HTMLZModalElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
@@ -1907,6 +1917,13 @@ declare namespace LocalJSX {
          */
         "nomeutente"?: string;
     }
+    interface ZMenuSection {
+        "active"?: boolean;
+        /**
+          * Emits `toggled` with current open state.
+         */
+        "onToggled"?: (event: CustomEvent<any>) => void;
+    }
     interface ZModal {
         /**
           * unique id
@@ -2192,6 +2209,7 @@ declare namespace LocalJSX {
         "z-logo": ZLogo;
         "z-menu": ZMenu;
         "z-menu-dropdown": ZMenuDropdown;
+        "z-menu-section": ZMenuSection;
         "z-modal": ZModal;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
@@ -2250,6 +2268,7 @@ declare module "@stencil/core" {
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
+            "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;

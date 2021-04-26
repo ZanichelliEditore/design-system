@@ -3,14 +3,13 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  position: relative;
-  padding: var(--space-unit) 0;
+  padding: 0;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   color: var(--text-grey-800);
   border: none;
-  border-bottom: var(--border-size-medium) solid var(--bg-grey-800);
-  background-color: rgba(255, 0, 0, 0.486);
+  border-bottom: var(--border-size-small) solid var(--bg-grey-800);
+  background-color: rgba(blue, 0.486);
 }
 
 :host, * {
@@ -40,20 +39,15 @@
 }
 
 .content {
-  position: absolute;
-  top: calc(100% + var(--border-size-medium));
-  left: 0;
   width: 100%;
-  padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
-  box-shadow: var(--shadow-2);
-  background: var(--color-white);
+  padding: calc(var(--space-unit) / 2) calc(var(--space-unit) / 2) calc(var(--space-unit) * 2);
+  background: yellow;
 }
 
 .items {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: white;
 }
 
 .items:empty {
@@ -63,21 +57,15 @@
 .items > ::slotted([slot='item']) {
   display: flex;
   width: 100%;
-  padding: calc(var(--space-unit) * 2) 0;
-  border-bottom: var(--border-size-small) solid var(--bg-grey-800);
+  padding: calc(var(--space-unit) / 2) 0;
 }
 
-.items > ::slotted([slot='item']:hover),
-.items > ::slotted([slot='item']:active) {
-  border-color: var(--blue500);
+.items > ::slotted([slot='item']:last-child) {
+  padding-bottom: 0;
 }
 
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
-  .content {
-    width: 375px;
-  }
-}
+@media only screen and (min-width: 768px) {}
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {}
