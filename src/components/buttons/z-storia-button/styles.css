@@ -1,7 +1,13 @@
 ::slotted(button), ::slotted(a) {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
+  line-height: 1;
   letter-spacing: 0.3px;
   border-width: var(--border-size-medium);
   border-style: solid;
