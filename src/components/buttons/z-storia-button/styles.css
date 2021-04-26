@@ -33,14 +33,16 @@
   fill: var(--bg-white);
 }
 
-:host([variant="primary"]) ::slotted(button:hover), :host([variant="primary"]) ::slotted(a:hover) {
-  background-color: var(--myz-blue-dark);
-  border-color: var(--myz-blue-dark);
-  color: var(--bg-white);
-  fill: var(--bg-white);
+@media (hover: hover) {
+  :host([variant="primary"]) ::slotted(button:hover), :host([variant="primary"]) ::slotted(a:hover) {
+    background-color: var(--myz-blue-dark);
+    border-color: var(--myz-blue-dark);
+    color: var(--bg-white);
+    fill: var(--bg-white);
+  }
 }
 
-:host([variant="primary"]) ::slotted(button:focus), :host([variant="primary"]) ::slotted(a:focus) {
+:host([variant="primary"]) ::slotted(button:focus:focus-visible), :host([variant="primary"]) ::slotted(a:focus:focus-visible) {
   background-color: var(--myz-blue);
   border-color: var(--myz-blue);
   color: var(--bg-white);
@@ -71,14 +73,16 @@
   fill: var(--myz-blue);
 }
 
-:host([variant="secondary"]) ::slotted(button:hover), :host([variant="secondary"]) ::slotted(a:hover) {
-  background-color: var(--bg-white);
-  border-color: var(--myz-blue-dark);
-  color: var(--myz-blue-dark);
-  fill: var(--myz-blue-dark);
+@media (hover: hover) {
+  :host([variant="secondary"]) ::slotted(button:hover), :host([variant="secondary"]) ::slotted(a:hover) {
+    background-color: var(--bg-white);
+    border-color: var(--myz-blue-dark);
+    color: var(--myz-blue-dark);
+    fill: var(--myz-blue-dark);
+  }
 }
 
-:host([variant="secondary"]) ::slotted(button:focus), :host([variant="secondary"]) ::slotted(a:focus) {
+:host([variant="secondary"]) ::slotted(button:focus:focus-visible), :host([variant="secondary"]) ::slotted(a:focus:focus-visible) {
   background-color: var(--bg-white);
   border-color: var(--myz-blue);
   color: var(--myz-blue);
@@ -109,14 +113,16 @@
   fill: var(--myz-blue);
 }
 
-:host([variant="tertiary"]) ::slotted(button:hover), :host([variant="tertiary"]) ::slotted(a:hover) {
-  background-color: transparent;
-  border-color: transparent;
-  color: var(--myz-blue-dark);
-  fill: var(--myz-blue-dark);
+@media (hover: hover) {
+  :host([variant="tertiary"]) ::slotted(button:hover), :host([variant="tertiary"]) ::slotted(a:hover) {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--myz-blue-dark);
+    fill: var(--myz-blue-dark);
+  }
 }
 
-:host([variant="tertiary"]) ::slotted(button:focus), :host([variant="tertiary"]) ::slotted(a:focus) {
+:host([variant="tertiary"]) ::slotted(button:focus:focus-visible), :host([variant="tertiary"]) ::slotted(a:focus:focus-visible) {
   background-color: var(--bg-white);
   border-color: var(--bg-white);
   color: var(--myz-blue);
