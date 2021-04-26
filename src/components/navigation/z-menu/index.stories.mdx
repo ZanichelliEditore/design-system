@@ -12,18 +12,36 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
           <h3>Voce di menu</h3>
           <a href="#" slot="item">Item 1</a>
           <a href="#" slot="item">Item 2</a>
-          <z-menu-section slot="item" active>
-              <h3>Item 3</h3>
-              <a href="#" slot="item">Item 3.1</a>
-              <a href="#" slot="item">Item 3.2</a>
-              <z-menu-section slot="item">
-                <h3>Item 3.3</h3>
-                <a href="#" slot="item">Item 3.3.1</a>
-                <a href="#" slot="item">Item 3.3.2</a>
-                <a href="#" slot="item">Item 3.3.3</a>
-              </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="#" slot="item">Item 3.1</a>
+            <a href="#" slot="item">Item 3.2</a>
           </z-menu-section>
           <a href="#" slot="item">Item 4</a>
+      </z-menu>
+    `}
+  </Story>
+  <Story name="ZMenu with header">
+    {html`
+      <z-menu>
+          <img slot="header" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg">
+          <h4 slot="header">Intestazione del menu</h4>
+          <h3>Voce di menu</h3>
+          <a href="#" slot="item">Item 1</a>
+          <a href="#" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="#" slot="item">Item 3.1</a>
+            <a href="#" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <a href="#" slot="item">Item 4</a>
+      </z-menu>
+    `}
+  </Story>
+  <Story name="ZMenu active without items">
+    {html`
+      <z-menu active>
+          <a href="#">Voce di menu</a>
       </z-menu>
     `}
   </Story>
