@@ -1,8 +1,8 @@
 :host {
   display: table-cell;
-  padding: 16px;
+  padding: calc(var(--space-unit) * 2);
   background-color: var(--color-white);
-  border-bottom: 1px solid var(--gray200);
+  border-bottom: var(--border-size-small) solid var(--gray200);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 }

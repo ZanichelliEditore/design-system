@@ -1,6 +1,6 @@
 :host {
   display: table-cell;
-  padding: 20px 40px;
+  padding: 20px calc(var(--space-unit) * 2);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   text-align: start;
