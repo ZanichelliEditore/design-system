@@ -20,21 +20,21 @@
   border: 0;
 }
 
-::slotted(button).primary, ::slotted(a).primary {
+:host([variant="primary"]) ::slotted(button), :host([variant="primary"]) ::slotted(a) {
   background-color: var(--myz-blue);
   border-color: var(--myz-blue);
   color: var(--bg-white);
   fill: var(--bg-white);
 }
 
-::slotted(button).primary:hover, ::slotted(a).primary:hover {
+:host([variant="primary"]) ::slotted(button:hover), :host([variant="primary"]) ::slotted(a:hover) {
   background-color: var(--myz-blue-dark);
   border-color: var(--myz-blue-dark);
   color: var(--bg-white);
   fill: var(--bg-white);
 }
 
-::slotted(button).primary:focus, ::slotted(a).primary:focus {
+:host([variant="primary"]) ::slotted(button:focus), :host([variant="primary"]) ::slotted(a:focus) {
   background-color: var(--myz-blue);
   border-color: var(--myz-blue);
   color: var(--bg-white);
@@ -42,7 +42,7 @@
   box-shadow: 0px 0px 2px 2px var(--accent-dark);
 }
 
-::slotted(button).primary:active, ::slotted(a).primary:active {
+:host([variant="primary"]) ::slotted(button:active), :host([variant="primary"]) ::slotted(a:active) {
   background-color: var(--myz-blue-light);
   border-color: var(--myz-blue-light);
   color: var(--bg-white);
@@ -51,28 +51,28 @@
 }
 
 /* INFO: mantenere il selettore disabled per ultimo in modo che sia prioritario rispetto agli altri */
-::slotted(button).primary:disabled {
+:host([variant="primary"]) ::slotted(button:disabled) {
   background-color: var(--bg-neutral-200);
   border-color: var(--bg-neutral-200);
   color: var(--text-grey-700);
   fill: var(--text-grey-700);
 }
 
-::slotted(button).secondary, ::slotted(a).secondary {
+:host([variant="secondary"]) ::slotted(button), :host([variant="secondary"]) ::slotted(a) {
   background-color: var(--bg-white);
   border-color: var(--myz-blue);
   color: var(--myz-blue);
   fill: var(--myz-blue);
 }
 
-::slotted(button).secondary:hover, ::slotted(a).secondary:hover {
+:host([variant="secondary"]) ::slotted(button:hover), :host([variant="secondary"]) ::slotted(a:hover) {
   background-color: var(--bg-white);
   border-color: var(--myz-blue-dark);
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
 }
 
-::slotted(button).secondary:focus, ::slotted(a).secondary:focus {
+:host([variant="secondary"]) ::slotted(button:focus), :host([variant="secondary"]) ::slotted(a:focus) {
   background-color: var(--bg-white);
   border-color: var(--myz-blue);
   color: var(--myz-blue);
@@ -80,7 +80,7 @@
   box-shadow: 0px 0px 2px 2px var(--accent-dark);
 }
 
-::slotted(button).secondary:active, ::slotted(a).secondary:active {
+:host([variant="secondary"]) ::slotted(button:active), :host([variant="secondary"]) ::slotted(a:active) {
   background-color: var(--bg-white);
   border-color: var(--myz-blue-light);
   color: var(--myz-blue-light);
@@ -89,28 +89,28 @@
 }
 
 /* INFO: mantenere il selettore disabled per ultimo in modo che sia prioritario rispetto agli altri */
-::slotted(button).secondary:disabled {
+:host([variant="secondary"]) ::slotted(button:disabled) {
   background-color: var(--bg-white);
   border-color: var(--bg-neutral-200);
   color: var(--text-grey-700);
   fill: var(--text-grey-700);
 }
 
-::slotted(button).tertiary, ::slotted(a).tertiary {
+:host([variant="tertiary"]) ::slotted(button), :host([variant="tertiary"]) ::slotted(a) {
   background-color: transparent;
   border-color: transparent;
   color: var(--myz-blue);
   fill: var(--myz-blue);
 }
 
-::slotted(button).tertiary:hover, ::slotted(a).tertiary:hover {
+:host([variant="tertiary"]) ::slotted(button:hover), :host([variant="tertiary"]) ::slotted(a:hover) {
   background-color: transparent;
   border-color: transparent;
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
 }
 
-::slotted(button).tertiary:focus, ::slotted(a).tertiary:focus {
+:host([variant="tertiary"]) ::slotted(button:focus), :host([variant="tertiary"]) ::slotted(a:focus) {
   background-color: var(--bg-white);
   border-color: var(--bg-white);
   color: var(--myz-blue);
@@ -118,7 +118,7 @@
   box-shadow: 0px 0px 2px 2px var(--accent-dark);
 }
 
-::slotted(button).tertiary:active, ::slotted(a).tertiary:active {
+:host([variant="tertiary"]) ::slotted(button:active), :host([variant="tertiary"]) ::slotted(a:active) {
   background-color: var(--bg-white);
   border-color: var(--bg-white);
   color: var(--myz-blue-light);
@@ -127,7 +127,7 @@
 }
 
 /* INFO: mantenere il selettore disabled per ultimo in modo che sia prioritario rispetto agli altri */
-::slotted(button).tertiary:disabled {
+:host([variant="tertiary"]) ::slotted(button:disabled) {
   background-color: transparent;
   border-color: transparent;
   color: var(--text-grey-700);
