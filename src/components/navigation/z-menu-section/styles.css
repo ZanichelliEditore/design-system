@@ -5,9 +5,13 @@
   justify-content: center;
   padding: 0;
   font-family: var(--dashboard-font);
+
+  --focus-shadow: 0 0 2px 2px var(--blue100);
 }
 
-:host, * {
+:host,
+::slotted(*),
+* {
   box-sizing: border-box;
 }
 
@@ -32,7 +36,7 @@
   align-items: center;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);
   text-align: left;
   background: transparent;
   border-radius: 0;
@@ -44,9 +48,14 @@
 .label ::slotted(*) {
   width: 100%;
   margin: 0;
-  padding: calc(var(--space-unit) * 2) 0;
   font-size: 16px;
   line-height: 20px;
+}
+
+.label:focus,
+.label:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-shadow);
 }
 
 .label z-icon {
@@ -64,9 +73,15 @@
 .items > ::slotted([slot='item']) {
   display: inline-flex;
   margin: 0;
-  padding: calc(var(--space-unit) / 2) 0;
+  padding: calc(var(--space-unit) / 2) calc(var(--space-unit) / 2);
   font-size: 14px;
   line-height: 20px;
+}
+
+.items > ::slotted([slot='item']:focus),
+.items > ::slotted([slot='item']:focus-visible) {
+  outline: none;
+  box-shadow: var(--focus-shadow);
 }
 
 .items > ::slotted([slot='item']:hover) {

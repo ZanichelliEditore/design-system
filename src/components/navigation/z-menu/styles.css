@@ -1,13 +1,16 @@
+:host,
+::slotted(*),
+* {
+  box-sizing: border-box;
+}
+
 :host {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-}
 
-:host,
-* {
-  box-sizing: border-box;
+  --focus-shadow: 0 0 2px 2px var(--blue100);
 }
 
 ::slotted(a) {
@@ -20,23 +23,33 @@
   color: var(--text-grey-800);
 }
 
-:host([active]) .label,
-:host([open]) .label,
-.label:hover {
+:host([active]) .label-content,
+:host([open]) .label-content,
+.label:hover .label-content {
   border-color: var(--blue500);
 }
 
 .label {
-  display: flex;
-  align-items: center;
   margin: 0;
-  padding: 0;
-  padding-bottom: var(--space-unit);
+  padding: var(--space-unit) calc(var(--space-unit) / 2) 0;
   background: transparent;
   border: 0;
-  border-bottom: var(--border-size-medium) solid var(--bg-grey-800);
   border-radius: 0;
   cursor: pointer;
+}
+
+.label .label-content {
+  display: flex;
+  align-items: center;
+  padding-bottom: var(--space-unit);
+  border-bottom: var(--border-size-medium) solid var(--bg-grey-800);
+}
+
+.label:focus,
+.label:focus-visible {
+  box-shadow: var(--focus-shadow);
+  outline: none;
+  z-index: 1;
 }
 
 .label ::slotted(*) {
@@ -53,7 +66,7 @@
 }
 
 .content {
-  padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
+  padding: var(--space-unit) calc(var(--space-unit) / 2) calc(var(--space-unit) * 2);
   background: var(--color-white);
 }
 
@@ -102,8 +115,14 @@
   line-height: 20px;
 }
 
+.items > ::slotted([slot='item']:focus),
+.items > ::slotted([slot='item']:focus-visible) {
+  outline: none;
+  box-shadow: var(--focus-shadow);
+}
+
 .items > ::slotted([slot='item']:not(z-menu-section)) {
-  padding: calc(var(--space-unit) * 2) 0;
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);
   border-bottom: var(--border-size-small) solid var(--bg-grey-800);
 }
 

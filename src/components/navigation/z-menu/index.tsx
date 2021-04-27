@@ -58,8 +58,10 @@ export class ZMenu {
   render() {
     return <Host role="menu" open={this.open}>
       <button class="label" aria-pressed={this.open ? 'true' : 'false'} onClick={this.toggle.bind(this)}>
-        <slot></slot>
-        {this.hasContent && <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />}
+        <div class="label-content">
+          <slot></slot>
+          {this.hasContent && <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />}
+        </div>
       </button>
       {this.open && <div class="content">
         {this.hasHeader && <div class="header">
