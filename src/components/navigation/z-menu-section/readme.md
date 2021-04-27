@@ -20,6 +20,14 @@
 | `opened` | The section has been opened. | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot     | Description                                                                 |
+| -------- | --------------------------------------------------------------------------- |
+|          | Menu section label                                                          |
+| `"item"` | Single entry of the section. Can be slotted multiple times to insert items. |
+
+
 ## Dependencies
 
 ### Depends on

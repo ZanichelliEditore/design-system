@@ -1,5 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { boolean } from '@storybook/addon-knobs';
 
 <Meta title="Navigation/ZMenuSection" component="z-menu-section" />
 
@@ -7,7 +8,21 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
 <Preview>
   <Story name="ZMenuSection">
-    {html`<z-menu-section></z-menu-section>`}
+    {html`
+      <z-menu-section .active=${boolean('active', false)}>
+        <h3>Label</h3>
+        <a href="#" slot="item">Item 1</a>
+        <a href="#" slot="item">Item 2</a>
+        <p slot="item">Item 3</p>
+      </z-menu-section>
+    `}
+  </Story>
+  <Story name="ZMenuSection without items">
+    {html`
+      <z-menu-section .active=${boolean('active', false)}>
+        <h3>Label</h3>
+      </z-menu-section>
+    `}
   </Story>
 </Preview>
 

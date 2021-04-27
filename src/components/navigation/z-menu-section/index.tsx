@@ -9,6 +9,11 @@ import {
   Host
 } from '@stencil/core';
 
+/**
+ * @slot - Menu section label
+ * @slot item - Single entry of the section. Can be slotted multiple times to insert items.
+ */
+
 @Component({
   tag: 'z-menu-section',
   styleUrl: 'styles.css',

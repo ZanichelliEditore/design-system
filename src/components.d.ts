@@ -622,7 +622,8 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
-          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise. Default: false.
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+          * @default false
          */
         "floating"?: boolean;
     }
@@ -1909,7 +1910,8 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
-          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise. Default: false.
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+          * @default false
          */
         "floating"?: boolean;
         /**

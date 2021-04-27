@@ -12,7 +12,7 @@ import {
 /**
  * @slot - Menu label
  * @slot header - Header to display as the first entry of the open menu.
- * @slot item - Can be slotted multiple times to insert items onto the menu. Use `z-menu-section` for submenus.
+ * @slot item - Single entry of the section. Can be slotted multiple times to insert items onto the menu. Use `z-menu-section` for submenus.
  */
 
 @Component({
@@ -28,7 +28,7 @@ export class ZMenu {
    * Flag to set the display mode of the list.
    * If true, the list will be absolutely positioned under the menu label,
    * stacked beneath it otherwise.
-   * Default: false.
+   * @default false
    */
   @Prop({ reflect: true }) floating?: boolean = false;
   @State() open: boolean;

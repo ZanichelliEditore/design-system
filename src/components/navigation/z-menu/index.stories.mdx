@@ -10,7 +10,7 @@ import { boolean } from '@storybook/addon-knobs';
   <Story name="ZMenu - floating content layout">
     {html`
       <z-menu .active=${boolean('active', false)} .floating=${boolean('floating', true)}>
-          <h3>Voce di menu</h3>
+          <h3>Menu label</h3>
           <a href="#" slot="item">Item 1</a>
           <a href="#" slot="item">Item 2</a>
           <z-menu-section slot="item">
@@ -27,7 +27,7 @@ import { boolean } from '@storybook/addon-knobs';
       <z-menu .floating=${boolean('floating', true)} .active=${boolean('active', false)}>
           <img slot="header" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg">
           <h4 slot="header">Intestazione del menu</h4>
-          <h3>Voce di menu</h3>
+          <h3>Menu label</h3>
           <a href="#" slot="item">Item 1</a>
           <a href="#" slot="item">Item 2</a>
           <z-menu-section slot="item">
@@ -42,7 +42,7 @@ import { boolean } from '@storybook/addon-knobs';
   <Story name="ZMenu active without items">
     {html`
       <z-menu .active=${boolean('active', false)}>
-          <a href="#">Voce di menu</a>
+          <a href="#">Menu label</a>
       </z-menu>
     `}
   </Story>
