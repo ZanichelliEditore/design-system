@@ -39,6 +39,7 @@
 ### Used by
 
  - [z-header](../z-header)
+ - [z-login-modal](../../modal/z-login-modal)
  - [z-menu-dropdown](../z-menu-dropdown)
  - [z-panel-elem](../../panel/z-panel-elem)
 
@@ -51,6 +52,7 @@
 graph TD;
   z-link --> z-icon
   z-header --> z-link
+  z-login-modal --> z-link
   z-menu-dropdown --> z-link
   z-panel-elem --> z-link
   style z-link fill:#f9f,stroke:#333,stroke-width:4px

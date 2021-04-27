@@ -16,6 +16,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-login-modal](../../modal/z-login-modal)
+
 ### Depends on
 
 - [z-typography](../z-typography)
@@ -24,6 +28,7 @@
 ```mermaid
 graph TD;
   z-body --> z-typography
+  z-login-modal --> z-body
   style z-body fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

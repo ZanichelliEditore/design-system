@@ -124,7 +124,7 @@
 
 | Property        | Attribute       | Description                                                                                         | Type                                                                                             | Default      |
 | --------------- | --------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------ |
-| `autocomplete`  | `autocomplete`  | the input has autocomplete option (optional): available for select                                  | `boolean`                                                                                        | `false`      |
+| `autocomplete`  | `autocomplete`  | the input has autocomplete option (optional): available for select, input                           | `boolean \| string`                                                                              | `undefined`  |
 | `checked`       | `checked`       | checked: available for checkbox, radio                                                              | `boolean`                                                                                        | `false`      |
 | `disabled`      | `disabled`      | the input is disabled                                                                               | `boolean`                                                                                        | `false`      |
 | `hasclearicon`  | `hasclearicon`  | render clear icon when typing (optional): available for text                                        | `boolean`                                                                                        | `true`       |
@@ -196,6 +196,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [z-combobox](../z-combobox)
+ - [z-login-modal](../../modal/z-login-modal)
  - [z-select](../z-select)
 
 ### Depends on
@@ -216,6 +217,7 @@ graph TD;
   z-select --> z-input
   z-button-filter --> z-icon
   z-combobox --> z-input
+  z-login-modal --> z-input
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

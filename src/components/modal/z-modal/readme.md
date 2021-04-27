@@ -34,6 +34,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-login-modal](../z-login-modal)
+
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
@@ -42,6 +46,7 @@
 ```mermaid
 graph TD;
   z-modal --> z-icon
+  z-login-modal --> z-modal
   style z-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

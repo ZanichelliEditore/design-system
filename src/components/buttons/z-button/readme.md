@@ -47,6 +47,7 @@
 
  - [z-cookiebar](../../notification/z-cookiebar)
  - [z-header](../../navigation/z-header)
+ - [z-login-modal](../../modal/z-login-modal)
 
 ### Depends on
 
@@ -58,6 +59,7 @@ graph TD;
   z-button --> z-icon
   z-cookiebar --> z-button
   z-header --> z-button
+  z-login-modal --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

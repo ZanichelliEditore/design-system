@@ -404,9 +404,9 @@ export namespace Components {
     }
     interface ZInput {
         /**
-          * the input has autocomplete option (optional): available for select
+          * the input has autocomplete option (optional): available for select, input
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * checked: available for checkbox, radio
          */
@@ -593,6 +593,10 @@ export namespace Components {
           * underlined style flag
          */
         "underlined": boolean;
+    }
+    interface ZLoginModal {
+        "message"?: string;
+        "status"?: InputStatusBean;
     }
     interface ZLogo {
         /**
@@ -1043,6 +1047,12 @@ declare global {
         prototype: HTMLZListItemElement;
         new (): HTMLZListItemElement;
     };
+    interface HTMLZLoginModalElement extends Components.ZLoginModal, HTMLStencilElement {
+    }
+    var HTMLZLoginModalElement: {
+        prototype: HTMLZLoginModalElement;
+        new (): HTMLZLoginModalElement;
+    };
     interface HTMLZLogoElement extends Components.ZLogo, HTMLStencilElement {
     }
     var HTMLZLogoElement: {
@@ -1148,6 +1158,7 @@ declare global {
         "z-link": HTMLZLinkElement;
         "z-list": HTMLZListElement;
         "z-list-item": HTMLZListItemElement;
+        "z-login-modal": HTMLZLoginModalElement;
         "z-logo": HTMLZLogoElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
         "z-modal": HTMLZModalElement;
@@ -1581,9 +1592,9 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
-          * the input has autocomplete option (optional): available for select
+          * the input has autocomplete option (optional): available for select, input
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * checked: available for checkbox, radio
          */
@@ -1790,6 +1801,14 @@ declare namespace LocalJSX {
           * underlined style flag
          */
         "underlined"?: boolean;
+    }
+    interface ZLoginModal {
+        "message"?: string;
+        /**
+          * Emitted on login submit
+         */
+        "onLoginSubmit"?: (event: CustomEvent<any>) => void;
+        "status"?: InputStatusBean;
     }
     interface ZLogo {
         /**
@@ -2095,6 +2114,7 @@ declare namespace LocalJSX {
         "z-link": ZLink;
         "z-list": ZList;
         "z-list-item": ZListItem;
+        "z-login-modal": ZLoginModal;
         "z-logo": ZLogo;
         "z-menu-dropdown": ZMenuDropdown;
         "z-modal": ZModal;
@@ -2145,6 +2165,7 @@ declare module "@stencil/core" {
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
+            "z-login-modal": LocalJSX.ZLoginModal & JSXBase.HTMLAttributes<HTMLZLoginModalElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
