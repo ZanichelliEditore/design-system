@@ -5,6 +5,7 @@ import {
   State,
   Event,
   EventEmitter,
+  Listen,
   Element,
   Host
 } from '@stencil/core';
@@ -48,6 +49,20 @@ export class ZMenu {
 
     this.open = !this.open;
     this.open ? this.opened.emit() : this.closed.emit();
+  }
+
+  @Listen('click', { target: 'document' })
+  /** Close the floating list when a click is performed outside of this Element. */
+  handleClick(ev) {
+    if (
+      !this.floating ||
+      !this.open ||
+      this.hostElement.contains(ev.target)
+    ) {
+      return;
+    }
+
+    this.toggle();
   }
 
   componentWillLoad() {
