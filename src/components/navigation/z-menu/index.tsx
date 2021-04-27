@@ -9,6 +9,12 @@ import {
   Host
 } from '@stencil/core';
 
+/**
+ * @slot - Menu label
+ * @slot header - Header to display as the first entry of the open menu.
+ * @slot item - Can be slotted multiple times to insert items onto the menu. Use `z-menu-section` for submenus.
+ */
+
 @Component({
   tag: 'z-menu',
   styleUrl: 'styles.css',
@@ -16,28 +22,37 @@ import {
 })
 
 export class ZMenu {
+  /** Flag to set the active status of the menu. */
   @Prop({ reflect: true }) active?: boolean;
-  @State() open?: boolean;
+  /**
+   * Flag to set the display mode of the list.
+   * If true, the list will be absolutely positioned under the menu label,
+   * stacked beneath it otherwise.
+   * Default: false.
+   */
+  @Prop({ reflect: true }) floating?: boolean = false;
+  @State() open: boolean;
+  @Element() hostElement: HTMLElement;
 
   private hasHeader: boolean;
   private hasContent: boolean;
 
-  @Element() hostElement: HTMLElement;
-
-  componentWillLoad() {
-    this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
-    this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
-  }
-
-  /** Emits `toggled` with current open state. */
-  @Event() toggled: EventEmitter;
+  /** The menu has been opened. */
+  @Event() opened: EventEmitter;
+  /** The menu has been closed. */
+  @Event() closed: EventEmitter;
   toggle() {
     if (!this.hasContent) {
       return;
     }
 
     this.open = !this.open;
-    this.toggled.emit(this.open);
+    this.open ? this.opened.emit() : this.closed.emit();
+  }
+
+  componentWillLoad() {
+    this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
+    this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
   }
 
   render() {

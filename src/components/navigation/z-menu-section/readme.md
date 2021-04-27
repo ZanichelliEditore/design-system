@@ -14,9 +14,10 @@
 
 ## Events
 
-| Event     | Description                              | Type               |
-| --------- | ---------------------------------------- | ------------------ |
-| `toggled` | Emits `toggled` with current open state. | `CustomEvent<any>` |
+| Event    | Description                  | Type               |
+| -------- | ---------------------------- | ------------------ |
+| `closed` | The section has been closed. | `CustomEvent<any>` |
+| `opened` | The section has been opened. | `CustomEvent<any>` |
 
 
 ## Dependencies

@@ -17,26 +17,26 @@ import {
 
 export class ZMenuSection {
   @Prop({ reflect: true }) active?: boolean;
-  @State() open?: boolean;
+  @State() open: boolean;
+  @Element() hostElement: HTMLElement;
 
   private hasContent: boolean;
 
-  @Element() hostElement: HTMLElement;
-
-  componentWillLoad() {
-    this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length ||
-      !!this.hostElement.querySelectorAll('[slot="header"]').length;
-  }
-
-  /** Emits `toggled` with current open state. */
-  @Event() toggled: EventEmitter;
+  /** The section has been opened. */
+  @Event() opened: EventEmitter;
+  /** The section has been closed. */
+  @Event() closed: EventEmitter;
   toggle() {
     if (!this.hasContent) {
       return;
     }
 
     this.open = !this.open;
-    this.toggled.emit(this.open);
+    this.open ? this.opened.emit() : this.closed.emit();
+  }
+
+  componentWillLoad() {
+    this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length;
   }
 
   render() {

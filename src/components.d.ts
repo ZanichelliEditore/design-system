@@ -617,7 +617,14 @@ export namespace Components {
         "width": number;
     }
     interface ZMenu {
+        /**
+          * Flag to set the active status of the menu.
+         */
         "active"?: boolean;
+        /**
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise. Default: false.
+         */
+        "floating"?: boolean;
     }
     interface ZMenuDropdown {
         /**
@@ -1897,11 +1904,22 @@ declare namespace LocalJSX {
         "width"?: number;
     }
     interface ZMenu {
+        /**
+          * Flag to set the active status of the menu.
+         */
         "active"?: boolean;
         /**
-          * Emits `toggled` with current open state.
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise. Default: false.
          */
-        "onToggled"?: (event: CustomEvent<any>) => void;
+        "floating"?: boolean;
+        /**
+          * The menu has been closed.
+         */
+        "onClosed"?: (event: CustomEvent<any>) => void;
+        /**
+          * The menu has been opened.
+         */
+        "onOpened"?: (event: CustomEvent<any>) => void;
     }
     interface ZMenuDropdown {
         /**
@@ -1920,9 +1938,13 @@ declare namespace LocalJSX {
     interface ZMenuSection {
         "active"?: boolean;
         /**
-          * Emits `toggled` with current open state.
+          * The section has been closed.
          */
-        "onToggled"?: (event: CustomEvent<any>) => void;
+        "onClosed"?: (event: CustomEvent<any>) => void;
+        /**
+          * The section has been opened.
+         */
+        "onOpened"?: (event: CustomEvent<any>) => void;
     }
     interface ZModal {
         /**

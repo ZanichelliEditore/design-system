@@ -1,14 +1,15 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { boolean } from '@storybook/addon-knobs';
 
 <Meta title="Navigation/ZMenu" component="z-menu" />
 
 # ZMenu
 
 <Preview>
-  <Story name="ZMenu-sample">
+  <Story name="ZMenu - floating content layout">
     {html`
-      <z-menu>
+      <z-menu .active=${boolean('active', false)} .floating=${boolean('floating', true)}>
           <h3>Voce di menu</h3>
           <a href="#" slot="item">Item 1</a>
           <a href="#" slot="item">Item 2</a>
@@ -23,7 +24,7 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
   </Story>
   <Story name="ZMenu with header">
     {html`
-      <z-menu>
+      <z-menu .floating=${boolean('floating', true)} .active=${boolean('active', false)}>
           <img slot="header" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg">
           <h4 slot="header">Intestazione del menu</h4>
           <h3>Voce di menu</h3>
@@ -40,7 +41,7 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
   </Story>
   <Story name="ZMenu active without items">
     {html`
-      <z-menu active>
+      <z-menu .active=${boolean('active', false)}>
           <a href="#">Voce di menu</a>
       </z-menu>
     `}

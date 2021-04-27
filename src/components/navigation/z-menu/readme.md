@@ -7,16 +7,27 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default     |
-| -------- | --------- | ----------- | --------- | ----------- |
-| `active` | `active`  |             | `boolean` | `undefined` |
+| Property   | Attribute  | Description                                                                                                                                                   | Type      | Default     |
+| ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `active`   | `active`   | Flag to set the active status of the menu.                                                                                                                    | `boolean` | `undefined` |
+| `floating` | `floating` | Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise. Default: false. | `boolean` | `false`     |
 
 
 ## Events
 
-| Event     | Description                              | Type               |
-| --------- | ---------------------------------------- | ------------------ |
-| `toggled` | Emits `toggled` with current open state. | `CustomEvent<any>` |
+| Event    | Description               | Type               |
+| -------- | ------------------------- | ------------------ |
+| `closed` | The menu has been closed. | `CustomEvent<any>` |
+| `opened` | The menu has been opened. | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot       | Description                                                                                     |
+| ---------- | ----------------------------------------------------------------------------------------------- |
+|            | Menu label                                                                                      |
+| `"header"` | Header to display as the first entry of the open menu.                                          |
+| `"item"`   | Can be slotted multiple times to insert items onto the menu. Use `z-menu-section` for submenus. |
 
 
 ## Dependencies
