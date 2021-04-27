@@ -29,14 +29,20 @@
 .label {
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
   padding-bottom: var(--space-unit);
+  background: transparent;
+  border: 0;
   border-bottom: var(--border-size-medium) solid var(--bg-grey-800);
+  border-radius: 0;
   cursor: pointer;
 }
 
 .label ::slotted(*) {
   width: 100%;
   margin: 0;
+  appearance: none;
   font-size: 20px;
   line-height: 24px;
 }
@@ -91,6 +97,7 @@
 .items > ::slotted([slot='item']) {
   display: inline-flex;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 20px;
 }

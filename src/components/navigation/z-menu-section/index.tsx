@@ -41,10 +41,10 @@ export class ZMenuSection {
 
   render() {
     return <Host role="menu" open={this.open}>
-      <div class="label" onClick={this.toggle.bind(this)}>
+      <button class="label" aria-pressed={this.open ? 'true' : 'false'} onClick={this.toggle.bind(this)}>
         <slot></slot>
         {this.hasContent && <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />}
-      </div>
+      </button>
       {this.open && <div class="items">
         <slot name="item"></slot>
       </div>}
