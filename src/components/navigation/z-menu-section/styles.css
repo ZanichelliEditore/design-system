@@ -5,10 +5,6 @@
   justify-content: center;
   padding: 0;
   font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-  font-size: 16px;
-  line-height: 20px;
-  color: var(--text-grey-800);
 }
 
 :host, * {
@@ -43,6 +39,8 @@
   width: 100%;
   margin: 0;
   padding: calc(var(--space-unit) * 2) 0;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .label z-icon {
@@ -53,9 +51,8 @@
 .items {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
-  padding: calc(var(--space-unit) / 2) calc(var(--space-unit)) calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) / 2) 0 calc(var(--space-unit) / 2 * 3);
 }
 
 .items > ::slotted([slot='item']) {
@@ -67,8 +64,4 @@
 
 .items > ::slotted([slot='item']:hover) {
   color: var(--blue500);
-}
-
-.items > ::slotted([slot='item']:last-of-type) {
-  padding-bottom: 0;
 }

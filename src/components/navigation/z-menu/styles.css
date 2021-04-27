@@ -1,12 +1,9 @@
 :host {
   display: inline-flex;
-  flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   position: relative;
   padding: var(--space-unit) 0;
-  font-size: 20px;
-  line-height: 24px;
 }
 
 :host,
@@ -42,6 +39,8 @@
 .label ::slotted(*) {
   width: 100%;
   margin: 0;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 .label z-icon {
@@ -53,9 +52,7 @@
   position: absolute;
   top: calc(100% + var(--border-size-medium));
   left: 0;
-  width: 100%;
   padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
-  box-shadow: var(--shadow-2);
   background: var(--color-white);
 }
 
@@ -63,11 +60,10 @@
   display: flex;
   align-items: center;
   padding: var(--space-unit) 0 calc(var(--space-unit) * 2);
-  font-weight: var(--font-sb);
 }
 
 .header ::slotted(img[slot='header']) {
-  max-width: 90px;
+  width: calc(var(--space-unit) * 11.25);
   object-fit: contain;
   height: auto;
   border-radius: var(--border-radius);
@@ -75,6 +71,9 @@
 
 .header ::slotted([slot='header']:not(:first-child)) {
   margin-left: calc(var(--space-unit) / 2 * 3);
+  font-weight: var(--font-sb);
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .items {
@@ -87,6 +86,8 @@
 .items > ::slotted([slot='item']) {
   display: inline-flex;
   width: 100%;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .items > ::slotted([slot='item']:not(z-menu-section)) {
@@ -107,7 +108,8 @@
 }
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {}
+@media only screen and (min-width: 1152px) {
+  .content {
+    box-shadow: var(--shadow-2);
+  }
+}
