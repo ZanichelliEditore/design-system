@@ -66,7 +66,7 @@
 }
 
 .content {
-  padding: var(--space-unit) calc(var(--space-unit) / 2) calc(var(--space-unit) * 2);
+  padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
   background: var(--color-white);
 }
 
@@ -78,6 +78,7 @@
   position: absolute;
   top: 100%;
   left: 0;
+  box-shadow: var(--shadow-2);
 }
 
 .header {
@@ -90,7 +91,6 @@
   width: calc(var(--space-unit) * 11.25);
   object-fit: contain;
   height: auto;
-  border-radius: var(--border-radius);
 }
 
 .header ::slotted([slot='header']:not(:first-child)) {
@@ -135,12 +135,5 @@
 @media only screen and (min-width: 768px) {
   :host([floating]) .content {
     width: 375px;
-  }
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-  :host([floating]) .content {
-    box-shadow: var(--shadow-2);
   }
 }

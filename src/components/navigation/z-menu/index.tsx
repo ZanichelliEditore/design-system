@@ -79,9 +79,9 @@ export class ZMenu {
         </div>
       </button>
       {this.open && <div class="content">
-        {this.hasHeader && <div class="header">
+        {this.hasHeader && <header class="header">
           <slot name="header"></slot>
-        </div>}
+        </header>}
         <div class="items">
           <slot name="item"></slot>
         </div>
