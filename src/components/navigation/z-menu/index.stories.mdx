@@ -11,14 +11,14 @@ import { boolean } from '@storybook/addon-knobs';
     {html`
       <z-menu .active=${boolean('active', false)} .floating=${boolean('floating', true)}>
           <h3>Menu label</h3>
-          <a href="#" slot="item">Item 1</a>
-          <a href="#" slot="item">Item 2</a>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
           <z-menu-section slot="item">
             <h3>Item 3</h3>
-            <a href="#" slot="item">Item 3.1</a>
-            <a href="#" slot="item">Item 3.2</a>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
           </z-menu-section>
-          <a href="#" slot="item">Item 4</a>
+          <a href="" slot="item">Item 4</a>
       </z-menu>
     `}
   </Story>
@@ -26,23 +26,23 @@ import { boolean } from '@storybook/addon-knobs';
     {html`
       <z-menu .floating=${boolean('floating', true)} .active=${boolean('active', false)}>
           <img slot="header" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg">
-          <h4 slot="header">Intestazione del menu</h4>
+          <h4 slot="header">Menu header</h4>
           <h3>Menu label</h3>
-          <a href="#" slot="item">Item 1</a>
-          <a href="#" slot="item">Item 2</a>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
           <z-menu-section slot="item">
             <h3>Item 3</h3>
-            <a href="#" slot="item">Item 3.1</a>
-            <a href="#" slot="item">Item 3.2</a>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
           </z-menu-section>
-          <a href="#" slot="item">Item 4</a>
+          <a href="" slot="item">Item 4</a>
       </z-menu>
     `}
   </Story>
   <Story name="ZMenu active without items">
     {html`
       <z-menu .active=${boolean('active', false)}>
-          <a href="#">Menu label</a>
+          <a href="">Menu label</a>
       </z-menu>
     `}
   </Story>
