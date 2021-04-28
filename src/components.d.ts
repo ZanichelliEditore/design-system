@@ -595,7 +595,13 @@ export namespace Components {
         "underlined": boolean;
     }
     interface ZLoginModal {
+        /**
+          * Username helper message
+         */
         "message"?: string;
+        /**
+          * Username/password input status
+         */
         "status"?: InputStatusBean;
     }
     interface ZLogo {
@@ -1803,11 +1809,33 @@ declare namespace LocalJSX {
         "underlined"?: boolean;
     }
     interface ZLoginModal {
+        /**
+          * Username helper message
+         */
         "message"?: string;
+        /**
+          * Emitted on facebook button click
+         */
+        "onFacebookClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on google button click
+         */
+        "onGoogleClick"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted on login submit
          */
         "onLoginSubmit"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on signup button click
+         */
+        "onSignupClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on zaino digitale button click
+         */
+        "onZainoDigitaleClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Username/password input status
+         */
         "status"?: InputStatusBean;
     }
     interface ZLogo {

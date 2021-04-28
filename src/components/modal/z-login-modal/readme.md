@@ -7,17 +7,32 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                                               | Default     |
-| --------- | --------- | ----------- | -------------------------------------------------- | ----------- |
-| `message` | `message` |             | `string`                                           | `undefined` |
-| `status`  | `status`  |             | `"error" \| "selecting" \| "success" \| "warning"` | `undefined` |
+| Property  | Attribute | Description                    | Type                                               | Default     |
+| --------- | --------- | ------------------------------ | -------------------------------------------------- | ----------- |
+| `message` | `message` | Username helper message        | `string`                                           | `undefined` |
+| `status`  | `status`  | Username/password input status | `"error" \| "selecting" \| "success" \| "warning"` | `undefined` |
 
 
 ## Events
 
-| Event         | Description             | Type               |
-| ------------- | ----------------------- | ------------------ |
-| `loginSubmit` | Emitted on login submit | `CustomEvent<any>` |
+| Event                | Description                            | Type               |
+| -------------------- | -------------------------------------- | ------------------ |
+| `facebookClick`      | Emitted on facebook button click       | `CustomEvent<any>` |
+| `googleClick`        | Emitted on google button click         | `CustomEvent<any>` |
+| `loginSubmit`        | Emitted on login submit                | `CustomEvent<any>` |
+| `signupClick`        | Emitted on signup button click         | `CustomEvent<any>` |
+| `zainoDigitaleClick` | Emitted on zaino digitale button click | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot         | Description                       |
+| ------------ | --------------------------------- |
+| `"login"`    | login button                      |
+| `"password"` | password input                    |
+| `"provider"` | expternal providers login buttons |
+| `"signup"`   | signup button                     |
+| `"username"` | username input                    |
 
 
 ## Dependencies
