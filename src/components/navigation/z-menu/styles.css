@@ -79,6 +79,7 @@
   top: 100%;
   left: 0;
   box-shadow: var(--shadow-2);
+  min-width: 100%;
 }
 
 .header {
@@ -94,6 +95,7 @@
 }
 
 .header ::slotted([slot='header']:not(:first-child)) {
+  margin: auto 0;
   margin-left: calc(var(--space-unit) / 2 * 3);
   font-weight: var(--font-sb);
   font-size: 16px;
