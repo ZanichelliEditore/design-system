@@ -31,7 +31,7 @@ export class ZButton {
   /** add an icon to button (optional) */
   @Prop() icon?: string;
 
-  renderLegacyButton() {
+  private renderLegacyButton() {
     return (
       <button
         id={this.htmlid}
