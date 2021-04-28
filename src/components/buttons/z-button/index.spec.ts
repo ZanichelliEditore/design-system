@@ -80,10 +80,10 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton small", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button issmall="true"></z-button>`
+      html: `<z-button issmall></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button issmall="true" variant="primary">
+      <z-button issmall variant="primary">
       <mock:shadow-root>
         <slot name="element">
           <button type="button" class="primary small">
