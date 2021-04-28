@@ -23,9 +23,8 @@ import {
 export class ZMenuSection {
   @Prop({ reflect: true }) active?: boolean;
   @State() open: boolean;
+  @State() hasContent: boolean;
   @Element() hostElement: HTMLElement;
-
-  private hasContent: boolean;
 
   /** The section has been opened. */
   @Event() opened: EventEmitter;
@@ -40,8 +39,15 @@ export class ZMenuSection {
     this.open ? this.opened.emit() : this.closed.emit();
   }
 
-  componentWillLoad() {
+  /**
+   * Check if some content slot is set.
+   */
+  checkContent() {
     this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length;
+  }
+
+  componentWillLoad() {
+    this.checkContent();
   }
 
   render() {
@@ -51,7 +57,7 @@ export class ZMenuSection {
         {this.hasContent && <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />}
       </button>
       {this.open && <div class="items">
-        <slot name="item"></slot>
+        <slot name="item" onSlotchange={this.checkContent.bind(this)}></slot>
       </div>}
     </Host>
   }

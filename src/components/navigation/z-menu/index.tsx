@@ -31,12 +31,11 @@ export class ZMenu {
    * stacked beneath it otherwise.
    * @default false
    */
-  @Prop({ reflect: true }) floating?: boolean = false;
+  @Prop({ reflect: true }) floating? = false;
   @State() open: boolean;
+  @State() hasHeader: boolean;
+  @State() hasContent: boolean;
   @Element() hostElement: HTMLElement;
-
-  private hasHeader: boolean;
-  private hasContent: boolean;
 
   /** The menu has been opened. */
   @Event() opened: EventEmitter;
@@ -65,9 +64,16 @@ export class ZMenu {
     this.toggle();
   }
 
-  componentWillLoad() {
+  /**
+   * Check if some content slot is set.
+   */
+  checkContent() {
     this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
     this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
+  }
+
+  componentWillLoad() {
+    this.checkContent();
   }
 
   render() {
@@ -80,10 +86,10 @@ export class ZMenu {
       </button>
       {this.open && <div class="content">
         {this.hasHeader && <header class="header">
-          <slot name="header"></slot>
+          <slot name="header" onSlotchange={this.checkContent.bind(this)}></slot>
         </header>}
         <div class="items">
-          <slot name="item"></slot>
+          <slot name="item" onSlotchange={this.checkContent.bind(this)}></slot>
         </div>
       </div>}
     </Host>
