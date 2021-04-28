@@ -6,6 +6,7 @@ import {
   EventEmitter,
   Prop,
 } from "@stencil/core";
+import { HostElement, State } from "@stencil/core/internal";
 import {
   ButtonVariantEnum,
   InputStatusBean,
@@ -26,7 +27,7 @@ import {
   scoped: true,
 })
 export class ZLoginModal {
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HostElement;
 
   /** Login modal title */
   @Prop() heading?: string = "Entra in MyZanichelli";
@@ -34,6 +35,40 @@ export class ZLoginModal {
   @Prop({ mutable: true }) status?: InputStatusBean;
   /** Username helper message */
   @Prop({ mutable: true }) message?: string;
+
+  @State() externalProviderCheck: boolean = false;
+
+  componentDidLoad() {
+    console.log(
+      this.hostElement.querySelector('slot-fb[name="provider"]').children.length
+    );
+    this.externalProviderCheck = !!this.getSiblings(
+          this.hostElement.querySelector('slot-fb[name="provider"]')
+        ).filter((sibl) => sibl.nodeName !== 'Z-BODY').length
+
+        // console.log('check :>> ', check);
+      }
+
+
+  private getSiblings(elem: HTMLElement) {
+    // for collecting siblings
+    let siblings = [];
+    // if no parent, return no sibling
+    if (!elem.parentNode) {
+      return siblings;
+    }
+    // first child of the parent node
+    let sibling = elem.parentNode.firstChild;
+
+    // collecting siblings
+    while (sibling) {
+      if (sibling.nodeType === 1 && sibling !== elem) {
+        siblings.push(sibling);
+      }
+      sibling = sibling.nextSibling;
+    }
+    return siblings;
+  }
 
   /** Emitted on login submit */
   @Event() loginSubmit: EventEmitter;
@@ -214,38 +249,26 @@ export class ZLoginModal {
             </slot>
           </div>
 
-          {/* @PASQUALE - CASO 1 --> GRIGLIA NON SLOTTATA */}
-          {/* <div class="provider">
-            <slot name="provider">
-              <z-body class="provider" level={5} variant="regular">
-                OPPURE ACCEDI CON:
-              </z-body>
-              <div class="providers">
-                <z-button variant={ButtonVariantEnum.secondary}>
-                  PROVIDER
-                </z-button>
-                <z-button variant={ButtonVariantEnum.secondary}>
-                  PROVIDER
-                </z-button>
-                {this.renderZainoDigitaleButton()}
-                <z-link
-                  icon="informationsource"
-                  href="https://www.zainodigitale.it/#/landing"
-                >
-                  Cos'è Zaino Digitale?
-                </z-link>
-              </div>
-            </slot>
-          </div> */}
-          {/* FINE CASO 1 */}
-
-          {/* @PASQUALE - CASO 2 --> SLOT VUOTO */}
-          {/* <div class="providers">
+          <div class="providers">
             <z-body class="provider" level={5} variant="regular">
               OPPURE ACCEDI CON:
             </z-body>
-            <slot name="provider" />
-          </div> */}
+            {!this.externalProviderCheck && <slot name={`provider`}>
+              <z-button variant={ButtonVariantEnum.secondary}>
+                PROVIDER
+              </z-button>
+              <z-button variant={ButtonVariantEnum.secondary}>
+                PROVIDER
+              </z-button>
+              {this.renderZainoDigitaleButton()}
+              <z-link
+                icon="informationsource"
+                href="https://www.zainodigitale.it/#/landing"
+              >
+                Cos'è Zaino Digitale?
+              </z-link>
+            </slot>}
+          </div>
         </div>
       </z-modal>
     );
