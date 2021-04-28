@@ -596,6 +596,10 @@ export namespace Components {
     }
     interface ZLoginModal {
         /**
+          * Login modal title
+         */
+        "heading"?: string;
+        /**
           * Username helper message
          */
         "message"?: string;
@@ -1810,17 +1814,13 @@ declare namespace LocalJSX {
     }
     interface ZLoginModal {
         /**
+          * Login modal title
+         */
+        "heading"?: string;
+        /**
           * Username helper message
          */
         "message"?: string;
-        /**
-          * Emitted on facebook button click
-         */
-        "onFacebookClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted on google button click
-         */
-        "onGoogleClick"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted on login submit
          */

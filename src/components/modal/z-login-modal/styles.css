@@ -28,13 +28,16 @@ z-link,
   font-size: 12px;
 }
 
-:host div.wrapper > form > div.username z-input,
-:host div.wrapper > form > div.password z-input {
-  margin-bottom: var(--space-unit);
+:host div.wrapper > form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
-div.wrapper > form > div.username ::slotted(z-input),
-div.wrapper > form > div.password ::slotted(z-input) {
+:host div.wrapper > form > div.username z-input,
+:host div.wrapper > form > div.password z-input {
   margin-bottom: var(--space-unit);
 }
 
@@ -44,11 +47,6 @@ div.wrapper > form > div.password ::slotted(z-input) {
 }
 
 :host div.wrapper > form > div.login z-button {
-  margin: calc(var(--space-unit) * 3) 0;
-  align-self: flex-start;
-}
-
-div.wrapper > form > div.login ::slotted(z-button) {
   margin: calc(var(--space-unit) * 3) 0;
   align-self: flex-start;
 }
@@ -65,12 +63,8 @@ div.wrapper > form > div.login ::slotted(z-button) {
   margin: calc(var(--space-unit) * 2) 0;
 }
 
-div.wrapper > div.signup ::slotted(z-button) {
-  display: inline-block;
-  margin: calc(var(--space-unit) * 2) 0;
-}
-
-:host div.wrapper > div.provider z-body.provider {
+/* @PASQUALE - INIZIO CSS CASO 1 */
+/* :host div.wrapper > div.provider z-body.provider {
   display: inline-block;
   margin: calc(var(--space-unit) * 2) 0;
 }
@@ -81,6 +75,20 @@ div.wrapper > div.signup ::slotted(z-button) {
   grid-auto-rows: auto;
   gap: 16px 0px;
 }
+
+:host div.wrapper .zd {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+:host div.wrapper .zd > svg {
+  margin-right: var(--space-unit);
+} */
+/* FINE CSS CASO 1 */
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
@@ -94,7 +102,8 @@ div.wrapper > div.signup ::slotted(z-button) {
     padding: calc(var(--space-unit) * 3);
   }
 
-  :host div.wrapper > div.provider div.providers {
+  /* @PASQUALE - INIZIO CSS CASO 1 */
+  /* :host div.wrapper > div.provider div.providers {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
@@ -104,7 +113,8 @@ div.wrapper > div.signup ::slotted(z-button) {
   div.wrapper > div.provider div.providers > * {
     width: 100%;
     align-self: center;
-  }
+  } */
+  /* FINE CSS CASO 1 */
 }
 
 /* Desktop breakpoint */
