@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-06b54d7b.js';
+import { r as registerInstance, h } from './index-604accea.js';
 
 const ZBody = class {
   constructor(hostRef) {

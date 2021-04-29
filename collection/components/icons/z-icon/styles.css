@@ -1,4 +1,13 @@
 :host {
   line-height: 0;
   vertical-align: middle;
+  width: var(--z-icon-width, 18px);
+  height: var(--z-icon-height, 18px);
+  margin-right: var(--z-icon-right-margin, 0);
+  margin-left: var(--z-icon-left-margin, 0);
+}
+
+svg {
+  width: inherit;
+  height: inherit;
 }

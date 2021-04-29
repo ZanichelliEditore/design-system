@@ -1,0 +1,6 @@
+:host {
+  display: table-row-group;
+  width: 100%;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}

@@ -730,6 +730,20 @@ export namespace Components {
          */
         "url": string;
     }
+    interface ZRegistroTable {
+    }
+    interface ZRegistroTableBody {
+    }
+    interface ZRegistroTableCell {
+    }
+    interface ZRegistroTableFooter {
+    }
+    interface ZRegistroTableHead {
+    }
+    interface ZRegistroTableHeader {
+    }
+    interface ZRegistroTableRow {
+    }
     interface ZSelect {
         /**
           * the input has autocomplete option
@@ -819,12 +833,6 @@ export namespace Components {
           * The pressed state of the item.
          */
         "pressed": boolean;
-    }
-    interface ZStoriaButton {
-        /**
-          * graphic variant
-         */
-        "variant"?: ButtonVariantBean;
     }
     interface ZToggleButton {
         /**
@@ -1085,6 +1093,48 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZRegistroTableElement extends Components.ZRegistroTable, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableElement: {
+        prototype: HTMLZRegistroTableElement;
+        new (): HTMLZRegistroTableElement;
+    };
+    interface HTMLZRegistroTableBodyElement extends Components.ZRegistroTableBody, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableBodyElement: {
+        prototype: HTMLZRegistroTableBodyElement;
+        new (): HTMLZRegistroTableBodyElement;
+    };
+    interface HTMLZRegistroTableCellElement extends Components.ZRegistroTableCell, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableCellElement: {
+        prototype: HTMLZRegistroTableCellElement;
+        new (): HTMLZRegistroTableCellElement;
+    };
+    interface HTMLZRegistroTableFooterElement extends Components.ZRegistroTableFooter, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableFooterElement: {
+        prototype: HTMLZRegistroTableFooterElement;
+        new (): HTMLZRegistroTableFooterElement;
+    };
+    interface HTMLZRegistroTableHeadElement extends Components.ZRegistroTableHead, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableHeadElement: {
+        prototype: HTMLZRegistroTableHeadElement;
+        new (): HTMLZRegistroTableHeadElement;
+    };
+    interface HTMLZRegistroTableHeaderElement extends Components.ZRegistroTableHeader, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableHeaderElement: {
+        prototype: HTMLZRegistroTableHeaderElement;
+        new (): HTMLZRegistroTableHeaderElement;
+    };
+    interface HTMLZRegistroTableRowElement extends Components.ZRegistroTableRow, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableRowElement: {
+        prototype: HTMLZRegistroTableRowElement;
+        new (): HTMLZRegistroTableRowElement;
+    };
     interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
     }
     var HTMLZSelectElement: {
@@ -1102,12 +1152,6 @@ declare global {
     var HTMLZStepperItemElement: {
         prototype: HTMLZStepperItemElement;
         new (): HTMLZStepperItemElement;
-    };
-    interface HTMLZStoriaButtonElement extends Components.ZStoriaButton, HTMLStencilElement {
-    }
-    var HTMLZStoriaButtonElement: {
-        prototype: HTMLZStoriaButtonElement;
-        new (): HTMLZStoriaButtonElement;
     };
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
     }
@@ -1166,10 +1210,16 @@ declare global {
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-registro-table": HTMLZRegistroTableElement;
+        "z-registro-table-body": HTMLZRegistroTableBodyElement;
+        "z-registro-table-cell": HTMLZRegistroTableCellElement;
+        "z-registro-table-footer": HTMLZRegistroTableFooterElement;
+        "z-registro-table-head": HTMLZRegistroTableHeadElement;
+        "z-registro-table-header": HTMLZRegistroTableHeaderElement;
+        "z-registro-table-row": HTMLZRegistroTableRowElement;
         "z-select": HTMLZSelectElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
-        "z-storia-button": HTMLZStoriaButtonElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
@@ -1960,6 +2010,20 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface ZRegistroTable {
+    }
+    interface ZRegistroTableBody {
+    }
+    interface ZRegistroTableCell {
+    }
+    interface ZRegistroTableFooter {
+    }
+    interface ZRegistroTableHead {
+    }
+    interface ZRegistroTableHeader {
+    }
+    interface ZRegistroTableRow {
+    }
     interface ZSelect {
         /**
           * the input has autocomplete option
@@ -2042,12 +2106,6 @@ declare namespace LocalJSX {
          */
         "pressed"?: boolean;
     }
-    interface ZStoriaButton {
-        /**
-          * graphic variant
-         */
-        "variant"?: ButtonVariantBean;
-    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -2120,10 +2178,16 @@ declare namespace LocalJSX {
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-registro-table": ZRegistroTable;
+        "z-registro-table-body": ZRegistroTableBody;
+        "z-registro-table-cell": ZRegistroTableCell;
+        "z-registro-table-footer": ZRegistroTableFooter;
+        "z-registro-table-head": ZRegistroTableHead;
+        "z-registro-table-header": ZRegistroTableHeader;
+        "z-registro-table-row": ZRegistroTableRow;
         "z-select": ZSelect;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
-        "z-storia-button": ZStoriaButton;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
@@ -2171,10 +2235,16 @@ declare module "@stencil/core" {
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
+            "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
+            "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
+            "z-registro-table-footer": LocalJSX.ZRegistroTableFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableFooterElement>;
+            "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
+            "z-registro-table-header": LocalJSX.ZRegistroTableHeader & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderElement>;
+            "z-registro-table-row": LocalJSX.ZRegistroTableRow & JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
-            "z-storia-button": LocalJSX.ZStoriaButton & JSXBase.HTMLAttributes<HTMLZStoriaButtonElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;

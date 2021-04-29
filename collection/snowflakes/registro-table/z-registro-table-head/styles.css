@@ -1,0 +1,7 @@
+:host {
+  display: table-header-group;
+  background-color: var(--gray50);
+  border-bottom: var(--border-size-medium) solid var(--gray200);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}

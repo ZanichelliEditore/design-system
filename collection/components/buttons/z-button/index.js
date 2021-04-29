@@ -1,5 +1,5 @@
 import { Component, Prop, h, Element } from "@stencil/core";
-import { ButtonVariantEnum, ButtonTypeEnum } from "../../../beans";
+import { ButtonVariantEnum, ButtonTypeEnum, } from "../../../beans";
 /**
  * @slot - button label
  */
@@ -14,11 +14,13 @@ export class ZButton {
     /** reduce button size (optional) */
     this.issmall = false;
   }
-  render() {
-    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
-    return (h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: `${this.variant} ${this.issmall && "small"}` },
+  renderLegacyButton() {
+    return (h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: `${this.variant}${this.issmall ? " small" : ""}` },
       this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }),
       h("slot", null)));
+  }
+  render() {
+    return (h("slot", { name: "element" }, this.renderLegacyButton()));
   }
   static get is() { return "z-button"; }
   static get encapsulation() { return "shadow"; }
@@ -78,7 +80,7 @@ export class ZButton {
         "text": "disable button"
       },
       "attribute": "disabled",
-      "reflect": false,
+      "reflect": true,
       "defaultValue": "false"
     },
     "type": {
@@ -123,7 +125,7 @@ export class ZButton {
         "text": "graphic variant"
       },
       "attribute": "variant",
-      "reflect": false,
+      "reflect": true,
       "defaultValue": "ButtonVariantEnum.primary"
     },
     "issmall": {
@@ -141,7 +143,7 @@ export class ZButton {
         "text": "reduce button size (optional)"
       },
       "attribute": "issmall",
-      "reflect": false,
+      "reflect": true,
       "defaultValue": "false"
     },
     "icon": {

@@ -18,5 +18,6 @@ export declare class ZButton {
   issmall?: boolean;
   /** add an icon to button (optional) */
   icon?: string;
+  private renderLegacyButton;
   render(): any;
 }
