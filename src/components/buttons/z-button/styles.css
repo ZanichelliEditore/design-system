@@ -1,5 +1,8 @@
 :host {
   display: inline-block;
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
+  --z-icon-right-margin: var(--space-unit);
 }
 
 button:disabled,
