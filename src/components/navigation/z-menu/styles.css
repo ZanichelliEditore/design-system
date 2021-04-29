@@ -42,7 +42,7 @@
   display: flex;
   align-items: center;
   padding-bottom: var(--space-unit);
-  border-bottom: var(--border-size-medium) solid var(--bg-grey-800);
+  border-bottom: 4px solid var(--bg-grey-800);
 }
 
 .label:focus,
