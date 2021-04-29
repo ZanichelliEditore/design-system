@@ -834,6 +834,12 @@ export namespace Components {
          */
         "pressed": boolean;
     }
+    interface ZStoriaButton {
+        /**
+          * graphic variant
+         */
+        "variant"?: ButtonVariantBean;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -1153,6 +1159,12 @@ declare global {
         prototype: HTMLZStepperItemElement;
         new (): HTMLZStepperItemElement;
     };
+    interface HTMLZStoriaButtonElement extends Components.ZStoriaButton, HTMLStencilElement {
+    }
+    var HTMLZStoriaButtonElement: {
+        prototype: HTMLZStoriaButtonElement;
+        new (): HTMLZStoriaButtonElement;
+    };
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
     }
     var HTMLZToggleButtonElement: {
@@ -1220,6 +1232,7 @@ declare global {
         "z-select": HTMLZSelectElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
+        "z-storia-button": HTMLZStoriaButtonElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
@@ -2106,6 +2119,12 @@ declare namespace LocalJSX {
          */
         "pressed"?: boolean;
     }
+    interface ZStoriaButton {
+        /**
+          * graphic variant
+         */
+        "variant"?: ButtonVariantBean;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -2188,6 +2207,7 @@ declare namespace LocalJSX {
         "z-select": ZSelect;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
+        "z-storia-button": ZStoriaButton;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
@@ -2245,6 +2265,7 @@ declare module "@stencil/core" {
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
+            "z-storia-button": LocalJSX.ZStoriaButton & JSXBase.HTMLAttributes<HTMLZStoriaButtonElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;

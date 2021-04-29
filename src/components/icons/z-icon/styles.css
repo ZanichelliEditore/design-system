@@ -7,7 +7,10 @@
   margin-left: var(--z-icon-left-margin, 0);
 }
 
-svg {
-  width: inherit;
-  height: inherit;
+:host(:not([width])) svg {
+  width: var(--z-icon-width, 18px);
+}
+
+:host(:not([height])) svg {
+  height: var(--z-icon-height, 18px);
 }
