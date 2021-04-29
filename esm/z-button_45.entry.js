@@ -1204,7 +1204,7 @@ icons["cross"] = icons["multiply"];
 icons["exit"] = icons["logout"];
 icons["enter"] = icons["login"];
 
-const stylesCss$o = ":host{line-height:0;vertical-align:middle;width:var(--z-icon-width, 18px);height:var(--z-icon-height, 18px);margin-right:var(--z-icon-right-margin, 0);margin-left:var(--z-icon-left-margin, 0)}svg{width:inherit;height:inherit}";
+const stylesCss$o = ":host{line-height:0;vertical-align:middle;width:var(--z-icon-width, 18px);height:var(--z-icon-height, 18px);margin-right:var(--z-icon-right-margin, 0);margin-left:var(--z-icon-left-margin, 0)}:host(:not([width])) svg{width:var(--z-icon-width, 18px)}:host(:not([height])) svg{height:var(--z-icon-height, 18px)}";
 
 const ZIcon = class {
   constructor(hostRef) {
