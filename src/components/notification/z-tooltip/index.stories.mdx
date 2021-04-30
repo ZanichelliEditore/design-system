@@ -6,10 +6,29 @@ import { text } from '@storybook/addon-knobs';
 
 <Meta title="Notification/ZTooltip" component="z-tooltip" />
 
-  # ZTooltip
+# ZTooltip
 
 <Preview>
-  <Story name="z-tooltip top">
+  <Story name="buttons">
+    {html`
+      <z-tooltip type="${text('type', 'top')}">
+        <div class="container" slot="element" style="display: flex;">
+          <z-button variant="primary" style="margin-right: 0.5rem;">
+            Open
+          </z-button>
+          <z-button variant="primary" style="margin-right: 0.5rem;">
+            Save as
+          </z-button>
+          <z-button variant="primary"">
+            Share
+          </z-button>
+        </div>
+      </z-tooltip>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="legacy">
     {html`
       <z-tooltip
         content="${text('content', 'Aggiungi libro')}"
@@ -18,5 +37,5 @@ import { text } from '@storybook/addon-knobs';
   </Story>
 </Preview>
 
-  <Props of="z-tooltip" />
+<Props of="z-tooltip" />
 

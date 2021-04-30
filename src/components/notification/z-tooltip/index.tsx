@@ -31,7 +31,19 @@ export class ZTooltip {
     }
   }
 
+  private renderLegacyTooltip() {
+    return (
+      <div class={this.getArrowClass()}>
+        {this.content}
+      </div>
+    );
+  }
+
   render() {
-    return <div class={this.getArrowClass()}>{this.content}</div>;
+    return (
+      <slot name="element">
+        {this.renderLegacyTooltip()}
+      </slot>
+    );
   }
 }
