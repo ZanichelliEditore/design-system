@@ -12,12 +12,19 @@
 <z-button label="button" type="tertiary" isdisabled></z-button>
 <z-button label="button" type="primary" issmall></z-button>
 <z-button label="button" type="primary" issmall icon="download"></z-button>
-<z-button label="button" type="primary" issmall isdisabled icon="download"></z-button>
+<z-button
+  label="button"
+  type="primary"
+  issmall
+  isdisabled
+  icon="download"
+></z-button>
 <z-button label="button" type="secondary" issmall></z-button>
 <z-button label="button" type="secondary" issmall isdisabled></z-button>
 <z-button label="button" type="tertiary" issmall></z-button>
 <z-button label="button" type="tertiary" issmall isdisabled></z-button>
 ```
+
 <!-- Auto Generated Below -->
 
 
@@ -47,7 +54,7 @@
 
  - [z-cookiebar](../../notification/z-cookiebar)
  - [z-header](../../navigation/z-header)
- - [z-login-modal](../../modal/z-login-modal)
+ - [z-modal-login](../../modal/z-modal-login)
 
 ### Depends on
 
@@ -59,7 +66,7 @@ graph TD;
   z-button --> z-icon
   z-cookiebar --> z-button
   z-header --> z-button
-  z-login-modal --> z-button
+  z-modal-login --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

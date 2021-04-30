@@ -1,6 +1,4 @@
-# z-login-modal
-
-
+# z-modal-login
 
 <!-- Auto Generated Below -->
 
@@ -47,11 +45,11 @@
 ### Graph
 ```mermaid
 graph TD;
-  z-login-modal --> z-button
-  z-login-modal --> z-modal
-  z-login-modal --> z-input
-  z-login-modal --> z-link
-  z-login-modal --> z-body
+  z-modal-login --> z-button
+  z-modal-login --> z-modal
+  z-modal-login --> z-input
+  z-modal-login --> z-link
+  z-modal-login --> z-body
   z-button --> z-icon
   z-modal --> z-icon
   z-input --> z-input-label
@@ -67,7 +65,7 @@ graph TD;
   z-button-filter --> z-icon
   z-link --> z-icon
   z-body --> z-typography
-  style z-login-modal fill:#f9f,stroke:#333,stroke-width:4px
+  style z-modal-login fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

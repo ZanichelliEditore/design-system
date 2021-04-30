@@ -1,7 +1,5 @@
 # z-body
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -18,7 +16,7 @@
 
 ### Used by
 
- - [z-login-modal](../../modal/z-login-modal)
+ - [z-modal-login](../../modal/z-modal-login)
 
 ### Depends on
 
@@ -28,7 +26,7 @@
 ```mermaid
 graph TD;
   z-body --> z-typography
-  z-login-modal --> z-body
+  z-modal-login --> z-body
   style z-body fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

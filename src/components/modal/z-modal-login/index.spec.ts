@@ -1,19 +1,19 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZLoginModal } from "./index";
+import { zModalLogin } from "./index";
 
-describe("Suite test ZLoginModal", () => {
+describe("Suite test zModalLogin", () => {
   beforeEach(() => {
     jest.spyOn(console, "warn").mockImplementation(() => {});
   });
 
-  it("Test render ZLoginModal - default", async () => {
+  it("Test render zModalLogin - default", async () => {
     const page = await newSpecPage({
-      components: [ZLoginModal],
-      html: `<z-login-modal></z-login-modal>`,
+      components: [zModalLogin],
+      html: `<z-modal-login></z-modal-login>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-login-modal>
+      <z-modal-login>
         <z-modal modaltitle="${modalTitle}">
           <div class="wrapper" slot="modalContent">
             <form method="post">
@@ -39,17 +39,17 @@ describe("Suite test ZLoginModal", () => {
             </div>
           </div>
         </z-modal>
-      </z-login-modal>
+      </z-modal-login>
     `);
   });
 
-  it("Test render ZLoginModal - with props", async () => {
+  it("Test render zModalLogin - with props", async () => {
     const page = await newSpecPage({
-      components: [ZLoginModal],
-      html: `<z-login-modal heading="test heading" status="error" message="error message"></z-login-modal>`,
+      components: [zModalLogin],
+      html: `<z-modal-login heading="test heading" status="error" message="error message"></z-modal-login>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-login-modal heading="test heading" status="error" message="error message">
+      <z-modal-login heading="test heading" status="error" message="error message">
         <z-modal modaltitle="test heading">
           <div class="wrapper" slot="modalContent">
             <form method="post">
@@ -75,23 +75,23 @@ describe("Suite test ZLoginModal", () => {
             </div>
           </div>
         </z-modal>
-      </z-login-modal>
+      </z-modal-login>
     `);
   });
 
-  it("Test render ZLoginModal - with slots", async () => {
+  it("Test render zModalLogin - with slots", async () => {
     const page = await newSpecPage({
-      components: [ZLoginModal],
-      html: `<z-login-modal>
+      components: [zModalLogin],
+      html: `<z-modal-login>
         <z-input type="text" slot="username">slotted username input</z-input>
         <z-input type="password" slot="password">slotted password input</z-input>
         <z-button slot="login">slotted login button</z-button>
         <z-button slot="signup">slotted signup button</z-button>
         <z-button slot="provider">slotted provider button</z-button>
-      </z-login-modal>`,
+      </z-modal-login>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-login-modal>
+      <z-modal-login>
         <z-modal modaltitle="${modalTitle}">
           <div class="wrapper" slot="modalContent">
             <form method="post">
@@ -121,7 +121,7 @@ describe("Suite test ZLoginModal", () => {
             </div>
           </div>
         </z-modal>
-      </z-login-modal>
+      </z-modal-login>
     `);
   });
 });

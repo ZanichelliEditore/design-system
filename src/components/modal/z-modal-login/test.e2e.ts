@@ -23,8 +23,8 @@ it("Test signup z-button should emit signupClick event", async () => {
     });
   }, type);
 
-  await page.setContent(`<z-login-modal></z-login-modal>`);
-  const button = await page.find("z-login-modal div.signup z-button");
+  await page.setContent(`<z-modal-login></z-modal-login>`);
+  const button = await page.find("z-modal-login div.signup z-button");
 
   expect(counter).toEqual(0);
   await button.click();
@@ -52,9 +52,9 @@ it("Test zaino digitale z-button should emit zainoDigitaleClick event", async ()
     });
   }, type);
 
-  await page.setContent(`<z-login-modal></z-login-modal>`);
+  await page.setContent(`<z-modal-login></z-modal-login>`);
   const button = await page.find(
-    "z-login-modal div.providers z-button.zainoDigitale"
+    "z-modal-login div.providers z-button.zainoDigitale"
   );
 
   expect(counter).toEqual(0);
@@ -83,10 +83,10 @@ it("Test login form should emit loginSubmit event", async () => {
     });
   }, type);
 
-  await page.setContent(`<z-login-modal></z-login-modal>`);
-  const username = await page.find("z-login-modal div.username z-input input");
-  const password = await page.find("z-login-modal div.password z-input input");
-  const button = await page.find("z-login-modal div.login z-button");
+  await page.setContent(`<z-modal-login></z-modal-login>`);
+  const username = await page.find("z-modal-login div.username z-input input");
+  const password = await page.find("z-modal-login div.password z-input input");
+  const button = await page.find("z-modal-login div.login z-button");
 
   expect(loginData).toEqual(null);
 
@@ -138,10 +138,10 @@ it("Test username cleaning before emitting loginSubmit event", async () => {
     });
   }, type);
 
-  await page.setContent(`<z-login-modal></z-login-modal>`);
-  const username = await page.find("z-login-modal div.username z-input input");
-  const password = await page.find("z-login-modal div.password z-input input");
-  const button = await page.find("z-login-modal div.login z-button");
+  await page.setContent(`<z-modal-login></z-modal-login>`);
+  const username = await page.find("z-modal-login div.username z-input input");
+  const password = await page.find("z-modal-login div.password z-input input");
+  const button = await page.find("z-modal-login div.login z-button");
 
   await password.focus();
   await page.keyboard.type("password");
@@ -190,5 +190,5 @@ it("Test username cleaning before emitting loginSubmit event", async () => {
 async function resetUsernameValue(page) {
   await page.evaluate((selector) => {
     document.querySelector(selector).value = "";
-  }, "z-login-modal div.username z-input input");
+  }, "z-modal-login div.username z-input input");
 }

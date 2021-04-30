@@ -594,20 +594,6 @@ export namespace Components {
          */
         "underlined": boolean;
     }
-    interface ZLoginModal {
-        /**
-          * Login modal title
-         */
-        "heading"?: string;
-        /**
-          * Username helper message
-         */
-        "message"?: string;
-        /**
-          * Username/password input status
-         */
-        "status"?: InputStatusBean;
-    }
     interface ZLogo {
         /**
           * image height
@@ -657,6 +643,20 @@ export namespace Components {
           * title text (optional)
          */
         "modaltitle"?: string;
+    }
+    interface ZModalLogin {
+        /**
+          * Login modal title
+         */
+        "heading"?: string;
+        /**
+          * Username helper message
+         */
+        "message"?: string;
+        /**
+          * Username/password input status
+         */
+        "status"?: InputStatusBean;
     }
     interface ZPaginationBar {
         /**
@@ -1057,12 +1057,6 @@ declare global {
         prototype: HTMLZListItemElement;
         new (): HTMLZListItemElement;
     };
-    interface HTMLZLoginModalElement extends Components.ZLoginModal, HTMLStencilElement {
-    }
-    var HTMLZLoginModalElement: {
-        prototype: HTMLZLoginModalElement;
-        new (): HTMLZLoginModalElement;
-    };
     interface HTMLZLogoElement extends Components.ZLogo, HTMLStencilElement {
     }
     var HTMLZLogoElement: {
@@ -1080,6 +1074,12 @@ declare global {
     var HTMLZModalElement: {
         prototype: HTMLZModalElement;
         new (): HTMLZModalElement;
+    };
+    interface HTMLZModalLoginElement extends Components.ZModalLogin, HTMLStencilElement {
+    }
+    var HTMLZModalLoginElement: {
+        prototype: HTMLZModalLoginElement;
+        new (): HTMLZModalLoginElement;
     };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
@@ -1168,10 +1168,10 @@ declare global {
         "z-link": HTMLZLinkElement;
         "z-list": HTMLZListElement;
         "z-list-item": HTMLZListItemElement;
-        "z-login-modal": HTMLZLoginModalElement;
         "z-logo": HTMLZLogoElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
         "z-modal": HTMLZModalElement;
+        "z-modal-login": HTMLZModalLoginElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
@@ -1812,32 +1812,6 @@ declare namespace LocalJSX {
          */
         "underlined"?: boolean;
     }
-    interface ZLoginModal {
-        /**
-          * Login modal title
-         */
-        "heading"?: string;
-        /**
-          * Username helper message
-         */
-        "message"?: string;
-        /**
-          * Emitted on login submit
-         */
-        "onLoginSubmit"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted on signup button click
-         */
-        "onSignupClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted on zaino digitale button click
-         */
-        "onZainoDigitaleClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * Username/password input status
-         */
-        "status"?: InputStatusBean;
-    }
     interface ZLogo {
         /**
           * image height
@@ -1895,6 +1869,32 @@ declare namespace LocalJSX {
           * emitted on modal header click, returns modalid
          */
         "onModalHeaderActive"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZModalLogin {
+        /**
+          * Login modal title
+         */
+        "heading"?: string;
+        /**
+          * Username helper message
+         */
+        "message"?: string;
+        /**
+          * Emitted on login submit
+         */
+        "onLoginSubmit"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on signup button click
+         */
+        "onSignupClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on zaino digitale button click
+         */
+        "onZainoDigitaleClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Username/password input status
+         */
+        "status"?: InputStatusBean;
     }
     interface ZPaginationBar {
         /**
@@ -2142,10 +2142,10 @@ declare namespace LocalJSX {
         "z-link": ZLink;
         "z-list": ZList;
         "z-list-item": ZListItem;
-        "z-login-modal": ZLoginModal;
         "z-logo": ZLogo;
         "z-menu-dropdown": ZMenuDropdown;
         "z-modal": ZModal;
+        "z-modal-login": ZModalLogin;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
@@ -2193,10 +2193,10 @@ declare module "@stencil/core" {
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
-            "z-login-modal": LocalJSX.ZLoginModal & JSXBase.HTMLAttributes<HTMLZLoginModalElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
+            "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;

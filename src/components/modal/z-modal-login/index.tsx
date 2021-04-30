@@ -22,12 +22,12 @@ import { getSiblings } from "../../../utils/utils";
  * @slot provider - expternal providers login buttons
  */
 @Component({
-  tag: "z-login-modal",
+  tag: "z-modal-login",
   styleUrl: "styles.css",
   shadow: false,
   scoped: true,
 })
-export class ZLoginModal {
+export class zModalLogin {
   @Element() hostElement: HostElement;
 
   /** Login modal title */

@@ -2,17 +2,17 @@ import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 import { text, select } from "@storybook/addon-knobs";
 
-<Meta title="Modal/ZLoginModal" component="z-login-modal" />
+<Meta title="Modal/zModalLogin" component="z-modal-login" />
 
-# ZLoginModal
+# zModalLogin
 
 <Preview>
-  <Story name="z-login-modal default">{html`<z-login-modal
+  <Story name="z-modal-login default">{html`<z-modal-login
     heading="${text("heading", "Entra in MyZanichelli")}"
     status="${select("status", ["", "success", "warning", "error"], "")}"
     message="${text("message", "")}"
-  ></z-login-modal>`}</Story>
-  <Story name="z-login-modal slotted">{html`<z-login-modal
+  ></z-modal-login>`}</Story>
+  <Story name="z-modal-login slotted">{html`<z-modal-login
     heading="${text("heading", "Entra in MyZanichelli")}"
   >
     <z-input
@@ -30,7 +30,7 @@ import { text, select } from "@storybook/addon-knobs";
     <z-button slot="provider" variant="secondary"
       >slotted provider button</z-button
     >
-  </z-login-modal>`}</Story>
+  </z-modal-login>`}</Story>
 </Preview>
 
-<Props of="z-login-modal" />
+<Props of="z-modal-login" />
