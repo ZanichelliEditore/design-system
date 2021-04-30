@@ -110,6 +110,7 @@ export class ZLoginModal {
       <z-button
         variant={ButtonVariantEnum.secondary}
         onClick={() => this.emitZainoDigitaleClick()}
+        class="zainoDigitale"
       >
         <div class="zd">
           <svg width="18px" height="24px" viewBox="0 0 18 24">
