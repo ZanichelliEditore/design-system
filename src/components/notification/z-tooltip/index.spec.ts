@@ -13,11 +13,9 @@ describe("Suite test ZTooltip", () => {
     expect(page.root).toEqualHtml(`
       <z-tooltip content='Ciao' type='left'>
       <mock:shadow-root>
-        <slot name="element">
-            <div class="tooltip tooltip-right-arrow">
-            Ciao
-            </div>
-          </slot>
+          <div class="legacy tooltip tooltip-right-arrow">
+          Ciao
+          </div>
         </mock:shadow-root>
       </z-tooltip>
     `);
@@ -32,11 +30,9 @@ describe("Suite test ZTooltip", () => {
     expect(page.root).toEqualHtml(`
       <z-tooltip content='Ciao' type='right'>
         <mock:shadow-root>
-          <slot name="element">
-            <div class="tooltip tooltip-left-arrow">
-            Ciao
-            </div>
-          </slot>
+          <div class="legacy tooltip tooltip-left-arrow">
+          Ciao
+          </div>
         </mock:shadow-root>
       </z-tooltip>
     `);
@@ -51,11 +47,9 @@ describe("Suite test ZTooltip", () => {
     expect(page.root).toEqualHtml(`
       <z-tooltip content='Ciao' type='top'>
         <mock:shadow-root>
-          <slot name="element">
-            <div class="tooltip tooltip-bottom-arrow">
-            Ciao
-            </div>
-          </slot>
+          <div class="legacy tooltip tooltip-bottom-arrow">
+          Ciao
+          </div>
         </mock:shadow-root>
       </z-tooltip>
     `);
@@ -70,11 +64,9 @@ describe("Suite test ZTooltip", () => {
     expect(page.root).toEqualHtml(`
       <z-tooltip content='Ciao' type='bottom'>
         <mock:shadow-root>
-          <slot name="element">
-            <div class="tooltip tooltip-top-arrow">
-            Ciao
-            </div>
-          </slot>
+          <div class="legacy tooltip tooltip-top-arrow">
+          Ciao
+          </div>
         </mock:shadow-root>
       </z-tooltip>
     `);
@@ -84,19 +76,19 @@ describe("Suite test ZTooltip", () => {
     const page = await newSpecPage({
       components: [ZTooltip],
       html: `<z-tooltip type='bottom'>
-        <button slot="element">Button text</button>
+        <button>Button text</button>
       </z-tooltip>`
     });
 
     expect(page.root).toEqualHtml(`
       <z-tooltip type='bottom'>
         <mock:shadow-root>
-          <slot name="element">
-            <div class="tooltip tooltip-top-arrow">
-            </div>
-          </slot>
+          <div class="tooltip tooltip-top-arrow">
+            <slot>
+            </slot>
+          </div>
         </mock:shadow-root>
-        <button slot="element">Button text</button>
+        <button>Button text</button>
       </z-tooltip>
     `);
   });

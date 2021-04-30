@@ -12,14 +12,9 @@ export class ZTooltip {
   /** tooltip position variant */
   @Prop() type: TooltipPosition;
 
-  private direction: TooltipPosition;
-
-  constructor() {
-    this.direction = TooltipPosition[(this.type).toUpperCase()];
-  }
-
   getArrowClass() {
-    switch (this.direction) {
+    const direction = TooltipPosition[(this.type).toUpperCase()];
+    switch (direction) {
       case TooltipPosition.TOP:
         return "tooltip tooltip-bottom-arrow";
       case TooltipPosition.BOTTOM:
@@ -31,19 +26,19 @@ export class ZTooltip {
     }
   }
 
-  private renderLegacyTooltip() {
+  render() {
+    if (this.content) {
+        return (
+          <div class={`${this.getArrowClass()} legacy`}>
+            {this.content}
+          </div>
+      );
+    }
+
     return (
       <div class={this.getArrowClass()}>
-        {this.content}
+        <slot/>
       </div>
-    );
-  }
-
-  render() {
-    return (
-      <slot name="element">
-        {this.renderLegacyTooltip()}
-      </slot>
     );
   }
 }

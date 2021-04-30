@@ -10,9 +10,9 @@ import { text } from '@storybook/addon-knobs';
 
 <Preview>
   <Story name="buttons">
-    {html`
+    {(args) => html`
       <z-tooltip type="${text('type', 'top')}">
-        <div class="container" slot="element" style="display: flex;">
+        <div class="container" style="display: flex;">
           <z-button variant="primary" style="margin-right: 0.5rem;">
             Open
           </z-button>
@@ -29,7 +29,7 @@ import { text } from '@storybook/addon-knobs';
 
 <Preview>
   <Story name="legacy">
-    {html`
+    {(args) => html`
       <z-tooltip
         content="${text('content', 'Aggiungi libro')}"
         type="${text('type', 'top')}"
