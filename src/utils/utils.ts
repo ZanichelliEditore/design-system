@@ -11,9 +11,7 @@ export function retrieveAsset(assetName: string): string {
 }
 
 export function randomId(): string {
-  return Math.random()
-    .toString(36)
-    .replace("0.", "");
+  return Math.random().toString(36).replace("0.", "");
 }
 
 export function handleKeyboardSubmit(
@@ -61,18 +59,16 @@ export function getElementTree(
 }
 
 export function getSiblings(elem: HTMLElement) {
-  // for collecting siblings
   let siblings = [];
-  // if no parent, return no sibling
-  if (!elem.parentNode) return siblings;
-  // first child of the parent node
-  let sibling = elem.parentNode.firstChild;
-  // collecting siblings
-  while (sibling) {
-    if (sibling.nodeType === 1 && sibling !== elem) {
-      siblings.push(sibling);
-    }
-    sibling = sibling.nextSibling;
+  if (!elem || !elem.parentNode || !elem.parentNode.childNodes) {
+    return siblings;
   }
+
+  elem.parentNode.childNodes.forEach((child) => {
+    if (child.nodeType === 1 && child !== elem) {
+      siblings.push(child);
+    }
+  });
+
   return siblings;
 }
