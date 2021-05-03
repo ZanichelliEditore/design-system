@@ -12,9 +12,7 @@ export function retrieveAsset(assetName: string): string {
 }
 
 export function randomId(): string {
-  return Math.random()
-    .toString(36)
-    .replace("0.", "");
+  return Math.random().toString(36).replace("0.", "");
 }
 
 export function handleKeyboardSubmit(
@@ -59,6 +57,21 @@ export function getElementTree(
   }
 
   return tree;
+}
+
+export function getSiblings(elem: HTMLElement) {
+  let siblings = [];
+  if (!elem || !elem.parentNode || !elem.parentNode.childNodes) {
+    return siblings;
+  }
+
+  elem.parentNode.childNodes.forEach((child) => {
+    if (child.nodeType === 1 && child !== elem) {
+      siblings.push(child);
+    }
+  });
+
+  return siblings;
 }
 
 export function getDevice(): DeviceEnum {

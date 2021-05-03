@@ -13,14 +13,14 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input hasmessage="false" htmlid="id">
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <div>
               <input id="id" class="false input_default undefined hasClearIcon" type="text" aria-labelledby="id_label" />
               <span class="iconsWrapper"></span>
             </div>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });
@@ -32,7 +32,7 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label'>
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
@@ -42,7 +42,7 @@ describe("Suite test ZInput - text", () => {
               </span>
             </div>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });
@@ -54,7 +54,7 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled>
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label" disabled=""></z-input-label>
             <div>
@@ -62,7 +62,7 @@ describe("Suite test ZInput - text", () => {
               <span class="iconsWrapper disabled"></span>
             </div>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });
@@ -74,7 +74,7 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' readonly>
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
@@ -82,7 +82,7 @@ describe("Suite test ZInput - text", () => {
               <span class="iconsWrapper"></span>
             </div>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });
@@ -94,7 +94,7 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' message='helper message'>
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
@@ -105,7 +105,7 @@ describe("Suite test ZInput - text", () => {
             </div>
             <z-input-message message="helper message"></z-input-message>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });
@@ -117,7 +117,7 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' status='success' message='success message'>
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
@@ -128,7 +128,7 @@ describe("Suite test ZInput - text", () => {
             </div>
             <z-input-message message="success message" status="success"></z-input-message>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });
@@ -138,9 +138,7 @@ describe("Suite test ZInput - text", () => {
       components: [ZInput, ZIcon],
       html: `<z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label'></z-input>`,
     });
-    const icon = page.root.shadowRoot
-      .querySelector("div")
-      .querySelector("z-icon");
+    const icon = page.body.querySelector("div").querySelector("z-icon");
     expect(page.rootInstance.value).toEqual("value");
     icon.click();
     await page.waitForChanges();
@@ -154,7 +152,7 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input hasmessage="false" htmlid="id" type="password">
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <div>
               <input id="id" class="false input_default undefined hasClearIcon hasIcon" type="password" aria-labelledby="id_label" />
@@ -163,7 +161,7 @@ describe("Suite test ZInput - text", () => {
               </span>
             </div>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });
@@ -177,7 +175,7 @@ describe("Suite test ZInput - text", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-input hasmessage="false" htmlid="id" type="password">
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <div>
               <input id="id" class="false input_default undefined hasClearIcon hasIcon" type="text" aria-labelledby="id_label" />
@@ -186,7 +184,7 @@ describe("Suite test ZInput - text", () => {
               </span>
             </div>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });

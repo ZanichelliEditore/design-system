@@ -49,3 +49,11 @@
 :host > div.textWrapper > div > span.iconsWrapper > z-icon.resetIcon {
   cursor: pointer;
 }
+
+/* Disable background color webkit */
+:host > div.textWrapper > div > input:-webkit-autofill,
+:host > div.textWrapper > div > input:-webkit-autofill:hover,
+:host > div.textWrapper > div > input:-webkit-autofill:focus,
+:host > div.textWrapper > div > input:-webkit-autofill:active {
+  -webkit-background-clip: text !important;
+}

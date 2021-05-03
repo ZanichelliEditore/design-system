@@ -472,9 +472,9 @@ export namespace Components {
     }
     interface ZInput {
         /**
-          * the input has autocomplete option (optional): available for select
+          * the input has autocomplete option (optional): available for select, input
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * checked: available for checkbox, radio
          */
@@ -737,6 +737,20 @@ export namespace Components {
           * title text (optional)
          */
         "modaltitle"?: string;
+    }
+    interface ZModalLogin {
+        /**
+          * Login modal title
+         */
+        "heading"?: string;
+        /**
+          * Username helper message
+         */
+        "message"?: string;
+        /**
+          * Username/password input status
+         */
+        "status"?: InputStatusBean;
     }
     interface ZOtp {
         "inputNum"?: number;
@@ -1270,6 +1284,12 @@ declare global {
         prototype: HTMLZModalElement;
         new (): HTMLZModalElement;
     };
+    interface HTMLZModalLoginElement extends Components.ZModalLogin, HTMLStencilElement {
+    }
+    var HTMLZModalLoginElement: {
+        prototype: HTMLZModalLoginElement;
+        new (): HTMLZModalLoginElement;
+    };
     interface HTMLZOtpElement extends Components.ZOtp, HTMLStencilElement {
     }
     var HTMLZOtpElement: {
@@ -1409,6 +1429,7 @@ declare global {
         "z-menu-dropdown": HTMLZMenuDropdownElement;
         "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-modal": HTMLZModalElement;
+        "z-modal-login": HTMLZModalLoginElement;
         "z-otp": HTMLZOtpElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
@@ -1926,9 +1947,9 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
-          * the input has autocomplete option (optional): available for select
+          * the input has autocomplete option (optional): available for select, input
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * checked: available for checkbox, radio
          */
@@ -2219,6 +2240,32 @@ declare namespace LocalJSX {
           * emitted on modal header click, returns modalid
          */
         "onModalHeaderActive"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZModalLogin {
+        /**
+          * Login modal title
+         */
+        "heading"?: string;
+        /**
+          * Username helper message
+         */
+        "message"?: string;
+        /**
+          * Emitted on login submit
+         */
+        "onLoginSubmit"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on signup button click
+         */
+        "onSignupClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on zaino digitale button click
+         */
+        "onZainoDigitaleClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Username/password input status
+         */
+        "status"?: InputStatusBean;
     }
     interface ZOtp {
         "inputNum"?: number;
@@ -2558,6 +2605,7 @@ declare namespace LocalJSX {
         "z-menu-dropdown": ZMenuDropdown;
         "z-messages-pocket": ZMessagesPocket;
         "z-modal": ZModal;
+        "z-modal-login": ZModalLogin;
         "z-otp": ZOtp;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
@@ -2622,6 +2670,7 @@ declare module "@stencil/core" {
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
             "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
+            "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;

@@ -55,6 +55,7 @@
  - [z-card-dictionary](../../card/z-card-dictionary)
  - [z-cookiebar](../../notification/z-cookiebar)
  - [z-header](../../navigation/z-header)
+ - [z-modal-login](../../modal/z-modal-login)
 
 ### Depends on
 
@@ -67,6 +68,7 @@ graph TD;
   z-card-dictionary --> z-button
   z-cookiebar --> z-button
   z-header --> z-button
+  z-modal-login --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
