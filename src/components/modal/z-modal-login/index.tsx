@@ -149,8 +149,8 @@ export class zModalLogin {
               <slot name="username">
                 <z-input
                   id="username"
-                  label="email o numero di telefono"
-                  placeholder="Inserisci la mail o il cellulare"
+                  label="email o numero di cellulare"
+                  placeholder="Inserisci l'email o il cellulare"
                   autocomplete="username"
                   name="username"
                   status={this.status}
@@ -166,7 +166,7 @@ export class zModalLogin {
                 <z-input
                   id="password"
                   label="password"
-                  placeholder="Inserisci la password"
+                  placeholder="Inserisci la tua password"
                   type="password"
                   name="password"
                   autocomplete="current-password"
@@ -187,7 +187,7 @@ export class zModalLogin {
                   variant={ButtonVariantEnum.primary}
                   onClick={() => this.emitLoginSubmit()}
                 >
-                  Login
+                  Accedi
                 </z-button>
               </slot>
             </div>
