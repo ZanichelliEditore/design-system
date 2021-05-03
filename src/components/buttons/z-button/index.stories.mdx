@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, boolean } from '@storybook/addon-knobs';
+import { text, boolean, select } from '@storybook/addon-knobs';
 
 ## Stories
 
@@ -9,29 +9,54 @@ import { text, boolean } from '@storybook/addon-knobs';
 # ZButton
 
 <Preview>
-  <Story name="primary">
-    {html`
+  <Story name="button">
+    {(args) => html`
       <z-button
-        variant="primary"
-        disabled="${boolean('disabled', false)}"
-        icon="${text('icon', 'download')}"
-      >${text('label', 'click me')}</z-button>`}
+        variant="${select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}"
+        .issmall="${boolean('issmall', false)}"
+      >
+        <button slot="element" .disabled="${boolean('disabled', false)}">
+          Enter
+        </button>
+      </z-button>`}
   </Story>
-  <Story name="secondary">
-    {html`
+  <Story name="button with icon">
+    {(args) => html`
       <z-button
-        variant="secondary"
-        disabled="${boolean('disabled', false)}"
-        icon="${text('icon', 'download')}"
-      >${text('label', 'click me')}</z-button>
-    `}
+        variant="${select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}"
+        .issmall="${boolean('issmall', false)}"
+      >
+        <button slot="element" .disabled="${boolean('disabled', false)}">
+          <z-icon name="${text('icon', 'download')}"></z-icon>Download
+        </button>
+      </z-button>`}
   </Story>
-  <Story name="tertiary">
-    {html`
+</Preview>
+
+# ZButton with Link
+
+<Preview>
+  <Story name="link">
+    {(args) => html`
       <z-button
-        variant="tertiary"
+        variant="${select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}"
+        .issmall="${boolean('issmall', false)}"
+      >
+        <a slot="element" href="https://wikipedia.com" target="_blank">
+          <z-icon name="${text('icon', 'link')}"></z-icon>Go to Wikipedia
+        </a>
+      </z-button>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="legacy">
+    {(args) => html`
+      <z-button
+        variant="${select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}"
         disabled="${boolean('disabled', false)}"
         icon="${text('icon', 'download')}"
+        .issmall="${boolean('issmall', false)}"
       >${text('label', 'click me')}</z-button>`}
   </Story>
 </Preview>

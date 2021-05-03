@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "1.0.26",
+  "version": "1.0.28",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -9,7 +9,7 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/web-components-library.js",
+  "unpkg": "dist/web-components-library/web-components-library.esm.js",
   "files": [
     "dist/",
     "loader/",

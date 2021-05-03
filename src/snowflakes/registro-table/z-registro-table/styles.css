@@ -1,0 +1,7 @@
+:host {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}

@@ -879,6 +879,20 @@ export namespace Components {
     }
     interface ZPocketMessage {
     }
+    interface ZRegistroTable {
+    }
+    interface ZRegistroTableBody {
+    }
+    interface ZRegistroTableCell {
+    }
+    interface ZRegistroTableFooter {
+    }
+    interface ZRegistroTableHead {
+    }
+    interface ZRegistroTableHeader {
+    }
+    interface ZRegistroTableRow {
+    }
     interface ZSelect {
         /**
           * the input has autocomplete option
@@ -1338,6 +1352,48 @@ declare global {
         prototype: HTMLZPocketMessageElement;
         new (): HTMLZPocketMessageElement;
     };
+    interface HTMLZRegistroTableElement extends Components.ZRegistroTable, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableElement: {
+        prototype: HTMLZRegistroTableElement;
+        new (): HTMLZRegistroTableElement;
+    };
+    interface HTMLZRegistroTableBodyElement extends Components.ZRegistroTableBody, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableBodyElement: {
+        prototype: HTMLZRegistroTableBodyElement;
+        new (): HTMLZRegistroTableBodyElement;
+    };
+    interface HTMLZRegistroTableCellElement extends Components.ZRegistroTableCell, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableCellElement: {
+        prototype: HTMLZRegistroTableCellElement;
+        new (): HTMLZRegistroTableCellElement;
+    };
+    interface HTMLZRegistroTableFooterElement extends Components.ZRegistroTableFooter, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableFooterElement: {
+        prototype: HTMLZRegistroTableFooterElement;
+        new (): HTMLZRegistroTableFooterElement;
+    };
+    interface HTMLZRegistroTableHeadElement extends Components.ZRegistroTableHead, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableHeadElement: {
+        prototype: HTMLZRegistroTableHeadElement;
+        new (): HTMLZRegistroTableHeadElement;
+    };
+    interface HTMLZRegistroTableHeaderElement extends Components.ZRegistroTableHeader, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableHeaderElement: {
+        prototype: HTMLZRegistroTableHeaderElement;
+        new (): HTMLZRegistroTableHeaderElement;
+    };
+    interface HTMLZRegistroTableRowElement extends Components.ZRegistroTableRow, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableRowElement: {
+        prototype: HTMLZRegistroTableRowElement;
+        new (): HTMLZRegistroTableRowElement;
+    };
     interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
     }
     var HTMLZSelectElement: {
@@ -1438,6 +1494,13 @@ declare global {
         "z-pocket-body": HTMLZPocketBodyElement;
         "z-pocket-header": HTMLZPocketHeaderElement;
         "z-pocket-message": HTMLZPocketMessageElement;
+        "z-registro-table": HTMLZRegistroTableElement;
+        "z-registro-table-body": HTMLZRegistroTableBodyElement;
+        "z-registro-table-cell": HTMLZRegistroTableCellElement;
+        "z-registro-table-footer": HTMLZRegistroTableFooterElement;
+        "z-registro-table-head": HTMLZRegistroTableHeadElement;
+        "z-registro-table-header": HTMLZRegistroTableHeaderElement;
+        "z-registro-table-row": HTMLZRegistroTableRowElement;
         "z-select": HTMLZSelectElement;
         "z-slideshow": HTMLZSlideshowElement;
         "z-stepper": HTMLZStepperElement;
@@ -2411,6 +2474,20 @@ declare namespace LocalJSX {
     }
     interface ZPocketMessage {
     }
+    interface ZRegistroTable {
+    }
+    interface ZRegistroTableBody {
+    }
+    interface ZRegistroTableCell {
+    }
+    interface ZRegistroTableFooter {
+    }
+    interface ZRegistroTableHead {
+    }
+    interface ZRegistroTableHeader {
+    }
+    interface ZRegistroTableRow {
+    }
     interface ZSelect {
         /**
           * the input has autocomplete option
@@ -2614,6 +2691,13 @@ declare namespace LocalJSX {
         "z-pocket-body": ZPocketBody;
         "z-pocket-header": ZPocketHeader;
         "z-pocket-message": ZPocketMessage;
+        "z-registro-table": ZRegistroTable;
+        "z-registro-table-body": ZRegistroTableBody;
+        "z-registro-table-cell": ZRegistroTableCell;
+        "z-registro-table-footer": ZRegistroTableFooter;
+        "z-registro-table-head": ZRegistroTableHead;
+        "z-registro-table-header": ZRegistroTableHeader;
+        "z-registro-table-row": ZRegistroTableRow;
         "z-select": ZSelect;
         "z-slideshow": ZSlideshow;
         "z-stepper": ZStepper;
@@ -2679,6 +2763,13 @@ declare module "@stencil/core" {
             "z-pocket-body": LocalJSX.ZPocketBody & JSXBase.HTMLAttributes<HTMLZPocketBodyElement>;
             "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
+            "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
+            "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
+            "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
+            "z-registro-table-footer": LocalJSX.ZRegistroTableFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableFooterElement>;
+            "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
+            "z-registro-table-header": LocalJSX.ZRegistroTableHeader & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderElement>;
+            "z-registro-table-row": LocalJSX.ZRegistroTableRow & JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
