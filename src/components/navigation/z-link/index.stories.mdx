@@ -51,7 +51,7 @@ import { text, number, boolean } from '@storybook/addon-knobs';
         big="${boolean('big', true)}"
       >z-link</z-link>`}
   </Story>
-      <Story name="z-link textcolor black">
+  <Story name="z-link textcolor black">
     {html`
       <z-link
         style="background-color:black"
@@ -62,7 +62,7 @@ import { text, number, boolean } from '@storybook/addon-knobs';
         htmltabindex="${number('htmltabindex', 1)}"
         isdisabled="${boolean('isdisabled', false)}"
         isactive="${boolean('isactive', false)}"
-        textcolor="${texr('textcolor', 'black')}"
+        textcolor="${text('textcolor', 'black')}"
       >z-link</z-link>`}
   </Story>
 </Preview>

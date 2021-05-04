@@ -37,7 +37,7 @@ export class ZAppTopbar {
     this.zLinksValues = Array.from(this.hostElement.children)
       .filter((child) => child.nodeName === "Z-LINK")
       .map((link) => link.childNodes[0].nodeValue);
-    this.isMobile = screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
+    this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
     this.toggleLinkLabels();
   }
 

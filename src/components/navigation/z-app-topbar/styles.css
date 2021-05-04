@@ -21,6 +21,10 @@
   background: var(--bg-white);
 }
 
+:host > div.light #hashtag {
+  color: var(--bg-grey-900);
+}
+
 .left {
   grid-column-start: 1;
   grid-column-end: 2;

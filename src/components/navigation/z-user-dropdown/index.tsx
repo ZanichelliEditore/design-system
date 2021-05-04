@@ -18,6 +18,7 @@ export class ZUserDropdown {
   @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
 
   @State() ismenuopen: boolean = false;
+  @State() isMobile: boolean;
 
   private linkarray: MenuItem[];
 
@@ -36,6 +37,16 @@ export class ZUserDropdown {
   @Event() userButtonClick: EventEmitter;
   emitUserButtonClick() {
     this.userButtonClick.emit(this.ismenuopen);
+  }
+
+  @Listen("resize", { target: "window" })
+  handleResize(): void {
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
+  }
+
+  @Listen("orientationchange", { target: "window" })
+  handleOrientationChange(): void {
+    this.isMobile = screen.width <= mobileBreakpoint;
   }
 
   @Listen('click', { target: 'window' })
@@ -90,7 +101,7 @@ export class ZUserDropdown {
 
   retrieveLiTextColor(): "white" | "black" {
     if (this.theme === ThemeVariant.light) return "black";
-    return window.innerWidth <= mobileBreakpoint ? "white" : "black";
+    return this.isMobile ? "white" : "black";
   }
 
   renderDropdownMenu() {
