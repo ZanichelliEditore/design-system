@@ -18,7 +18,7 @@
   text-align: center;
   background: var(--bg-white);
   border: 1px solid var(--bg-grey-200);
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08);
   padding: calc(var(--space-unit) * 2);
 }
 
@@ -53,7 +53,7 @@
   transform: rotate(45deg);
   border-right: 1px solid var(--bg-grey-200);
   border-bottom: 1px solid var(--bg-grey-200);
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px
 }
 
 /* Tooltip left */
@@ -61,14 +61,14 @@
   content: "";
   position: absolute;
   top: calc(50% - 7px);
-  left: -7px;
+  left: -8px;
   width: 14px;
   height: 14px;
   background: inherit;
   transform: rotate(45deg);
   border-left: 1px solid var(--bg-grey-200);
   border-bottom: 1px solid var(--bg-grey-200);
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: rgb(0 0 0 / 8%) -1px 1px 2px 0px;
 }
 
 /* Tooltip Top */
@@ -76,12 +76,12 @@
   content: "";
   position: absolute;
   top: calc(50% - 7px);
-  right: -7px;
+  right: -8px;
   width: 14px;
   height: 14px;
   background: inherit;
   transform: rotate(45deg);
   border-right: 1px solid var(--bg-grey-200);
   border-top: 1px solid var(--bg-grey-200);
-  box-shadow: 0px -1px 2px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: rgb(0 0 0 / 8%) 1px -1px 2px 0px;
 }
