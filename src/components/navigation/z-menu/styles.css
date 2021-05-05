@@ -10,6 +10,7 @@
   align-items: flex-start;
   position: relative;
 
+  --border-size-large: 4px;
   --focus-shadow: 0 0 2px 2px var(--blue100);
 }
 
@@ -42,7 +43,7 @@
   display: flex;
   align-items: center;
   padding-bottom: var(--space-unit);
-  border-bottom: 4px solid var(--bg-grey-800);
+  border-bottom: var(--border-size-large) solid var(--bg-grey-800);
 }
 
 .label:focus,
