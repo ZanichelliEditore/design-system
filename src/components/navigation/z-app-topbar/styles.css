@@ -14,7 +14,7 @@
   position: sticky;
   top: 0;
   z-index: 99;
-  height: calc(var(--space-unit) * 5);
+  /* height: calc(var(--space-unit) * 5); */
 }
 
 :host > div.light {
@@ -43,10 +43,9 @@
 .right {
   grid-column-start: 2;
   grid-column-end: 3;
-  display: grid;
-  grid-template-columns: repeat(4, auto);
+  display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .right.hide-actions > slot[name="actions"] {

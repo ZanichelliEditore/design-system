@@ -26,6 +26,10 @@ export class ZUserDropdown {
     this.handleToggle = this.handleToggle.bind(this);
   }
 
+  componentWillLoad() {
+    this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
+  }
+
   componentWillRender() {
     this.linkarray =
       typeof this.menucontent === "string"
