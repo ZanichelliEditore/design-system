@@ -57,18 +57,3 @@ export function getElementTree(
 
   return tree;
 }
-
-export function getSiblings(elem: HTMLElement) {
-  let siblings = [];
-  if (!elem || !elem.parentNode || !elem.parentNode.childNodes) {
-    return siblings;
-  }
-
-  elem.parentNode.childNodes.forEach((child) => {
-    if (child.nodeType === 1 && child !== elem) {
-      siblings.push(child);
-    }
-  });
-
-  return siblings;
-}
