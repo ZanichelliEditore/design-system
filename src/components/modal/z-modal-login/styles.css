@@ -59,6 +59,7 @@ div.wrapper > form > div.login::slotted(z-button),
   margin-bottom: calc(var(--space-unit) * 3);
   border: none;
   border-top: var(--border-size-medium) solid var(--bg-grey-200);
+  margin-block-start: unset;
 }
 
 div.wrapper > div.signup::slotted(z-button),
@@ -114,7 +115,7 @@ slot-fb[name="provider"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
-    gap: 8px;
+    gap: var(--space-unit);
     justify-content: center;
     align-items: center;
   }
@@ -135,7 +136,7 @@ slot-fb[name="provider"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
-    gap: 8px;
+    gap: var(--space-unit);
     justify-content: center;
     align-items: center;
   }
