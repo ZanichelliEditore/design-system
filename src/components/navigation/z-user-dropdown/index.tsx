@@ -29,7 +29,6 @@ export class ZUserDropdown {
   @State() isMobile: boolean;
 
   private linkarray: MenuItem[];
-
   private userButton!: HTMLButtonElement;
   private gosthDiv!: HTMLDivElement;
 
@@ -38,36 +37,15 @@ export class ZUserDropdown {
   }
 
   componentWillLoad() {
-    this.isMobile =
-      window.screen.width <= mobileBreakpoint ||
-      window.innerWidth <= mobileBreakpoint;
-    if (this.gosthDiv)
-      this.gosthDiv.style.width =
-        !this.isMobile && this.ismenuopen
-          ? `${this.userButton?.offsetWidth}px`
-          : "";
+    this.setMobileAndGhostDivWidth();
   }
 
   componentDidLoad() {
-    this.isMobile =
-      window.screen.width <= mobileBreakpoint ||
-      window.innerWidth <= mobileBreakpoint;
-    if (this.gosthDiv)
-      this.gosthDiv.style.width =
-        !this.isMobile && this.ismenuopen
-          ? `${this.userButton?.offsetWidth}px`
-          : "";
+    this.setMobileAndGhostDivWidth();
   }
 
   componentWillUpdate() {
-    this.isMobile =
-      window.screen.width <= mobileBreakpoint ||
-      window.innerWidth <= mobileBreakpoint;
-    if (this.gosthDiv)
-      this.gosthDiv.style.width =
-        !this.isMobile && this.ismenuopen
-          ? `${this.userButton?.offsetWidth}px`
-          : "";
+    this.setMobileAndGhostDivWidth();
   }
 
   componentWillRender() {
@@ -77,6 +55,16 @@ export class ZUserDropdown {
         : this.menucontent;
   }
 
+  setMobileAndGhostDivWidth() {
+    this.isMobile =
+      window.screen.width <= mobileBreakpoint ||
+      window.innerWidth <= mobileBreakpoint;
+    if (this.gosthDiv)
+      this.gosthDiv.style.width =
+        !this.isMobile && this.ismenuopen
+          ? `${this.userButton?.offsetWidth}px`
+          : "";
+  }
   /** Emitted on enter or user Button click, returns ismenuopen (bool) */
   @Event() userButtonClick: EventEmitter;
   emitUserButtonClick() {

@@ -109,7 +109,7 @@ ul > li:last-child {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
-    align-items: center;
+    align-items: end;
     align-content: center;
     padding: 6px var(--space-unit);
   }
@@ -145,7 +145,7 @@ ul > li:last-child {
     left: initial;
     padding: 0;
     margin-top: 0;
-    width: initial;
+    width: 100%;
     background-color: var(--bg-white);
     border-bottom: var(--border-size-small) solid var(--bg-white);
     border-bottom-left-radius: var(--border-radius-base);

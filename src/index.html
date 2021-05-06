@@ -73,14 +73,6 @@
         href="#"
         >Carrello</z-link
       >
-      <z-link
-        textcolor="white"
-        big
-        icon="question-mark"
-        slot="actions"
-        href="#"
-        >Chiedi al tuo responsabile</z-link
-      >
       <z-user-dropdown
         userfullname="docente di calabresi per italiani"
         logged="false"
@@ -118,19 +110,16 @@
         href="#"
         >Carrello</z-link
       >
-      <z-link
-        textcolor="white"
-        big
-        icon="question-mark"
-        slot="actions"
-        href="#"
-        >Chiedi al tuo responsabile</z-link
-      >
       <z-user-dropdown
         userfullname="Von Axl Maranan Fernandez"
         logged="true"
         slot="login"
-        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+        menucontent='[
+        {"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"},
+        {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},
+        {"label":"Chiedi al tuo responsabile", "link":"http://www.zanichelli.it", "icon":"question-mark"},
+        {"label":"Esci", "link":"http://www.google.it", "icon":"enter"}
+        ]'
       >
       </z-user-dropdown>
       <z-app-switcher slot="app-switcher"></z-app-switcher>
