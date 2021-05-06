@@ -75,10 +75,10 @@
   padding: calc(var(--space-unit) / 2) calc(var(--space-unit) / 2);
   font-size: 14px;
   line-height: 20px;
+  outline: none;
 }
 
 .items > ::slotted([slot='item']:focus:focus-visible) {
-  outline: none;
   box-shadow: var(--focus-shadow);
 }
 

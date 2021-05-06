@@ -36,6 +36,7 @@
   background: transparent;
   border: 0;
   border-radius: 0;
+  outline: none;
   cursor: pointer;
 }
 
@@ -48,7 +49,6 @@
 
 .label:focus:focus-visible {
   box-shadow: var(--focus-shadow);
-  outline: none;
   z-index: 1;
 }
 
@@ -115,10 +115,10 @@
   margin: 0;
   font-size: 16px;
   line-height: 20px;
+  outline: none;
 }
 
 .items > ::slotted([slot='item']:focus:focus-visible) {
-  outline: none;
   box-shadow: var(--focus-shadow);
 }
 
