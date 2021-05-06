@@ -46,8 +46,7 @@
   border-bottom: var(--border-size-large) solid var(--bg-grey-800);
 }
 
-.label:focus,
-.label:focus-visible {
+.label:focus:focus-visible {
   box-shadow: var(--focus-shadow);
   outline: none;
   z-index: 1;
@@ -118,8 +117,7 @@
   line-height: 20px;
 }
 
-.items > ::slotted([slot='item']:focus),
-.items > ::slotted([slot='item']:focus-visible) {
+.items > ::slotted([slot='item']:focus:focus-visible) {
   outline: none;
   box-shadow: var(--focus-shadow);
 }

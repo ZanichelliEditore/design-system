@@ -27,7 +27,7 @@
 
 :host([active]) .label,
 :host([open]) .label,
-:host .label:hover {
+.label:hover {
   border-color: var(--blue500);
 }
 
@@ -52,8 +52,7 @@
   line-height: 20px;
 }
 
-.label:focus,
-.label:focus-visible {
+.label:focus:focus-visible {
   outline: none;
   box-shadow: var(--focus-shadow);
 }
@@ -78,8 +77,7 @@
   line-height: 20px;
 }
 
-.items > ::slotted([slot='item']:focus),
-.items > ::slotted([slot='item']:focus-visible) {
+.items > ::slotted([slot='item']:focus:focus-visible) {
   outline: none;
   box-shadow: var(--focus-shadow);
 }

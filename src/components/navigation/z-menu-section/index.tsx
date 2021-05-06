@@ -47,7 +47,8 @@ export class ZMenuSection {
       return;
     }
 
-    this.toggle();
+    this.open = false;
+    this.closed.emit();
   }
 
   /**

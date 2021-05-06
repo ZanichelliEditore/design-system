@@ -61,7 +61,8 @@ export class ZMenu {
       return;
     }
 
-    this.toggle();
+    this.open = false;
+    this.closed.emit();
   }
 
   /**
