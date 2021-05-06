@@ -1,0 +1,8 @@
+:host {
+  display: table-cell;
+  padding: calc(var(--space-unit) * 2);
+  background-color: var(--color-white);
+  border-bottom: var(--border-size-small) solid var(--gray200);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}

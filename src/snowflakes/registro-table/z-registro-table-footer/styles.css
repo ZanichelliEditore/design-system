@@ -1,0 +1,5 @@
+:host {
+  display: table-footer-group;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
