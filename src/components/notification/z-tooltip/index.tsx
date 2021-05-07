@@ -23,6 +23,14 @@ export class ZTooltip {
         return "tooltip tooltip-right-arrow";
       case TooltipPosition.RIGHT:
         return "tooltip tooltip-left-arrow";
+      case TooltipPosition.TOP_LEFT:
+          return "tooltip tooltip-bottom-right-arrow";
+      case TooltipPosition.TOP_RIGHT:
+          return "tooltip tooltip-bottom-left-arrow";
+      case TooltipPosition.BOTTOM_LEFT:
+          return "tooltip tooltip-top-right-arrow";
+      case TooltipPosition.BOTTOM_RIGHT:
+          return "tooltip tooltip-top-left-arrow";
     }
   }
 
