@@ -38,7 +38,9 @@
  - [z-input-message](../../inputs/z-input-message)
  - [z-link](../../navigation/z-link)
  - [z-list-item](../../list/z-list-item)
+ - [z-menu](../../navigation/z-menu)
  - [z-menu-dropdown](../../navigation/z-menu-dropdown)
+ - [z-menu-section](../../navigation/z-menu-section)
  - [z-modal](../../modal/z-modal)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-select](../../inputs/z-select)
@@ -61,7 +63,9 @@ graph TD;
   z-input-message --> z-icon
   z-link --> z-icon
   z-list-item --> z-icon
+  z-menu --> z-icon
   z-menu-dropdown --> z-icon
+  z-menu-section --> z-icon
   z-modal --> z-icon
   z-pagination-bar --> z-icon
   z-select --> z-icon
