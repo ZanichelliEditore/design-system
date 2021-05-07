@@ -9,12 +9,16 @@ import { Component, Prop, h } from '@stencil/core';
 export class ZChip {
   @Prop() regulartext?: string;
   @Prop() boldtext?: number;
-  
+
 
   render() {
     return (
       <div>
-          <span class="boldtext">{this.boldtext}</span> {this.regulartext}
+        {
+          this.boldtext || this.regulartext ?
+          <span><span class="boldtext">{this.boldtext}</span> {this.regulartext}</span> :
+          <slot />
+        }
       </div>
     );
   }
