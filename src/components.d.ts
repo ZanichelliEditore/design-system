@@ -762,7 +762,7 @@ export namespace Components {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * the input is disabled
          */
@@ -2075,7 +2075,7 @@ declare namespace LocalJSX {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * the input is disabled
          */

@@ -6,7 +6,7 @@ describe("Suite test ZSelect", () => {
   it("Test render ZSelect chiusa con elementi", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
-      html: `<z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'> </z-select>`
+      html: `<z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'> </z-select>`,
     });
     page.rootInstance.isOpen = false;
     await page.waitForChanges();
@@ -50,7 +50,7 @@ describe("Suite test ZSelect", () => {
   it("Test render ZSelect aperta con elementi", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
-      html: `<z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`
+      html: `<z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`,
     });
     page.rootInstance.isOpen = true;
     await page.waitForChanges();
@@ -104,7 +104,7 @@ describe("Suite test ZSelect", () => {
   it("Test render ZSelect aperta con elemento selezionato", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
-      html: `<z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'> </z-select>`
+      html: `<z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'> </z-select>`,
     });
     page.rootInstance.isOpen = true;
     await page.waitForChanges();
@@ -160,7 +160,7 @@ describe("Suite test ZSelect", () => {
   it("Test render ZSelect chiusa disabilitato con elementi", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
-      html: `<z-select htmlid="checkid" placeholder="select here" disabled readonly label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`
+      html: `<z-select htmlid="checkid" placeholder="select here" disabled readonly label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`,
     });
     page.rootInstance.isOpen = false;
     await page.waitForChanges();
@@ -214,7 +214,7 @@ describe("Suite test ZSelect", () => {
   it("Test render ZSelect chiusa con elementi, status/messages", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
-      html: `<z-select htmlid="checkid" placeholder="select here" status="success" message="message message" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`
+      html: `<z-select htmlid="checkid" placeholder="select here" status="success" message="message message" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`,
     });
     page.rootInstance.isOpen = false;
     await page.waitForChanges();
@@ -267,7 +267,7 @@ describe("Suite test ZSelect", () => {
   it("Test render ZSelect aperta con elementi, un elemento disabilitato", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
-      html: `<z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false,"disabled":true}]'> </z-select>`
+      html: `<z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false,"disabled":true}]'> </z-select>`,
     });
     page.rootInstance.isOpen = true;
     await page.waitForChanges();
@@ -321,7 +321,7 @@ describe("Suite test ZSelect", () => {
   it("Test render ZSelect multiple aperta con elementi", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
-      html: `<z-select htmlid="checkid" placeholder="select here" label="default" multiple items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`
+      html: `<z-select htmlid="checkid" placeholder="select here" label="default" multiple items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`,
     });
     page.rootInstance.isOpen = true;
     await page.waitForChanges();
@@ -376,7 +376,7 @@ describe("Suite test ZSelect", () => {
   it("Test render ZSelect multiple aperta con elementi selezionati", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
-      html: `<z-select htmlid="checkid" placeholder="select here" label="default" multiple items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'> </z-select>`
+      html: `<z-select htmlid="checkid" placeholder="select here" label="default" multiple items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'> </z-select>`,
     });
     page.rootInstance.isOpen = true;
     await page.waitForChanges();
@@ -435,12 +435,12 @@ describe("Suite test ZSelect", () => {
   it("Test render ZSelect aperta con elementi con autocomplete", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
-      html: `<z-select htmlid="checkid" placeholder="select here" label="default" autocomplete items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`
+      html: `<z-select htmlid="checkid" placeholder="select here" label="default" autocomplete="on" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`,
     });
     page.rootInstance.isOpen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-select htmlid="checkid" placeholder="select here" label="default" autocomplete items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
+      <z-select htmlid="checkid" placeholder="select here" label="default" autocomplete="on" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
         <mock:shadow-root>
           <div class="selectWrapper">
             <z-input-label aria-label="default" id="checkid_input_label" value="default"></z-input-label>
@@ -489,13 +489,13 @@ describe("Suite test ZSelect", () => {
   it("Test render ZSelect aperta con elementi con autocomplete e ricerca", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
-      html: `<z-select htmlid="checkid" placeholder="select here" label="default" autocomplete items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`
+      html: `<z-select htmlid="checkid" placeholder="select here" label="default" autocomplete="true" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'> </z-select>`,
     });
     page.rootInstance.isOpen = true;
     page.rootInstance.searchString = "opzione";
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-select htmlid="checkid" placeholder="select here" label="default" autocomplete items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
+      <z-select htmlid="checkid" placeholder="select here" label="default" autocomplete="true" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
         <mock:shadow-root>
           <div class="selectWrapper">
             <z-input-label aria-label="default" id="checkid_input_label" value="default"></z-input-label>

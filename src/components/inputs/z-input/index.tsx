@@ -436,7 +436,7 @@ export class ZInput {
         status={this.status}
         hasmessage={this.hasmessage}
         message={this.message}
-        autocomplete={!!this.autocomplete}
+        autocomplete={this.autocomplete}
         multiple={this.multiple}
         ref={(el) => (this.selectElem = el as HTMLZSelectElement)}
       />
