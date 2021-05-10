@@ -5,12 +5,32 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean } from "./beans";
+import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, ThemeVariantBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZAppHeader {
+    }
+    interface ZAppSwitcher {
+        /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
+    }
+    interface ZAppTopbar {
+        /**
+          * optional hashtag string
+         */
+        "hashtag"?: string;
+        /**
+          * logged status flag
+         */
+        "logged"?: boolean;
+        /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
     }
     interface ZBody {
         "component": string;
@@ -522,6 +542,10 @@ export namespace Components {
     }
     interface ZLink {
         /**
+          * big link version
+         */
+        "big"?: boolean;
+        /**
           * link url (optional)
          */
         "href"?: string;
@@ -553,6 +577,10 @@ export namespace Components {
           * link target (optional)
          */
         "target"?: string;
+        /**
+          * link text variant (optional)
+         */
+        "textcolor"?: 'white' | 'blue' | 'black';
     }
     interface ZList {
         /**
@@ -877,6 +905,24 @@ export namespace Components {
         "level": ZTypographyLevels;
         "variant": "regular" | "semibold" | "light";
     }
+    interface ZUserDropdown {
+        /**
+          * logged status flag
+         */
+        "logged"?: boolean;
+        /**
+          * Json stringified or array to fill menu dropdown
+         */
+        "menucontent"?: string | MenuItem[];
+        /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
+        /**
+          * user full name
+         */
+        "userfullname"?: string;
+    }
 }
 declare global {
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
@@ -884,6 +930,18 @@ declare global {
     var HTMLZAppHeaderElement: {
         prototype: HTMLZAppHeaderElement;
         new (): HTMLZAppHeaderElement;
+    };
+    interface HTMLZAppSwitcherElement extends Components.ZAppSwitcher, HTMLStencilElement {
+    }
+    var HTMLZAppSwitcherElement: {
+        prototype: HTMLZAppSwitcherElement;
+        new (): HTMLZAppSwitcherElement;
+    };
+    interface HTMLZAppTopbarElement extends Components.ZAppTopbar, HTMLStencilElement {
+    }
+    var HTMLZAppTopbarElement: {
+        prototype: HTMLZAppTopbarElement;
+        new (): HTMLZAppTopbarElement;
     };
     interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
     }
@@ -1197,8 +1255,16 @@ declare global {
         prototype: HTMLZTypographyElement;
         new (): HTMLZTypographyElement;
     };
+    interface HTMLZUserDropdownElement extends Components.ZUserDropdown, HTMLStencilElement {
+    }
+    var HTMLZUserDropdownElement: {
+        prototype: HTMLZUserDropdownElement;
+        new (): HTMLZUserDropdownElement;
+    };
     interface HTMLElementTagNameMap {
         "z-app-header": HTMLZAppHeaderElement;
+        "z-app-switcher": HTMLZAppSwitcherElement;
+        "z-app-topbar": HTMLZAppTopbarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
@@ -1251,10 +1317,35 @@ declare global {
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
+        "z-user-dropdown": HTMLZUserDropdownElement;
     }
 }
 declare namespace LocalJSX {
     interface ZAppHeader {
+    }
+    interface ZAppSwitcher {
+        /**
+          * emitted on app button icon click, returns open/closed state
+         */
+        "onAppButtonClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
+    }
+    interface ZAppTopbar {
+        /**
+          * optional hashtag string
+         */
+        "hashtag"?: string;
+        /**
+          * logged status flag
+         */
+        "logged"?: boolean;
+        /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
     }
     interface ZBody {
         "component"?: string;
@@ -1798,6 +1889,10 @@ declare namespace LocalJSX {
     }
     interface ZLink {
         /**
+          * big link version
+         */
+        "big"?: boolean;
+        /**
           * link url (optional)
          */
         "href"?: string;
@@ -1833,6 +1928,10 @@ declare namespace LocalJSX {
           * link target (optional)
          */
         "target"?: string;
+        /**
+          * link text variant (optional)
+         */
+        "textcolor"?: 'white' | 'blue' | 'black';
     }
     interface ZList {
         /**
@@ -2197,8 +2296,32 @@ declare namespace LocalJSX {
         "level"?: ZTypographyLevels;
         "variant"?: "regular" | "semibold" | "light";
     }
+    interface ZUserDropdown {
+        /**
+          * logged status flag
+         */
+        "logged"?: boolean;
+        /**
+          * Json stringified or array to fill menu dropdown
+         */
+        "menucontent"?: string | MenuItem[];
+        /**
+          * Emitted on enter or user Button click, returns ismenuopen (bool)
+         */
+        "onUserButtonClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * theme variant, default 'dark'
+         */
+        "theme"?: ThemeVariantBean;
+        /**
+          * user full name
+         */
+        "userfullname"?: string;
+    }
     interface IntrinsicElements {
         "z-app-header": ZAppHeader;
+        "z-app-switcher": ZAppSwitcher;
+        "z-app-topbar": ZAppTopbar;
         "z-body": ZBody;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
@@ -2251,6 +2374,7 @@ declare namespace LocalJSX {
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
+        "z-user-dropdown": ZUserDropdown;
     }
 }
 export { LocalJSX as JSX };
@@ -2258,6 +2382,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
+            "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
+            "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
@@ -2310,6 +2436,7 @@ declare module "@stencil/core" {
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
+            "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
         }
     }
 }

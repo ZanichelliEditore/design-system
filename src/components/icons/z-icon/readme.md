@@ -45,6 +45,7 @@
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-select](../../inputs/z-select)
  - [z-toggle-button](../../buttons/z-toggle-button)
+ - [z-user-dropdown](../../navigation/z-user-dropdown)
 
 ### Graph
 ```mermaid
@@ -70,6 +71,7 @@ graph TD;
   z-pagination-bar --> z-icon
   z-select --> z-icon
   z-toggle-button --> z-icon
+  z-user-dropdown --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

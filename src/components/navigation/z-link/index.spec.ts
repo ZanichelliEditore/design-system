@@ -11,7 +11,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link>
         <mock:shadow-root>
-          <a class="false" role="button" tabindex="0" target="_self">
+          <a class="blue false" role="button" tabindex="0" target="_self">
             <slot></slot>
           </a>
         </mock:shadow-root>
@@ -27,7 +27,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link href="http://www.google.com/">
         <mock:shadow-root>
-          <a href="http://www.google.com/" class="false" role="link"  tabindex="0" target="_self">
+          <a href="http://www.google.com/" class="blue false" role="link"  tabindex="0" target="_self">
             <slot></slot>
           </a>
         </mock:shadow-root>
@@ -43,7 +43,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link>
         <mock:shadow-root>
-          <a class="false" role="button"  tabindex="0" target="_self">
+          <a class="blue false" role="button"  tabindex="0" target="_self">
             <slot></slot>
           </a>
         </mock:shadow-root>
@@ -60,7 +60,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link icon="icon">
         <mock:shadow-root>
-          <a class="false" role="button" tabindex="0" target="_self">
+          <a class="blue false" role="button" tabindex="0" target="_self">
             <z-icon height="12" name="icon" width="12"></z-icon>
             <slot></slot>
           </a>
@@ -77,7 +77,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link isdisabled>
         <mock:shadow-root>
-          <a class="disabled false" role="button"  tabindex="0" target="_self">
+          <a class="blue disabled false" role="button"  tabindex="0" target="_self">
             <slot></slot>
           </a>
         </mock:shadow-root>
@@ -93,7 +93,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link iswhite>
         <mock:shadow-root>
-          <a class="white false" role="button" tabindex="0" target="_self">
+          <a class="blue white false" role="button" tabindex="0" target="_self">
             <slot></slot>
           </a>
         </mock:shadow-root>
@@ -109,7 +109,7 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link target="_blank">
         <mock:shadow-root>
-          <a class="false" role="button" tabindex="0" target="_blank">
+          <a class="blue false" role="button" tabindex="0" target="_blank">
             <slot></slot>
           </a>
         </mock:shadow-root>
@@ -125,7 +125,55 @@ describe("Suite test ZLink", () => {
     expect(page.root).toEqualHtml(`
       <z-link isactive>
         <mock:shadow-root>
-          <a class="active false" role="button" tabindex="0" target="_self">
+          <a class="active blue false" role="button" tabindex="0" target="_self">
+            <slot></slot>
+          </a>
+        </mock:shadow-root>
+      </z-link>
+    `);
+  });
+
+  it("Test render ZLink textcolor black", async () => {
+    const page = await newSpecPage({
+      components: [ZLink],
+      html: `<z-link textcolor="black"></z-link>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-link textcolor="black">
+        <mock:shadow-root>
+          <a class="black false" role="button" tabindex="0" target="_self">
+            <slot></slot>
+          </a>
+        </mock:shadow-root>
+      </z-link>
+    `);
+  });
+
+  it("Test render ZLink textcolor white", async () => {
+    const page = await newSpecPage({
+      components: [ZLink],
+      html: `<z-link textcolor="white"></z-link>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-link textcolor="white">
+        <mock:shadow-root>
+          <a class="white false" role="button" tabindex="0" target="_self">
+            <slot></slot>
+          </a>
+        </mock:shadow-root>
+      </z-link>
+    `);
+  });
+
+  it("Test render ZLink big", async () => {
+    const page = await newSpecPage({
+      components: [ZLink],
+      html: `<z-link big></z-link>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-link big>
+        <mock:shadow-root>
+          <a class="big blue false" role="button" tabindex="0" target="_self">
             <slot></slot>
           </a>
         </mock:shadow-root>
