@@ -1,0 +1,23 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text } from '@storybook/addon-knobs';
+
+<Meta title="Navigation/ZAppSwitcher" component="z-app-switcher" />
+
+# ZAppSwitcher
+
+<Preview>
+  <Story name="ZAppSwitcher-dark-(default)">
+    {html`<div style="background-color: rgb(51, 51, 51); padding:16px;">
+      <z-app-switcher></z-app-switcher>
+    </div>`}
+  </Story>
+  <Story name="ZAppSwitcher-light">
+    {html`<z-app-switcher
+      theme="${text("theme", "light")}"></z-app-switcher>`}
+  </Story>
+</Preview>
+
+<Props of="z-app-switcher" />
+
+
