@@ -7,20 +7,21 @@ import {
   Event,
   EventEmitter,
   Element,
-  Listen
+  Listen,
 } from "@stencil/core";
 import {
   InputTypeBean,
   InputTypeEnum,
   InputStatusBean,
-  SelectItemBean
+  SelectItemBean,
 } from "../../../beans";
 import { randomId } from "../../../utils/utils";
 
 @Component({
   tag: "z-input",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: false,
+  scoped: true,
 })
 export class ZInput {
   @Element() hostElement: HTMLElement;
@@ -34,7 +35,7 @@ export class ZInput {
   /** the input label */
   @Prop() label?: string;
   /** the input value */
-  @Prop({mutable : true}) value?: string;
+  @Prop({ mutable: true }) value?: string;
   /** the input is disabled */
   @Prop() disabled?: boolean = false;
   /** the input is readonly */
@@ -59,8 +60,8 @@ export class ZInput {
   @Prop() typingtimeout?: number = 300;
   /** items (optional): available for select */
   @Prop() items?: SelectItemBean[] | string;
-  /** the input has autocomplete option (optional): available for select */
-  @Prop() autocomplete?: boolean = false;
+  /** the input has autocomplete option (optional): available for select, input */
+  @Prop() autocomplete?: boolean | string;
   /** multiple options can be selected (optional): available for select */
   @Prop() multiple?: boolean = false;
   /** render clear icon when typing (optional): available for text */
@@ -163,7 +164,7 @@ export class ZInput {
     this.isTyping = false;
     this.stopTyping.emit({
       value: value,
-      validity: validity
+      validity: validity,
     });
   }
 
@@ -176,7 +177,7 @@ export class ZInput {
       type: this.type,
       name: this.name,
       value: this.value,
-      validity: this.getValidity("input")
+      validity: this.getValidity("input"),
     });
   }
 
@@ -184,16 +185,14 @@ export class ZInput {
   @Event() optionSelect: EventEmitter;
 
   getValidity(type: string) {
-    const input = this.hostElement.shadowRoot.querySelector(
-      type
-    ) as HTMLInputElement;
+    const input = this.hostElement.querySelector(type) as HTMLInputElement;
     return input.validity;
   }
 
   /* START text/password/email/number */
 
   getTextAttributes() {
-    return {
+    const attr = {
       id: this.htmlid,
       name: this.name,
       placeholder: this.placeholder,
@@ -207,8 +206,12 @@ export class ZInput {
         ${this.isTyping && "istyping"}
         ${!this.isTyping && this.value && "filled"}
       `,
-      onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode)
+      onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode),
     };
+
+    if (this.autocomplete) attr["autocomplete"] = this.autocomplete;
+
+    return attr;
   }
 
   renderInputText(type: InputTypeBean = InputTypeEnum.text) {
@@ -337,7 +340,7 @@ export class ZInput {
       onFocus: () => (this.textareaWrapperFocus = "focus"),
       onBlur: () => (this.textareaWrapperFocus = ""),
       onMouseOver: () => (this.textareaWrapperHover = "hover"),
-      onMouseOut: () => (this.textareaWrapperHover = "")
+      onMouseOut: () => (this.textareaWrapperHover = ""),
     };
   }
 
@@ -435,7 +438,7 @@ export class ZInput {
         message={this.message}
         autocomplete={this.autocomplete}
         multiple={this.multiple}
-        ref={el => (this.selectElem = el as HTMLZSelectElement)}
+        ref={(el) => (this.selectElem = el as HTMLZSelectElement)}
       />
     );
   }

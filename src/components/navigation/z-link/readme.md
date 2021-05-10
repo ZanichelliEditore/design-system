@@ -1,6 +1,7 @@
 # z-link
 
 <!-- readme-group="link" -->
+
 ```html
 <z-link>z-link</z-link>
 <z-link icon="download">z-link</z-link>
@@ -8,7 +9,6 @@
 <z-link isactive>z-link</z-link>
 <z-link iswhite>z-link</z-link>
 ```
-
 
 <!-- Auto Generated Below -->
 
@@ -42,6 +42,7 @@
 
  - [z-header](../z-header)
  - [z-menu-dropdown](../z-menu-dropdown)
+ - [z-modal-login](../../modal/z-modal-login)
  - [z-panel-elem](../../panel/z-panel-elem)
  - [z-user-dropdown](../z-user-dropdown)
 
@@ -55,6 +56,7 @@ graph TD;
   z-link --> z-icon
   z-header --> z-link
   z-menu-dropdown --> z-link
+  z-modal-login --> z-link
   z-panel-elem --> z-link
   z-user-dropdown --> z-link
   style z-link fill:#f9f,stroke:#333,stroke-width:4px

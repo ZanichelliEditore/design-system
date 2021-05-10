@@ -424,9 +424,9 @@ export namespace Components {
     }
     interface ZInput {
         /**
-          * the input has autocomplete option (optional): available for select
+          * the input has autocomplete option (optional): available for select, input
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * checked: available for checkbox, radio
          */
@@ -686,6 +686,20 @@ export namespace Components {
          */
         "modaltitle"?: string;
     }
+    interface ZModalLogin {
+        /**
+          * Login modal title
+         */
+        "heading"?: string;
+        /**
+          * Username helper message
+         */
+        "message"?: string;
+        /**
+          * Username/password input status
+         */
+        "status"?: InputStatusBean;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -790,7 +804,7 @@ export namespace Components {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * the input is disabled
          */
@@ -1159,6 +1173,12 @@ declare global {
         prototype: HTMLZModalElement;
         new (): HTMLZModalElement;
     };
+    interface HTMLZModalLoginElement extends Components.ZModalLogin, HTMLStencilElement {
+    }
+    var HTMLZModalLoginElement: {
+        prototype: HTMLZModalLoginElement;
+        new (): HTMLZModalLoginElement;
+    };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
     var HTMLZPaginationBarElement: {
@@ -1301,6 +1321,7 @@ declare global {
         "z-menu-dropdown": HTMLZMenuDropdownElement;
         "z-menu-section": HTMLZMenuSectionElement;
         "z-modal": HTMLZModalElement;
+        "z-modal-login": HTMLZModalLoginElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
@@ -1763,9 +1784,9 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
-          * the input has autocomplete option (optional): available for select
+          * the input has autocomplete option (optional): available for select, input
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * checked: available for checkbox, radio
          */
@@ -2069,6 +2090,32 @@ declare namespace LocalJSX {
          */
         "onModalHeaderActive"?: (event: CustomEvent<any>) => void;
     }
+    interface ZModalLogin {
+        /**
+          * Login modal title
+         */
+        "heading"?: string;
+        /**
+          * Username helper message
+         */
+        "message"?: string;
+        /**
+          * Emitted on login submit
+         */
+        "onLoginSubmit"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on signup button click
+         */
+        "onSignupClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on zaino digitale button click
+         */
+        "onZainoDigitaleClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Username/password input status
+         */
+        "status"?: InputStatusBean;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -2185,7 +2232,7 @@ declare namespace LocalJSX {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * the input is disabled
          */
@@ -2358,6 +2405,7 @@ declare namespace LocalJSX {
         "z-menu-dropdown": ZMenuDropdown;
         "z-menu-section": ZMenuSection;
         "z-modal": ZModal;
+        "z-modal-login": ZModalLogin;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
@@ -2420,6 +2468,7 @@ declare module "@stencil/core" {
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
+            "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
