@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'z-app-header',
@@ -12,28 +12,59 @@ export class ZAppHeader {
    */
   @Prop({ attribute: 'stuck', reflect: true }) stuck: boolean = false;
 
-  private renderDefault() {
+  @Prop({ attribute: 'drawer', reflect: true }) drawer: boolean = false;
+
+  @State() drawerOpen: boolean = false;
+
+  private get shouldUseDrawer() {
+    return this.drawer || this.stuck;
+  }
+
+  render() {
     return [
       <div class="heading-container">
-        <slot name="title"></slot>
-        <slot name="subtitle"></slot>
+        <div class="heading-title">
+          {this.shouldUseDrawer && <button class="drawer-trigger" onClick={this.openDrawer.bind(this)}>
+            <z-icon name="burger-menu"></z-icon>
+          </button>}
+          <slot name="title"></slot>
+        </div>
+        <div class="heading-subtitle">
+          <slot name="subtitle"></slot>
+        </div>
       </div>,
-      <div class="menu-container">
+      !this.shouldUseDrawer && <div class="menu-container">
         <slot name="menu"></slot>
+      </div>,
+      this.shouldUseDrawer && <div class="drawer-container" data-open={this.drawerOpen}>
+        <div class="drawer-overlay" onClick={this.closeDrawer.bind(this)}></div>
+        <div class="drawer-panel">
+          <div class="drawer-content">
+            <slot name="menu"></slot>
+          </div>
+        </div>
       </div>
     ];
   }
 
-  private renderStuck() {
-    return <div class="heading-container">
-      <slot name="title"></slot>
-    </div>;
+  openDrawer() {
+    if (!this.shouldUseDrawer) {
+      return;
+    }
+    this.drawerOpen = true;
   }
 
-  render() {
-    if (this.stuck) {
-      return this.renderStuck();
+  closeDrawer() {
+    if (!this.shouldUseDrawer) {
+      return;
     }
-    return this.renderDefault();
+    this.drawerOpen = false;
+  }
+
+  toggleDrawer() {
+    if (!this.shouldUseDrawer) {
+      return;
+    }
+    this.drawerOpen = !this.drawerOpen;
   }
 }

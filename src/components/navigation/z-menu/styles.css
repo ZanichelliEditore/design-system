@@ -7,7 +7,6 @@
 :host {
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
   position: relative;
 
   --border-size-large: 4px;
@@ -38,6 +37,7 @@
   border-radius: 0;
   outline: none;
   cursor: pointer;
+  text-align: left;
 }
 
 .label .label-content {
@@ -66,8 +66,12 @@
 }
 
 .content {
-  padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
+  padding: var(--space-unit) 0;
   background: var(--color-white);
+}
+
+:host([floating]) .content {
+  padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
 }
 
 :host(:not([floating])) .content {
