@@ -16,6 +16,7 @@
 }
 
 ::slotted(a) {
+  color: var(--text-grey-800);
   text-decoration: none;
 }
 

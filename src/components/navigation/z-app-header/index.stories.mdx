@@ -205,7 +205,67 @@ import './index.stories.css';
   </Story>
 </Preview>
 
-## With menu
+## Hero
+
+<Preview>
+  <Story name="Hero">
+    {html`<z-app-header .stuck=${boolean('Stuck', false)} overlay style="--app-header-height: 400px; color: #fff;">
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <img slot="hero" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>`}
+  </Story>
+</Preview>
+
+## With drawer
 
 <Preview>
   <Story name="Drawer">

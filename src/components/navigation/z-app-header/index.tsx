@@ -14,6 +14,10 @@ export class ZAppHeader {
 
   @Prop({ attribute: 'drawer', reflect: true }) drawer: boolean = false;
 
+  @Prop({ attribute: 'hero' }) hero: string;
+
+  @Prop({ attribute: 'overlay', reflect: true  }) overlay: boolean = false;
+
   @State() drawerOpen: boolean = false;
 
   private get shouldUseDrawer() {
@@ -22,6 +26,11 @@ export class ZAppHeader {
 
   render() {
     return [
+      <div class="hero-container">
+        <slot name="hero">
+          {this.hero && <img alt="" src={this.hero} />}
+        </slot>
+      </div>,
       <div class="heading-container">
         <div class="heading-title">
           {this.shouldUseDrawer && <button class="drawer-trigger" onClick={this.openDrawer.bind(this)}>

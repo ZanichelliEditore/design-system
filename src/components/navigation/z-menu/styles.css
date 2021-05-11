@@ -14,13 +14,13 @@
 }
 
 ::slotted(a) {
+  color: var(--text-grey-800);
   text-decoration: none;
 }
 
 ::slotted(*) {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  color: var(--text-grey-800);
 }
 
 :host([active]) .label-content,
@@ -32,6 +32,7 @@
 .label {
   margin: 0;
   padding: 0;
+  color: inherit;
   background: transparent;
   border: 0;
   border-radius: 0;
@@ -44,7 +45,7 @@
   display: flex;
   align-items: center;
   padding: var(--space-unit) calc(var(--space-unit) / 2) var(--space-unit);
-  border-bottom: var(--border-size-large) solid var(--bg-grey-800);
+  border-bottom: var(--border-size-large) solid currentColor;
 }
 
 .label:focus:focus-visible {
@@ -62,7 +63,7 @@
 
 .label z-icon {
   margin-left: calc(var(--space-unit) * 4);
-  fill: var(--bg-grey-800);
+  fill: currentColor;
 }
 
 .content {
@@ -128,7 +129,7 @@
 
 .items > ::slotted([slot='item']:not(z-menu-section)) {
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);
-  border-bottom: var(--border-size-small) solid var(--bg-grey-800);
+  border-bottom: var(--border-size-small) solid currentColor;
 }
 
 .items > ::slotted([slot='item']:hover),
