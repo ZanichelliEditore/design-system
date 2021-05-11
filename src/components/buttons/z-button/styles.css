@@ -34,7 +34,7 @@ button,
   cursor: pointer;
   white-space: nowrap;
   outline: none;
-  width: inherit;
+  width: 100%;
 }
 
 z-icon {
