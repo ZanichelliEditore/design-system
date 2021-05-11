@@ -32,7 +32,7 @@
 
 .label {
   margin: 0;
-  padding: var(--space-unit) calc(var(--space-unit) / 2) 0;
+  padding: 0;
   background: transparent;
   border: 0;
   border-radius: 0;
@@ -43,7 +43,7 @@
 .label .label-content {
   display: flex;
   align-items: center;
-  padding-bottom: var(--space-unit);
+  padding: var(--space-unit) calc(var(--space-unit) / 2) var(--space-unit);
   border-bottom: var(--border-size-large) solid var(--bg-grey-800);
 }
 

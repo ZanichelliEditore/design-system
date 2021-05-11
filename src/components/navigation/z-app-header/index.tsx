@@ -9,8 +9,13 @@ import { Component, h } from '@stencil/core';
 export class ZAppHeader {
   render() {
     return [
-      <slot name="title"></slot>,
-      <slot name="subtitle"></slot>,
+      <div class="heading-container">
+        <slot name="title"></slot>
+        <slot name="subtitle"></slot>
+      </div>,
+      <div class="menu-container">
+        <slot name="menu"></slot>
+      </div>
     ];
   }
 }

@@ -5,16 +5,200 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
 # ZAppHeader
 
+## With title
+
 <Preview>
-  <Story name="ZAppHeader-title">
+  <Story name="Title">
     {html`<z-app-header>
-        <h1 slot="title">Titolo dell'applicazione</h1>
+        <h1 slot="title">Applicazione</h1>
       </z-app-header>`}
   </Story>
-  <Story name="ZAppHeader-subtitle">
+</Preview>
+
+## With payoff
+
+<Preview>
+  <Story name="Subtitle">
     {html`<z-app-header>
-        <h1 slot="title">Titolo dell'applicazione</h1>
-        <h2 slot="subtitle">Sottotitolo dell'applicazione</h2>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+      </z-app-header>`}
+  </Story>
+</Preview>
+
+## With menu
+
+<Preview>
+  <Story name="Menu">
+    {html`<z-app-header>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>`}
+  </Story>
+  <Story name="(Very) Long menu">
+    {html`<z-app-header>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
       </z-app-header>`}
   </Story>
 </Preview>

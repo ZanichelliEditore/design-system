@@ -37,6 +37,14 @@ addParameters({
         type: 'desktop',
         name: 'desktop',
         styles: {
+          width: '1152px',
+          height: '100%',
+        },
+      },
+      {
+        type: 'desktop',
+        name: 'wide',
+        styles: {
           width: '1366px',
           height: '100%',
         },
