@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'z-app-header',
@@ -7,7 +7,12 @@ import { Component, h } from '@stencil/core';
 })
 
 export class ZAppHeader {
-  render() {
+  /**
+   * Stuck mode for the header.
+   */
+  @Prop({ attribute: 'stuck', reflect: true }) stuck: boolean = false;
+
+  private renderDefault() {
     return [
       <div class="heading-container">
         <slot name="title"></slot>
@@ -17,5 +22,18 @@ export class ZAppHeader {
         <slot name="menu"></slot>
       </div>
     ];
+  }
+
+  private renderStuck() {
+    return <div class="heading-container">
+      <slot name="title"></slot>
+    </div>;
+  }
+
+  render() {
+    if (this.stuck) {
+      return this.renderStuck();
+    }
+    return this.renderDefault();
   }
 }
