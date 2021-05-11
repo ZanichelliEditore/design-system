@@ -10,15 +10,19 @@
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   align-items: center;
-  padding: 6px;
+  padding: calc(var(--space-unit) * .5);
   position: sticky;
   top: 0;
   z-index: 99;
-  height: calc(var(--space-unit) * 5);
+  /* height: calc(var(--space-unit) * 5); */
 }
 
 :host > div.light {
   background: var(--bg-white);
+}
+
+:host > div.light #hashtag {
+  color: var(--bg-grey-900);
 }
 
 .left {
@@ -39,10 +43,10 @@
 .right {
   grid-column-start: 2;
   grid-column-end: 3;
-  display: grid;
-  grid-template-columns: repeat(4, auto);
+  display: flex;
+  /* width: max-content; */
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .right.hide-actions > slot[name="actions"] {
@@ -76,8 +80,13 @@
   .left > #hashtag::before {
     content: "#";
   }
+
+  .right {
+    grid-column-gap: var(--space-unit);
+  }
+
   .right > ::slotted(z-app-switcher) {
-    padding: 6px calc(var(--space-unit) * 2);
+    padding: 6px calc(var(--space-unit) * 2) 6px var(--space-unit);
   }
 }
 

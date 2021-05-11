@@ -12,7 +12,6 @@ import {
   InputStatusBean,
   InputStatusEnum,
 } from "../../../beans";
-import { getSiblings } from "../../../utils/utils";
 
 /**
  * @slot username - username input
@@ -40,10 +39,9 @@ export class zModalLogin {
   @State() externalProviderCheck: boolean = false;
 
   componentDidLoad() {
-    this.externalProviderCheck = !!getSiblings(
-      // INFO: lo shadowDOM è aperto, si possono usare i selettori standard
-      this.hostElement.querySelector('slot-fb[name="provider"]')
-    ).filter((sibl) => sibl.nodeName !== "Z-BODY").length;
+    this.externalProviderCheck = !!this.hostElement.querySelectorAll(
+      '[slot="provider"]'
+    ).length;
   }
 
   /** Emitted on login submit */
@@ -88,7 +86,7 @@ export class zModalLogin {
     this.zainoDigitaleClick.emit();
   }
 
-  handleInputClick(e: KeyboardEvent) {
+  handleInputKeyUp(e: KeyboardEvent) {
     if (e.code !== "Enter") return;
     this.emitLoginSubmit();
   }
@@ -155,7 +153,7 @@ export class zModalLogin {
                   name="username"
                   status={this.status}
                   message={this.message}
-                  onKeyUp={(e: KeyboardEvent) => this.handleInputClick(e)}
+                  onKeyUp={(e: KeyboardEvent) => this.handleInputKeyUp(e)}
                   onInputChange={() => (this.status = null)}
                 />
               </slot>
@@ -171,7 +169,7 @@ export class zModalLogin {
                   name="password"
                   autocomplete="current-password"
                   status={this.status}
-                  onKeyUp={(e: KeyboardEvent) => this.handleInputClick(e)}
+                  onKeyUp={(e: KeyboardEvent) => this.handleInputKeyUp(e)}
                   onInputChange={() => (this.status = null)}
                 />
               </slot>
@@ -215,7 +213,7 @@ export class zModalLogin {
               OPPURE ACCEDI CON:
             </z-body>
             {!this.externalProviderCheck && (
-              <slot name={`provider`}>
+              <slot name="provider">
                 {this.renderZainoDigitaleButton()}
                 <z-link
                   icon="informationsource"

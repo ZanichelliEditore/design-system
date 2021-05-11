@@ -692,6 +692,17 @@ export namespace Components {
          */
         "width": number;
     }
+    interface ZMenu {
+        /**
+          * Flag to set the active status of the menu.
+         */
+        "active"?: boolean;
+        /**
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+          * @default false
+         */
+        "floating"?: boolean;
+    }
     interface ZMenuDropdown {
         /**
           * unique button id
@@ -719,6 +730,9 @@ export namespace Components {
           * pocket status
          */
         "status": PocketStatus;
+    }
+    interface ZMenuSection {
+        "active"?: boolean;
     }
     interface ZModal {
         /**
@@ -897,7 +911,7 @@ export namespace Components {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * the input is disabled
          */
@@ -1280,6 +1294,12 @@ declare global {
         prototype: HTMLZLogoElement;
         new (): HTMLZLogoElement;
     };
+    interface HTMLZMenuElement extends Components.ZMenu, HTMLStencilElement {
+    }
+    var HTMLZMenuElement: {
+        prototype: HTMLZMenuElement;
+        new (): HTMLZMenuElement;
+    };
     interface HTMLZMenuDropdownElement extends Components.ZMenuDropdown, HTMLStencilElement {
     }
     var HTMLZMenuDropdownElement: {
@@ -1291,6 +1311,12 @@ declare global {
     var HTMLZMessagesPocketElement: {
         prototype: HTMLZMessagesPocketElement;
         new (): HTMLZMessagesPocketElement;
+    }
+    interface HTMLZMenuSectionElement extends Components.ZMenuSection, HTMLStencilElement {
+    }
+    var HTMLZMenuSectionElement: {
+        prototype: HTMLZMenuSectionElement;
+        new (): HTMLZMenuSectionElement;
     };
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
     }
@@ -1482,8 +1508,10 @@ declare global {
         "z-list": HTMLZListElement;
         "z-list-item": HTMLZListItemElement;
         "z-logo": HTMLZLogoElement;
+        "z-menu": HTMLZMenuElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
         "z-messages-pocket": HTMLZMessagesPocketElement;
+        "z-menu-section": HTMLZMenuSectionElement;
         "z-modal": HTMLZModalElement;
         "z-modal-login": HTMLZModalLoginElement;
         "z-otp": HTMLZOtpElement;
@@ -2250,6 +2278,25 @@ declare namespace LocalJSX {
          */
         "width"?: number;
     }
+    interface ZMenu {
+        /**
+          * Flag to set the active status of the menu.
+         */
+        "active"?: boolean;
+        /**
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+          * @default false
+         */
+        "floating"?: boolean;
+        /**
+          * The menu has been closed.
+         */
+        "onClosed"?: (event: CustomEvent<any>) => void;
+        /**
+          * The menu has been opened.
+         */
+        "onOpened"?: (event: CustomEvent<any>) => void;
+    }
     interface ZMenuDropdown {
         /**
           * unique button id
@@ -2277,6 +2324,17 @@ declare namespace LocalJSX {
           * pocket status
          */
         "status"?: PocketStatus;
+    }
+    interface ZMenuSection {
+        "active"?: boolean;
+        /**
+          * The section has been closed.
+         */
+        "onClosed"?: (event: CustomEvent<any>) => void;
+        /**
+          * The section has been opened.
+         */
+        "onOpened"?: (event: CustomEvent<any>) => void;
     }
     interface ZModal {
         /**
@@ -2492,7 +2550,7 @@ declare namespace LocalJSX {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean;
+        "autocomplete"?: boolean | string;
         /**
           * the input is disabled
          */
@@ -2679,8 +2737,10 @@ declare namespace LocalJSX {
         "z-list": ZList;
         "z-list-item": ZListItem;
         "z-logo": ZLogo;
+        "z-menu": ZMenu;
         "z-menu-dropdown": ZMenuDropdown;
         "z-messages-pocket": ZMessagesPocket;
+        "z-menu-section": ZMenuSection;
         "z-modal": ZModal;
         "z-modal-login": ZModalLogin;
         "z-otp": ZOtp;
@@ -2751,8 +2811,10 @@ declare module "@stencil/core" {
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
+            "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
             "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
+            "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;

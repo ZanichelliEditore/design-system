@@ -13,9 +13,11 @@ describe("Suite test ZUserDropdown", () => {
       <z-user-dropdown>
         <mock:shadow-root>
             <div>
-              <z-link big="" icon="enter" textcolor="white">
-                Entra
-              </z-link>
+              <div>
+                <z-link big="" icon="enter" textcolor="white">
+                  Entra
+                </z-link>
+              </div>
             </div>
         </mock:shadow-root>
       </z-user-dropdown>
@@ -39,9 +41,11 @@ describe("Suite test ZUserDropdown", () => {
       >
         <mock:shadow-root>
             <div>
-              <z-link big="" icon="enter" textcolor="white">
-                Entra
-              </z-link>
+              <div>
+                <z-link big="" icon="enter" textcolor="white">
+                  Entra
+                </z-link>
+              </div>
             </div>
         </mock:shadow-root>
       </z-user-dropdown>
@@ -66,13 +70,16 @@ describe("Suite test ZUserDropdown", () => {
       >
         <mock:shadow-root>
             <div>
-              <button class="dark" title="Sandro Studente">
-                <z-icon height="18" name="user-avatar-filled" width="18"></z-icon>
-                <span class="userfullname">
-                  Sandro Studente
-                </span>
-                <z-icon height="18" name="caret-down-filled" width="18"></z-icon>
-              </button>
+              <div></div>
+              <div>
+                <button class="dark" title="Sandro Studente">
+                  <z-icon height="18" name="user-avatar-filled" width="18"></z-icon>
+                  <span class="userfullname">
+                    Sandro Studente
+                  </span>
+                  <z-icon height="18" name="caret-down-filled" width="18"></z-icon>
+                </button>
+              </div>
             </div>
         </mock:shadow-root>
       </z-user-dropdown>
@@ -96,9 +103,11 @@ describe("Suite test ZUserDropdown", () => {
       >
         <mock:shadow-root>
             <div>
-              <z-link big="" icon="enter" textcolor="black">
-                Entra
-              </z-link>
+              <div>
+                <z-link big="" icon="enter" textcolor="black">
+                  Entra
+                </z-link>
+              </div>
             </div>
         </mock:shadow-root>
       </z-user-dropdown>
@@ -124,13 +133,16 @@ describe("Suite test ZUserDropdown", () => {
       >
         <mock:shadow-root>
             <div>
-              <button class="light" title="Sandro Studente">
-                <z-icon height="18" name="user-avatar-filled" width="18"></z-icon>
-                <span class="userfullname">
-                  Sandro Studente
-                </span>
-                <z-icon height="18" name="caret-down-filled" width="18"></z-icon>
-              </button>
+              <div></div>
+              <div>
+                <button class="light" title="Sandro Studente">
+                  <z-icon height="18" name="user-avatar-filled" width="18"></z-icon>
+                  <span class="userfullname">
+                    Sandro Studente
+                  </span>
+                  <z-icon height="18" name="caret-down-filled" width="18"></z-icon>
+                </button>
+              </div>
             </div>
         </mock:shadow-root>
       </z-user-dropdown>

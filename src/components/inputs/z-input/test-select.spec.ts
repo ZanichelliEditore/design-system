@@ -124,7 +124,7 @@ describe("Suite test ZInput - select", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-input type="select" htmlid="checkid" placeholder="select here" type="select" label="default" autocomplete="true" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
-          <z-select hasmessage="" htmlid="checkid" placeholder="select here" label="default" autocomplete="" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'></z-select>
+          <z-select hasmessage="" htmlid="checkid" placeholder="select here" label="default" autocomplete="true" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'></z-select>
       </z-input>
     `);
   });

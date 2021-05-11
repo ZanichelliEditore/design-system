@@ -16,19 +16,19 @@ it("Test dropdown button should open list", async () => {
     ></z-user-dropdown>
   `);
 
-  const wrapperDiv = await page.find("z-user-dropdown >>> div");
+  const wrapperDiv = await page.find("z-user-dropdown >>> div > div:nth-child(2)");
   expect(wrapperDiv).not.toHaveClass("open");
 
-  let linkList = await page.find("z-user-dropdown >>> div > ul");
+  let linkList = await page.find("z-user-dropdown >>> div > div:nth-child(2) > ul");
   expect(linkList).toBeNull();
 
-  const toggleButton = await page.find("z-user-dropdown >>> div > button");
+  const toggleButton = await page.find("z-user-dropdown >>> div > div:nth-child(2) > button");
   toggleButton.click();
 
   await page.waitForChanges();
   expect(wrapperDiv).toHaveClass("open");
 
-  linkList = await page.find("z-user-dropdown >>> div > ul");
+  linkList = await page.find("z-user-dropdown >>> div > div:nth-child(2) > ul");
   expect(linkList).not.toBeNull();
 });
 
@@ -55,7 +55,7 @@ it("Test enter and user button click should emit userButtonClick event", async (
     ></z-user-dropdown>
   `);
 
-  const toggleButton = await page.find("z-user-dropdown >>> div > button");
+  const toggleButton = await page.find("z-user-dropdown >>> div > div:nth-child(2) > button");
   toggleButton.click();
 
   await page.waitForChanges();
@@ -71,7 +71,7 @@ it("Test enter and user button click should emit userButtonClick event", async (
     elm.logged = false;
   });
 
-  const enterButton = await page.find("z-user-dropdown >>> div > z-link");
+  const enterButton = await page.find("z-user-dropdown >>> div > div:nth-child(1) > z-link");
   enterButton.click();
 
   await page.waitForChanges();

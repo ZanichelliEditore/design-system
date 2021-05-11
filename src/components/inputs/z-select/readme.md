@@ -9,7 +9,7 @@
 
 | Property         | Attribute        | Description                                                                                         | Type                                               | Default              |
 | ---------------- | ---------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------- | -------------------- |
-| `autocomplete`   | `autocomplete`   | the input has autocomplete option                                                                   | `boolean`                                          | `false`              |
+| `autocomplete`   | `autocomplete`   | the input has autocomplete option                                                                   | `boolean \| string`                                | `false`              |
 | `disabled`       | `disabled`       | the input is disabled                                                                               | `boolean`                                          | `false`              |
 | `hasmessage`     | `hasmessage`     | show input helper message (optional): available for text, password, number, email, textarea, select | `boolean`                                          | `true`               |
 | `htmlid`         | `htmlid`         | the id of the input element                                                                         | `string`                                           | `randomId()`         |

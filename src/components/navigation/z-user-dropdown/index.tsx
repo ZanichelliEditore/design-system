@@ -1,4 +1,12 @@
-import { Component, Prop, State, Event, Listen, h, EventEmitter } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  State,
+  Event,
+  Listen,
+  h,
+  EventEmitter,
+} from "@stencil/core";
 import { MenuItem, ThemeVariant, ThemeVariantBean } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
@@ -18,11 +26,26 @@ export class ZUserDropdown {
   @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
 
   @State() ismenuopen: boolean = false;
+  @State() isMobile: boolean;
 
   private linkarray: MenuItem[];
+  private userButton!: HTMLButtonElement;
+  private gosthDiv!: HTMLDivElement;
 
   constructor() {
     this.handleToggle = this.handleToggle.bind(this);
+  }
+
+  componentWillLoad() {
+    this.setMobileAndGhostDivWidth();
+  }
+
+  componentDidLoad() {
+    this.setMobileAndGhostDivWidth();
+  }
+
+  componentWillUpdate() {
+    this.setMobileAndGhostDivWidth();
   }
 
   componentWillRender() {
@@ -32,16 +55,36 @@ export class ZUserDropdown {
         : this.menucontent;
   }
 
+  setMobileAndGhostDivWidth() {
+    this.isMobile =
+      window.screen.width <= mobileBreakpoint ||
+      window.innerWidth <= mobileBreakpoint;
+    if (this.gosthDiv)
+      this.gosthDiv.style.width =
+        !this.isMobile && this.ismenuopen
+          ? `${this.userButton?.offsetWidth}px`
+          : "";
+  }
   /** Emitted on enter or user Button click, returns ismenuopen (bool) */
   @Event() userButtonClick: EventEmitter;
   emitUserButtonClick() {
     this.userButtonClick.emit(this.ismenuopen);
   }
 
-  @Listen('click', { target: 'window' })
+  @Listen("resize", { target: "window" })
+  handleResize(): void {
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
+  }
+
+  @Listen("orientationchange", { target: "window" })
+  handleOrientationChange(): void {
+    this.isMobile = screen.width <= mobileBreakpoint;
+  }
+
+  @Listen("click", { target: "window" })
   handleClickOutside(e: MouseEvent) {
-    if ((e.target as HTMLElement).nodeName !== 'Z-USER-DROPDOWN') {
-      this.ismenuopen = false
+    if ((e.target as HTMLElement).nodeName !== "Z-USER-DROPDOWN") {
+      this.ismenuopen = false;
     }
   }
 
@@ -77,6 +120,7 @@ export class ZUserDropdown {
   renderLoggedButton() {
     return (
       <button
+        ref={(el) => (this.userButton = el as HTMLButtonElement)}
         title={this.userfullname}
         class={`${this.ismenuopen ? "open" : ""} ${this.theme}`}
         onClick={() => this.handleToggle()}
@@ -90,7 +134,11 @@ export class ZUserDropdown {
 
   retrieveLiTextColor(): "white" | "black" {
     if (this.theme === ThemeVariant.light) return "black";
-    return window.innerWidth <= mobileBreakpoint ? "white" : "black";
+    return this.isMobile ? "white" : "black";
+  }
+
+  renderGhostDiv() {
+    return <div ref={(el) => (this.gosthDiv = el as HTMLDivElement)}></div>;
   }
 
   renderDropdownMenu() {
@@ -119,9 +167,12 @@ export class ZUserDropdown {
 
   render() {
     return (
-      <div class={`${this.ismenuopen ? "open" : ""}`}>
-        {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
-        {this.logged && this.renderDropdownMenu()}
+      <div>
+        {this.logged && !this.isMobile && this.renderGhostDiv()}
+        <div class={`${this.ismenuopen ? "open" : ""}`}>
+          {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
+          {this.logged && this.renderDropdownMenu()}
+        </div>
       </div>
     );
   }

@@ -38,10 +38,10 @@
       <z-button variant="primary">OK</z-button>
     </div>
   </z-candybar> -->
-  <z-cookiebar
+  <!-- <z-cookiebar
     cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
     hide="false">
-  </z-cookiebar>
+  </z-cookiebar> -->
   <!-- <z-modal modaltitle="titolotitolo" modalsubtitle="sottotitolo">
     <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
   </z-modal> -->
@@ -150,10 +150,15 @@
         >Carrello</z-link
       >
       <z-user-dropdown
-        userfullname="Fabio Funzionario"
+        userfullname="Von Axl Maranan Fernandez"
         logged="true"
         slot="login"
-        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+        menucontent='[
+        {"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"},
+        {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},
+        {"label":"Chiedi al tuo responsabile", "link":"http://www.zanichelli.it", "icon":"question-mark"},
+        {"label":"Esci", "link":"http://www.google.it", "icon":"enter"}
+        ]'
       >
       </z-user-dropdown>
       <z-app-switcher slot="app-switcher"></z-app-switcher>
@@ -937,6 +942,52 @@
           counter="5"
         ></z-button-sort>
         <br />
+      <z-menu floating="true">
+        <h3>Menu label</h3>
+        <a href="" slot="item">Item 1</a>
+        <a href="" slot="item">Item 2</a>
+        <z-menu-section slot="item">
+          <h3>Item 3</h3>
+          <a href="" slot="item">Item 3.1</a>
+          <a href="" slot="item">Item 3.2</a>
+        </z-menu-section>
+        <z-menu-section slot="item">
+          <h3>Item 4</h3>
+          <a href="" slot="item">Item 4.1</a>
+          <a href="" slot="item">Item 4.2</a>
+        </z-menu-section>
+        <a href="" slot="item">Item 5</a>
+      </z-menu>
+      <z-menu>
+        <img slot="header" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg">
+        <h4 slot="header">Menu header</h4>
+        <h3>Menu label</h3>
+        <a href="" slot="item">Item 1</a>
+        <a href="" slot="item">Item 2</a>
+        <z-menu-section slot="item">
+          <h3>Item 3</h3>
+          <a href="" slot="item">Item 3.1</a>
+          <a href="" slot="item">Item 3.2</a>
+        </z-menu-section>
+        <a href="" slot="item">Item 4</a>
+      </z-menu>
+
+      <z-button-filter filtername="filter 1" isfixed></z-button-filter>
+      <z-button-filter filtername="filter 2"></z-button-filter>
+      <z-button-filter filtername="filter 3" isfixed hasicon="false"></z-button-filter>
+      <z-button-filter filtername="filter 4" hasicon="false"></z-button-filter>
+      <z-chip boldtext="1234" regulartext="libri trovati"></z-chip>
+      <br/>
+      <br/>
+
+      <z-button-sort label="Chimica" counter="3"></z-button-sort>
+      <z-button-sort label="Biologia" counter="5"></z-button-sort>
+      <z-button-sort label="Label"></z-button-sort>
+      <z-button-sort label="Selected" isselected=true></z-button-sort>
+      <z-button-sort label="Selected" isselected=true sortasc=false></z-button-sort>
+      <z-button-sort label="Sort number" sortlabelasc="1-9" sortlabeldesc="9-1"></z-button-sort>
+      <z-button-sort label="Ordina ASC" desclabel="Ordina DESC" sortlabelasc="" sortlabeldesc=""></z-button-sort>
+      <br />
 
       <br />
       <z-list inputrawdata='[

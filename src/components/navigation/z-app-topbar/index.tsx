@@ -1,4 +1,5 @@
 import { Component, Prop, Element, h, State, Listen } from "@stencil/core";
+import { HostElement } from "@stencil/core/internal";
 import { ThemeVariant, ThemeVariantBean } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
@@ -15,22 +16,28 @@ export class ZAppTopbar {
   /** optional hashtag string*/
   @Prop() hashtag?: string;
 
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HostElement;
 
   @State() zLinksValues: string[];
   @State() isMobile: boolean;
 
   @Listen("resize", { target: "window" })
   handleResize(): void {
-    this.toggleLinkLabels();
     this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.toggleLinkLabels();
+  }
+
+  @Listen("orientationchange", { target: "window" })
+  handleOrientationChange(): void {
+    this.isMobile = screen.width <= mobileBreakpoint;
+    this.toggleLinkLabels();
   }
 
   componentWillLoad() {
     this.zLinksValues = Array.from(this.hostElement.children)
       .filter((child) => child.nodeName === "Z-LINK")
       .map((link) => link.childNodes[0].nodeValue);
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
     this.toggleLinkLabels();
   }
 
