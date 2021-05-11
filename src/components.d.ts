@@ -717,6 +717,9 @@ export namespace Components {
          */
         "nomeutente": string;
     }
+    interface ZMenuSection {
+        "active"?: boolean;
+    }
     interface ZMessagesPocket {
         /**
           * number of messages
@@ -730,9 +733,6 @@ export namespace Components {
           * pocket status
          */
         "status": PocketStatus;
-    }
-    interface ZMenuSection {
-        "active"?: boolean;
     }
     interface ZModal {
         /**
@@ -1306,17 +1306,17 @@ declare global {
         prototype: HTMLZMenuDropdownElement;
         new (): HTMLZMenuDropdownElement;
     };
-    interface HTMLZMessagesPocketElement extends Components.ZMessagesPocket, HTMLStencilElement {
-    }
-    var HTMLZMessagesPocketElement: {
-        prototype: HTMLZMessagesPocketElement;
-        new (): HTMLZMessagesPocketElement;
-    }
     interface HTMLZMenuSectionElement extends Components.ZMenuSection, HTMLStencilElement {
     }
     var HTMLZMenuSectionElement: {
         prototype: HTMLZMenuSectionElement;
         new (): HTMLZMenuSectionElement;
+    };
+    interface HTMLZMessagesPocketElement extends Components.ZMessagesPocket, HTMLStencilElement {
+    }
+    var HTMLZMessagesPocketElement: {
+        prototype: HTMLZMessagesPocketElement;
+        new (): HTMLZMessagesPocketElement;
     };
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
     }
@@ -1510,8 +1510,8 @@ declare global {
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
-        "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-menu-section": HTMLZMenuSectionElement;
+        "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-modal": HTMLZModalElement;
         "z-modal-login": HTMLZModalLoginElement;
         "z-otp": HTMLZOtpElement;
@@ -2311,6 +2311,17 @@ declare namespace LocalJSX {
          */
         "nomeutente"?: string;
     }
+    interface ZMenuSection {
+        "active"?: boolean;
+        /**
+          * The section has been closed.
+         */
+        "onClosed"?: (event: CustomEvent<any>) => void;
+        /**
+          * The section has been opened.
+         */
+        "onOpened"?: (event: CustomEvent<any>) => void;
+    }
     interface ZMessagesPocket {
         /**
           * number of messages
@@ -2324,17 +2335,6 @@ declare namespace LocalJSX {
           * pocket status
          */
         "status"?: PocketStatus;
-    }
-    interface ZMenuSection {
-        "active"?: boolean;
-        /**
-          * The section has been closed.
-         */
-        "onClosed"?: (event: CustomEvent<any>) => void;
-        /**
-          * The section has been opened.
-         */
-        "onOpened"?: (event: CustomEvent<any>) => void;
     }
     interface ZModal {
         /**
@@ -2739,8 +2739,8 @@ declare namespace LocalJSX {
         "z-logo": ZLogo;
         "z-menu": ZMenu;
         "z-menu-dropdown": ZMenuDropdown;
-        "z-messages-pocket": ZMessagesPocket;
         "z-menu-section": ZMenuSection;
+        "z-messages-pocket": ZMessagesPocket;
         "z-modal": ZModal;
         "z-modal-login": ZModalLogin;
         "z-otp": ZOtp;
@@ -2813,8 +2813,8 @@ declare module "@stencil/core" {
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
-            "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
+            "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
