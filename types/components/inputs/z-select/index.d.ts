@@ -25,7 +25,7 @@ export declare class ZSelect {
   /** input helper message (optional): available for text, password, number, email, textarea, select */
   message?: string;
   /** the input has autocomplete option */
-  autocomplete?: boolean;
+  autocomplete?: boolean | string;
   /** multiple options can be selected */
   multiple?: boolean;
   /** no result text message */
@@ -51,6 +51,7 @@ export declare class ZSelect {
   mapSelectedItemsToItemsArray(): any;
   getSelectedValues(): string | string[];
   filterItems(searchString: string): void;
+  hasAutcomplete(): boolean;
   handleInputChange(e: CustomEvent): void;
   selectItem(item: null | SelectItemBean, selected: boolean): void;
   arrowsSelectNav(e: KeyboardEvent, key: number): void;

@@ -11,8 +11,17 @@ export class ZLink {
     this.isactive = false;
     /** white variant flag (optional) */
     this.iswhite = false;
+    /** link text variant (optional) */
+    this.textcolor = 'blue';
+    /** big link version */
+    this.big = false;
     this.emitZLinkClick = this.emitZLinkClick.bind(this);
     this.emitZLinkInteraction = this.emitZLinkInteraction.bind(this);
+  }
+  componentWillRender() {
+    if (this.iswhite) {
+      console.warn('z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead');
+    }
   }
   emitZLinkClick(e, linkId) {
     this.emitZLinkInteraction(e, linkId);
@@ -23,8 +32,10 @@ export class ZLink {
   render() {
     return (h("a", { id: this.htmlid, href: this.href ? this.href : null, class: `${this.isdisabled && "disabled"}
           ${this.isactive && "active"}
-          ${this.iswhite && "white"}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) },
-      this.icon && h("z-icon", { name: this.icon, width: 12, height: 12 }),
+          ${this.textcolor}
+          ${this.iswhite && "white"}
+          ${this.big && "big"}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) },
+      this.icon && h("z-icon", { name: this.icon, width: this.big ? 18 : 12, height: this.big ? 18 : 12 }),
       h("slot", null)));
   }
   static get is() { return "z-link"; }
@@ -160,6 +171,24 @@ export class ZLink {
       "reflect": false,
       "defaultValue": "false"
     },
+    "textcolor": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "'white' | 'blue' | 'black'",
+        "resolved": "\"black\" | \"blue\" | \"white\"",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "link text variant (optional)"
+      },
+      "attribute": "textcolor",
+      "reflect": false,
+      "defaultValue": "'blue'"
+    },
     "icon": {
       "type": "string",
       "mutable": false,
@@ -176,6 +205,24 @@ export class ZLink {
       },
       "attribute": "icon",
       "reflect": false
+    },
+    "big": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "big link version"
+      },
+      "attribute": "big",
+      "reflect": false,
+      "defaultValue": "false"
     }
   }; }
   static get events() { return [{

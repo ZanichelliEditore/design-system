@@ -130,3 +130,8 @@ export declare type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
+export declare type ThemeVariantBean = keyof typeof ThemeVariant;
+export declare enum ThemeVariant {
+  dark = "dark",
+  light = "light"
+}

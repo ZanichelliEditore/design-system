@@ -1,0 +1,87 @@
+:host {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+  font-family: var(--dashboard-font);
+
+  --focus-shadow: 0 0 2px 2px var(--blue100);
+}
+
+:host,
+::slotted(*),
+* {
+  box-sizing: border-box;
+}
+
+::slotted(a) {
+  text-decoration: none;
+}
+
+::slotted(*) {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  color: var(--text-grey-800);
+}
+
+:host([active]) .label,
+:host([open]) .label,
+.label:hover {
+  border-color: var(--blue500);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);
+  text-align: left;
+  background: transparent;
+  border-radius: 0;
+  border: 0;
+  border-bottom: var(--border-size-small) solid var(--bg-grey-800);
+  cursor: pointer;
+}
+
+.label ::slotted(*) {
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.label:focus:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-shadow);
+}
+
+.label z-icon {
+  margin-left: calc(var(--space-unit) * 4);
+  fill: var(--bg-grey-800);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: calc(var(--space-unit) / 2) 0 calc(var(--space-unit) / 2 * 3);
+}
+
+.items > ::slotted([slot='item']) {
+  display: inline-flex;
+  margin: 0;
+  padding: calc(var(--space-unit) / 2) calc(var(--space-unit) / 2);
+  font-size: 14px;
+  line-height: 20px;
+  outline: none;
+}
+
+.items > ::slotted([slot='item']:focus:focus-visible) {
+  box-shadow: var(--focus-shadow);
+}
+
+.items > ::slotted([slot='item']:hover) {
+  color: var(--blue500);
+}

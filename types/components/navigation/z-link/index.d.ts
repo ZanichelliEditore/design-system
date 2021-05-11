@@ -14,11 +14,16 @@ export declare class ZLink {
   isactive?: boolean;
   /** white variant flag (optional) */
   iswhite?: boolean;
+  /** link text variant (optional) */
+  textcolor?: 'white' | 'blue' | 'black';
   /** link icon name (optional) */
   icon?: string;
+  /** big link version */
+  big?: boolean;
   /** emitted on link click, returns linkId */
   zLinkClick: EventEmitter;
   constructor();
+  componentWillRender(): void;
   emitZLinkClick(e: MouseEvent, linkId: any): void;
   emitZLinkInteraction(e: Event, linkId: string): void;
   render(): any;

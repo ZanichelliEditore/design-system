@@ -1,0 +1,1 @@
+const o=767;export{o as m}

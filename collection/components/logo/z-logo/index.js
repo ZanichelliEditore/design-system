@@ -21,7 +21,7 @@ export class ZLogo {
   }
   render() {
     return (h("div", null,
-      this.link && (h("a", { href: this.link, target: this.targetblank ? "_blank" : undefined }, this.renderSvg())),
+      this.link && (h("a", { style: { width: `${this.width}px`, height: `${this.height}px` }, href: this.link, target: this.targetblank ? "_blank" : undefined }, this.renderSvg())),
       !this.link && this.renderSvg()));
   }
   static get is() { return "z-logo"; }

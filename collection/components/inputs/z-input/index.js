@@ -1,5 +1,5 @@
-import { Component, Prop, State, h, Method, Event, Element, Listen } from "@stencil/core";
-import { InputTypeEnum } from "../../../beans";
+import { Component, Prop, State, h, Method, Event, Element, Listen, } from "@stencil/core";
+import { InputTypeEnum, } from "../../../beans";
 import { randomId } from "../../../utils/utils";
 export class ZInput {
   constructor() {
@@ -19,8 +19,6 @@ export class ZInput {
     this.labelafter = true;
     /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
     this.typingtimeout = 300;
-    /** the input has autocomplete option (optional): available for select */
-    this.autocomplete = false;
     /** multiple options can be selected (optional): available for select */
     this.multiple = false;
     /** render clear icon when typing (optional): available for text */
@@ -100,7 +98,7 @@ export class ZInput {
     this.isTyping = false;
     this.stopTyping.emit({
       value: value,
-      validity: validity
+      validity: validity,
     });
   }
   emitInputCheck(checked) {
@@ -110,16 +108,16 @@ export class ZInput {
       type: this.type,
       name: this.name,
       value: this.value,
-      validity: this.getValidity("input")
+      validity: this.getValidity("input"),
     });
   }
   getValidity(type) {
-    const input = this.hostElement.shadowRoot.querySelector(type);
+    const input = this.hostElement.querySelector(type);
     return input.validity;
   }
   /* START text/password/email/number */
   getTextAttributes() {
-    return {
+    const attr = {
       id: this.htmlid,
       name: this.name,
       placeholder: this.placeholder,
@@ -133,8 +131,11 @@ export class ZInput {
         ${this.isTyping && "istyping"}
         ${!this.isTyping && this.value && "filled"}
       `,
-      onInput: (e) => this.emitInputChange(e.target.value, e.keyCode)
+      onInput: (e) => this.emitInputChange(e.target.value, e.keyCode),
     };
+    if (this.autocomplete)
+      attr["autocomplete"] = this.autocomplete;
+    return attr;
   }
   renderInputText(type = InputTypeEnum.text) {
     const attr = this.getTextAttributes();
@@ -208,7 +209,7 @@ export class ZInput {
       onFocus: () => (this.textareaWrapperFocus = "focus"),
       onBlur: () => (this.textareaWrapperFocus = ""),
       onMouseOver: () => (this.textareaWrapperHover = "hover"),
-      onMouseOut: () => (this.textareaWrapperHover = "")
+      onMouseOut: () => (this.textareaWrapperHover = ""),
     };
   }
   /* END textarea */
@@ -240,7 +241,7 @@ export class ZInput {
   /* END radio */
   /* START select */
   renderSelect() {
-    return (h("z-select", { htmlid: this.htmlid, items: this.items, name: this.name, label: this.label, disabled: this.disabled, readonly: this.readonly, placeholder: this.placeholder, htmltitle: this.htmltitle, status: this.status, hasmessage: this.hasmessage, message: this.message, autocomplete: this.autocomplete, multiple: this.multiple, ref: el => (this.selectElem = el) }));
+    return (h("z-select", { htmlid: this.htmlid, items: this.items, name: this.name, label: this.label, disabled: this.disabled, readonly: this.readonly, placeholder: this.placeholder, htmltitle: this.htmltitle, status: this.status, hasmessage: this.hasmessage, message: this.message, autocomplete: this.autocomplete, multiple: this.multiple, ref: (el) => (this.selectElem = el) }));
   }
   /* END select */
   render() {
@@ -263,7 +264,7 @@ export class ZInput {
     }
   }
   static get is() { return "z-input"; }
-  static get encapsulation() { return "shadow"; }
+  static get encapsulation() { return "scoped"; }
   static get originalStyleUrls() { return {
     "$": ["styles.css"]
   }; }
@@ -584,22 +585,21 @@ export class ZInput {
       "reflect": false
     },
     "autocomplete": {
-      "type": "boolean",
+      "type": "any",
       "mutable": false,
       "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
+        "original": "boolean | string",
+        "resolved": "boolean | string",
         "references": {}
       },
       "required": false,
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "the input has autocomplete option (optional): available for select"
+        "text": "the input has autocomplete option (optional): available for select, input"
       },
       "attribute": "autocomplete",
-      "reflect": false,
-      "defaultValue": "false"
+      "reflect": false
     },
     "multiple": {
       "type": "boolean",

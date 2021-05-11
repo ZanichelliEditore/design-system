@@ -1,0 +1,40 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+button {
+  background-color: transparent;
+  height: 20px;
+  width: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  gap: calc(var(--space-unit) * .5);
+  border: none;
+  padding: 0;
+}
+
+button > span {
+  background: var(--bg-white);
+  width: calc(var(--space-unit) * .5);
+  height: calc(var(--space-unit) * .5);
+  border-radius: 50%;
+}
+
+button > span.light {
+  background: var(--bg-grey-900);
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}

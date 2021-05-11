@@ -51,3 +51,8 @@ export var keybordKeyCodeEnum;
   keybordKeyCodeEnum[keybordKeyCodeEnum["ARROW_UP"] = 38] = "ARROW_UP";
   keybordKeyCodeEnum[keybordKeyCodeEnum["ARROW_DOWN"] = 40] = "ARROW_DOWN";
 })(keybordKeyCodeEnum || (keybordKeyCodeEnum = {}));
+export var ThemeVariant;
+(function (ThemeVariant) {
+  ThemeVariant["dark"] = "dark";
+  ThemeVariant["light"] = "light";
+})(ThemeVariant || (ThemeVariant = {}));

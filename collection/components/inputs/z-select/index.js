@@ -1,6 +1,6 @@
-import { Component, Prop, State, h, Event, Watch, Element, Method } from "@stencil/core";
-import { keybordKeyCodeEnum, InputStatusEnum } from "../../../beans";
-import { randomId, handleKeyboardSubmit, getClickedElement, getElementTree } from "../../../utils/utils";
+import { Component, Prop, State, h, Event, Watch, Element, Method, } from "@stencil/core";
+import { keybordKeyCodeEnum, InputStatusEnum, } from "../../../beans";
+import { randomId, handleKeyboardSubmit, getClickedElement, getElementTree, } from "../../../utils/utils";
 export class ZSelect {
   constructor() {
     /** the id of the input element */
@@ -50,7 +50,7 @@ export class ZSelect {
   emitOptionSelect() {
     this.optionSelect.emit({
       id: this.htmlid,
-      selected: this.getSelectedValues()
+      selected: this.getSelectedValues(),
     });
   }
   componentWillLoad() {
@@ -101,6 +101,11 @@ export class ZSelect {
         return item;
       });
     }
+  }
+  hasAutcomplete() {
+    return (this.autocomplete === true ||
+      this.autocomplete === "true" ||
+      this.autocomplete === "on");
   }
   handleInputChange(e) {
     this.searchString = e.detail.value;
@@ -207,7 +212,7 @@ export class ZSelect {
   renderInput() {
     return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && !this.multiple && this.selectedItems.length
         ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
-        : null, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.autocomplete, hasmessage: false, disabled: this.disabled, readonly: this.readonly || (!this.autocomplete && this.isOpen), status: this.isOpen ? InputStatusEnum.selecting : this.status, onClick: (e) => {
+        : null, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutcomplete(), hasmessage: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutcomplete() && this.isOpen), status: this.isOpen ? InputStatusEnum.selecting : this.status, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13)
@@ -218,7 +223,7 @@ export class ZSelect {
         : -1), onInputChange: (e) => {
         this.handleInputChange(e);
       }, onKeyPress: (e) => {
-        if (!this.autocomplete) {
+        if (!this.hasAutcomplete()) {
           e.preventDefault();
           this.scrollToLetter(String.fromCharCode(e.keyCode));
         }
@@ -480,11 +485,11 @@ export class ZSelect {
       "reflect": false
     },
     "autocomplete": {
-      "type": "boolean",
+      "type": "any",
       "mutable": false,
       "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
+        "original": "boolean | string",
+        "resolved": "boolean | string",
         "references": {}
       },
       "required": false,

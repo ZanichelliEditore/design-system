@@ -36,8 +36,8 @@ export declare class ZInput {
   typingtimeout?: number;
   /** items (optional): available for select */
   items?: SelectItemBean[] | string;
-  /** the input has autocomplete option (optional): available for select */
-  autocomplete?: boolean;
+  /** the input has autocomplete option (optional): available for select, input */
+  autocomplete?: boolean | string;
   /** multiple options can be selected (optional): available for select */
   multiple?: boolean;
   /** render clear icon when typing (optional): available for text */

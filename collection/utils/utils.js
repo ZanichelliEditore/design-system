@@ -6,9 +6,7 @@ export function retrieveAsset(assetName) {
   return assetName && "assets/images/png/" + assetName;
 }
 export function randomId() {
-  return Math.random()
-    .toString(36)
-    .replace("0.", "");
+  return Math.random().toString(36).replace("0.", "");
 }
 export function handleKeyboardSubmit(ev, callback, ...args) {
   if (ev.keyCode === keybordKeyCodeEnum.ENTER ||
