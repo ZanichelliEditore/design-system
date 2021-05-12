@@ -1,8 +1,10 @@
 import { Component, Prop, h, Element } from "@stencil/core";
+import classNames from "classnames";
 import {
   ButtonVariantBean,
   ButtonVariantEnum,
   ButtonTypeEnum,
+  ButtonSizeEnum,
 } from "../../../beans";
 
 /**
@@ -25,31 +27,37 @@ export class ZButton {
   /** button type */
   @Prop() type?: HTMLButtonElement["type"] = ButtonTypeEnum.button;
   /** graphic variant */
-  @Prop({ reflect: true }) variant?: ButtonVariantBean = ButtonVariantEnum.primary;
-  /** reduce button size (optional) */
-  @Prop({ reflect: true }) issmall?: boolean = false;
+  @Prop({ reflect: true }) variant?: ButtonVariantBean =
+    ButtonVariantEnum.primary;
   /** add an icon to button (optional) */
   @Prop() icon?: string;
 
-  private renderLegacyButton() {
-    return (
-      <button
-        id={this.htmlid}
-        name={this.name}
-        type={this.type}
-        disabled={this.disabled}
-        class={`${this.variant}${this.issmall ? " small" : ""}`}
-      >
-        {this.icon && <z-icon name={this.icon} width={16} height={16} />}
-        <slot />
-      </button>
-    );
-  }
+  @Prop({ reflect: true })
+  size?: ButtonSizeEnum = ButtonSizeEnum.big;
+  /** @deprecated Use `size` prop.
+   *
+   *  Reduce button size (optional).
+   * */
+  @Prop({ reflect: true }) issmall?: boolean = false;
 
   render() {
     return (
       <slot name="element">
-        {this.renderLegacyButton()}
+        <button
+          id={this.htmlid}
+          name={this.name}
+          type={this.type}
+          disabled={this.disabled}
+          class={classNames(
+            this.variant,
+            this.size,
+            { issmall: this.issmall },
+            { empty: !this.hostElement.innerHTML }
+          )}
+        >
+          {this.icon && <z-icon name={this.icon} width={16} height={16} />}
+          <slot />
+        </button>
       </slot>
     );
   }

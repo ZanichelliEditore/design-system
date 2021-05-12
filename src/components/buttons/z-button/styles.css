@@ -2,7 +2,6 @@
   display: inline-block;
   --z-icon-width: 16px;
   --z-icon-height: 16px;
-  --z-icon-right-margin: var(--space-unit);
 }
 
 button:disabled,
@@ -15,13 +14,15 @@ button,
 ::slotted(a) {
   box-sizing: border-box;
   display: inline-flex;
+  gap: var(--space-unit);
+  min-width: calc(var(--space-unit) * 8);
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
-  padding: 0px calc(var(--space-unit) * 2);
+  padding: 0 calc(var(--space-unit) * 2);
   line-height: 1;
   letter-spacing: 0.3px;
   border-width: var(--border-size-medium);
@@ -37,14 +38,44 @@ button,
   width: inherit;
 }
 
-z-icon {
-  margin-right: var(--space-unit);
+button.big,
+::slotted(button),
+::slotted(a) {
+  height: 44px;
 }
 
 button.small,
+button.issmall,
+::slotted(button),
+::slotted(a) {
+  height: 36px;
+}
+
+button.x-small,
+::slotted(button),
+::slotted(a) {
+  height: 32px;
+}
+
+button.x-small,
+::slotted(button),
+::slotted(a) {
+  height: 32px;
+}
+
+/* Legacy to be removed when we drop issmall support*/
+button.issmall,
 :host([issmall]) ::slotted(button),
 :host([issmall]) ::slotted(a) {
   height: 36px;
+}
+
+button.empty,
+::slotted(button),
+::slotted(a) {
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  padding: 0;
 }
 
 button.primary,
@@ -146,6 +177,7 @@ button.secondary:disabled,
 button.tertiary,
 :host([variant="tertiary"]) ::slotted(button),
 :host([variant="tertiary"]) ::slotted(a) {
+  padding: 0 var(--space-unit);
   background-color: transparent;
   border-color: transparent;
   color: var(--myz-blue);
@@ -156,8 +188,8 @@ button.tertiary,
   button.tertiary:hover,
   :host([variant="tertiary"]) ::slotted(button:hover),
   :host([variant="tertiary"]) ::slotted(a:hover) {
-    background-color: transparent;
-    border-color: transparent;
+    background-color: var(--myz-blue-lighter);
+    border-color: var(--myz-blue-lighter);
     color: var(--myz-blue-dark);
     fill: var(--myz-blue-dark);
   }
