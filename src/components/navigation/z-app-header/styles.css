@@ -338,23 +338,3 @@
     margin-top: calc(var(--space-unit) * 3);
   }
 }
-
-@keyframes drawerFadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.7;
-  }
-}
-
-@keyframes drawerSlideIn {
-  0% {
-    transform: translate3d(-100%, 0, 0);
-  }
-
-  100% {
-    transform: none;
-  }
-}
