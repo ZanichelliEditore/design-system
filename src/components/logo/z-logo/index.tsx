@@ -48,7 +48,7 @@ export class ZLogo {
     return (
       <div>
         {this.link && (
-          <a href={this.link} target={this.targetblank ? "_blank" : undefined}>
+          <a style={{width: `${this.width}px`, height:`${this.height}px`}} href={this.link} target={this.targetblank ? "_blank" : undefined}>
             {this.renderSvg()}
           </a>
         )}
