@@ -59,7 +59,8 @@
 }
 
 :host(:not(:empty)) {
-  flex: none;
+  flex-shrink: 0;
+  flex-grow: 0;
   height: var(--app-header-height);
   padding-top: calc(var(--space-unit) * 3.5);
   padding-bottom: calc(var(--space-unit) * 4.5);
