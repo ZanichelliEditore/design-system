@@ -11,11 +11,20 @@ import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZAppHeader {
+        /**
+          * Collapse the menu container into a side drawer, for a better experience on mobile devices.
+         */
         "drawer": boolean;
+        /**
+          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation.
+         */
         "hero": string;
+        /**
+          * Should place an overlay over the hero image. Useful for legibility purpose.
+         */
         "overlay": boolean;
         /**
-          * Stuck mode for the header.
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
          */
         "stuck": boolean;
     }
@@ -1384,11 +1393,20 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ZAppHeader {
+        /**
+          * Collapse the menu container into a side drawer, for a better experience on mobile devices.
+         */
         "drawer"?: boolean;
+        /**
+          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation.
+         */
         "hero"?: string;
+        /**
+          * Should place an overlay over the hero image. Useful for legibility purpose.
+         */
         "overlay"?: boolean;
         /**
-          * Stuck mode for the header.
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
          */
         "stuck"?: boolean;
     }

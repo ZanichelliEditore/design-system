@@ -9,17 +9,35 @@ import { Component, h, Prop, State } from '@stencil/core';
 export class ZAppHeader {
   /**
    * Stuck mode for the header.
+   * You can programmatically set it using an IntersectionObserver.
    */
   @Prop({ attribute: 'stuck', reflect: true }) stuck: boolean = false;
 
+  /**
+   * Collapse the menu container into a side drawer, for a better experience on mobile devices.
+   */
   @Prop({ attribute: 'drawer', reflect: true }) drawer: boolean = false;
 
+  /**
+   * Set the hero image source for the header.
+   * You can also use a slot="hero" node for advanced customisation.
+   */
   @Prop({ attribute: 'hero' }) hero: string;
 
+  /**
+   * Should place an overlay over the hero image.
+   * Useful for legibility purpose.
+   */
   @Prop({ attribute: 'overlay', reflect: true  }) overlay: boolean = false;
 
+  /**
+   * The opening state of the drawer.
+   */
   @State() drawerOpen: boolean = false;
 
+  /**
+   * Check if the menu should be collapsed into drawer.
+   */
   private get shouldUseDrawer() {
     return this.drawer || this.stuck;
   }
