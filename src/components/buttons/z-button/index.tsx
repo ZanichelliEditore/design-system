@@ -52,7 +52,7 @@ export class ZButton {
             this.variant,
             this.size,
             { issmall: this.issmall },
-            { empty: !this.hostElement.innerHTML }
+            { hasContent: this.hostElement.innerHTML }
           )}
         >
           {this.icon && <z-icon name={this.icon} width={16} height={16} />}

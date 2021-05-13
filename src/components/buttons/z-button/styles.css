@@ -15,20 +15,17 @@ button,
   box-sizing: border-box;
   display: inline-flex;
   gap: var(--space-unit);
-  min-width: calc(var(--space-unit) * 8);
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
-  padding: 0 calc(var(--space-unit) * 2);
   line-height: 1;
   letter-spacing: 0.3px;
   border-width: var(--border-size-medium);
   border-style: solid;
   border-radius: var(--border-radius);
-  height: 44px;
   vertical-align: middle;
   text-transform: uppercase;
   text-decoration: none;
@@ -42,40 +39,30 @@ button.big,
 ::slotted(button),
 ::slotted(a) {
   height: 44px;
+  min-width: 44px;
 }
 
 button.small,
-button.issmall,
-::slotted(button),
-::slotted(a) {
-  height: 36px;
-}
-
-button.x-small,
-::slotted(button),
-::slotted(a) {
-  height: 32px;
-}
-
-button.x-small,
-::slotted(button),
-::slotted(a) {
-  height: 32px;
-}
-
 /* Legacy to be removed when we drop issmall support*/
 button.issmall,
-:host([issmall]) ::slotted(button),
-:host([issmall]) ::slotted(a) {
-  height: 36px;
-}
-
-button.empty,
 ::slotted(button),
 ::slotted(a) {
-  min-width: 0;
-  aspect-ratio: 1 / 1;
-  padding: 0;
+  height: 36px;
+  min-width: 36px;
+}
+
+button.x-small,
+::slotted(button),
+::slotted(a) {
+  height: 32px;
+  min-width: 32px;
+}
+
+button.hasContent,
+::slotted(button),
+::slotted(a) {
+  min-width: calc(var(--space-unit) * 8);
+  padding: 0 calc(var(--space-unit) * 2);
 }
 
 button.primary,
