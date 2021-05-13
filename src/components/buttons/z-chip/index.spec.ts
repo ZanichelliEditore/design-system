@@ -22,7 +22,7 @@ describe("Suite test ZChip", () => {
   });
 
 
-  it("Test render ZChip with values", async () => {
+  it("Test render ZChip with attributes", async () => {
     const page = await newSpecPage({
       components: [ZChip],
       html: `<z-chip boldtext="20" regulartext="libri trovati"></z-chip>`
@@ -32,7 +32,7 @@ describe("Suite test ZChip", () => {
         <z-chip boldtext="20" regulartext="libri trovati">
           <mock:shadow-root>
             <div>
-              <span><span class="boldtext">20</span>&nbsp;libri trovati</span>
+              <span class="boldtext">20</span>&nbsp;libri trovati
             </div>
           </mock:shadow-root>
         </z-chip>
@@ -57,7 +57,7 @@ describe("Suite test ZChip", () => {
     `);
   });
 
-  it("Test render ZChip with children", async () => {
+  it("Test render ZChip with attributes and children", async () => {
     const page = await newSpecPage({
       components: [ZChip],
       html: `<z-chip boldtext="20" regulartext="libri trovati">
@@ -69,7 +69,7 @@ describe("Suite test ZChip", () => {
         <z-chip boldtext="20" regulartext="libri trovati">
           <mock:shadow-root>
             <div>
-              <span><span class="boldtext">20</span>&nbsp;libri trovati</span>
+              <span class="boldtext">20</span>&nbsp;libri trovati
             </div>
           </mock:shadow-root>
           <z-body>ciao 1</z-body>

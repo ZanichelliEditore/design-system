@@ -10,16 +10,15 @@ export class ZChip {
   @Prop() regulartext?: string;
   @Prop() boldtext?: number;
 
+  private renderLegacyChip() {
+    return <div>
+      <span class="boldtext">{this.boldtext}</span> {this.regulartext}
+    </div>;
+  }
 
   render() {
-    return (
-      <div>
-        {
-          this.boldtext || this.regulartext ?
-          <span><span class="boldtext">{this.boldtext}</span> {this.regulartext}</span> :
-          <slot />
-        }
-      </div>
-    );
+    return this.boldtext || this.regulartext ?
+      this.renderLegacyChip() :
+      <div><slot /></div>;
   }
 }
