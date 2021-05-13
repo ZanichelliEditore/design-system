@@ -14,7 +14,6 @@ button,
 ::slotted(a) {
   box-sizing: border-box;
   display: inline-flex;
-  gap: var(--space-unit);
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -63,6 +62,10 @@ button.hasContent,
 ::slotted(a) {
   min-width: calc(var(--space-unit) * 8);
   padding: 0 calc(var(--space-unit) * 2);
+}
+
+button.hasContent z-icon {
+  margin-right: var(--space-unit);
 }
 
 button.primary,
