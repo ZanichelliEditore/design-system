@@ -57,10 +57,6 @@
   padding: calc(var(--space-unit) * .5);
 }
 
-.right > ::slotted(z-user-dropdown) {
-  padding: calc(var(--space-unit) * .5) 0;
-}
-
 .right > ::slotted(z-app-switcher) {
   padding: 6px;
 }
