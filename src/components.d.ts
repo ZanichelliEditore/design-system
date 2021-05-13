@@ -2685,6 +2685,10 @@ declare namespace LocalJSX {
          */
         "menucontent"?: string | MenuItem[];
         /**
+          * Emitted on dropdown menu zlink click, returns zlink linkId
+         */
+        "onDropdownMenuLinkClick"?: (event: CustomEvent<any>) => void;
+        /**
           * Emitted on enter or user Button click, returns ismenuopen (bool)
          */
         "onUserButtonClick"?: (event: CustomEvent<any>) => void;

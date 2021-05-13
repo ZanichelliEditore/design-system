@@ -17,7 +17,7 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
 })
 export class ZUserDropdown {
   /** logged status flag */
-  @Prop() logged?: boolean;
+  @Prop({mutable: true}) logged?: boolean;
   /** user full name */
   @Prop() userfullname?: string;
   /** Json stringified or array to fill menu dropdown */
@@ -61,16 +61,22 @@ export class ZUserDropdown {
       window.innerWidth <= mobileBreakpoint;
     if (this.gosthDiv)
       this.gosthDiv.style.width =
-        !this.isMobile && this.ismenuopen
+        this.logged && (!this.isMobile && this.ismenuopen)
           ? `${this.userButton?.offsetWidth}px`
           : "";
   }
+
   /** Emitted on enter or user Button click, returns ismenuopen (bool) */
   @Event() userButtonClick: EventEmitter;
   emitUserButtonClick() {
     this.userButtonClick.emit(this.ismenuopen);
   }
 
+  /** Emitted on dropdown menu zlink click, returns zlink linkId */
+  @Event() dropdownMenuLinkClick: EventEmitter;
+  emitDropdownMenuLinkClick(e: CustomEvent) {
+    this.dropdownMenuLinkClick.emit(e.detail.linkId);
+  }
   @Listen("resize", { target: "window" })
   handleResize(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
@@ -91,6 +97,10 @@ export class ZUserDropdown {
   handleToggle() {
     this.ismenuopen = !this.ismenuopen;
     this.emitUserButtonClick();
+  }
+
+  handleDropdownLinkClick(e) {
+    this.emitDropdownMenuLinkClick(e)
   }
 
   renderCaretIcon() {
@@ -152,8 +162,10 @@ export class ZUserDropdown {
                   textcolor={this.retrieveLiTextColor()}
                   big
                   href={link.link}
-                  target="_blank"
+                  htmlid={link.id}
+                  target={link.target}
                   icon={link.icon}
+                  onZLinkClick={(e) => this.handleDropdownLinkClick(e)}
                 >
                   {link.label}
                 </z-link>
@@ -169,7 +181,7 @@ export class ZUserDropdown {
     return (
       <div>
         {this.logged && !this.isMobile && this.renderGhostDiv()}
-        <div class={`${this.ismenuopen ? "open" : ""}`}>
+        <div class={`${this.logged && this.ismenuopen ? "open" : ""}`}>
           {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
           {this.logged && this.renderDropdownMenu()}
         </div>
