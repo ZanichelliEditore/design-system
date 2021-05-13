@@ -17,7 +17,7 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
 })
 export class ZUserDropdown {
   /** logged status flag */
-  @Prop() logged?: boolean;
+  @Prop({mutable: true}) logged?: boolean;
   /** user full name */
   @Prop() userfullname?: string;
   /** Json stringified or array to fill menu dropdown */
@@ -61,7 +61,7 @@ export class ZUserDropdown {
       window.innerWidth <= mobileBreakpoint;
     if (this.gosthDiv)
       this.gosthDiv.style.width =
-        !this.isMobile && this.ismenuopen
+        this.logged && (!this.isMobile && this.ismenuopen)
           ? `${this.userButton?.offsetWidth}px`
           : "";
   }
@@ -181,7 +181,7 @@ export class ZUserDropdown {
     return (
       <div>
         {this.logged && !this.isMobile && this.renderGhostDiv()}
-        <div class={`${this.ismenuopen ? "open" : ""}`}>
+        <div class={`${this.logged && this.ismenuopen ? "open" : ""}`}>
           {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
           {this.logged && this.renderDropdownMenu()}
         </div>
