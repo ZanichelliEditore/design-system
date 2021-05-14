@@ -9,7 +9,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary">
+      <z-button variant="primary" style="pointer-events: auto;">
         <mock:shadow-root>
           <slot name="element">
             <button type="button" class="primary">
@@ -27,7 +27,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button>label</z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary">
+      <z-button variant="primary" style="pointer-events: auto;">
       <mock:shadow-root>
         <slot name="element">
           <button type="button" class="primary">
@@ -46,7 +46,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button icon="icon"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary" icon="icon">
+      <z-button variant="primary" icon="icon" style="pointer-events: auto;">
       <mock:shadow-root>
         <slot name="element">
           <button type="button" class="primary">
@@ -65,7 +65,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button variant="secondary"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button variant="secondary">
+      <z-button variant="secondary" style="pointer-events: auto;">
       <mock:shadow-root>
         <slot name="element">
           <button type="button" class="secondary">
@@ -83,7 +83,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button issmall></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button issmall variant="primary">
+      <z-button issmall variant="primary" style="pointer-events: auto;">
       <mock:shadow-root>
         <slot name="element">
           <button type="button" class="primary small">
@@ -101,7 +101,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button disabled></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary" disabled>
+      <z-button variant="primary" disabled style="pointer-events: none;">
       <mock:shadow-root>
         <slot name="element">
           <button type="button" class="primary" disabled>
@@ -122,7 +122,7 @@ describe("Suite test ZButton", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary">
+      <z-button variant="primary" style="pointer-events: auto;">
         <mock:shadow-root>
           <slot name="element">
             <button type="button" class="primary">
@@ -144,7 +144,7 @@ describe("Suite test ZButton", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary">
+      <z-button variant="primary" style="pointer-events: auto;">
         <mock:shadow-root>
           <slot name="element">
             <button type="button" class="primary">
