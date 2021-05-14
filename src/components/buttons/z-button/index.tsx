@@ -47,6 +47,8 @@ export class ZButton {
   }
 
   render() {
+    this.hostElement.style.pointerEvents = this.disabled ? 'none' : 'auto';
+
     return (
       <slot name="element">
         {this.renderLegacyButton()}
