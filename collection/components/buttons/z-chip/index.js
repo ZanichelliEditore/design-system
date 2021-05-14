@@ -1,10 +1,16 @@
 import { Component, Prop, h } from '@stencil/core';
 export class ZChip {
-  render() {
-    return (h("div", null,
+  renderLegacyChip() {
+    return h("div", null,
       h("span", { class: "boldtext" }, this.boldtext),
       " ",
-      this.regulartext));
+      this.regulartext);
+  }
+  render() {
+    return this.boldtext || this.regulartext ?
+      this.renderLegacyChip() :
+      h("div", null,
+        h("slot", null));
   }
   static get is() { return "z-chip"; }
   static get encapsulation() { return "shadow"; }

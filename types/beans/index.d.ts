@@ -114,7 +114,11 @@ export declare enum TooltipPosition {
   BOTTOM = "BOTTOM",
   LEFT = "LEFT",
   RIGHT = "RIGHT",
-  NO_ARROW = "NO_ARROW"
+  NO_ARROW = "NO_ARROW",
+  TOP_LEFT = "TOP_LEFT",
+  TOP_RIGHT = "TOP_RIGHT",
+  BOTTOM_LEFT = "BOTTOM_LEFT",
+  BOTTOM_RIGHT = "BOTTOM_RIGHT"
 }
 export declare enum keybordKeyCodeEnum {
   TAB = 9,

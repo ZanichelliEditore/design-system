@@ -1,11 +1,9 @@
 import { Component, Prop, h } from "@stencil/core";
 import { TooltipPosition } from "../../../beans/index";
 export class ZTooltip {
-  constructor() {
-    this.direction = TooltipPosition[(this.type).toUpperCase()];
-  }
   getArrowClass() {
-    switch (this.direction) {
+    const direction = TooltipPosition[(this.type).toUpperCase()];
+    switch (direction) {
       case TooltipPosition.TOP:
         return "tooltip tooltip-bottom-arrow";
       case TooltipPosition.BOTTOM:
@@ -14,10 +12,22 @@ export class ZTooltip {
         return "tooltip tooltip-right-arrow";
       case TooltipPosition.RIGHT:
         return "tooltip tooltip-left-arrow";
+      case TooltipPosition.TOP_LEFT:
+        return "tooltip tooltip-bottom-right-arrow";
+      case TooltipPosition.TOP_RIGHT:
+        return "tooltip tooltip-bottom-left-arrow";
+      case TooltipPosition.BOTTOM_LEFT:
+        return "tooltip tooltip-top-right-arrow";
+      case TooltipPosition.BOTTOM_RIGHT:
+        return "tooltip tooltip-top-left-arrow";
     }
   }
   render() {
-    return h("div", { class: this.getArrowClass() }, this.content);
+    if (this.content) {
+      return (h("div", { class: `${this.getArrowClass()} legacy` }, this.content));
+    }
+    return (h("div", { class: this.getArrowClass() },
+      h("slot", null)));
   }
   static get is() { return "z-tooltip"; }
   static get encapsulation() { return "shadow"; }
@@ -50,7 +60,7 @@ export class ZTooltip {
       "mutable": false,
       "complexType": {
         "original": "TooltipPosition",
-        "resolved": "TooltipPosition.BOTTOM | TooltipPosition.LEFT | TooltipPosition.NO_ARROW | TooltipPosition.RIGHT | TooltipPosition.TOP",
+        "resolved": "TooltipPosition.BOTTOM | TooltipPosition.BOTTOM_LEFT | TooltipPosition.BOTTOM_RIGHT | TooltipPosition.LEFT | TooltipPosition.NO_ARROW | TooltipPosition.RIGHT | TooltipPosition.TOP | TooltipPosition.TOP_LEFT | TooltipPosition.TOP_RIGHT",
         "references": {
           "TooltipPosition": {
             "location": "import",

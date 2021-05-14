@@ -1,6 +1,6 @@
 'use strict';
 
-const index = require('./index-7ad35052.js');
+const index = require('./index-3fc82206.js');
 
 function randomId() {
   return Math.random().toString(36).replace("0.", "");

@@ -4,8 +4,6 @@ export declare class ZTooltip {
   content: string;
   /** tooltip position variant */
   type: TooltipPosition;
-  private direction;
-  constructor();
-  getArrowClass(): "tooltip tooltip-bottom-arrow" | "tooltip tooltip-top-arrow" | "tooltip tooltip-right-arrow" | "tooltip tooltip-left-arrow";
+  getArrowClass(): "tooltip tooltip-bottom-arrow" | "tooltip tooltip-top-arrow" | "tooltip tooltip-right-arrow" | "tooltip tooltip-left-arrow" | "tooltip tooltip-bottom-right-arrow" | "tooltip tooltip-bottom-left-arrow" | "tooltip tooltip-top-right-arrow" | "tooltip tooltip-top-left-arrow";
   render(): any;
 }

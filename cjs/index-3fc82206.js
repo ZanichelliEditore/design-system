@@ -43,6 +43,10 @@ exports.TooltipPosition = void 0;
   TooltipPosition["LEFT"] = "LEFT";
   TooltipPosition["RIGHT"] = "RIGHT";
   TooltipPosition["NO_ARROW"] = "NO_ARROW";
+  TooltipPosition["TOP_LEFT"] = "TOP_LEFT";
+  TooltipPosition["TOP_RIGHT"] = "TOP_RIGHT";
+  TooltipPosition["BOTTOM_LEFT"] = "BOTTOM_LEFT";
+  TooltipPosition["BOTTOM_RIGHT"] = "BOTTOM_RIGHT";
 })(exports.TooltipPosition || (exports.TooltipPosition = {}));
 exports.keybordKeyCodeEnum = void 0;
 (function (keybordKeyCodeEnum) {
