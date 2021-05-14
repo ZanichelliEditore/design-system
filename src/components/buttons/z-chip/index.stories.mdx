@@ -6,15 +6,26 @@ import { text } from '@storybook/addon-knobs';
 
 <Meta title="Buttons/ZChip" component="z-chip" />
 
-  # ZChip
+  # ZChip with attributes
 
 <Preview>
-  <Story name="z-chip">
+  <Story name="z-chip with attributes">
     {html`
       <z-chip
         boldtext="${text('boldtext', '1234')}"
         regulartext="${text('regulartext', 'libri trovati')}"
       ></z-chip>`}
+  </Story>
+</Preview>
+
+# ZChip with children
+
+<Preview>
+  <Story name="z-chip with children">
+    {html`
+      <z-chip>
+        <z-body level="4">My custom element</z-body>
+      </z-chip>`}
   </Story>
 </Preview>
 
