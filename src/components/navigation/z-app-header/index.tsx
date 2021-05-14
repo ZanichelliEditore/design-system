@@ -66,6 +66,9 @@ export class ZAppHeader {
       this.shouldUseDrawer && <div class="drawer-container" data-open={this.drawerOpen}>
         <div class="drawer-overlay" onClick={this.closeDrawer.bind(this)}></div>
         <div class="drawer-panel">
+          <button class="drawer-close" onClick={this.closeDrawer.bind(this)}>
+            <z-icon name="close"></z-icon>
+          </button>
           <div class="drawer-content">
             <slot name="menu"></slot>
           </div>
