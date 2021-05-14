@@ -35,24 +35,29 @@ button,
 }
 
 button.big,
-::slotted(button),
-::slotted(a) {
+:host([size="big"]) ::slotted(button),
+:host([size="big"]) ::slotted(a) {
   height: 44px;
   min-width: 44px;
 }
 
 button.small,
-/* Legacy to be removed when we drop issmall support*/
+:host([size="small"]) ::slotted(button),
+:host([size="small"]) ::slotted(a) {
+  height: 36px;
+  min-width: 36px;
+}
+
 button.issmall,
-::slotted(button),
-::slotted(a) {
+:host([issmall]) ::slotted(button),
+:host([issmall]) ::slotted(a) {
   height: 36px;
   min-width: 36px;
 }
 
 button.x-small,
-::slotted(button),
-::slotted(a) {
+:host([size="x-small"]) ::slotted(button),
+:host([size="x-small"]) ::slotted(a) {
   height: 32px;
   min-width: 32px;
 }
@@ -67,7 +72,6 @@ button.hasContent,
 button.hasContent z-icon {
   margin-right: var(--space-unit);
 }
-
 button.primary,
 :host([variant="primary"]) ::slotted(button),
 :host([variant="primary"]) ::slotted(a) {
@@ -167,11 +171,14 @@ button.secondary:disabled,
 button.tertiary,
 :host([variant="tertiary"]) ::slotted(button),
 :host([variant="tertiary"]) ::slotted(a) {
-  padding: 0 var(--space-unit);
   background-color: transparent;
   border-color: transparent;
   color: var(--myz-blue);
   fill: var(--myz-blue);
+}
+
+button.tertiary.hasContent {
+  padding: 0 var(--space-unit);
 }
 
 @media (hover: hover) {
@@ -211,4 +218,8 @@ button.tertiary:disabled,
   border-color: transparent;
   color: var(--text-grey-700);
   fill: var(--text-grey-700);
+}
+
+::slotted([slot="element"]) {
+  --z-icon-right-margin: var(--space-unit);
 }
