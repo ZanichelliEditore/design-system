@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/ZanichelliEditore/design-system/compare/v1.9.0...v1.10.0) (2021-05-14)
+
+
+### Features
+
+* z-chip manages children elements ([3a3033b](https://github.com/ZanichelliEditore/design-system/commit/3a3033bb61d2c07c5a09e1bf0481fa635f8c4474))
+
+
+### Bug Fixes
+
+* shawod ([ecfeab6](https://github.com/ZanichelliEditore/design-system/commit/ecfeab645b2c00613a86a31f6f8991ecba6f9d40))
+
 ## [1.9.0](https://github.com/ZanichelliEditore/design-system/compare/v1.8.3...v1.9.0) (2021-05-11)
 
 
