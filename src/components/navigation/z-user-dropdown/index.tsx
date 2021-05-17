@@ -17,7 +17,7 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
 })
 export class ZUserDropdown {
   /** logged status flag */
-  @Prop({mutable: true}) logged?: boolean;
+  @Prop() logged?: boolean;
   /** user full name */
   @Prop() userfullname?: string;
   /** Json stringified or array to fill menu dropdown */
