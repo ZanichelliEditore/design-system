@@ -1,5 +1,5 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { DictionaryData } from "../../../beans";
+import { Component, Prop, h, Event, EventEmitter, State } from "@stencil/core";
+import { DictionaryData, TooltipPosition } from "../../../beans";
 import { handleKeyboardSubmit } from "../../../utils/utils";
 
 /**
@@ -16,7 +16,15 @@ export class zCardInfo {
   /** tabindex link attribute (optional) */
   @Prop() htmltabindex?: number = 0;
 
+  @State() hiddenContent: boolean = false;
+  @State() tooltip: boolean = false;
+
   private cardData: DictionaryData;
+
+  private contentWrapper: HTMLElement;
+  private infoWrapper: HTMLElement;
+  private onlineLicenseWrapper: HTMLElement;
+  private offlineLicenseWrapper: HTMLElement;
 
   /** flip card to front */
   @Event() flipCard: EventEmitter;
@@ -61,7 +69,13 @@ export class zCardInfo {
 
   renderGeneralSection() {
     return (
-      <section>
+      <section
+        class={`info-wrapper ${this.hiddenContent ? "hidden" : ""}`}
+        onClick={() => {
+          if (this.hiddenContent) this.tooltip = !this.tooltip;
+        }}
+        ref={(el) => (this.infoWrapper = el)}
+      >
         Autore: <b>{this?.cardData?.author}</b>
         <br />
         Anno: <b>{this?.cardData?.year}</b>
@@ -70,6 +84,18 @@ export class zCardInfo {
         <br />
         {this?.cardData?.description}
       </section>
+    );
+  }
+
+  renderTooltip() {
+    if (!this.tooltip) return;
+
+    return (
+      <z-tooltip
+        content={`${this?.cardData?.title} ${this?.cardData?.year} ${this?.cardData?.author} ${this?.cardData?.description}`}
+        type={TooltipPosition.RIGHT}
+        onClick={() => (this.tooltip = false)}
+      />
     );
   }
 
@@ -89,11 +115,11 @@ export class zCardInfo {
     }
   }
 
-  renderOnlineLicenzeSection() {
+  renderOnlineLicenseSection() {
     if (!this?.cardData?.onlineLicense) return;
 
     return (
-      <section>
+      <section ref={(el) => (this.onlineLicenseWrapper = el)}>
         <span class="license-heading">
           <span>Licenza online</span>
           {this.setExpirationLicenseMessage("online")}
@@ -104,11 +130,11 @@ export class zCardInfo {
     );
   }
 
-  renderOfflineLicenzeSection() {
+  renderOfflineLicenseSection() {
     if (!this?.cardData?.offlineLicense) return;
 
     return (
-      <section>
+      <section ref={(el) => (this.offlineLicenseWrapper = el)}>
         <span class="license-heading">
           <span>Licenza offline</span>
           {this.setExpirationLicenseMessage("offline")}
@@ -121,14 +147,33 @@ export class zCardInfo {
     );
   }
 
+  componentDidRender() {
+    if (
+      (this.contentWrapper &&
+        this.contentWrapper.scrollHeight > this.contentWrapper.offsetHeight) ||
+      (this.infoWrapper &&
+        this.infoWrapper.scrollHeight > this.infoWrapper.offsetHeight)
+    ) {
+      const height =
+        this.contentWrapper.offsetHeight -
+        this.onlineLicenseWrapper.offsetHeight -
+        this.offlineLicenseWrapper.offsetHeight;
+      this.infoWrapper.style.height = `${height}px`;
+      this.hiddenContent = true;
+    } else {
+      this.hiddenContent = false;
+    }
+  }
+
   render() {
     return (
       <div>
         {this.renderCloseIcon()}
-        <div class="content-wrapper">
+        <div class={`content-wrapper`} ref={(el) => (this.contentWrapper = el)}>
           {this.renderGeneralSection()}
-          {this.renderOnlineLicenzeSection()}
-          {this.renderOfflineLicenzeSection()}
+          {this.renderTooltip()}
+          {this.renderOnlineLicenseSection()}
+          {this.renderOfflineLicenseSection()}
         </div>
         <div class="cta-wrapper">
           <slot />

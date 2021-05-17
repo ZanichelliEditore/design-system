@@ -26,18 +26,21 @@
 }
 
 :host > div {
+  display: grid;
+}
+
+:host > div > div.cta-wrapper {
+  align-self: end;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
 
-:host > div > div.cta-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  height: 100%;
+:host > div > div.content-wrapper {
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
 }
 
 :host > div > div.content-wrapper > section {
@@ -46,10 +49,33 @@
   padding: var(--basex1) 0;
   font-size: 14px;
   line-height: 20px;
+  box-sizing: border-box;
 }
 
 :host > div > div.content-wrapper > section:last-child {
   border-bottom: none;
+}
+
+:host > div > div.content-wrapper > section.info-wrapper {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+:host > div > div.content-wrapper > section.info-wrapper.hidden:after {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0) 60%,
+    white
+  );
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 :host > div > div.content-wrapper > section > span.license-heading {
@@ -77,6 +103,12 @@
   color: #85641a;
   font-size: 12px;
   font-weight: 600;
+}
+
+:host > div > div.content-wrapper > z-tooltip {
+  position: absolute;
+  top: 0px;
+  left: var(--basex4);
 }
 
 /* Tablet breakpoint */
