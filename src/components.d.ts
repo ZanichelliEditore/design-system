@@ -787,6 +787,9 @@ export namespace Components {
         "url": string;
     }
     interface ZRegistroTable {
+        "bordered": boolean;
+        "columnSticky": boolean;
+        "headerSticky": boolean;
     }
     interface ZRegistroTableBody {
     }
@@ -2215,6 +2218,9 @@ declare namespace LocalJSX {
         "url"?: string;
     }
     interface ZRegistroTable {
+        "bordered"?: boolean;
+        "columnSticky"?: boolean;
+        "headerSticky"?: boolean;
     }
     interface ZRegistroTableBody {
     }
