@@ -946,7 +946,7 @@
   </section>
 
   <z-registro-table>
-    <z-registro-table-head>
+    <z-registro-table-head slot="tHeader">
       <z-registro-table-row>
         <z-registro-table-header>Colonna 1</z-registro-table-header>
         <z-registro-table-header>Colonna 2</z-registro-table-header>
@@ -954,7 +954,7 @@
       </z-registro-table-row>
     </z-registro-table-head>
 
-    <z-registro-table-body>
+    <z-registro-table-body slot="tBody">
       <z-registro-table-row>
         <z-registro-table-cell>Valore 1-1</z-registro-table-cell>
         <z-registro-table-cell>Valore 1-2</z-registro-table-cell>
@@ -971,6 +971,12 @@
         </z-registro-table-cell>
       </z-registro-table-row>
     </z-registro-table-body>
+
+    <z-registro-table-footer slot="tFooter">
+        <div>
+            ciao
+        </div>
+    </z-registro-table-footer>
 
   </z-registro-table>
   <br /><br /><br /><br /><br /><br />

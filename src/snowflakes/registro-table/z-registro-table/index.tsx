@@ -1,4 +1,4 @@
-import { Component, Element, h } from "@stencil/core";
+import { Component, Element, Host, h } from "@stencil/core";
 
 @Component({
   tag: "z-registro-table",
@@ -14,6 +14,15 @@ export class ZRegistroTable {
   }
 
   render() {
-    return <slot />;
+    return (
+        <Host>
+            <div>
+                <slot name="tHeader" />
+                <slot name="tBody" />
+            </div>
+            <slot name="tFooter"/>
+        </Host>
+    )
+    
   }
 }
