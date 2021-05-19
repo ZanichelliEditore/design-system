@@ -1,7 +1,25 @@
-:host > div{
+:host {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host > div.table {
   display: table;
   width: 100%;
   border-collapse: collapse;
-  font-family: var(--dashboard-font);
+}
+
+:host > div.sticky-footer {
+  display: block;
+  position: sticky;
+  left: 0;
+  padding: var(--basex2);
+  background-color: var(--bg-white);
+  border-style: solid;
+  border-color: var(--gray200);
+  border-width: var(--border-size-small) 0 var(--border-base);
   font-weight: var(--font-rg);
 }

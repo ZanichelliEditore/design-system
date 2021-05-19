@@ -1,10 +1,5 @@
 :host {
-  display: block;
-  padding: var(--basex2);
-  background-color: var(--bg-white);
-  border-style: solid;
-  border-color: var(--gray200);
-  border-width: var(--border-size-small) 0 var(--border-base);
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
+    display: table-footer-group;
+    font-family: var(--dashboard-font);
+    font-weight: var(--font-rg);
 }

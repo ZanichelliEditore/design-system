@@ -16,11 +16,12 @@ export class ZRegistroTable {
   render() {
     return (
         <Host>
-            <div>
-                <slot name="tHeader" />
-                <slot name="tBody" />
+            <div class="table">
+                <slot />
             </div>
-            <slot name="tFooter"/>
+            <div class="sticky-footer">
+                <slot name="sticky-footer"/>
+            </div>
         </Host>
     )
     
