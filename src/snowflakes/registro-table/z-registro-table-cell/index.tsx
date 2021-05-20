@@ -1,4 +1,5 @@
-import { Component, Element, h } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { ButtonVariantEnum } from "../../../beans";
 
 @Component({
   tag: "z-registro-table-cell",
@@ -8,12 +9,23 @@ import { Component, Element, h } from "@stencil/core";
 })
 export class ZRegistroTableCell {
   @Element() host: HTMLElement;
+  @Prop() showButton?: boolean;
 
   componentWillRender() {
     this.host.setAttribute("role", "cell");
   }
 
   render() {
-    return <slot />;
+    return (
+      <Host>
+        {this.showButton && (
+          <z-button
+            icon="contextual-menu"
+            variant={ButtonVariantEnum.tertiary}
+          />
+        )}
+        <slot />
+      </Host>
+    );
   }
 }

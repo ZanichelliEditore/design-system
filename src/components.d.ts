@@ -791,6 +791,7 @@ export namespace Components {
     interface ZRegistroTableBody {
     }
     interface ZRegistroTableCell {
+        "showButton"?: boolean;
     }
     interface ZRegistroTableFooter {
     }
@@ -2219,6 +2220,7 @@ declare namespace LocalJSX {
     interface ZRegistroTableBody {
     }
     interface ZRegistroTableCell {
+        "showButton"?: boolean;
     }
     interface ZRegistroTableFooter {
     }

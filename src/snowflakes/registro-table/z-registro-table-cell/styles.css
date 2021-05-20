@@ -2,7 +2,19 @@
   display: table-cell;
   padding: calc(var(--space-unit) * 2);
   background-color: var(--color-white);
-  border-bottom: var(--border-size-small) solid var(--gray200);
+  border-bottom: var(--border-size-small) solid var(--bg-grey-200);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+  position: relative;
+}
+
+:host > z-button {
+  display: none;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+:host:hover > z-button {
+  display: initial;
 }
