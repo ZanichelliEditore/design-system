@@ -1,5 +1,10 @@
 import { Component, Element, Host, h } from "@stencil/core";
 
+/**
+ * @slot - table elements
+ * @slot sticky-footer - set the content of the sticky footer
+ */
+
 @Component({
   tag: "z-registro-table",
   styleUrl: "styles.css",

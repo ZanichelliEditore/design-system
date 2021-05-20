@@ -1,5 +1,4 @@
 :host {
-  max-width: 100%;
   overflow-x: auto;
   display: block;
   font-family: var(--dashboard-font);
