@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.2](https://github.com/ZanichelliEditore/design-system/compare/v1.10.1...v1.10.2) (2021-05-20)
+
+
+### Bug Fixes
+
+* logged menu status ([38543f5](https://github.com/ZanichelliEditore/design-system/commit/38543f58f3bf4437d7dd04aea0352a81bfaa407f))
+
 ### [1.10.1](https://github.com/ZanichelliEditore/design-system/compare/v1.10.0...v1.10.1) (2021-05-20)
 
 ## [1.10.0](https://github.com/ZanichelliEditore/design-system/compare/v1.9.0...v1.10.0) (2021-05-14)
