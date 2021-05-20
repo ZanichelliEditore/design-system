@@ -31,7 +31,7 @@ const ZAppSwitcher = class {
 };
 ZAppSwitcher.style = stylesCss$L;
 
-const stylesCss$K = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>div{background:var(--bg-grey-900);border-radius:var(--border-radius-min);display:grid;grid-template-columns:repeat(2, 1fr);justify-content:space-between;align-items:center;padding:calc(var(--space-unit) * .5);position:sticky;top:0;z-index:99;}:host>div.light{background:var(--bg-white)}:host>div.light #hashtag{color:var(--bg-grey-900)}.left{grid-column-start:1;grid-column-end:2;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-items:center;align-content:center}.left>#hashtag{display:none}.right{grid-column-start:2;grid-column-end:3;display:flex;align-items:center;justify-content:flex-end}.right.hide-actions>slot[name=\"actions\"]{display:none}.right>::slotted(z-link){padding:calc(var(--space-unit) * .5)}.right>::slotted(z-user-dropdown){padding:calc(var(--space-unit) * .5) 0}.right>::slotted(z-app-switcher){padding:6px}@media only screen and (min-width: 768px){:host>div{grid-template-columns:repeat(2, auto)}.left>#hashtag{display:initial;color:var(--bg-white);text-transform:uppercase;padding:var(--space-unit) calc(var(--space-unit) * 2)}.left>#hashtag::before{content:\"#\"}.right{grid-column-gap:var(--space-unit)}.right>::slotted(z-app-switcher){padding:6px calc(var(--space-unit) * 2) 6px var(--space-unit)}}";
+const stylesCss$K = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>div{background:var(--bg-grey-900);border-radius:var(--border-radius-min);display:grid;grid-template-columns:repeat(2, 1fr);justify-content:space-between;align-items:center;padding:calc(var(--space-unit) * .5);position:sticky;top:0;z-index:99;}:host>div.light{background:var(--bg-white)}:host>div.light #hashtag{color:var(--bg-grey-900)}.left{grid-column-start:1;grid-column-end:2;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-items:center;align-content:center}.left>#hashtag{display:none}.right{grid-column-start:2;grid-column-end:3;display:flex;align-items:center;justify-content:flex-end}.right.hide-actions>slot[name=\"actions\"]{display:none}.right>::slotted(z-link){padding:calc(var(--space-unit) * .5)}.right>::slotted(z-app-switcher){padding:6px}@media only screen and (min-width: 768px){:host>div{grid-template-columns:repeat(2, auto)}.left>#hashtag{display:initial;color:var(--bg-white);text-transform:uppercase;padding:var(--space-unit) calc(var(--space-unit) * 2)}.left>#hashtag::before{content:\"#\"}.right{grid-column-gap:var(--space-unit)}.right>::slotted(z-app-switcher){padding:6px calc(var(--space-unit) * 2) 6px var(--space-unit)}}";
 
 const ZAppTopbar = class {
   constructor(hostRef) {
@@ -104,6 +104,7 @@ const ZButton = class {
     return (h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: `${this.variant}${this.issmall ? " small" : ""}` }, this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }), h("slot", null)));
   }
   render() {
+    this.hostElement.style.pointerEvents = this.disabled ? 'none' : 'auto';
     return (h("slot", { name: "element" }, this.renderLegacyButton()));
   }
   get hostElement() { return getElement(this); }
@@ -5029,6 +5030,7 @@ const ZUserDropdown = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.userButtonClick = createEvent(this, "userButtonClick", 7);
+    this.dropdownMenuLinkClick = createEvent(this, "dropdownMenuLinkClick", 7);
     /** theme variant, default 'dark' */
     this.theme = ThemeVariant.dark;
     this.ismenuopen = false;
@@ -5056,12 +5058,15 @@ const ZUserDropdown = class {
         window.innerWidth <= mobileBreakpoint;
     if (this.gosthDiv)
       this.gosthDiv.style.width =
-        !this.isMobile && this.ismenuopen
+        this.logged && (!this.isMobile && this.ismenuopen)
           ? `${(_a = this.userButton) === null || _a === void 0 ? void 0 : _a.offsetWidth}px`
           : "";
   }
   emitUserButtonClick() {
     this.userButtonClick.emit(this.ismenuopen);
+  }
+  emitDropdownMenuLinkClick(e) {
+    this.dropdownMenuLinkClick.emit(e.detail.linkId);
   }
   handleResize() {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
@@ -5077,6 +5082,9 @@ const ZUserDropdown = class {
   handleToggle() {
     this.ismenuopen = !this.ismenuopen;
     this.emitUserButtonClick();
+  }
+  handleDropdownLinkClick(e) {
+    this.emitDropdownMenuLinkClick(e);
   }
   renderCaretIcon() {
     const direction = this.ismenuopen ? "up" : "down";
@@ -5098,11 +5106,11 @@ const ZUserDropdown = class {
   }
   renderDropdownMenu() {
     return (this.ismenuopen && (h("ul", { class: this.theme }, this.linkarray.map((link) => {
-      return (h("li", { id: link.id }, h("z-link", { textcolor: this.retrieveLiTextColor(), big: true, href: link.link, target: "_blank", icon: link.icon }, link.label)));
+      return (h("li", { id: link.id }, h("z-link", { textcolor: this.retrieveLiTextColor(), big: true, href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: (e) => this.handleDropdownLinkClick(e) }, link.label)));
     }))));
   }
   render() {
-    return (h("div", null, this.logged && !this.isMobile && this.renderGhostDiv(), h("div", { class: `${this.ismenuopen ? "open" : ""}` }, this.logged ? this.renderLoggedButton() : this.renderGuestButton(), this.logged && this.renderDropdownMenu())));
+    return (h("div", null, this.logged && !this.isMobile && this.renderGhostDiv(), h("div", { class: `${this.logged && this.ismenuopen ? "open" : ""}` }, this.logged ? this.renderLoggedButton() : this.renderGuestButton(), this.logged && this.renderDropdownMenu())));
   }
 };
 ZUserDropdown.style = stylesCss;

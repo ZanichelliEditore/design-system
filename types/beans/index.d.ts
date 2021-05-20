@@ -65,6 +65,7 @@ export declare type MenuItem = {
   label: string;
   link?: string;
   icon?: string;
+  target?: string;
   subMenu?: MenuItem[];
 };
 export declare type HeaderUserData = {

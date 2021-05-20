@@ -20,6 +20,7 @@ export class ZButton {
       h("slot", null)));
   }
   render() {
+    this.hostElement.style.pointerEvents = this.disabled ? 'none' : 'auto';
     return (h("slot", { name: "element" }, this.renderLegacyButton()));
   }
   static get is() { return "z-button"; }
