@@ -1,4 +1,4 @@
-import { Component, Element, Host, h, State } from "@stencil/core";
+import { Component, Element, Host, h } from "@stencil/core";
 
 @Component({
   tag: "z-registro-table",
@@ -8,11 +8,9 @@ import { Component, Element, Host, h, State } from "@stencil/core";
 })
 export class ZRegistroTable {
   @Element() host: HTMLElement;
-  @State() hasStickyFooter: boolean = false;
 
   componentWillRender() {
     this.host.setAttribute("role", "table");
-    this.hasStickyFooter = !!this.host.querySelector('[slot="sticky-footer"]');
   }
 
   render() {
@@ -21,9 +19,7 @@ export class ZRegistroTable {
             <div class="table">
                 <slot />
             </div>
-            { this.hasStickyFooter && <div class="sticky-footer">
-                <slot name="sticky-footer" />
-            </div> }
+            <slot name="sticky-footer" />
         </Host>
     )
     
