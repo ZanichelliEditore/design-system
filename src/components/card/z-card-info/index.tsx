@@ -76,10 +76,22 @@ export class zCardInfo {
         }}
         ref={(el) => (this.infoWrapper = el)}
       >
-        Autore: <b>{this?.cardData?.author}</b>
-        <br />
-        Anno: <b>{this?.cardData?.year}</b>
-        <br />
+        {this?.cardData?.author ? (
+          <span>
+            Autore: <b>{this.cardData.author}</b>
+            <br />
+          </span>
+        ) : (
+          ""
+        )}
+        {this?.cardData?.year ? (
+          <span>
+            Anno: <b>{this.cardData.year}</b>
+            <br />
+          </span>
+        ) : (
+          ""
+        )}
         {this?.cardData?.title}
         <br />
         {this?.cardData?.description}

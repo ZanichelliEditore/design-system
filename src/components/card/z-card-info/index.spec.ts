@@ -16,10 +16,6 @@ describe("Suite test zCardInfo", () => {
             <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="0"></z-icon>
             <div class="content-wrapper">
               <section class="info-wrapper">
-                Autore: <b></b>
-                <br />
-                Anno: <b></b>
-                <br />
                 <br />
               </section>
             </div>
@@ -46,10 +42,14 @@ describe("Suite test zCardInfo", () => {
           <div class="content-wrapper">
 
             <section class="info-wrapper">
-              Autore: <b>Nicola Zingarelli</b>
-              <br />
-              Anno: <b>2021</b>
-              <br />
+              <span>
+                Autore: <b>Nicola Zingarelli</b>
+                <br />
+              </span>
+              <span>
+                Anno: <b>2021</b>
+                <br />
+              </span>
               Vocabolario della lingua italiana
               <br />
               A cura di Mario Cannella, Beata Lazzarini
@@ -98,10 +98,14 @@ describe("Suite test zCardInfo", () => {
           <div class="content-wrapper">
 
             <section class="info-wrapper">
-              Autore: <b>Nicola Zingarelli</b>
-              <br />
-              Anno: <b>2021</b>
-              <br />
+              <span>
+                Autore: <b>Nicola Zingarelli</b>
+                <br />
+              </span>
+              <span>
+                Anno: <b>2021</b>
+                <br />
+              </span>
               Vocabolario della lingua italiana
               <br />
               A cura di Mario Cannella, Beata Lazzarini
