@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 import { ButtonVariantEnum } from "../../../beans";
 
 @Component({
@@ -13,6 +13,12 @@ export class ZRegistroTableCell {
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
+  @State() isMenuOpened: boolean = false;
+
+  handleMenu() {
+    this.isMenuOpened = !this.isMenuOpened;
+  }
+
   componentWillRender() {
     this.host.setAttribute("role", "cell");
   }
@@ -21,10 +27,22 @@ export class ZRegistroTableCell {
     return (
       <Host>
         {this.showButton && (
-          <z-button
-            icon="contextual-menu"
-            variant={ButtonVariantEnum.tertiary}
-          />
+          <div class="button-container">
+            <div class="button-content">
+              <z-button
+                icon="contextual-menu"
+                variant={ButtonVariantEnum.tertiary}
+                onClick={() => this.handleMenu()}
+              />
+              <div
+                class={`contextual-menu-container ${
+                  this.isMenuOpened && "contextual-menu-container-visible"
+                }`}
+              >
+                <slot name="contextual-menu" />
+              </div>
+            </div>
+          </div>
         )}
         <slot />
       </Host>

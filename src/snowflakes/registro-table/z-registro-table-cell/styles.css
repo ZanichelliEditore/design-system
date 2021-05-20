@@ -8,13 +8,32 @@
   position: relative;
 }
 
-:host > z-button {
+:host > .button-container {
   display: none;
+}
+
+:host:hover > .button-container {
+  display: initial;
+}
+
+.button-container {
   position: absolute;
   right: 8px;
   top: 8px;
+  z-index: 5;
 }
 
-:host:hover > z-button {
+.button-content {
+  position: relative;
+}
+
+.contextual-menu-container {
+  display: none;
+  position: absolute;
+  top: 36px;
+  right: 0;
+}
+
+.contextual-menu-container-visible {
   display: initial;
 }
