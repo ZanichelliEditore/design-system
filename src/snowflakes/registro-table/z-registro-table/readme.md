@@ -8,7 +8,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property       | Attribute       | Description | Type      | Default |
@@ -17,7 +16,13 @@
 | `columnSticky` | `column-sticky` |             | `boolean` | `false` |
 | `headerSticky` | `header-sticky` |             | `boolean` | `false` |
 
+## Slots
 
-----------------------------------------------
+| Slot              | Description                          |
+| ----------------- | ------------------------------------ |
+|                   | table elements                       |
+| `"sticky-footer"` | set the content of the sticky footer |
 
-*Built with [StencilJS](https://stenciljs.com/)*
+---
+
+_Built with [StencilJS](https://stenciljs.com/)_

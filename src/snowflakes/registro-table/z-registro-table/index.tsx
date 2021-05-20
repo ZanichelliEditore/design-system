@@ -1,4 +1,9 @@
-import { Component, Element, h, Prop } from "@stencil/core";
+import { Component, Element, Host, Prop, h } from "@stencil/core";
+
+/**
+ * @slot - table elements
+ * @slot sticky-footer - set the content of the sticky footer
+ */
 
 @Component({
   tag: "z-registro-table",
@@ -29,6 +34,13 @@ export class ZRegistroTable {
   }
 
   render() {
-    return <slot />;
+    return (
+      <Host>
+        <div class="table">
+          <slot />
+        </div>
+        <slot name="sticky-footer" />
+      </Host>
+    );
   }
 }

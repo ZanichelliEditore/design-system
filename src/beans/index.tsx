@@ -75,6 +75,7 @@ export type MenuItem = {
   label: string;
   link?: string;
   icon?: string;
+  target?: string;
   subMenu?: MenuItem[];
 };
 
