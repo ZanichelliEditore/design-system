@@ -9,6 +9,8 @@ import { ButtonVariantEnum } from "../../../beans";
 })
 export class ZRegistroTableCell {
   @Element() host: HTMLElement;
+
+  /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
   componentWillRender() {
