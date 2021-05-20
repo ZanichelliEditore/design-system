@@ -21,7 +21,10 @@ describe("Suite test ZRegistroTable", () => {
   it("Test render ZRegistroTable con slot sticky-footer", async () => {
     const page = await newSpecPage({
       components: [ZRegistroTable],
-      html: `<z-registro-table><z-registro-table-head></z-registro-table-head><div slot="sticky-footer"></div></z-registro-table>`,
+      html: `<z-registro-table>
+                <z-registro-table-head></z-registro-table-head>
+                <z-registro-table-sticky-footer slot="sticky-footer"></z-registro-table-sticky-footer>
+            </z-registro-table>`,
     });
 
     expect(page.root).toEqualHtml(
@@ -29,9 +32,7 @@ describe("Suite test ZRegistroTable", () => {
         <div class="table">
             <z-registro-table-head></z-registro-table-head>
         </div>
-        <div class="sticky-footer">
-            <div slot="sticky-footer"></div>
-        </div>
+        <z-registro-table-sticky-footer slot="sticky-footer"></z-registro-table-sticky-footer>
       </z-registro-table>`
     );
   });
