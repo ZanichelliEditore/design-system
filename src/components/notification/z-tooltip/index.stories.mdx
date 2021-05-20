@@ -52,7 +52,7 @@ import { text, select } from '@storybook/addon-knobs';
 <Preview>
   <Story name="position-top">
     {() => html`
-      <div style="display: flex; width: fit-content; flex-direction: column; align-items: center;">
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
         <z-tooltip style="--z-tooltip-theme--text: var(--bg-white); --z-tooltip-theme--surface: var(--bg-grey-900);" type="top">
           <div class="container" style="display: flex;">
             <span style="width: 4rem;">
@@ -69,7 +69,7 @@ import { text, select } from '@storybook/addon-knobs';
 <Preview>
   <Story name="position-bottom">
     {() => html`
-      <div style="display: flex; width: fit-content; flex-direction: column; align-items: center;">
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
         <button style="margin-bottom: 2rem; width: 5rem;">Element</button>
         <z-tooltip style="--z-tooltip-theme--text: var(--bg-white); --z-tooltip-theme--surface: var(--bg-grey-900);" type="bottom">
           <div class="container" style="display: flex;">
@@ -86,7 +86,7 @@ import { text, select } from '@storybook/addon-knobs';
 <Preview>
   <Story name="position-right">
     {() => html`
-      <div style="display: flex; width: fit-content; align-items: center;">
+      <div style="display: inline-flex; width: fit-content; align-items: center;">
         <button style="margin-right: 2rem; width: 5rem;">Element</button>
         <z-tooltip style="--z-tooltip-theme--text: var(--bg-white); --z-tooltip-theme--surface: var(--bg-grey-900);" type="right">
           <div class="container" style="display: flex;">
@@ -103,7 +103,7 @@ import { text, select } from '@storybook/addon-knobs';
 <Preview>
   <Story name="position-left">
     {() => html`
-      <div style="display: flex; align-items: center;">
+      <div style="display: inline-flex; align-items: center;">
         <z-tooltip style="--z-tooltip-theme--text: var(--bg-white); --z-tooltip-theme--surface: var(--bg-grey-900);" type="left">
           <div class="container" style="display: flex;">
             <span style="width: 4rem;">
@@ -120,7 +120,7 @@ import { text, select } from '@storybook/addon-knobs';
 <Preview>
   <Story name="position-top-left">
     {() => html`
-      <div style="display: flex; width: fit-content; flex-direction: column; align-items: center;">
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
         <z-tooltip style="--z-tooltip-theme--text: var(--bg-white); --z-tooltip-theme--surface: var(--bg-grey-900);" type="top_left">
           <div class="container" style="display: flex;">
             <span style="width: 4rem;">
@@ -137,7 +137,7 @@ import { text, select } from '@storybook/addon-knobs';
 <Preview>
   <Story name="position-top-right">
     {() => html`
-      <div style="display: flex; width: fit-content; flex-direction: column; align-items: center;">
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
         <z-tooltip style="--z-tooltip-theme--text: var(--bg-white); --z-tooltip-theme--surface: var(--bg-grey-900);" type="top_right">
           <div class="container" style="display: flex;">
             <span style="width: 4rem;">
@@ -154,7 +154,7 @@ import { text, select } from '@storybook/addon-knobs';
 <Preview>
   <Story name="position-bottom-left">
     {() => html`
-      <div style="display: flex; width: fit-content; flex-direction: column; align-items: center;">
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
         <button style="margin-bottom: 2rem; align-self: flex-end; width: 5rem;">Element</button>
         <z-tooltip style="--z-tooltip-theme--text: var(--bg-white); --z-tooltip-theme--surface: var(--bg-grey-900);" type="bottom_left">
           <div class="container" style="display: flex;">
@@ -171,7 +171,7 @@ import { text, select } from '@storybook/addon-knobs';
 <Preview>
   <Story name="position-bottom-right">
     {() => html`
-      <div style="display: flex; width: fit-content; flex-direction: column; align-items: center;">
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
         <button style="margin-bottom: 2rem; align-self: flex-start; width: 5rem;">Element</button>
         <z-tooltip style="--z-tooltip-theme--text: var(--bg-white); --z-tooltip-theme--surface: var(--bg-grey-900);" type="bottom_right">
           <div class="container" style="display: flex;">
