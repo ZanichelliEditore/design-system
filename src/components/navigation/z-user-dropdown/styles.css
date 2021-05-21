@@ -83,6 +83,10 @@ ul > li:last-child {
     height: calc(var(--space-unit) * 4);
   }
 
+  :host > div {
+    position: relative;
+  }
+
   :host > div > div {
     padding: 0;
   }
@@ -96,7 +100,7 @@ ul > li:last-child {
     align-content: stretch;
     width: min-content;
     position: absolute;
-    right: 56px;
+    right: 0;
     box-shadow: 0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);
     background: var(--bg-white);
     border-radius: calc(var(--space-unit) * .5);
@@ -112,6 +116,7 @@ ul > li:last-child {
     align-items: end;
     align-content: center;
     padding: 6px var(--space-unit);
+    max-width: 200px;
   }
 
   button > span {
@@ -122,6 +127,7 @@ ul > li:last-child {
     border-top: var(--border-size-small) solid var(--bg-white);
     border-top-left-radius: calc(var(--space-unit) * .5);
     border-top-right-radius: calc(var(--space-unit) * .5);
+    max-width: fit-content;
   }
 
   button > .userfullname {
@@ -173,6 +179,9 @@ ul > li:last-child {
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
+  button {
+    max-width: fit-content;
+  }
 }
 
 /* Wide breakpoint */
