@@ -14,15 +14,7 @@ describe("Suite test ZAppSwitcher", () => {
       <z-app-switcher>
         <mock:shadow-root>
           <button title="app-switcher">
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
+          <z-icon class="dark" name="app-switcher"></z-icon>
           </button>
         </mock:shadow-root>
       </z-app-switcher>
@@ -40,15 +32,7 @@ describe("Suite test ZAppSwitcher", () => {
       <z-app-switcher variant="dark">
         <mock:shadow-root>
           <button title="app-switcher">
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
-            <span class="dark"></span>
+          <z-icon class="dark" name="app-switcher"></z-icon>
           </button>
         </mock:shadow-root>
       </z-app-switcher>
@@ -65,15 +49,7 @@ describe("Suite test ZAppSwitcher", () => {
       <z-app-switcher theme="light">
         <mock:shadow-root>
           <button title="app-switcher">
-            <span class="light"></span>
-            <span class="light"></span>
-            <span class="light"></span>
-            <span class="light"></span>
-            <span class="light"></span>
-            <span class="light"></span>
-            <span class="light"></span>
-            <span class="light"></span>
-            <span class="light"></span>
+          <z-icon class="light" name="app-switcher"></z-icon>
           </button>
         </mock:shadow-root>
       </z-app-switcher>
