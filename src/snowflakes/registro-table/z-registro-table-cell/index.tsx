@@ -27,7 +27,7 @@ export class ZRegistroTableCell {
     return (
       <Host>
         {this.showButton && (
-          <div class="button-container">
+          <div class={`button-container ${this.isMenuOpened && "visible"}`}>
             <div class="button-content">
               <z-button
                 icon="contextual-menu"
@@ -36,7 +36,7 @@ export class ZRegistroTableCell {
               />
               <div
                 class={`contextual-menu-container ${
-                  this.isMenuOpened && "contextual-menu-container-visible"
+                  this.isMenuOpened && "visible"
                 }`}
               >
                 <slot name="contextual-menu" />

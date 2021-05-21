@@ -30,10 +30,11 @@
 .contextual-menu-container {
   display: none;
   position: absolute;
-  top: 36px;
+  top: calc(100% - var(--space-unit));
   right: 0;
 }
 
-.contextual-menu-container-visible {
+.button-container.visible,
+.contextual-menu-container.visible {
   display: initial;
 }
