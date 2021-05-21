@@ -1,22 +1,42 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 
 ## Stories
 
 <Meta title="Notification/ZTooltip" component="z-tooltip" />
 
-  # ZTooltip
+# ZTooltip
 
 <Preview>
-  <Story name="z-tooltip top">
-    {html`
+  <Story name="buttons">
+    {(args) => html`
+      <z-tooltip
+        type="${select('type', ['top', 'bottom', 'left', 'right', 'top_left', 'top_right', 'bottom_left', 'bottom_right'], 'top')}">
+        <div class="container" style="display: flex;">
+          <z-button variant="primary" style="margin-right: 0.5rem;">
+            Open
+          </z-button>
+          <z-button variant="primary" style="margin-right: 0.5rem;">
+            Save as
+          </z-button>
+          <z-button variant="primary"">
+            Share
+          </z-button>
+        </div>
+      </z-tooltip>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="legacy">
+    {(args) => html`
       <z-tooltip
         content="${text('content', 'Aggiungi libro')}"
-        type="${text('type', 'top')}"
+        type="${select('type', ['top', 'bottom', 'left', 'right', 'top_left', 'top_right', 'bottom_left', 'bottom_right'], 'top')}"
       ></z-tooltip>`}
   </Story>
 </Preview>
 
-  <Props of="z-tooltip" />
+<Props of="z-tooltip" />
 

@@ -22,18 +22,10 @@ export class ZAppSwitcher {
     this.appButtonClick.emit({ isopen: this.isopen });
   }
 
-  renderDots(num = 9) {
-    const result = [];
-    for (let index = 0; index < num; index++) {
-      result.push(<span class={this.theme}></span>);
-    }
-    return result;
-  }
-
   render() {
     return (
       <button title="app-switcher" onClick={() => this.emitAppButtonClick()}>
-        {this.renderDots()}
+        <z-icon name="app-switcher" class={this.theme} />
       </button>
     );
   }
