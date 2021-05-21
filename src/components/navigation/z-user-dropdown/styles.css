@@ -127,7 +127,7 @@ ul > li:last-child {
     border-top: var(--border-size-small) solid var(--bg-white);
     border-top-left-radius: calc(var(--space-unit) * .5);
     border-top-right-radius: calc(var(--space-unit) * .5);
-    max-width: fit-content;
+    max-width: initial;
   }
 
   button > .userfullname {
@@ -180,7 +180,7 @@ ul > li:last-child {
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
   button {
-    max-width: fit-content;
+    max-width: initial;
   }
 }
 
