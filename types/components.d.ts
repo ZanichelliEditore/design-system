@@ -800,6 +800,8 @@ export namespace Components {
     }
     interface ZRegistroTableRow {
     }
+    interface ZRegistroTableStickyFooter {
+    }
     interface ZSelect {
         /**
           * the input has autocomplete option
@@ -1239,6 +1241,12 @@ declare global {
         prototype: HTMLZRegistroTableRowElement;
         new (): HTMLZRegistroTableRowElement;
     };
+    interface HTMLZRegistroTableStickyFooterElement extends Components.ZRegistroTableStickyFooter, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableStickyFooterElement: {
+        prototype: HTMLZRegistroTableStickyFooterElement;
+        new (): HTMLZRegistroTableStickyFooterElement;
+    };
     interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
     }
     var HTMLZSelectElement: {
@@ -1332,6 +1340,7 @@ declare global {
         "z-registro-table-head": HTMLZRegistroTableHeadElement;
         "z-registro-table-header": HTMLZRegistroTableHeaderElement;
         "z-registro-table-row": HTMLZRegistroTableRowElement;
+        "z-registro-table-sticky-footer": HTMLZRegistroTableStickyFooterElement;
         "z-select": HTMLZSelectElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
@@ -2228,6 +2237,8 @@ declare namespace LocalJSX {
     }
     interface ZRegistroTableRow {
     }
+    interface ZRegistroTableStickyFooter {
+    }
     interface ZSelect {
         /**
           * the input has autocomplete option
@@ -2420,6 +2431,7 @@ declare namespace LocalJSX {
         "z-registro-table-head": ZRegistroTableHead;
         "z-registro-table-header": ZRegistroTableHeader;
         "z-registro-table-row": ZRegistroTableRow;
+        "z-registro-table-sticky-footer": ZRegistroTableStickyFooter;
         "z-select": ZSelect;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
@@ -2483,6 +2495,7 @@ declare module "@stencil/core" {
             "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
             "z-registro-table-header": LocalJSX.ZRegistroTableHeader & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderElement>;
             "z-registro-table-row": LocalJSX.ZRegistroTableRow & JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
+            "z-registro-table-sticky-footer": LocalJSX.ZRegistroTableStickyFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableStickyFooterElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;

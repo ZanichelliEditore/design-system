@@ -8,6 +8,5 @@ export declare class ZAppSwitcher {
   /** emitted on app button icon click, returns open/closed state */
   appButtonClick: EventEmitter;
   emitAppButtonClick(): void;
-  renderDots(num?: number): any[];
   render(): any;
 }

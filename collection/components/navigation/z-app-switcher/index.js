@@ -11,15 +11,9 @@ export class ZAppSwitcher {
     this.isopen = !this.isopen;
     this.appButtonClick.emit({ isopen: this.isopen });
   }
-  renderDots(num = 9) {
-    const result = [];
-    for (let index = 0; index < num; index++) {
-      result.push(h("span", { class: this.theme }));
-    }
-    return result;
-  }
   render() {
-    return (h("button", { title: "app-switcher", onClick: () => this.emitAppButtonClick() }, this.renderDots()));
+    return (h("button", { title: "app-switcher", onClick: () => this.emitAppButtonClick() },
+      h("z-icon", { name: "app-switcher", class: this.theme })));
   }
   static get is() { return "z-app-switcher"; }
   static get encapsulation() { return "shadow"; }

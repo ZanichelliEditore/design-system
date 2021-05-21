@@ -56,7 +56,8 @@
     "./snowflakes/registro-table/z-registro-table-footer/index.js",
     "./snowflakes/registro-table/z-registro-table-head/index.js",
     "./snowflakes/registro-table/z-registro-table-header/index.js",
-    "./snowflakes/registro-table/z-registro-table-row/index.js"
+    "./snowflakes/registro-table/z-registro-table-row/index.js",
+    "./snowflakes/registro-table/z-registro-table-sticky-footer/index.js"
   ],
   "compiler": {
     "name": "@stencil/core",
