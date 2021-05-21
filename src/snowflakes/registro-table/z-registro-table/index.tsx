@@ -31,9 +31,9 @@ export class ZRegistroTable {
     return (
       <Host>
         <div
-          class={`table ${this.bordered && "table-bordered"} 
-            ${this.columnSticky && "table-column-sticky"} 
-            ${this.headerSticky && "table-header-sticky"}`}
+          class={`table ${this.bordered ? "table-bordered" : ""} 
+            ${this.columnSticky ? "table-column-sticky" : ""} 
+            ${this.headerSticky ? "table-header-sticky" : ""}`}
         >
           <slot />
         </div>

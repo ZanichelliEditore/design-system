@@ -11,7 +11,7 @@ describe("Suite test ZRegistroTable", () => {
 
     expect(page.root).toEqualHtml(
       `<z-registro-table role="table">
-        <div class="false table">
+        <div class="table">
             <z-registro-table-head></z-registro-table-head>
         </div>
       </z-registro-table>`
@@ -29,7 +29,7 @@ describe("Suite test ZRegistroTable", () => {
 
     expect(page.root).toEqualHtml(
       `<z-registro-table role="table">
-        <div class="false table">
+        <div class="table">
             <z-registro-table-head></z-registro-table-head>
         </div>
         <z-registro-table-sticky-footer slot="sticky-footer"></z-registro-table-sticky-footer>
@@ -54,7 +54,7 @@ describe("Suite test ZRegistroTable", () => {
 
     expect(page.root).toEqualHtml(
       `<z-registro-table bordered="true" role="table">
-        <div class="false table table-bordered">
+        <div class="table table-bordered">
             
         </div>
       </z-registro-table>`
@@ -69,7 +69,7 @@ describe("Suite test ZRegistroTable", () => {
 
     expect(page.root).toEqualHtml(
       `<z-registro-table column-sticky="true" role="table">
-        <div class="false table table-column-sticky">
+        <div class="table table-column-sticky">
             
         </div>
       </z-registro-table>`
@@ -84,7 +84,7 @@ describe("Suite test ZRegistroTable", () => {
 
     expect(page.root).toEqualHtml(
       `<z-registro-table header-sticky="true" role="table">
-        <div class="false table table-header-sticky">
+        <div class="table table-header-sticky">
             
         </div>
       </z-registro-table>`
