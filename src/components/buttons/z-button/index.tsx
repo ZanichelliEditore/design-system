@@ -18,30 +18,35 @@ import {
 export class ZButton {
   @Element() hostElement: HTMLElement;
 
-  /** id, should be unique */
+  /** Identifier, should be unique. */
   @Prop() htmlid?: string;
-  /** name */
+  /** HTML button name attribute. */
   @Prop() name?: string;
-  /** disable button */
+  /** HTML button disabled attribute. */
   @Prop({ reflect: true }) disabled?: boolean = false;
-  /** button type */
+  /** HTML button type attribute. */
   @Prop() type?: HTMLButtonElement["type"] = ButtonTypeEnum.button;
-  /** graphic variant */
+  /** Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`. */
   @Prop({ reflect: true }) variant?: ButtonVariantBean =
     ButtonVariantEnum.primary;
-  /** add an icon to button (optional) */
+  /** `z-icon` name to use (optional). */
   @Prop() icon?: string;
 
+  /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
   @Prop({ reflect: true })
   size?: ButtonSizeEnum = ButtonSizeEnum.big;
-  /** @deprecated Use `size` prop.
+  /** Reduce button size (deprecated).
    *
-   *  Reduce button size (optional).
+   * @deprecated Use `size` prop.
    * */
   @Prop({ reflect: true }) issmall?: boolean = false;
 
+  /** Spy to render square button. */
+  @Prop({ reflect: true })
+  square?: boolean = false;
+
   render() {
-    this.hostElement.style.pointerEvents = this.disabled ? 'none' : 'auto';
+    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
 
     return (
       <slot name="element">
@@ -54,7 +59,7 @@ export class ZButton {
             this.variant,
             this.size,
             { issmall: this.issmall },
-            { hasContent: this.hostElement.innerHTML }
+            { square: this.square }
           )}
         >
           {this.icon && <z-icon name={this.icon} width={16} height={16} />}

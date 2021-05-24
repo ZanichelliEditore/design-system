@@ -1,64 +1,100 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, boolean, select } from '@storybook/addon-knobs';
-
-## Stories
+import { text, boolean, select } from "@storybook/addon-knobs";
 
 <Meta title="Buttons/ZButton" component="z-button" />
 
 # ZButton
 
-<Preview>
-  <Story name="button">
-    {(args) => html`
-      <z-button
-        variant="${select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}"
-        .issmall="${boolean('issmall', false)}"
-      >
-        <button slot="element" .disabled="${boolean('disabled', false)}">
-          Enter
-        </button>
-      </z-button>`}
-  </Story>
-  <Story name="button with icon">
-    {(args) => html`
-      <z-button
-        variant="${select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}"
-        .issmall="${boolean('issmall', false)}"
-      >
-        <button slot="element" .disabled="${boolean('disabled', false)}">
-          <z-icon name="${text('icon', 'download')}"></z-icon>Download
-        </button>
-      </z-button>`}
-  </Story>
-</Preview>
-
-# ZButton with Link
-
-<Preview>
-  <Story name="link">
-    {(args) => html`
-      <z-button
-        variant="${select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}"
-        .issmall="${boolean('issmall', false)}"
-      >
-        <a slot="element" href="https://wikipedia.com" target="_blank">
-          <z-icon name="${text('icon', 'link')}"></z-icon>Go to Wikipedia
-        </a>
-      </z-button>`}
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="legacy">
-    {(args) => html`
-      <z-button
-        variant="${select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}"
-        disabled="${boolean('disabled', false)}"
-        icon="${text('icon', 'download')}"
-        .issmall="${boolean('issmall', false)}"
-      >${text('label', 'click me')}</z-button>`}
-  </Story>
-</Preview>
-
 <Props of="z-button" />
+
+<Preview>
+  <Story name="Default button">
+    {(args) => html` <z-button
+      variant="${select(
+        "Variant",
+        ["primary", "secondary", "tertiary"],
+        "primary"
+      )}"
+      size="${select("Size", ["x-small", "small", "big"], "big")}"
+      disabled="${boolean("Disabled", false)}"
+      icon="${text("Icon name", "download")}"
+    >
+      ${text("Label", "click me")}
+    </z-button>`}
+  </Story>
+</Preview>
+
+## Icon only
+
+In this special case we need to override `min-width` (achived with additional `square` prop). **Note:** `z-icon` drops its spacing accordingly.
+
+| Prop name | Prop value              |
+| --------- | ----------------------- |
+| icon      | Any `z-icon` name       |
+| square    | Attribute should be set |
+
+<Preview>
+  <Story name="Icon only">
+    {(args) => html` <z-button
+      variant="${select(
+        "Variant",
+        ["primary", "secondary", "tertiary"],
+        "primary"
+      )}"
+      size="${select("Size", ["x-small", "small", "big"], "big")}"
+      disabled="${boolean("Disabled", false)}"
+      icon="${text("Icon name", "download")}"
+      square
+    ></z-button>`}
+  </Story>
+</Preview>
+
+## Named slotted elements
+
+For further customization and DOM handling is possible to pass the content of a button as named slot named `element`.
+
+> **Inversion of control:** in this case any layout spacing responsibility (aka. icon spacing et similia) is delegated to app's integrators.
+
+**Note:** for backwards compatibility reasons, if present in the slotted hierarchy, `z-icon` will have a right margin.
+
+<Preview>
+  <Story name="With named slot">
+    {(args) => html` <z-button
+      variant="${select(
+        "Variant",
+        ["primary", "secondary", "tertiary"],
+        "primary"
+      )}"
+      size="${select("Size", ["x-small", "small", "big"], "big")}"
+      disabled="${boolean("Disabled", false)}"
+    >
+      <a slot="element" href="https://wikipedia.com" target="_blank">
+        <z-icon name="${text("Icon name", "link")}"></z-icon>Go to Wikipedia
+      </a>
+    </z-button>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="With named slot icon only">
+    {(args) => html` <z-button
+      variant="${select(
+        "Variant",
+        ["primary", "secondary", "tertiary"],
+        "primary"
+      )}"
+      size="${select("Size", ["x-small", "small", "big"], "big")}"
+      disabled="${boolean("Disabled", false)}"
+      square
+    >
+      <button slot="element">
+        <z-icon name="${text("Icon name", "link")}"></z-icon>
+      </button>
+    </z-button>`}
+  </Story>
+</Preview>
+
+## Deprecation
+
+Props `issmall` is deprecated, use `size` instead.

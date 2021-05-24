@@ -1,7 +1,9 @@
 :host {
   display: inline-block;
+
   --z-icon-width: 16px;
   --z-icon-height: 16px;
+  --z-icon-right-margin: var(--space-unit);
 }
 
 button:disabled,
@@ -62,16 +64,18 @@ button.x-small,
   min-width: 32px;
 }
 
-button.hasContent,
-::slotted(button),
-::slotted(a) {
+button:not(.square),
+:host(:not([square])) ::slotted(button),
+:host(:not([square])) ::slotted(a) {
   min-width: calc(var(--space-unit) * 8);
   padding: 0 calc(var(--space-unit) * 2);
 }
 
-button.hasContent z-icon {
-  margin-right: var(--space-unit);
+button.square,
+:host([square]) {
+  --z-icon-right-margin: 0;
 }
+
 button.primary,
 :host([variant="primary"]) ::slotted(button),
 :host([variant="primary"]) ::slotted(a) {
@@ -218,8 +222,4 @@ button.tertiary:disabled,
   border-color: transparent;
   color: var(--text-grey-700);
   fill: var(--text-grey-700);
-}
-
-::slotted([slot="element"]) {
-  --z-icon-right-margin: var(--space-unit);
 }
