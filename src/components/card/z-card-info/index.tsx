@@ -91,7 +91,8 @@ export class zCardInfo {
   }
 
   renderGeneralSection() {
-    const { title, description } = this.cardData!;
+    const title = this?.cardData?.title;
+    const description = this?.cardData?.description;
 
     return (
       <section
@@ -111,7 +112,7 @@ export class zCardInfo {
   }
 
   renderAuthor() {
-    const { author } = this.cardData!;
+    const author = this?.cardData?.author;
     if (!author) return null;
 
     return (
@@ -123,7 +124,7 @@ export class zCardInfo {
   }
 
   renderYear() {
-    const { year } = this.cardData!;
+    const year = this?.cardData?.year;
     if (!year) return null;
 
     return (
@@ -135,8 +136,10 @@ export class zCardInfo {
   }
 
   renderTooltip() {
-    const { title, year, author, description } = this.cardData!;
     if (!this.tooltip) return;
+
+    if (!this.cardData) return;
+    const { title, year, author, description } = this.cardData!;
 
     return (
       <z-tooltip

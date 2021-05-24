@@ -11,6 +11,7 @@
   line-height: 16px;
   letter-spacing: 0.32px;
   font-size: 12px;
+  padding: calc(var(--space-unit) / 2); /* TEMP FIX MYZ */
 }
 
 /* Tooltip basic */
@@ -21,7 +22,8 @@
   border-radius: var(--border-radius);
   text-align: center;
   background: var(--z-tooltip-theme--surface, var(--z-tooltip-light--surface));
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08); */
+  box-shadow: var(--shadow-2); /* TEMP FIX MYZ */
   padding: calc(var(--space-unit) * 2);
 }
 
@@ -52,7 +54,7 @@
   height: 14px;
   background: inherit;
   transform: rotate(45deg);
-  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px
+  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px;
 }
 
 /* Tooltip Left */
@@ -117,7 +119,7 @@
   height: 14px;
   background: inherit;
   transform: rotate(45deg);
-  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px
+  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px;
 }
 
 /* Tooltip Bottom Left */
@@ -130,6 +132,5 @@
   height: 14px;
   background: inherit;
   transform: rotate(45deg);
-  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px
+  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px;
 }
-
