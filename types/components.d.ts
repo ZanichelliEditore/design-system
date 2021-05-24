@@ -812,6 +812,10 @@ export namespace Components {
     interface ZRegistroTableBody {
     }
     interface ZRegistroTableCell {
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
     }
     interface ZRegistroTableFooter {
     }
@@ -2270,6 +2274,10 @@ declare namespace LocalJSX {
     interface ZRegistroTableBody {
     }
     interface ZRegistroTableCell {
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
     }
     interface ZRegistroTableFooter {
     }

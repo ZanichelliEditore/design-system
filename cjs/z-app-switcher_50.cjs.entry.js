@@ -4596,7 +4596,7 @@ const ZPanelElem = class {
 };
 ZPanelElem.style = stylesCss$e;
 
-const stylesCss$d = "z-registro-table{overflow-x:auto;display:block;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-rg)}z-registro-table>div.table{display:table;width:100%;border-collapse:separate}z-registro-table>div.table-bordered>z-registro-table-body>z-registro-table-row>z-registro-table-cell:not(:last-child),z-registro-table>div.table-bordered>z-registro-table-head>z-registro-table-row>z-registro-table-header:not(:last-child){border-right:var(--border-size-small) solid var(--bg-grey-200)}z-registro-table>div.table-column-sticky>z-registro-table-body>z-registro-table-row>z-registro-table-cell:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header:first-child{position:sticky;left:0;box-shadow:1px 0 4px -1px rgba(66, 69, 72, 0.4)}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header{position:sticky;top:0;box-shadow:0 1px 4px -1px rgba(66, 69, 72, 0.4)}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header{z-index:2}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header:first-child{z-index:5}";
+const stylesCss$d = "z-registro-table{overflow-x:auto;display:block;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-rg)}z-registro-table>div.table{display:table;width:100%;border-collapse:separate}z-registro-table>div.table-bordered>z-registro-table-body>z-registro-table-row>z-registro-table-cell:not(:last-child),z-registro-table>div.table-bordered>z-registro-table-head>z-registro-table-row>z-registro-table-header:not(:last-child){border-right:var(--border-size-small) solid var(--bg-grey-200)}z-registro-table>div.table-column-sticky>z-registro-table-body>z-registro-table-row>z-registro-table-cell:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header:first-child{position:sticky;left:0;box-shadow:1px 0 4px -1px rgba(66, 69, 72, 0.4)}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header{position:sticky;top:0;box-shadow:0 2px 3px -3px rgba(66, 69, 72, 0.4)}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header{z-index:2}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header:first-child{z-index:5}";
 
 const ZRegistroTable = class {
   constructor(hostRef) {
@@ -4637,17 +4637,25 @@ const ZRegistroTableBody = class {
 };
 ZRegistroTableBody.style = stylesCss$c;
 
-const stylesCss$b = ".sc-z-registro-table-cell-h{display:table-cell;padding:calc(var(--space-unit) * 2);background-color:var(--color-white);border-bottom:var(--border-size-small) solid var(--gray200);font-family:var(--dashboard-font);font-weight:var(--font-rg)}";
+const stylesCss$b = ".sc-z-registro-table-cell-h{display:table-cell;padding:calc(var(--space-unit) * 2);background-color:var(--color-white);border-bottom:var(--border-size-small) solid var(--bg-grey-200);font-family:var(--dashboard-font);font-weight:var(--font-rg);position:relative}.sc-z-registro-table-cell-h>.button-container.sc-z-registro-table-cell{display:none}.sc-z-registro-table-cell-h:hover>.button-container.sc-z-registro-table-cell{display:initial}.button-container.sc-z-registro-table-cell{position:absolute;right:8px;top:8px;z-index:5}.button-content.sc-z-registro-table-cell{position:relative}.contextual-menu-container.sc-z-registro-table-cell{display:none;position:absolute;top:calc(100% - var(--space-unit));right:0}.button-container.visible.sc-z-registro-table-cell,.contextual-menu-container.visible.sc-z-registro-table-cell{display:initial}";
 
 const ZRegistroTableCell = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
+    this.isMenuOpened = false;
+  }
+  handleMenu() {
+    this.isMenuOpened = !this.isMenuOpened;
   }
   componentWillRender() {
     this.host.setAttribute("role", "cell");
   }
   render() {
-    return index.h("slot", null);
+    return (index.h(index.Host, null, this.showButton && (index.h("div", { class: classnames("button-container", {
+        visible: this.isMenuOpened,
+      }) }, index.h("div", { class: "button-content" }, index.h("z-button", { icon: "contextual-menu", variant: index$1.ButtonVariantEnum.tertiary, size: index$1.ButtonSizeEnum["x-small"], onClick: () => this.handleMenu(), square: true }), index.h("div", { class: classnames("contextual-menu-container", {
+        visible: this.isMenuOpened,
+      }) }, index.h("slot", { name: "contextual-menu" }))))), index.h("slot", null)));
   }
   get host() { return index.getElement(this); }
 };
