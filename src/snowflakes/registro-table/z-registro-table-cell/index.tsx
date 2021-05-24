@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, State } from "@stencil/core";
-import { ButtonVariantEnum } from "../../../beans";
+import { ButtonVariantEnum, ButtonSizeEnum } from "../../../beans";
 
 @Component({
   tag: "z-registro-table-cell",
@@ -32,7 +32,9 @@ export class ZRegistroTableCell {
               <z-button
                 icon="contextual-menu"
                 variant={ButtonVariantEnum.tertiary}
+                size={ButtonSizeEnum["x-small"]}
                 onClick={() => this.handleMenu()}
+                square
               />
               <div
                 class={`contextual-menu-container ${
