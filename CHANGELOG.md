@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/ZanichelliEditore/design-system/compare/v1.12.0...v1.13.0) (2021-05-24)
+
+
+### Features
+
+* **clav-70:** maintain menu visible after click ([ff7ffc8](https://github.com/ZanichelliEditore/design-system/commit/ff7ffc88328193571a969a95c10d6a447aa13569))
+* **CLAV-70:** add slot to contextual-menu ([d971e18](https://github.com/ZanichelliEditore/design-system/commit/d971e18caf7a33a47a816de71cd6e15c42a80b2e))
+* **CLAV-70:** fix shadow style ([c9777c8](https://github.com/ZanichelliEditore/design-system/commit/c9777c8dee140a2efd160de0f5cbccbef75e7dd3))
+* **CLAV-70:** fix table-cell css ([7c31d8d](https://github.com/ZanichelliEditore/design-system/commit/7c31d8d9830edfa3ff8f169e576d49943eb942c2))
+* **CLAV-70:** improve component ([cbe6a13](https://github.com/ZanichelliEditore/design-system/commit/cbe6a1349339d250c9fc8a47968e59476815ef96))
+* **CLAV-70:** update button ([e05ebe4](https://github.com/ZanichelliEditore/design-system/commit/e05ebe488a7ed1ff7ca9faace849b7708013ed18))
+
+
+### Bug Fixes
+
+* **CLAV-70:** minor fix ([d7f33d9](https://github.com/ZanichelliEditore/design-system/commit/d7f33d9f168c9990a45f0fd68d9d9213e79d0803))
+* **CLAV-70:** minor fix ([b13c87f](https://github.com/ZanichelliEditore/design-system/commit/b13c87f4e07094369f6bf47d62362c07d54e69cf))
+
 ## [1.12.0](https://github.com/ZanichelliEditore/design-system/compare/v1.11.0...v1.12.0) (2021-05-24)
 
 
