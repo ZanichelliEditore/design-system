@@ -405,7 +405,7 @@ export const icons = {
 };
 
 // 0.x icons compatibility
-icons["ask-your-manager"] = icons["shopping-cart"];
+icons["ask-your-manager"] = icons["support"];
 icons["book-add"] = icons["book-plus"];
 icons["book-delete"] = icons["book-minus"];
 icons["cart"] = icons["shopping-cart"];
