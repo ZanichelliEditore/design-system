@@ -44,6 +44,29 @@ export class zCardInfo {
     this.setStringOrArray();
   }
 
+  componentDidRender() {
+    this.handleContentHeight();
+  }
+
+  handleContentHeight() {
+    if (!this.contentWrapper && !this.infoWrapper)
+      return (this.hiddenContent = false);
+
+    if (
+      this.contentWrapper.scrollHeight > this.contentWrapper.offsetHeight ||
+      this.infoWrapper.scrollHeight > this.infoWrapper.offsetHeight
+    ) {
+      const height =
+        this.contentWrapper.offsetHeight -
+        this.onlineLicenseWrapper.offsetHeight -
+        this.offlineLicenseWrapper.offsetHeight;
+      this.infoWrapper.style.height = `${height}px`;
+      return (this.hiddenContent = true);
+    }
+
+    return (this.hiddenContent = false);
+  }
+
   setStringOrArray() {
     if (typeof this.data === "string") {
       this.cardData = JSON.parse(this.data);
@@ -68,6 +91,8 @@ export class zCardInfo {
   }
 
   renderGeneralSection() {
+    const { title, description } = this.cardData!;
+
     return (
       <section
         class={`info-wrapper ${this.hiddenContent ? "hidden" : ""}`}
@@ -76,35 +101,46 @@ export class zCardInfo {
         }}
         ref={(el) => (this.infoWrapper = el)}
       >
-        {this?.cardData?.author ? (
-          <span>
-            Autore: <b>{this.cardData.author}</b>
-            <br />
-          </span>
-        ) : (
-          ""
-        )}
-        {this?.cardData?.year ? (
-          <span>
-            Anno: <b>{this.cardData.year}</b>
-            <br />
-          </span>
-        ) : (
-          ""
-        )}
-        {this?.cardData?.title}
+        {this.renderAuthor()}
+        {this.renderYear()}
+        {title}
         <br />
-        {this?.cardData?.description}
+        {description}
       </section>
     );
   }
 
+  renderAuthor() {
+    const { author } = this.cardData!;
+    if (!author) return null;
+
+    return (
+      <span>
+        Autore: <b>{author}</b>
+        <br />
+      </span>
+    );
+  }
+
+  renderYear() {
+    const { year } = this.cardData!;
+    if (!year) return null;
+
+    return (
+      <span>
+        Anno: <b>{year}</b>
+        <br />
+      </span>
+    );
+  }
+
   renderTooltip() {
+    const { title, year, author, description } = this.cardData!;
     if (!this.tooltip) return;
 
     return (
       <z-tooltip
-        content={`${this?.cardData?.title} ${this?.cardData?.year} ${this?.cardData?.author} ${this?.cardData?.description}`}
+        content={`${title} ${year} ${author} ${description}`}
         type={TooltipPosition.RIGHT}
         onClick={() => (this.tooltip = false)}
       />
@@ -159,29 +195,11 @@ export class zCardInfo {
     );
   }
 
-  componentDidRender() {
-    if (
-      (this.contentWrapper &&
-        this.contentWrapper.scrollHeight > this.contentWrapper.offsetHeight) ||
-      (this.infoWrapper &&
-        this.infoWrapper.scrollHeight > this.infoWrapper.offsetHeight)
-    ) {
-      const height =
-        this.contentWrapper.offsetHeight -
-        this.onlineLicenseWrapper.offsetHeight -
-        this.offlineLicenseWrapper.offsetHeight;
-      this.infoWrapper.style.height = `${height}px`;
-      this.hiddenContent = true;
-    } else {
-      this.hiddenContent = false;
-    }
-  }
-
   render() {
     return (
       <div>
         {this.renderCloseIcon()}
-        <div class={`content-wrapper`} ref={(el) => (this.contentWrapper = el)}>
+        <div class="content-wrapper" ref={(el) => (this.contentWrapper = el)}>
           {this.renderGeneralSection()}
           {this.renderTooltip()}
           {this.renderOnlineLicenseSection()}

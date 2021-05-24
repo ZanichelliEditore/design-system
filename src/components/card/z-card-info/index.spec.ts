@@ -6,7 +6,7 @@ describe("Suite test zCardInfo", () => {
   it("Test render zCardInfo - empty", async () => {
     const page = await newSpecPage({
       components: [zCardInfo],
-      html: `<z-card-info></z-card-info>`,
+      html: `<z-card-info></z-card-info>`
     });
 
     expect(page.root).toEqualHtml(`
