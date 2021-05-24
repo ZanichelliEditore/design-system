@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, ThemeVariantBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -51,13 +51,14 @@ export namespace Components {
          */
         "icon"?: string;
         /**
-          * reduce button size (optional)
+          * @deprecated Use `size` prop.  Reduce button size (optional).
          */
         "issmall"?: boolean;
         /**
           * name
          */
         "name"?: string;
+        "size"?: ButtonSizeEnum;
         /**
           * button type
          */
@@ -1408,13 +1409,14 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * reduce button size (optional)
+          * @deprecated Use `size` prop.  Reduce button size (optional).
          */
         "issmall"?: boolean;
         /**
           * name
          */
         "name"?: string;
+        "size"?: ButtonSizeEnum;
         /**
           * button type
          */

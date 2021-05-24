@@ -1,5 +1,6 @@
 :host {
   display: inline-block;
+
   --z-icon-width: 16px;
   --z-icon-height: 16px;
   --z-icon-right-margin: var(--space-unit);
@@ -21,13 +22,11 @@ button,
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
-  padding: 0px calc(var(--space-unit) * 2);
   line-height: 1;
   letter-spacing: 0.3px;
   border-width: var(--border-size-medium);
   border-style: solid;
   border-radius: var(--border-radius);
-  height: 44px;
   vertical-align: middle;
   text-transform: uppercase;
   text-decoration: none;
@@ -37,14 +36,44 @@ button,
   width: 100%;
 }
 
-z-icon {
-  margin-right: var(--space-unit);
+button.big,
+:host([size="big"]) ::slotted(button),
+:host([size="big"]) ::slotted(a) {
+  height: 44px;
+  min-width: 44px;
 }
 
 button.small,
+:host([size="small"]) ::slotted(button),
+:host([size="small"]) ::slotted(a) {
+  height: 36px;
+  min-width: 36px;
+}
+
+button.issmall,
 :host([issmall]) ::slotted(button),
 :host([issmall]) ::slotted(a) {
   height: 36px;
+  min-width: 36px;
+}
+
+button.x-small,
+:host([size="x-small"]) ::slotted(button),
+:host([size="x-small"]) ::slotted(a) {
+  height: 32px;
+  min-width: 32px;
+}
+
+button:not(.square),
+:host(:not([square])) ::slotted(button),
+:host(:not([square])) ::slotted(a) {
+  min-width: calc(var(--space-unit) * 8);
+  padding: 0 calc(var(--space-unit) * 2);
+}
+
+button.square,
+:host([square]) {
+  --z-icon-right-margin: 0;
 }
 
 button.primary,
@@ -152,12 +181,16 @@ button.tertiary,
   fill: var(--myz-blue);
 }
 
+button.tertiary.hasContent {
+  padding: 0 var(--space-unit);
+}
+
 @media (hover: hover) {
   button.tertiary:hover,
   :host([variant="tertiary"]) ::slotted(button:hover),
   :host([variant="tertiary"]) ::slotted(a:hover) {
-    background-color: transparent;
-    border-color: transparent;
+    background-color: var(--myz-blue-lighter);
+    border-color: var(--myz-blue-lighter);
     color: var(--myz-blue-dark);
     fill: var(--myz-blue-dark);
   }
