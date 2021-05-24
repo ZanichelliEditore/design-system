@@ -788,6 +788,18 @@ export namespace Components {
         "url": string;
     }
     interface ZRegistroTable {
+        /**
+          * Sets table with border
+         */
+        "bordered"?: boolean;
+        /**
+          * Sets first column sticky
+         */
+        "columnSticky"?: boolean;
+        /**
+          * Sets header sticky
+         */
+        "headerSticky"?: boolean;
     }
     interface ZRegistroTableBody {
     }
@@ -800,6 +812,8 @@ export namespace Components {
     interface ZRegistroTableHeader {
     }
     interface ZRegistroTableRow {
+    }
+    interface ZRegistroTableStickyFooter {
     }
     interface ZSelect {
         /**
@@ -1240,6 +1254,12 @@ declare global {
         prototype: HTMLZRegistroTableRowElement;
         new (): HTMLZRegistroTableRowElement;
     };
+    interface HTMLZRegistroTableStickyFooterElement extends Components.ZRegistroTableStickyFooter, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableStickyFooterElement: {
+        prototype: HTMLZRegistroTableStickyFooterElement;
+        new (): HTMLZRegistroTableStickyFooterElement;
+    };
     interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
     }
     var HTMLZSelectElement: {
@@ -1333,6 +1353,7 @@ declare global {
         "z-registro-table-head": HTMLZRegistroTableHeadElement;
         "z-registro-table-header": HTMLZRegistroTableHeaderElement;
         "z-registro-table-row": HTMLZRegistroTableRowElement;
+        "z-registro-table-sticky-footer": HTMLZRegistroTableStickyFooterElement;
         "z-select": HTMLZSelectElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
@@ -2217,6 +2238,18 @@ declare namespace LocalJSX {
         "url"?: string;
     }
     interface ZRegistroTable {
+        /**
+          * Sets table with border
+         */
+        "bordered"?: boolean;
+        /**
+          * Sets first column sticky
+         */
+        "columnSticky"?: boolean;
+        /**
+          * Sets header sticky
+         */
+        "headerSticky"?: boolean;
     }
     interface ZRegistroTableBody {
     }
@@ -2229,6 +2262,8 @@ declare namespace LocalJSX {
     interface ZRegistroTableHeader {
     }
     interface ZRegistroTableRow {
+    }
+    interface ZRegistroTableStickyFooter {
     }
     interface ZSelect {
         /**
@@ -2355,6 +2390,10 @@ declare namespace LocalJSX {
          */
         "menucontent"?: string | MenuItem[];
         /**
+          * Emitted on dropdown menu zlink click, returns zlink linkId
+         */
+        "onDropdownMenuLinkClick"?: (event: CustomEvent<any>) => void;
+        /**
           * Emitted on enter or user Button click, returns ismenuopen (bool)
          */
         "onUserButtonClick"?: (event: CustomEvent<any>) => void;
@@ -2418,6 +2457,7 @@ declare namespace LocalJSX {
         "z-registro-table-head": ZRegistroTableHead;
         "z-registro-table-header": ZRegistroTableHeader;
         "z-registro-table-row": ZRegistroTableRow;
+        "z-registro-table-sticky-footer": ZRegistroTableStickyFooter;
         "z-select": ZSelect;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
@@ -2481,6 +2521,7 @@ declare module "@stencil/core" {
             "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
             "z-registro-table-header": LocalJSX.ZRegistroTableHeader & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderElement>;
             "z-registro-table-row": LocalJSX.ZRegistroTableRow & JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
+            "z-registro-table-sticky-footer": LocalJSX.ZRegistroTableStickyFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableStickyFooterElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;

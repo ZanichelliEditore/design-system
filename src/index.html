@@ -697,6 +697,15 @@
       <z-button-filter filtername="filter 3" isfixed hasicon="false"></z-button-filter>
       <z-button-filter filtername="filter 4" hasicon="false"></z-button-filter>
       <z-chip boldtext="1234" regulartext="libri trovati"></z-chip>
+      <z-chip>
+        <z-body level="4">ciao 1</z-body>
+      </z-chip>
+      <z-chip>
+        <z-body level="1" variant="semibold"><span style="color: red">ciao 2</span></z-body>
+      </z-chip>
+      <z-chip boldtext="1234" regulartext="libri trovati">
+        <z-body level="4">ciao 3</z-body>
+      </z-chip>
       <br/>
       <br/>
 
@@ -936,7 +945,7 @@
     </section>
   </section>
 
-  <z-registro-table>
+  <z-registro-table bordered="true">
     <z-registro-table-head>
       <z-registro-table-row>
         <z-registro-table-header>Colonna 1</z-registro-table-header>
@@ -962,6 +971,10 @@
         </z-registro-table-cell>
       </z-registro-table-row>
     </z-registro-table-body>
+
+    <z-registro-table-sticky-footer slot="sticky-footer">
+        Test footer
+    </z-registro-table-sticky-footer>
 
   </z-registro-table>
   <br /><br /><br /><br /><br /><br />

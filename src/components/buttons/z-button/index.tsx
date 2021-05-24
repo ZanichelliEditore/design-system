@@ -41,6 +41,8 @@ export class ZButton {
   @Prop({ reflect: true }) issmall?: boolean = false;
 
   render() {
+    this.hostElement.style.pointerEvents = this.disabled ? 'none' : 'auto';
+
     return (
       <slot name="element">
         <button

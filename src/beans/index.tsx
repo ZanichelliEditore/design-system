@@ -75,6 +75,7 @@ export type MenuItem = {
   label: string;
   link?: string;
   icon?: string;
+  target?: string;
   subMenu?: MenuItem[];
 };
 
@@ -141,6 +142,10 @@ export enum TooltipPosition {
   LEFT = "LEFT",
   RIGHT = "RIGHT",
   NO_ARROW = "NO_ARROW",
+  TOP_LEFT = "TOP_LEFT",
+  TOP_RIGHT = "TOP_RIGHT",
+  BOTTOM_LEFT = "BOTTOM_LEFT",
+  BOTTOM_RIGHT = "BOTTOM_RIGHT",
 }
 
 export enum keybordKeyCodeEnum {
