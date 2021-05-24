@@ -16,6 +16,12 @@ var ButtonTypeEnum;
   ButtonTypeEnum["reset"] = "reset";
   ButtonTypeEnum["button"] = "button";
 })(ButtonTypeEnum || (ButtonTypeEnum = {}));
+var ButtonSizeEnum;
+(function (ButtonSizeEnum) {
+  ButtonSizeEnum["big"] = "big";
+  ButtonSizeEnum["small"] = "small";
+  ButtonSizeEnum["x-small"] = "x-small";
+})(ButtonSizeEnum || (ButtonSizeEnum = {}));
 var InputTypeEnum;
 (function (InputTypeEnum) {
   InputTypeEnum["text"] = "text";
@@ -61,4 +67,4 @@ var ThemeVariant;
   ThemeVariant["light"] = "light";
 })(ThemeVariant || (ThemeVariant = {}));
 
-export { ButtonTypeEnum as B, InputTypeEnum as I, LicenseTypeEnum as L, ThemeVariant as T, ButtonVariantEnum as a, InputStatusEnum as b, TooltipPosition as c, keybordKeyCodeEnum as k };
+export { ButtonTypeEnum as B, InputTypeEnum as I, LicenseTypeEnum as L, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, InputStatusEnum as c, TooltipPosition as d, keybordKeyCodeEnum as k };

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
-import { ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, ThemeVariantBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -39,31 +39,40 @@ export namespace Components {
     }
     interface ZButton {
         /**
-          * disable button
+          * HTML button disabled attribute.
          */
         "disabled"?: boolean;
         /**
-          * id, should be unique
+          * Identifier, should be unique.
          */
         "htmlid"?: string;
         /**
-          * add an icon to button (optional)
+          * `z-icon` name to use (optional).
          */
         "icon"?: string;
         /**
-          * reduce button size (optional)
+          * Reduce button size (deprecated).
+          * @deprecated Use `size` prop.
          */
         "issmall"?: boolean;
         /**
-          * name
+          * HTML button name attribute.
          */
         "name"?: string;
         /**
-          * button type
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ButtonSizeEnum;
+        /**
+          * Spy to render square button.
+         */
+        "square"?: boolean;
+        /**
+          * HTML button type attribute.
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * graphic variant
+          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -1396,31 +1405,40 @@ declare namespace LocalJSX {
     }
     interface ZButton {
         /**
-          * disable button
+          * HTML button disabled attribute.
          */
         "disabled"?: boolean;
         /**
-          * id, should be unique
+          * Identifier, should be unique.
          */
         "htmlid"?: string;
         /**
-          * add an icon to button (optional)
+          * `z-icon` name to use (optional).
          */
         "icon"?: string;
         /**
-          * reduce button size (optional)
+          * Reduce button size (deprecated).
+          * @deprecated Use `size` prop.
          */
         "issmall"?: boolean;
         /**
-          * name
+          * HTML button name attribute.
          */
         "name"?: string;
         /**
-          * button type
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ButtonSizeEnum;
+        /**
+          * Spy to render square button.
+         */
+        "square"?: boolean;
+        /**
+          * HTML button type attribute.
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * graphic variant
+          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }

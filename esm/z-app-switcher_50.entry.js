@@ -1,7 +1,7 @@
 import { r as registerInstance, c as createEvent, h, g as getElement, H as Host } from './index-604accea.js';
-import { T as ThemeVariant, B as ButtonTypeEnum, a as ButtonVariantEnum, L as LicenseTypeEnum, I as InputTypeEnum, k as keybordKeyCodeEnum, b as InputStatusEnum, c as TooltipPosition } from './index-9fb6d08a.js';
+import { T as ThemeVariant, B as ButtonTypeEnum, a as ButtonVariantEnum, b as ButtonSizeEnum, L as LicenseTypeEnum, I as InputTypeEnum, k as keybordKeyCodeEnum, c as InputStatusEnum, d as TooltipPosition } from './index-e13ea0d0.js';
 import { m as mobileBreakpoint } from './breakpoints-e120626c.js';
-import { h as handleKeyboardSubmit, r as randomId, g as getElementTree, a as getClickedElement } from './utils-71ad5413.js';
+import { h as handleKeyboardSubmit, r as randomId, g as getElementTree, a as getClickedElement } from './utils-fcdeb8ca.js';
 
 const stylesCss$M = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
 
@@ -79,26 +79,99 @@ const ZBody = class {
   }
 };
 
-const stylesCss$K = ":host{display:inline-block;--z-icon-width:16px;--z-icon-height:16px;--z-icon-right-margin:var(--space-unit)}button:disabled,::slotted(button:disabled){pointer-events:none}button,::slotted(button),::slotted(a){box-sizing:border-box;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;padding:0px calc(var(--space-unit) * 2);line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);height:44px;vertical-align:middle;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;width:100%}z-icon{margin-right:var(--space-unit)}button.small,:host([issmall]) ::slotted(button),:host([issmall]) ::slotted(a){height:36px}button.primary,:host([variant=\"primary\"]) ::slotted(button),:host([variant=\"primary\"]) ::slotted(a){background-color:var(--myz-blue);border-color:var(--myz-blue);color:var(--bg-white);fill:var(--bg-white)}@media (hover: hover){button.primary:hover,:host([variant=\"primary\"]) ::slotted(button:hover),:host([variant=\"primary\"]) ::slotted(a:hover){background-color:var(--myz-blue-dark);border-color:var(--myz-blue-dark);color:var(--bg-white);fill:var(--bg-white)}}button.primary:focus:focus-visible,:host([variant=\"primary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"primary\"]) ::slotted(a:focus:focus-visible){background-color:var(--myz-blue);border-color:var(--myz-blue);color:var(--bg-white);fill:var(--bg-white);box-shadow:0px 0px 2px 2px var(--accent-dark)}button.primary:active,:host([variant=\"primary\"]) ::slotted(button:active),:host([variant=\"primary\"]) ::slotted(a:active){background-color:var(--myz-blue-light);border-color:var(--myz-blue-light);color:var(--bg-white);fill:var(--bg-white);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button:disabled,:host([variant=\"primary\"]) ::slotted(button:disabled){background-color:var(--bg-neutral-200);border-color:var(--bg-neutral-200);color:var(--text-grey-700);fill:var(--text-grey-700)}button.secondary,:host([variant=\"secondary\"]) ::slotted(button),:host([variant=\"secondary\"]) ::slotted(a){background-color:var(--bg-white);border-color:var(--myz-blue);color:var(--myz-blue);fill:var(--myz-blue)}@media (hover: hover){button.secondary:hover,:host([variant=\"secondary\"]) ::slotted(button:hover),:host([variant=\"secondary\"]) ::slotted(a:hover){background-color:var(--bg-white);border-color:var(--myz-blue-dark);color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}}button.secondary:focus:focus-visible,:host([variant=\"secondary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"secondary\"]) ::slotted(a:focus:focus-visible){background-color:var(--bg-white);border-color:var(--myz-blue);color:var(--myz-blue);fill:var(--myz-blue);box-shadow:0px 0px 2px 2px var(--accent-dark)}button.secondary:active,:host([variant=\"secondary\"]) ::slotted(button:active),:host([variant=\"secondary\"]) ::slotted(a:active){background-color:var(--bg-white);border-color:var(--myz-blue-light);color:var(--myz-blue-light);fill:var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.secondary:disabled,:host([variant=\"secondary\"]) ::slotted(button:disabled){background-color:var(--bg-white);border-color:var(--bg-neutral-200);color:var(--text-grey-700);fill:var(--text-grey-700)}button.tertiary,:host([variant=\"tertiary\"]) ::slotted(button),:host([variant=\"tertiary\"]) ::slotted(a){background-color:transparent;border-color:transparent;color:var(--myz-blue);fill:var(--myz-blue)}@media (hover: hover){button.tertiary:hover,:host([variant=\"tertiary\"]) ::slotted(button:hover),:host([variant=\"tertiary\"]) ::slotted(a:hover){background-color:transparent;border-color:transparent;color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}}button.tertiary:focus:focus-visible,:host([variant=\"tertiary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"tertiary\"]) ::slotted(a:focus:focus-visible){background-color:var(--bg-white);border-color:var(--bg-white);color:var(--myz-blue);fill:var(--myz-blue);box-shadow:0px 0px 2px 2px var(--accent-dark)}button.tertiary:active,:host([variant=\"tertiary\"]) ::slotted(button:active),:host([variant=\"tertiary\"]) ::slotted(a:active){background-color:var(--bg-white);border-color:var(--bg-white);color:var(--myz-blue-light);fill:var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.tertiary:disabled,:host([variant=\"tertiary\"]) ::slotted(button:disabled){background-color:transparent;border-color:transparent;color:var(--text-grey-700);fill:var(--text-grey-700)}";
+function createCommonjsModule(fn, basedir, module) {
+	return module = {
+		path: basedir,
+		exports: {},
+		require: function (path, base) {
+			return commonjsRequire();
+		}
+	}, fn(module, module.exports), module.exports;
+}
+
+function commonjsRequire () {
+	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
+}
+
+var classnames = createCommonjsModule(function (module) {
+/*!
+  Copyright (c) 2018 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames() {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				if (arg.length) {
+					var inner = classNames.apply(null, arg);
+					if (inner) {
+						classes.push(inner);
+					}
+				}
+			} else if (argType === 'object') {
+				if (arg.toString === Object.prototype.toString) {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				} else {
+					classes.push(arg.toString());
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else {
+		window.classNames = classNames;
+	}
+}());
+});
+
+const stylesCss$K = ":host{display:inline-block;--z-icon-width:16px;--z-icon-height:16px;--z-icon-right-margin:var(--space-unit)}button:disabled,::slotted(button:disabled){pointer-events:none}button,::slotted(button),::slotted(a){box-sizing:border-box;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);vertical-align:middle;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;width:100%}button.big,:host([size=\"big\"]) ::slotted(button),:host([size=\"big\"]) ::slotted(a){height:44px;min-width:44px}button.small,:host([size=\"small\"]) ::slotted(button),:host([size=\"small\"]) ::slotted(a){height:36px;min-width:36px}button.issmall,:host([issmall]) ::slotted(button),:host([issmall]) ::slotted(a){height:36px;min-width:36px}button.x-small,:host([size=\"x-small\"]) ::slotted(button),:host([size=\"x-small\"]) ::slotted(a){height:32px;min-width:32px}button:not(.square),:host(:not([square])) ::slotted(button),:host(:not([square])) ::slotted(a){min-width:calc(var(--space-unit) * 8);padding:0 calc(var(--space-unit) * 2)}button.square,:host([square]){--z-icon-right-margin:0}button.primary,:host([variant=\"primary\"]) ::slotted(button),:host([variant=\"primary\"]) ::slotted(a){background-color:var(--myz-blue);border-color:var(--myz-blue);color:var(--bg-white);fill:var(--bg-white)}@media (hover: hover){button.primary:hover,:host([variant=\"primary\"]) ::slotted(button:hover),:host([variant=\"primary\"]) ::slotted(a:hover){background-color:var(--myz-blue-dark);border-color:var(--myz-blue-dark);color:var(--bg-white);fill:var(--bg-white)}}button.primary:focus:focus-visible,:host([variant=\"primary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"primary\"]) ::slotted(a:focus:focus-visible){background-color:var(--myz-blue);border-color:var(--myz-blue);color:var(--bg-white);fill:var(--bg-white);box-shadow:0px 0px 2px 2px var(--accent-dark)}button.primary:active,:host([variant=\"primary\"]) ::slotted(button:active),:host([variant=\"primary\"]) ::slotted(a:active){background-color:var(--myz-blue-light);border-color:var(--myz-blue-light);color:var(--bg-white);fill:var(--bg-white);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button:disabled,:host([variant=\"primary\"]) ::slotted(button:disabled){background-color:var(--bg-neutral-200);border-color:var(--bg-neutral-200);color:var(--text-grey-700);fill:var(--text-grey-700)}button.secondary,:host([variant=\"secondary\"]) ::slotted(button),:host([variant=\"secondary\"]) ::slotted(a){background-color:var(--bg-white);border-color:var(--myz-blue);color:var(--myz-blue);fill:var(--myz-blue)}@media (hover: hover){button.secondary:hover,:host([variant=\"secondary\"]) ::slotted(button:hover),:host([variant=\"secondary\"]) ::slotted(a:hover){background-color:var(--bg-white);border-color:var(--myz-blue-dark);color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}}button.secondary:focus:focus-visible,:host([variant=\"secondary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"secondary\"]) ::slotted(a:focus:focus-visible){background-color:var(--bg-white);border-color:var(--myz-blue);color:var(--myz-blue);fill:var(--myz-blue);box-shadow:0px 0px 2px 2px var(--accent-dark)}button.secondary:active,:host([variant=\"secondary\"]) ::slotted(button:active),:host([variant=\"secondary\"]) ::slotted(a:active){background-color:var(--bg-white);border-color:var(--myz-blue-light);color:var(--myz-blue-light);fill:var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.secondary:disabled,:host([variant=\"secondary\"]) ::slotted(button:disabled){background-color:var(--bg-white);border-color:var(--bg-neutral-200);color:var(--text-grey-700);fill:var(--text-grey-700)}button.tertiary,:host([variant=\"tertiary\"]) ::slotted(button),:host([variant=\"tertiary\"]) ::slotted(a){background-color:transparent;border-color:transparent;color:var(--myz-blue);fill:var(--myz-blue)}button.tertiary.hasContent{padding:0 var(--space-unit)}@media (hover: hover){button.tertiary:hover,:host([variant=\"tertiary\"]) ::slotted(button:hover),:host([variant=\"tertiary\"]) ::slotted(a:hover){background-color:var(--myz-blue-lighter);border-color:var(--myz-blue-lighter);color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}}button.tertiary:focus:focus-visible,:host([variant=\"tertiary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"tertiary\"]) ::slotted(a:focus:focus-visible){background-color:var(--bg-white);border-color:var(--bg-white);color:var(--myz-blue);fill:var(--myz-blue);box-shadow:0px 0px 2px 2px var(--accent-dark)}button.tertiary:active,:host([variant=\"tertiary\"]) ::slotted(button:active),:host([variant=\"tertiary\"]) ::slotted(a:active){background-color:var(--bg-white);border-color:var(--bg-white);color:var(--myz-blue-light);fill:var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.tertiary:disabled,:host([variant=\"tertiary\"]) ::slotted(button:disabled){background-color:transparent;border-color:transparent;color:var(--text-grey-700);fill:var(--text-grey-700)}";
 
 const ZButton = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
-    /** disable button */
+    /** HTML button disabled attribute. */
     this.disabled = false;
-    /** button type */
+    /** HTML button type attribute. */
     this.type = ButtonTypeEnum.button;
-    /** graphic variant */
+    /** Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`. */
     this.variant = ButtonVariantEnum.primary;
-    /** reduce button size (optional) */
+    /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+    this.size = ButtonSizeEnum.big;
+    /** Reduce button size (deprecated).
+     *
+     * @deprecated Use `size` prop.
+     * */
     this.issmall = false;
-  }
-  renderLegacyButton() {
-    return (h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: `${this.variant}${this.issmall ? " small" : ""}` }, this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }), h("slot", null)));
+    /** Spy to render square button. */
+    this.square = false;
   }
   render() {
-    this.hostElement.style.pointerEvents = this.disabled ? 'none' : 'auto';
-    return (h("slot", { name: "element" }, this.renderLegacyButton()));
+    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
+    return (h("slot", { name: "element" }, h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: classnames(this.variant, this.size, { issmall: this.issmall }, { square: this.square }) }, this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }), h("slot", null))));
   }
   get hostElement() { return getElement(this); }
 };
@@ -1715,20 +1788,6 @@ const ZMenuSection = class {
   get hostElement() { return getElement(this); }
 };
 ZMenuSection.style = stylesCss$h;
-
-function createCommonjsModule(fn, basedir, module) {
-	return module = {
-		path: basedir,
-		exports: {},
-		require: function (path, base) {
-			return commonjsRequire();
-		}
-	}, fn(module, module.exports), module.exports;
-}
-
-function commonjsRequire () {
-	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
-}
 
 var hammer = createCommonjsModule(function (module) {
 /*! Hammer.JS - v2.0.7 - 2016-04-22
@@ -4979,7 +5038,7 @@ const ZToggleButton = class {
 };
 ZToggleButton.style = stylesCss$3;
 
-const stylesCss$2 = ":host{--z-tooltip-light--surface:var(--bg-white);--z-tooltip-light--text:var(--text-grey-800);--z-tooltip-dark--surface:var(--text-grey-900);--z-tooltip-dark--text:var(--color-white);color:var(--z-tooltip-theme--text, var(--z-tooltip-light--text));fill:var(--z-tooltip-theme--text, var(--z-tooltip-light--text));font-family:var(--dashboard-font);font-weight:var(--font-rg);font-style:italic;line-height:16px;letter-spacing:0.32px;font-size:12px}:host .tooltip{position:relative;margin:0 auto;display:inline-block;border-radius:var(--border-radius);text-align:center;background:var(--z-tooltip-theme--surface, var(--z-tooltip-light--surface));box-shadow:0px 0px 2px 0px rgba(0, 0, 0, 0.08);padding:calc(var(--space-unit) * 2)}:host .tooltip.legacy{max-width:200px}:host .tooltip-top-arrow:after{content:\"\";position:absolute;left:calc(50% - 7px);top:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:-1px -1px 4px -1px rgba(0, 0, 0, 0.08)}:host .tooltip-bottom-arrow:after{content:\"\";position:absolute;left:calc(50% - 7px);bottom:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:rgb(0 0 0 / 8%) 1px 1px 2px 0px}:host .tooltip-left-arrow:after{content:\"\";position:absolute;top:calc(50% - 7px);left:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:rgb(0 0 0 / 8%) -1px 1px 2px 0px}:host .tooltip-right-arrow:after{content:\"\";position:absolute;top:calc(50% - 7px);right:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:rgb(0 0 0 / 8%) 1px -1px 2px 0px}:host .tooltip-top-right-arrow:after{content:\"\";position:absolute;left:calc(25% - 7px);top:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:-1px -1px 4px -1px rgba(0, 0, 0, 0.08)}:host .tooltip-top-left-arrow:after{content:\"\";position:absolute;right:calc(25% - 7px);top:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:-1px -1px 4px -1px rgba(0, 0, 0, 0.08)}:host .tooltip-bottom-right-arrow:after{content:\"\";position:absolute;left:calc(25% - 7px);bottom:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:rgb(0 0 0 / 8%) 1px 1px 2px 0px}:host .tooltip-bottom-left-arrow:after{content:\"\";position:absolute;right:calc(25% - 7px);bottom:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:rgb(0 0 0 / 8%) 1px 1px 2px 0px}";
+const stylesCss$2 = ":host{--z-tooltip-light--surface:var(--bg-white);--z-tooltip-light--text:var(--text-grey-800);--z-tooltip-dark--surface:var(--text-grey-900);--z-tooltip-dark--text:var(--color-white);color:var(--z-tooltip-theme--text, var(--z-tooltip-light--text));fill:var(--z-tooltip-theme--text, var(--z-tooltip-light--text));font-family:var(--dashboard-font);font-weight:var(--font-rg);font-style:italic;line-height:16px;letter-spacing:0.32px;font-size:12px}:host .tooltip{position:relative;margin:0 auto;display:inline-block;border-radius:var(--border-radius);text-align:center;background:var(--z-tooltip-theme--surface, var(--z-tooltip-light--surface));box-shadow:0px 0px 2px 0px rgba(0, 0, 0, 0.08);padding:calc(var(--space-unit) * 2)}:host .tooltip.legacy{max-width:200px}:host .tooltip-top-arrow:after{content:\"\";position:absolute;left:calc(50% - 7px);top:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:-1px -1px 4px -1px rgba(0, 0, 0, 0.08)}:host .tooltip-bottom-arrow:after{content:\"\";position:absolute;left:calc(50% - 7px);bottom:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:rgb(0 0 0 / 8%) 1px 1px 2px 0px}:host .tooltip-left-arrow:after{content:\"\";position:absolute;top:calc(50% - 7px);left:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:rgb(0 0 0 / 8%) -1px 1px 2px 0px}:host .tooltip-right-arrow:after{content:\"\";position:absolute;top:calc(50% - 7px);right:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:rgb(0 0 0 / 8%) 1px -1px 2px 0px}:host .tooltip-top-right-arrow:after{content:\"\";position:absolute;right:calc(25% - 7px);top:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:-1px -1px 4px -1px rgba(0, 0, 0, 0.08)}:host .tooltip-top-left-arrow:after{content:\"\";position:absolute;left:calc(25% - 7px);top:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:-1px -1px 4px -1px rgba(0, 0, 0, 0.08)}:host .tooltip-bottom-right-arrow:after{content:\"\";position:absolute;right:calc(25% - 7px);bottom:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:rgb(0 0 0 / 8%) 1px 1px 2px 0px}:host .tooltip-bottom-left-arrow:after{content:\"\";position:absolute;left:calc(25% - 7px);bottom:-7px;width:14px;height:14px;background:inherit;transform:rotate(45deg);box-shadow:rgb(0 0 0 / 8%) 1px 1px 2px 0px}";
 
 const ZTooltip = class {
   constructor(hostRef) {

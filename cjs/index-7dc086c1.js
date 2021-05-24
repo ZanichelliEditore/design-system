@@ -18,6 +18,12 @@ exports.ButtonTypeEnum = void 0;
   ButtonTypeEnum["reset"] = "reset";
   ButtonTypeEnum["button"] = "button";
 })(exports.ButtonTypeEnum || (exports.ButtonTypeEnum = {}));
+exports.ButtonSizeEnum = void 0;
+(function (ButtonSizeEnum) {
+  ButtonSizeEnum["big"] = "big";
+  ButtonSizeEnum["small"] = "small";
+  ButtonSizeEnum["x-small"] = "x-small";
+})(exports.ButtonSizeEnum || (exports.ButtonSizeEnum = {}));
 exports.InputTypeEnum = void 0;
 (function (InputTypeEnum) {
   InputTypeEnum["text"] = "text";

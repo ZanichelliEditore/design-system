@@ -1,27 +1,33 @@
 import { Component, Prop, h, Element } from "@stencil/core";
-import { ButtonVariantEnum, ButtonTypeEnum, } from "../../../beans";
+import classNames from "classnames";
+import { ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum, } from "../../../beans";
 /**
  * @slot - button label
  */
 export class ZButton {
   constructor() {
-    /** disable button */
+    /** HTML button disabled attribute. */
     this.disabled = false;
-    /** button type */
+    /** HTML button type attribute. */
     this.type = ButtonTypeEnum.button;
-    /** graphic variant */
+    /** Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`. */
     this.variant = ButtonVariantEnum.primary;
-    /** reduce button size (optional) */
+    /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+    this.size = ButtonSizeEnum.big;
+    /** Reduce button size (deprecated).
+     *
+     * @deprecated Use `size` prop.
+     * */
     this.issmall = false;
-  }
-  renderLegacyButton() {
-    return (h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: `${this.variant}${this.issmall ? " small" : ""}` },
-      this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }),
-      h("slot", null)));
+    /** Spy to render square button. */
+    this.square = false;
   }
   render() {
-    this.hostElement.style.pointerEvents = this.disabled ? 'none' : 'auto';
-    return (h("slot", { name: "element" }, this.renderLegacyButton()));
+    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
+    return (h("slot", { name: "element" },
+      h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: classNames(this.variant, this.size, { issmall: this.issmall }, { square: this.square }) },
+        this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }),
+        h("slot", null))));
   }
   static get is() { return "z-button"; }
   static get encapsulation() { return "shadow"; }
@@ -44,7 +50,7 @@ export class ZButton {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "id, should be unique"
+        "text": "Identifier, should be unique."
       },
       "attribute": "htmlid",
       "reflect": false
@@ -61,7 +67,7 @@ export class ZButton {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "name"
+        "text": "HTML button name attribute."
       },
       "attribute": "name",
       "reflect": false
@@ -78,7 +84,7 @@ export class ZButton {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "disable button"
+        "text": "HTML button disabled attribute."
       },
       "attribute": "disabled",
       "reflect": true,
@@ -100,7 +106,7 @@ export class ZButton {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "button type"
+        "text": "HTML button type attribute."
       },
       "attribute": "type",
       "reflect": false,
@@ -123,29 +129,11 @@ export class ZButton {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "graphic variant"
+        "text": "Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`."
       },
       "attribute": "variant",
       "reflect": true,
       "defaultValue": "ButtonVariantEnum.primary"
-    },
-    "issmall": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "reduce button size (optional)"
-      },
-      "attribute": "issmall",
-      "reflect": true,
-      "defaultValue": "false"
     },
     "icon": {
       "type": "string",
@@ -159,10 +147,72 @@ export class ZButton {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "add an icon to button (optional)"
+        "text": "`z-icon` name to use (optional)."
       },
       "attribute": "icon",
       "reflect": false
+    },
+    "size": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "ButtonSizeEnum",
+        "resolved": "ButtonSizeEnum.big | ButtonSizeEnum.small | typeof ButtonSizeEnum[\"x-small\"]",
+        "references": {
+          "ButtonSizeEnum": {
+            "location": "import",
+            "path": "../../../beans"
+          }
+        }
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Available sizes: `big`, `small` and `x-small`. Defaults to `big`."
+      },
+      "attribute": "size",
+      "reflect": true,
+      "defaultValue": "ButtonSizeEnum.big"
+    },
+    "issmall": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [{
+            "text": "Use `size` prop.",
+            "name": "deprecated"
+          }],
+        "text": "Reduce button size (deprecated)."
+      },
+      "attribute": "issmall",
+      "reflect": true,
+      "defaultValue": "false"
+    },
+    "square": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Spy to render square button."
+      },
+      "attribute": "square",
+      "reflect": true,
+      "defaultValue": "false"
     }
   }; }
   static get elementRef() { return "hostElement"; }

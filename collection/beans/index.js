@@ -16,6 +16,12 @@ export var ButtonTypeEnum;
   ButtonTypeEnum["reset"] = "reset";
   ButtonTypeEnum["button"] = "button";
 })(ButtonTypeEnum || (ButtonTypeEnum = {}));
+export var ButtonSizeEnum;
+(function (ButtonSizeEnum) {
+  ButtonSizeEnum["big"] = "big";
+  ButtonSizeEnum["small"] = "small";
+  ButtonSizeEnum["x-small"] = "x-small";
+})(ButtonSizeEnum || (ButtonSizeEnum = {}));
 export var InputTypeEnum;
 (function (InputTypeEnum) {
   InputTypeEnum["text"] = "text";

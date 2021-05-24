@@ -91,6 +91,11 @@ export declare enum ButtonTypeEnum {
   reset = "reset",
   button = "button"
 }
+export declare enum ButtonSizeEnum {
+  big = "big",
+  small = "small",
+  "x-small" = "x-small"
+}
 export declare type InputTypeBean = keyof typeof InputTypeEnum;
 export declare enum InputTypeEnum {
   text = "text",
