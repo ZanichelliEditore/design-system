@@ -1,5 +1,5 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { DictionaryData } from "../../../beans";
+import { Component, Prop, h, Event, EventEmitter, State } from "@stencil/core";
+import { DictionaryData, TooltipPosition } from "../../../beans";
 import { handleKeyboardSubmit } from "../../../utils/utils";
 
 /**
@@ -16,7 +16,15 @@ export class zCardInfo {
   /** tabindex link attribute (optional) */
   @Prop() htmltabindex?: number = 0;
 
+  @State() hiddenContent: boolean = false;
+  @State() tooltip: boolean = false;
+
   private cardData: DictionaryData;
+
+  private contentWrapper: HTMLElement;
+  private infoWrapper: HTMLElement;
+  private onlineLicenseWrapper: HTMLElement;
+  private offlineLicenseWrapper: HTMLElement;
 
   /** flip card to front */
   @Event() flipCard: EventEmitter;
@@ -34,6 +42,29 @@ export class zCardInfo {
 
   componentWillUpdate() {
     this.setStringOrArray();
+  }
+
+  componentDidRender() {
+    this.handleContentHeight();
+  }
+
+  handleContentHeight() {
+    if (!this.contentWrapper && !this.infoWrapper)
+      return (this.hiddenContent = false);
+
+    if (
+      this.contentWrapper.scrollHeight > this.contentWrapper.offsetHeight ||
+      this.infoWrapper.scrollHeight > this.infoWrapper.offsetHeight
+    ) {
+      const height =
+        this.contentWrapper.offsetHeight -
+        this.onlineLicenseWrapper.offsetHeight -
+        this.offlineLicenseWrapper.offsetHeight;
+      this.infoWrapper.style.height = `${height}px`;
+      return (this.hiddenContent = true);
+    }
+
+    return (this.hiddenContent = false);
   }
 
   setStringOrArray() {
@@ -60,16 +91,59 @@ export class zCardInfo {
   }
 
   renderGeneralSection() {
+    const { title, description } = this.cardData!;
+
     return (
-      <section>
-        Autore: <b>{this?.cardData?.author}</b>
+      <section
+        class={`info-wrapper ${this.hiddenContent ? "hidden" : ""}`}
+        onClick={() => {
+          if (this.hiddenContent) this.tooltip = !this.tooltip;
+        }}
+        ref={(el) => (this.infoWrapper = el)}
+      >
+        {this.renderAuthor()}
+        {this.renderYear()}
+        {title}
         <br />
-        Anno: <b>{this?.cardData?.year}</b>
-        <br />
-        {this?.cardData?.title}
-        <br />
-        {this?.cardData?.description}
+        {description}
       </section>
+    );
+  }
+
+  renderAuthor() {
+    const { author } = this.cardData!;
+    if (!author) return null;
+
+    return (
+      <span>
+        Autore: <b>{author}</b>
+        <br />
+      </span>
+    );
+  }
+
+  renderYear() {
+    const { year } = this.cardData!;
+    if (!year) return null;
+
+    return (
+      <span>
+        Anno: <b>{year}</b>
+        <br />
+      </span>
+    );
+  }
+
+  renderTooltip() {
+    const { title, year, author, description } = this.cardData!;
+    if (!this.tooltip) return;
+
+    return (
+      <z-tooltip
+        content={`${title} ${year} ${author} ${description}`}
+        type={TooltipPosition.RIGHT}
+        onClick={() => (this.tooltip = false)}
+      />
     );
   }
 
@@ -89,31 +163,31 @@ export class zCardInfo {
     }
   }
 
-  renderOnlineLicenzeSection() {
+  renderOnlineLicenseSection() {
     if (!this?.cardData?.onlineLicense) return;
 
     return (
-      <section>
+      <section ref={(el) => (this.onlineLicenseWrapper = el)}>
         <span class="license-heading">
           <span>Licenza online</span>
           {this.setExpirationLicenseMessage("online")}
         </span>
-        Scadenza: <b>{this.cardData.onlineLicense.expiration}</b>
+        Scadenza il <b>{this.cardData.onlineLicense.expiration}</b>
         <br />
       </section>
     );
   }
 
-  renderOfflineLicenzeSection() {
+  renderOfflineLicenseSection() {
     if (!this?.cardData?.offlineLicense) return;
 
     return (
-      <section>
+      <section ref={(el) => (this.offlineLicenseWrapper = el)}>
         <span class="license-heading">
           <span>Licenza offline</span>
           {this.setExpirationLicenseMessage("offline")}
         </span>
-        Scadenza: <b>{this.cardData.offlineLicense.expiration}</b>
+        Scadenza il <b>{this.cardData.offlineLicense.expiration}</b>
         <br />
         Installazioni disponibili:{" "}
         <b>{this.cardData.offlineLicense.installations}</b>
@@ -125,10 +199,11 @@ export class zCardInfo {
     return (
       <div>
         {this.renderCloseIcon()}
-        <div class="content-wrapper">
+        <div class="content-wrapper" ref={(el) => (this.contentWrapper = el)}>
           {this.renderGeneralSection()}
-          {this.renderOnlineLicenzeSection()}
-          {this.renderOfflineLicenzeSection()}
+          {this.renderTooltip()}
+          {this.renderOnlineLicenseSection()}
+          {this.renderOfflineLicenseSection()}
         </div>
         <div class="cta-wrapper">
           <slot />

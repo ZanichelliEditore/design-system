@@ -15,11 +15,7 @@ describe("Suite test zCardInfo", () => {
           <div>
             <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="0"></z-icon>
             <div class="content-wrapper">
-              <section>
-                Autore: <b></b>
-                <br />
-                Anno: <b></b>
-                <br />
+              <section class="info-wrapper">
                 <br />
               </section>
             </div>
@@ -35,7 +31,7 @@ describe("Suite test zCardInfo", () => {
   it("Test render zCardInfo - with data", async () => {
     const page = await newSpecPage({
       components: [zCardInfo],
-      html: `<z-card-info data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'></z-card-info>`
+      html: `<z-card-info data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'></z-card-info>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -45,11 +41,15 @@ describe("Suite test zCardInfo", () => {
           <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="0"></z-icon>
           <div class="content-wrapper">
 
-            <section>
-              Autore: <b>Nicola Zingarelli</b>
-              <br />
-              Anno: <b>2021</b>
-              <br />
+            <section class="info-wrapper">
+              <span>
+                Autore: <b>Nicola Zingarelli</b>
+                <br />
+              </span>
+              <span>
+                Anno: <b>2021</b>
+                <br />
+              </span>
               Vocabolario della lingua italiana
               <br />
               A cura di Mario Cannella, Beata Lazzarini
@@ -60,7 +60,7 @@ describe("Suite test zCardInfo", () => {
                 <span>Licenza online</span>
                 <span class="expired">SCADUTA</span>
               </span>
-              Scadenza: <b>31/12/2021</b>
+              Scadenza il <b>31/12/2021</b>
               <br />
             </section>
 
@@ -68,7 +68,7 @@ describe("Suite test zCardInfo", () => {
               <span class="license-heading">
                 <span>Licenza offline</span>
               </span>
-              Scadenza: <b>30/06/2021</b>
+              Scadenza il <b>30/06/2021</b>
               <br />
               Installazioni disponibili: <b>2</b>
             </section>
@@ -87,7 +87,7 @@ describe("Suite test zCardInfo", () => {
   it("Test render zCardInfo - htmltabindex", async () => {
     const page = await newSpecPage({
       components: [zCardInfo],
-      html: `<z-card-info htmltabindex='-1' data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'></z-card-info>`
+      html: `<z-card-info htmltabindex='-1' data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","expired":true},"offlineLicense":{"expiration":"30/06/2021","installations":"2","expired":false}}'></z-card-info>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -97,11 +97,15 @@ describe("Suite test zCardInfo", () => {
           <z-icon name="multiply-circled-filled" height="18" width="18" tabindex="-1"></z-icon>
           <div class="content-wrapper">
 
-            <section>
-              Autore: <b>Nicola Zingarelli</b>
-              <br />
-              Anno: <b>2021</b>
-              <br />
+            <section class="info-wrapper">
+              <span>
+                Autore: <b>Nicola Zingarelli</b>
+                <br />
+              </span>
+              <span>
+                Anno: <b>2021</b>
+                <br />
+              </span>
               Vocabolario della lingua italiana
               <br />
               A cura di Mario Cannella, Beata Lazzarini
@@ -112,7 +116,7 @@ describe("Suite test zCardInfo", () => {
                 <span>Licenza online</span>
                 <span class="expired">SCADUTA</span>
               </span>
-              Scadenza: <b>31/12/2021</b>
+              Scadenza il <b>31/12/2021</b>
               <br />
             </section>
 
@@ -120,7 +124,7 @@ describe("Suite test zCardInfo", () => {
               <span class="license-heading">
                 <span>Licenza offline</span>
               </span>
-              Scadenza: <b>30/06/2021</b>
+              Scadenza il <b>30/06/2021</b>
               <br />
               Installazioni disponibili: <b>2</b>
             </section>
