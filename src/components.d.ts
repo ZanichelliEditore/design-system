@@ -787,6 +787,18 @@ export namespace Components {
         "url": string;
     }
     interface ZRegistroTable {
+        /**
+          * Sets table with border
+         */
+        "bordered"?: boolean;
+        /**
+          * Sets first column sticky
+         */
+        "columnSticky"?: boolean;
+        /**
+          * Sets header sticky
+         */
+        "headerSticky"?: boolean;
     }
     interface ZRegistroTableBody {
     }
@@ -2224,6 +2236,18 @@ declare namespace LocalJSX {
         "url"?: string;
     }
     interface ZRegistroTable {
+        /**
+          * Sets table with border
+         */
+        "bordered"?: boolean;
+        /**
+          * Sets first column sticky
+         */
+        "columnSticky"?: boolean;
+        /**
+          * Sets header sticky
+         */
+        "headerSticky"?: boolean;
     }
     interface ZRegistroTableBody {
     }

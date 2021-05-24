@@ -1,4 +1,4 @@
-import { Component, Element, Host, h } from "@stencil/core";
+import { Component, Element, Host, Prop, h } from "@stencil/core";
 
 /**
  * @slot - table elements
@@ -9,10 +9,19 @@ import { Component, Element, Host, h } from "@stencil/core";
   tag: "z-registro-table",
   styleUrl: "styles.css",
   shadow: false,
-  scoped: true
+  scoped: false,
 })
 export class ZRegistroTable {
   @Element() host: HTMLElement;
+
+  /** Sets table with border */
+  @Prop() bordered?: boolean = false;
+
+  /** Sets first column sticky */
+  @Prop() columnSticky?: boolean = false;
+
+  /** Sets header sticky */
+  @Prop() headerSticky?: boolean = false;
 
   componentWillRender() {
     this.host.setAttribute("role", "table");
@@ -20,13 +29,16 @@ export class ZRegistroTable {
 
   render() {
     return (
-        <Host>
-            <div class="table">
-                <slot />
-            </div>
-            <slot name="sticky-footer" />
-        </Host>
-    )
-    
+      <Host>
+        <div
+          class={`table ${this.bordered ? "table-bordered" : ""} 
+            ${this.columnSticky ? "table-column-sticky" : ""} 
+            ${this.headerSticky ? "table-header-sticky" : ""}`}
+        >
+          <slot />
+        </div>
+        <slot name="sticky-footer" />
+      </Host>
+    );
   }
 }
