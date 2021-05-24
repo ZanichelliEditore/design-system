@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/ZanichelliEditore/design-system/compare/v1.11.0...v1.12.0) (2021-05-24)
+
+
+### Features
+
+* added position stories on storybook ([79923b7](https://github.com/ZanichelliEditore/design-system/commit/79923b7c250640bce0eb0c00721025f1652e7352))
+
+
+### Bug Fixes
+
+* doc typo ([ead00c4](https://github.com/ZanichelliEditore/design-system/commit/ead00c491d81a10663e42c4608407070523554a0))
+* drop innerHTML in favour of explicit square prop ([916eec3](https://github.com/ZanichelliEditore/design-system/commit/916eec3b40fa6544d8ce3c4ae47e6c9ca7f268d3))
+* slotting shenanigans ([30a3af4](https://github.com/ZanichelliEditore/design-system/commit/30a3af4903869302812ab3bffa868604a167ca9e))
+* **clav-57:** use margin instead gap, safari no supported ([42a1905](https://github.com/ZanichelliEditore/design-system/commit/42a1905eaa8359f2d036d9d30542cb12ce3a2ad7))
+* replace aspect-ratio with min-width ([c10a676](https://github.com/ZanichelliEditore/design-system/commit/c10a67612841bea302f654d437e37b7af2d60fdd))
+* **clav-57:** correct button styles and variants ([76afc0d](https://github.com/ZanichelliEditore/design-system/commit/76afc0d1663096790f2c086e8089cff6b8a8fd33))
+
 ## [1.11.0](https://github.com/ZanichelliEditore/design-system/compare/v1.10.3...v1.11.0) (2021-05-24)
 
 
