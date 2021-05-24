@@ -4537,17 +4537,25 @@ const ZPanelElem = class {
 };
 ZPanelElem.style = stylesCss$e;
 
-const stylesCss$d = ".sc-z-registro-table-h{overflow-x:auto;display:block;font-family:var(--dashboard-font);font-weight:var(--font-rg)}.sc-z-registro-table-h>div.table.sc-z-registro-table{display:table;width:100%;border-collapse:collapse}";
+const stylesCss$d = "z-registro-table{overflow-x:auto;display:block;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-rg)}z-registro-table>div.table{display:table;width:100%;border-collapse:separate}z-registro-table>div.table-bordered>z-registro-table-body>z-registro-table-row>z-registro-table-cell:not(:last-child),z-registro-table>div.table-bordered>z-registro-table-head>z-registro-table-row>z-registro-table-header:not(:last-child){border-right:var(--border-size-small) solid var(--bg-grey-200)}z-registro-table>div.table-column-sticky>z-registro-table-body>z-registro-table-row>z-registro-table-cell:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header:first-child{position:sticky;left:0;box-shadow:1px 0 4px -1px rgba(66, 69, 72, 0.4)}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header{position:sticky;top:0;box-shadow:0 1px 4px -1px rgba(66, 69, 72, 0.4)}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header{z-index:2}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-row>z-registro-table-header:first-child{z-index:5}";
 
 const ZRegistroTable = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
+    /** Sets table with border */
+    this.bordered = false;
+    /** Sets first column sticky */
+    this.columnSticky = false;
+    /** Sets header sticky */
+    this.headerSticky = false;
   }
   componentWillRender() {
     this.host.setAttribute("role", "table");
   }
   render() {
-    return (index.h(index.Host, null, index.h("div", { class: "table" }, index.h("slot", null)), index.h("slot", { name: "sticky-footer" })));
+    return (index.h(index.Host, null, index.h("div", { class: `table ${this.bordered ? "table-bordered" : ""} 
+            ${this.columnSticky ? "table-column-sticky" : ""} 
+            ${this.headerSticky ? "table-header-sticky" : ""}` }, index.h("slot", null)), index.h("slot", { name: "sticky-footer" })));
   }
   get host() { return index.getElement(this); }
 };
@@ -4586,7 +4594,7 @@ const ZRegistroTableCell = class {
 };
 ZRegistroTableCell.style = stylesCss$b;
 
-const stylesCss$a = ".sc-z-registro-table-head-h{display:table-header-group;background-color:var(--gray50);border-bottom:var(--border-size-medium) solid var(--gray200);font-family:var(--dashboard-font);font-weight:var(--font-rg)}";
+const stylesCss$a = ".sc-z-registro-table-head-h{display:table-header-group;font-family:var(--dashboard-font);font-weight:var(--font-rg)}";
 
 const ZRegistroTableHead = class {
   constructor(hostRef) {
@@ -4602,7 +4610,7 @@ const ZRegistroTableHead = class {
 };
 ZRegistroTableHead.style = stylesCss$a;
 
-const stylesCss$9 = ".sc-z-registro-table-header-h{display:table-cell;padding:20px calc(var(--space-unit) * 2);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start}";
+const stylesCss$9 = ".sc-z-registro-table-header-h{display:table-cell;background-color:var(--gray50);border-bottom:var(--border-size-medium) solid var(--gray200);padding:20px calc(var(--space-unit) * 2);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start}";
 
 const ZRegistroTableHeader = class {
   constructor(hostRef) {

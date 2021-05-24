@@ -1,5 +1,7 @@
 :host {
   display: table-cell;
+  background-color: var(--gray50);
+  border-bottom: var(--border-size-medium) solid var(--gray200);
   padding: 20px calc(var(--space-unit) * 2);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
