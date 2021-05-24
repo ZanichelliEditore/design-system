@@ -27,7 +27,7 @@ describe("Suite test ZRegistroTableCell", () => {
         <div class="button-container">
           <div class="button-content">
             <z-button icon="contextual-menu" size="x-small" square="" variant="tertiary"></z-button>
-            <div class="contextual-menu-container false"></div>
+            <div class="contextual-menu-container"></div>
           </div>
         </div>
         <span>
