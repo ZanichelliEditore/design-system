@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/ZanichelliEditore/design-system/compare/v1.10.3...v1.11.0) (2021-05-24)
+
+
+### Features
+
+* **clav-62:** table bordered and sticky features ([2d0ba8c](https://github.com/ZanichelliEditore/design-system/commit/2d0ba8cfb6ecefb7f445281dc88b36d93c53a586))
+
+
+### Bug Fixes
+
+* **clav-62:** fix typo ([6839b52](https://github.com/ZanichelliEditore/design-system/commit/6839b52c62d7f910d73170d148a740deaedf92c6))
+
 ### [1.10.3](https://github.com/ZanichelliEditore/design-system/compare/v1.10.2...v1.10.3) (2021-05-21)
 
 ### [1.10.2](https://github.com/ZanichelliEditore/design-system/compare/v1.10.1...v1.10.2) (2021-05-20)

@@ -894,6 +894,18 @@ export namespace Components {
     interface ZPocketMessage {
     }
     interface ZRegistroTable {
+        /**
+          * Sets table with border
+         */
+        "bordered"?: boolean;
+        /**
+          * Sets first column sticky
+         */
+        "columnSticky"?: boolean;
+        /**
+          * Sets header sticky
+         */
+        "headerSticky"?: boolean;
     }
     interface ZRegistroTableBody {
     }
@@ -2542,6 +2554,18 @@ declare namespace LocalJSX {
     interface ZPocketMessage {
     }
     interface ZRegistroTable {
+        /**
+          * Sets table with border
+         */
+        "bordered"?: boolean;
+        /**
+          * Sets first column sticky
+         */
+        "columnSticky"?: boolean;
+        /**
+          * Sets header sticky
+         */
+        "headerSticky"?: boolean;
     }
     interface ZRegistroTableBody {
     }
