@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 import { ButtonVariantEnum, ButtonSizeEnum } from "../../../beans";
+import classNames from "classnames";
 
 @Component({
   tag: "z-registro-table-cell",
@@ -37,9 +38,9 @@ export class ZRegistroTableCell {
                 square
               />
               <div
-                class={`contextual-menu-container ${
-                  this.isMenuOpened && "visible"
-                }`}
+                class={classNames("contextual-menu-container", {
+                  visible: this.isMenuOpened,
+                })}
               >
                 <slot name="contextual-menu" />
               </div>
