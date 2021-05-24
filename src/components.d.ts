@@ -39,32 +39,40 @@ export namespace Components {
     }
     interface ZButton {
         /**
-          * disable button
+          * HTML button disabled attribute.
          */
         "disabled"?: boolean;
         /**
-          * id, should be unique
+          * Identifier, should be unique.
          */
         "htmlid"?: string;
         /**
-          * add an icon to button (optional)
+          * `z-icon` name to use (optional).
          */
         "icon"?: string;
         /**
-          * @deprecated Use `size` prop.  Reduce button size (optional).
+          * Reduce button size (deprecated).
+          * @deprecated Use `size` prop.
          */
         "issmall"?: boolean;
         /**
-          * name
+          * HTML button name attribute.
          */
         "name"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
         "size"?: ButtonSizeEnum;
         /**
-          * button type
+          * Spy to render square button.
+         */
+        "square"?: boolean;
+        /**
+          * HTML button type attribute.
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * graphic variant
+          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -1397,32 +1405,40 @@ declare namespace LocalJSX {
     }
     interface ZButton {
         /**
-          * disable button
+          * HTML button disabled attribute.
          */
         "disabled"?: boolean;
         /**
-          * id, should be unique
+          * Identifier, should be unique.
          */
         "htmlid"?: string;
         /**
-          * add an icon to button (optional)
+          * `z-icon` name to use (optional).
          */
         "icon"?: string;
         /**
-          * @deprecated Use `size` prop.  Reduce button size (optional).
+          * Reduce button size (deprecated).
+          * @deprecated Use `size` prop.
          */
         "issmall"?: boolean;
         /**
-          * name
+          * HTML button name attribute.
          */
         "name"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
         "size"?: ButtonSizeEnum;
         /**
-          * button type
+          * Spy to render square button.
+         */
+        "square"?: boolean;
+        /**
+          * HTML button type attribute.
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * graphic variant
+          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
