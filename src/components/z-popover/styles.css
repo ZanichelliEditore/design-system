@@ -3,6 +3,7 @@
   font-weight: var(--font-rg);
 
   position: relative;
+  display: inline-block;
 }
 
 .popover-content-container {
@@ -15,34 +16,60 @@
 }
 
 .popover-content-container.after-center {
+  top: 50%;
+  left: calc(100% + var(--space-unit));
+  transform: translateY(-50%);
 }
 
 .popover-content-container.after-up {
+  bottom: 0;
+  left: calc(100% + var(--space-unit));
 }
 
 .popover-content-container.below-right {
+  left: 0;
+  top: calc(100% + var(--space-unit));
 }
 
 .popover-content-container.below-center {
+  left: 50%;
+  top: calc(100% + var(--space-unit));
+  transform: translateX(-50%);
 }
 
 .popover-content-container.below-left {
+  right: 0;
+  top: calc(100% + var(--space-unit));
 }
 
 .popover-content-container.before-down {
+  top: 0;
+  right: calc(100% + var(--space-unit));
 }
 
 .popover-content-container.before-center {
+  top: 50%;
+  right: calc(100% + var(--space-unit));
+  transform: translateY(-50%);
 }
 
 .popover-content-container.before-up {
+  bottom: 0;
+  right: calc(100% + var(--space-unit));
 }
 
 .popover-content-container.above-right {
+  left: 0;
+  bottom: calc(100% + var(--space-unit));
 }
 
 .popover-content-container.above-center {
+  left: 50%;
+  bottom: calc(100% + var(--space-unit));
+  transform: translateX(-50%);
 }
 
 .popover-content-container.above-left {
+  right: 0;
+  bottom: calc(100% + var(--space-unit));
 }
