@@ -87,7 +87,8 @@ export class ZMenu {
     if (this.content) {
       const { style } = this.content;
       const { left } = this.hostElement.getBoundingClientRect();
-      const width = parseFloat(getComputedStyle(this.content).width.replace('px', ''));
+      const widthPx = getComputedStyle(this.content).width;
+      const width = widthPx ? parseFloat(widthPx.replace('px', '')) : 375;
       style.left = `${Math.min(window.innerWidth - left - width, 0)}px`;
     }
     if (live) {

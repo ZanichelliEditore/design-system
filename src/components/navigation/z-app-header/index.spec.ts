@@ -10,7 +10,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header>
+      <z-app-header flow="auto">
         <mock:shadow-root>
           <div class="hero-container">
             <slot name="hero"></slot>
@@ -40,7 +40,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header>
+      <z-app-header flow="auto">
         <mock:shadow-root>
           <div class="hero-container">
             <slot name="hero"></slot>
@@ -72,7 +72,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header>
+      <z-app-header flow="auto">
         <mock:shadow-root>
           <div class="hero-container">
             <slot name="hero"></slot>
@@ -104,7 +104,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header drawer>
+      <z-app-header flow="auto" drawer>
         <mock:shadow-root>
           <div class="hero-container">
             <slot name="hero"></slot>
@@ -123,6 +123,9 @@ describe("Suite test ZAppHeader", () => {
           <div class="drawer-container">
             <div class="drawer-overlay"></div>
               <div class="drawer-panel">
+                <button class="drawer-close">
+                  <z-icon name="close"></z-icon>
+                </button>
                 <div class="drawer-content">
                  <slot name="menu"></slot>
               </div>
@@ -143,7 +146,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header stuck>
+      <z-app-header flow="auto" stuck>
         <mock:shadow-root>
           <div class="hero-container">
             <slot name="hero"></slot>
@@ -162,6 +165,9 @@ describe("Suite test ZAppHeader", () => {
           <div class="drawer-container">
             <div class="drawer-overlay"></div>
               <div class="drawer-panel">
+                <button class="drawer-close">
+                  <z-icon name="close"></z-icon>
+                </button>
                 <div class="drawer-content">
                  <slot name="menu"></slot>
               </div>
