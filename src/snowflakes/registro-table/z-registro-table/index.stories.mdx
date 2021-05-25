@@ -1,5 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from "@storybook/addon-knobs";
 
 <Meta title="RegistroTable/ZRegistroTable" component="z-registro-table" />
 
@@ -7,7 +8,11 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
 <Preview>
   <Story name="ZRegistroTable-sample">
-    {html`<z-registro-table>
+    {html`<z-registro-table
+      bordered="${boolean("bordered", false)}"
+      header-sticky="${boolean("header-sticky", false)}"
+      column-sticky="${boolean("column-sticky", false)}"
+    >
       <z-registro-table-head>
         <z-registro-table-row>
           <z-registro-table-header>
@@ -19,34 +24,72 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
           <z-registro-table-header>
             <span>Titolo 3</span>
           </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 4</span>
+          </z-registro-table-header>
         </z-registro-table-row>
       </z-registro-table-head>
       <z-registro-table-body>
         <z-registro-table-row>
-          <z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
             <span>Contenuto 1-1</span>
           </z-registro-table-cell>
-          <z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
             <span>Contenuto 1-2</span>
           </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 1-2</span>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 1-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 1-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 2-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 2-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 2-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 2-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 3-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 3-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 3-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 3-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 4-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 4-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 4-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 4-4</span>
           </z-registro-table-cell>
         </z-registro-table-row>
       </z-registro-table-body>
-      <z-registro-table-footer>
-        <z-registro-table-row>
-          <z-registro-table-cell>
-            <span>Footer 1-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Footer 1-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Footer 1-3</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-      </z-registro-table-footer>
+      <z-registro-table-sticky-footer slot="sticky-footer">
+        <span>This is a sticky footer</span>
+      </z-registro-table-sticky-footer>
     </z-registro-table>`}
   </Story>
 </Preview>

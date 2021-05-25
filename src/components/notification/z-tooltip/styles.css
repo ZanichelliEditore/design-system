@@ -85,7 +85,7 @@
 :host .tooltip-top-right-arrow:after {
   content: "";
   position: absolute;
-  left: calc(25% - 7px);
+  right: calc(25% - 7px);
   top: -7px;
   width: 14px;
   height: 14px;
@@ -98,7 +98,7 @@
 :host .tooltip-top-left-arrow:after {
   content: "";
   position: absolute;
-  right: calc(25% - 7px);
+  left: calc(25% - 7px);
   top: -7px;
   width: 14px;
   height: 14px;
@@ -111,7 +111,7 @@
 :host .tooltip-bottom-right-arrow:after {
   content: "";
   position: absolute;
-  left: calc(25% - 7px);
+  right: calc(25% - 7px);
   bottom: -7px;
   width: 14px;
   height: 14px;
@@ -124,7 +124,7 @@
 :host .tooltip-bottom-left-arrow:after {
   content: "";
   position: absolute;
-  right: calc(25% - 7px);
+  left: calc(25% - 7px);
   bottom: -7px;
   width: 14px;
   height: 14px;
