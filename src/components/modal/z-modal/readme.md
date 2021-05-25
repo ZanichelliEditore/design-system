@@ -1,8 +1,11 @@
 # z-modal
 
 <!-- readme-group="modal" -->
+
 ```html
-<z-modal modaltitle="titolotitolo" modalsubtitle="sottotitolo">{modalcontent slot}</z-modal>
+<z-modal modaltitle="titolotitolo" modalsubtitle="sottotitolo"
+  >{modalcontent slot}</z-modal
+>
 ```
 
 <!-- Auto Generated Below -->
@@ -34,6 +37,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-modal-login](../z-modal-login)
+
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
@@ -42,6 +49,7 @@
 ```mermaid
 graph TD;
   z-modal --> z-icon
+  z-modal-login --> z-modal
   style z-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

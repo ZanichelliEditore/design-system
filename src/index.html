@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>Stencil Component Starter</title>
-  <link rel="stylesheet" type="text/css" href="/build/web-components-library.css">
-  <script type="module" src="/build/web-components-library.esm.js"></script>
-  <script nomodule src="/build/web-components-library.js"></script>
-</head>
-
-<body style="background-color: #f9f9f9">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/web-components-library.css"
+    />
+    <script type="module" src="/build/web-components-library.esm.js"></script>
+    <script nomodule src="/build/web-components-library.js"></script>
+  </head>
+<body style="width: 100%;margin: 0; background-color: #f9f9f9;">
   <!-- <z-candybar>
     <div class="content" slot="content">
       <div>
@@ -33,16 +38,226 @@
       <z-button variant="primary">OK</z-button>
     </div>
   </z-candybar> -->
-  <z-cookiebar
+  <!-- <z-cookiebar
     cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
     hide="false">
-  </z-cookiebar>
+  </z-cookiebar> -->
   <!-- <z-modal modaltitle="titolotitolo" modalsubtitle="sottotitolo">
     <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
   </z-modal> -->
 
+  <!-- <z-modal-login></z-modal-login> -->
+  <!-- <z-modal-login>
+    <z-input
+      slot="username"
+      label="username slottato"
+      placeholder="Inserisci la mail o il cellulare"
+      message="prova"
+      autocomplete="username"
+      name="username"
+    ></z-input>
+    <z-input
+      slot="password"
+      label="password slottata"
+      placeholder="Inserisci la password"
+      message="prova"
+      type="password"
+      name="password"
+      autocomplete="current-password"
+    ></z-input>
+    <z-button slot="login">Login slottato</z-button>
+    <z-button slot="signup" variant="secondary">
+      registrati
+    </z-button>
+    <z-button slot="provider" variant="secondary">
+      GOOGLE
+    </z-button>
+    <z-button slot="provider" variant="secondary">
+      FACEBOOK
+    </z-button>
+    <z-button slot="provider" variant="secondary">
+      ZAINO DIGITALE
+    </z-button>
+    <z-link slot="provider">Cos'è Zaino Digitale?</z-link>
+  </z-modal-login> -->
+    <p>Not Logged</p>
+
+    <z-app-topbar hashtag="via crucis">
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="white"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="white"
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="docente di calabresi per italiani"
+        logged="false"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+
+    <p>Logged</p>
+
+    <z-app-topbar hashtag="faresci" logged>
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-link
+        onclick="openModal(this)"
+        textcolor="white"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        >Supporto</z-link
+      >
+      <z-link
+        onclick="openModal(this)"
+        iswhite
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="Von Axl Maranan Fernandez"
+        logged="true"
+        slot="login"
+        menucontent='[
+        {"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"},
+        {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},
+        {"label":"Chiedi al tuo responsabile", "link":"http://www.zanichelli.it", "icon":"question-mark"},
+        {"label":"Esci", "link":"http://www.google.it", "icon":"enter"}
+        ]'
+      >
+      </z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+
+    <p>User Dropdown</p>
+    <div style="height: 150px; width: fit-content;">
+      <z-user-dropdown
+        userfullname="Sandro Studente"
+        islogged="true"
+        menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+    </div>
+
+    <p>App Menu</p>
+
+    <div
+      style="
+        background-color: rgb(66, 69, 72);
+        width: fit-content;
+        padding: 16px;
+      "
+    >
+      <z-app-switcher id="app-switcher" slot="app-switcher"></z-app-switcher>
+    </div>
+
+    <p>Light Variant</p>
+    <z-app-topbar theme="light" hashtag="faresci">
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="black"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="black"
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        theme="light"
+        userfullname="docente di calabresi per italiani"
+        islogged="false"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher theme="light" slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+
+    <p>Logged</p>
+
+    <z-app-topbar theme="light" hashtag="faresci" logged>
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-link
+        onclick="openModal(this)"
+        textcolor="black"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="#"
+        >Supporto</z-link
+      >
+      <z-link
+        onclick="openModal(this)"
+        textcolor="black"
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        theme="light"
+        userfullname="Dario Docente di Lingua e Letteratura"
+        logged="true"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+      <z-app-switcher theme="light" id="app-switcher-2" slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+
   <!-- non zanichelli logged -->
-  <z-header
+  <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"MyZanichelli","label":"Link a MyZanichelli","link":"http://www.myzanichelli.it","icon":"chevron-left-circle"}]'
     userdata='{
@@ -58,9 +273,9 @@
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
   </z-header>
 
-  <p style="height:50px;"></p>
+  <p style="height:50px;"></p> -->
   <!-- non zanichelli unlogged -->
-  <z-header
+  <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
     userdata='{
@@ -74,10 +289,10 @@
     <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
     <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
-  </z-header>
+  </z-header> -->
 
   <!-- zanichelli docente logged -->
-  <z-header
+  <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
     userdata='{
@@ -94,10 +309,10 @@
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
   </z-header>
 
-  <p style="height:50px;"></p>
+  <p style="height:50px;"></p> -->
 
    <!-- zanichelli unlogged -->
-  <z-header
+  <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
     userdata='{
@@ -111,10 +326,10 @@
     <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
     <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
-  </z-header>
+  </z-header> -->
 
   <!-- zanichelli studente logged -->
-  <z-header
+  <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"I miei Libri","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"}]'
     userdata='{
@@ -128,7 +343,7 @@
     <img src="./assets/images/png/clitt-logo.png" alt="clitt" slot="editors" />
     <img src="./assets/images/png/bovolenta-logo.png" alt="bovolenta" slot="editors" />
     <img src="./assets/images/png/lucisano-logo.png" alt="lucisano" slot="editors" />
-  </z-header>
+  </z-header> -->
 
   <section id="main-content">
     <section id="libreria">
@@ -175,7 +390,7 @@
       </p>
     </section>
     <section id="ambienti">
-      <div style="width:1000px; display:flex; flex-wrap:wrap; justify-content:space-between;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between;">
         <z-card>
           <z-card-header titolo="Biologia molecolare, genetica, corpo umano">
             <z-card-icon icon="book-minus" slot="icon" />
@@ -230,7 +445,7 @@
         </z-card>
       </div>
       <br>
-      <div style="width:1400px; display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-template-rows:1fr 1fr; grid-column-gap:16px; grid-row-gap:16px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-template-rows:1fr 1fr; grid-column-gap:16px; grid-row-gap:16px;">
       <z-card>
         <z-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
           <z-card-icon icon="book-minus" slot="icon" />
@@ -447,11 +662,50 @@
       </div>
       <br />
 
+      <z-menu floating="true">
+        <h3>Menu label</h3>
+        <a href="" slot="item">Item 1</a>
+        <a href="" slot="item">Item 2</a>
+        <z-menu-section slot="item">
+          <h3>Item 3</h3>
+          <a href="" slot="item">Item 3.1</a>
+          <a href="" slot="item">Item 3.2</a>
+        </z-menu-section>
+        <z-menu-section slot="item">
+          <h3>Item 4</h3>
+          <a href="" slot="item">Item 4.1</a>
+          <a href="" slot="item">Item 4.2</a>
+        </z-menu-section>
+        <a href="" slot="item">Item 5</a>
+      </z-menu>
+      <z-menu>
+        <img slot="header" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg">
+        <h4 slot="header">Menu header</h4>
+        <h3>Menu label</h3>
+        <a href="" slot="item">Item 1</a>
+        <a href="" slot="item">Item 2</a>
+        <z-menu-section slot="item">
+          <h3>Item 3</h3>
+          <a href="" slot="item">Item 3.1</a>
+          <a href="" slot="item">Item 3.2</a>
+        </z-menu-section>
+        <a href="" slot="item">Item 4</a>
+      </z-menu>
+
       <z-button-filter filtername="filter 1" isfixed></z-button-filter>
       <z-button-filter filtername="filter 2"></z-button-filter>
       <z-button-filter filtername="filter 3" isfixed hasicon="false"></z-button-filter>
       <z-button-filter filtername="filter 4" hasicon="false"></z-button-filter>
       <z-chip boldtext="1234" regulartext="libri trovati"></z-chip>
+      <z-chip>
+        <z-body level="4">ciao 1</z-body>
+      </z-chip>
+      <z-chip>
+        <z-body level="1" variant="semibold"><span style="color: red">ciao 2</span></z-body>
+      </z-chip>
+      <z-chip boldtext="1234" regulartext="libri trovati">
+        <z-body level="4">ciao 3</z-body>
+      </z-chip>
       <br/>
       <br/>
 
@@ -691,7 +945,7 @@
     </section>
   </section>
 
-  <z-registro-table>
+  <z-registro-table bordered="true">
     <z-registro-table-head>
       <z-registro-table-row>
         <z-registro-table-header>Colonna 1</z-registro-table-header>
@@ -702,21 +956,25 @@
 
     <z-registro-table-body>
       <z-registro-table-row>
-        <z-registro-table-cell>Valore 1-1</z-registro-table-cell>
-        <z-registro-table-cell>Valore 1-2</z-registro-table-cell>
-        <z-registro-table-cell>
+        <z-registro-table-cell show-button="true"><span slot="contextual-menu">Span Button</span>Valore 1-1</z-registro-table-cell>
+        <z-registro-table-cell show-button="true">Valore 1-2</z-registro-table-cell>
+        <z-registro-table-cell show-button="true">
           <z-button icon="gear">Prova 1-3</z-button>
         </z-registro-table-cell>
       </z-registro-table-row>
 
       <z-registro-table-row>
-        <z-registro-table-cell>Valore 2-1</z-registro-table-cell>
-        <z-registro-table-cell>Valore 2-2</z-registro-table-cell>
-        <z-registro-table-cell>
+        <z-registro-table-cell show-button="true">Valore 2-1</z-registro-table-cell>
+        <z-registro-table-cell show-button="true">Valore 2-2</z-registro-table-cell>
+        <z-registro-table-cell show-button="true">
           <z-button icon="gear">Prova 2-3</z-button>
         </z-registro-table-cell>
       </z-registro-table-row>
     </z-registro-table-body>
+
+    <z-registro-table-sticky-footer slot="sticky-footer">
+        Test footer
+    </z-registro-table-sticky-footer>
 
   </z-registro-table>
   <br /><br /><br /><br /><br /><br />
@@ -887,7 +1145,12 @@
           "link": "https://my.zanichelli.it/privacy"
       }]
   }'></z-footer>
-
-</body>
-
+    <script>
+      function openModal(e) {
+        console.log(e);
+      }
+      const appMenu = document.getElementById("app-switcher");
+      appMenu.addEventListener("appButtonClick", (e) => openModal(e));
+    </script>
+  </body>
 </html>

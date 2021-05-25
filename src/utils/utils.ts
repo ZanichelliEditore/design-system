@@ -11,9 +11,7 @@ export function retrieveAsset(assetName: string): string {
 }
 
 export function randomId(): string {
-  return Math.random()
-    .toString(36)
-    .replace("0.", "");
+  return Math.random().toString(36).replace("0.", "");
 }
 
 export function handleKeyboardSubmit(

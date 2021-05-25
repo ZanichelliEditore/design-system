@@ -24,6 +24,7 @@
 
 ### Used by
 
+ - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
  - [z-button-filter](../../buttons/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
@@ -38,15 +39,19 @@
  - [z-input-message](../../inputs/z-input-message)
  - [z-link](../../navigation/z-link)
  - [z-list-item](../../list/z-list-item)
+ - [z-menu](../../navigation/z-menu)
  - [z-menu-dropdown](../../navigation/z-menu-dropdown)
+ - [z-menu-section](../../navigation/z-menu-section)
  - [z-modal](../../modal/z-modal)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-select](../../inputs/z-select)
  - [z-toggle-button](../../buttons/z-toggle-button)
+ - [z-user-dropdown](../../navigation/z-user-dropdown)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-app-switcher --> z-icon
   z-button --> z-icon
   z-button-filter --> z-icon
   z-button-sort --> z-icon
@@ -61,11 +66,14 @@ graph TD;
   z-input-message --> z-icon
   z-link --> z-icon
   z-list-item --> z-icon
+  z-menu --> z-icon
   z-menu-dropdown --> z-icon
+  z-menu-section --> z-icon
   z-modal --> z-icon
   z-pagination-bar --> z-icon
   z-select --> z-icon
   z-toggle-button --> z-icon
+  z-user-dropdown --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

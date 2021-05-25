@@ -1,7 +1,79 @@
-:host {
-  display: table;
+z-registro-table {
+  overflow-x: auto;
+  display: block;
   width: 100%;
-  border-collapse: collapse;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+}
+
+z-registro-table > div.table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+}
+
+z-registro-table
+  > div.table-bordered
+  > z-registro-table-body
+  > z-registro-table-row
+  > z-registro-table-cell:not(:last-child),
+z-registro-table
+  > div.table-bordered
+  > z-registro-table-head
+  > z-registro-table-row
+  > z-registro-table-header:not(:last-child) {
+  border-right: var(--border-size-small) solid var(--bg-grey-200);
+}
+
+z-registro-table
+  > div.table-column-sticky
+  > z-registro-table-body
+  > z-registro-table-row
+  > z-registro-table-cell:first-child,
+z-registro-table
+  > div.table-column-sticky
+  > z-registro-table-head
+  > z-registro-table-row
+  > z-registro-table-header:first-child {
+  position: sticky;
+  left: 0;
+  box-shadow: 1px 0 4px -1px rgba(66, 69, 72, 0.4);
+  z-index: 1;
+}
+
+z-registro-table
+  > div.table-header-sticky
+  > z-registro-table-head
+  > z-registro-table-row
+  > z-registro-table-header {
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 3px -3px rgba(66, 69, 72, 0.4);
+}
+
+/**
+ * L'ombra delle celle sticky non va sopra all'header fisso.
+ */
+z-registro-table
+  > div.table-header-sticky
+  > z-registro-table-head
+  > z-registro-table-row
+  > z-registro-table-header {
+  z-index: 2;
+}
+
+/**
+ * La cella in alto a sinistra rimane sempre sopra alle cell durante lo scroll.
+ */
+z-registro-table
+  > div.table-header-sticky
+  > z-registro-table-head
+  > z-registro-table-row
+  > z-registro-table-header:first-child,
+z-registro-table
+  > div.table-column-sticky
+  > z-registro-table-head
+  > z-registro-table-row
+  > z-registro-table-header:first-child {
+  z-index: 5;
 }

@@ -1,6 +1,10 @@
 :host {
-  color: var(--text-grey-800);
-  fill: var(--text-grey-800);
+  --z-tooltip-light--surface: var(--bg-white);
+  --z-tooltip-light--text: var(--text-grey-800);
+  --z-tooltip-dark--surface: var(--text-grey-900);
+  --z-tooltip-dark--text: var(--color-white);
+  color: var(--z-tooltip-theme--text, var(--z-tooltip-light--text));
+  fill: var(--z-tooltip-theme--text, var(--z-tooltip-light--text));
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-style: italic;
@@ -10,51 +14,49 @@
 }
 
 /* Tooltip basic */
-:host > div.tooltip {
+:host .tooltip {
   position: relative;
-  max-width: 200px;
   margin: 0 auto;
   display: inline-block;
   border-radius: var(--border-radius);
   text-align: center;
-  background: var(--bg-white);
-  border: 1px solid var(--bg-grey-200);
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+  background: var(--z-tooltip-theme--surface, var(--z-tooltip-light--surface));
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08);
   padding: calc(var(--space-unit) * 2);
 }
 
+:host .tooltip.legacy {
+  max-width: 200px;
+}
+
 /* Tooltip Top */
-:host > div.tooltip-top-arrow:after {
+:host .tooltip-top-arrow:after {
   content: "";
   position: absolute;
   left: calc(50% - 7px);
-  top: -8px;
+  top: -7px;
   width: 14px;
   height: 14px;
   background: inherit;
   transform: rotate(45deg);
-  border-left: 1px solid var(--bg-grey-200);
-  border-top: 1px solid var(--bg-grey-200);
-  box-shadow: 0px -1px 20px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: -1px -1px 4px -1px rgba(0, 0, 0, 0.08);
 }
 
 /* Tooltip Bottom */
-:host > div.tooltip-bottom-arrow:after {
+:host .tooltip-bottom-arrow:after {
   content: "";
   position: absolute;
   left: calc(50% - 7px);
-  bottom: -8px;
+  bottom: -7px;
   width: 14px;
   height: 14px;
   background: inherit;
   transform: rotate(45deg);
-  border-right: 1px solid var(--bg-grey-200);
-  border-bottom: 1px solid var(--bg-grey-200);
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px
 }
 
-/* Tooltip left */
-:host > div.tooltip-left-arrow:after {
+/* Tooltip Left */
+:host .tooltip-left-arrow:after {
   content: "";
   position: absolute;
   top: calc(50% - 7px);
@@ -63,13 +65,11 @@
   height: 14px;
   background: inherit;
   transform: rotate(45deg);
-  border-left: 1px solid var(--bg-grey-200);
-  border-bottom: 1px solid var(--bg-grey-200);
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: rgb(0 0 0 / 8%) -1px 1px 2px 0px;
 }
 
-/* Tooltip Top */
-:host > div.tooltip-right-arrow:after {
+/* Tooltip Right */
+:host .tooltip-right-arrow:after {
   content: "";
   position: absolute;
   top: calc(50% - 7px);
@@ -78,7 +78,58 @@
   height: 14px;
   background: inherit;
   transform: rotate(45deg);
-  border-right: 1px solid var(--bg-grey-200);
-  border-top: 1px solid var(--bg-grey-200);
-  box-shadow: 0px -1px 2px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: rgb(0 0 0 / 8%) 1px -1px 2px 0px;
 }
+
+/* Tooltip Top Right */
+:host .tooltip-top-right-arrow:after {
+  content: "";
+  position: absolute;
+  right: calc(25% - 7px);
+  top: -7px;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  transform: rotate(45deg);
+  box-shadow: -1px -1px 4px -1px rgba(0, 0, 0, 0.08);
+}
+
+/* Tooltip Top Left */
+:host .tooltip-top-left-arrow:after {
+  content: "";
+  position: absolute;
+  left: calc(25% - 7px);
+  top: -7px;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  transform: rotate(45deg);
+  box-shadow: -1px -1px 4px -1px rgba(0, 0, 0, 0.08);
+}
+
+/* Tooltip Bottom Right */
+:host .tooltip-bottom-right-arrow:after {
+  content: "";
+  position: absolute;
+  right: calc(25% - 7px);
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  transform: rotate(45deg);
+  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px
+}
+
+/* Tooltip Bottom Left */
+:host .tooltip-bottom-left-arrow:after {
+  content: "";
+  position: absolute;
+  left: calc(25% - 7px);
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  transform: rotate(45deg);
+  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px
+}
+

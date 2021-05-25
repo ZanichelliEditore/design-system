@@ -75,6 +75,7 @@ export type MenuItem = {
   label: string;
   link?: string;
   icon?: string;
+  target?: string;
   subMenu?: MenuItem[];
 };
 
@@ -103,6 +104,12 @@ export enum ButtonTypeEnum {
   submit = "submit",
   reset = "reset",
   button = "button",
+}
+
+export enum ButtonSizeEnum {
+  big = "big",
+  small = "small",
+  "x-small" = "x-small",
 }
 
 export type InputTypeBean = keyof typeof InputTypeEnum;
@@ -135,6 +142,10 @@ export enum TooltipPosition {
   LEFT = "LEFT",
   RIGHT = "RIGHT",
   NO_ARROW = "NO_ARROW",
+  TOP_LEFT = "TOP_LEFT",
+  TOP_RIGHT = "TOP_RIGHT",
+  BOTTOM_LEFT = "BOTTOM_LEFT",
+  BOTTOM_RIGHT = "BOTTOM_RIGHT",
 }
 
 export enum keybordKeyCodeEnum {
@@ -152,3 +163,10 @@ export type SelectItemBean = {
   selected: boolean;
   disabled?: boolean;
 };
+
+export type ThemeVariantBean = keyof typeof ThemeVariant;
+
+export enum ThemeVariant {
+  dark = 'dark',
+  light = 'light'
+}

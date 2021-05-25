@@ -1,0 +1,165 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, number, boolean } from "@storybook/addon-knobs";
+
+<Meta title="Navigation/ZAppTopbar" component="z-app-topbar" />
+
+# ZTopbar
+
+<Preview>
+  <Story name="ZAppTopbar dark not logged">
+    {html`<z-app-topbar hashtag="via crucis">
+      <z-logo
+        slot="${text("slot", "logo")}"
+        width="${number("width", 138)}"
+        height="${number("height", 36)}"
+        imagealt="${text("imagealt", "zanichelli-logo")}"
+        link="${text("link", "https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${text("textcolor", "white")}"
+        big
+        icon="${text("icon", "support-filled")}"
+        slot="actions"
+        href="${text("href", "#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="${text("textcolor", "white")}"
+        big
+        icon="${text("icon", "shopping-cart-filled")}"
+        slot="actions"
+        href="${text("href", "#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="${text('userfullname', 'docente di calabresi per italiani')}"
+        logged="${text('logged','false')}"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>`}
+  </Story>
+  <Story name="ZAppTopbar dark logged">
+    {html`<z-app-topbar hashtag="faresci" logged>
+      <z-logo
+        slot="${text("slot", "logo")}"
+        width="${number("width", 138)}"
+        height="${number("height", 36)}"
+        imagealt="${text("imagealt", "zanichelli-logo")}"
+        link="${text("link", "https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${text("textcolor", "white")}"
+        big
+        icon="${text("icon", "support-filled")}"
+        slot="actions"
+        href="${text("href", "#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        iswhite
+        big
+        icon="${text("icon", "shopping-cart-filled")}"
+        slot="actions"
+        href="${text("href", "#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="${text('userfullname', 'Fabio Funzionario')}"
+        logged="${boolean('logged',true)}"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>`}
+  </Story>
+  <Story name="ZAppTopbar light not logged">
+    {html`<z-app-topbar theme="${text("theme", "light")}" hashtag="faresci">
+      <z-logo
+        slot="${text("slot", "logo")}"
+        width="${number("width", 138)}"
+        height="${number("height", 36)}"
+        imagealt="${text("imagealt", "zanichelli-logo")}"
+        link="${text("link", "https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${text("textcolor", "black")}"
+        big
+        icon="${text("icon", "support-filled")}"
+        slot="actions"
+        href="${text("href", "#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="${text("textcolor", "black")}"
+        big
+        icon="${text("icon", "shopping-cart-filled")}"
+        slot="actions"
+        href="${text("href", "#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        theme="${text("theme", "light")}"
+        userfullname="${text('userfullname', 'docente di calabresi per italiani')}"
+        logged="${boolean('logged',false)}"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher
+        theme="${text("theme", "light")}"
+        slot="app-switcher"
+      ></z-app-switcher>
+    </z-app-topbar>`}
+  </Story>
+  <Story name="ZAppTopbar light logged">
+    {html`<z-app-topbar
+      theme="${text("theme", "light")}"
+      hashtag="faresci"
+      logged
+    >
+      <z-logo
+        slot="${text("slot", "logo")}"
+        width="${number("width", 138)}"
+        height="${number("height", 36)}"
+        imagealt="${text("imagealt", "zanichelli-logo")}"
+        link="${text("link", "https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${text("textcolor", "black")}"
+        big
+        icon="${text("icon", "support-filled")}"
+        slot="actions"
+        href="${text("href", "#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="${text("textcolor", "black")}"
+        big
+        icon="${text("icon", "shopping-cart-filled")}"
+        slot="actions"
+        href="${text("href", "#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        theme="${text("theme", "light")}"
+        userfullname="${text('userfullname', 'Dario Docente')}"
+        logged="${text('logged', 'true')}"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+      <z-app-switcher
+        theme="${text("theme", "light")}"
+        id="app-switcher-2"
+        slot="app-switcher"
+      ></z-app-switcher>
+    </z-app-topbar>`}
+  </Story>
+</Preview>
+
+<Props of="z-topbar" />

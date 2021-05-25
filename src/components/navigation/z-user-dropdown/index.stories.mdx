@@ -1,0 +1,49 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
+
+<Meta title="Navigation/ZUserDropdown" component="z-user-dropdown" />
+
+# ZUserDropdown
+
+<Preview>
+  <Story name="ZUserDropdown-not-logged">
+    {html`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      userfullname="${text("userfullname", "Dario Docente")}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`}
+  </Story>
+  <Story name="ZUserDropdown-logged">
+    {html`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      userfullname="${text("userfullname", "Dario Docente")}"
+      logged="${boolean("islogged", true)}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`}
+  </Story>
+  <Story name="ZUserDropdown-not-logged-light">
+    {html`<div style="padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      theme="${text("theme", "light")}"
+      userfullname="${text("userfullname", "Dario Docente")}"
+      islogged="${boolean("islogged", false)}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`}
+  </Story>
+  <Story name="ZUserDropdown-logged-light">
+    {html`<div style="padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      theme="${text("theme", "light")}"
+      userfullname="${text("userfullname", "Dario Docente")}"
+      logged="${boolean("islogged", true)}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`}
+  </Story>
+</Preview>
+
+<Props of="z-user-dropdown" />

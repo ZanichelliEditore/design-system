@@ -6,11 +6,11 @@ describe("Suite test ZInput - textarea", () => {
   it("Test render ZInput textarea", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label'></z-input>`
+      html: `<z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label'></z-input>`,
     });
     expect(page.root).toEqualHtml(`
       <z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label'>
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
@@ -19,7 +19,7 @@ describe("Suite test ZInput - textarea", () => {
               </div>
             </div>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });
@@ -27,11 +27,11 @@ describe("Suite test ZInput - textarea", () => {
   it("Test render ZInput textarea disabled/readonly", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' disabled readonly></z-input>`
+      html: `<z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' disabled readonly></z-input>`,
     });
     expect(page.root).toEqualHtml(`
       <z-input hasmessage="false" type='textarea' htmlid='test' placeholder='placeholder' value='value' label='label' disabled readonly>
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label" disabled=""></z-input-label>
             <div>
@@ -40,7 +40,7 @@ describe("Suite test ZInput - textarea", () => {
               </div>
             </div>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });
@@ -48,11 +48,11 @@ describe("Suite test ZInput - textarea", () => {
   it("Test render ZInput textarea status/messages", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input type='textarea' htmlid='test' placeholder='placeholder' label='label' status='error' message='error message' value='value'></z-input>`
+      html: `<z-input type='textarea' htmlid='test' placeholder='placeholder' label='label' status='error' message='error message' value='value'></z-input>`,
     });
     expect(page.root).toEqualHtml(`
       <z-input type='textarea' htmlid='test' placeholder='placeholder' label='label' status='error' message='error message' value='value'>
-        <mock:shadow-root>
+
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
@@ -62,7 +62,7 @@ describe("Suite test ZInput - textarea", () => {
             </div>
             <z-input-message message="error message" status="error"></z-input-message>
           </div>
-        </mock:shadow-root>
+
       </z-input>
     `);
   });
