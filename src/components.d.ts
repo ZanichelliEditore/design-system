@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { ButtonVariantBean, ComboItemBean, DictionaryData, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PocketStatus, SelectItemBean, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DictionaryData, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PocketStatus, SelectItemBean, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -45,31 +45,40 @@ export namespace Components {
     }
     interface ZButton {
         /**
-          * disable button
+          * HTML button disabled attribute.
          */
         "disabled"?: boolean;
         /**
-          * id, should be unique
+          * Identifier, should be unique.
          */
         "htmlid"?: string;
         /**
-          * add an icon to button (optional)
+          * `z-icon` name to use (optional).
          */
         "icon"?: string;
         /**
-          * reduce button size (optional)
+          * Reduce button size (deprecated).
+          * @deprecated Use `size` prop.
          */
         "issmall"?: boolean;
         /**
-          * name
+          * HTML button name attribute.
          */
         "name"?: string;
         /**
-          * button type
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ButtonSizeEnum;
+        /**
+          * Spy to render square button.
+         */
+        "square"?: boolean;
+        /**
+          * HTML button type attribute.
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * graphic variant
+          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -910,6 +919,10 @@ export namespace Components {
     interface ZRegistroTableBody {
     }
     interface ZRegistroTableCell {
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
     }
     interface ZRegistroTableFooter {
     }
@@ -1600,31 +1613,40 @@ declare namespace LocalJSX {
     }
     interface ZButton {
         /**
-          * disable button
+          * HTML button disabled attribute.
          */
         "disabled"?: boolean;
         /**
-          * id, should be unique
+          * Identifier, should be unique.
          */
         "htmlid"?: string;
         /**
-          * add an icon to button (optional)
+          * `z-icon` name to use (optional).
          */
         "icon"?: string;
         /**
-          * reduce button size (optional)
+          * Reduce button size (deprecated).
+          * @deprecated Use `size` prop.
          */
         "issmall"?: boolean;
         /**
-          * name
+          * HTML button name attribute.
          */
         "name"?: string;
         /**
-          * button type
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ButtonSizeEnum;
+        /**
+          * Spy to render square button.
+         */
+        "square"?: boolean;
+        /**
+          * HTML button type attribute.
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * graphic variant
+          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -2570,6 +2592,10 @@ declare namespace LocalJSX {
     interface ZRegistroTableBody {
     }
     interface ZRegistroTableCell {
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
     }
     interface ZRegistroTableFooter {
     }

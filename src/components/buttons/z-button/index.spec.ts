@@ -9,10 +9,10 @@ describe("Suite test ZButton", () => {
       html: `<z-button></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary" style="pointer-events: auto;">
+      <z-button size="big" variant="primary" style="pointer-events: auto;">
         <mock:shadow-root>
           <slot name="element">
-            <button type="button" class="primary">
+            <button type="button" class="big primary">
               <slot></slot>
             </button>
           </slot>
@@ -27,10 +27,10 @@ describe("Suite test ZButton", () => {
       html: `<z-button>label</z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary" style="pointer-events: auto;">
+      <z-button size="big" variant="primary" style="pointer-events: auto;">
       <mock:shadow-root>
         <slot name="element">
-          <button type="button" class="primary">
+          <button type="button" class="big primary">
             <slot></slot>
           </button>
         </slot>
@@ -46,10 +46,10 @@ describe("Suite test ZButton", () => {
       html: `<z-button icon="icon"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary" icon="icon" style="pointer-events: auto;">
+      <z-button size="big" variant="primary" icon="icon" style="pointer-events: auto;">
       <mock:shadow-root>
         <slot name="element">
-          <button type="button" class="primary">
+          <button type="button" class="big primary">
             <z-icon name="icon" height="16" width="16"></z-icon>
             <slot></slot>
           </button>
@@ -65,10 +65,10 @@ describe("Suite test ZButton", () => {
       html: `<z-button variant="secondary"></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button variant="secondary" style="pointer-events: auto;">
+      <z-button size="big" variant="secondary" style="pointer-events: auto;">
       <mock:shadow-root>
         <slot name="element">
-          <button type="button" class="secondary">
+          <button type="button" class="big secondary">
             <slot></slot>
           </button>
         </slot>
@@ -83,10 +83,10 @@ describe("Suite test ZButton", () => {
       html: `<z-button issmall></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button issmall variant="primary" style="pointer-events: auto;">
+      <z-button issmall size="big" variant="primary" style="pointer-events: auto;">
       <mock:shadow-root>
         <slot name="element">
-          <button type="button" class="primary small">
+          <button type="button" class="big issmall primary">
             <slot></slot>
           </button>
         </slot>
@@ -101,10 +101,10 @@ describe("Suite test ZButton", () => {
       html: `<z-button disabled></z-button>`
     });
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary" disabled style="pointer-events: none;">
+      <z-button size="big" variant="primary" disabled style="pointer-events: none;">
       <mock:shadow-root>
         <slot name="element">
-          <button type="button" class="primary" disabled>
+          <button type="button" class="big primary" disabled>
             <slot></slot>
           </button>
         </slot>
@@ -122,10 +122,10 @@ describe("Suite test ZButton", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary" style="pointer-events: auto;">
+      <z-button size="big" variant="primary" style="pointer-events: auto;">
         <mock:shadow-root>
           <slot name="element">
-            <button type="button" class="primary">
+            <button type="button" class="big primary">
               <slot></slot>
             </button>
           </slot>
@@ -144,10 +144,10 @@ describe("Suite test ZButton", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-button variant="primary" style="pointer-events: auto;">
+      <z-button size="big" variant="primary" style="pointer-events: auto;">
         <mock:shadow-root>
           <slot name="element">
-            <button type="button" class="primary">
+            <button type="button" class="big primary">
               <slot></slot>
             </button>
           </slot>
