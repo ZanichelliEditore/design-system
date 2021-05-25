@@ -38,6 +38,7 @@ z-registro-table
   position: sticky;
   left: 0;
   box-shadow: 1px 0 4px -1px rgba(66, 69, 72, 0.4);
+  z-index: 1;
 }
 
 z-registro-table
