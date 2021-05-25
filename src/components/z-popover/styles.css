@@ -10,9 +10,8 @@
 }
 
 .popover-content-container.after-down {
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: calc(100% + var(--space-unit));
 }
 
 .popover-content-container.after-center {
