@@ -18,7 +18,7 @@ export class ZDivider {
     return (
       <Host
         class={`divider-${this.size} divider-${this.orientation}`}
-        styles={`background-color: var(--${this.color})`}
+        style={{ backgroundColor: `var(--${this.color})` }}
       />
     );
   }
