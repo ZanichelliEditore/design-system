@@ -38,6 +38,7 @@
   max-width: 200px;
   font-style: italic;
   border: 1px solid var(--bg-grey-200);
+  border-radius: var(--border-radius-base);
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08);
 }
 
