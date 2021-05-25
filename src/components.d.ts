@@ -796,6 +796,9 @@ export namespace Components {
         "url": string;
     }
     interface ZPopover {
+        "backgroundColor": string;
+        "borderRadius": string;
+        "boxShadow": string;
         "position": PopoverPosition;
     }
     interface ZRegistroTable {
@@ -2268,6 +2271,9 @@ declare namespace LocalJSX {
         "url"?: string;
     }
     interface ZPopover {
+        "backgroundColor"?: string;
+        "borderRadius"?: string;
+        "boxShadow"?: string;
         "position"?: PopoverPosition;
     }
     interface ZRegistroTable {
