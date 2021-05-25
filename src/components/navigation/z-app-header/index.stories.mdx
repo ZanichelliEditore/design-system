@@ -1,7 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { boolean } from '@storybook/addon-knobs';
-import './index.stories.css';
+import { select, boolean } from '@storybook/addon-knobs';
 
 <Meta title="Navigation/ZAppHeader" component="z-app-header" />
 
@@ -213,7 +212,7 @@ import './index.stories.css';
 
 <Preview>
   <Story name="Hero">
-    {html`<z-app-header .stuck=${boolean('Stuck', false)} overlay style="--app-header-height: 400px;">
+    {html`<z-app-header .stuck=${boolean('Stuck', false)} overlay style="--app-header-height: 400px;" flow="${select('Flow', ['auto', 'stack'], 'auto')}">
         <h1 slot="title">Applicazione</h1>
         <h2 slot="subtitle">Payoff dell'applicazione</h2>
         <img slot="hero" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />

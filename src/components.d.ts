@@ -16,6 +16,10 @@ export namespace Components {
          */
         "drawer": boolean;
         /**
+          * Control menu bar position in the header. **Optional**
+         */
+        "flow": 'auto'|'stack';
+        /**
           * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
          */
         "hero": string;
@@ -1397,6 +1401,10 @@ declare namespace LocalJSX {
           * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
          */
         "drawer"?: boolean;
+        /**
+          * Control menu bar position in the header. **Optional**
+         */
+        "flow"?: 'auto'|'stack';
         /**
           * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
          */

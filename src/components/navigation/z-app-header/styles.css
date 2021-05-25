@@ -40,7 +40,7 @@
   --app-header-typography-11-tracking: calc(-2.2 / 1em);
   --app-header-typography-12-tracking: calc(-2.4 / 1em);
 
-  --app-header-drawer-trigger-size: 32px;
+  --app-header-drawer-trigger-size: calc(var(--space-unit) * 4);
 
   position: relative;
   display: flex;
@@ -314,10 +314,13 @@
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
   :host {
-    flex-direction: row;
-    flex-wrap: wrap;
     padding-left: var(--grid-desktop-margin);
     padding-right: var(--grid-desktop-margin);
+  }
+
+  :host(:not([flow='stack'])) {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   :host(:not([stuck])) ::slotted([slot='title']) {
@@ -335,7 +338,7 @@
     margin-bottom: calc(var(--space-unit) * 2);
   }
 
-  .menu-container {
+  :host(:not([flow='stack'])) .menu-container {
     margin-top: var(--space-unit);
   }
 }
@@ -362,7 +365,7 @@
     margin-bottom: 0;
   }
 
-  .menu-container {
+  :host(:not([flow='stack'])) .menu-container {
     margin-top: calc(var(--space-unit) * 3);
   }
 }

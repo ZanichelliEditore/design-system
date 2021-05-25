@@ -31,12 +31,23 @@ export class ZAppHeader {
    * Useful for legibility purpose.
    * **Optional**
    */
-  @Prop({ reflect: true  }) overlay: boolean = false;
+  @Prop({ reflect: true }) overlay: boolean = false;
+
+  /**
+   * Control menu bar position in the header.
+   * **Optional**
+   */
+   @Prop({ reflect: true  }) flow: 'auto'|'stack' = 'auto';
 
   /**
    * The opening state of the drawer.
    */
   @State() drawerOpen: boolean = false;
+
+  constructor() {
+    this.openDrawer = this.openDrawer.bind(this);
+    this.closeDrawer = this.closeDrawer.bind(this);
+  }
 
   /**
    * Check if the menu should be collapsed into drawer.
@@ -54,7 +65,7 @@ export class ZAppHeader {
       </div>,
       <div class="heading-container">
         <div class="heading-title">
-          {this.shouldUseDrawer && <button class="drawer-trigger" onClick={this.openDrawer.bind(this)}>
+          {this.shouldUseDrawer && <button class="drawer-trigger" onClick={this.openDrawer}>
             <z-icon name="burger-menu"></z-icon>
           </button>}
           <slot name="title"></slot>
@@ -67,9 +78,9 @@ export class ZAppHeader {
         <slot name="menu"></slot>
       </div>,
       this.shouldUseDrawer && <div class="drawer-container" data-open={this.drawerOpen}>
-        <div class="drawer-overlay" onClick={this.closeDrawer.bind(this)}></div>
+        <div class="drawer-overlay" onClick={this.closeDrawer}></div>
         <div class="drawer-panel">
-          <button class="drawer-close" onClick={this.closeDrawer.bind(this)}>
+          <button class="drawer-close" onClick={this.closeDrawer}>
             <z-icon name="close"></z-icon>
           </button>
           <div class="drawer-content">
