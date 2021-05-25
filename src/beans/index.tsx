@@ -167,6 +167,24 @@ export type SelectItemBean = {
 export type ThemeVariantBean = keyof typeof ThemeVariant;
 
 export enum ThemeVariant {
-  dark = 'dark',
-  light = 'light'
+  dark = "dark",
+  light = "light",
+}
+
+export enum PopoverPosition {
+  "after-down" = "after-down",
+  "after-center" = "after-center",
+  "after-up" = "after-up",
+
+  "below-right" = "below-right",
+  "below-center" = "below-center",
+  "below-left" = "below-left",
+
+  "before-down" = "before-down",
+  "before-center" = "before-center",
+  "before-up" = "before-up",
+
+  "above-right" = "above-right",
+  "above-center" = "above-center",
+  "above-left" = "above-left",
 }

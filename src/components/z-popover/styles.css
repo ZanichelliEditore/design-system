@@ -1,0 +1,49 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+
+  position: relative;
+}
+
+.popover-content-container {
+  position: absolute;
+}
+
+.popover-content-container.after-down {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.popover-content-container.after-center {
+}
+
+.popover-content-container.after-up {
+}
+
+.popover-content-container.below-right {
+}
+
+.popover-content-container.below-center {
+}
+
+.popover-content-container.below-left {
+}
+
+.popover-content-container.before-down {
+}
+
+.popover-content-container.before-center {
+}
+
+.popover-content-container.before-up {
+}
+
+.popover-content-container.above-right {
+}
+
+.popover-content-container.above-center {
+}
+
+.popover-content-container.above-left {
+}

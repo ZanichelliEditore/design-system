@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverPosition, SelectItemBean, ThemeVariantBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -795,6 +795,9 @@ export namespace Components {
          */
         "url": string;
     }
+    interface ZPopover {
+        "position": PopoverPosition;
+    }
     interface ZRegistroTable {
         /**
           * Sets table with border
@@ -1224,6 +1227,12 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZPopoverElement extends Components.ZPopover, HTMLStencilElement {
+    }
+    var HTMLZPopoverElement: {
+        prototype: HTMLZPopoverElement;
+        new (): HTMLZPopoverElement;
+    };
     interface HTMLZRegistroTableElement extends Components.ZRegistroTable, HTMLStencilElement {
     }
     var HTMLZRegistroTableElement: {
@@ -1358,6 +1367,7 @@ declare global {
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-popover": HTMLZPopoverElement;
         "z-registro-table": HTMLZRegistroTableElement;
         "z-registro-table-body": HTMLZRegistroTableBodyElement;
         "z-registro-table-cell": HTMLZRegistroTableCellElement;
@@ -2257,6 +2267,9 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface ZPopover {
+        "position"?: PopoverPosition;
+    }
     interface ZRegistroTable {
         /**
           * Sets table with border
@@ -2474,6 +2487,7 @@ declare namespace LocalJSX {
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-popover": ZPopover;
         "z-registro-table": ZRegistroTable;
         "z-registro-table-body": ZRegistroTableBody;
         "z-registro-table-cell": ZRegistroTableCell;
@@ -2538,6 +2552,7 @@ declare module "@stencil/core" {
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
             "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
             "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
