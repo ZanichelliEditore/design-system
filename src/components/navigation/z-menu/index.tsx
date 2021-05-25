@@ -7,7 +7,8 @@ import {
   EventEmitter,
   Listen,
   Element,
-  Host
+  Host,
+  Watch
 } from '@stencil/core';
 
 /**
@@ -37,6 +38,9 @@ export class ZMenu {
   @State() hasContent: boolean;
   @Element() hostElement: HTMLElement;
 
+  private content: HTMLElement;
+  private raf: number;
+
   /** The menu has been opened. */
   @Event() opened: EventEmitter;
   /** The menu has been closed. */
@@ -61,8 +65,34 @@ export class ZMenu {
       return;
     }
 
+    this.reflow();
     this.open = false;
     this.closed.emit();
+  }
+
+  @Watch('open')
+  onOpenChanged() {
+    if (this.open) {
+      this.reflow(true);
+    } else {
+      cancelAnimationFrame(this.raf);
+    }
+  }
+
+  /**
+   * Correctly set position of the floating menu in order to prevent overflow.
+   * @param live Should run the method on every refresh frame.
+   */
+  reflow(live: boolean = false) {
+    if (this.content) {
+      const { style } = this.content;
+      const { left } = this.hostElement.getBoundingClientRect();
+      const width = parseFloat(getComputedStyle(this.content).width.replace('px', ''));
+      style.left = `${Math.min(window.innerWidth - left - width, 0)}px`;
+    }
+    if (live) {
+      this.raf = requestAnimationFrame(this.reflow.bind(this, live));
+    }
   }
 
   /**
@@ -85,14 +115,14 @@ export class ZMenu {
           {this.hasContent && <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />}
         </div>
       </button>
-      {this.open && <div class="content">
+      <div class="content" ref={(el) => { this.content = el; }} hidden={!this.open}>
         {this.hasHeader && <header class="header">
           <slot name="header" onSlotchange={this.checkContent.bind(this)}></slot>
         </header>}
         <div class="items">
           <slot name="item" onSlotchange={this.checkContent.bind(this)}></slot>
         </div>
-      </div>}
+      </div>
     </Host>
   }
 }
