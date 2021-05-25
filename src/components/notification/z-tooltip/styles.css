@@ -1,12 +1,10 @@
 :host {
-  --z-tooltip-light--surface: var(--bg-white);
-  --z-tooltip-light--text: var(--text-grey-800);
-  --z-tooltip-dark--surface: var(--bg-grey-800);
-  --z-tooltip-dark--text: var(--color-white);
-  --z-tooltip-arrow-size: 6px;
+  --z-tooltip-theme--surface: var(--bg-white);
+  --z-tooltip-theme--text: var(--text-grey-800);
+  --arrow-size: 6px;
 
-  color: var(--z-tooltip-theme--text, var(--z-tooltip-light--text));
-  fill: var(--z-tooltip-theme--text, var(--z-tooltip-light--text));
+  color: var(--z-tooltip-theme--text);
+  fill: var(--z-tooltip-theme--text);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   line-height: 16px;
@@ -29,7 +27,7 @@
   min-height: calc(var(--space-unit) * 4);
   border-radius: var(--border-radius-small);
   text-align: center;
-  background: var(--z-tooltip-theme--surface, var(--z-tooltip-light--surface));
+  background: var(--z-tooltip-theme--surface);
   box-shadow: var(--shadow-4);
 }
 
@@ -44,64 +42,64 @@
 }
 
 .tooltip.legacy:after {
-  --z-tooltip-arrow-size: 14px;
+  --arrow-size: 14px;
   box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px;
 }
 
 .tooltip[class*='-arrow']:after {
   content: '';
   position: absolute;
-  width: var(--z-tooltip-arrow-size);
-  height: var(--z-tooltip-arrow-size);
+  width: var(--arrow-size);
+  height: var(--arrow-size);
   background: inherit;
   transform: rotate(45deg);
 }
 
 /* Tooltip Top */
 .tooltip-top-arrow:after {
-  left: calc(50% - calc(var(--z-tooltip-arrow-size) / 2));
-  top: calc(var(--z-tooltip-arrow-size) / 2 * -1);
+  left: calc(50% - calc(var(--arrow-size) / 2));
+  top: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Bottom */
 .tooltip-bottom-arrow:after {
-  left: calc(50% - calc(var(--z-tooltip-arrow-size) / 2));
-  bottom: calc(var(--z-tooltip-arrow-size) / 2 * -1);
+  left: calc(50% - calc(var(--arrow-size) / 2));
+  bottom: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Left */
 .tooltip-left-arrow:after {
-  top: calc(50% - calc(var(--z-tooltip-arrow-size) / 2));
-  left: calc(var(--z-tooltip-arrow-size) / 2 * -1);
+  top: calc(50% - calc(var(--arrow-size) / 2));
+  left: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Right */
 .tooltip-right-arrow:after {
-  top: calc(50% - calc(var(--z-tooltip-arrow-size) / 2));
-  right: calc(var(--z-tooltip-arrow-size) / 2 * -1);
+  top: calc(50% - calc(var(--arrow-size) / 2));
+  right: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Top Right */
 .tooltip-top-right-arrow:after {
-  right: calc(25% - calc(var(--z-tooltip-arrow-size) / 2));
-  top: calc(var(--z-tooltip-arrow-size) / 2 * -1);
+  right: calc(25% - calc(var(--arrow-size) / 2));
+  top: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Top Left */
 .tooltip-top-left-arrow:after {
-  left: calc(25% - calc(var(--z-tooltip-arrow-size) / 2));
-  top: calc(var(--z-tooltip-arrow-size) / 2 * -1);
+  left: calc(25% - calc(var(--arrow-size) / 2));
+  top: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Bottom Right */
 .tooltip-bottom-right-arrow:after {
-  right: calc(25% - calc(var(--z-tooltip-arrow-size) / 2));
-  bottom: calc(var(--z-tooltip-arrow-size) / 2 * -1);
+  right: calc(25% - calc(var(--arrow-size) / 2));
+  bottom: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Bottom Left */
 .tooltip-bottom-left-arrow:after {
-  left: calc(25% - calc(var(--z-tooltip-arrow-size) / 2));
-  bottom: calc(var(--z-tooltip-arrow-size) / 2 * -1);
+  left: calc(25% - calc(var(--arrow-size) / 2));
+  bottom: calc(var(--arrow-size) / 2 * -1);
 }
 
