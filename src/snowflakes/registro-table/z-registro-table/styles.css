@@ -37,8 +37,21 @@ z-registro-table
   > z-registro-table-header:first-child {
   position: sticky;
   left: 0;
-  box-shadow: 1px 0 4px -1px rgba(66, 69, 72, 0.4);
+  /* box-shadow: 1px 0 4px -1px rgba(66, 69, 72, 0.4); */
   z-index: 1;
+}
+
+z-registro-table
+  > div.column-sticky-shadow
+  > z-registro-table-body
+  > z-registro-table-row
+  > z-registro-table-cell:first-child,
+z-registro-table
+  > div.column-sticky-shadow
+  > z-registro-table-head
+  > z-registro-table-row
+  > z-registro-table-header:first-child {
+  box-shadow: 1px 0 4px -1px rgba(66, 69, 72, 0.4);
 }
 
 z-registro-table

@@ -1,4 +1,5 @@
-import { Component, Element, Host, Prop, h } from "@stencil/core";
+import { Component, Element, Host, Prop, h, State } from "@stencil/core";
+import classNames from "classnames";
 
 /**
  * @slot - table elements
@@ -23,17 +24,28 @@ export class ZRegistroTable {
   /** Sets header sticky */
   @Prop() headerSticky?: boolean = false;
 
+  /** Scroll horizontal position */
+  @State() scrollX: number = 0;
+
   componentWillRender() {
     this.host.setAttribute("role", "table");
   }
 
+  handleScroll(e: any) {
+    this.scrollX = e.currentTarget.scrollLeft;
+  }
+
   render() {
     return (
-      <Host>
+      <Host onScroll={this.handleScroll}>
         <div
-          class={`table ${this.bordered ? "table-bordered" : ""} 
-            ${this.columnSticky ? "table-column-sticky" : ""} 
-            ${this.headerSticky ? "table-header-sticky" : ""}`}
+          class={classNames(
+            "table",
+            { "table-bordered": this.bordered },
+            { "table-column-sticky": this.columnSticky },
+            { "table-header-sticky": this.headerSticky },
+            { "column-sticky-shadow": this.scrollX > 0 && this.columnSticky }
+          )}
         >
           <slot />
         </div>
