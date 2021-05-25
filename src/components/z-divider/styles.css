@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+:host.divider-horizontal {
+  width: 100%;
+}
+
+:host.divider-vertical {
+  height: 100%;
+}
+
+:host.divider-small.divider-horizontal {
+  height: 1px;
+}
+
+:host.divider-medium.divider-horizontal {
+  height: 2px;
+}
+
+:host.divider-large.divider-horizontal {
+  height: 4px;
+}
+
+:host.divider-small.divider-vertical {
+  width: 1px;
+}
+
+:host.divider-medium.divider-vertical {
+  width: 2px;
+}
+
+:host.divider-large.divider-vertical {
+  width: 4px;
+}

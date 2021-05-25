@@ -14,6 +14,14 @@ export class ZRegistroTableCell {
   }
 
   render() {
-    return <slot />;
+    return (
+      <span
+        onClick={() => {
+          console.log("CICCAALCULO");
+        }}
+      >
+        <slot></slot>
+      </span>
+    );
   }
 }
