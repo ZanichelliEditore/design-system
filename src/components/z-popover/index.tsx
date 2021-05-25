@@ -9,15 +9,21 @@ import { PopoverPosition } from "../../beans";
   scoped: true,
 })
 export class ZPopover {
-  @Prop() position: PopoverPosition = PopoverPosition["after-up"];
-  @Prop() backgroundColor: string = "color-white";
-  @Prop() borderRadius: string = "border-base";
-  @Prop() boxShadow: string = "shadow-1";
+  /** [optional] Popover position */
+  @Prop() position?: PopoverPosition = PopoverPosition["after-up"];
+  /** [optional] Background color token for popover */
+  @Prop() backgroundColor?: string = "color-white";
+  /** [optional] Border radius token for popover */
+  @Prop() borderRadius?: string = "border-base";
+  /** [optional] Box shadow token for popover */
+  @Prop() boxShadow?: string = "shadow-1";
+  /** [optional] Show or hide arrow */
+  @Prop() showArrow?: boolean = false;
 
   render() {
     return (
       <Host>
-        <slot name="trigger"></slot>
+        <slot name="trigger"></slot>{" "}
         <div
           class={classNames("popover-content-container", this.position)}
           style={{

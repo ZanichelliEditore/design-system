@@ -10,6 +10,7 @@
   position: absolute;
   min-width: 64px;
   min-height: 32px;
+  z-index: 5;
 }
 
 .popover-content-container.after-down {
@@ -74,4 +75,28 @@
 .popover-content-container.above-left {
   right: 0;
   bottom: calc(100% + var(--space-unit));
+}
+
+.arrow {
+  position: absolute;
+  z-index: 5;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.popover-content-container.after-down:after,
+.popover-content-container.after-center:after,
+.popover-content-container.after-up:after {
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(100% - 4px);
+
+  position: absolute;
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: inherit;
+  transform: rotate(45deg);
+  box-shadow: rgb(0 0 0 / 8%) -1px 1px 2px 0px;
+  z-index: 1;
 }

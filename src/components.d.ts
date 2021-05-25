@@ -796,10 +796,26 @@ export namespace Components {
         "url": string;
     }
     interface ZPopover {
-        "backgroundColor": string;
-        "borderRadius": string;
-        "boxShadow": string;
-        "position": PopoverPosition;
+        /**
+          * [optional] Background color token for popover
+         */
+        "backgroundColor"?: string;
+        /**
+          * [optional] Border radius token for popover
+         */
+        "borderRadius"?: string;
+        /**
+          * [optional] Box shadow token for popover
+         */
+        "boxShadow"?: string;
+        /**
+          * [optional] Popover position
+         */
+        "position"?: PopoverPosition;
+        /**
+          * [optional] Show or hide arrow
+         */
+        "showArrow"?: boolean;
     }
     interface ZRegistroTable {
         /**
@@ -2271,10 +2287,26 @@ declare namespace LocalJSX {
         "url"?: string;
     }
     interface ZPopover {
+        /**
+          * [optional] Background color token for popover
+         */
         "backgroundColor"?: string;
+        /**
+          * [optional] Border radius token for popover
+         */
         "borderRadius"?: string;
+        /**
+          * [optional] Box shadow token for popover
+         */
         "boxShadow"?: string;
+        /**
+          * [optional] Popover position
+         */
         "position"?: PopoverPosition;
+        /**
+          * [optional] Show or hide arrow
+         */
+        "showArrow"?: boolean;
     }
     interface ZRegistroTable {
         /**
