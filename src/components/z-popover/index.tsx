@@ -1,6 +1,10 @@
 import { Component, Prop, h, Host } from "@stencil/core";
 import classNames from "classnames";
-import { PopoverPosition } from "../../beans";
+import {
+  PopoverPosition,
+  PopoverBorderRadius,
+  PopoverShadow,
+} from "../../beans";
 
 @Component({
   tag: "z-popover",
@@ -14,9 +18,9 @@ export class ZPopover {
   /** [optional] Background color token for popover */
   @Prop() backgroundColor?: string = "color-white";
   /** [optional] Border radius token for popover */
-  @Prop() borderRadius?: string = "border-base";
+  @Prop() borderRadius?: PopoverBorderRadius = PopoverBorderRadius.small;
   /** [optional] Box shadow token for popover */
-  @Prop() boxShadow?: string = "shadow-1";
+  @Prop() boxShadow?: PopoverShadow = PopoverShadow["shadow-1"];
   /** [optional] Show or hide arrow */
   @Prop() showArrow?: boolean = false;
 
@@ -24,16 +28,21 @@ export class ZPopover {
     return (
       <Host>
         <slot name="trigger"></slot>
+        {this.showArrow && (
+          <div
+            class={classNames("arrow", this.position)}
+            style={{ backgroundColor: `var(--${this.backgroundColor})` }}
+          />
+        )}
         <div
-          class={classNames("arrow", this.position)}
-          style={{ backgroundColor: `var(--${this.backgroundColor})` }}
-        />
-        <div
-          class={classNames("popover-content-container", this.position)}
+          class={classNames(
+            "popover-content-container",
+            this.position,
+            `border-radius-${this.borderRadius}`,
+            this.boxShadow
+          )}
           style={{
             backgroundColor: `var(--${this.backgroundColor})`,
-            borderRadius: `var(--${this.borderRadius})`,
-            boxShadow: `var(--${this.boxShadow})`,
           }}
         >
           <slot name="popover"></slot>

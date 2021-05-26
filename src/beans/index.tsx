@@ -188,3 +188,17 @@ export enum PopoverPosition {
   "above-center" = "above-center",
   "above-left" = "above-left",
 }
+
+export enum PopoverBorderRadius {
+  "none" = "none",
+  small = "small",
+  medium = "medium",
+}
+
+export enum PopoverShadow {
+  "shadow-0" = "shadow-0",
+  "shadow-1" = "shadow-1",
+  "shadow-2" = "shadow-2",
+  "shadow-3" = "shadow-3",
+  "shadow-4" = "shadow-4",
+}

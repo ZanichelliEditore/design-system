@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverPosition, SelectItemBean, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, ThemeVariantBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -803,11 +803,11 @@ export namespace Components {
         /**
           * [optional] Border radius token for popover
          */
-        "borderRadius"?: string;
+        "borderRadius"?: PopoverBorderRadius;
         /**
           * [optional] Box shadow token for popover
          */
-        "boxShadow"?: string;
+        "boxShadow"?: PopoverShadow;
         /**
           * [optional] Popover position
          */
@@ -2294,11 +2294,11 @@ declare namespace LocalJSX {
         /**
           * [optional] Border radius token for popover
          */
-        "borderRadius"?: string;
+        "borderRadius"?: PopoverBorderRadius;
         /**
           * [optional] Box shadow token for popover
          */
-        "boxShadow"?: string;
+        "boxShadow"?: PopoverShadow;
         /**
           * [optional] Popover position
          */
