@@ -23,7 +23,11 @@ export class ZPopover {
   render() {
     return (
       <Host>
-        <slot name="trigger"></slot>{" "}
+        <slot name="trigger"></slot>
+        <div
+          class={classNames("arrow", this.position)}
+          style={{ backgroundColor: `var(--${this.backgroundColor})` }}
+        />
         <div
           class={classNames("popover-content-container", this.position)}
           style={{
