@@ -4,6 +4,7 @@ import {
   PopoverPosition,
   PopoverBorderRadius,
   PopoverShadow,
+  KeyboardKeys,
 } from "../../beans";
 import { getElementTree } from "../../utils/utils";
 
@@ -30,6 +31,13 @@ export class ZPopover {
   @Listen("closePopover")
   closePopover() {
     this.isVisible = false;
+  }
+
+  @Listen("keyup", { target: "window" })
+  closePopoverWithKeyboard(e: any) {
+    if (e.key === KeyboardKeys.ESC) {
+      this.closePopover();
+    }
   }
 
   handleClick() {

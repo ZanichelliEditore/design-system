@@ -157,6 +157,10 @@ export enum keybordKeyCodeEnum {
   ARROW_DOWN = 40,
 }
 
+export enum KeyboardKeys {
+  ESC = "Escape",
+}
+
 export type SelectItemBean = {
   id: string;
   name: string;
