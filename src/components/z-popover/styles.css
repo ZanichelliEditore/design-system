@@ -124,53 +124,78 @@ Popover-positions
 /*
 Arrows
 */
-
-.arrow {
+.popover-content-container:before {
+  display: none;
   position: absolute;
-  z-index: 5;
-
-  width: 7px;
-  height: 7px;
-
-  z-index: 1;
+  content: "";
+  width: 8px;
+  height: 8px;
+  z-index: -1;
+  background-color: inherit;
+  transform: rotate(45deg);
 }
 
-.arrow.after-down,
-.arrow.after-center,
-.arrow.after-up {
-  top: 50%;
-  transform: translateY(-50%);
-  left: calc(100% + 6px);
-  transform: rotate(45deg);
-  transform-origin: top right;
+.popover-content-container.after-down:before {
+  top: 12px;
+  left: -4px;
 }
 
-.arrow.below-right,
-.arrow.below-center,
-.arrow.below-left {
-  left: 50%;
-  top: calc(100% + var(--space-unit));
-  transform: translateX(-50%);
-  transform: rotate(45deg);
-  transform-origin: top right;
+.popover-content-container.after-center:before {
+  top: calc(50% - 4px);
+  left: -4px;
 }
 
-.arrow.before-down,
-.arrow.before-center,
-.arrow.before-up {
-  top: 50%;
-  transform: translateY(-50%);
-  right: calc(100% + 4px);
-  transform: rotate(45deg);
-  transform-origin: top right;
+.popover-content-container.after-up:before {
+  bottom: 12px;
+  left: -4px;
 }
 
-.arrow.above-right,
-.arrow.above-center,
-.arrow.above-left {
-  left: 50%;
-  bottom: calc(100% + 1px);
-  transform: translateX(-50%);
-  transform: rotate(45deg);
-  transform-origin: top right;
+.popover-content-container.below-right:before {
+  left: 12px;
+  top: -4px;
+}
+
+.popover-content-container.below-center:before {
+  left: calc(50% - 4px);
+  top: -4px;
+}
+
+.popover-content-container.below-left:before {
+  right: 12px;
+  top: -4px;
+}
+
+.popover-content-container.before-down:before {
+  top: 12px;
+  right: -4px;
+}
+
+.popover-content-container.before-center:before {
+  top: calc(50% - 4px);
+  right: -4px;
+}
+
+.popover-content-container.before-up:before {
+  bottom: 12px;
+  right: -4px;
+}
+
+.popover-content-container.above-right:before {
+  left: 12px;
+  bottom: -4px;
+}
+
+.popover-content-container.above-center:before {
+  left: calc(50% - 4px);
+  bottom: -4px;
+}
+
+.popover-content-container.above-left:before {
+  right: 12px;
+  bottom: -4px;
+}
+
+/** Show/Hide arrow */
+.popover-content-container.show-arrow:before {
+  display: block;
 }

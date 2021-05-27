@@ -28,18 +28,13 @@ export class ZPopover {
     return (
       <Host>
         <slot name="trigger"></slot>
-        {this.showArrow && (
-          <div
-            class={classNames("arrow", this.position)}
-            style={{ backgroundColor: `var(--${this.backgroundColor})` }}
-          />
-        )}
         <div
           class={classNames(
             "popover-content-container",
             this.position,
             `border-radius-${this.borderRadius}`,
-            this.boxShadow
+            this.boxShadow,
+            { "show-arrow": this.showArrow }
           )}
           style={{
             backgroundColor: `var(--${this.backgroundColor})`,
