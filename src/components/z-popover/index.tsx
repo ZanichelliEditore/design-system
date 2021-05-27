@@ -1,10 +1,11 @@
-import { Component, Prop, h, Host } from "@stencil/core";
+import { Component, Prop, h, Host, State, Listen } from "@stencil/core";
 import classNames from "classnames";
 import {
   PopoverPosition,
   PopoverBorderRadius,
   PopoverShadow,
 } from "../../beans";
+import { getElementTree } from "../../utils/utils";
 
 @Component({
   tag: "z-popover",
@@ -24,17 +25,43 @@ export class ZPopover {
   /** [optional] Show or hide arrow */
   @Prop() showArrow?: boolean = false;
 
+  @State() isVisible: boolean = false;
+
+  @Listen("closePopover")
+  closePopover() {
+    this.isVisible = false;
+  }
+
+  handleClick() {
+    this.isVisible = !this.isVisible;
+  }
+
+  @Listen("click", { target: "body", capture: true })
+  handleOutsideClick() {
+    const tree = getElementTree(document.activeElement);
+    const parent = tree.find(
+      (elem: any) => elem.nodeName.toLowerCase() === "z-popover"
+    );
+
+    if (!parent) {
+      this.isVisible = false;
+    }
+  }
+
   render() {
     return (
       <Host>
-        <slot name="trigger"></slot>
+        <div onClick={() => this.handleClick()}>
+          <slot name="trigger"></slot>
+        </div>
         <div
           class={classNames(
             "popover-content-container",
             this.position,
             `border-radius-${this.borderRadius}`,
             this.boxShadow,
-            { "show-arrow": this.showArrow }
+            { "show-arrow": this.showArrow },
+            { visible: this.isVisible }
           )}
           style={{
             backgroundColor: `var(--${this.backgroundColor})`,
