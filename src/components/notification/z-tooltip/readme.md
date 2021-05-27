@@ -24,12 +24,12 @@
 
 ### Used by
 
- - [z-card-info](../../card/z-card-info)
+ - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-card-info --> z-tooltip
+  z-myz-card-info --> z-tooltip
   style z-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

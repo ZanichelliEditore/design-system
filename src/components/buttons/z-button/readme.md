@@ -54,10 +54,10 @@
 
 ### Used by
 
- - [z-card-dictionary](../../card/z-card-dictionary)
  - [z-cookiebar](../../notification/z-cookiebar)
  - [z-header](../../navigation/z-header)
  - [z-modal-login](../../modal/z-modal-login)
+ - [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
  - [z-registro-table-cell](../../../snowflakes/registro-table/z-registro-table-cell)
 
 ### Depends on
@@ -68,10 +68,10 @@
 ```mermaid
 graph TD;
   z-button --> z-icon
-  z-card-dictionary --> z-button
   z-cookiebar --> z-button
   z-header --> z-button
   z-modal-login --> z-button
+  z-myz-card-dictionary --> z-button
   z-registro-table-cell --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

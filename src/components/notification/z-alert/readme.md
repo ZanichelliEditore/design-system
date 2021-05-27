@@ -23,12 +23,12 @@
 
 ### Used by
 
- - [z-card-alert](../../card/z-card-alert)
+ - [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-card-alert --> z-alert
+  z-myz-card-alert --> z-alert
   style z-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

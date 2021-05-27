@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.2](https://github.com/ZanichelliEditore/design-system/compare/v1.13.1...v1.13.2) (2021-05-25)
+
 ### [1.13.1](https://github.com/ZanichelliEditore/design-system/compare/v1.13.0...v1.13.1) (2021-05-25)
 
 
