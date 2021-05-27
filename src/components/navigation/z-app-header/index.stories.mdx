@@ -212,7 +212,7 @@ import { select, boolean } from '@storybook/addon-knobs';
 
 <Preview>
   <Story name="Hero">
-    {html`<z-app-header .stuck=${boolean('Stuck', false)} overlay style="--app-header-height: 400px;" flow="${select('Flow', ['auto', 'stack'], 'auto')}">
+    {html`<z-app-header .stuck=${boolean('Stuck', false)} .drawer=${boolean('Drawer', false)} overlay style="--app-header-height: 400px;" flow="${select('Flow', ['auto', 'stack'], 'auto')}">
         <h1 slot="title">Applicazione</h1>
         <h2 slot="subtitle">Payoff dell'applicazione</h2>
         <img slot="hero" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />

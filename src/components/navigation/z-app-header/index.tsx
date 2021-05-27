@@ -1,4 +1,5 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, h, Element, Prop, State, Watch } from '@stencil/core';
+import { ZMenu } from '../z-menu';
 
 @Component({
   tag: 'z-app-header',
@@ -6,6 +7,8 @@ import { Component, h, Prop, State } from '@stencil/core';
   shadow: true
 })
 export class ZAppHeader {
+  @Element() hostElement: HTMLElement;
+
   /**
    * Stuck mode for the header.
    * You can programmatically set it using an IntersectionObserver.
@@ -44,6 +47,8 @@ export class ZAppHeader {
    */
   @State() drawerOpen: boolean = false;
 
+  private menuElements?: NodeListOf<HTMLElement>;
+
   constructor() {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
@@ -54,6 +59,23 @@ export class ZAppHeader {
    */
   private get shouldUseDrawer() {
     return this.drawer || this.stuck;
+  }
+
+  private collectMenuElements() {
+    this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]');
+    this.setMenuFloatingMode();
+  }
+
+  @Watch('drawerOpen')
+  private setMenuFloatingMode() {
+    if (!this.menuElements) {
+      return;
+    }
+
+    const elements = this.menuElements;
+    for (let i = 0, len = elements.length; i < len; i++) {
+      (elements[i] as unknown as ZMenu).floating = !this.shouldUseDrawer;
+    }
   }
 
   render() {
@@ -75,7 +97,7 @@ export class ZAppHeader {
         </div>
       </div>,
       !this.shouldUseDrawer && <div class="menu-container">
-        <slot name="menu"></slot>
+        <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>
       </div>,
       this.shouldUseDrawer && <div class="drawer-container" data-open={this.drawerOpen}>
         <div class="drawer-overlay" onClick={this.closeDrawer}></div>
@@ -84,7 +106,7 @@ export class ZAppHeader {
             <z-icon name="close"></z-icon>
           </button>
           <div class="drawer-content">
-            <slot name="menu"></slot>
+            <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>
           </div>
         </div>
       </div>
@@ -103,12 +125,5 @@ export class ZAppHeader {
       return;
     }
     this.drawerOpen = false;
-  }
-
-  toggleDrawer() {
-    if (!this.shouldUseDrawer) {
-      return;
-    }
-    this.drawerOpen = !this.drawerOpen;
   }
 }
