@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, ThemeVariantBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -321,6 +321,20 @@ export namespace Components {
           * hide cookie bar (optional)
          */
         "hide"?: boolean;
+    }
+    interface ZDivider {
+        /**
+          * [optional] Divider color
+         */
+        "color"?: string;
+        /**
+          * [optional] Divider orintation
+         */
+        "orientation"?: DividerOrientation;
+        /**
+          * [optional] Divider size
+         */
+        "size"?: DividerSize;
     }
     interface ZFooter {
         /**
@@ -1080,6 +1094,12 @@ declare global {
         prototype: HTMLZCookiebarElement;
         new (): HTMLZCookiebarElement;
     };
+    interface HTMLZDividerElement extends Components.ZDivider, HTMLStencilElement {
+    }
+    var HTMLZDividerElement: {
+        prototype: HTMLZDividerElement;
+        new (): HTMLZDividerElement;
+    };
     interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {
     }
     var HTMLZFooterElement: {
@@ -1334,6 +1354,7 @@ declare global {
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
         "z-cookiebar": HTMLZCookiebarElement;
+        "z-divider": HTMLZDividerElement;
         "z-footer": HTMLZFooterElement;
         "z-footer-link": HTMLZFooterLinkElement;
         "z-footer-section": HTMLZFooterSectionElement;
@@ -1711,6 +1732,20 @@ declare namespace LocalJSX {
           * emitted on ACCETTA button click, returns event
          */
         "onAccept"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZDivider {
+        /**
+          * [optional] Divider color
+         */
+        "color"?: string;
+        /**
+          * [optional] Divider orintation
+         */
+        "orientation"?: DividerOrientation;
+        /**
+          * [optional] Divider size
+         */
+        "size"?: DividerSize;
     }
     interface ZFooter {
         /**
@@ -2450,6 +2485,7 @@ declare namespace LocalJSX {
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
         "z-cookiebar": ZCookiebar;
+        "z-divider": ZDivider;
         "z-footer": ZFooter;
         "z-footer-link": ZFooterLink;
         "z-footer-section": ZFooterSection;
@@ -2514,6 +2550,7 @@ declare module "@stencil/core" {
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
+            "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
             "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
