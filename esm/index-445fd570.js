@@ -66,5 +66,16 @@ var ThemeVariant;
   ThemeVariant["dark"] = "dark";
   ThemeVariant["light"] = "light";
 })(ThemeVariant || (ThemeVariant = {}));
+var DividerSize;
+(function (DividerSize) {
+  DividerSize["small"] = "small";
+  DividerSize["medium"] = "medium";
+  DividerSize["large"] = "large";
+})(DividerSize || (DividerSize = {}));
+var DividerOrientation;
+(function (DividerOrientation) {
+  DividerOrientation["horizontal"] = "horizontal";
+  DividerOrientation["vertical"] = "vertical";
+})(DividerOrientation || (DividerOrientation = {}));
 
-export { ButtonTypeEnum as B, InputTypeEnum as I, LicenseTypeEnum as L, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, InputStatusEnum as c, TooltipPosition as d, keybordKeyCodeEnum as k };
+export { ButtonTypeEnum as B, DividerSize as D, InputTypeEnum as I, LicenseTypeEnum as L, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, InputStatusEnum as c, TooltipPosition as d, DividerOrientation as e, keybordKeyCodeEnum as k };

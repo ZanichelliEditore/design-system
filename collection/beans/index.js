@@ -66,3 +66,14 @@ export var ThemeVariant;
   ThemeVariant["dark"] = "dark";
   ThemeVariant["light"] = "light";
 })(ThemeVariant || (ThemeVariant = {}));
+export var DividerSize;
+(function (DividerSize) {
+  DividerSize["small"] = "small";
+  DividerSize["medium"] = "medium";
+  DividerSize["large"] = "large";
+})(DividerSize || (DividerSize = {}));
+export var DividerOrientation;
+(function (DividerOrientation) {
+  DividerOrientation["horizontal"] = "horizontal";
+  DividerOrientation["vertical"] = "vertical";
+})(DividerOrientation || (DividerOrientation = {}));

@@ -145,3 +145,12 @@ export declare enum ThemeVariant {
   dark = "dark",
   light = "light"
 }
+export declare enum DividerSize {
+  small = "small",
+  medium = "medium",
+  large = "large"
+}
+export declare enum DividerOrientation {
+  horizontal = "horizontal",
+  vertical = "vertical"
+}

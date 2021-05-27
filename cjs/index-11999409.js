@@ -68,3 +68,14 @@ exports.ThemeVariant = void 0;
   ThemeVariant["dark"] = "dark";
   ThemeVariant["light"] = "light";
 })(exports.ThemeVariant || (exports.ThemeVariant = {}));
+exports.DividerSize = void 0;
+(function (DividerSize) {
+  DividerSize["small"] = "small";
+  DividerSize["medium"] = "medium";
+  DividerSize["large"] = "large";
+})(exports.DividerSize || (exports.DividerSize = {}));
+exports.DividerOrientation = void 0;
+(function (DividerOrientation) {
+  DividerOrientation["horizontal"] = "horizontal";
+  DividerOrientation["vertical"] = "vertical";
+})(exports.DividerOrientation || (exports.DividerOrientation = {}));

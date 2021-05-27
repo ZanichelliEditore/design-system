@@ -1,13 +1,11 @@
-'use strict';
-
-const index = require('./index-7dc086c1.js');
+import { k as keybordKeyCodeEnum } from './index-445fd570.js';
 
 function randomId() {
   return Math.random().toString(36).replace("0.", "");
 }
 function handleKeyboardSubmit(ev, callback, ...args) {
-  if (ev.keyCode === index.keybordKeyCodeEnum.ENTER ||
-    ev.keyCode === index.keybordKeyCodeEnum.SPACE) {
+  if (ev.keyCode === keybordKeyCodeEnum.ENTER ||
+    ev.keyCode === keybordKeyCodeEnum.SPACE) {
     ev.preventDefault();
     callback(...args);
   }
@@ -36,7 +34,4 @@ function getElementTree(elem, tree = []) {
   return tree;
 }
 
-exports.getClickedElement = getClickedElement;
-exports.getElementTree = getElementTree;
-exports.handleKeyboardSubmit = handleKeyboardSubmit;
-exports.randomId = randomId;
+export { getClickedElement as a, getElementTree as g, handleKeyboardSubmit as h, randomId as r };
