@@ -87,6 +87,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  max-width: 100%;
 }
 
 ::slotted([slot='title']) {
@@ -95,6 +96,13 @@
   font-size: var(--app-header-typography-3-size);
   line-height: var(--app-header-typography-3-lineheight);
   letter-spacing: var(--app-header-typography-3-tracking);
+}
+
+:host([stuck]) ::slotted([slot='title']) {
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .heading-subtitle {
@@ -124,6 +132,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  max-width: 100%;
   margin-right: auto;
 }
 
