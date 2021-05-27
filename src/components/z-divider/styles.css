@@ -13,25 +13,25 @@
 }
 
 :host.divider-small.divider-horizontal {
-  height: 1px;
+  height: var(--border-size-small);
 }
 
 :host.divider-medium.divider-horizontal {
-  height: 2px;
+  height: var(--border-size-medium);
 }
 
 :host.divider-large.divider-horizontal {
-  height: 4px;
+  height: var(--border-size-large);
 }
 
 :host.divider-small.divider-vertical {
-  width: 1px;
+  width: var(--border-size-small);
 }
 
 :host.divider-medium.divider-vertical {
-  width: 2px;
+  width: var(--border-size-medium);
 }
 
 :host.divider-large.divider-vertical {
-  width: 4px;
+  width: var(--border-size-large);
 }
