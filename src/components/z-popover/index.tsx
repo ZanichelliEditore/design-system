@@ -16,7 +16,8 @@ import { getElementTree } from "../../utils/utils";
 })
 export class ZPopover {
   /** [optional] Popover position */
-  @Prop() position?: PopoverPosition = PopoverPosition["after-up"];
+  @Prop({ mutable: true }) position?: PopoverPosition =
+    PopoverPosition["after-up"];
   /** [optional] Background color token for popover */
   @Prop() backgroundColor?: string = "color-white";
   /** [optional] Border radius token for popover */
@@ -27,6 +28,9 @@ export class ZPopover {
   @Prop() showArrow?: boolean = false;
 
   @State() isVisible: boolean = false;
+
+  private popoverElem: HTMLElement;
+  private defaultPosition: PopoverPosition = this.position;
 
   @Listen("closePopover")
   closePopover() {
@@ -42,6 +46,7 @@ export class ZPopover {
 
   handleClick() {
     this.isVisible = !this.isVisible;
+    this.checkSpaceAvailable();
   }
 
   @Listen("click", { target: "body", capture: true })
@@ -56,6 +61,68 @@ export class ZPopover {
     }
   }
 
+  checkSpaceAvailable() {
+    if (!this.isVisible) {
+      this.position = this.defaultPosition;
+      return;
+    }
+
+    const width = document.body.clientWidth;
+    const height = window.innerHeight;
+
+    const l = this.popoverElem.getBoundingClientRect().left;
+    const r = this.popoverElem.getBoundingClientRect().right;
+    const t = this.popoverElem.getBoundingClientRect().top;
+    const b = this.popoverElem.getBoundingClientRect().bottom;
+
+    let firstSide = this.position.split("-")[0];
+    let secondSide = this.position.split("-")[1];
+
+    // If top is outside viewport
+    if (t < 0) {
+      if (this.position.startsWith("above")) {
+        firstSide = "below";
+      } else {
+        secondSide = "down";
+      }
+    }
+
+    // If bottom is outside viewport
+    if (b > height) {
+      if (this.position.startsWith("below")) {
+        firstSide = "above";
+      } else {
+        secondSide = "up";
+      }
+    }
+
+    // If right is outside viewport
+    if (r > width) {
+      if (
+        this.position.startsWith("above") ||
+        this.position.startsWith("below")
+      ) {
+        secondSide = "left";
+      } else {
+        firstSide = "before";
+      }
+    }
+
+    // If left is outside viewport
+    if (l < 0) {
+      if (
+        this.position.startsWith("above") ||
+        this.position.startsWith("below")
+      ) {
+        secondSide = "right";
+      } else {
+        firstSide = "after";
+      }
+    }
+
+    this.position = PopoverPosition[`${firstSide}-${secondSide}`];
+  }
+
   render() {
     return (
       <Host>
@@ -63,6 +130,7 @@ export class ZPopover {
           <slot name="trigger"></slot>
         </div>
         <div
+          ref={(e) => (this.popoverElem = e)}
           class={classNames(
             "popover-content-container",
             this.position,
