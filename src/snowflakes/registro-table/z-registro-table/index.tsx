@@ -37,7 +37,7 @@ export class ZRegistroTable {
 
   render() {
     return (
-      <Host onScroll={this.handleScroll}>
+      <Host onScroll={(e: any) => this.handleScroll(e)}>
         <div
           class={classNames(
             "table",
