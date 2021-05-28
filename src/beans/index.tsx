@@ -206,3 +206,14 @@ export enum PopoverShadow {
   "shadow-3" = "shadow-3",
   "shadow-4" = "shadow-4",
 }
+
+export enum DividerSize {
+  small = "small",
+  medium = "medium",
+  large = "large",
+}
+
+export enum DividerOrientation {
+  horizontal = "horizontal",
+  vertical = "vertical",
+}
