@@ -89,7 +89,8 @@ export class ZMenu {
       const { left } = this.hostElement.getBoundingClientRect();
       const widthPx = getComputedStyle(this.content).width;
       const width = widthPx ? parseFloat(widthPx.replace('px', '')) : 375;
-      style.left = `${Math.min(window.innerWidth - left - width, 0)}px`;
+      const safeScrollbarSpace = 30;
+      style.left = `${Math.min(window.innerWidth - left - width - safeScrollbarSpace, 0)}px`;
     }
     if (live) {
       this.raf = requestAnimationFrame(this.reflow.bind(this, live));
