@@ -475,7 +475,7 @@ const ZChip = class {
     return index.h("div", null, index.h("span", { class: "boldtext" }, this.boldtext), " ", this.regulartext);
   }
   render() {
-    return this.boldtext || this.regulartext ?
+    return this.boldtext != null || this.regulartext != null ?
       this.renderLegacyChip() :
       index.h("div", null, index.h("slot", null));
   }

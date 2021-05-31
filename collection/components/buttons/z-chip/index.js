@@ -7,7 +7,7 @@ export class ZChip {
       this.regulartext);
   }
   render() {
-    return this.boldtext || this.regulartext ?
+    return this.boldtext != null || this.regulartext != null ?
       this.renderLegacyChip() :
       h("div", null,
         h("slot", null));
