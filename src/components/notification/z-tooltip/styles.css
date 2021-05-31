@@ -1,136 +1,106 @@
 :host {
-  --z-tooltip-light--surface: var(--bg-white);
-  --z-tooltip-light--text: var(--text-grey-800);
-  --z-tooltip-dark--surface: var(--text-grey-900);
-  --z-tooltip-dark--text: var(--color-white);
-  color: var(--z-tooltip-theme--text, var(--z-tooltip-light--text));
-  fill: var(--z-tooltip-theme--text, var(--z-tooltip-light--text));
+  --z-tooltip-theme--surface: var(--bg-white);
+  --z-tooltip-theme--text: var(--text-grey-800);
+  --arrow-size: 6px;
+
+  color: var(--z-tooltip-theme--text);
+  fill: var(--z-tooltip-theme--text);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  font-style: italic;
   line-height: 16px;
   letter-spacing: 0.32px;
   font-size: 12px;
   padding: calc(var(--space-unit) / 2); /* TEMP FIX MYZ */
 }
 
-/* Tooltip basic */
-:host .tooltip {
-  position: relative;
-  margin: 0 auto;
-  display: inline-block;
-  border-radius: var(--border-radius);
-  text-align: center;
-  background: var(--z-tooltip-theme--surface, var(--z-tooltip-light--surface));
-  /* box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08); */
-  box-shadow: var(--shadow-2); /* TEMP FIX MYZ */
-  padding: calc(var(--space-unit) * 2);
+* {
+  box-sizing: border-box;
 }
 
-:host .tooltip.legacy {
+/* Tooltips common style */
+.tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-unit);
+  min-width: calc(var(--space-unit) * 8);
+  min-height: calc(var(--space-unit) * 4);
+  border-radius: var(--border-radius-small);
+  text-align: center;
+  background: var(--z-tooltip-theme--surface);
+  box-shadow: var(--shadow-4);
+}
+
+.tooltip.legacy {
+  padding: calc(var(--space-unit) * 2);
+  min-width: auto;
+  min-height: auto;
   max-width: 200px;
+  font-style: italic;
+  border: 1px solid var(--bg-grey-200);
+  border-radius: var(--border-radius-base);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08);
+}
+
+.tooltip.legacy:after {
+  --arrow-size: 14px;
+  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px;
+}
+
+.tooltip[class*='-arrow']:after {
+  content: '';
+  position: absolute;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  background: inherit;
+  transform: rotate(45deg);
 }
 
 /* Tooltip Top */
-:host .tooltip-top-arrow:after {
-  content: "";
-  position: absolute;
-  left: calc(50% - 7px);
-  top: -7px;
-  width: 14px;
-  height: 14px;
-  background: inherit;
-  transform: rotate(45deg);
-  box-shadow: -1px -1px 4px -1px rgba(0, 0, 0, 0.08);
+.tooltip-top-arrow:after {
+  left: calc(50% - calc(var(--arrow-size) / 2));
+  top: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Bottom */
-:host .tooltip-bottom-arrow:after {
-  content: "";
-  position: absolute;
-  left: calc(50% - 7px);
-  bottom: -7px;
-  width: 14px;
-  height: 14px;
-  background: inherit;
-  transform: rotate(45deg);
-  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px;
+.tooltip-bottom-arrow:after {
+  left: calc(50% - calc(var(--arrow-size) / 2));
+  bottom: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Left */
-:host .tooltip-left-arrow:after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 7px);
-  left: -7px;
-  width: 14px;
-  height: 14px;
-  background: inherit;
-  transform: rotate(45deg);
-  box-shadow: rgb(0 0 0 / 8%) -1px 1px 2px 0px;
+.tooltip-left-arrow:after {
+  top: calc(50% - calc(var(--arrow-size) / 2));
+  left: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Right */
-:host .tooltip-right-arrow:after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 7px);
-  right: -7px;
-  width: 14px;
-  height: 14px;
-  background: inherit;
-  transform: rotate(45deg);
-  box-shadow: rgb(0 0 0 / 8%) 1px -1px 2px 0px;
+.tooltip-right-arrow:after {
+  top: calc(50% - calc(var(--arrow-size) / 2));
+  right: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Top Right */
-:host .tooltip-top-right-arrow:after {
-  content: "";
-  position: absolute;
-  right: calc(25% - 7px);
-  top: -7px;
-  width: 14px;
-  height: 14px;
-  background: inherit;
-  transform: rotate(45deg);
-  box-shadow: -1px -1px 4px -1px rgba(0, 0, 0, 0.08);
+.tooltip-top-right-arrow:after {
+  right: calc(25% - calc(var(--arrow-size) / 2));
+  top: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Top Left */
-:host .tooltip-top-left-arrow:after {
-  content: "";
-  position: absolute;
-  left: calc(25% - 7px);
-  top: -7px;
-  width: 14px;
-  height: 14px;
-  background: inherit;
-  transform: rotate(45deg);
-  box-shadow: -1px -1px 4px -1px rgba(0, 0, 0, 0.08);
+.tooltip-top-left-arrow:after {
+  left: calc(25% - calc(var(--arrow-size) / 2));
+  top: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Bottom Right */
-:host .tooltip-bottom-right-arrow:after {
-  content: "";
-  position: absolute;
-  right: calc(25% - 7px);
-  bottom: -7px;
-  width: 14px;
-  height: 14px;
-  background: inherit;
-  transform: rotate(45deg);
-  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px;
+.tooltip-bottom-right-arrow:after {
+  right: calc(25% - calc(var(--arrow-size) / 2));
+  bottom: calc(var(--arrow-size) / 2 * -1);
 }
 
 /* Tooltip Bottom Left */
-:host .tooltip-bottom-left-arrow:after {
-  content: "";
-  position: absolute;
-  left: calc(25% - 7px);
-  bottom: -7px;
-  width: 14px;
-  height: 14px;
-  background: inherit;
-  transform: rotate(45deg);
-  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px;
+.tooltip-bottom-left-arrow:after {
+  left: calc(25% - calc(var(--arrow-size) / 2));
+  bottom: calc(var(--arrow-size) / 2 * -1);
 }

@@ -211,3 +211,14 @@ export enum ThemeVariant {
   dark = "dark",
   light = "light",
 }
+
+export enum DividerSize {
+  small = "small",
+  medium = "medium",
+  large = "large",
+}
+
+export enum DividerOrientation {
+  horizontal = "horizontal",
+  vertical = "vertical",
+}
