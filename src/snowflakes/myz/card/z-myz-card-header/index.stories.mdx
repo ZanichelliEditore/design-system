@@ -1,0 +1,22 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
+
+## Stories
+
+<Meta title="Myz/MyzCard/ZMyzCardHeader" component="z-myz-card-header" />
+
+  # ZMyzCardHeader
+
+<Preview>
+  <Story name="z-myz-card-header">
+    {html`
+      <z-myz-card-header
+        cardtype="${text('cardtype', 'reale')}"
+        faded="${boolean('faded', false)}"
+        titolo="${text('titolo', 'Card Header')}" />`}
+  </Story>
+</Preview>
+
+  <Props of="z-myz-card-header" />
+
