@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/ZanichelliEditore/design-system/compare/v1.14.1...v2.0.0) (2021-05-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* z-card to z-myz-card downgrade
+
+### Bug Fixes
+
+* legacy radius ([78a0c37](https://github.com/ZanichelliEditore/design-system/commit/78a0c3726da077be4ee800de8efae439e0aaada1))
+* legacy style; new style ([364d473](https://github.com/ZanichelliEditore/design-system/commit/364d4734fca553f52c71c0f1a18618b397a63827))
+
+
+* Merge pull request #117 from ZanichelliEditore/breaking/z-card-to-myz-snowflake ([cfae48e](https://github.com/ZanichelliEditore/design-system/commit/cfae48eb0639ed1dc4de16bb744c93571e23d116)), closes [#117](https://github.com/ZanichelliEditore/design-system/issues/117)
+
 ### [1.14.1](https://github.com/ZanichelliEditore/design-system/compare/v1.14.0...v1.14.1) (2021-05-31)
 
 
