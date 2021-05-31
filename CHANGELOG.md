@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.1](https://github.com/ZanichelliEditore/design-system/compare/v1.14.0...v1.14.1) (2021-05-31)
+
+
+### Bug Fixes
+
+* fix z-chip nullish checks ([e761ad1](https://github.com/ZanichelliEditore/design-system/commit/e761ad1400bbd549dc3085c3fc11f6730307449e))
+
 ## [1.14.0](https://github.com/francescochiapella/design-system/compare/v1.13.2...v1.14.0) (2021-05-27)
 
 
