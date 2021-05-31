@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.1](https://github.com/ZanichelliEditore/design-system/compare/v1.14.0...v1.14.1) (2021-05-31)
+
+
+### Bug Fixes
+
+* fix z-chip nullish checks ([e761ad1](https://github.com/ZanichelliEditore/design-system/commit/e761ad1400bbd549dc3085c3fc11f6730307449e))
+
+## [1.14.0](https://github.com/francescochiapella/design-system/compare/v1.13.2...v1.14.0) (2021-05-27)
+
+
+### Features
+
+* **clav-75:** color token as prop ([0e4e72c](https://github.com/francescochiapella/design-system/commit/0e4e72cdfa39432f90fb6b61f22f7644f44dd0d7))
+* add z-divider ([32dbe85](https://github.com/francescochiapella/design-system/commit/32dbe850882582b250f3c2a8f5e9e9178e0b00c5))
+
 ### [1.13.2](https://github.com/ZanichelliEditore/design-system/compare/v1.13.1...v1.13.2) (2021-05-25)
 
 ### [1.13.1](https://github.com/ZanichelliEditore/design-system/compare/v1.13.0...v1.13.1) (2021-05-25)
