@@ -103,7 +103,7 @@ button.primary:focus:focus-visible,
   border-color: var(--color-primary01);
   color: var(--color-text-inverse);
   fill: var(--color-text-inverse);
-  box-shadow: 0px 0px 2px 2px var(--accent-dark);
+  box-shadow: var(--shadow-1);
 }
 
 button.primary:active,
@@ -113,7 +113,7 @@ button.primary:active,
   border-color: var(--color-active-primary);
   color: var(--color-text-inverse);
   fill: var(--color-text-inverse);
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-2);
 }
 
 button:disabled,
@@ -151,7 +151,7 @@ button.secondary:focus:focus-visible,
   border-color: var(--color-primary01);
   color: var(--color-primary01);
   fill: var(--color-primary01);
-  box-shadow: 0px 0px 2px 2px var(--accent-dark);
+  box-shadow: var(--shadow-1);
 }
 
 button.secondary:active,
@@ -161,7 +161,7 @@ button.secondary:active,
   border-color: var(--color-active-secondary);
   color: var(--color-active-secondary);
   fill: var(--color-active-secondary);
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-2);
 }
 
 button.secondary:disabled,
@@ -203,7 +203,7 @@ button.tertiary:focus:focus-visible,
   border-color: var(--color-surface01);
   color: var(--color-primary01);
   fill: var(--color-primary01);
-  box-shadow: 0px 0px 2px 2px var(--accent-dark);
+  box-shadow: var(--shadow-1);
 }
 
 button.tertiary:active,
@@ -213,7 +213,7 @@ button.tertiary:active,
   border-color: var(--color-surface01);
   color: var(--color-active-tertiary);
   fill: var(--color-active-tertiary);
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-2);
 }
 
 button.tertiary:disabled,
