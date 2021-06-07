@@ -50,8 +50,8 @@ export class ZPopover {
   }
 
   @Listen("click", { target: "body", capture: true })
-  handleOutsideClick() {
-    const tree = getElementTree(document.activeElement);
+  handleOutsideClick(e: any) {
+    const tree = getElementTree(e.target);
     const parent = tree.find(
       (elem: any) => elem.nodeName.toLowerCase() === "z-popover"
     );
