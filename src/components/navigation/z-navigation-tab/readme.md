@@ -13,10 +13,16 @@
 
 ## Properties
 
-| Property      | Attribute  | Description | Type      | Default        |
-| ------------- | ---------- | ----------- | --------- | -------------- |
-| `orientation` | --         |             | `String`  | `'horizontal'` |
-| `selected`    | `selected` |             | `boolean` | `false`        |
+| Property   | Attribute  | Description | Type      | Default |
+| ---------- | ---------- | ----------- | --------- | ------- |
+| `selected` | `selected` |             | `boolean` | `false` |
+
+
+## Events
+
+| Event      | Description | Type               |
+| ---------- | ----------- | ------------------ |
+| `selected` |             | `CustomEvent<any>` |
 
 
 ## Slots

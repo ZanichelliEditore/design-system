@@ -17,12 +17,17 @@ import { number, select, boolean } from '@storybook/addon-knobs';
           ["horizontal", "vertical"],
           "horizontal"
         )}"
+         size="${select(
+          "size",
+          ["big", "small"],
+          "big"
+        )}"
       >
      <z-navigation-tab>
         Profilo
         <z-icon name="artist"/>
       </z-navigation-tab>
-      <z-navigation-tab>
+      <z-navigation-tab disabled>
         App
         <z-icon name="app-switcher"/>
       </z-navigation-tab>

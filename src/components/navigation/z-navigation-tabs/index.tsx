@@ -69,11 +69,11 @@ export class ZNavigationTabs {
 
   render() {
     return [
-      <button onClick={() => this.navigateLeft()}>
+      <button class='navigation' onClick={() => this.navigateLeft()}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
       </button>,
       <slot/>,
-      <button onClick={() => this.navigateRight()}>
+      <button class='navigation' onClick={() => this.navigateRight()}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
       </button>
     ];

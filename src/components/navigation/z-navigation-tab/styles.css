@@ -25,3 +25,10 @@
   background-color: var(--bg-grey-050);
   border-color: #003476;
 }
+
+:host([disabled]) {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: #95999D;
+  fill: #95999D;
+}

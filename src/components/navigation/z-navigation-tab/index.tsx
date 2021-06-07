@@ -14,6 +14,7 @@ export class ZNavigationTab {
   @Element() hostElement: HTMLElement;
 
   @Prop({ reflect: true }) selected?: boolean = false;
+  @Prop({ reflect: true }) disabled?: boolean = false;
 
   @Event({ eventName: 'selected' })
   private emitSelected: EventEmitter;

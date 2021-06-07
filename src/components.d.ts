@@ -724,6 +724,7 @@ export namespace Components {
         "status"?: InputStatusBean;
     }
     interface ZNavigationTab {
+        "disabled"?: boolean;
         "selected"?: boolean;
     }
     interface ZNavigationTabs {
@@ -2222,6 +2223,7 @@ declare namespace LocalJSX {
         "status"?: InputStatusBean;
     }
     interface ZNavigationTab {
+        "disabled"?: boolean;
         "onSelected"?: (event: CustomEvent<any>) => void;
         "selected"?: boolean;
     }
