@@ -63,11 +63,44 @@ exports.keybordKeyCodeEnum = void 0;
   keybordKeyCodeEnum[keybordKeyCodeEnum["ARROW_UP"] = 38] = "ARROW_UP";
   keybordKeyCodeEnum[keybordKeyCodeEnum["ARROW_DOWN"] = 40] = "ARROW_DOWN";
 })(exports.keybordKeyCodeEnum || (exports.keybordKeyCodeEnum = {}));
+exports.KeyboardKeys = void 0;
+(function (KeyboardKeys) {
+  KeyboardKeys["ESC"] = "Escape";
+})(exports.KeyboardKeys || (exports.KeyboardKeys = {}));
 exports.ThemeVariant = void 0;
 (function (ThemeVariant) {
   ThemeVariant["dark"] = "dark";
   ThemeVariant["light"] = "light";
 })(exports.ThemeVariant || (exports.ThemeVariant = {}));
+exports.PopoverPosition = void 0;
+(function (PopoverPosition) {
+  PopoverPosition["after-down"] = "after-down";
+  PopoverPosition["after-center"] = "after-center";
+  PopoverPosition["after-up"] = "after-up";
+  PopoverPosition["below-right"] = "below-right";
+  PopoverPosition["below-center"] = "below-center";
+  PopoverPosition["below-left"] = "below-left";
+  PopoverPosition["before-down"] = "before-down";
+  PopoverPosition["before-center"] = "before-center";
+  PopoverPosition["before-up"] = "before-up";
+  PopoverPosition["above-right"] = "above-right";
+  PopoverPosition["above-center"] = "above-center";
+  PopoverPosition["above-left"] = "above-left";
+})(exports.PopoverPosition || (exports.PopoverPosition = {}));
+exports.PopoverBorderRadius = void 0;
+(function (PopoverBorderRadius) {
+  PopoverBorderRadius["none"] = "none";
+  PopoverBorderRadius["small"] = "small";
+  PopoverBorderRadius["medium"] = "medium";
+})(exports.PopoverBorderRadius || (exports.PopoverBorderRadius = {}));
+exports.PopoverShadow = void 0;
+(function (PopoverShadow) {
+  PopoverShadow["shadow-0"] = "shadow-0";
+  PopoverShadow["shadow-1"] = "shadow-1";
+  PopoverShadow["shadow-2"] = "shadow-2";
+  PopoverShadow["shadow-3"] = "shadow-3";
+  PopoverShadow["shadow-4"] = "shadow-4";
+})(exports.PopoverShadow || (exports.PopoverShadow = {}));
 exports.DividerSize = void 0;
 (function (DividerSize) {
   DividerSize["small"] = "small";

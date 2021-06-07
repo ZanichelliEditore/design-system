@@ -43,6 +43,7 @@
     "./components/typography/z-body/index.js",
     "./components/typography/z-heading/index.js",
     "./components/z-divider/index.js",
+    "./components/z-popover/index.js",
     "./snowflakes/myz/card/z-myz-card/index.js",
     "./snowflakes/myz/card/z-myz-card-alert/index.js",
     "./snowflakes/myz/card/z-myz-card-body/index.js",

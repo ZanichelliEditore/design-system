@@ -61,11 +61,44 @@ var keybordKeyCodeEnum;
   keybordKeyCodeEnum[keybordKeyCodeEnum["ARROW_UP"] = 38] = "ARROW_UP";
   keybordKeyCodeEnum[keybordKeyCodeEnum["ARROW_DOWN"] = 40] = "ARROW_DOWN";
 })(keybordKeyCodeEnum || (keybordKeyCodeEnum = {}));
+var KeyboardKeys;
+(function (KeyboardKeys) {
+  KeyboardKeys["ESC"] = "Escape";
+})(KeyboardKeys || (KeyboardKeys = {}));
 var ThemeVariant;
 (function (ThemeVariant) {
   ThemeVariant["dark"] = "dark";
   ThemeVariant["light"] = "light";
 })(ThemeVariant || (ThemeVariant = {}));
+var PopoverPosition;
+(function (PopoverPosition) {
+  PopoverPosition["after-down"] = "after-down";
+  PopoverPosition["after-center"] = "after-center";
+  PopoverPosition["after-up"] = "after-up";
+  PopoverPosition["below-right"] = "below-right";
+  PopoverPosition["below-center"] = "below-center";
+  PopoverPosition["below-left"] = "below-left";
+  PopoverPosition["before-down"] = "before-down";
+  PopoverPosition["before-center"] = "before-center";
+  PopoverPosition["before-up"] = "before-up";
+  PopoverPosition["above-right"] = "above-right";
+  PopoverPosition["above-center"] = "above-center";
+  PopoverPosition["above-left"] = "above-left";
+})(PopoverPosition || (PopoverPosition = {}));
+var PopoverBorderRadius;
+(function (PopoverBorderRadius) {
+  PopoverBorderRadius["none"] = "none";
+  PopoverBorderRadius["small"] = "small";
+  PopoverBorderRadius["medium"] = "medium";
+})(PopoverBorderRadius || (PopoverBorderRadius = {}));
+var PopoverShadow;
+(function (PopoverShadow) {
+  PopoverShadow["shadow-0"] = "shadow-0";
+  PopoverShadow["shadow-1"] = "shadow-1";
+  PopoverShadow["shadow-2"] = "shadow-2";
+  PopoverShadow["shadow-3"] = "shadow-3";
+  PopoverShadow["shadow-4"] = "shadow-4";
+})(PopoverShadow || (PopoverShadow = {}));
 var DividerSize;
 (function (DividerSize) {
   DividerSize["small"] = "small";
@@ -78,4 +111,4 @@ var DividerOrientation;
   DividerOrientation["vertical"] = "vertical";
 })(DividerOrientation || (DividerOrientation = {}));
 
-export { ButtonTypeEnum as B, DividerSize as D, InputTypeEnum as I, LicenseTypeEnum as L, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, InputStatusEnum as c, TooltipPosition as d, DividerOrientation as e, keybordKeyCodeEnum as k };
+export { ButtonTypeEnum as B, DividerSize as D, InputTypeEnum as I, KeyboardKeys as K, LicenseTypeEnum as L, PopoverPosition as P, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, PopoverBorderRadius as c, PopoverShadow as d, InputStatusEnum as e, TooltipPosition as f, DividerOrientation as g, keybordKeyCodeEnum as k };

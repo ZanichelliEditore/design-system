@@ -83,6 +83,8 @@ const getHostListenerTarget = (elm, flags) => {
         return doc;
     if (flags & 8 /* TargetWindow */)
         return win;
+    if (flags & 16 /* TargetBody */)
+        return doc.body;
     return elm;
 };
 // prettier-ignore
