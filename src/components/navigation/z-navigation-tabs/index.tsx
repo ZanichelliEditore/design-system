@@ -25,11 +25,6 @@ export class ZNavigationTabs {
 
   tab: HTMLElement;
 
-  constructor() {
-    this.navigateNext = this.navigateNext.bind(this);
-    this.navigatePrevious = this.navigatePrevious.bind(this);
-  }
-
   @Listen('resize', { target: 'window' })
   handleResize() {
     this.canNavigatePrevious = (this.host.firstElementChild as HTMLElement).offsetLeft < 0;
