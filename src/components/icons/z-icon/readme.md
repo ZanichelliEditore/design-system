@@ -28,8 +28,6 @@
  - [z-button](../../buttons/z-button)
  - [z-button-filter](../../buttons/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
- - [z-card-alert](../../card/z-card-alert)
- - [z-card-icon](../../card/z-card-icon)
  - [z-combobox](../../inputs/z-combobox)
  - [z-footer-section](../../footer/z-footer-section)
  - [z-header](../../navigation/z-header)
@@ -43,6 +41,8 @@
  - [z-menu-dropdown](../../navigation/z-menu-dropdown)
  - [z-menu-section](../../navigation/z-menu-section)
  - [z-modal](../../modal/z-modal)
+ - [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
+ - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-select](../../inputs/z-select)
  - [z-toggle-button](../../buttons/z-toggle-button)
@@ -55,8 +55,6 @@ graph TD;
   z-button --> z-icon
   z-button-filter --> z-icon
   z-button-sort --> z-icon
-  z-card-alert --> z-icon
-  z-card-icon --> z-icon
   z-combobox --> z-icon
   z-footer-section --> z-icon
   z-header --> z-icon
@@ -70,6 +68,8 @@ graph TD;
   z-menu-dropdown --> z-icon
   z-menu-section --> z-icon
   z-modal --> z-icon
+  z-myz-card-alert --> z-icon
+  z-myz-card-icon --> z-icon
   z-pagination-bar --> z-icon
   z-select --> z-icon
   z-toggle-button --> z-icon
