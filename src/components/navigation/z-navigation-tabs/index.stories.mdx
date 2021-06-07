@@ -12,16 +12,28 @@ import { number, select, boolean } from '@storybook/addon-knobs';
   <Story name="z-navigation-tabs">
     {html`
       <z-navigation-tabs
-        items='[{"label":"Apps","icon":"app-switcher"},{"label":"Home","isdisabled":"true","icon":"house"},{"label":"Artist","icon":"artist"},{"label":"Mappa","icon":"map"},{"label":"Download","icon":"download","disabled":"true"}]'
         orientation="${select(
           "orientation",
           ["horizontal", "vertical"],
           "horizontal"
         )}"
       >
-      <z-button>
-
-      </z-button>
+     <z-navigation-tab style="width: fit-content;">
+        Profilo
+        <z-icon name="artist"/>
+      </z-navigation-tab>
+      <z-navigation-tab style="width: fit-content;">
+        App
+        <z-icon name="app-switcher"/>
+      </z-navigation-tab>
+      <z-navigation-tab style="width: fit-content;">
+        Maps
+        <z-icon name="map"/>
+      </z-navigation-tab>
+      <z-navigation-tab style="width: fit-content;">
+        Scaricamento di dati dall rete pubblica
+        <z-icon name="download"/>
+      </z-navigation-tab>
       </z-navigation-tabs>`}
   </Story>
 </Preview>

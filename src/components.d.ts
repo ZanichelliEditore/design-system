@@ -724,40 +724,10 @@ export namespace Components {
         "status"?: InputStatusBean;
     }
     interface ZNavigationTab {
-        /**
-          * a disabled attribute.
-         */
-        "disabled"?: boolean;
-        /**
-          * Identifier, should be unique.
-         */
-        "htmlid"?: string;
-        /**
-          * `z-icon` name to use (optional).
-         */
-        "icon"?: string;
-        /**
-          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
-         */
-        "orientation"?: TabOrientationBean;
-        /**
-          * a selected attribute.
-         */
+        "orientation": String;
         "selected"?: boolean;
-        /**
-          * Available sizes: `big` and `small`. Defaults to `big`.
-         */
-        "size"?: TabSizeBean;
     }
     interface ZNavigationTabs {
-        /**
-          * Current displayed tab (mutable)
-         */
-        "currenttab": number;
-        /**
-          * Items Array prima dello slot
-         */
-        "items": string;
         /**
           * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
          */
@@ -770,10 +740,6 @@ export namespace Components {
           * Initial starttab (mutable)
          */
         "starttab": number;
-        /**
-          * Number of visible tabs
-         */
-        "visibletabs": number;
     }
     interface ZPaginationBar {
         /**
@@ -2261,48 +2227,10 @@ declare namespace LocalJSX {
         "status"?: InputStatusBean;
     }
     interface ZNavigationTab {
-        /**
-          * a disabled attribute.
-         */
-        "disabled"?: boolean;
-        /**
-          * Identifier, should be unique.
-         */
-        "htmlid"?: string;
-        /**
-          * `z-icon` name to use (optional).
-         */
-        "icon"?: string;
-        /**
-          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
-         */
-        "orientation"?: TabOrientationBean;
-        /**
-          * a selected attribute.
-         */
+        "orientation"?: String;
         "selected"?: boolean;
-        /**
-          * Available sizes: `big` and `small`. Defaults to `big`.
-         */
-        "size"?: TabSizeBean;
     }
     interface ZNavigationTabs {
-        /**
-          * Current displayed tab (mutable)
-         */
-        "currenttab"?: number;
-        /**
-          * Items Array prima dello slot
-         */
-        "items"?: string;
-        /**
-          * emitted on start tab change, returns starttab
-         */
-        "onChangeStartTab"?: (event: CustomEvent<any>) => void;
-        /**
-          * emitted on tab number click, returns tab
-         */
-        "onGoToTab"?: (event: CustomEvent<any>) => void;
         /**
           * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
          */
@@ -2315,10 +2243,6 @@ declare namespace LocalJSX {
           * Initial starttab (mutable)
          */
         "starttab"?: number;
-        /**
-          * Number of visible tabs
-         */
-        "visibletabs"?: number;
     }
     interface ZPaginationBar {
         /**

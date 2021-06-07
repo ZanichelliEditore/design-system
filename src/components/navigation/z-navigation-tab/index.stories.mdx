@@ -6,19 +6,19 @@ import { text, number, select, boolean } from '@storybook/addon-knobs';
 
 <Meta title="ZNavigationTab" component="z-navigation-tab" />
 
-  # ZNavigationTab
+# ZNavigationTab
+
 <Preview>
   <Story name="Default tab slot">
-    {(args) => html` <z-navigation-tab
-      size="${select("size", ["small", "big"], "big")}"
-      selected="${boolean('selected', false)}"
-      disabled="${boolean("disabled", false)}"
-      icon="${text("icon", "house")}"
-    >
-      ${text("label", "Home")}
-    </z-navigation-tab>`}
+    {(args) => html`
+      <z-navigation-tab>
+        <a>
+          ${text("label", "Home")}
+          <z-icon name='artist' width="16" height="16" />
+        </a>
+      </z-navigation-tab>`}
   </Story>
 </Preview>
 
-  <Props of="z-navigation-tab" />
+<Props of="z-navigation-tab" />
 

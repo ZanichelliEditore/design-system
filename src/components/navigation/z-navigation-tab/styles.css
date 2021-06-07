@@ -5,25 +5,23 @@
   --z-icon-width: 16px;
   --z-icon-height: 16px;
   --z-icon-right-margin: var(--space-unit);
-}
-
-:host a {
   outline: none;
   display: inline-block;
   margin: 0;
   text-align: center;
   color: #0056C1;
   fill: #0056C1;
+  cursor: pointer;
 }
 
-:host a.disabled {
+:host a[disabled], :host button[disabled] {
   pointer-events: none;
   cursor: not-allowed;
   color: #95999D;
   fill: #95999D;
 }
 
-:host a:focus {
+:host a:focus, :host button:focus {
   color: #0056C1;
   fill: #0056C1;
   background: #FFFFFF;
@@ -32,15 +30,17 @@
 }
 
 /* Orientation horizontal */
-:host([orientation="horizontal"]) a{
+:host([orientation="horizontal"]) a, :host([orientation="horizontal"]) button {
   border-bottom: 2px solid white;
 }
-:host([orientation="horizontal"]) a.selected {
+
+:host([orientation="horizontal"]) a[selected], :host([orientation="horizontal"]) button[selected] {
   color: #003476;
   fill: #003476;
   border-bottom: 2px solid #003476;
 }
-:host([orientation="horizontal"]) a:hover {
+
+:host([orientation="horizontal"]) a:hover, :host([orientation="horizontal"]) button:hover {
   color: #003476;
   fill: #003476;
   border-bottom: 2px solid #003476;
@@ -48,15 +48,17 @@
 }
 
 /* Orientation vertical */
-:host([orientation="vertical"]) a{
+:host([orientation="vertical"]) a, :host([orientation="vertical"]) button {
   border-right: 2px solid white;
 }
-:host([orientation="vertical"]) a.selected {
+
+:host([orientation="vertical"]) a[selected], :host([orientation="vertical"]) button[selected] {
   color: #003476;
   fill: #003476;
   border-right: 2px solid #003476;
 }
-:host([orientation="vertical"]) a:hover {
+
+:host([orientation="vertical"]) a:hover, :host([orientation="vertical"]) button:hover {
   color: #003476;
   fill: #003476;
   border-right: 2px solid #003476;

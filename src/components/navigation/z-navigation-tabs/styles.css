@@ -27,12 +27,14 @@
 /* Orientation horizontal */
 :host([orientation="horizontal"]) {
 	display: inline-flex;
+  align-items: center;
 }
 
 /* Orientation vertical */
 :host([orientation="vertical"]) {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 /* Size big */

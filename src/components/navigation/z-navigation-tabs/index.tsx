@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Listen, Element } from "@stencil/core";
+import { Component, Prop, h, State, Listen, Element, Watch } from "@stencil/core";
 import classNames from "classnames";
 
 import {
@@ -18,8 +18,6 @@ import { handleKeyboardSubmit } from "../../../utils/utils";
 export class ZNavigationTabs {
   @Element() host: HTMLElement;
 
-  /** Items Array prima dello slot */
-  @Prop() items: string;
   /** Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`. */
   @Prop({ reflect: true }) orientation?: TabOrientationBean = TabOrientationEnum.horizontal;
   /** Available sizes: `big` and `small`. Defaults to `big`. */
@@ -40,16 +38,22 @@ export class ZNavigationTabs {
   tab: HTMLElement;
 
   constructor() {
-    this.tabs = (Object.keys(this.arrayItems = JSON.parse(this.items))).length;
     this.navigateRight = this.navigateRight.bind(this);
     this.navigateLeft = this.navigateLeft.bind(this);
   }
 
-  @Listen('selectedTab')
-  selectedTabHandler(event: CustomEvent) {
-    const tabindex = event.detail.tabindex;
-    Array.from(this.host.children).forEach((elem, key) => {
-      elem.setAttribute('selected', key === tabindex ? 'true' : 'false');
+  @Listen('z-navigation-tab-selected')
+  selectedTabHandler(event: CustomEvent, target: HTMLElement) {
+    const tab = event.target || target;
+    (this.host.shadowRoot.querySelector('slot') as HTMLSlotElement).assignedElements().forEach((elem) => {
+      elem.setAttribute('selected', `${elem === tab}`);
+    });
+  }
+
+  @Watch('orientation')
+  watchOrientation(newValue: string) {
+    (this.host.shadowRoot.querySelector('slot') as HTMLSlotElement).assignedElements().forEach((elem) => {
+      elem.setAttribute('orientation', newValue);
     });
   }
 
@@ -74,32 +78,26 @@ export class ZNavigationTabs {
   }
 
   render() {
-    return (
-      <div>
-        <button
-          class={classNames(this.size) && `${'navigation'}`/* && `${this.orientation == 'horizontal' ? 'navigation-left' : 'navigation-up'}`*/}
-          disabled={!this.canNavigateLeft() && true}
-          tabindex={this.canNavigateLeft() ? 0 : -1}
-          onClick={() => this.navigateLeft()}
-          onKeyPress={(ev: KeyboardEvent) =>
-            handleKeyboardSubmit(ev, this.navigateLeft)
-          }
-        >
-          <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
-        </button>
-        <slot/>
-        <button
-          class={classNames(this.size) && `${'navigation'}`}
-          disabled={!this.canNavigateRight() && true}
-          tabindex={this.canNavigateRight() ? 0 : -1}
-          onClick={() => this.navigateRight()}
-          onKeyPress={(ev: KeyboardEvent) =>
-            handleKeyboardSubmit(ev, this.navigateRight)
-          }
-        >
-          <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
-        </button>
-      </div>
-    );
+    return [
+      <button
+        class={classNames(this.size) && `${'navigation'}`}
+        onClick={() => this.navigateLeft()}
+        onKeyPress={(ev: KeyboardEvent) =>
+          handleKeyboardSubmit(ev, this.navigateLeft)
+        }
+      >
+        <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
+      </button>,
+      <slot/>,
+      <button
+        class={classNames(this.size) && `${'navigation'}`}
+        onClick={() => this.navigateRight()}
+        onKeyPress={(ev: KeyboardEvent) =>
+          handleKeyboardSubmit(ev, this.navigateRight)
+        }
+      >
+        <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
+      </button>
+    ];
   }
 }
