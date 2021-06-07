@@ -1,24 +1,38 @@
 :host {
-  height: calc(var(--space-unit) * 6);
+  position: relative;
+  overflow-y: hidden;
   font-size: 16px;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+  box-sizing: border-box;
+}
+
+:host *,
+::slotted(*) {
+  box-sizing: border-box;
 }
 
 /* Button Navigation left,right or up,down */
-:host button.navigation {
-  width: 100%;
+button.navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
   background: none;
   border: none;
   outline: none;
-  display: inline-block;
-  margin: 0;
-  text-align: center;
   color: #0056C1;
   fill: #0056C1;
+  border-radius: var(--border-no-radius);
+  box-shadow: var(--shadow-2);
+  cursor: pointer;
+  z-index: 1;
 }
 
-:host button.navigation:disabled {
+button.navigation:disabled {
   pointer-events: none;
   cursor: not-allowed;
   color: #95999D;
@@ -29,15 +43,24 @@
 :host([orientation="horizontal"]) {
 	display: flex;
   align-items: center;
-  width: auto;
+  width: 100%;
+  padding: 0 calc(var(--space-unit) * 4);
 }
-
-/* Orientation horizontal */
 
 :host([orientation="horizontal"]) ::slotted(z-navigation-tab[selected]) {
   color: #003476;
   fill: #003476;
   border-bottom: 2px solid #003476;
+}
+
+:host([orientation='horizontal']) button.navigation {
+  width: calc(var(--space-unit) * 4);
+  height: 100%;
+}
+
+:host([orientation='horizontal']) button.navigation:last-child {
+  left: auto;
+  right: 0;
 }
 
 /* Orientation vertical */
@@ -46,6 +69,9 @@
   flex-direction: column;
   align-items: flex-start;
   width: min-content;
+  height: 100%;
+  padding: calc(var(--space-unit) * 4) 0;
+  overflow-x: hidden;
 }
 
 :host([orientation="vertical"]) ::slotted(z-navigation-tab) {
@@ -58,21 +84,32 @@
   border-right: 2px solid #003476;
 }
 
+:host([orientation='vertical']) button.navigation {
+  width: 100%;
+  height: calc(var(--space-unit) * 4);
+}
+
+:host([orientation='vertical']) button.navigation:last-child {
+  top: auto;
+  bottom: 0;
+}
+
 /* Size big */
-:host([size="big"]) ::slotted(z-navigation-tab),
-:host([size="big"]) button.navigation  {
+:host([size="big"]) ::slotted(z-navigation-tab) {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 24px;
-  padding: 16px 40px;
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
 }
 
 /* Size small */
-:host([size="small"]) ::slotted(z-navigation-tab),
-:host([size="small"]) button.navigation  {
+:host([size="small"]) ::slotted(z-navigation-tab) {
   font-size: 14px;
   letter-spacing: 0.16px;
   line-height: 20px;
-  padding: 8px 16px;
+  padding: var(--space-unit) calc(var(--space-unit) * 2);
 }
 
+:host([size="small"]) button.navigation {
+  height: calc(var(--space-unit) * 4);
+}

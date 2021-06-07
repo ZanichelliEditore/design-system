@@ -4,7 +4,9 @@
   --z-icon-right-margin: var(--space-unit);
   --layout-vertical: 0;
   outline: none;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   text-align: center;
   font-family: var(--dashboard-font);

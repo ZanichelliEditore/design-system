@@ -1,11 +1,11 @@
-import { Component, Prop, h, Listen, Element } from "@stencil/core";
+import { Component, Prop, h, Listen, Element, State } from "@stencil/core";
 
 import {
   TabSizeBean,
   TabSizeEnum,
   TabOrientationBean,
   TabOrientationEnum
- } from "../../../beans";
+} from "../../../beans";
 import { ZNavigationTab } from '../z-navigation-tab';
 
 @Component({
@@ -20,13 +20,21 @@ export class ZNavigationTabs {
   @Prop({ reflect: true }) orientation?: TabOrientationBean = TabOrientationEnum.horizontal;
   /** Available sizes: `big` and `small`. Defaults to `big`. */
   @Prop({ reflect: true }) size?: TabSizeBean = TabSizeEnum.big;
+  @State() canNavigatePrevious: boolean;
+  @State() canNavigateNext: boolean;
 
   tab: HTMLElement;
 
   constructor() {
-    this.navigateRight = this.navigateRight.bind(this);
-    this.navigateLeft = this.navigateLeft.bind(this);
-    console.log('Lenght: '+this.host.children.length);
+    this.navigateNext = this.navigateNext.bind(this);
+    this.navigatePrevious = this.navigatePrevious.bind(this);
+  }
+
+  @Listen('resize', { target: 'window' })
+  handleResize() {
+    this.canNavigatePrevious = (this.host.firstElementChild as HTMLElement).offsetLeft < 0;
+    const lastChild = this.host.lastElementChild as HTMLElement;
+    this.canNavigateNext = lastChild.offsetLeft >= lastChild.offsetParent?.clientWidth;
   }
 
   @Listen('selected')
@@ -52,29 +60,29 @@ export class ZNavigationTabs {
     // TODO
   }
 
-  canNavigateLeft() {
-    // TODO
+  navigatePrevious() {
+    if (!this.canNavigatePrevious) {
+      return;
+    }
+
+    // scroll pari alla width del primo elemento non visibile a sinistra
   }
 
-  canNavigateRight() {
-    // TODO
-  }
+  navigateNext() {
+    if (!this.canNavigateNext) {
+      return;
+    }
 
-  navigateLeft() {
-    // todO
-  }
-
-  navigateRight() {
-    // todO
+    // scroll pari alla width del primo elemento non visibile a destra
   }
 
   render() {
     return [
-      <button class='navigation' onClick={() => this.navigateLeft()}>
+      <button class='navigation' onClick={() => this.navigatePrevious()} disabled={!this.canNavigatePrevious}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
       </button>,
       <slot/>,
-      <button class='navigation' onClick={() => this.navigateRight()}>
+      <button class='navigation' onClick={() => {this.navigateNext()}} disabled={!this.canNavigateNext}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
       </button>
     ];

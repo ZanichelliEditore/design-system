@@ -15,6 +15,7 @@
 
 | Property   | Attribute  | Description | Type      | Default |
 | ---------- | ---------- | ----------- | --------- | ------- |
+| `disabled` | `disabled` |             | `boolean` | `false` |
 | `selected` | `selected` |             | `boolean` | `false` |
 
 
