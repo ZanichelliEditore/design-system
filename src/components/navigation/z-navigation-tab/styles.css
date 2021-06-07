@@ -62,19 +62,3 @@
   border-right: 2px solid #003476;
   background-color: var(--bg-grey-050);
 }
-
-/* Size big */
-:host([size="big"]) a {
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: 24px;
-  padding: 16px 40px;
-}
-
-/* Size small */
-:host([size="small"]) a {
-  font-size: 14px;
-  letter-spacing: 0.16px;
-  line-height: 20px;
-  padding: 8px 16px;
-}

@@ -13,20 +13,16 @@ import { number, select, boolean } from '@storybook/addon-knobs';
     {html`
       <z-navigation-tabs
         items='[{"label":"Apps","icon":"app-switcher"},{"label":"Home","isdisabled":"true","icon":"house"},{"label":"Artist","icon":"artist"},{"label":"Mappa","icon":"map"},{"label":"Download","icon":"download","disabled":"true"}]'
-        visibletabs="${number('visibletabs', 3)}"
-        currenttab="${number('currenttab', 1)}"
-        starttab="${number('starttab', 1)}"
         orientation="${select(
           "orientation",
           ["horizontal", "vertical"],
           "horizontal"
         )}"
-        size="${select(
-          "size",
-          ["big", "small"],
-          "big"
-        )}"
-      ></z-navigation-tabs>`}
+      >
+      <z-button>
+
+      </z-button>
+      </z-navigation-tabs>`}
   </Story>
 </Preview>
 
