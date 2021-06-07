@@ -26,6 +26,7 @@ export class ZNavigationTabs {
   constructor() {
     this.navigateRight = this.navigateRight.bind(this);
     this.navigateLeft = this.navigateLeft.bind(this);
+    console.log('Lenght: '+this.host.children.length);
   }
 
   @Listen('selected')

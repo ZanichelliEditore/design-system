@@ -13,7 +13,7 @@ import { Component, Prop, h, Element, Listen, Event, EventEmitter, Watch } from 
 export class ZNavigationTab {
   @Element() hostElement: HTMLElement;
 
-  @Prop({ reflect: true }) selected?: boolean = false;
+  @Prop({ mutable: true, reflect: true }) selected?: boolean = false;
   @Prop({ reflect: true }) disabled?: boolean = false;
 
   @Event({ eventName: 'selected' })

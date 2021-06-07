@@ -7,6 +7,7 @@
 
 /* Button Navigation left,right or up,down */
 :host button.navigation {
+  width: 100%;
   background: none;
   border: none;
   outline: none;
@@ -28,6 +29,7 @@
 :host([orientation="horizontal"]) {
 	display: flex;
   align-items: center;
+  width: auto;
 }
 
 /* Orientation horizontal */
@@ -43,6 +45,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: min-content;
 }
 
 :host([orientation="vertical"]) ::slotted(z-navigation-tab) {
