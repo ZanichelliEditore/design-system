@@ -724,7 +724,6 @@ export namespace Components {
         "status"?: InputStatusBean;
     }
     interface ZNavigationTab {
-        "orientation": String;
         "selected"?: boolean;
     }
     interface ZNavigationTabs {
@@ -736,10 +735,6 @@ export namespace Components {
           * Available sizes: `big` and `small`. Defaults to `big`.
          */
         "size"?: TabSizeBean;
-        /**
-          * Initial starttab (mutable)
-         */
-        "starttab": number;
     }
     interface ZPaginationBar {
         /**
@@ -2227,7 +2222,7 @@ declare namespace LocalJSX {
         "status"?: InputStatusBean;
     }
     interface ZNavigationTab {
-        "orientation"?: String;
+        "onSelected"?: (event: CustomEvent<any>) => void;
         "selected"?: boolean;
     }
     interface ZNavigationTabs {
@@ -2239,10 +2234,6 @@ declare namespace LocalJSX {
           * Available sizes: `big` and `small`. Defaults to `big`.
          */
         "size"?: TabSizeBean;
-        /**
-          * Initial starttab (mutable)
-         */
-        "starttab"?: number;
     }
     interface ZPaginationBar {
         /**

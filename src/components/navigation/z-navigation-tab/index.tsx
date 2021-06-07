@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element } from "@stencil/core";
+import { Component, Prop, h, Element, Listen, Event, EventEmitter, Watch } from "@stencil/core";
 
 /**
  * @slot - tab label
@@ -13,15 +13,21 @@ import { Component, Prop, h, Element } from "@stencil/core";
 export class ZNavigationTab {
   @Element() hostElement: HTMLElement;
 
-  @Prop({ reflect: true, attribute: 'orientation' }) orientation: String = 'horizontal';
-
   @Prop({ reflect: true }) selected?: boolean = false;
 
-  componentDidMount() {
-    this.hostElement.addEventListener('click', () => {
-      const event = new CustomEvent('z-navigation-tab-selected');
-      this.hostElement.dispatchEvent(event);
-    });
+  @Event({ eventName: 'selected' })
+  private emitSelected: EventEmitter;
+
+  @Listen('click')
+  onClick() {
+    this.selected = true;
+  }
+
+  @Watch('selected')
+  onSelected() {
+    if (this.selected) {
+      this.emitSelected.emit();
+    }
   }
 
   render() {

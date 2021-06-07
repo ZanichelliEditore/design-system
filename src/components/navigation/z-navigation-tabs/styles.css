@@ -1,8 +1,8 @@
 :host {
-  height: 48px;
+  height: calc(var(--space-unit) * 6);
+  font-size: 16px;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  font: var(--space-unit);
 }
 
 /* Button Navigation left,right or up,down */
@@ -26,8 +26,16 @@
 
 /* Orientation horizontal */
 :host([orientation="horizontal"]) {
-	display: inline-flex;
+	display: flex;
   align-items: center;
+}
+
+/* Orientation horizontal */
+
+:host([orientation="horizontal"]) ::slotted(z-navigation-tab[selected]) {
+  color: #003476;
+  fill: #003476;
+  border-bottom: 2px solid #003476;
 }
 
 /* Orientation vertical */
@@ -37,9 +45,18 @@
   align-items: flex-start;
 }
 
+:host([orientation="vertical"]) ::slotted(z-navigation-tab) {
+  --layout-vertical: 1;
+}
+
+:host([orientation="vertical"]) ::slotted(z-navigation-tab[selected]) {
+  color: #003476;
+  fill: #003476;
+  border-right: 2px solid #003476;
+}
+
 /* Size big */
-:host([size="big"]) a,
-:host([size="big"]) button {
+:host([size="big"]) ::slotted(z-navigation-tab) {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 24px;
@@ -47,8 +64,7 @@
 }
 
 /* Size small */
-:host([size="small"]) a,
-:host([size="small"]) button {
+:host([size="small"]) ::slotted(z-navigation-tab) {
   font-size: 14px;
   letter-spacing: 0.16px;
   line-height: 20px;

@@ -9,7 +9,6 @@
 
 | Property      | Attribute     | Description                                                                   | Type                                                           | Default                         |
 | ------------- | ------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------- |
-| `items`       | `items`       | Items Array prima dello slot                                                  | `string`                                                       | `undefined`                     |
 | `orientation` | `orientation` | Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`. | `TabOrientationEnum.horizontal \| TabOrientationEnum.vertical` | `TabOrientationEnum.horizontal` |
 | `size`        | `size`        | Available sizes: `big` and `small`. Defaults to `big`.                        | `TabSizeEnum.big \| TabSizeEnum.small`                         | `TabSizeEnum.big`               |
 | `starttab`    | `starttab`    | Initial starttab (mutable)                                                    | `number`                                                       | `1`                             |

@@ -1,15 +1,13 @@
-import { Component, Prop, h, State, Listen, Element, Watch } from "@stencil/core";
-import classNames from "classnames";
+import { Component, Prop, h, Listen, Element } from "@stencil/core";
 
 import {
-  TabItem,
   TabSizeBean,
   TabSizeEnum,
   TabOrientationBean,
   TabOrientationEnum
  } from "../../../beans";
+import { ZNavigationTab } from '../z-navigation-tab';
 
-import { handleKeyboardSubmit } from "../../../utils/utils";
 @Component({
   tag: "z-navigation-tabs",
   styleUrl: "styles.css",
@@ -22,18 +20,6 @@ export class ZNavigationTabs {
   @Prop({ reflect: true }) orientation?: TabOrientationBean = TabOrientationEnum.horizontal;
   /** Available sizes: `big` and `small`. Defaults to `big`. */
   @Prop({ reflect: true }) size?: TabSizeBean = TabSizeEnum.big;
-  /** Current displayed tab (mutable) */
-  @State() currenttab: number = 1;
-  /** Initial starttab (mutable) */
-  @Prop({ mutable: true }) starttab: number = 1;
-
-  @State() currentTabs: number[] = [];
-
-  tabs: number;
-  arrayItems: TabItem[];
-  arrayItem: TabItem;
-
-  velocityConstantMultiplier: number = 2;
 
   tab: HTMLElement;
 
@@ -42,19 +28,23 @@ export class ZNavigationTabs {
     this.navigateLeft = this.navigateLeft.bind(this);
   }
 
-  @Listen('z-navigation-tab-selected')
-  selectedTabHandler(event: CustomEvent, target: HTMLElement) {
-    const tab = event.target || target;
-    (this.host.shadowRoot.querySelector('slot') as HTMLSlotElement).assignedElements().forEach((elem) => {
-      elem.setAttribute('selected', `${elem === tab}`);
-    });
+  @Listen('selected')
+  selectedTabHandler(event: CustomEvent) {
+    this.select(event.target as Element);
   }
 
-  @Watch('orientation')
-  watchOrientation(newValue: string) {
-    (this.host.shadowRoot.querySelector('slot') as HTMLSlotElement).assignedElements().forEach((elem) => {
-      elem.setAttribute('orientation', newValue);
-    });
+  select(tab: Element) {
+    const children = this.host.children;
+    for (let i = 0; i < children.length; i++) {
+      const child = children[i];
+      if (child.tagName === 'Z-NAVIGATION-TAB') {
+        if (child === tab) {
+          (child as unknown as ZNavigationTab).selected = true;
+        } else {
+          (child as unknown as ZNavigationTab).selected = false;
+        }
+      }
+    }
   }
 
   tabWindow() {
@@ -79,23 +69,11 @@ export class ZNavigationTabs {
 
   render() {
     return [
-      <button
-        class={classNames(this.size) && `${'navigation'}`}
-        onClick={() => this.navigateLeft()}
-        onKeyPress={(ev: KeyboardEvent) =>
-          handleKeyboardSubmit(ev, this.navigateLeft)
-        }
-      >
+      <button onClick={() => this.navigateLeft()}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
       </button>,
       <slot/>,
-      <button
-        class={classNames(this.size) && `${'navigation'}`}
-        onClick={() => this.navigateRight()}
-        onKeyPress={(ev: KeyboardEvent) =>
-          handleKeyboardSubmit(ev, this.navigateRight)
-        }
-      >
+      <button onClick={() => this.navigateRight()}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
       </button>
     ];
