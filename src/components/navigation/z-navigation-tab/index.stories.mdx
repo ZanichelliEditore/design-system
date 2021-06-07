@@ -1,0 +1,24 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, number, select, boolean } from '@storybook/addon-knobs';
+
+## Stories
+
+<Meta title="ZNavigationTab" component="z-navigation-tab" />
+
+  # ZNavigationTab
+<Preview>
+  <Story name="Default tab slot">
+    {(args) => html` <z-navigation-tab
+      size="${select("size", ["small", "big"], "big")}"
+      selected="${boolean('selected', false)}"
+      disabled="${boolean("disabled", false)}"
+      icon="${text("icon", "house")}"
+    >
+      ${text("label", "Home")}
+    </z-navigation-tab>`}
+  </Story>
+</Preview>
+
+  <Props of="z-navigation-tab" />
+

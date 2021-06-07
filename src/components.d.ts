@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, TabOrientationBean, TabSizeBean, ThemeVariantBean } from "./beans";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -723,6 +723,58 @@ export namespace Components {
          */
         "status"?: InputStatusBean;
     }
+    interface ZNavigationTab {
+        /**
+          * a disabled attribute.
+         */
+        "disabled"?: boolean;
+        /**
+          * Identifier, should be unique.
+         */
+        "htmlid"?: string;
+        /**
+          * `z-icon` name to use (optional).
+         */
+        "icon"?: string;
+        /**
+          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+         */
+        "orientation"?: TabOrientationBean;
+        /**
+          * a selected attribute.
+         */
+        "selected"?: boolean;
+        /**
+          * Available sizes: `big` and `small`. Defaults to `big`.
+         */
+        "size"?: TabSizeBean;
+    }
+    interface ZNavigationTabs {
+        /**
+          * Current displayed tab (mutable)
+         */
+        "currenttab": number;
+        /**
+          * Items Array prima dello slot
+         */
+        "items": string;
+        /**
+          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+         */
+        "orientation"?: TabOrientationBean;
+        /**
+          * Available sizes: `big` and `small`. Defaults to `big`.
+         */
+        "size"?: TabSizeBean;
+        /**
+          * Initial starttab (mutable)
+         */
+        "starttab": number;
+        /**
+          * Number of visible tabs
+         */
+        "visibletabs": number;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -1226,6 +1278,18 @@ declare global {
         prototype: HTMLZModalLoginElement;
         new (): HTMLZModalLoginElement;
     };
+    interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
+    }
+    var HTMLZNavigationTabElement: {
+        prototype: HTMLZNavigationTabElement;
+        new (): HTMLZNavigationTabElement;
+    };
+    interface HTMLZNavigationTabsElement extends Components.ZNavigationTabs, HTMLStencilElement {
+    }
+    var HTMLZNavigationTabsElement: {
+        prototype: HTMLZNavigationTabsElement;
+        new (): HTMLZNavigationTabsElement;
+    };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
     var HTMLZPaginationBarElement: {
@@ -1376,6 +1440,8 @@ declare global {
         "z-menu-section": HTMLZMenuSectionElement;
         "z-modal": HTMLZModalElement;
         "z-modal-login": HTMLZModalLoginElement;
+        "z-navigation-tab": HTMLZNavigationTabElement;
+        "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
@@ -2194,6 +2260,66 @@ declare namespace LocalJSX {
          */
         "status"?: InputStatusBean;
     }
+    interface ZNavigationTab {
+        /**
+          * a disabled attribute.
+         */
+        "disabled"?: boolean;
+        /**
+          * Identifier, should be unique.
+         */
+        "htmlid"?: string;
+        /**
+          * `z-icon` name to use (optional).
+         */
+        "icon"?: string;
+        /**
+          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+         */
+        "orientation"?: TabOrientationBean;
+        /**
+          * a selected attribute.
+         */
+        "selected"?: boolean;
+        /**
+          * Available sizes: `big` and `small`. Defaults to `big`.
+         */
+        "size"?: TabSizeBean;
+    }
+    interface ZNavigationTabs {
+        /**
+          * Current displayed tab (mutable)
+         */
+        "currenttab"?: number;
+        /**
+          * Items Array prima dello slot
+         */
+        "items"?: string;
+        /**
+          * emitted on start tab change, returns starttab
+         */
+        "onChangeStartTab"?: (event: CustomEvent<any>) => void;
+        /**
+          * emitted on tab number click, returns tab
+         */
+        "onGoToTab"?: (event: CustomEvent<any>) => void;
+        /**
+          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+         */
+        "orientation"?: TabOrientationBean;
+        /**
+          * Available sizes: `big` and `small`. Defaults to `big`.
+         */
+        "size"?: TabSizeBean;
+        /**
+          * Initial starttab (mutable)
+         */
+        "starttab"?: number;
+        /**
+          * Number of visible tabs
+         */
+        "visibletabs"?: number;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -2507,6 +2633,8 @@ declare namespace LocalJSX {
         "z-menu-section": ZMenuSection;
         "z-modal": ZModal;
         "z-modal-login": ZModalLogin;
+        "z-navigation-tab": ZNavigationTab;
+        "z-navigation-tabs": ZNavigationTabs;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
@@ -2572,6 +2700,8 @@ declare module "@stencil/core" {
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
+            "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
+            "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;

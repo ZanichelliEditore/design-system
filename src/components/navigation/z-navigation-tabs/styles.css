@@ -1,0 +1,55 @@
+:host {
+  height: 48px;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font: var(--space-unit);
+}
+
+/* Button Navigation left,right or up,down */
+:host button.navigation {
+  background: none;
+  border: none;
+  outline: none;
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+  color: #0056C1;
+  fill: #0056C1;
+}
+
+:host button.navigation:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: #95999D;
+  fill: #95999D;
+}
+
+/* Orientation horizontal */
+:host([orientation="horizontal"]) {
+	display: inline-flex;
+}
+
+/* Orientation vertical */
+:host([orientation="vertical"]) {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Size big */
+:host([size="big"]) a,
+:host([size="big"]) button {
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  padding: 16px 40px;
+}
+
+/* Size small */
+:host([size="small"]) a,
+:host([size="small"]) button {
+  font-size: 14px;
+  letter-spacing: 0.16px;
+  line-height: 20px;
+  padding: 8px 16px;
+}
+

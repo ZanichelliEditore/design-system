@@ -43,6 +43,8 @@
  - [z-menu-dropdown](../../navigation/z-menu-dropdown)
  - [z-menu-section](../../navigation/z-menu-section)
  - [z-modal](../../modal/z-modal)
+ - [z-navigation-tab](../../navigation/z-navigation-tab)
+ - [z-navigation-tabs](../../navigation/z-navigation-tabs)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-select](../../inputs/z-select)
  - [z-toggle-button](../../buttons/z-toggle-button)
@@ -70,6 +72,8 @@ graph TD;
   z-menu-dropdown --> z-icon
   z-menu-section --> z-icon
   z-modal --> z-icon
+  z-navigation-tab --> z-icon
+  z-navigation-tabs --> z-icon
   z-pagination-bar --> z-icon
   z-select --> z-icon
   z-toggle-button --> z-icon

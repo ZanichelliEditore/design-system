@@ -1,0 +1,34 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { number, select, boolean } from '@storybook/addon-knobs';
+
+## Stories
+
+<Meta title="ZNavigationTabs" component="z-navigation-tabs" />
+
+  # ZNavigationTabs
+
+<Preview>
+  <Story name="z-navigation-tabs">
+    {html`
+      <z-navigation-tabs
+        items='[{"label":"Apps","icon":"app-switcher"},{"label":"Home","isdisabled":"true","icon":"house"},{"label":"Artist","icon":"artist"},{"label":"Mappa","icon":"map"},{"label":"Download","icon":"download","disabled":"true"}]'
+        visibletabs="${number('visibletabs', 3)}"
+        currenttab="${number('currenttab', 1)}"
+        starttab="${number('starttab', 1)}"
+        orientation="${select(
+          "orientation",
+          ["horizontal", "vertical"],
+          "horizontal"
+        )}"
+        size="${select(
+          "size",
+          ["big", "small"],
+          "big"
+        )}"
+      ></z-navigation-tabs>`}
+  </Story>
+</Preview>
+
+  <Props of="z-navigation-tabs" />
+
