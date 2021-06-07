@@ -3,7 +3,6 @@
   --z-icon-height: 16px;
   --z-icon-right-margin: var(--space-unit);
   --layout-vertical: 0;
-  --layout-horizontal: calc(1 - var(--layout-vertical));
   outline: none;
   display: block;
   margin: 0;
@@ -15,8 +14,8 @@
   border-style: solid;
   border-color: transparent;
   border-top-width: 0;
-  border-right-width: calc((var(--layout-horizontal) * 0px) + (var(--layout-vertical) * 2px));
-  border-bottom-width: calc((var(--layout-horizontal) * 2px) + (var(--layout-vertical) * 0px));
+  border-right-width: calc(var(--layout-vertical) * 2px);
+  border-bottom-width: calc((1 - var(--layout-vertical)) * 2px);
   border-left-width: 0;
 }
 
