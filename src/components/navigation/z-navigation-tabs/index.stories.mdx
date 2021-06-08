@@ -15,13 +15,86 @@ import { number, select, boolean } from '@storybook/addon-knobs';
         orientation="${select(
           "orientation",
           ["horizontal", "vertical"],
-          "vertical"
+          "horizontal"
         )}"
         size="${select(
           "size",
           ["big", "small"],
           "big"
         )}"
+      >
+        <z-navigation-tab>
+          <z-icon name="artist" slot="icon"></z-icon>
+          <span slot="label">Profilo</span>
+        </z-navigation-tab>
+        <z-navigation-tab disabled>
+          <z-icon name="app-switcher" slot="icon"></z-icon>
+          <span slot="label">App</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="map" slot="icon"></z-icon>
+          <span slot="label">Maps</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="download" slot="icon"></z-icon>
+          <span slot="label">Download</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="user" slot="icon"></z-icon>
+          <span slot="label">Users</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="artist" slot="icon"></z-icon>
+          <span slot="label">Artisti</span>
+        </z-navigation-tab>
+      </z-navigation-tabs>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="z-navigation-tabs horizontal">
+    {html`
+      <z-navigation-tabs
+        orientation="horizontal"
+        size="${select(
+          "size",
+          ["big", "small"],
+          "big"
+        )}"
+      >
+        <z-navigation-tab>
+          <z-icon name="artist" slot="icon"></z-icon>
+          <span slot="label">Profilo</span>
+        </z-navigation-tab>
+        <z-navigation-tab disabled>
+          <z-icon name="app-switcher" slot="icon"></z-icon>
+          <span slot="label">App</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="map" slot="icon"></z-icon>
+          <span slot="label">Maps</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="download" slot="icon"></z-icon>
+          <span slot="label">Download</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="user" slot="icon"></z-icon>
+          <span slot="label">Users</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="artist" slot="icon"></z-icon>
+          <span slot="label">Artisti</span>
+        </z-navigation-tab>
+      </z-navigation-tabs>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="z-navigation-tabs vertical">
+    {html`
+      <z-navigation-tabs
+        orientation="vertical"
       >
         <z-navigation-tab>
           <z-icon name="artist" slot="icon"></z-icon>

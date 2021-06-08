@@ -9,13 +9,11 @@ import { text, number, select, boolean } from '@storybook/addon-knobs';
 # ZNavigationTab
 
 <Preview>
-  <Story name="Default tab slot">
+  <Story name="z-navigation-tab">
     {(args) => html`
       <z-navigation-tab>
-        <a>
-          <z-icon name='artist' width="16" height="16" />
-          ${text("label", "Home")}
-        </a>
+        <z-icon name="${text("icon","app-switcher")}" slot="icon"></z-icon>
+        <span slot="label">${text("label", "App")}</span>
       </z-navigation-tab>`}
   </Story>
 </Preview>
