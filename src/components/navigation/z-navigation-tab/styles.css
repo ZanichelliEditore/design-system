@@ -1,8 +1,6 @@
 :host {
-  --z-icon-width: 16px;
-  --z-icon-height: 16px;
-  --z-icon-right-margin: var(--space-unit);
-
+  position: relative;
+  z-index: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,11 +34,11 @@
   fill: var(--gray700);
 }
 
-:host(.vertical) {
+:host([orientation='vertical']) {
   border-width: 0 var(--border-size-large) 0 0;
 }
 
-:host(.vertical) ::slotted([slot='label']) {
+:host([orientation='vertical']) ::slotted([slot='label']) {
   display: none;
 }
 

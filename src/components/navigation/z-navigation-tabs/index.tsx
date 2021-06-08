@@ -1,16 +1,16 @@
-import { Component, Prop, h, Listen, Element, State } from "@stencil/core";
+import { Component, Prop, h, Listen, Element, State, Watch } from '@stencil/core';
 
 import {
   TabSizeBean,
   TabSizeEnum,
   TabOrientationBean,
   TabOrientationEnum
-} from "../../../beans";
+} from '../../../beans';
 import { ZNavigationTab } from '../z-navigation-tab';
 
 @Component({
-  tag: "z-navigation-tabs",
-  styleUrl: "styles.css",
+  tag: 'z-navigation-tabs',
+  styleUrl: 'styles.css',
   shadow: true
 })
 export class ZNavigationTabs {
@@ -23,20 +23,23 @@ export class ZNavigationTabs {
   @State() canNavigatePrevious: boolean;
   @State() canNavigateNext: boolean;
 
-  tab: HTMLElement;
+  tabsNav: HTMLElement;
 
-  constructor() {
-    if (this.orientation == TabOrientationEnum.vertical){
-      const children = this.host.children;
-      for (let i = 0; i < children.length; i++) {
-        children[i].className = TabOrientationEnum.vertical;
-      }
+  @Watch('orientation')
+  setChildrenOrientation() {
+    const children = this.host.children;
+    for (let i = 0; i < children.length; i++) {
+      children[i].setAttribute('orientation', this.orientation);
     }
   }
 
+  componentDidRender() {
+    this.canNavigate();
+  }
+
   @Listen('resize', { target: 'window' })
-  handleResize() {
-    this.canNavigatePrevious = (this.host.firstElementChild as HTMLElement).offsetLeft < 0;
+  canNavigate() {
+    this.canNavigatePrevious = (this.host.firstElementChild as HTMLElement).offsetLeft < this.host.offsetLeft;
     const lastChild = this.host.lastElementChild as HTMLElement;
     this.canNavigateNext = lastChild.offsetLeft >= lastChild.offsetParent?.clientWidth;
   }
@@ -60,16 +63,18 @@ export class ZNavigationTabs {
     }
   }
 
-  tabWindow() {
-    // TODO
-  }
-
   navigatePrevious() {
     if (!this.canNavigatePrevious) {
       return;
     }
 
     // scroll pari alla width del primo elemento non visibile a sinistra
+    let firstChildOut = Array.from(this.host.children).find((child: HTMLElement) => {
+      const parent = child.offsetParent as HTMLElement;
+      return child.offsetLeft < parent.offsetLeft;
+    });
+    firstChildOut.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+    this.canNavigate();
   }
 
   navigateNext() {
@@ -78,6 +83,9 @@ export class ZNavigationTabs {
     }
 
     // scroll pari alla width del primo elemento non visibile a destra
+    let firstChildOut = Array.from(this.host.children).find((child) => (child as HTMLElement).offsetLeft >= this.host.clientWidth);
+    firstChildOut.scrollIntoView({ behavior: 'smooth', inline: 'end' });
+    this.canNavigate();
   }
 
   render() {
@@ -85,7 +93,9 @@ export class ZNavigationTabs {
       <button class='navigation' onClick={() => this.navigatePrevious()} disabled={!this.canNavigatePrevious}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
       </button>,
-      <slot/>,
+      <nav ref={(el) => this.tabsNav = el}>
+        <slot />
+      </nav>,
       <button class='navigation' onClick={() => {this.navigateNext()}} disabled={!this.canNavigateNext}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
       </button>

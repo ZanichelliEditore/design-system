@@ -1,7 +1,11 @@
 :host {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  z-index: 0;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+  overflow: hidden;
 }
 
 :host,
@@ -10,15 +14,17 @@
   box-sizing: border-box;
 }
 
-/* Button Navigation left,right or up,down */
+::-webkit-scrollbar {
+  display: none;
+}
+
 button.navigation {
   position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
+  padding: calc(var(--space-unit) * 2) var(--space-unit);
   background: var(--color-white);
   border: none;
   outline: none;
@@ -27,47 +33,61 @@ button.navigation {
   border-radius: var(--border-no-radius);
   box-shadow: 0px 0px 4px 2px rgba(66, 69, 72, 0.35);
   cursor: pointer;
+  z-index: 1;
 }
 
-button.navigation:disabled {
+button.navigation[disabled] {
   color: var(--gray700);
   fill: var(--gray700);
   pointer-events: none;
   cursor: not-allowed;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: auto;
+}
+
 /* Orientation horizontal */
 :host([orientation='horizontal']) {
-	display: flex;
-  align-items: center;
-  width: 100%;
   padding: 0 calc(var(--space-unit) * 4);
-  overflow-y: hidden;
+}
+
+:host([orientation='horizontal']) nav {
+  width: 100%;
 }
 
 :host([orientation='horizontal']) button.navigation {
-  width: calc(var(--space-unit) * 4);
   height: 100%;
+  width: calc(var(--space-unit) * 4);
+}
+
+:host([orientation='horizontal']) button.navigation:first-child {
+  left: 0;
 }
 
 :host([orientation='horizontal']) button.navigation:last-child {
-  left: auto;
   right: 0;
 }
 
-:host([orientation='horizontal']) ::slotted(z-navigation-tab) {
+:host([orientation='horizontal']) nav ::slotted(z-navigation-tab) {
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
 }
 
+
 /* Orientation vertical */
 :host([orientation='vertical']) {
-  display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  width: min-content;
+  padding: calc(var(--space-unit) * 4) 0;
+}
+
+:host([orientation='vertical']) nav {
+  flex-direction: column;
   width: min-content;
   height: 100%;
-  padding: calc(var(--space-unit) * 4) 0;
-  overflow-x: hidden;
 }
 
 :host([orientation='vertical']) button.navigation {
@@ -75,18 +95,21 @@ button.navigation:disabled {
   height: calc(var(--space-unit) * 4);
 }
 
+:host([orientation='vertical']) button.navigation:first-child {
+  top: 0;
+}
+
 :host([orientation='vertical']) button.navigation:last-child {
-  top: auto;
   bottom: 0;
 }
 
-:host([orientation='vertical']) ::slotted(z-navigation-tab) {
+:host([orientation='vertical']) nav ::slotted(z-navigation-tab) {
   padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
 }
 
 /* Size big */
 :host([size='big']),
-:host([size='big']) ::slotted(z-navigation-tab) {
+:host([size='big']) nav ::slotted(z-navigation-tab) {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 24px;
@@ -94,13 +117,13 @@ button.navigation:disabled {
 
 /* Size small */
 :host([size='small']),
-:host([size='small']) ::slotted(z-navigation-tab) {
+:host([size='small']) nav ::slotted(z-navigation-tab) {
   font-size: 14px;
   letter-spacing: 0.16px;
   line-height: 20px;
 }
 
-:host([size='small'][orientation='horizontal']) ::slotted(z-navigation-tab) {
+:host([size='small'][orientation='horizontal']) nav ::slotted(z-navigation-tab) {
   padding: var(--space-unit) calc(var(--space-unit) * 2);
   border-width: 0 0 var(--border-size-medium) 0;
 }
