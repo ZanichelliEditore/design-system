@@ -36,13 +36,6 @@ button.navigation {
   z-index: 1;
 }
 
-button.navigation[disabled] {
-  color: var(--gray700);
-  fill: var(--gray700);
-  pointer-events: none;
-  cursor: not-allowed;
-}
-
 nav {
   display: flex;
   align-items: center;

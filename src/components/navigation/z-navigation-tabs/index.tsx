@@ -33,22 +33,14 @@ export class ZNavigationTabs {
     }
   }
 
-  componentDidRender() {
-    this.canNavigate();
-  }
-
-  @Listen('resize', { target: 'window' })
-  canNavigate() {
-    this.canNavigatePrevious = (this.host.firstElementChild as HTMLElement).offsetLeft < this.host.offsetLeft;
-    const lastChild = this.host.lastElementChild as HTMLElement;
-    this.canNavigateNext = lastChild.offsetLeft >= lastChild.offsetParent?.clientWidth;
-  }
-
   @Listen('selected')
   selectedTabHandler(event: CustomEvent) {
     this.select(event.target as Element);
   }
 
+  /**
+   * @TODO documentation
+   */
   select(tab: Element) {
     const children = this.host.children;
     for (let i = 0; i < children.length; i++) {
@@ -63,40 +55,53 @@ export class ZNavigationTabs {
     }
   }
 
+  /**
+   * @TODO documentation
+   */
   navigatePrevious() {
-    if (!this.canNavigatePrevious) {
-      return;
+    if (this.orientation == TabOrientationEnum.vertical) {
+      this.tabsNav.scrollBy({
+        top: 0 - (this.tabsNav.clientHeight / 2),
+        behavior: 'smooth',
+      });
+    } else {
+      this.tabsNav.scrollBy({
+        left: 0 - (this.tabsNav.clientWidth / 2),
+        behavior: 'smooth',
+      });
     }
-
-    // scroll pari alla width del primo elemento non visibile a sinistra
-    let firstChildOut = Array.from(this.host.children).find((child: HTMLElement) => {
-      const parent = child.offsetParent as HTMLElement;
-      return child.offsetLeft < parent.offsetLeft;
-    });
-    firstChildOut.scrollIntoView({ behavior: 'smooth', inline: 'start' });
-    this.canNavigate();
   }
 
+  /**
+   * @TODO documentation
+   */
   navigateNext() {
-    if (!this.canNavigateNext) {
-      return;
+    if (this.orientation == TabOrientationEnum.vertical) {
+      this.tabsNav.scrollBy({
+        top: this.tabsNav.scrollTop + (this.tabsNav.clientHeight / 2),
+        behavior: 'smooth',
+      });
+    } else {
+      this.tabsNav.scrollBy({
+        left: this.tabsNav.scrollTop + (this.tabsNav.clientWidth / 2),
+        behavior: 'smooth',
+      });
     }
+  }
 
-    // scroll pari alla width del primo elemento non visibile a destra
-    let firstChildOut = Array.from(this.host.children).find((child) => (child as HTMLElement).offsetLeft >= this.host.clientWidth);
-    firstChildOut.scrollIntoView({ behavior: 'smooth', inline: 'end' });
-    this.canNavigate();
+  componentDidRender() {
+    this.setChildrenOrientation();
   }
 
   render() {
     return [
-      <button class='navigation' onClick={() => this.navigatePrevious()} disabled={!this.canNavigatePrevious}>
+      <button class='navigation' onClick={() => this.navigatePrevious()}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
       </button>,
       <nav ref={(el) => this.tabsNav = el}>
         <slot />
       </nav>,
-      <button class='navigation' onClick={() => {this.navigateNext()}} disabled={!this.canNavigateNext}>
+      <button class='navigation' onClick={() => {this.navigateNext()}}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
       </button>
     ];
