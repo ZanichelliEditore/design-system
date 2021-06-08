@@ -15,7 +15,7 @@ import { number, select, boolean } from '@storybook/addon-knobs';
         orientation="${select(
           "orientation",
           ["horizontal", "vertical"],
-          "horizontal"
+          "vertical"
         )}"
         size="${select(
           "size",
@@ -23,33 +23,33 @@ import { number, select, boolean } from '@storybook/addon-knobs';
           "big"
         )}"
       >
-    <z-navigation-tab>
-        Profilo
-        <z-icon name="artist"/>
-      </z-navigation-tab>
-      <z-navigation-tab disabled>
-        App
-        <z-icon name="app-switcher"/>
-      </z-navigation-tab>
-      <z-navigation-tab>
-        Maps
-        <z-icon name="map"/>
-      </z-navigation-tab>
-      <z-navigation-tab>
-        Download
-        <z-icon name="download"/>
-      </z-navigation-tab>
-      <z-navigation-tab>
-        Users
-        <z-icon name="user"/>
-      </z-navigation-tab>
-      <z-navigation-tab>
-        Artisti
-        <z-icon name="artist"/>
-      </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="artist" slot="icon"></z-icon>
+          <span slot="label">Profilo</span>
+        </z-navigation-tab>
+        <z-navigation-tab disabled>
+          <z-icon name="app-switcher" slot="icon"></z-icon>
+          <span slot="label">App</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="map" slot="icon"></z-icon>
+          <span slot="label">Maps</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="download" slot="icon"></z-icon>
+          <span slot="label">Download</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="user" slot="icon"></z-icon>
+          <span slot="label">Users</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="artist" slot="icon"></z-icon>
+          <span slot="label">Artisti</span>
+        </z-navigation-tab>
       </z-navigation-tabs>`}
   </Story>
 </Preview>
 
-  <Props of="z-navigation-tabs" />
+<Props of="z-navigation-tabs" />
 

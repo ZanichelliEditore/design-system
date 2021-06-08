@@ -2,35 +2,52 @@
   --z-icon-width: 16px;
   --z-icon-height: 16px;
   --z-icon-right-margin: var(--space-unit);
-  --layout-vertical: 0;
-  outline: none;
+
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
   text-align: center;
   font-family: var(--dashboard-font);
-  color: #0056C1;
-  fill: #0056C1;
-  cursor: pointer;
+  color: var(--blue500);
+  fill: var(--blue500);
   border-style: solid;
   border-color: transparent;
-  border-top-width: 0;
-  border-right-width: calc(var(--layout-vertical) * 2px);
-  border-bottom-width: calc((1 - var(--layout-vertical)) * 2px);
-  border-left-width: 0;
+  border-width: 0 0 var(--border-size-large) 0;
+  outline: none;
+  cursor: pointer;
+}
+
+:host(:hover),
+:host([selected]) {
+  color: var(--blue800);
+  fill: var(--blue800);
+  border-color: var(--blue800);
 }
 
 :host(:hover) {
-  color: #003476;
-  fill: #003476;
-  background-color: var(--bg-grey-050);
-  border-color: #003476;
+  background-color: var(--gray50);
 }
 
 :host([disabled]) {
   pointer-events: none;
   cursor: not-allowed;
-  color: #95999D;
-  fill: #95999D;
+  color: var(--gray700);
+  fill: var(--gray700);
+}
+
+:host(.vertical) {
+  border-width: 0 var(--border-size-large) 0 0;
+}
+
+:host(.vertical) ::slotted([slot='label']) {
+  display: none;
+}
+
+::slotted(z-icon) {
+  margin: 0;
+}
+
+::slotted([slot='label']) {
+  margin-left: var(--space-unit);
 }

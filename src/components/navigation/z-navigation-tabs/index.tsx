@@ -25,6 +25,15 @@ export class ZNavigationTabs {
 
   tab: HTMLElement;
 
+  constructor() {
+    if (this.orientation == TabOrientationEnum.vertical){
+      const children = this.host.children;
+      for (let i = 0; i < children.length; i++) {
+        children[i].className = TabOrientationEnum.vertical;
+      }
+    }
+  }
+
   @Listen('resize', { target: 'window' })
   handleResize() {
     this.canNavigatePrevious = (this.host.firstElementChild as HTMLElement).offsetLeft < 0;

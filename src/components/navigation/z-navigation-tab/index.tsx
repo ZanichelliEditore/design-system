@@ -32,8 +32,9 @@ export class ZNavigationTab {
   }
 
   render() {
-    return (
-      <slot />
-    );
+    return [
+      <slot name="icon" />,
+      <slot name="label" />
+    ];
   }
 }
