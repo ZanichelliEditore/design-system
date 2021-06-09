@@ -10,12 +10,12 @@ describe("Suite test ZNavigationTab", () => {
       html: `<z-navigation-tab></z-navigation-tab>`});
 
     expect(page.root).toEqualHtml(`
-    <z-navigation-tab>
-      <mock:shadow-root>
-        <slot name="icon"></slot>
-        <slot name="label"></slot>
-      </mock:shadow-root>
-    </z-navigation-tab>
+      <z-navigation-tab>
+        <mock:shadow-root>
+          <slot name="icon"></slot>
+          <slot name="label"></slot>
+        </mock:shadow-root>
+      </z-navigation-tab>
     `);
   });
 
@@ -23,19 +23,21 @@ describe("Suite test ZNavigationTab", () => {
     const page = await newSpecPage({
       components: [ZNavigationTab],
       html: `
-      <z-navigation-tab>
-        <z-icon name="house" slot="icon"></z-icon>
-        <span slot="label">Home</span>
-      </z-navigation-tab>`
+        <z-navigation-tab>
+          <z-icon name="house" slot="icon"></z-icon>
+          <span slot="label">Home</span>
+        </z-navigation-tab>
+      `
     });
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tab icon=\"download\" label=\"Home\">
+      <z-navigation-tab>
         <mock:shadow-root>
-          <slot name="icon">
-            <z-icon name=\"house\" width={16} height={16}></z-icon>
-          </slot>
+          <slot name="icon"></slot>
+          <slot name="label"></slot>
         </mock:shadow-root>
+        <z-icon name="house" slot="icon"></z-icon>
+        <span slot="label">Home</span>
       </z-navigation-tab>
     `);
   });
@@ -50,10 +52,10 @@ describe("Suite test ZNavigationTab", () => {
     expect(page.root).toEqualHtml(`
       <z-navigation-tab>
         <mock:shadow-root>
-          <slot name="label">
-            <span>Home</span>
-          </slot>
+          <slot name="icon"></slot>
+          <slot name="label"></slot>
         </mock:shadow-root>
+        <span slot="label">App</span>
       </z-navigation-tab>
     `);
   });
@@ -68,14 +70,13 @@ describe("Suite test ZNavigationTab", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tab icon=\"download\" label=\"Home\">
+      <z-navigation-tab>
         <mock:shadow-root>
-          <slot name="icon">
-            <z-icon name=\"house\" width={16} height={16}></z-icon>
-          </slot>
+          <slot name="icon"></slot>
+          <slot name="label"></slot>
         </mock:shadow-root>
+        <z-icon name="house" slot="icon"></z-icon>
       </z-navigation-tab>
     `);
   });
-
 });
