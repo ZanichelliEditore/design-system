@@ -30,8 +30,8 @@
 :host(:focus) {
   color: var(--blue500);
   fill: var(--blue500);
-  box-shadow: 0 0 2px 2px #78B5FF;
-  border-radius: calc(var(--space-unit) / 4);
+  box-shadow: 0 0 2px 2px var(--blue100);
+  border-radius: var(--border-radius-small);
 }
 
 :host([disabled]) {

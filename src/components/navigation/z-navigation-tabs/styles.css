@@ -36,10 +36,6 @@ button.navigation {
   z-index: 1;
 }
 
-button.navigation[status='hidden'] {
-  visibility: hidden;
-}
-
 button.navigation[disabled] {
   color: var(--gray700);
   fill: var(--gray700);
@@ -56,7 +52,7 @@ nav {
 }
 
 /* Orientation horizontal */
-:host([orientation='horizontal']) {
+:host([orientation='horizontal'][scrollable]) {
   padding: 0 calc(var(--space-unit) * 4);
 }
 
@@ -86,6 +82,9 @@ nav {
 :host([orientation='vertical']) {
   flex-direction: column;
   width: min-content;
+}
+
+:host([orientation='vertical'][scrollable]) {
   padding: calc(var(--space-unit) * 4) 0;
 }
 

@@ -1,4 +1,4 @@
-import { Component, Prop, h, Listen, Element, State, Watch } from '@stencil/core';
+import { Component, Prop, h, Listen, Element, State, Watch, Host } from '@stencil/core';
 
 import {
   TabSizeBean,
@@ -20,12 +20,16 @@ export class ZNavigationTabs {
   @Prop({ reflect: true }) orientation?: TabOrientationBean = TabOrientationEnum.horizontal;
   /** Available sizes: `big` and `small`. Defaults to `big`. */
   @Prop({ reflect: true }) size?: TabSizeBean = TabSizeEnum.big;
-  @State() navigationButtons: boolean;
+  /** @TODO documentation */
+  @State() canNavigate: boolean;
+  @State() canNavigatePrev: boolean;
+  @State() canNavigateNext: boolean;
 
-  buttonNavPrevious: HTMLElement;
-  buttonNavNext: HTMLElement;
   tabsNav: HTMLElement;
 
+  /**
+   * @TODO documentation
+   */
   @Watch('orientation')
   setChildrenOrientation() {
     const children = this.host.children;
@@ -34,20 +38,29 @@ export class ZNavigationTabs {
     }
   }
 
-  @Watch('navigationButtons')
-  setNavigationButtons() {
-    this.buttonNavPrevious.setAttribute('status','hidden');
-    this.buttonNavNext.setAttribute('status','hidden');
-    if (this.orientation == TabOrientationEnum.vertical) {
-      if(this.tabsNav.clientHeight < this.tabsNav.scrollHeight){
-        this.buttonNavPrevious.setAttribute('status','show');
-        this.buttonNavNext.setAttribute('status','show');
-      }
-    } else {
-      if(this.tabsNav.clientWidth < this.tabsNav.scrollWidth){
-        this.buttonNavPrevious.setAttribute('status','show');
-        this.buttonNavNext.setAttribute('status','show');
-      }
+  /**
+   * @TODO documentation
+   */
+  @Listen('resize', { target: 'window', passive: true })
+  checkScrollVisible() {
+    if (this.orientation == TabOrientationEnum.horizontal) {
+      this.canNavigate = this.tabsNav.scrollWidth > this.tabsNav.clientWidth;
+    } else if (this.orientation == TabOrientationEnum.vertical) {
+      this.canNavigate = this.tabsNav.scrollHeight > this.tabsNav.clientHeight;
+    }
+    this.checkScrollEnabled();
+  }
+
+  /**
+   * @TODO documentation
+   */
+  checkScrollEnabled() {
+    if (this.orientation == TabOrientationEnum.horizontal) {
+      this.canNavigateNext = this.tabsNav.scrollLeft + this.tabsNav.clientWidth < this.tabsNav.scrollWidth;
+      this.canNavigatePrev = this.tabsNav.scrollLeft > 0;
+    } else if (this.orientation == TabOrientationEnum.vertical) {
+      this.canNavigateNext = this.tabsNav.scrollTop + this.tabsNav.clientHeight < this.tabsNav.scrollHeight;
+      this.canNavigatePrev = this.tabsNav.scrollLeft > 0;
     }
   }
 
@@ -107,26 +120,22 @@ export class ZNavigationTabs {
     }
   }
 
-  componentWillRender(){
-    this.setNavigationButtons();
-  }
-
-  componentDidRender() {
-    this.setNavigationButtons();
+  componentDidLoad() {
     this.setChildrenOrientation();
+    this.checkScrollVisible();
   }
 
   render() {
-    return [
-      <button ref={(el) => this.buttonNavPrevious = el} class='navigation' onClick={() => this.navigatePrevious()} disabled={false}>
-        <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
-      </button>,
-      <nav ref={(el) => this.tabsNav = el}>
-        <slot />
-      </nav>,
-      <button ref={(el) => this.buttonNavNext = el} class='navigation' onClick={() => {this.navigateNext()}} disabled={false}>
-        <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
-      </button>
-    ];
+    return <Host scrollable={this.canNavigate}>
+        {this.canNavigate && <button class='navigation' onClick={() => this.navigatePrevious()} disabled={!this.canNavigatePrev}>
+          <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
+        </button>}
+        <nav ref={(el) => this.tabsNav = el ?? this.tabsNav } onScroll={this.checkScrollEnabled.bind(this)}>
+          <slot />
+        </nav>
+        {this.canNavigate && <button class='navigation' onClick={() => {this.navigateNext()}} disabled={!this.canNavigateNext}>
+          <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
+        </button>}
+    </Host>;
   }
 }
