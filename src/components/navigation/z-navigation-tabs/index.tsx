@@ -36,7 +36,7 @@ export class ZNavigationTabs {
     }
   }
 
-  /** When resize check scroll for the navigation buttons visibility */
+  /** When resize check if the navigation buttons are needed */
   @Listen('resize', { target: 'window', passive: true })
   checkScrollVisible() {
     if (this.orientation == TabOrientationEnum.horizontal) {
@@ -47,7 +47,7 @@ export class ZNavigationTabs {
     this.checkScrollEnabled();
   }
 
-  /** Check left scroll (horizontal) or top scroll (vertical) for the navigation buttons status: enabled or disabled */
+  /** Check if navigation buttons can be enabled for each orientation */
   checkScrollEnabled() {
     if (this.orientation == TabOrientationEnum.horizontal) {
       this.canNavigateNext = this.tabsNav.scrollLeft + this.tabsNav.clientWidth < this.tabsNav.scrollWidth;
@@ -63,7 +63,7 @@ export class ZNavigationTabs {
     this.select(event.target as Element);
   }
 
-  /** When a children (tab) selected set it true and false to the others */
+  /** Select a tab child and deselect the others */
   select(tab: Element) {
     const children = this.host.children;
     for (let i = 0; i < children.length; i++) {
@@ -78,7 +78,7 @@ export class ZNavigationTabs {
     }
   }
 
-  /** Set previous scroll for orientation horizontal or vetical */
+  /** Scroll the navigation bar (half of its size) backward, based on orientation */
   navigatePrevious() {
     if (this.orientation == TabOrientationEnum.vertical) {
       this.tabsNav.scrollBy({
@@ -93,7 +93,7 @@ export class ZNavigationTabs {
     }
   }
 
-  /** Set next scroll for orientation horizontal or vetical */
+  /** Scroll the navigation bar (half of its size) forward, based on orientation */
   navigateNext() {
     if (this.orientation == TabOrientationEnum.vertical) {
       this.tabsNav.scrollBy({
