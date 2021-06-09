@@ -27,6 +27,13 @@
   background-color: var(--gray50);
 }
 
+:host(:focus) {
+  color: var(--blue500);
+  fill: var(--blue500);
+  box-shadow: 0 0 2px 2px #78B5FF;
+  border-radius: calc(var(--space-unit) / 4);
+}
+
 :host([disabled]) {
   pointer-events: none;
   cursor: not-allowed;

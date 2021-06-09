@@ -36,11 +36,23 @@ button.navigation {
   z-index: 1;
 }
 
+button.navigation[status='hidden'] {
+  visibility: hidden;
+}
+
+button.navigation[disabled] {
+  color: var(--gray700);
+  fill: var(--gray700);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 nav {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   overflow: auto;
+  scroll-snap-type: both mandatory;
 }
 
 /* Orientation horizontal */

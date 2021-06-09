@@ -20,9 +20,10 @@ export class ZNavigationTabs {
   @Prop({ reflect: true }) orientation?: TabOrientationBean = TabOrientationEnum.horizontal;
   /** Available sizes: `big` and `small`. Defaults to `big`. */
   @Prop({ reflect: true }) size?: TabSizeBean = TabSizeEnum.big;
-  @State() canNavigatePrevious: boolean;
-  @State() canNavigateNext: boolean;
+  @State() navigationButtons: boolean;
 
+  buttonNavPrevious: HTMLElement;
+  buttonNavNext: HTMLElement;
   tabsNav: HTMLElement;
 
   @Watch('orientation')
@@ -30,6 +31,23 @@ export class ZNavigationTabs {
     const children = this.host.children;
     for (let i = 0; i < children.length; i++) {
       children[i].setAttribute('orientation', this.orientation);
+    }
+  }
+
+  @Watch('navigationButtons')
+  setNavigationButtons() {
+    this.buttonNavPrevious.setAttribute('status','hidden');
+    this.buttonNavNext.setAttribute('status','hidden');
+    if (this.orientation == TabOrientationEnum.vertical) {
+      if(this.tabsNav.clientHeight < this.tabsNav.scrollHeight){
+        this.buttonNavPrevious.setAttribute('status','show');
+        this.buttonNavNext.setAttribute('status','show');
+      }
+    } else {
+      if(this.tabsNav.clientWidth < this.tabsNav.scrollWidth){
+        this.buttonNavPrevious.setAttribute('status','show');
+        this.buttonNavNext.setAttribute('status','show');
+      }
     }
   }
 
@@ -89,19 +107,24 @@ export class ZNavigationTabs {
     }
   }
 
+  componentWillRender(){
+    this.setNavigationButtons();
+  }
+
   componentDidRender() {
+    this.setNavigationButtons();
     this.setChildrenOrientation();
   }
 
   render() {
     return [
-      <button class='navigation' onClick={() => this.navigatePrevious()}>
+      <button ref={(el) => this.buttonNavPrevious = el} class='navigation' onClick={() => this.navigatePrevious()} disabled={false}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
       </button>,
       <nav ref={(el) => this.tabsNav = el}>
         <slot />
       </nav>,
-      <button class='navigation' onClick={() => {this.navigateNext()}}>
+      <button ref={(el) => this.buttonNavNext = el} class='navigation' onClick={() => {this.navigateNext()}} disabled={false}>
         <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
       </button>
     ];
