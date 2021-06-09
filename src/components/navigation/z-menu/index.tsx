@@ -32,8 +32,12 @@ export class ZMenu {
    * stacked beneath it otherwise.
    * @default false
    */
-  @Prop({ reflect: true }) floating? = false;
-  @State() open: boolean;
+  @Prop({ reflect: true }) floating?= false;
+  /**
+   * The opening state of the menu.
+   * @default false
+   */
+  @Prop() open: boolean = false;
   @State() hasHeader: boolean;
   @State() hasContent: boolean;
   @Element() hostElement: HTMLElement;

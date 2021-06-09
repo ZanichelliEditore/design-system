@@ -683,6 +683,11 @@ export namespace Components {
           * @default false
          */
         "floating"?: boolean;
+        /**
+          * The opening state of the menu.
+          * @default false
+         */
+        "open": boolean;
     }
     interface ZMenuDropdown {
         /**
@@ -2125,6 +2130,11 @@ declare namespace LocalJSX {
           * The menu has been opened.
          */
         "onOpened"?: (event: CustomEvent<any>) => void;
+        /**
+          * The opening state of the menu.
+          * @default false
+         */
+        "open"?: boolean;
     }
     interface ZMenuDropdown {
         /**
