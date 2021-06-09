@@ -31,10 +31,20 @@ import { text, boolean, select } from "@storybook/addon-knobs";
           "after-down"
         )}"
         show-arrow="${boolean("show-arrow", false)}"
-        background-color="${text("background-colo", "blue200")}"
+        background-color="${text("background-colo", "color-white")}"
         box-shadow="${select(
           "shadows",
-          ["shadow-0", "shadow-1", "shadow-2", "shadow-3", "shadow-4"],
+          [
+            "shadow-1",
+            "shadow-2",
+            "shadow-3",
+            "shadow-4",
+            "shadow-6",
+            "shadow-8",
+            "shadow-12",
+            "shadow-16",
+            "shadow-24",
+          ],
           "shadow-1"
         )}"
         border-radius="${select(
