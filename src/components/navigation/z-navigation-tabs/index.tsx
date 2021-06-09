@@ -20,16 +20,14 @@ export class ZNavigationTabs {
   @Prop({ reflect: true }) orientation?: TabOrientationBean = TabOrientationEnum.horizontal;
   /** Available sizes: `big` and `small`. Defaults to `big`. */
   @Prop({ reflect: true }) size?: TabSizeBean = TabSizeEnum.big;
-  /** @TODO documentation */
+  /** State for the navigation */
   @State() canNavigate: boolean;
   @State() canNavigatePrev: boolean;
   @State() canNavigateNext: boolean;
 
   tabsNav: HTMLElement;
 
-  /**
-   * @TODO documentation
-   */
+  /** Set all childrens (tab) orientation attribute : horizontal (default) or vertical */
   @Watch('orientation')
   setChildrenOrientation() {
     const children = this.host.children;
@@ -38,9 +36,7 @@ export class ZNavigationTabs {
     }
   }
 
-  /**
-   * @TODO documentation
-   */
+  /** When resize check scroll for the navigation buttons visibility */
   @Listen('resize', { target: 'window', passive: true })
   checkScrollVisible() {
     if (this.orientation == TabOrientationEnum.horizontal) {
@@ -51,9 +47,7 @@ export class ZNavigationTabs {
     this.checkScrollEnabled();
   }
 
-  /**
-   * @TODO documentation
-   */
+  /** Check left scroll (horizontal) or top scroll (vertical) for the navigation buttons status: enabled or disabled */
   checkScrollEnabled() {
     if (this.orientation == TabOrientationEnum.horizontal) {
       this.canNavigateNext = this.tabsNav.scrollLeft + this.tabsNav.clientWidth < this.tabsNav.scrollWidth;
@@ -69,9 +63,7 @@ export class ZNavigationTabs {
     this.select(event.target as Element);
   }
 
-  /**
-   * @TODO documentation
-   */
+  /** When a children (tab) selected set it true and false to the others */
   select(tab: Element) {
     const children = this.host.children;
     for (let i = 0; i < children.length; i++) {
@@ -86,9 +78,7 @@ export class ZNavigationTabs {
     }
   }
 
-  /**
-   * @TODO documentation
-   */
+  /** Set previous scroll for orientation horizontal or vetical */
   navigatePrevious() {
     if (this.orientation == TabOrientationEnum.vertical) {
       this.tabsNav.scrollBy({
@@ -103,9 +93,7 @@ export class ZNavigationTabs {
     }
   }
 
-  /**
-   * @TODO documentation
-   */
+  /** Set next scroll for orientation horizontal or vetical */
   navigateNext() {
     if (this.orientation == TabOrientationEnum.vertical) {
       this.tabsNav.scrollBy({

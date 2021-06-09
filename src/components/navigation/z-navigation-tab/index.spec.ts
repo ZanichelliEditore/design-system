@@ -4,87 +4,75 @@ import { ZNavigationTab } from "./index";
 
 describe("Suite test ZNavigationTab", () => {
 
-  it("Test render ZNavigationTab vuoto", async () => {
+  it("Test render ZNavigationTab empty", async () => {
     const page = await newSpecPage({
       components: [ZNavigationTab],
-      html: `<z-navigation-tab></z-navigation-tab>`
-    });
+      html: `<z-navigation-tab></z-navigation-tab>`});
 
     expect(page.root).toEqualHtml(`
     <z-navigation-tab>
-          <mock:shadow-root>
-            <a class=\"false\" tabindex=\"0\"></a>
-          </mock:shadow-root>
+      <mock:shadow-root>
+        <slot name="icon"></slot>
+        <slot name="label"></slot>
+      </mock:shadow-root>
     </z-navigation-tab>
     `);
   });
 
-
-
-  it("Test render ZNavigationTab con icona", async () => {
+  it("Test render ZNavigationTab with icon & label", async () => {
     const page = await newSpecPage({
       components: [ZNavigationTab],
-      html: `<z-navigation-tab label='Home' icon='download'></z-navigation-tab>`
+      html: `
+      <z-navigation-tab>
+        <z-icon name="house" slot="icon"></z-icon>
+        <span slot="label">Home</span>
+      </z-navigation-tab>`
     });
 
     expect(page.root).toEqualHtml(`
       <z-navigation-tab icon=\"download\" label=\"Home\">
         <mock:shadow-root>
-          <z-icon name=\"download\" width={32} height={32} />
-          <a class=\"false disabled\" id=\"10\" tabindex=\"-1\" >
-            Home
-          </a>
+          <slot name="icon">
+            <z-icon name=\"house\" width={16} height={16}></z-icon>
+          </slot>
         </mock:shadow-root>
       </z-navigation-tab>
     `);
   });
 
-  it("Test render ZNavigationTab senza classi", async () => {
+  it("Test render ZNavigationTab with label", async () => {
     const page = await newSpecPage({
       components: [ZNavigationTab],
-      html: `<z-navigation-tab label='Home'></z-navigation-tab>`
-    });
+      html: `<z-navigation-tab>
+        <span slot="label">App</span>
+      </z-navigation-tab>`});
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tab label=\"Home\">
+      <z-navigation-tab>
         <mock:shadow-root>
-          <a class=\"false\" id=\"10\" tabindex=\"0\" >
-            Home
-          </a>
+          <slot name="label">
+            <span>Home</span>
+          </slot>
         </mock:shadow-root>
       </z-navigation-tab>
     `);
   });
 
-  it("Test render ZNavigationTab selected", async () => {
+  it("Test render ZNavigationTab with icon", async () => {
     const page = await newSpecPage({
       components: [ZNavigationTab],
-      html: `<z-navigation-tab label='Home' isselected></z-navigation-tab>`
+      html: `
+      <z-navigation-tab>
+        <z-icon name="house" slot="icon"></z-icon>
+      </z-navigation-tab>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tab isselected=\"\" label=\"Home\">
+      <z-navigation-tab icon=\"download\" label=\"Home\">
         <mock:shadow-root>
-          <a class=\"false selected\" id=\"10\" tabindex=\"0\" >
-            Home
-          </a>
-        </mock:shadow-root>
-      </z-navigation-tab>
-    `);
-  });
-
-  it("Test render ZNavigationTab disabled", async () => {
-    const page = await newSpecPage({
-      components: [ZNavigationTab],
-      html: `<z-navigation-tab label='Home' isdisabled></z-navigation-tab>`
-    });
-
-    expect(page.root).toEqualHtml(`
-      <z-navigation-tab isdisabled=\"\" label=\"Home\">
-        <mock:shadow-root>
-          <a class=\"false disabled\" id=\"10\" tabindex=\"-1\" >
-            Home
-          </a>
+          <slot name="icon">
+            <z-icon name=\"house\" width={16} height={16}></z-icon>
+          </slot>
         </mock:shadow-root>
       </z-navigation-tab>
     `);
