@@ -2802,9 +2802,9 @@
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
 "@zanichelli/albe-design-tokens@^0.2.4":
-  version "0.2.4"
-  resolved "https://registry.npmjs.org/@zanichelli/albe-design-tokens/-/albe-design-tokens-0.2.4.tgz#617c7c4f602a829128e62d13607909ad430b6ee5"
-  integrity sha512-IuvyyGw5aSkBlWquibzSqEOXjWtdPBITaIUQnp3OTWnHxJohcstpa4eyJzH/2G/iyggm94RREu0M7TsQnpbySw==
+  version "0.2.5"
+  resolved "https://registry.npmjs.org/@zanichelli/albe-design-tokens/-/albe-design-tokens-0.2.5.tgz#9e43a30818969c277166a1d552e9ff7591db519e"
+  integrity sha512-MCHzAmEC4OQ+jlEGBXFz5WIHU7j+VrTuctrfjHea/wzmzIh83CVKylG1ia4uOyICGtaaZGYHLohOAq9yVnDqSA==
 
 JSONStream@^1.0.4:
   version "1.3.5"
