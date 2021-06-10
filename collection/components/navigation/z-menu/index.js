@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Event, Listen, Element, Host } from '@stencil/core';
+import { Component, h, Prop, State, Event, Listen, Element, Host, Watch } from '@stencil/core';
 /**
  * @slot - Menu label
  * @slot header - Header to display as the first entry of the open menu.
@@ -13,6 +13,11 @@ export class ZMenu {
      * @default false
      */
     this.floating = false;
+    /**
+     * The opening state of the menu.
+     * @default false
+     */
+    this.open = false;
   }
   toggle() {
     if (!this.hasContent) {
@@ -28,8 +33,34 @@ export class ZMenu {
       this.hostElement.contains(ev.target)) {
       return;
     }
+    this.reflow();
     this.open = false;
     this.closed.emit();
+  }
+  onOpenChanged() {
+    if (this.open) {
+      this.reflow(true);
+    }
+    else {
+      cancelAnimationFrame(this.raf);
+    }
+  }
+  /**
+   * Correctly set position of the floating menu in order to prevent overflow.
+   * @param live Should run the method on every refresh frame.
+   */
+  reflow(live = false) {
+    if (this.content) {
+      const { style } = this.content;
+      const { left } = this.hostElement.getBoundingClientRect();
+      const widthPx = getComputedStyle(this.content).width;
+      const width = widthPx ? parseFloat(widthPx.replace('px', '')) : 375;
+      const safeScrollbarSpace = 30;
+      style.left = `${Math.min(window.innerWidth - left - width - safeScrollbarSpace, 0)}px`;
+    }
+    if (live) {
+      this.raf = requestAnimationFrame(this.reflow.bind(this, live));
+    }
   }
   /**
    * Check if some content slot is set.
@@ -47,7 +78,7 @@ export class ZMenu {
         h("div", { class: "label-content" },
           h("slot", null),
           this.hasContent && h("z-icon", { name: this.open ? 'chevron-up' : 'chevron-down' }))),
-      this.open && h("div", { class: "content" },
+      h("div", { class: "content", ref: (el) => { this.content = el; }, hidden: !this.open },
         this.hasHeader && h("header", { class: "header" },
           h("slot", { name: "header", onSlotchange: this.checkContent.bind(this) })),
         h("div", { class: "items" },
@@ -99,10 +130,30 @@ export class ZMenu {
       "attribute": "floating",
       "reflect": true,
       "defaultValue": "false"
+    },
+    "open": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [{
+            "text": "false",
+            "name": "default"
+          }],
+        "text": "The opening state of the menu."
+      },
+      "attribute": "open",
+      "reflect": false,
+      "defaultValue": "false"
     }
   }; }
   static get states() { return {
-    "open": {},
     "hasHeader": {},
     "hasContent": {}
   }; }
@@ -138,6 +189,10 @@ export class ZMenu {
       }
     }]; }
   static get elementRef() { return "hostElement"; }
+  static get watchers() { return [{
+      "propName": "open",
+      "methodName": "onOpenChanged"
+    }]; }
   static get listeners() { return [{
       "name": "click",
       "method": "handleClick",

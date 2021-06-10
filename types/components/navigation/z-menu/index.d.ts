@@ -14,10 +14,16 @@ export declare class ZMenu {
    * @default false
    */
   floating?: boolean;
+  /**
+   * The opening state of the menu.
+   * @default false
+   */
   open: boolean;
   hasHeader: boolean;
   hasContent: boolean;
   hostElement: HTMLElement;
+  private content;
+  private raf;
   /** The menu has been opened. */
   opened: EventEmitter;
   /** The menu has been closed. */
@@ -25,6 +31,12 @@ export declare class ZMenu {
   toggle(): void;
   /** Close the floating list when a click is performed outside of this Element. */
   handleClick(ev: any): void;
+  onOpenChanged(): void;
+  /**
+   * Correctly set position of the floating menu in order to prevent overflow.
+   * @param live Should run the method on every refresh frame.
+   */
+  reflow(live?: boolean): void;
   /**
    * Check if some content slot is set.
    */

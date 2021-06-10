@@ -1,0 +1,2823 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{425:function(module){module.exports=JSON.parse('{"version":1.1,"tags":[{"name":"z-app-header","description":{"kind":"markdown","value":""},"attributes":[{"name":"drawer","description":"Collapse the menu container into a side drawer, for a better experience on mobile devices.\\n**Optional**"},{"name":"flow","description":"Control menu bar position in the header.\\n**Optional**","values":[{"name":"auto"},{"name":"stack"}]},{"name":"hero","description":"Set the hero image source for the header.\\nYou can also use a slot=\\"hero\\" node for advanced customisation.\\n**Optional**"},{"name":"overlay","description":"Should place an overlay over the hero image.\\nUseful for legibility purpose.\\n**Optional**"},{"name":"stuck","description":"Stuck mode for the header.\\nYou can programmatically set it using an IntersectionObserver.\\n**Optional**"}]},{"name":"z-app-switcher","description":{"kind":"markdown","value":""},"attributes":[{"name":"theme","description":"theme variant, default \'dark\'","values":[{"name":"dark"},{"name":"light"}]}]},{"name":"z-app-topbar","description":{"kind":"markdown","value":""},"attributes":[{"name":"hashtag","description":"optional hashtag string"},{"name":"logged","description":"logged status flag"},{"name":"theme","description":"theme variant, default \'dark\'","values":[{"name":"dark"},{"name":"light"}]}]},{"name":"z-body","description":{"kind":"markdown","value":""},"attributes":[{"name":"component","description":""},{"name":"level","description":""},{"name":"variant","description":"","values":[{"name":"regular"},{"name":"semibold"}]}]},{"name":"z-button","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"buttons\\" --\x3e\\n\\n```html\\n<z-button label=\\"button\\" type=\\"primary\\"></z-button>\\n<z-button label=\\"button\\" type=\\"primary\\" icon=\\"download\\"></z-button>\\n<z-button label=\\"button\\" type=\\"primary\\" isdisabled icon=\\"download\\"></z-button>\\n<z-button label=\\"button\\" type=\\"secondary\\"></z-button>\\n<z-button label=\\"button\\" type=\\"secondary\\" isdisabled></z-button>\\n<z-button label=\\"button\\" type=\\"tertiary\\"></z-button>\\n<z-button label=\\"button\\" type=\\"tertiary\\" isdisabled></z-button>\\n<z-button label=\\"button\\" type=\\"primary\\" issmall></z-button>\\n<z-button label=\\"button\\" type=\\"primary\\" issmall icon=\\"download\\"></z-button>\\n<z-button\\n  label=\\"button\\"\\n  type=\\"primary\\"\\n  issmall\\n  isdisabled\\n  icon=\\"download\\"\\n></z-button>\\n<z-button label=\\"button\\" type=\\"secondary\\" issmall></z-button>\\n<z-button label=\\"button\\" type=\\"secondary\\" issmall isdisabled></z-button>\\n<z-button label=\\"button\\" type=\\"tertiary\\" issmall></z-button>\\n<z-button label=\\"button\\" type=\\"tertiary\\" issmall isdisabled></z-button>\\n```"},"attributes":[{"name":"disabled","description":"HTML button disabled attribute."},{"name":"htmlid","description":"Identifier, should be unique."},{"name":"icon","description":"`z-icon` name to use (optional)."},{"name":"issmall","description":"Reduce button size (deprecated)."},{"name":"name","description":"HTML button name attribute."},{"name":"size","description":"Available sizes: `big`, `small` and `x-small`. Defaults to `big`."},{"name":"square","description":"Spy to render square button."},{"name":"type","description":"HTML button type attribute."},{"name":"variant","description":"Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`."}]},{"name":"z-button-filter","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"buttons\\" --\x3e\\n\\n```html\\n<z-button-filter filtername=\\"filter 1\\" isfixed></z-button-filter>\\n<z-button-filter filtername=\\"filter 2\\"></z-button-filter>\\n<z-button-filter filtername=\\"filter 3\\" isfixed hasicon=\\"false\\"></z-button-filter>\\n<z-button-filter filtername=\\"filter 4\\" hasicon=\\"false\\"></z-button-filter>\\n```"},"attributes":[{"name":"filterid","description":"filter id"},{"name":"filtername","description":"filter text content"},{"name":"hasicon","description":"add icon to button"},{"name":"isfixed","description":"disable action on button"},{"name":"issmall","description":"reduce button size (optional)"}]},{"name":"z-button-sort","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"buttons\\" --\x3e\\n\\n```html\\n<z-button-sort label=\\"Chimica\\" counter=\\"3\\"></z-button-sort>\\n<z-button-sort label=\\"Biologia\\" counter=\\"5\\"></z-button-sort>\\n<z-button-sort label=\\"Label\\"></z-button-sort>\\n<z-button-sort label=\\"Selected\\" isselected=true></z-button-sort>\\n<z-button-sort label=\\"Selected\\" isselected=true sortasc=false></z-button-sort>\\n<z-button-sort label=\\"Sort number\\" sortlabelasc=\\"1-9\\" sortlabeldesc=\\"9-1\\"></z-button-sort>\\n<z-button-sort label=\\"Ordina ASC\\" desclabel=\\"Ordina DESC\\" sortlabelasc=\\"\\" sortlabeldesc=\\"\\"></z-button-sort>\\n```"},"attributes":[{"name":"buttonid","description":"id, should be unique"},{"name":"counter","description":"occurrencies counter (optional)"},{"name":"desclabel","description":"label content (descending)"},{"name":"isselected","description":"selected flag (optional)"},{"name":"label","description":"label content (ascending)"},{"name":"sortasc","description":"sortable flag (optional)"},{"name":"sortlabelasc","description":"sort label content (ascending) (optional)"},{"name":"sortlabeldesc","description":"sort label content (descending) (optional)"}]},{"name":"z-candybar","description":{"kind":"markdown","value":""},"attributes":[]},{"name":"z-chip","description":{"kind":"markdown","value":""},"attributes":[{"name":"boldtext","description":""},{"name":"regulartext","description":""}]},{"name":"z-combobox","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"combobox\\" --\x3e\\n\\n```html\\n<z-combobox\\n  inputid=\\"combo_1\\"\\n  items=\'[{\\"id\\":\\"item_1\\",\\"name\\":\\"primo elemento\\",\\"checked\\":false},{\\"id\\":\\"item_2\\",\\"name\\":\\"secondo elemento\\",\\"checked\\":true}]\'\\n  hassearch=\\"true\\"\\n  searchlabel=\\"Autore\\"\\n  searchplaceholder=\\"Cerca Autore\\"\\n  label=\\"Combo Corta\\"\\n  closesearchtext=\\"CHIUDI\\"\\n></z-combobox>\\n<z-combobox\\n  inputid=\\"combo_2\\"\\n  items=\'[{\\"id\\":\\"item_1\\",\\"name\\":\\"primo elemento\\",\\"checked\\":false},{\\"id\\":\\"item_2\\",\\"name\\":\\"secondo elemento\\",\\"checked\\":true},{\\"id\\":\\"item_3\\",\\"name\\":\\"terzo\\",\\"checked\\":false},{\\"id\\":\\"item_4\\",\\"name\\":\\"quarto elemento\\",\\"checked\\":true},{\\"id\\":\\"item_5\\",\\"name\\":\\"quinto elemento\\",\\"checked\\":false},{\\"id\\":\\"item_6\\",\\"name\\":\\"sesto elemento\\",\\"checked\\":true}]\'\\n  hassearch=\\"true\\"\\n  searchlabel=\\"Autore\\"\\n  searchplaceholder=\\"Cerca Autore\\"\\n  label=\\"Combo Corta\\"\\n  isopen=\\"false\\"\\n  label=\\"Combo Lunga\\"\\n  closesearchtext=\\"CHIUDI\\"\\n></z-combobox>\\n```"},"attributes":[{"name":"checkalltext","description":"check all label (optional)"},{"name":"closesearchtext","description":"close combobox list text"},{"name":"hascheckall","description":"show \\"check all\\" checkbox (optional)"},{"name":"hassearch","description":"show search input flag (optional)"},{"name":"inputid","description":"input unique id"},{"name":"isfixed","description":"fixed style flag"},{"name":"isopen","description":"toggle combo list opening flag"},{"name":"items","description":"list items array"},{"name":"label","description":"label text"},{"name":"maxcheckableitems","description":"max number of checkable items (0 = unlimited)"},{"name":"noresultslabel","description":"no result text message"},{"name":"searchlabel","description":"search input label text (optional)"},{"name":"searchplaceholder","description":"search input placeholder text (optional)"},{"name":"searchtitle","description":"search input title text (optional)"},{"name":"uncheckalltext","description":"uncheck all label (optional)"}]},{"name":"z-cookiebar","description":{"kind":"markdown","value":""},"attributes":[{"name":"cookiepolicyurl","description":"cookie policy link url"},{"name":"hide","description":"hide cookie bar (optional)"}]},{"name":"z-divider","description":{"kind":"markdown","value":""},"attributes":[{"name":"color","description":"[optional] Divider color"},{"name":"orientation","description":"[optional] Divider orintation"},{"name":"size","description":"[optional] Divider size"}]},{"name":"z-footer","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"footer\\" --\x3e"},"attributes":[{"name":"copyrightuser","description":"deprecated - set copyright user"},{"name":"data","description":"deprecated - JSON stringified data to fill the footer"}]},{"name":"z-footer-link","description":{"kind":"markdown","value":""},"attributes":[{"name":"href","description":"link"}]},{"name":"z-footer-section","description":{"kind":"markdown","value":""},"attributes":[{"name":"name","description":"section title"}]},{"name":"z-footer-social","description":{"kind":"markdown","value":""},"attributes":[{"name":"description","description":"social description"},{"name":"href","description":"social link"},{"name":"icon","description":"icon url"}]},{"name":"z-header","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"header\\" --\x3e\\n```html\\n  <z-header\\n    intlinkdata=\'[{\\"id\\":\\"home\\",\\"label\\":\\"Home\\",\\"link\\":\\"#home\\",\\"subMenu\\":[{\\"id\\":\\"libreria\\",\\"label\\":\\"La mia libreria\\",\\"link\\":\\"#libreria\\"},{\\"id\\":\\"idee\\",\\"label\\":\\"Siti Zanichelli\\",\\"link\\":\\"#idee\\"}]},{\\"id\\":\\"dizionari\\",\\"label\\":\\"Dizionari\\",\\"link\\":\\"https://www.zanichelli.it/dizionari\\"}]\'\\n    extlinkdata=\'[{\\"id\\":\\"MyZanichelli\\",\\"label\\":\\"Link a MyZanichelli\\",\\"link\\":\\"http://www.myzanichelli.it\\",\\"icon\\":\\"chevron-left-circle\\"}]\'\\n    userdata=\'{\\n        \\"islogged\\": true,\\n        \\"id\\": 123456,\\n        \\"name\\": \\"Dario Docente\\",\\n        \\"usergroup\\": 15,\\n        \\"userlinks\\": [{\\"id\\":\\"profile\\",\\"label\\":\\"Profilo\\",\\"link\\":\\"/i-tuoi-dati\\",\\"icon\\":\\"user-avatar\\"},{\\"id\\":\\"activate-resource\\",\\"label\\":\\"Attiva libro\\",\\"link\\":\\"#\\",\\"icon\\":\\"plus\\"},{\\"id\\":\\"logout-button\\",\\"label\\":\\"Esci\\",\\"link\\":\\"/logout\\",\\"icon\\":\\"logout\\"}]\\n      }\' ismyz=false imagealt=\\"none\\">\\n  {editors slot}\\n  </z-header>\\n  <z-header\\n    intlinkdata=\'[{\\"id\\":\\"home\\",\\"label\\":\\"Home\\",\\"link\\":\\"#home\\",\\"subMenu\\":[{\\"id\\":\\"libreria\\",\\"label\\":\\"La mia libreria\\",\\"link\\":\\"#libreria\\"},{\\"id\\":\\"idee\\",\\"label\\":\\"Siti Zanichelli\\",\\"link\\":\\"#idee\\"}]},{\\"id\\":\\"dizionari\\",\\"label\\":\\"Dizionari\\",\\"link\\":\\"https://www.zanichelli.it/dizionari\\"}]\'\\n    extlinkdata=\'[{\\"id\\":\\"supporto\\",\\"label\\":\\"Supporto\\",\\"link\\":\\"http://www.zanichelli.it/contatti/supporto\\",\\"icon\\":\\"question-mark-circle\\"},{\\"id\\":\\"shop\\",\\"label\\":\\"Carrello\\",\\"link\\":\\"https://www.zanichelli.it\\",\\"icon\\":\\"shopping-cart\\"},{\\"id\\":\\"chiedi\\",\\"label\\":\\"Chiedi al tuo responsabile\\",\\"link\\":\\"#\\",\\"icon\\":\\"shopping-cart\\"}]\'\\n    userdata=\'{\\n        \\"islogged\\": false,\\n        \\"id\\": 123456,\\n        \\"name\\": \\"Dario Docente\\",\\n        \\"usergroup\\": 15,\\n        \\"userlinks\\": [{\\"id\\":\\"profile\\",\\"label\\":\\"Profilo\\",\\"link\\":\\"/i-tuoi-dati\\",\\"icon\\":\\"user-avatar\\"},{\\"id\\":\\"activate-resource\\",\\"label\\":\\"Attiva libro\\",\\"link\\":\\"#\\",\\"icon\\":\\"plus\\"},{\\"id\\":\\"logout-button\\",\\"label\\":\\"Esci\\",\\"link\\":\\"/logout\\",\\"icon\\":\\"logout\\"}]\\n      }\' ismyz=false imagealt=\\"none\\">\\n  {editors slot}\\n  </z-header>\\n  <z-header\\n    intlinkdata=\'[{\\"id\\":\\"home\\",\\"label\\":\\"Home\\",\\"link\\":\\"#home\\",\\"subMenu\\":[{\\"id\\":\\"libreria\\",\\"label\\":\\"La mia libreria\\",\\"link\\":\\"#libreria\\"},{\\"id\\":\\"idee\\",\\"label\\":\\"Siti Zanichelli\\",\\"link\\":\\"#idee\\"}]},{\\"id\\":\\"dizionari\\",\\"label\\":\\"Dizionari\\",\\"link\\":\\"https://www.zanichelli.it/dizionari\\"}]\'\\n    extlinkdata=\'[{\\"id\\":\\"supporto\\",\\"label\\":\\"Supporto\\",\\"link\\":\\"http://www.zanichelli.it/contatti/supporto\\",\\"icon\\":\\"question-mark-circle\\"},{\\"id\\":\\"shop\\",\\"label\\":\\"Carrello\\",\\"link\\":\\"https://www.zanichelli.it\\",\\"icon\\":\\"shopping-cart\\"},{\\"id\\":\\"chiedi\\",\\"label\\":\\"Chiedi al tuo responsabile\\",\\"link\\":\\"#\\",\\"icon\\":\\"shopping-cart\\"}]\'\\n    userdata=\'{\\n        \\"islogged\\": true,\\n        \\"id\\": 123456,\\n        \\"name\\": \\"Dario Docente\\",\\n        \\"usergroup\\": 15,\\n        \\"userlinks\\": [{\\"id\\":\\"profile\\",\\"label\\":\\"Profilo\\",\\"link\\":\\"/i-tuoi-dati\\",\\"icon\\":\\"user-avatar\\"},{\\"id\\":\\"activate-resource\\",\\"label\\":\\"Attiva libro\\",\\"link\\":\\"#\\",\\"icon\\":\\"plus\\"},{\\"id\\":\\"logout-button\\",\\"label\\":\\"Esci\\",\\"link\\":\\"/logout\\",\\"icon\\":\\"logout\\"}]\\n      }\' ismyz=true imagealt=\\"none\\"\\n    activeintlinkid=\\"home\\" activesublinkid=\\"idee\\">\\n  {editors slot}\\n  </z-header>\\n  <z-header\\n    intlinkdata=\'[{\\"id\\":\\"home\\",\\"label\\":\\"Home\\",\\"link\\":\\"#home\\",\\"subMenu\\":[{\\"id\\":\\"libreria\\",\\"label\\":\\"La mia libreria\\",\\"link\\":\\"#libreria\\"},{\\"id\\":\\"idee\\",\\"label\\":\\"Siti Zanichelli\\",\\"link\\":\\"#idee\\"}]},{\\"id\\":\\"dizionari\\",\\"label\\":\\"Dizionari\\",\\"link\\":\\"https://www.zanichelli.it/dizionari\\"}]\'\\n    extlinkdata=\'[{\\"id\\":\\"supporto\\",\\"label\\":\\"Supporto\\",\\"link\\":\\"http://www.zanichelli.it/contatti/supporto\\",\\"icon\\":\\"question-mark-circle\\"},{\\"id\\":\\"shop\\",\\"label\\":\\"Carrello\\",\\"link\\":\\"https://www.zanichelli.it\\",\\"icon\\":\\"shopping-cart\\"},{\\"id\\":\\"chiedi\\",\\"label\\":\\"Chiedi al tuo responsabile\\",\\"link\\":\\"#\\",\\"icon\\":\\"shopping-cart\\"}]\'\\n    userdata=\'{\\n        \\"islogged\\": false,\\n        \\"id\\": 123456,\\n        \\"name\\": \\"Dario Docente\\",\\n        \\"usergroup\\": 15,\\n        \\"userlinks\\": [{\\"id\\":\\"profile\\",\\"label\\":\\"Profilo\\",\\"link\\":\\"/i-tuoi-dati\\",\\"icon\\":\\"user-avatar\\"},{\\"id\\":\\"activate-resource\\",\\"label\\":\\"Attiva libro\\",\\"link\\":\\"#\\",\\"icon\\":\\"plus\\"},{\\"id\\":\\"logout-button\\",\\"label\\":\\"Esci\\",\\"link\\":\\"/logout\\",\\"icon\\":\\"logout\\"}]\\n      }\' ismyz=true imagealt=\\"none\\">\\n  {editors slot}\\n  </z-header>\\n  <z-header\\n    intlinkdata=\'[{\\"id\\":\\"home\\",\\"label\\":\\"Home\\",\\"link\\":\\"#home\\",\\"subMenu\\":[{\\"id\\":\\"libreria\\",\\"label\\":\\"I miei Libri\\",\\"link\\":\\"#libreria\\"},{\\"id\\":\\"idee\\",\\"label\\":\\"Siti Zanichelli\\",\\"link\\":\\"#idee\\"}]},{\\"id\\":\\"dizionari\\",\\"label\\":\\"Dizionari\\",\\"link\\":\\"https://www.zanichelli.it/dizionari\\"}]\'\\n    extlinkdata=\'[{\\"id\\":\\"supporto\\",\\"label\\":\\"Supporto\\",\\"link\\":\\"http://www.zanichelli.it/contatti/supporto\\",\\"icon\\":\\"question-mark-circle\\"},{\\"id\\":\\"shop\\",\\"label\\":\\"Carrello\\",\\"link\\":\\"https://www.zanichelli.it\\",\\"icon\\":\\"shopping-cart\\"}]\'\\n    userdata=\'{\\n            \\"islogged\\": true,\\n            \\"id\\": 123456,\\n            \\"name\\": \\"Sandro Studente\\",\\n            \\"usergroup\\": 14,\\n            \\"userlinks\\": [{\\"id\\":\\"profile\\",\\"label\\":\\"Profilo\\",\\"link\\":\\"/i-tuoi-dati\\",\\"icon\\":\\"user-avatar\\"},{\\"id\\":\\"logout-button\\",\\"label\\":\\"Esci\\",\\"link\\":\\"/logout\\",\\"icon\\":\\"logout\\"}]\\n          }\' ismyz=true imagealt=\\"none\\">\\n  {editors slot}\\n  </z-header>\\n```"},"attributes":[{"name":"activeintlinkid","description":"set current active menu link (optional)"},{"name":"activesublinkid","description":"set current active sub menu link (optional)"},{"name":"extlinkdata","description":"data to fill external navigation links"},{"name":"hideloginbutton","description":"hide login button if true (optional)"},{"name":"imagealt","description":"alternative logo title text (optional)"},{"name":"intlinkdata","description":"data to fill internal navigation links"},{"name":"ismyz","description":"graphic flag to set myzanichelli style"},{"name":"logolink","description":"url to attach to logo (optional)"},{"name":"userdata","description":"data to fill user dropdown menu (optional)"}]},{"name":"z-heading","description":{"kind":"markdown","value":""},"attributes":[{"name":"component","description":""},{"name":"level","description":""},{"name":"variant","description":"","values":[{"name":"light"},{"name":"regular"},{"name":"semibold"}]}]},{"name":"z-icon","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"icon\\" --\x3e\\n```html\\n<z-icon name=\\"book-plus\\" ></z-icon>\\n<z-icon name=\\"chevron-down\\" iconid=\\"zicon\\"></z-icon>\\n<z-icon name=\\"download\\" iconid=\\"zicon\\" width=\\"10\\" height=\\"10\\"></z-icon>\\n```"},"attributes":[{"name":"height","description":"icon height (optional)"},{"name":"iconid","description":"icon id (optional)"},{"name":"name","description":"icon name (choice between available icons)"},{"name":"width","description":"icon width (optional)"}]},{"name":"z-icon-package","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"icon\\" --\x3e\\n```html\\n\x3c!-- utility component to display all icons --\x3e\\n<z-icon-package></z-icon-pacakge>\\n```"},"attributes":[]},{"name":"z-info-box","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"infobox\\" --\x3e\\n```html\\n<z-info-box boxid=\\"boxid\\" isclosable=\\"true\\">{content slot}</z-info-box>\\n<z-info-box isclosable=\\"false\\">{content slot}</z-info-box>\\n```"},"attributes":[{"name":"boxid","description":"info box unique id"},{"name":"isclosable","description":"render close icon flag"}]},{"name":"z-input","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"input\\" --\x3e\\n\\n```html\\n\x3c!-- type text --\x3e\\n<z-input label=\\"default\\" placeholder=\\"Cerca Autore\\"></z-input>\\n<z-input label=\\"filled\\" value=\\"testo testo testo\\"></z-input>\\n<z-input\\n  label=\\"disabled\\"\\n  placeholder=\\"placeholder\\"\\n  disabled\\n  value=\\"i\'m disabled\\"\\n></z-input>\\n<z-input\\n  label=\\"readonly\\"\\n  placeholder=\\"placeholder\\"\\n  readonly\\n  value=\\"i\'m read-only\\"\\n></z-input>\\n<z-input\\n  label=\\"success\\"\\n  placeholder=\\"placeholder\\"\\n  status=\\"success\\"\\n  message=\\"message message\\"\\n  value=\\"\\"\\n></z-input>\\n<z-input\\n  label=\\"error\\"\\n  placeholder=\\"placeholder\\"\\n  status=\\"error\\"\\n  message=\\"message message\\"\\n  value=\\"testo\\"\\n></z-input>\\n<z-input\\n  label=\\"warning\\"\\n  placeholder=\\"placeholder\\"\\n  status=\\"warning\\"\\n  message=\\"message message message message message message message message message message message message message message message message message message\\"\\n></z-input>\\n<z-input\\n  label=\\"message\\"\\n  placeholder=\\"placeholder\\"\\n  message=\\"helper message\\"\\n></z-input>\\n\\n\x3c!-- type textarea --\x3e\\n<z-input type=\\"textarea\\"></z-input>\\n<z-input type=\\"textarea\\" label=\\"default\\" placeholder=\\"Cerca Autore\\"></z-input>\\n<z-input type=\\"textarea\\" label=\\"filled\\" value=\\"testo testo testo\\"></z-input>\\n<z-input\\n  type=\\"textarea\\"\\n  label=\\"disabled\\"\\n  placeholder=\\"placeholder\\"\\n  disabled\\n  value=\\"i\'m disabled\\"\\n></z-input>\\n<z-input\\n  type=\\"textarea\\"\\n  label=\\"readonly\\"\\n  placeholder=\\"placeholder\\"\\n  readonly\\n  value=\\"i\'m read-only\\"\\n></z-input>\\n<z-input\\n  type=\\"textarea\\"\\n  label=\\"success\\"\\n  placeholder=\\"placeholder\\"\\n  status=\\"success\\"\\n  message=\\"message message\\"\\n  value=\\"\\"\\n></z-input>\\n<z-input\\n  type=\\"textarea\\"\\n  label=\\"error\\"\\n  placeholder=\\"placeholder\\"\\n  status=\\"error\\"\\n  message=\\"message message\\"\\n  value=\\"testo\\"\\n></z-input>\\n<z-input\\n  type=\\"textarea\\"\\n  label=\\"warning\\"\\n  placeholder=\\"placeholder\\"\\n  status=\\"warning\\"\\n  message=\\"message message\\"\\n></z-input>\\n<z-input\\n  type=\\"textarea\\"\\n  label=\\"message\\"\\n  placeholder=\\"placeholder\\"\\n  message=\\"helper message\\"\\n></z-input>\\n\\n\x3c!-- type checkbox --\x3e\\n<z-input type=\\"checkbox\\" htmlid=\\"check1\\"></z-input>\\n<z-input\\n  type=\\"checkbox\\"\\n  htmlid=\\"check2\\"\\n  label=\\"this is a checkbox\\"\\n  checked=\\"true\\"\\n></z-input>\\n<z-input\\n  type=\\"checkbox\\"\\n  htmlid=\\"check4\\"\\n  value=\\"value\\"\\n  disabled=\\"true\\"\\n  label=\\"disabled\\"\\n  labelafter=\\"false\\"\\n></z-input>\\n<z-input\\n  type=\\"checkbox\\"\\n  htmlid=\\"check5\\"\\n  value=\\"value\\"\\n  readonly=\\"true\\"\\n  label=\\"read-only\\"\\n></z-input>\\n```"},"attributes":[{"name":"autocomplete","description":"the input has autocomplete option (optional): available for select, input"},{"name":"checked","description":"checked: available for checkbox, radio"},{"name":"disabled","description":"the input is disabled"},{"name":"hasclearicon","description":"render clear icon when typing (optional): available for text"},{"name":"hasmessage","description":"show input helper message (optional): available for text, password, number, email, textarea, select"},{"name":"htmlid","description":"the id of the input element"},{"name":"htmltitle","description":"the input html title (optional)"},{"name":"icon","description":"render icon (optional): available for text, select"},{"name":"items","description":"items (optional): available for select"},{"name":"label","description":"the input label"},{"name":"labelafter","description":"the input label position: available for checkbox, radio"},{"name":"message","description":"input helper message (optional): available for text, password, number, email, textarea, select"},{"name":"multiple","description":"multiple options can be selected (optional): available for select"},{"name":"name","description":"the input name"},{"name":"placeholder","description":"the input placeholder (optional)"},{"name":"readonly","description":"the input is readonly"},{"name":"required","description":"the input is required (optional): available for text, password, number, email, textarea, checkbox"},{"name":"status","description":"the input status (optional): available for text, password, number, email, textarea, select","values":[{"name":"error"},{"name":"selecting"},{"name":"success"},{"name":"warning"}]},{"name":"type","description":"input types","values":[{"name":"checkbox"},{"name":"email"},{"name":"number"},{"name":"password"},{"name":"radio"},{"name":"select"},{"name":"text"},{"name":"textarea"}]},{"name":"typingtimeout","description":"timeout setting before trigger `inputChange` event (optional): available for text, textarea"},{"name":"value","description":"the input value"}]},{"name":"z-input-label","description":{"kind":"markdown","value":""},"attributes":[{"name":"disabled","description":"the label is disabled"},{"name":"value","description":"the label value"}]},{"name":"z-input-message","description":{"kind":"markdown","value":""},"attributes":[{"name":"message","description":"input helper message"},{"name":"status","description":"input status (optional)","values":[{"name":"error"},{"name":"selecting"},{"name":"success"},{"name":"warning"}]}]},{"name":"z-link","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"link\\" --\x3e\\n\\n```html\\n<z-link>z-link</z-link>\\n<z-link icon=\\"download\\">z-link</z-link>\\n<z-link isdisabled>z-link</z-link>\\n<z-link isactive>z-link</z-link>\\n<z-link iswhite>z-link</z-link>\\n```"},"attributes":[{"name":"big","description":"big link version"},{"name":"href","description":"link url (optional)"},{"name":"htmlid","description":"link id (optional)"},{"name":"htmltabindex","description":"tabindex link attribute (optional)"},{"name":"icon","description":"link icon name (optional)"},{"name":"isactive","description":"active link flag (optional)"},{"name":"isdisabled","description":"disable link flag (optional)"},{"name":"iswhite","description":"white variant flag (optional)"},{"name":"target","description":"link target (optional)"},{"name":"textcolor","description":"link text variant (optional)","values":[{"name":"black"},{"name":"blue"},{"name":"white"}]}]},{"name":"z-list","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"list\\" --\x3e\\n```html\\n<z-list inputrawdata=\'[{\\"text\\":\\"elemento lista\\",\\"link\\":\\"http://www.google.it\\",\\"listitemid\\":\\"id1\\",\\"icon\\":\\"checkbox-checked\\"},{\\"text\\":\\"elemento lista\\",\\"link\\":\\"http://www.google.it\\",\\"listitemid\\":\\"id2\\",\\"icon\\":\\"checkbox\\"},{\\"text\\":\\"\\"}]\'></z-list>\\n```"},"attributes":[{"name":"inputrawdata","description":"json stringified list data (mutable, optional)"}]},{"name":"z-list-item","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"list\\" --\x3e\\n```html\\n<z-list-item text=\'testo\' ></z-list-item>\\n<z-list-item text=\'testo\' link =\'http://www.google.it\'></z-list-item>`\\n```"},"attributes":[{"name":"action","description":"data-action attribute (optional)"},{"name":"icon","description":"icon name (optional)"},{"name":"link","description":"link url (optional)"},{"name":"linktarget","description":"link target (optional)"},{"name":"listitemid","description":"id (optional)"},{"name":"text","description":"content text"},{"name":"underlined","description":"underlined style flag"}]},{"name":"z-logo","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"logo\\" --\x3e\\n```html\\n<z-logo ></z-logo>\\n<z-logo imagealt=\\"logo\\" ></z-logo>\\n<z-logo imagealt=\\"logo\\" height=\\"50\\" width=\\"200\\"></z-logo>\\n<z-logo imagealt=\\"logo\\" height=\\"25\\" width=\\"100\\"></z-logo>\\n```"},"attributes":[{"name":"height","description":"image height"},{"name":"imagealt","description":"alternative image text"},{"name":"link","description":"link url (optional)"},{"name":"targetblank","description":"link target (optional)"},{"name":"width","description":"image width"}]},{"name":"z-menu","description":{"kind":"markdown","value":""},"attributes":[{"name":"active","description":"Flag to set the active status of the menu."},{"name":"floating","description":"Flag to set the display mode of the list.\\nIf true, the list will be absolutely positioned under the menu label,\\nstacked beneath it otherwise."},{"name":"open","description":"The opening state of the menu."}]},{"name":"z-menu-dropdown","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"header\\" --\x3e\\n```html\\n<z-menu-dropdown nomeutente=\\"username molto lungo nome\\" menucontent=\'[{\\"id\\":\\"profile\\",\\"label\\":\\"Profilo\\",\\"link\\":\\"/i-tuoi-dati\\",\\"icon\\":\\"user-avatar\\"},{\\"id\\":\\"activate-resource\\",\\"label\\":\\"Attiva libro\\",\\"link\\":\\"#\\",\\"icon\\":\\"plus\\"},{\\"id\\":\\"logout-button\\",\\"label\\":\\"Esci\\",\\"link\\":\\"/logout\\",\\"icon\\":\\"logout\\"}]\'></z-menu-dropdown>\\n```"},"attributes":[{"name":"buttonid","description":"unique button id"},{"name":"menucontent","description":"Json stringified or array to fill menu dropdown"},{"name":"nomeutente","description":"user name text"}]},{"name":"z-menu-section","description":{"kind":"markdown","value":""},"attributes":[{"name":"active","description":""}]},{"name":"z-modal","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"modal\\" --\x3e\\n\\n```html\\n<z-modal modaltitle=\\"titolotitolo\\" modalsubtitle=\\"sottotitolo\\"\\n  >{modalcontent slot}</z-modal\\n>\\n```"},"attributes":[{"name":"modalid","description":"unique id"},{"name":"modalsubtitle","description":"subtitle (optional)"},{"name":"modaltitle","description":"title text (optional)"}]},{"name":"z-modal-login","description":{"kind":"markdown","value":""},"attributes":[{"name":"heading","description":"Login modal title"},{"name":"message","description":"Username helper message"},{"name":"status","description":"Username/password input status","values":[{"name":"error"},{"name":"selecting"},{"name":"success"},{"name":"warning"}]}]},{"name":"z-myz-card","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"card\\" --\x3e\\n```html\\n<z-myz-card>{slot}</z-myz-card>\\n<z-myz-card faded=true>{slot}</z-myz-card>\\n<z-myz-card ishighlighted>{slot}</z-myz-card>\\n<z-myz-card ispressed>{slot}</z-myz-card>\\n<z-myz-card faded=true>{slot}</z-myz-card>\\n<z-myz-card cardtype=\\"reale\\">{slot}</z-myz-card>\\n<z-myz-card cardtype=\\"reale\\" ishighlighted>{slot}</z-myz-card>\\n<z-myz-card cardtype=\\"reale\\" ispressed>{slot}</z-myz-card>\\n```"},"attributes":[{"name":"cardtype","description":"graphic variant (optional)"},{"name":"faded","description":"faded status"},{"name":"ishighlighted","description":"highlighted status"},{"name":"ispressed","description":"pressed status"}]},{"name":"z-myz-card-alert","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"card\\" --\x3e\\n\\n```html\\n<z-myz-card-alert slot=\\"alert\\" iconName=\\"checkmark-circle\\" contenttext=\\"Libro aggiunto ai miei libri\\" actiontext=\\"Annulla\\" type=\\"add\\"></z-myz-card-alert>\\n<z-myz-card-alert slot=\\"alert\\" iconName=\\"checkmark-circle\\" contenttext=\\"Libro rimosso dai tuoi libri\\" actiontext=\\"annulla\\" type=\\"remove\\" faded=true></z-myz-card-alert>\\n<z-myz-card-alert slot=\\"alert\\" iconName=\\"checkmark-circle\\" contenttext=\\"Libro rimosso dai tuoi libri\\" type=\\"remove\\" faded=true></z-myz-card-alert>\\n<z-myz-card-alert slot=\\"alert\\" iconName=\\"checkmark-circle\\" contenttext=\\"Libro aggiunto ai miei libri\\" type=\\"add\\"></z-myz-card-alert>\\n\\n```"},"attributes":[{"name":"actiontext","description":"action button text"},{"name":"contenttext","description":"content text"},{"name":"iconname","description":"icon name"},{"name":"type","description":"alert variant type"}]},{"name":"z-myz-card-body","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"card\\" --\x3e\\n\\n```html\\n<z-myz-card-body>{alert slot}{cover slot}</z-myz-card-body>\\n```"},"attributes":[]},{"name":"z-myz-card-cover","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"card\\" --\x3e\\n```html\\n<z-myz-card-cover slot=\\"cover\\" titolo=\\"titolo\\" img=\\"https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg\\" />\\n<z-myz-card-cover slot=\\"cover\\" titolo=\\"titolo\\" img=\\"https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg\\" faded=true />\\n<z-myz-card-cover slot=\\"cover\\" titolo=\\"titolo\\" img=\\"https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg\\" faded=true defaultimg=\\"/assets/fallback_image.jpg\\" />\\n```"},"attributes":[{"name":"defaultimg","description":"default error image source"},{"name":"faded","description":"faded status"},{"name":"img","description":"image source"},{"name":"titolo","description":"cover alt title"}]},{"name":"z-myz-card-footer","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"card\\" --\x3e\\n\\n```html\\n<z-myz-card-footer titolo=\\"titolo\\" autori=\\"autori\\" anno=\\"2019\\" isbn=\\"9788808620713\\">{list slot}{toggle slot}</z-myz-card-footer>\\n<z-myz-card-footer titolo=\\"titolo\\" autori=\\"autori autori autori\\" anno=\\"2019\\" isbn=\\"97-88-80-8620-710\\" faded=true>{list slot}{toggle slot}</z-myz-card-footer>\\n<z-myz-card-footer cardtype=\\"reale\\" titolo=\\"titolo\\" autori=\\"autoriautori autori\\" anno=\\"2019\\" isbn=\\"97-88-80-8620-710\\">{list slot}{toggle slot}</z-myz-card-footer>\\n```"},"attributes":[{"name":"autori","description":"authors name text"},{"name":"cardtype","description":"card graphic variant (optional)"},{"name":"faded","description":"faded status"},{"name":"isbn","description":"volume isbn"},{"name":"titolo","description":"volume title"}]},{"name":"z-myz-card-header","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"card\\" --\x3e\\n```html\\n<z-myz-card-header titolo=\\"titolo titolo titolotitolo titolo titolo titolo\\"></z-myz-card-header>\\n<z-myz-card-header faded=true titolo=\\"titolo titolo titolotitolo titolo titolo titolo\\"></z-myz-card-header>\\n<z-myz-card-header titolo=\\"titolo titolo titolotitolo titolo titolo titolo\\" cardtype=\\"reale\\"></z-myz-card-header>\\n```"},"attributes":[{"name":"cardtype","description":"card graphic variant (optional)"},{"name":"faded","description":"faded status"},{"name":"titolo","description":"volume title"}]},{"name":"z-myz-card-icon","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"card\\" --\x3e\\n```html\\n<z-myz-card-icon icon=\\"book-minus\\" slot=\\"icon\\" />\\n<z-myz-card-icon icon=\\"book-minus\\" isdisbled=\\"true\\" slot=\\"icon\\" />\\n```"},"attributes":[{"name":"icon","description":"icon name"},{"name":"isdisabled","description":"disabled status flag"}]},{"name":"z-myz-card-list","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"card\\" --\x3e\\n```html\\n<z-myz-card-list listdata=\'[{\\"isLink\\":true,\\"value\\":\\"Leggi sul browser sul browser sul browser sul browser\\",\\"url\\":\\"https://booktab.it/\\"},{\\"isLink\\":true,\\"value\\":\\"Sito e risorse del libro\\",\\"url\\":\\"http://online.scuola.zanichelli.it/curtisinvitoblu/\\"},{\\"isLink\\":false,\\"value\\":\\"Prove di verifica\\"},{\\"isLink\\":true,\\"value\\":\\"ZTE\\",\\"url\\":\\"https://zte.zanichelli.it/\\"}]\' slot=\\"list\\" />\\n```"},"attributes":[{"name":"listdata","description":"list data stringified array"}]},{"name":"z-pagination-bar","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"pagination\\" --\x3e\\n```html\\n<z-pagination-bar pages=\\"20\\" visiblepages=\\"5\\" currentpage=\\"2\\"></z-pagination-bar>\\n<z-pagination-bar pages=\\"20\\" visiblepages=\\"11\\" currentpage=\\"6\\"></z-pagination-bar>\\n```"},"attributes":[{"name":"currentpage","description":"current displayed page (mutable)"},{"name":"historyraw","description":"json stringified history of visited pages (optional)"},{"name":"pages","description":"pages number"},{"name":"startpage","description":"initial page (mutable)"},{"name":"visiblepages","description":"number of visible pages"}]},{"name":"z-pagination-page","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"pagination\\" --\x3e\\n```html\\n<z-pagination-page pageId=\'10\' value=\'10\'></z-pagination-page>\\n<z-pagination-page pageId=\'10\' value=\'10\' isdisabled></z-pagination-page>\\n<z-pagination-page pageId=\'10\' value=\'10\' isselected isvisited></z-pagination-page>\\n```"},"attributes":[{"name":"isdisabled","description":"disabled status flag"},{"name":"isselected","description":"selected status flag"},{"name":"isvisited","description":"visited status flag"},{"name":"pageid","description":"anchor html id"},{"name":"value","description":"numeric page value (optional)"}]},{"name":"z-panel-elem","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"panel-element\\" --\x3e\\n```html\\n<z-panel-elem linkicon=\\"arrow-quad-down\\" linklabel=\\"Tutte le prove\\" elemid=\\"prova3\\" url=\\"http://online.scuola.zanichelli.it/tutteleprove/\\"/>\\n<z-panel-elem imgurl=\\"https://staticdemomy.zanichelli.it/download/biblioteca.png\\" linkicon=\\"arrow-quad-down\\" linklabel=\\"Biblioteca\\" url=\\"https://biblioteca.scuola.zanichelli.it/\\" elemid=\\"prova1\\" />\\n<z-panel-elem isdisabled=\\"true\\" imgurl=\\"https://staticdemomy.zanichelli.it/download/biblioteca.png\\" linkicon=\\"arrow-quad-down\\" linklabel=\\"Tutte le prove\\" url=\\"http://online.scuola.zanichelli.it/tutteleprove/\\" descr_slot_name=\\"xxx1\\" elemid=\\"prova2\\">{descr_slot_name slot}</z-panel-elem>\\n```"},"attributes":[{"name":"descr_slot_name","description":"name of slot container (optional)"},{"name":"elemid","description":"html element id (optional)"},{"name":"imgalt","description":"alternative image text (optional)"},{"name":"imgurl","description":"image url source (optional)"},{"name":"isdisabled","description":"disabled status flag (optional)"},{"name":"linkicon","description":"icon link name (optional)"},{"name":"linklabel","description":"link label text"},{"name":"target","description":"link target (optional)"},{"name":"url","description":"link url"}]},{"name":"z-popover","description":{"kind":"markdown","value":""},"attributes":[{"name":"background-color","description":"[optional] Background color token for popover"},{"name":"border-radius","description":"[optional] Border radius token for popover"},{"name":"box-shadow","description":"[optional] Box shadow token for popover"},{"name":"position","description":"[optional] Popover position"},{"name":"show-arrow","description":"[optional] Show or hide arrow"}]},{"name":"z-registro-table","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"registro-table\\" --\x3e\\n\\n```html\\n<z-registro-table></z-registro-table>\\n```"},"attributes":[{"name":"bordered","description":"Sets table with border"},{"name":"column-sticky","description":"Sets first column sticky"},{"name":"header-sticky","description":"Sets header sticky"}]},{"name":"z-registro-table-body","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"registro-table\\" --\x3e\\n\\n```html\\n<z-registro-table-body></z-registro-table-body>\\n```"},"attributes":[]},{"name":"z-registro-table-cell","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"registro-table\\" --\x3e\\n\\n```html\\n<z-registro-table-cell></z-registro-table-cell>\\n```"},"attributes":[{"name":"show-button","description":"[Optional] Show contextual menu button"}]},{"name":"z-registro-table-footer","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"registro-table\\" --\x3e\\n\\n```html\\n<z-registro-table-footer></z-registro-table-footer>\\n```"},"attributes":[]},{"name":"z-registro-table-head","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"registro-table\\" --\x3e\\n\\n```html\\n<z-registro-table-head></z-registro-table-head>\\n```"},"attributes":[]},{"name":"z-registro-table-header","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"registro-table\\" --\x3e\\n\\n```html\\n<z-registro-table-header></z-registro-table-header>\\n```"},"attributes":[]},{"name":"z-registro-table-row","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"registro-table\\" --\x3e\\n\\n```html\\n<z-registro-table-row></z-registro-table-row>\\n```"},"attributes":[]},{"name":"z-registro-table-sticky-footer","description":{"kind":"markdown","value":""},"attributes":[]},{"name":"z-select","description":{"kind":"markdown","value":""},"attributes":[{"name":"autocomplete","description":"the input has autocomplete option"},{"name":"disabled","description":"the input is disabled"},{"name":"hasmessage","description":"show input helper message (optional): available for text, password, number, email, textarea, select"},{"name":"htmlid","description":"the id of the input element"},{"name":"htmltitle","description":"the input html title (optional)"},{"name":"items","description":"the input select options"},{"name":"label","description":"the input label"},{"name":"message","description":"input helper message (optional): available for text, password, number, email, textarea, select"},{"name":"multiple","description":"multiple options can be selected"},{"name":"name","description":"the input name"},{"name":"noresultslabel","description":"no result text message"},{"name":"placeholder","description":"the input placeholder (optional)"},{"name":"readonly","description":"the input is readonly"},{"name":"status","description":"the input status (optional): available for text, password, number, email, textarea, select","values":[{"name":"error"},{"name":"selecting"},{"name":"success"},{"name":"warning"}]}]},{"name":"z-stepper","description":{"kind":"markdown","value":"```html\\n<z-stepper>\\n  <z-stepper-item index=\\"1\\" disabled></z-stepper-item>\\n  <z-stepper-item index=\\"2\\" pressed></z-stepper-item>\\n  <z-stepper-item index=\\"3\\" disabled></z-stepper-item>\\n</z-stepper>\\n<z-stepper>\\n  <z-stepper-item index=\\"1\\" pressed>I tuoi dati</z-stepper-item>\\n  <z-stepper-item index=\\"2\\">Le tue credenziali</z-stepper-item>\\n  <z-stepper-item index=\\"3\\">Conferma</z-stepper-item>\\n</z-stepper>\\n```"},"attributes":[]},{"name":"z-stepper-item","description":{"kind":"markdown","value":"```html\\n<z-stepper-item index=\\"1\\"></z-stepper-item>\\n<z-stepper-item index=\\"1\\">First step</z-stepper-item>\\n```"},"attributes":[{"name":"disabled","description":"The disabled state of the item."},{"name":"href","description":"The href to navigate on click."},{"name":"index","description":"The number of the step item."},{"name":"pressed","description":"The pressed state of the item."}]},{"name":"z-toggle-button","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"buttons\\" --\x3e\\n```html\\n<z-toggle-button label=\\"risorse\\" slot=\\"toggle\\"></z-toggle-button>\\n<z-toggle-button label=\\"risorse\\" slot=\\"toggle\\" avoidclick=true></z-toggle-button>\\n<z-toggle-button label=\\"risorse\\" slot=\\"toggle\\" isdisabled=\\"true\\" avoidclick=true></z-toggle-button>\\n```"},"attributes":[{"name":"avoidclick","description":"avoidclick status flag"},{"name":"isdisabled","description":"disabled status flag (optional)"},{"name":"label","description":"label text"}]},{"name":"z-tooltip","description":{"kind":"markdown","value":"\x3c!-- readme-group=\\"tootlip\\" --\x3e\\n```html\\n<z-tooltip content=\\"Aggiungi libro\\" type=\\"top\\"></z-tooltip>\\n<z-tooltip content=\\"Aggiungi libro\\" type=\\"bottom\\"></z-tooltip>\\n<z-tooltip content=\\"Rimuovi libro\\" type=\\"left\\"></z-tooltip>\\n<z-tooltip content=\\"Rimuovi libro\\" type=\\"right\\"></z-tooltip>\\n```"},"attributes":[{"name":"content","description":"content text"},{"name":"type","description":"tooltip position variant"}]},{"name":"z-typography","description":{"kind":"markdown","value":""},"attributes":[{"name":"component","description":""},{"name":"level","description":"","values":[{"name":"b1"},{"name":"b2"},{"name":"b3"},{"name":"b4"},{"name":"b5"},{"name":"h1"},{"name":"h2"},{"name":"h3"},{"name":"h4"}]},{"name":"variant","description":"","values":[{"name":"light"},{"name":"regular"},{"name":"semibold"}]}]},{"name":"z-user-dropdown","description":{"kind":"markdown","value":""},"attributes":[{"name":"logged","description":"logged status flag"},{"name":"menucontent","description":"Json stringified or array to fill menu dropdown"},{"name":"theme","description":"theme variant, default \'dark\'","values":[{"name":"dark"},{"name":"light"}]},{"name":"userfullname","description":"user full name"}]}]}')},445:function(module,exports,__webpack_require__){__webpack_require__(446),__webpack_require__(602),__webpack_require__(603),__webpack_require__(853),__webpack_require__(854),__webpack_require__(855),module.exports=__webpack_require__(794)},513:function(module,exports){},603:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__);__webpack_require__(64)},794:function(module,exports,__webpack_require__){"use strict";(function(module){(0,__webpack_require__(64).configure)([__webpack_require__(795),__webpack_require__(796),__webpack_require__(841),__webpack_require__(842)],module,!1)}).call(this,__webpack_require__(181)(module))},795:function(module,exports){function webpackEmptyContext(req){var e=new Error("Cannot find module '"+req+"'");throw e.code="MODULE_NOT_FOUND",e}webpackEmptyContext.keys=function(){return[]},webpackEmptyContext.resolve=webpackEmptyContext,module.exports=webpackEmptyContext,webpackEmptyContext.id=795},796:function(module,exports,__webpack_require__){var map={"./buttons/z-button-filter/index.stories.mdx":797,"./buttons/z-button-sort/index.stories.mdx":798,"./buttons/z-button/index.stories.mdx":799,"./buttons/z-chip/index.stories.mdx":800,"./buttons/z-toggle-button/index.stories.mdx":801,"./footer/z-footer-link/index.stories.mdx":802,"./footer/z-footer-section/index.stories.mdx":803,"./footer/z-footer-social/index.stories.mdx":804,"./footer/z-footer/index.stories.mdx":805,"./icons/z-icon-package/index.stories.mdx":806,"./icons/z-icon/index.stories.mdx":807,"./indicators/z-stepper-item/index.stories.mdx":808,"./indicators/z-stepper/index.stories.mdx":809,"./inputs/z-combobox/index.stories.mdx":810,"./inputs/z-input-label/index.stories.mdx":811,"./inputs/z-input-message/index.stories.mdx":812,"./inputs/z-input/index.stories.mdx":813,"./inputs/z-select/index.stories.mdx":814,"./list/z-list-item/index.stories.mdx":815,"./list/z-list/index.stories.mdx":816,"./logo/z-logo/index.stories.mdx":817,"./modal/z-modal-login/index.stories.mdx":818,"./modal/z-modal/index.stories.mdx":819,"./navigation/z-app-header/index.stories.mdx":820,"./navigation/z-app-switcher/index.stories.mdx":821,"./navigation/z-app-topbar/index.stories.mdx":822,"./navigation/z-header/index.stories.mdx":823,"./navigation/z-link/index.stories.mdx":824,"./navigation/z-menu-dropdown/index.stories.mdx":825,"./navigation/z-menu-section/index.stories.mdx":826,"./navigation/z-menu/index.stories.mdx":827,"./navigation/z-user-dropdown/index.stories.mdx":828,"./notification/z-candybar/index.stories.mdx":829,"./notification/z-cookiebar/index.stories.mdx":830,"./notification/z-info-box/index.stories.mdx":831,"./notification/z-tooltip/index.stories.mdx":832,"./pagination/z-pagination-bar/index.stories.mdx":833,"./pagination/z-pagination-page/index.stories.mdx":834,"./panel/z-panel-elem/index.stories.mdx":835,"./typography/z-body/index.stories.mdx":836,"./typography/z-heading/index.stories.mdx":837,"./typography/z-typography/index.stories.mdx":838,"./z-divider/index.stories.mdx":839,"./z-popover/index.stories.mdx":840};function webpackContext(req){var id=webpackContextResolve(req);return __webpack_require__(id)}function webpackContextResolve(req){if(!__webpack_require__.o(map,req)){var e=new Error("Cannot find module '"+req+"'");throw e.code="MODULE_NOT_FOUND",e}return map[req]}webpackContext.keys=function webpackContextKeys(){return Object.keys(map)},webpackContext.resolve=webpackContextResolve,module.exports=webpackContext,webpackContext.id=796},797:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zButtonFilter",(function(){return zButtonFilter}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Buttons/ZButtonFilter",component:"z-button-filter",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zbuttonfilter"},"ZButtonFilter"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-button-filter",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-button-filter
+        filtername="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("filtername","filter 2")}"
+        hasicon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hasicon",!0)}"
+        isfixed="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("isfixed",!0)}"
+      ></z-button-filter>
+    `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-button-filter",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zButtonFilter=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-button-filter
+        filtername="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("filtername","filter 2")}"
+        hasicon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hasicon",!0)}"
+        isfixed="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("isfixed",!0)}"
+      ></z-button-filter>
+    `;zButtonFilter.storyName="z-button-filter",zButtonFilter.parameters={storySource:{source:"html`\n      <z-button-filter\n        filtername=\"${text('filtername', 'filter 2')}\"\n        hasicon=\"${boolean('hasicon', true)}\"\n        isfixed=\"${text('isfixed', true)}\"\n      ></z-button-filter>\n    `"}};const componentMeta={title:"Buttons/ZButtonFilter",includeStories:["zButtonFilter"]},mdxStoryNameToKey={"z-button-filter":"zButtonFilter"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},798:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zButtonSort",(function(){return zButtonSort}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Buttons/ZButtonSort",component:"z-button-sort",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zbuttonsort"},"ZButtonSort"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-button-sort",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-button-sort
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","sort")}"
+        counter="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("counter",3)}"
+        desclabel="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("desclabel","label DESC")}"
+        sortlabelasc="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("sortlabelasc","1-9")}"
+        sortlabeldesc="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("sortlabeldesc","9-1")}"
+        isselected="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isselected",!0)}"
+        sortasc="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("sortasc",!0)}"
+      ></z-button-sort>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-button-sort",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zButtonSort=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-button-sort
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","sort")}"
+        counter="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("counter",3)}"
+        desclabel="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("desclabel","label DESC")}"
+        sortlabelasc="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("sortlabelasc","1-9")}"
+        sortlabeldesc="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("sortlabeldesc","9-1")}"
+        isselected="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isselected",!0)}"
+        sortasc="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("sortasc",!0)}"
+      ></z-button-sort>`;zButtonSort.storyName="z-button-sort",zButtonSort.parameters={storySource:{source:"html`\n      <z-button-sort\n        label=\"${text('label', 'sort')}\"\n        counter=\"${number('counter', 3)}\"\n        desclabel=\"${text('desclabel', 'label DESC')}\"\n        sortlabelasc=\"${text('sortlabelasc', '1-9')}\"\n        sortlabeldesc=\"${text('sortlabeldesc', '9-1')}\"\n        isselected=\"${boolean('isselected', true)}\"\n        sortasc=\"${boolean('sortasc', true)}\"\n      ></z-button-sort>`"}};const componentMeta={title:"Buttons/ZButtonSort",includeStories:["zButtonSort"]},mdxStoryNameToKey={"z-button-sort":"zButtonSort"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},799:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"defaultButton",(function(){return defaultButton})),__webpack_require__.d(__webpack_exports__,"iconOnly",(function(){return iconOnly})),__webpack_require__.d(__webpack_exports__,"withNamedSlot",(function(){return withNamedSlot})),__webpack_require__.d(__webpack_exports__,"withNamedSlotIconOnly",(function(){return withNamedSlotIconOnly}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Buttons/ZButton",component:"z-button",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zbutton"},"ZButton"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-button",mdxType:"Props"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Default button",mdxType:"Story"},args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-button
+      variant="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Variant",["primary","secondary","tertiary"],"primary")}"
+      size="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Size",["x-small","small","big"],"big")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Disabled",!1)}"
+      icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Icon name","download")}"
+    >
+      ${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Label","click me")}
+    </z-button>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"icon-only"},"Icon only"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"In this special case we need to override ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"min-width")," (achieved with additional ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"square")," prop). ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"Note:")," ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"z-icon")," drops its spacing accordingly."),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("table",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("thead",{parentName:"table"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("tr",{parentName:"thead"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("th",{parentName:"tr",align:null},"Prop name"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("th",{parentName:"tr",align:null},"Prop value"))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("tbody",{parentName:"table"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("tr",{parentName:"tbody"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("td",{parentName:"tr",align:null},"icon"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("td",{parentName:"tr",align:null},"Any ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"td"},"z-icon")," name")),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("tr",{parentName:"tbody"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("td",{parentName:"tr",align:null},"square"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("td",{parentName:"tr",align:null},"Attribute should be set without value (",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"td"},"true")," not needed)")))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Icon only",mdxType:"Story"},args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-button
+      variant="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Variant",["primary","secondary","tertiary"],"primary")}"
+      size="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Size",["x-small","small","big"],"big")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Disabled",!1)}"
+      icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Icon name","download")}"
+      square
+    ></z-button>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"named-slotted-elements"},"Named slotted elements"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"For further customization and DOM handling is possible to pass the content of a button as named slot named ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"element"),"."),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("blockquote",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",{parentName:"blockquote"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"Inversion of control:")," in this case any layout spacing responsibility (aka. icon spacing et similia) is delegated to app's integrators.")),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"Note:")," for backwards compatibility reasons, if present in the slotted hierarchy, ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"z-icon")," will have a right margin."),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"With named slot",mdxType:"Story"},args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-button
+      variant="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Variant",["primary","secondary","tertiary"],"primary")}"
+      size="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Size",["x-small","small","big"],"big")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Disabled",!1)}"
+    >
+      <a slot="element" href="https://wikipedia.com" target="_blank">
+        <z-icon name="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Icon name","link")}"></z-icon>${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Label","Go to Wikipedia")}
+      </a>
+    </z-button>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"With named slot icon only",mdxType:"Story"},args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-button
+      variant="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Variant",["primary","secondary","tertiary"],"primary")}"
+      size="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Size",["x-small","small","big"],"big")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Disabled",!1)}"
+      square
+    >
+      <button slot="element">
+        <z-icon name="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Icon name","link")}"></z-icon>
+      </button>
+    </z-button>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"deprecation"},"Deprecation"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"Props ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"issmall")," is deprecated, use ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"size")," instead."))}MDXContent.isMDXComponent=!0;const defaultButton=args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-button
+      variant="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Variant",["primary","secondary","tertiary"],"primary")}"
+      size="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Size",["x-small","small","big"],"big")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Disabled",!1)}"
+      icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Icon name","download")}"
+    >
+      ${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Label","click me")}
+    </z-button>`;defaultButton.storyName="Default button",defaultButton.parameters={storySource:{source:'args => html` <z-button\n      variant="${select("Variant", ["primary", "secondary", "tertiary"], "primary")}"\n      size="${select("Size", ["x-small", "small", "big"], "big")}"\n      disabled="${boolean("Disabled", false)}"\n      icon="${text("Icon name", "download")}"\n    >\n      ${text("Label", "click me")}\n    </z-button>`'}};const iconOnly=args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-button
+      variant="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Variant",["primary","secondary","tertiary"],"primary")}"
+      size="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Size",["x-small","small","big"],"big")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Disabled",!1)}"
+      icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Icon name","download")}"
+      square
+    ></z-button>`;iconOnly.storyName="Icon only",iconOnly.parameters={storySource:{source:'args => html` <z-button\n      variant="${select("Variant", ["primary", "secondary", "tertiary"], "primary")}"\n      size="${select("Size", ["x-small", "small", "big"], "big")}"\n      disabled="${boolean("Disabled", false)}"\n      icon="${text("Icon name", "download")}"\n      square\n    ></z-button>`'}};const withNamedSlot=args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-button
+      variant="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Variant",["primary","secondary","tertiary"],"primary")}"
+      size="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Size",["x-small","small","big"],"big")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Disabled",!1)}"
+    >
+      <a slot="element" href="https://wikipedia.com" target="_blank">
+        <z-icon name="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Icon name","link")}"></z-icon>${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Label","Go to Wikipedia")}
+      </a>
+    </z-button>`;withNamedSlot.storyName="With named slot",withNamedSlot.parameters={storySource:{source:'args => html` <z-button\n      variant="${select("Variant", ["primary", "secondary", "tertiary"], "primary")}"\n      size="${select("Size", ["x-small", "small", "big"], "big")}"\n      disabled="${boolean("Disabled", false)}"\n    >\n      <a slot="element" href="https://wikipedia.com" target="_blank">\n        <z-icon name="${text("Icon name", "link")}"></z-icon>${text("Label", "Go to Wikipedia")}\n      </a>\n    </z-button>`'}};const withNamedSlotIconOnly=args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-button
+      variant="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Variant",["primary","secondary","tertiary"],"primary")}"
+      size="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Size",["x-small","small","big"],"big")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Disabled",!1)}"
+      square
+    >
+      <button slot="element">
+        <z-icon name="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("Icon name","link")}"></z-icon>
+      </button>
+    </z-button>`;withNamedSlotIconOnly.storyName="With named slot icon only",withNamedSlotIconOnly.parameters={storySource:{source:'args => html` <z-button\n      variant="${select("Variant", ["primary", "secondary", "tertiary"], "primary")}"\n      size="${select("Size", ["x-small", "small", "big"], "big")}"\n      disabled="${boolean("Disabled", false)}"\n      square\n    >\n      <button slot="element">\n        <z-icon name="${text("Icon name", "link")}"></z-icon>\n      </button>\n    </z-button>`'}};const componentMeta={title:"Buttons/ZButton",includeStories:["defaultButton","iconOnly","withNamedSlot","withNamedSlotIconOnly"]},mdxStoryNameToKey={"Default button":"defaultButton","Icon only":"iconOnly","With named slot":"withNamedSlot","With named slot icon only":"withNamedSlotIconOnly"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},800:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zChipWithAttributes",(function(){return zChipWithAttributes})),__webpack_require__.d(__webpack_exports__,"zChipWithChildren",(function(){return zChipWithChildren}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Buttons/ZChip",component:"z-chip",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zchip-with-attributes"},"ZChip with attributes"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-chip with attributes",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-chip
+        boldtext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("boldtext","1234")}"
+        regulartext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("regulartext","libri trovati")}"
+      ></z-chip>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zchip-with-children"},"ZChip with children"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-chip with children",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-chip>
+        <z-body level="4">My custom element</z-body>
+      </z-chip>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-chip",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zChipWithAttributes=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-chip
+        boldtext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("boldtext","1234")}"
+        regulartext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("regulartext","libri trovati")}"
+      ></z-chip>`;zChipWithAttributes.storyName="z-chip with attributes",zChipWithAttributes.parameters={storySource:{source:"html`\n      <z-chip\n        boldtext=\"${text('boldtext', '1234')}\"\n        regulartext=\"${text('regulartext', 'libri trovati')}\"\n      ></z-chip>`"}};const zChipWithChildren=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-chip>
+        <z-body level="4">My custom element</z-body>
+      </z-chip>`;zChipWithChildren.storyName="z-chip with children",zChipWithChildren.parameters={storySource:{source:'html`\n      <z-chip>\n        <z-body level="4">My custom element</z-body>\n      </z-chip>`'}};const componentMeta={title:"Buttons/ZChip",includeStories:["zChipWithAttributes","zChipWithChildren"]},mdxStoryNameToKey={"z-chip with attributes":"zChipWithAttributes","z-chip with children":"zChipWithChildren"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},801:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zToggleButton",(function(){return zToggleButton}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Buttons/ZToggleButton",component:"z-toggle-button",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"ztogglebutton"},"ZToggleButton"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-toggle-button",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-toggle-button
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Toggle")}"
+        avoidClick="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("avoidClick",!0)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!0)}"
+      ></z-toggle-button>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-toggle-button",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zToggleButton=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-toggle-button
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Toggle")}"
+        avoidClick="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("avoidClick",!0)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!0)}"
+      ></z-toggle-button>`;zToggleButton.storyName="z-toggle-button",zToggleButton.parameters={storySource:{source:"html`\n      <z-toggle-button\n        label=\"${text('label', 'Toggle')}\"\n        avoidClick=\"${boolean('avoidClick', true)}\"\n        isdisabled=\"${boolean('isdisabled', true)}\"\n      ></z-toggle-button>`"}};const componentMeta={title:"Buttons/ZToggleButton",includeStories:["zToggleButton"]},mdxStoryNameToKey={"z-toggle-button":"zToggleButton"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},802:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zFooterLink",(function(){return zFooterLink}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Footer/ZFooterLink",component:"z-footer-link",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zfooterlink"},"ZFooterLink"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZFooterLink",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="background: #ccc;">
+        <z-footer-link href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","https://www.zanichelli.it")}"
+          >${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","zanichelli")}</z-footer-link>
+      </div>
+    `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-footer-link",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zFooterLink=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="background: #ccc;">
+        <z-footer-link href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","https://www.zanichelli.it")}"
+          >${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","zanichelli")}</z-footer-link>
+      </div>
+    `;zFooterLink.storyName="ZFooterLink",zFooterLink.parameters={storySource:{source:'html`\n      <div style="background: #ccc;">\n        <z-footer-link href="${text("href", "https://www.zanichelli.it")}"\n          >${text("label", "zanichelli")}</z-footer-link>\n      </div>\n    `'}};const componentMeta={title:"Footer/ZFooterLink",includeStories:["zFooterLink"]},mdxStoryNameToKey={ZFooterLink:"zFooterLink"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},803:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zFooterSection",(function(){return zFooterSection})),__webpack_require__.d(__webpack_exports__,"useCase",(function(){return useCase}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Footer/ZFooterSection",component:"z-footer-section",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zfootersection"},"ZFooterSection"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-footer-section",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-footer-section name="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("name","Section title")}">
+      ${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("content","ZFooterSection content")}
+    </z-footer-section>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"use-case",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-footer-section name="Zanichelli">
+      <z-footer-link>Footer link</z-footer-link>
+      <z-footer-link>Footer link</z-footer-link>
+    </z-footer-section>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-footer-section",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zFooterSection=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-footer-section name="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("name","Section title")}">
+      ${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("content","ZFooterSection content")}
+    </z-footer-section>`;zFooterSection.storyName="z-footer-section",zFooterSection.parameters={storySource:{source:'html` <z-footer-section name="${text("name", "Section title")}">\n      ${text("content", "ZFooterSection content")}\n    </z-footer-section>`'}};const useCase=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-footer-section name="Zanichelli">
+      <z-footer-link>Footer link</z-footer-link>
+      <z-footer-link>Footer link</z-footer-link>
+    </z-footer-section>`;useCase.storyName="use-case",useCase.parameters={storySource:{source:'html` <z-footer-section name="Zanichelli">\n      <z-footer-link>Footer link</z-footer-link>\n      <z-footer-link>Footer link</z-footer-link>\n    </z-footer-section>`'}};const componentMeta={title:"Footer/ZFooterSection",includeStories:["zFooterSection","useCase"]},mdxStoryNameToKey={"z-footer-section":"zFooterSection","use-case":"useCase"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},804:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zFooterSocial",(function(){return zFooterSocial}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Footer/ZFooterSocial",component:"z-footer-social",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zfootersocial"},"ZFooterSocial"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZFooterSocial",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b` 
+    <div style="background: #ccc;">
+      <z-footer-social 
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","https://www.zanichelli.it")}" 
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","https://staticmy.zanichelli.it/footer/images/png/facebook.png")}" 
+        description="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("description","Facebook")}">
+      </z-footer-social>
+    </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-footer-social",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zFooterSocial=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` 
+    <div style="background: #ccc;">
+      <z-footer-social 
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","https://www.zanichelli.it")}" 
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","https://staticmy.zanichelli.it/footer/images/png/facebook.png")}" 
+        description="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("description","Facebook")}">
+      </z-footer-social>
+    </div>`;zFooterSocial.storyName="ZFooterSocial",zFooterSocial.parameters={storySource:{source:'html` \n    <div style="background: #ccc;">\n      <z-footer-social \n        href="${text("href", "https://www.zanichelli.it")}" \n        icon="${text("icon", "https://staticmy.zanichelli.it/footer/images/png/facebook.png")}" \n        description="${text("description", "Facebook")}">\n      </z-footer-social>\n    </div>`'}};const componentMeta={title:"Footer/ZFooterSocial",includeStories:["zFooterSocial"]},mdxStoryNameToKey={ZFooterSocial:"zFooterSocial"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},805:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zFooter",(function(){return zFooter}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Footer/ZFooter",component:"z-footer",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zfooter"},"ZFooter"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-footer",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-footer>
+    <z-footer-section name="Section 1">
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+    </z-footer-section>
+    <z-footer-section name="Section 2">
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+    </z-footer-section>
+    <z-footer-social
+      slot="social"
+      href="http://www.youtube.com/user/zanichellieditore"
+      icon="https://staticmy.zanichelli.it/footer/images/png/youtube.png"
+      description="YouTube"
+    ></z-footer-social>
+    <z-footer-social
+      slot="social"
+      href="https://it-it.facebook.com/zanichelliscuola"
+      icon="https://staticmy.zanichelli.it/footer/images/png/facebook.png"
+      description="Facebook"
+    ></z-footer-social>
+    <z-footer-social
+      slot="social"
+      href="https://twitter.com/zanichelli_ed"
+      icon="https://staticmy.zanichelli.it/footer/images/png/twitter.png"
+      description="Twitter"
+    ></z-footer-social>
+    <z-footer-social
+      slot="social"
+      href="https://www.instagram.com/zanichellieditore/"
+      icon="https://staticmy.zanichelli.it/footer/images/png/instagram.png"
+      description="Instagram"
+    ></z-footer-social>
+    <z-footer-social
+      slot="social"
+      href="mailto:zanichelli@zanichelli.com"
+      icon="https://staticmy.zanichelli.it/footer/images/png/mail.png"
+      description="Mail"
+    ></z-footer-social>
+    <z-footer-link
+      slot="links"
+      href="https://www.zanichelli.it/chi-siamo/via-irnerio-34"
+      >Chi siamo</z-footer-link
+    >
+    <z-footer-link
+      slot="links"
+      href="https://www.zanichelli.it/contatti-e-recapiti"
+      >Contatti e recapiti</z-footer-link
+    >
+    <z-footer-link
+      slot="links"
+      href="https://www.zanichelli.it/comunicazione/area-stampa"
+      >Area stampa</z-footer-link
+    >
+    <z-footer-link
+      slot="links"
+      href="https://www.zanichelli.it/contatti/acquisti-e-recesso"
+      >Per acqusti online</z-footer-link
+    >
+    <z-footer-link
+      slot="links"
+      href="https://www.zanichelli.it/contatti/filiali-e-agenzie"
+      >Filiali e agenzie</z-footer-link
+    >
+    <z-footer-link slot="links" href="https://my.zanichelli.it/privacy"
+      >Privacy</z-footer-link
+    >
+    <z-footer-link slot="links" href="https://my.zanichelli.it/condizioni-uso"
+      >Condizioni d’uso</z-footer-link
+    >
+    <z-footer-link
+      slot="links"
+      href="https://my.zanichelli.it/domande-frequenti"
+      >Domande frequenti</z-footer-link
+    >
+  </z-footer>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-footer",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zFooter=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <z-footer>
+    <z-footer-section name="Section 1">
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+    </z-footer-section>
+    <z-footer-section name="Section 2">
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+      <z-footer-link href="https://www.zanichelli.it"
+        >Footer link</z-footer-link
+      >
+    </z-footer-section>
+    <z-footer-social
+      slot="social"
+      href="http://www.youtube.com/user/zanichellieditore"
+      icon="https://staticmy.zanichelli.it/footer/images/png/youtube.png"
+      description="YouTube"
+    ></z-footer-social>
+    <z-footer-social
+      slot="social"
+      href="https://it-it.facebook.com/zanichelliscuola"
+      icon="https://staticmy.zanichelli.it/footer/images/png/facebook.png"
+      description="Facebook"
+    ></z-footer-social>
+    <z-footer-social
+      slot="social"
+      href="https://twitter.com/zanichelli_ed"
+      icon="https://staticmy.zanichelli.it/footer/images/png/twitter.png"
+      description="Twitter"
+    ></z-footer-social>
+    <z-footer-social
+      slot="social"
+      href="https://www.instagram.com/zanichellieditore/"
+      icon="https://staticmy.zanichelli.it/footer/images/png/instagram.png"
+      description="Instagram"
+    ></z-footer-social>
+    <z-footer-social
+      slot="social"
+      href="mailto:zanichelli@zanichelli.com"
+      icon="https://staticmy.zanichelli.it/footer/images/png/mail.png"
+      description="Mail"
+    ></z-footer-social>
+    <z-footer-link
+      slot="links"
+      href="https://www.zanichelli.it/chi-siamo/via-irnerio-34"
+      >Chi siamo</z-footer-link
+    >
+    <z-footer-link
+      slot="links"
+      href="https://www.zanichelli.it/contatti-e-recapiti"
+      >Contatti e recapiti</z-footer-link
+    >
+    <z-footer-link
+      slot="links"
+      href="https://www.zanichelli.it/comunicazione/area-stampa"
+      >Area stampa</z-footer-link
+    >
+    <z-footer-link
+      slot="links"
+      href="https://www.zanichelli.it/contatti/acquisti-e-recesso"
+      >Per acqusti online</z-footer-link
+    >
+    <z-footer-link
+      slot="links"
+      href="https://www.zanichelli.it/contatti/filiali-e-agenzie"
+      >Filiali e agenzie</z-footer-link
+    >
+    <z-footer-link slot="links" href="https://my.zanichelli.it/privacy"
+      >Privacy</z-footer-link
+    >
+    <z-footer-link slot="links" href="https://my.zanichelli.it/condizioni-uso"
+      >Condizioni d’uso</z-footer-link
+    >
+    <z-footer-link
+      slot="links"
+      href="https://my.zanichelli.it/domande-frequenti"
+      >Domande frequenti</z-footer-link
+    >
+  </z-footer>`;zFooter.storyName="z-footer",zFooter.parameters={storySource:{source:'html` <z-footer>\n    <z-footer-section name="Section 1">\n      <z-footer-link href="https://www.zanichelli.it"\n        >Footer link</z-footer-link\n      >\n      <z-footer-link href="https://www.zanichelli.it"\n        >Footer link</z-footer-link\n      >\n      <z-footer-link href="https://www.zanichelli.it"\n        >Footer link</z-footer-link\n      >\n    </z-footer-section>\n    <z-footer-section name="Section 2">\n      <z-footer-link href="https://www.zanichelli.it"\n        >Footer link</z-footer-link\n      >\n      <z-footer-link href="https://www.zanichelli.it"\n        >Footer link</z-footer-link\n      >\n      <z-footer-link href="https://www.zanichelli.it"\n        >Footer link</z-footer-link\n      >\n    </z-footer-section>\n    <z-footer-social\n      slot="social"\n      href="http://www.youtube.com/user/zanichellieditore"\n      icon="https://staticmy.zanichelli.it/footer/images/png/youtube.png"\n      description="YouTube"\n    ></z-footer-social>\n    <z-footer-social\n      slot="social"\n      href="https://it-it.facebook.com/zanichelliscuola"\n      icon="https://staticmy.zanichelli.it/footer/images/png/facebook.png"\n      description="Facebook"\n    ></z-footer-social>\n    <z-footer-social\n      slot="social"\n      href="https://twitter.com/zanichelli_ed"\n      icon="https://staticmy.zanichelli.it/footer/images/png/twitter.png"\n      description="Twitter"\n    ></z-footer-social>\n    <z-footer-social\n      slot="social"\n      href="https://www.instagram.com/zanichellieditore/"\n      icon="https://staticmy.zanichelli.it/footer/images/png/instagram.png"\n      description="Instagram"\n    ></z-footer-social>\n    <z-footer-social\n      slot="social"\n      href="mailto:zanichelli@zanichelli.com"\n      icon="https://staticmy.zanichelli.it/footer/images/png/mail.png"\n      description="Mail"\n    ></z-footer-social>\n    <z-footer-link\n      slot="links"\n      href="https://www.zanichelli.it/chi-siamo/via-irnerio-34"\n      >Chi siamo</z-footer-link\n    >\n    <z-footer-link\n      slot="links"\n      href="https://www.zanichelli.it/contatti-e-recapiti"\n      >Contatti e recapiti</z-footer-link\n    >\n    <z-footer-link\n      slot="links"\n      href="https://www.zanichelli.it/comunicazione/area-stampa"\n      >Area stampa</z-footer-link\n    >\n    <z-footer-link\n      slot="links"\n      href="https://www.zanichelli.it/contatti/acquisti-e-recesso"\n      >Per acqusti online</z-footer-link\n    >\n    <z-footer-link\n      slot="links"\n      href="https://www.zanichelli.it/contatti/filiali-e-agenzie"\n      >Filiali e agenzie</z-footer-link\n    >\n    <z-footer-link slot="links" href="https://my.zanichelli.it/privacy"\n      >Privacy</z-footer-link\n    >\n    <z-footer-link slot="links" href="https://my.zanichelli.it/condizioni-uso"\n      >Condizioni d’uso</z-footer-link\n    >\n    <z-footer-link\n      slot="links"\n      href="https://my.zanichelli.it/domande-frequenti"\n      >Domande frequenti</z-footer-link\n    >\n  </z-footer>`'}};const componentMeta={title:"Footer/ZFooter",includeStories:["zFooter"]},mdxStoryNameToKey={"z-footer":"zFooter"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},806:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zIconPackage",(function(){return zIconPackage}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Icons/ZIconPackage",component:"z-icon-package",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"ziconpackage"},"ZIconPackage"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-icon-package",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-icon-package></z-icon-package>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-icon-package",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zIconPackage=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-icon-package></z-icon-package>`;zIconPackage.storyName="z-icon-package",zIconPackage.parameters={storySource:{source:"html`\n      <z-icon-package></z-icon-package>`"}};const componentMeta={title:"Icons/ZIconPackage",includeStories:["zIconPackage"]},mdxStoryNameToKey={"z-icon-package":"zIconPackage"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},807:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zIcon",(function(){return zIcon}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Icons/ZIcon",component:"z-icon",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zicon"},"ZIcon"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-icon",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-icon
+        name="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("name","download")}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height","24")}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width","24")}"
+      ></z-icon>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-icon",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zIcon=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-icon
+        name="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("name","download")}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height","24")}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width","24")}"
+      ></z-icon>`;zIcon.storyName="z-icon",zIcon.parameters={storySource:{source:"html`\n      <z-icon\n        name=\"${text('name', 'download')}\"\n        height=\"${number('height', '24')}\"\n        width=\"${number('width', '24')}\"\n      ></z-icon>`"}};const componentMeta={title:"Icons/ZIcon",includeStories:["zIcon"]},mdxStoryNameToKey={"z-icon":"zIcon"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},808:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"withIndex",(function(){return withIndex})),__webpack_require__.d(__webpack_exports__,"withText",(function(){return withText})),__webpack_require__.d(__webpack_exports__,"disabled",(function(){return disabled})),__webpack_require__.d(__webpack_exports__,"pressed",(function(){return pressed}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Indicators/Stepper/Item",component:"z-stepper-item",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zstepperitem"},"ZStepperItem"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"With index",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper-item index="1"></z-stepper-item>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"With text",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper-item index="1">First step</z-stepper-item>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Disabled",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper-item index="1" disabled>First step</z-stepper-item>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Pressed",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper-item index="1" pressed>First step</z-stepper-item>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-stepper-item",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const withIndex=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper-item index="1"></z-stepper-item>`;withIndex.storyName="With index",withIndex.parameters={storySource:{source:'html`<z-stepper-item index="1"></z-stepper-item>`'}};const withText=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper-item index="1">First step</z-stepper-item>`;withText.storyName="With text",withText.parameters={storySource:{source:'html`<z-stepper-item index="1">First step</z-stepper-item>`'}};const disabled=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper-item index="1" disabled>First step</z-stepper-item>`;disabled.storyName="Disabled",disabled.parameters={storySource:{source:'html`<z-stepper-item index="1" disabled>First step</z-stepper-item>`'}};const pressed=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper-item index="1" pressed>First step</z-stepper-item>`;pressed.storyName="Pressed",pressed.parameters={storySource:{source:'html`<z-stepper-item index="1" pressed>First step</z-stepper-item>`'}};const componentMeta={title:"Indicators/Stepper/Item",includeStories:["withIndex","withText","disabled","pressed"]},mdxStoryNameToKey={"With index":"withIndex","With text":"withText",Disabled:"disabled",Pressed:"pressed"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},809:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"initial",(function(){return initial})),__webpack_require__.d(__webpack_exports__,"completed",(function(){return completed}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Indicators/Stepper",component:"z-stepper",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zstepper"},"ZStepper"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Initial",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper>
+      <z-stepper-item index="1" pressed></z-stepper-item>
+      <z-stepper-item index="2" disabled></z-stepper-item>
+      <z-stepper-item index="3" disabled></z-stepper-item>
+    </z-stepper>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Completed",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper>
+      <z-stepper-item index="1">I tuoi dati</z-stepper-item>
+      <z-stepper-item index="2">Le tue credenziali</z-stepper-item>
+      <z-stepper-item index="3"pressed>Conferma</z-stepper-item>
+    </z-stepper>`)))}MDXContent.isMDXComponent=!0;const initial=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper>
+      <z-stepper-item index="1" pressed></z-stepper-item>
+      <z-stepper-item index="2" disabled></z-stepper-item>
+      <z-stepper-item index="3" disabled></z-stepper-item>
+    </z-stepper>`;initial.storyName="Initial",initial.parameters={storySource:{source:'html`<z-stepper>\n      <z-stepper-item index="1" pressed></z-stepper-item>\n      <z-stepper-item index="2" disabled></z-stepper-item>\n      <z-stepper-item index="3" disabled></z-stepper-item>\n    </z-stepper>`'}};const completed=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-stepper>
+      <z-stepper-item index="1">I tuoi dati</z-stepper-item>
+      <z-stepper-item index="2">Le tue credenziali</z-stepper-item>
+      <z-stepper-item index="3"pressed>Conferma</z-stepper-item>
+    </z-stepper>`;completed.storyName="Completed",completed.parameters={storySource:{source:'html`<z-stepper>\n      <z-stepper-item index="1">I tuoi dati</z-stepper-item>\n      <z-stepper-item index="2">Le tue credenziali</z-stepper-item>\n      <z-stepper-item index="3"pressed>Conferma</z-stepper-item>\n    </z-stepper>`'}};const componentMeta={title:"Indicators/Stepper",includeStories:["initial","completed"]},mdxStoryNameToKey={Initial:"initial",Completed:"completed"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},810:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zCombobox",(function(){return zCombobox}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Inputs/ZCombobox",component:"z-combobox",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zcombobox"},"ZCombobox"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-combobox",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-combobox
+        checkalltext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("checkalltext","Select all")}"
+        closesearchtext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("closesearchtext","Close")}"
+        hascheckall="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hascheckall",!0)}"
+        hassearch="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hassearch",!0)}"
+        inputid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("inputid","combo_1")}"
+        isfixed="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isfixed",!0)}"
+        isopen="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isopen",!0)}"
+        items='[{"id":"item_1","name":"First item","checked":false},{"id":"item_2","name":"Second item","checked":true},{"id":"item_3","name":"Other item","checked":false},{"id":"item_4","name":"Last item","checked":true}]'
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Combobox Label")}"
+        maxcheckableitems="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("maxcheckableitems",4)}"
+        noresultslabel="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("noresultslabel","No items")}"
+        searchlabel="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("searchlabel","Search Label")}"
+        searchplaceholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("searchplaceholder","Search Placeholder")}"
+        searchtitle="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("searchtitle","Search Title")}"
+        uncheckalltext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("uncheckalltext","Uncheck All")}"
+      />`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-combobox",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zCombobox=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-combobox
+        checkalltext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("checkalltext","Select all")}"
+        closesearchtext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("closesearchtext","Close")}"
+        hascheckall="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hascheckall",!0)}"
+        hassearch="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hassearch",!0)}"
+        inputid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("inputid","combo_1")}"
+        isfixed="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isfixed",!0)}"
+        isopen="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isopen",!0)}"
+        items='[{"id":"item_1","name":"First item","checked":false},{"id":"item_2","name":"Second item","checked":true},{"id":"item_3","name":"Other item","checked":false},{"id":"item_4","name":"Last item","checked":true}]'
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Combobox Label")}"
+        maxcheckableitems="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("maxcheckableitems",4)}"
+        noresultslabel="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("noresultslabel","No items")}"
+        searchlabel="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("searchlabel","Search Label")}"
+        searchplaceholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("searchplaceholder","Search Placeholder")}"
+        searchtitle="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("searchtitle","Search Title")}"
+        uncheckalltext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("uncheckalltext","Uncheck All")}"
+      />`;zCombobox.storyName="z-combobox",zCombobox.parameters={storySource:{source:'html`\n      <z-combobox\n        checkalltext="${text(\'checkalltext\', \'Select all\')}"\n        closesearchtext="${text(\'closesearchtext\', \'Close\')}"\n        hascheckall="${boolean(\'hascheckall\', true)}"\n        hassearch="${boolean(\'hassearch\', true)}"\n        inputid="${text(\'inputid\', \'combo_1\')}"\n        isfixed="${boolean(\'isfixed\', true)}"\n        isopen="${boolean(\'isopen\', true)}"\n        items=\'[{"id":"item_1","name":"First item","checked":false},{"id":"item_2","name":"Second item","checked":true},{"id":"item_3","name":"Other item","checked":false},{"id":"item_4","name":"Last item","checked":true}]\'\n        label="${text(\'label\', \'Combobox Label\')}"\n        maxcheckableitems="${number(\'maxcheckableitems\', 4)}"\n        noresultslabel="${text(\'noresultslabel\', \'No items\')}"\n        searchlabel="${text(\'searchlabel\', \'Search Label\')}"\n        searchplaceholder="${text(\'searchplaceholder\', \'Search Placeholder\')}"\n        searchtitle="${text(\'searchtitle\', \'Search Title\')}"\n        uncheckalltext="${text(\'uncheckalltext\', \'Uncheck All\')}"\n      />`'}};const componentMeta={title:"Inputs/ZCombobox",includeStories:["zCombobox"]},mdxStoryNameToKey={"z-combobox":"zCombobox"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},811:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zInputLabelSample",(function(){return zInputLabelSample}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Inputs/ZInputLabel",component:"z-input-label",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zinputlabel"},"ZInputLabel"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZInputLabel-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-input-label
+      value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","Messaggio")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("disabled",!1)}"
+    ></z-input-label>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-input-label",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zInputLabelSample=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-input-label
+      value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","Messaggio")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("disabled",!1)}"
+    ></z-input-label>`;zInputLabelSample.storyName="ZInputLabel-sample",zInputLabelSample.parameters={storySource:{source:"html`<z-input-label\n      value=\"${text('value', 'Messaggio')}\"\n      disabled=\"${boolean('disabled', false)}\"\n    ></z-input-label>`"}};const componentMeta={title:"Inputs/ZInputLabel",includeStories:["zInputLabelSample"]},mdxStoryNameToKey={"ZInputLabel-sample":"zInputLabelSample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},812:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zInputMessageSample",(function(){return zInputMessageSample}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Inputs/ZInputMessage",component:"z-input-message",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zinputmessage"},"ZInputMessage"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZInputMessage-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-input-message
+      message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","Messaggio")}"
+      status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("status","error")}"
+    ></z-input-message>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-input-message",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zInputMessageSample=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-input-message
+      message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","Messaggio")}"
+      status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("status","error")}"
+    ></z-input-message>`;zInputMessageSample.storyName="ZInputMessage-sample",zInputMessageSample.parameters={storySource:{source:"html`<z-input-message\n      message=\"${text('message', 'Messaggio')}\"\n      status=\"${text('status', 'error')}\"\n    ></z-input-message>`"}};const componentMeta={title:"Inputs/ZInputMessage",includeStories:["zInputMessageSample"]},mdxStoryNameToKey={"ZInputMessage-sample":"zInputMessageSample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},813:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zInputTypeText",(function(){return zInputTypeText})),__webpack_require__.d(__webpack_exports__,"zInputTypeCheckbox",(function(){return zInputTypeCheckbox})),__webpack_require__.d(__webpack_exports__,"zInputTypeRadio",(function(){return zInputTypeRadio})),__webpack_require__.d(__webpack_exports__,"zInputTypeSelect",(function(){return zInputTypeSelect})),__webpack_require__.d(__webpack_exports__,"zInputTypeTextarea",(function(){return zInputTypeTextarea})),__webpack_require__.d(__webpack_exports__,"zInputTypePassword",(function(){return zInputTypePassword}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Inputs/ZInput",component:"z-input",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zinput"},"ZInput"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-input type:text",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="text"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","text")}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","placeholder")}"
+        disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("disabled",!0)}"
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","value")}"
+        status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("status","success")}"
+        message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","This is valid")}"
+        readonly="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("readonly",!0)}"
+      ></z-input>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-input type:checkbox",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="checkbox"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Checkbox Label")}"
+        labelafter="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("labelafter",!0)}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","placeholder")}"
+        disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("disabled",!0)}"
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","checkbox")}"
+        readonly="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("readonly",!0)}"
+        checked="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("checked",!0)}"
+      ></z-input>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-input type:radio",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="radio"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Radio Label")}"
+        labelafter="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("labelafter",!0)}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","placeholder")}"
+        disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("disabled",!0)}"
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","radio")}"
+        readonly="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("readonly",!0)}"
+        checked="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("checked",!0)}"
+      ></z-input>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-input type:select",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="select"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Select Label")}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","placeholder")}"
+        status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("status","success")}"
+        message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","This is valid")}"
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","select")}"
+        items='[{"id":"item_1","name":"first item","selected":false},{"id":"item_2","name":"second item","selected":true}]'
+      ></z-input>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-input type:textarea",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="textarea"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Select Label")}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","placeholder")}"
+        status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("status","success")}"
+        message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","This is valid")}"
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","select")}"
+      ></z-input>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-input type:password",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="password"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Password Label")}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","Password")}"
+      ></z-input>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-input",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zInputTypeText=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="text"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","text")}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","placeholder")}"
+        disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("disabled",!0)}"
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","value")}"
+        status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("status","success")}"
+        message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","This is valid")}"
+        readonly="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("readonly",!0)}"
+      ></z-input>`;zInputTypeText.storyName="z-input type:text",zInputTypeText.parameters={storySource:{source:"html`\n      <z-input\n        type=\"text\"\n        label=\"${text('label', 'text')}\"\n        placeholder=\"${text('placeholder', 'placeholder')}\"\n        disabled=\"${boolean('disabled', true)}\"\n        value=\"${text('value', 'value')}\"\n        status=\"${text('status', 'success')}\"\n        message=\"${text('message', 'This is valid')}\"\n        readonly=\"${boolean('readonly', true)}\"\n      ></z-input>`"}};const zInputTypeCheckbox=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="checkbox"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Checkbox Label")}"
+        labelafter="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("labelafter",!0)}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","placeholder")}"
+        disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("disabled",!0)}"
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","checkbox")}"
+        readonly="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("readonly",!0)}"
+        checked="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("checked",!0)}"
+      ></z-input>`;zInputTypeCheckbox.storyName="z-input type:checkbox",zInputTypeCheckbox.parameters={storySource:{source:"html`\n      <z-input\n        type=\"checkbox\"\n        label=\"${text('label', 'Checkbox Label')}\"\n        labelafter=\"${boolean('labelafter', true)}\"\n        placeholder=\"${text('placeholder', 'placeholder')}\"\n        disabled=\"${boolean('disabled', true)}\"\n        value=\"${text('value', 'checkbox')}\"\n        readonly=\"${boolean('readonly', true)}\"\n        checked=\"${boolean('checked', true)}\"\n      ></z-input>`"}};const zInputTypeRadio=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="radio"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Radio Label")}"
+        labelafter="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("labelafter",!0)}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","placeholder")}"
+        disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("disabled",!0)}"
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","radio")}"
+        readonly="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("readonly",!0)}"
+        checked="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("checked",!0)}"
+      ></z-input>`;zInputTypeRadio.storyName="z-input type:radio",zInputTypeRadio.parameters={storySource:{source:"html`\n      <z-input\n        type=\"radio\"\n        label=\"${text('label', 'Radio Label')}\"\n        labelafter=\"${boolean('labelafter', true)}\"\n        placeholder=\"${text('placeholder', 'placeholder')}\"\n        disabled=\"${boolean('disabled', true)}\"\n        value=\"${text('value', 'radio')}\"\n        readonly=\"${boolean('readonly', true)}\"\n        checked=\"${boolean('checked', true)}\"\n      ></z-input>`"}};const zInputTypeSelect=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="select"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Select Label")}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","placeholder")}"
+        status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("status","success")}"
+        message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","This is valid")}"
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","select")}"
+        items='[{"id":"item_1","name":"first item","selected":false},{"id":"item_2","name":"second item","selected":true}]'
+      ></z-input>`;zInputTypeSelect.storyName="z-input type:select",zInputTypeSelect.parameters={storySource:{source:'html`\n      <z-input\n        type="select"\n        label="${text(\'label\', \'Select Label\')}"\n        placeholder="${text(\'placeholder\', \'placeholder\')}"\n        status="${text(\'status\', \'success\')}"\n        message="${text(\'message\', \'This is valid\')}"\n        value="${text(\'value\', \'select\')}"\n        items=\'[{"id":"item_1","name":"first item","selected":false},{"id":"item_2","name":"second item","selected":true}]\'\n      ></z-input>`'}};const zInputTypeTextarea=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="textarea"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Select Label")}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","placeholder")}"
+        status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("status","success")}"
+        message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","This is valid")}"
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("value","select")}"
+      ></z-input>`;zInputTypeTextarea.storyName="z-input type:textarea",zInputTypeTextarea.parameters={storySource:{source:"html`\n      <z-input\n        type=\"textarea\"\n        label=\"${text('label', 'Select Label')}\"\n        placeholder=\"${text('placeholder', 'placeholder')}\"\n        status=\"${text('status', 'success')}\"\n        message=\"${text('message', 'This is valid')}\"\n        value=\"${text('value', 'select')}\"\n      ></z-input>`"}};const zInputTypePassword=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-input
+        type="password"
+        label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Password Label")}"
+        placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","Password")}"
+      ></z-input>`;zInputTypePassword.storyName="z-input type:password",zInputTypePassword.parameters={storySource:{source:"html`\n      <z-input\n        type=\"password\"\n        label=\"${text('label', 'Password Label')}\"\n        placeholder=\"${text('placeholder', 'Password')}\"\n      ></z-input>`"}};const componentMeta={title:"Inputs/ZInput",includeStories:["zInputTypeText","zInputTypeCheckbox","zInputTypeRadio","zInputTypeSelect","zInputTypeTextarea","zInputTypePassword"]},mdxStoryNameToKey={"z-input type:text":"zInputTypeText","z-input type:checkbox":"zInputTypeCheckbox","z-input type:radio":"zInputTypeRadio","z-input type:select":"zInputTypeSelect","z-input type:textarea":"zInputTypeTextarea","z-input type:password":"zInputTypePassword"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},814:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zSelectSample",(function(){return zSelectSample}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Inputs/ZSelect",component:"z-input-select",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zselect"},"ZSelect"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZSelect-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-select
+      label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Label")}"
+      placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","Placeholder")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("disabled",!1)}"
+      readonly="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("readonly",!1)}"
+      status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("status","success")}"
+      message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","success message")}"
+      hasmessage="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hasmessage",!0)}"
+      autocomplete="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("autocomplete",!0)}"
+      multiple="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("multiple",!1)}"
+      noresultslabel="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("noresultslabel","Nessun risultato")}"
+      items='[{"id":"item_1","name":"First Item","selected":false},{"id":"item_2","name":"Second Item","selected":false},{"id":"item_3","name":"Third Item","selected":false}]'
+    ></z-select>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-select",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zSelectSample=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-select
+      label="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("label","Label")}"
+      placeholder="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("placeholder","Placeholder")}"
+      disabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("disabled",!1)}"
+      readonly="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("readonly",!1)}"
+      status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("status","success")}"
+      message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","success message")}"
+      hasmessage="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hasmessage",!0)}"
+      autocomplete="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("autocomplete",!0)}"
+      multiple="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("multiple",!1)}"
+      noresultslabel="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("noresultslabel","Nessun risultato")}"
+      items='[{"id":"item_1","name":"First Item","selected":false},{"id":"item_2","name":"Second Item","selected":false},{"id":"item_3","name":"Third Item","selected":false}]'
+    ></z-select>`;zSelectSample.storyName="ZSelect-sample",zSelectSample.parameters={storySource:{source:'html`<z-select\n      label="${text(\'label\', \'Label\')}"\n      placeholder="${text(\'placeholder\', \'Placeholder\')}"\n      disabled="${boolean(\'disabled\', false)}"\n      readonly="${boolean(\'readonly\', false)}"\n      status="${text(\'status\', \'success\')}"\n      message="${text(\'message\', \'success message\')}"\n      hasmessage="${boolean(\'hasmessage\', true)}"\n      autocomplete="${boolean(\'autocomplete\', true)}"\n      multiple="${boolean(\'multiple\', false)}"\n      noresultslabel="${text(\'noresultslabel\', \'Nessun risultato\')}"\n      items=\'[{"id":"item_1","name":"First Item","selected":false},{"id":"item_2","name":"Second Item","selected":false},{"id":"item_3","name":"Third Item","selected":false}]\'\n    ></z-select>`'}};const componentMeta={title:"Inputs/ZSelect",includeStories:["zSelectSample"]},mdxStoryNameToKey={"ZSelect-sample":"zSelectSample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},815:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zListItem",(function(){return zListItem}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"List/ZListItem",component:"z-list-item",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zlistitem"},"ZListItem"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-list-item",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-list-item
+        action="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("action","10")}"
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","cart")}"
+        linktarget="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("linktarget","_blank")}"
+        link="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("link","www.zanichelli.it")}"
+        underlined="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("underlined",!0)}"
+      >ITEM 1</z-list-item>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-list-item",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zListItem=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-list-item
+        action="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("action","10")}"
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","cart")}"
+        linktarget="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("linktarget","_blank")}"
+        link="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("link","www.zanichelli.it")}"
+        underlined="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("underlined",!0)}"
+      >ITEM 1</z-list-item>`;zListItem.storyName="z-list-item",zListItem.parameters={storySource:{source:"html`\n      <z-list-item\n        action=\"${text('action', '10')}\"\n        icon=\"${text('icon', 'cart')}\"\n        linktarget=\"${text('linktarget', '_blank')}\"\n        link=\"${text('link', 'www.zanichelli.it')}\"\n        underlined=\"${boolean('underlined', true)}\"\n      >ITEM 1</z-list-item>`"}};const componentMeta={title:"List/ZListItem",includeStories:["zListItem"]},mdxStoryNameToKey={"z-list-item":"zListItem"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},816:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zList",(function(){return zList}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"List/ZList",component:"z-list",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zlist"},"ZList"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-list",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-list inputrawdata='[
+        {"text":"list element 1","link":"http://www.zanichelli.it","listitemid":"id1","icon":"checkbox-checked"},
+        {"text":"list element 2","link":"http://my.zanichelli.it","listitemid":"id2","icon":"checkbox"},
+        {"text":""}
+        ]'>
+      </z-list>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-list",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zList=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-list inputrawdata='[
+        {"text":"list element 1","link":"http://www.zanichelli.it","listitemid":"id1","icon":"checkbox-checked"},
+        {"text":"list element 2","link":"http://my.zanichelli.it","listitemid":"id2","icon":"checkbox"},
+        {"text":""}
+        ]'>
+      </z-list>`;zList.storyName="z-list",zList.parameters={storySource:{source:'html`\n      <z-list inputrawdata=\'[\n        {"text":"list element 1","link":"http://www.zanichelli.it","listitemid":"id1","icon":"checkbox-checked"},\n        {"text":"list element 2","link":"http://my.zanichelli.it","listitemid":"id2","icon":"checkbox"},\n        {"text":""}\n        ]\'>\n      </z-list>`'}};const componentMeta={title:"List/ZList",includeStories:["zList"]},mdxStoryNameToKey={"z-list":"zList"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},817:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zList",(function(){return zList}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Logo/ZLogo",component:"z-logo",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zlogo"},"ZLogo"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-list",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-logo
+        imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","logo")}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height",50)}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width",200)}"
+      ></z-logo>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-logo",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zList=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-logo
+        imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","logo")}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height",50)}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width",200)}"
+      ></z-logo>`;zList.storyName="z-list",zList.parameters={storySource:{source:"html`\n      <z-logo\n        imagealt=\"${text('imagealt', 'logo')}\"\n        height=\"${number('height', 50)}\"\n        width=\"${number('width', 200)}\"\n      ></z-logo>`"}};const componentMeta={title:"Logo/ZLogo",includeStories:["zList"]},mdxStoryNameToKey={"z-list":"zList"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},818:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zModalLoginDefault",(function(){return zModalLoginDefault})),__webpack_require__.d(__webpack_exports__,"zModalLoginSlotted",(function(){return zModalLoginSlotted}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Modal/zModalLogin",component:"z-modal-login",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmodallogin"},"zModalLogin"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-modal-login default",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-modal-login
+    heading="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("heading","Entra in MyZanichelli")}"
+    status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("status",["","success","warning","error"],"")}"
+    message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","")}"
+  ></z-modal-login>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-modal-login slotted",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-modal-login
+    heading="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("heading","Entra in MyZanichelli")}"
+  >
+    <z-input
+      slot="username"
+      type="text"
+      label="slotted username input"
+    ></z-input>
+    <z-input
+      slot="password"
+      type="text"
+      label="slotted password input"
+    ></z-input>
+    <z-button slot="login">slotted login button</z-button>
+    <z-button slot="signup" variant="secondary">slotted signup button</z-button>
+    <z-button slot="provider" variant="secondary"
+      >slotted provider button</z-button
+    >
+  </z-modal-login>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-modal-login",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zModalLoginDefault=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-modal-login
+    heading="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("heading","Entra in MyZanichelli")}"
+    status="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("status",["","success","warning","error"],"")}"
+    message="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("message","")}"
+  ></z-modal-login>`;zModalLoginDefault.storyName="z-modal-login default",zModalLoginDefault.parameters={storySource:{source:'html`<z-modal-login\n    heading="${text("heading", "Entra in MyZanichelli")}"\n    status="${select("status", ["", "success", "warning", "error"], "")}"\n    message="${text("message", "")}"\n  ></z-modal-login>`'}};const zModalLoginSlotted=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-modal-login
+    heading="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("heading","Entra in MyZanichelli")}"
+  >
+    <z-input
+      slot="username"
+      type="text"
+      label="slotted username input"
+    ></z-input>
+    <z-input
+      slot="password"
+      type="text"
+      label="slotted password input"
+    ></z-input>
+    <z-button slot="login">slotted login button</z-button>
+    <z-button slot="signup" variant="secondary">slotted signup button</z-button>
+    <z-button slot="provider" variant="secondary"
+      >slotted provider button</z-button
+    >
+  </z-modal-login>`;zModalLoginSlotted.storyName="z-modal-login slotted",zModalLoginSlotted.parameters={storySource:{source:'html`<z-modal-login\n    heading="${text("heading", "Entra in MyZanichelli")}"\n  >\n    <z-input\n      slot="username"\n      type="text"\n      label="slotted username input"\n    ></z-input>\n    <z-input\n      slot="password"\n      type="text"\n      label="slotted password input"\n    ></z-input>\n    <z-button slot="login">slotted login button</z-button>\n    <z-button slot="signup" variant="secondary">slotted signup button</z-button>\n    <z-button slot="provider" variant="secondary"\n      >slotted provider button</z-button\n    >\n  </z-modal-login>`'}};const componentMeta={title:"Modal/zModalLogin",includeStories:["zModalLoginDefault","zModalLoginSlotted"]},mdxStoryNameToKey={"z-modal-login default":"zModalLoginDefault","z-modal-login slotted":"zModalLoginSlotted"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},819:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zModal",(function(){return zModal}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Modal/ZModal",component:"z-modal",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmodal"},"ZModal"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-modal",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-modal
+        modaltitle="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("modaltitle","Modal title")}"
+        modalsubtitle="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("modalsubtitle","Modal subtitle")}">
+        <div slot="modalContent">Modal Content</div>
+      </z-modal>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-modal",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zModal=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-modal
+        modaltitle="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("modaltitle","Modal title")}"
+        modalsubtitle="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("modalsubtitle","Modal subtitle")}">
+        <div slot="modalContent">Modal Content</div>
+      </z-modal>`;zModal.storyName="z-modal",zModal.parameters={storySource:{source:"html`\n      <z-modal\n        modaltitle=\"${text('modaltitle', 'Modal title')}\"\n        modalsubtitle=\"${text('modalsubtitle', 'Modal subtitle')}\">\n        <div slot=\"modalContent\">Modal Content</div>\n      </z-modal>`"}};const componentMeta={title:"Modal/ZModal",includeStories:["zModal"]},mdxStoryNameToKey={"z-modal":"zModal"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},820:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"title",(function(){return title})),__webpack_require__.d(__webpack_exports__,"subtitle",(function(){return subtitle})),__webpack_require__.d(__webpack_exports__,"menu",(function(){return menu})),__webpack_require__.d(__webpack_exports__,"veryLongMenu",(function(){return veryLongMenu})),__webpack_require__.d(__webpack_exports__,"hero",(function(){return hero})),__webpack_require__.d(__webpack_exports__,"drawer",(function(){return drawer})),__webpack_require__.d(__webpack_exports__,"withTopbar",(function(){return withTopbar}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Navigation/ZAppHeader",component:"z-app-header",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zappheader"},"ZAppHeader"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("a",{parentName:"p",href:"https://app.abstract.com/projects/fd370780-e659-11e8-99dc-0d08537c5fde/branches/0c0f3a4b-c77f-421b-857a-40df36455ea1/commits/bd0e05fd10cb1dcb25b30a0cce7aa900f90d9329/files/9f586aa0-bd5b-4c12-9541-aed2e98a7a9c/layers/4E523230-5E7F-4CA2-A228-9670D60C3030?collectionId=98002816-a2d9-48f1-880a-2e6854ac2181&collectionLayerId=c9df3f28-2ff5-40fb-9dca-846f3af1090e&mode=design",target:"_blank",rel:"nofollow noopener noreferrer"},"Abstract")),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Title",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header>
+        <h1 slot="title">Applicazione</h1>
+      </z-app-header>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-app-header",mdxType:"Props"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("hr",null),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h3",{id:"with-payoff"},"With payoff"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Subtitle",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+      </z-app-header>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h3",{id:"with-menu"},"With menu"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Menu",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"(Very) Long menu",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h3",{id:"hero"},"Hero"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Hero",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header .drawer=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Drawer",!1)} overlay style="--app-header-height: 400px;" flow="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Flow",["auto","stack"],"auto")}">
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <img slot="hero" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h3",{id:"with-drawer"},"With drawer"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"Drawer",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header drawer>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h3",{id:"topbar-integreation"},"Topbar integreation"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"With topbar",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-topbar hashtag="via crucis">
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+    <z-app-header drawer .stuck=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Stuck",!0)} .drawer=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Drawer",!0)}>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    `)))}MDXContent.isMDXComponent=!0;const title=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header>
+        <h1 slot="title">Applicazione</h1>
+      </z-app-header>`;title.storyName="Title",title.parameters={storySource:{source:'html`<z-app-header>\n        <h1 slot="title">Applicazione</h1>\n      </z-app-header>`'}};const subtitle=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+      </z-app-header>`;subtitle.storyName="Subtitle",subtitle.parameters={storySource:{source:'html`<z-app-header>\n        <h1 slot="title">Applicazione</h1>\n        <h2 slot="subtitle">Payoff dell\'applicazione</h2>\n      </z-app-header>`'}};const menu=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>`;menu.storyName="Menu",menu.parameters={storySource:{source:'html`<z-app-header>\n        <h1 slot="title">Applicazione</h1>\n        <h2 slot="subtitle">Payoff dell\'applicazione</h2>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n      </z-app-header>`'}};const veryLongMenu=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>`;veryLongMenu.storyName="(Very) Long menu",veryLongMenu.parameters={storySource:{source:'html`<z-app-header>\n        <h1 slot="title">Applicazione</h1>\n        <h2 slot="subtitle">Payoff dell\'applicazione</h2>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n      </z-app-header>`'}};const hero=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header .drawer=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Drawer",!1)} overlay style="--app-header-height: 400px;" flow="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("Flow",["auto","stack"],"auto")}">
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <img slot="hero" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu" floating>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>`;hero.storyName="Hero",hero.parameters={storySource:{source:'html`<z-app-header .drawer=${boolean(\'Drawer\', false)} overlay style="--app-header-height: 400px;" flow="${select(\'Flow\', [\'auto\', \'stack\'], \'auto\')}">\n        <h1 slot="title">Applicazione</h1>\n        <h2 slot="subtitle">Payoff dell\'applicazione</h2>\n        <img slot="hero" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu" floating>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n      </z-app-header>`'}};const drawer=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-header drawer>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>`;drawer.storyName="Drawer",drawer.parameters={storySource:{source:'html`<z-app-header drawer>\n        <h1 slot="title">Applicazione</h1>\n        <h2 slot="subtitle">Payoff dell\'applicazione</h2>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n      </z-app-header>`'}};const withTopbar=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-topbar hashtag="via crucis">
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      ></z-logo>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+    <z-app-header drawer .stuck=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Stuck",!0)} .drawer=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("Drawer",!0)}>
+        <h1 slot="title">Applicazione</h1>
+        <h2 slot="subtitle">Payoff dell'applicazione</h2>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+        <z-menu slot="menu">
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+        </z-menu>
+      </z-app-header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    `;withTopbar.storyName="With topbar",withTopbar.parameters={storySource:{source:'html`<z-app-topbar hashtag="via crucis">\n      <z-logo\n        slot="logo"\n        width="138"\n        height="36"\n        imagealt="zanichelli-logo"\n        link="https://www.zanichelli.it"\n        targetblank\n      ></z-logo>\n      <z-app-switcher slot="app-switcher"></z-app-switcher>\n    </z-app-topbar>\n    <z-app-header drawer .stuck=${boolean(\'Stuck\', true)} .drawer=${boolean(\'Drawer\', true)}>\n        <h1 slot="title">Applicazione</h1>\n        <h2 slot="subtitle">Payoff dell\'applicazione</h2>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n        <z-menu slot="menu">\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n        </z-menu>\n      </z-app-header>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>\n    `'}};const componentMeta={title:"Navigation/ZAppHeader",includeStories:["title","subtitle","menu","veryLongMenu","hero","drawer","withTopbar"]},mdxStoryNameToKey={Title:"title",Subtitle:"subtitle",Menu:"menu","(Very) Long menu":"veryLongMenu",Hero:"hero",Drawer:"drawer","With topbar":"withTopbar"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},821:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zAppSwitcherDarkDefault",(function(){return zAppSwitcherDarkDefault})),__webpack_require__.d(__webpack_exports__,"zAppSwitcherLight",(function(){return zAppSwitcherLight}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Navigation/ZAppSwitcher",component:"z-app-switcher",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zappswitcher"},"ZAppSwitcher"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZAppSwitcher-dark-(default)",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="background-color: rgb(51, 51, 51); padding:16px;">
+      <z-app-switcher></z-app-switcher>
+    </div>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZAppSwitcher-light",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-switcher
+      theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"></z-app-switcher>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-app-switcher",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zAppSwitcherDarkDefault=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="background-color: rgb(51, 51, 51); padding:16px;">
+      <z-app-switcher></z-app-switcher>
+    </div>`;zAppSwitcherDarkDefault.storyName="ZAppSwitcher-dark-(default)",zAppSwitcherDarkDefault.parameters={storySource:{source:'html`<div style="background-color: rgb(51, 51, 51); padding:16px;">\n      <z-app-switcher></z-app-switcher>\n    </div>`'}};const zAppSwitcherLight=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-switcher
+      theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"></z-app-switcher>`;zAppSwitcherLight.storyName="ZAppSwitcher-light",zAppSwitcherLight.parameters={storySource:{source:'html`<z-app-switcher\n      theme="${text("theme", "light")}"></z-app-switcher>`'}};const componentMeta={title:"Navigation/ZAppSwitcher",includeStories:["zAppSwitcherDarkDefault","zAppSwitcherLight"]},mdxStoryNameToKey={"ZAppSwitcher-dark-(default)":"zAppSwitcherDarkDefault","ZAppSwitcher-light":"zAppSwitcherLight"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},822:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zAppTopbarDarkNotLogged",(function(){return zAppTopbarDarkNotLogged})),__webpack_require__.d(__webpack_exports__,"zAppTopbarDarkLogged",(function(){return zAppTopbarDarkLogged})),__webpack_require__.d(__webpack_exports__,"zAppTopbarLightNotLogged",(function(){return zAppTopbarLightNotLogged})),__webpack_require__.d(__webpack_exports__,"zAppTopbarLightLogged",(function(){return zAppTopbarLightLogged}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Navigation/ZAppTopbar",component:"z-app-topbar",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"ztopbar"},"ZTopbar"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZAppTopbar dark not logged",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-topbar hashtag="via crucis">
+      <z-logo
+        slot="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("slot","logo")}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width",138)}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height",36)}"
+        imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","zanichelli-logo")}"
+        link="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("link","https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","white")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","support-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","white")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","shopping-cart-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","docente di calabresi per italiani")}"
+        logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("logged","false")}"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZAppTopbar dark logged",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-topbar hashtag="faresci" logged>
+      <z-logo
+        slot="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("slot","logo")}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width",138)}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height",36)}"
+        imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","zanichelli-logo")}"
+        link="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("link","https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","white")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","support-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        iswhite
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","shopping-cart-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Fabio Funzionario")}"
+        logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("logged",!0)}"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZAppTopbar light not logged",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-topbar theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}" hashtag="faresci">
+      <z-logo
+        slot="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("slot","logo")}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width",138)}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height",36)}"
+        imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","zanichelli-logo")}"
+        link="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("link","https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","black")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","support-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","black")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","shopping-cart-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+        userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","docente di calabresi per italiani")}"
+        logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("logged",!1)}"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher
+        theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+        slot="app-switcher"
+      ></z-app-switcher>
+    </z-app-topbar>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZAppTopbar light logged",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-topbar
+      theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+      hashtag="faresci"
+      logged
+    >
+      <z-logo
+        slot="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("slot","logo")}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width",138)}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height",36)}"
+        imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","zanichelli-logo")}"
+        link="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("link","https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","black")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","support-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","black")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","shopping-cart-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+        userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Dario Docente")}"
+        logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("logged","true")}"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+      <z-app-switcher
+        theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+        id="app-switcher-2"
+        slot="app-switcher"
+      ></z-app-switcher>
+    </z-app-topbar>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-topbar",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zAppTopbarDarkNotLogged=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-topbar hashtag="via crucis">
+      <z-logo
+        slot="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("slot","logo")}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width",138)}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height",36)}"
+        imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","zanichelli-logo")}"
+        link="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("link","https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","white")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","support-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","white")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","shopping-cart-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","docente di calabresi per italiani")}"
+        logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("logged","false")}"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>`;zAppTopbarDarkNotLogged.storyName="ZAppTopbar dark not logged",zAppTopbarDarkNotLogged.parameters={storySource:{source:'html`<z-app-topbar hashtag="via crucis">\n      <z-logo\n        slot="${text("slot", "logo")}"\n        width="${number("width", 138)}"\n        height="${number("height", 36)}"\n        imagealt="${text("imagealt", "zanichelli-logo")}"\n        link="${text("link", "https://www.zanichelli.it")}"\n        targetblank\n      ></z-logo>\n      <z-link\n        textcolor="${text("textcolor", "white")}"\n        big\n        icon="${text("icon", "support-filled")}"\n        slot="actions"\n        href="${text("href", "#")}"\n        >Supporto</z-link\n      >\n      <z-link\n        textcolor="${text("textcolor", "white")}"\n        big\n        icon="${text("icon", "shopping-cart-filled")}"\n        slot="actions"\n        href="${text("href", "#")}"\n        >Carrello</z-link\n      >\n      <z-user-dropdown\n        userfullname="${text(\'userfullname\', \'docente di calabresi per italiani\')}"\n        logged="${text(\'logged\', \'false\')}"\n        slot="login"\n      ></z-user-dropdown>\n      <z-app-switcher slot="app-switcher"></z-app-switcher>\n    </z-app-topbar>`'}};const zAppTopbarDarkLogged=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-topbar hashtag="faresci" logged>
+      <z-logo
+        slot="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("slot","logo")}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width",138)}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height",36)}"
+        imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","zanichelli-logo")}"
+        link="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("link","https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","white")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","support-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        iswhite
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","shopping-cart-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Fabio Funzionario")}"
+        logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("logged",!0)}"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>`;zAppTopbarDarkLogged.storyName="ZAppTopbar dark logged",zAppTopbarDarkLogged.parameters={storySource:{source:'html`<z-app-topbar hashtag="faresci" logged>\n      <z-logo\n        slot="${text("slot", "logo")}"\n        width="${number("width", 138)}"\n        height="${number("height", 36)}"\n        imagealt="${text("imagealt", "zanichelli-logo")}"\n        link="${text("link", "https://www.zanichelli.it")}"\n        targetblank\n      ></z-logo>\n      <z-link\n        textcolor="${text("textcolor", "white")}"\n        big\n        icon="${text("icon", "support-filled")}"\n        slot="actions"\n        href="${text("href", "#")}"\n        >Supporto</z-link\n      >\n      <z-link\n        iswhite\n        big\n        icon="${text("icon", "shopping-cart-filled")}"\n        slot="actions"\n        href="${text("href", "#")}"\n        >Carrello</z-link\n      >\n      <z-user-dropdown\n        userfullname="${text(\'userfullname\', \'Fabio Funzionario\')}"\n        logged="${boolean(\'logged\', true)}"\n        slot="login"\n        menucontent=\'[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]\'\n      >\n      </z-user-dropdown>\n      <z-app-switcher slot="app-switcher"></z-app-switcher>\n    </z-app-topbar>`'}};const zAppTopbarLightNotLogged=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-topbar theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}" hashtag="faresci">
+      <z-logo
+        slot="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("slot","logo")}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width",138)}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height",36)}"
+        imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","zanichelli-logo")}"
+        link="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("link","https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","black")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","support-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","black")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","shopping-cart-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+        userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","docente di calabresi per italiani")}"
+        logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("logged",!1)}"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher
+        theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+        slot="app-switcher"
+      ></z-app-switcher>
+    </z-app-topbar>`;zAppTopbarLightNotLogged.storyName="ZAppTopbar light not logged",zAppTopbarLightNotLogged.parameters={storySource:{source:'html`<z-app-topbar theme="${text("theme", "light")}" hashtag="faresci">\n      <z-logo\n        slot="${text("slot", "logo")}"\n        width="${number("width", 138)}"\n        height="${number("height", 36)}"\n        imagealt="${text("imagealt", "zanichelli-logo")}"\n        link="${text("link", "https://www.zanichelli.it")}"\n        targetblank\n      ></z-logo>\n      <z-link\n        textcolor="${text("textcolor", "black")}"\n        big\n        icon="${text("icon", "support-filled")}"\n        slot="actions"\n        href="${text("href", "#")}"\n        >Supporto</z-link\n      >\n      <z-link\n        textcolor="${text("textcolor", "black")}"\n        big\n        icon="${text("icon", "shopping-cart-filled")}"\n        slot="actions"\n        href="${text("href", "#")}"\n        >Carrello</z-link\n      >\n      <z-user-dropdown\n        theme="${text("theme", "light")}"\n        userfullname="${text(\'userfullname\', \'docente di calabresi per italiani\')}"\n        logged="${boolean(\'logged\', false)}"\n        slot="login"\n      ></z-user-dropdown>\n      <z-app-switcher\n        theme="${text("theme", "light")}"\n        slot="app-switcher"\n      ></z-app-switcher>\n    </z-app-topbar>`'}};const zAppTopbarLightLogged=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-app-topbar
+      theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+      hashtag="faresci"
+      logged
+    >
+      <z-logo
+        slot="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("slot","logo")}"
+        width="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("width",138)}"
+        height="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("height",36)}"
+        imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","zanichelli-logo")}"
+        link="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("link","https://www.zanichelli.it")}"
+        targetblank
+      ></z-logo>
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","black")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","support-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Supporto</z-link
+      >
+      <z-link
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","black")}"
+        big
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","shopping-cart-filled")}"
+        slot="actions"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","#")}"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+        userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Dario Docente")}"
+        logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("logged","true")}"
+        slot="login"
+        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      >
+      </z-user-dropdown>
+      <z-app-switcher
+        theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+        id="app-switcher-2"
+        slot="app-switcher"
+      ></z-app-switcher>
+    </z-app-topbar>`;zAppTopbarLightLogged.storyName="ZAppTopbar light logged",zAppTopbarLightLogged.parameters={storySource:{source:'html`<z-app-topbar\n      theme="${text("theme", "light")}"\n      hashtag="faresci"\n      logged\n    >\n      <z-logo\n        slot="${text("slot", "logo")}"\n        width="${number("width", 138)}"\n        height="${number("height", 36)}"\n        imagealt="${text("imagealt", "zanichelli-logo")}"\n        link="${text("link", "https://www.zanichelli.it")}"\n        targetblank\n      ></z-logo>\n      <z-link\n        textcolor="${text("textcolor", "black")}"\n        big\n        icon="${text("icon", "support-filled")}"\n        slot="actions"\n        href="${text("href", "#")}"\n        >Supporto</z-link\n      >\n      <z-link\n        textcolor="${text("textcolor", "black")}"\n        big\n        icon="${text("icon", "shopping-cart-filled")}"\n        slot="actions"\n        href="${text("href", "#")}"\n        >Carrello</z-link\n      >\n      <z-user-dropdown\n        theme="${text("theme", "light")}"\n        userfullname="${text(\'userfullname\', \'Dario Docente\')}"\n        logged="${text(\'logged\', \'true\')}"\n        slot="login"\n        menucontent=\'[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]\'\n      >\n      </z-user-dropdown>\n      <z-app-switcher\n        theme="${text("theme", "light")}"\n        id="app-switcher-2"\n        slot="app-switcher"\n      ></z-app-switcher>\n    </z-app-topbar>`'}};const componentMeta={title:"Navigation/ZAppTopbar",includeStories:["zAppTopbarDarkNotLogged","zAppTopbarDarkLogged","zAppTopbarLightNotLogged","zAppTopbarLightLogged"]},mdxStoryNameToKey={"ZAppTopbar dark not logged":"zAppTopbarDarkNotLogged","ZAppTopbar dark logged":"zAppTopbarDarkLogged","ZAppTopbar light not logged":"zAppTopbarLightNotLogged","ZAppTopbar light logged":"zAppTopbarLightLogged"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},823:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zHeader",(function(){return zHeader})),__webpack_require__.d(__webpack_exports__,"zHeaderUnlogged",(function(){return zHeaderUnlogged})),__webpack_require__.d(__webpack_exports__,"zHeaderNoLogin",(function(){return zHeaderNoLogin}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Navigation/ZHeader",component:"z-header",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zheader"},"ZHeader"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-header",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+        <z-header
+          intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+          extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
+          userdata='{
+              "islogged": true,
+              "id": 123456,
+              "name": "Dario Docente",
+              "usergroup": 15,
+              "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
+            }'
+          ismyz="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("ismyz",!0)}"
+          imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","none")}"
+          activeintlinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activeintlinkid","home")}"
+          activesublinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activesublinkid","idee")}"
+          hideloginbutton="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hideloginbutton",!1)}">
+        </z-header>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-header unlogged",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+        <z-header
+          ismyz="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("ismyz",!0)}"
+          imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","none")}"
+          activeintlinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activeintlinkid","home")}"
+          activesublinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activesublinkid","idee")}"
+          hideloginbutton="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hideloginbutton",!1)}">
+        </z-header>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-header no-login",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+        <z-header
+          ismyz="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("ismyz",!0)}"
+          imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","none")}"
+          activeintlinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activeintlinkid","home")}"
+          activesublinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activesublinkid","idee")}"
+          hideloginbutton="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hideloginbutton",!0)}">
+        </z-header>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-header",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zHeader=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+        <z-header
+          intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
+          extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
+          userdata='{
+              "islogged": true,
+              "id": 123456,
+              "name": "Dario Docente",
+              "usergroup": 15,
+              "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]
+            }'
+          ismyz="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("ismyz",!0)}"
+          imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","none")}"
+          activeintlinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activeintlinkid","home")}"
+          activesublinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activesublinkid","idee")}"
+          hideloginbutton="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hideloginbutton",!1)}">
+        </z-header>`;zHeader.storyName="z-header",zHeader.parameters={storySource:{source:'html`\n        <z-header\n          intlinkdata=\'[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]\'\n          extlinkdata=\'[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]\'\n          userdata=\'{\n              "islogged": true,\n              "id": 123456,\n              "name": "Dario Docente",\n              "usergroup": 15,\n              "userlinks": [{"id":"profile","label":"Profilo","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Attiva libro","link":"#","icon":"plus"},{"id":"logout-button","label":"Esci","link":"/logout","icon":"logout"}]\n            }\'\n          ismyz="${boolean(\'ismyz\', true)}"\n          imagealt="${text(\'imagealt\', \'none\')}"\n          activeintlinkid="${text(\'activeintlinkid\', \'home\')}"\n          activesublinkid="${text(\'activesublinkid\', \'idee\')}"\n          hideloginbutton="${boolean(\'hideloginbutton\', false)}">\n        </z-header>`'}};const zHeaderUnlogged=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+        <z-header
+          ismyz="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("ismyz",!0)}"
+          imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","none")}"
+          activeintlinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activeintlinkid","home")}"
+          activesublinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activesublinkid","idee")}"
+          hideloginbutton="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hideloginbutton",!1)}">
+        </z-header>`;zHeaderUnlogged.storyName="z-header unlogged",zHeaderUnlogged.parameters={storySource:{source:"html`\n        <z-header\n          ismyz=\"${boolean('ismyz', true)}\"\n          imagealt=\"${text('imagealt', 'none')}\"\n          activeintlinkid=\"${text('activeintlinkid', 'home')}\"\n          activesublinkid=\"${text('activesublinkid', 'idee')}\"\n          hideloginbutton=\"${boolean('hideloginbutton', false)}\">\n        </z-header>`"}};const zHeaderNoLogin=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+        <z-header
+          ismyz="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("ismyz",!0)}"
+          imagealt="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imagealt","none")}"
+          activeintlinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activeintlinkid","home")}"
+          activesublinkid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("activesublinkid","idee")}"
+          hideloginbutton="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hideloginbutton",!0)}">
+        </z-header>`;zHeaderNoLogin.storyName="z-header no-login",zHeaderNoLogin.parameters={storySource:{source:"html`\n        <z-header\n          ismyz=\"${boolean('ismyz', true)}\"\n          imagealt=\"${text('imagealt', 'none')}\"\n          activeintlinkid=\"${text('activeintlinkid', 'home')}\"\n          activesublinkid=\"${text('activesublinkid', 'idee')}\"\n          hideloginbutton=\"${boolean('hideloginbutton', true)}\">\n        </z-header>`"}};const componentMeta={title:"Navigation/ZHeader",includeStories:["zHeader","zHeaderUnlogged","zHeaderNoLogin"]},mdxStoryNameToKey={"z-header":"zHeader","z-header unlogged":"zHeaderUnlogged","z-header no-login":"zHeaderNoLogin"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},824:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zLink",(function(){return zLink})),__webpack_require__.d(__webpack_exports__,"zLinkWhite",(function(){return zLinkWhite})),__webpack_require__.d(__webpack_exports__,"zLinkBig",(function(){return zLinkBig})),__webpack_require__.d(__webpack_exports__,"zLinkTextcolorBlack",(function(){return zLinkTextcolorBlack}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Navigation/ZLink",component:"z-link",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zlink"},"ZLink"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-link",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-link
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","www.zanichelli.it")}"
+        target="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("target","_blank")}"
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","download")}"
+        htmlid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmlid",1)}"
+        htmltabindex="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmltabindex",1)}"
+        iswhite="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("iswhite",!1)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!1)}"
+        isactive="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isactive",!1)}"
+      >z-link</z-link>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-link white",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-link
+        style="background-color:black"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","www.zanichelli.it")}"
+        target="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("target","_blank")}"
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","download")}"
+        htmlid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmlid",1)}"
+        htmltabindex="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmltabindex",1)}"
+        iswhite="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("iswhite",!0)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!1)}"
+        isactive="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isactive",!1)}"
+      >z-link</z-link>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-link big",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-link
+        style="background-color:black"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","www.zanichelli.it")}"
+        target="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("target","_blank")}"
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","download")}"
+        htmlid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmlid",1)}"
+        htmltabindex="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmltabindex",1)}"
+        iswhite="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("iswhite",!0)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!1)}"
+        isactive="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isactive",!1)}"
+        big="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("big",!0)}"
+      >z-link</z-link>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-link textcolor black",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-link
+        style="background-color:black"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","www.zanichelli.it")}"
+        target="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("target","_blank")}"
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","download")}"
+        htmlid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmlid",1)}"
+        htmltabindex="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmltabindex",1)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!1)}"
+        isactive="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isactive",!1)}"
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","black")}"
+      >z-link</z-link>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-link",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zLink=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-link
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","www.zanichelli.it")}"
+        target="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("target","_blank")}"
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","download")}"
+        htmlid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmlid",1)}"
+        htmltabindex="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmltabindex",1)}"
+        iswhite="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("iswhite",!1)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!1)}"
+        isactive="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isactive",!1)}"
+      >z-link</z-link>`;zLink.storyName="z-link",zLink.parameters={storySource:{source:"html`\n      <z-link\n        href=\"${text('href', 'www.zanichelli.it')}\"\n        target=\"${text('target', '_blank')}\"\n        icon=\"${text('icon', 'download')}\"\n        htmlid=\"${number('htmlid', 1)}\"\n        htmltabindex=\"${number('htmltabindex', 1)}\"\n        iswhite=\"${boolean('iswhite', false)}\"\n        isdisabled=\"${boolean('isdisabled', false)}\"\n        isactive=\"${boolean('isactive', false)}\"\n      >z-link</z-link>`"}};const zLinkWhite=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-link
+        style="background-color:black"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","www.zanichelli.it")}"
+        target="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("target","_blank")}"
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","download")}"
+        htmlid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmlid",1)}"
+        htmltabindex="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmltabindex",1)}"
+        iswhite="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("iswhite",!0)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!1)}"
+        isactive="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isactive",!1)}"
+      >z-link</z-link>`;zLinkWhite.storyName="z-link white",zLinkWhite.parameters={storySource:{source:"html`\n      <z-link\n        style=\"background-color:black\"\n        href=\"${text('href', 'www.zanichelli.it')}\"\n        target=\"${text('target', '_blank')}\"\n        icon=\"${text('icon', 'download')}\"\n        htmlid=\"${number('htmlid', 1)}\"\n        htmltabindex=\"${number('htmltabindex', 1)}\"\n        iswhite=\"${boolean('iswhite', true)}\"\n        isdisabled=\"${boolean('isdisabled', false)}\"\n        isactive=\"${boolean('isactive', false)}\"\n      >z-link</z-link>`"}};const zLinkBig=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-link
+        style="background-color:black"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","www.zanichelli.it")}"
+        target="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("target","_blank")}"
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","download")}"
+        htmlid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmlid",1)}"
+        htmltabindex="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmltabindex",1)}"
+        iswhite="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("iswhite",!0)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!1)}"
+        isactive="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isactive",!1)}"
+        big="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("big",!0)}"
+      >z-link</z-link>`;zLinkBig.storyName="z-link big",zLinkBig.parameters={storySource:{source:"html`\n      <z-link\n        style=\"background-color:black\"\n        href=\"${text('href', 'www.zanichelli.it')}\"\n        target=\"${text('target', '_blank')}\"\n        icon=\"${text('icon', 'download')}\"\n        htmlid=\"${number('htmlid', 1)}\"\n        htmltabindex=\"${number('htmltabindex', 1)}\"\n        iswhite=\"${boolean('iswhite', true)}\"\n        isdisabled=\"${boolean('isdisabled', false)}\"\n        isactive=\"${boolean('isactive', false)}\"\n        big=\"${boolean('big', true)}\"\n      >z-link</z-link>`"}};const zLinkTextcolorBlack=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-link
+        style="background-color:black"
+        href="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("href","www.zanichelli.it")}"
+        target="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("target","_blank")}"
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","download")}"
+        htmlid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmlid",1)}"
+        htmltabindex="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("htmltabindex",1)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!1)}"
+        isactive="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isactive",!1)}"
+        textcolor="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("textcolor","black")}"
+      >z-link</z-link>`;zLinkTextcolorBlack.storyName="z-link textcolor black",zLinkTextcolorBlack.parameters={storySource:{source:"html`\n      <z-link\n        style=\"background-color:black\"\n        href=\"${text('href', 'www.zanichelli.it')}\"\n        target=\"${text('target', '_blank')}\"\n        icon=\"${text('icon', 'download')}\"\n        htmlid=\"${number('htmlid', 1)}\"\n        htmltabindex=\"${number('htmltabindex', 1)}\"\n        isdisabled=\"${boolean('isdisabled', false)}\"\n        isactive=\"${boolean('isactive', false)}\"\n        textcolor=\"${text('textcolor', 'black')}\"\n      >z-link</z-link>`"}};const componentMeta={title:"Navigation/ZLink",includeStories:["zLink","zLinkWhite","zLinkBig","zLinkTextcolorBlack"]},mdxStoryNameToKey={"z-link":"zLink","z-link white":"zLinkWhite","z-link big":"zLinkBig","z-link textcolor black":"zLinkTextcolorBlack"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},825:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zMenuDropdown",(function(){return zMenuDropdown}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Navigation/ZMenuDropdown",component:"z-menu-dropdown",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmenudropdown"},"ZMenuDropdown"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-menu-dropdown",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu-dropdown
+        nomeutente="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("nomeutente","Name Surname")}"
+        menucontent='[{"id":"profile","label":"Profile","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Active new book","link":"#","icon":"plus"},{"id":"logout-button","label":"Logout","link":"/logout","icon":"logout"}]'
+      ></z-menu-dropdown>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-menu-dropdown",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zMenuDropdown=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu-dropdown
+        nomeutente="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("nomeutente","Name Surname")}"
+        menucontent='[{"id":"profile","label":"Profile","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Active new book","link":"#","icon":"plus"},{"id":"logout-button","label":"Logout","link":"/logout","icon":"logout"}]'
+      ></z-menu-dropdown>`;zMenuDropdown.storyName="z-menu-dropdown",zMenuDropdown.parameters={storySource:{source:'html`\n      <z-menu-dropdown\n        nomeutente="${text(\'nomeutente\', \'Name Surname\')}"\n        menucontent=\'[{"id":"profile","label":"Profile","link":"/i-tuoi-dati","icon":"user-avatar"},{"id":"activate-resource","label":"Active new book","link":"#","icon":"plus"},{"id":"logout-button","label":"Logout","link":"/logout","icon":"logout"}]\'\n      ></z-menu-dropdown>`'}};const componentMeta={title:"Navigation/ZMenuDropdown",includeStories:["zMenuDropdown"]},mdxStoryNameToKey={"z-menu-dropdown":"zMenuDropdown"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},826:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zMenuSection",(function(){return zMenuSection})),__webpack_require__.d(__webpack_exports__,"zMenuSectionWithoutItems",(function(){return zMenuSectionWithoutItems}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Navigation/ZMenuSection",component:"z-menu-section",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmenusection"},"ZMenuSection"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZMenuSection",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu-section .active=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("active",!1)}>
+        <h3>Label</h3>
+        <a href="" slot="item">Item 1</a>
+        <a href="" slot="item">Item 2</a>
+        <a href="" slot="item">Item 3</a>
+      </z-menu-section>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZMenuSection without items",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu-section .active=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("active",!1)}>
+        <h3>Label</h3>
+      </z-menu-section>
+    `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-menu-section",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zMenuSection=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu-section .active=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("active",!1)}>
+        <h3>Label</h3>
+        <a href="" slot="item">Item 1</a>
+        <a href="" slot="item">Item 2</a>
+        <a href="" slot="item">Item 3</a>
+      </z-menu-section>
+    `;zMenuSection.storyName="ZMenuSection",zMenuSection.parameters={storySource:{source:'html`\n      <z-menu-section .active=${boolean(\'active\', false)}>\n        <h3>Label</h3>\n        <a href="" slot="item">Item 1</a>\n        <a href="" slot="item">Item 2</a>\n        <a href="" slot="item">Item 3</a>\n      </z-menu-section>\n    `'}};const zMenuSectionWithoutItems=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu-section .active=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("active",!1)}>
+        <h3>Label</h3>
+      </z-menu-section>
+    `;zMenuSectionWithoutItems.storyName="ZMenuSection without items",zMenuSectionWithoutItems.parameters={storySource:{source:"html`\n      <z-menu-section .active=${boolean('active', false)}>\n        <h3>Label</h3>\n      </z-menu-section>\n    `"}};const componentMeta={title:"Navigation/ZMenuSection",includeStories:["zMenuSection","zMenuSectionWithoutItems"]},mdxStoryNameToKey={ZMenuSection:"zMenuSection","ZMenuSection without items":"zMenuSectionWithoutItems"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},827:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zMenuFloatingContentLayout",(function(){return zMenuFloatingContentLayout})),__webpack_require__.d(__webpack_exports__,"zMenuWithHeader",(function(){return zMenuWithHeader})),__webpack_require__.d(__webpack_exports__,"zMenuActiveWithoutItems",(function(){return zMenuActiveWithoutItems}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Navigation/ZMenu",component:"z-menu",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmenu"},"ZMenu"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZMenu - floating content layout",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu .active=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("active",!1)} .floating=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("floating",!0)}>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+      </z-menu>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZMenu with header",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu .floating=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("floating",!0)} .active=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("active",!1)}>
+          <img slot="header" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg">
+          <h4 slot="header">Menu header</h4>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 4</a>
+      </z-menu>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZMenu active without items",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu .active=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("active",!1)}>
+          <a href="">Menu label</a>
+      </z-menu>
+    `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-menu",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zMenuFloatingContentLayout=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu .active=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("active",!1)} .floating=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("floating",!0)}>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <z-menu-section slot="item">
+            <h3>Item 4</h3>
+            <a href="" slot="item">Item 4.1</a>
+            <a href="" slot="item">Item 4.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 5</a>
+      </z-menu>
+    `;zMenuFloatingContentLayout.storyName="ZMenu - floating content layout",zMenuFloatingContentLayout.parameters={storySource:{source:'html`\n      <z-menu .active=${boolean(\'active\', false)} .floating=${boolean(\'floating\', true)}>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <z-menu-section slot="item">\n            <h3>Item 4</h3>\n            <a href="" slot="item">Item 4.1</a>\n            <a href="" slot="item">Item 4.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 5</a>\n      </z-menu>\n    `'}};const zMenuWithHeader=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu .floating=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("floating",!0)} .active=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("active",!1)}>
+          <img slot="header" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg">
+          <h4 slot="header">Menu header</h4>
+          <h3>Menu label</h3>
+          <a href="" slot="item">Item 1</a>
+          <a href="" slot="item">Item 2</a>
+          <z-menu-section slot="item">
+            <h3>Item 3</h3>
+            <a href="" slot="item">Item 3.1</a>
+            <a href="" slot="item">Item 3.2</a>
+          </z-menu-section>
+          <a href="" slot="item">Item 4</a>
+      </z-menu>
+    `;zMenuWithHeader.storyName="ZMenu with header",zMenuWithHeader.parameters={storySource:{source:'html`\n      <z-menu .floating=${boolean(\'floating\', true)} .active=${boolean(\'active\', false)}>\n          <img slot="header" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg">\n          <h4 slot="header">Menu header</h4>\n          <h3>Menu label</h3>\n          <a href="" slot="item">Item 1</a>\n          <a href="" slot="item">Item 2</a>\n          <z-menu-section slot="item">\n            <h3>Item 3</h3>\n            <a href="" slot="item">Item 3.1</a>\n            <a href="" slot="item">Item 3.2</a>\n          </z-menu-section>\n          <a href="" slot="item">Item 4</a>\n      </z-menu>\n    `'}};const zMenuActiveWithoutItems=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-menu .active=${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("active",!1)}>
+          <a href="">Menu label</a>
+      </z-menu>
+    `;zMenuActiveWithoutItems.storyName="ZMenu active without items",zMenuActiveWithoutItems.parameters={storySource:{source:"html`\n      <z-menu .active=${boolean('active', false)}>\n          <a href=\"\">Menu label</a>\n      </z-menu>\n    `"}};const componentMeta={title:"Navigation/ZMenu",includeStories:["zMenuFloatingContentLayout","zMenuWithHeader","zMenuActiveWithoutItems"]},mdxStoryNameToKey={"ZMenu - floating content layout":"zMenuFloatingContentLayout","ZMenu with header":"zMenuWithHeader","ZMenu active without items":"zMenuActiveWithoutItems"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},828:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zUserDropdownNotLogged",(function(){return zUserDropdownNotLogged})),__webpack_require__.d(__webpack_exports__,"zUserDropdownLogged",(function(){return zUserDropdownLogged})),__webpack_require__.d(__webpack_exports__,"zUserDropdownNotLoggedLight",(function(){return zUserDropdownNotLoggedLight})),__webpack_require__.d(__webpack_exports__,"zUserDropdownLoggedLight",(function(){return zUserDropdownLoggedLight}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Navigation/ZUserDropdown",component:"z-user-dropdown",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zuserdropdown"},"ZUserDropdown"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZUserDropdown-not-logged",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Dario Docente")}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZUserDropdown-logged",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Dario Docente")}"
+      logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("islogged",!0)}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZUserDropdown-not-logged-light",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+      userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Dario Docente")}"
+      islogged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("islogged",!1)}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZUserDropdown-logged-light",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+      userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Dario Docente")}"
+      logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("islogged",!0)}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-user-dropdown",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zUserDropdownNotLogged=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Dario Docente")}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`;zUserDropdownNotLogged.storyName="ZUserDropdown-not-logged",zUserDropdownNotLogged.parameters={storySource:{source:'html`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">\n    <z-user-dropdown\n      userfullname="${text("userfullname", "Dario Docente")}"\n      menucontent=\'[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]\'\n    ></z-user-dropdown>\n    </div>`'}};const zUserDropdownLogged=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Dario Docente")}"
+      logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("islogged",!0)}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`;zUserDropdownLogged.storyName="ZUserDropdown-logged",zUserDropdownLogged.parameters={storySource:{source:'html`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">\n    <z-user-dropdown\n      userfullname="${text("userfullname", "Dario Docente")}"\n      logged="${boolean("islogged", true)}"\n      menucontent=\'[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]\'\n    ></z-user-dropdown>\n    </div>`'}};const zUserDropdownNotLoggedLight=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+      userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Dario Docente")}"
+      islogged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("islogged",!1)}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`;zUserDropdownNotLoggedLight.storyName="ZUserDropdown-not-logged-light",zUserDropdownNotLoggedLight.parameters={storySource:{source:'html`<div style="padding:16px; hight: 200px; width: fit-content">\n    <z-user-dropdown\n      theme="${text("theme", "light")}"\n      userfullname="${text("userfullname", "Dario Docente")}"\n      islogged="${boolean("islogged", false)}"\n      menucontent=\'[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]\'\n    ></z-user-dropdown>\n    </div>`'}};const zUserDropdownLoggedLight=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="padding:16px; hight: 200px; width: fit-content">
+    <z-user-dropdown
+      theme="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("theme","light")}"
+      userfullname="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("userfullname","Dario Docente")}"
+      logged="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("islogged",!0)}"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+    ></z-user-dropdown>
+    </div>`;zUserDropdownLoggedLight.storyName="ZUserDropdown-logged-light",zUserDropdownLoggedLight.parameters={storySource:{source:'html`<div style="padding:16px; hight: 200px; width: fit-content">\n    <z-user-dropdown\n      theme="${text("theme", "light")}"\n      userfullname="${text("userfullname", "Dario Docente")}"\n      logged="${boolean("islogged", true)}"\n      menucontent=\'[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]\'\n    ></z-user-dropdown>\n    </div>`'}};const componentMeta={title:"Navigation/ZUserDropdown",includeStories:["zUserDropdownNotLogged","zUserDropdownLogged","zUserDropdownNotLoggedLight","zUserDropdownLoggedLight"]},mdxStoryNameToKey={"ZUserDropdown-not-logged":"zUserDropdownNotLogged","ZUserDropdown-logged":"zUserDropdownLogged","ZUserDropdown-not-logged-light":"zUserDropdownNotLoggedLight","ZUserDropdown-logged-light":"zUserDropdownLoggedLight"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},829:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zCandybarEmpty",(function(){return zCandybarEmpty})),__webpack_require__.d(__webpack_exports__,"zCandybarFull",(function(){return zCandybarFull}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Notification/ZCandybar",component:"z-candybar",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zcandybar"},"ZCandybar"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-candybar-empty",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-candybar></z-candybar>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-candybar-full",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-candybar>
+      <div class="content" slot="content">
+        <div>
+          <h2>Titolo</h2>
+          <div>
+            <p>
+              Se continui a navigare ci permetti di farlo secondo le regole
+              spiegate nella nostra informativa sulla privacy relativa ai
+              &nbsp;
+              <a href="#" target="_blank">cookie</a>.
+            </p>
+          </div>
+        </div>
+        <z-button variant="primary">OK</z-button>
+      </div>
+    </z-candybar>
+    `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-candybar",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zCandybarEmpty=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-candybar></z-candybar>
+    `;zCandybarEmpty.storyName="z-candybar-empty",zCandybarEmpty.parameters={storySource:{source:"html`\n    <z-candybar></z-candybar>\n    `"}};const zCandybarFull=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-candybar>
+      <div class="content" slot="content">
+        <div>
+          <h2>Titolo</h2>
+          <div>
+            <p>
+              Se continui a navigare ci permetti di farlo secondo le regole
+              spiegate nella nostra informativa sulla privacy relativa ai
+              &nbsp;
+              <a href="#" target="_blank">cookie</a>.
+            </p>
+          </div>
+        </div>
+        <z-button variant="primary">OK</z-button>
+      </div>
+    </z-candybar>
+    `;zCandybarFull.storyName="z-candybar-full",zCandybarFull.parameters={storySource:{source:'html`\n    <z-candybar>\n      <div class="content" slot="content">\n        <div>\n          <h2>Titolo</h2>\n          <div>\n            <p>\n              Se continui a navigare ci permetti di farlo secondo le regole\n              spiegate nella nostra informativa sulla privacy relativa ai\n              &nbsp;\n              <a href="#" target="_blank">cookie</a>.\n            </p>\n          </div>\n        </div>\n        <z-button variant="primary">OK</z-button>\n      </div>\n    </z-candybar>\n    `'}};const componentMeta={title:"Notification/ZCandybar",includeStories:["zCandybarEmpty","zCandybarFull"]},mdxStoryNameToKey={"z-candybar-empty":"zCandybarEmpty","z-candybar-full":"zCandybarFull"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},830:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zCookiebar",(function(){return zCookiebar}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Notification/ZCookiebar",component:"z-cookiebar",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zcookiebar"},"ZCookiebar"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZCookiebar",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-cookiebar
+      cookiepolicyurl="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("cookiepolicyurl","https://my.zanichelli.it/privacy#Cookie")}"
+      hide="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hide",!1)}"
+    ></z-cookiebar>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-cookiebar",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zCookiebar=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-cookiebar
+      cookiepolicyurl="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("cookiepolicyurl","https://my.zanichelli.it/privacy#Cookie")}"
+      hide="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("hide",!1)}"
+    ></z-cookiebar>`;zCookiebar.storyName="ZCookiebar",zCookiebar.parameters={storySource:{source:"html`<z-cookiebar\n      cookiepolicyurl=\"${text('cookiepolicyurl', 'https://my.zanichelli.it/privacy#Cookie')}\"\n      hide=\"${boolean('hide', false)}\"\n    ></z-cookiebar>`"}};const componentMeta={title:"Notification/ZCookiebar",includeStories:["zCookiebar"]},mdxStoryNameToKey={ZCookiebar:"zCookiebar"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},831:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zInfoBox",(function(){return zInfoBox}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Notification/ZInfoBox",component:"z-info-box",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zinfobox"},"ZInfoBox"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-info-box",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-info-box isclosable="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isclosable",!0)}">
+        <span slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
+          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi
+          at imperdiet.
+          Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+      </z-info-box>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-info-box",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zInfoBox=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-info-box isclosable="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isclosable",!0)}">
+        <span slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
+          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi
+          at imperdiet.
+          Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+      </z-info-box>`;zInfoBox.storyName="z-info-box",zInfoBox.parameters={storySource:{source:'html`\n      <z-info-box isclosable="${boolean(\'isclosable\', true)}">\n        <span slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu\n          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi\n          at imperdiet.\n          Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>\n      </z-info-box>`'}};const componentMeta={title:"Notification/ZInfoBox",includeStories:["zInfoBox"]},mdxStoryNameToKey={"z-info-box":"zInfoBox"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},832:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"buttons",(function(){return buttons})),__webpack_require__.d(__webpack_exports__,"legacy",(function(){return legacy})),__webpack_require__.d(__webpack_exports__,"legacyDarkMode",(function(){return legacyDarkMode})),__webpack_require__.d(__webpack_exports__,"positionTop",(function(){return positionTop})),__webpack_require__.d(__webpack_exports__,"positionBottom",(function(){return positionBottom})),__webpack_require__.d(__webpack_exports__,"positionRight",(function(){return positionRight})),__webpack_require__.d(__webpack_exports__,"positionLeft",(function(){return positionLeft})),__webpack_require__.d(__webpack_exports__,"positionTopLeft",(function(){return positionTopLeft})),__webpack_require__.d(__webpack_exports__,"positionTopRight",(function(){return positionTopRight})),__webpack_require__.d(__webpack_exports__,"positionBottomLeft",(function(){return positionBottomLeft})),__webpack_require__.d(__webpack_exports__,"positionBottomRight",(function(){return positionBottomRight}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Notification/ZTooltip",component:"z-tooltip",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"ztooltip"},"ZTooltip"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"buttons",mdxType:"Story"},args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-tooltip
+        type="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("type",["top","bottom","left","right","top_left","top_right","bottom_left","bottom_right"],"top")}">
+        <div class="container" style="display: flex;">
+          <z-button variant="primary" style="margin-right: 0.5rem;">
+            Open
+          </z-button>
+          <z-button variant="primary" style="margin-right: 0.5rem;">
+            Save as
+          </z-button>
+          <z-button variant="primary"">
+            Share
+          </z-button>
+        </div>
+      </z-tooltip>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"legacy",mdxType:"Story"},args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-tooltip
+        content="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("content","Aggiungi libro")}"
+        type="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("type",["top","bottom","left","right","top_left","top_right","bottom_left","bottom_right"],"top")}"
+      ></z-tooltip>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"legacy dark mode",mdxType:"Story"},args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-tooltip
+        style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);"
+        content="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("content","Aggiungi libro")}"
+        type="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("type",["top","bottom","left","right","top_left","top_right","bottom_left","bottom_right"],"top")}"
+      ></z-tooltip>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"position-top",mdxType:"Story"},()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+        <button style="margin-top: 0.5rem; width: 5rem;">Element</button>
+      </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"position-bottom",mdxType:"Story"},()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <button style="margin-bottom: 0.5rem; width: 5rem;">Element</button>
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+      </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"position-right",mdxType:"Story"},()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; align-items: center;">
+        <button style="margin-right: 0.5rem; width: 5rem;">Element</button>
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="right">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+      </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"position-left",mdxType:"Story"},()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; align-items: center;">
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="left">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+        <button style="margin-left: 0.5rem; width: 5rem;">Element</button>
+      </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"position-top-left",mdxType:"Story"},()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top_left">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+        <button style="margin-top: 0.5rem; align-self: flex-end; width: 5rem;">Element</button>
+      </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"position-top-right",mdxType:"Story"},()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top_right">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+        <button style="margin-top: 0.5rem; align-self: flex-start; width: 5rem;">Element</button>
+      </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"position-bottom-left",mdxType:"Story"},()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <button style="margin-bottom: 0.5rem; align-self: flex-end; width: 5rem;">Element</button>
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom_left">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+      </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"position-bottom-right",mdxType:"Story"},()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <button style="margin-bottom: 0.5rem; align-self: flex-start; width: 5rem;">Element</button>
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom_right">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+      </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-tooltip",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const buttons=args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-tooltip
+        type="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("type",["top","bottom","left","right","top_left","top_right","bottom_left","bottom_right"],"top")}">
+        <div class="container" style="display: flex;">
+          <z-button variant="primary" style="margin-right: 0.5rem;">
+            Open
+          </z-button>
+          <z-button variant="primary" style="margin-right: 0.5rem;">
+            Save as
+          </z-button>
+          <z-button variant="primary"">
+            Share
+          </z-button>
+        </div>
+      </z-tooltip>`;buttons.storyName="buttons",buttons.parameters={storySource:{source:"args => html`\n      <z-tooltip\n        type=\"${select('type', ['top', 'bottom', 'left', 'right', 'top_left', 'top_right', 'bottom_left', 'bottom_right'], 'top')}\">\n        <div class=\"container\" style=\"display: flex;\">\n          <z-button variant=\"primary\" style=\"margin-right: 0.5rem;\">\n            Open\n          </z-button>\n          <z-button variant=\"primary\" style=\"margin-right: 0.5rem;\">\n            Save as\n          </z-button>\n          <z-button variant=\"primary\"\">\n            Share\n          </z-button>\n        </div>\n      </z-tooltip>`"}};const legacy=args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-tooltip
+        content="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("content","Aggiungi libro")}"
+        type="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("type",["top","bottom","left","right","top_left","top_right","bottom_left","bottom_right"],"top")}"
+      ></z-tooltip>`;legacy.storyName="legacy",legacy.parameters={storySource:{source:"args => html`\n      <z-tooltip\n        content=\"${text('content', 'Aggiungi libro')}\"\n        type=\"${select('type', ['top', 'bottom', 'left', 'right', 'top_left', 'top_right', 'bottom_left', 'bottom_right'], 'top')}\"\n      ></z-tooltip>`"}};const legacyDarkMode=args=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-tooltip
+        style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);"
+        content="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("content","Aggiungi libro")}"
+        type="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("type",["top","bottom","left","right","top_left","top_right","bottom_left","bottom_right"],"top")}"
+      ></z-tooltip>`;legacyDarkMode.storyName="legacy dark mode",legacyDarkMode.parameters={storySource:{source:"args => html`\n      <z-tooltip\n        style=\"--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);\"\n        content=\"${text('content', 'Aggiungi libro')}\"\n        type=\"${select('type', ['top', 'bottom', 'left', 'right', 'top_left', 'top_right', 'bottom_left', 'bottom_right'], 'top')}\"\n      ></z-tooltip>`"}};const positionTop=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+        <button style="margin-top: 0.5rem; width: 5rem;">Element</button>
+      </div>`;positionTop.storyName="position-top",positionTop.parameters={storySource:{source:'() => html`\n      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">\n        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top">\n          <div class="container" style="display: flex;">\n            <span>Open</span>\n          </div>\n        </z-tooltip>\n        <button style="margin-top: 0.5rem; width: 5rem;">Element</button>\n      </div>`'}};const positionBottom=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <button style="margin-bottom: 0.5rem; width: 5rem;">Element</button>
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+      </div>`;positionBottom.storyName="position-bottom",positionBottom.parameters={storySource:{source:'() => html`\n      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">\n        <button style="margin-bottom: 0.5rem; width: 5rem;">Element</button>\n        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom">\n          <div class="container" style="display: flex;">\n            <span>Open</span>\n          </div>\n        </z-tooltip>\n      </div>`'}};const positionRight=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; align-items: center;">
+        <button style="margin-right: 0.5rem; width: 5rem;">Element</button>
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="right">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+      </div>`;positionRight.storyName="position-right",positionRight.parameters={storySource:{source:'() => html`\n      <div style="display: inline-flex; width: fit-content; align-items: center;">\n        <button style="margin-right: 0.5rem; width: 5rem;">Element</button>\n        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="right">\n          <div class="container" style="display: flex;">\n            <span>Open</span>\n          </div>\n        </z-tooltip>\n      </div>`'}};const positionLeft=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; align-items: center;">
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="left">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+        <button style="margin-left: 0.5rem; width: 5rem;">Element</button>
+      </div>`;positionLeft.storyName="position-left",positionLeft.parameters={storySource:{source:'() => html`\n      <div style="display: inline-flex; align-items: center;">\n        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="left">\n          <div class="container" style="display: flex;">\n            <span>Open</span>\n          </div>\n        </z-tooltip>\n        <button style="margin-left: 0.5rem; width: 5rem;">Element</button>\n      </div>`'}};const positionTopLeft=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top_left">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+        <button style="margin-top: 0.5rem; align-self: flex-end; width: 5rem;">Element</button>
+      </div>`;positionTopLeft.storyName="position-top-left",positionTopLeft.parameters={storySource:{source:'() => html`\n      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">\n        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top_left">\n          <div class="container" style="display: flex;">\n            <span>Open</span>\n          </div>\n        </z-tooltip>\n        <button style="margin-top: 0.5rem; align-self: flex-end; width: 5rem;">Element</button>\n      </div>`'}};const positionTopRight=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top_right">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+        <button style="margin-top: 0.5rem; align-self: flex-start; width: 5rem;">Element</button>
+      </div>`;positionTopRight.storyName="position-top-right",positionTopRight.parameters={storySource:{source:'() => html`\n      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">\n        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top_right">\n          <div class="container" style="display: flex;">\n            <span>Open</span>\n          </div>\n        </z-tooltip>\n        <button style="margin-top: 0.5rem; align-self: flex-start; width: 5rem;">Element</button>\n      </div>`'}};const positionBottomLeft=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <button style="margin-bottom: 0.5rem; align-self: flex-end; width: 5rem;">Element</button>
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom_left">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+      </div>`;positionBottomLeft.storyName="position-bottom-left",positionBottomLeft.parameters={storySource:{source:'() => html`\n      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">\n        <button style="margin-bottom: 0.5rem; align-self: flex-end; width: 5rem;">Element</button>\n        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom_left">\n          <div class="container" style="display: flex;">\n            <span>Open</span>\n          </div>\n        </z-tooltip>\n      </div>`'}};const positionBottomRight=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
+        <button style="margin-bottom: 0.5rem; align-self: flex-start; width: 5rem;">Element</button>
+        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom_right">
+          <div class="container" style="display: flex;">
+            <span>Open</span>
+          </div>
+        </z-tooltip>
+      </div>`;positionBottomRight.storyName="position-bottom-right",positionBottomRight.parameters={storySource:{source:'() => html`\n      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">\n        <button style="margin-bottom: 0.5rem; align-self: flex-start; width: 5rem;">Element</button>\n        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom_right">\n          <div class="container" style="display: flex;">\n            <span>Open</span>\n          </div>\n        </z-tooltip>\n      </div>`'}};const componentMeta={title:"Notification/ZTooltip",includeStories:["buttons","legacy","legacyDarkMode","positionTop","positionBottom","positionRight","positionLeft","positionTopLeft","positionTopRight","positionBottomLeft","positionBottomRight"]},mdxStoryNameToKey={buttons:"buttons",legacy:"legacy","legacy dark mode":"legacyDarkMode","position-top":"positionTop","position-bottom":"positionBottom","position-right":"positionRight","position-left":"positionLeft","position-top-left":"positionTopLeft","position-top-right":"positionTopRight","position-bottom-left":"positionBottomLeft","position-bottom-right":"positionBottomRight"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},833:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zPaginationBar",(function(){return zPaginationBar}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Pagination/ZPaginationBar",component:"z-pagination-bar",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zpaginationbar"},"ZPaginationBar"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-pagination-bar",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-pagination-bar
+        pages="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("pages",20)}"
+        visiblepages="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("visiblepages",5)}"
+        currentpage="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("currentpage",4)}"
+        startpage="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("startpage",2)}"
+      ></z-pagination-bar>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-pagination-bar",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zPaginationBar=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-pagination-bar
+        pages="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("pages",20)}"
+        visiblepages="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("visiblepages",5)}"
+        currentpage="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("currentpage",4)}"
+        startpage="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("startpage",2)}"
+      ></z-pagination-bar>`;zPaginationBar.storyName="z-pagination-bar",zPaginationBar.parameters={storySource:{source:"html`\n      <z-pagination-bar\n        pages=\"${number('pages', 20)}\"\n        visiblepages=\"${number('visiblepages', 5)}\"\n        currentpage=\"${number('currentpage', 4)}\"\n        startpage=\"${number('startpage', 2)}\"\n      ></z-pagination-bar>`"}};const componentMeta={title:"Pagination/ZPaginationBar",includeStories:["zPaginationBar"]},mdxStoryNameToKey={"z-pagination-bar":"zPaginationBar"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},834:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zPaginationPage",(function(){return zPaginationPage}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Pagination/ZPaginationPage",component:"z-pagination-page",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zpaginationpage"},"ZPaginationPage"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-pagination-page",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-pagination-page
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("value",4)}"
+        isselected="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isselected",!0)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!0)}"
+        isvisited="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isvisited",!0)}"
+      ></z-pagination-page>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-pagination-page",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zPaginationPage=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-pagination-page
+        value="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.b)("value",4)}"
+        isselected="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isselected",!0)}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!0)}"
+        isvisited="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isvisited",!0)}"
+      ></z-pagination-page>`;zPaginationPage.storyName="z-pagination-page",zPaginationPage.parameters={storySource:{source:"html`\n      <z-pagination-page\n        value=\"${number('value', 4)}\"\n        isselected=\"${boolean('isselected', true)}\"\n        isdisabled=\"${boolean('isdisabled', true)}\"\n        isvisited=\"${boolean('isvisited', true)}\"\n      ></z-pagination-page>`"}};const componentMeta={title:"Pagination/ZPaginationPage",includeStories:["zPaginationPage"]},mdxStoryNameToKey={"z-pagination-page":"zPaginationPage"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},835:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zPanelElem",(function(){return zPanelElem}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Panel/ZPanelElem",component:"z-panel-elem",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zpanelelem"},"ZPanelElem"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-panel-elem",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-panel-elem
+        imgurl="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imgurl","https://staticdemomy.zanichelli.it/download/biblioteca.png")}"
+        linkicon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("linkicon","arrow-quad-down")}"
+        linklabel="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("linklabel","Biblioteca")}"
+        url="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("url","https://biblioteca.scuola.zanichelli.it/")}"
+        elemid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("elemid","elements_id")}"
+      ><z-panel-elem>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-panel-elem",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zPanelElem=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-panel-elem
+        imgurl="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("imgurl","https://staticdemomy.zanichelli.it/download/biblioteca.png")}"
+        linkicon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("linkicon","arrow-quad-down")}"
+        linklabel="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("linklabel","Biblioteca")}"
+        url="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("url","https://biblioteca.scuola.zanichelli.it/")}"
+        elemid="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("elemid","elements_id")}"
+      ><z-panel-elem>`;zPanelElem.storyName="z-panel-elem",zPanelElem.parameters={storySource:{source:"html`\n      <z-panel-elem\n        imgurl=\"${text('imgurl', 'https://staticdemomy.zanichelli.it/download/biblioteca.png')}\"\n        linkicon=\"${text('linkicon', 'arrow-quad-down')}\"\n        linklabel=\"${text('linklabel', 'Biblioteca')}\"\n        url=\"${text('url', 'https://biblioteca.scuola.zanichelli.it/')}\"\n        elemid=\"${text('elemid', 'elements_id')}\"\n      ><z-panel-elem>`"}};const componentMeta={title:"Panel/ZPanelElem",includeStories:["zPanelElem"]},mdxStoryNameToKey={"z-panel-elem":"zPanelElem"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},836:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"b1",(function(){return b1})),__webpack_require__.d(__webpack_exports__,"b2",(function(){return b2})),__webpack_require__.d(__webpack_exports__,"b3",(function(){return b3})),__webpack_require__.d(__webpack_exports__,"b4",(function(){return b4})),__webpack_require__.d(__webpack_exports__,"b5",(function(){return b5}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Typography/ZBody",component:"z-body",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zbody"},"ZBody"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"b1",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-body level="1" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    <br>
+    <z-body level="1" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"b2",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-body level="2" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    <br>
+    <z-body level="2" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"b3",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-body level="3" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    <br>
+    <z-body level="3" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"b4",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-body level="4" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    <br>
+    <z-body level="4" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"b5",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-body level="5" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    <br>
+    <z-body level="5" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-body",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const b1=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-body level="1" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    <br>
+    <z-body level="1" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    `;b1.storyName="b1",b1.parameters={storySource:{source:'html`\n    <z-body level="1" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>\n    <br>\n    <z-body level="1" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>\n    `'}};const b2=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-body level="2" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    <br>
+    <z-body level="2" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    `;b2.storyName="b2",b2.parameters={storySource:{source:'html`\n    <z-body level="2" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>\n    <br>\n    <z-body level="2" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>\n    `'}};const b3=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-body level="3" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    <br>
+    <z-body level="3" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    `;b3.storyName="b3",b3.parameters={storySource:{source:'html`\n    <z-body level="3" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>\n    <br>\n    <z-body level="3" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>\n    `'}};const b4=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-body level="4" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    <br>
+    <z-body level="4" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    `;b4.storyName="b4",b4.parameters={storySource:{source:'html`\n    <z-body level="4" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>\n    <br>\n    <z-body level="4" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>\n    `'}};const b5=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+    <z-body level="5" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    <br>
+    <z-body level="5" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>
+    `;b5.storyName="b5",b5.parameters={storySource:{source:'html`\n    <z-body level="5" variant="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>\n    <br>\n    <z-body level="5" variant="regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</z-body>\n    `'}};const componentMeta={title:"Typography/ZBody",includeStories:["b1","b2","b3","b4","b5"]},mdxStoryNameToKey={b1:"b1",b2:"b2",b3:"b3",b4:"b4",b5:"b5"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},837:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"h1",(function(){return h1})),__webpack_require__.d(__webpack_exports__,"h2",(function(){return h2})),__webpack_require__.d(__webpack_exports__,"h3",(function(){return h3})),__webpack_require__.d(__webpack_exports__,"h4",(function(){return h4}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Typography/ZHeading",component:"z-heading",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zheading"},"ZHeading"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"h1",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-heading variant="regular" level="1" >Lorem ipsum dolor sit amet </z-heading>
+      <z-heading variant="semibold" level="1">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="1">Lorem ipsum dolor sit amet</z-heading>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"h2",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-heading variant="regular" level="2">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="2">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="2">Lorem ipsum dolor sit amet</z-heading>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"h3",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-heading variant="regular" level="3">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="3">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="3">Lorem ipsum dolor sit amet</z-heading>
+    `),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"h4",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-heading variant="regular" level="4">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="4">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="4">Lorem ipsum dolor sit amet</z-heading>
+    `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-heading",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const h1=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-heading variant="regular" level="1" >Lorem ipsum dolor sit amet </z-heading>
+      <z-heading variant="semibold" level="1">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="1">Lorem ipsum dolor sit amet</z-heading>
+    `;h1.storyName="h1",h1.parameters={storySource:{source:'html`\n      <z-heading variant="regular" level="1" >Lorem ipsum dolor sit amet </z-heading>\n      <z-heading variant="semibold" level="1">Lorem ipsum dolor sit amet</z-heading>\n      <z-heading variant="light" level="1">Lorem ipsum dolor sit amet</z-heading>\n    `'}};const h2=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-heading variant="regular" level="2">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="2">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="2">Lorem ipsum dolor sit amet</z-heading>
+    `;h2.storyName="h2",h2.parameters={storySource:{source:'html`\n      <z-heading variant="regular" level="2">Lorem ipsum dolor sit amet</z-heading>\n      <z-heading variant="semibold" level="2">Lorem ipsum dolor sit amet</z-heading>\n      <z-heading variant="light" level="2">Lorem ipsum dolor sit amet</z-heading>\n    `'}};const h3=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-heading variant="regular" level="3">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="3">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="3">Lorem ipsum dolor sit amet</z-heading>
+    `;h3.storyName="h3",h3.parameters={storySource:{source:'html`\n      <z-heading variant="regular" level="3">Lorem ipsum dolor sit amet</z-heading>\n      <z-heading variant="semibold" level="3">Lorem ipsum dolor sit amet</z-heading>\n      <z-heading variant="light" level="3">Lorem ipsum dolor sit amet</z-heading>\n    `'}};const h4=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-heading variant="regular" level="4">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="semibold" level="4">Lorem ipsum dolor sit amet</z-heading>
+      <z-heading variant="light" level="4">Lorem ipsum dolor sit amet</z-heading>
+    `;h4.storyName="h4",h4.parameters={storySource:{source:'html`\n      <z-heading variant="regular" level="4">Lorem ipsum dolor sit amet</z-heading>\n      <z-heading variant="semibold" level="4">Lorem ipsum dolor sit amet</z-heading>\n      <z-heading variant="light" level="4">Lorem ipsum dolor sit amet</z-heading>\n    `'}};const componentMeta={title:"Typography/ZHeading",includeStories:["h1","h2","h3","h4"]},mdxStoryNameToKey={h1:"h1",h2:"h2",h3:"h3",h4:"h4"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},838:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zTypographySample",(function(){return zTypographySample}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Typography/ZTypography",component:"z-typography",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"ztypography"},"ZTypography"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZTypography-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-typography component="h2">Testing h2 Component</z-typography>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-typography",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zTypographySample=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-typography component="h2">Testing h2 Component</z-typography>`;zTypographySample.storyName="ZTypography-sample",zTypographySample.parameters={storySource:{source:'html`<z-typography component="h2">Testing h2 Component</z-typography>`'}};const componentMeta={title:"Typography/ZTypography",includeStories:["zTypographySample"]},mdxStoryNameToKey={"ZTypography-sample":"zTypographySample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},839:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zDivider",(function(){return zDivider}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"ZDivider",component:"z-divider",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zdivider"},"ZDivider"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZDivider",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="height: 300px; padding: 24px">
+      <z-divider
+        size="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("size",["small","medium","large"],"small")}"
+        color="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("color token","gray200")}"
+        orientation="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("orientation",["horizontal","vertical"],"horizontal")}"
+      ></z-divider>
+    </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-divider",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zDivider=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div style="height: 300px; padding: 24px">
+      <z-divider
+        size="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("size",["small","medium","large"],"small")}"
+        color="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("color token","gray200")}"
+        orientation="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("orientation",["horizontal","vertical"],"horizontal")}"
+      ></z-divider>
+    </div>`;zDivider.storyName="ZDivider",zDivider.parameters={storySource:{source:'html`<div style="height: 300px; padding: 24px">\n      <z-divider\n        size="${select("size", ["small", "medium", "large"], "small")}"\n        color="${text("color token", "gray200")}"\n        orientation="${select("orientation", ["horizontal", "vertical"], "horizontal")}"\n      ></z-divider>\n    </div>`'}};const componentMeta={title:"ZDivider",includeStories:["zDivider"]},mdxStoryNameToKey={ZDivider:"zDivider"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},840:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zPopoverSample",(function(){return zPopoverSample}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"ZPopover",component:"z-popover",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zpopover"},"ZPopover"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZPopover-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div
+      style="height: 200px; display: flex; align-items: center; justify-content: center"
+    >
+      <z-popover
+        position="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("positions",["after-down","after-center","after-up","below-left","below-center","below-right","before-down","before-center","before-up","above-right","above-center","above-left"],"after-down")}"
+        show-arrow="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-arrow",!1)}"
+        background-color="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("background-colo","color-white")}"
+        box-shadow="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("shadows",["shadow-1","shadow-2","shadow-3","shadow-4","shadow-6","shadow-8","shadow-12","shadow-16","shadow-24"],"shadow-1")}"
+        border-radius="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("radius",["none","small","medium"],"small")}"
+      >
+        <z-button slot="trigger" icon="gear">Impostazioni</z-button>
+        <div slot="popover">Contenuto Popover</div>
+      </z-popover>
+    </div>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-popover",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zPopoverSample=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<div
+      style="height: 200px; display: flex; align-items: center; justify-content: center"
+    >
+      <z-popover
+        position="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("positions",["after-down","after-center","after-up","below-left","below-center","below-right","before-down","before-center","before-up","above-right","above-center","above-left"],"after-down")}"
+        show-arrow="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-arrow",!1)}"
+        background-color="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("background-colo","color-white")}"
+        box-shadow="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("shadows",["shadow-1","shadow-2","shadow-3","shadow-4","shadow-6","shadow-8","shadow-12","shadow-16","shadow-24"],"shadow-1")}"
+        border-radius="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.c)("radius",["none","small","medium"],"small")}"
+      >
+        <z-button slot="trigger" icon="gear">Impostazioni</z-button>
+        <div slot="popover">Contenuto Popover</div>
+      </z-popover>
+    </div>`;zPopoverSample.storyName="ZPopover-sample",zPopoverSample.parameters={storySource:{source:'html`<div\n      style="height: 200px; display: flex; align-items: center; justify-content: center"\n    >\n      <z-popover\n        position="${select("positions", ["after-down", "after-center", "after-up", "below-left", "below-center", "below-right", "before-down", "before-center", "before-up", "above-right", "above-center", "above-left"], "after-down")}"\n        show-arrow="${boolean("show-arrow", false)}"\n        background-color="${text("background-colo", "color-white")}"\n        box-shadow="${select("shadows", ["shadow-1", "shadow-2", "shadow-3", "shadow-4", "shadow-6", "shadow-8", "shadow-12", "shadow-16", "shadow-24"], "shadow-1")}"\n        border-radius="${select("radius", ["none", "small", "medium"], "small")}"\n      >\n        <z-button slot="trigger" icon="gear">Impostazioni</z-button>\n        <div slot="popover">Contenuto Popover</div>\n      </z-popover>\n    </div>`'}};const componentMeta={title:"ZPopover",includeStories:["zPopoverSample"]},mdxStoryNameToKey={"ZPopover-sample":"zPopoverSample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},841:function(module,exports){function webpackEmptyContext(req){var e=new Error("Cannot find module '"+req+"'");throw e.code="MODULE_NOT_FOUND",e}webpackEmptyContext.keys=function(){return[]},webpackEmptyContext.resolve=webpackEmptyContext,module.exports=webpackEmptyContext,webpackEmptyContext.id=841},842:function(module,exports,__webpack_require__){var map={"./myz/card/z-myz-card-alert/index.stories.mdx":843,"./myz/card/z-myz-card-body/index.stories.mdx":844,"./myz/card/z-myz-card-cover/index.stories.mdx":845,"./myz/card/z-myz-card-footer/index.stories.mdx":846,"./myz/card/z-myz-card-header/index.stories.mdx":847,"./myz/card/z-myz-card-icon/index.stories.mdx":848,"./myz/card/z-myz-card-list/index.stories.mdx":849,"./myz/card/z-myz-card/index.stories.mdx":850,"./registro-table/z-registro-table-sticky-footer/index.stories.mdx":851,"./registro-table/z-registro-table/index.stories.mdx":852};function webpackContext(req){var id=webpackContextResolve(req);return __webpack_require__(id)}function webpackContextResolve(req){if(!__webpack_require__.o(map,req)){var e=new Error("Cannot find module '"+req+"'");throw e.code="MODULE_NOT_FOUND",e}return map[req]}webpackContext.keys=function webpackContextKeys(){return Object.keys(map)},webpackContext.resolve=webpackContextResolve,module.exports=webpackContext,webpackContext.id=842},843:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zMyzCardAlert",(function(){return zMyzCardAlert}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Myz/MyzCard/ZMyzCardAlert",component:"z-myz-card-alert",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmyzcardalert"},"ZMyzCardAlert"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-myz-card-alert",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-alert
+        actiontext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("actiontext","Annulla")}"
+        contenttext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("contenttext","Libro aggiunto ai miei libri preferiti")}"
+        iconName="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("iconName","checkmark-circle")}"
+        type="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("type","add")}"
+      ></z-myz-card-alert>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-myz-card-alert",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zMyzCardAlert=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-alert
+        actiontext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("actiontext","Annulla")}"
+        contenttext="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("contenttext","Libro aggiunto ai miei libri preferiti")}"
+        iconName="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("iconName","checkmark-circle")}"
+        type="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("type","add")}"
+      ></z-myz-card-alert>`;zMyzCardAlert.storyName="z-myz-card-alert",zMyzCardAlert.parameters={storySource:{source:"html`\n      <z-myz-card-alert\n        actiontext=\"${text('actiontext', 'Annulla')}\"\n        contenttext=\"${text('contenttext', 'Libro aggiunto ai miei libri preferiti')}\"\n        iconName=\"${text('iconName', 'checkmark-circle')}\"\n        type=\"${text('type', 'add')}\"\n      ></z-myz-card-alert>`"}};const componentMeta={title:"Myz/MyzCard/ZMyzCardAlert",includeStories:["zMyzCardAlert"]},mdxStoryNameToKey={"z-myz-card-alert":"zMyzCardAlert"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},844:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"__page",(function(){return __page}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3);__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Myz/MyzCard/ZMyzCardBody",component:"z-myz-card-body",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmyzcardbody"},"ZMyzCardBody"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-myz-card-body",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const __page=()=>{throw new Error("Docs-only story")};__page.parameters={docsOnly:!0};const componentMeta={title:"Myz/MyzCard/ZMyzCardBody",includeStories:["__page"]},mdxStoryNameToKey={};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},845:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zMyzCardCover",(function(){return zMyzCardCover}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Myz/MyzCard/ZMyzCardCover",component:"z-myz-card-cover",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmyzcardcover"},"ZMyzCardCover"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-myz-card-cover",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-cover
+        defaultimg="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("defaultimg","https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg")}"
+        faded="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("faded",!1)}"
+        img="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("img","https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg")}"
+        titolo="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("titolo","Title")}"
+      />`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-myz-card-cover",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zMyzCardCover=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-cover
+        defaultimg="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("defaultimg","https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg")}"
+        faded="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("faded",!1)}"
+        img="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("img","https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg")}"
+        titolo="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("titolo","Title")}"
+      />`;zMyzCardCover.storyName="z-myz-card-cover",zMyzCardCover.parameters={storySource:{source:"html`\n      <z-myz-card-cover\n        defaultimg=\"${text('defaultimg', 'https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg')}\"\n        faded=\"${boolean('faded', false)}\"\n        img=\"${text('img', 'https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg')}\"\n        titolo=\"${text('titolo', 'Title')}\"\n      />`"}};const componentMeta={title:"Myz/MyzCard/ZMyzCardCover",includeStories:["zMyzCardCover"]},mdxStoryNameToKey={"z-myz-card-cover":"zMyzCardCover"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},846:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zMyzCardFooter",(function(){return zMyzCardFooter}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Myz/MyzCard/ZMyzCardFooter",component:"z-myz-card-footer",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmyzcardfooter"},"ZMyzCardFooter"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-myz-card-footer",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-footer
+        autori="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("autori","Authors")}"
+        cardtype="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("cardtype","reale")}"
+        faded="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("faded",!1)}"
+        isbn="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("isbn","97-88-80-8620-710")}"
+        titolo="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("titolo","title")}"
+      />`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-myz-card-footer",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zMyzCardFooter=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-footer
+        autori="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("autori","Authors")}"
+        cardtype="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("cardtype","reale")}"
+        faded="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("faded",!1)}"
+        isbn="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("isbn","97-88-80-8620-710")}"
+        titolo="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("titolo","title")}"
+      />`;zMyzCardFooter.storyName="z-myz-card-footer",zMyzCardFooter.parameters={storySource:{source:"html`\n      <z-myz-card-footer\n        autori=\"${text('autori', 'Authors')}\"\n        cardtype=\"${text('cardtype', 'reale')}\"\n        faded=\"${boolean('faded', false)}\"\n        isbn=\"${text('isbn', '97-88-80-8620-710')}\"\n        titolo=\"${text('titolo', 'title')}\"\n      />`"}};const componentMeta={title:"Myz/MyzCard/ZMyzCardFooter",includeStories:["zMyzCardFooter"]},mdxStoryNameToKey={"z-myz-card-footer":"zMyzCardFooter"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},847:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zMyzCardHeader",(function(){return zMyzCardHeader}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Myz/MyzCard/ZMyzCardHeader",component:"z-myz-card-header",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmyzcardheader"},"ZMyzCardHeader"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-myz-card-header",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-header
+        cardtype="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("cardtype","reale")}"
+        faded="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("faded",!1)}"
+        titolo="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("titolo","Card Header")}" />`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-myz-card-header",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zMyzCardHeader=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-header
+        cardtype="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("cardtype","reale")}"
+        faded="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("faded",!1)}"
+        titolo="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("titolo","Card Header")}" />`;zMyzCardHeader.storyName="z-myz-card-header",zMyzCardHeader.parameters={storySource:{source:"html`\n      <z-myz-card-header\n        cardtype=\"${text('cardtype', 'reale')}\"\n        faded=\"${boolean('faded', false)}\"\n        titolo=\"${text('titolo', 'Card Header')}\" />`"}};const componentMeta={title:"Myz/MyzCard/ZMyzCardHeader",includeStories:["zMyzCardHeader"]},mdxStoryNameToKey={"z-myz-card-header":"zMyzCardHeader"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},848:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zMyzCardAlert",(function(){return zMyzCardAlert}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Myz/MyzCard/ZMyzCardIcon",component:"z-myz-card-icon",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmyzcardicon"},"ZMyzCardIcon"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-myz-card-alert",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-icon
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","book-minus")}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!0)}"
+      />`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-myz-card-icon",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zMyzCardAlert=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-icon
+        icon="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("icon","book-minus")}"
+        isdisabled="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("isdisabled",!0)}"
+      />`;zMyzCardAlert.storyName="z-myz-card-alert",zMyzCardAlert.parameters={storySource:{source:"html`\n      <z-myz-card-icon\n        icon=\"${text('icon', 'book-minus')}\"\n        isdisabled=\"${boolean('isdisabled', true)}\"\n      />`"}};const componentMeta={title:"Myz/MyzCard/ZMyzCardIcon",includeStories:["zMyzCardAlert"]},mdxStoryNameToKey={"z-myz-card-alert":"zMyzCardAlert"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},849:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zMyzCardList",(function(){return zMyzCardList}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Myz/MyzCard/ZMyzCardList",component:"z-myz-card-list",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmyzcardlist"},"ZMyzCardList"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-myz-card-list",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-list
+        listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+      />`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-myz-card-list",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zMyzCardList=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card-list
+        listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+      />`;zMyzCardList.storyName="z-myz-card-list",zMyzCardList.parameters={storySource:{source:'html`\n      <z-myz-card-list\n        listdata=\'[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]\'\n      />`'}};const componentMeta={title:"Myz/MyzCard/ZMyzCardList",includeStories:["zMyzCardList"]},mdxStoryNameToKey={"z-myz-card-list":"zMyzCardList"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},850:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zMyzCard",(function(){return zMyzCard}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"stories"},"Stories"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"Myz/MyzCard/ZMyzCard",component:"z-myz-card",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zmyzcard"},"ZMyzCard"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"z-myz-card",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card
+        cardtype="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("cardtype","reale")}"
+        faded="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("faded",!0)}"
+        ishighlighted="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("ishighlighted",!0)}"
+        ispressed="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("ispressed",!0)}"
+        >
+        <z-myz-card-header titolo="Card Header">
+          <z-myz-card-icon icon="book-minus" slot="icon" />
+        </z-myz-card-header>
+        <z-myz-card-body>
+          <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Aggiunto"
+            actiontext="Annulla" type="add"></z-myz-card-alert>
+          <z-myz-card-cover
+            slot="cover"
+            titolo="titolo"
+            img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"
+          />
+        </z-myz-card-body>
+        <z-myz-card-footer
+          titolo="title"
+          autori="Authors"
+          isbn="97-88-80-8620-710">
+          <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+          <z-myz-card-list
+            listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+            slot="list" />
+        </z-myz-card-footer>
+      </z-myz-card>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-myz-card",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zMyzCard=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`
+      <z-myz-card
+        cardtype="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.d)("cardtype","reale")}"
+        faded="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("faded",!0)}"
+        ishighlighted="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("ishighlighted",!0)}"
+        ispressed="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("ispressed",!0)}"
+        >
+        <z-myz-card-header titolo="Card Header">
+          <z-myz-card-icon icon="book-minus" slot="icon" />
+        </z-myz-card-header>
+        <z-myz-card-body>
+          <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Aggiunto"
+            actiontext="Annulla" type="add"></z-myz-card-alert>
+          <z-myz-card-cover
+            slot="cover"
+            titolo="titolo"
+            img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"
+          />
+        </z-myz-card-body>
+        <z-myz-card-footer
+          titolo="title"
+          autori="Authors"
+          isbn="97-88-80-8620-710">
+          <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+          <z-myz-card-list
+            listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+            slot="list" />
+        </z-myz-card-footer>
+      </z-myz-card>`;zMyzCard.storyName="z-myz-card",zMyzCard.parameters={storySource:{source:'html`\n      <z-myz-card\n        cardtype="${text(\'cardtype\', \'reale\')}"\n        faded="${boolean(\'faded\', true)}"\n        ishighlighted="${boolean(\'ishighlighted\', true)}"\n        ispressed="${boolean(\'ispressed\', true)}"\n        >\n        <z-myz-card-header titolo="Card Header">\n          <z-myz-card-icon icon="book-minus" slot="icon" />\n        </z-myz-card-header>\n        <z-myz-card-body>\n          <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Aggiunto"\n            actiontext="Annulla" type="add"></z-myz-card-alert>\n          <z-myz-card-cover\n            slot="cover"\n            titolo="titolo"\n            img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg"\n          />\n        </z-myz-card-body>\n        <z-myz-card-footer\n          titolo="title"\n          autori="Authors"\n          isbn="97-88-80-8620-710">\n          <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>\n          <z-myz-card-list\n            listdata=\'[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]\'\n            slot="list" />\n        </z-myz-card-footer>\n      </z-myz-card>`'}};const componentMeta={title:"Myz/MyzCard/ZMyzCard",includeStories:["zMyzCard"]},mdxStoryNameToKey={"z-myz-card":"zMyzCard"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},851:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zRegistroTableStickyFooterSample",(function(){return zRegistroTableStickyFooterSample}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"RegistroTable/ZRegistroTableStickyFooter",component:"z-registro-table-sticky-footer",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zregistrotablestickyfooter"},"ZRegistroTableStickyFooter"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZRegistroTableStickyFooter-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table-sticky-footer>Test footer</z-registro-table-sticky-footer>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-registro-table-sticky-footer",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zRegistroTableStickyFooterSample=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table-sticky-footer>Test footer</z-registro-table-sticky-footer>`;zRegistroTableStickyFooterSample.storyName="ZRegistroTableStickyFooter-sample",zRegistroTableStickyFooterSample.parameters={storySource:{source:"html`<z-registro-table-sticky-footer>Test footer</z-registro-table-sticky-footer>`"}};const componentMeta={title:"RegistroTable/ZRegistroTableStickyFooter",includeStories:["zRegistroTableStickyFooterSample"]},mdxStoryNameToKey={"ZRegistroTableStickyFooter-sample":"zRegistroTableStickyFooterSample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},852:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zRegistroTableSample",(function(){return zRegistroTableSample}));__webpack_require__(0);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(2),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"RegistroTable/ZRegistroTable",component:"z-registro-table",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zregistrotable"},"ZRegistroTable"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZRegistroTable-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table
+      bordered="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("bordered",!1)}"
+      header-sticky="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("header-sticky",!1)}"
+      column-sticky="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("column-sticky",!1)}"
+    >
+      <z-registro-table-head>
+        <z-registro-table-row>
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 2</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 3</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 4</span>
+          </z-registro-table-header>
+        </z-registro-table-row>
+      </z-registro-table-head>
+      <z-registro-table-body>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 1-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 1-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 1-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 1-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 2-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 2-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 2-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 2-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 3-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 3-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 3-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 3-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 4-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 4-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 4-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 4-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+      </z-registro-table-body>
+      <z-registro-table-sticky-footer slot="sticky-footer">
+        <span>This is a sticky footer</span>
+      </z-registro-table-sticky-footer>
+    </z-registro-table>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-registro-table",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zRegistroTableSample=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table
+      bordered="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("bordered",!1)}"
+      header-sticky="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("header-sticky",!1)}"
+      column-sticky="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("column-sticky",!1)}"
+    >
+      <z-registro-table-head>
+        <z-registro-table-row>
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 2</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 3</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 4</span>
+          </z-registro-table-header>
+        </z-registro-table-row>
+      </z-registro-table-head>
+      <z-registro-table-body>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 1-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 1-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 1-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 1-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 2-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 2-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 2-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 2-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 3-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 3-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 3-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 3-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 4-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 4-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 4-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell show-button="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.a)("show-button",!1)}">
+            <span>Contenuto 4-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+      </z-registro-table-body>
+      <z-registro-table-sticky-footer slot="sticky-footer">
+        <span>This is a sticky footer</span>
+      </z-registro-table-sticky-footer>
+    </z-registro-table>`;zRegistroTableSample.storyName="ZRegistroTable-sample",zRegistroTableSample.parameters={storySource:{source:'html`<z-registro-table\n      bordered="${boolean("bordered", false)}"\n      header-sticky="${boolean("header-sticky", false)}"\n      column-sticky="${boolean("column-sticky", false)}"\n    >\n      <z-registro-table-head>\n        <z-registro-table-row>\n          <z-registro-table-header>\n            <span>Titolo 1</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 2</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 3</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 4</span>\n          </z-registro-table-header>\n        </z-registro-table-row>\n      </z-registro-table-head>\n      <z-registro-table-body>\n        <z-registro-table-row>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 1-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 1-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 1-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 1-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-row>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 2-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 2-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 2-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 2-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-row>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 3-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 3-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 3-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 3-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-row>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 4-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 4-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 4-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell show-button="${boolean("show-button", false)}">\n            <span>Contenuto 4-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n      </z-registro-table-body>\n      <z-registro-table-sticky-footer slot="sticky-footer">\n        <span>This is a sticky footer</span>\n      </z-registro-table-sticky-footer>\n    </z-registro-table>`'}};const componentMeta={title:"RegistroTable/ZRegistroTable",includeStories:["zRegistroTableSample"]},mdxStoryNameToKey={"ZRegistroTable-sample":"zRegistroTableSample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},855:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__);var preview_namespaceObject={};__webpack_require__.r(preview_namespaceObject);__webpack_require__(17),__webpack_require__(38),__webpack_require__(49),__webpack_require__(786),__webpack_require__(43),__webpack_require__(44),__webpack_require__(787),__webpack_require__(788),__webpack_require__(789);var client_api=__webpack_require__(860),esm=__webpack_require__(11),client=__webpack_require__(64),dist_esm=__webpack_require__(423),addon_knobs_dist_esm=__webpack_require__(1),custom_elements=__webpack_require__(425);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);enumerableOnly&&(symbols=symbols.filter((function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable}))),keys.push.apply(keys,symbols)}return keys}function _defineProperty(obj,key,value){return key in obj?Object.defineProperty(obj,key,{value:value,enumerable:!0,configurable:!0,writable:!0}):obj[key]=value,obj}Object(client.setCustomElements)(custom_elements),Object(client.addParameters)({viewport:{viewports:[{type:"desktop",name:"responsive",styles:{width:"100%",height:"100%"}},{type:"mobile",name:"mobile",styles:{width:"320px",height:"480px"}},{type:"tablet",name:"tablet",styles:{width:"768px",height:"1024px"}},{type:"desktop",name:"desktop",styles:{width:"1152px",height:"100%"}},{type:"desktop",name:"wide",styles:{width:"1366px",height:"100%"}}],defaultViewport:"responsive"}}),Object(client.addDecorator)(dist_esm.a),Object(client.addDecorator)(addon_knobs_dist_esm.e),Object.keys(preview_namespaceObject).forEach((function(key){var value=preview_namespaceObject[key];switch(key){case"args":case"argTypes":return esm.a.warn("Invalid args/argTypes in config, ignoring.",JSON.stringify(value));case"decorators":return value.forEach((function(decorator){return Object(client_api.b)(decorator,!1)}));case"loaders":return value.forEach((function(loader){return Object(client_api.c)(loader,!1)}));case"parameters":return Object(client_api.d)(function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=null!=arguments[i]?arguments[i]:{};i%2?ownKeys(Object(source),!0).forEach((function(key){_defineProperty(target,key,source[key])})):Object.getOwnPropertyDescriptors?Object.defineProperties(target,Object.getOwnPropertyDescriptors(source)):ownKeys(Object(source)).forEach((function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))}))}return target}({},value),!1);case"argTypesEnhancers":return value.forEach((function(enhancer){return Object(client_api.a)(enhancer)}));case"globals":case"globalTypes":var v={};return v[key]=value,Object(client_api.d)(v,!1);default:return console.log(key+" was not supported :( !")}}))}},[[445,2,3]]]);
