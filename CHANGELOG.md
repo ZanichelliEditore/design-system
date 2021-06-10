@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://github.com/ZanichelliEditore/design-system/compare/v2.3.0...v2.3.1) (2021-06-10)
+
+
+### Bug Fixes
+
+* add react dev dependency to prevent incompatible subdependencies ([a0c9ca8](https://github.com/ZanichelliEditore/design-system/commit/a0c9ca8fd4ab7cd1082a983b42b74ce218bdc5e9))
+
 ## [2.3.0](https://github.com/ZanichelliEditore/design-system/compare/v2.2.0...v2.3.0) (2021-06-10)
 
 
