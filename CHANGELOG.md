@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/ZanichelliEditore/design-system/compare/v2.1.0...v2.2.0) (2021-06-10)
+
+
+### Features
+
+* **CLAV-74:** fix style ([c64f597](https://github.com/ZanichelliEditore/design-system/commit/c64f5977e7b8d0a9375dab51402a0d538e657020))
+
+
+### Bug Fixes
+
+* **clav-74:** improve arrow shadow ([1100c72](https://github.com/ZanichelliEditore/design-system/commit/1100c725ed46643950d268892edf04445ca14b38))
+
 ## [2.1.0](https://github.com/ZanichelliEditore/design-system/compare/v2.0.0...v2.1.0) (2021-06-07)
 
 
