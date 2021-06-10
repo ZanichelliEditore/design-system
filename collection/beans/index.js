@@ -93,11 +93,15 @@ export var PopoverBorderRadius;
 })(PopoverBorderRadius || (PopoverBorderRadius = {}));
 export var PopoverShadow;
 (function (PopoverShadow) {
-  PopoverShadow["shadow-0"] = "shadow-0";
   PopoverShadow["shadow-1"] = "shadow-1";
   PopoverShadow["shadow-2"] = "shadow-2";
   PopoverShadow["shadow-3"] = "shadow-3";
   PopoverShadow["shadow-4"] = "shadow-4";
+  PopoverShadow["shadow-6"] = "shadow-6";
+  PopoverShadow["shadow-8"] = "shadow-8";
+  PopoverShadow["shadow-12"] = "shadow-12";
+  PopoverShadow["shadow-16"] = "shadow-16";
+  PopoverShadow["shadow-24"] = "shadow-24";
 })(PopoverShadow || (PopoverShadow = {}));
 export var DividerSize;
 (function (DividerSize) {

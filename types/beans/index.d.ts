@@ -168,11 +168,15 @@ export declare enum PopoverBorderRadius {
   medium = "medium"
 }
 export declare enum PopoverShadow {
-  "shadow-0" = "shadow-0",
   "shadow-1" = "shadow-1",
   "shadow-2" = "shadow-2",
   "shadow-3" = "shadow-3",
-  "shadow-4" = "shadow-4"
+  "shadow-4" = "shadow-4",
+  "shadow-6" = "shadow-6",
+  "shadow-8" = "shadow-8",
+  "shadow-12" = "shadow-12",
+  "shadow-16" = "shadow-16",
+  "shadow-24" = "shadow-24"
 }
 export declare enum DividerSize {
   small = "small",

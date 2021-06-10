@@ -176,7 +176,7 @@ export class ZPopover {
       "mutable": false,
       "complexType": {
         "original": "PopoverShadow",
-        "resolved": "typeof PopoverShadow[\"shadow-0\"] | typeof PopoverShadow[\"shadow-1\"] | typeof PopoverShadow[\"shadow-2\"] | typeof PopoverShadow[\"shadow-3\"] | typeof PopoverShadow[\"shadow-4\"]",
+        "resolved": "typeof PopoverShadow[\"shadow-1\"] | typeof PopoverShadow[\"shadow-12\"] | typeof PopoverShadow[\"shadow-16\"] | typeof PopoverShadow[\"shadow-2\"] | typeof PopoverShadow[\"shadow-24\"] | typeof PopoverShadow[\"shadow-3\"] | typeof PopoverShadow[\"shadow-4\"] | typeof PopoverShadow[\"shadow-6\"] | typeof PopoverShadow[\"shadow-8\"]",
         "references": {
           "PopoverShadow": {
             "location": "import",

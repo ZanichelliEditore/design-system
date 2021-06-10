@@ -1,28 +1,30 @@
-var LicenseTypeEnum;
+'use strict';
+
+exports.LicenseTypeEnum = void 0;
 (function (LicenseTypeEnum) {
   LicenseTypeEnum["real"] = "reale";
   LicenseTypeEnum["virtual"] = "virtuale";
   LicenseTypeEnum["trial"] = "saggio";
-})(LicenseTypeEnum || (LicenseTypeEnum = {}));
-var ButtonVariantEnum;
+})(exports.LicenseTypeEnum || (exports.LicenseTypeEnum = {}));
+exports.ButtonVariantEnum = void 0;
 (function (ButtonVariantEnum) {
   ButtonVariantEnum["primary"] = "primary";
   ButtonVariantEnum["secondary"] = "secondary";
   ButtonVariantEnum["tertiary"] = "tertiary";
-})(ButtonVariantEnum || (ButtonVariantEnum = {}));
-var ButtonTypeEnum;
+})(exports.ButtonVariantEnum || (exports.ButtonVariantEnum = {}));
+exports.ButtonTypeEnum = void 0;
 (function (ButtonTypeEnum) {
   ButtonTypeEnum["submit"] = "submit";
   ButtonTypeEnum["reset"] = "reset";
   ButtonTypeEnum["button"] = "button";
-})(ButtonTypeEnum || (ButtonTypeEnum = {}));
-var ButtonSizeEnum;
+})(exports.ButtonTypeEnum || (exports.ButtonTypeEnum = {}));
+exports.ButtonSizeEnum = void 0;
 (function (ButtonSizeEnum) {
   ButtonSizeEnum["big"] = "big";
   ButtonSizeEnum["small"] = "small";
   ButtonSizeEnum["x-small"] = "x-small";
-})(ButtonSizeEnum || (ButtonSizeEnum = {}));
-var InputTypeEnum;
+})(exports.ButtonSizeEnum || (exports.ButtonSizeEnum = {}));
+exports.InputTypeEnum = void 0;
 (function (InputTypeEnum) {
   InputTypeEnum["text"] = "text";
   InputTypeEnum["password"] = "password";
@@ -32,15 +34,15 @@ var InputTypeEnum;
   InputTypeEnum["checkbox"] = "checkbox";
   InputTypeEnum["radio"] = "radio";
   InputTypeEnum["select"] = "select";
-})(InputTypeEnum || (InputTypeEnum = {}));
-var InputStatusEnum;
+})(exports.InputTypeEnum || (exports.InputTypeEnum = {}));
+exports.InputStatusEnum = void 0;
 (function (InputStatusEnum) {
   InputStatusEnum["success"] = "success";
   InputStatusEnum["error"] = "error";
   InputStatusEnum["warning"] = "warning";
   InputStatusEnum["selecting"] = "selecting";
-})(InputStatusEnum || (InputStatusEnum = {}));
-var TooltipPosition;
+})(exports.InputStatusEnum || (exports.InputStatusEnum = {}));
+exports.TooltipPosition = void 0;
 (function (TooltipPosition) {
   TooltipPosition["TOP"] = "TOP";
   TooltipPosition["BOTTOM"] = "BOTTOM";
@@ -51,8 +53,8 @@ var TooltipPosition;
   TooltipPosition["TOP_RIGHT"] = "TOP_RIGHT";
   TooltipPosition["BOTTOM_LEFT"] = "BOTTOM_LEFT";
   TooltipPosition["BOTTOM_RIGHT"] = "BOTTOM_RIGHT";
-})(TooltipPosition || (TooltipPosition = {}));
-var keybordKeyCodeEnum;
+})(exports.TooltipPosition || (exports.TooltipPosition = {}));
+exports.keybordKeyCodeEnum = void 0;
 (function (keybordKeyCodeEnum) {
   keybordKeyCodeEnum[keybordKeyCodeEnum["TAB"] = 9] = "TAB";
   keybordKeyCodeEnum[keybordKeyCodeEnum["SPACE"] = 32] = "SPACE";
@@ -60,17 +62,17 @@ var keybordKeyCodeEnum;
   keybordKeyCodeEnum[keybordKeyCodeEnum["ENTER"] = 13] = "ENTER";
   keybordKeyCodeEnum[keybordKeyCodeEnum["ARROW_UP"] = 38] = "ARROW_UP";
   keybordKeyCodeEnum[keybordKeyCodeEnum["ARROW_DOWN"] = 40] = "ARROW_DOWN";
-})(keybordKeyCodeEnum || (keybordKeyCodeEnum = {}));
-var KeyboardKeys;
+})(exports.keybordKeyCodeEnum || (exports.keybordKeyCodeEnum = {}));
+exports.KeyboardKeys = void 0;
 (function (KeyboardKeys) {
   KeyboardKeys["ESC"] = "Escape";
-})(KeyboardKeys || (KeyboardKeys = {}));
-var ThemeVariant;
+})(exports.KeyboardKeys || (exports.KeyboardKeys = {}));
+exports.ThemeVariant = void 0;
 (function (ThemeVariant) {
   ThemeVariant["dark"] = "dark";
   ThemeVariant["light"] = "light";
-})(ThemeVariant || (ThemeVariant = {}));
-var PopoverPosition;
+})(exports.ThemeVariant || (exports.ThemeVariant = {}));
+exports.PopoverPosition = void 0;
 (function (PopoverPosition) {
   PopoverPosition["after-down"] = "after-down";
   PopoverPosition["after-center"] = "after-center";
@@ -84,31 +86,33 @@ var PopoverPosition;
   PopoverPosition["above-right"] = "above-right";
   PopoverPosition["above-center"] = "above-center";
   PopoverPosition["above-left"] = "above-left";
-})(PopoverPosition || (PopoverPosition = {}));
-var PopoverBorderRadius;
+})(exports.PopoverPosition || (exports.PopoverPosition = {}));
+exports.PopoverBorderRadius = void 0;
 (function (PopoverBorderRadius) {
   PopoverBorderRadius["none"] = "none";
   PopoverBorderRadius["small"] = "small";
   PopoverBorderRadius["medium"] = "medium";
-})(PopoverBorderRadius || (PopoverBorderRadius = {}));
-var PopoverShadow;
+})(exports.PopoverBorderRadius || (exports.PopoverBorderRadius = {}));
+exports.PopoverShadow = void 0;
 (function (PopoverShadow) {
-  PopoverShadow["shadow-0"] = "shadow-0";
   PopoverShadow["shadow-1"] = "shadow-1";
   PopoverShadow["shadow-2"] = "shadow-2";
   PopoverShadow["shadow-3"] = "shadow-3";
   PopoverShadow["shadow-4"] = "shadow-4";
-})(PopoverShadow || (PopoverShadow = {}));
-var DividerSize;
+  PopoverShadow["shadow-6"] = "shadow-6";
+  PopoverShadow["shadow-8"] = "shadow-8";
+  PopoverShadow["shadow-12"] = "shadow-12";
+  PopoverShadow["shadow-16"] = "shadow-16";
+  PopoverShadow["shadow-24"] = "shadow-24";
+})(exports.PopoverShadow || (exports.PopoverShadow = {}));
+exports.DividerSize = void 0;
 (function (DividerSize) {
   DividerSize["small"] = "small";
   DividerSize["medium"] = "medium";
   DividerSize["large"] = "large";
-})(DividerSize || (DividerSize = {}));
-var DividerOrientation;
+})(exports.DividerSize || (exports.DividerSize = {}));
+exports.DividerOrientation = void 0;
 (function (DividerOrientation) {
   DividerOrientation["horizontal"] = "horizontal";
   DividerOrientation["vertical"] = "vertical";
-})(DividerOrientation || (DividerOrientation = {}));
-
-export { ButtonTypeEnum as B, DividerSize as D, InputTypeEnum as I, KeyboardKeys as K, LicenseTypeEnum as L, PopoverPosition as P, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, PopoverBorderRadius as c, PopoverShadow as d, InputStatusEnum as e, TooltipPosition as f, DividerOrientation as g, keybordKeyCodeEnum as k };
+})(exports.DividerOrientation || (exports.DividerOrientation = {}));
