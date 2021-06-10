@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/ZanichelliEditore/design-system/compare/v2.0.0...v2.1.0) (2021-06-07)
+
+
+### Features
+
+* **clav-74:** add default padding to content ([fed4d22](https://github.com/ZanichelliEditore/design-system/commit/fed4d22569568f410724ba5e38080c2ded3400b8))
+* **clav-74:** autofix position if outside viewport ([0bc3e71](https://github.com/ZanichelliEditore/design-system/commit/0bc3e714b58ca2efa48b52b4f72bc95c9f6adcfb))
+* **clav-74:** click outside improved ([75b2b52](https://github.com/ZanichelliEditore/design-system/commit/75b2b52f83de826896b3c843f59088acddd062d8))
+* **clav-74:** close popover on ESC, add storybook ([cad0800](https://github.com/ZanichelliEditore/design-system/commit/cad08001265f424d825c59d30225697c3938e4b0))
+* **clav-74:** fix arrow positions ([9e911ef](https://github.com/ZanichelliEditore/design-system/commit/9e911efaeb857aff6cd899f734aa829b90351165))
+* **clav-74:** visible/hide popover ([d3abd99](https://github.com/ZanichelliEditore/design-system/commit/d3abd99be42415987aecf37d7639403970306651))
+* **CLAV-74:** add left arrow ([313d7aa](https://github.com/ZanichelliEditore/design-system/commit/313d7aadd2932c11bb51395b97310123074d27d1))
+* **CLAV-74:** add new component ([fd616e1](https://github.com/ZanichelliEditore/design-system/commit/fd616e15070bddd154910b40c7713dd2eb9d87a7))
+* **CLAV-74:** add style ([a42f848](https://github.com/ZanichelliEditore/design-system/commit/a42f8480a80f6b53e55278e9e7371d00508dd14c))
+* **CLAV-74:** add style ([be27c11](https://github.com/ZanichelliEditore/design-system/commit/be27c11df5017b13765ee53525943a71c3b00426))
+* **CLAV-74:** add style to arrows ([a4a2259](https://github.com/ZanichelliEditore/design-system/commit/a4a2259e24511b1c572a75c32a4dde0a043fb4d7))
+* **CLAV-74:** add style to content-popover ([cd9e07b](https://github.com/ZanichelliEditore/design-system/commit/cd9e07bafed8ca75435dd42b1f913431e1bca75d))
+* **CLAV-74:** refactor of some props ([644a032](https://github.com/ZanichelliEditore/design-system/commit/644a0326839870936eb6a986a05f420328e76ea6))
+
+## [2.0.0](https://github.com/ZanichelliEditore/design-system/compare/v1.14.1...v2.0.0) (2021-05-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* z-card to z-myz-card downgrade
+
+### Bug Fixes
+
+* legacy radius ([78a0c37](https://github.com/ZanichelliEditore/design-system/commit/78a0c3726da077be4ee800de8efae439e0aaada1))
+* legacy style; new style ([364d473](https://github.com/ZanichelliEditore/design-system/commit/364d4734fca553f52c71c0f1a18618b397a63827))
+
+
+* Merge pull request #117 from ZanichelliEditore/breaking/z-card-to-myz-snowflake ([cfae48e](https://github.com/ZanichelliEditore/design-system/commit/cfae48eb0639ed1dc4de16bb744c93571e23d116)), closes [#117](https://github.com/ZanichelliEditore/design-system/issues/117)
+
+### [1.14.1](https://github.com/ZanichelliEditore/design-system/compare/v1.14.0...v1.14.1) (2021-05-31)
+
+
+### Bug Fixes
+
+* fix z-chip nullish checks ([e761ad1](https://github.com/ZanichelliEditore/design-system/commit/e761ad1400bbd549dc3085c3fc11f6730307449e))
+
 ## [1.14.0](https://github.com/francescochiapella/design-system/compare/v1.13.2...v1.14.0) (2021-05-27)
 
 

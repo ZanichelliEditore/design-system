@@ -5,9 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, SelectItemBean, TabOrientationBean, TabSizeBean, ThemeVariantBean } from "./beans";
-import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, TabOrientationBean, TabSizeBean, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
+import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZAppHeader {
@@ -133,114 +133,6 @@ export namespace Components {
         "sortlabeldesc"?: string;
     }
     interface ZCandybar {
-    }
-    interface ZCard {
-        /**
-          * graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * highlighted status
-         */
-        "ishighlighted": boolean;
-        /**
-          * pressed status
-         */
-        "ispressed": boolean;
-    }
-    interface ZCardAlert {
-        /**
-          * action button text
-         */
-        "actiontext"?: string;
-        /**
-          * content text
-         */
-        "contenttext": string;
-        /**
-          * icon name
-         */
-        "iconname": string;
-        /**
-          * alert variant type
-         */
-        "type": string;
-    }
-    interface ZCardBody {
-    }
-    interface ZCardCover {
-        /**
-          * default error image source
-         */
-        "defaultimg": string;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * image source
-         */
-        "img": string;
-        /**
-          * cover alt title
-         */
-        "titolo": string;
-    }
-    interface ZCardFooter {
-        /**
-          * authors name text
-         */
-        "autori": string;
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * volume isbn
-         */
-        "isbn": string;
-        /**
-          * volume title
-         */
-        "titolo": string;
-    }
-    interface ZCardHeader {
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * volume title
-         */
-        "titolo": string;
-    }
-    interface ZCardIcon {
-        /**
-          * icon name
-         */
-        "icon": string;
-        /**
-          * disabled status flag
-         */
-        "isdisabled": boolean;
-    }
-    interface ZCardList {
-        /**
-          * list data stringified array
-         */
-        "listdata": string;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -723,6 +615,114 @@ export namespace Components {
          */
         "status"?: InputStatusBean;
     }
+    interface ZMyzCard {
+        /**
+          * graphic variant (optional)
+         */
+        "cardtype"?: LicenseTypeEnum;
+        /**
+          * faded status
+         */
+        "faded": boolean;
+        /**
+          * highlighted status
+         */
+        "ishighlighted": boolean;
+        /**
+          * pressed status
+         */
+        "ispressed": boolean;
+    }
+    interface ZMyzCardAlert {
+        /**
+          * action button text
+         */
+        "actiontext"?: string;
+        /**
+          * content text
+         */
+        "contenttext": string;
+        /**
+          * icon name
+         */
+        "iconname": string;
+        /**
+          * alert variant type
+         */
+        "type": string;
+    }
+    interface ZMyzCardBody {
+    }
+    interface ZMyzCardCover {
+        /**
+          * default error image source
+         */
+        "defaultimg": string;
+        /**
+          * faded status
+         */
+        "faded": boolean;
+        /**
+          * image source
+         */
+        "img": string;
+        /**
+          * cover alt title
+         */
+        "titolo": string;
+    }
+    interface ZMyzCardFooter {
+        /**
+          * authors name text
+         */
+        "autori": string;
+        /**
+          * card graphic variant (optional)
+         */
+        "cardtype"?: LicenseTypeEnum;
+        /**
+          * faded status
+         */
+        "faded": boolean;
+        /**
+          * volume isbn
+         */
+        "isbn": string;
+        /**
+          * volume title
+         */
+        "titolo": string;
+    }
+    interface ZMyzCardHeader {
+        /**
+          * card graphic variant (optional)
+         */
+        "cardtype"?: LicenseTypeEnum;
+        /**
+          * faded status
+         */
+        "faded": boolean;
+        /**
+          * volume title
+         */
+        "titolo": string;
+    }
+    interface ZMyzCardIcon {
+        /**
+          * icon name
+         */
+        "icon": string;
+        /**
+          * disabled status flag
+         */
+        "isdisabled": boolean;
+    }
+    interface ZMyzCardList {
+        /**
+          * list data stringified array
+         */
+        "listdata": string;
+    }
     interface ZNavigationTab {
         "disabled"?: boolean;
         "selected"?: boolean;
@@ -822,6 +822,28 @@ export namespace Components {
           * link url
          */
         "url": string;
+    }
+    interface ZPopover {
+        /**
+          * [optional] Background color token for popover
+         */
+        "backgroundColor"?: string;
+        /**
+          * [optional] Border radius token for popover
+         */
+        "borderRadius"?: PopoverBorderRadius;
+        /**
+          * [optional] Box shadow token for popover
+         */
+        "boxShadow"?: PopoverShadow;
+        /**
+          * [optional] Popover position
+         */
+        "position"?: PopoverPosition;
+        /**
+          * [optional] Show or hide arrow
+         */
+        "showArrow"?: boolean;
     }
     interface ZRegistroTable {
         /**
@@ -1042,54 +1064,6 @@ declare global {
         prototype: HTMLZCandybarElement;
         new (): HTMLZCandybarElement;
     };
-    interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
-    }
-    var HTMLZCardElement: {
-        prototype: HTMLZCardElement;
-        new (): HTMLZCardElement;
-    };
-    interface HTMLZCardAlertElement extends Components.ZCardAlert, HTMLStencilElement {
-    }
-    var HTMLZCardAlertElement: {
-        prototype: HTMLZCardAlertElement;
-        new (): HTMLZCardAlertElement;
-    };
-    interface HTMLZCardBodyElement extends Components.ZCardBody, HTMLStencilElement {
-    }
-    var HTMLZCardBodyElement: {
-        prototype: HTMLZCardBodyElement;
-        new (): HTMLZCardBodyElement;
-    };
-    interface HTMLZCardCoverElement extends Components.ZCardCover, HTMLStencilElement {
-    }
-    var HTMLZCardCoverElement: {
-        prototype: HTMLZCardCoverElement;
-        new (): HTMLZCardCoverElement;
-    };
-    interface HTMLZCardFooterElement extends Components.ZCardFooter, HTMLStencilElement {
-    }
-    var HTMLZCardFooterElement: {
-        prototype: HTMLZCardFooterElement;
-        new (): HTMLZCardFooterElement;
-    };
-    interface HTMLZCardHeaderElement extends Components.ZCardHeader, HTMLStencilElement {
-    }
-    var HTMLZCardHeaderElement: {
-        prototype: HTMLZCardHeaderElement;
-        new (): HTMLZCardHeaderElement;
-    };
-    interface HTMLZCardIconElement extends Components.ZCardIcon, HTMLStencilElement {
-    }
-    var HTMLZCardIconElement: {
-        prototype: HTMLZCardIconElement;
-        new (): HTMLZCardIconElement;
-    };
-    interface HTMLZCardListElement extends Components.ZCardList, HTMLStencilElement {
-    }
-    var HTMLZCardListElement: {
-        prototype: HTMLZCardListElement;
-        new (): HTMLZCardListElement;
-    };
     interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
     }
     var HTMLZChipElement: {
@@ -1240,6 +1214,54 @@ declare global {
         prototype: HTMLZModalLoginElement;
         new (): HTMLZModalLoginElement;
     };
+    interface HTMLZMyzCardElement extends Components.ZMyzCard, HTMLStencilElement {
+    }
+    var HTMLZMyzCardElement: {
+        prototype: HTMLZMyzCardElement;
+        new (): HTMLZMyzCardElement;
+    };
+    interface HTMLZMyzCardAlertElement extends Components.ZMyzCardAlert, HTMLStencilElement {
+    }
+    var HTMLZMyzCardAlertElement: {
+        prototype: HTMLZMyzCardAlertElement;
+        new (): HTMLZMyzCardAlertElement;
+    };
+    interface HTMLZMyzCardBodyElement extends Components.ZMyzCardBody, HTMLStencilElement {
+    }
+    var HTMLZMyzCardBodyElement: {
+        prototype: HTMLZMyzCardBodyElement;
+        new (): HTMLZMyzCardBodyElement;
+    };
+    interface HTMLZMyzCardCoverElement extends Components.ZMyzCardCover, HTMLStencilElement {
+    }
+    var HTMLZMyzCardCoverElement: {
+        prototype: HTMLZMyzCardCoverElement;
+        new (): HTMLZMyzCardCoverElement;
+    };
+    interface HTMLZMyzCardFooterElement extends Components.ZMyzCardFooter, HTMLStencilElement {
+    }
+    var HTMLZMyzCardFooterElement: {
+        prototype: HTMLZMyzCardFooterElement;
+        new (): HTMLZMyzCardFooterElement;
+    };
+    interface HTMLZMyzCardHeaderElement extends Components.ZMyzCardHeader, HTMLStencilElement {
+    }
+    var HTMLZMyzCardHeaderElement: {
+        prototype: HTMLZMyzCardHeaderElement;
+        new (): HTMLZMyzCardHeaderElement;
+    };
+    interface HTMLZMyzCardIconElement extends Components.ZMyzCardIcon, HTMLStencilElement {
+    }
+    var HTMLZMyzCardIconElement: {
+        prototype: HTMLZMyzCardIconElement;
+        new (): HTMLZMyzCardIconElement;
+    };
+    interface HTMLZMyzCardListElement extends Components.ZMyzCardList, HTMLStencilElement {
+    }
+    var HTMLZMyzCardListElement: {
+        prototype: HTMLZMyzCardListElement;
+        new (): HTMLZMyzCardListElement;
+    };
     interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
     }
     var HTMLZNavigationTabElement: {
@@ -1269,6 +1291,12 @@ declare global {
     var HTMLZPanelElemElement: {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
+    };
+    interface HTMLZPopoverElement extends Components.ZPopover, HTMLStencilElement {
+    }
+    var HTMLZPopoverElement: {
+        prototype: HTMLZPopoverElement;
+        new (): HTMLZPopoverElement;
     };
     interface HTMLZRegistroTableElement extends Components.ZRegistroTable, HTMLStencilElement {
     }
@@ -1369,14 +1397,6 @@ declare global {
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
-        "z-card": HTMLZCardElement;
-        "z-card-alert": HTMLZCardAlertElement;
-        "z-card-body": HTMLZCardBodyElement;
-        "z-card-cover": HTMLZCardCoverElement;
-        "z-card-footer": HTMLZCardFooterElement;
-        "z-card-header": HTMLZCardHeaderElement;
-        "z-card-icon": HTMLZCardIconElement;
-        "z-card-list": HTMLZCardListElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
         "z-cookiebar": HTMLZCookiebarElement;
@@ -1402,11 +1422,20 @@ declare global {
         "z-menu-section": HTMLZMenuSectionElement;
         "z-modal": HTMLZModalElement;
         "z-modal-login": HTMLZModalLoginElement;
+        "z-myz-card": HTMLZMyzCardElement;
+        "z-myz-card-alert": HTMLZMyzCardAlertElement;
+        "z-myz-card-body": HTMLZMyzCardBodyElement;
+        "z-myz-card-cover": HTMLZMyzCardCoverElement;
+        "z-myz-card-footer": HTMLZMyzCardFooterElement;
+        "z-myz-card-header": HTMLZMyzCardHeaderElement;
+        "z-myz-card-icon": HTMLZMyzCardIconElement;
+        "z-myz-card-list": HTMLZMyzCardListElement;
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-popover": HTMLZPopoverElement;
         "z-registro-table": HTMLZRegistroTableElement;
         "z-registro-table-body": HTMLZRegistroTableBodyElement;
         "z-registro-table-cell": HTMLZRegistroTableCellElement;
@@ -1560,118 +1589,6 @@ declare namespace LocalJSX {
         "sortlabeldesc"?: string;
     }
     interface ZCandybar {
-    }
-    interface ZCard {
-        /**
-          * graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * highlighted status
-         */
-        "ishighlighted"?: boolean;
-        /**
-          * pressed status
-         */
-        "ispressed"?: boolean;
-    }
-    interface ZCardAlert {
-        /**
-          * action button text
-         */
-        "actiontext"?: string;
-        /**
-          * content text
-         */
-        "contenttext"?: string;
-        /**
-          * icon name
-         */
-        "iconname"?: string;
-        /**
-          * undo action click/keyboard event, returns actionType
-         */
-        "onUndoAction"?: (event: CustomEvent<any>) => void;
-        /**
-          * alert variant type
-         */
-        "type"?: string;
-    }
-    interface ZCardBody {
-    }
-    interface ZCardCover {
-        /**
-          * default error image source
-         */
-        "defaultimg"?: string;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * image source
-         */
-        "img"?: string;
-        /**
-          * cover alt title
-         */
-        "titolo"?: string;
-    }
-    interface ZCardFooter {
-        /**
-          * authors name text
-         */
-        "autori"?: string;
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * volume isbn
-         */
-        "isbn"?: string;
-        /**
-          * volume title
-         */
-        "titolo"?: string;
-    }
-    interface ZCardHeader {
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * volume title
-         */
-        "titolo"?: string;
-    }
-    interface ZCardIcon {
-        /**
-          * icon name
-         */
-        "icon"?: string;
-        /**
-          * disabled status flag
-         */
-        "isdisabled"?: boolean;
-    }
-    interface ZCardList {
-        /**
-          * list data stringified array
-         */
-        "listdata"?: string;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -2222,6 +2139,118 @@ declare namespace LocalJSX {
          */
         "status"?: InputStatusBean;
     }
+    interface ZMyzCard {
+        /**
+          * graphic variant (optional)
+         */
+        "cardtype"?: LicenseTypeEnum;
+        /**
+          * faded status
+         */
+        "faded"?: boolean;
+        /**
+          * highlighted status
+         */
+        "ishighlighted"?: boolean;
+        /**
+          * pressed status
+         */
+        "ispressed"?: boolean;
+    }
+    interface ZMyzCardAlert {
+        /**
+          * action button text
+         */
+        "actiontext"?: string;
+        /**
+          * content text
+         */
+        "contenttext"?: string;
+        /**
+          * icon name
+         */
+        "iconname"?: string;
+        /**
+          * undo action click/keyboard event, returns actionType
+         */
+        "onUndoAction"?: (event: CustomEvent<any>) => void;
+        /**
+          * alert variant type
+         */
+        "type"?: string;
+    }
+    interface ZMyzCardBody {
+    }
+    interface ZMyzCardCover {
+        /**
+          * default error image source
+         */
+        "defaultimg"?: string;
+        /**
+          * faded status
+         */
+        "faded"?: boolean;
+        /**
+          * image source
+         */
+        "img"?: string;
+        /**
+          * cover alt title
+         */
+        "titolo"?: string;
+    }
+    interface ZMyzCardFooter {
+        /**
+          * authors name text
+         */
+        "autori"?: string;
+        /**
+          * card graphic variant (optional)
+         */
+        "cardtype"?: LicenseTypeEnum;
+        /**
+          * faded status
+         */
+        "faded"?: boolean;
+        /**
+          * volume isbn
+         */
+        "isbn"?: string;
+        /**
+          * volume title
+         */
+        "titolo"?: string;
+    }
+    interface ZMyzCardHeader {
+        /**
+          * card graphic variant (optional)
+         */
+        "cardtype"?: LicenseTypeEnum;
+        /**
+          * faded status
+         */
+        "faded"?: boolean;
+        /**
+          * volume title
+         */
+        "titolo"?: string;
+    }
+    interface ZMyzCardIcon {
+        /**
+          * icon name
+         */
+        "icon"?: string;
+        /**
+          * disabled status flag
+         */
+        "isdisabled"?: boolean;
+    }
+    interface ZMyzCardList {
+        /**
+          * list data stringified array
+         */
+        "listdata"?: string;
+    }
     interface ZNavigationTab {
         "disabled"?: boolean;
         "onSelected"?: (event: CustomEvent<any>) => void;
@@ -2334,6 +2363,28 @@ declare namespace LocalJSX {
           * link url
          */
         "url"?: string;
+    }
+    interface ZPopover {
+        /**
+          * [optional] Background color token for popover
+         */
+        "backgroundColor"?: string;
+        /**
+          * [optional] Border radius token for popover
+         */
+        "borderRadius"?: PopoverBorderRadius;
+        /**
+          * [optional] Box shadow token for popover
+         */
+        "boxShadow"?: PopoverShadow;
+        /**
+          * [optional] Popover position
+         */
+        "position"?: PopoverPosition;
+        /**
+          * [optional] Show or hide arrow
+         */
+        "showArrow"?: boolean;
     }
     interface ZRegistroTable {
         /**
@@ -2517,14 +2568,6 @@ declare namespace LocalJSX {
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
-        "z-card": ZCard;
-        "z-card-alert": ZCardAlert;
-        "z-card-body": ZCardBody;
-        "z-card-cover": ZCardCover;
-        "z-card-footer": ZCardFooter;
-        "z-card-header": ZCardHeader;
-        "z-card-icon": ZCardIcon;
-        "z-card-list": ZCardList;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
         "z-cookiebar": ZCookiebar;
@@ -2550,11 +2593,20 @@ declare namespace LocalJSX {
         "z-menu-section": ZMenuSection;
         "z-modal": ZModal;
         "z-modal-login": ZModalLogin;
+        "z-myz-card": ZMyzCard;
+        "z-myz-card-alert": ZMyzCardAlert;
+        "z-myz-card-body": ZMyzCardBody;
+        "z-myz-card-cover": ZMyzCardCover;
+        "z-myz-card-footer": ZMyzCardFooter;
+        "z-myz-card-header": ZMyzCardHeader;
+        "z-myz-card-icon": ZMyzCardIcon;
+        "z-myz-card-list": ZMyzCardList;
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-popover": ZPopover;
         "z-registro-table": ZRegistroTable;
         "z-registro-table-body": ZRegistroTableBody;
         "z-registro-table-cell": ZRegistroTableCell;
@@ -2584,14 +2636,6 @@ declare module "@stencil/core" {
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
-            "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
-            "z-card-alert": LocalJSX.ZCardAlert & JSXBase.HTMLAttributes<HTMLZCardAlertElement>;
-            "z-card-body": LocalJSX.ZCardBody & JSXBase.HTMLAttributes<HTMLZCardBodyElement>;
-            "z-card-cover": LocalJSX.ZCardCover & JSXBase.HTMLAttributes<HTMLZCardCoverElement>;
-            "z-card-footer": LocalJSX.ZCardFooter & JSXBase.HTMLAttributes<HTMLZCardFooterElement>;
-            "z-card-header": LocalJSX.ZCardHeader & JSXBase.HTMLAttributes<HTMLZCardHeaderElement>;
-            "z-card-icon": LocalJSX.ZCardIcon & JSXBase.HTMLAttributes<HTMLZCardIconElement>;
-            "z-card-list": LocalJSX.ZCardList & JSXBase.HTMLAttributes<HTMLZCardListElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
@@ -2617,11 +2661,20 @@ declare module "@stencil/core" {
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
+            "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
+            "z-myz-card-alert": LocalJSX.ZMyzCardAlert & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
+            "z-myz-card-body": LocalJSX.ZMyzCardBody & JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
+            "z-myz-card-cover": LocalJSX.ZMyzCardCover & JSXBase.HTMLAttributes<HTMLZMyzCardCoverElement>;
+            "z-myz-card-footer": LocalJSX.ZMyzCardFooter & JSXBase.HTMLAttributes<HTMLZMyzCardFooterElement>;
+            "z-myz-card-header": LocalJSX.ZMyzCardHeader & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
+            "z-myz-card-icon": LocalJSX.ZMyzCardIcon & JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
+            "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
             "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
             "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;

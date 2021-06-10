@@ -1,0 +1,22 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
+
+## Stories
+
+<Meta title="Myz/MyzCard/ZMyzCardIcon" component="z-myz-card-icon" />
+
+  # ZMyzCardIcon
+
+<Preview>
+  <Story name="z-myz-card-alert">
+    {html`
+      <z-myz-card-icon
+        icon="${text('icon', 'book-minus')}"
+        isdisabled="${boolean('isdisabled', true)}"
+      />`}
+  </Story>
+</Preview>
+
+  <Props of="z-myz-card-icon" />
+
