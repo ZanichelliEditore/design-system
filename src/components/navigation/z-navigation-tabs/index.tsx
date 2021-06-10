@@ -54,7 +54,7 @@ export class ZNavigationTabs {
       this.canNavigatePrev = this.tabsNav.scrollLeft > 0;
     } else if (this.orientation == TabOrientationEnum.vertical) {
       this.canNavigateNext = this.tabsNav.scrollTop + this.tabsNav.clientHeight < this.tabsNav.scrollHeight;
-      this.canNavigatePrev = this.tabsNav.scrollLeft > 0;
+      this.canNavigatePrev = this.tabsNav.scrollTop > 0;
     }
   }
 
