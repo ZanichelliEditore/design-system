@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortingOrientation, TableHeaderSize, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -858,6 +858,26 @@ export namespace Components {
     interface ZRegistroTableHead {
     }
     interface ZRegistroTableHeader {
+        /**
+          * Column ID
+         */
+        "id": string;
+        /**
+          * [Optional] Callback for sortable prop
+         */
+        "onSort": (sortingOrientation: SortingOrientation) => void;
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+        /**
+          * [Optional] Padding of the header
+         */
+        "size"?: TableHeaderSize;
+        /**
+          * [Optional] Make the header sortable
+         */
+        "sortable"?: boolean;
     }
     interface ZRegistroTableRow {
     }
@@ -2370,6 +2390,26 @@ declare namespace LocalJSX {
     interface ZRegistroTableHead {
     }
     interface ZRegistroTableHeader {
+        /**
+          * Column ID
+         */
+        "id"?: string;
+        /**
+          * [Optional] Callback for sortable prop
+         */
+        "onSort"?: (sortingOrientation: SortingOrientation) => void;
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+        /**
+          * [Optional] Padding of the header
+         */
+        "size"?: TableHeaderSize;
+        /**
+          * [Optional] Make the header sortable
+         */
+        "sortable"?: boolean;
     }
     interface ZRegistroTableRow {
     }

@@ -1,9 +1,66 @@
 :host {
   display: table-cell;
-  background-color: var(--gray50);
   border-bottom: var(--border-size-medium) solid var(--gray200);
-  padding: 20px calc(var(--space-unit) * 2);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   text-align: start;
+  position: relative;
+  user-select: none;
+}
+
+.container {
+  display: flex;
+  align-items: flex-end;
+}
+
+:host.sortable {
+  cursor: pointer;
+}
+
+/*
+Padding
+*/
+:host.size-x-small {
+  padding: calc(var(--space-unit) / 2);
+}
+:host.size-small {
+  padding: var(--space-unit);
+}
+:host.size-medium {
+  padding: calc(var(--space-unit) * 2);
+}
+:host.size-large {
+  padding: calc(var(--space-unit) * 3);
+}
+:host.size-special {
+  padding: 20px 40px;
+}
+
+/*
+Sorting arrow
+*/
+.arrow {
+  opacity: 1;
+  padding-left: var(--space-unit);
+}
+
+.arrow.hidden {
+  opacity: 0;
+}
+
+/*
+Contextual menu
+*/
+.popover-container {
+  position: absolute;
+  top: var(--space-unit);
+  right: var(--space-unit);
+  display: none;
+}
+.popover-container.visible {
+  display: block;
+}
+
+:host:hover .popover-container {
+  display: block;
 }

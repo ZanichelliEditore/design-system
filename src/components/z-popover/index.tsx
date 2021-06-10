@@ -44,9 +44,10 @@ export class ZPopover {
     }
   }
 
-  handleClick() {
+  handleClick(event) {
     this.isVisible = !this.isVisible;
     this.checkSpaceAvailable();
+    event.stopPropagation();
   }
 
   @Listen("click", { target: "body", capture: true })
@@ -126,7 +127,7 @@ export class ZPopover {
   render() {
     return (
       <Host>
-        <div onClick={() => this.handleClick()}>
+        <div onClick={(event) => this.handleClick(event)}>
           <slot name="trigger"></slot>
         </div>
         <div
