@@ -69,9 +69,7 @@ export class ZNavigationTabs {
     for (let i = 0; i < children.length; i++) {
       const child = children[i];
       if (child.tagName === 'Z-NAVIGATION-TAB') {
-        if (child === tab) {
-          (child as unknown as ZNavigationTab).selected = true;
-        } else {
+        if (child !== tab) {
           (child as unknown as ZNavigationTab).selected = false;
         }
       }

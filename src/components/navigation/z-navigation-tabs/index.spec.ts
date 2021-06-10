@@ -13,6 +13,14 @@ describe("Suite test ZNavigationTabs", () => {
           <z-icon name="house" slot="icon"></z-icon>
           <span slot="label">Home</span>
         </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="app-switcher" slot="icon"></z-icon>
+          <span slot="label">App</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="download" slot="icon"></z-icon>
+          <span slot="label">Download</span>
+        </z-navigation-tab>
       </z-navigation-tabs>
     `});
 
@@ -26,6 +34,14 @@ describe("Suite test ZNavigationTabs", () => {
         <z-navigation-tab orientation="horizontal">
           <z-icon name="house" slot="icon"></z-icon>
           <span slot="label">Home</span>
+        </z-navigation-tab>
+        <z-navigation-tab orientation="horizontal">
+          <z-icon name="app-switcher" slot="icon"></z-icon>
+          <span slot="label">App</span>
+        </z-navigation-tab>
+        <z-navigation-tab orientation="horizontal">
+          <z-icon name="download" slot="icon"></z-icon>
+          <span slot="label">Download</span>
         </z-navigation-tab>
       </z-navigation-tabs>
     `);
