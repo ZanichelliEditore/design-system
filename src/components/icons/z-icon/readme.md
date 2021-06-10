@@ -24,6 +24,7 @@
 
 ### Used by
 
+ - [z-app-header](../../navigation/z-app-header)
  - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
  - [z-button-filter](../../buttons/z-button-filter)
@@ -51,6 +52,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  z-app-header --> z-icon
   z-app-switcher --> z-icon
   z-button --> z-icon
   z-button-filter --> z-icon

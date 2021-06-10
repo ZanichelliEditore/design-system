@@ -11,6 +11,26 @@ import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZAppHeader {
+        /**
+          * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
+         */
+        "drawer": boolean;
+        /**
+          * Control menu bar position in the header. **Optional**
+         */
+        "flow": 'auto'|'stack';
+        /**
+          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
+         */
+        "hero": string;
+        /**
+          * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
+         */
+        "overlay": boolean;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
+         */
+        "stuck": boolean;
     }
     interface ZAppSwitcher {
         /**
@@ -569,6 +589,11 @@ export namespace Components {
           * @default false
          */
         "floating"?: boolean;
+        /**
+          * The opening state of the menu.
+          * @default false
+         */
+        "open": boolean;
     }
     interface ZMenuDropdown {
         /**
@@ -1427,6 +1452,26 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ZAppHeader {
+        /**
+          * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
+         */
+        "drawer"?: boolean;
+        /**
+          * Control menu bar position in the header. **Optional**
+         */
+        "flow"?: 'auto'|'stack';
+        /**
+          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
+         */
+        "hero"?: string;
+        /**
+          * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
+         */
+        "overlay"?: boolean;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
+         */
+        "stuck"?: boolean;
     }
     interface ZAppSwitcher {
         /**
@@ -2037,6 +2082,11 @@ declare namespace LocalJSX {
           * The menu has been opened.
          */
         "onOpened"?: (event: CustomEvent<any>) => void;
+        /**
+          * The opening state of the menu.
+          * @default false
+         */
+        "open"?: boolean;
     }
     interface ZMenuDropdown {
         /**
