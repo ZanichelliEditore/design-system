@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.2](https://github.com/ZanichelliEditore/design-system/compare/v2.3.1...v2.3.2) (2021-06-10)
+
+
+### Bug Fixes
+
+* tertiary button text color; update design tokens ([f9826ae](https://github.com/ZanichelliEditore/design-system/commit/f9826aeb24df4861afc26a2eb765526a46817f7f))
+
 ### [2.3.1](https://github.com/ZanichelliEditore/design-system/compare/v2.3.0...v2.3.1) (2021-06-10)
 
 
