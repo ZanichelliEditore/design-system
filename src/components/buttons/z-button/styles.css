@@ -177,8 +177,8 @@ button.tertiary,
 :host([variant="tertiary"]) ::slotted(a) {
   background-color: transparent;
   border-color: transparent;
-  color: var(--color-primary03);
-  fill: var(--color-primary03);
+  color: var(--color-primary01);
+  fill: var(--color-primary01);
 }
 
 button.tertiary.hasContent {
