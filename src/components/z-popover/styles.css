@@ -162,19 +162,19 @@ Arrows
 .popover-content-container.after-down:before {
   top: 12px;
   left: -4px;
-  box-shadow: -1px 1px 1px var(--shadow-arrow-color);
+  box-shadow: -1px 1px 1.5px var(--shadow-arrow-color);
 }
 
 .popover-content-container.after-center:before {
   top: calc(50% - 4px);
   left: -4px;
-  box-shadow: -1px 1px 1px var(--shadow-arrow-color);
+  box-shadow: -1px 1px 1.5px var(--shadow-arrow-color);
 }
 
 .popover-content-container.after-up:before {
   bottom: 12px;
   left: -4px;
-  box-shadow: -1px 1px 1px var(--shadow-arrow-color);
+  box-shadow: -1px 1px 1.5px var(--shadow-arrow-color);
 }
 
 .popover-content-container.below-right:before {
@@ -198,37 +198,37 @@ Arrows
 .popover-content-container.before-down:before {
   top: 12px;
   right: -4px;
-  box-shadow: 1px -1px 1px var(--shadow-arrow-color);
+  box-shadow: 1px -1px 1.5px var(--shadow-arrow-color);
 }
 
 .popover-content-container.before-center:before {
   top: calc(50% - 4px);
   right: -4px;
-  box-shadow: 1px -1px 1px var(--shadow-arrow-color);
+  box-shadow: 1px -1px 1.5px var(--shadow-arrow-color);
 }
 
 .popover-content-container.before-up:before {
   bottom: 12px;
   right: -4px;
-  box-shadow: 1px -1px 1px var(--shadow-arrow-color);
+  box-shadow: 1px -1px 1.5px var(--shadow-arrow-color);
 }
 
 .popover-content-container.above-right:before {
   left: 12px;
   bottom: -4px;
-  box-shadow: 1px 1px 1px var(--shadow-arrow-color);
+  box-shadow: 1px 1px 1.5px var(--shadow-arrow-color);
 }
 
 .popover-content-container.above-center:before {
   left: calc(50% - 4px);
   bottom: -4px;
-  box-shadow: 1px 1px 1px var(--shadow-arrow-color);
+  box-shadow: 1px 1px 1.5px var(--shadow-arrow-color);
 }
 
 .popover-content-container.above-left:before {
   right: 12px;
   bottom: -4px;
-  box-shadow: 1px 1px 1px var(--shadow-arrow-color);
+  box-shadow: 1px 1px 1.5px var(--shadow-arrow-color);
 }
 
 /** Show/Hide arrow */
