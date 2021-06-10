@@ -157,6 +157,10 @@ export enum keybordKeyCodeEnum {
   ARROW_DOWN = 40,
 }
 
+export enum KeyboardKeys {
+  ESC = "Escape",
+}
+
 export type SelectItemBean = {
   id: string;
   name: string;
@@ -169,6 +173,38 @@ export type ThemeVariantBean = keyof typeof ThemeVariant;
 export enum ThemeVariant {
   dark = "dark",
   light = "light",
+}
+
+export enum PopoverPosition {
+  "after-down" = "after-down",
+  "after-center" = "after-center",
+  "after-up" = "after-up",
+
+  "below-right" = "below-right",
+  "below-center" = "below-center",
+  "below-left" = "below-left",
+
+  "before-down" = "before-down",
+  "before-center" = "before-center",
+  "before-up" = "before-up",
+
+  "above-right" = "above-right",
+  "above-center" = "above-center",
+  "above-left" = "above-left",
+}
+
+export enum PopoverBorderRadius {
+  "none" = "none",
+  small = "small",
+  medium = "medium",
+}
+
+export enum PopoverShadow {
+  "shadow-0" = "shadow-0",
+  "shadow-1" = "shadow-1",
+  "shadow-2" = "shadow-2",
+  "shadow-3" = "shadow-3",
+  "shadow-4" = "shadow-4",
 }
 
 export enum DividerSize {
