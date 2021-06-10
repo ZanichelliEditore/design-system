@@ -362,7 +362,7 @@
     margin-bottom: calc(var(--space-unit) * 2);
   }
 
-  :host(:not([flow='stack'])) .menu-container {
+  .menu-container {
     margin-top: var(--space-unit);
   }
 }
@@ -390,7 +390,7 @@
     margin-bottom: 0;
   }
 
-  :host(:not([flow='stack'])) .menu-container {
+  .menu-container {
     margin-top: calc(var(--space-unit) * 3);
   }
 }
