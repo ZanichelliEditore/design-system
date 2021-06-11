@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -26,7 +28,7 @@ export class ZRegistroTableHeader {
   @Element() host: HTMLElement;
 
   /** Column ID */
-  @Prop() id: string;
+  @Prop() columnId: string;
 
   /** [Optional] Padding of the header */
   @Prop() size?: TableHeaderSize = TableHeaderSize["medium"];
@@ -37,18 +39,24 @@ export class ZRegistroTableHeader {
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
-  /** [Optional] Callback for sortable prop */
-  @Prop() onSort: (sortingOrientation: SortingOrientation) => void = () => {};
-
   @State() isMenuOpened: boolean = false;
 
   @State() sortingOrientation: SortingOrientation = SortingOrientation["none"];
+
+  constructor() {
+    this.emitOnSort = this.emitOnSort.bind(this);
+  }
+
+  /** [Optional] callback for sorting */
+  @Event() onSort: EventEmitter;
+  emitOnSort() {
+    this.onSort.emit({ sortingOrientation: this.sortingOrientation });
+  }
 
   handleSort() {
     if (!this.sortable) {
       return;
     }
-    console.log(`ID: ${this.id}`);
     if (
       this.sortingOrientation === SortingOrientation["none"] ||
       this.sortingOrientation === SortingOrientation["desc"]
@@ -58,7 +66,7 @@ export class ZRegistroTableHeader {
       this.sortingOrientation = SortingOrientation["desc"];
     }
 
-    this.onSort(this.sortingOrientation);
+    this.emitOnSort();
   }
 
   handleMenuClick() {
@@ -87,7 +95,10 @@ export class ZRegistroTableHeader {
       (elem: any) => elem.nodeName.toLowerCase() === "z-registro-table-header"
     );
 
-    if (parent && parent.id !== this.id) {
+    if (
+      parent &&
+      parent.attributes.getNamedItem("column-id").value !== this.columnId
+    ) {
       this.sortingOrientation = SortingOrientation["none"];
     }
   }

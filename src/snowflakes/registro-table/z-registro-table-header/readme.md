@@ -13,11 +13,17 @@
 
 | Property     | Attribute     | Description                            | Type                                                                                                                                       | Default                     |
 | ------------ | ------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
-| `id`         | `id`          | Column ID                              | `string`                                                                                                                                   | `undefined`                 |
-| `onSort`     | --            | [Optional] Callback for sortable prop  | `(sortingOrientation: SortingOrientation) => void`                                                                                         | `() => {}`                  |
+| `columnId`   | `column-id`   | Column ID                              | `string`                                                                                                                                   | `undefined`                 |
 | `showButton` | `show-button` | [Optional] Show contextual menu button | `boolean`                                                                                                                                  | `undefined`                 |
 | `size`       | `size`        | [Optional] Padding of the header       | `TableHeaderSize.large \| TableHeaderSize.medium \| TableHeaderSize.small \| TableHeaderSize.special \| typeof TableHeaderSize["x-small"]` | `TableHeaderSize["medium"]` |
 | `sortable`   | `sortable`    | [Optional] Make the header sortable    | `boolean`                                                                                                                                  | `undefined`                 |
+
+
+## Events
+
+| Event    | Description                     | Type               |
+| -------- | ------------------------------- | ------------------ |
+| `onSort` | [Optional] callback for sorting | `CustomEvent<any>` |
 
 
 ## Dependencies
