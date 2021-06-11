@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-3793b368.js');
-const utils = require('./utils-ba7c80d8.js');
-require('./index-d94b0948.js');
+const utils = require('./utils-3f1f4b8b.js');
+require('./index-80c730c5.js');
 
 const stylesCss = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>div{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0, 0, 0, 0.7);width:100%;height:100%;z-index:1000;overflow:auto;overflow:-moz-scrollbars-none;-ms-overflow-style:none;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center}:host>div::-webkit-scrollbar{width:0 !important}:host>div>div{z-index:1010;width:100%;margin:0;background:var(--bg-white)}:host>div>div>header{display:flex;flex-wrap:nowrap;flex-direction:row;justify-content:space-between;align-items:stretch;align-content:space-between;background:var(--bg-grey-050)}:host>div>div>header>z-icon{cursor:pointer;fill:var(--myz-blue);margin:calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);transform:scale(0.9)}:host>div>div>header>div{margin:calc(var(--space-unit) * 2) calc(var(--space-unit) * 2)}:host>div>div>header>div>h1,:host>div>div>header>div>h2{font-family:var(--dashboard-font);font-weight:var(--font-rg);color:var(--text-grey-800);margin:0;padding:0}:host>div>div>header>div>h1{font-size:20px;line-height:28px}:host>div>div>header>div>h2{font-size:16px;line-height:24px;margin-top:var(--space-unit)}:host>div>div>main{background:white;overflow:hidden}@media only screen and (min-width: 768px){:host>div>div{width:auto;min-width:300px;min-height:300px;margin-top:calc(var(--space-unit) * 6);background:none}:host>div>div>header{border-radius:var(--border-radius) var(--border-radius) 0 0}:host>div>div>header>z-icon{margin:calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 3) calc(var(--space-unit) * 1.5) 0px;transform:scale(1)}:host>div>div>header>div{margin:calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 3)}:host>div>div>main{border-radius:0 0 var(--border-radius) var(--border-radius)}:host>div>div>div.bottomBackground{background:transparent;height:calc(var(--space-unit) * 4)}}";
 

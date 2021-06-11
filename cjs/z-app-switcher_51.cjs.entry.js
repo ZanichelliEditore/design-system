@@ -3,9 +3,9 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-3793b368.js');
-const index$1 = require('./index-d94b0948.js');
+const index$1 = require('./index-80c730c5.js');
 const breakpoints = require('./breakpoints-62fb2006.js');
-const utils = require('./utils-ba7c80d8.js');
+const utils = require('./utils-3f1f4b8b.js');
 
 const stylesCss$N = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
 
@@ -152,7 +152,7 @@ var classnames = createCommonjsModule(function (module) {
 }());
 });
 
-const stylesCss$L = ":host{display:inline-block;--z-icon-width:16px;--z-icon-height:16px;--z-icon-right-margin:var(--space-unit)}button:disabled,::slotted(button:disabled){pointer-events:none}button,::slotted(button),::slotted(a){box-sizing:border-box;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);vertical-align:middle;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;width:100%}button.big,:host([size=\"big\"]) ::slotted(button),:host([size=\"big\"]) ::slotted(a){height:44px;min-width:44px}button.small,:host([size=\"small\"]) ::slotted(button),:host([size=\"small\"]) ::slotted(a){height:36px;min-width:36px}button.issmall,:host([issmall]) ::slotted(button),:host([issmall]) ::slotted(a){height:36px;min-width:36px}button.x-small,:host([size=\"x-small\"]) ::slotted(button),:host([size=\"x-small\"]) ::slotted(a){height:32px;min-width:32px}button:not(.square),:host(:not([square])) ::slotted(button),:host(:not([square])) ::slotted(a){min-width:calc(var(--space-unit) * 8);padding:0 calc(var(--space-unit) * 2)}button.square,:host([square]){--z-icon-right-margin:0}button.primary,:host([variant=\"primary\"]) ::slotted(button),:host([variant=\"primary\"]) ::slotted(a){background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse);fill:var(--color-text-inverse)}@media (hover: hover){button.primary:hover,:host([variant=\"primary\"]) ::slotted(button:hover),:host([variant=\"primary\"]) ::slotted(a:hover){background-color:var(--color-hover-primary);border-color:var(--color-hover-primary);color:var(--color-text-inverse);fill:var(--color-text-inverse)}}button.primary:focus:focus-visible,:host([variant=\"primary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"primary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse);fill:var(--color-text-inverse);box-shadow:var(--shadow-1)}button.primary:active,:host([variant=\"primary\"]) ::slotted(button:active),:host([variant=\"primary\"]) ::slotted(a:active){background-color:var(--color-active-primary);border-color:var(--color-active-primary);color:var(--color-text-inverse);fill:var(--color-text-inverse);box-shadow:var(--shadow-2)}button:disabled,:host([variant=\"primary\"]) ::slotted(button:disabled){background-color:var(--color-disabled01);border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled02)}button.secondary,:host([variant=\"secondary\"]) ::slotted(button),:host([variant=\"secondary\"]) ::slotted(a){background-color:var(--color-surface02);border-color:var(--color-primary01);color:var(--color-primary01);fill:var(--color-primary01)}@media (hover: hover){button.secondary:hover,:host([variant=\"secondary\"]) ::slotted(button:hover),:host([variant=\"secondary\"]) ::slotted(a:hover){background-color:var(--color-surface02);border-color:var(--color-hover-primary);color:var(--color-hover-primary);fill:var(--color-hover-primary)}}button.secondary:focus:focus-visible,:host([variant=\"secondary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"secondary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-surface02);border-color:var(--color-primary01);color:var(--color-primary01);fill:var(--color-primary01);box-shadow:var(--shadow-1)}button.secondary:active,:host([variant=\"secondary\"]) ::slotted(button:active),:host([variant=\"secondary\"]) ::slotted(a:active){background-color:var(--color-surface02);border-color:var(--color-active-primary);color:var(--color-active-primary);fill:var(--color-active-primary);box-shadow:var(--shadow-2)}button.secondary:disabled,:host([variant=\"secondary\"]) ::slotted(button:disabled){background-color:var(--color-surface02);border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled02)}button.tertiary,:host([variant=\"tertiary\"]) ::slotted(button),:host([variant=\"tertiary\"]) ::slotted(a){background-color:transparent;border-color:transparent;color:var(--color-primary03);fill:var(--color-primary03)}button.tertiary.hasContent{padding:0 var(--space-unit)}@media (hover: hover){button.tertiary:hover,:host([variant=\"tertiary\"]) ::slotted(button:hover),:host([variant=\"tertiary\"]) ::slotted(a:hover){background-color:var(--color-primary03);border-color:var(--color-primary03);color:var(--color-hover-primary);fill:var(--color-hover-primary)}}button.tertiary:focus:focus-visible,:host([variant=\"tertiary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"tertiary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-surface02);border-color:var(--color-surface02);color:var(--color-primary01);fill:var(--color-primary01);box-shadow:var(--shadow-1)}button.tertiary:active,:host([variant=\"tertiary\"]) ::slotted(button:active),:host([variant=\"tertiary\"]) ::slotted(a:active){background-color:var(--color-surface02);border-color:var(--color-surface02);color:var(--color-active-primary);fill:var(--color-active-primary);box-shadow:var(--shadow-2)}button.tertiary:disabled,:host([variant=\"tertiary\"]) ::slotted(button:disabled){background-color:transparent;border-color:transparent;color:var(--color-disabled02);fill:var(--color-disabled02)}";
+const stylesCss$L = ":host{display:inline-block;--z-icon-width:16px;--z-icon-height:16px;--z-icon-right-margin:var(--space-unit)}button:disabled,::slotted(button:disabled){pointer-events:none}button,::slotted(button),::slotted(a){box-sizing:border-box;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);vertical-align:middle;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;width:100%}button.big,:host([size=\"big\"]) ::slotted(button),:host([size=\"big\"]) ::slotted(a){height:44px;min-width:44px}button.small,:host([size=\"small\"]) ::slotted(button),:host([size=\"small\"]) ::slotted(a){height:36px;min-width:36px}button.issmall,:host([issmall]) ::slotted(button),:host([issmall]) ::slotted(a){height:36px;min-width:36px}button.x-small,:host([size=\"x-small\"]) ::slotted(button),:host([size=\"x-small\"]) ::slotted(a){height:32px;min-width:32px}button:not(.square),:host(:not([square])) ::slotted(button),:host(:not([square])) ::slotted(a){min-width:calc(var(--space-unit) * 8);padding:0 calc(var(--space-unit) * 2)}button.square,:host([square]){--z-icon-right-margin:0}button.primary,:host([variant=\"primary\"]) ::slotted(button),:host([variant=\"primary\"]) ::slotted(a){background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse);fill:var(--color-text-inverse)}@media (hover: hover){button.primary:hover,:host([variant=\"primary\"]) ::slotted(button:hover),:host([variant=\"primary\"]) ::slotted(a:hover){background-color:var(--color-hover-primary);border-color:var(--color-hover-primary);color:var(--color-text-inverse);fill:var(--color-text-inverse)}}button.primary:focus:focus-visible,:host([variant=\"primary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"primary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse);fill:var(--color-text-inverse);box-shadow:var(--shadow-1)}button.primary:active,:host([variant=\"primary\"]) ::slotted(button:active),:host([variant=\"primary\"]) ::slotted(a:active){background-color:var(--color-active-primary);border-color:var(--color-active-primary);color:var(--color-text-inverse);fill:var(--color-text-inverse);box-shadow:var(--shadow-2)}button:disabled,:host([variant=\"primary\"]) ::slotted(button:disabled){background-color:var(--color-disabled01);border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled02)}button.secondary,:host([variant=\"secondary\"]) ::slotted(button),:host([variant=\"secondary\"]) ::slotted(a){background-color:var(--color-surface02);border-color:var(--color-primary01);color:var(--color-primary01);fill:var(--color-primary01)}@media (hover: hover){button.secondary:hover,:host([variant=\"secondary\"]) ::slotted(button:hover),:host([variant=\"secondary\"]) ::slotted(a:hover){background-color:var(--color-surface02);border-color:var(--color-hover-primary);color:var(--color-hover-primary);fill:var(--color-hover-primary)}}button.secondary:focus:focus-visible,:host([variant=\"secondary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"secondary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-surface02);border-color:var(--color-primary01);color:var(--color-primary01);fill:var(--color-primary01);box-shadow:var(--shadow-1)}button.secondary:active,:host([variant=\"secondary\"]) ::slotted(button:active),:host([variant=\"secondary\"]) ::slotted(a:active){background-color:var(--color-surface02);border-color:var(--color-active-primary);color:var(--color-active-primary);fill:var(--color-active-primary);box-shadow:var(--shadow-2)}button.secondary:disabled,:host([variant=\"secondary\"]) ::slotted(button:disabled){background-color:var(--color-surface02);border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled02)}button.tertiary,:host([variant=\"tertiary\"]) ::slotted(button),:host([variant=\"tertiary\"]) ::slotted(a){background-color:transparent;border-color:transparent;color:var(--color-primary01);fill:var(--color-primary01)}button.tertiary.hasContent{padding:0 var(--space-unit)}@media (hover: hover){button.tertiary:hover,:host([variant=\"tertiary\"]) ::slotted(button:hover),:host([variant=\"tertiary\"]) ::slotted(a:hover){background-color:var(--color-primary03);border-color:var(--color-primary03);color:var(--color-hover-primary);fill:var(--color-hover-primary)}}button.tertiary:focus:focus-visible,:host([variant=\"tertiary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"tertiary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-surface02);border-color:var(--color-surface02);color:var(--color-primary01);fill:var(--color-primary01);box-shadow:var(--shadow-1)}button.tertiary:active,:host([variant=\"tertiary\"]) ::slotted(button:active),:host([variant=\"tertiary\"]) ::slotted(a:active){background-color:var(--color-surface02);border-color:var(--color-surface02);color:var(--color-active-primary);fill:var(--color-active-primary);box-shadow:var(--shadow-2)}button.tertiary:disabled,:host([variant=\"tertiary\"]) ::slotted(button:disabled){background-color:transparent;border-color:transparent;color:var(--color-disabled02);fill:var(--color-disabled02)}";
 
 const ZButton = class {
   constructor(hostRef) {
@@ -4656,9 +4656,10 @@ const ZPopover = class {
       this.closePopover();
     }
   }
-  handleClick() {
+  handleClick(event) {
     this.isVisible = !this.isVisible;
     this.checkSpaceAvailable();
+    event.stopPropagation();
   }
   handleOutsideClick(e) {
     const tree = utils.getElementTree(e.target);
@@ -4721,7 +4722,7 @@ const ZPopover = class {
     this.position = index$1.PopoverPosition[`${firstSide}-${secondSide}`];
   }
   render() {
-    return (index.h(index.Host, null, index.h("div", { onClick: () => this.handleClick() }, index.h("slot", { name: "trigger" })), index.h("div", { ref: (e) => (this.popoverElem = e), class: classnames("popover-content-container", this.position, `border-radius-${this.borderRadius}`, this.boxShadow, { "show-arrow": this.showArrow }, { visible: this.isVisible }), style: {
+    return (index.h(index.Host, null, index.h("div", { onClick: (event) => this.handleClick(event) }, index.h("slot", { name: "trigger" })), index.h("div", { ref: (e) => (this.popoverElem = e), class: classnames("popover-content-container", this.position, `border-radius-${this.borderRadius}`, this.boxShadow, { "show-arrow": this.showArrow }, { visible: this.isVisible }), style: {
         backgroundColor: `var(--${this.backgroundColor})`,
       } }, index.h("slot", { name: "popover" }))));
   }
@@ -4809,17 +4810,68 @@ const ZRegistroTableHead = class {
 };
 ZRegistroTableHead.style = stylesCss$a;
 
-const stylesCss$9 = ".sc-z-registro-table-header-h{display:table-cell;background-color:var(--gray50);border-bottom:var(--border-size-medium) solid var(--gray200);padding:20px calc(var(--space-unit) * 2);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start}";
+const stylesCss$9 = ".sc-z-registro-table-header-h{display:table-cell;background-color:var(--gray50);border-bottom:var(--border-size-medium) solid var(--gray200);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start;position:relative}.container.sc-z-registro-table-header{display:flex;align-items:flex-end}.sortable.sc-z-registro-table-header-h{cursor:pointer}.size-x-small.sc-z-registro-table-header-h{padding:calc(var(--space-unit) / 2)}.size-small.sc-z-registro-table-header-h{padding:var(--space-unit)}.size-medium.sc-z-registro-table-header-h{padding:calc(var(--space-unit) * 2)}.size-large.sc-z-registro-table-header-h{padding:calc(var(--space-unit) * 3)}.size-special.sc-z-registro-table-header-h{padding:20px 40px}.arrow.sc-z-registro-table-header{opacity:1;padding-left:var(--space-unit)}.arrow.hidden.sc-z-registro-table-header{opacity:0}.popover-container.sc-z-registro-table-header{position:absolute;top:var(--space-unit);right:var(--space-unit);display:none}.popover-container.visible.sc-z-registro-table-header{display:block}.sc-z-registro-table-header-h:hover .popover-container.sc-z-registro-table-header{display:block}";
 
 const ZRegistroTableHeader = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
+    this.sort = index.createEvent(this, "sort", 7);
+    /** [Optional] Padding of the header */
+    this.size = index$1.TableHeaderSize["medium"];
+    this.isMenuOpened = false;
+    this.sortingOrientation = index$1.SortingOrientation["none"];
+    this.emitOnSort = this.emitOnSort.bind(this);
+  }
+  emitOnSort() {
+    this.sort.emit({ sortingOrientation: this.sortingOrientation });
+  }
+  handleSort() {
+    if (!this.sortable) {
+      return;
+    }
+    if (this.sortingOrientation === index$1.SortingOrientation["none"] ||
+      this.sortingOrientation === index$1.SortingOrientation["desc"]) {
+      this.sortingOrientation = index$1.SortingOrientation["asc"];
+    }
+    else if (this.sortingOrientation === index$1.SortingOrientation["asc"]) {
+      this.sortingOrientation = index$1.SortingOrientation["desc"];
+    }
+    this.emitOnSort();
+  }
+  handleMenuClick() {
+    this.isMenuOpened = !this.isMenuOpened;
+  }
+  handleOutsideClick(e) {
+    const tree = utils.getElementTree(e.target);
+    const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-popover");
+    if (!parent) {
+      this.isMenuOpened = false;
+    }
+  }
+  handleClickHeaders(e) {
+    if (!this.sortable) {
+      return;
+    }
+    const tree = utils.getElementTree(e.target);
+    const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-registro-table-header");
+    if (parent &&
+      parent.attributes.getNamedItem("column-id").value !== this.columnId) {
+      this.sortingOrientation = index$1.SortingOrientation["none"];
+    }
   }
   componentWillRender() {
     this.host.setAttribute("role", "columnheader");
   }
   render() {
-    return index.h("slot", null);
+    return (index.h(index.Host, { class: classnames(`size-${this.size}`, {
+        sortable: this.sortable,
+      }), onClick: () => this.handleSort() }, index.h("div", { class: classnames("container") }, index.h("slot", null), this.sortable && (index.h("z-icon", { name: this.sortingOrientation === index$1.SortingOrientation["asc"]
+        ? "arrow-up"
+        : "arrow-down", class: classnames("arrow", {
+        hidden: this.sortingOrientation === index$1.SortingOrientation["none"],
+      }) }))), this.showButton && (index.h("div", { class: classnames("popover-container", {
+        visible: this.isMenuOpened,
+      }) }, index.h("z-popover", { position: index$1.PopoverPosition["below-center"], "background-color": "gray200" }, index.h("z-button", { icon: "contextual-menu", variant: index$1.ButtonVariantEnum["tertiary"], size: index$1.ButtonSizeEnum["x-small"], square: true, slot: "trigger", onClick: () => this.handleMenuClick() }), index.h("div", { slot: "popover" }, index.h("slot", { name: "contextual-menu" })))))));
   }
   get host() { return index.getElement(this); }
 };

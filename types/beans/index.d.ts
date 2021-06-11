@@ -187,3 +187,15 @@ export declare enum DividerOrientation {
   horizontal = "horizontal",
   vertical = "vertical"
 }
+export declare enum TableHeaderSize {
+  "x-small" = "x-small",
+  small = "small",
+  medium = "medium",
+  large = "large",
+  special = "special"
+}
+export declare enum SortingOrientation {
+  asc = "asc",
+  desc = "desc",
+  none = "none"
+}

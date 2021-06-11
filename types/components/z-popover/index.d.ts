@@ -15,7 +15,7 @@ export declare class ZPopover {
   private defaultPosition;
   closePopover(): void;
   closePopoverWithKeyboard(e: any): void;
-  handleClick(): void;
+  handleClick(event: any): void;
   handleOutsideClick(e: any): void;
   checkSpaceAvailable(): void;
   render(): any;

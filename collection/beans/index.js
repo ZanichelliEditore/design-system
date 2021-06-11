@@ -114,3 +114,17 @@ export var DividerOrientation;
   DividerOrientation["horizontal"] = "horizontal";
   DividerOrientation["vertical"] = "vertical";
 })(DividerOrientation || (DividerOrientation = {}));
+export var TableHeaderSize;
+(function (TableHeaderSize) {
+  TableHeaderSize["x-small"] = "x-small";
+  TableHeaderSize["small"] = "small";
+  TableHeaderSize["medium"] = "medium";
+  TableHeaderSize["large"] = "large";
+  TableHeaderSize["special"] = "special";
+})(TableHeaderSize || (TableHeaderSize = {}));
+export var SortingOrientation;
+(function (SortingOrientation) {
+  SortingOrientation["asc"] = "asc";
+  SortingOrientation["desc"] = "desc";
+  SortingOrientation["none"] = "none";
+})(SortingOrientation || (SortingOrientation = {}));

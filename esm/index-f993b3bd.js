@@ -114,5 +114,19 @@ var DividerOrientation;
   DividerOrientation["horizontal"] = "horizontal";
   DividerOrientation["vertical"] = "vertical";
 })(DividerOrientation || (DividerOrientation = {}));
+var TableHeaderSize;
+(function (TableHeaderSize) {
+  TableHeaderSize["x-small"] = "x-small";
+  TableHeaderSize["small"] = "small";
+  TableHeaderSize["medium"] = "medium";
+  TableHeaderSize["large"] = "large";
+  TableHeaderSize["special"] = "special";
+})(TableHeaderSize || (TableHeaderSize = {}));
+var SortingOrientation;
+(function (SortingOrientation) {
+  SortingOrientation["asc"] = "asc";
+  SortingOrientation["desc"] = "desc";
+  SortingOrientation["none"] = "none";
+})(SortingOrientation || (SortingOrientation = {}));
 
-export { ButtonTypeEnum as B, DividerSize as D, InputTypeEnum as I, KeyboardKeys as K, LicenseTypeEnum as L, PopoverPosition as P, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, PopoverBorderRadius as c, PopoverShadow as d, InputStatusEnum as e, TooltipPosition as f, DividerOrientation as g, keybordKeyCodeEnum as k };
+export { ButtonTypeEnum as B, DividerSize as D, InputTypeEnum as I, KeyboardKeys as K, LicenseTypeEnum as L, PopoverPosition as P, SortingOrientation as S, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, PopoverBorderRadius as c, PopoverShadow as d, TableHeaderSize as e, InputStatusEnum as f, TooltipPosition as g, DividerOrientation as h, keybordKeyCodeEnum as k };

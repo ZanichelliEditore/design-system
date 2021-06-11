@@ -116,3 +116,17 @@ exports.DividerOrientation = void 0;
   DividerOrientation["horizontal"] = "horizontal";
   DividerOrientation["vertical"] = "vertical";
 })(exports.DividerOrientation || (exports.DividerOrientation = {}));
+exports.TableHeaderSize = void 0;
+(function (TableHeaderSize) {
+  TableHeaderSize["x-small"] = "x-small";
+  TableHeaderSize["small"] = "small";
+  TableHeaderSize["medium"] = "medium";
+  TableHeaderSize["large"] = "large";
+  TableHeaderSize["special"] = "special";
+})(exports.TableHeaderSize || (exports.TableHeaderSize = {}));
+exports.SortingOrientation = void 0;
+(function (SortingOrientation) {
+  SortingOrientation["asc"] = "asc";
+  SortingOrientation["desc"] = "desc";
+  SortingOrientation["none"] = "none";
+})(exports.SortingOrientation || (exports.SortingOrientation = {}));

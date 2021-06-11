@@ -25,9 +25,10 @@ export class ZPopover {
       this.closePopover();
     }
   }
-  handleClick() {
+  handleClick(event) {
     this.isVisible = !this.isVisible;
     this.checkSpaceAvailable();
+    event.stopPropagation();
   }
   handleOutsideClick(e) {
     const tree = getElementTree(e.target);
@@ -91,7 +92,7 @@ export class ZPopover {
   }
   render() {
     return (h(Host, null,
-      h("div", { onClick: () => this.handleClick() },
+      h("div", { onClick: (event) => this.handleClick(event) },
         h("slot", { name: "trigger" })),
       h("div", { ref: (e) => (this.popoverElem = e), class: classNames("popover-content-container", this.position, `border-radius-${this.borderRadius}`, this.boxShadow, { "show-arrow": this.showArrow }, { visible: this.isVisible }), style: {
           backgroundColor: `var(--${this.backgroundColor})`,
