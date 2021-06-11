@@ -45,6 +45,7 @@
  - [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
  - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
+ - [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
  - [z-select](../../inputs/z-select)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-user-dropdown](../../navigation/z-user-dropdown)
@@ -73,6 +74,7 @@ graph TD;
   z-myz-card-alert --> z-icon
   z-myz-card-icon --> z-icon
   z-pagination-bar --> z-icon
+  z-registro-table-header --> z-icon
   z-select --> z-icon
   z-toggle-button --> z-icon
   z-user-dropdown --> z-icon
