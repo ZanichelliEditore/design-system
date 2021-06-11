@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/ZanichelliEditore/design-system/compare/v2.3.2...v2.4.0) (2021-06-11)
+
+
+### Features
+
+* **CLAV-69:** Add documentation for z-registro-table-header ([69b4e5d](https://github.com/ZanichelliEditore/design-system/commit/69b4e5d866bc318f8bdac5310b059b3333209111))
+* **CLAV-69:** Add documentation for z-registro-table-header ([84e8916](https://github.com/ZanichelliEditore/design-system/commit/84e89160148e5a6d237896fa7f4543b4d9387773))
+* **CLAV-69:** Add table-header component ([edefd7d](https://github.com/ZanichelliEditore/design-system/commit/edefd7d8721a970b5c2a4045516bc8fcb776db1d))
+* **CLAV-69:** fix ([d203995](https://github.com/ZanichelliEditore/design-system/commit/d203995a52e34c7540641795992bb7235f34e38b))
+
 ### [2.3.2](https://github.com/ZanichelliEditore/design-system/compare/v2.3.1...v2.3.2) (2021-06-10)
 
 
