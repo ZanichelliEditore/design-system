@@ -6,7 +6,6 @@
   font-weight: var(--font-sb);
   text-align: start;
   position: relative;
-  user-select: none;
 }
 
 .container {
