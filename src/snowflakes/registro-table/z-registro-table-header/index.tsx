@@ -48,9 +48,9 @@ export class ZRegistroTableHeader {
   }
 
   /** [Optional] callback for sorting */
-  @Event() onSort: EventEmitter;
+  @Event() sort: EventEmitter;
   emitOnSort() {
-    this.onSort.emit({ sortingOrientation: this.sortingOrientation });
+    this.sort.emit({ sortingOrientation: this.sortingOrientation });
   }
 
   handleSort() {

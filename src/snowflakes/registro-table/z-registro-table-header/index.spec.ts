@@ -136,14 +136,14 @@ describe("Suite test ZRegistroTableHeader", () => {
   it("Test render correct arrow after click on header", async () => {
     const page = await newSpecPage({
       components: [ZRegistroTableHeader],
-      html: `<z-registro-table-header sortable="true"></z-registro-table-header>`,
+      html: `<z-registro-table-header sortable="true" column-id="col-1"></z-registro-table-header>`,
     });
 
     page.root.click();
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <z-registro-table-header class="size-medium sortable" role="columnheader" sortable="true">
+      <z-registro-table-header class="size-medium sortable" role="columnheader" sortable="true"  column-id="col-1">
         <div class="container">
           <z-icon class="arrow" name="arrow-up"></z-icon>
         </div>
@@ -154,7 +154,7 @@ describe("Suite test ZRegistroTableHeader", () => {
   it("Test render correct arrow after click twice on header", async () => {
     const page = await newSpecPage({
       components: [ZRegistroTableHeader],
-      html: `<z-registro-table-header sortable="true"></z-registro-table-header>`,
+      html: `<z-registro-table-header sortable="true" column-id="col-1"></z-registro-table-header>`,
     });
 
     page.root.click();
@@ -163,7 +163,7 @@ describe("Suite test ZRegistroTableHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <z-registro-table-header class="size-medium sortable" role="columnheader" sortable="true">
+      <z-registro-table-header class="size-medium sortable" role="columnheader" sortable="true" column-id="col-1">
         <div class="container">
           <z-icon class="arrow" name="arrow-down"></z-icon>
         </div>

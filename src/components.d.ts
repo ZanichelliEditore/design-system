@@ -2393,7 +2393,7 @@ declare namespace LocalJSX {
         /**
           * [Optional] callback for sorting
          */
-        "onOnSort"?: (event: CustomEvent<any>) => void;
+        "onSort"?: (event: CustomEvent<any>) => void;
         /**
           * [Optional] Show contextual menu button
          */

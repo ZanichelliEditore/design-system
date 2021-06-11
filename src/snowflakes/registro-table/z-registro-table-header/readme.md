@@ -21,9 +21,9 @@
 
 ## Events
 
-| Event    | Description                     | Type               |
-| -------- | ------------------------------- | ------------------ |
-| `onSort` | [Optional] callback for sorting | `CustomEvent<any>` |
+| Event  | Description                     | Type               |
+| ------ | ------------------------------- | ------------------ |
+| `sort` | [Optional] callback for sorting | `CustomEvent<any>` |
 
 
 ## Dependencies
