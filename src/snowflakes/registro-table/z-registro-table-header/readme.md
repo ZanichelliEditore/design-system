@@ -11,10 +11,13 @@
 
 ## Properties
 
-| Property           | Attribute            | Description                            | Type                                                                                | Default                |
-| ------------------ | -------------------- | -------------------------------------- | ----------------------------------------------------------------------------------- | ---------------------- |
-| `showSorterButton` | `show-sorter-button` |                                        | `boolean`                                                                           | `undefined`            |
-| `size`             | `size`               | [Optional] Show contextual menu button | `TableHeaderSize.L \| TableHeaderSize.M \| TableHeaderSize.S \| TableHeaderSize.XS` | `TableHeaderSize["M"]` |
+| Property     | Attribute     | Description                            | Type                                                                                                                                       | Default                     |
+| ------------ | ------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
+| `id`         | `id`          | Column ID                              | `string`                                                                                                                                   | `undefined`                 |
+| `onSort`     | --            | [Optional] Callback for sortable prop  | `(sortingOrientation: SortingOrientation) => void`                                                                                         | `() => {}`                  |
+| `showButton` | `show-button` | [Optional] Show contextual menu button | `boolean`                                                                                                                                  | `undefined`                 |
+| `size`       | `size`        | [Optional] Padding of the header       | `TableHeaderSize.large \| TableHeaderSize.medium \| TableHeaderSize.small \| TableHeaderSize.special \| typeof TableHeaderSize["x-small"]` | `TableHeaderSize["medium"]` |
+| `sortable`   | `sortable`    | [Optional] Make the header sortable    | `boolean`                                                                                                                                  | `undefined`                 |
 
 
 ## Dependencies
@@ -22,11 +25,16 @@
 ### Depends on
 
 - [z-icon](../../../components/icons/z-icon)
+- [z-popover](../../../components/z-popover)
+- [z-button](../../../components/buttons/z-button)
 
 ### Graph
 ```mermaid
 graph TD;
   z-registro-table-header --> z-icon
+  z-registro-table-header --> z-popover
+  z-registro-table-header --> z-button
+  z-button --> z-icon
   style z-registro-table-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

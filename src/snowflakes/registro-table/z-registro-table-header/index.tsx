@@ -106,18 +106,18 @@ export class ZRegistroTableHeader {
       >
         <div class={classNames("container")}>
           <slot />
-          <z-icon
-            name={
-              this.sortingOrientation === SortingOrientation["asc"]
-                ? "arrow-up"
-                : "arrow-down"
-            }
-            class={classNames("arrow", {
-              hidden:
-                !this.sortable ||
-                this.sortingOrientation === SortingOrientation["none"],
-            })}
-          />
+          {this.sortable && (
+            <z-icon
+              name={
+                this.sortingOrientation === SortingOrientation["asc"]
+                  ? "arrow-up"
+                  : "arrow-down"
+              }
+              class={classNames("arrow", {
+                hidden: this.sortingOrientation === SortingOrientation["none"],
+              })}
+            />
+          )}
         </div>
 
         {this.showButton && (
