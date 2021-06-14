@@ -11,6 +11,7 @@
 | ---------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
 | `active`   | `active`   | Flag to set the active status of the menu.                                                                                                    | `boolean` | `undefined` |
 | `floating` | `floating` | Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise. | `boolean` | `false`     |
+| `open`     | `open`     | The opening state of the menu.                                                                                                                | `boolean` | `false`     |
 
 
 ## Events

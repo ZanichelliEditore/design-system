@@ -5,12 +5,32 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, TabOrientationBean, TabSizeBean, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, TableHeaderSize, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZAppHeader {
+        /**
+          * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
+         */
+        "drawer": boolean;
+        /**
+          * Control menu bar position in the header. **Optional**
+         */
+        "flow": 'auto'|'stack';
+        /**
+          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
+         */
+        "hero": string;
+        /**
+          * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
+         */
+        "overlay": boolean;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
+         */
+        "stuck": boolean;
     }
     interface ZAppSwitcher {
         /**
@@ -569,6 +589,11 @@ export namespace Components {
           * @default false
          */
         "floating"?: boolean;
+        /**
+          * The opening state of the menu.
+          * @default false
+         */
+        "open": boolean;
     }
     interface ZMenuDropdown {
         /**
@@ -872,6 +897,22 @@ export namespace Components {
     interface ZRegistroTableHead {
     }
     interface ZRegistroTableHeader {
+        /**
+          * Column ID
+         */
+        "columnId": string;
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+        /**
+          * [Optional] Padding of the header
+         */
+        "size"?: TableHeaderSize;
+        /**
+          * [Optional] Make the header sortable
+         */
+        "sortable"?: boolean;
     }
     interface ZRegistroTableRow {
     }
@@ -1455,6 +1496,26 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ZAppHeader {
+        /**
+          * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
+         */
+        "drawer"?: boolean;
+        /**
+          * Control menu bar position in the header. **Optional**
+         */
+        "flow"?: 'auto'|'stack';
+        /**
+          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
+         */
+        "hero"?: string;
+        /**
+          * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
+         */
+        "overlay"?: boolean;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
+         */
+        "stuck"?: boolean;
     }
     interface ZAppSwitcher {
         /**
@@ -2065,6 +2126,11 @@ declare namespace LocalJSX {
           * The menu has been opened.
          */
         "onOpened"?: (event: CustomEvent<any>) => void;
+        /**
+          * The opening state of the menu.
+          * @default false
+         */
+        "open"?: boolean;
     }
     interface ZMenuDropdown {
         /**
@@ -2413,6 +2479,26 @@ declare namespace LocalJSX {
     interface ZRegistroTableHead {
     }
     interface ZRegistroTableHeader {
+        /**
+          * Column ID
+         */
+        "columnId"?: string;
+        /**
+          * [Optional] callback for sorting
+         */
+        "onSort"?: (event: CustomEvent<any>) => void;
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+        /**
+          * [Optional] Padding of the header
+         */
+        "size"?: TableHeaderSize;
+        /**
+          * [Optional] Make the header sortable
+         */
+        "sortable"?: boolean;
     }
     interface ZRegistroTableRow {
     }

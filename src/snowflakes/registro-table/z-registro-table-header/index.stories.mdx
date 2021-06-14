@@ -1,0 +1,89 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { boolean, select } from "@storybook/addon-knobs";
+
+<Meta
+  title="RegistroTable/ZRegistroTableHeader"
+  component="z-registro-table-header"
+/>
+
+# ZRegistroTableHeader
+
+<Preview>
+  <Story name="ZRegistroTableHeader-sample">
+    {html`<z-registro-table bordered="true">
+      <z-registro-table-head>
+        <z-registro-table-row>
+          <z-registro-table-header
+            column-id="col-1"
+            sortable="${boolean("sortable", false)}"
+            show-button="${boolean("showButton", false)}"
+            size="${select(
+              "size",
+              ["x-small", "small", "medium", "large", "special"],
+              "medium"
+            )}"
+          >
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+          <z-registro-table-header
+            column-id="col-2"
+            sortable="${boolean("sortable", false)}"
+            show-button="${boolean("showButton", false)}"
+            size="${select(
+              "size",
+              ["x-small", "small", "medium", "large", "special"],
+              "medium"
+            )}"
+          >
+            <span>Titolo 2</span>
+          </z-registro-table-header>
+          <z-registro-table-header
+            column-id="col-3"
+            sortable="${boolean("sortable", false)}"
+            show-button="${boolean("showButton", false)}"
+            size="${select(
+              "size",
+              ["x-small", "small", "medium", "large", "special"],
+              "medium"
+            )}"
+          >
+            <span>Titolo 3</span>
+          </z-registro-table-header>
+          <z-registro-table-header
+            column-id="col-4"
+            sortable="${boolean("sortable", false)}"
+            show-button="${boolean("showButton", false)}"
+            size="${select(
+              "size",
+              ["x-small", "small", "medium", "large", "special"],
+              "medium"
+            )}"
+          >
+            <span>Titolo 4</span>
+          </z-registro-table-header>
+        </z-registro-table-row>
+      </z-registro-table-head>
+      <z-registro-table-body>
+        <z-registro-table-row>
+          <z-registro-table-cell>Valore</z-registro-table-cell>
+          <z-registro-table-cell>Valore</z-registro-table-cell>
+          <z-registro-table-cell>Valore</z-registro-table-cell>
+          <z-registro-table-cell>Valore</z-registro-table-cell>
+        </z-registro-table-row>
+      </z-registro-table-body>
+    </z-registro-table>`}
+  </Story>
+</Preview>
+
+<Props of="z-registro-table-header" />
+
+## Callback for sorting
+
+Pass **onSort** prop as a function that accepts an object structured like this:
+
+> { sortingOrientation: "asc" }
+
+## Note
+
+**columnId** prop is mandatory for sortable header otherwise there will be an error.

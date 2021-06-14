@@ -24,6 +24,7 @@
 
 ### Used by
 
+ - [z-app-header](../../navigation/z-app-header)
  - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
  - [z-button-filter](../../buttons/z-button-filter)
@@ -45,6 +46,7 @@
  - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
  - [z-navigation-tabs](../../navigation/z-navigation-tabs)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
+ - [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
  - [z-select](../../inputs/z-select)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-user-dropdown](../../navigation/z-user-dropdown)
@@ -52,6 +54,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  z-app-header --> z-icon
   z-app-switcher --> z-icon
   z-button --> z-icon
   z-button-filter --> z-icon
@@ -73,6 +76,7 @@ graph TD;
   z-myz-card-icon --> z-icon
   z-navigation-tabs --> z-icon
   z-pagination-bar --> z-icon
+  z-registro-table-header --> z-icon
   z-select --> z-icon
   z-toggle-button --> z-icon
   z-user-dropdown --> z-icon
