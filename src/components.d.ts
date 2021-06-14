@@ -154,6 +154,9 @@ export namespace Components {
     }
     interface ZCandybar {
     }
+    interface ZCardCover {
+        "shadowed": boolean;
+    }
     interface ZChip {
         "boldtext"?: number;
         "regulartext"?: string;
@@ -1091,6 +1094,12 @@ declare global {
         prototype: HTMLZCandybarElement;
         new (): HTMLZCandybarElement;
     };
+    interface HTMLZCardCoverElement extends Components.ZCardCover, HTMLStencilElement {
+    }
+    var HTMLZCardCoverElement: {
+        prototype: HTMLZCardCoverElement;
+        new (): HTMLZCardCoverElement;
+    };
     interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
     }
     var HTMLZChipElement: {
@@ -1412,6 +1421,7 @@ declare global {
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
+        "z-card-cover": HTMLZCardCoverElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
         "z-cookiebar": HTMLZCookiebarElement;
@@ -1622,6 +1632,9 @@ declare namespace LocalJSX {
         "sortlabeldesc"?: string;
     }
     interface ZCandybar {
+    }
+    interface ZCardCover {
+        "shadowed"?: boolean;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -2611,6 +2624,7 @@ declare namespace LocalJSX {
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
+        "z-card-cover": ZCardCover;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
         "z-cookiebar": ZCookiebar;
@@ -2677,6 +2691,7 @@ declare module "@stencil/core" {
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
+            "z-card-cover": LocalJSX.ZCardCover & JSXBase.HTMLAttributes<HTMLZCardCoverElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
