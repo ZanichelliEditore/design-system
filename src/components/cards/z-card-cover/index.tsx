@@ -8,34 +8,57 @@ import { Component, Prop, h, Element, State } from '@stencil/core';
 
 export class ZCardCover {
   @Prop({ reflect: true }) shadowed = false;
+  @Prop({ reflect: true }) overlay = false;
   // @Prop({ reflect: true }) bordered = false;
   // @Prop({ reflect: true }) clickable = false;
   @Element() host: HTMLElement;
-  @State() hasCover: boolean;
+  @State() hasCoverImage: boolean;
 
   componentWillLoad() {
-    this.hasCover = !!this.host.querySelector('[slot="cover"]');
+    this.hasCoverImage = !!this.host.querySelector('[slot="cover"]');
   }
 
-  render() {
+  /**
+   * Template for a card without image cover.
+   * A colored background replaces the image and some data is moved over it.
+   */
+  renderColorCoverCard() {
     return [
       <div class="cover-container">
-        {this.hasCover && <slot name="cover" />}
-        {!this.hasCover && <div class="color-cover">
-          <div class="color-cover-content">
+        <div class="color-cover">
+          <div class="content">
             <slot name="metadata" />
             <slot name="title" />
           </div>
-        </div>}
+        </div>
       </div>,
       <div class="content">
-        {this.hasCover && <slot name="metadata" />}
-        {this.hasCover && <slot name="title" />}
         <slot name="text" />
         <div class="actions">
           <slot name="action" />
         </div>
       </div>
     ];
+  }
+
+  render() {
+    if (this.overlay || this.hasCoverImage) {
+      return [
+        <div class="cover-container">
+          {this.hasCoverImage && <slot name="cover" />}
+          {!this.hasCoverImage && <div class="color-cover"></div>}
+        </div>,
+        <div class="content">
+          <slot name="metadata" />
+          <slot name="title" />
+          <slot name="text" />
+          <div class="actions">
+            <slot name="action" />
+          </div>
+        </div>
+      ];
+    }
+
+    return this.renderColorCoverCard();
   }
 }

@@ -1,31 +1,32 @@
+/* The width of the card must be set by its container,
+respecting the grid indications of the design. */
 :host {
+  /* Override this var to change the cover's aspect ratio */
+  --aspect-ratio: 1.62;
   --z-card-cover--border-color: var(--gray200);
   --z-card-cover--color-cover-background: var(--color-surface02);
-  /* Override this var to change the cover's aspect ratio */
-  --aspect-ratio: calc(16 / 9);
 
   position: relative;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
 
-.cover-container {
+:host(:not([overlay])) .cover-container {
   position: relative;
   width: 100%;
-  min-height: calc(var(--space-unit) * 20.75);
   margin-bottom: var(--space-unit);
 }
 
-.cover-container::before {
-  content: '';
-  display: block;
+/* Old good trick with percentage padding to keep the aspect ratio.
+Unfortunately the `aspect-ratio` property is still experimental */
+.cover-container {
   padding-bottom: calc(100% / var(--aspect-ratio));
 }
 
-.cover-container > ::slotted(:first-child),
-.cover-container > :first-child {
+::slotted([slot='cover']),
+.color-cover {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,14 +40,13 @@
   background-color: var(--z-card-cover--color-cover-background);
 }
 
-.color-cover-content {
-  padding: var(--space-unit);
-}
-
-.color-cover-content,
 .content {
   display: flex;
   flex-direction: column;
+}
+
+.color-cover .content {
+  padding: var(--space-unit);
 }
 
 ::slotted([slot='title']) {
@@ -83,7 +83,7 @@
   box-shadow: var(--shadow-2);
 }
 
-:host([shadowed]) .content {
+:host([shadowed]) > .content {
   padding: 0 var(--space-unit) calc(var(--space-unit) * 2);
 }
 
@@ -98,3 +98,17 @@
 :host([shadowed][clickable]:active) {
   box-shadow: none;
 } */
+
+/* Overlay */
+:host([overlay]) .content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: flex-end;
+  padding: var(--space-unit);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  color: var(--color-text-inverse);
+  fill: var(--color-text-inverse);
+}

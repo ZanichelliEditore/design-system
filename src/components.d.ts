@@ -155,6 +155,7 @@ export namespace Components {
     interface ZCandybar {
     }
     interface ZCardCover {
+        "overlay": boolean;
         "shadowed": boolean;
     }
     interface ZChip {
@@ -1634,6 +1635,7 @@ declare namespace LocalJSX {
     interface ZCandybar {
     }
     interface ZCardCover {
+        "overlay"?: boolean;
         "shadowed"?: boolean;
     }
     interface ZChip {

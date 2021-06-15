@@ -9,6 +9,7 @@
 
 | Property   | Attribute  | Description | Type      | Default |
 | ---------- | ---------- | ----------- | --------- | ------- |
+| `overlay`  | `overlay`  |             | `boolean` | `false` |
 | `shadowed` | `shadowed` |             | `boolean` | `false` |
 
 
