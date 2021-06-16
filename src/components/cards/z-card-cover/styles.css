@@ -59,13 +59,28 @@ Unfortunately the `aspect-ratio` property is still experimental */
   padding: var(--space-unit);
 }
 
+/* Truncates overflowing text */
+::slotted([slot='metadata']),
+::slotted([slot='title']),
+::slotted([slot='text']) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 ::slotted([slot='title']) {
   margin: 0;
+  -webkit-line-clamp: 2;
 }
 
 ::slotted([slot='metadata']:not(:last-child)) {
   margin: 0 0 calc(var(--space-unit) * 0.25);
+  -webkit-line-clamp: 1;
   text-transform: uppercase;
+}
+
+::slotted([slot='text']) {
+  -webkit-line-clamp: 3;
 }
 
 ::slotted([slot='text']),
@@ -95,6 +110,10 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 :host([shadowed]) > .content {
   padding: 0 var(--space-unit) calc(var(--space-unit) * 2);
+}
+
+:host([shadowed]) > .content .actions {
+  margin-top: auto;
 }
 
 /* :host([shadowed][clickable]:hover) {

@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                              | Type      | Default     |
-| ----------- | ------------ | ---------------------------------------- | --------- | ----------- |
-| `coverIcon` | `cover-icon` | Name of the icon to place over the cover | `string`  | `undefined` |
-| `overlay`   | `overlay`    |                                          | `boolean` | `false`     |
-| `shadowed`  | `shadowed`   |                                          | `boolean` | `false`     |
+| Property    | Attribute    | Description                                    | Type      | Default     |
+| ----------- | ------------ | ---------------------------------------------- | --------- | ----------- |
+| `coverIcon` | `cover-icon` | Name of the icon to place over the image cover | `string`  | `undefined` |
+| `overlay`   | `overlay`    |                                                | `boolean` | `false`     |
+| `shadowed`  | `shadowed`   |                                                | `boolean` | `false`     |
 
 
 ## Dependencies
