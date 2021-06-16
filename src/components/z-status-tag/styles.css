@@ -1,0 +1,21 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+
+  height: 22px;
+  border-radius: var(--border-radius);
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+.yellow.default {
+  background-color: var(--yellow50);
+  color: var(--yellow800);
+  fill: var(--yellow800);
+}
+
+:host.yellow.light {
+}
+
+:host.yellow.dark {
+}
