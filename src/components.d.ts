@@ -155,6 +155,10 @@ export namespace Components {
     interface ZCandybar {
     }
     interface ZCardCover {
+        /**
+          * Name of the icon to place over the image cover
+         */
+        "coverIcon": string;
         "overlay": boolean;
         "shadowed": boolean;
     }
@@ -1635,6 +1639,10 @@ declare namespace LocalJSX {
     interface ZCandybar {
     }
     interface ZCardCover {
+        /**
+          * Name of the icon to place over the image cover
+         */
+        "coverIcon"?: string;
         "overlay"?: boolean;
         "shadowed"?: boolean;
     }

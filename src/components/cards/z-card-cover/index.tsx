@@ -9,6 +9,8 @@ import { Component, Prop, h, Element, State } from '@stencil/core';
 export class ZCardCover {
   @Prop({ reflect: true }) shadowed = false;
   @Prop({ reflect: true }) overlay = false;
+  /** Name of the icon to place over the image cover */
+  @Prop() coverIcon: string;
   // @Prop({ reflect: true }) bordered = false;
   // @Prop({ reflect: true }) clickable = false;
   @Element() host: HTMLElement;
@@ -45,7 +47,10 @@ export class ZCardCover {
     if (this.overlay || this.hasCoverImage) {
       return [
         <div class="cover-container">
-          {this.hasCoverImage && <slot name="cover" />}
+          {this.hasCoverImage && [
+            <slot name="cover" />,
+            !this.overlay && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>
+          ]}
           {!this.hasCoverImage && <div class="color-cover"></div>}
         </div>,
         <div class="content">

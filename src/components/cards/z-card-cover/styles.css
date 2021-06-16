@@ -36,6 +36,16 @@ Unfortunately the `aspect-ratio` property is still experimental */
   object-position: center;
 }
 
+.cover-container > z-icon {
+  --z-icon-width: calc(var(--space-unit) * 11);
+  --z-icon-height: var(--z-icon-width);
+
+  position: absolute;
+  top: calc(50% - calc(var(--z-icon-height) / 2));
+  left: calc(50% - calc(var(--z-icon-width) / 2));
+  fill: var(--color-primary01);
+}
+
 .color-cover {
   background-color: var(--z-card-cover--color-cover-background);
 }

@@ -9,9 +9,22 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
   <Story name="ZCardCover with image">
     {html`
       <z-card-cover style="width: 356px;">
-        <img slot="cover"
-          src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg"
-        />
+        <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 class="heading-4-sb" slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card-cover>
+    `}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="ZCardCover with image and icon">
+    {html`
+      <z-card-cover cover-icon="play-filled" style="width: 356px;">
+        <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
         <h2 class="body-5" slot="metadata">metadata</h2>
         <h3 class="heading-4-sb" slot="title">Card title</h3>
         <p class="body-3" slot="text">Some description for the content of the card.</p>
