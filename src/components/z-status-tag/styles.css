@@ -1,4 +1,4 @@
-:host {
+z-status-tag {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 
@@ -6,16 +6,117 @@
   border-radius: var(--border-radius);
   padding-right: 4px;
   padding-left: 4px;
+  text-transform: uppercase;
+
+  display: inline-flex;
+  align-items: center;
 }
 
-.yellow.default {
-  background-color: var(--yellow50);
-  color: var(--yellow800);
-  fill: var(--yellow800);
+z-status-tag > z-icon:not(:last-child) {
+  margin-right: var(--space-unit);
 }
 
-:host.yellow.light {
+z-status-tag.expandable > z-body {
+  max-width: 0;
+  transition: max-width 1s;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-:host.yellow.dark {
+z-status-tag.expandable:hover {
+}
+
+/*Yellow status-tag styles*/
+z-status-tag.yellow.default {
+  background-color: var(--status-warning-yellow-lighter);
+  color: var(--status-warning-yellow-dark);
+  fill: var(--status-warning-yellow-dark);
+}
+
+z-status-tag.yellow.light {
+  background-color: transparent;
+  color: var(--status-warning-yellow-dark);
+  fill: var(--status-warning-yellow-dark);
+}
+
+z-status-tag.yellow.dark {
+  background-color: var(--status-warning-yellow-dark);
+  color: var(--text-white);
+  fill: var(--text-white);
+}
+
+/*Red status-tag styles*/
+z-status-tag.red.default {
+  background-color: var(--status-error-red-lighter);
+  color: var(--status-error-red-dark);
+  fill: var(--status-error-red-dark);
+}
+
+z-status-tag.red.light {
+  background-color: transparent;
+  color: var(--status-error-red-dark);
+  fill: var(--status-error-red-dark);
+}
+
+z-status-tag.red.dark {
+  background-color: var(--status-error-red-dark);
+  color: var(--text-white);
+  fill: var(--text-white);
+}
+
+/*Green status-tag styles*/
+z-status-tag.green.default {
+  background-color: var(--status-success-green-lighter);
+  color: var(--status-success-green-dark);
+  fill: var(--status-success-green-dark);
+}
+
+z-status-tag.green.light {
+  background-color: transparent;
+  color: var(--status-success-green-dark);
+  fill: var(--status-success-green-dark);
+}
+
+z-status-tag.green.dark {
+  background-color: var(--status-success-green-dark);
+  color: var(--text-white);
+  fill: var(--text-white);
+}
+
+/*Blue status-tag styles*/
+z-status-tag.blue.default {
+  background-color: var(--myz-blue-lighter);
+  color: var(--myz-blue-dark);
+  fill: var(--myz-blue-dark);
+}
+
+z-status-tag.blue.light {
+  background-color: transparent;
+  color: var(--myz-blue-dark);
+  fill: var(--myz-blue-dark);
+}
+
+z-status-tag.blue.dark {
+  background-color: var(--myz-blue-dark);
+  color: var(--text-white);
+  fill: var(--text-white);
+}
+
+/*Grey status-tag styles*/
+z-status-tag.grey.default {
+  background-color: var(--bg-grey-050);
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
+}
+
+z-status-tag.grey.light {
+  background-color: transparent;
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
+}
+
+z-status-tag.grey.dark {
+  background-color: var(--bg-grey-800);
+  color: var(--text-white);
+  fill: var(--text-white);
 }

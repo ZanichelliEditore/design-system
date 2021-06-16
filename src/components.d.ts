@@ -976,6 +976,10 @@ export namespace Components {
     }
     interface ZStatusTag {
         /**
+          * [optional] Hide the text and show it on hover
+         */
+        "expandable"?: boolean;
+        /**
           * [optional] Status tag icon
          */
         "icon"?: string;
@@ -2549,6 +2553,10 @@ declare namespace LocalJSX {
         "status"?: InputStatusBean;
     }
     interface ZStatusTag {
+        /**
+          * [optional] Hide the text and show it on hover
+         */
+        "expandable"?: boolean;
         /**
           * [optional] Status tag icon
          */

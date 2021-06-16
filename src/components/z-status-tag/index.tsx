@@ -5,13 +5,15 @@ import classNames from "classnames";
 @Component({
   tag: "z-status-tag",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
 })
 export class ZStatusTag {
   /** [optional] Status tag icon */
   @Prop() icon?: string;
   /** [optional] Status tag text */
   @Prop() text?: string;
+  /** [optional] Hide the text and show it on hover*/
+  @Prop() expandable?: boolean;
   /** [optional] Status tag color */
   @Prop() type?: StatusTagType = StatusTagType.blue;
   /** [optional] Status tag style */
@@ -27,9 +29,17 @@ export class ZStatusTag {
 
   render() {
     return (
-      <Host class={classNames(this.type, this.variant)}>
-        {this.icon && <z-icon name={this.icon} height={14} width={14} />}
-        {this.text && <span>{this.text}</span>}
+      <Host
+        class={classNames(this.type, this.variant, {
+          expandable: this.expandable && this.icon && this.text,
+        })}
+      >
+        {this.icon && <z-icon name={this.icon} height={30} width={30} />}
+        {this.text && (
+          <z-body level={5} variant="semibold">
+            {this.text}
+          </z-body>
+        )}
       </Host>
     );
   }
