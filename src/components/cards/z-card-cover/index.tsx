@@ -1,4 +1,5 @@
-import { Component, Prop, h, Element, State } from '@stencil/core';
+import { Component, Prop, h, Element, State, Listen, Event, EventEmitter } from '@stencil/core';
+import { CardVariants } from '../../../beans';
 
 @Component({
   tag: 'z-card-cover',
@@ -7,14 +8,32 @@ import { Component, Prop, h, Element, State } from '@stencil/core';
 })
 
 export class ZCardCover {
-  @Prop({ reflect: true }) shadowed = false;
-  @Prop({ reflect: true }) overlay = false;
+  @Prop({ reflect: true }) variant: string;
   /** Name of the icon to place over the image cover */
   @Prop() coverIcon: string;
-  // @Prop({ reflect: true }) bordered = false;
-  // @Prop({ reflect: true }) clickable = false;
+  @Prop({ reflect: true }) clickable = false;
+
   @Element() host: HTMLElement;
+
   @State() hasCoverImage: boolean;
+
+  @Event() cardClicked: EventEmitter;
+
+  @Listen('click')
+  onClick(ev: MouseEvent) {
+    // Do nothing for clicks on actions.
+    if ((ev.target as HTMLElement).getAttribute('slot') === 'action') {
+      return;
+    }
+
+    if (!this.clickable) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      return;
+    }
+
+    this.cardClicked.emit();
+  }
 
   componentWillLoad() {
     this.hasCoverImage = !!this.host.querySelector('[slot="cover"]');
@@ -28,7 +47,7 @@ export class ZCardCover {
     return [
       <div class="cover-container">
         <div class="color-cover">
-          <div class="content">
+          <div class="cover-content">
             <slot name="metadata" />
             <slot name="title" />
           </div>
@@ -44,12 +63,12 @@ export class ZCardCover {
   }
 
   render() {
-    if (this.overlay || this.hasCoverImage) {
+    if (this.variant === CardVariants.overlay || this.hasCoverImage) {
       return [
         <div class="cover-container">
           {this.hasCoverImage && [
             <slot name="cover" />,
-            !this.overlay && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>
+            (this.variant !== CardVariants.overlay) && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>
           ]}
           {!this.hasCoverImage && <div class="color-cover"></div>}
         </div>,

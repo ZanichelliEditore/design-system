@@ -155,12 +155,12 @@ export namespace Components {
     interface ZCandybar {
     }
     interface ZCardCover {
+        "clickable": boolean;
         /**
           * Name of the icon to place over the image cover
          */
         "coverIcon": string;
-        "overlay": boolean;
-        "shadowed": boolean;
+        "variant": string;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -1639,12 +1639,13 @@ declare namespace LocalJSX {
     interface ZCandybar {
     }
     interface ZCardCover {
+        "clickable"?: boolean;
         /**
           * Name of the icon to place over the image cover
          */
         "coverIcon"?: string;
-        "overlay"?: boolean;
-        "shadowed"?: boolean;
+        "onCardClicked"?: (event: CustomEvent<any>) => void;
+        "variant"?: string;
     }
     interface ZChip {
         "boldtext"?: number;

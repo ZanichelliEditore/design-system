@@ -1,5 +1,7 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean, select, radios } from "@storybook/addon-knobs";
+import { CardVariants } from "../../../beans";
 
 <Meta title="Cards/ZCardCover" component="z-card-cover" />
 
@@ -8,7 +10,11 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 <Preview>
   <Story name="ZCardCover with image">
     {html`
-      <z-card-cover style="width: 356px;">
+      <z-card-cover
+        .variant="${radios("Variant", { default: '', ...CardVariants }, '')}"
+        .clickable="${boolean("Clickable", false)}"
+        style="width: 356px;"
+      >
         <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
         <h2 class="body-5" slot="metadata">metadata</h2>
         <h3 class="heading-4-sb" slot="title">Card title</h3>
@@ -23,7 +29,12 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 <Preview>
   <Story name="ZCardCover with image and icon">
     {html`
-      <z-card-cover cover-icon="play-filled" style="width: 356px;">
+      <z-card-cover
+        cover-icon="play-filled"
+        .variant="${radios("Variant", { default: '', ...CardVariants }, '')}"
+        .clickable="${boolean("Clickable", false)}"
+        style="width: 356px;"
+      >
         <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
         <h2 class="body-5" slot="metadata">metadata</h2>
         <h3 class="heading-4-sb" slot="title">Card title</h3>
@@ -38,50 +49,11 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 <Preview>
   <Story name="ZCardCover color cover">
     {html`
-      <z-card-cover style="--z-card-cover--color-cover-background: orange; width: 356px;">
-        <h2 class="body-5" slot="metadata">metadata</h2>
-        <h3 class="heading-4-sb" slot="title">Card title</h3>
-        <p class="body-3" slot="text">Some description for the content of the card.</p>
-        <z-icon name="share" slot="action"></z-icon>
-        <z-icon name="delete" slot="action"></z-icon>
-      </z-card-cover>
-    `}
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="ZCardCover color cover shadowed">
-    {html`
-      <z-card-cover shadowed style="--z-card-cover--color-cover-background: orange; width: 356px;">
-        <h2 class="body-5" slot="metadata">metadata</h2>
-        <h3 class="heading-4-sb" slot="title">Card title</h3>
-        <p class="body-3" slot="text">Some description for the content of the card.</p>
-        <z-icon name="share" slot="action"></z-icon>
-        <z-icon name="delete" slot="action"></z-icon>
-      </z-card-cover>
-    `}
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="ZCardCover overlay variant - with image">
-    {html`
-      <z-card-cover overlay style="width: 356px;">
-        <img src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" slot="cover" />
-        <h2 class="body-5" slot="metadata">metadata</h2>
-        <h3 class="heading-4-sb" slot="title">Card title</h3>
-        <p class="body-3" slot="text">Some description for the content of the card.</p>
-        <z-icon name="share" slot="action"></z-icon>
-        <z-icon name="delete" slot="action"></z-icon>
-      </z-card-cover>
-    `}
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="ZCardCover overlay variant - color cover">
-    {html`
-      <z-card-cover overlay style="--z-card-cover--color-cover-background: orange; width: 356px;">
+      <z-card-cover
+        .variant="${radios("Variant", { default: '', ...CardVariants }, '')}"
+        .clickable="${boolean("Clickable", false)}"
+        style="--z-card-cover--color-cover-background: orange; width: 356px;"
+      >
         <h2 class="body-5" slot="metadata">metadata</h2>
         <h3 class="heading-4-sb" slot="title">Card title</h3>
         <p class="body-3" slot="text">Some description for the content of the card.</p>

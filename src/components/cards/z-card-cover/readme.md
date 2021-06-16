@@ -9,9 +9,16 @@
 
 | Property    | Attribute    | Description                                    | Type      | Default     |
 | ----------- | ------------ | ---------------------------------------------- | --------- | ----------- |
+| `clickable` | `clickable`  |                                                | `boolean` | `false`     |
 | `coverIcon` | `cover-icon` | Name of the icon to place over the image cover | `string`  | `undefined` |
-| `overlay`   | `overlay`    |                                                | `boolean` | `false`     |
-| `shadowed`  | `shadowed`   |                                                | `boolean` | `false`     |
+| `variant`   | `variant`    |                                                | `string`  | `undefined` |
+
+
+## Events
+
+| Event         | Description | Type               |
+| ------------- | ----------- | ------------------ |
+| `cardClicked` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

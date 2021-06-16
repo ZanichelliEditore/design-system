@@ -13,10 +13,9 @@ respecting the grid indications of the design. */
   font-weight: var(--font-rg);
 }
 
-:host(:not([overlay])) .cover-container {
+:host(:not([variant='overlay'])) .cover-container {
   position: relative;
   width: 100%;
-  margin-bottom: var(--space-unit);
 }
 
 /* Old good trick with percentage padding to keep the aspect ratio.
@@ -53,9 +52,12 @@ Unfortunately the `aspect-ratio` property is still experimental */
 .content {
   display: flex;
   flex-direction: column;
+  padding-top: var(--space-unit);
 }
 
-.color-cover .content {
+.color-cover .cover-content {
+  display: flex;
+  flex-direction: column;
   padding: var(--space-unit);
 }
 
@@ -96,6 +98,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
 .actions {
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin: var(--space-unit) 0 0;
 }
 
@@ -103,33 +106,67 @@ Unfortunately the `aspect-ratio` property is still experimental */
   margin-right: calc(var(--space-unit) * 1.5);
 }
 
-/* Shadowed */
-:host([shadowed]) {
-  box-shadow: var(--shadow-2);
+/* VARIANTS */
+:host([clickable]) {
+  cursor: pointer;
 }
 
-:host([shadowed]) > .content {
-  padding: 0 var(--space-unit) calc(var(--space-unit) * 2);
+:host([clickable]:focus:focus-visible) {
+  outline: none;
 }
 
-:host([shadowed]) > .content .actions {
+:host([variant='default'][clickable]:focus:focus-visible) {
+  padding: calc(var(--space-unit) * 0.5);
+  box-shadow: var(--shadow-focus-primary);
+}
+
+:host([variant='border']) > .content,
+:host([variant='shadow']) > .content {
+  height: 100%;
+  padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
+}
+
+:host([variant='border']) .actions,
+:host([variant='shadow']) .actions {
   margin-top: auto;
 }
 
-/* :host([shadowed][clickable]:hover) {
+/* Border */
+:host([variant='border']) {
+  border: var(--border-size-small) solid var(--z-card-cover--border-color);
+}
+
+:host([variant='border'][clickable]:hover) > .content {
+  background: var(--color-background);
+}
+
+:host([variant='border'][clickable]:focus:focus-visible) {
+  box-shadow: var(--shadow-focus-primary);
+}
+
+:host([variant='border'][clickable]:active) {
+  border: none;
+}
+
+/* Shadow */
+:host([variant='shadow']) {
+  box-shadow: var(--shadow-2);
+}
+
+:host([variant='shadow'][clickable]:hover) {
   box-shadow: var(--shadow-4);
 }
 
-:host([shadowed][clickable]:focus:focus-visible) {
+:host([variant='shadow'][clickable]:focus:focus-visible) {
   box-shadow: var(--shadow-4);
 }
 
-:host([shadowed][clickable]:active) {
+:host([variant='shadow'][clickable]:active) {
   box-shadow: none;
-} */
+}
 
 /* Overlay */
-:host([overlay]) .content {
+:host([variant='overlay']) .content {
   position: absolute;
   top: 0;
   right: 0;
