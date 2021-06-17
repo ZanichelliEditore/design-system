@@ -21,14 +21,11 @@
 ### Depends on
 
 - [z-icon](../icons/z-icon)
-- [z-body](../typography/z-body)
 
 ### Graph
 ```mermaid
 graph TD;
   z-status-tag --> z-icon
-  z-status-tag --> z-body
-  z-body --> z-typography
   style z-status-tag fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

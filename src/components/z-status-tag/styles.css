@@ -25,14 +25,14 @@ z-status-tag.expandable:hover > z-icon:not(:last-child) {
   margin-right: var(--space-unit);
 }
 
-z-status-tag.expandable > z-body {
+z-status-tag.expandable > span {
   max-width: 0;
   transition: max-width 1s;
   white-space: nowrap;
   overflow: hidden;
 }
 
-z-status-tag.expandable:hover > z-body {
+z-status-tag.expandable:hover > span {
   max-width: 12rem;
 }
 
