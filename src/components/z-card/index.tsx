@@ -1,5 +1,5 @@
 import { Component, Prop, h, Element, State, Listen, Event, EventEmitter } from '@stencil/core';
-import { CardVariants } from '../../../beans';
+import { CardVariants } from '../../beans';
 
 @Component({
   tag: 'z-card',

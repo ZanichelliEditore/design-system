@@ -9,24 +9,24 @@ Variants:
 - [x] Border
 - [x] Shadow
 - [x] Overlay
-- [] Text
+- [ ] Text
 
 Orientation:
 - [x] Vertical
-- [] Horizontal
+- [ ] Horizontal
 
 Interactions:
 - [x] Click
-- [] Multi select
-- [] Hover actions
-- [] Reveal
+- [ ] Multi select
+- [ ] Hover actions
+- [ ] Reveal
 
 Cover variants:
 - [x] Horizontal
-- [] Vertical
+- [ ] Vertical
 - [x] With icon
-- [] Square
-- [] Circle
+- [ ] Square
+- [ ] Circle
 
 ---
 ## Notes
@@ -59,7 +59,7 @@ The CSS variable `--aspect-radio` can be used to set the ratio of the cover (res
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../icons/z-icon)
 
 ### Graph
 ```mermaid

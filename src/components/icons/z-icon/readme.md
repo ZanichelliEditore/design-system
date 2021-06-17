@@ -29,7 +29,7 @@
  - [z-button](../../buttons/z-button)
  - [z-button-filter](../../buttons/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
- - [z-card](../../cards/z-card-cover)
+ - [z-card](../../z-card)
  - [z-combobox](../../inputs/z-combobox)
  - [z-footer-section](../../footer/z-footer-section)
  - [z-header](../../navigation/z-header)
