@@ -34,12 +34,8 @@ export class ZStatusTag {
           expandable: this.expandable && this.icon && this.text,
         })}
       >
-        {this.icon && <z-icon name={this.icon} height={14} width={14} />}
-        {this.text && (
-          <z-body level={5} variant="semibold">
-            {this.text}
-          </z-body>
-        )}
+        {this.icon && <z-icon name={this.icon} />}
+        {this.text && <span class="body-5-sb">{this.text}</span>}
       </Host>
     );
   }

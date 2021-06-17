@@ -1,4 +1,7 @@
 z-status-tag {
+  --z-icon-width: 14px;
+  --z-icon-height: 14px;
+
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 
