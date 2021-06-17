@@ -41,18 +41,18 @@ The CSS variable `--aspect-radio` can be used to set the ratio of the cover (res
 
 ## Properties
 
-| Property    | Attribute    | Description                                    | Type      | Default     |
-| ----------- | ------------ | ---------------------------------------------- | --------- | ----------- |
-| `clickable` | `clickable`  |                                                | `boolean` | `false`     |
-| `coverIcon` | `cover-icon` | Name of the icon to place over the image cover | `string`  | `undefined` |
-| `variant`   | `variant`    |                                                | `string`  | `undefined` |
+| Property    | Attribute    | Description                                                                                                 | Type                                                                 | Default     |
+| ----------- | ------------ | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------- |
+| `clickable` | `clickable`  | Enable click interactions on the card. Default: false                                                       | `boolean`                                                            | `false`     |
+| `coverIcon` | `cover-icon` | Name of the icon to place over the image cover                                                              | `string`                                                             | `undefined` |
+| `variant`   | `variant`    | Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card. | `CardVariants.border \| CardVariants.overlay \| CardVariants.shadow` | `undefined` |
 
 
 ## Events
 
-| Event         | Description      | Type               |
-| ------------- | ---------------- | ------------------ |
-| `cardClicked` | Card click event | `CustomEvent<any>` |
+| Event         | Description                                          | Type               |
+| ------------- | ---------------------------------------------------- | ------------------ |
+| `cardClicked` | Card click event. Fired only if `clickable` is true. | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -64,8 +64,8 @@ The CSS variable `--aspect-radio` can be used to set the ratio of the cover (res
 ### Graph
 ```mermaid
 graph TD;
-  z-card-cover --> z-icon
-  style z-card-cover fill:#f9f,stroke:#333,stroke-width:4px
+  z-card --> z-icon
+  style z-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

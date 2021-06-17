@@ -3,14 +3,14 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 import { text, boolean, select, radios } from "@storybook/addon-knobs";
 import { CardVariants } from "../../../beans";
 
-<Meta title="Cards/ZCardCover" component="z-card-cover" />
+<Meta title="Cards/ZCard" component="z-card" />
 
-# ZCardCover
+# ZCard
 
 <Preview>
-  <Story name="ZCardCover with image">
+  <Story name="ZCard with image">
     {html`
-      <z-card-cover
+      <z-card
         .variant="${radios("Variant", { default: '', ...CardVariants }, '')}"
         .clickable="${boolean("Clickable", false)}"
         style="width: 356px;"
@@ -21,15 +21,15 @@ import { CardVariants } from "../../../beans";
         <p class="body-3" slot="text">Some description for the content of the card.</p>
         <z-icon name="share" slot="action"></z-icon>
         <z-icon name="delete" slot="action"></z-icon>
-      </z-card-cover>
+      </z-card>
     `}
   </Story>
 </Preview>
 
 <Preview>
-  <Story name="ZCardCover with image and icon">
+  <Story name="ZCard with image and icon">
     {html`
-      <z-card-cover
+      <z-card
         cover-icon="play-filled"
         .variant="${radios("Variant", { default: '', ...CardVariants }, '')}"
         .clickable="${boolean("Clickable", false)}"
@@ -41,27 +41,27 @@ import { CardVariants } from "../../../beans";
         <p class="body-3" slot="text">Some description for the content of the card.</p>
         <z-icon name="share" slot="action"></z-icon>
         <z-icon name="delete" slot="action"></z-icon>
-      </z-card-cover>
+      </z-card>
     `}
   </Story>
 </Preview>
 
 <Preview>
-  <Story name="ZCardCover color cover">
+  <Story name="ZCard color cover">
     {html`
-      <z-card-cover
+      <z-card
         .variant="${radios("Variant", { default: '', ...CardVariants }, '')}"
         .clickable="${boolean("Clickable", false)}"
-        style="--z-card-cover--color-cover-background: orange; width: 356px;"
+        style="--z-card--color-cover-background: orange; width: 356px;"
       >
         <h2 class="body-5" slot="metadata">metadata</h2>
         <h3 class="heading-4-sb" slot="title">Card title</h3>
         <p class="body-3" slot="text">Some description for the content of the card.</p>
         <z-icon name="share" slot="action"></z-icon>
         <z-icon name="delete" slot="action"></z-icon>
-      </z-card-cover>
+      </z-card>
     `}
   </Story>
 </Preview>
 
-<Props of="z-card-cover" />
+<Props of="z-card" />

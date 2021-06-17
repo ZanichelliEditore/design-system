@@ -1,10 +1,11 @@
 /* The width of the card must be set by its container,
 respecting the grid indications of the design. */
+
 :host {
   /* Override this var to change the cover's aspect ratio */
   --aspect-ratio: 1.62;
-  --z-card-cover--border-color: var(--gray200);
-  --z-card-cover--color-cover-background: var(--color-surface02);
+  --z-card--border-color: var(--gray200);
+  --z-card--color-cover-background: var(--color-surface02);
 
   position: relative;
   display: flex;
@@ -46,7 +47,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
 }
 
 .color-cover {
-  background-color: var(--z-card-cover--color-cover-background);
+  background-color: var(--z-card--color-cover-background);
 }
 
 .content {
@@ -133,7 +134,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 /* Border */
 :host([variant='border']) {
-  border: var(--border-size-small) solid var(--z-card-cover--border-color);
+  border: var(--border-size-small) solid var(--z-card--border-color);
 }
 
 :host([variant='border'][clickable]:hover) > .content {

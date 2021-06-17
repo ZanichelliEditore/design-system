@@ -29,7 +29,7 @@
  - [z-button](../../buttons/z-button)
  - [z-button-filter](../../buttons/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
- - [z-card-cover](../../cards/z-card-cover)
+ - [z-card](../../cards/z-card-cover)
  - [z-combobox](../../inputs/z-combobox)
  - [z-footer-section](../../footer/z-footer-section)
  - [z-header](../../navigation/z-header)
@@ -59,7 +59,7 @@ graph TD;
   z-button --> z-icon
   z-button-filter --> z-icon
   z-button-sort --> z-icon
-  z-card-cover --> z-icon
+  z-card --> z-icon
   z-combobox --> z-icon
   z-footer-section --> z-icon
   z-header --> z-icon

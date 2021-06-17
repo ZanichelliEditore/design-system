@@ -2,12 +2,12 @@ import { Component, Prop, h, Element, State, Listen, Event, EventEmitter } from 
 import { CardVariants } from '../../../beans';
 
 @Component({
-  tag: 'z-card-cover',
+  tag: 'z-card',
   styleUrl: 'styles.css',
   shadow: true
 })
 
-export class ZCardCover {
+export class ZCard {
   /**
    * Card variant.
    * Can be one of "text", "border", "shadow", "overlay".
@@ -18,7 +18,7 @@ export class ZCardCover {
   /** Name of the icon to place over the image cover */
   @Prop() coverIcon: string;
 
-  /** Defines interactivity of the card. Default: false */
+  /** Enable click interactions on the card. Default: false */
   @Prop({ reflect: true }) clickable = false;
 
   @Element() host: HTMLElement;

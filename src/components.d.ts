@@ -154,9 +154,9 @@ export namespace Components {
     }
     interface ZCandybar {
     }
-    interface ZCardCover {
+    interface ZCard {
         /**
-          * Defines interactivity of the card. Default: false
+          * Enable click interactions on the card. Default: false
          */
         "clickable": boolean;
         /**
@@ -1105,11 +1105,11 @@ declare global {
         prototype: HTMLZCandybarElement;
         new (): HTMLZCandybarElement;
     };
-    interface HTMLZCardCoverElement extends Components.ZCardCover, HTMLStencilElement {
+    interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
     }
-    var HTMLZCardCoverElement: {
-        prototype: HTMLZCardCoverElement;
-        new (): HTMLZCardCoverElement;
+    var HTMLZCardElement: {
+        prototype: HTMLZCardElement;
+        new (): HTMLZCardElement;
     };
     interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
     }
@@ -1432,7 +1432,7 @@ declare global {
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
-        "z-card-cover": HTMLZCardCoverElement;
+        "z-card": HTMLZCardElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
         "z-cookiebar": HTMLZCookiebarElement;
@@ -1644,9 +1644,9 @@ declare namespace LocalJSX {
     }
     interface ZCandybar {
     }
-    interface ZCardCover {
+    interface ZCard {
         /**
-          * Defines interactivity of the card. Default: false
+          * Enable click interactions on the card. Default: false
          */
         "clickable"?: boolean;
         /**
@@ -2650,7 +2650,7 @@ declare namespace LocalJSX {
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
-        "z-card-cover": ZCardCover;
+        "z-card": ZCard;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
         "z-cookiebar": ZCookiebar;
@@ -2717,7 +2717,7 @@ declare module "@stencil/core" {
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
-            "z-card-cover": LocalJSX.ZCardCover & JSXBase.HTMLAttributes<HTMLZCardCoverElement>;
+            "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
