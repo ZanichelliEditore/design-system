@@ -12,7 +12,13 @@ z-status-tag {
   align-items: center;
 }
 
-z-status-tag > z-icon:not(:last-child) {
+z-status-tag.expandable > z-icon {
+  margin-right: 0;
+  transition: margin-right 1s;
+}
+
+z-status-tag:not(.expandable) > z-icon:not(:last-child),
+z-status-tag.expandable:hover > z-icon:not(:last-child) {
   margin-right: var(--space-unit);
 }
 
@@ -23,7 +29,8 @@ z-status-tag.expandable > z-body {
   overflow: hidden;
 }
 
-z-status-tag.expandable:hover {
+z-status-tag.expandable:hover > z-body {
+  max-width: 12rem;
 }
 
 /*Yellow status-tag styles*/
