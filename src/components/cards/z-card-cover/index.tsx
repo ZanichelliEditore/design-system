@@ -8,15 +8,27 @@ import { CardVariants } from '../../../beans';
 })
 
 export class ZCardCover {
-  @Prop({ reflect: true }) variant: string;
+  /**
+   * Card variant.
+   * Can be one of "text", "border", "shadow", "overlay".
+   * Leave it undefined for the default card.
+   */
+  @Prop({ reflect: true }) variant: CardVariants;
+
   /** Name of the icon to place over the image cover */
   @Prop() coverIcon: string;
+
+  /** Defines interactivity of the card. Default: false */
   @Prop({ reflect: true }) clickable = false;
 
   @Element() host: HTMLElement;
 
   @State() hasCoverImage: boolean;
 
+  /**
+   * Card click event.
+   * Fired only if `clickable` is true.
+   */
   @Event() cardClicked: EventEmitter;
 
   @Listen('click')

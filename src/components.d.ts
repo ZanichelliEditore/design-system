@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, TableHeaderSize, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, TableHeaderSize, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -155,12 +155,18 @@ export namespace Components {
     interface ZCandybar {
     }
     interface ZCardCover {
+        /**
+          * Defines interactivity of the card. Default: false
+         */
         "clickable": boolean;
         /**
           * Name of the icon to place over the image cover
          */
         "coverIcon": string;
-        "variant": string;
+        /**
+          * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
+         */
+        "variant": CardVariants;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -1639,13 +1645,22 @@ declare namespace LocalJSX {
     interface ZCandybar {
     }
     interface ZCardCover {
+        /**
+          * Defines interactivity of the card. Default: false
+         */
         "clickable"?: boolean;
         /**
           * Name of the icon to place over the image cover
          */
         "coverIcon"?: string;
+        /**
+          * Card click event. Fired only if `clickable` is true.
+         */
         "onCardClicked"?: (event: CustomEvent<any>) => void;
-        "variant"?: string;
+        /**
+          * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
+         */
+        "variant"?: CardVariants;
     }
     interface ZChip {
         "boldtext"?: number;
