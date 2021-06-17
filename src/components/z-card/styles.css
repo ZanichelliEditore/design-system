@@ -14,6 +14,11 @@ respecting the grid indications of the design. */
   font-weight: var(--font-rg);
 }
 
+*,
+::slotted(*) {
+  box-sizing: border-box;
+}
+
 :host(:not([variant='overlay'])) .cover-container {
   position: relative;
   width: 100%;
@@ -59,6 +64,8 @@ Unfortunately the `aspect-ratio` property is still experimental */
 .color-cover .cover-content {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
   padding: var(--space-unit);
 }
 
@@ -73,6 +80,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 ::slotted([slot='title']) {
   margin: 0;
+  font-weight: var(--font-sb);
   -webkit-line-clamp: 2;
 }
 
@@ -91,8 +99,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
   margin: 0;
 }
 
-* + ::slotted([slot='text']),
-* + ::slotted([slot='actions']) {
+* + ::slotted([slot='text']) {
   margin-top: var(--space-unit);
 }
 
