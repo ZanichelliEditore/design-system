@@ -32,7 +32,7 @@ Cover variants:
 ## Notes
 The width of the card must be set externally, respecting the grid indication of the design.
 
-The CSS variable `--aspect-radio` can be used to set the ratio of the cover (respecting the indications of the design). Default is `1.62`.
+The CSS variable `--aspect-ratio` can be used to set the ratio of the cover (respecting the indications of the design). Default is `1.62`.
 
 ---
 
