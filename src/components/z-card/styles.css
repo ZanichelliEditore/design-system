@@ -78,10 +78,14 @@ Unfortunately the `aspect-ratio` property is still experimental */
   overflow: hidden;
 }
 
-::slotted([slot='title']) {
+::slotted([slot='title']:not(:last-child)),
+::slotted([slot='text']:not(:last-child)) {
+  margin-bottom: var(--space-unit);
+}
+
+::slotted([slot='text']),
+::slotted([slot='actions']) {
   margin: 0;
-  font-weight: var(--font-sb);
-  -webkit-line-clamp: 2;
 }
 
 ::slotted([slot='metadata']:not(:last-child)) {
@@ -90,24 +94,20 @@ Unfortunately the `aspect-ratio` property is still experimental */
   text-transform: uppercase;
 }
 
+::slotted([slot='title']) {
+  margin: 0;
+  font-weight: var(--font-sb);
+  -webkit-line-clamp: 2;
+}
+
 ::slotted([slot='text']) {
   -webkit-line-clamp: 3;
-}
-
-::slotted([slot='text']),
-::slotted([slot='actions']) {
-  margin: 0;
-}
-
-* + ::slotted([slot='text']) {
-  margin-top: var(--space-unit);
 }
 
 .actions {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: var(--space-unit) 0 0;
 }
 
 ::slotted([slot='action']:not(:last-child)) {
@@ -123,7 +123,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
   outline: none;
 }
 
-:host([variant='default'][clickable]:focus:focus-visible) {
+:host(:not([variant])[clickable]:focus:focus-visible) {
   padding: calc(var(--space-unit) * 0.5);
   box-shadow: var(--shadow-focus-primary);
 }
