@@ -11,12 +11,16 @@ import { text, boolean, select } from "@storybook/addon-knobs";
     icon="${text("icon", "gear")}"
     text="${text("text", "in progress")}"
     expandable="${boolean("expandable", false)}"
-    type="${select(
-      "type",
-      ["yellow", "red", "green", "blue", "grey"],
-      "yellow"
+    status="${select(
+      "status",
+      ["warning", "error", "success", "default", "neutral"],
+      "warning"
     )}"
-    variant="${select("variant", ["default", "light", "dark"], "default")}"
+    variant="${select(
+      "variant",
+      ["default-theme", "light", "dark"],
+      "default-theme"
+    )}"
   ></z-status-tag>`}</Story>
 </Preview>
 

@@ -2,8 +2,7 @@ z-status-tag {
   --z-icon-width: 14px;
   --z-icon-height: 14px;
 
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
+  font-family: var(--font-family-sans);
 
   height: 22px;
   border-radius: var(--border-radius);
@@ -36,96 +35,96 @@ z-status-tag.expandable:hover > span {
   max-width: 12rem;
 }
 
-/*Yellow status-tag styles*/
-z-status-tag.yellow.default {
+/*Warning status-tag styles*/
+z-status-tag[status="warning"] {
   background-color: var(--status-warning-yellow-lighter);
   color: var(--status-warning-yellow-dark);
   fill: var(--status-warning-yellow-dark);
 }
 
-z-status-tag.yellow.light {
+z-status-tag[status="warning"].light {
   background-color: transparent;
   color: var(--status-warning-yellow-dark);
   fill: var(--status-warning-yellow-dark);
 }
 
-z-status-tag.yellow.dark {
+z-status-tag[status="warning"].dark {
   background-color: var(--status-warning-yellow-dark);
-  color: var(--text-white);
-  fill: var(--text-white);
+  color: var(--status-warning-yellow-lighter);
+  fill: var(--status-warning-yellow-lighter);
 }
 
-/*Red status-tag styles*/
-z-status-tag.red.default {
+/*Error status-tag styles*/
+z-status-tag[status="error"] {
   background-color: var(--status-error-red-lighter);
   color: var(--status-error-red-dark);
   fill: var(--status-error-red-dark);
 }
 
-z-status-tag.red.light {
+z-status-tag[status="error"].light {
   background-color: transparent;
   color: var(--status-error-red-dark);
   fill: var(--status-error-red-dark);
 }
 
-z-status-tag.red.dark {
+z-status-tag[status="error"].dark {
   background-color: var(--status-error-red-dark);
-  color: var(--text-white);
-  fill: var(--text-white);
+  color: var(--status-error-red-lighter);
+  fill: var(--status-error-red-lighter);
 }
 
-/*Green status-tag styles*/
-z-status-tag.green.default {
+/*Success status-tag styles*/
+z-status-tag[status="success"] {
   background-color: var(--status-success-green-lighter);
   color: var(--status-success-green-dark);
   fill: var(--status-success-green-dark);
 }
 
-z-status-tag.green.light {
+z-status-tag[status="success"].light {
   background-color: transparent;
   color: var(--status-success-green-dark);
   fill: var(--status-success-green-dark);
 }
 
-z-status-tag.green.dark {
+z-status-tag[status="success"].dark {
   background-color: var(--status-success-green-dark);
-  color: var(--text-white);
-  fill: var(--text-white);
+  color: var(--status-success-green-lighter);
+  fill: var(--status-success-green-lighter);
 }
 
-/*Blue status-tag styles*/
-z-status-tag.blue.default {
+/*Default status-tag styles*/
+z-status-tag[status="default"] {
   background-color: var(--myz-blue-lighter);
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
 }
 
-z-status-tag.blue.light {
+z-status-tag[status="default"].light {
   background-color: transparent;
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
 }
 
-z-status-tag.blue.dark {
+z-status-tag[status="default"].dark {
   background-color: var(--myz-blue-dark);
-  color: var(--text-white);
-  fill: var(--text-white);
+  color: var(--myz-blue-lighter);
+  fill: var(--myz-blue-lighter);
 }
 
-/*Grey status-tag styles*/
-z-status-tag.grey.default {
+/*Neutral status-tag styles*/
+z-status-tag[status="neutral"] {
   background-color: var(--bg-grey-050);
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
 }
 
-z-status-tag.grey.light {
+z-status-tag[status="neutral"].light {
   background-color: transparent;
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
 }
 
-z-status-tag.grey.dark {
+z-status-tag[status="neutral"].dark {
   background-color: var(--bg-grey-800);
   color: var(--text-white);
   fill: var(--text-white);

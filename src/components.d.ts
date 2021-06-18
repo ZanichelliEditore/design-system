@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagType, StatusTagVariant, TableHeaderSize, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagType, TableHeaderSize, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -984,17 +984,17 @@ export namespace Components {
          */
         "icon"?: string;
         /**
+          * [optional] Status tag color
+         */
+        "status"?: StatusTagType;
+        /**
           * [optional] Status tag text
          */
         "text"?: string;
         /**
-          * [optional] Status tag color
-         */
-        "type"?: StatusTagType;
-        /**
           * [optional] Status tag style
          */
-        "variant"?: StatusTagVariant;
+        "variant"?: ThemeVariant;
     }
     interface ZStepper {
     }
@@ -2562,17 +2562,17 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
+          * [optional] Status tag color
+         */
+        "status"?: StatusTagType;
+        /**
           * [optional] Status tag text
          */
         "text"?: string;
         /**
-          * [optional] Status tag color
-         */
-        "type"?: StatusTagType;
-        /**
           * [optional] Status tag style
          */
-        "variant"?: StatusTagVariant;
+        "variant"?: ThemeVariant;
     }
     interface ZStepper {
     }

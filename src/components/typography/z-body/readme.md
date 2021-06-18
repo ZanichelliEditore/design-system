@@ -17,7 +17,6 @@
 ### Used by
 
  - [z-modal-login](../../modal/z-modal-login)
- - [z-status-tag](../../z-status-tag)
 
 ### Depends on
 
@@ -28,7 +27,6 @@
 graph TD;
   z-body --> z-typography
   z-modal-login --> z-body
-  z-status-tag --> z-body
   style z-body fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

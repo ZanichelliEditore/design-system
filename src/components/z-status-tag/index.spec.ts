@@ -10,7 +10,7 @@ describe("Suite test ZStatusTag", () => {
     });
 
     expect(page.root).toEqualHtml(
-      `<z-status-tag class="blue default"></z-status-tag>`
+      `<z-status-tag status="default"></z-status-tag>`
     );
   });
 
@@ -21,7 +21,7 @@ describe("Suite test ZStatusTag", () => {
     });
 
     expect(page.root).toEqualHtml(
-      `<z-status-tag class="blue default" icon="gear"><z-icon name="gear" /></z-status-tag>`
+      `<z-status-tag status="default" icon="gear"><z-icon name="gear" /></z-status-tag>`
     );
   });
 
@@ -32,7 +32,7 @@ describe("Suite test ZStatusTag", () => {
     });
 
     expect(page.root).toEqualHtml(
-      `<z-status-tag class="blue default" text="in progress"><span class="body-5-sb">in progress</span></z-status-tag>`
+      `<z-status-tag status="default" text="in progress"><span class="body-5-sb">in progress</span></z-status-tag>`
     );
   });
 
@@ -43,7 +43,7 @@ describe("Suite test ZStatusTag", () => {
     });
 
     expect(page.root).toEqualHtml(
-      `<z-status-tag class="blue default" icon="gear" text="in progress">
+      `<z-status-tag icon="gear" status="default" text="in progress">
         <z-icon name="gear"></z-icon>
         <span class="body-5-sb">in progress</span>
       </z-status-tag>`
@@ -57,18 +57,18 @@ describe("Suite test ZStatusTag", () => {
     });
 
     expect(page.root).toEqualHtml(
-      `<z-status-tag class="blue default" expandable="true"></z-status-tag>`
+      `<z-status-tag status="default" expandable="true"></z-status-tag>`
     );
   });
 
-  it("Test type prop", async () => {
+  it("Test status prop", async () => {
     const page = await newSpecPage({
       components: [ZStatusTag],
-      html: `<z-status-tag type="yellow"></z-status-tag>`,
+      html: `<z-status-tag status="warning"></z-status-tag>`,
     });
 
     expect(page.root).toEqualHtml(
-      `<z-status-tag class="yellow default" type="yellow"></z-status-tag>`
+      `<z-status-tag status="warning"></z-status-tag>`
     );
   });
 
@@ -79,7 +79,7 @@ describe("Suite test ZStatusTag", () => {
     });
 
     expect(page.root).toEqualHtml(
-      `<z-status-tag class="blue dark" variant="dark"></z-status-tag>`
+      `<z-status-tag class="dark" status="default" variant="dark"></z-status-tag>`
     );
   });
 });

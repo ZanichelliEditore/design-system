@@ -236,16 +236,10 @@ export enum SortingOrientation {
   none = "none",
 }
 
-export enum StatusTagVariant {
-  default = "default",
-  light = "light",
-  dark = "dark",
-}
-
 export enum StatusTagType {
-  yellow = "yellow",
-  red = "red",
-  green = "green",
-  blue = "blue",
-  grey = "grey",
+  warning = "warning",
+  error = "error",
+  success = "success",
+  neutral = "neutral",
+  default = "default",
 }
