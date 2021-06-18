@@ -235,3 +235,9 @@ export enum SortingOrientation {
   desc = "desc",
   none = "none",
 }
+
+export enum AvatarSize {
+  small = "small",
+  medium = "medium",
+  large = "large",
+}
