@@ -236,7 +236,7 @@ export enum SortingOrientation {
   none = "none",
 }
 
-export enum StatusTagType {
+export enum StatusTagStatus {
   warning = "warning",
   error = "error",
   success = "success",

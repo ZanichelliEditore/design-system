@@ -16,23 +16,25 @@ z-status-tag {
 
 z-status-tag.expandable > z-icon {
   margin-right: 0;
-  transition: margin-right 1s;
+  transition: margin-right 0.3s ease-out 0.5s;
 }
 
 z-status-tag:not(.expandable) > z-icon:not(:last-child),
 z-status-tag.expandable:hover > z-icon:not(:last-child) {
   margin-right: var(--space-unit);
+  transition: margin-right 0.3s ease-out 0s;
 }
 
 z-status-tag.expandable > span {
   max-width: 0;
-  transition: max-width 1s;
+  transition: max-width 0.3s ease-out 0.5s;
   white-space: nowrap;
   overflow: hidden;
 }
 
 z-status-tag.expandable:hover > span {
-  max-width: 12rem;
+  max-width: 20rem;
+  transition: max-width 0.3s ease-out 0s;
 }
 
 /*Warning status-tag styles*/

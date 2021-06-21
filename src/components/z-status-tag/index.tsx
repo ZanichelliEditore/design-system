@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host } from "@stencil/core";
-import { StatusTagType, ThemeVariant } from "../../beans";
+import { StatusTagStatus, ThemeVariant } from "../../beans";
 import classNames from "classnames";
 
 @Component({
@@ -15,7 +15,7 @@ export class ZStatusTag {
   /** [optional] Hide the text and show it on hover*/
   @Prop() expandable?: boolean;
   /** [optional] Status tag color */
-  @Prop({ reflect: true }) status?: StatusTagType = StatusTagType.default;
+  @Prop({ reflect: true }) status?: StatusTagStatus = StatusTagStatus.default;
   /** [optional] Status tag style */
   @Prop() variant?: ThemeVariant;
 
@@ -33,7 +33,6 @@ export class ZStatusTag {
         class={classNames(this.variant, {
           expandable: this.expandable && this.icon && this.text,
         })}
-        status={this.status}
       >
         {this.icon && <z-icon name={this.icon} />}
         {this.text && <span class="body-5-sb">{this.text}</span>}
