@@ -128,5 +128,13 @@ var SortingOrientation;
   SortingOrientation["desc"] = "desc";
   SortingOrientation["none"] = "none";
 })(SortingOrientation || (SortingOrientation = {}));
+var StatusTagStatus;
+(function (StatusTagStatus) {
+  StatusTagStatus["warning"] = "warning";
+  StatusTagStatus["error"] = "error";
+  StatusTagStatus["success"] = "success";
+  StatusTagStatus["neutral"] = "neutral";
+  StatusTagStatus["default"] = "default";
+})(StatusTagStatus || (StatusTagStatus = {}));
 
-export { ButtonTypeEnum as B, DividerSize as D, InputTypeEnum as I, KeyboardKeys as K, LicenseTypeEnum as L, PopoverPosition as P, SortingOrientation as S, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, PopoverBorderRadius as c, PopoverShadow as d, TableHeaderSize as e, InputStatusEnum as f, TooltipPosition as g, DividerOrientation as h, keybordKeyCodeEnum as k };
+export { ButtonTypeEnum as B, DividerSize as D, InputTypeEnum as I, KeyboardKeys as K, LicenseTypeEnum as L, PopoverPosition as P, SortingOrientation as S, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, PopoverBorderRadius as c, PopoverShadow as d, TableHeaderSize as e, InputStatusEnum as f, StatusTagStatus as g, TooltipPosition as h, DividerOrientation as i, keybordKeyCodeEnum as k };

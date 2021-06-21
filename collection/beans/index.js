@@ -128,3 +128,11 @@ export var SortingOrientation;
   SortingOrientation["desc"] = "desc";
   SortingOrientation["none"] = "none";
 })(SortingOrientation || (SortingOrientation = {}));
+export var StatusTagStatus;
+(function (StatusTagStatus) {
+  StatusTagStatus["warning"] = "warning";
+  StatusTagStatus["error"] = "error";
+  StatusTagStatus["success"] = "success";
+  StatusTagStatus["neutral"] = "neutral";
+  StatusTagStatus["default"] = "default";
+})(StatusTagStatus || (StatusTagStatus = {}));

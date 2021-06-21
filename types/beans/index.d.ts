@@ -199,3 +199,10 @@ export declare enum SortingOrientation {
   desc = "desc",
   none = "none"
 }
+export declare enum StatusTagStatus {
+  warning = "warning",
+  error = "error",
+  success = "success",
+  neutral = "neutral",
+  default = "default"
+}

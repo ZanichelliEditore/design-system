@@ -130,3 +130,11 @@ exports.SortingOrientation = void 0;
   SortingOrientation["desc"] = "desc";
   SortingOrientation["none"] = "none";
 })(exports.SortingOrientation || (exports.SortingOrientation = {}));
+exports.StatusTagStatus = void 0;
+(function (StatusTagStatus) {
+  StatusTagStatus["warning"] = "warning";
+  StatusTagStatus["error"] = "error";
+  StatusTagStatus["success"] = "success";
+  StatusTagStatus["neutral"] = "neutral";
+  StatusTagStatus["default"] = "default";
+})(exports.StatusTagStatus || (exports.StatusTagStatus = {}));

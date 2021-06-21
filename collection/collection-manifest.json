@@ -44,6 +44,7 @@
     "./components/typography/z-heading/index.js",
     "./components/z-divider/index.js",
     "./components/z-popover/index.js",
+    "./components/z-status-tag/index.js",
     "./snowflakes/myz/card/z-myz-card/index.js",
     "./snowflakes/myz/card/z-myz-card-alert/index.js",
     "./snowflakes/myz/card/z-myz-card-body/index.js",
