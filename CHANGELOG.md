@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/ZanichelliEditore/design-system/compare/v2.4.0...v2.5.0) (2021-06-21)
+
+
+### Features
+
+* **clav-44:** add animation to status tag ([e9c62b9](https://github.com/ZanichelliEditore/design-system/commit/e9c62b91673fee6553efb69c4f9cfa94869e503b))
+* **CLAV-44:** add documentation to storybook ([0f80d0b](https://github.com/ZanichelliEditore/design-system/commit/0f80d0bb3b13ad5112871703151a0929a5837137))
+* **CLAV-44:** add style to z-status-tag component ([f2e27c2](https://github.com/ZanichelliEditore/design-system/commit/f2e27c245a4ccab648cd3b6924b05e04b5449c7a))
+* **CLAV-44:** add z-status-tag component ([34aff85](https://github.com/ZanichelliEditore/design-system/commit/34aff853ab0d4b46eb6ff1fb0df1c4bce9bce803))
+* **CLAV-44:** fix ([4a212c7](https://github.com/ZanichelliEditore/design-system/commit/4a212c7f24dcd1e1507895c665503da821f29d51))
+
+
+### Bug Fixes
+
+* **CLAV-44:** fix for pr comments ([71fe30f](https://github.com/ZanichelliEditore/design-system/commit/71fe30f021e675c6482587437c9466297650e339))
+* **CLAV-44:** fix for pr comments ([0518e23](https://github.com/ZanichelliEditore/design-system/commit/0518e23b3697b7a46c69d437cc3394e2528fc77d))
+* **CLAV-44:** fix for pr comments ([dfc49ff](https://github.com/ZanichelliEditore/design-system/commit/dfc49ff148712daef2f4980892eedb1d19c47d91))
+
 ## [2.4.0](https://github.com/ZanichelliEditore/design-system/compare/v2.3.2...v2.4.0) (2021-06-11)
 
 
