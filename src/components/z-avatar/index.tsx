@@ -5,7 +5,7 @@ import { AvatarSize } from "../../beans";
 @Component({
   tag: "z-avatar",
   styleUrl: "styles.css",
-  shadow: false,
+  shadow: true,
 })
 export class ZAvatar {
   /** [optional] Avatar size */
@@ -40,17 +40,13 @@ export class ZAvatar {
   render() {
     return (
       <Host
-        class={classNames(this.size)}
+        class={classNames(this.size, `body-${this.getTextSize()}-sb`)}
         style={{
           color: `var(--${this.textColor})`,
           backgroundColor: `var(--${this.backgroundColor})`,
         }}
       >
-        {this.text && !this.image && (
-          <span class={`body-${this.getTextSize()}-sb`}>
-            {this.text.substring(0, 2)}
-          </span>
-        )}
+        {this.text && !this.image && <span>{this.text.substring(0, 2)}</span>}
         {this.image && (
           <img src={this.image} onError={() => (this.image = "")} />
         )}

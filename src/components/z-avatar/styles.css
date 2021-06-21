@@ -1,6 +1,5 @@
-z-avatar {
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
+:host {
+  font-family: var(--font-family-sans);
 
   border-radius: 50%;
 
@@ -11,24 +10,24 @@ z-avatar {
   text-transform: uppercase;
 }
 
-z-avatar.small,
-z-avatar.small > img {
+:host(.small),
+:host(.small) > img {
   height: calc(var(--space-unit) * 3);
   width: calc(var(--space-unit) * 3);
 }
 
-z-avatar.medium,
-z-avatar.medium > img {
+:host(.medium),
+:host(.medium) > img {
   height: calc(var(--space-unit) * 4);
   width: calc(var(--space-unit) * 4);
 }
 
-z-avatar.large,
-z-avatar.large > img {
+:host(.large),
+:host(.large) > img {
   height: calc(var(--space-unit) * 5);
   width: calc(var(--space-unit) * 5);
 }
 
-z-avatar > img {
+:host > img {
   object-fit: cover;
 }
