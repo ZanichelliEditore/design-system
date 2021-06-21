@@ -24,6 +24,9 @@ export class ZNavigationTabs {
   @State() canNavigate: boolean;
   @State() canNavigatePrev: boolean;
   @State() canNavigateNext: boolean;
+  @State() direction : 'Top' | 'Left' = this.orientation == TabOrientationEnum.vertical ? 'Top' : 'Left';
+  @State() dimension : 'Height' | 'Width' = this.orientation == TabOrientationEnum.vertical ? 'Height' : 'Width';
+
 
   tabsNav: HTMLElement;
 
@@ -39,23 +42,14 @@ export class ZNavigationTabs {
   /** When resize check if the navigation buttons are needed */
   @Listen('resize', { target: 'window', passive: true })
   checkScrollVisible() {
-    if (this.orientation == TabOrientationEnum.horizontal) {
-      this.canNavigate = this.tabsNav.scrollWidth > this.tabsNav.clientWidth;
-    } else if (this.orientation == TabOrientationEnum.vertical) {
-      this.canNavigate = this.tabsNav.scrollHeight > this.tabsNav.clientHeight;
-    }
+    this.canNavigate = this.tabsNav[`scroll${this.dimension}`] > this.tabsNav[`client${this.dimension}`];
     this.checkScrollEnabled();
   }
 
   /** Check if navigation buttons can be enabled for each orientation */
   checkScrollEnabled() {
-    if (this.orientation == TabOrientationEnum.horizontal) {
-      this.canNavigateNext = this.tabsNav.scrollLeft + this.tabsNav.clientWidth < this.tabsNav.scrollWidth;
-      this.canNavigatePrev = this.tabsNav.scrollLeft > 0;
-    } else if (this.orientation == TabOrientationEnum.vertical) {
-      this.canNavigateNext = this.tabsNav.scrollTop + this.tabsNav.clientHeight < this.tabsNav.scrollHeight;
-      this.canNavigatePrev = this.tabsNav.scrollTop > 0;
-    }
+    this.canNavigateNext = this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] < this.tabsNav[`scroll${this.dimension}`];
+    this.canNavigatePrev = this.tabsNav[`scroll${this.direction}`] > 0;
   }
 
   @Listen('selected')
@@ -78,32 +72,18 @@ export class ZNavigationTabs {
 
   /** Scroll the navigation bar (half of its size) backward, based on orientation */
   navigatePrevious() {
-    if (this.orientation == TabOrientationEnum.vertical) {
-      this.tabsNav.scrollBy({
-        top: 0 - (this.tabsNav.clientHeight / 2),
-        behavior: 'smooth',
-      });
-    } else {
-      this.tabsNav.scrollBy({
-        left: 0 - (this.tabsNav.clientWidth / 2),
-        behavior: 'smooth',
-      });
-    }
+    this.tabsNav.scrollBy({
+      [this.direction.toLowerCase()]: 0 - (this.tabsNav[`client${this.dimension}`] / 2),
+      behavior: 'smooth',
+    });
   }
 
   /** Scroll the navigation bar (half of its size) forward, based on orientation */
   navigateNext() {
-    if (this.orientation == TabOrientationEnum.vertical) {
-      this.tabsNav.scrollBy({
-        top: this.tabsNav.scrollTop + (this.tabsNav.clientHeight / 2),
-        behavior: 'smooth',
-      });
-    } else {
-      this.tabsNav.scrollBy({
-        left: this.tabsNav.scrollTop + (this.tabsNav.clientWidth / 2),
-        behavior: 'smooth',
-      });
-    }
+    this.tabsNav.scrollBy({
+      [this.direction.toLowerCase()]: this.tabsNav.scrollTop + (this.tabsNav[`client${this.dimension}`] / 2),
+      behavior: 'smooth',
+    });
   }
 
   componentDidLoad() {

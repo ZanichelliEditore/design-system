@@ -1,6 +1,6 @@
 :host {
   position: relative;
-  display: flex;
+  display: grid;
   flex-direction: row;
   z-index: 0;
   font-family: var(--dashboard-font);
