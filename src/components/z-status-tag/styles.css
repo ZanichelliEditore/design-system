@@ -1,4 +1,4 @@
-z-status-tag {
+:host {
   --z-icon-width: 14px;
   --z-icon-height: 14px;
 
@@ -14,119 +14,119 @@ z-status-tag {
   align-items: center;
 }
 
-z-status-tag.expandable > z-icon {
+:host(.expandable) > z-icon {
   margin-right: 0;
   transition: margin-right 0.3s ease-out 0.5s;
 }
 
-z-status-tag:not(.expandable) > z-icon:not(:last-child),
-z-status-tag.expandable:hover > z-icon:not(:last-child) {
+:host(:not(.expandable)) > z-icon:not(:last-child),
+:host(.expandable:hover) > z-icon:not(:last-child) {
   margin-right: var(--space-unit);
   transition: margin-right 0.3s ease-out 0s;
 }
 
-z-status-tag.expandable > span {
+:host(.expandable) > span {
   max-width: 0;
   transition: max-width 0.3s ease-out 0.5s;
   white-space: nowrap;
   overflow: hidden;
 }
 
-z-status-tag.expandable:hover > span {
+:host(.expandable:hover) > span {
   max-width: 20rem;
   transition: max-width 0.3s ease-out 0s;
 }
 
 /*Warning status-tag styles*/
-z-status-tag[status="warning"] {
+:host([status="warning"]) {
   background-color: var(--status-warning-yellow-lighter);
   color: var(--status-warning-yellow-dark);
   fill: var(--status-warning-yellow-dark);
 }
 
-z-status-tag[status="warning"].light {
+:host([status="warning"].light) {
   background-color: transparent;
   color: var(--status-warning-yellow-dark);
   fill: var(--status-warning-yellow-dark);
 }
 
-z-status-tag[status="warning"].dark {
+:host([status="warning"].dark) {
   background-color: var(--status-warning-yellow-dark);
   color: var(--status-warning-yellow-lighter);
   fill: var(--status-warning-yellow-lighter);
 }
 
 /*Error status-tag styles*/
-z-status-tag[status="error"] {
+:host([status="error"]) {
   background-color: var(--status-error-red-lighter);
   color: var(--status-error-red-dark);
   fill: var(--status-error-red-dark);
 }
 
-z-status-tag[status="error"].light {
+:host([status="error"].light) {
   background-color: transparent;
   color: var(--status-error-red-dark);
   fill: var(--status-error-red-dark);
 }
 
-z-status-tag[status="error"].dark {
+:host([status="error"].dark) {
   background-color: var(--status-error-red-dark);
   color: var(--status-error-red-lighter);
   fill: var(--status-error-red-lighter);
 }
 
 /*Success status-tag styles*/
-z-status-tag[status="success"] {
+:host([status="success"]) {
   background-color: var(--status-success-green-lighter);
   color: var(--status-success-green-dark);
   fill: var(--status-success-green-dark);
 }
 
-z-status-tag[status="success"].light {
+:host([status="success"].light) {
   background-color: transparent;
   color: var(--status-success-green-dark);
   fill: var(--status-success-green-dark);
 }
 
-z-status-tag[status="success"].dark {
+:host([status="success"].dark) {
   background-color: var(--status-success-green-dark);
   color: var(--status-success-green-lighter);
   fill: var(--status-success-green-lighter);
 }
 
 /*Default status-tag styles*/
-z-status-tag[status="default"] {
+:host([status="default"]) {
   background-color: var(--myz-blue-lighter);
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
 }
 
-z-status-tag[status="default"].light {
+:host([status="default"].light) {
   background-color: transparent;
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
 }
 
-z-status-tag[status="default"].dark {
+:host([status="default"].dark) {
   background-color: var(--myz-blue-dark);
   color: var(--myz-blue-lighter);
   fill: var(--myz-blue-lighter);
 }
 
 /*Neutral status-tag styles*/
-z-status-tag[status="neutral"] {
+:host([status="neutral"]) {
   background-color: var(--bg-grey-050);
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
 }
 
-z-status-tag[status="neutral"].light {
+:host([status="neutral"].light) {
   background-color: transparent;
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
 }
 
-z-status-tag[status="neutral"].dark {
+:host([status="neutral"].dark) {
   background-color: var(--bg-grey-800);
   color: var(--text-white);
   fill: var(--text-white);

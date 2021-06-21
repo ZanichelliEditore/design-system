@@ -5,7 +5,7 @@ import classNames from "classnames";
 @Component({
   tag: "z-status-tag",
   styleUrl: "styles.css",
-  shadow: false,
+  shadow: true,
 })
 export class ZStatusTag {
   /** [optional] Status tag icon */
@@ -30,12 +30,12 @@ export class ZStatusTag {
   render() {
     return (
       <Host
-        class={classNames(this.variant, {
+        class={classNames(this.variant, "body-5-sb", {
           expandable: this.expandable && this.icon && this.text,
         })}
       >
         {this.icon && <z-icon name={this.icon} />}
-        {this.text && <span class="body-5-sb">{this.text}</span>}
+        {this.text && <span>{this.text}</span>}
       </Host>
     );
   }
