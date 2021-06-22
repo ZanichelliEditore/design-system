@@ -1,5 +1,14 @@
 :host {
   display: table-row;
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
+  font-family: var(--font-family-sans);
+}
+
+:host[expandable] > z-registro-table-cell:first-child {
+  width: 40px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+:host[expanded] + z-registro-table-expanded-row {
+  height: auto;
 }

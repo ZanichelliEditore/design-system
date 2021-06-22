@@ -901,6 +901,7 @@ export namespace Components {
         "sortable"?: boolean;
     }
     interface ZRegistroTableRow {
+        "expandable"?: boolean;
     }
     interface ZRegistroTableStickyFooter {
     }
@@ -2487,6 +2488,7 @@ declare namespace LocalJSX {
         "sortable"?: boolean;
     }
     interface ZRegistroTableRow {
+        "expandable"?: boolean;
     }
     interface ZRegistroTableStickyFooter {
     }
