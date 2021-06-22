@@ -17,6 +17,7 @@
   border-style: solid;
   border-color: transparent;
   border-width: 0 0 var(--border-size-large) 0;
+  outline: none;
   cursor: pointer;
 }
 
@@ -35,7 +36,6 @@
   color: var(--blue500);
   fill: var(--blue500);
   box-shadow: 0 0 2px 2px var(--blue100);
-  border-radius: var(--border-radius-small);
 }
 
 :host([disabled]) button {

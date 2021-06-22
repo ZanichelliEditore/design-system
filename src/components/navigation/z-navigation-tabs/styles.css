@@ -36,6 +36,12 @@ button.navigation {
   z-index: 1;
 }
 
+button.navigation:focus {
+  color: var(--blue500);
+  fill: var(--blue500);
+  box-shadow: 0 0 2px 2px var(--blue100);
+}
+
 button.navigation[disabled] {
   color: var(--gray700);
   fill: var(--gray700);
