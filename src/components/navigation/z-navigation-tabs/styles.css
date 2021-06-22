@@ -73,11 +73,6 @@ nav {
   right: 0;
 }
 
-:host([orientation='horizontal']) nav ::slotted(z-navigation-tab) {
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
-}
-
-
 /* Orientation vertical */
 :host([orientation='vertical']) {
   flex-direction: column;
@@ -105,31 +100,6 @@ nav {
 
 :host([orientation='vertical']) button.navigation:last-child {
   bottom: 0;
-}
-
-:host([orientation='vertical']) nav ::slotted(z-navigation-tab) {
-  padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
-}
-
-/* Size big */
-:host([size='big']),
-:host([size='big']) nav ::slotted(z-navigation-tab) {
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: 24px;
-}
-
-/* Size small */
-:host([size='small']),
-:host([size='small']) nav ::slotted(z-navigation-tab) {
-  font-size: 14px;
-  letter-spacing: 0.16px;
-  line-height: 20px;
-}
-
-:host([size='small'][orientation='horizontal']) nav ::slotted(z-navigation-tab) {
-  padding: var(--space-unit) calc(var(--space-unit) * 2);
-  border-width: 0 0 var(--border-size-medium) 0;
 }
 
 :host([size='small'][orientation='vertical']) button.navigation {

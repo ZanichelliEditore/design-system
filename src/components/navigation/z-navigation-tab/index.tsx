@@ -21,7 +21,9 @@ export class ZNavigationTab {
 
   @Listen('click')
   onClick() {
-    this.selected = true;
+    if(!this.disabled){
+      this.selected = true;
+    }
   }
 
   @Watch('selected')
@@ -33,8 +35,10 @@ export class ZNavigationTab {
 
   render() {
     return [
-      <slot name="icon" />,
-      <slot name="label" />
+      <button role="tab">
+        <slot name="icon" />
+        <slot name="label" />
+      </button>
     ];
   }
 }

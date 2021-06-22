@@ -13,6 +13,7 @@ import { ZNavigationTab } from '../z-navigation-tab';
   styleUrl: 'styles.css',
   shadow: true
 })
+
 export class ZNavigationTabs {
   @Element() host: HTMLElement;
 
@@ -29,6 +30,15 @@ export class ZNavigationTabs {
 
 
   tabsNav: HTMLElement;
+
+  /** Set all childrens (tab) size attribute : big (default) or small */
+  @Watch('size')
+  setChildrenSize() {
+    const children = this.host.children;
+    for (let i = 0; i < children.length; i++) {
+      children[i].setAttribute('size', this.size);
+    }
+  }
 
   /** Set all childrens (tab) orientation attribute : horizontal (default) or vertical */
   @Watch('orientation')
@@ -87,19 +97,20 @@ export class ZNavigationTabs {
   }
 
   componentDidLoad() {
+    this.setChildrenSize();
     this.setChildrenOrientation();
     this.checkScrollVisible();
   }
 
   render() {
-    return <Host scrollable={this.canNavigate}>
-        {this.canNavigate && <button class='navigation' onClick={() => this.navigatePrevious()} disabled={!this.canNavigatePrev}>
+    return <Host scrollable={this.canNavigate} role="tablist">
+        {this.canNavigate && <button role="tab" class='navigation' onClick={() => this.navigatePrevious()} disabled={!this.canNavigatePrev}>
           <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
         </button>}
         <nav ref={(el) => this.tabsNav = el ?? this.tabsNav } onScroll={this.checkScrollEnabled.bind(this)}>
           <slot />
         </nav>
-        {this.canNavigate && <button class='navigation' onClick={() => {this.navigateNext()}} disabled={!this.canNavigateNext}>
+        {this.canNavigate && <button role="tab" class='navigation' onClick={() => {this.navigateNext()}} disabled={!this.canNavigateNext}>
           <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
         </button>}
     </Host>;
