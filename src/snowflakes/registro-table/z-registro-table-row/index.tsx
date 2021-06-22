@@ -1,10 +1,9 @@
 import { Component, Prop, State, Host, h } from "@stencil/core";
-import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 @Component({
   tag: "z-registro-table-row",
   styleUrl: "styles.css",
   shadow: false,
-  scoped: true,
+  scoped: false,
 })
 export class ZRegistroTableRow {
   @Prop({ reflect: true }) expandable?: boolean;
@@ -13,14 +12,8 @@ export class ZRegistroTableRow {
 
   _renderExpandButton() {
     return (
-      <z-registro-table-cell>
-        <z-button
-          icon={this.expanded ? "minus-circled" : "plus-circled"}
-          size={ButtonSizeEnum["x-small"]}
-          variant={ButtonVariantEnum.tertiary}
-          onClick={() => (this.expanded = !this.expanded)}
-          square
-        />
+      <z-registro-table-cell onClick={() => (this.expanded = !this.expanded)}>
+        <z-icon name={this.expanded ? "minus-circled" : "plus-circled"} />
       </z-registro-table-cell>
     );
   }

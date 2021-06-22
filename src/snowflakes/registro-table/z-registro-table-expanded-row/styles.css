@@ -1,0 +1,10 @@
+:host {
+  font-family: var(--dashboard-font);
+  background-color: var(--gray50);
+  display: none;
+}
+
+:host > td > div.inner-content {
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2)
+    calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
+}

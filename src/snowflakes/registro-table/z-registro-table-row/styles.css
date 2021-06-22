@@ -1,14 +1,31 @@
-:host {
+z-registro-table-row {
   display: table-row;
   font-family: var(--font-family-sans);
 }
 
-:host[expandable] > z-registro-table-cell:first-child {
+z-registro-table-row[expandable] > z-registro-table-cell:first-child {
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
+
   width: 40px;
   padding: 8px;
   box-sizing: border-box;
+  text-align: center;
+
+  fill: var(--gray800);
+
+  user-select: none;
 }
 
-:host[expanded] + z-registro-table-expanded-row {
-  height: auto;
+z-registro-table-row[expandable] > z-registro-table-cell:first-child:hover {
+  cursor: pointer;
+  fill: var(--myz-blue-dark);
+}
+
+z-registro-table-row[expanded] > z-registro-tale-cell {
+  background-color: var(--gray50);
+}
+
+z-registro-table-row[expanded] + z-registro-table-expanded-row {
+  display: table-row;
 }
