@@ -12,8 +12,10 @@ describe("Suite test ZNavigationTab", () => {
     expect(page.root).toEqualHtml(`
       <z-navigation-tab>
         <mock:shadow-root>
-          <slot name="icon"></slot>
-          <slot name="label"></slot>
+          <button role="tab">
+            <slot name="icon"></slot>
+            <slot name="label"></slot>
+          </button>
         </mock:shadow-root>
       </z-navigation-tab>
     `);
@@ -24,8 +26,10 @@ describe("Suite test ZNavigationTab", () => {
       components: [ZNavigationTab],
       html: `
         <z-navigation-tab>
-          <z-icon name="house" slot="icon"></z-icon>
-          <span slot="label">Home</span>
+          <button>
+            <z-icon name="house" slot="icon"></z-icon>
+            <span slot="label">Home</span>
+          </button>
         </z-navigation-tab>
       `
     });
@@ -33,49 +37,65 @@ describe("Suite test ZNavigationTab", () => {
     expect(page.root).toEqualHtml(`
       <z-navigation-tab>
         <mock:shadow-root>
-          <slot name="icon"></slot>
-          <slot name="label"></slot>
+          <button role="tab">
+            <slot name="icon"></slot>
+            <slot name="label"></slot>
+          </button>
         </mock:shadow-root>
-        <z-icon name="house" slot="icon"></z-icon>
-        <span slot="label">Home</span>
+        <button>
+          <z-icon name="house" slot="icon"></z-icon>
+          <span slot="label">Home</span>
+        </button>
       </z-navigation-tab>
     `);
   });
 
-  it("Test render ZNavigationTab with label", async () => {
+  it("Test render ZNavigationTab with only label", async () => {
     const page = await newSpecPage({
       components: [ZNavigationTab],
       html: `<z-navigation-tab>
-        <span slot="label">App</span>
+        <button>
+          <span slot="label">App</span>
+        </button>
       </z-navigation-tab>`});
 
     expect(page.root).toEqualHtml(`
       <z-navigation-tab>
         <mock:shadow-root>
-          <slot name="icon"></slot>
-          <slot name="label"></slot>
+          <button role="tab">
+            <slot name="icon"></slot>
+            <slot name="label"></slot>
+          </button>
         </mock:shadow-root>
-        <span slot="label">App</span>
+        <button>
+          <span slot="label">App</span>
+        </button>
       </z-navigation-tab>
     `);
   });
 
-  it("Test render ZNavigationTab with icon", async () => {
+  it("Test render ZNavigationTab with only icon", async () => {
     const page = await newSpecPage({
       components: [ZNavigationTab],
       html: `
       <z-navigation-tab>
-        <z-icon name="house" slot="icon"></z-icon>
+        <button>
+          <z-icon name="house" slot="icon"></z-icon>
+        </button>
       </z-navigation-tab>`
     });
 
     expect(page.root).toEqualHtml(`
       <z-navigation-tab>
         <mock:shadow-root>
-          <slot name="icon"></slot>
-          <slot name="label"></slot>
+          <button role="tab">
+            <slot name="icon"></slot>
+            <slot name="label"></slot>
+          </button>
         </mock:shadow-root>
-        <z-icon name="house" slot="icon"></z-icon>
+        <button>
+          <z-icon name="house" slot="icon"></z-icon>
+        </button>
       </z-navigation-tab>
     `);
   });
