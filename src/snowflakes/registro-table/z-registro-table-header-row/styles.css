@@ -5,4 +5,5 @@ z-registro-table-header-row {
 z-registro-table-header-row[expandable] > z-registro-table-header:first-child {
   width: 40px;
   user-select: none;
+  box-sizing: border-box;
 }
