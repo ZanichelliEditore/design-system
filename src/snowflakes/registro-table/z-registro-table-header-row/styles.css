@@ -1,8 +1,8 @@
-:host {
+z-registro-table-header-row {
   display: table-row;
 }
 
-:host([expandable]) > z-registro-table-header:first-child {
+z-registro-table-header-row[expandable] > z-registro-table-header:first-child {
   width: 40px;
   user-select: none;
 }

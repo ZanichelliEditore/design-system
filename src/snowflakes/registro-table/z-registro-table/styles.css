@@ -20,7 +20,7 @@ z-registro-table
 z-registro-table
   > div.table-bordered
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header:not(:last-child) {
   border-right: var(--border-size-small) solid var(--bg-grey-200);
 }
@@ -58,7 +58,7 @@ z-registro-table
 z-registro-table
   > div.table-column-sticky
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header:first-child {
   position: sticky;
   left: 0;
@@ -69,7 +69,7 @@ z-registro-table
 z-registro-table
   > div.table-header-sticky
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header {
   position: sticky;
   top: 0;
@@ -82,7 +82,7 @@ z-registro-table
 z-registro-table
   > div.table-header-sticky
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header {
   z-index: 2;
 }
@@ -93,12 +93,12 @@ z-registro-table
 z-registro-table
   > div.table-header-sticky
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header:first-child,
 z-registro-table
   > div.table-column-sticky
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header:first-child {
   z-index: 5;
 }
