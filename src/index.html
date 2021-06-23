@@ -946,13 +946,13 @@
     </section>
   </section>
 
-  <z-registro-table bordered="true">
+  <z-registro-table bordered="false">
     <z-registro-table-head>
-      <z-registro-table-row expandable="true">
+      <z-registro-table-header-row expandable="true">
         <z-registro-table-header show-button="true" sortable="true" column-id="1">Colonna 1<br />Colonna 2</z-registro-table-header>
         <z-registro-table-header show-button="true" sortable="true" column-id="2">Colonna 2</z-registro-table-header>
         <z-registro-table-header show-button="true" sortable="true" column-id="3">Colonna 3</z-registro-table-header>
-      </z-registro-table-row>
+      </z-registro-table-header-row>
     </z-registro-table-head>
 
     <z-registro-table-body>
@@ -964,7 +964,7 @@
         </z-registro-table-cell>
       </z-registro-table-row>
       
-      <z-registro-table-expanded-row>
+      <z-registro-table-expanded-row col-span="4">
         <div>ci scrivo qualcosa</div>
       </z-registro-table-expanded-row>
 
@@ -975,6 +975,10 @@
           <z-button icon="gear">Prova 2-3</z-button>
         </z-registro-table-cell>
       </z-registro-table-row>
+      <z-registro-table-expanded-row col-span="4">
+        <div>ci scrivo qualcosa</div>
+      </z-registro-table-expanded-row>
+
     </z-registro-table-body>
 
     <z-registro-table-sticky-footer slot="sticky-footer">

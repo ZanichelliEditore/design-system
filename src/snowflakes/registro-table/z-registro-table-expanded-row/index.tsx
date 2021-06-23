@@ -6,13 +6,15 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true,
 })
 export class ZRegistroTableExpandedRow {
-  @Prop() myProp: string;
+  @Prop() colSpan: number;
 
   render() {
     return (
-      <td colSpan={4}>
-        <div class="inner-content">
-          <slot />
+      <td colSpan={this.colSpan}>
+        <div class="content-container">
+          <div class="inner-content">
+            <slot />
+          </div>
         </div>
       </td>
     );

@@ -29,3 +29,11 @@ z-registro-table-row[expanded] > z-registro-tale-cell {
 z-registro-table-row[expanded] + z-registro-table-expanded-row {
   display: table-row;
 }
+
+z-registro-table-row[expanded] > z-registro-table-cell {
+  border-bottom: none;
+}
+
+z-registro-table-row[expandable] > z-registro-table-cell:first-child {
+  border-right: none;
+}
