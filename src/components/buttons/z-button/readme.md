@@ -58,6 +58,7 @@
  - [z-header](../../navigation/z-header)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-registro-table-cell](../../../snowflakes/registro-table/z-registro-table-cell)
+ - [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
 
 ### Depends on
 
@@ -71,6 +72,7 @@ graph TD;
   z-header --> z-button
   z-modal-login --> z-button
   z-registro-table-cell --> z-button
+  z-registro-table-header --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

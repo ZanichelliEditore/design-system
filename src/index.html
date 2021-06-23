@@ -949,9 +949,9 @@
   <z-registro-table bordered="true">
     <z-registro-table-head>
       <z-registro-table-row>
-        <z-registro-table-header>Colonna 1</z-registro-table-header>
-        <z-registro-table-header>Colonna 2</z-registro-table-header>
-        <z-registro-table-header>Colonna 3</z-registro-table-header>
+        <z-registro-table-header show-button="true" sortable="true" column-id="1">Colonna 1<br />Colonna 2</z-registro-table-header>
+        <z-registro-table-header show-button="true" sortable="true" column-id="2">Colonna 2</z-registro-table-header>
+        <z-registro-table-header show-button="true" sortable="true" column-id="3">Colonna 3</z-registro-table-header>
       </z-registro-table-row>
     </z-registro-table-head>
 
@@ -986,6 +986,11 @@
     </z-popover>
   </div>
 
+  <br /><br /><br /><br /><br /><br />
+
+  <div style="padding-left: 280px;">
+    <z-status-tag icon="gear" text="z-status-tag" status="default" variant="dark" expandable="true"></z-status-tag>
+  </div>
   <br /><br /><br /><br /><br /><br />
 
   <z-footer copyrightuser='Zanichelli' data='{

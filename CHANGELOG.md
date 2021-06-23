@@ -2,6 +2,73 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/ZanichelliEditore/design-system/compare/v2.4.0...v2.5.0) (2021-06-21)
+
+
+### Features
+
+* **clav-44:** add animation to status tag ([e9c62b9](https://github.com/ZanichelliEditore/design-system/commit/e9c62b91673fee6553efb69c4f9cfa94869e503b))
+* **CLAV-44:** add documentation to storybook ([0f80d0b](https://github.com/ZanichelliEditore/design-system/commit/0f80d0bb3b13ad5112871703151a0929a5837137))
+* **CLAV-44:** add style to z-status-tag component ([f2e27c2](https://github.com/ZanichelliEditore/design-system/commit/f2e27c245a4ccab648cd3b6924b05e04b5449c7a))
+* **CLAV-44:** add z-status-tag component ([34aff85](https://github.com/ZanichelliEditore/design-system/commit/34aff853ab0d4b46eb6ff1fb0df1c4bce9bce803))
+* **CLAV-44:** fix ([4a212c7](https://github.com/ZanichelliEditore/design-system/commit/4a212c7f24dcd1e1507895c665503da821f29d51))
+
+
+### Bug Fixes
+
+* **CLAV-44:** fix for pr comments ([71fe30f](https://github.com/ZanichelliEditore/design-system/commit/71fe30f021e675c6482587437c9466297650e339))
+* **CLAV-44:** fix for pr comments ([0518e23](https://github.com/ZanichelliEditore/design-system/commit/0518e23b3697b7a46c69d437cc3394e2528fc77d))
+* **CLAV-44:** fix for pr comments ([dfc49ff](https://github.com/ZanichelliEditore/design-system/commit/dfc49ff148712daef2f4980892eedb1d19c47d91))
+
+## [2.4.0](https://github.com/ZanichelliEditore/design-system/compare/v2.3.2...v2.4.0) (2021-06-11)
+
+
+### Features
+
+* **CLAV-69:** Add documentation for z-registro-table-header ([69b4e5d](https://github.com/ZanichelliEditore/design-system/commit/69b4e5d866bc318f8bdac5310b059b3333209111))
+* **CLAV-69:** Add documentation for z-registro-table-header ([84e8916](https://github.com/ZanichelliEditore/design-system/commit/84e89160148e5a6d237896fa7f4543b4d9387773))
+* **CLAV-69:** Add table-header component ([edefd7d](https://github.com/ZanichelliEditore/design-system/commit/edefd7d8721a970b5c2a4045516bc8fcb776db1d))
+* **CLAV-69:** fix ([d203995](https://github.com/ZanichelliEditore/design-system/commit/d203995a52e34c7540641795992bb7235f34e38b))
+
+### [2.3.2](https://github.com/ZanichelliEditore/design-system/compare/v2.3.1...v2.3.2) (2021-06-10)
+
+
+### Bug Fixes
+
+* tertiary button text color; update design tokens ([f9826ae](https://github.com/ZanichelliEditore/design-system/commit/f9826aeb24df4861afc26a2eb765526a46817f7f))
+
+### [2.3.1](https://github.com/ZanichelliEditore/design-system/compare/v2.3.0...v2.3.1) (2021-06-10)
+
+
+### Bug Fixes
+
+* add react dev dependency to prevent incompatible subdependencies ([a0c9ca8](https://github.com/ZanichelliEditore/design-system/commit/a0c9ca8fd4ab7cd1082a983b42b74ce218bdc5e9))
+
+## [2.3.0](https://github.com/ZanichelliEditore/design-system/compare/v2.2.0...v2.3.0) (2021-06-10)
+
+
+### Features
+
+* add base menu slotting in header ([05f468b](https://github.com/ZanichelliEditore/design-system/commit/05f468b31a53cdff117175e1ca0a03ba7658f99f))
+* add flow mode to header layout ([7308e1e](https://github.com/ZanichelliEditore/design-system/commit/7308e1ef565e8979cf40dfb8d6e535d78f98bdc8))
+* automatic position of the floating menu ([c67b552](https://github.com/ZanichelliEditore/design-system/commit/c67b552667c4a2da2eec3a7155cf8a60759630d6))
+* close drawer button ([907c0fd](https://github.com/ZanichelliEditore/design-system/commit/907c0fdb9d75bb52dc8a04fbd951dc0a69062110))
+* hero header ([910250f](https://github.com/ZanichelliEditore/design-system/commit/910250f2a5961a73423bc6612de1c40f0767b285))
+* offcanvas menu ([5ea3204](https://github.com/ZanichelliEditore/design-system/commit/5ea3204d26cc1320aebbcecc31b723c9fade0716))
+* stuck property for the header ([5ab40d3](https://github.com/ZanichelliEditore/design-system/commit/5ab40d32ce2e9802f4409d7841d48e604b8cb6c8))
+
+
+### Bug Fixes
+
+* add safe scroller area in z menu ([9aaad27](https://github.com/ZanichelliEditore/design-system/commit/9aaad27db1f7cad386fed27b64612f201b09cb46))
+* automatically swith floating mode for menu in header ([742e20e](https://github.com/ZanichelliEditore/design-system/commit/742e20e97450277b93f736f2cb6377dd30b4850f))
+* header hero layout ([732c789](https://github.com/ZanichelliEditore/design-system/commit/732c789a34a2534a6fac52661c9e117c636b53b9))
+* menu color in stuck mode ([91645e3](https://github.com/ZanichelliEditore/design-system/commit/91645e3092b5bbe2c9f982e88125c19d2193f054))
+* menu margin in stack mode ([e8d7972](https://github.com/ZanichelliEditore/design-system/commit/e8d797272e186dc3ad562eb8491850fd0d73de5d))
+* tokens ([7bf8390](https://github.com/ZanichelliEditore/design-system/commit/7bf8390f349bbab2cf7dfb7353a085deabf0fb16))
+* truncate title in stuck mode ([7e2355a](https://github.com/ZanichelliEditore/design-system/commit/7e2355a72f01cb17e6ce921ffccf167d1cd3f77c))
+* update albe-design-tokens version and yarn.lock ([672de16](https://github.com/ZanichelliEditore/design-system/commit/672de168e72c91658ca52dc67be6571018449ec0))
+
 ## [2.2.0](https://github.com/ZanichelliEditore/design-system/compare/v2.1.0...v2.2.0) (2021-06-10)
 
 

@@ -16,6 +16,19 @@
 | `showArrow`       | `show-arrow`       | [optional] Show or hide arrow                 | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `false`                       |
 
 
+## Dependencies
+
+### Used by
+
+ - [z-registro-table-header](../../snowflakes/registro-table/z-registro-table-header)
+
+### Graph
+```mermaid
+graph TD;
+  z-registro-table-header --> z-popover
+  style z-popover fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
