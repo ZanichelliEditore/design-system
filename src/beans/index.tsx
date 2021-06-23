@@ -241,3 +241,11 @@ export enum AvatarSize {
   medium = "medium",
   large = "large",
 }
+
+export enum StatusTagStatus {
+  warning = "warning",
+  error = "error",
+  success = "success",
+  neutral = "neutral",
+  default = "default",
+}
