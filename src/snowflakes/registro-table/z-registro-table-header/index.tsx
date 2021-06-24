@@ -21,8 +21,7 @@ import { getElementTree } from "../../../utils/utils";
 @Component({
   tag: "z-registro-table-header",
   styleUrl: "styles.css",
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class ZRegistroTableHeader {
   @Element() host: HTMLElement;

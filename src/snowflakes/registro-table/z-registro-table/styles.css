@@ -30,7 +30,12 @@ z-registro-table
   > div
   > z-registro-table-body
   > z-registro-table-row[expandable]
-  > z-registro-table-cell:first-child {
+  > z-registro-table-cell:first-child,
+z-registro-table
+  > div
+  > z-registro-table-head
+  > z-registro-table-header-row[expandable]
+  > z-registro-table-header:first-child {
   border-right: none;
 }
 

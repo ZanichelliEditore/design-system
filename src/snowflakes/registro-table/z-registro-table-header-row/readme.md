@@ -1,10 +1,6 @@
-# z-registro-table-row
+# z-registro-table-header-row
 
-<!-- readme-group="registro-table" -->
 
-```html
-<z-registro-table-row></z-registro-table-row>
-```
 
 <!-- Auto Generated Below -->
 
@@ -20,17 +16,17 @@
 
 ### Depends on
 
-- [z-registro-table-cell](../z-registro-table-cell)
-- [z-icon](../../../components/icons/z-icon)
+- [z-registro-table-header](../z-registro-table-header)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-registro-table-row --> z-registro-table-cell
-  z-registro-table-row --> z-icon
-  z-registro-table-cell --> z-button
+  z-registro-table-header-row --> z-registro-table-header
+  z-registro-table-header --> z-icon
+  z-registro-table-header --> z-popover
+  z-registro-table-header --> z-button
   z-button --> z-icon
-  style z-registro-table-row fill:#f9f,stroke:#333,stroke-width:4px
+  style z-registro-table-header-row fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
