@@ -32,6 +32,8 @@
     "./components/navigation/z-link/index.js",
     "./components/navigation/z-menu-dropdown/index.js",
     "./components/navigation/z-menu-section/index.js",
+    "./components/navigation/z-navigation-tab/index.js",
+    "./components/navigation/z-navigation-tabs/index.js",
     "./components/navigation/z-user-dropdown/index.js",
     "./components/notification/z-candybar/index.js",
     "./components/notification/z-cookiebar/index.js",

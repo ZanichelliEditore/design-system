@@ -68,6 +68,24 @@ export declare type MenuItem = {
   target?: string;
   subMenu?: MenuItem[];
 };
+export declare type TabItem = {
+  id: string;
+  label: string;
+  icon?: string;
+  size?: string;
+  selected?: boolean;
+  disabled?: boolean;
+};
+export declare type TabOrientationBean = TabOrientationEnum;
+export declare enum TabOrientationEnum {
+  horizontal = "horizontal",
+  vertical = "vertical"
+}
+export declare type TabSizeBean = TabSizeEnum;
+export declare enum TabSizeEnum {
+  big = "big",
+  small = "small"
+}
 export declare type HeaderUserData = {
   islogged: boolean;
   id?: number;
