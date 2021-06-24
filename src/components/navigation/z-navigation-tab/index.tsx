@@ -19,6 +19,13 @@ export class ZNavigationTab {
   @Event({ eventName: 'selected' })
   private emitSelected: EventEmitter;
 
+  @Listen('focus')
+  onFocus() {
+    this.hostElement.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+
   @Listen('click')
   onClick() {
     if(!this.disabled){
@@ -35,7 +42,7 @@ export class ZNavigationTab {
 
   render() {
     return [
-      <button role="tab">
+      <button disabled={this.disabled} role="tab">
         <slot name="icon" />
         <slot name="label" />
       </button>

@@ -32,7 +32,7 @@
   background-color: var(--gray50);
 }
 
-:host button:focus {
+:host button:focus:not([disabled]) {
   color: var(--blue500);
   fill: var(--blue500);
   border: 0px;
