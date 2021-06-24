@@ -37,7 +37,7 @@ export class ZMenu {
    * The opening state of the menu.
    * @default false
    */
-  @Prop() open: boolean = false;
+  @Prop({ mutable: true }) open: boolean = false;
   @State() hasHeader: boolean;
   @State() hasContent: boolean;
   @Element() hostElement: HTMLElement;

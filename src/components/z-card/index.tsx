@@ -55,20 +55,20 @@ export class ZCard {
    * Template for a card without image cover.
    * A colored background replaces the image and some data is moved over it.
    */
-  renderColorCoverCard() {
+  private renderColorCoverCard() {
     return [
       <div class="cover-container">
         <div class="color-cover">
           <div class="cover-content">
-            <slot name="metadata" />
-            <slot name="title" />
+            <slot name="metadata"></slot>
+            <slot name="title"></slot>
           </div>
         </div>
       </div>,
       <div class="content">
-        <slot name="text" />
+        <slot name="text"></slot>
         <div class="actions">
-          <slot name="action" />
+          <slot name="action"></slot>
         </div>
       </div>
     ];
@@ -79,17 +79,17 @@ export class ZCard {
       return [
         <div class="cover-container">
           {this.hasCoverImage && [
-            <slot name="cover" />,
+            <slot name="cover"></slot>,
             (this.variant !== CardVariants.overlay) && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>
           ]}
           {!this.hasCoverImage && <div class="color-cover"></div>}
         </div>,
         <div class="content">
-          <slot name="metadata" />
-          <slot name="title" />
-          <slot name="text" />
+          <slot name="metadata"></slot>
+          <slot name="title"></slot>
+          <slot name="text"></slot>
           <div class="actions">
-            <slot name="action" />
+            <slot name="action"></slot>
           </div>
         </div>
       ];
