@@ -256,6 +256,126 @@
       <z-app-switcher theme="light" id="app-switcher-2" slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
 
+    <style>
+      .z-cards {
+        display: flex;
+        padding: 24px;
+      }
+      z-card {
+        width: 356px;
+      }
+      .z-cards z-card + z-card {
+        margin-left: 24px;
+      }
+    </style>
+    <section>
+      <h4>z-card default variant</h4>
+      <div class="z-cards">
+        <z-card clickable>
+          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+        <z-card clickable cover-icon="play-filled">
+          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+        <z-card clickable style="--z-card--color-cover-background: orange;">
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+      </div>
+    </section>
+
+    <section>
+      <h4>z-card border variant</h4>
+      <div class="z-cards">
+        <z-card clickable variant="border">
+          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+        <z-card clickable variant="border" cover-icon="play-filled">
+          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+        <z-card clickable variant="border" style="--z-card--color-cover-background: orange;">
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+      </div>
+    </section>
+
+    <section>
+      <h4>z-card shadow variant</h4>
+      <div class="z-cards">
+        <z-card clickable variant="shadow">
+          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+        <z-card clickable variant="shadow" cover-icon="play-filled">
+          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+        <z-card clickable variant="shadow" style="--z-card--color-cover-background: orange;">
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+      </div>
+    </section>
+
+    <section>
+      <h4>z-card overlay variant</h4>
+      <div class="z-cards">
+        <z-card clickable variant="overlay">
+          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+        <z-card clickable variant="overlay" style="--z-card--color-cover-background: orange;">
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card title</h3>
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <z-icon name="share" slot="action"></z-icon>
+          <z-icon name="delete" slot="action"></z-icon>
+        </z-card>
+      </div>
+    </section>
+
   <!-- non zanichelli logged -->
   <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'

@@ -49,6 +49,12 @@ export type CardBean = {
   licenseType: LicenseTypeEnum;
 };
 
+export enum CardVariants {
+  border = "border",
+  shadow = "shadow",
+  overlay = "overlay"
+};
+
 export declare type ActionBean = {
   isLink: boolean;
   value: string;

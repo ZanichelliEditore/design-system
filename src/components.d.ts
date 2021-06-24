@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -153,6 +153,20 @@ export namespace Components {
         "sortlabeldesc"?: string;
     }
     interface ZCandybar {
+    }
+    interface ZCard {
+        /**
+          * Enable click interactions on the card. Default: false
+         */
+        "clickable": boolean;
+        /**
+          * Name of the icon to place over the image cover
+         */
+        "coverIcon": string;
+        /**
+          * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
+         */
+        "variant": CardVariants;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -1127,6 +1141,12 @@ declare global {
         prototype: HTMLZCandybarElement;
         new (): HTMLZCandybarElement;
     };
+    interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
+    }
+    var HTMLZCardElement: {
+        prototype: HTMLZCardElement;
+        new (): HTMLZCardElement;
+    };
     interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
     }
     var HTMLZChipElement: {
@@ -1466,6 +1486,7 @@ declare global {
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
+        "z-card": HTMLZCardElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
         "z-cookiebar": HTMLZCookiebarElement;
@@ -1679,6 +1700,24 @@ declare namespace LocalJSX {
         "sortlabeldesc"?: string;
     }
     interface ZCandybar {
+    }
+    interface ZCard {
+        /**
+          * Enable click interactions on the card. Default: false
+         */
+        "clickable"?: boolean;
+        /**
+          * Name of the icon to place over the image cover
+         */
+        "coverIcon"?: string;
+        /**
+          * Card click event. Fired only if `clickable` is true.
+         */
+        "onCardClicked"?: (event: CustomEvent<any>) => void;
+        /**
+          * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
+         */
+        "variant"?: CardVariants;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -2705,6 +2744,7 @@ declare namespace LocalJSX {
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
+        "z-card": ZCard;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
         "z-cookiebar": ZCookiebar;
@@ -2774,6 +2814,7 @@ declare module "@stencil/core" {
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
+            "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
