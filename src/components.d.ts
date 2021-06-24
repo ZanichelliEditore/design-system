@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, ThemeVariant, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -748,6 +748,20 @@ export namespace Components {
          */
         "listdata": string;
     }
+    interface ZNavigationTab {
+        "disabled"?: boolean;
+        "selected"?: boolean;
+    }
+    interface ZNavigationTabs {
+        /**
+          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+         */
+        "orientation"?: TabOrientationBean;
+        /**
+          * Available sizes: `big` and `small`. Defaults to `big`.
+         */
+        "size"?: TabSizeBean;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -1318,6 +1332,18 @@ declare global {
         prototype: HTMLZMyzCardListElement;
         new (): HTMLZMyzCardListElement;
     };
+    interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
+    }
+    var HTMLZNavigationTabElement: {
+        prototype: HTMLZNavigationTabElement;
+        new (): HTMLZNavigationTabElement;
+    };
+    interface HTMLZNavigationTabsElement extends Components.ZNavigationTabs, HTMLStencilElement {
+    }
+    var HTMLZNavigationTabsElement: {
+        prototype: HTMLZNavigationTabsElement;
+        new (): HTMLZNavigationTabsElement;
+    };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
     var HTMLZPaginationBarElement: {
@@ -1492,6 +1518,8 @@ declare global {
         "z-myz-card-header": HTMLZMyzCardHeaderElement;
         "z-myz-card-icon": HTMLZMyzCardIconElement;
         "z-myz-card-list": HTMLZMyzCardListElement;
+        "z-navigation-tab": HTMLZNavigationTabElement;
+        "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
@@ -2339,6 +2367,21 @@ declare namespace LocalJSX {
          */
         "listdata"?: string;
     }
+    interface ZNavigationTab {
+        "disabled"?: boolean;
+        "onSelected"?: (event: CustomEvent<any>) => void;
+        "selected"?: boolean;
+    }
+    interface ZNavigationTabs {
+        /**
+          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+         */
+        "orientation"?: TabOrientationBean;
+        /**
+          * Available sizes: `big` and `small`. Defaults to `big`.
+         */
+        "size"?: TabSizeBean;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -2724,6 +2767,8 @@ declare namespace LocalJSX {
         "z-myz-card-header": ZMyzCardHeader;
         "z-myz-card-icon": ZMyzCardIcon;
         "z-myz-card-list": ZMyzCardList;
+        "z-navigation-tab": ZNavigationTab;
+        "z-navigation-tabs": ZNavigationTabs;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
@@ -2793,6 +2838,8 @@ declare module "@stencil/core" {
             "z-myz-card-header": LocalJSX.ZMyzCardHeader & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
             "z-myz-card-icon": LocalJSX.ZMyzCardIcon & JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
+            "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
+            "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
