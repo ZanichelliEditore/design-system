@@ -2515,6 +2515,7 @@ declare namespace LocalJSX {
     }
     interface ZRegistroTableRow {
         "expandable"?: boolean;
+        "onExpand"?: (event: CustomEvent<any>) => void;
     }
     interface ZRegistroTableStickyFooter {
     }

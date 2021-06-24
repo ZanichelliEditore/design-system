@@ -1,4 +1,12 @@
-import { Component, Prop, State, Host, h } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  State,
+  Host,
+  h,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 @Component({
   tag: "z-registro-table-row",
   styleUrl: "styles.css",
@@ -10,9 +18,20 @@ export class ZRegistroTableRow {
 
   @State() expanded: boolean = false;
 
+  @Event() expand: EventEmitter;
+  emitOnExpand() {
+    this.expand.emit({ expanded: this.expanded });
+  }
+
+  handleExpand() {
+    this.expanded = !this.expanded;
+
+    this.emitOnExpand();
+  }
+
   _renderExpandButton() {
     return (
-      <z-registro-table-cell onClick={() => (this.expanded = !this.expanded)}>
+      <z-registro-table-cell onClick={() => this.handleExpand()}>
         <z-icon name={this.expanded ? "minus-circled" : "plus-circled"} />
       </z-registro-table-cell>
     );
