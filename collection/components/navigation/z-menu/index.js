@@ -133,7 +133,7 @@ export class ZMenu {
     },
     "open": {
       "type": "boolean",
-      "mutable": false,
+      "mutable": true,
       "complexType": {
         "original": "boolean",
         "resolved": "boolean",

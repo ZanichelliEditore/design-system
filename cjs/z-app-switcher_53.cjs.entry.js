@@ -3,11 +3,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-3793b368.js');
-const index$1 = require('./index-50dcb3cb.js');
+const index$1 = require('./index-d162b23f.js');
 const breakpoints = require('./breakpoints-62fb2006.js');
-const utils = require('./utils-285c021f.js');
+const utils = require('./utils-db2f414d.js');
 
-const stylesCss$O = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
+const stylesCss$P = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
 
 const ZAppSwitcher = class {
   constructor(hostRef) {
@@ -26,9 +26,9 @@ const ZAppSwitcher = class {
     return (index.h("button", { title: "app-switcher", onClick: () => this.emitAppButtonClick() }, index.h("z-icon", { name: "app-switcher", class: this.theme })));
   }
 };
-ZAppSwitcher.style = stylesCss$O;
+ZAppSwitcher.style = stylesCss$P;
 
-const stylesCss$N = ":host{display:block;position:sticky;top:0;z-index:99;font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>div{background:var(--bg-grey-900);border-radius:var(--border-radius-min);display:grid;grid-template-columns:repeat(2, 1fr);justify-content:space-between;align-items:center;padding:calc(var(--space-unit) * .5);}:host>div.light{background:var(--bg-white)}:host>div.light #hashtag{color:var(--bg-grey-900)}.left{grid-column-start:1;grid-column-end:2;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-items:center;align-content:center}.left>#hashtag{display:none}.right{grid-column-start:2;grid-column-end:3;display:flex;align-items:center;justify-content:flex-end}.right.hide-actions>slot[name=\"actions\"]{display:none}.right>::slotted(z-link){padding:calc(var(--space-unit) * .5)}.right>::slotted(z-app-switcher){padding:6px}@media only screen and (min-width: 768px){:host>div{grid-template-columns:repeat(2, auto)}.left>#hashtag{display:initial;color:var(--bg-white);text-transform:uppercase;padding:var(--space-unit) calc(var(--space-unit) * 2)}.left>#hashtag::before{content:\"#\"}.right{grid-column-gap:var(--space-unit)}.right>::slotted(z-app-switcher){padding:6px calc(var(--space-unit) * 2) 6px var(--space-unit)}}";
+const stylesCss$O = ":host{display:block;position:sticky;top:0;z-index:99;font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>div{background:var(--bg-grey-900);border-radius:var(--border-radius-min);display:grid;grid-template-columns:repeat(2, 1fr);justify-content:space-between;align-items:center;padding:calc(var(--space-unit) * .5);}:host>div.light{background:var(--bg-white)}:host>div.light #hashtag{color:var(--bg-grey-900)}.left{grid-column-start:1;grid-column-end:2;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-items:center;align-content:center}.left>#hashtag{display:none}.right{grid-column-start:2;grid-column-end:3;display:flex;align-items:center;justify-content:flex-end}.right.hide-actions>slot[name=\"actions\"]{display:none}.right>::slotted(z-link){padding:calc(var(--space-unit) * .5)}.right>::slotted(z-app-switcher){padding:6px}@media only screen and (min-width: 768px){:host>div{grid-template-columns:repeat(2, auto)}.left>#hashtag{display:initial;color:var(--bg-white);text-transform:uppercase;padding:var(--space-unit) calc(var(--space-unit) * 2)}.left>#hashtag::before{content:\"#\"}.right{grid-column-gap:var(--space-unit)}.right>::slotted(z-app-switcher){padding:6px calc(var(--space-unit) * 2) 6px var(--space-unit)}}";
 
 const ZAppTopbar = class {
   constructor(hostRef) {
@@ -71,7 +71,7 @@ const ZAppTopbar = class {
   }
   get hostElement() { return index.getElement(this); }
 };
-ZAppTopbar.style = stylesCss$N;
+ZAppTopbar.style = stylesCss$O;
 
 const ZBody = class {
   constructor(hostRef) {
@@ -152,7 +152,7 @@ var classnames = createCommonjsModule(function (module) {
 }());
 });
 
-const stylesCss$M = ":host{display:inline-block;--z-icon-width:16px;--z-icon-height:16px;--z-icon-right-margin:var(--space-unit)}button:disabled,::slotted(button:disabled){pointer-events:none}button,::slotted(button),::slotted(a){box-sizing:border-box;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);vertical-align:middle;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;width:100%}button.big,:host([size=\"big\"]) ::slotted(button),:host([size=\"big\"]) ::slotted(a){height:44px;min-width:44px}button.small,:host([size=\"small\"]) ::slotted(button),:host([size=\"small\"]) ::slotted(a){height:36px;min-width:36px}button.issmall,:host([issmall]) ::slotted(button),:host([issmall]) ::slotted(a){height:36px;min-width:36px}button.x-small,:host([size=\"x-small\"]) ::slotted(button),:host([size=\"x-small\"]) ::slotted(a){height:32px;min-width:32px}button:not(.square),:host(:not([square])) ::slotted(button),:host(:not([square])) ::slotted(a){min-width:calc(var(--space-unit) * 8);padding:0 calc(var(--space-unit) * 2)}button.square,:host([square]){--z-icon-right-margin:0}button.primary,:host([variant=\"primary\"]) ::slotted(button),:host([variant=\"primary\"]) ::slotted(a){background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse);fill:var(--color-text-inverse)}@media (hover: hover){button.primary:hover,:host([variant=\"primary\"]) ::slotted(button:hover),:host([variant=\"primary\"]) ::slotted(a:hover){background-color:var(--color-hover-primary);border-color:var(--color-hover-primary);color:var(--color-text-inverse);fill:var(--color-text-inverse)}}button.primary:focus:focus-visible,:host([variant=\"primary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"primary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse);fill:var(--color-text-inverse);box-shadow:var(--shadow-1)}button.primary:active,:host([variant=\"primary\"]) ::slotted(button:active),:host([variant=\"primary\"]) ::slotted(a:active){background-color:var(--color-active-primary);border-color:var(--color-active-primary);color:var(--color-text-inverse);fill:var(--color-text-inverse);box-shadow:var(--shadow-2)}button:disabled,:host([variant=\"primary\"]) ::slotted(button:disabled){background-color:var(--color-disabled01);border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled02)}button.secondary,:host([variant=\"secondary\"]) ::slotted(button),:host([variant=\"secondary\"]) ::slotted(a){background-color:var(--color-surface02);border-color:var(--color-primary01);color:var(--color-primary01);fill:var(--color-primary01)}@media (hover: hover){button.secondary:hover,:host([variant=\"secondary\"]) ::slotted(button:hover),:host([variant=\"secondary\"]) ::slotted(a:hover){background-color:var(--color-surface02);border-color:var(--color-hover-primary);color:var(--color-hover-primary);fill:var(--color-hover-primary)}}button.secondary:focus:focus-visible,:host([variant=\"secondary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"secondary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-surface02);border-color:var(--color-primary01);color:var(--color-primary01);fill:var(--color-primary01);box-shadow:var(--shadow-1)}button.secondary:active,:host([variant=\"secondary\"]) ::slotted(button:active),:host([variant=\"secondary\"]) ::slotted(a:active){background-color:var(--color-surface02);border-color:var(--color-active-primary);color:var(--color-active-primary);fill:var(--color-active-primary);box-shadow:var(--shadow-2)}button.secondary:disabled,:host([variant=\"secondary\"]) ::slotted(button:disabled){background-color:var(--color-surface02);border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled02)}button.tertiary,:host([variant=\"tertiary\"]) ::slotted(button),:host([variant=\"tertiary\"]) ::slotted(a){background-color:transparent;border-color:transparent;color:var(--color-primary01);fill:var(--color-primary01)}button.tertiary.hasContent{padding:0 var(--space-unit)}@media (hover: hover){button.tertiary:hover,:host([variant=\"tertiary\"]) ::slotted(button:hover),:host([variant=\"tertiary\"]) ::slotted(a:hover){background-color:var(--color-primary03);border-color:var(--color-primary03);color:var(--color-hover-primary);fill:var(--color-hover-primary)}}button.tertiary:focus:focus-visible,:host([variant=\"tertiary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"tertiary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-surface02);border-color:var(--color-surface02);color:var(--color-primary01);fill:var(--color-primary01);box-shadow:var(--shadow-1)}button.tertiary:active,:host([variant=\"tertiary\"]) ::slotted(button:active),:host([variant=\"tertiary\"]) ::slotted(a:active){background-color:var(--color-surface02);border-color:var(--color-surface02);color:var(--color-active-primary);fill:var(--color-active-primary);box-shadow:var(--shadow-2)}button.tertiary:disabled,:host([variant=\"tertiary\"]) ::slotted(button:disabled){background-color:transparent;border-color:transparent;color:var(--color-disabled02);fill:var(--color-disabled02)}";
+const stylesCss$N = ":host{display:inline-block;--z-icon-width:16px;--z-icon-height:16px;--z-icon-right-margin:var(--space-unit)}button:disabled,::slotted(button:disabled){pointer-events:none}button,::slotted(button),::slotted(a){box-sizing:border-box;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);vertical-align:middle;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;width:100%}button.big,:host([size=\"big\"]) ::slotted(button),:host([size=\"big\"]) ::slotted(a){height:44px;min-width:44px}button.small,:host([size=\"small\"]) ::slotted(button),:host([size=\"small\"]) ::slotted(a){height:36px;min-width:36px}button.issmall,:host([issmall]) ::slotted(button),:host([issmall]) ::slotted(a){height:36px;min-width:36px}button.x-small,:host([size=\"x-small\"]) ::slotted(button),:host([size=\"x-small\"]) ::slotted(a){height:32px;min-width:32px}button:not(.square),:host(:not([square])) ::slotted(button),:host(:not([square])) ::slotted(a){min-width:calc(var(--space-unit) * 8);padding:0 calc(var(--space-unit) * 2)}button.square,:host([square]){--z-icon-right-margin:0}button.primary,:host([variant=\"primary\"]) ::slotted(button),:host([variant=\"primary\"]) ::slotted(a){background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse);fill:var(--color-text-inverse)}@media (hover: hover){button.primary:hover,:host([variant=\"primary\"]) ::slotted(button:hover),:host([variant=\"primary\"]) ::slotted(a:hover){background-color:var(--color-hover-primary);border-color:var(--color-hover-primary);color:var(--color-text-inverse);fill:var(--color-text-inverse)}}button.primary:focus:focus-visible,:host([variant=\"primary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"primary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse);fill:var(--color-text-inverse);box-shadow:var(--shadow-1)}button.primary:active,:host([variant=\"primary\"]) ::slotted(button:active),:host([variant=\"primary\"]) ::slotted(a:active){background-color:var(--color-active-primary);border-color:var(--color-active-primary);color:var(--color-text-inverse);fill:var(--color-text-inverse);box-shadow:var(--shadow-2)}button:disabled,:host([variant=\"primary\"]) ::slotted(button:disabled){background-color:var(--color-disabled01);border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled02)}button.secondary,:host([variant=\"secondary\"]) ::slotted(button),:host([variant=\"secondary\"]) ::slotted(a){background-color:var(--color-surface02);border-color:var(--color-primary01);color:var(--color-primary01);fill:var(--color-primary01)}@media (hover: hover){button.secondary:hover,:host([variant=\"secondary\"]) ::slotted(button:hover),:host([variant=\"secondary\"]) ::slotted(a:hover){background-color:var(--color-surface02);border-color:var(--color-hover-primary);color:var(--color-hover-primary);fill:var(--color-hover-primary)}}button.secondary:focus:focus-visible,:host([variant=\"secondary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"secondary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-surface02);border-color:var(--color-primary01);color:var(--color-primary01);fill:var(--color-primary01);box-shadow:var(--shadow-1)}button.secondary:active,:host([variant=\"secondary\"]) ::slotted(button:active),:host([variant=\"secondary\"]) ::slotted(a:active){background-color:var(--color-surface02);border-color:var(--color-active-primary);color:var(--color-active-primary);fill:var(--color-active-primary);box-shadow:var(--shadow-2)}button.secondary:disabled,:host([variant=\"secondary\"]) ::slotted(button:disabled){background-color:var(--color-surface02);border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled02)}button.tertiary,:host([variant=\"tertiary\"]) ::slotted(button),:host([variant=\"tertiary\"]) ::slotted(a){background-color:transparent;border-color:transparent;color:var(--color-primary01);fill:var(--color-primary01)}button.tertiary.hasContent{padding:0 var(--space-unit)}@media (hover: hover){button.tertiary:hover,:host([variant=\"tertiary\"]) ::slotted(button:hover),:host([variant=\"tertiary\"]) ::slotted(a:hover){background-color:var(--color-primary03);border-color:var(--color-primary03);color:var(--color-hover-primary);fill:var(--color-hover-primary)}}button.tertiary:focus:focus-visible,:host([variant=\"tertiary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"tertiary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-surface02);border-color:var(--color-surface02);color:var(--color-primary01);fill:var(--color-primary01);box-shadow:var(--shadow-1)}button.tertiary:active,:host([variant=\"tertiary\"]) ::slotted(button:active),:host([variant=\"tertiary\"]) ::slotted(a:active){background-color:var(--color-surface02);border-color:var(--color-surface02);color:var(--color-active-primary);fill:var(--color-active-primary);box-shadow:var(--shadow-2)}button.tertiary:disabled,:host([variant=\"tertiary\"]) ::slotted(button:disabled){background-color:transparent;border-color:transparent;color:var(--color-disabled02);fill:var(--color-disabled02)}";
 
 const ZButton = class {
   constructor(hostRef) {
@@ -179,9 +179,9 @@ const ZButton = class {
   }
   get hostElement() { return index.getElement(this); }
 };
-ZButton.style = stylesCss$M;
+ZButton.style = stylesCss$N;
 
-const stylesCss$L = "button.container{min-height:32px;line-height:32px;border:var(--border-size-small) solid var(--bg-grey-200);border-radius:16px;box-shadow:0px 2px 5px 0px var(--bg-neutral-300);-webkit-box-shadow:0px 2px 5px 0px var(--bg-neutral-300);-moz-box-shadow:0px 2px 5px 0px var(--bg-neutral-300);text-align:center;padding:0 calc(var(--space-unit) * 2);cursor:pointer;letter-spacing:0.17px;font-family:var(--dashboard-font);font-size:12px;font-weight:var(--font-sb);opacity:1;transition:all 200ms linear}button.container.small{min-height:24px;line-height:24px}button.container:focus{outline:0}button.container::-moz-focus-inner{border:0}.text-container{margin-left:4px}button.container,button.container:focus,button.container:hover{background-color:var(--bg-white);color:var(--text-grey-700);fill:var(--text-grey-700)}button.container.isactive{background-color:var(--bg-white);color:var(--myz-blue);fill:var(--myz-blue)}button.container.isactive:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}button.container.isactive:focus{background-color:var(--myz-blue-dark);border-color:var(--myz-blue-dark);box-shadow:0px 0px 4px 0px var(--text-grey-800);color:var(--bg-white);fill:var(--bg-white)}";
+const stylesCss$M = "button.container{min-height:32px;line-height:32px;border:var(--border-size-small) solid var(--bg-grey-200);border-radius:16px;box-shadow:0px 2px 5px 0px var(--bg-neutral-300);-webkit-box-shadow:0px 2px 5px 0px var(--bg-neutral-300);-moz-box-shadow:0px 2px 5px 0px var(--bg-neutral-300);text-align:center;padding:0 calc(var(--space-unit) * 2);cursor:pointer;letter-spacing:0.17px;font-family:var(--dashboard-font);font-size:12px;font-weight:var(--font-sb);opacity:1;transition:all 200ms linear}button.container.small{min-height:24px;line-height:24px}button.container:focus{outline:0}button.container::-moz-focus-inner{border:0}.text-container{margin-left:4px}button.container,button.container:focus,button.container:hover{background-color:var(--bg-white);color:var(--text-grey-700);fill:var(--text-grey-700)}button.container.isactive{background-color:var(--bg-white);color:var(--myz-blue);fill:var(--myz-blue)}button.container.isactive:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}button.container.isactive:focus{background-color:var(--myz-blue-dark);border-color:var(--myz-blue-dark);box-shadow:0px 0px 4px 0px var(--text-grey-800);color:var(--bg-white);fill:var(--bg-white)}";
 
 const ZButtonFilter = class {
   constructor(hostRef) {
@@ -213,9 +213,9 @@ const ZButtonFilter = class {
     return this.renderDynamicPillow(this.filtername);
   }
 };
-ZButtonFilter.style = stylesCss$L;
+ZButtonFilter.style = stylesCss$M;
 
-const stylesCss$K = "button{height:36px;border:var(--border-size-medium) solid var(--myz-blue);border-radius:var(--border-radius);color:var(--myz-blue);fill:var(--myz-blue);background-color:var(--bg-white);outline:none;padding:0 var(--space-unit);cursor:pointer}button::-moz-focus-inner{border:0}button:hover{border-color:var(--myz-blue-dark);color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}button:focus{border-color:var(--myz-blue);color:var(--myz-blue);fill:var(--myz-blue);box-shadow:0px 0px 2px 2px var(--accent-dark)}button:active{border-color:var(--myz-blue-light);color:var(--myz-blue-light);fill:var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.selected{border-color:var(--myz-blue-dark);background-color:var(--myz-blue-dark);color:var(--bg-white);fill:var(--bg-white)}button>label{cursor:pointer;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;margin-right:calc(var(--space-unit) * 2)}button>span{font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:14px;margin-right:calc(var(--space-unit) * .5)}button>z-icon{padding-top:calc(var(--space-unit) * .5)}";
+const stylesCss$L = "button{height:36px;border:var(--border-size-medium) solid var(--myz-blue);border-radius:var(--border-radius);color:var(--myz-blue);fill:var(--myz-blue);background-color:var(--bg-white);outline:none;padding:0 var(--space-unit);cursor:pointer}button::-moz-focus-inner{border:0}button:hover{border-color:var(--myz-blue-dark);color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}button:focus{border-color:var(--myz-blue);color:var(--myz-blue);fill:var(--myz-blue);box-shadow:0px 0px 2px 2px var(--accent-dark)}button:active{border-color:var(--myz-blue-light);color:var(--myz-blue-light);fill:var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.selected{border-color:var(--myz-blue-dark);background-color:var(--myz-blue-dark);color:var(--bg-white);fill:var(--bg-white)}button>label{cursor:pointer;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;margin-right:calc(var(--space-unit) * 2)}button>span{font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:14px;margin-right:calc(var(--space-unit) * .5)}button>z-icon{padding-top:calc(var(--space-unit) * .5)}";
 
 const ZButtonSort = class {
   constructor(hostRef) {
@@ -246,7 +246,57 @@ const ZButtonSort = class {
     return (index.h("button", { id: this.buttonid, class: this.isselected && "selected", onClick: () => this.emitButtonSortClick() }, index.h("label", null, !this.sortasc && this.desclabel ? this.desclabel : this.label, this.counter && ` (${this.counter})`), index.h("span", null, this.sortasc ? this.sortlabelasc : this.sortlabeldesc), index.h("z-icon", { name: "caret-up-down", width: 16, height: 16 })));
   }
 };
-ZButtonSort.style = stylesCss$K;
+ZButtonSort.style = stylesCss$L;
+
+const stylesCss$K = ":host{--aspect-ratio:1.62;--z-card--border-color:var(--gray200);--z-card--color-cover-background:var(--color-surface02);position:relative;display:flex;flex-direction:column;font-family:var(--font-family-sans);font-weight:var(--font-rg)}*,::slotted(*){box-sizing:border-box}:host(:not([variant='overlay'])) .cover-container{position:relative;width:100%}.cover-container{padding-bottom:calc(100% / var(--aspect-ratio))}::slotted([slot='cover']),.color-cover{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center}.cover-container>z-icon{--z-icon-width:calc(var(--space-unit) * 11);--z-icon-height:var(--z-icon-width);position:absolute;top:calc(50% - calc(var(--z-icon-height) / 2));left:calc(50% - calc(var(--z-icon-width) / 2));fill:var(--color-primary01)}.color-cover{background-color:var(--z-card--color-cover-background)}.content{display:flex;flex-direction:column;padding-top:var(--space-unit)}.color-cover .cover-content{display:flex;flex-direction:column;justify-content:flex-end;height:100%;padding:var(--space-unit)}::slotted([slot='metadata']),::slotted([slot='title']),::slotted([slot='text']){display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}::slotted([slot='title']:not(:last-child)),::slotted([slot='text']:not(:last-child)){margin-bottom:var(--space-unit)}::slotted([slot='text']),::slotted([slot='actions']){margin:0}::slotted([slot='metadata']:not(:last-child)){margin:0 0 calc(var(--space-unit) * 0.25);-webkit-line-clamp:1;text-transform:uppercase}::slotted([slot='title']){margin:0;font-weight:var(--font-sb);-webkit-line-clamp:2}::slotted([slot='text']){-webkit-line-clamp:3}.actions{display:flex;flex-direction:row;align-items:center}::slotted([slot='action']:not(:last-child)){margin-right:calc(var(--space-unit) * 1.5)}:host([clickable]){cursor:pointer}:host([clickable]:focus:focus-visible){outline:none}:host(:not([variant])[clickable]:focus:focus-visible){padding:calc(var(--space-unit) * 0.5);box-shadow:var(--shadow-focus-primary)}:host([variant='border'])>.content,:host([variant='shadow'])>.content{height:100%;padding:var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2)}:host([variant='border']) .actions,:host([variant='shadow']) .actions{margin-top:auto}:host([variant='border']){border:var(--border-size-small) solid var(--z-card--border-color)}:host([variant='border'][clickable]:hover)>.content{background:var(--color-background)}:host([variant='border'][clickable]:focus:focus-visible){box-shadow:var(--shadow-focus-primary)}:host([variant='border'][clickable]:active){border-color:transparent}:host([variant='shadow']){box-shadow:var(--shadow-2)}:host([variant='shadow'][clickable]:hover){box-shadow:var(--shadow-4)}:host([variant='shadow'][clickable]:focus:focus-visible){box-shadow:var(--shadow-4)}:host([variant='shadow'][clickable]:active){box-shadow:none}:host([variant='overlay']) .content{position:absolute;top:0;right:0;bottom:0;left:0;justify-content:flex-end;padding:var(--space-unit);background-image:linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));color:var(--color-text-inverse);fill:var(--color-text-inverse)}";
+
+const ZCard = class {
+  constructor(hostRef) {
+    index.registerInstance(this, hostRef);
+    this.cardClicked = index.createEvent(this, "cardClicked", 7);
+    /** Enable click interactions on the card. Default: false */
+    this.clickable = false;
+  }
+  onClick(ev) {
+    // Do nothing for clicks on actions.
+    if (ev.target.getAttribute('slot') === 'action') {
+      return;
+    }
+    if (!this.clickable) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      return;
+    }
+    this.cardClicked.emit();
+  }
+  componentWillLoad() {
+    this.hasCoverImage = !!this.host.querySelector('[slot="cover"]');
+  }
+  /**
+   * Template for a card without image cover.
+   * A colored background replaces the image and some data is moved over it.
+   */
+  renderColorCoverCard() {
+    return [
+      index.h("div", { class: "cover-container" }, index.h("div", { class: "color-cover" }, index.h("div", { class: "cover-content" }, index.h("slot", { name: "metadata" }), index.h("slot", { name: "title" })))),
+      index.h("div", { class: "content" }, index.h("slot", { name: "text" }), index.h("div", { class: "actions" }, index.h("slot", { name: "action" })))
+    ];
+  }
+  render() {
+    if (this.variant === index$1.CardVariants.overlay || this.hasCoverImage) {
+      return [
+        index.h("div", { class: "cover-container" }, this.hasCoverImage && [
+          index.h("slot", { name: "cover" }),
+          (this.variant !== index$1.CardVariants.overlay) && this.coverIcon && index.h("z-icon", { name: this.coverIcon })
+        ], !this.hasCoverImage && index.h("div", { class: "color-cover" })),
+        index.h("div", { class: "content" }, index.h("slot", { name: "metadata" }), index.h("slot", { name: "title" }), index.h("slot", { name: "text" }), index.h("div", { class: "actions" }, index.h("slot", { name: "action" })))
+      ];
+    }
+    return this.renderColorCoverCard();
+  }
+  get host() { return index.getElement(this); }
+};
+ZCard.style = stylesCss$K;
 
 const stylesCss$J = ":host>div{display:inline-block;min-height:28px;line-height:28px;padding:0 calc(var(--space-unit) * 1.5);background-color:var(--bg-white);border:var(--border-size-small) solid var(--bg-grey-200);border-radius:14px;color:var(--text-grey-800);fill:var(--text-grey-800);font-family:var(--dashboard-font);font-size:12px}.boldtext{font-weight:bold}";
 
@@ -5408,6 +5458,7 @@ exports.z_body = ZBody;
 exports.z_button = ZButton;
 exports.z_button_filter = ZButtonFilter;
 exports.z_button_sort = ZButtonSort;
+exports.z_card = ZCard;
 exports.z_chip = ZChip;
 exports.z_combobox = ZCombobox;
 exports.z_footer = ZFooter;

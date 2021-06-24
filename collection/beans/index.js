@@ -4,6 +4,13 @@ export var LicenseTypeEnum;
   LicenseTypeEnum["virtual"] = "virtuale";
   LicenseTypeEnum["trial"] = "saggio";
 })(LicenseTypeEnum || (LicenseTypeEnum = {}));
+export var CardVariants;
+(function (CardVariants) {
+  CardVariants["border"] = "border";
+  CardVariants["shadow"] = "shadow";
+  CardVariants["overlay"] = "overlay";
+})(CardVariants || (CardVariants = {}));
+;
 export var TabOrientationEnum;
 (function (TabOrientationEnum) {
   TabOrientationEnum["horizontal"] = "horizontal";
