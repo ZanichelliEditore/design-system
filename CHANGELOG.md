@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/ZanichelliEditore/design-system/compare/v2.5.0...v2.6.0) (2021-06-24)
+
+
+### Features
+
+* navigation buttons methods wip ([8ff1c22](https://github.com/ZanichelliEditore/design-system/commit/8ff1c220ec557f564c73694baa341a2d687873b7))
+* z-navigation tabs test ([b0d888d](https://github.com/ZanichelliEditore/design-system/commit/b0d888dc8e0ae43d53113ab6a40ffc532466a779))
+
+
+### Bug Fixes
+
+*  added focus into button navigation and fix focus z-navigation-tab ([cf31b4d](https://github.com/ZanichelliEditore/design-system/commit/cf31b4dd9e3ac4efe32968127236b37b2bb1590c))
+* added listener focus for tab ([2dd33b2](https://github.com/ZanichelliEditore/design-system/commit/2dd33b2080efa2fba7e3ac8a9255c24ba77c72ea))
+* after review , added button into z-navigation-tab with slot , fix cursor:not-allowed & added role tablist, role tab into button for tab keyboard ([7074de1](https://github.com/ZanichelliEditore/design-system/commit/7074de1c2cd4e7bfa15b8750ab0f9bd17c735579))
+* after review, added 2 z-navigation-tab into z-navigation-tabs horizontal test and changed select if into z-navigation-tabs index.tsx ([0ada1d1](https://github.com/ZanichelliEditore/design-system/commit/0ada1d18d77f44b7c538f4d08edab1cfc35bf9cd))
+* after review, added states dimension & direction and changed code for canNavigation & canNavigationPrev,Next ([f5860bf](https://github.com/ZanichelliEditore/design-system/commit/f5860bf909df1461455d5a261f073f5b44b818ec))
+* after review, fix checkScrollEnabler for vertical orientation and changed meta title z-navigation-tabs & z-navigation-tab stories.mdx ([2daac6b](https://github.com/ZanichelliEditore/design-system/commit/2daac6be61c8e57bc8fb7c97a8c6c846a8b1c0aa))
+* border sizes; single tab orientation variant; size variant ([ab4acf8](https://github.com/ZanichelliEditore/design-system/commit/ab4acf84f06e037e665391df768fdaae58d21964))
+* focus role tab ([b13e936](https://github.com/ZanichelliEditore/design-system/commit/b13e93645619c6f9da3e45fab243744efc511f0e))
+* tests ([76c75e7](https://github.com/ZanichelliEditore/design-system/commit/76c75e7de489fb551428d331c154b9a9db88ab78))
+* tests for z-navigation tab & z-navigation-tabs ([39d13ac](https://github.com/ZanichelliEditore/design-system/commit/39d13aca1822f82f408e54b60b0a58073d99fe09))
+
+## [2.5.0](https://github.com/ZanichelliEditore/design-system/compare/v2.4.0...v2.5.0) (2021-06-21)
+
+
+### Features
+
+* **clav-44:** add animation to status tag ([e9c62b9](https://github.com/ZanichelliEditore/design-system/commit/e9c62b91673fee6553efb69c4f9cfa94869e503b))
+* **CLAV-44:** add documentation to storybook ([0f80d0b](https://github.com/ZanichelliEditore/design-system/commit/0f80d0bb3b13ad5112871703151a0929a5837137))
+* **CLAV-44:** add style to z-status-tag component ([f2e27c2](https://github.com/ZanichelliEditore/design-system/commit/f2e27c245a4ccab648cd3b6924b05e04b5449c7a))
+* **CLAV-44:** add z-status-tag component ([34aff85](https://github.com/ZanichelliEditore/design-system/commit/34aff853ab0d4b46eb6ff1fb0df1c4bce9bce803))
+* **CLAV-44:** fix ([4a212c7](https://github.com/ZanichelliEditore/design-system/commit/4a212c7f24dcd1e1507895c665503da821f29d51))
+
+
+### Bug Fixes
+
+* **CLAV-44:** fix for pr comments ([71fe30f](https://github.com/ZanichelliEditore/design-system/commit/71fe30f021e675c6482587437c9466297650e339))
+* **CLAV-44:** fix for pr comments ([0518e23](https://github.com/ZanichelliEditore/design-system/commit/0518e23b3697b7a46c69d437cc3394e2528fc77d))
+* **CLAV-44:** fix for pr comments ([dfc49ff](https://github.com/ZanichelliEditore/design-system/commit/dfc49ff148712daef2f4980892eedb1d19c47d91))
+
 ## [2.4.0](https://github.com/ZanichelliEditore/design-system/compare/v2.3.2...v2.4.0) (2021-06-11)
 
 
