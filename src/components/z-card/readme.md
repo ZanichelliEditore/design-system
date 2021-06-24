@@ -29,10 +29,14 @@ Cover variants:
 - [ ] Circle
 
 ---
+## CSS Variables
+- `--z-card--color-cover-background`: used to set the background color of the color cover.
+- `--z-card--border-color`: used to set the border color of the card.
+- `--aspect-ratio`: used to set the ratio of the cover (respecting the indications of the design). Default is `1.62`.
+
+---
 ## Notes
 The width of the card must be set externally, respecting the grid indication of the design.
-
-The CSS variable `--aspect-ratio` can be used to set the ratio of the cover (respecting the indications of the design). Default is `1.62`.
 
 ---
 
