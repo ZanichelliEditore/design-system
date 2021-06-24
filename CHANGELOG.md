@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/ZanichelliEditore/design-system/compare/v2.6.0...v2.7.0) (2021-06-24)
+
+
+### Features
+
+* add line clamp to text ([3ab17fe](https://github.com/ZanichelliEditore/design-system/commit/3ab17fe3cdaf1cf0cff85164ab442d5f2d375345))
+* card with image cover, color cover, shadowed ([e224cb1](https://github.com/ZanichelliEditore/design-system/commit/e224cb174a33b61032e3ae32267d145d035c4046))
+* handle icon over the image ([4fe1be0](https://github.com/ZanichelliEditore/design-system/commit/4fe1be0d420e94d98af1af19535bdf060b355509))
+* overlay variant ([df7e147](https://github.com/ZanichelliEditore/design-system/commit/df7e147dbdee1d3f5723a2f6ced062344d3595c4))
+
+
+### Bug Fixes
+
+* active card border color ([a8d9146](https://github.com/ZanichelliEditore/design-system/commit/a8d91463c194adf2c276e83b4c18ed7d971409f2))
+* content spacing ([d813b35](https://github.com/ZanichelliEditore/design-system/commit/d813b35ef17cefe34d734b00c7e798ff1a858edd))
+* style ([7eb50b5](https://github.com/ZanichelliEditore/design-system/commit/7eb50b50e164269477ab83d0de41c267a3d97f38))
+
 ## [2.6.0](https://github.com/ZanichelliEditore/design-system/compare/v2.5.0...v2.6.0) (2021-06-24)
 
 
