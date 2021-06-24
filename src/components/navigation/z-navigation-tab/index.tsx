@@ -42,7 +42,7 @@ export class ZNavigationTab {
 
   render() {
     return [
-      <button disabled={this.disabled} role="tab">
+      <button class="interactive-1" disabled={this.disabled} role="tab">
         <slot name="icon" />
         <slot name="label" />
       </button>

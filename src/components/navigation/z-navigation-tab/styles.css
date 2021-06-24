@@ -1,21 +1,19 @@
-:host button {
+button {
   position: relative;
   z-index: 0;
   display: flex;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: 24px;
   background-color: unset;
   align-items: center;
   justify-content: center;
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
   margin: 0;
   text-align: center;
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   color: var(--blue500);
-  fill: var(--blue500);
+  fill: currentColor;
   border-style: solid;
   border-color: transparent;
+  border-radius: var(--border-no-radius);
   border-width: 0 0 var(--border-size-large) 0;
   outline: none;
   cursor: pointer;
@@ -24,7 +22,7 @@
 :host(:hover:not([disabled])) button,
 :host([selected]) button {
   color: var(--blue800);
-  fill: var(--blue800);
+  fill: currentColor;
   border-color: var(--blue800);
 }
 
@@ -34,8 +32,7 @@
 
 :host button:focus:not([disabled]) {
   color: var(--blue500);
-  fill: var(--blue500);
-  border: 0px;
+  fill: currentColor;
   box-shadow: 0 0 2px 2px var(--blue100);
 }
 
@@ -43,7 +40,7 @@
   pointer-events: all;
   cursor: not-allowed;
   color: var(--gray700);
-  fill: var(--gray700);
+  fill: currentColor;
 }
 
 /* Orientation Vertical */
@@ -58,9 +55,9 @@
 
 /* Size small */
 :host([size='small']) button {
-  font-size: 14px;
+  font-size: var(--font-size-2);
+  line-height: 1.4;
   letter-spacing: 0.16px;
-  line-height: 20px;
 }
 
 :host([size='small'][orientation='horizontal']) button {
