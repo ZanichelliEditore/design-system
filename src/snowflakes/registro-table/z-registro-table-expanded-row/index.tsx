@@ -3,7 +3,7 @@ import { Component, Prop, h } from "@stencil/core";
 @Component({
   tag: "z-registro-table-expanded-row",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
 })
 export class ZRegistroTableExpandedRow {
   @Prop() colSpan: number;
