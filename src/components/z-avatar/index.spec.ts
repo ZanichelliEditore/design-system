@@ -10,7 +10,9 @@ describe("Suite test ZAvatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-avatar class="medium" style="color: var(--text-white); background-color: var(--bg-grey-700)"></z-avatar>
+      <z-avatar class="body-4-sb medium" style="color: var(--text-white); background-color: var(--bg-grey-700)">
+        <mock:shadow-root></mock:shadow-root>
+      </z-avatar>
     `);
   });
 
@@ -21,7 +23,9 @@ describe("Suite test ZAvatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-avatar class="small" style="color: var(--text-white); background-color: var(--bg-grey-700)" size="small"></z-avatar>
+      <z-avatar class="body-5-sb small" style="color: var(--text-white); background-color: var(--bg-grey-700)" size="small">
+        <mock:shadow-root></mock:shadow-root>
+      </z-avatar>
     `);
   });
 
@@ -32,10 +36,12 @@ describe("Suite test ZAvatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-avatar class="medium" style="color: var(--text-white); background-color: var(--bg-grey-700)" text="ABCDE">
-        <span class="body-4-sb">
-          AB
-        </span>
+      <z-avatar class="body-4-sb medium" style="color: var(--text-white); background-color: var(--bg-grey-700)" text="ABCDE">
+        <mock:shadow-root>
+          <span>
+            AB
+          </span>
+        </mock:shadow-root>
       </z-avatar>
     `);
   });
@@ -48,14 +54,16 @@ describe("Suite test ZAvatar", () => {
 
     expect(page.root).toEqualHtml(`
       <z-avatar
-        class="small"
+        class="body-5-sb small"
         style="color: var(--myz-blue); background-color: var(--bg-grey-700)"
         text-color="myz-blue"
         text="ABCDE"
         size="small">
-          <span class="body-5-sb">
-            AB
-          </span>
+          <mock:shadow-root>
+            <span>
+              AB
+            </span>
+          </mock:shadow-root>
       </z-avatar>
     `);
   });
@@ -68,14 +76,16 @@ describe("Suite test ZAvatar", () => {
 
     expect(page.root).toEqualHtml(`
       <z-avatar
-        class="large"
+      class="body-2-sb large"
         style="color: var(--text-white); background-color: var(--myz-blue)"
         background-color="myz-blue"
         text="ABCDE"
         size="large">
-          <span class="body-2-sb">
-            AB
-          </span>
+          <mock:shadow-root>
+            <span>
+              AB
+            </span>
+          </mock:shadow-root>
       </z-avatar>
     `);
   });
@@ -88,10 +98,12 @@ describe("Suite test ZAvatar", () => {
 
     expect(page.root).toEqualHtml(`
       <z-avatar
-        class="medium"
+        class="body-4-sb medium"
         style="color: var(--text-white); background-color: var(--bg-grey-700)"
         image="https://cdn.eso.org/images/thumb700x/eso1907a.jpg">
-          <img src="https://cdn.eso.org/images/thumb700x/eso1907a.jpg">
+          <mock:shadow-root>
+            <img src="https://cdn.eso.org/images/thumb700x/eso1907a.jpg">
+          </mock:shadow-root>
       </z-avatar>
     `);
   });
