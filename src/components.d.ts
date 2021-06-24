@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, TableHeaderSize, ThemeVariantBean } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -770,6 +770,20 @@ export namespace Components {
          */
         "listdata": string;
     }
+    interface ZNavigationTab {
+        "disabled"?: boolean;
+        "selected"?: boolean;
+    }
+    interface ZNavigationTabs {
+        /**
+          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+         */
+        "orientation"?: TabOrientationBean;
+        /**
+          * Available sizes: `big` and `small`. Defaults to `big`.
+         */
+        "size"?: TabSizeBean;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -995,6 +1009,28 @@ export namespace Components {
           * the input status (optional): available for text, password, number, email, textarea, select
          */
         "status"?: InputStatusBean;
+    }
+    interface ZStatusTag {
+        /**
+          * [optional] Hide the text and show it on hover
+         */
+        "expandable"?: boolean;
+        /**
+          * [optional] Status tag icon
+         */
+        "icon"?: string;
+        /**
+          * [optional] Status tag color
+         */
+        "status"?: StatusTagStatus;
+        /**
+          * [optional] Status tag text
+         */
+        "text"?: string;
+        /**
+          * [optional] Status tag style
+         */
+        "variant"?: ThemeVariant;
     }
     interface ZStepper {
     }
@@ -1317,6 +1353,18 @@ declare global {
         prototype: HTMLZMyzCardListElement;
         new (): HTMLZMyzCardListElement;
     };
+    interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
+    }
+    var HTMLZNavigationTabElement: {
+        prototype: HTMLZNavigationTabElement;
+        new (): HTMLZNavigationTabElement;
+    };
+    interface HTMLZNavigationTabsElement extends Components.ZNavigationTabs, HTMLStencilElement {
+    }
+    var HTMLZNavigationTabsElement: {
+        prototype: HTMLZNavigationTabsElement;
+        new (): HTMLZNavigationTabsElement;
+    };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
     var HTMLZPaginationBarElement: {
@@ -1394,6 +1442,12 @@ declare global {
     var HTMLZSelectElement: {
         prototype: HTMLZSelectElement;
         new (): HTMLZSelectElement;
+    };
+    interface HTMLZStatusTagElement extends Components.ZStatusTag, HTMLStencilElement {
+    }
+    var HTMLZStatusTagElement: {
+        prototype: HTMLZStatusTagElement;
+        new (): HTMLZStatusTagElement;
     };
     interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
     }
@@ -1474,6 +1528,8 @@ declare global {
         "z-myz-card-header": HTMLZMyzCardHeaderElement;
         "z-myz-card-icon": HTMLZMyzCardIconElement;
         "z-myz-card-list": HTMLZMyzCardListElement;
+        "z-navigation-tab": HTMLZNavigationTabElement;
+        "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
@@ -1487,6 +1543,7 @@ declare global {
         "z-registro-table-row": HTMLZRegistroTableRowElement;
         "z-registro-table-sticky-footer": HTMLZRegistroTableStickyFooterElement;
         "z-select": HTMLZSelectElement;
+        "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-toggle-button": HTMLZToggleButtonElement;
@@ -2340,6 +2397,21 @@ declare namespace LocalJSX {
          */
         "listdata"?: string;
     }
+    interface ZNavigationTab {
+        "disabled"?: boolean;
+        "onSelected"?: (event: CustomEvent<any>) => void;
+        "selected"?: boolean;
+    }
+    interface ZNavigationTabs {
+        /**
+          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+         */
+        "orientation"?: TabOrientationBean;
+        /**
+          * Available sizes: `big` and `small`. Defaults to `big`.
+         */
+        "size"?: TabSizeBean;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -2574,6 +2646,28 @@ declare namespace LocalJSX {
          */
         "status"?: InputStatusBean;
     }
+    interface ZStatusTag {
+        /**
+          * [optional] Hide the text and show it on hover
+         */
+        "expandable"?: boolean;
+        /**
+          * [optional] Status tag icon
+         */
+        "icon"?: string;
+        /**
+          * [optional] Status tag color
+         */
+        "status"?: StatusTagStatus;
+        /**
+          * [optional] Status tag text
+         */
+        "text"?: string;
+        /**
+          * [optional] Status tag style
+         */
+        "variant"?: ThemeVariant;
+    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -2696,6 +2790,8 @@ declare namespace LocalJSX {
         "z-myz-card-header": ZMyzCardHeader;
         "z-myz-card-icon": ZMyzCardIcon;
         "z-myz-card-list": ZMyzCardList;
+        "z-navigation-tab": ZNavigationTab;
+        "z-navigation-tabs": ZNavigationTabs;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
@@ -2709,6 +2805,7 @@ declare namespace LocalJSX {
         "z-registro-table-row": ZRegistroTableRow;
         "z-registro-table-sticky-footer": ZRegistroTableStickyFooter;
         "z-select": ZSelect;
+        "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-toggle-button": ZToggleButton;
@@ -2763,6 +2860,8 @@ declare module "@stencil/core" {
             "z-myz-card-header": LocalJSX.ZMyzCardHeader & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
             "z-myz-card-icon": LocalJSX.ZMyzCardIcon & JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
+            "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
+            "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
@@ -2776,6 +2875,7 @@ declare module "@stencil/core" {
             "z-registro-table-row": LocalJSX.ZRegistroTableRow & JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
             "z-registro-table-sticky-footer": LocalJSX.ZRegistroTableStickyFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableStickyFooterElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
+            "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
