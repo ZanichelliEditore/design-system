@@ -9,7 +9,7 @@ z-registro-table {
 z-registro-table > div.table {
   display: table;
   width: 100%;
-  border-collapse: collapse; /** TODO: era separated, ricontrollare tutte le prop della tabella */
+  border-collapse: collapse;
 }
 
 z-registro-table
