@@ -906,6 +906,12 @@ export namespace Components {
          */
         "showButton"?: boolean;
     }
+    interface ZRegistroTableExpandedRow {
+        /**
+          * Number table column plus 1 for the expand button
+         */
+        "colSpan": number;
+    }
     interface ZRegistroTableFooter {
     }
     interface ZRegistroTableHead {
@@ -928,7 +934,11 @@ export namespace Components {
          */
         "sortable"?: boolean;
     }
+    interface ZRegistroTableHeaderRow {
+        "expandable"?: boolean;
+    }
     interface ZRegistroTableRow {
+        "expandable"?: boolean;
     }
     interface ZRegistroTableStickyFooter {
     }
@@ -1399,6 +1409,12 @@ declare global {
         prototype: HTMLZRegistroTableCellElement;
         new (): HTMLZRegistroTableCellElement;
     };
+    interface HTMLZRegistroTableExpandedRowElement extends Components.ZRegistroTableExpandedRow, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableExpandedRowElement: {
+        prototype: HTMLZRegistroTableExpandedRowElement;
+        new (): HTMLZRegistroTableExpandedRowElement;
+    };
     interface HTMLZRegistroTableFooterElement extends Components.ZRegistroTableFooter, HTMLStencilElement {
     }
     var HTMLZRegistroTableFooterElement: {
@@ -1416,6 +1432,12 @@ declare global {
     var HTMLZRegistroTableHeaderElement: {
         prototype: HTMLZRegistroTableHeaderElement;
         new (): HTMLZRegistroTableHeaderElement;
+    };
+    interface HTMLZRegistroTableHeaderRowElement extends Components.ZRegistroTableHeaderRow, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableHeaderRowElement: {
+        prototype: HTMLZRegistroTableHeaderRowElement;
+        new (): HTMLZRegistroTableHeaderRowElement;
     };
     interface HTMLZRegistroTableRowElement extends Components.ZRegistroTableRow, HTMLStencilElement {
     }
@@ -1529,9 +1551,11 @@ declare global {
         "z-registro-table": HTMLZRegistroTableElement;
         "z-registro-table-body": HTMLZRegistroTableBodyElement;
         "z-registro-table-cell": HTMLZRegistroTableCellElement;
+        "z-registro-table-expanded-row": HTMLZRegistroTableExpandedRowElement;
         "z-registro-table-footer": HTMLZRegistroTableFooterElement;
         "z-registro-table-head": HTMLZRegistroTableHeadElement;
         "z-registro-table-header": HTMLZRegistroTableHeaderElement;
+        "z-registro-table-header-row": HTMLZRegistroTableHeaderRowElement;
         "z-registro-table-row": HTMLZRegistroTableRowElement;
         "z-registro-table-sticky-footer": HTMLZRegistroTableStickyFooterElement;
         "z-select": HTMLZSelectElement;
@@ -2542,6 +2566,12 @@ declare namespace LocalJSX {
          */
         "showButton"?: boolean;
     }
+    interface ZRegistroTableExpandedRow {
+        /**
+          * Number table column plus 1 for the expand button
+         */
+        "colSpan"?: number;
+    }
     interface ZRegistroTableFooter {
     }
     interface ZRegistroTableHead {
@@ -2568,7 +2598,12 @@ declare namespace LocalJSX {
          */
         "sortable"?: boolean;
     }
+    interface ZRegistroTableHeaderRow {
+        "expandable"?: boolean;
+    }
     interface ZRegistroTableRow {
+        "expandable"?: boolean;
+        "onExpand"?: (event: CustomEvent<any>) => void;
     }
     interface ZRegistroTableStickyFooter {
     }
@@ -2787,9 +2822,11 @@ declare namespace LocalJSX {
         "z-registro-table": ZRegistroTable;
         "z-registro-table-body": ZRegistroTableBody;
         "z-registro-table-cell": ZRegistroTableCell;
+        "z-registro-table-expanded-row": ZRegistroTableExpandedRow;
         "z-registro-table-footer": ZRegistroTableFooter;
         "z-registro-table-head": ZRegistroTableHead;
         "z-registro-table-header": ZRegistroTableHeader;
+        "z-registro-table-header-row": ZRegistroTableHeaderRow;
         "z-registro-table-row": ZRegistroTableRow;
         "z-registro-table-sticky-footer": ZRegistroTableStickyFooter;
         "z-select": ZSelect;
@@ -2857,9 +2894,11 @@ declare module "@stencil/core" {
             "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
             "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
             "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
+            "z-registro-table-expanded-row": LocalJSX.ZRegistroTableExpandedRow & JSXBase.HTMLAttributes<HTMLZRegistroTableExpandedRowElement>;
             "z-registro-table-footer": LocalJSX.ZRegistroTableFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableFooterElement>;
             "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
             "z-registro-table-header": LocalJSX.ZRegistroTableHeader & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderElement>;
+            "z-registro-table-header-row": LocalJSX.ZRegistroTableHeaderRow & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderRowElement>;
             "z-registro-table-row": LocalJSX.ZRegistroTableRow & JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
             "z-registro-table-sticky-footer": LocalJSX.ZRegistroTableStickyFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableStickyFooterElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;

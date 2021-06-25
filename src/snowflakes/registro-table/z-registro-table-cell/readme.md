@@ -18,6 +18,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-registro-table-row](../z-registro-table-row)
+
 ### Depends on
 
 - [z-button](../../../components/buttons/z-button)
@@ -27,6 +31,7 @@
 graph TD;
   z-registro-table-cell --> z-button
   z-button --> z-icon
+  z-registro-table-row --> z-registro-table-cell
   style z-registro-table-cell fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

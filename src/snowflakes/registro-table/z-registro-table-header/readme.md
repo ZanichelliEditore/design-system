@@ -28,6 +28,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-registro-table-header-row](../z-registro-table-header-row)
+
 ### Depends on
 
 - [z-icon](../../../components/icons/z-icon)
@@ -41,6 +45,7 @@ graph TD;
   z-registro-table-header --> z-popover
   z-registro-table-header --> z-button
   z-button --> z-icon
+  z-registro-table-header-row --> z-registro-table-header
   style z-registro-table-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
