@@ -893,6 +893,9 @@ export namespace Components {
         "showButton"?: boolean;
     }
     interface ZRegistroTableExpandedRow {
+        /**
+          * Number table column plus 1 for the expand button
+         */
         "colSpan": number;
     }
     interface ZRegistroTableFooter {
@@ -2525,6 +2528,9 @@ declare namespace LocalJSX {
         "showButton"?: boolean;
     }
     interface ZRegistroTableExpandedRow {
+        /**
+          * Number table column plus 1 for the expand button
+         */
         "colSpan"?: number;
     }
     interface ZRegistroTableFooter {

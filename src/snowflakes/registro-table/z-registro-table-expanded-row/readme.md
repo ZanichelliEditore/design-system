@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute  | Description | Type     | Default     |
-| --------- | ---------- | ----------- | -------- | ----------- |
-| `colSpan` | `col-span` |             | `number` | `undefined` |
+| Property  | Attribute  | Description                                      | Type     | Default     |
+| --------- | ---------- | ------------------------------------------------ | -------- | ----------- |
+| `colSpan` | `col-span` | Number table column plus 1 for the expand button | `number` | `undefined` |
 
 
 ----------------------------------------------
