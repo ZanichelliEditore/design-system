@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](https://github.com/ZanichelliEditore/design-system/compare/v2.7.0...v2.8.0) (2021-06-25)
+
+
+### Features
+
+* **clav-41:** add callback on expand row ([5e404e5](https://github.com/ZanichelliEditore/design-system/commit/5e404e55c1985196ae137e9c1666c5c7f6d83ebc))
+* **clav-41:** add header row, add style expandable row ([2f4be9e](https://github.com/ZanichelliEditore/design-system/commit/2f4be9ea35e81e5486ecbbdb53019ed3da69e8c0))
+* **clav-41:** add style for expandable row ([bd8a64e](https://github.com/ZanichelliEditore/design-system/commit/bd8a64ee138946dc3286ff3eb8458dc2bcb7ffe2))
+* **clav-41:** expandable header border-box ([3e9827f](https://github.com/ZanichelliEditore/design-system/commit/3e9827fc5b6e333f870c443229992ee8a3a165b4))
+* **clav-41:** make row expandable with icon button ([4811635](https://github.com/ZanichelliEditore/design-system/commit/4811635d3db6baefa2798e0efe62deb9f46f2f06))
+
 ## [2.7.0](https://github.com/ZanichelliEditore/design-system/compare/v2.6.0...v2.7.0) (2021-06-24)
 
 
