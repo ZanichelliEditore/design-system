@@ -70,7 +70,7 @@ export class ZRegistroTableHeader {
             h("slot", { name: "contextual-menu" })))))));
   }
   static get is() { return "z-registro-table-header"; }
-  static get encapsulation() { return "scoped"; }
+  static get encapsulation() { return "shadow"; }
   static get originalStyleUrls() { return {
     "$": ["styles.css"]
   }; }

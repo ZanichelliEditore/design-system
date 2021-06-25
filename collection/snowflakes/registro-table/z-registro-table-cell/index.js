@@ -25,7 +25,7 @@ export class ZRegistroTableCell {
       h("slot", null)));
   }
   static get is() { return "z-registro-table-cell"; }
-  static get encapsulation() { return "scoped"; }
+  static get encapsulation() { return "shadow"; }
   static get originalStyleUrls() { return {
     "$": ["styles.css"]
   }; }

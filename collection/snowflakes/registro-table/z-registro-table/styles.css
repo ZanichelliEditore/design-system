@@ -9,7 +9,7 @@ z-registro-table {
 z-registro-table > div.table {
   display: table;
   width: 100%;
-  border-collapse: separate;
+  border-collapse: collapse;
 }
 
 z-registro-table
@@ -20,9 +20,39 @@ z-registro-table
 z-registro-table
   > div.table-bordered
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header:not(:last-child) {
   border-right: var(--border-size-small) solid var(--bg-grey-200);
+}
+
+/** Remove border right to first cell if row is expandable */
+z-registro-table
+  > div
+  > z-registro-table-body
+  > z-registro-table-row[expandable]
+  > z-registro-table-cell:first-child,
+z-registro-table
+  > div
+  > z-registro-table-head
+  > z-registro-table-header-row[expandable]
+  > z-registro-table-header:first-child {
+  border-right: none;
+}
+
+z-registro-table
+  > div
+  > z-registro-table-body
+  > z-registro-table-row[expanded]
+  > z-registro-table-cell {
+  background-color: var(--gray50);
+}
+
+z-registro-table
+  > div
+  > z-registro-table-body
+  > z-registro-table-row[expanded]
+  + z-registro-table-expanded-row {
+  border-bottom: 1px solid var(--gray200);
 }
 
 z-registro-table
@@ -33,7 +63,7 @@ z-registro-table
 z-registro-table
   > div.table-column-sticky
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header:first-child {
   position: sticky;
   left: 0;
@@ -44,7 +74,7 @@ z-registro-table
 z-registro-table
   > div.table-header-sticky
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header {
   position: sticky;
   top: 0;
@@ -57,7 +87,7 @@ z-registro-table
 z-registro-table
   > div.table-header-sticky
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header {
   z-index: 2;
 }
@@ -68,12 +98,12 @@ z-registro-table
 z-registro-table
   > div.table-header-sticky
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header:first-child,
 z-registro-table
   > div.table-column-sticky
   > z-registro-table-head
-  > z-registro-table-row
+  > z-registro-table-header-row
   > z-registro-table-header:first-child {
   z-index: 5;
 }

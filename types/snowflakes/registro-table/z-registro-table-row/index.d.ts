@@ -1,5 +1,10 @@
+import { EventEmitter } from "../../../stencil-public-runtime";
 export declare class ZRegistroTableRow {
-  host: HTMLElement;
-  componentWillRender(): void;
+  expandable?: boolean;
+  expanded: boolean;
+  expand: EventEmitter;
+  emitOnExpand(): void;
+  handleExpand(): void;
+  _renderExpandButton(): any;
   render(): any;
 }

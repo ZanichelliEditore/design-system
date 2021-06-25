@@ -59,9 +59,11 @@
     "./snowflakes/registro-table/z-registro-table/index.js",
     "./snowflakes/registro-table/z-registro-table-body/index.js",
     "./snowflakes/registro-table/z-registro-table-cell/index.js",
+    "./snowflakes/registro-table/z-registro-table-expanded-row/index.js",
     "./snowflakes/registro-table/z-registro-table-footer/index.js",
     "./snowflakes/registro-table/z-registro-table-head/index.js",
     "./snowflakes/registro-table/z-registro-table-header/index.js",
+    "./snowflakes/registro-table/z-registro-table-header-row/index.js",
     "./snowflakes/registro-table/z-registro-table-row/index.js",
     "./snowflakes/registro-table/z-registro-table-sticky-footer/index.js"
   ],
