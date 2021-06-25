@@ -13,7 +13,7 @@
   align-items: flex-end;
 }
 
-:host.sortable {
+:host(.sortable) {
   cursor: pointer;
 }
 

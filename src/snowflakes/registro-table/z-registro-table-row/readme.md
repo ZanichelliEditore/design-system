@@ -16,6 +16,13 @@
 | `expandable` | `expandable` |             | `boolean` | `undefined` |
 
 
+## Events
+
+| Event    | Description | Type               |
+| -------- | ----------- | ------------------ |
+| `expand` |             | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Depends on
