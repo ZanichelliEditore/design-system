@@ -44,12 +44,6 @@ export class ZNavigationTab {
     }
   }
 
-  // componentWillRender() {
-  //   if (this.host.children.length > 1) {
-  //     (this.host.children[this.host.children.length - 1] as HTMLElement).style.marginLeft = window.getComputedStyle(this.host).getPropertyValue('--space-unit');
-  //   }
-  // }
-
   render() {
     return <Host class={this.size === 'small' ? 'interactive-2' : 'interactive-1'}>
       <button disabled={this.disabled} role="tab">
