@@ -47,8 +47,8 @@ export class ZNavigationTab {
   render() {
     return <Host class={this.size === 'small' ? 'interactive-2' : 'interactive-1'}>
       <button disabled={this.disabled} role="tab">
-        <slot name="icon" />
-        <slot name="label" />
+        <slot name="icon"></slot>
+        <slot name="label"></slot>
       </button>
     </Host>;
   }
