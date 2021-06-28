@@ -13,10 +13,12 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default |
-| ---------- | ---------- | ----------- | --------- | ------- |
-| `disabled` | `disabled` |             | `boolean` | `false` |
-| `selected` | `selected` |             | `boolean` | `false` |
+| Property      | Attribute     | Description | Type      | Default        |
+| ------------- | ------------- | ----------- | --------- | -------------- |
+| `disabled`    | `disabled`    |             | `boolean` | `false`        |
+| `orientation` | `orientation` |             | `string`  | `'horizontal'` |
+| `selected`    | `selected`    |             | `boolean` | `false`        |
+| `size`        | `size`        |             | `string`  | `'big'`        |
 
 
 ## Events
@@ -28,9 +30,10 @@
 
 ## Slots
 
-| Slot | Description |
-| ---- | ----------- |
-|      | tab label   |
+| Slot      | Description |
+| --------- | ----------- |
+| `"icon"`  | tab icon    |
+| `"label"` | tab label   |
 
 
 ----------------------------------------------

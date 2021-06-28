@@ -1,34 +1,38 @@
-import { Component, Prop, h, Element, Listen, Event, EventEmitter, Watch } from "@stencil/core";
+import { Component, Prop, h, Element, Listen, Event, EventEmitter, Watch, Host } from "@stencil/core";
 
 /**
- * @slot - tab label
+ * @slot icon - tab icon
+ * @slot label - tab label
  */
-
 @Component({
   tag: "z-navigation-tab",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: true
 })
 
 export class ZNavigationTab {
-  @Element() hostElement: HTMLElement;
+  @Element() host: HTMLElement;
 
   @Prop({ mutable: true, reflect: true }) selected?: boolean = false;
   @Prop({ reflect: true }) disabled?: boolean = false;
+  @Prop({ reflect: true }) orientation: string = 'horizontal';
+  @Prop({ reflect: true }) size: string = 'big';
 
   @Event({ eventName: 'selected' })
   private emitSelected: EventEmitter;
 
   @Listen('focus')
   onFocus() {
-    this.hostElement.scrollIntoView({
-      behavior: "smooth",
+    this.host.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'nearest',
     });
   }
 
   @Listen('click')
   onClick() {
-    if(!this.disabled){
+    if (!this.disabled) {
       this.selected = true;
     }
   }
@@ -40,12 +44,18 @@ export class ZNavigationTab {
     }
   }
 
+  // componentWillRender() {
+  //   if (this.host.children.length > 1) {
+  //     (this.host.children[this.host.children.length - 1] as HTMLElement).style.marginLeft = window.getComputedStyle(this.host).getPropertyValue('--space-unit');
+  //   }
+  // }
+
   render() {
-    return [
-      <button class="interactive-1" disabled={this.disabled} role="tab">
+    return <Host class={this.size === 'small' ? 'interactive-2' : 'interactive-1'}>
+      <button disabled={this.disabled} role="tab">
         <slot name="icon" />
         <slot name="label" />
       </button>
-    ];
+    </Host>;
   }
 }

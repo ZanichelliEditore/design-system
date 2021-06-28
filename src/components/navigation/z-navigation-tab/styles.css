@@ -2,58 +2,67 @@ button {
   position: relative;
   z-index: 0;
   display: flex;
-  background-color: unset;
   align-items: center;
   justify-content: center;
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
+  width: 100%;
   margin: 0;
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
+  background-color: unset;
   text-align: center;
-  font-family: var(--font-family-sans);
-  color: var(--blue500);
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: var(--color-primary01);
   fill: currentColor;
-  border-style: solid;
-  border-color: transparent;
+  border: none;
   border-radius: var(--border-no-radius);
-  border-width: 0 0 var(--border-size-large) 0;
   outline: none;
   cursor: pointer;
 }
 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :host(:hover:not([disabled])) button,
 :host([selected]) button {
-  color: var(--blue800);
+  color: var(--color-hover-secondary);
   fill: currentColor;
-  border-color: var(--blue800);
+}
+
+:host(:hover:not([disabled])) button::after,
+:host([selected]) button::after {
+  content: '';
+  position: absolute;
+  background-color: var(--color-hover-secondary);
+}
+
+:host([orientation='horizontal']:hover:not([disabled])) button::after,
+:host([orientation='horizontal'][selected]) button::after {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--border-size-large);
 }
 
 :host(:hover:not([disabled])) button {
-  background-color: var(--gray50);
+  background-color: var(--color-background);
 }
 
-:host button:focus:not([disabled]) {
-  color: var(--blue500);
-  fill: currentColor;
-  box-shadow: 0 0 2px 2px var(--blue100);
+button:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
 }
 
 :host([disabled]) button {
   pointer-events: all;
   cursor: not-allowed;
-  color: var(--gray700);
+  color: var(--gray500);
   fill: currentColor;
 }
 
-/* Orientation Vertical */
-:host([orientation='vertical']) button {
-  padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
-  border-width: 0 var(--border-size-large) 0 0;
-}
-
-:host([orientation='vertical']) ::slotted([slot='label']) {
-  display: none;
-}
-
-/* Size small */
+/* Size small (only available for horizontal) */
 :host([size='small']) button {
   font-size: var(--font-size-2);
   line-height: 1.4;
@@ -62,14 +71,41 @@ button {
 
 :host([size='small'][orientation='horizontal']) button {
   padding: var(--space-unit) calc(var(--space-unit) * 2);
-  border-width: 0 0 var(--border-size-medium) 0;
 }
 
-/* Slotted into button */
+:host([size='small'][orientation='horizontal']:not([disabled])):hover button::after,
+:host([size='small'][orientation='horizontal'][selected]) button::after {
+  height: var(--border-size-medium);
+}
+
+:host([size='small']:not([orientation='vertical'])) ::slotted(z-icon) {
+  --z-icon-width: 14px;
+  --z-icon-height: 14px;
+}
+
+/* Orientation Vertical */
+:host([orientation='vertical']) button {
+  padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
+}
+
+:host([orientation='vertical']:hover:not([disabled])) button::after,
+:host([orientation='vertical'][selected]) button::after {
+  width: var(--border-size-large);
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+:host([orientation='vertical']) ::slotted([slot='label']) {
+  display: none;
+}
+
 ::slotted(z-icon) {
   margin: 0;
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
 }
 
-::slotted([slot='label']) {
-  margin-left: var(--space-unit);
+::slotted(:not(:last-child)) {
+  margin-right: var(--space-unit);
 }
