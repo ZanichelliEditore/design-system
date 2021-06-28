@@ -29,6 +29,7 @@
  - [z-button](../../buttons/z-button)
  - [z-button-filter](../../buttons/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
+ - [z-card](../../z-card)
  - [z-combobox](../../inputs/z-combobox)
  - [z-footer-section](../../footer/z-footer-section)
  - [z-header](../../navigation/z-header)
@@ -44,8 +45,10 @@
  - [z-modal](../../modal/z-modal)
  - [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
  - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
+ - [z-navigation-tabs](../../navigation/z-navigation-tabs)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
+ - [z-registro-table-row](../../../snowflakes/registro-table/z-registro-table-row)
  - [z-select](../../inputs/z-select)
  - [z-status-tag](../../z-status-tag)
  - [z-toggle-button](../../buttons/z-toggle-button)
@@ -59,6 +62,7 @@ graph TD;
   z-button --> z-icon
   z-button-filter --> z-icon
   z-button-sort --> z-icon
+  z-card --> z-icon
   z-combobox --> z-icon
   z-footer-section --> z-icon
   z-header --> z-icon
@@ -74,8 +78,10 @@ graph TD;
   z-modal --> z-icon
   z-myz-card-alert --> z-icon
   z-myz-card-icon --> z-icon
+  z-navigation-tabs --> z-icon
   z-pagination-bar --> z-icon
   z-registro-table-header --> z-icon
+  z-registro-table-row --> z-icon
   z-select --> z-icon
   z-status-tag --> z-icon
   z-toggle-button --> z-icon

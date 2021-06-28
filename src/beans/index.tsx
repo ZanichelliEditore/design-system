@@ -49,6 +49,12 @@ export type CardBean = {
   licenseType: LicenseTypeEnum;
 };
 
+export enum CardVariants {
+  border = "border",
+  shadow = "shadow",
+  overlay = "overlay"
+};
+
 export declare type ActionBean = {
   isLink: boolean;
   value: string;
@@ -78,6 +84,29 @@ export type MenuItem = {
   target?: string;
   subMenu?: MenuItem[];
 };
+
+export type TabItem = {
+  id: string;
+  label: string;
+  icon?: string;
+  size?: string;
+  selected?: boolean;
+  disabled?: boolean;
+};
+
+export type TabOrientationBean = TabOrientationEnum;
+
+export enum TabOrientationEnum {
+  horizontal = "horizontal",
+  vertical = "vertical",
+}
+
+export type TabSizeBean = TabSizeEnum;
+
+export enum TabSizeEnum {
+  big = "big",
+  small = "small",
+}
 
 export type HeaderUserData = {
   islogged: boolean;

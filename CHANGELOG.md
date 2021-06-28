@@ -2,6 +2,56 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](https://github.com/ZanichelliEditore/design-system/compare/v2.7.0...v2.8.0) (2021-06-25)
+
+
+### Features
+
+* **clav-41:** add callback on expand row ([5e404e5](https://github.com/ZanichelliEditore/design-system/commit/5e404e55c1985196ae137e9c1666c5c7f6d83ebc))
+* **clav-41:** add header row, add style expandable row ([2f4be9e](https://github.com/ZanichelliEditore/design-system/commit/2f4be9ea35e81e5486ecbbdb53019ed3da69e8c0))
+* **clav-41:** add style for expandable row ([bd8a64e](https://github.com/ZanichelliEditore/design-system/commit/bd8a64ee138946dc3286ff3eb8458dc2bcb7ffe2))
+* **clav-41:** expandable header border-box ([3e9827f](https://github.com/ZanichelliEditore/design-system/commit/3e9827fc5b6e333f870c443229992ee8a3a165b4))
+* **clav-41:** make row expandable with icon button ([4811635](https://github.com/ZanichelliEditore/design-system/commit/4811635d3db6baefa2798e0efe62deb9f46f2f06))
+
+## [2.7.0](https://github.com/ZanichelliEditore/design-system/compare/v2.6.0...v2.7.0) (2021-06-24)
+
+
+### Features
+
+* add line clamp to text ([3ab17fe](https://github.com/ZanichelliEditore/design-system/commit/3ab17fe3cdaf1cf0cff85164ab442d5f2d375345))
+* card with image cover, color cover, shadowed ([e224cb1](https://github.com/ZanichelliEditore/design-system/commit/e224cb174a33b61032e3ae32267d145d035c4046))
+* handle icon over the image ([4fe1be0](https://github.com/ZanichelliEditore/design-system/commit/4fe1be0d420e94d98af1af19535bdf060b355509))
+* overlay variant ([df7e147](https://github.com/ZanichelliEditore/design-system/commit/df7e147dbdee1d3f5723a2f6ced062344d3595c4))
+
+
+### Bug Fixes
+
+* active card border color ([a8d9146](https://github.com/ZanichelliEditore/design-system/commit/a8d91463c194adf2c276e83b4c18ed7d971409f2))
+* content spacing ([d813b35](https://github.com/ZanichelliEditore/design-system/commit/d813b35ef17cefe34d734b00c7e798ff1a858edd))
+* style ([7eb50b5](https://github.com/ZanichelliEditore/design-system/commit/7eb50b50e164269477ab83d0de41c267a3d97f38))
+
+## [2.6.0](https://github.com/ZanichelliEditore/design-system/compare/v2.5.0...v2.6.0) (2021-06-24)
+
+
+### Features
+
+* navigation buttons methods wip ([8ff1c22](https://github.com/ZanichelliEditore/design-system/commit/8ff1c220ec557f564c73694baa341a2d687873b7))
+* z-navigation tabs test ([b0d888d](https://github.com/ZanichelliEditore/design-system/commit/b0d888dc8e0ae43d53113ab6a40ffc532466a779))
+
+
+### Bug Fixes
+
+*  added focus into button navigation and fix focus z-navigation-tab ([cf31b4d](https://github.com/ZanichelliEditore/design-system/commit/cf31b4dd9e3ac4efe32968127236b37b2bb1590c))
+* added listener focus for tab ([2dd33b2](https://github.com/ZanichelliEditore/design-system/commit/2dd33b2080efa2fba7e3ac8a9255c24ba77c72ea))
+* after review , added button into z-navigation-tab with slot , fix cursor:not-allowed & added role tablist, role tab into button for tab keyboard ([7074de1](https://github.com/ZanichelliEditore/design-system/commit/7074de1c2cd4e7bfa15b8750ab0f9bd17c735579))
+* after review, added 2 z-navigation-tab into z-navigation-tabs horizontal test and changed select if into z-navigation-tabs index.tsx ([0ada1d1](https://github.com/ZanichelliEditore/design-system/commit/0ada1d18d77f44b7c538f4d08edab1cfc35bf9cd))
+* after review, added states dimension & direction and changed code for canNavigation & canNavigationPrev,Next ([f5860bf](https://github.com/ZanichelliEditore/design-system/commit/f5860bf909df1461455d5a261f073f5b44b818ec))
+* after review, fix checkScrollEnabler for vertical orientation and changed meta title z-navigation-tabs & z-navigation-tab stories.mdx ([2daac6b](https://github.com/ZanichelliEditore/design-system/commit/2daac6be61c8e57bc8fb7c97a8c6c846a8b1c0aa))
+* border sizes; single tab orientation variant; size variant ([ab4acf8](https://github.com/ZanichelliEditore/design-system/commit/ab4acf84f06e037e665391df768fdaae58d21964))
+* focus role tab ([b13e936](https://github.com/ZanichelliEditore/design-system/commit/b13e93645619c6f9da3e45fab243744efc511f0e))
+* tests ([76c75e7](https://github.com/ZanichelliEditore/design-system/commit/76c75e7de489fb551428d331c154b9a9db88ab78))
+* tests for z-navigation tab & z-navigation-tabs ([39d13ac](https://github.com/ZanichelliEditore/design-system/commit/39d13aca1822f82f408e54b60b0a58073d99fe09))
+
 ## [2.5.0](https://github.com/ZanichelliEditore/design-system/compare/v2.4.0...v2.5.0) (2021-06-21)
 
 
