@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element, Listen, Event, EventEmitter, Watch, Host } from "@stencil/core";
+import { Component, Prop, h, Element, Listen, Event, EventEmitter, Watch } from "@stencil/core";
 
 /**
  * @slot icon - tab icon
@@ -45,11 +45,9 @@ export class ZNavigationTab {
   }
 
   render() {
-    return <Host class={this.size === 'small' ? 'interactive-2' : 'interactive-1'}>
-      <button disabled={this.disabled} role="tab">
-        <slot name="icon"></slot>
-        <slot name="label"></slot>
-      </button>
-    </Host>;
+    return <button disabled={this.disabled} role="tab">
+      <slot name="icon"></slot>
+      <slot name="label"></slot>
+    </button>;
   }
 }

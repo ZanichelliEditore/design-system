@@ -110,7 +110,7 @@ export class ZNavigationTabs {
   }
 
   render() {
-    return <Host scrollable={this.canNavigate} role="tablist">
+    return <Host class={this.size === 'small' ? 'interactive-2' : 'interactive-1'} scrollable={this.canNavigate} role="tablist">
         {this.canNavigate && <button role="tab" class="navigation" onClick={() => this.navigatePrevious()} tabindex="-1" disabled={!this.canNavigatePrev}>
           <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
         </button>}
