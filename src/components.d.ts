@@ -776,6 +776,28 @@ export namespace Components {
          */
         "size"?: TabSizeBean;
     }
+    interface ZNotification {
+        /**
+          * action button text
+         */
+        "actiontext"?: string;
+        /**
+          * icon on the left of the content
+         */
+        "contenticonname": string;
+        /**
+          * content text
+         */
+        "contenttext": string;
+        /**
+          * enable close icon
+         */
+        "showclose": boolean;
+        /**
+          * alert variant type
+         */
+        "type": string;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -1367,6 +1389,12 @@ declare global {
         prototype: HTMLZNavigationTabsElement;
         new (): HTMLZNavigationTabsElement;
     };
+    interface HTMLZNotificationElement extends Components.ZNotification, HTMLStencilElement {
+    }
+    var HTMLZNotificationElement: {
+        prototype: HTMLZNotificationElement;
+        new (): HTMLZNotificationElement;
+    };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
     var HTMLZPaginationBarElement: {
@@ -1544,6 +1572,7 @@ declare global {
         "z-myz-card-list": HTMLZMyzCardListElement;
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
+        "z-notification": HTMLZNotificationElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
@@ -2424,6 +2453,36 @@ declare namespace LocalJSX {
          */
         "size"?: TabSizeBean;
     }
+    interface ZNotification {
+        /**
+          * action button text
+         */
+        "actiontext"?: string;
+        /**
+          * icon on the left of the content
+         */
+        "contenticonname"?: string;
+        /**
+          * content text
+         */
+        "contenttext"?: string;
+        /**
+          * notification action event
+         */
+        "onNotificationAction"?: (event: CustomEvent<any>) => void;
+        /**
+          * notification close event
+         */
+        "onNotificationClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * enable close icon
+         */
+        "showclose"?: boolean;
+        /**
+          * alert variant type
+         */
+        "type"?: string;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -2815,6 +2874,7 @@ declare namespace LocalJSX {
         "z-myz-card-list": ZMyzCardList;
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
+        "z-notification": ZNotification;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
@@ -2887,6 +2947,7 @@ declare module "@stencil/core" {
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
+            "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;

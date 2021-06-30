@@ -1,0 +1,90 @@
+:host {
+  width: 100%;
+  color: var(--text-grey-800);
+}
+
+.relative-container {
+  display: flex;
+  padding:  0 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
+  outline: none;
+  border: var(--border-size-medium) solid var(--bg-grey-200);
+  border-top: none;
+  box-shadow: var(--shadow-3);
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+}
+
+.content-text {
+  max-width: 800px;
+  margin-top: calc(var(--space-unit) * 2);
+  margin-right: calc(var(--space-unit) * 2);
+}
+
+.action-text {
+  margin-top: calc(var(--space-unit) * 2);
+  margin-right: calc(var(--space-unit) * 2);
+  color: var(--myz-blue);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+:host div>z-icon {
+  justify-self: center;
+  margin-top: calc(var(--space-unit) * 2);
+  margin-right: calc(var(--space-unit));
+}
+
+:host div.success-notification {
+  background: var(--status-success-green-lighter);
+}
+
+:host div.warning-notification {
+  background: var(--status-warning-yellow-lighter);
+}
+
+:host div.error-notification {
+  background: var(--status-error-red-lighter);
+}
+
+:host div>z-icon.success-notification {
+  fill: var(--status-success-green);
+}
+
+:host div>z-icon.warning-notification {
+  fill: var(--status-warning-yellow-dark);
+}
+
+:host div>z-icon.error-notification {
+  fill: var(--status-error-red-main);
+}
+
+:host div>z-icon.close-icon {
+  cursor: pointer;
+  fill: var(--myz-blue);
+  margin-right: calc(var(--space-unit) * 2);
+}
+
+
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  .content-container {
+    flex-wrap: nowrap;
+  }
+
+  .content-text {
+    margin-right: calc(var(--space-unit) * 5);
+  }
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {}
