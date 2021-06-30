@@ -30,7 +30,7 @@ export class ZModal {
 
   render() {
     return [
-      <div class="modal-container">
+      <div class="modal-container" id={this.modalid}>
         <header onClick={this.emitModalHeaderActive.bind(this)}>
           <div>
             {this.modaltitle && <h1>{this.modaltitle}</h1>}
