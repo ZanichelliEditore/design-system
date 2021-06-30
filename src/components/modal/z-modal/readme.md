@@ -24,7 +24,7 @@
 
 | Event               | Description                                    | Type               |
 | ------------------- | ---------------------------------------------- | ------------------ |
-| `modalClose`        | emitted on close icon click, returns modalid   | `CustomEvent<any>` |
+| `modalClose`        | emitted on close button click, returns modalid | `CustomEvent<any>` |
 | `modalHeaderActive` | emitted on modal header click, returns modalid | `CustomEvent<any>` |
 
 
