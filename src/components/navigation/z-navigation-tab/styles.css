@@ -13,6 +13,7 @@ button {
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
+  white-space: nowrap;
   color: var(--color-primary01);
   fill: currentColor;
   border: none;
