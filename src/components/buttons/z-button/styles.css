@@ -19,6 +19,7 @@ button,
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 100%;
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
@@ -33,7 +34,7 @@ button,
   cursor: pointer;
   white-space: nowrap;
   outline: none;
-  width: 100%;
+  fill: currentColor;
 }
 
 button.big,
@@ -82,7 +83,6 @@ button.primary,
   background-color: var(--color-primary01);
   border-color: var(--color-primary01);
   color: var(--color-text-inverse);
-  fill: var(--color-text-inverse);
 }
 
 @media (hover: hover) {
@@ -92,36 +92,29 @@ button.primary,
     background-color: var(--color-hover-primary);
     border-color: var(--color-hover-primary);
     color: var(--color-text-inverse);
-    fill: var(--color-text-inverse);
   }
 }
 
-button.primary:focus:focus-visible,
-:host([variant="primary"]) ::slotted(button:focus:focus-visible),
-:host([variant="primary"]) ::slotted(a:focus:focus-visible) {
-  background-color: var(--color-primary01);
-  border-color: var(--color-primary01);
-  color: var(--color-text-inverse);
-  fill: var(--color-text-inverse);
+button:focus:focus-visible,
+::slotted(button:focus:focus-visible),
+::slotted(a:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
 }
 
 button.primary:active,
 :host([variant="primary"]) ::slotted(button:active),
 :host([variant="primary"]) ::slotted(a:active) {
-  background-color: var(--color-active-primary);
-  border-color: var(--color-active-primary);
+  background-color: var(--color-pressed-primary);
+  border-color: var(--color-pressed-primary);
   color: var(--color-text-inverse);
-  fill: var(--color-text-inverse);
   box-shadow: var(--shadow-2);
 }
 
-button:disabled,
+button.primary:disabled,
 :host([variant="primary"]) ::slotted(button:disabled) {
   background-color: var(--color-disabled01);
   border-color: var(--color-disabled01);
   color: var(--color-disabled02);
-  fill: var(--color-disabled02);
 }
 
 button.secondary,
@@ -130,7 +123,6 @@ button.secondary,
   background-color: var(--color-surface01);
   border-color: var(--color-primary01);
   color: var(--color-primary01);
-  fill: var(--color-primary01);
 }
 
 @media (hover: hover) {
@@ -140,27 +132,15 @@ button.secondary,
     background-color: var(--color-surface01);
     border-color: var(--color-hover-primary);
     color: var(--color-hover-primary);
-    fill: var(--color-hover-primary);
   }
-}
-
-button.secondary:focus:focus-visible,
-:host([variant="secondary"]) ::slotted(button:focus:focus-visible),
-:host([variant="secondary"]) ::slotted(a:focus:focus-visible) {
-  background-color: var(--color-surface01);
-  border-color: var(--color-primary01);
-  color: var(--color-primary01);
-  fill: var(--color-primary01);
-  box-shadow: var(--shadow-focus-primary);
 }
 
 button.secondary:active,
 :host([variant="secondary"]) ::slotted(button:active),
 :host([variant="secondary"]) ::slotted(a:active) {
   background-color: var(--color-surface01);
-  border-color: var(--color-active-primary);
-  color: var(--color-active-primary);
-  fill: var(--color-active-primary);
+  border-color: var(--color-pressed-primary);
+  color: var(--color-pressed-primary);
   box-shadow: var(--shadow-2);
 }
 
@@ -169,7 +149,6 @@ button.secondary:disabled,
   background-color: var(--color-surface01);
   border-color: var(--color-disabled01);
   color: var(--color-disabled02);
-  fill: var(--color-disabled02);
 }
 
 button.tertiary,
@@ -178,7 +157,6 @@ button.tertiary,
   background-color: transparent;
   border-color: transparent;
   color: var(--color-primary01);
-  fill: var(--color-primary01);
 }
 
 button.tertiary.hasContent {
@@ -192,7 +170,6 @@ button.tertiary.hasContent {
     background-color: var(--color-primary03);
     border-color: var(--color-primary03);
     color: var(--color-hover-primary);
-    fill: var(--color-hover-primary);
   }
 }
 
@@ -202,8 +179,6 @@ button.tertiary:focus:focus-visible,
   background-color: var(--color-surface01);
   border-color: var(--color-surface01);
   color: var(--color-primary01);
-  fill: var(--color-primary01);
-  box-shadow: var(--shadow-focus-primary);
 }
 
 button.tertiary:active,
@@ -211,8 +186,7 @@ button.tertiary:active,
 :host([variant="tertiary"]) ::slotted(a:active) {
   background-color: var(--color-surface01);
   border-color: var(--color-surface01);
-  color: var(--color-active-primary);
-  fill: var(--color-active-primary);
+  color: var(--color-primary01);
   box-shadow: var(--shadow-2);
 }
 
@@ -221,5 +195,4 @@ button.tertiary:disabled,
   background-color: transparent;
   border-color: transparent;
   color: var(--color-disabled02);
-  fill: var(--color-disabled02);
 }
