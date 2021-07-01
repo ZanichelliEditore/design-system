@@ -103,7 +103,7 @@ button.primary:focus:focus-visible,
   border-color: var(--color-primary01);
   color: var(--color-text-inverse);
   fill: var(--color-text-inverse);
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 button.primary:active,
@@ -151,7 +151,7 @@ button.secondary:focus:focus-visible,
   border-color: var(--color-primary01);
   color: var(--color-primary01);
   fill: var(--color-primary01);
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 button.secondary:active,
@@ -203,7 +203,7 @@ button.tertiary:focus:focus-visible,
   border-color: var(--color-surface01);
   color: var(--color-primary01);
   fill: var(--color-primary01);
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 button.tertiary:active,
