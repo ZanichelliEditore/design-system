@@ -14,7 +14,6 @@
 }
 
 ::slotted(a) {
-  color: var(--color-text01);
   text-decoration: none;
 }
 
