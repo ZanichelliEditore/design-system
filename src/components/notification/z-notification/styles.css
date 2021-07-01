@@ -65,7 +65,7 @@
 }
 
 :host div.error-notification > z-icon {
-  fill: var(--status-error-red-main);
+  fill: var(--status-error-red);
 }
 
 :host div > z-icon.close-icon {
