@@ -41,7 +41,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 2);
-  background: var(--gray50);
+  background: var(--color-surface02);
 }
 
 .modal-container > header button {
@@ -57,7 +57,7 @@
   --z-icon-width: calc(var(--space-unit) * 2.5);
   --z-icon-height: calc(var(--space-unit) * 2.5);
 
-  fill: var(--color-primary01);
+  fill: var(--color-icon01);
 }
 
 .modal-container > header > div {
@@ -97,7 +97,7 @@
 
 .modal-container > main {
   flex: 1 auto;
-  background: var(--color-white);
+  background: var(--color-surface01);
   overflow: auto;
 }
 

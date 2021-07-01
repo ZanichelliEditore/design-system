@@ -5,7 +5,7 @@ respecting the grid indications of the design. */
   /* Override this var to change the cover's aspect ratio */
   --aspect-ratio: 1.62;
   --z-card--border-color: var(--gray200);
-  --z-card--color-cover-background: var(--color-surface02);
+  --z-card--color-cover-background: var(--color-surface01);
 
   position: relative;
   display: flex;
