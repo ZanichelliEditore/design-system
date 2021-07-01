@@ -1,13 +1,21 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean, select } from "@storybook/addon-knobs";
 
-<Meta title="ZNotification" component="z-notification" />
+<Meta title="Notification/ZNotification" component="z-notification" />
 
 # ZNotification
 
 <Preview>
-  <Story name="ZNotification-sample">
-    {html`<z-notification></z-notification>`}
+  <Story name="ZNotification">
+    {html`<z-notification
+      contenticonname="${text("Icon name", "checkmark-circle-filled")}"
+      contenttext="${text("Content text", "Questo è il testo della notifica")}"
+      actiontext="${text("Action text", "Annulla")}"
+      type=${select("Type", ["success", "warning", "error"], "success")}
+      showclose="${boolean("Show close button", false)}"
+      showshadow="${boolean("Show shadow", false)}"
+    ></z-notification>`}
   </Story>
 </Preview>
 

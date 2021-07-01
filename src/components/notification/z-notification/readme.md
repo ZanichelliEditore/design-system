@@ -13,6 +13,7 @@
 | `contenticonname` | `contenticonname` | icon on the left of the content | `string`  | `undefined` |
 | `contenttext`     | `contenttext`     | content text                    | `string`  | `undefined` |
 | `showclose`       | `showclose`       | enable close icon               | `boolean` | `undefined` |
+| `showshadow`      | `showshadow`      | enable shadow                   | `boolean` | `undefined` |
 | `type`            | `type`            | alert variant type              | `string`  | `undefined` |
 
 
