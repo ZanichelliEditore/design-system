@@ -10,12 +10,11 @@ import { text, boolean, select } from "@storybook/addon-knobs";
   <Story name="ZNotification">
     {html`<z-notification
       contenticonname="${text("Icon name", "checkmark-circle-filled")}"
-      contenttext="${text("Content text", "Questo è il testo della notifica")}"
       actiontext="${text("Action text", "Annulla")}"
       type=${select("Type", ["success", "warning", "error"], "success")}
       showclose="${boolean("Show close button", false)}"
       showshadow="${boolean("Show shadow", false)}"
-    ></z-notification>`}
+    >${text("Content text", "Questo è il testo della notifica")}</z-notification>`}
   </Story>
 </Preview>
 
@@ -36,13 +35,12 @@ import { text, boolean, select } from "@storybook/addon-knobs";
     </z-app-topbar>
     <z-notification
       contenticonname="${text("Icon name", "checkmark-circle-filled")}"
-      contenttext="${text("Content text", "Questo è il testo della notifica")}"
       actiontext="${text("Action text", "Annulla")}"
       type=${select("Type", ["success", "warning", "error"], "success")}
       showclose="${boolean("Show close button", false)}"
       showshadow="true"
       style="display: block; position: sticky; top: 44px;"
-    ></z-notification>
+    >${text("Content text", "Questo è il testo della notifica")}</z-notification>
     <z-heading level="1" variant="bold" style="display: block; margin-top: 20px;">Titolo della pagina</z-heading>
     <z-body level="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus magna imperdiet malesuada interdum. Curabitur volutpat mi purus, in maximus nisl volutpat quis.
     Suspendisse sed vestibulum magna. Quisque molestie, justo non pretium egestas, lorem elit malesuada turpis, et malesuada sapien nunc a urna. Curabitur sagittis augue turpis, eu consectetur purus consectetur vitae.
@@ -75,13 +73,12 @@ import { text, boolean, select } from "@storybook/addon-knobs";
     <div style="position: relative; width: 400px; height: 400px; border: 1px solid black;">
       <z-notification
         contenticonname="${text("Icon name", "checkmark-circle-filled")}"
-        contenttext="${text("Content text", "Questo è il testo della notifica")}"
         actiontext="${text("Action text", "Annulla")}"
         type=${select("Type", ["success", "warning", "error"], "success")}
         showclose="${boolean("Show close button", false)}"
         showshadow="false"
         style="position: absolute; top: 0px; left: 0px;"
-      ></z-notification>
+      >${text("Content text", "Questo è il testo della notifica")}</z-notification>
       <z-heading level="1">Titolo della scheda</z-heading>
       <z-body level="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus magna imperdiet malesuada interdum. Curabitur volutpat mi purus, in maximus nisl volutpat quis.
       Suspendisse sed vestibulum magna.</z-body>

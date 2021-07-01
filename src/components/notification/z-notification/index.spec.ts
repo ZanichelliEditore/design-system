@@ -9,15 +9,14 @@ describe("Suite test ZNotification", () => {
       components: [ZNotification],
       html: `<z-notification
         contenticonname="gear"
-        contenttext="Io ne ho viste cose"
         actiontext="Annulla"
         type="success"
         showclose="true"
-      ></z-notification>`
+      >Io ne ho viste cose</z-notification>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-notification actiontext="Annulla" contenticonname="gear" contenttext="Io ne ho viste cose" showclose="true" type="success">
+      <z-notification actiontext="Annulla" contenticonname="gear" showclose="true" type="success">
         <mock:shadow-root>
           <div class="notification-container success-notification">
             <z-icon
@@ -26,7 +25,7 @@ describe("Suite test ZNotification", () => {
               height="16"
             ></z-icon>
             <div class="content-container">
-              <z-body class="content-text" level="4">Io ne ho viste cose</z-body>
+              <z-body class="content-text" level="4"><slot></slot></z-body>
                   <z-body
                     class="action-text"
                     role="button"
@@ -46,6 +45,7 @@ describe("Suite test ZNotification", () => {
 
           </div>
         </mock:shadow-root>
+        Io ne ho viste cose
       </z-notification>
     `);
   });
@@ -55,20 +55,20 @@ describe("Suite test ZNotification", () => {
     const page = await newSpecPage({
       components: [ZNotification],
       html: `<z-notification
-        contenttext="Io ne ho viste cose"
         type="success"
-      ></z-notification>`
+      >Io ne ho viste cose</z-notification>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-notification contenttext="Io ne ho viste cose" type="success">
+      <z-notification type="success">
         <mock:shadow-root>
           <div class="notification-container success-notification">
             <div class="content-container">
-              <z-body class="content-text" level="4">Io ne ho viste cose</z-body>
+              <z-body class="content-text" level="4"><slot></slot></z-body>
             </div>
           </div>
         </mock:shadow-root>
+        Io ne ho viste cose
       </z-notification>
     `);
   });
@@ -79,15 +79,14 @@ describe("Suite test ZNotification", () => {
       components: [ZNotification],
       html: `<z-notification
         contenticonname="gear"
-        contenttext="Io ne ho viste cose"
         actiontext="Annulla"
         type="success"
         showclose="false"
-      ></z-notification>`
+      >Io ne ho viste cose</z-notification>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-notification actiontext="Annulla" contenticonname="gear" contenttext="Io ne ho viste cose" showclose="false" type="success">
+      <z-notification actiontext="Annulla" contenticonname="gear" showclose="false" type="success">
         <mock:shadow-root>
           <div class="notification-container success-notification">
             <z-icon
@@ -96,7 +95,7 @@ describe("Suite test ZNotification", () => {
               height="16"
             ></z-icon>
             <div class="content-container">
-              <z-body class="content-text" level="4">Io ne ho viste cose</z-body>
+              <z-body class="content-text" level="4"><slot></slot></z-body>
                   <z-body
                     class="action-text"
                     role="button"
@@ -109,6 +108,7 @@ describe("Suite test ZNotification", () => {
             </div>
           </div>
         </mock:shadow-root>
+        Io ne ho viste cose
       </z-notification>
     `);
   });
@@ -118,16 +118,15 @@ describe("Suite test ZNotification", () => {
       components: [ZNotification],
       html: `<z-notification
         contenticonname="gear"
-        contenttext="Io ne ho viste cose"
         actiontext="Annulla"
         type="success"
         showclose="false"
         showshadow="true"
-      ></z-notification>`
+      >Io ne ho viste cose</z-notification>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-notification actiontext="Annulla" contenticonname="gear" contenttext="Io ne ho viste cose" showclose="false" showshadow="true" type="success">
+      <z-notification actiontext="Annulla" contenticonname="gear" showclose="false" showshadow="true" type="success">
         <mock:shadow-root>
           <div class="notification-container success-notification shadow">
             <z-icon
@@ -136,7 +135,7 @@ describe("Suite test ZNotification", () => {
               height="16"
             ></z-icon>
             <div class="content-container">
-              <z-body class="content-text" level="4">Io ne ho viste cose</z-body>
+              <z-body class="content-text" level="4"><slot></slot></z-body>
                   <z-body
                     class="action-text"
                     role="button"
@@ -149,6 +148,7 @@ describe("Suite test ZNotification", () => {
             </div>
           </div>
         </mock:shadow-root>
+        Io ne ho viste cose
       </z-notification>
     `);
   });

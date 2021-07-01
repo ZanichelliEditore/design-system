@@ -11,8 +11,6 @@ import { NotificationType } from '../../../beans';
 export class ZNotification {
   /** icon on the left of the content  */
   @Prop() contenticonname?: string;
-  /** content text */
-  @Prop() contenttext: string;
   /** action button text */
   @Prop() actiontext?: string;
   /** alert variant type */
@@ -54,7 +52,7 @@ export class ZNotification {
           />
         )}
         <div class="content-container">
-          <z-body class="content-text" level={4}>{this.contenttext}</z-body>
+          <z-body class="content-text" level={4}><slot></slot></z-body>
           {this.actiontext && !!this.actiontext.trim().length && (
             <z-body
               class="action-text"

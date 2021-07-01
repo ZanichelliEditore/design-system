@@ -786,10 +786,6 @@ export namespace Components {
          */
         "contenticonname"?: string;
         /**
-          * content text
-         */
-        "contenttext": string;
-        /**
           * enable close icon
          */
         "showclose"?: boolean;
@@ -2466,10 +2462,6 @@ declare namespace LocalJSX {
           * icon on the left of the content
          */
         "contenticonname"?: string;
-        /**
-          * content text
-         */
-        "contenttext"?: string;
         /**
           * notification action event
          */
