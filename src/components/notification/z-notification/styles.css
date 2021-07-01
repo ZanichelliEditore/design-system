@@ -38,7 +38,7 @@
   white-space: nowrap;
 }
 
-:host div>z-icon {
+:host div > z-icon {
   justify-self: center;
   margin-top: calc(var(--space-unit) * 2);
   margin-right: calc(var(--space-unit));
@@ -56,19 +56,19 @@
   background: var(--status-error-red-lighter);
 }
 
-:host div>z-icon.success-notification {
+:host div.success-notification > z-icon {
   fill: var(--status-success-green);
 }
 
-:host div>z-icon.warning-notification {
+:host div.warning-notification > z-icon {
   fill: var(--status-warning-yellow-dark);
 }
 
-:host div>z-icon.error-notification {
+:host div.error-notification > z-icon {
   fill: var(--status-error-red-main);
 }
 
-:host div>z-icon.close-icon {
+:host div > z-icon.close-icon {
   cursor: pointer;
   fill: var(--myz-blue);
   margin-right: calc(var(--space-unit) * 2);

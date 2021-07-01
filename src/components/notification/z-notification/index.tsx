@@ -19,7 +19,7 @@ export class ZNotification {
   @Prop() showclose: boolean;
   /** enable shadow */
   @Prop() showshadow: boolean;
-  
+
 
   /** notification action event */
   @Event() notificationAction: EventEmitter;
@@ -35,51 +35,53 @@ export class ZNotification {
     this.notificationClose.emit();
   }
 
-  retrieveClass(): string {
-    let className = "";
+  retrieveClasses(): string {
+    const classNames = ["notification-container"];
+
     switch (this.type) {
       case "success":
-        className = "success-notification";
+        classNames.push("success-notification");
         break;
       case "warning":
-        className = "warning-notification";
+        classNames.push("warning-notification");
         break;
       case "error":
-        className = "error-notification";
-        break;
-      default:
-        className = "";
+        classNames.push("error-notification");
         break;
     }
-    return className;
+
+    if (this.showshadow) {
+      classNames.push("shadow");
+    }
+
+    return classNames.join(" ");
   }
 
   render() {
     return (
-      <div class={`notification-container ${this.retrieveClass()}`}>
+      <div class={this.retrieveClasses()}>
         {this.contenticonname && (
           <z-icon
             name={this.contenticonname}
             width={16}
             height={16}
-            class={this.retrieveClass()}
           />
         )}
         <div class="content-container">
           <z-body class="content-text" level={4}>{this.contenttext}</z-body>
           {this.actiontext && !!this.actiontext.trim().length && (
-              <z-body 
-                class="action-text" 
-                role="button"
-                tabindex="0"
-                onClick={(e: MouseEvent) => {
-                  this.handleActionButtonClick(e);
-                }}
-                level={5}
-                variant="semibold"
-              >
-                {this.actiontext}
-              </z-body>
+            <z-body
+              class="action-text"
+              role="button"
+              tabindex="0"
+              onClick={(e: MouseEvent) => {
+                this.handleActionButtonClick(e);
+              }}
+              level={5}
+              variant="semibold"
+            >
+              {this.actiontext}
+            </z-body>
           )}
         </div>
         {this.showclose && (
