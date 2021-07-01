@@ -12,8 +12,8 @@
 | `actiontext`      | `actiontext`      | action button text              | `string`                                                                         | `undefined` |
 | `contenticonname` | `contenticonname` | icon on the left of the content | `string`                                                                         | `undefined` |
 | `contenttext`     | `contenttext`     | content text                    | `string`                                                                         | `undefined` |
-| `showclose`       | `showclose`       | enable close icon               | `boolean`                                                                        | `undefined` |
-| `showshadow`      | `showshadow`      | enable shadow                   | `boolean`                                                                        | `undefined` |
+| `showclose`       | `showclose`       | enable close icon               | `boolean`                                                                        | `false`     |
+| `showshadow`      | `showshadow`      | enable shadow                   | `boolean`                                                                        | `false`     |
 | `type`            | `type`            | alert variant type              | `NotificationType.error \| NotificationType.success \| NotificationType.warning` | `undefined` |
 
 

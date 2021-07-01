@@ -784,7 +784,7 @@ export namespace Components {
         /**
           * icon on the left of the content
          */
-        "contenticonname": string;
+        "contenticonname"?: string;
         /**
           * content text
          */
@@ -792,11 +792,11 @@ export namespace Components {
         /**
           * enable close icon
          */
-        "showclose": boolean;
+        "showclose"?: boolean;
         /**
           * enable shadow
          */
-        "showshadow": boolean;
+        "showshadow"?: boolean;
         /**
           * alert variant type
          */
