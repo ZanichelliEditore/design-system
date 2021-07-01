@@ -272,3 +272,9 @@ export enum StatusTagStatus {
   neutral = "neutral",
   default = "default",
 }
+
+export enum NotificationType {
+  success = "success",
+  warning = "warning",
+  error = "error",
+}

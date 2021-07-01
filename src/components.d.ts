@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, NotificationType, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -800,7 +800,7 @@ export namespace Components {
         /**
           * alert variant type
          */
-        "type": string;
+        "type": NotificationType;
     }
     interface ZPaginationBar {
         /**
@@ -2489,7 +2489,7 @@ declare namespace LocalJSX {
         /**
           * alert variant type
          */
-        "type"?: string;
+        "type"?: NotificationType;
     }
     interface ZPaginationBar {
         /**

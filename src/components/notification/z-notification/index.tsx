@@ -1,5 +1,7 @@
 import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
 
+import { NotificationType } from '../../../beans';
+
 @Component({
   tag: 'z-notification',
   styleUrl: 'styles.css',
@@ -8,17 +10,17 @@ import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
 
 export class ZNotification {
   /** icon on the left of the content  */
-  @Prop() contenticonname: string;
+  @Prop() contenticonname?: string;
   /** content text */
   @Prop() contenttext: string;
   /** action button text */
   @Prop() actiontext?: string;
   /** alert variant type */
-  @Prop() type: string;
+  @Prop() type: NotificationType;
   /** enable close icon */
-  @Prop() showclose: boolean;
+  @Prop() showclose?: boolean = false;
   /** enable shadow */
-  @Prop() showshadow: boolean;
+  @Prop() showshadow?: boolean = false;
 
 
   /** notification action event */
@@ -35,31 +37,15 @@ export class ZNotification {
     this.notificationClose.emit();
   }
 
-  retrieveClasses(): string {
-    const classNames = ["notification-container"];
-
-    switch (this.type) {
-      case "success":
-        classNames.push("success-notification");
-        break;
-      case "warning":
-        classNames.push("warning-notification");
-        break;
-      case "error":
-        classNames.push("error-notification");
-        break;
-    }
-
-    if (this.showshadow) {
-      classNames.push("shadow");
-    }
-
-    return classNames.join(" ");
-  }
-
   render() {
     return (
-      <div class={this.retrieveClasses()}>
+      <div class={{
+        "notification-container": true,
+        "success-notification": this.type === NotificationType.success,
+        "warning-notification": this.type === NotificationType.warning,
+        "error-notification": this.type === NotificationType.error,
+        "shadow": this.showshadow
+      }}>
         {this.contenticonname && (
           <z-icon
             name={this.contenticonname}
