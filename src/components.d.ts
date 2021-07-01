@@ -794,6 +794,10 @@ export namespace Components {
          */
         "showclose": boolean;
         /**
+          * enable shadow
+         */
+        "showshadow": boolean;
+        /**
           * alert variant type
          */
         "type": string;
@@ -2478,6 +2482,10 @@ declare namespace LocalJSX {
           * enable close icon
          */
         "showclose"?: boolean;
+        /**
+          * enable shadow
+         */
+        "showshadow"?: boolean;
         /**
           * alert variant type
          */

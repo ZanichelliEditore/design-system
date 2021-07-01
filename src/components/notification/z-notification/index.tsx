@@ -17,28 +17,22 @@ export class ZNotification {
   @Prop() type: string;
   /** enable close icon */
   @Prop() showclose: boolean;
+  /** enable shadow */
+  @Prop() showshadow: boolean;
   
 
   /** notification action event */
   @Event() notificationAction: EventEmitter;
-  emitAction() {
-    this.notificationAction.emit({ actionType: this.type });
-  }
-
   handleActionButtonClick(e: MouseEvent): void {
     e.preventDefault();
-    this.emitAction();
+    this.notificationAction.emit();
   }
 
   /** notification close event */
   @Event() notificationClose: EventEmitter;
-  emitClose() {
-    this.notificationClose.emit({ actionType: this.type });
-  }
-
   handleCloseButtonClick(e: MouseEvent): void {
     e.preventDefault();
-    this.emitClose();
+    this.notificationClose.emit();
   }
 
   retrieveClass(): string {
@@ -62,7 +56,7 @@ export class ZNotification {
 
   render() {
     return (
-      <div class={`relative-container ${this.retrieveClass()}`}>
+      <div class={`notification-container ${this.retrieveClass()}`}>
         {this.contenticonname && (
           <z-icon
             name={this.contenticonname}
@@ -74,7 +68,6 @@ export class ZNotification {
         <div class="content-container">
           <z-body class="content-text" level={4}>{this.contenttext}</z-body>
           {this.actiontext && !!this.actiontext.trim().length && (
-            /** BODY */
               <z-body 
                 class="action-text" 
                 role="button"
@@ -87,26 +80,6 @@ export class ZNotification {
               >
                 {this.actiontext}
               </z-body>
-            
-            /** BUTTON */
-            // <z-button
-            //   class="content-action"
-            //   variant={ButtonVariantEnum.tertiary}
-            //   size={ButtonSizeEnum['x-small']}
-            //   onClick={(e: MouseEvent) => {
-            //     this.handleActionButtonClick(e);
-            //   }}
-            // >
-            //     {this.actiontext}
-            // </z-button>
-
-            /** LINK */
-            // <z-link
-            //   class="content-action"
-            //   href="#"
-            // >
-            //   {this.actiontext}
-            // </z-link>
           )}
         </div>
         {this.showclose && (

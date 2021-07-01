@@ -3,12 +3,15 @@
   color: var(--text-grey-800);
 }
 
-.relative-container {
+.notification-container {
   display: flex;
   padding:  0 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
   outline: none;
   border: var(--border-size-medium) solid var(--bg-grey-200);
   border-top: none;
+}
+
+.shadow {
   box-shadow: var(--shadow-3);
 }
 
@@ -29,6 +32,7 @@
 .action-text {
   margin-top: calc(var(--space-unit) * 2);
   margin-right: calc(var(--space-unit) * 2);
+  height: fit-content;
   color: var(--myz-blue);
   cursor: pointer;
   white-space: nowrap;
