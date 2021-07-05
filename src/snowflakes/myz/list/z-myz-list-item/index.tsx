@@ -1,10 +1,10 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { handleKeyboardSubmit } from "../../../utils/utils";
+import { handleKeyboardSubmit } from "../../../../utils/utils";
 
 @Component({
-  tag: "z-list-item",
+  tag: "z-myz-list-item",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZListItem {
   /** content text */

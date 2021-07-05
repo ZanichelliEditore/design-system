@@ -112,12 +112,12 @@ describe("Suite test ZCombobox", () => {
             <div class="openComboData">
               <div tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
+                  <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
                     <z-input disabled="0" type="checkbox" htmlid="combo-checkbox-combo-item_1" label="primo elemento"></z-input>
-                  </z-list-item>
-                  <z-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
+                  </z-myz-list-item>
+                  <z-myz-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
                     <z-input type="checkbox" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
-                  </z-list-item>
+                  </z-myz-list-item>
                 </ul>
               </div
             </div>
@@ -144,12 +144,12 @@ describe("Suite test ZCombobox", () => {
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text"></z-input>
               <div tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
+                  <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
                     <z-input disabled="0" type="checkbox" htmlid="combo-checkbox-combo-item_1" label="primo elemento"></z-input>
-                  </z-list-item>
-                  <z-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
+                  </z-myz-list-item>
+                  <z-myz-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
                     <z-input type="checkbox" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
-                  </z-list-item>
+                  </z-myz-list-item>
                 </ul>
               </div>
             </div>
@@ -178,9 +178,9 @@ describe("Suite test ZCombobox", () => {
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input>
               <div class="search" tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo">
+                  <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo">
                     <z-input disabled="0" type="checkbox" htmlid="combo-checkbox-combo-item_1" label="<b>primo</b> elemento"></z-input>
-                  </z-list-item>
+                  </z-myz-list-item>
                 </ul>
                 <div>
                   <a role="button" tabindex="0">CHIUDI</a>
@@ -212,9 +212,9 @@ describe("Suite test ZCombobox", () => {
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input>
               <div class="search" tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo">
+                  <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo">
                     <z-input disabled="0" type="checkbox" htmlid="combo-checkbox-combo-item_1" label="<b>primo</b> elemento"></z-input>
-                  </z-list-item>
+                  </z-myz-list-item>
                 </ul>
                 <div>
                   <a role="button" tabindex="0">Chiudi</a>
@@ -246,7 +246,7 @@ describe("Suite test ZCombobox", () => {
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="prova"></z-input>
               <div class="search" tabindex="-1">
                 <ul>
-                  <z-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='multiply-circle'></z-list-item>
+                  <z-myz-list-item id='no-results' text='non ci sono risultati' listitemid='no-results' icon='multiply-circle'></z-myz-list-item>
                 </ul>
                 <div>
                   <a role="button" tabindex="0">CHIUDI</a>
@@ -278,12 +278,12 @@ describe("Suite test ZCombobox", () => {
               </div>
               <div tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
+                  <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
                     <z-input disabled="0" type="checkbox" htmlid="combo-checkbox-combo-item_1" label="primo elemento"></z-input>
-                  </z-list-item>
-                  <z-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
+                  </z-myz-list-item>
+                  <z-myz-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
                     <z-input type="checkbox" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
-                  </z-list-item>
+                  </z-myz-list-item>
                 </ul>
               </div
             </div>
@@ -312,12 +312,12 @@ describe("Suite test ZCombobox", () => {
               </div>
               <div tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
+                  <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
                     <z-input type="checkbox" htmlid="combo-checkbox-combo-item_1" label="primo elemento" checked></z-input>
-                  </z-list-item>
-                  <z-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
+                  </z-myz-list-item>
+                  <z-myz-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
                     <z-input type="checkbox" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
-                  </z-list-item>
+                  </z-myz-list-item>
                 </ul>
               </div
             </div>
@@ -343,12 +343,12 @@ describe("Suite test ZCombobox", () => {
             <div class="openComboData">
               <div tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
+                  <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
                     <z-input disabled="" type="checkbox" htmlid="combo-checkbox-combo-item_1" label="primo elemento"></z-input>
-                  </z-list-item>
-                  <z-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
+                  </z-myz-list-item>
+                  <z-myz-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
                     <z-input type="checkbox" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
-                  </z-list-item>
+                  </z-myz-list-item>
                 </ul>
               </div
             </div>
@@ -377,12 +377,12 @@ describe("Suite test ZCombobox", () => {
               </div>
               <div tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
+                  <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
                     <z-input type="checkbox" htmlid="combo-checkbox-combo-item_1" label="primo elemento" checked></z-input>
-                  </z-list-item>
-                  <z-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
+                  </z-myz-list-item>
+                  <z-myz-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
                     <z-input type="checkbox" htmlid="combo-checkbox-combo-item_2" label="secondo elemento"></z-input>
-                  </z-list-item>
+                  </z-myz-list-item>
                 </ul>
               </div
             </div>
@@ -411,12 +411,12 @@ describe("Suite test ZCombobox", () => {
               </div>
               <div tabindex="-1">
                 <ul>
-                  <z-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
+                  <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
                     <z-input type="checkbox" htmlid="combo-checkbox-combo-item_1" label="primo elemento" checked></z-input>
-                  </z-list-item>
-                  <z-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
+                  </z-myz-list-item>
+                  <z-myz-list-item id="item_2" listitemid="item_2" action="combo-li-combo">
                     <z-input type="checkbox" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" disabled></z-input>
-                  </z-list-item>
+                  </z-myz-list-item>
                 </ul>
               </div
             </div>

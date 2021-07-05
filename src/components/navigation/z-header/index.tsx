@@ -5,13 +5,13 @@ import {
   State,
   Element,
   Listen,
-  Watch
+  Watch,
 } from "@stencil/core";
 import {
   MenuItem,
   HeaderUserData,
   ListItemBean,
-  ButtonVariantEnum
+  ButtonVariantEnum,
 } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
@@ -21,7 +21,7 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
 @Component({
   tag: "z-header",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZHeader {
   /** data to fill internal navigation links */
@@ -121,7 +121,7 @@ export class ZHeader {
 
     return (
       <div id="link-int" class="link-int">
-        {menuItems.map(item => this.renderIntMenuItem(item))}
+        {menuItems.map((item) => this.renderIntMenuItem(item))}
       </div>
     );
   }
@@ -154,7 +154,11 @@ export class ZHeader {
         <svg
           height="8"
           width="16"
-          class={(!this.activeMenuItem || this.activeMenuItem.id !== id) ? "hidden" : ""}
+          class={
+            !this.activeMenuItem || this.activeMenuItem.id !== id
+              ? "hidden"
+              : ""
+          }
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
@@ -186,7 +190,7 @@ export class ZHeader {
         id: item.id,
         text: item.label,
         link: item.link,
-        listitemid: item.id
+        listitemid: item.id,
       };
     });
     return this.renderMobileSubMenu(listItems, menuItem.id);
@@ -195,7 +199,7 @@ export class ZHeader {
   renderMobileSubMenu(menuItems: ListItemBean[], id?: string): HTMLSpanElement {
     return (
       <span class="mobile-dropdown" id={id ? `mobile-dropdown-${id}` : ""}>
-        <z-list list={menuItems} />
+        <z-myz-list list={menuItems} />
       </span>
     );
   }
@@ -323,7 +327,7 @@ export class ZHeader {
           text: item.label,
           link: item.link,
           icon: item.icon,
-          listitemid: item.id
+          listitemid: item.id,
         };
       }
     );
@@ -341,7 +345,10 @@ export class ZHeader {
 
   renderMainHeader(): HTMLDivElement {
     return (
-      <div id="main-header" class={`main-header${this.ismyz ? "" : " myz-out"}`}>
+      <div
+        id="main-header"
+        class={`main-header${this.ismyz ? "" : " myz-out"}`}
+      >
         {this.renderLogoDiv()}
         {this.renderIntMenu(this.intMenuData)}
         {this.renderExtMenu(this.extMenuData)}
@@ -399,7 +406,9 @@ export class ZHeader {
     return (
       <div
         id="mobile-content"
-        class={`mobile-content${this.isMenuMobileOpen ? " open" : ""}${this.ismyz ? "" : " myz-out"}`}
+        class={`mobile-content${this.isMenuMobileOpen ? " open" : ""}${
+          this.ismyz ? "" : " myz-out"
+        }`}
       >
         {this.renderMobileLoginDiv(this.userData)}
         {this.ismyz && <hr />}

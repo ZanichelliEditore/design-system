@@ -1,24 +1,25 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text } from '@storybook/addon-knobs';
+import { text } from "@storybook/addon-knobs";
 
 ## Stories
 
-<Meta title="List/ZList" component="z-list" />
+<Meta title="MyzList/ZList" component="z-myz-list" />
 
-  # ZList
+# ZList
 
 <Preview>
-  <Story name="z-list">
-    {html`
-      <z-list inputrawdata='[
+  <Story name="z-myz-list">
+    {html` <z-myz-list
+      inputrawdata='[
         {"text":"list element 1","link":"http://www.zanichelli.it","listitemid":"id1","icon":"checkbox-checked"},
         {"text":"list element 2","link":"http://my.zanichelli.it","listitemid":"id2","icon":"checkbox"},
         {"text":""}
-        ]'>
-      </z-list>`}
+        ]'
+    >
+    </z-myz-list>`}
   </Story>
 </Preview>
 
-  <Props of="z-list" />
-
+{" "}
+<Props of="z-myz-list" />

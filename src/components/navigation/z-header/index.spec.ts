@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZList } from "../../list/z-list";
+import { ZList } from "../../../snowflakes/myz/list/z-myz-list";
 
 import { ZHeader } from "./index";
 
@@ -104,7 +104,7 @@ describe("Suite test ZHeader", () => {
                 <i></i>
               </a>
               <span class="mobile-dropdown" id="mobile-dropdown-user-data">
-                <z-list></z-list>
+                <z-myz-list></z-myz-list>
               </span>
             </span>
           </div>
@@ -165,14 +165,14 @@ describe("Suite test ZHeader", () => {
                   <i></i>
                 </a>
                 <span class="mobile-dropdown" id="mobile-dropdown-user-data">
-                  <z-list>
+                  <z-myz-list>
                     <mock:shadow-root>
                       <ul>
-                        <z-list-item link="http://www.zanichelli.it" text="Profilo" underlined=""></z-list-item>
-                        <z-list-item link="#home" text="Esci"></z-list-item>
+                        <z-myz-list-item link="http://www.zanichelli.it" text="Profilo" underlined=""></z-myz-list-item>
+                        <z-myz-list-item link="#home" text="Esci"></z-myz-list-item>
                       </ul>
                     </mock:shadow-root>
-                  </z-list>
+                  </z-myz-list>
                 </span>
               </span>
             </div>
@@ -185,13 +185,13 @@ describe("Suite test ZHeader", () => {
                 </a>
                 <svg class="hidden" height="8" width="16"><polygon points="8,0 16,8 0,8" class="arrow"></polygon></svg>
                 <span class="mobile-dropdown" id="mobile-dropdown-home">
-                  <z-list>
+                  <z-myz-list>
                     <mock:shadow-root>
                       <ul>
-                        <z-list-item link="#libreria" text="la mia libreria" listitemid="libreria"></z-list-item>
+                        <z-myz-list-item link="#libreria" text="la mia libreria" listitemid="libreria"></z-myz-list-item>
                       </ul>
                     </mock:shadow-root>
-                  </z-list>
+                  </z-myz-list>
                 </span>
               </span>
               <span>

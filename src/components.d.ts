@@ -6,8 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
-import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
+import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZAppHeader {
@@ -531,46 +531,6 @@ export namespace Components {
          */
         "textcolor"?: 'white' | 'blue' | 'black';
     }
-    interface ZList {
-        /**
-          * json stringified list data (mutable, optional)
-         */
-        "inputrawdata"?: string;
-        /**
-          * list item data (mutable, optional)
-         */
-        "list"?: ListItemBean[];
-    }
-    interface ZListItem {
-        /**
-          * data-action attribute (optional)
-         */
-        "action"?: string;
-        /**
-          * icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * link url (optional)
-         */
-        "link"?: string;
-        /**
-          * link target (optional)
-         */
-        "linktarget"?: string;
-        /**
-          * id (optional)
-         */
-        "listitemid"?: string;
-        /**
-          * content text
-         */
-        "text": string;
-        /**
-          * underlined style flag
-         */
-        "underlined": boolean;
-    }
     interface ZLogo {
         /**
           * image height
@@ -761,6 +721,46 @@ export namespace Components {
           * list data stringified array
          */
         "listdata": string;
+    }
+    interface ZMyzList {
+        /**
+          * json stringified list data (mutable, optional)
+         */
+        "inputrawdata"?: string;
+        /**
+          * list item data (mutable, optional)
+         */
+        "list"?: ListItemBean[];
+    }
+    interface ZMyzListItem {
+        /**
+          * data-action attribute (optional)
+         */
+        "action"?: string;
+        /**
+          * icon name (optional)
+         */
+        "icon"?: string;
+        /**
+          * link url (optional)
+         */
+        "link"?: string;
+        /**
+          * link target (optional)
+         */
+        "linktarget"?: string;
+        /**
+          * id (optional)
+         */
+        "listitemid"?: string;
+        /**
+          * content text
+         */
+        "text": string;
+        /**
+          * underlined style flag
+         */
+        "underlined": boolean;
     }
     interface ZNavigationTab {
         "disabled"?: boolean;
@@ -1259,18 +1259,6 @@ declare global {
         prototype: HTMLZLinkElement;
         new (): HTMLZLinkElement;
     };
-    interface HTMLZListElement extends Components.ZList, HTMLStencilElement {
-    }
-    var HTMLZListElement: {
-        prototype: HTMLZListElement;
-        new (): HTMLZListElement;
-    };
-    interface HTMLZListItemElement extends Components.ZListItem, HTMLStencilElement {
-    }
-    var HTMLZListItemElement: {
-        prototype: HTMLZListItemElement;
-        new (): HTMLZListItemElement;
-    };
     interface HTMLZLogoElement extends Components.ZLogo, HTMLStencilElement {
     }
     var HTMLZLogoElement: {
@@ -1354,6 +1342,18 @@ declare global {
     var HTMLZMyzCardListElement: {
         prototype: HTMLZMyzCardListElement;
         new (): HTMLZMyzCardListElement;
+    };
+    interface HTMLZMyzListElement extends Components.ZMyzList, HTMLStencilElement {
+    }
+    var HTMLZMyzListElement: {
+        prototype: HTMLZMyzListElement;
+        new (): HTMLZMyzListElement;
+    };
+    interface HTMLZMyzListItemElement extends Components.ZMyzListItem, HTMLStencilElement {
+    }
+    var HTMLZMyzListItemElement: {
+        prototype: HTMLZMyzListItemElement;
+        new (): HTMLZMyzListItemElement;
     };
     interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
     }
@@ -1526,8 +1526,6 @@ declare global {
         "z-input-label": HTMLZInputLabelElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
-        "z-list": HTMLZListElement;
-        "z-list-item": HTMLZListItemElement;
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
@@ -1542,6 +1540,8 @@ declare global {
         "z-myz-card-header": HTMLZMyzCardHeaderElement;
         "z-myz-card-icon": HTMLZMyzCardIconElement;
         "z-myz-card-list": HTMLZMyzCardListElement;
+        "z-myz-list": HTMLZMyzListElement;
+        "z-myz-list-item": HTMLZMyzListItemElement;
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
@@ -2130,54 +2130,6 @@ declare namespace LocalJSX {
          */
         "textcolor"?: 'white' | 'blue' | 'black';
     }
-    interface ZList {
-        /**
-          * json stringified list data (mutable, optional)
-         */
-        "inputrawdata"?: string;
-        /**
-          * list item data (mutable, optional)
-         */
-        "list"?: ListItemBean[];
-    }
-    interface ZListItem {
-        /**
-          * data-action attribute (optional)
-         */
-        "action"?: string;
-        /**
-          * icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * link url (optional)
-         */
-        "link"?: string;
-        /**
-          * link target (optional)
-         */
-        "linktarget"?: string;
-        /**
-          * id (optional)
-         */
-        "listitemid"?: string;
-        /**
-          * emitted on list item click, returns listitemid
-         */
-        "onZListItemClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * emitted on list item link click, returns linkId
-         */
-        "onZListItemLinkClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * content text
-         */
-        "text"?: string;
-        /**
-          * underlined style flag
-         */
-        "underlined"?: boolean;
-    }
     interface ZLogo {
         /**
           * image height
@@ -2408,6 +2360,54 @@ declare namespace LocalJSX {
           * list data stringified array
          */
         "listdata"?: string;
+    }
+    interface ZMyzList {
+        /**
+          * json stringified list data (mutable, optional)
+         */
+        "inputrawdata"?: string;
+        /**
+          * list item data (mutable, optional)
+         */
+        "list"?: ListItemBean[];
+    }
+    interface ZMyzListItem {
+        /**
+          * data-action attribute (optional)
+         */
+        "action"?: string;
+        /**
+          * icon name (optional)
+         */
+        "icon"?: string;
+        /**
+          * link url (optional)
+         */
+        "link"?: string;
+        /**
+          * link target (optional)
+         */
+        "linktarget"?: string;
+        /**
+          * id (optional)
+         */
+        "listitemid"?: string;
+        /**
+          * emitted on list item click, returns listitemid
+         */
+        "onZListItemClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * emitted on list item link click, returns linkId
+         */
+        "onZListItemLinkClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * content text
+         */
+        "text"?: string;
+        /**
+          * underlined style flag
+         */
+        "underlined"?: boolean;
     }
     interface ZNavigationTab {
         "disabled"?: boolean;
@@ -2797,8 +2797,6 @@ declare namespace LocalJSX {
         "z-input-label": ZInputLabel;
         "z-input-message": ZInputMessage;
         "z-link": ZLink;
-        "z-list": ZList;
-        "z-list-item": ZListItem;
         "z-logo": ZLogo;
         "z-menu": ZMenu;
         "z-menu-dropdown": ZMenuDropdown;
@@ -2813,6 +2811,8 @@ declare namespace LocalJSX {
         "z-myz-card-header": ZMyzCardHeader;
         "z-myz-card-icon": ZMyzCardIcon;
         "z-myz-card-list": ZMyzCardList;
+        "z-myz-list": ZMyzList;
+        "z-myz-list-item": ZMyzListItem;
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
         "z-pagination-bar": ZPaginationBar;
@@ -2869,8 +2869,6 @@ declare module "@stencil/core" {
             "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
-            "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
-            "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
@@ -2885,6 +2883,8 @@ declare module "@stencil/core" {
             "z-myz-card-header": LocalJSX.ZMyzCardHeader & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
             "z-myz-card-icon": LocalJSX.ZMyzCardIcon & JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
+            "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
+            "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
