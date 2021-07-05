@@ -1,14 +1,13 @@
 :host {
   width: 100%;
-  color: var(--text-grey-800);
+  color: var(--color-text01);
 }
 
 .notification-container {
   display: flex;
   padding:  0 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
   outline: none;
-  border: var(--border-size-medium) solid var(--bg-grey-200);
-  border-top: none;
+  border-bottom: var(--border-size-medium) solid var(--color-surface03);
 }
 
 .shadow {
@@ -33,7 +32,7 @@
   margin-top: calc(var(--space-unit) * 2);
   margin-right: calc(var(--space-unit) * 2);
   height: fit-content;
-  color: var(--myz-blue);
+  color: var(--color-primary01);
   cursor: pointer;
   white-space: nowrap;
 }
@@ -45,32 +44,32 @@
 }
 
 :host div.success-notification {
-  background: var(--status-success-green-lighter);
+  background: var(--color-success-inverse);
 }
 
 :host div.warning-notification {
-  background: var(--status-warning-yellow-lighter);
+  background: var(--color-warning-inverse);
 }
 
 :host div.error-notification {
-  background: var(--status-error-red-lighter);
+  background: var(--color-error-inverse);
 }
 
 :host div.success-notification > z-icon {
-  fill: var(--status-success-green);
+  fill: var(--color-success01, var(--status-success-green));
 }
 
 :host div.warning-notification > z-icon {
-  fill: var(--status-warning-yellow-dark);
+  fill: var(--color-warning02, var(--status-warning-yellow-dark));
 }
 
 :host div.error-notification > z-icon {
-  fill: var(--status-error-red);
+  fill: var(--color-error01, var(--status-error-red));
 }
 
 :host div > z-icon.close-icon {
   cursor: pointer;
-  fill: var(--myz-blue);
+  fill: var(--color-primary01);
   margin-right: calc(var(--space-unit) * 2);
 }
 
