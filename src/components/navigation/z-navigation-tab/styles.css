@@ -10,7 +10,7 @@ button {
   background-color: unset;
   text-align: center;
   font-size: inherit;
-  font-family: inherit;
+  font-family: var(--font-family-sans);
   line-height: inherit;
   letter-spacing: inherit;
   white-space: nowrap;
