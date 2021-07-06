@@ -15,7 +15,7 @@ import { text, select } from "@storybook/addon-knobs";
       background-color="${text("background-color", "bg-grey-700")}"
       image="${text(
         "image",
-        "https://cdn.eso.org/images/thumb700x/eso1907a.jpg"
+        "https://www.cinematographe.it/wp-content/uploads/2019/04/Avatar.jpg"
       )}"
     ></z-avatar>`}
   </Story>
@@ -27,4 +27,10 @@ import { text, select } from "@storybook/addon-knobs";
 
 Pass at least one prop between **text** and **image**
 
-If prop **image** contains a broken url, the component will show **text** prop, if given
+If prop **image** contains a broken URL, the component will show **text** prop, if given
+
+## N.B.
+
+Using knobs is not possible to set a prop as optional. So when text field is empty the prop exists with empty value.
+For example, when the background color field is empty no color is rendered, but when the component is used without this
+prop is well rendered.
