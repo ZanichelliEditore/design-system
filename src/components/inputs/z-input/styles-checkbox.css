@@ -2,6 +2,7 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
+  font-family: var(--font-family-sans);
   position: relative;
   color: var(--color-text01);
 }
