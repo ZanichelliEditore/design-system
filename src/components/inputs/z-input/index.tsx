@@ -201,24 +201,28 @@ export class ZInput {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
-      class: `
-        ${this.status ? "input_" + this.status : "input_default"}
-        ${this.isTyping && "istyping"}
-        ${!this.isTyping && this.value && "filled"}
-      `,
+      class: [
+        `input_${this.status || "default"}`,
+        this.isTyping && "istyping",
+        !this.isTyping && this.value && "filled"
+      ].filter(Boolean).join(" "),
       onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode),
     };
-
-    if (this.autocomplete) attr["autocomplete"] = this.autocomplete;
+    if (this.autocomplete) {
+      attr["autocomplete"] = this.autocomplete;
+    }
 
     return attr;
   }
 
   renderInputText(type: InputTypeBean = InputTypeEnum.text) {
     const attr = this.getTextAttributes();
-    if (this.icon || type === InputTypeEnum.password)
-      attr.class = attr.class + " hasIcon";
-    if (this.hasclearicon) attr.class = attr.class + " hasClearIcon";
+    if (this.icon || type === InputTypeEnum.password) {
+      attr.class += " hasIcon";
+    }
+    if (this.hasclearicon) {
+      attr.class += " hasClearIcon";
+    }
 
     return (
       <div class="textWrapper">
@@ -255,7 +259,10 @@ export class ZInput {
 
   renderIcons() {
     return (
-      <span class={`iconsWrapper ${this.disabled ? "disabled" : ""}`}>
+      <span class={{
+        iconsWrapper: true,
+        disabled: this.disabled
+      }}>
         {this.renderResetIcon()}
         {this.renderIcon()}
       </span>
@@ -288,7 +295,7 @@ export class ZInput {
   renderShowHidePassword() {
     return (
       <z-icon
-        class="inputIcon"
+        class="showHidePasswordIcon"
         name={this.passwordHidden ? "view" : "view-off"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
       />
@@ -320,15 +327,15 @@ export class ZInput {
 
     return (
       <div
-        class={`
-            textareaWrapper
-            ${attributes.class}
-            ${attributes.disabled && " disabled"}
-            ${attributes.readonly && " readonly"}
-            ${this.isTyping && " istyping"}
-            ${this.textareaWrapperFocus}
-            ${this.textareaWrapperHover}
-          `}
+        class={[
+          "textareaWrapper",
+          attributes.class,
+          attributes.disabled && "disabled",
+          attributes.readonly && "readonly",
+          this.isTyping && "istyping",
+          this.textareaWrapperFocus,
+          this.textareaWrapperHover,
+        ].filter(Boolean).join(" ")}
       >
         <textarea {...attributes} {...this.getTextareaExtraAttributes()} />
       </div>
@@ -370,7 +377,11 @@ export class ZInput {
 
         <label
           htmlFor={this.htmlid}
-          class={`checkboxLabel ${this.labelafter ? "after" : "before"}`}
+          class={{
+            checkboxLabel: true,
+            after: this.labelafter,
+            before: !this.labelafter,
+          }}
         >
           <z-icon
             name={this.checked ? "checkbox-checked" : "checkbox"}
@@ -407,7 +418,11 @@ export class ZInput {
 
         <label
           htmlFor={this.htmlid}
-          class={`radioLabel ${this.labelafter ? "after" : "before"}`}
+          class={{
+            radioLabel: true,
+            after: this.labelafter,
+            before: !this.labelafter,
+          }}
         >
           <z-icon
             name={this.checked ? "radio-button-checked" : "radio-button"}

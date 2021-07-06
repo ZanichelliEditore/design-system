@@ -3,143 +3,116 @@
   width: inherit;
 }
 
-:host input::-ms-clear,
-:host input::-ms-reveal {
+input::-ms-clear,
+input::-ms-reveal {
   display: none;
 }
 
 /* GENERAL */
-:host input,
-:host textarea,
-:host ul[role="listbox"] {
-  background: var(--bg-white);
-  border-radius: 0px;
-  border: var(--border-size-small) solid var(--bg-grey-200);
-  border-color: var(--bg-grey-200);
+input,
+textarea,
+ul[role="listbox"] {
+  background: var(--color-input-field01);
+  border-radius: var(--border-radius-small);
+  border: var(--border-size-small) solid var(--color-surface04);
   box-sizing: border-box;
-  color: var(--text-grey-800);
-  fill: var(--text-grey-800);
-  font-family: var(--dashboard-font);
+  color: var(--color-text02);
+  fill: var(--color-icon02);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  font-size: 16px;
+  font-size: var(--font-size-3);
   outline: none;
-}
-
-/* FILLED */
-:host .filled {
-  border-color: var(--text-grey-800) !important;
-}
-
-/* FOCUS */
-:host input:focus,
-:host ul[role="listbox"].closed:focus,
-:host li[role="option"]:focus,
-:host .focus {
-  border-color: transparent;
-  box-shadow: 0 0 2px 2px var(--accent-dark);
-  outline: none;
-}
-
-/* HOVER */
-:host input:hover,
-:host textarea:hover,
-:host ul[role="listbox"].closed:hover,
-:host .hover {
-  background: var(--bg-grey-050) !important;
-  border-color: var(--text-grey-800) !important;
 }
 
 /* READONLY */
-:host input[readonly],
-:host .readonly,
-:host input[readonly].filled,
-:host .readonly.filled,
-:host ul[role="listbox"].closed.readonly {
-  border-color: var(--text-grey-200) !important;
-  color: var(--text-grey-800) !important;
+input[readonly],
+.readonly,
+input[readonly].filled,
+.readonly.filled,
+ul[role="listbox"].closed.readonly {
+  border-color: var(--color-disabled01);
+  fill: var(--color-disabled01);
   pointer-events: none;
-}
-
-/* READONLY - hover */
-:host input[readonly]:hover,
-:host textarea[readonly]:hover,
-:host .readonly.hover,
-:host ul[role="listbox"].closed[readonly]:hover {
-  background: var(--bg-white);
 }
 
 /* DISABLED */
-:host input:disabled,
-:host .disabled,
-:host .filled:disabled,
-:host input:disabled:hover,
-:host textarea:disabled:hover,
-:host .disabled.hover,
-:host ul[role="listbox"].closed.disabled,
-:host ul[role="listbox"].closed.disabled:hover {
-  background: var(--bg-white) !important;
-  border-color: var(--bg-grey-200) !important;
-  box-shadow: none !important;
-  color: var(--text-grey-700) !important;
-  fill: var(--bg-grey-200) !important;
+input:disabled,
+.disabled,
+.filled:disabled,
+ul[role="listbox"].closed.disabled {
+  border-color: var(--color-disabled01);
+  box-shadow: none;
+  color: var(--color-disabled02);
+  fill: var(--color-disabled01);
   pointer-events: none;
 }
 
-/* STATUSES (success, warning, error) */
-:host .input_success,
-:host .input_success:hover,
-:host .input_success.hover {
-  background: var(--status-success-green-lighter) !important;
-  border-color: var(--status-success-green) !important;
-}
-
-:host .input_error,
-:host .input_error:hover,
-:host .input_error.hover {
-  background: var(--status-error-red-lighter) !important;
-  border-color: var(--status-error-red) !important;
-}
-
-:host .input_warning,
-:host .input_warning:hover,
-:host .input_warning.hover {
-  background: var(--status-warning-yellow-lighter) !important;
-  border-color: var(--status-warning-yellow) !important;
-}
-
-:host .input_selecting,
-:host .input_selecting:hover,
-:host input[readonly].input_selecting,
-:host input[readonly].input_selecting:hover {
-  border-color: var(--myz-blue) !important;
-  box-shadow: 0 0 0 0 transparent !important;
-  color: var(--myz-blue) !important;
+/* FOCUS */
+input:focus:focus-visible,
+ul[role="listbox"].closed:focus:focus-visible,
+li[role="option"]:focus:focus-visible,
+.focus {
+  box-shadow: var(--shadow-focus-primary);
 }
 
 /* TYPING */
-:host input:focus.istyping,
-:host .focus.istyping {
-  border-color: var(--myz-blue) !important;
-  box-shadow: var(--shadow-0);
-  color: var(--myz-blue);
+.istyping,
+.focus.istyping,
+.input_selecting {
+  border-color: var(--color-primary01);
+  color: var(--color-primary01);
+}
+
+/* FILLED */
+.filled {
+  border-color: var(--color-surface05);
+}
+
+/* STATUSES (success, warning, error) */
+.input_success,
+.input_success:hover,
+.input_success.hover {
+  background: var(--color-success-inverse);
+  border-color: var(--color-success01);
+  fill: var(--color-success01);
+}
+
+.input_error,
+.input_error:hover,
+.input_error.hover {
+  background: var(--color-error-inverse);
+  border-color: var(--color-error01);
+  fill: var(--color-error01);
+}
+
+.input_warning,
+.input_warning:hover,
+.input_warning.hover {
+  background: var(--color-warning-inverse);
+  border-color: var(--color-warning01);
+  fill: var(--color-warning01);
 }
 
 /* PLACEHOLDER */
-:host input::placeholder,
-:host textarea::placeholder {
-  color: var(--text-grey-700);
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text05);
 }
+
 ::-webkit-input-placeholder,
 ::-webkit-textarea-placeholder {
-  color: var(--text-grey-700);
+  color: var(--color-text05);
 }
+
 :-ms-input-placeholder,
 :-ms-textarea-placeholder {
-  color: var(--text-grey-700);
+  color: var(--color-text05);
 }
+
 ::-moz-placeholder {
-  color: var(--text-grey-700);
+  color: var(--color-text05);
 }
+
 :-moz-placeholder {
-  color: var(--text-grey-700);
+  color: var(--color-text05);
 }

@@ -1,31 +1,29 @@
-:host span.statusMsg {
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-  font-size: 14px;
-  line-height: 16px;
-  min-height: 16px;
-  color: var(--text-grey-700);
-  fill: var(--text-grey-700);
-  margin-top: var(--space-unit);
+:host {
   display: flex;
+  align-items: center;
+  min-height: calc(var(--space-unit) * 2);
+  margin-top: var(--space-unit);
+  color: var(--color-text05);
+  fill: currentColor;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-2);
+  letter-spacing: 0.16px;
 }
 
-:host span.statusMsg.msg_success {
-  color: var(--status-success-green);
-  fill: var(--status-success-green);
+:host([status='success']) {
+  color: var(--color-text-success);
 }
 
-:host span.statusMsg.msg_error {
-  color: var(--status-error-red);
-  fill: var(--status-error-red);
+:host([status='error']) {
+  color: var(--color-text-error);
 }
 
-:host span.statusMsg.msg_warning {
-  color: var(--status-warning-yellow-dark);
-  fill: var(--status-warning-yellow-dark);
+:host([status='warning']) {
+  color: var(--color-warning02);
 }
 
-:host span.statusMsg > z-icon {
+:host > z-icon {
+  --z-icon-width: calc(var(--space-unit) * 2);
+  --z-icon-height: calc(var(--space-unit) * 2);
   margin-right: var(--space-unit);
-  margin-top: 1px;
 }
