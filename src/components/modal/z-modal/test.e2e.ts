@@ -13,6 +13,7 @@ it("Test click on modal background (backward compatibility)", async () => {
   modal.addEventListener('click', (ev) => { clickEvent = ev });
   await background.click();
   expect(clickEvent.target.dataset).toBe('modalBackground');
+  expect(clickEvent.path[0].dataset).toBe('modalBackground');
 });
 
 it("Test click event on modal background", async () => {
