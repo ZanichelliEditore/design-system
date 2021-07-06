@@ -531,6 +531,12 @@ export namespace Components {
          */
         "textcolor"?: 'white' | 'blue' | 'black';
     }
+    interface ZList {
+    }
+    interface ZListElement {
+    }
+    interface ZListGroup {
+    }
     interface ZLogo {
         /**
           * image height
@@ -1259,6 +1265,24 @@ declare global {
         prototype: HTMLZLinkElement;
         new (): HTMLZLinkElement;
     };
+    interface HTMLZListElement extends Components.ZList, HTMLStencilElement {
+    }
+    var HTMLZListElement: {
+        prototype: HTMLZListElement;
+        new (): HTMLZListElement;
+    };
+    interface HTMLZListElementElement extends Components.ZListElement, HTMLStencilElement {
+    }
+    var HTMLZListElementElement: {
+        prototype: HTMLZListElementElement;
+        new (): HTMLZListElementElement;
+    };
+    interface HTMLZListGroupElement extends Components.ZListGroup, HTMLStencilElement {
+    }
+    var HTMLZListGroupElement: {
+        prototype: HTMLZListGroupElement;
+        new (): HTMLZListGroupElement;
+    };
     interface HTMLZLogoElement extends Components.ZLogo, HTMLStencilElement {
     }
     var HTMLZLogoElement: {
@@ -1526,6 +1550,9 @@ declare global {
         "z-input-label": HTMLZInputLabelElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
+        "z-list": HTMLZListElement;
+        "z-list-element": HTMLZListElementElement;
+        "z-list-group": HTMLZListGroupElement;
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
@@ -2129,6 +2156,12 @@ declare namespace LocalJSX {
           * link text variant (optional)
          */
         "textcolor"?: 'white' | 'blue' | 'black';
+    }
+    interface ZList {
+    }
+    interface ZListElement {
+    }
+    interface ZListGroup {
     }
     interface ZLogo {
         /**
@@ -2797,6 +2830,9 @@ declare namespace LocalJSX {
         "z-input-label": ZInputLabel;
         "z-input-message": ZInputMessage;
         "z-link": ZLink;
+        "z-list": ZList;
+        "z-list-element": ZListElement;
+        "z-list-group": ZListGroup;
         "z-logo": ZLogo;
         "z-menu": ZMenu;
         "z-menu-dropdown": ZMenuDropdown;
@@ -2869,6 +2905,9 @@ declare module "@stencil/core" {
             "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
+            "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
+            "z-list-element": LocalJSX.ZListElement & JSXBase.HTMLAttributes<HTMLZListElementElement>;
+            "z-list-group": LocalJSX.ZListGroup & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
