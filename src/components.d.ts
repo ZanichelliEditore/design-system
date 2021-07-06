@@ -2314,6 +2314,10 @@ declare namespace LocalJSX {
          */
         "modaltitle"?: string;
         /**
+          * emitted on background click, returns modalid
+         */
+        "onModalBackgroundClick"?: (event: CustomEvent<any>) => void;
+        /**
           * emitted on close button click, returns modalid
          */
         "onModalClose"?: (event: CustomEvent<any>) => void;

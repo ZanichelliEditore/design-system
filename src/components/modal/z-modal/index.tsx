@@ -28,6 +28,12 @@ export class ZModal {
     this.modalHeaderActive.emit({ modalid: this.modalid });
   }
 
+  /** emitted on background click, returns modalid */
+  @Event() modalBackgroundClick: EventEmitter;
+  emitBackgroundClick() {
+    this.modalBackgroundClick.emit({ modalid: this.modalid });
+  }
+
   render() {
     return [
       <div class="modal-container" id={this.modalid}>
@@ -44,7 +50,11 @@ export class ZModal {
           <slot name="modalContent"></slot>
         </main>
       </div>,
-      <div class="modal-background"></div>
+      <div class="modal-background"
+        data-action="modalBackground"
+        data-modal={this.modalid}
+        onClick={this.emitBackgroundClick.bind(this)}
+      ></div>
     ];
   }
 }
