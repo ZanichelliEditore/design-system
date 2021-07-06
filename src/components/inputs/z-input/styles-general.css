@@ -55,17 +55,17 @@ li[role="option"]:focus:focus-visible,
   box-shadow: var(--shadow-focus-primary);
 }
 
+/* FILLED */
+.filled {
+  border-color: var(--color-surface05);
+}
+
 /* TYPING */
 .istyping,
 .focus.istyping,
 .input_selecting {
   border-color: var(--color-primary01);
   color: var(--color-primary01);
-}
-
-/* FILLED */
-.filled {
-  border-color: var(--color-surface05);
 }
 
 /* STATUSES (success, warning, error) */
