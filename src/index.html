@@ -1122,22 +1122,27 @@
   <br /><br /><br /><br /><br /><br />
 
 
-  <div style="padding-left: 280px;">
-  <z-list>
+  <div style="padding-left: 280px; width: 150px">
+  <z-list size="large">
     <z-list-group>
       <p slot="header-title">TITOLO</p>
-      <z-list-element><p>Elemento1</p></z-list-element>
-      <z-list-element><p>Elemento2</p></z-list-element>
-      <z-list-element><p>Elemento3</p></z-list-element>
+      <z-divider slot="divider"></z-divider>
+      <z-list-element><span>Elemento1</span></z-list-element>
+      <z-divider></z-divider>
+      <z-list-element><span>Elemento2</span></z-list-element>
+      <z-divider></z-divider>
+      <z-list-element><span>Elemento3</span></z-list-element>
     </z-list-group>
   </z-list>
 
   <br /><br />
 
-  <z-list>
-      <z-list-element><p>Elemento1</p></z-list-element>
-      <z-list-element><p>Elemento2</p></z-list-element>
-      <z-list-element><p>Elemento3</p></z-list-element>
+  <z-list size="x-large">
+      <z-list-element expandable="true" align-button="right" expandable-style="menu"><span>Elemento1</span></z-list-element>
+      <z-divider></z-divider>
+      <z-list-element  expandable="true" ><span>Elemento2</span><span slot="inner-content">INNER CONTENT 2</span></z-list-element>
+      <z-divider></z-divider>
+      <z-list-element><span>Elemento3</span><span slot="inner-content">INNER CONTENT</span></z-list-element>
   </z-list>
 
   </div>

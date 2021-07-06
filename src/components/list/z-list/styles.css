@@ -1,7 +1,41 @@
-:host {
+z-list {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 
   display: flex;
   flex-direction: column;
+}
+
+z-list > z-list-group {
+  display: flex;
+  flex-direction: column;
+}
+
+z-list > z-list-element,
+z-list > z-list-group > z-list-element {
+  box-sizing: border-box;
+}
+
+z-list[size="small"] > z-list-element,
+z-list[size="small"] > z-list-group > z-list-element {
+  padding: calc(var(--space-unit) / 2) 0;
+  min-height: calc(var(--space-unit) * 4);
+}
+
+z-list[size="medium"] > z-list-element,
+z-list[size="medium"] > z-list-group > z-list-element {
+  padding: var(--space-unit) 0;
+  min-height: calc(var(--space-unit) * 5);
+}
+
+z-list[size="large"] > z-list-element,
+z-list[size="large"] > z-list-group > z-list-element {
+  padding: calc(var(--space-unit) * 2) 0;
+  min-height: calc(var(--space-unit) * 7);
+}
+
+z-list[size="x-large"] > z-list-element,
+z-list[size="x-large"] > z-list-group > z-list-element {
+  padding: calc(var(--space-unit) * 3) 0;
+  min-height: calc(var(--space-unit) * 9);
 }

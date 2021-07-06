@@ -52,8 +52,8 @@ export type CardBean = {
 export enum CardVariants {
   border = "border",
   shadow = "shadow",
-  overlay = "overlay"
-};
+  overlay = "overlay",
+}
 
 export declare type ActionBean = {
   isLink: boolean;
@@ -271,4 +271,21 @@ export enum StatusTagStatus {
   success = "success",
   neutral = "neutral",
   default = "default",
+}
+
+export enum ListSize {
+  small = "small",
+  medium = "medium",
+  large = "large",
+  "x-large" = "x-large",
+}
+
+export enum ExpandableListStyle {
+  accordion = "accordion",
+  menu = "menu",
+}
+
+export enum ExpandableListButtonAlign {
+  right = "right",
+  left = "left",
 }
