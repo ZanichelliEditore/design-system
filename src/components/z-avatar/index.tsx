@@ -1,5 +1,4 @@
 import { Component, Prop, h, Host } from "@stencil/core";
-import classNames from "classnames";
 import { AvatarSize } from "../../beans";
 
 @Component({
@@ -40,7 +39,7 @@ export class ZAvatar {
   render() {
     return (
       <Host
-        class={classNames(this.size, `body-${this.getTextSize()}-sb`)}
+        class={{ [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }}
         style={{
           color: `var(--${this.textColor})`,
           backgroundColor: `var(--${this.backgroundColor})`,

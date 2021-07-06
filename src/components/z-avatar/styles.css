@@ -1,6 +1,8 @@
 :host {
   font-family: var(--font-family-sans);
 
+  background-color: var(--bg-grey-700);
+
   border-radius: 50%;
 
   display: inline-flex;
