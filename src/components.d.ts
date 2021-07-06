@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -175,6 +175,20 @@ export namespace Components {
         "sortlabeldesc"?: string;
     }
     interface ZCandybar {
+    }
+    interface ZCard {
+        /**
+          * Enable click interactions on the card. Default: false
+         */
+        "clickable": boolean;
+        /**
+          * Name of the icon to place over the image cover
+         */
+        "coverIcon": string;
+        /**
+          * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
+         */
+        "variant": CardVariants;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -914,6 +928,12 @@ export namespace Components {
          */
         "showButton"?: boolean;
     }
+    interface ZRegistroTableExpandedRow {
+        /**
+          * Number table column plus 1 for the expand button
+         */
+        "colSpan": number;
+    }
     interface ZRegistroTableFooter {
     }
     interface ZRegistroTableHead {
@@ -936,7 +956,11 @@ export namespace Components {
          */
         "sortable"?: boolean;
     }
+    interface ZRegistroTableHeaderRow {
+        "expandable"?: boolean;
+    }
     interface ZRegistroTableRow {
+        "expandable"?: boolean;
     }
     interface ZRegistroTableStickyFooter {
     }
@@ -1154,6 +1178,12 @@ declare global {
     var HTMLZCandybarElement: {
         prototype: HTMLZCandybarElement;
         new (): HTMLZCandybarElement;
+    };
+    interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
+    }
+    var HTMLZCardElement: {
+        prototype: HTMLZCardElement;
+        new (): HTMLZCardElement;
     };
     interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
     }
@@ -1407,6 +1437,12 @@ declare global {
         prototype: HTMLZRegistroTableCellElement;
         new (): HTMLZRegistroTableCellElement;
     };
+    interface HTMLZRegistroTableExpandedRowElement extends Components.ZRegistroTableExpandedRow, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableExpandedRowElement: {
+        prototype: HTMLZRegistroTableExpandedRowElement;
+        new (): HTMLZRegistroTableExpandedRowElement;
+    };
     interface HTMLZRegistroTableFooterElement extends Components.ZRegistroTableFooter, HTMLStencilElement {
     }
     var HTMLZRegistroTableFooterElement: {
@@ -1424,6 +1460,12 @@ declare global {
     var HTMLZRegistroTableHeaderElement: {
         prototype: HTMLZRegistroTableHeaderElement;
         new (): HTMLZRegistroTableHeaderElement;
+    };
+    interface HTMLZRegistroTableHeaderRowElement extends Components.ZRegistroTableHeaderRow, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableHeaderRowElement: {
+        prototype: HTMLZRegistroTableHeaderRowElement;
+        new (): HTMLZRegistroTableHeaderRowElement;
     };
     interface HTMLZRegistroTableRowElement extends Components.ZRegistroTableRow, HTMLStencilElement {
     }
@@ -1495,6 +1537,7 @@ declare global {
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
+        "z-card": HTMLZCardElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
         "z-cookiebar": HTMLZCookiebarElement;
@@ -1537,9 +1580,11 @@ declare global {
         "z-registro-table": HTMLZRegistroTableElement;
         "z-registro-table-body": HTMLZRegistroTableBodyElement;
         "z-registro-table-cell": HTMLZRegistroTableCellElement;
+        "z-registro-table-expanded-row": HTMLZRegistroTableExpandedRowElement;
         "z-registro-table-footer": HTMLZRegistroTableFooterElement;
         "z-registro-table-head": HTMLZRegistroTableHeadElement;
         "z-registro-table-header": HTMLZRegistroTableHeaderElement;
+        "z-registro-table-header-row": HTMLZRegistroTableHeaderRowElement;
         "z-registro-table-row": HTMLZRegistroTableRowElement;
         "z-registro-table-sticky-footer": HTMLZRegistroTableStickyFooterElement;
         "z-select": HTMLZSelectElement;
@@ -1730,6 +1775,24 @@ declare namespace LocalJSX {
         "sortlabeldesc"?: string;
     }
     interface ZCandybar {
+    }
+    interface ZCard {
+        /**
+          * Enable click interactions on the card. Default: false
+         */
+        "clickable"?: boolean;
+        /**
+          * Name of the icon to place over the image cover
+         */
+        "coverIcon"?: string;
+        /**
+          * Card click event. Fired only if `clickable` is true.
+         */
+        "onCardClicked"?: (event: CustomEvent<any>) => void;
+        /**
+          * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
+         */
+        "variant"?: CardVariants;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -2554,6 +2617,12 @@ declare namespace LocalJSX {
          */
         "showButton"?: boolean;
     }
+    interface ZRegistroTableExpandedRow {
+        /**
+          * Number table column plus 1 for the expand button
+         */
+        "colSpan"?: number;
+    }
     interface ZRegistroTableFooter {
     }
     interface ZRegistroTableHead {
@@ -2580,7 +2649,12 @@ declare namespace LocalJSX {
          */
         "sortable"?: boolean;
     }
+    interface ZRegistroTableHeaderRow {
+        "expandable"?: boolean;
+    }
     interface ZRegistroTableRow {
+        "expandable"?: boolean;
+        "onExpand"?: (event: CustomEvent<any>) => void;
     }
     interface ZRegistroTableStickyFooter {
     }
@@ -2757,6 +2831,7 @@ declare namespace LocalJSX {
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
+        "z-card": ZCard;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
         "z-cookiebar": ZCookiebar;
@@ -2799,9 +2874,11 @@ declare namespace LocalJSX {
         "z-registro-table": ZRegistroTable;
         "z-registro-table-body": ZRegistroTableBody;
         "z-registro-table-cell": ZRegistroTableCell;
+        "z-registro-table-expanded-row": ZRegistroTableExpandedRow;
         "z-registro-table-footer": ZRegistroTableFooter;
         "z-registro-table-head": ZRegistroTableHead;
         "z-registro-table-header": ZRegistroTableHeader;
+        "z-registro-table-header-row": ZRegistroTableHeaderRow;
         "z-registro-table-row": ZRegistroTableRow;
         "z-registro-table-sticky-footer": ZRegistroTableStickyFooter;
         "z-select": ZSelect;
@@ -2827,6 +2904,7 @@ declare module "@stencil/core" {
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
+            "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
@@ -2869,9 +2947,11 @@ declare module "@stencil/core" {
             "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
             "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
             "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
+            "z-registro-table-expanded-row": LocalJSX.ZRegistroTableExpandedRow & JSXBase.HTMLAttributes<HTMLZRegistroTableExpandedRowElement>;
             "z-registro-table-footer": LocalJSX.ZRegistroTableFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableFooterElement>;
             "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
             "z-registro-table-header": LocalJSX.ZRegistroTableHeader & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderElement>;
+            "z-registro-table-header-row": LocalJSX.ZRegistroTableHeaderRow & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderRowElement>;
             "z-registro-table-row": LocalJSX.ZRegistroTableRow & JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
             "z-registro-table-sticky-footer": LocalJSX.ZRegistroTableStickyFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableStickyFooterElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;

@@ -5,8 +5,7 @@ import classNames from "classnames";
 @Component({
   tag: "z-registro-table-cell",
   styleUrl: "styles.css",
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class ZRegistroTableCell {
   @Element() host: HTMLElement;

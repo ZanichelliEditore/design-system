@@ -11,6 +11,9 @@ describe("Suite test ZRegistroTableCell", () => {
 
     expect(page.root).toEqualHtml(`
       <z-registro-table-cell role="cell">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
         <span>Test</span>
       </z-registro-table-cell>
     `);
@@ -24,12 +27,17 @@ describe("Suite test ZRegistroTableCell", () => {
 
     expect(page.root).toEqualHtml(`
       <z-registro-table-cell role="cell" show-button="true">
-        <div class="button-container">
-          <div class="button-content">
-            <z-button icon="contextual-menu" size="x-small" square="" variant="tertiary"></z-button>
-            <div class="contextual-menu-container"></div>
+        <mock:shadow-root>
+          <div class="button-container">
+            <div class="button-content">
+              <z-button icon="contextual-menu" size="x-small" square="" variant="tertiary"></z-button>
+              <div class="contextual-menu-container">
+                <slot name="contextual-menu"></slot>
+              </div>
+            </div>
           </div>
-        </div>
+          <slot></slot>
+        </mock:shadow-root>
         <span>
           Test
         </span>
