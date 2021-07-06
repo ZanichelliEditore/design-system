@@ -387,7 +387,7 @@ export class ZInput {
             name={this.checked ? "checkbox-checked" : "checkbox"}
             aria-hidden={true}
           />
-          {this.label && <span innerHTML={this.label} />}
+          {this.label && <span innerHTML={this.label}></span>}
         </label>
       </div>
     );

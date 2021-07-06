@@ -41,10 +41,10 @@ input:disabled,
 .filled:disabled,
 ul[role="listbox"].closed.disabled {
   border-color: var(--color-disabled01);
-  box-shadow: none;
   color: var(--color-disabled02);
   fill: var(--color-disabled01);
   pointer-events: none;
+  box-shadow: none;
 }
 
 /* FOCUS */
