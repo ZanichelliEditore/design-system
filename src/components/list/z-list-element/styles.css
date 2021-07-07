@@ -1,6 +1,6 @@
 :host {
   --background-color-list-element: var(--bg-white);
-  --background-hover-color-list-element: var(--gray800);
+  --background-hover-color-list-element: var(--gray50);
 
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
