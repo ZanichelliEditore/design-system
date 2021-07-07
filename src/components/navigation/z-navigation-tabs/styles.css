@@ -56,6 +56,9 @@ nav {
   margin: var(--negative-safe-scroll-area);
   padding: var(--safe-scroll-area);
   scroll-padding: var(--safe-scroll-area);
+
+  /* hide scrollbar in Firefox */
+  scrollbar-width: none;
 }
 
 :host([orientation='horizontal']) nav {
