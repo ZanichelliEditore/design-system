@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, NotificationType, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, NotificationType, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -51,6 +51,28 @@ export namespace Components {
           * theme variant, default 'dark'
          */
         "theme"?: ThemeVariantBean;
+    }
+    interface ZAvatar {
+        /**
+          * [optional] Avatar background color
+         */
+        "backgroundColor"?: string;
+        /**
+          * [optional] Avatar image
+         */
+        "image"?: string;
+        /**
+          * [optional] Avatar size
+         */
+        "size"?: AvatarSize;
+        /**
+          * [optional] Avatar text
+         */
+        "text"?: string;
+        /**
+          * [optional] Avatar text color
+         */
+        "textColor"?: string;
     }
     interface ZBody {
         "component": string;
@@ -764,7 +786,9 @@ export namespace Components {
     }
     interface ZNavigationTab {
         "disabled"?: boolean;
+        "orientation": string;
         "selected"?: boolean;
+        "size": string;
     }
     interface ZNavigationTabs {
         /**
@@ -1142,6 +1166,12 @@ declare global {
     var HTMLZAppTopbarElement: {
         prototype: HTMLZAppTopbarElement;
         new (): HTMLZAppTopbarElement;
+    };
+    interface HTMLZAvatarElement extends Components.ZAvatar, HTMLStencilElement {
+    }
+    var HTMLZAvatarElement: {
+        prototype: HTMLZAvatarElement;
+        new (): HTMLZAvatarElement;
     };
     interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
     }
@@ -1531,6 +1561,7 @@ declare global {
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
         "z-app-topbar": HTMLZAppTopbarElement;
+        "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
         "z-button-filter": HTMLZButtonFilterElement;
@@ -1643,6 +1674,28 @@ declare namespace LocalJSX {
           * theme variant, default 'dark'
          */
         "theme"?: ThemeVariantBean;
+    }
+    interface ZAvatar {
+        /**
+          * [optional] Avatar background color
+         */
+        "backgroundColor"?: string;
+        /**
+          * [optional] Avatar image
+         */
+        "image"?: string;
+        /**
+          * [optional] Avatar size
+         */
+        "size"?: AvatarSize;
+        /**
+          * [optional] Avatar text
+         */
+        "text"?: string;
+        /**
+          * [optional] Avatar text color
+         */
+        "textColor"?: string;
     }
     interface ZBody {
         "component"?: string;
@@ -2292,7 +2345,11 @@ declare namespace LocalJSX {
          */
         "modaltitle"?: string;
         /**
-          * emitted on close icon click, returns modalid
+          * emitted on background click, returns modalid
+         */
+        "onModalBackgroundClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * emitted on close button click, returns modalid
          */
         "onModalClose"?: (event: CustomEvent<any>) => void;
         /**
@@ -2441,7 +2498,9 @@ declare namespace LocalJSX {
     interface ZNavigationTab {
         "disabled"?: boolean;
         "onSelected"?: (event: CustomEvent<any>) => void;
+        "orientation"?: string;
         "selected"?: boolean;
+        "size"?: string;
     }
     interface ZNavigationTabs {
         /**
@@ -2833,6 +2892,7 @@ declare namespace LocalJSX {
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
         "z-app-topbar": ZAppTopbar;
+        "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
         "z-button-filter": ZButtonFilter;
@@ -2906,6 +2966,7 @@ declare module "@stencil/core" {
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
             "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
+            "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;

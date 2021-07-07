@@ -12,16 +12,13 @@ import { number, select, boolean } from '@storybook/addon-knobs';
   <Story name="z-navigation-tabs">
     {html`
       <z-navigation-tabs
-        orientation="${select(
-          "orientation",
-          ["horizontal", "vertical"],
-          "horizontal"
-        )}"
+        orientation="horizontal"
         size="${select(
           "size",
           ["big", "small"],
           "big"
         )}"
+        style="max-width: 640px;"
       >
         <z-navigation-tab>
           <z-icon name="house" slot="icon"></z-icon>
@@ -56,7 +53,7 @@ import { number, select, boolean } from '@storybook/addon-knobs';
     {html`
       <z-navigation-tabs
         orientation="vertical"
-        style="position:fixed;height:100%;top:0;left:0;"
+        style="position:fixed;height:100%;top:0;left:0;max-height: 300px;"
       >
         <z-navigation-tab>
           <z-icon name="house" slot="icon"></z-icon>

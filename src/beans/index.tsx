@@ -265,6 +265,12 @@ export enum SortingOrientation {
   none = "none",
 }
 
+export enum AvatarSize {
+  small = "small",
+  medium = "medium",
+  large = "large",
+}
+
 export enum StatusTagStatus {
   warning = "warning",
   error = "error",

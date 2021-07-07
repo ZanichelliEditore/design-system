@@ -28,7 +28,6 @@ export class ZNavigationTabs {
   @State() direction : 'Top' | 'Left' = this.orientation == TabOrientationEnum.vertical ? 'Top' : 'Left';
   @State() dimension : 'Height' | 'Width' = this.orientation == TabOrientationEnum.vertical ? 'Height' : 'Width';
 
-
   tabsNav: HTMLElement;
 
   /** Set all childrens (tab) size attribute : big (default) or small */
@@ -52,12 +51,20 @@ export class ZNavigationTabs {
   /** When resize check if the navigation buttons are needed */
   @Listen('resize', { target: 'window', passive: true })
   checkScrollVisible() {
+    if (!this.tabsNav) {
+      return;
+    }
     this.canNavigate = this.tabsNav[`scroll${this.dimension}`] > this.tabsNav[`client${this.dimension}`];
     this.checkScrollEnabled();
   }
 
   /** Check if navigation buttons can be enabled for each orientation */
+  @Watch('direction')
+  @Watch('dimension')
   checkScrollEnabled() {
+    if (!this.tabsNav) {
+      return;
+    }
     this.canNavigateNext = this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] < this.tabsNav[`scroll${this.dimension}`];
     this.canNavigatePrev = this.tabsNav[`scroll${this.direction}`] > 0;
   }
@@ -103,14 +110,14 @@ export class ZNavigationTabs {
   }
 
   render() {
-    return <Host scrollable={this.canNavigate} role="tablist">
-        {this.canNavigate && <button role="tab" class='navigation' onClick={() => this.navigatePrevious()} disabled={!this.canNavigatePrev}>
+    return <Host class={this.size === 'small' ? 'interactive-2' : 'interactive-1'} scrollable={this.canNavigate} role="tablist">
+        {this.canNavigate && <button role="tab" class="navigation" onClick={() => this.navigatePrevious()} tabindex="-1" disabled={!this.canNavigatePrev}>
           <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
         </button>}
         <nav ref={(el) => this.tabsNav = el ?? this.tabsNav } onScroll={this.checkScrollEnabled.bind(this)}>
-          <slot />
+          <slot></slot>
         </nav>
-        {this.canNavigate && <button role="tab" class='navigation' onClick={() => {this.navigateNext()}} disabled={!this.canNavigateNext}>
+        {this.canNavigate && <button role="tab" class="navigation" onClick={() => {this.navigateNext()}} tabindex="-1" disabled={!this.canNavigateNext}>
           <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
         </button>}
     </Host>;
