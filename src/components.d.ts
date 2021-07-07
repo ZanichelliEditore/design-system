@@ -786,7 +786,9 @@ export namespace Components {
     }
     interface ZNavigationTab {
         "disabled"?: boolean;
+        "orientation": string;
         "selected"?: boolean;
+        "size": string;
     }
     interface ZNavigationTabs {
         /**
@@ -2463,7 +2465,9 @@ declare namespace LocalJSX {
     interface ZNavigationTab {
         "disabled"?: boolean;
         "onSelected"?: (event: CustomEvent<any>) => void;
+        "orientation"?: string;
         "selected"?: boolean;
+        "size"?: string;
     }
     interface ZNavigationTabs {
         /**
