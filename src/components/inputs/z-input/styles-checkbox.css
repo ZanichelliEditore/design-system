@@ -47,7 +47,7 @@
 }
 
 /* focus */
-.checkboxWrapper > input:focus + .checkboxLabel > z-icon {
+.checkboxWrapper > input:not([readonly]):focus + .checkboxLabel > z-icon {
   box-shadow: var(--shadow-focus-primary);
   border-radius: var(--border-radius-small);
 }

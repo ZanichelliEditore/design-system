@@ -1,89 +1,70 @@
-:host > .radioWrapper {
-  display: inline-block;
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-  font-size: inherit;
+.radioWrapper {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: var(--font-family-sans);
   position: relative;
+  color: var(--color-text01);
 }
 
-:host > .radioWrapper > input[type="radio"] {
-  opacity: 0;
+.radioWrapper > input {
   position: absolute;
+  opacity: 0;
   z-index: 0;
 }
 
-:host label {
-  display: block;
-}
-
-:host label.disabledLabel {
-  color: var(--text-grey-700);
-}
-
-:host > .radioWrapper > label.radioLabel {
+.radioWrapper .radioLabel {
   display: inline-flex;
-  line-height: 16px;
+  align-items: center;
+  margin: 0;
+  line-height: 1;
   color: inherit;
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
   text-transform: inherit;
-  margin: 0;
 }
 
-:host > .radioWrapper > label.radioLabel.after {
+.radioWrapper .radioLabel z-icon {
+  fill: var(--color-primary01);
+  cursor: pointer;
+}
+
+.radioWrapper .radioLabel.after {
   flex-direction: row;
 }
 
-:host > .radioWrapper > label.radioLabel.before {
+.radioWrapper .radioLabel.before {
   flex-direction: row-reverse;
 }
 
-:host > .radioWrapper > label.radioLabel.after > span {
+.radioWrapper .radioLabel.after > span {
   margin-left: var(--space-unit);
 }
 
-:host > .radioWrapper > label.radioLabel.before > span {
+.radioWrapper .radioLabel.before > span {
   margin-right: var(--space-unit);
 }
 
-:host > .radioWrapper > label.radioLabel > z-icon {
-  fill: var(--myz-blue);
-  height: 18px;
-  width: 18px;
-}
-
 /* focus */
-:host > .radioWrapper > input[type="radio"]:focus + label.radioLabel > z-icon {
-  box-shadow: 0 0 2px 2px var(--accent-dark);
-  border-radius: 50%;
-}
-
-/* disabled */
-:host
-  > .radioWrapper
-  > input[type="radio"]:disabled
-  + label.radioLabel
-  > z-icon {
-  fill: var(--bg-grey-700);
-  cursor: default;
+.radioWrapper > input:not([readonly]) + .radioLabel > z-icon {
+  box-shadow: var(--shadow-focus-primary);
+  border-radius: var(--border-radius-small);
 }
 
 /* readonly */
-:host
-  > .radioWrapper
-  > input[type="radio"][readonly]
-  + label.radioLabel
-  > z-icon {
-  fill: var(--bg-grey-800);
+.radioWrapper > input[readonly] + .radioLabel > z-icon {
+  fill: currentColor;
   pointer-events: none;
   cursor: default;
 }
 
-/* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
+/* disabled */
+.radioWrapper > input:disabled + .radioLabel {
+  color: var(--color-disabled02);
 }
 
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
+.radioWrapper > input:disabled + .radioLabel > z-icon {
+  fill: var(--color-disabled01);
+  cursor: default;
 }
