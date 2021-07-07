@@ -40,14 +40,17 @@ import { InputStatusEnum } from "../../../beans";
     {html`
       <z-input
         type="radio"
+        name="test-radio"
+        id="radio1"
         label="${text('label', 'Radio Label')}"
         labelafter="${boolean('labelafter', true)}"
         placeholder="${text('placeholder', 'placeholder')}"
         disabled="${boolean('disabled', false)}"
         value="${text('value', 'radio')}"
         readonly="${boolean('readonly', false)}"
-        checked="${boolean('checked', true)}"
-      ></z-input>`}
+        checked="${boolean('checked', false)}"
+      ></z-input>
+    `}
   </Story>
   <Story name="z-input type:select">
     {html`
