@@ -6,6 +6,13 @@
   font-family: var(--font-family-sans);
   position: relative;
   color: var(--color-text01);
+  fill: var(--color-primary01);
+}
+
+.radioWrapper:hover,
+.checkboxWrapper:hover {
+  color: var(--color-hover-primary);
+  fill: currentColor;
 }
 
 .radioWrapper > input,
@@ -29,9 +36,14 @@
   text-transform: inherit;
 }
 
+.radioWrapper input:not(:disabled) + .radioLabel,
+.checkboxWrapper input:not(:disabled) + .checkboxLabel {
+  cursor: pointer;
+}
+
 .radioWrapper .radioLabel z-icon,
 .checkboxWrapper .checkboxLabel z-icon {
-  fill: var(--color-primary01);
+  fill: inherit;
   cursor: pointer;
 }
 
@@ -56,18 +68,10 @@
 }
 
 /* focus */
-.radioWrapper > input:not([readonly]):focus:focus-visible + .radioLabel > z-icon,
-.checkboxWrapper > input:not([readonly]):focus:focus-visible + .checkboxLabel > z-icon {
+.radioWrapper > input:focus:focus-visible + .radioLabel > z-icon,
+.checkboxWrapper > input:focus:focus-visible + .checkboxLabel > z-icon {
   box-shadow: var(--shadow-focus-primary);
   border-radius: var(--border-radius-small);
-}
-
-/* readonly */
-.radioWrapper > input[readonly] + .radioLabel > z-icon,
-.checkboxWrapper > input[readonly] + .checkboxLabel > z-icon {
-  fill: currentColor;
-  pointer-events: none;
-  cursor: default;
 }
 
 /* disabled */

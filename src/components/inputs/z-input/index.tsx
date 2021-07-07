@@ -353,13 +353,12 @@ export class ZInput {
 
   /* END textarea */
 
-  /* START checkbox */
-
-  handleCheckboxChange() {
-    this.checked = !this.checked;
+  handleCheck(ev) {
+    this.checked = ev.target.checked;
     this.emitInputCheck(this.checked);
   }
 
+  /* START checkbox */
   renderCheckbox() {
     return (
       <div class="checkboxWrapper">
@@ -371,7 +370,7 @@ export class ZInput {
           disabled={this.disabled}
           readonly={this.readonly}
           required={this.required}
-          onChange={() => this.handleCheckboxChange()}
+          onChange={this.handleCheck.bind(this)}
           value={this.value}
         />
 
@@ -396,12 +395,6 @@ export class ZInput {
   /* END checkbox */
 
   /* START radio */
-
-  handleRadioChange() {
-    this.checked = true;
-    this.emitInputCheck(this.checked);
-  }
-
   renderRadio() {
     return (
       <div class="radioWrapper">
@@ -412,7 +405,7 @@ export class ZInput {
           checked={this.checked}
           disabled={this.disabled}
           readonly={this.readonly}
-          onChange={() => this.handleRadioChange()}
+          onChange={this.handleCheck.bind(this)}
           value={this.value}
         />
 

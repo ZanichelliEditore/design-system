@@ -29,12 +29,11 @@ import { InputStatusEnum } from "../../../beans";
         type="checkbox"
         label="${text('label', 'Checkbox Label')}"
         labelafter="${boolean('labelafter', true)}"
-        placeholder="${text('placeholder', 'placeholder')}"
         disabled="${boolean('disabled', false)}"
         value="${text('value', 'checkbox')}"
-        readonly="${boolean('readonly', false)}"
         checked="${boolean('checked', true)}"
-      ></z-input>`}
+      ></z-input>
+    `}
   </Story>
   <Story name="z-input type:radio">
     {html`
@@ -44,10 +43,8 @@ import { InputStatusEnum } from "../../../beans";
         id="radio1"
         label="${text('label', 'Radio Label')}"
         labelafter="${boolean('labelafter', true)}"
-        placeholder="${text('placeholder', 'placeholder')}"
         disabled="${boolean('disabled', false)}"
         value="${text('value', 'radio')}"
-        readonly="${boolean('readonly', false)}"
         checked="${boolean('checked', false)}"
       ></z-input>
     `}
