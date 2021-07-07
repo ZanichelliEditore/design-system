@@ -535,8 +535,21 @@ export namespace Components {
         "size"?: ListSize;
     }
     interface ZListElement {
-        "alignButton": ExpandableListButtonAlign;
+        /**
+          * [optional] Align expandable button left or right.
+         */
+        "alignButton"?: ExpandableListButtonAlign;
+        /**
+          * [optional] Sets element clickable.
+         */
+        "clickable"?: boolean;
+        /**
+          * [optional] Sets element as expandable.
+         */
         "expandable"?: boolean;
+        /**
+          * [optional] Sets expandable style to element.
+         */
         "expandableStyle"?: ExpandableListStyle;
     }
     interface ZListGroup {
@@ -2166,8 +2179,21 @@ declare namespace LocalJSX {
         "size"?: ListSize;
     }
     interface ZListElement {
+        /**
+          * [optional] Align expandable button left or right.
+         */
         "alignButton"?: ExpandableListButtonAlign;
+        /**
+          * [optional] Sets element clickable.
+         */
+        "clickable"?: boolean;
+        /**
+          * [optional] Sets element as expandable.
+         */
         "expandable"?: boolean;
+        /**
+          * [optional] Sets expandable style to element.
+         */
         "expandableStyle"?: ExpandableListStyle;
     }
     interface ZListGroup {

@@ -7,11 +7,28 @@ import { ExpandableListStyle, ExpandableListButtonAlign } from "../../../beans";
   shadow: true,
 })
 export class ZListElement {
+  /**
+   * [optional] Sets element clickable.
+   */
+  @Prop({ reflect: true }) clickable?: boolean = false;
+
+  /**
+   * [optional] Sets element as expandable.
+   */
   @Prop() expandable?: boolean = false;
+
+  /**
+   * [optional] Sets expandable style to element.
+   */
   @Prop() expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
-  @State() showInnerContent = false;
-  @Prop({ reflect: true }) alignButton: ExpandableListButtonAlign =
+
+  /**
+   * [optional] Align expandable button left or right.
+   */
+  @Prop({ reflect: true }) alignButton?: ExpandableListButtonAlign =
     ExpandableListButtonAlign.left;
+
+  @State() showInnerContent = false;
 
   private openElementConfig = {
     accordion: {
@@ -23,6 +40,25 @@ export class ZListElement {
       close: "chevron-down",
     },
   };
+
+  /**
+   * Constructor.
+   */
+  constructor() {
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  /**
+   * Handler for click on element. If element is expandable, change state.
+   * @returns void
+   */
+  handleClick() {
+    if (!this.expandable) {
+      return;
+    }
+
+    this.showInnerContent = !this.showInnerContent;
+  }
 
   /**
    * Renders button to expand element.
@@ -67,10 +103,7 @@ export class ZListElement {
 
   render() {
     return (
-      <Host
-        role="listitem"
-        onClick={() => (this.showInnerContent = !this.showInnerContent)}
-      >
+      <Host role="listitem" onClick={this.handleClick}>
         <div class="z-list-element-container">
           {this._renderExpandableButton()}
           <slot />
