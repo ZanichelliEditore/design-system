@@ -152,4 +152,60 @@ describe("Suite test ZNotification", () => {
       </z-notification>
     `);
   });
+
+  it("renders ZNotification with warning type", async () => {
+    const page = await newSpecPage({
+      components: [ZNotification],
+      html: `<z-notification
+        contenticonname="gear"
+        type="warning"
+      >Io ne ho viste cose</z-notification>`
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-notification contenticonname="gear" type="warning">
+        <mock:shadow-root>
+          <div class="notification-container warning-notification">
+            <z-icon
+              name="gear"
+              width="16"
+              height="16"
+            ></z-icon>
+            <div class="content-container">
+              <z-body class="content-text" level="4"><slot></slot></z-body>
+            </div>
+          </div>
+        </mock:shadow-root>
+        Io ne ho viste cose
+      </z-notification>
+    `);
+  });
+
+  it("renders ZNotification with error type", async () => {
+    const page = await newSpecPage({
+      components: [ZNotification],
+      html: `<z-notification
+        contenticonname="gear"
+        type="error"
+      >Io ne ho viste cose</z-notification>`
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-notification contenticonname="gear" type="error">
+        <mock:shadow-root>
+          <div class="notification-container error-notification">
+            <z-icon
+              name="gear"
+              width="16"
+              height="16"
+            ></z-icon>
+            <div class="content-container">
+              <z-body class="content-text" level="4"><slot></slot></z-body>
+            </div>
+          </div>
+        </mock:shadow-root>
+        Io ne ho viste cose
+      </z-notification>
+    `);
+  });
 });
