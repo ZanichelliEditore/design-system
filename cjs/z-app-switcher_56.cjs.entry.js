@@ -1,16 +1,20 @@
-import { r as registerInstance, c as createEvent, h, g as getElement, H as Host } from './index-3f358781.js';
-import { T as ThemeVariant, B as ButtonTypeEnum, a as ButtonVariantEnum, b as ButtonSizeEnum, C as CardVariants, I as InputTypeEnum, k as keybordKeyCodeEnum, L as LicenseTypeEnum, P as PopoverPosition, c as PopoverBorderRadius, d as PopoverShadow, K as KeyboardKeys, e as TableHeaderSize, S as SortingOrientation, f as InputStatusEnum, g as StatusTagStatus, h as TooltipPosition } from './index-6067325a.js';
-import { m as mobileBreakpoint } from './breakpoints-e120626c.js';
-import { h as handleKeyboardSubmit, r as randomId, g as getElementTree, a as getClickedElement } from './utils-831c5edf.js';
+'use strict';
 
-const stylesCss$R = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
+Object.defineProperty(exports, '__esModule', { value: true });
+
+const index = require('./index-3793b368.js');
+const index$1 = require('./index-cf91f8aa.js');
+const breakpoints = require('./breakpoints-62fb2006.js');
+const utils = require('./utils-06fbb803.js');
+
+const stylesCss$S = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
 
 const ZAppSwitcher = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.appButtonClick = createEvent(this, "appButtonClick", 7);
+    index.registerInstance(this, hostRef);
+    this.appButtonClick = index.createEvent(this, "appButtonClick", 7);
     /** theme variant, default 'dark' */
-    this.theme = ThemeVariant.dark;
+    this.theme = index$1.ThemeVariant.dark;
     this.isopen = false;
     this.emitAppButtonClick = this.emitAppButtonClick.bind(this);
   }
@@ -19,32 +23,32 @@ const ZAppSwitcher = class {
     this.appButtonClick.emit({ isopen: this.isopen });
   }
   render() {
-    return (h("button", { title: "app-switcher", onClick: () => this.emitAppButtonClick() }, h("z-icon", { name: "app-switcher", class: this.theme })));
+    return (index.h("button", { title: "app-switcher", onClick: () => this.emitAppButtonClick() }, index.h("z-icon", { name: "app-switcher", class: this.theme })));
   }
 };
-ZAppSwitcher.style = stylesCss$R;
+ZAppSwitcher.style = stylesCss$S;
 
-const stylesCss$Q = ":host{display:block;position:sticky;top:0;z-index:99;font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>div{background:var(--bg-grey-900);border-radius:var(--border-radius-min);display:grid;grid-template-columns:repeat(2, 1fr);justify-content:space-between;align-items:center;padding:calc(var(--space-unit) * .5);}:host>div.light{background:var(--bg-white)}:host>div.light #hashtag{color:var(--bg-grey-900)}.left{grid-column-start:1;grid-column-end:2;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-items:center;align-content:center}.left>#hashtag{display:none}.right{grid-column-start:2;grid-column-end:3;display:flex;align-items:center;justify-content:flex-end}.right.hide-actions>slot[name=\"actions\"]{display:none}.right>::slotted(z-link){padding:calc(var(--space-unit) * .5)}.right>::slotted(z-app-switcher){padding:6px}@media only screen and (min-width: 768px){:host>div{grid-template-columns:repeat(2, auto)}.left>#hashtag{display:initial;color:var(--bg-white);text-transform:uppercase;padding:var(--space-unit) calc(var(--space-unit) * 2)}.left>#hashtag::before{content:\"#\"}.right{grid-column-gap:var(--space-unit)}.right>::slotted(z-app-switcher){padding:6px calc(var(--space-unit) * 2) 6px var(--space-unit)}}";
+const stylesCss$R = ":host{display:block;position:sticky;top:0;z-index:99;font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>div{background:var(--bg-grey-900);border-radius:var(--border-radius-min);display:grid;grid-template-columns:repeat(2, 1fr);justify-content:space-between;align-items:center;padding:calc(var(--space-unit) * .5);}:host>div.light{background:var(--bg-white)}:host>div.light #hashtag{color:var(--bg-grey-900)}.left{grid-column-start:1;grid-column-end:2;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-items:center;align-content:center}.left>#hashtag{display:none}.right{grid-column-start:2;grid-column-end:3;display:flex;align-items:center;justify-content:flex-end}.right.hide-actions>slot[name=\"actions\"]{display:none}.right>::slotted(z-link){padding:calc(var(--space-unit) * .5)}.right>::slotted(z-app-switcher){padding:6px}@media only screen and (min-width: 768px){:host>div{grid-template-columns:repeat(2, auto)}.left>#hashtag{display:initial;color:var(--bg-white);text-transform:uppercase;padding:var(--space-unit) calc(var(--space-unit) * 2)}.left>#hashtag::before{content:\"#\"}.right{grid-column-gap:var(--space-unit)}.right>::slotted(z-app-switcher){padding:6px calc(var(--space-unit) * 2) 6px var(--space-unit)}}";
 
 const ZAppTopbar = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** theme variant, default 'dark' */
-    this.theme = ThemeVariant.dark;
+    this.theme = index$1.ThemeVariant.dark;
   }
   handleResize() {
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.isMobile = window.innerWidth <= breakpoints.mobileBreakpoint;
     this.toggleLinkLabels();
   }
   handleOrientationChange() {
-    this.isMobile = screen.width <= mobileBreakpoint;
+    this.isMobile = screen.width <= breakpoints.mobileBreakpoint;
     this.toggleLinkLabels();
   }
   componentWillLoad() {
     this.zLinksValues = Array.from(this.hostElement.children)
       .filter((child) => child.nodeName === "Z-LINK")
       .map((link) => link.childNodes[0].nodeValue);
-    this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
+    this.isMobile = window.screen.width <= breakpoints.mobileBreakpoint || window.innerWidth <= breakpoints.mobileBreakpoint;
     this.toggleLinkLabels();
   }
   toggleLinkLabels() {
@@ -63,19 +67,54 @@ const ZAppTopbar = class {
     }
   }
   render() {
-    return (h("div", { class: this.theme }, h("div", { class: "left" }, h("slot", { name: "logo" }), this.hashtag && h("span", { id: "hashtag" }, this.hashtag.replace(/\s/g, ''))), h("div", { class: `right ${this.logged && this.isMobile && "hide-actions"}` }, h("slot", { name: "actions" }), h("slot", { name: "login" }), h("slot", { name: "app-switcher" }))));
+    return (index.h("div", { class: this.theme }, index.h("div", { class: "left" }, index.h("slot", { name: "logo" }), this.hashtag && index.h("span", { id: "hashtag" }, this.hashtag.replace(/\s/g, ''))), index.h("div", { class: `right ${this.logged && this.isMobile && "hide-actions"}` }, index.h("slot", { name: "actions" }), index.h("slot", { name: "login" }), index.h("slot", { name: "app-switcher" }))));
   }
-  get hostElement() { return getElement(this); }
+  get hostElement() { return index.getElement(this); }
 };
-ZAppTopbar.style = stylesCss$Q;
+ZAppTopbar.style = stylesCss$R;
+
+const stylesCss$Q = ":host{font-family:var(--font-family-sans);background-color:var(--bg-grey-700);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;overflow:hidden;text-transform:uppercase}:host(.small),:host(.small)>img{height:calc(var(--space-unit) * 3);width:calc(var(--space-unit) * 3)}:host(.medium),:host(.medium)>img{height:calc(var(--space-unit) * 4);width:calc(var(--space-unit) * 4)}:host(.large),:host(.large)>img{height:calc(var(--space-unit) * 5);width:calc(var(--space-unit) * 5)}:host>img{object-fit:cover}";
+
+const ZAvatar = class {
+  constructor(hostRef) {
+    index.registerInstance(this, hostRef);
+    /** [optional] Avatar size */
+    this.size = index$1.AvatarSize.medium;
+    /** [optional] Avatar text color */
+    this.textColor = "text-white";
+    /** [optional] Avatar background color */
+    this.backgroundColor = "bg-grey-700";
+    if (!this.text && !this.image) {
+      console.warn("z-avatar must contain at least one prop between text and image");
+    }
+  }
+  getTextSize() {
+    if (this.size === index$1.AvatarSize.small) {
+      return "5";
+    }
+    else if (this.size === index$1.AvatarSize.medium) {
+      return "4";
+    }
+    else if (this.size === index$1.AvatarSize.large) {
+      return "2";
+    }
+  }
+  render() {
+    return (index.h(index.Host, { class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
+        color: `var(--${this.textColor})`,
+        backgroundColor: `var(--${this.backgroundColor})`,
+      } }, this.text && !this.image && index.h("span", null, this.text.substring(0, 2)), this.image && (index.h("img", { src: this.image, onError: () => (this.image = "") }))));
+  }
+};
+ZAvatar.style = stylesCss$Q;
 
 const ZBody = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     this.variant = "regular";
   }
   render() {
-    return (h("z-typography", { component: this.component || "span", level: `b${this.level}`, variant: this.variant }, h("slot", null)));
+    return (index.h("z-typography", { component: this.component || "span", level: `b${this.level}`, variant: this.variant }, index.h("slot", null)));
   }
 };
 
@@ -152,15 +191,15 @@ const stylesCss$P = ":host{display:inline-block;--z-icon-width:16px;--z-icon-hei
 
 const ZButton = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** HTML button disabled attribute. */
     this.disabled = false;
     /** HTML button type attribute. */
-    this.type = ButtonTypeEnum.button;
+    this.type = index$1.ButtonTypeEnum.button;
     /** Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`. */
-    this.variant = ButtonVariantEnum.primary;
+    this.variant = index$1.ButtonVariantEnum.primary;
     /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-    this.size = ButtonSizeEnum.big;
+    this.size = index$1.ButtonSizeEnum.big;
     /** Reduce button size (deprecated).
      *
      * @deprecated Use `size` prop.
@@ -171,9 +210,9 @@ const ZButton = class {
   }
   render() {
     this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
-    return (h("slot", { name: "element" }, h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: classnames(this.variant, this.size, { issmall: this.issmall }, { square: this.square }) }, this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }), h("slot", null))));
+    return (index.h("slot", { name: "element" }, index.h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: classnames(this.variant, this.size, { issmall: this.issmall }, { square: this.square }) }, this.icon && index.h("z-icon", { name: this.icon, width: 16, height: 16 }), index.h("slot", null))));
   }
-  get hostElement() { return getElement(this); }
+  get hostElement() { return index.getElement(this); }
 };
 ZButton.style = stylesCss$P;
 
@@ -181,8 +220,8 @@ const stylesCss$O = "button.container{min-height:32px;line-height:32px;border:va
 
 const ZButtonFilter = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.removefilter = createEvent(this, "removefilter", 7);
+    index.registerInstance(this, hostRef);
+    this.removefilter = index.createEvent(this, "removefilter", 7);
     /** disable action on button */
     this.isfixed = false;
     /** add icon to button */
@@ -197,10 +236,10 @@ const ZButtonFilter = class {
     });
   }
   renderFixedPillow(filtername) {
-    return (h("button", { class: "container" }, this.hasicon && (h("z-icon", { class: "close-icon-container", name: "multiply", height: 12, width: 12 })), h("span", { class: "text-container" }, filtername)));
+    return (index.h("button", { class: "container" }, this.hasicon && (index.h("z-icon", { class: "close-icon-container", name: "multiply", height: 12, width: 12 })), index.h("span", { class: "text-container" }, filtername)));
   }
   renderDynamicPillow(filtername) {
-    return (h("button", { class: `container isactive ${this.issmall ? "small" : ""}`, onClick: this.handleRemovingFilterClick }, this.hasicon && (h("z-icon", { class: "close-icon-container", name: "multiply", height: 12, width: 12 })), h("span", { class: "text-container" }, filtername)));
+    return (index.h("button", { class: `container isactive ${this.issmall ? "small" : ""}`, onClick: this.handleRemovingFilterClick }, this.hasicon && (index.h("z-icon", { class: "close-icon-container", name: "multiply", height: 12, width: 12 })), index.h("span", { class: "text-container" }, filtername)));
   }
   render() {
     if (this.isfixed) {
@@ -215,8 +254,8 @@ const stylesCss$N = "button{height:36px;border:var(--border-size-medium) solid v
 
 const ZButtonSort = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.buttonSortClick = createEvent(this, "buttonSortClick", 7);
+    index.registerInstance(this, hostRef);
+    this.buttonSortClick = index.createEvent(this, "buttonSortClick", 7);
     /** sort label content (ascending) (optional) */
     this.sortlabelasc = "A-Z";
     /** sort label content (descending) (optional) */
@@ -239,7 +278,7 @@ const ZButtonSort = class {
     });
   }
   render() {
-    return (h("button", { id: this.buttonid, class: this.isselected && "selected", onClick: () => this.emitButtonSortClick() }, h("label", null, !this.sortasc && this.desclabel ? this.desclabel : this.label, this.counter && ` (${this.counter})`), h("span", null, this.sortasc ? this.sortlabelasc : this.sortlabeldesc), h("z-icon", { name: "caret-up-down", width: 16, height: 16 })));
+    return (index.h("button", { id: this.buttonid, class: this.isselected && "selected", onClick: () => this.emitButtonSortClick() }, index.h("label", null, !this.sortasc && this.desclabel ? this.desclabel : this.label, this.counter && ` (${this.counter})`), index.h("span", null, this.sortasc ? this.sortlabelasc : this.sortlabeldesc), index.h("z-icon", { name: "caret-up-down", width: 16, height: 16 })));
   }
 };
 ZButtonSort.style = stylesCss$N;
@@ -248,8 +287,8 @@ const stylesCss$M = ":host{--aspect-ratio:1.62;--z-card--border-color:var(--gray
 
 const ZCard = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.cardClicked = createEvent(this, "cardClicked", 7);
+    index.registerInstance(this, hostRef);
+    this.cardClicked = index.createEvent(this, "cardClicked", 7);
     /** Enable click interactions on the card. Default: false */
     this.clickable = false;
   }
@@ -274,23 +313,23 @@ const ZCard = class {
    */
   renderColorCoverCard() {
     return [
-      h("div", { class: "cover-container" }, h("div", { class: "color-cover" }, h("div", { class: "cover-content" }, h("slot", { name: "metadata" }), h("slot", { name: "title" })))),
-      h("div", { class: "content" }, h("slot", { name: "text" }), h("div", { class: "actions" }, h("slot", { name: "action" })))
+      index.h("div", { class: "cover-container" }, index.h("div", { class: "color-cover" }, index.h("div", { class: "cover-content" }, index.h("slot", { name: "metadata" }), index.h("slot", { name: "title" })))),
+      index.h("div", { class: "content" }, index.h("slot", { name: "text" }), index.h("div", { class: "actions" }, index.h("slot", { name: "action" })))
     ];
   }
   render() {
-    if (this.variant === CardVariants.overlay || this.hasCoverImage) {
+    if (this.variant === index$1.CardVariants.overlay || this.hasCoverImage) {
       return [
-        h("div", { class: "cover-container" }, this.hasCoverImage && [
-          h("slot", { name: "cover" }),
-          (this.variant !== CardVariants.overlay) && this.coverIcon && h("z-icon", { name: this.coverIcon })
-        ], !this.hasCoverImage && h("div", { class: "color-cover" })),
-        h("div", { class: "content" }, h("slot", { name: "metadata" }), h("slot", { name: "title" }), h("slot", { name: "text" }), h("div", { class: "actions" }, h("slot", { name: "action" })))
+        index.h("div", { class: "cover-container" }, this.hasCoverImage && [
+          index.h("slot", { name: "cover" }),
+          (this.variant !== index$1.CardVariants.overlay) && this.coverIcon && index.h("z-icon", { name: this.coverIcon })
+        ], !this.hasCoverImage && index.h("div", { class: "color-cover" })),
+        index.h("div", { class: "content" }, index.h("slot", { name: "metadata" }), index.h("slot", { name: "title" }), index.h("slot", { name: "text" }), index.h("div", { class: "actions" }, index.h("slot", { name: "action" })))
       ];
     }
     return this.renderColorCoverCard();
   }
-  get host() { return getElement(this); }
+  get host() { return index.getElement(this); }
 };
 ZCard.style = stylesCss$M;
 
@@ -298,15 +337,15 @@ const stylesCss$L = ":host>div{display:inline-block;min-height:28px;line-height:
 
 const ZChip = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   renderLegacyChip() {
-    return h("div", null, h("span", { class: "boldtext" }, this.boldtext), " ", this.regulartext);
+    return index.h("div", null, index.h("span", { class: "boldtext" }, this.boldtext), " ", this.regulartext);
   }
   render() {
     return this.boldtext != null || this.regulartext != null ?
       this.renderLegacyChip() :
-      h("div", null, h("slot", null));
+      index.h("div", null, index.h("slot", null));
   }
 };
 ZChip.style = stylesCss$L;
@@ -315,8 +354,8 @@ const stylesCss$K = ":host{display:block}:host>div.fixed{position:relative;heigh
 
 const ZCombobox = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.comboboxChange = createEvent(this, "comboboxChange", 7);
+    index.registerInstance(this, hostRef);
+    this.comboboxChange = index.createEvent(this, "comboboxChange", 7);
     /** show search input flag (optional) */
     this.hassearch = false;
     /** no result text message */
@@ -337,7 +376,7 @@ const ZCombobox = class {
     this.maxcheckableitems = 0;
     this.renderItemsList = []; // used for render only
     this.itemsList = [];
-    this.inputType = InputTypeEnum.text;
+    this.inputType = index$1.InputTypeEnum.text;
     this.closeComboBox = this.closeComboBox.bind(this);
     this.closeFilterItems = this.closeFilterItems.bind(this);
   }
@@ -414,42 +453,42 @@ const ZCombobox = class {
     this.isopen = !this.isopen;
   }
   renderHeader() {
-    return (h("div", { class: "header", onClick: () => this.closeComboBox(), onKeyDown: (ev) => {
-        if (ev.keyCode === keybordKeyCodeEnum.SPACE)
+    return (index.h("div", { class: "header", onClick: () => this.closeComboBox(), onKeyDown: (ev) => {
+        if (ev.keyCode === index$1.keybordKeyCodeEnum.SPACE)
           ev.preventDefault();
-      }, onKeyUp: (ev) => handleKeyboardSubmit(ev, this.closeComboBox), role: "button", tabindex: 0 }, h("h2", null, this.label, h("span", null, this.selectedCounter > 0 && ` (${this.selectedCounter})`)), h("z-icon", { name: "caret-down", width: 18, height: 18 })));
+      }, onKeyUp: (ev) => utils.handleKeyboardSubmit(ev, this.closeComboBox), role: "button", tabindex: 0 }, index.h("h2", null, this.label, index.h("span", null, this.selectedCounter > 0 && ` (${this.selectedCounter})`)), index.h("z-icon", { name: "caret-down", width: 18, height: 18 })));
   }
   renderContent() {
     if (!this.isopen)
       return;
-    return (h("div", { class: "openComboData" }, this.hassearch && this.renderSearchInput(), this.hascheckall && this.renderCheckAll(), this.renderItems()));
+    return (index.h("div", { class: "openComboData" }, this.hassearch && this.renderSearchInput(), this.hascheckall && this.renderCheckAll(), this.renderItems()));
   }
   renderItems() {
     if (!this.isopen)
       return;
-    return (h("div", { class: this.searchValue && "search", tabindex: -1 }, this.renderList(this.renderItemsList), this.searchValue && this.renderCloseButton()));
+    return (index.h("div", { class: this.searchValue && "search", tabindex: -1 }, this.renderList(this.renderItemsList), this.searchValue && this.renderCloseButton()));
   }
   renderList(items) {
     if (!items)
       return;
     if (!items.length && this.searchValue)
       return this.renderNoSearchResults();
-    return (h("ul", null, items.map((item, i) => {
-      return (h("z-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: i === items.length - 1 ? false : true }, h("z-input", { type: InputTypeEnum.checkbox, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked &&
+    return (index.h("ul", null, items.map((item, i) => {
+      return (index.h("z-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: i === items.length - 1 ? false : true }, index.h("z-input", { type: index$1.InputTypeEnum.checkbox, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked &&
           this.maxcheckableitems &&
           this.maxcheckableitems === this.selectedCounter })));
     })));
   }
   renderNoSearchResults() {
-    return (h("ul", null, h("z-list-item", { id: "no-results", text: this.noresultslabel, listitemid: "no-results", icon: "multiply-circle" })));
+    return (index.h("ul", null, index.h("z-list-item", { id: "no-results", text: this.noresultslabel, listitemid: "no-results", icon: "multiply-circle" })));
   }
   renderCloseButton() {
-    return (h("div", null, h("a", { onClick: () => this.closeFilterItems(), onKeyUp: (e) => handleKeyboardSubmit(e, this.closeFilterItems), role: "button", tabindex: 0 }, this.closesearchtext)));
+    return (index.h("div", null, index.h("a", { onClick: () => this.closeFilterItems(), onKeyUp: (e) => utils.handleKeyboardSubmit(e, this.closeFilterItems), role: "button", tabindex: 0 }, this.closesearchtext)));
   }
   renderSearchInput() {
     if (!this.isopen)
       return;
-    return (h("z-input", { htmlid: `${this.inputid}_search`, label: this.searchlabel, placeholder: this.searchplaceholder, htmltitle: this.searchtitle, type: this.inputType, value: this.searchValue, hasmessage: false, onInputChange: (e) => {
+    return (index.h("z-input", { htmlid: `${this.inputid}_search`, label: this.searchlabel, placeholder: this.searchplaceholder, htmltitle: this.searchtitle, type: this.inputType, value: this.searchValue, hasmessage: false, onInputChange: (e) => {
         if (e.detail.keycode === 27)
           return this.closeFilterItems();
         this.filterItems(e.detail.value);
@@ -459,11 +498,11 @@ const ZCombobox = class {
     if (this.searchValue)
       return;
     const allChecked = this.selectedCounter === this.itemsList.length;
-    return (h("div", { class: "checkAllWrapper" }, h("z-input", { type: InputTypeEnum.checkbox, checked: allChecked, htmlid: `combo-checkbox-${this.inputid}-check-all`, label: allChecked ? this.uncheckalltext : this.checkalltext, disabled: this.maxcheckableitems &&
+    return (index.h("div", { class: "checkAllWrapper" }, index.h("z-input", { type: index$1.InputTypeEnum.checkbox, checked: allChecked, htmlid: `combo-checkbox-${this.inputid}-check-all`, label: allChecked ? this.uncheckalltext : this.checkalltext, disabled: this.maxcheckableitems &&
         this.maxcheckableitems < this.itemsList.length })));
   }
   render() {
-    return (h("div", { "data-action": `combo-${this.inputid}`, class: `${this.isopen && "open"} ${this.isfixed && "fixed"}`, id: this.inputid }, this.renderHeader(), this.renderContent()));
+    return (index.h("div", { "data-action": `combo-${this.inputid}`, class: `${this.isopen && "open"} ${this.isfixed && "fixed"}`, id: this.inputid }, this.renderHeader(), this.renderContent()));
   }
   static get watchers() { return {
     "items": ["watchItems"]
@@ -475,7 +514,7 @@ const stylesCss$J = ":host{width:100%}footer{width:auto;height:auto;box-sizing:b
 
 const ZFooter = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   componentWillLoad() {
     if (this.data) {
@@ -487,28 +526,28 @@ const ZFooter = class {
     }
   }
   renderZLogo() {
-    return (h("z-logo", { link: "https://www.zanichelli.it", width: 144, height: 38, imagealt: "Home Zanichelli", targetblank: true }));
+    return (index.h("z-logo", { link: "https://www.zanichelli.it", width: 144, height: 38, imagealt: "Home Zanichelli", targetblank: true }));
   }
   renderAddress() {
-    return (h("p", null, "Zanichelli editore S.p.A. via Irnerio 34, 40126 Bologna", h("br", null), "Fax 051 - 249.782 / 293.224 | Tel. 051 - 293.111 / 245.024", h("br", null), "Partita IVA 03978000374"));
+    return (index.h("p", null, "Zanichelli editore S.p.A. via Irnerio 34, 40126 Bologna", index.h("br", null), "Fax 051 - 249.782 / 293.224 | Tel. 051 - 293.111 / 245.024", index.h("br", null), "Partita IVA 03978000374"));
   }
   renderSocial() {
-    return (h("div", { class: "social" }, h("slot", { name: "social" }), this.renderFooterSocialJsonData()));
+    return (index.h("div", { class: "social" }, index.h("slot", { name: "social" }), this.renderFooterSocialJsonData()));
   }
   renderCopyright() {
-    return (h("p", null, "Copyright \u2013 2018-", new Date().getFullYear(), " Zanichelli", h("span", null, "All rights reserved")));
+    return (index.h("p", null, "Copyright \u2013 2018-", new Date().getFullYear(), " Zanichelli", index.h("span", null, "All rights reserved")));
   }
   renderCertification() {
-    return (h("p", null, "Zanichelli editore S.p.A. opera con sistema qualit\u00E0 certificato CertiCarGraf n. 477", h("br", null), "secondo la norma UNI EN ISO 9001:2015"));
+    return (index.h("p", null, "Zanichelli editore S.p.A. opera con sistema qualit\u00E0 certificato CertiCarGraf n. 477", index.h("br", null), "secondo la norma UNI EN ISO 9001:2015"));
   }
   renderBottomLinks() {
-    return (h("div", { class: "item bottom-links" }, h("slot", { name: "links" }), this.renderFooterBottomJsonData()));
+    return (index.h("div", { class: "item bottom-links" }, index.h("slot", { name: "links" }), this.renderFooterBottomJsonData()));
   }
   renderFooterBottom() {
-    return (h("section", { class: "bottom" }, h("div", { class: "item logo" }, this.renderZLogo(), this.renderCopyright(), this.renderCertification()), h("div", { class: "item" }, this.renderAddress(), this.renderSocial()), this.renderBottomLinks()));
+    return (index.h("section", { class: "bottom" }, index.h("div", { class: "item logo" }, this.renderZLogo(), this.renderCopyright(), this.renderCertification()), index.h("div", { class: "item" }, this.renderAddress(), this.renderSocial()), this.renderBottomLinks()));
   }
   renderFooterTop() {
-    return (h("section", { class: "top" }, h("slot", null), this.renderFooterTopJsonData()));
+    return (index.h("section", { class: "top" }, index.h("slot", null), this.renderFooterTopJsonData()));
   }
   // INFO: backward compatibility
   renderFooterTopJsonData() {
@@ -522,24 +561,24 @@ const ZFooter = class {
         items: bottomLinks,
       });
     }
-    return zanichelliLinks.map((item) => (h("z-footer-section", { name: item.title }, item.items.map((item) => (h("z-footer-link", { href: item.link }, item.label))))));
+    return zanichelliLinks.map((item) => (index.h("z-footer-section", { name: item.title }, item.items.map((item) => (index.h("z-footer-link", { href: item.link }, item.label))))));
   }
   // INFO: backward compatibility
   renderFooterBottomJsonData() {
     if (!this.jsonData || !this.jsonData.bottomLinks)
       return null;
     const bottomLinks = this.jsonData.bottomLinks;
-    return bottomLinks.map((item) => (h("z-footer-link", { href: item.link }, item.label)));
+    return bottomLinks.map((item) => (index.h("z-footer-link", { href: item.link }, item.label)));
   }
   // INFO: backward compatibility
   renderFooterSocialJsonData() {
     if (!this.jsonData || !this.jsonData.social)
       return null;
     const social = this.jsonData.social;
-    return social.map((item) => (h("z-footer-social", { href: item.link, icon: item.icon, description: item.description })));
+    return social.map((item) => (index.h("z-footer-social", { href: item.link, icon: item.icon, description: item.description })));
   }
   render() {
-    return (h("footer", null, this.renderFooterTop(), this.renderFooterBottom()));
+    return (index.h("footer", null, this.renderFooterTop(), this.renderFooterBottom()));
   }
 };
 ZFooter.style = stylesCss$J;
@@ -548,10 +587,10 @@ const stylesCss$I = ":host{font-family:var(--dashboard-font);font-weight:var(--f
 
 const ZFooterLink = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   render() {
-    return (h("a", { href: this.href, target: "_blank" }, h("slot", null)));
+    return (index.h("a", { href: this.href, target: "_blank" }, index.h("slot", null)));
   }
 };
 ZFooterLink.style = stylesCss$I;
@@ -560,14 +599,14 @@ const stylesCss$H = ":host{font-family:var(--dashboard-font);font-weight:var(--f
 
 const ZFooterSection = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     this.isOpen = false;
   }
   renderToggleButton() {
-    return (h("button", { class: "toggleButton", onClick: () => (this.isOpen = !this.isOpen) }, h("z-icon", { name: this.isOpen ? "chevron-up" : "chevron-down", width: 16, height: 16 })));
+    return (index.h("button", { class: "toggleButton", onClick: () => (this.isOpen = !this.isOpen) }, index.h("z-icon", { name: this.isOpen ? "chevron-up" : "chevron-down", width: 16, height: 16 })));
   }
   render() {
-    return (h("nav", null, h("div", { class: "header" }, h("h2", null, this.name), this.renderToggleButton()), h("div", { class: `content ${this.isOpen ? "show" : ""}` }, h("slot", null))));
+    return (index.h("nav", null, index.h("div", { class: "header" }, index.h("h2", null, this.name), this.renderToggleButton()), index.h("div", { class: `content ${this.isOpen ? "show" : ""}` }, index.h("slot", null))));
   }
 };
 ZFooterSection.style = stylesCss$H;
@@ -576,10 +615,10 @@ const stylesCss$G = ":host{font-family:var(--dashboard-font);font-weight:var(--f
 
 const ZFooterSocial = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   render() {
-    return (h("a", { href: this.href, target: "_blank" }, h("img", { src: this.icon, alt: this.description })));
+    return (index.h("a", { href: this.href, target: "_blank" }, index.h("img", { src: this.icon, alt: this.description })));
   }
 };
 ZFooterSocial.style = stylesCss$G;
@@ -1024,7 +1063,7 @@ const stylesCss$F = ":host{line-height:0;vertical-align:middle;width:var(--z-ico
 
 const ZIcon = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** icon height (optional) */
     this.height = 18;
     /** icon width (optional) */
@@ -1032,14 +1071,14 @@ const ZIcon = class {
   }
   selectPathOrPolygon(iconName) {
     if (iconName && iconName.startsWith('M')) {
-      return h("path", { d: icons[this.name] });
+      return index.h("path", { d: icons[this.name] });
     }
     else {
-      return h("polygon", { points: icons[this.name] });
+      return index.h("polygon", { points: icons[this.name] });
     }
   }
   render() {
-    return (h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid }, this.selectPathOrPolygon(icons[this.name])));
+    return (index.h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid }, this.selectPathOrPolygon(icons[this.name])));
   }
 };
 ZIcon.style = stylesCss$F;
@@ -1048,12 +1087,12 @@ const stylesCss$E = ":host>div{display:flex;flex-flow:row wrap;justify-content:f
 
 const ZIconPackage = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   render() {
     const iconsNames = Object.keys(icons);
-    return (h("div", null, iconsNames.map((icon) => {
-      return (h("div", null, h("z-icon", { name: icon }), h("label", null, icon)));
+    return (index.h("div", null, iconsNames.map((icon) => {
+      return (index.h("div", null, index.h("z-icon", { name: icon }), index.h("label", null, icon)));
     })));
   }
 };
@@ -1063,8 +1102,8 @@ const stylesCss$D = ":host{font-family:var(--dashboard-font);font-weight:var(--f
 
 const ZInfoBox = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.infoBoxClose = createEvent(this, "infoBoxClose", 7);
+    index.registerInstance(this, hostRef);
+    this.infoBoxClose = index.createEvent(this, "infoBoxClose", 7);
     /** render close icon flag */
     this.isclosable = true;
   }
@@ -1072,7 +1111,7 @@ const ZInfoBox = class {
     this.infoBoxClose.emit({ boxid: this.boxid });
   }
   render() {
-    return (h("div", { id: this.boxid }, h("slot", { name: "content" }), this.isclosable && h("z-icon", { name: "multiply", "data-action": "infoBoxClose", onClick: () => this.emitInfoBoxClose() })));
+    return (index.h("div", { id: this.boxid }, index.h("slot", { name: "content" }), this.isclosable && index.h("z-icon", { name: "multiply", "data-action": "infoBoxClose", onClick: () => this.emitInfoBoxClose() })));
   }
 };
 ZInfoBox.style = stylesCss$D;
@@ -1081,14 +1120,14 @@ const stylesCss$C = ".sc-z-input-h{display:inline-block;width:inherit}.sc-z-inpu
 
 const ZInput = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.inputChange = createEvent(this, "inputChange", 7);
-    this.startTyping = createEvent(this, "startTyping", 7);
-    this.stopTyping = createEvent(this, "stopTyping", 7);
-    this.inputCheck = createEvent(this, "inputCheck", 7);
-    this.optionSelect = createEvent(this, "optionSelect", 7);
+    index.registerInstance(this, hostRef);
+    this.inputChange = index.createEvent(this, "inputChange", 7);
+    this.startTyping = index.createEvent(this, "startTyping", 7);
+    this.stopTyping = index.createEvent(this, "stopTyping", 7);
+    this.inputCheck = index.createEvent(this, "inputCheck", 7);
+    this.optionSelect = index.createEvent(this, "optionSelect", 7);
     /** the id of the input element */
-    this.htmlid = randomId();
+    this.htmlid = utils.randomId();
     /** the input is disabled */
     this.disabled = false;
     /** the input is readonly */
@@ -1115,8 +1154,8 @@ const ZInput = class {
   inputCheckListener(e) {
     const data = e.detail;
     switch (this.type) {
-      case InputTypeEnum.radio:
-        if (data.type === InputTypeEnum.radio &&
+      case index$1.InputTypeEnum.radio:
+        if (data.type === index$1.InputTypeEnum.radio &&
           data.name === this.name &&
           data.id !== this.htmlid) {
           this.checked = false;
@@ -1128,7 +1167,7 @@ const ZInput = class {
   /** get the input value */
   async getValue() {
     switch (this.type) {
-      case InputTypeEnum.select:
+      case index$1.InputTypeEnum.select:
         return this.selectElem.getValue();
       default:
         return this.value;
@@ -1137,7 +1176,7 @@ const ZInput = class {
   /** set the input value */
   async setValue(value) {
     switch (this.type) {
-      case InputTypeEnum.select:
+      case index$1.InputTypeEnum.select:
         this.selectElem.setValue(value);
         break;
       default:
@@ -1149,8 +1188,8 @@ const ZInput = class {
   /** get checked status */
   async isChecked() {
     switch (this.type) {
-      case InputTypeEnum.checkbox:
-      case InputTypeEnum.radio:
+      case index$1.InputTypeEnum.checkbox:
+      case index$1.InputTypeEnum.radio:
         return this.checked;
       default:
         return false;
@@ -1161,7 +1200,7 @@ const ZInput = class {
       this.emitStartTyping();
     }
     let validity = {};
-    if (this.type === InputTypeEnum.textarea) {
+    if (this.type === index$1.InputTypeEnum.textarea) {
       validity = this.getValidity("textarea");
     }
     else {
@@ -1221,53 +1260,53 @@ const ZInput = class {
       attr["autocomplete"] = this.autocomplete;
     return attr;
   }
-  renderInputText(type = InputTypeEnum.text) {
+  renderInputText(type = index$1.InputTypeEnum.text) {
     const attr = this.getTextAttributes();
-    if (this.icon || type === InputTypeEnum.password)
+    if (this.icon || type === index$1.InputTypeEnum.password)
       attr.class = attr.class + " hasIcon";
     if (this.hasclearicon)
       attr.class = attr.class + " hasClearIcon";
-    return (h("div", { class: "textWrapper" }, this.renderLabel(), h("div", null, h("input", Object.assign({ type: type === InputTypeEnum.password && !this.passwordHidden
-        ? InputTypeEnum.text
+    return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", null, index.h("input", Object.assign({ type: type === index$1.InputTypeEnum.password && !this.passwordHidden
+        ? index$1.InputTypeEnum.text
         : type }, attr, { "aria-labelledby": `${this.htmlid}_label` })), this.renderIcons()), this.renderMessage()));
   }
   renderLabel() {
     if (!this.label)
       return;
-    return (h("z-input-label", { value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_label` }));
+    return (index.h("z-input-label", { value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_label` }));
   }
   renderIcons() {
-    return (h("span", { class: `iconsWrapper ${this.disabled ? "disabled" : ""}` }, this.renderResetIcon(), this.renderIcon()));
+    return (index.h("span", { class: `iconsWrapper ${this.disabled ? "disabled" : ""}` }, this.renderResetIcon(), this.renderIcon()));
   }
   renderIcon() {
-    if (this.type === InputTypeEnum.password) {
+    if (this.type === index$1.InputTypeEnum.password) {
       return this.renderShowHidePassword();
     }
     if (!this.icon)
       return;
-    return h("z-icon", { class: "inputIcon", name: this.icon });
+    return index.h("z-icon", { class: "inputIcon", name: this.icon });
   }
   renderResetIcon() {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
       return;
-    return (h("z-icon", { class: "resetIcon", name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
+    return (index.h("z-icon", { class: "resetIcon", name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
   }
   renderShowHidePassword() {
-    return (h("z-icon", { class: "inputIcon", name: this.passwordHidden ? "view" : "view-off", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
+    return (index.h("z-icon", { class: "inputIcon", name: this.passwordHidden ? "view" : "view-off", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
   }
   renderMessage() {
     if (!this.hasmessage)
       return;
-    return h("z-input-message", { message: this.message, status: this.status });
+    return index.h("z-input-message", { message: this.message, status: this.status });
   }
   /* END text/password/email/number */
   /* START textarea */
   renderTextarea() {
-    return (h("div", { class: "textWrapper" }, this.renderLabel(), h("div", null, this.renderTextareaBody()), this.renderMessage()));
+    return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", null, this.renderTextareaBody()), this.renderMessage()));
   }
   renderTextareaBody() {
     const attributes = this.getTextAttributes();
-    return (h("div", { class: `
+    return (index.h("div", { class: `
             textareaWrapper
             ${attributes.class}
             ${attributes.disabled && " disabled"}
@@ -1275,7 +1314,7 @@ const ZInput = class {
             ${this.isTyping && " istyping"}
             ${this.textareaWrapperFocus}
             ${this.textareaWrapperHover}
-          ` }, h("textarea", Object.assign({}, attributes, this.getTextareaExtraAttributes()))));
+          ` }, index.h("textarea", Object.assign({}, attributes, this.getTextareaExtraAttributes()))));
   }
   getTextareaExtraAttributes() {
     return {
@@ -1292,7 +1331,7 @@ const ZInput = class {
     this.emitInputCheck(this.checked);
   }
   renderCheckbox() {
-    return (h("div", { class: "checkboxWrapper" }, h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: () => this.handleCheckboxChange(), value: this.value }), h("label", { htmlFor: this.htmlid, class: `checkboxLabel ${this.labelafter ? "after" : "before"}` }, h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": true }), this.label && h("span", { innerHTML: this.label }))));
+    return (index.h("div", { class: "checkboxWrapper" }, index.h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: () => this.handleCheckboxChange(), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: `checkboxLabel ${this.labelafter ? "after" : "before"}` }, index.h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": true }), this.label && index.h("span", { innerHTML: this.label }))));
   }
   /* END checkbox */
   /* START radio */
@@ -1301,34 +1340,34 @@ const ZInput = class {
     this.emitInputCheck(this.checked);
   }
   renderRadio() {
-    return (h("div", { class: "radioWrapper" }, h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: () => this.handleRadioChange(), value: this.value }), h("label", { htmlFor: this.htmlid, class: `radioLabel ${this.labelafter ? "after" : "before"}` }, h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": true }), this.label && h("span", { innerHTML: this.label }))));
+    return (index.h("div", { class: "radioWrapper" }, index.h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: () => this.handleRadioChange(), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: `radioLabel ${this.labelafter ? "after" : "before"}` }, index.h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": true }), this.label && index.h("span", { innerHTML: this.label }))));
   }
   /* END radio */
   /* START select */
   renderSelect() {
-    return (h("z-select", { htmlid: this.htmlid, items: this.items, name: this.name, label: this.label, disabled: this.disabled, readonly: this.readonly, placeholder: this.placeholder, htmltitle: this.htmltitle, status: this.status, hasmessage: this.hasmessage, message: this.message, autocomplete: this.autocomplete, multiple: this.multiple, ref: (el) => (this.selectElem = el) }));
+    return (index.h("z-select", { htmlid: this.htmlid, items: this.items, name: this.name, label: this.label, disabled: this.disabled, readonly: this.readonly, placeholder: this.placeholder, htmltitle: this.htmltitle, status: this.status, hasmessage: this.hasmessage, message: this.message, autocomplete: this.autocomplete, multiple: this.multiple, ref: (el) => (this.selectElem = el) }));
   }
   /* END select */
   render() {
     switch (this.type) {
-      case InputTypeEnum.text:
-      case InputTypeEnum.password:
-      case InputTypeEnum.number:
-      case InputTypeEnum.email:
+      case index$1.InputTypeEnum.text:
+      case index$1.InputTypeEnum.password:
+      case index$1.InputTypeEnum.number:
+      case index$1.InputTypeEnum.email:
         return this.renderInputText(this.type);
-      case InputTypeEnum.textarea:
+      case index$1.InputTypeEnum.textarea:
         return this.renderTextarea();
-      case InputTypeEnum.checkbox:
+      case index$1.InputTypeEnum.checkbox:
         return this.renderCheckbox();
-      case InputTypeEnum.radio:
+      case index$1.InputTypeEnum.radio:
         return this.renderRadio();
-      case InputTypeEnum.select:
+      case index$1.InputTypeEnum.select:
         return this.renderSelect();
       default:
         return this.renderInputText();
     }
   }
-  get hostElement() { return getElement(this); }
+  get hostElement() { return index.getElement(this); }
 };
 ZInput.style = stylesCss$C;
 
@@ -1336,12 +1375,12 @@ const stylesCss$B = ":host>label{display:block;color:var(--text-grey-800);font-f
 
 const ZInputLabel = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** the label is disabled */
     this.disabled = false;
   }
   render() {
-    return h("label", { class: this.disabled ? "disabled" : "" }, this.value);
+    return index.h("label", { class: this.disabled ? "disabled" : "" }, this.value);
   }
 };
 ZInputLabel.style = stylesCss$B;
@@ -1350,7 +1389,7 @@ const stylesCss$A = ":host span.statusMsg{font-family:var(--dashboard-font);font
 
 const ZInputMessage = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     this.statusIcons = {
       success: "checkmark-circle",
       error: "multiply-circled",
@@ -1361,7 +1400,7 @@ const ZInputMessage = class {
     return this.status ? `msg_${this.status}` : '';
   }
   render() {
-    return (h("span", { class: `statusMsg ${this.renderMsgClassName()}` }, this.status && this.statusIcons[this.status] && this.message ? (h("z-icon", { name: this.statusIcons[this.status], width: 14, height: 14 })) : null, h("span", { innerHTML: this.message })));
+    return (index.h("span", { class: `statusMsg ${this.renderMsgClassName()}` }, this.status && this.statusIcons[this.status] && this.message ? (index.h("z-icon", { name: this.statusIcons[this.status], width: 14, height: 14 })) : null, index.h("span", { innerHTML: this.message })));
   }
 };
 ZInputMessage.style = stylesCss$A;
@@ -1370,8 +1409,8 @@ const stylesCss$z = ":host{font-family:var(--dashboard-font);font-weight:inherit
 
 const ZLink = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.zLinkClick = createEvent(this, "zLinkClick", 7);
+    index.registerInstance(this, hostRef);
+    this.zLinkClick = index.createEvent(this, "zLinkClick", 7);
     /** link target (optional) */
     this.target = "_self";
     /** tabindex link attribute (optional) */
@@ -1401,11 +1440,11 @@ const ZLink = class {
     this.zLinkClick.emit({ e, linkId });
   }
   render() {
-    return (h("a", { id: this.htmlid, href: this.href ? this.href : null, class: `${this.isdisabled && "disabled"}
+    return (index.h("a", { id: this.htmlid, href: this.href ? this.href : null, class: `${this.isdisabled && "disabled"}
           ${this.isactive && "active"}
           ${this.textcolor}
           ${this.iswhite && "white"}
-          ${this.big && "big"}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) }, this.icon && h("z-icon", { name: this.icon, width: this.big ? 18 : 12, height: this.big ? 18 : 12 }), h("slot", null)));
+          ${this.big && "big"}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) }, this.icon && index.h("z-icon", { name: this.icon, width: this.big ? 18 : 12, height: this.big ? 18 : 12 }), index.h("slot", null)));
   }
 };
 ZLink.style = stylesCss$z;
@@ -1414,7 +1453,7 @@ const stylesCss$y = "ul{margin:0;padding:0}";
 
 const ZList = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   componentWillLoad() {
     if (this.inputrawdata) {
@@ -1429,8 +1468,8 @@ const ZList = class {
   }
   render() {
     const lastElem = this.list ? this.list.length - 1 : -1;
-    return (h("ul", null, this.list &&
-      this.list.map((bean, i) => (h("z-list-item", { listitemid: bean.listitemid, text: bean.text, link: bean.link, linktarget: bean.linktarget, icon: bean.icon, underlined: lastElem != i })))));
+    return (index.h("ul", null, this.list &&
+      this.list.map((bean, i) => (index.h("z-list-item", { listitemid: bean.listitemid, text: bean.text, link: bean.link, linktarget: bean.linktarget, icon: bean.icon, underlined: lastElem != i })))));
   }
   static get watchers() { return {
     "inputrawdata": ["oninputrawdataChange"]
@@ -1442,9 +1481,9 @@ const stylesCss$x = ":host li{all:unset;all:reset;width:100%}:host li{list-style
 
 const ZListItem = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.zListItemLinkClick = createEvent(this, "zListItemLinkClick", 7);
-    this.zListItemClick = createEvent(this, "zListItemClick", 7);
+    index.registerInstance(this, hostRef);
+    this.zListItemLinkClick = index.createEvent(this, "zListItemLinkClick", 7);
+    this.zListItemClick = index.createEvent(this, "zListItemClick", 7);
     /** link target (optional) */
     this.linktarget = "_self";
     /** underlined style flag */
@@ -1460,7 +1499,7 @@ const ZListItem = class {
   }
   render() {
     const linkId = this.listitemid ? `link_${this.listitemid}` : "";
-    return (h("li", { role: "button", id: this.listitemid, "data-action": this.action, onClick: (e) => this.emitZListItemClick(e, this.listitemid), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitZListItemClick, this.listitemid) }, h("span", { class: this.underlined && "border" }, this.icon && h("z-icon", { name: this.icon }), this.link ? (h("a", { href: this.link ? this.link : null, target: this.linktarget, id: linkId, onClick: (e) => this.emitZListItemLinkClick(e, linkId), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitZListItemLinkClick, linkId), role: this.link ? "link" : "button", tabindex: "0" }, this.text)) : (h("span", { innerHTML: this.text })), h("slot", null))));
+    return (index.h("li", { role: "button", id: this.listitemid, "data-action": this.action, onClick: (e) => this.emitZListItemClick(e, this.listitemid), onKeyPress: (ev) => utils.handleKeyboardSubmit(ev, this.emitZListItemClick, this.listitemid) }, index.h("span", { class: this.underlined && "border" }, this.icon && index.h("z-icon", { name: this.icon }), this.link ? (index.h("a", { href: this.link ? this.link : null, target: this.linktarget, id: linkId, onClick: (e) => this.emitZListItemLinkClick(e, linkId), onKeyPress: (ev) => utils.handleKeyboardSubmit(ev, this.emitZListItemLinkClick, linkId), role: this.link ? "link" : "button", tabindex: "0" }, this.text)) : (index.h("span", { innerHTML: this.text })), index.h("slot", null))));
   }
 };
 ZListItem.style = stylesCss$x;
@@ -1469,17 +1508,17 @@ const stylesCss$w = ":host{font-family:var(--dashboard-font);font-weight:var(--f
 
 const ZLogo = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** image width */
     this.width = 163;
     /** image height */
     this.height = 42;
   }
   renderSvg() {
-    return (h("svg", { width: `${this.width}px`, height: `${this.height}px`, viewBox: "0 0 163 42" }, h("title", null, this.imagealt), h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd" }, h("g", { transform: "translate(-663.000000, -534.000000)" }, h("g", { transform: "translate(371.000000, 369.000000)" }, h("g", { transform: "translate(285.000000, 2.000000)" }, h("g", { transform: "translate(0.000000, 156.000000)" }, h("g", null, h("g", { transform: "translate(7.636364, 7.636364)" }, h("polygon", { points: "1.70530257e-13 40.7272727 161.884545 40.7272727 161.884545 0 1.70530257e-13 0" }), h("path", { d: "M148.501818,32.6807001 L154.248342,32.6807001 L154.248342,8.04537315 L148.501818,8.04537315 L148.501818,32.6807001 Z M134.349311,32.6807001 L146.667574,32.6807001 L146.667574,28.3207306 L140.436476,28.3207306 L140.436476,8.04537315 L134.349311,8.04537315 L134.349311,32.6807001 Z M120.196443,32.6807001 L132.513506,32.6807001 L132.513506,28.3207306 L126.283608,28.3207306 L126.283608,8.04537315 L120.196443,8.04537315 L120.196443,32.6807001 Z M105.225555,8.04537315 L105.225555,32.6807001 L118.363037,32.6807001 L118.363037,28.3195312 L111.381089,28.3195312 L111.381089,22.3858946 L117.967221,22.3858946 L117.967221,17.9899418 L111.381089,17.9899418 L111.381089,12.4077415 L118.363037,12.4077415 L118.363037,8.04537315 L105.225555,8.04537315 Z M86.9693975,32.6807001 L93.0613603,32.6807001 L93.0613603,22.3858946 L97.3013857,22.3858946 L97.3013857,32.6807001 L103.392149,32.6807001 L103.392149,8.04537315 L97.3013857,8.04537315 L97.3013857,17.9911413 L93.0613603,17.9911413 L93.0613603,8.04537315 L86.9693975,8.04537315 L86.9693975,32.6807001 Z M61.1321098,32.6807001 L66.8810325,32.6807001 L66.8810325,8.04537315 L61.1321098,8.04537315 L61.1321098,32.6807001 Z M33.8777427,23.237498 L32.2524996,12.5636689 L30.5936721,23.237498 L33.8777427,23.237498 Z M41.6777101,32.6807001 L35.8088433,32.6807001 L34.9644366,27.063716 L30.3609805,27.063716 L29.4829894,32.6807001 L23.6129231,32.6807001 L28.639782,8.04537315 L36.6520506,8.04537315 L41.6777101,32.6807001 Z M54.1207152,24.0279298 L48.8707602,8.04537315 L42.8759521,8.04537315 L42.8759521,32.6807001 L47.984373,32.6807001 L47.984373,16.6297753 L53.1971453,32.6807001 L59.2999032,32.6807001 L59.2999032,8.04537315 L54.1207152,8.04537315 L54.1207152,24.0279298 Z M68.7132396,20.3636364 C68.7132396,21.9672895 68.7132396,23.411417 68.8463776,24.8975249 C68.9795156,26.3908294 69.2481905,27.8013725 69.7951358,29.0188055 C70.9058185,31.4920537 73.1391784,33.0909091 77.4511703,33.0909091 C82.4144588,33.0909091 85.1371908,30.8479537 85.1371908,24.1958516 L85.1371908,23.9043874 L79.5058134,23.9043874 L79.4962178,24.1850567 C79.4782262,24.6636338 79.472229,25.2117785 79.4350463,25.7635216 C79.3990631,26.3092674 79.3330938,26.8466171 79.2023547,27.3191971 C78.939677,28.2523625 78.4503049,28.8628781 77.4511703,28.8628781 C74.9275455,28.8628781 74.4909489,26.7638557 74.4909489,20.3636364 C74.4909489,13.963417 74.9275455,11.8643946 77.4511703,11.8643946 C78.6578083,11.8643946 79.257529,12.7291918 79.257529,16.0240574 L79.257529,16.3179205 L84.855322,16.3179205 L84.866117,16.0360518 C85.0748198,10.6817454 82.8774432,7.63636364 77.4511703,7.63636364 C73.1403779,7.63636364 70.9082174,9.21602796 69.7951358,11.6832789 C69.2481905,12.8959142 68.9795156,14.3040584 68.8463776,15.8009613 C68.7132396,17.2906675 68.7132396,18.7443905 68.7132396,20.3636364 L68.7132396,20.3636364 Z M22.2095767,8.0465726 L22.2095767,12.930698 L13.748717,28.3207306 L22.41708,28.3207306 L22.41708,32.6807001 L7.63636364,32.6807001 L7.63636364,27.8673418 L16.0984227,12.408941 L8.70746481,12.408941 L8.70746481,8.0465726 L22.2095767,8.0465726 Z" }))))))))));
+    return (index.h("svg", { width: `${this.width}px`, height: `${this.height}px`, viewBox: "0 0 163 42" }, index.h("title", null, this.imagealt), index.h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd" }, index.h("g", { transform: "translate(-663.000000, -534.000000)" }, index.h("g", { transform: "translate(371.000000, 369.000000)" }, index.h("g", { transform: "translate(285.000000, 2.000000)" }, index.h("g", { transform: "translate(0.000000, 156.000000)" }, index.h("g", null, index.h("g", { transform: "translate(7.636364, 7.636364)" }, index.h("polygon", { points: "1.70530257e-13 40.7272727 161.884545 40.7272727 161.884545 0 1.70530257e-13 0" }), index.h("path", { d: "M148.501818,32.6807001 L154.248342,32.6807001 L154.248342,8.04537315 L148.501818,8.04537315 L148.501818,32.6807001 Z M134.349311,32.6807001 L146.667574,32.6807001 L146.667574,28.3207306 L140.436476,28.3207306 L140.436476,8.04537315 L134.349311,8.04537315 L134.349311,32.6807001 Z M120.196443,32.6807001 L132.513506,32.6807001 L132.513506,28.3207306 L126.283608,28.3207306 L126.283608,8.04537315 L120.196443,8.04537315 L120.196443,32.6807001 Z M105.225555,8.04537315 L105.225555,32.6807001 L118.363037,32.6807001 L118.363037,28.3195312 L111.381089,28.3195312 L111.381089,22.3858946 L117.967221,22.3858946 L117.967221,17.9899418 L111.381089,17.9899418 L111.381089,12.4077415 L118.363037,12.4077415 L118.363037,8.04537315 L105.225555,8.04537315 Z M86.9693975,32.6807001 L93.0613603,32.6807001 L93.0613603,22.3858946 L97.3013857,22.3858946 L97.3013857,32.6807001 L103.392149,32.6807001 L103.392149,8.04537315 L97.3013857,8.04537315 L97.3013857,17.9911413 L93.0613603,17.9911413 L93.0613603,8.04537315 L86.9693975,8.04537315 L86.9693975,32.6807001 Z M61.1321098,32.6807001 L66.8810325,32.6807001 L66.8810325,8.04537315 L61.1321098,8.04537315 L61.1321098,32.6807001 Z M33.8777427,23.237498 L32.2524996,12.5636689 L30.5936721,23.237498 L33.8777427,23.237498 Z M41.6777101,32.6807001 L35.8088433,32.6807001 L34.9644366,27.063716 L30.3609805,27.063716 L29.4829894,32.6807001 L23.6129231,32.6807001 L28.639782,8.04537315 L36.6520506,8.04537315 L41.6777101,32.6807001 Z M54.1207152,24.0279298 L48.8707602,8.04537315 L42.8759521,8.04537315 L42.8759521,32.6807001 L47.984373,32.6807001 L47.984373,16.6297753 L53.1971453,32.6807001 L59.2999032,32.6807001 L59.2999032,8.04537315 L54.1207152,8.04537315 L54.1207152,24.0279298 Z M68.7132396,20.3636364 C68.7132396,21.9672895 68.7132396,23.411417 68.8463776,24.8975249 C68.9795156,26.3908294 69.2481905,27.8013725 69.7951358,29.0188055 C70.9058185,31.4920537 73.1391784,33.0909091 77.4511703,33.0909091 C82.4144588,33.0909091 85.1371908,30.8479537 85.1371908,24.1958516 L85.1371908,23.9043874 L79.5058134,23.9043874 L79.4962178,24.1850567 C79.4782262,24.6636338 79.472229,25.2117785 79.4350463,25.7635216 C79.3990631,26.3092674 79.3330938,26.8466171 79.2023547,27.3191971 C78.939677,28.2523625 78.4503049,28.8628781 77.4511703,28.8628781 C74.9275455,28.8628781 74.4909489,26.7638557 74.4909489,20.3636364 C74.4909489,13.963417 74.9275455,11.8643946 77.4511703,11.8643946 C78.6578083,11.8643946 79.257529,12.7291918 79.257529,16.0240574 L79.257529,16.3179205 L84.855322,16.3179205 L84.866117,16.0360518 C85.0748198,10.6817454 82.8774432,7.63636364 77.4511703,7.63636364 C73.1403779,7.63636364 70.9082174,9.21602796 69.7951358,11.6832789 C69.2481905,12.8959142 68.9795156,14.3040584 68.8463776,15.8009613 C68.7132396,17.2906675 68.7132396,18.7443905 68.7132396,20.3636364 L68.7132396,20.3636364 Z M22.2095767,8.0465726 L22.2095767,12.930698 L13.748717,28.3207306 L22.41708,28.3207306 L22.41708,32.6807001 L7.63636364,32.6807001 L7.63636364,27.8673418 L16.0984227,12.408941 L8.70746481,12.408941 L8.70746481,8.0465726 L22.2095767,8.0465726 Z" }))))))))));
   }
   render() {
-    return (h("div", null, this.link && (h("a", { style: { width: `${this.width}px`, height: `${this.height}px` }, href: this.link, target: this.targetblank ? "_blank" : undefined }, this.renderSvg())), !this.link && this.renderSvg()));
+    return (index.h("div", null, this.link && (index.h("a", { style: { width: `${this.width}px`, height: `${this.height}px` }, href: this.link, target: this.targetblank ? "_blank" : undefined }, this.renderSvg())), !this.link && this.renderSvg()));
   }
 };
 ZLogo.style = stylesCss$w;
@@ -1488,9 +1527,9 @@ const stylesCss$v = ":host,::slotted(*),*{box-sizing:border-box}:host{display:in
 
 const ZMenu = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.opened = createEvent(this, "opened", 7);
-    this.closed = createEvent(this, "closed", 7);
+    index.registerInstance(this, hostRef);
+    this.opened = index.createEvent(this, "opened", 7);
+    this.closed = index.createEvent(this, "closed", 7);
     /**
      * Flag to set the display mode of the list.
      * If true, the list will be absolutely positioned under the menu label,
@@ -1558,9 +1597,9 @@ const ZMenu = class {
     this.checkContent();
   }
   render() {
-    return h(Host, { role: "menu", open: this.open }, h("button", { class: "label", "aria-pressed": this.open ? 'true' : 'false', onClick: this.toggle.bind(this) }, h("div", { class: "label-content" }, h("slot", null), this.hasContent && h("z-icon", { name: this.open ? 'chevron-up' : 'chevron-down' }))), h("div", { class: "content", ref: (el) => { this.content = el; }, hidden: !this.open }, this.hasHeader && h("header", { class: "header" }, h("slot", { name: "header", onSlotchange: this.checkContent.bind(this) })), h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) }))));
+    return index.h(index.Host, { role: "menu", open: this.open }, index.h("button", { class: "label", "aria-pressed": this.open ? 'true' : 'false', onClick: this.toggle.bind(this) }, index.h("div", { class: "label-content" }, index.h("slot", null), this.hasContent && index.h("z-icon", { name: this.open ? 'chevron-up' : 'chevron-down' }))), index.h("div", { class: "content", ref: (el) => { this.content = el; }, hidden: !this.open }, this.hasHeader && index.h("header", { class: "header" }, index.h("slot", { name: "header", onSlotchange: this.checkContent.bind(this) })), index.h("div", { class: "items" }, index.h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) }))));
   }
-  get hostElement() { return getElement(this); }
+  get hostElement() { return index.getElement(this); }
   static get watchers() { return {
     "open": ["onOpenChanged"]
   }; }
@@ -1571,7 +1610,7 @@ const stylesCss$u = ":host{font-family:var(--dashboard-font);font-weight:var(--f
 
 const ZMenuDropdown = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     this.ismenuopen = false;
     this.handleToggle = this.handleToggle.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
@@ -1584,11 +1623,11 @@ const ZMenuDropdown = class {
   }
   renderMenuOpen() {
     if (this.ismenuopen) {
-      return (h("ul", null, this.linkarray.map(bean => (h("li", null, h("z-link", { htmlid: bean.id, href: bean.link, icon: bean.icon }, bean.label))))));
+      return (index.h("ul", null, this.linkarray.map(bean => (index.h("li", null, index.h("z-link", { htmlid: bean.id, href: bean.link, icon: bean.icon }, bean.label))))));
     }
   }
   renderButtonMenu() {
-    return (h("span", { class: "arrow" }, h("z-icon", { name: "caret-down", width: 14, height: 14 })));
+    return (index.h("span", { class: "arrow" }, index.h("z-icon", { name: "caret-down", width: 14, height: 14 })));
   }
   retriveMenuClass() {
     if (this.ismenuopen)
@@ -1598,9 +1637,9 @@ const ZMenuDropdown = class {
     this.ismenuopen = !this.ismenuopen;
   }
   handleFocus(e) {
-    if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB)
+    if (e instanceof KeyboardEvent && e.keyCode !== index$1.keybordKeyCodeEnum.TAB)
       return;
-    const tree = getElementTree(getClickedElement());
+    const tree = utils.getElementTree(utils.getClickedElement());
     const menuParent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-menu-dropdown");
     if (!menuParent) {
       document.removeEventListener("click", this.handleFocus);
@@ -1609,10 +1648,10 @@ const ZMenuDropdown = class {
     }
   }
   render() {
-    return (h("a", { class: this.retriveMenuClass(), role: "button", tabindex: "0", onFocus: () => {
+    return (index.h("a", { class: this.retriveMenuClass(), role: "button", tabindex: "0", onFocus: () => {
         document.addEventListener("click", this.handleFocus);
         document.addEventListener("keyup", this.handleFocus);
-      }, onKeyUp: (e) => handleKeyboardSubmit(e, this.handleToggle) }, h("div", { class: "container", onClick: () => this.handleToggle() }, h("span", { class: "user-wrapper" }, h("z-icon", { name: "user-avatar", width: 14, height: 14 }), h("span", { class: "user" }, this.nomeutente)), this.renderButtonMenu()), this.renderMenuOpen()));
+      }, onKeyUp: (e) => utils.handleKeyboardSubmit(e, this.handleToggle) }, index.h("div", { class: "container", onClick: () => this.handleToggle() }, index.h("span", { class: "user-wrapper" }, index.h("z-icon", { name: "user-avatar", width: 14, height: 14 }), index.h("span", { class: "user" }, this.nomeutente)), this.renderButtonMenu()), this.renderMenuOpen()));
   }
 };
 ZMenuDropdown.style = stylesCss$u;
@@ -1621,9 +1660,9 @@ const stylesCss$t = ":host{display:inline-flex;flex-direction:column;align-items
 
 const ZMenuSection = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.opened = createEvent(this, "opened", 7);
-    this.closed = createEvent(this, "closed", 7);
+    index.registerInstance(this, hostRef);
+    this.opened = index.createEvent(this, "opened", 7);
+    this.closed = index.createEvent(this, "closed", 7);
   }
   toggle() {
     if (!this.hasContent) {
@@ -1650,9 +1689,9 @@ const ZMenuSection = class {
     this.checkContent();
   }
   render() {
-    return h(Host, { role: "menu", open: this.open }, h("button", { class: "label", "aria-pressed": this.open ? 'true' : 'false', onClick: this.toggle.bind(this) }, h("slot", null), this.hasContent && h("z-icon", { name: this.open ? 'chevron-up' : 'chevron-down' })), this.open && h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })));
+    return index.h(index.Host, { role: "menu", open: this.open }, index.h("button", { class: "label", "aria-pressed": this.open ? 'true' : 'false', onClick: this.toggle.bind(this) }, index.h("slot", null), this.hasContent && index.h("z-icon", { name: this.open ? 'chevron-up' : 'chevron-down' })), this.open && index.h("div", { class: "items" }, index.h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })));
   }
-  get hostElement() { return getElement(this); }
+  get hostElement() { return index.getElement(this); }
 };
 ZMenuSection.style = stylesCss$t;
 
@@ -1660,7 +1699,7 @@ const stylesCss$s = "div{background-color:var(--bg-white);display:flex;flex-dire
 
 const ZMyzCardComponent = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** pressed status */
     this.ispressed = false;
     /** highlighted status */
@@ -1668,9 +1707,9 @@ const ZMyzCardComponent = class {
   }
   retrieveClass() {
     let elemClasses = "";
-    if (this.cardtype === LicenseTypeEnum.real)
+    if (this.cardtype === index$1.LicenseTypeEnum.real)
       elemClasses += "real";
-    else if (this.cardtype === LicenseTypeEnum.trial)
+    else if (this.cardtype === index$1.LicenseTypeEnum.trial)
       elemClasses += "trial";
     if (this.faded) {
       elemClasses += " faded";
@@ -1684,7 +1723,7 @@ const ZMyzCardComponent = class {
     return elemClasses;
   }
   render() {
-    return (h("div", { class: this.retrieveClass(), tabindex: "0" }, h("slot", null)));
+    return (index.h("div", { class: this.retrieveClass(), tabindex: "0" }, index.h("slot", null)));
   }
 };
 ZMyzCardComponent.style = stylesCss$s;
@@ -1693,8 +1732,8 @@ const stylesCss$r = ":host{position:absolute;font-family:var(--dashboard-font);f
 
 const ZMyzCardAlert = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.undoAction = createEvent(this, "undoAction", 7);
+    index.registerInstance(this, hostRef);
+    this.undoAction = index.createEvent(this, "undoAction", 7);
   }
   emitUndoAction() {
     this.undoAction.emit({ actionType: this.type });
@@ -1725,7 +1764,7 @@ const ZMyzCardAlert = class {
     return className;
   }
   render() {
-    return (h("div", { class: `relativeContainer ${this.retrieveClass()}` }, h("z-icon", { name: this.iconname, width: 18, height: 18, class: this.retrieveClass() }), h("span", { class: "contentText" }, this.contenttext), this.actiontext && !!this.actiontext.trim().length && (h("span", { role: "button", tabindex: "0", class: "contentAction", onClick: (e) => {
+    return (index.h("div", { class: `relativeContainer ${this.retrieveClass()}` }, index.h("z-icon", { name: this.iconname, width: 18, height: 18, class: this.retrieveClass() }), index.h("span", { class: "contentText" }, this.contenttext), this.actiontext && !!this.actiontext.trim().length && (index.h("span", { role: "button", tabindex: "0", class: "contentAction", onClick: (e) => {
         this.handleActionButtonClick(e);
       }, onKeyPress: (e) => {
         this.handleSpaceKeyPress(e);
@@ -1738,10 +1777,10 @@ const stylesCss$q = ":host{height:340px;width:auto}:host>div{height:340px;width:
 
 const ZMyzCardBody = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   render() {
-    return (h("div", null, h("slot", { name: "alert" }), h("slot", { name: "cover" })));
+    return (index.h("div", null, index.h("slot", { name: "alert" }), index.h("slot", { name: "cover" })));
   }
 };
 ZMyzCardBody.style = stylesCss$q;
@@ -1750,13 +1789,13 @@ const stylesCss$p = "img{display:block;max-height:340px;margin:auto auto}img.fad
 
 const ZMyzCardCover = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   hadleOnImageError() {
     this.img = this.defaultimg;
   }
   render() {
-    return (h("img", { class: this.faded && "faded", onError: this.hadleOnImageError.bind(this), alt: this.titolo, src: this.img }));
+    return (index.h("img", { class: this.faded && "faded", onError: this.hadleOnImageError.bind(this), alt: this.titolo, src: this.img }));
   }
 };
 ZMyzCardCover.style = stylesCss$p;
@@ -1765,7 +1804,7 @@ const stylesCss$o = "footer{font-family:var(--dashboard-font);font-weight:var(--
 
 const ZMyzCardFooter = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     this.isOpen = false;
     this.allowTooltipAuthors = false;
   }
@@ -1784,8 +1823,8 @@ const ZMyzCardFooter = class {
   retrieveClass() {
     return {
       isopen: this.isOpen,
-      real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial
+      real: this.cardtype === index$1.LicenseTypeEnum.real,
+      trial: this.cardtype === index$1.LicenseTypeEnum.trial
     };
   }
   footerTransitionHandler(e) {
@@ -1794,7 +1833,7 @@ const ZMyzCardFooter = class {
     }
   }
   render() {
-    return (h("div", { class: this.faded && "faded" }, h("footer", { class: this.retrieveClass(), onTransitionEnd: (e) => this.footerTransitionHandler(e) }, h("span", { class: "toggle" }, h("slot", { name: "toggle" })), h("h2", null, this.titolo), h("div", null, h("p", { class: "authors", ref: el => (this.ellipsisAuthors = el) }, h("span", { title: this.getTitleAuthors() }, h("span", { class: "bold" }, this.autori))), h("p", { class: "year_isbn" }, h("span", { class: "isbn" }, h("span", null, h("span", { class: "bold" }, this.isbn), " (ed. cartacea)")))), h("div", { class: `slot-handler ${this.isOpen ? "visible" : "hidden"}` }, h("slot", { name: "list" })))));
+    return (index.h("div", { class: this.faded && "faded" }, index.h("footer", { class: this.retrieveClass(), onTransitionEnd: (e) => this.footerTransitionHandler(e) }, index.h("span", { class: "toggle" }, index.h("slot", { name: "toggle" })), index.h("h2", null, this.titolo), index.h("div", null, index.h("p", { class: "authors", ref: el => (this.ellipsisAuthors = el) }, index.h("span", { title: this.getTitleAuthors() }, index.h("span", { class: "bold" }, this.autori))), index.h("p", { class: "year_isbn" }, index.h("span", { class: "isbn" }, index.h("span", null, index.h("span", { class: "bold" }, this.isbn), " (ed. cartacea)")))), index.h("div", { class: `slot-handler ${this.isOpen ? "visible" : "hidden"}` }, index.h("slot", { name: "list" })))));
   }
 };
 ZMyzCardFooter.style = stylesCss$o;
@@ -1803,7 +1842,7 @@ const stylesCss$n = "header{display:flex;flex-direction:row;align-items:flex-sta
 
 const ZMyzCardHeader = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     this.allowTooltip = false;
   }
   getTitle() {
@@ -1818,13 +1857,13 @@ const ZMyzCardHeader = class {
   }
   retrieveClass() {
     return {
-      real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial,
+      real: this.cardtype === index$1.LicenseTypeEnum.real,
+      trial: this.cardtype === index$1.LicenseTypeEnum.trial,
       faded: this.faded
     };
   }
   render() {
-    return (h("header", { class: this.retrieveClass() }, h("h2", { ref: el => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { name: "icon" })));
+    return (index.h("header", { class: this.retrieveClass() }, index.h("h2", { ref: el => (this.ellipsis = el), title: this.getTitle() }, this.titolo), index.h("slot", { name: "icon" })));
   }
 };
 ZMyzCardHeader.style = stylesCss$n;
@@ -1833,12 +1872,12 @@ const stylesCss$m = "button{width:42px;height:40px;display:flex;align-items:cent
 
 const ZMyzCardIcon = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** disabled status flag */
     this.isdisabled = false;
   }
   render() {
-    return (h("button", { disabled: this.isdisabled }, h("span", null, h("z-icon", { name: this.icon, width: 16, height: 16 }))));
+    return (index.h("button", { disabled: this.isdisabled }, index.h("span", null, index.h("z-icon", { name: this.icon, width: 16, height: 16 }))));
   }
 };
 ZMyzCardIcon.style = stylesCss$m;
@@ -1847,7 +1886,7 @@ const stylesCss$l = "ul{font-family:var(--dashboard-font);color:var(--myz-blue);
 
 const ZMyzCardList = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     this.renderList = this.renderList.bind(this);
   }
   handleSpaceKeyPress(e, url) {
@@ -1859,16 +1898,16 @@ const ZMyzCardList = class {
   formatListContent(data) {
     const { value, isLink, url } = data;
     if (!isLink)
-      return h("span", null, value);
-    return (h("a", { role: "button", onKeyPress: (e) => this.handleSpaceKeyPress(e, url), href: url, target: "_blank" }, value));
+      return index.h("span", null, value);
+    return (index.h("a", { role: "button", onKeyPress: (e) => this.handleSpaceKeyPress(e, url), href: url, target: "_blank" }, value));
   }
   renderList(dataArray) {
     return dataArray.map((data) => {
-      return h("li", null, this.formatListContent(data));
+      return index.h("li", null, this.formatListContent(data));
     });
   }
   render() {
-    return h("ul", null, this.renderList(JSON.parse(this.listdata)));
+    return index.h("ul", null, this.renderList(JSON.parse(this.listdata)));
   }
 };
 ZMyzCardList.style = stylesCss$l;
@@ -4522,10 +4561,10 @@ const stylesCss$k = ":host>div{height:48px;display:flex;flex-direction:row;flex-
 
 const ZPaginationBar = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.goToPage = createEvent(this, "goToPage", 7);
-    this.changeStartPage = createEvent(this, "changeStartPage", 7);
-    this.addPageToHistory = createEvent(this, "addPageToHistory", 7);
+    index.registerInstance(this, hostRef);
+    this.goToPage = index.createEvent(this, "goToPage", 7);
+    this.changeStartPage = index.createEvent(this, "changeStartPage", 7);
+    this.addPageToHistory = index.createEvent(this, "addPageToHistory", 7);
     /** current displayed page (mutable) */
     this.currentpage = 1;
     /** initial page (mutable) */
@@ -4629,7 +4668,7 @@ const ZPaginationBar = class {
     }
   }
   render() {
-    return (h("div", { ref: el => (this.bar = el) }, h("z-icon", { name: "chevron-left", class: !this.canNavigateLeft() && "disabled", onClick: () => this.navigateLeft(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.navigateLeft), tabindex: this.canNavigateLeft() ? 0 : -1 }), this.currentPages.map(page => (h("z-pagination-page", { value: page, isselected: page === this.currentpage, onClick: () => this.emitGoToPage(page), onKeyDown: (ev) => handleKeyboardSubmit(ev, this.emitGoToPage, page), isvisited: this.listhistoryrow.includes(page) }))), h("z-icon", { name: "chevron-right", class: !this.canNavigateRight() && "disabled", onClick: () => this.navigateRight(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.navigateRight), tabindex: this.canNavigateRight() ? 0 : -1 })));
+    return (index.h("div", { ref: el => (this.bar = el) }, index.h("z-icon", { name: "chevron-left", class: !this.canNavigateLeft() && "disabled", onClick: () => this.navigateLeft(), onKeyPress: (ev) => utils.handleKeyboardSubmit(ev, this.navigateLeft), tabindex: this.canNavigateLeft() ? 0 : -1 }), this.currentPages.map(page => (index.h("z-pagination-page", { value: page, isselected: page === this.currentpage, onClick: () => this.emitGoToPage(page), onKeyDown: (ev) => utils.handleKeyboardSubmit(ev, this.emitGoToPage, page), isvisited: this.listhistoryrow.includes(page) }))), index.h("z-icon", { name: "chevron-right", class: !this.canNavigateRight() && "disabled", onClick: () => this.navigateRight(), onKeyPress: (ev) => utils.handleKeyboardSubmit(ev, this.navigateRight), tabindex: this.canNavigateRight() ? 0 : -1 })));
   }
 };
 ZPaginationBar.style = stylesCss$k;
@@ -4638,7 +4677,7 @@ const stylesCss$j = ":host{font-family:var(--dashboard-font);font-weight:var(--f
 
 const ZPaginationPage = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** selected status flag */
     this.isselected = false;
     /** disabled status flag */
@@ -4647,7 +4686,7 @@ const ZPaginationPage = class {
     this.isvisited = false;
   }
   render() {
-    return (h("a", { id: this.pageid, ref: el => (this.page = el), class: `${this.isselected && "selected"} ${this.isdisabled &&
+    return (index.h("a", { id: this.pageid, ref: el => (this.page = el), class: `${this.isselected && "selected"} ${this.isdisabled &&
         "disabled"} ${this.isvisited && "visited"}`, tabindex: this.isdisabled ? -1 : 0, role: "button" }, this.value));
   }
 };
@@ -4657,7 +4696,7 @@ const stylesCss$i = ":host{font-family:var(--dashboard-font);font-weight:var(--f
 
 const ZPanelElem = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** link target (optional) */
     this.target = "_blank";
     /** disabled status flag (optional) */
@@ -4665,13 +4704,13 @@ const ZPanelElem = class {
   }
   renderIcon() {
     if (this.isdisabled) {
-      return h("img", { src: this.imgurl, alt: this.imgalt });
+      return index.h("img", { src: this.imgurl, alt: this.imgalt });
     }
-    return (h("a", { class: "elem-icon", href: this.url, target: this.target }, h("img", { src: this.imgurl, alt: this.imgalt })));
+    return (index.h("a", { class: "elem-icon", href: this.url, target: this.target }, index.h("img", { src: this.imgurl, alt: this.imgalt })));
   }
   render() {
     const elemId = this.elemid ? this.elemid : "";
-    return (h("div", { class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (h("div", { class: "panel-elem-icon" }, this.renderIcon())), h("div", { class: "panel-elem-link" }, h("z-link", { href: this.url, icon: this.linkicon, isdisabled: this.isdisabled, target: this.target, htmlid: elemId + "link_id" }, this.linklabel)), this.descr_slot_name && (h("div", { class: "panel-elem-desc body-long-01" }, h("slot", { name: this.descr_slot_name })))));
+    return (index.h("div", { class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (index.h("div", { class: "panel-elem-icon" }, this.renderIcon())), index.h("div", { class: "panel-elem-link" }, index.h("z-link", { href: this.url, icon: this.linkicon, isdisabled: this.isdisabled, target: this.target, htmlid: elemId + "link_id" }, this.linklabel)), this.descr_slot_name && (index.h("div", { class: "panel-elem-desc body-long-01" }, index.h("slot", { name: this.descr_slot_name })))));
   }
 };
 ZPanelElem.style = stylesCss$i;
@@ -4680,15 +4719,15 @@ const stylesCss$h = ".sc-z-popover-h{font-family:var(--dashboard-font);font-weig
 
 const ZPopover = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** [optional] Popover position */
-    this.position = PopoverPosition["after-up"];
+    this.position = index$1.PopoverPosition["after-up"];
     /** [optional] Background color token for popover */
     this.backgroundColor = "color-white";
     /** [optional] Border radius token for popover */
-    this.borderRadius = PopoverBorderRadius.small;
+    this.borderRadius = index$1.PopoverBorderRadius.small;
     /** [optional] Box shadow token for popover */
-    this.boxShadow = PopoverShadow["shadow-1"];
+    this.boxShadow = index$1.PopoverShadow["shadow-1"];
     /** [optional] Show or hide arrow */
     this.showArrow = false;
     this.isVisible = false;
@@ -4698,7 +4737,7 @@ const ZPopover = class {
     this.isVisible = false;
   }
   closePopoverWithKeyboard(e) {
-    if (e.key === KeyboardKeys.ESC) {
+    if (e.key === index$1.KeyboardKeys.ESC) {
       this.closePopover();
     }
   }
@@ -4708,7 +4747,7 @@ const ZPopover = class {
     event.stopPropagation();
   }
   handleOutsideClick(e) {
-    const tree = getElementTree(e.target);
+    const tree = utils.getElementTree(e.target);
     const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-popover");
     if (!parent) {
       this.isVisible = false;
@@ -4765,12 +4804,12 @@ const ZPopover = class {
         firstSide = "after";
       }
     }
-    this.position = PopoverPosition[`${firstSide}-${secondSide}`];
+    this.position = index$1.PopoverPosition[`${firstSide}-${secondSide}`];
   }
   render() {
-    return (h(Host, null, h("div", { onClick: (event) => this.handleClick(event) }, h("slot", { name: "trigger" })), h("div", { ref: (e) => (this.popoverElem = e), class: classnames("popover-content-container", this.position, `border-radius-${this.borderRadius}`, this.boxShadow, { "show-arrow": this.showArrow }, { visible: this.isVisible }), style: {
+    return (index.h(index.Host, null, index.h("div", { onClick: (event) => this.handleClick(event) }, index.h("slot", { name: "trigger" })), index.h("div", { ref: (e) => (this.popoverElem = e), class: classnames("popover-content-container", this.position, `border-radius-${this.borderRadius}`, this.boxShadow, { "show-arrow": this.showArrow }, { visible: this.isVisible }), style: {
         backgroundColor: `var(--${this.backgroundColor})`,
-      } }, h("slot", { name: "popover" }))));
+      } }, index.h("slot", { name: "popover" }))));
   }
 };
 ZPopover.style = stylesCss$h;
@@ -4779,7 +4818,7 @@ const stylesCss$g = "z-registro-table{overflow-x:auto;display:block;width:100%;f
 
 const ZRegistroTable = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** Sets table with border */
     this.bordered = false;
     /** Sets first column sticky */
@@ -4791,11 +4830,11 @@ const ZRegistroTable = class {
     this.host.setAttribute("role", "table");
   }
   render() {
-    return (h(Host, null, h("div", { class: `table ${this.bordered ? "table-bordered" : ""} 
+    return (index.h(index.Host, null, index.h("div", { class: `table ${this.bordered ? "table-bordered" : ""} 
             ${this.columnSticky ? "table-column-sticky" : ""} 
-            ${this.headerSticky ? "table-header-sticky" : ""}` }, h("slot", null)), h("slot", { name: "sticky-footer" })));
+            ${this.headerSticky ? "table-header-sticky" : ""}` }, index.h("slot", null)), index.h("slot", { name: "sticky-footer" })));
   }
-  get host() { return getElement(this); }
+  get host() { return index.getElement(this); }
 };
 ZRegistroTable.style = stylesCss$g;
 
@@ -4803,16 +4842,16 @@ const stylesCss$f = ".sc-z-registro-table-body-h{display:table-row-group;width:1
 
 const ZRegistroTableBody = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   componentWillRender() {
     this.host.setAttribute("role", "rowgroup");
     Array.from(this.host.children).forEach((child, index) => child.setAttribute("aria-rowindex", `${index}`));
   }
   render() {
-    return h("slot", null);
+    return index.h("slot", null);
   }
-  get host() { return getElement(this); }
+  get host() { return index.getElement(this); }
 };
 ZRegistroTableBody.style = stylesCss$f;
 
@@ -4820,7 +4859,7 @@ const stylesCss$e = ":host{display:table-cell;padding:calc(var(--space-unit) * 2
 
 const ZRegistroTableCell = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     this.isMenuOpened = false;
   }
   handleMenu() {
@@ -4830,13 +4869,13 @@ const ZRegistroTableCell = class {
     this.host.setAttribute("role", "cell");
   }
   render() {
-    return (h(Host, null, this.showButton && (h("div", { class: classnames("button-container", {
+    return (index.h(index.Host, null, this.showButton && (index.h("div", { class: classnames("button-container", {
         visible: this.isMenuOpened,
-      }) }, h("div", { class: "button-content" }, h("z-button", { icon: "contextual-menu", variant: ButtonVariantEnum.tertiary, size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenu(), square: true }), h("div", { class: classnames("contextual-menu-container", {
+      }) }, index.h("div", { class: "button-content" }, index.h("z-button", { icon: "contextual-menu", variant: index$1.ButtonVariantEnum.tertiary, size: index$1.ButtonSizeEnum["x-small"], onClick: () => this.handleMenu(), square: true }), index.h("div", { class: classnames("contextual-menu-container", {
         visible: this.isMenuOpened,
-      }) }, h("slot", { name: "contextual-menu" }))))), h("slot", null)));
+      }) }, index.h("slot", { name: "contextual-menu" }))))), index.h("slot", null)));
   }
-  get host() { return getElement(this); }
+  get host() { return index.getElement(this); }
 };
 ZRegistroTableCell.style = stylesCss$e;
 
@@ -4844,10 +4883,10 @@ const stylesCss$d = ":host{font-family:var(--dashboard-font);background-color:va
 
 const ZRegistroTableExpandedRow = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   render() {
-    return (h("td", { colSpan: this.colSpan }, h("div", { class: "content-container" }, h("div", { class: "inner-content" }, h("slot", null)))));
+    return (index.h("td", { colSpan: this.colSpan }, index.h("div", { class: "content-container" }, index.h("div", { class: "inner-content" }, index.h("slot", null)))));
   }
 };
 ZRegistroTableExpandedRow.style = stylesCss$d;
@@ -4856,15 +4895,15 @@ const stylesCss$c = ".sc-z-registro-table-head-h{display:table-header-group;font
 
 const ZRegistroTableHead = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   componentWillRender() {
     this.host.setAttribute("role", "rowgroup");
   }
   render() {
-    return h("slot", null);
+    return index.h("slot", null);
   }
-  get host() { return getElement(this); }
+  get host() { return index.getElement(this); }
 };
 ZRegistroTableHead.style = stylesCss$c;
 
@@ -4872,12 +4911,12 @@ const stylesCss$b = ":host{display:table-cell;background-color:var(--gray50);bor
 
 const ZRegistroTableHeader = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.sort = createEvent(this, "sort", 7);
+    index.registerInstance(this, hostRef);
+    this.sort = index.createEvent(this, "sort", 7);
     /** [Optional] Padding of the header */
-    this.size = TableHeaderSize["medium"];
+    this.size = index$1.TableHeaderSize["medium"];
     this.isMenuOpened = false;
-    this.sortingOrientation = SortingOrientation["none"];
+    this.sortingOrientation = index$1.SortingOrientation["none"];
     this.emitOnSort = this.emitOnSort.bind(this);
   }
   emitOnSort() {
@@ -4887,12 +4926,12 @@ const ZRegistroTableHeader = class {
     if (!this.sortable) {
       return;
     }
-    if (this.sortingOrientation === SortingOrientation["none"] ||
-      this.sortingOrientation === SortingOrientation["desc"]) {
-      this.sortingOrientation = SortingOrientation["asc"];
+    if (this.sortingOrientation === index$1.SortingOrientation["none"] ||
+      this.sortingOrientation === index$1.SortingOrientation["desc"]) {
+      this.sortingOrientation = index$1.SortingOrientation["asc"];
     }
-    else if (this.sortingOrientation === SortingOrientation["asc"]) {
-      this.sortingOrientation = SortingOrientation["desc"];
+    else if (this.sortingOrientation === index$1.SortingOrientation["asc"]) {
+      this.sortingOrientation = index$1.SortingOrientation["desc"];
     }
     this.emitOnSort();
   }
@@ -4900,7 +4939,7 @@ const ZRegistroTableHeader = class {
     this.isMenuOpened = !this.isMenuOpened;
   }
   handleOutsideClick(e) {
-    const tree = getElementTree(e.target);
+    const tree = utils.getElementTree(e.target);
     const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-popover");
     if (!parent) {
       this.isMenuOpened = false;
@@ -4910,28 +4949,28 @@ const ZRegistroTableHeader = class {
     if (!this.sortable) {
       return;
     }
-    const tree = getElementTree(e.target);
+    const tree = utils.getElementTree(e.target);
     const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-registro-table-header");
     if (parent &&
       parent.attributes.getNamedItem("column-id").value !== this.columnId) {
-      this.sortingOrientation = SortingOrientation["none"];
+      this.sortingOrientation = index$1.SortingOrientation["none"];
     }
   }
   componentWillRender() {
     this.host.setAttribute("role", "columnheader");
   }
   render() {
-    return (h(Host, { class: classnames(`size-${this.size}`, {
+    return (index.h(index.Host, { class: classnames(`size-${this.size}`, {
         sortable: this.sortable,
-      }), onClick: () => this.handleSort() }, h("div", { class: classnames("container") }, h("slot", null), this.sortable && (h("z-icon", { name: this.sortingOrientation === SortingOrientation["asc"]
+      }), onClick: () => this.handleSort() }, index.h("div", { class: classnames("container") }, index.h("slot", null), this.sortable && (index.h("z-icon", { name: this.sortingOrientation === index$1.SortingOrientation["asc"]
         ? "arrow-up"
         : "arrow-down", class: classnames("arrow", {
-        hidden: this.sortingOrientation === SortingOrientation["none"],
-      }) }))), this.showButton && (h("div", { class: classnames("popover-container", {
+        hidden: this.sortingOrientation === index$1.SortingOrientation["none"],
+      }) }))), this.showButton && (index.h("div", { class: classnames("popover-container", {
         visible: this.isMenuOpened,
-      }) }, h("z-popover", { position: PopoverPosition["below-center"], "background-color": "gray200" }, h("z-button", { icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], square: true, slot: "trigger", onClick: () => this.handleMenuClick() }), h("div", { slot: "popover" }, h("slot", { name: "contextual-menu" })))))));
+      }) }, index.h("z-popover", { position: index$1.PopoverPosition["below-center"], "background-color": "gray200" }, index.h("z-button", { icon: "contextual-menu", variant: index$1.ButtonVariantEnum["tertiary"], size: index$1.ButtonSizeEnum["x-small"], square: true, slot: "trigger", onClick: () => this.handleMenuClick() }), index.h("div", { slot: "popover" }, index.h("slot", { name: "contextual-menu" })))))));
   }
-  get host() { return getElement(this); }
+  get host() { return index.getElement(this); }
 };
 ZRegistroTableHeader.style = stylesCss$b;
 
@@ -4939,13 +4978,13 @@ const stylesCss$a = "z-registro-table-header-row{display:table-row}z-registro-ta
 
 const ZRegistroTableHeaderRow = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   _renderExpandHeader() {
-    return h("z-registro-table-header", null);
+    return index.h("z-registro-table-header", null);
   }
   render() {
-    return (h(Host, { role: "row" }, this.expandable && this._renderExpandHeader(), h("slot", null)));
+    return (index.h(index.Host, { role: "row" }, this.expandable && this._renderExpandHeader(), index.h("slot", null)));
   }
 };
 ZRegistroTableHeaderRow.style = stylesCss$a;
@@ -4954,8 +4993,8 @@ const stylesCss$9 = "z-registro-table-row{display:table-row;font-family:var(--fo
 
 const ZRegistroTableRow = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.expand = createEvent(this, "expand", 7);
+    index.registerInstance(this, hostRef);
+    this.expand = index.createEvent(this, "expand", 7);
     this.expanded = false;
   }
   emitOnExpand() {
@@ -4966,10 +5005,10 @@ const ZRegistroTableRow = class {
     this.emitOnExpand();
   }
   _renderExpandButton() {
-    return (h("z-registro-table-cell", { onClick: () => this.handleExpand() }, h("z-icon", { name: this.expanded ? "minus-circled" : "plus-circled" })));
+    return (index.h("z-registro-table-cell", { onClick: () => this.handleExpand() }, index.h("z-icon", { name: this.expanded ? "minus-circled" : "plus-circled" })));
   }
   render() {
-    return (h(Host, { role: "row", expanded: this.expanded }, this.expandable && this._renderExpandButton(), h("slot", null)));
+    return (index.h(index.Host, { role: "row", expanded: this.expanded }, this.expandable && this._renderExpandButton(), index.h("slot", null)));
   }
 };
 ZRegistroTableRow.style = stylesCss$9;
@@ -4978,10 +5017,10 @@ const stylesCss$8 = ".sc-z-registro-table-sticky-footer-h{display:block;position
 
 const ZRegistroTableStickyFooter = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   render() {
-    return (h("slot", null));
+    return (index.h("slot", null));
   }
 };
 ZRegistroTableStickyFooter.style = stylesCss$8;
@@ -4990,10 +5029,10 @@ const stylesCss$7 = ":host{display:inline-block;width:inherit}:host ul[role=\"li
 
 const ZSelect = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.optionSelect = createEvent(this, "optionSelect", 7);
+    index.registerInstance(this, hostRef);
+    this.optionSelect = index.createEvent(this, "optionSelect", 7);
     /** the id of the input element */
-    this.htmlid = randomId();
+    this.htmlid = utils.randomId();
     /** the input is disabled */
     this.disabled = false;
     /** the input is readonly */
@@ -5118,7 +5157,7 @@ const ZSelect = class {
       this.searchString = null;
   }
   arrowsSelectNav(e, key) {
-    const arrows = [keybordKeyCodeEnum.ARROW_DOWN, keybordKeyCodeEnum.ARROW_UP];
+    const arrows = [index$1.keybordKeyCodeEnum.ARROW_DOWN, index$1.keybordKeyCodeEnum.ARROW_UP];
     if (!arrows.includes(e.keyCode))
       return;
     e.preventDefault();
@@ -5126,10 +5165,10 @@ const ZSelect = class {
     if (!this.isOpen)
       this.toggleSelectUl();
     let index;
-    if (e.keyCode === keybordKeyCodeEnum.ARROW_DOWN) {
+    if (e.keyCode === index$1.keybordKeyCodeEnum.ARROW_DOWN) {
       index = key + 1 === this.itemsList.length ? 0 : key + 1;
     }
-    else if (e.keyCode === keybordKeyCodeEnum.ARROW_UP) {
+    else if (e.keyCode === index$1.keybordKeyCodeEnum.ARROW_UP) {
       index = key <= 0 ? this.itemsList.length - 1 : key - 1;
     }
     this.focusSelectItem(index);
@@ -5167,16 +5206,16 @@ const ZSelect = class {
     this.toggleSelectUl();
   }
   handleSelectFocus(e) {
-    if (e instanceof KeyboardEvent && e.keyCode === keybordKeyCodeEnum.ESC) {
+    if (e instanceof KeyboardEvent && e.keyCode === index$1.keybordKeyCodeEnum.ESC) {
       e.stopPropagation();
       return this.toggleSelectUl(true);
     }
     if (e instanceof KeyboardEvent &&
-      e.keyCode !== keybordKeyCodeEnum.TAB &&
-      e.keyCode !== keybordKeyCodeEnum.ENTER) {
+      e.keyCode !== index$1.keybordKeyCodeEnum.TAB &&
+      e.keyCode !== index$1.keybordKeyCodeEnum.ENTER) {
       return;
     }
-    const tree = getElementTree(getClickedElement());
+    const tree = utils.getElementTree(utils.getClickedElement());
     const parent = tree.find((elem) => {
       return ((elem.nodeName.toLowerCase() === "z-input" &&
         elem.id === `${this.htmlid}_input`) ||
@@ -5196,17 +5235,17 @@ const ZSelect = class {
   renderLabel() {
     if (!this.label)
       return;
-    return (h("z-input-label", { value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_input_label` }));
+    return (index.h("z-input-label", { value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_input_label` }));
   }
   renderInput() {
-    return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && !this.multiple && this.selectedItems.length
+    return (index.h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && !this.multiple && this.selectedItems.length
         ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
-        : null, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutcomplete(), hasmessage: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutcomplete() && this.isOpen), status: this.isOpen ? InputStatusEnum.selecting : this.status, onClick: (e) => {
+        : null, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutcomplete(), hasmessage: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutcomplete() && this.isOpen), status: this.isOpen ? index$1.InputStatusEnum.selecting : this.status, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13)
           e.preventDefault();
-        handleKeyboardSubmit(e, this.toggleSelectUl);
+        utils.handleKeyboardSubmit(e, this.toggleSelectUl);
       }, onKeyDown: (e) => this.arrowsSelectNav(e, this.selectedItems.length
         ? this.itemsList.indexOf(this.selectedItems[0])
         : -1), onInputChange: (e) => {
@@ -5221,10 +5260,10 @@ const ZSelect = class {
   renderChips() {
     if (!this.multiple || !this.selectedItems.length)
       return;
-    return (h("div", { class: `chipsWrapper ${this.isOpen ? "open" : ""}` }, this.selectedItems.map((item) => (h("z-button-filter", { filterid: item.id, filtername: item.name.replace(/<[^>]+>/g, ""), issmall: true, onRemovefilter: () => this.selectItem(item, false) })))));
+    return (index.h("div", { class: `chipsWrapper ${this.isOpen ? "open" : ""}` }, this.selectedItems.map((item) => (index.h("z-button-filter", { filterid: item.id, filtername: item.name.replace(/<[^>]+>/g, ""), issmall: true, onRemovefilter: () => this.selectItem(item, false) })))));
   }
   renderSelectUl() {
-    return (h("div", { class: this.isOpen ? "open" : "closed" }, h("div", { class: "ulScrollWrapper" }, h("ul", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": !this.multiple && this.selectedItems.length
+    return (index.h("div", { class: this.isOpen ? "open" : "closed" }, index.h("div", { class: "ulScrollWrapper" }, index.h("ul", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": !this.multiple && this.selectedItems.length
         ? this.selectedItems[0].id
         : null, "aria-multiselectable": !!this.multiple, class: `
             ${this.disabled ? " disabled" : ""}
@@ -5239,42 +5278,42 @@ const ZSelect = class {
     if (!this.itemsList.length)
       return this.renderNoSearchResults();
     return this.itemsList.map((item, key) => {
-      return (h("li", { role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, class: item.disabled && "disabled", id: `${this.htmlid}_${key}`, onClick: () => this.selectItem(item, true), onKeyUp: (e) => handleKeyboardSubmit(e, this.selectItem, item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { innerHTML: item.name })));
+      return (index.h("li", { role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, class: item.disabled && "disabled", id: `${this.htmlid}_${key}`, onClick: () => this.selectItem(item, true), onKeyUp: (e) => utils.handleKeyboardSubmit(e, this.selectItem, item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, index.h("span", { innerHTML: item.name })));
     });
   }
   renderNoSearchResults() {
-    return (h("li", { class: "noResults" }, h("z-icon", { name: "circle-cross-stroke" }), this.noresultslabel));
+    return (index.h("li", { class: "noResults" }, index.h("z-icon", { name: "circle-cross-stroke" }), this.noresultslabel));
   }
   renderMessage() {
     if (!this.hasmessage)
       return;
-    return h("z-input-message", { message: this.message, status: this.status });
+    return index.h("z-input-message", { message: this.message, status: this.status });
   }
   render() {
-    return (h("div", { class: "selectWrapper" }, this.renderLabel(), this.renderChips(), this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+    return (index.h("div", { class: "selectWrapper" }, this.renderLabel(), this.renderChips(), this.renderInput(), this.renderSelectUl(), this.renderMessage()));
   }
-  get hostElement() { return getElement(this); }
+  get hostElement() { return index.getElement(this); }
   static get watchers() { return {
     "items": ["watchItems"]
   }; }
 };
 ZSelect.style = stylesCss$7;
 
-const stylesCss$6 = ":host{--z-icon-width:14px;--z-icon-height:14px;font-family:var(--font-family-sans);height:22px;border-radius:var(--border-radius);padding-right:4px;padding-left:4px;text-transform:uppercase;display:inline-flex;align-items:center}:host(.expandable)>z-icon{margin-right:0;transition:margin-right 0.3s ease-out 0.5s}:host(:not(.expandable))>z-icon:not(:last-child),:host(.expandable:hover)>z-icon:not(:last-child){margin-right:var(--space-unit);transition:margin-right 0.3s ease-out 0s}:host(.expandable)>span{max-width:0;transition:max-width 0.3s ease-out 0.5s;white-space:nowrap;overflow:hidden}:host(.expandable:hover)>span{max-width:20rem;transition:max-width 0.3s ease-out 0s}:host([status=\"warning\"]){background-color:var(--status-warning-yellow-lighter);color:var(--status-warning-yellow-dark);fill:var(--status-warning-yellow-dark)}:host([status=\"warning\"].light){background-color:transparent;color:var(--status-warning-yellow-dark);fill:var(--status-warning-yellow-dark)}:host([status=\"warning\"].dark){background-color:var(--status-warning-yellow-dark);color:var(--status-warning-yellow-lighter);fill:var(--status-warning-yellow-lighter)}:host([status=\"error\"]){background-color:var(--status-error-red-lighter);color:var(--status-error-red-dark);fill:var(--status-error-red-dark)}:host([status=\"error\"].light){background-color:transparent;color:var(--status-error-red-dark);fill:var(--status-error-red-dark)}:host([status=\"error\"].dark){background-color:var(--status-error-red-dark);color:var(--status-error-red-lighter);fill:var(--status-error-red-lighter)}:host([status=\"success\"]){background-color:var(--status-success-green-lighter);color:var(--status-success-green-dark);fill:var(--status-success-green-dark)}:host([status=\"success\"].light){background-color:transparent;color:var(--status-success-green-dark);fill:var(--status-success-green-dark)}:host([status=\"success\"].dark){background-color:var(--status-success-green-dark);color:var(--status-success-green-lighter);fill:var(--status-success-green-lighter)}:host([status=\"default\"]){background-color:var(--myz-blue-lighter);color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}:host([status=\"default\"].light){background-color:transparent;color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}:host([status=\"default\"].dark){background-color:var(--myz-blue-dark);color:var(--myz-blue-lighter);fill:var(--myz-blue-lighter)}:host([status=\"neutral\"]){background-color:var(--bg-grey-050);color:var(--text-grey-800);fill:var(--text-grey-800)}:host([status=\"neutral\"].light){background-color:transparent;color:var(--text-grey-800);fill:var(--text-grey-800)}:host([status=\"neutral\"].dark){background-color:var(--bg-grey-800);color:var(--text-white);fill:var(--text-white)}";
+const stylesCss$6 = ":host{--z-icon-width:14px;--z-icon-height:14px;font-family:var(--font-family-sans);height:22px;border-radius:var(--border-radius);padding-right:4px;padding-left:4px;text-transform:uppercase;display:inline-flex;align-items:center}:host(.expandable)>z-icon{margin-right:0;transition:margin-right 0.3s ease-out 0.2s}:host(:not(.expandable))>z-icon:not(:last-child),:host(.expandable:hover)>z-icon:not(:last-child){margin-right:var(--space-unit);transition:margin-right 0.3s ease-out 0s}:host(.expandable)>span{max-width:0;transition:max-width 0.3s ease-out 0.2s;white-space:nowrap;overflow:hidden}:host(.expandable:hover)>span{max-width:20rem;transition:max-width 0.3s ease-out 0s}:host([status=\"warning\"]){background-color:var(--status-warning-yellow-lighter);color:var(--status-warning-yellow-dark);fill:var(--status-warning-yellow-dark)}:host([status=\"warning\"].light){background-color:transparent;color:var(--status-warning-yellow-dark);fill:var(--status-warning-yellow-dark)}:host([status=\"warning\"].dark){background-color:var(--status-warning-yellow-dark);color:var(--status-warning-yellow-lighter);fill:var(--status-warning-yellow-lighter)}:host([status=\"error\"]){background-color:var(--status-error-red-lighter);color:var(--status-error-red-dark);fill:var(--status-error-red-dark)}:host([status=\"error\"].light){background-color:transparent;color:var(--status-error-red-dark);fill:var(--status-error-red-dark)}:host([status=\"error\"].dark){background-color:var(--status-error-red-dark);color:var(--status-error-red-lighter);fill:var(--status-error-red-lighter)}:host([status=\"success\"]){background-color:var(--status-success-green-lighter);color:var(--status-success-green-dark);fill:var(--status-success-green-dark)}:host([status=\"success\"].light){background-color:transparent;color:var(--status-success-green-dark);fill:var(--status-success-green-dark)}:host([status=\"success\"].dark){background-color:var(--status-success-green-dark);color:var(--status-success-green-lighter);fill:var(--status-success-green-lighter)}:host([status=\"default\"]){background-color:var(--myz-blue-lighter);color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}:host([status=\"default\"].light){background-color:transparent;color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}:host([status=\"default\"].dark){background-color:var(--myz-blue-dark);color:var(--myz-blue-lighter);fill:var(--myz-blue-lighter)}:host([status=\"neutral\"]){background-color:var(--bg-grey-050);color:var(--text-grey-800);fill:var(--text-grey-800)}:host([status=\"neutral\"].light){background-color:transparent;color:var(--text-grey-800);fill:var(--text-grey-800)}:host([status=\"neutral\"].dark){background-color:var(--bg-grey-800);color:var(--text-white);fill:var(--text-white)}";
 
 const ZStatusTag = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     /** [optional] Status tag color */
-    this.status = StatusTagStatus.default;
+    this.status = index$1.StatusTagStatus.default;
     if (!this.icon && !this.text) {
       console.warn("z-status-tag must contain at least one prop between icon and text");
     }
   }
   render() {
-    return (h(Host, { class: classnames(this.variant, "body-5-sb", {
+    return (index.h(index.Host, { class: classnames(this.variant, "body-5-sb", {
         expandable: this.expandable && this.icon && this.text,
-      }) }, this.icon && h("z-icon", { name: this.icon }), this.text && h("span", null, this.text)));
+      }) }, this.icon && index.h("z-icon", { name: this.icon }), this.text && index.h("span", null, this.text)));
   }
 };
 ZStatusTag.style = stylesCss$6;
@@ -5283,10 +5322,10 @@ const stylesCss$5 = ":host{box-sizing:border-box;position:relative;display:flex;
 
 const ZStepper = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   render() {
-    return (h("slot", null));
+    return (index.h("slot", null));
   }
 };
 ZStepper.style = stylesCss$5;
@@ -5295,13 +5334,13 @@ const stylesCss$4 = ":host{position:relative;width:calc(var(--space-unit) * 5);f
 
 const ZStepperItem = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   render() {
     if (this.href) {
-      return (h("a", { href: !this.disabled && this.href, class: "stepper-item" }, h("div", { class: "indicator" }, this.index), h("span", null, h("slot", null))));
+      return (index.h("a", { href: !this.disabled && this.href, class: "stepper-item" }, index.h("div", { class: "indicator" }, this.index), index.h("span", null, index.h("slot", null))));
     }
-    return (h("button", { class: "stepper-item", disabled: this.disabled }, h("div", { class: "indicator" }, this.index), h("span", null, h("slot", null))));
+    return (index.h("button", { class: "stepper-item", disabled: this.disabled }, index.h("div", { class: "indicator" }, this.index), index.h("span", null, index.h("slot", null))));
   }
 };
 ZStepperItem.style = stylesCss$4;
@@ -5310,8 +5349,8 @@ const stylesCss$3 = "button{font-family:var(--dashboard-font);font-weight:var(--
 
 const ZToggleButton = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.toggleClick = createEvent(this, "toggleClick", 7);
+    index.registerInstance(this, hostRef);
+    this.toggleClick = index.createEvent(this, "toggleClick", 7);
     /** disabled status flag (optional) */
     this.isdisabled = false;
     this.isOpen = false;
@@ -5329,7 +5368,7 @@ const ZToggleButton = class {
     return className;
   }
   render() {
-    return (h("button", { tabindex: this.avoidclick ? "-1" : "0", class: this.retrieveButtonClass(), disabled: this.isdisabled, onClick: () => this.emitToggleClick() }, h("z-icon", { name: this.isOpen ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
+    return (index.h("button", { tabindex: this.avoidclick ? "-1" : "0", class: this.retrieveButtonClass(), disabled: this.isdisabled, onClick: () => this.emitToggleClick() }, index.h("z-icon", { name: this.isOpen ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
   }
 };
 ZToggleButton.style = stylesCss$3;
@@ -5338,34 +5377,34 @@ const stylesCss$2 = ":host{--z-tooltip-theme--surface:var(--bg-white);--z-toolti
 
 const ZTooltip = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
   }
   getArrowClass() {
-    const direction = TooltipPosition[(this.type).toUpperCase()];
+    const direction = index$1.TooltipPosition[(this.type).toUpperCase()];
     switch (direction) {
-      case TooltipPosition.TOP:
+      case index$1.TooltipPosition.TOP:
         return "tooltip tooltip-bottom-arrow";
-      case TooltipPosition.BOTTOM:
+      case index$1.TooltipPosition.BOTTOM:
         return "tooltip tooltip-top-arrow";
-      case TooltipPosition.LEFT:
+      case index$1.TooltipPosition.LEFT:
         return "tooltip tooltip-right-arrow";
-      case TooltipPosition.RIGHT:
+      case index$1.TooltipPosition.RIGHT:
         return "tooltip tooltip-left-arrow";
-      case TooltipPosition.TOP_LEFT:
+      case index$1.TooltipPosition.TOP_LEFT:
         return "tooltip tooltip-bottom-right-arrow";
-      case TooltipPosition.TOP_RIGHT:
+      case index$1.TooltipPosition.TOP_RIGHT:
         return "tooltip tooltip-bottom-left-arrow";
-      case TooltipPosition.BOTTOM_LEFT:
+      case index$1.TooltipPosition.BOTTOM_LEFT:
         return "tooltip tooltip-top-right-arrow";
-      case TooltipPosition.BOTTOM_RIGHT:
+      case index$1.TooltipPosition.BOTTOM_RIGHT:
         return "tooltip tooltip-top-left-arrow";
     }
   }
   render() {
     if (this.content) {
-      return (h("div", { class: `${this.getArrowClass()} legacy` }, this.content));
+      return (index.h("div", { class: `${this.getArrowClass()} legacy` }, this.content));
     }
-    return (h("div", { class: this.getArrowClass() }, h("slot", null)));
+    return (index.h("div", { class: this.getArrowClass() }, index.h("slot", null)));
   }
 };
 ZTooltip.style = stylesCss$2;
@@ -5374,21 +5413,21 @@ const stylesCss$1 = ":host>*{font-family:var(--dashboard-font);margin:0}:host(.r
 
 const ZTypography = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
+    index.registerInstance(this, hostRef);
     this.variant = "regular";
   }
   render() {
     const el = document.createElement(this.component || "span");
     el.innerHTML = `<slot />`;
     this.hostElement.shadowRoot.appendChild(el);
-    return (h(Host, { class: {
+    return (index.h(index.Host, { class: {
         [this.level]: Boolean(this.level),
         regular: this.variant === "regular",
         semibold: this.variant === "semibold",
         light: this.variant === "light"
       } }));
   }
-  get hostElement() { return getElement(this); }
+  get hostElement() { return index.getElement(this); }
 };
 ZTypography.style = stylesCss$1;
 
@@ -5396,11 +5435,11 @@ const stylesCss = ":host{font-family:var(--dashboard-font);font-weight:var(--fon
 
 const ZUserDropdown = class {
   constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.userButtonClick = createEvent(this, "userButtonClick", 7);
-    this.dropdownMenuLinkClick = createEvent(this, "dropdownMenuLinkClick", 7);
+    index.registerInstance(this, hostRef);
+    this.userButtonClick = index.createEvent(this, "userButtonClick", 7);
+    this.dropdownMenuLinkClick = index.createEvent(this, "dropdownMenuLinkClick", 7);
     /** theme variant, default 'dark' */
-    this.theme = ThemeVariant.dark;
+    this.theme = index$1.ThemeVariant.dark;
     this.ismenuopen = false;
     this.handleToggle = this.handleToggle.bind(this);
   }
@@ -5422,8 +5461,8 @@ const ZUserDropdown = class {
   setMobileAndGhostDivWidth() {
     var _a;
     this.isMobile =
-      window.screen.width <= mobileBreakpoint ||
-        window.innerWidth <= mobileBreakpoint;
+      window.screen.width <= breakpoints.mobileBreakpoint ||
+        window.innerWidth <= breakpoints.mobileBreakpoint;
     if (this.gosthDiv)
       this.gosthDiv.style.width =
         this.logged && (!this.isMobile && this.ismenuopen)
@@ -5437,10 +5476,10 @@ const ZUserDropdown = class {
     this.dropdownMenuLinkClick.emit(e.detail.linkId);
   }
   handleResize() {
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.isMobile = window.innerWidth <= breakpoints.mobileBreakpoint;
   }
   handleOrientationChange() {
-    this.isMobile = screen.width <= mobileBreakpoint;
+    this.isMobile = screen.width <= breakpoints.mobileBreakpoint;
   }
   handleClickOutside(e) {
     if (e.target.nodeName !== "Z-USER-DROPDOWN") {
@@ -5456,31 +5495,86 @@ const ZUserDropdown = class {
   }
   renderCaretIcon() {
     const direction = this.ismenuopen ? "up" : "down";
-    return (h("z-icon", { name: `caret-${direction}-filled`, height: 18, width: 18 }));
+    return (index.h("z-icon", { name: `caret-${direction}-filled`, height: 18, width: 18 }));
   }
   renderGuestButton() {
-    return (h("z-link", { onClick: () => this.emitUserButtonClick(), big: true, icon: "enter", textcolor: this.theme === ThemeVariant.light ? "black" : "white" }, "Entra"));
+    return (index.h("z-link", { onClick: () => this.emitUserButtonClick(), big: true, icon: "enter", textcolor: this.theme === index$1.ThemeVariant.light ? "black" : "white" }, "Entra"));
   }
   renderLoggedButton() {
-    return (h("button", { ref: (el) => (this.userButton = el), title: this.userfullname, class: `${this.ismenuopen ? "open" : ""} ${this.theme}`, onClick: () => this.handleToggle() }, h("z-icon", { name: "user-avatar-filled", height: 18, width: 18 }), h("span", { class: "userfullname" }, this.userfullname), this.renderCaretIcon()));
+    return (index.h("button", { ref: (el) => (this.userButton = el), title: this.userfullname, class: `${this.ismenuopen ? "open" : ""} ${this.theme}`, onClick: () => this.handleToggle() }, index.h("z-icon", { name: "user-avatar-filled", height: 18, width: 18 }), index.h("span", { class: "userfullname" }, this.userfullname), this.renderCaretIcon()));
   }
   retrieveLiTextColor() {
-    if (this.theme === ThemeVariant.light)
+    if (this.theme === index$1.ThemeVariant.light)
       return "black";
     return this.isMobile ? "white" : "black";
   }
   renderGhostDiv() {
-    return h("div", { ref: (el) => (this.gosthDiv = el) });
+    return index.h("div", { ref: (el) => (this.gosthDiv = el) });
   }
   renderDropdownMenu() {
-    return (this.ismenuopen && (h("ul", { class: this.theme }, this.linkarray.map((link) => {
-      return (h("li", { id: link.id }, h("z-link", { textcolor: this.retrieveLiTextColor(), big: true, href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: (e) => this.handleDropdownLinkClick(e) }, link.label)));
+    return (this.ismenuopen && (index.h("ul", { class: this.theme }, this.linkarray.map((link) => {
+      return (index.h("li", { id: link.id }, index.h("z-link", { textcolor: this.retrieveLiTextColor(), big: true, href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: (e) => this.handleDropdownLinkClick(e) }, link.label)));
     }))));
   }
   render() {
-    return (h("div", null, this.logged && !this.isMobile && this.renderGhostDiv(), h("div", { class: `${this.logged && this.ismenuopen ? "open" : ""}` }, this.logged ? this.renderLoggedButton() : this.renderGuestButton(), this.logged && this.renderDropdownMenu())));
+    return (index.h("div", null, this.logged && !this.isMobile && this.renderGhostDiv(), index.h("div", { class: `${this.logged && this.ismenuopen ? "open" : ""}` }, this.logged ? this.renderLoggedButton() : this.renderGuestButton(), this.logged && this.renderDropdownMenu())));
   }
 };
 ZUserDropdown.style = stylesCss;
 
-export { ZAppSwitcher as z_app_switcher, ZAppTopbar as z_app_topbar, ZBody as z_body, ZButton as z_button, ZButtonFilter as z_button_filter, ZButtonSort as z_button_sort, ZCard as z_card, ZChip as z_chip, ZCombobox as z_combobox, ZFooter as z_footer, ZFooterLink as z_footer_link, ZFooterSection as z_footer_section, ZFooterSocial as z_footer_social, ZIcon as z_icon, ZIconPackage as z_icon_package, ZInfoBox as z_info_box, ZInput as z_input, ZInputLabel as z_input_label, ZInputMessage as z_input_message, ZLink as z_link, ZList as z_list, ZListItem as z_list_item, ZLogo as z_logo, ZMenu as z_menu, ZMenuDropdown as z_menu_dropdown, ZMenuSection as z_menu_section, ZMyzCardComponent as z_myz_card, ZMyzCardAlert as z_myz_card_alert, ZMyzCardBody as z_myz_card_body, ZMyzCardCover as z_myz_card_cover, ZMyzCardFooter as z_myz_card_footer, ZMyzCardHeader as z_myz_card_header, ZMyzCardIcon as z_myz_card_icon, ZMyzCardList as z_myz_card_list, ZPaginationBar as z_pagination_bar, ZPaginationPage as z_pagination_page, ZPanelElem as z_panel_elem, ZPopover as z_popover, ZRegistroTable as z_registro_table, ZRegistroTableBody as z_registro_table_body, ZRegistroTableCell as z_registro_table_cell, ZRegistroTableExpandedRow as z_registro_table_expanded_row, ZRegistroTableHead as z_registro_table_head, ZRegistroTableHeader as z_registro_table_header, ZRegistroTableHeaderRow as z_registro_table_header_row, ZRegistroTableRow as z_registro_table_row, ZRegistroTableStickyFooter as z_registro_table_sticky_footer, ZSelect as z_select, ZStatusTag as z_status_tag, ZStepper as z_stepper, ZStepperItem as z_stepper_item, ZToggleButton as z_toggle_button, ZTooltip as z_tooltip, ZTypography as z_typography, ZUserDropdown as z_user_dropdown };
+exports.z_app_switcher = ZAppSwitcher;
+exports.z_app_topbar = ZAppTopbar;
+exports.z_avatar = ZAvatar;
+exports.z_body = ZBody;
+exports.z_button = ZButton;
+exports.z_button_filter = ZButtonFilter;
+exports.z_button_sort = ZButtonSort;
+exports.z_card = ZCard;
+exports.z_chip = ZChip;
+exports.z_combobox = ZCombobox;
+exports.z_footer = ZFooter;
+exports.z_footer_link = ZFooterLink;
+exports.z_footer_section = ZFooterSection;
+exports.z_footer_social = ZFooterSocial;
+exports.z_icon = ZIcon;
+exports.z_icon_package = ZIconPackage;
+exports.z_info_box = ZInfoBox;
+exports.z_input = ZInput;
+exports.z_input_label = ZInputLabel;
+exports.z_input_message = ZInputMessage;
+exports.z_link = ZLink;
+exports.z_list = ZList;
+exports.z_list_item = ZListItem;
+exports.z_logo = ZLogo;
+exports.z_menu = ZMenu;
+exports.z_menu_dropdown = ZMenuDropdown;
+exports.z_menu_section = ZMenuSection;
+exports.z_myz_card = ZMyzCardComponent;
+exports.z_myz_card_alert = ZMyzCardAlert;
+exports.z_myz_card_body = ZMyzCardBody;
+exports.z_myz_card_cover = ZMyzCardCover;
+exports.z_myz_card_footer = ZMyzCardFooter;
+exports.z_myz_card_header = ZMyzCardHeader;
+exports.z_myz_card_icon = ZMyzCardIcon;
+exports.z_myz_card_list = ZMyzCardList;
+exports.z_pagination_bar = ZPaginationBar;
+exports.z_pagination_page = ZPaginationPage;
+exports.z_panel_elem = ZPanelElem;
+exports.z_popover = ZPopover;
+exports.z_registro_table = ZRegistroTable;
+exports.z_registro_table_body = ZRegistroTableBody;
+exports.z_registro_table_cell = ZRegistroTableCell;
+exports.z_registro_table_expanded_row = ZRegistroTableExpandedRow;
+exports.z_registro_table_head = ZRegistroTableHead;
+exports.z_registro_table_header = ZRegistroTableHeader;
+exports.z_registro_table_header_row = ZRegistroTableHeaderRow;
+exports.z_registro_table_row = ZRegistroTableRow;
+exports.z_registro_table_sticky_footer = ZRegistroTableStickyFooter;
+exports.z_select = ZSelect;
+exports.z_status_tag = ZStatusTag;
+exports.z_stepper = ZStepper;
+exports.z_stepper_item = ZStepperItem;
+exports.z_toggle_button = ZToggleButton;
+exports.z_tooltip = ZTooltip;
+exports.z_typography = ZTypography;
+exports.z_user_dropdown = ZUserDropdown;

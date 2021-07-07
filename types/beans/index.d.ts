@@ -222,6 +222,11 @@ export declare enum SortingOrientation {
   desc = "desc",
   none = "none"
 }
+export declare enum AvatarSize {
+  small = "small",
+  medium = "medium",
+  large = "large"
+}
 export declare enum StatusTagStatus {
   warning = "warning",
   error = "error",

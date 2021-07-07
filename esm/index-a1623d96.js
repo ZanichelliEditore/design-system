@@ -144,6 +144,12 @@ var SortingOrientation;
   SortingOrientation["desc"] = "desc";
   SortingOrientation["none"] = "none";
 })(SortingOrientation || (SortingOrientation = {}));
+var AvatarSize;
+(function (AvatarSize) {
+  AvatarSize["small"] = "small";
+  AvatarSize["medium"] = "medium";
+  AvatarSize["large"] = "large";
+})(AvatarSize || (AvatarSize = {}));
 var StatusTagStatus;
 (function (StatusTagStatus) {
   StatusTagStatus["warning"] = "warning";
@@ -153,4 +159,4 @@ var StatusTagStatus;
   StatusTagStatus["default"] = "default";
 })(StatusTagStatus || (StatusTagStatus = {}));
 
-export { ButtonTypeEnum as B, CardVariants as C, DividerSize as D, InputTypeEnum as I, KeyboardKeys as K, LicenseTypeEnum as L, PopoverPosition as P, SortingOrientation as S, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, PopoverBorderRadius as c, PopoverShadow as d, TableHeaderSize as e, InputStatusEnum as f, StatusTagStatus as g, TooltipPosition as h, DividerOrientation as i, TabOrientationEnum as j, keybordKeyCodeEnum as k, TabSizeEnum as l };
+export { AvatarSize as A, ButtonTypeEnum as B, CardVariants as C, DividerSize as D, InputTypeEnum as I, KeyboardKeys as K, LicenseTypeEnum as L, PopoverPosition as P, SortingOrientation as S, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, PopoverBorderRadius as c, PopoverShadow as d, TableHeaderSize as e, InputStatusEnum as f, StatusTagStatus as g, TooltipPosition as h, DividerOrientation as i, TabOrientationEnum as j, keybordKeyCodeEnum as k, TabSizeEnum as l };

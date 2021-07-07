@@ -146,6 +146,12 @@ exports.SortingOrientation = void 0;
   SortingOrientation["desc"] = "desc";
   SortingOrientation["none"] = "none";
 })(exports.SortingOrientation || (exports.SortingOrientation = {}));
+exports.AvatarSize = void 0;
+(function (AvatarSize) {
+  AvatarSize["small"] = "small";
+  AvatarSize["medium"] = "medium";
+  AvatarSize["large"] = "large";
+})(exports.AvatarSize || (exports.AvatarSize = {}));
 exports.StatusTagStatus = void 0;
 (function (StatusTagStatus) {
   StatusTagStatus["warning"] = "warning";

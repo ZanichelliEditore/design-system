@@ -145,6 +145,12 @@ export var SortingOrientation;
   SortingOrientation["desc"] = "desc";
   SortingOrientation["none"] = "none";
 })(SortingOrientation || (SortingOrientation = {}));
+export var AvatarSize;
+(function (AvatarSize) {
+  AvatarSize["small"] = "small";
+  AvatarSize["medium"] = "medium";
+  AvatarSize["large"] = "large";
+})(AvatarSize || (AvatarSize = {}));
 export var StatusTagStatus;
 (function (StatusTagStatus) {
   StatusTagStatus["warning"] = "warning";
