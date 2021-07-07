@@ -1,11 +1,14 @@
-import { Component, h, Host } from "@stencil/core";
+import { Component, h, Host, Prop } from "@stencil/core";
+import { ListSize } from "../../../beans";
 
 @Component({
   tag: "z-list-group",
   styleUrl: "styles.css",
-  shadow: false,
+  shadow: true,
 })
 export class ZListGroup {
+  @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
+
   render() {
     return (
       <Host role="group">

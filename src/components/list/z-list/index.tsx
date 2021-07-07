@@ -5,7 +5,7 @@ import { ListSize } from "../../../beans";
 @Component({
   tag: "z-list",
   styleUrl: "styles.css",
-  shadow: false,
+  shadow: true,
 })
 export class ZList {
   @Prop({ reflect: true }) size?: ListSize = ListSize.medium;

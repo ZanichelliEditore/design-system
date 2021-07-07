@@ -540,6 +540,7 @@ export namespace Components {
         "expandableStyle"?: ExpandableListStyle;
     }
     interface ZListGroup {
+        "size"?: ListSize;
     }
     interface ZLogo {
         /**
@@ -2170,6 +2171,7 @@ declare namespace LocalJSX {
         "expandableStyle"?: ExpandableListStyle;
     }
     interface ZListGroup {
+        "size"?: ListSize;
     }
     interface ZLogo {
         /**

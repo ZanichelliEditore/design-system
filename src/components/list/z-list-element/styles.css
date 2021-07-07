@@ -1,4 +1,4 @@
-z-list-element {
+:host {
   --background-color-list-element: var(--bg-white);
   --background-hover-color-list-element: var(--gray50);
 
@@ -7,36 +7,36 @@ z-list-element {
   background-color: var(--background-color-list-element);
 }
 
-z-list-element[expandable] {
+:host([expandable]) {
   cursor: pointer;
 }
 
-z-list-element[expandable]:hover {
+:host([expandable]):hover {
   background-color: var(--background-hover-color-list-element);
 }
 
-z-list-element[align-button="left"] > .z-list-element-container {
+:host([align-button="left"]) > .z-list-element-container {
   display: flex;
 }
 
-z-list-element[align-button="right"] > .z-list-element-container {
+:host([align-button="right"]) > .z-list-element-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
 }
 
-z-list-element[align-button="left"] > .z-list-element-container > z-icon {
+:host([align-button="left"]) > .z-list-element-container > z-icon {
   margin-right: var(--space-unit);
 }
 
-z-list-element[align-button="right"] > .z-list-element-container > z-icon {
+:host([align-button="right"]) > .z-list-element-container > z-icon {
   margin-left: var(--space-unit);
 }
 
-z-list-element > .z-list-element-inner-container {
+:host > .z-list-element-inner-container {
   display: none;
 }
 
-z-list-element > .z-list-element-inner-container.expanded {
+:host > .z-list-element-inner-container.expanded {
   display: block;
 }
