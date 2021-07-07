@@ -57,6 +57,7 @@
   --z-icon-width: calc(var(--space-unit) * 2.5);
   --z-icon-height: calc(var(--space-unit) * 2.5);
 
+  display: flex;
   fill: var(--color-icon01);
 }
 
@@ -149,7 +150,7 @@
 }
 
 /* Tablet */
-@media only screen and (min-width: 768px and max-width: 1152px - 1) {
+@media only screen and (min-width: 768px) and (max-width: 1151px) {
   .modal-container > header {
     padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 3);
   }
