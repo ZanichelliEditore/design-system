@@ -8,6 +8,9 @@ import { ListSize } from "../../../beans";
   shadow: true,
 })
 export class ZList {
+  /**
+   * [optional] Sets size of inside elements.
+   */
   @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
 
   render() {

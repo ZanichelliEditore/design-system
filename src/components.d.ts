@@ -532,6 +532,9 @@ export namespace Components {
         "textcolor"?: 'white' | 'blue' | 'black';
     }
     interface ZList {
+        /**
+          * [optional] Sets size of inside elements.
+         */
         "size"?: ListSize;
     }
     interface ZListElement {
@@ -553,6 +556,9 @@ export namespace Components {
         "expandableStyle"?: ExpandableListStyle;
     }
     interface ZListGroup {
+        /**
+          * [optional] Sets size of inside elements.
+         */
         "size"?: ListSize;
     }
     interface ZLogo {
@@ -2176,6 +2182,9 @@ declare namespace LocalJSX {
         "textcolor"?: 'white' | 'blue' | 'black';
     }
     interface ZList {
+        /**
+          * [optional] Sets size of inside elements.
+         */
         "size"?: ListSize;
     }
     interface ZListElement {
@@ -2197,6 +2206,9 @@ declare namespace LocalJSX {
         "expandableStyle"?: ExpandableListStyle;
     }
     interface ZListGroup {
+        /**
+          * [optional] Sets size of inside elements.
+         */
         "size"?: ListSize;
     }
     interface ZLogo {
