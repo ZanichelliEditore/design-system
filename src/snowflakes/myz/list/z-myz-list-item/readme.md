@@ -9,6 +9,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute    | Description                      | Type      | Default     |
@@ -21,6 +22,7 @@
 | `text`       | `text`       | content text                     | `string`  | `undefined` |
 | `underlined` | `underlined` | underlined style flag            | `boolean` | `true`      |
 
+
 ## Events
 
 | Event                | Description                                     | Type               |
@@ -28,27 +30,27 @@
 | `zListItemClick`     | emitted on list item click, returns listitemid  | `CustomEvent<any>` |
 | `zListItemLinkClick` | emitted on list item link click, returns linkId | `CustomEvent<any>` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-combobox](../../inputs/z-combobox)
-- [z-list](../z-list)
+ - [z-combobox](../../../../components/inputs/z-combobox)
+ - [z-myz-list](../z-myz-list)
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../../../components/icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
-  z-list-item --> z-icon
-  z-combobox --> z-list-item
-  z-list --> z-list-item
-  style z-list-item fill:#f9f,stroke:#333,stroke-width:4px
+  z-myz-list-item --> z-icon
+  z-combobox --> z-myz-list-item
+  z-myz-list --> z-myz-list-item
+  style z-myz-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

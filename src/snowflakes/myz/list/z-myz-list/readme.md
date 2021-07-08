@@ -10,6 +10,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property       | Attribute      | Description                                    | Type             | Default     |
@@ -17,26 +18,26 @@
 | `inputrawdata` | `inputrawdata` | json stringified list data (mutable, optional) | `string`         | `undefined` |
 | `list`         | --             | list item data (mutable, optional)             | `ListItemBean[]` | `undefined` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-header](../../navigation/z-header)
+ - [z-header](../../../../components/navigation/z-header)
 
 ### Depends on
 
-- [z-list-item](../z-list-item)
+- [z-myz-list-item](../z-myz-list-item)
 
 ### Graph
-
 ```mermaid
 graph TD;
-  z-list --> z-list-item
-  z-list-item --> z-icon
-  z-header --> z-list
-  style z-list fill:#f9f,stroke:#333,stroke-width:4px
+  z-myz-list --> z-myz-list-item
+  z-myz-list-item --> z-icon
+  z-header --> z-myz-list
+  style z-myz-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -61,16 +61,16 @@
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
-- [z-list-item](../../list/z-list-item)
+- [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
 - [z-input](../z-input)
 
 ### Graph
 ```mermaid
 graph TD;
   z-combobox --> z-icon
-  z-combobox --> z-list-item
+  z-combobox --> z-myz-list-item
   z-combobox --> z-input
-  z-list-item --> z-icon
+  z-myz-list-item --> z-icon
   z-input --> z-input-label
   z-input --> z-icon
   z-input --> z-input-message
