@@ -1,9 +1,11 @@
 :host {
   --background-color-list-element: var(--bg-white);
   --background-hover-color-list-element: var(--gray50);
+  --background-active-color-list-element: var(--gray50);
 
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+  outline: none;
 }
 
 :host([expandable]),
@@ -16,21 +18,33 @@
   background-color: var(--background-hover-color-list-element);
 }
 
-:host([align-button="left"]) > .z-list-element-container {
-  display: flex;
+:host([expandable]:focus:focus-visible),
+:host([clickable]:focus:focus-visible) {
+  box-shadow: 0px 0px 2px 2px var(--accent-dark);
 }
 
-:host([align-button="right"]) > .z-list-element-container {
+:host([expandable]:active),
+:host([clickable]:active) {
+  background-color: var(--background-active-color-list-element);
+}
+
+:host([align-button="left"][expandable]) > .z-list-element-container {
+  display: flex;
+  padding-left: calc(var(--space-unit) * 2);
+}
+
+:host([align-button="right"][expandable]) > .z-list-element-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  padding-right: calc(var(--space-unit) * 2);
 }
 
-:host([align-button="left"]) > .z-list-element-container > z-icon {
+:host([align-button="left"][expandable]) > .z-list-element-container > z-icon {
   margin-right: var(--space-unit);
 }
 
-:host([align-button="right"]) > .z-list-element-container > z-icon {
+:host([align-button="right"][expandable]) > .z-list-element-container > z-icon {
   margin-left: var(--space-unit);
 }
 
