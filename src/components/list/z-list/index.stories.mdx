@@ -1,16 +1,135 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
-<Meta title="ZList" component="z-list" />
+<Meta title="List/ZList" component="z-list" />
 
 # ZList
 
 <Preview>
-  <Story name="ZList-sample">
-    {html`<z-list></z-list>`}
+  <Story name="ZList-simple">
+    {html`<z-list>
+      <z-list-element>Elemento 1</z-list-element>
+      <z-list-element>Elemento 2</z-list-element>
+      <z-list-element>Elemento 3</z-list-element>
+    </z-list>`}
   </Story>
 </Preview>
 
+## Props z-list
+
 <Props of="z-list" />
 
+## Props z-list-group
 
+<Props of="z-list-group" />
+
+## Props z-list-element
+
+<Props of="z-list-element" />
+
+### ZList with divider
+
+<Preview>
+  <Story name="ZList-with-divider">
+    {html`<z-list>
+      <z-list-element>Elemento 1</z-list-element>
+      <z-divider></z-divider>
+      <z-list-element>Elemento 2</z-list-element>
+      <z-divider></z-divider>
+      <z-list-element>Elemento 3</z-list-element>
+    </z-list>`}
+  </Story>
+</Preview>
+
+## ZList with divider
+
+<Preview>
+  <Story name="ZList-with-groups">
+    {html`<z-list>
+      <z-list-group>
+        <z-body slot="header-title">Gruppo 1</z-body>
+        <z-list-element>Elemento 1</z-list-element>
+        <z-list-element>Elemento 2</z-list-element>
+        <z-list-element>Elemento 3</z-list-element>
+      </z-list-group>
+      <z-list-group>
+        <z-body slot="header-title">Gruppo 2 con divider</z-body>
+        <z-divider slot="divider"></z-divider>
+        <z-list-element>Elemento 1</z-list-element>
+        <z-divider></z-divider>
+        <z-list-element>Elemento 2</z-list-element>
+        <z-divider></z-divider>
+        <z-list-element>Elemento 3</z-list-element>
+      </z-list-group>
+    </z-list>`}
+  </Story>
+</Preview>
+
+## ZList with clickable elements
+
+<Preview>
+  <Story name="ZList-with-clickable-content">
+    {html`<z-list>
+      <z-list-element clickable="true">Elemento 1</z-list-element>
+      <z-divider></z-divider>
+      <z-list-element clickable="true">Elemento 2</z-list-element>
+      <z-divider></z-divider>
+      <z-list-element clickable="true">Elemento 3</z-list-element>
+    </z-list>`}
+  </Story>
+</Preview>
+
+## ZList with expandable elements
+
+<Preview>
+  <Story name="ZList-with-expandable-content">
+    {html`<z-list size="large">
+      <z-list-element expandable="true"
+        ><span>Elemento 1</span
+        ><span slot="inner-content">INNER CONTENT 1</span></z-list-element
+      >
+      <z-divider></z-divider>
+      <z-list-element expandable="true"
+        ><span>Elemento 2</span
+        ><span slot="inner-content">INNER CONTENT 2</span></z-list-element
+      >
+      <z-divider></z-divider>
+      <z-list-element expandable="true"
+        ><span>Elemento 3</span
+        ><span slot="inner-content">INNER CONTENT 3</span></z-list-element
+      >
+    </z-list>`}
+  </Story>
+</Preview>
+
+## ZList with expandable elements
+
+<Preview>
+  <Story name="ZList-with-expandable-content-menu-style">
+    {html`<z-list size="large">
+      <z-list-element
+        expandable="true"
+        expandable-style="menu"
+        align-button="right"
+        ><span>Elemento 1</span
+        ><span slot="inner-content">INNER CONTENT 1</span></z-list-element
+      >
+      <z-divider></z-divider>
+      <z-list-element
+        expandable="true"
+        expandable-style="menu"
+        align-button="right"
+        ><span>Elemento 2</span
+        ><span slot="inner-content">INNER CONTENT 2</span></z-list-element
+      >
+      <z-divider></z-divider>
+      <z-list-element
+        expandable="true"
+        expandable-style="menu"
+        align-button="right"
+        ><span>Elemento 3</span
+        ><span slot="inner-content">INNER CONTENT 3</span></z-list-element
+      >
+    </z-list>`}
+  </Story>
+</Preview>
