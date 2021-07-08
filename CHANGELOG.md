@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.9.0](https://github.com/ZanichelliEditore/design-system/compare/v2.8.0...v2.9.0) (2021-07-07)
+
+
+### Features
+
+* **CLAV-42:** add doc ([28eda38](https://github.com/ZanichelliEditore/design-system/commit/28eda38678f7c4a44abcda8fc5ca4b942979c5a4))
+* **CLAV-42:** add documentation ([7078540](https://github.com/ZanichelliEditore/design-system/commit/70785406a54dd8a03fd3c69e3295430066666f8c))
+* **CLAV-42:** add z-avatar component ([17d5958](https://github.com/ZanichelliEditore/design-system/commit/17d5958be14ccc315bf3ac7ac2b65631fa8dd362))
+
+
+### Bug Fixes
+
+* **CLAV-42:** fix ([9e31c3a](https://github.com/ZanichelliEditore/design-system/commit/9e31c3a78d1e563a5d5b9a316a1038edd5e25c12))
+* **CLAV-42:** fix for pr ([2b14da9](https://github.com/ZanichelliEditore/design-system/commit/2b14da97121a35d341626415aae8b6dfa34b5c2f))
+
 ## [2.8.0](https://github.com/ZanichelliEditore/design-system/compare/v2.7.0...v2.8.0) (2021-06-25)
 
 

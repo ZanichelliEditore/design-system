@@ -1,7 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
-import { handleKeyboardSubmit } from "../../../utils/utils";
-
 /**
  * @slot modalContent - set the content of the modal
  */
@@ -18,12 +16,7 @@ export class ZModal {
   /** subtitle (optional) */
   @Prop() modalsubtitle?: string;
 
-  constructor() {
-    this.emitModalClose = this.emitModalClose.bind(this);
-    this.emitModalHeaderActive = this.emitModalHeaderActive.bind(this);
-  }
-
-  /** emitted on close icon click, returns modalid */
+  /** emitted on close button click, returns modalid */
   @Event() modalClose: EventEmitter;
   emitModalClose() {
     this.modalClose.emit({ modalid: this.modalid });
@@ -35,38 +28,33 @@ export class ZModal {
     this.modalHeaderActive.emit({ modalid: this.modalid });
   }
 
+  /** emitted on background click, returns modalid */
+  @Event() modalBackgroundClick: EventEmitter;
+  emitBackgroundClick() {
+    this.modalBackgroundClick.emit({ modalid: this.modalid });
+  }
+
   render() {
-    return (
-      <div data-action="modalBackground" data-modal={this.modalid}>
-        <div id={this.modalid}>
-          <header onClick={this.emitModalHeaderActive}>
-            <div>
-              {this.modaltitle && <h1>{this.modaltitle}</h1>}
-              {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
-            </div>
-            <z-icon
-              name="multiply-circle-filled"
-              width={24}
-              height={24}
-              onClick={() => this.emitModalClose()}
-              data-action="modalClose"
-              data-modal={this.modalid}
-              onKeyPress={(ev: KeyboardEvent) =>
-                handleKeyboardSubmit(ev, this.emitModalClose)
-              }
-              tabindex="0"
-            />
-          </header>
-          <main>
-            <slot name="modalContent" />
-          </main>
-          <div
-            class="bottomBackground"
-            data-action="modalBackground"
-            data-modal={this.modalid}
-          />
-        </div>
-      </div>
-    );
+    return [
+      <div class="modal-container" id={this.modalid}>
+        <header onClick={this.emitModalHeaderActive.bind(this)}>
+          <div>
+            {this.modaltitle && <h1>{this.modaltitle}</h1>}
+            {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
+          </div>
+          <button onClick={this.emitModalClose.bind(this)}>
+            <z-icon name="multiply-circle-filled"></z-icon>
+          </button>
+        </header>
+        <main>
+          <slot name="modalContent"></slot>
+        </main>
+      </div>,
+      <div class="modal-background"
+        data-action="modalBackground"
+        data-modal={this.modalid}
+        onClick={this.emitBackgroundClick.bind(this)}
+      ></div>
+    ];
   }
 }

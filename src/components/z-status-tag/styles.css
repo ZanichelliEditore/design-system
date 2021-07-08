@@ -16,7 +16,7 @@
 
 :host(.expandable) > z-icon {
   margin-right: 0;
-  transition: margin-right 0.3s ease-out 0.5s;
+  transition: margin-right 0.3s ease-out 0.2s;
 }
 
 :host(:not(.expandable)) > z-icon:not(:last-child),
@@ -27,7 +27,7 @@
 
 :host(.expandable) > span {
   max-width: 0;
-  transition: max-width 0.3s ease-out 0.5s;
+  transition: max-width 0.3s ease-out 0.2s;
   white-space: nowrap;
   overflow: hidden;
 }
