@@ -56,15 +56,15 @@
 }
 
 :host div.success-notification > z-icon {
-  fill: var(--color-success01, var(--status-success-green));
+  fill: var(--color-success01);
 }
 
 :host div.warning-notification > z-icon {
-  fill: var(--color-warning02, var(--status-warning-yellow-dark));
+  fill: var(--color-warning02);
 }
 
 :host div.error-notification > z-icon {
-  fill: var(--color-error01, var(--status-error-red));
+  fill: var(--color-error01);
 }
 
 :host div > z-icon.close-icon {
