@@ -24,6 +24,13 @@
 | `notificationClose`  | notification close event  | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot | Description                     |
+| ---- | ------------------------------- |
+|      | the content of the notification |
+
+
 ## Dependencies
 
 ### Depends on

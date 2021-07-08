@@ -2,6 +2,9 @@ import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
 
 import { NotificationType } from '../../../beans';
 
+/**
+ * @slot - the content of the notification
+ */
 @Component({
   tag: 'z-notification',
   styleUrl: 'styles.css',
