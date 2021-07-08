@@ -1,16 +1,30 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
-<Meta title="ZListGroup" component="z-list-group" />
+<Meta title="List/ZListGroup" component="z-list-group" />
 
 # ZListGroup
 
 <Preview>
   <Story name="ZListGroup-sample">
-    {html`<z-list-group></z-list-group>`}
+    {html`<z-list>
+      <z-list-group>
+        <z-body slot="header-title">Gruppo 1</z-body>
+        <z-list-element>Elemento 1</z-list-element>
+        <z-list-element>Elemento 2</z-list-element>
+        <z-list-element>Elemento 3</z-list-element>
+      </z-list-group>
+      <z-list-group>
+        <z-body slot="header-title">Gruppo 2 con divider</z-body>
+        <z-divider slot="divider"></z-divider>
+        <z-list-element>Elemento 1</z-list-element>
+        <z-divider></z-divider>
+        <z-list-element>Elemento 2</z-list-element>
+        <z-divider></z-divider>
+        <z-list-element>Elemento 3</z-list-element>
+      </z-list-group>
+    </z-list>`}
   </Story>
 </Preview>
 
 <Props of="z-list-group" />
-
-
