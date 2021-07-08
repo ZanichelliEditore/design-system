@@ -3,23 +3,134 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZListElement } from "./index";
 
 describe("Suite test ZListElement", () => {
-  it("Test render ZListElement vuoto", async () => {
-
+  it("Test render ZListElement", async () => {
     const page = await newSpecPage({
       components: [ZListElement],
-      html: `<z-list-element></z-list-element>`
+      html: `<z-list-element><span>Test</span></z-list-element>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-element>
+      <z-list-element align-button="left" role="listitem" tabindex="0">
         <mock:shadow-root>
-          <div>
-            This is your z-list-element component
-            This is your default prop:
+          <div class="z-list-element-container">
+            <slot></slot>
           </div>
         </mock:shadow-root>
+        <span>Test</span>
       </z-list-element>
-    `)
+    `);
+  });
+
+  it("Test render ZListElement", async () => {
+    const page = await newSpecPage({
+      components: [ZListElement],
+      html: `<z-list-element><span>Test</span></z-list-element>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-list-element align-button="left" role="listitem" tabindex="0">
+        <mock:shadow-root>
+          <div class="z-list-element-container">
+            <slot></slot>
+          </div>
+        </mock:shadow-root>
+        <span>Test</span>
+      </z-list-element>
+    `);
+  });
+
+  it("Test render ZListElement expandable", async () => {
+    const page = await newSpecPage({
+      components: [ZListElement],
+      html: `<z-list-element expandable="true"><span>Test</span><div slot="inner-content">Test</div></z-list-element>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-list-element align-button="left" role="listitem" tabindex="0" expandable="true">
+        <mock:shadow-root>
+          <div class="z-list-element-container">
+            <z-icon name="plus-circled"></z-icon>
+            <slot></slot>
+          </div>
+          <div class="z-list-element-inner-container">
+            <slot name="inner-content"></slot>
+          </div>
+        </mock:shadow-root>
+        <span>Test</span>
+        <div slot="inner-content">Test</div>
+      </z-list-element>
+    `);
+  });
+
+  it("Test render ZListElement expanded content", async () => {
+    const page = await newSpecPage({
+      components: [ZListElement],
+      html: `<z-list-element expandable="true"><span>Test</span><div slot="inner-content">Test</div></z-list-element>`,
+    });
+
+    page.root.click();
+    await page.waitForChanges();
+
+    expect(page.root).toEqualHtml(`
+      <z-list-element align-button="left" role="listitem" tabindex="0" expandable="true" aria-expanded>
+        <mock:shadow-root>
+          <div class="z-list-element-container">
+            <z-icon name="minus-circled"></z-icon>
+            <slot></slot>
+          </div>
+          <div class="z-list-element-inner-container expanded">
+            <slot name="inner-content"></slot>
+          </div>
+        </mock:shadow-root>
+        <span>Test</span>
+        <div slot="inner-content">Test</div>
+      </z-list-element>
+    `);
+  });
+
+  it("Test render ZListElement expandable style", async () => {
+    const page = await newSpecPage({
+      components: [ZListElement],
+      html: `<z-list-element expandable-style="menu" expandable="true"><span>Test</span><div slot="inner-content">Test</div></z-list-element>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-list-element align-button="left" role="listitem" tabindex="0" expandable="true" expandable-style="menu">
+        <mock:shadow-root>
+          <div class="z-list-element-container">
+            <z-icon name="chevron-down"></z-icon>
+            <slot></slot>
+          </div>
+          <div class="z-list-element-inner-container">
+            <slot name="inner-content"></slot>
+          </div>
+        </mock:shadow-root>
+        <span>Test</span>
+        <div slot="inner-content">Test</div>
+      </z-list-element>
+    `);
+  });
+
+  it("Test render ZListElement align button right", async () => {
+    const page = await newSpecPage({
+      components: [ZListElement],
+      html: `<z-list-element expandable="true" align-button="right"><span>Test</span><div slot="inner-content">Test</div></z-list-element>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-list-element align-button="right" role="listitem" tabindex="0" expandable="true">
+        <mock:shadow-root>
+          <div class="z-list-element-container">
+            <z-icon name="plus-circled"></z-icon>
+            <slot></slot>
+          </div>
+          <div class="z-list-element-inner-container">
+            <slot name="inner-content"></slot>
+          </div>
+        </mock:shadow-root>
+        <span>Test</span>
+        <div slot="inner-content">Test</div>
+      </z-list-element>
+    `);
   });
 });
-

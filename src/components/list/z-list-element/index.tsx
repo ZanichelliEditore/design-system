@@ -104,9 +104,7 @@ export class ZListElement {
   render() {
     return (
       <Host
-        role={`listitem ${this.clickable ? "button" : ""} ${
-          this.expandable ? "switch" : ""
-        }`}
+        role="listitem"
         aria-expanded={this.expandable ? this.showInnerContent : null}
         onClick={this.handleClick}
         tabIndex="0"
