@@ -37,7 +37,7 @@ export class ZMenu {
    * The opening state of the menu.
    * @default false
    */
-  @Prop({ mutable: true }) open: boolean = false;
+  @Prop({ mutable: true, reflect: true }) open: boolean = false;
   @State() hasHeader: boolean;
   @State() hasContent: boolean;
   @Element() hostElement: HTMLElement;
@@ -114,7 +114,7 @@ export class ZMenu {
   }
 
   render() {
-    return <Host role="menu" open={this.open}>
+    return <Host role="menu">
       <button class="label" aria-pressed={this.open ? 'true' : 'false'} onClick={this.toggle.bind(this)}>
         <div class="label-content">
           <slot></slot>
