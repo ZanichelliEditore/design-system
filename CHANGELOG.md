@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.10.0](https://github.com/ZanichelliEditore/design-system/compare/v2.9.0...v2.10.0) (2021-07-09)
+
+
+### Features
+
+* add ZNotification component ([5b44b04](https://github.com/ZanichelliEditore/design-system/commit/5b44b04672d8e50a01df804993c99fb9b30cc01b))
+* add background click event; restore data attribute on bg for backward compatibility; tests ([d69b044](https://github.com/ZanichelliEditore/design-system/commit/d69b0442158dff2b0cb5ed37ad60bfeff0f3a106))
+
+
+### Bug Fixes
+
+* button focus styles ([7fa8fb6](https://github.com/ZanichelliEditore/design-system/commit/7fa8fb60ca9e591c199494a6abccbca7af784ee8))
+* button variants colors ([67f30a2](https://github.com/ZanichelliEditore/design-system/commit/67f30a2f21987660ee2607a22a318fed9e21751e))
+* buttons focus shadow ([281b68f](https://github.com/ZanichelliEditore/design-system/commit/281b68fa5ff92d0ca7ca9e9e879315505ee0d7fa))
+* buttons, card, modal surface color token ([da68fab](https://github.com/ZanichelliEditore/design-system/commit/da68fab5a72af424d163084192c708c390c302eb))
+* font family ([1f7d717](https://github.com/ZanichelliEditore/design-system/commit/1f7d717bfcd10c2a5db292184e2774fa47e47f19))
+* media query ([a18de88](https://github.com/ZanichelliEditore/design-system/commit/a18de881549a910321efbd09e3d1c232657f1da6))
+* navigation tab text wrapping ([ab0e28f](https://github.com/ZanichelliEditore/design-system/commit/ab0e28f2ac7bacadfa6c0ab374444db6e33a4f74))
+* remove unnecessary ruile ([ebac0bc](https://github.com/ZanichelliEditore/design-system/commit/ebac0bcb5902aeafd14def3f6edd8adce1cf4d9a))
+* tab focus; color tokens; scroll ([4f14503](https://github.com/ZanichelliEditore/design-system/commit/4f14503802c2baf34a323d64aa317b38b5b0a9fd))
+* tests ([6ee7e5d](https://github.com/ZanichelliEditore/design-system/commit/6ee7e5d84ea20cf5c9a570b5ce0931392e72023f))
+
 ## [2.9.0](https://github.com/ZanichelliEditore/design-system/compare/v2.8.0...v2.9.0) (2021-07-07)
 
 
