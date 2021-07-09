@@ -25,11 +25,17 @@ export class ZNavigationTabs {
   }
   /** When resize check if the navigation buttons are needed */
   checkScrollVisible() {
+    if (!this.tabsNav) {
+      return;
+    }
     this.canNavigate = this.tabsNav[`scroll${this.dimension}`] > this.tabsNav[`client${this.dimension}`];
     this.checkScrollEnabled();
   }
   /** Check if navigation buttons can be enabled for each orientation */
   checkScrollEnabled() {
+    if (!this.tabsNav) {
+      return;
+    }
     this.canNavigateNext = this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] < this.tabsNav[`scroll${this.dimension}`];
     this.canNavigatePrev = this.tabsNav[`scroll${this.direction}`] > 0;
   }
@@ -68,12 +74,12 @@ export class ZNavigationTabs {
     this.checkScrollVisible();
   }
   render() {
-    return h(Host, { scrollable: this.canNavigate, role: "tablist" },
-      this.canNavigate && h("button", { role: "tab", class: 'navigation', onClick: () => this.navigatePrevious(), disabled: !this.canNavigatePrev },
+    return h(Host, { class: this.size === 'small' ? 'interactive-2' : 'interactive-1', scrollable: this.canNavigate, role: "tablist" },
+      this.canNavigate && h("button", { role: "tab", class: "navigation", onClick: () => this.navigatePrevious(), tabindex: "-1", disabled: !this.canNavigatePrev },
         h("z-icon", { name: this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up', width: 16, height: 16 })),
       h("nav", { ref: (el) => this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav, onScroll: this.checkScrollEnabled.bind(this) },
         h("slot", null)),
-      this.canNavigate && h("button", { role: "tab", class: 'navigation', onClick: () => { this.navigateNext(); }, disabled: !this.canNavigateNext },
+      this.canNavigate && h("button", { role: "tab", class: "navigation", onClick: () => { this.navigateNext(); }, tabindex: "-1", disabled: !this.canNavigateNext },
         h("z-icon", { name: this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down', width: 16, height: 16 })));
   }
   static get is() { return "z-navigation-tabs"; }
@@ -146,6 +152,12 @@ export class ZNavigationTabs {
     }, {
       "propName": "orientation",
       "methodName": "setChildrenOrientation"
+    }, {
+      "propName": "direction",
+      "methodName": "checkScrollEnabled"
+    }, {
+      "propName": "dimension",
+      "methodName": "checkScrollEnabled"
     }]; }
   static get listeners() { return [{
       "name": "resize",

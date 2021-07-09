@@ -159,3 +159,9 @@ export var StatusTagStatus;
   StatusTagStatus["neutral"] = "neutral";
   StatusTagStatus["default"] = "default";
 })(StatusTagStatus || (StatusTagStatus = {}));
+export var NotificationType;
+(function (NotificationType) {
+  NotificationType["success"] = "success";
+  NotificationType["warning"] = "warning";
+  NotificationType["error"] = "error";
+})(NotificationType || (NotificationType = {}));

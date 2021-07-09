@@ -234,3 +234,8 @@ export declare enum StatusTagStatus {
   neutral = "neutral",
   default = "default"
 }
+export declare enum NotificationType {
+  success = "success",
+  warning = "warning",
+  error = "error"
+}

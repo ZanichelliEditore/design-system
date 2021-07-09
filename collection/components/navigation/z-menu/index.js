@@ -73,7 +73,7 @@ export class ZMenu {
     this.checkContent();
   }
   render() {
-    return h(Host, { role: "menu", open: this.open },
+    return h(Host, { role: "menu" },
       h("button", { class: "label", "aria-pressed": this.open ? 'true' : 'false', onClick: this.toggle.bind(this) },
         h("div", { class: "label-content" },
           h("slot", null),
@@ -149,7 +149,7 @@ export class ZMenu {
         "text": "The opening state of the menu."
       },
       "attribute": "open",
-      "reflect": false,
+      "reflect": true,
       "defaultValue": "false"
     }
   }; }

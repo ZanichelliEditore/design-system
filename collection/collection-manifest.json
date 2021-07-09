@@ -38,6 +38,7 @@
     "./components/notification/z-candybar/index.js",
     "./components/notification/z-cookiebar/index.js",
     "./components/notification/z-info-box/index.js",
+    "./components/notification/z-notification/index.js",
     "./components/notification/z-tooltip/index.js",
     "./components/pagination/z-pagination-bar/index.js",
     "./components/pagination/z-pagination-page/index.js",

@@ -158,5 +158,11 @@ var StatusTagStatus;
   StatusTagStatus["neutral"] = "neutral";
   StatusTagStatus["default"] = "default";
 })(StatusTagStatus || (StatusTagStatus = {}));
+var NotificationType;
+(function (NotificationType) {
+  NotificationType["success"] = "success";
+  NotificationType["warning"] = "warning";
+  NotificationType["error"] = "error";
+})(NotificationType || (NotificationType = {}));
 
-export { AvatarSize as A, ButtonTypeEnum as B, CardVariants as C, DividerSize as D, InputTypeEnum as I, KeyboardKeys as K, LicenseTypeEnum as L, PopoverPosition as P, SortingOrientation as S, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, PopoverBorderRadius as c, PopoverShadow as d, TableHeaderSize as e, InputStatusEnum as f, StatusTagStatus as g, TooltipPosition as h, DividerOrientation as i, TabOrientationEnum as j, keybordKeyCodeEnum as k, TabSizeEnum as l };
+export { AvatarSize as A, ButtonTypeEnum as B, CardVariants as C, DividerSize as D, InputTypeEnum as I, KeyboardKeys as K, LicenseTypeEnum as L, NotificationType as N, PopoverPosition as P, SortingOrientation as S, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, PopoverBorderRadius as c, PopoverShadow as d, TableHeaderSize as e, InputStatusEnum as f, StatusTagStatus as g, TooltipPosition as h, DividerOrientation as i, TabOrientationEnum as j, keybordKeyCodeEnum as k, TabSizeEnum as l };

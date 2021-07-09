@@ -9,12 +9,14 @@ export declare class ZModal {
   modaltitle?: string;
   /** subtitle (optional) */
   modalsubtitle?: string;
-  constructor();
-  /** emitted on close icon click, returns modalid */
+  /** emitted on close button click, returns modalid */
   modalClose: EventEmitter;
   emitModalClose(): void;
   /** emitted on modal header click, returns modalid */
   modalHeaderActive: EventEmitter;
   emitModalHeaderActive(): void;
-  render(): any;
+  /** emitted on background click, returns modalid */
+  modalBackgroundClick: EventEmitter;
+  emitBackgroundClick(): void;
+  render(): any[];
 }

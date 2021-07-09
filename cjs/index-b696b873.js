@@ -160,3 +160,9 @@ exports.StatusTagStatus = void 0;
   StatusTagStatus["neutral"] = "neutral";
   StatusTagStatus["default"] = "default";
 })(exports.StatusTagStatus || (exports.StatusTagStatus = {}));
+exports.NotificationType = void 0;
+(function (NotificationType) {
+  NotificationType["success"] = "success";
+  NotificationType["warning"] = "warning";
+  NotificationType["error"] = "error";
+})(exports.NotificationType || (exports.NotificationType = {}));

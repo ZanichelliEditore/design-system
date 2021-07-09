@@ -1,30 +1,30 @@
 import { Component, Prop, h, Event } from "@stencil/core";
-import { handleKeyboardSubmit } from "../../../utils/utils";
 /**
  * @slot modalContent - set the content of the modal
  */
 export class ZModal {
-  constructor() {
-    this.emitModalClose = this.emitModalClose.bind(this);
-    this.emitModalHeaderActive = this.emitModalHeaderActive.bind(this);
-  }
   emitModalClose() {
     this.modalClose.emit({ modalid: this.modalid });
   }
   emitModalHeaderActive() {
     this.modalHeaderActive.emit({ modalid: this.modalid });
   }
+  emitBackgroundClick() {
+    this.modalBackgroundClick.emit({ modalid: this.modalid });
+  }
   render() {
-    return (h("div", { "data-action": "modalBackground", "data-modal": this.modalid },
-      h("div", { id: this.modalid },
-        h("header", { onClick: this.emitModalHeaderActive },
+    return [
+      h("div", { class: "modal-container", id: this.modalid },
+        h("header", { onClick: this.emitModalHeaderActive.bind(this) },
           h("div", null,
             this.modaltitle && h("h1", null, this.modaltitle),
             this.modalsubtitle && h("h2", null, this.modalsubtitle)),
-          h("z-icon", { name: "multiply-circle-filled", width: 24, height: 24, onClick: () => this.emitModalClose(), "data-action": "modalClose", "data-modal": this.modalid, onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitModalClose), tabindex: "0" })),
+          h("button", { onClick: this.emitModalClose.bind(this) },
+            h("z-icon", { name: "multiply-circle-filled" }))),
         h("main", null,
-          h("slot", { name: "modalContent" })),
-        h("div", { class: "bottomBackground", "data-action": "modalBackground", "data-modal": this.modalid }))));
+          h("slot", { name: "modalContent" }))),
+      h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: this.emitBackgroundClick.bind(this) })
+    ];
   }
   static get is() { return "z-modal"; }
   static get encapsulation() { return "shadow"; }
@@ -95,7 +95,7 @@ export class ZModal {
       "composed": true,
       "docs": {
         "tags": [],
-        "text": "emitted on close icon click, returns modalid"
+        "text": "emitted on close button click, returns modalid"
       },
       "complexType": {
         "original": "any",
@@ -111,6 +111,21 @@ export class ZModal {
       "docs": {
         "tags": [],
         "text": "emitted on modal header click, returns modalid"
+      },
+      "complexType": {
+        "original": "any",
+        "resolved": "any",
+        "references": {}
+      }
+    }, {
+      "method": "modalBackgroundClick",
+      "name": "modalBackgroundClick",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": {
+        "tags": [],
+        "text": "emitted on background click, returns modalid"
       },
       "complexType": {
         "original": "any",

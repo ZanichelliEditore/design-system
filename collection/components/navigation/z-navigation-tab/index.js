@@ -1,15 +1,20 @@
 import { Component, Prop, h, Element, Listen, Event, Watch } from "@stencil/core";
 /**
- * @slot - tab label
+ * @slot icon - tab icon
+ * @slot label - tab label
  */
 export class ZNavigationTab {
   constructor() {
     this.selected = false;
     this.disabled = false;
+    this.orientation = 'horizontal';
+    this.size = 'big';
   }
   onFocus() {
-    this.hostElement.scrollIntoView({
-      behavior: "smooth",
+    this.host.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'nearest',
     });
   }
   onClick() {
@@ -23,11 +28,9 @@ export class ZNavigationTab {
     }
   }
   render() {
-    return [
-      h("button", { disabled: this.disabled, role: "tab" },
-        h("slot", { name: "icon" }),
-        h("slot", { name: "label" }))
-    ];
+    return h("button", { disabled: this.disabled, role: "tab" },
+      h("slot", { name: "icon" }),
+      h("slot", { name: "label" }));
   }
   static get is() { return "z-navigation-tab"; }
   static get encapsulation() { return "shadow"; }
@@ -73,6 +76,42 @@ export class ZNavigationTab {
       "attribute": "disabled",
       "reflect": true,
       "defaultValue": "false"
+    },
+    "orientation": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": ""
+      },
+      "attribute": "orientation",
+      "reflect": true,
+      "defaultValue": "'horizontal'"
+    },
+    "size": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": ""
+      },
+      "attribute": "size",
+      "reflect": true,
+      "defaultValue": "'big'"
     }
   }; }
   static get events() { return [{
@@ -91,7 +130,7 @@ export class ZNavigationTab {
         "references": {}
       }
     }]; }
-  static get elementRef() { return "hostElement"; }
+  static get elementRef() { return "host"; }
   static get watchers() { return [{
       "propName": "selected",
       "methodName": "onSelected"
