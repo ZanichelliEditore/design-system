@@ -11,6 +11,7 @@ input::-ms-reveal {
 /* GENERAL */
 input,
 textarea,
+.textareaWrapper,
 ul[role="listbox"] {
   background: var(--color-input-field01);
   border-radius: var(--border-radius-small);
@@ -22,29 +23,6 @@ ul[role="listbox"] {
   font-weight: var(--font-rg);
   font-size: var(--font-size-3);
   outline: none;
-}
-
-/* READONLY */
-input[readonly],
-.readonly,
-input[readonly].filled,
-.readonly.filled,
-ul[role="listbox"].closed.readonly {
-  border-color: var(--color-disabled01);
-  fill: var(--color-disabled01);
-  pointer-events: none;
-}
-
-/* DISABLED */
-input:disabled,
-.disabled,
-.filled:disabled,
-ul[role="listbox"].closed.disabled {
-  border-color: var(--color-disabled01);
-  color: var(--color-disabled02);
-  fill: var(--color-disabled01);
-  pointer-events: none;
-  box-shadow: none;
 }
 
 /* FOCUS */
@@ -91,6 +69,29 @@ li[role="option"]:focus:focus-visible,
   background: var(--color-warning-inverse);
   border-color: var(--color-warning01);
   fill: var(--color-warning01);
+}
+
+/* READONLY */
+input[readonly],
+.readonly,
+input[readonly].filled,
+.readonly.filled,
+ul[role="listbox"].closed.readonly {
+  border-color: var(--color-disabled01);
+  fill: var(--color-disabled01);
+  pointer-events: none;
+}
+
+/* DISABLED */
+input:disabled,
+.disabled,
+.filled:disabled,
+ul[role="listbox"].closed.disabled {
+  border-color: var(--color-disabled01);
+  color: var(--color-disabled02);
+  fill: var(--color-disabled01);
+  pointer-events: none;
+  box-shadow: none;
 }
 
 /* PLACEHOLDER */

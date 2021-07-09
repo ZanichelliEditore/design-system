@@ -19,7 +19,7 @@ import { InputStatusEnum } from "../../../beans";
         disabled="${boolean('disabled', false)}"
         value="${text('value', 'value')}"
         status="${select('status', ['default', ...Object.keys(InputStatusEnum)], 'default')}"
-        message="${text('message', 'This is valid')}"
+        message="${text('message', 'Helper text')}"
         readonly="${boolean('readonly', false)}"
       ></z-input>`}
   </Story>
@@ -56,7 +56,7 @@ import { InputStatusEnum } from "../../../beans";
         label="${text('label', 'Select Label')}"
         placeholder="${text('placeholder', 'placeholder')}"
         status="${text('status', 'success')}"
-        message="${text('message', 'This is valid')}"
+        message="${text('message', 'Helper text')}"
         value="${text('value', 'select')}"
         items='[{"id":"item_1","name":"first item","selected":false},{"id":"item_2","name":"second item","selected":true}]'
       ></z-input>`}
@@ -65,11 +65,13 @@ import { InputStatusEnum } from "../../../beans";
     {html`
       <z-input
         type="textarea"
-        label="${text('label', 'Select Label')}"
+        label="${text('label', 'textarea')}"
         placeholder="${text('placeholder', 'placeholder')}"
-        status="${text('status', 'success')}"
-        message="${text('message', 'This is valid')}"
-        value="${text('value', 'select')}"
+        disabled="${boolean('disabled', false)}"
+        value="${text('value', 'text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text')}"
+        status="${select('status', ['default', ...Object.keys(InputStatusEnum)], 'default')}"
+        message="${text('message', 'Helper text')}"
+        readonly="${boolean('readonly', false)}"
       ></z-input>`}
   </Story>
   <Story name="z-input type:password">

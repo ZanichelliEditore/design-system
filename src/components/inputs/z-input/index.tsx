@@ -313,42 +313,34 @@ export class ZInput {
   /* START textarea */
 
   renderTextarea() {
-    return (
-      <div class="textWrapper">
-        {this.renderLabel()}
-        <div>{this.renderTextareaBody()}</div>
-        {this.renderMessage()}
-      </div>
-    );
-  }
-
-  renderTextareaBody() {
     const attributes = this.getTextAttributes();
 
     return (
-      <div
-        class={[
-          "textareaWrapper",
-          attributes.class,
-          attributes.disabled && "disabled",
-          attributes.readonly && "readonly",
-          this.isTyping && "istyping",
-          this.textareaWrapperFocus,
-          this.textareaWrapperHover,
-        ].filter(Boolean).join(" ")}
-      >
-        <textarea {...attributes} {...this.getTextareaExtraAttributes()} />
+      <div class="textWrapper">
+        {this.renderLabel()}
+        <div
+          class={[
+            "textareaWrapper",
+            attributes.class,
+            attributes.disabled && "disabled",
+            attributes.readonly && "readonly",
+            this.isTyping && "istyping",
+            this.textareaWrapperFocus,
+            this.textareaWrapperHover,
+          ].filter(Boolean).join(" ")}
+        >
+          <textarea
+            {...attributes}
+            onFocus={() => (this.textareaWrapperFocus = "focus")}
+            onBlur={() => (this.textareaWrapperFocus = "")}
+            onMouseOver={() => (this.textareaWrapperHover = "hover")}
+            onMouseOut={() => (this.textareaWrapperHover = "")}
+            aria-labelledby={`${this.htmlid}_label`}
+          ></textarea>
+        </div>
+        {this.renderMessage()}
       </div>
     );
-  }
-
-  getTextareaExtraAttributes() {
-    return {
-      onFocus: () => (this.textareaWrapperFocus = "focus"),
-      onBlur: () => (this.textareaWrapperFocus = ""),
-      onMouseOver: () => (this.textareaWrapperHover = "hover"),
-      onMouseOut: () => (this.textareaWrapperHover = ""),
-    };
   }
 
   /* END textarea */
