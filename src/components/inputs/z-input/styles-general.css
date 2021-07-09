@@ -27,7 +27,6 @@ ul[role="listbox"] {
 
 /* FOCUS */
 input:focus:focus-visible,
-ul[role="listbox"].closed:focus:focus-visible,
 li[role="option"]:focus:focus-visible,
 .focus {
   box-shadow: var(--shadow-focus-primary);
@@ -73,10 +72,7 @@ li[role="option"]:focus:focus-visible,
 
 /* READONLY */
 input[readonly],
-.readonly,
-input[readonly].filled,
-.readonly.filled,
-ul[role="listbox"].closed.readonly {
+.readonly {
   border-color: var(--color-disabled01);
   fill: var(--color-disabled01);
   pointer-events: none;
@@ -85,8 +81,7 @@ ul[role="listbox"].closed.readonly {
 /* DISABLED */
 input:disabled,
 .disabled,
-.filled:disabled,
-ul[role="listbox"].closed.disabled {
+.filled:disabled {
   border-color: var(--color-disabled01);
   color: var(--color-disabled02);
   fill: var(--color-disabled01);

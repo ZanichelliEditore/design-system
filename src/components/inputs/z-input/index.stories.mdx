@@ -14,8 +14,8 @@ import { InputStatusEnum } from "../../../beans";
     {html`
       <z-input
         type="${select('type', ["text", "password", "number", "email"], 'text')}"
-        label="${text('label', 'text')}"
-        placeholder="${text('placeholder', 'placeholder')}"
+        label="Label"
+        placeholder="Placeholder text"
         disabled="${boolean('disabled', false)}"
         value="${text('value', 'value')}"
         status="${select('status', ['default', ...Object.keys(InputStatusEnum)], 'default')}"
@@ -54,7 +54,7 @@ import { InputStatusEnum } from "../../../beans";
       <z-input
         type="select"
         label="${text('label', 'Select Label')}"
-        placeholder="${text('placeholder', 'placeholder')}"
+        placeholder="Placeholder text"
         status="${text('status', 'success')}"
         message="${text('message', 'Helper text')}"
         value="${text('value', 'select')}"
@@ -66,7 +66,7 @@ import { InputStatusEnum } from "../../../beans";
       <z-input
         type="textarea"
         label="${text('label', 'textarea')}"
-        placeholder="${text('placeholder', 'placeholder')}"
+        placeholder="Placeholder text"
         disabled="${boolean('disabled', false)}"
         value="${text('value', 'text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text')}"
         status="${select('status', ['default', ...Object.keys(InputStatusEnum)], 'default')}"

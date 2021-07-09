@@ -1,20 +1,21 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, boolean } from '@storybook/addon-knobs';
+import { text, boolean, select } from '@storybook/addon-knobs';
+import { InputStatusEnum } from "../../../beans";
 
 <Meta title="Inputs/ZSelect" component="z-input-select" />
 
 # ZSelect
 
 <Preview>
-  <Story name="ZSelect-sample">
+  <Story name="z-select">
     {html`<z-select
-      label="${text('label', 'Label')}"
-      placeholder="${text('placeholder', 'Placeholder')}"
+      label="Label"
+      placeholder="Placeholder"
       disabled="${boolean('disabled', false)}"
       readonly="${boolean('readonly', false)}"
-      status="${text('status', 'success')}"
-      message="${text('message', 'success message')}"
+      status="${select('status', ['default', ...Object.keys(InputStatusEnum)], 'default')}"
+      message="${text('message', 'Helper text')}"
       hasmessage="${boolean('hasmessage', true)}"
       autocomplete="${boolean('autocomplete', true)}"
       multiple="${boolean('multiple', false)}"
