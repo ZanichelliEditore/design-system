@@ -12,7 +12,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property       | Attribute      | Description                        | Type                           | Default     |
@@ -28,29 +27,28 @@
 | `target`       | `target`       | link target (optional)             | `string`                       | `"_self"`   |
 | `textcolor`    | `textcolor`    | link text variant (optional)       | `"black" \| "blue" \| "white"` | `'blue'`    |
 
-
 ## Events
 
 | Event        | Description                           | Type               |
 | ------------ | ------------------------------------- | ------------------ |
 | `zLinkClick` | emitted on link click, returns linkId | `CustomEvent<any>` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-header](../z-header)
- - [z-menu-dropdown](../z-menu-dropdown)
- - [z-modal-login](../../modal/z-modal-login)
- - [z-panel-elem](../../panel/z-panel-elem)
- - [z-user-dropdown](../z-user-dropdown)
+- [z-header](../z-header)
+- [z-menu-dropdown](../z-menu-dropdown)
+- [z-modal-login](../../modal/z-modal-login)
+- [z-panel-elem](../../panel/z-panel-elem)
+- [z-user-dropdown](../z-user-dropdown)
 
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-link --> z-icon
@@ -62,6 +60,6 @@ graph TD;
   style z-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -7,7 +7,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property   | Attribute  | Description                     | Type      | Default     |
@@ -17,7 +16,6 @@
 | `index`    | `index`    | The number of the step item.    | `number`  | `undefined` |
 | `pressed`  | `pressed`  | The pressed state of the item.  | `boolean` | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

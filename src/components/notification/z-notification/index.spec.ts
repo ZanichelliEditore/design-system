@@ -4,7 +4,6 @@ import { ZNotification } from "./index";
 
 describe("Suite test ZNotification", () => {
   it("Test render ZNotification with icon, action and close icon", async () => {
-
     const page = await newSpecPage({
       components: [ZNotification],
       html: `<z-notification
@@ -12,7 +11,7 @@ describe("Suite test ZNotification", () => {
         actiontext="Annulla"
         type="success"
         showclose="true"
-      >Io ne ho viste cose</z-notification>`
+      >Io ne ho viste cose</z-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -51,12 +50,11 @@ describe("Suite test ZNotification", () => {
   });
 
   it("Test render ZNotification without icon, action and close icon", async () => {
-
     const page = await newSpecPage({
       components: [ZNotification],
       html: `<z-notification
         type="success"
-      >Io ne ho viste cose</z-notification>`
+      >Io ne ho viste cose</z-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -74,7 +72,6 @@ describe("Suite test ZNotification", () => {
   });
 
   it("Test render ZNotification with icon, action", async () => {
-
     const page = await newSpecPage({
       components: [ZNotification],
       html: `<z-notification
@@ -82,7 +79,7 @@ describe("Suite test ZNotification", () => {
         actiontext="Annulla"
         type="success"
         showclose="false"
-      >Io ne ho viste cose</z-notification>`
+      >Io ne ho viste cose</z-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -122,7 +119,7 @@ describe("Suite test ZNotification", () => {
         type="success"
         showclose="false"
         showshadow="true"
-      >Io ne ho viste cose</z-notification>`
+      >Io ne ho viste cose</z-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -159,7 +156,7 @@ describe("Suite test ZNotification", () => {
       html: `<z-notification
         contenticonname="gear"
         type="warning"
-      >Io ne ho viste cose</z-notification>`
+      >Io ne ho viste cose</z-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -187,7 +184,7 @@ describe("Suite test ZNotification", () => {
       html: `<z-notification
         contenticonname="gear"
         type="error"
-      >Io ne ho viste cose</z-notification>`
+      >Io ne ho viste cose</z-notification>`,
     });
 
     expect(page.root).toEqualHtml(`

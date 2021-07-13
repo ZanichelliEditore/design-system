@@ -15,7 +15,7 @@
   left: calc(var(--space-unit) * 3);
   right: calc(var(--space-unit) * 2);
   z-index: 1;
-  content: '';
+  content: "";
   display: block;
   width: auto;
   margin: 0 calc(-1 * calc(var(--space-unit) * 2)) 0 calc(var(--space-unit) * 2);
@@ -48,7 +48,6 @@
 :host(:not([disabled])) .stepper-item {
   cursor: pointer;
 }
-
 
 :host([disabled]) .stepper-item {
   pointer-events: none;

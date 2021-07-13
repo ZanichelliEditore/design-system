@@ -7,7 +7,7 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon vuoto", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon></z-icon>`
+      html: `<z-icon></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
       <z-icon>
@@ -23,7 +23,7 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon con path", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon name="download" iconid="zicon"></z-icon>`
+      html: `<z-icon name="download" iconid="zicon"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
       <z-icon name="download" iconid="zicon">
@@ -39,7 +39,7 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon con path con dimensioni", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon name="download" iconid="zicon" width="10" height="10"></z-icon>`
+      html: `<z-icon name="download" iconid="zicon" width="10" height="10"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
       <z-icon name="download" iconid="zicon" width="10" height="10">
@@ -55,7 +55,7 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon con polygon", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon name="chevron-down" iconid="zicon"></z-icon>`
+      html: `<z-icon name="chevron-down" iconid="zicon"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
       <z-icon name="chevron-down" iconid="zicon">
@@ -71,7 +71,7 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon con polygon con dimensioni", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon name="chevron-down" iconid="zicon" width="10" height="10"></z-icon>`
+      html: `<z-icon name="chevron-down" iconid="zicon" width="10" height="10"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
       <z-icon name="chevron-down" iconid="zicon" width="10" height="10">

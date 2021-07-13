@@ -6,7 +6,7 @@ describe("Suite test ZInputMessage", () => {
   it("Test render ZInputMessage - empty", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message></z-input-message>`
+      html: `<z-input-message></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -23,7 +23,7 @@ describe("Suite test ZInputMessage", () => {
   it("Test render ZInputMessage - with message", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message message="message"></z-input-message>`
+      html: `<z-input-message message="message"></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -40,7 +40,7 @@ describe("Suite test ZInputMessage", () => {
   it("Test render ZInputMessage - with status/message", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message message="message" status="success"></z-input-message>`
+      html: `<z-input-message message="message" status="success"></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`

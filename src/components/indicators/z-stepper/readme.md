@@ -15,14 +15,12 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Slots
 
 | Slot | Description    |
 | ---- | -------------- |
 |      | z-stepper-item |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

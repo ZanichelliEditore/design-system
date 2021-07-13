@@ -4,7 +4,7 @@ import { handleKeyboardSubmit } from "../../../utils/utils";
 @Component({
   tag: "z-list-item",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZListItem {
   /** content text */

@@ -6,7 +6,7 @@ describe("Suite test ZInfoBox", () => {
   it("Test render ZInfoBox vuoto", async () => {
     const page = await newSpecPage({
       components: [ZInfoBox],
-      html: `<z-info-box></z-info-box>`
+      html: `<z-info-box></z-info-box>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -24,7 +24,7 @@ describe("Suite test ZInfoBox", () => {
   it("Test render ZInfoBox con props", async () => {
     const page = await newSpecPage({
       components: [ZInfoBox],
-      html: `<z-info-box boxid="box" isclosable="true"></z-info-box>`
+      html: `<z-info-box boxid="box" isclosable="true"></z-info-box>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -42,7 +42,7 @@ describe("Suite test ZInfoBox", () => {
   it("Test render ZInfoBox non closable", async () => {
     const page = await newSpecPage({
       components: [ZInfoBox],
-      html: `<z-info-box boxid="box" isclosable="false"></z-info-box>`
+      html: `<z-info-box boxid="box" isclosable="false"></z-info-box>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -61,7 +61,7 @@ describe("Suite test ZInfoBox", () => {
       components: [ZInfoBox],
       html: `<z-info-box boxid="box">
           <span slot="content">info box content</span>
-        </z-info-box>`
+        </z-info-box>`,
     });
 
     expect(page.root).toEqualHtml(`

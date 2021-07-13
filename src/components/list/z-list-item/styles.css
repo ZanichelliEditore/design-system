@@ -1,9 +1,8 @@
 :host li {
   all: unset;
   all: reset;
-  width:100%;
+  width: 100%;
 }
-
 
 :host li {
   list-style-type: none;
@@ -22,19 +21,22 @@
   fill: var(--text-grey-800);
 }
 
-:host li > span.border{
+:host li > span.border {
   border-bottom: 2px solid var(--bg-grey-200);
 }
 
-:host li span:hover, a:hover{
+:host li span:hover,
+a:hover {
   color: var(--myz-blue);
   fill: var(--myz-blue);
 }
 
-a, a:visited, a:active {
+a,
+a:visited,
+a:active {
   color: inherit;
   fill: inherit;
-  text-decoration:none;
+  text-decoration: none;
 }
 
 :host li span z-icon {

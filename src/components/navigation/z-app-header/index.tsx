@@ -1,12 +1,13 @@
-import { Component, h, Element, Prop, State, Watch, Host } from '@stencil/core';
-import { ZMenu } from '../z-menu';
+import { Component, h, Element, Prop, State, Watch, Host } from "@stencil/core";
+import { ZMenu } from "../z-menu";
 
-const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== 'undefined';
+const SUPPORT_INTERSECTION_OBSERVER =
+  typeof IntersectionObserver !== "undefined";
 
 @Component({
-  tag: 'z-app-header',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-app-header",
+  styleUrl: "styles.css",
+  shadow: true,
 })
 export class ZAppHeader {
   @Element() hostElement: HTMLElement;
@@ -42,7 +43,7 @@ export class ZAppHeader {
    * Control menu bar position in the header.
    * **Optional**
    */
-   @Prop({ reflect: true }) flow: 'auto'|'stack' = 'auto';
+  @Prop({ reflect: true }) flow: "auto" | "stack" = "auto";
 
   /**
    * The opening state of the drawer.
@@ -57,11 +58,16 @@ export class ZAppHeader {
   private container?: HTMLDivElement;
   private menuElements?: NodeListOf<HTMLElement>;
 
-  private observer?: IntersectionObserver = SUPPORT_INTERSECTION_OBSERVER && new IntersectionObserver(([entry]) => {
-    this.stucked = !entry.isIntersecting;
-  }, {
-    threshold: 0.5
-  });
+  private observer?: IntersectionObserver =
+    SUPPORT_INTERSECTION_OBSERVER &&
+    new IntersectionObserver(
+      ([entry]) => {
+        this.stucked = !entry.isIntersecting;
+      },
+      {
+        threshold: 0.5,
+      }
+    );
 
   constructor() {
     this.openDrawer = this.openDrawer.bind(this);
@@ -77,7 +83,7 @@ export class ZAppHeader {
   private get title() {
     const titleElement = this.hostElement.querySelector('[slot="title"]');
     if (!titleElement) {
-      return '';
+      return "";
     }
     return titleElement.textContent.trim();
   }
@@ -91,18 +97,19 @@ export class ZAppHeader {
   }
 
   private collectMenuElements() {
-    const menuElements = this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]');
-    this.hostElement.setAttribute('data-menu-length', `${menuElements.length}`);
+    const menuElements = (this.menuElements =
+      this.hostElement.querySelectorAll('[slot="menu"]'));
+    this.hostElement.setAttribute("data-menu-length", `${menuElements.length}`);
     this.setMenuFloatingMode();
   }
 
   private setStuckPosition() {
-    const topbar = this.hostElement.ownerDocument.querySelector('z-app-topbar');
+    const topbar = this.hostElement.ownerDocument.querySelector("z-app-topbar");
     const top = topbar ? topbar.clientHeight : 0;
-    this.hostElement.style.setProperty('--stuck-top', `${top}px`);
+    this.hostElement.style.setProperty("--stuck-top", `${top}px`);
   }
 
-  @Watch('stuck')
+  @Watch("stuck")
   onStuckMode() {
     if (this.stuck) {
       this.enableStuckObserver();
@@ -124,7 +131,7 @@ export class ZAppHeader {
     }
   }
 
-  @Watch('stucked')
+  @Watch("stucked")
   onStucked() {
     const scrollParent = this.scrollParent;
     if (!scrollParent) {
@@ -132,13 +139,13 @@ export class ZAppHeader {
     }
     if (this.stucked) {
       this.setStuckPosition();
-      scrollParent.addEventListener('scroll', this.setStuckPosition);
+      scrollParent.addEventListener("scroll", this.setStuckPosition);
     } else {
-      scrollParent.removeEventListener('scroll', this.setStuckPosition);
+      scrollParent.removeEventListener("scroll", this.setStuckPosition);
     }
   }
 
-  @Watch('drawerOpen')
+  @Watch("drawerOpen")
   setMenuFloatingMode() {
     if (!this.menuElements) {
       return;
@@ -152,46 +159,60 @@ export class ZAppHeader {
   }
 
   render() {
-    return <Host>
-      <div class="heading-panel" ref={(el) => this.container = el }>
-        <div class="hero-container">
-          <slot name="hero">
-            {this.hero && <img alt="" src={this.hero} />}
-          </slot>
+    return (
+      <Host>
+        <div class="heading-panel" ref={(el) => (this.container = el)}>
+          <div class="hero-container">
+            <slot name="hero">
+              {this.hero && <img alt="" src={this.hero} />}
+            </slot>
+          </div>
+          <div class="heading-container">
+            <div class="heading-title">
+              <button class="drawer-trigger" onClick={this.openDrawer}>
+                <z-icon name="burger-menu"></z-icon>
+              </button>
+              <slot name="title"></slot>
+            </div>
+            <div class="heading-subtitle">
+              <slot name="subtitle"></slot>
+            </div>
+          </div>
+          <div class="menu-container">
+            {!this.drawerOpen && (
+              <slot
+                name="menu"
+                onSlotchange={() => this.collectMenuElements()}
+              ></slot>
+            )}
+          </div>
         </div>
-        <div class="heading-container">
-          <div class="heading-title">
+        <div class="drawer-container" data-open={this.drawerOpen}>
+          <div class="drawer-overlay" onClick={this.closeDrawer}></div>
+          <div class="drawer-panel">
+            <button class="drawer-close" onClick={this.closeDrawer}>
+              <z-icon name="close"></z-icon>
+            </button>
+            <div class="drawer-content">
+              {this.drawerOpen && (
+                <slot
+                  name="menu"
+                  onSlotchange={() => this.collectMenuElements()}
+                ></slot>
+              )}
+            </div>
+          </div>
+        </div>
+        {this.stucked && (
+          <div class="heading-stucked">
             <button class="drawer-trigger" onClick={this.openDrawer}>
               <z-icon name="burger-menu"></z-icon>
             </button>
-            <slot name="title"></slot>
+            <div class="heading-title">{this.title}</div>
           </div>
-          <div class="heading-subtitle">
-            <slot name="subtitle"></slot>
-          </div>
-        </div>
-        <div class="menu-container">
-          {(!this.drawerOpen) && <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>}
-        </div>
-      </div>
-      <div class="drawer-container" data-open={this.drawerOpen}>
-        <div class="drawer-overlay" onClick={this.closeDrawer}></div>
-        <div class="drawer-panel">
-          <button class="drawer-close" onClick={this.closeDrawer}>
-            <z-icon name="close"></z-icon>
-          </button>
-          <div class="drawer-content">
-            {this.drawerOpen && <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>}
-          </div>
-        </div>
-      </div>
-      {this.stucked && <div class="heading-stucked">
-        <button class="drawer-trigger" onClick={this.openDrawer}>
-          <z-icon name="burger-menu"></z-icon>
-        </button>
-        <div class="heading-title">{this.title}</div>
-      </div>}
-    </Host>;
+        )}
+      </Host>
+    );
   }
 
   openDrawer() {

@@ -1,9 +1,6 @@
 # z-avatar
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,7 +12,6 @@
 | `text`            | `text`             | [optional] Avatar text             | `string`                                                    | `undefined`         |
 | `textColor`       | `text-color`       | [optional] Avatar text color       | `string`                                                    | `"text-white"`      |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

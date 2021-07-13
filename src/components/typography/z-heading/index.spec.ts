@@ -6,7 +6,7 @@ describe("Suite test ZHeading", () => {
   it("Test render ZHeading vuoto", async () => {
     const page = await newSpecPage({
       components: [ZHeading],
-      html: `<z-heading variant="light" level="1">Lorem ipsum dolor sit amet</z-heading>`
+      html: `<z-heading variant="light" level="1">Lorem ipsum dolor sit amet</z-heading>`,
     });
 
     expect(page.root).toEqualHtml(`

@@ -1,14 +1,14 @@
 # z-icon
 
 <!-- readme-group="icon" -->
+
 ```html
-<z-icon name="book-plus" ></z-icon>
+<z-icon name="book-plus"></z-icon>
 <z-icon name="chevron-down" iconid="zicon"></z-icon>
 <z-icon name="download" iconid="zicon" width="10" height="10"></z-icon>
 ```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -19,43 +19,43 @@
 | `name`   | `name`    | icon name (choice between available icons) | `string` | `undefined` |
 | `width`  | `width`   | icon width (optional)                      | `number` | `18`        |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-app-header](../../navigation/z-app-header)
- - [z-app-switcher](../../navigation/z-app-switcher)
- - [z-button](../../buttons/z-button)
- - [z-button-filter](../../buttons/z-button-filter)
- - [z-button-sort](../../buttons/z-button-sort)
- - [z-card](../../z-card)
- - [z-combobox](../../inputs/z-combobox)
- - [z-footer-section](../../footer/z-footer-section)
- - [z-header](../../navigation/z-header)
- - [z-icon-package](../z-icon-package)
- - [z-info-box](../../notification/z-info-box)
- - [z-input](../../inputs/z-input)
- - [z-input-message](../../inputs/z-input-message)
- - [z-link](../../navigation/z-link)
- - [z-list-item](../../list/z-list-item)
- - [z-menu](../../navigation/z-menu)
- - [z-menu-dropdown](../../navigation/z-menu-dropdown)
- - [z-menu-section](../../navigation/z-menu-section)
- - [z-modal](../../modal/z-modal)
- - [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
- - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
- - [z-navigation-tabs](../../navigation/z-navigation-tabs)
- - [z-notification](../../notification/z-notification)
- - [z-pagination-bar](../../pagination/z-pagination-bar)
- - [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
- - [z-registro-table-row](../../../snowflakes/registro-table/z-registro-table-row)
- - [z-select](../../inputs/z-select)
- - [z-status-tag](../../z-status-tag)
- - [z-toggle-button](../../buttons/z-toggle-button)
- - [z-user-dropdown](../../navigation/z-user-dropdown)
+- [z-app-header](../../navigation/z-app-header)
+- [z-app-switcher](../../navigation/z-app-switcher)
+- [z-button](../../buttons/z-button)
+- [z-button-filter](../../buttons/z-button-filter)
+- [z-button-sort](../../buttons/z-button-sort)
+- [z-card](../../z-card)
+- [z-combobox](../../inputs/z-combobox)
+- [z-footer-section](../../footer/z-footer-section)
+- [z-header](../../navigation/z-header)
+- [z-icon-package](../z-icon-package)
+- [z-info-box](../../notification/z-info-box)
+- [z-input](../../inputs/z-input)
+- [z-input-message](../../inputs/z-input-message)
+- [z-link](../../navigation/z-link)
+- [z-list-item](../../list/z-list-item)
+- [z-menu](../../navigation/z-menu)
+- [z-menu-dropdown](../../navigation/z-menu-dropdown)
+- [z-menu-section](../../navigation/z-menu-section)
+- [z-modal](../../modal/z-modal)
+- [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
+- [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
+- [z-navigation-tabs](../../navigation/z-navigation-tabs)
+- [z-notification](../../notification/z-notification)
+- [z-pagination-bar](../../pagination/z-pagination-bar)
+- [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
+- [z-registro-table-row](../../../snowflakes/registro-table/z-registro-table-row)
+- [z-select](../../inputs/z-select)
+- [z-status-tag](../../z-status-tag)
+- [z-toggle-button](../../buttons/z-toggle-button)
+- [z-user-dropdown](../../navigation/z-user-dropdown)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-app-header --> z-icon
@@ -91,6 +91,6 @@ graph TD;
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

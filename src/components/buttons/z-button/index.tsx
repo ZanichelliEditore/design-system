@@ -46,7 +46,9 @@ export class ZButton {
   square?: boolean = false;
 
   render() {
-    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
+    this.hostElement.style.pointerEvents = this.disabled
+      ? "none"
+      : "auto" + "auto";
 
     return (
       <slot name="element">

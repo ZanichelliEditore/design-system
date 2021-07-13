@@ -119,7 +119,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property        | Attribute       | Description                                                                                         | Type                                                                                             | Default      |
@@ -146,7 +145,6 @@
 | `typingtimeout` | `typingtimeout` | timeout setting before trigger `inputChange` event (optional): available for text, textarea         | `number`                                                                                         | `300`        |
 | `value`         | `value`         | the input value                                                                                     | `string`                                                                                         | `undefined`  |
 
-
 ## Events
 
 | Event          | Description                                                                                                          | Type               |
@@ -156,7 +154,6 @@
 | `optionSelect` | Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) | `CustomEvent<any>` |
 | `startTyping`  | Emitted when user starts typing                                                                                      | `CustomEvent<any>` |
 | `stopTyping`   | Emitted when user stops typing, returns value, validity                                                              | `CustomEvent<any>` |
-
 
 ## Methods
 
@@ -168,8 +165,6 @@ get the input value
 
 Type: `Promise<string | string[]>`
 
-
-
 ### `isChecked() => Promise<boolean>`
 
 get checked status
@@ -177,8 +172,6 @@ get checked status
 #### Returns
 
 Type: `Promise<boolean>`
-
-
 
 ### `setValue(value: string | string[]) => Promise<void>`
 
@@ -188,16 +181,13 @@ set the input value
 
 Type: `Promise<void>`
 
-
-
-
 ## Dependencies
 
 ### Used by
 
- - [z-combobox](../z-combobox)
- - [z-modal-login](../../modal/z-modal-login)
- - [z-select](../z-select)
+- [z-combobox](../z-combobox)
+- [z-modal-login](../../modal/z-modal-login)
+- [z-select](../z-select)
 
 ### Depends on
 
@@ -207,6 +197,7 @@ Type: `Promise<void>`
 - [z-select](../z-select)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-input --> z-input-label
@@ -221,6 +212,6 @@ graph TD;
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

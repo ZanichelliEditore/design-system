@@ -1,9 +1,6 @@
 # z-user-dropdown
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -14,14 +11,12 @@
 | `theme`        | `theme`        | theme variant, default 'dark'                   | `"dark" \| "light"`    | `ThemeVariant.dark` |
 | `userfullname` | `userfullname` | user full name                                  | `string`               | `undefined`         |
 
-
 ## Events
 
 | Event                   | Description                                                      | Type               |
 | ----------------------- | ---------------------------------------------------------------- | ------------------ |
 | `dropdownMenuLinkClick` | Emitted on dropdown menu zlink click, returns zlink linkId       | `CustomEvent<any>` |
 | `userButtonClick`       | Emitted on enter or user Button click, returns ismenuopen (bool) | `CustomEvent<any>` |
-
 
 ## Dependencies
 
@@ -31,6 +26,7 @@
 - [z-link](../z-link)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-user-dropdown --> z-icon
@@ -39,6 +35,6 @@ graph TD;
   style z-user-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

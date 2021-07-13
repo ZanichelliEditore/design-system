@@ -140,6 +140,6 @@
 }
 
 :host > div.open > div.openComboData > div.checkAllWrapper {
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * .5);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);
   text-align: left;
 }

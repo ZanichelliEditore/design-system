@@ -1,87 +1,80 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { number, select, boolean } from '@storybook/addon-knobs';
+import { number, select, boolean } from "@storybook/addon-knobs";
 
 ## Stories
 
 <Meta title="Navigation/ZNavigationTabs" component="z-navigation-tabs" />
 
-  # ZNavigationTabs
+# ZNavigationTabs
 
 <Preview>
   <Story name="z-navigation-tabs">
-    {html`
-      <z-navigation-tabs
-        orientation="horizontal"
-        size="${select(
-          "size",
-          ["big", "small"],
-          "big"
-        )}"
-        style="max-width: 640px;"
-      >
-        <z-navigation-tab>
-          <z-icon name="house" slot="icon"></z-icon>
-          <span slot="label">Home</span>
-        </z-navigation-tab>
-        <z-navigation-tab disabled>
-          <z-icon name="app-switcher" slot="icon"></z-icon>
-          <span slot="label">App</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="map" slot="icon"></z-icon>
-          <span slot="label">Maps</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="download" slot="icon"></z-icon>
-          <span slot="label">Download</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="user" slot="icon"></z-icon>
-          <span slot="label">Users</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="artist" slot="icon"></z-icon>
-          <span slot="label">Artisti</span>
-        </z-navigation-tab>
-      </z-navigation-tabs>`}
+    {html` <z-navigation-tabs
+      orientation="horizontal"
+      size="${select("size", ["big", "small"], "big")}"
+      style="max-width: 640px;"
+    >
+      <z-navigation-tab>
+        <z-icon name="house" slot="icon"></z-icon>
+        <span slot="label">Home</span>
+      </z-navigation-tab>
+      <z-navigation-tab disabled>
+        <z-icon name="app-switcher" slot="icon"></z-icon>
+        <span slot="label">App</span>
+      </z-navigation-tab>
+      <z-navigation-tab>
+        <z-icon name="map" slot="icon"></z-icon>
+        <span slot="label">Maps</span>
+      </z-navigation-tab>
+      <z-navigation-tab>
+        <z-icon name="download" slot="icon"></z-icon>
+        <span slot="label">Download</span>
+      </z-navigation-tab>
+      <z-navigation-tab>
+        <z-icon name="user" slot="icon"></z-icon>
+        <span slot="label">Users</span>
+      </z-navigation-tab>
+      <z-navigation-tab>
+        <z-icon name="artist" slot="icon"></z-icon>
+        <span slot="label">Artisti</span>
+      </z-navigation-tab>
+    </z-navigation-tabs>`}
   </Story>
 </Preview>
 
 <Preview>
   <Story name="z-navigation-tabs vertical">
-    {html`
-      <z-navigation-tabs
-        orientation="vertical"
-        style="position:fixed;height:100%;top:0;left:0;max-height: 300px;"
-      >
-        <z-navigation-tab>
-          <z-icon name="house" slot="icon"></z-icon>
-          <span slot="label">Home</span>
-        </z-navigation-tab>
-        <z-navigation-tab disabled>
-          <z-icon name="app-switcher" slot="icon"></z-icon>
-          <span slot="label">App</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="map" slot="icon"></z-icon>
-          <span slot="label">Maps</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="download" slot="icon"></z-icon>
-          <span slot="label">Download</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="user" slot="icon"></z-icon>
-          <span slot="label">Users</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="artist" slot="icon"></z-icon>
-          <span slot="label">Artisti</span>
-        </z-navigation-tab>
-      </z-navigation-tabs>`}
+    {html` <z-navigation-tabs
+      orientation="vertical"
+      style="position:fixed;height:100%;top:0;left:0;max-height: 300px;"
+    >
+      <z-navigation-tab>
+        <z-icon name="house" slot="icon"></z-icon>
+        <span slot="label">Home</span>
+      </z-navigation-tab>
+      <z-navigation-tab disabled>
+        <z-icon name="app-switcher" slot="icon"></z-icon>
+        <span slot="label">App</span>
+      </z-navigation-tab>
+      <z-navigation-tab>
+        <z-icon name="map" slot="icon"></z-icon>
+        <span slot="label">Maps</span>
+      </z-navigation-tab>
+      <z-navigation-tab>
+        <z-icon name="download" slot="icon"></z-icon>
+        <span slot="label">Download</span>
+      </z-navigation-tab>
+      <z-navigation-tab>
+        <z-icon name="user" slot="icon"></z-icon>
+        <span slot="label">Users</span>
+      </z-navigation-tab>
+      <z-navigation-tab>
+        <z-icon name="artist" slot="icon"></z-icon>
+        <span slot="label">Artisti</span>
+      </z-navigation-tab>
+    </z-navigation-tabs>`}
   </Story>
 </Preview>
 
 <Props of="z-navigation-tabs" />
-

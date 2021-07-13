@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property    | Attribute   | Description | Type                      | Default     |
@@ -11,19 +10,19 @@
 | `level`     | `level`     |             | `1 \| 2 \| 3 \| 4 \| 5`   | `undefined` |
 | `variant`   | `variant`   |             | `"regular" \| "semibold"` | `"regular"` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-modal-login](../../modal/z-modal-login)
- - [z-notification](../../notification/z-notification)
+- [z-modal-login](../../modal/z-modal-login)
+- [z-notification](../../notification/z-notification)
 
 ### Depends on
 
 - [z-typography](../z-typography)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-body --> z-typography
@@ -32,6 +31,6 @@ graph TD;
   style z-body fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

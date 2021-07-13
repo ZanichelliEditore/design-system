@@ -3,7 +3,7 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 @Component({
   tag: "z-myz-card-alert",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardAlert {
   /** icon name */

@@ -41,7 +41,7 @@ button.selected {
   fill: var(--bg-white);
 }
 
-button>label {
+button > label {
   cursor: pointer;
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
@@ -49,13 +49,13 @@ button>label {
   margin-right: calc(var(--space-unit) * 2);
 }
 
-button>span {
+button > span {
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   font-size: 14px;
-  margin-right: calc(var(--space-unit) * .5);
+  margin-right: calc(var(--space-unit) * 0.5);
 }
 
-button>z-icon {
-  padding-top: calc(var(--space-unit) * .5);
+button > z-icon {
+  padding-top: calc(var(--space-unit) * 0.5);
 }

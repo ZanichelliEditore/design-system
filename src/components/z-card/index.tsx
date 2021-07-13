@@ -1,12 +1,20 @@
-import { Component, Prop, h, Element, State, Listen, Event, EventEmitter } from '@stencil/core';
-import { CardVariants } from '../../beans';
+import {
+  Component,
+  Prop,
+  h,
+  Element,
+  State,
+  Listen,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
+import { CardVariants } from "../../beans";
 
 @Component({
-  tag: 'z-card',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-card",
+  styleUrl: "styles.css",
+  shadow: true,
 })
-
 export class ZCard {
   /**
    * Card variant.
@@ -31,10 +39,10 @@ export class ZCard {
    */
   @Event() cardClicked: EventEmitter;
 
-  @Listen('click')
+  @Listen("click")
   onClick(ev: MouseEvent) {
     // Do nothing for clicks on actions.
-    if ((ev.target as HTMLElement).getAttribute('slot') === 'action') {
+    if ((ev.target as HTMLElement).getAttribute("slot") === "action") {
       return;
     }
 
@@ -70,7 +78,7 @@ export class ZCard {
         <div class="actions">
           <slot name="action"></slot>
         </div>
-      </div>
+      </div>,
     ];
   }
 
@@ -80,7 +88,9 @@ export class ZCard {
         <div class="cover-container">
           {this.hasCoverImage && [
             <slot name="cover"></slot>,
-            (this.variant !== CardVariants.overlay) && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>
+            this.variant !== CardVariants.overlay && this.coverIcon && (
+              <z-icon name={this.coverIcon}></z-icon>
+            ),
           ]}
           {!this.hasCoverImage && <div class="color-cover"></div>}
         </div>,
@@ -91,7 +101,7 @@ export class ZCard {
           <div class="actions">
             <slot name="action"></slot>
           </div>
-        </div>
+        </div>,
       ];
     }
 

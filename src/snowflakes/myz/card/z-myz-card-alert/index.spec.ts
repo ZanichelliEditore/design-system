@@ -6,7 +6,7 @@ describe("Suite test ZMyzCardAlert", () => {
   it("Test render ZMyzCardAlert add", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardAlert],
-      html: `<z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-myz-card-alert>`
+      html: `<z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-myz-card-alert>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -29,7 +29,7 @@ describe("Suite test ZMyzCardAlert", () => {
   it("Test render ZMyzCardAlert add no undo", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardAlert],
-      html: `<z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto ai miei libri" type="add"></z-myz-card-alert>`
+      html: `<z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto ai miei libri" type="add"></z-myz-card-alert>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -49,7 +49,7 @@ describe("Suite test ZMyzCardAlert", () => {
   it("Test render ZMyzCardAlert remove", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardAlert],
-      html: `<z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro rimosso dai tuoi libri" actiontext="Annulla" type="remove"></z-myz-card-alert>`
+      html: `<z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro rimosso dai tuoi libri" actiontext="Annulla" type="remove"></z-myz-card-alert>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -72,7 +72,7 @@ describe("Suite test ZMyzCardAlert", () => {
   it("Test render ZMyzCardAlert remove no undo", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardAlert],
-      html: `<z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro rimosso dai tuoi libri" type="remove"></z-myz-card-alert>`
+      html: `<z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro rimosso dai tuoi libri" type="remove"></z-myz-card-alert>`,
     });
 
     expect(page.root).toEqualHtml(`

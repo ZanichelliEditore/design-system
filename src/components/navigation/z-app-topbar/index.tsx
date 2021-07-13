@@ -37,7 +37,9 @@ export class ZAppTopbar {
     this.zLinksValues = Array.from(this.hostElement.children)
       .filter((child) => child.nodeName === "Z-LINK")
       .map((link) => link.childNodes[0].nodeValue);
-    this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
+    this.isMobile =
+      window.screen.width <= mobileBreakpoint ||
+      window.innerWidth <= mobileBreakpoint;
     this.toggleLinkLabels();
   }
 
@@ -63,7 +65,9 @@ export class ZAppTopbar {
       <div class={this.theme}>
         <div class="left">
           <slot name="logo"></slot>
-          {this.hashtag && <span id="hashtag">{this.hashtag.replace(/\s/g, '')}</span>}
+          {this.hashtag && (
+            <span id="hashtag">{this.hashtag.replace(/\s/g, "")}</span>
+          )}
         </div>
         <div class={`right ${this.logged && this.isMobile && "hide-actions"}`}>
           <slot name="actions"></slot>

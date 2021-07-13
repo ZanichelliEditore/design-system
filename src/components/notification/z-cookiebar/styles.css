@@ -15,7 +15,7 @@ z-candybar.hidden {
   align-items: stretch;
   align-content: space-between;
   color: var(--text-grey-800);
-  border-radius: calc(var(--space-unit) * .5);
+  border-radius: calc(var(--space-unit) * 0.5);
   font-size: 16px;
   letter-spacing: 0px;
   line-height: 24px;

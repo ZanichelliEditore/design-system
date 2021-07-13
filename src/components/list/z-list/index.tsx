@@ -4,11 +4,11 @@ import { ListItemBean } from "../../../beans/index.js";
 @Component({
   tag: "z-list",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZList {
   /** json stringified list data (mutable, optional) */
-  @Prop({mutable: true}) inputrawdata?: string;
+  @Prop({ mutable: true }) inputrawdata?: string;
   /** list item data (mutable, optional)*/
   @Prop({ mutable: true }) list?: ListItemBean[];
 
@@ -28,15 +28,18 @@ export class ZList {
   }
 
   render() {
-    const lastElem = this.list? this.list.length -1:-1;
+    const lastElem = this.list ? this.list.length - 1 : -1;
     return (
       <ul>
         {this.list &&
-          this.list.map((bean,i) => (
+          this.list.map((bean, i) => (
             <z-list-item
-              listitemid={bean.listitemid} text={bean.text}
-              link={bean.link} linktarget={bean.linktarget}
-              icon={bean.icon} underlined={lastElem != i}
+              listitemid={bean.listitemid}
+              text={bean.text}
+              link={bean.link}
+              linktarget={bean.linktarget}
+              icon={bean.icon}
+              underlined={lastElem != i}
             />
           ))}
       </ul>

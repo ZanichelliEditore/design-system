@@ -27,7 +27,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property   | Attribute  | Description                                                                                                | Type                                                                                     | Default                     |
@@ -42,29 +41,28 @@
 | `type`     | `type`     | HTML button type attribute.                                                                                | `string`                                                                                 | `ButtonTypeEnum.button`     |
 | `variant`  | `variant`  | Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.                           | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary` | `ButtonVariantEnum.primary` |
 
-
 ## Slots
 
 | Slot | Description  |
 | ---- | ------------ |
 |      | button label |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-cookiebar](../../notification/z-cookiebar)
- - [z-header](../../navigation/z-header)
- - [z-modal-login](../../modal/z-modal-login)
- - [z-registro-table-cell](../../../snowflakes/registro-table/z-registro-table-cell)
- - [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
+- [z-cookiebar](../../notification/z-cookiebar)
+- [z-header](../../navigation/z-header)
+- [z-modal-login](../../modal/z-modal-login)
+- [z-registro-table-cell](../../../snowflakes/registro-table/z-registro-table-cell)
+- [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
 
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-button --> z-icon
@@ -76,6 +74,6 @@ graph TD;
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

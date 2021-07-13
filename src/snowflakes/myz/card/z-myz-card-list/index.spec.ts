@@ -6,7 +6,7 @@ describe("Suite test ZMyzCardList", () => {
   it("Test render ZMyzCardList vuoto", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardList],
-      html: `<z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'></z-myz-card-list>`
+      html: `<z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'></z-myz-card-list>`,
     });
 
     expect(page.root).toEqualHtml(`

@@ -1,15 +1,23 @@
 # z-toggle-button
 
 <!-- readme-group="buttons" -->
+
 ```html
 <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-<z-toggle-button label="risorse" slot="toggle" avoidclick=true></z-toggle-button>
-<z-toggle-button label="risorse" slot="toggle" isdisabled="true" avoidclick=true></z-toggle-button>
+<z-toggle-button
+  label="risorse"
+  slot="toggle"
+  avoidclick="true"
+></z-toggle-button>
+<z-toggle-button
+  label="risorse"
+  slot="toggle"
+  isdisabled="true"
+  avoidclick="true"
+></z-toggle-button>
 ```
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -19,13 +27,11 @@
 | `isdisabled` | `isdisabled` | disabled status flag (optional) | `boolean` | `false`     |
 | `label`      | `label`      | label text                      | `string`  | `undefined` |
 
-
 ## Events
 
 | Event         | Description                                    | Type               |
 | ------------- | ---------------------------------------------- | ------------------ |
 | `toggleClick` | emitted on toggle button click, returns isOpen | `CustomEvent<any>` |
-
 
 ## Dependencies
 
@@ -34,12 +40,13 @@
 - [z-icon](../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-toggle-button --> z-icon
   style z-toggle-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

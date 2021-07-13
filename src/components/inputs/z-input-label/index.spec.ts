@@ -6,7 +6,7 @@ describe("Suite test ZInputLabel", () => {
   it("Test render ZInputLabel - empty", async () => {
     const page = await newSpecPage({
       components: [ZInputLabel],
-      html: `<z-input-label></z-input-label>`
+      html: `<z-input-label></z-input-label>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -21,7 +21,7 @@ describe("Suite test ZInputLabel", () => {
   it("Test render ZInputLabel - with props", async () => {
     const page = await newSpecPage({
       components: [ZInputLabel],
-      html: `<z-input-label value="label"></z-input-label>`
+      html: `<z-input-label value="label"></z-input-label>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -36,7 +36,7 @@ describe("Suite test ZInputLabel", () => {
   it("Test render ZInputLabel - disabled", async () => {
     const page = await newSpecPage({
       components: [ZInputLabel],
-      html: `<z-input-label value="label" disabled></z-input-label>`
+      html: `<z-input-label value="label" disabled></z-input-label>`,
     });
 
     expect(page.root).toEqualHtml(`

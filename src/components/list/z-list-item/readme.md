@@ -1,14 +1,13 @@
 # z-list-item
 
 <!-- readme-group="list" -->
+
 ```html
-<z-list-item text='testo' ></z-list-item>
-<z-list-item text='testo' link ='http://www.google.it'></z-list-item>`
+<z-list-item text="testo"></z-list-item>
+<z-list-item text="testo" link="http://www.google.it"></z-list-item>`
 ```
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -22,7 +21,6 @@
 | `text`       | `text`       | content text                     | `string`  | `undefined` |
 | `underlined` | `underlined` | underlined style flag            | `boolean` | `true`      |
 
-
 ## Events
 
 | Event                | Description                                     | Type               |
@@ -30,19 +28,19 @@
 | `zListItemClick`     | emitted on list item click, returns listitemid  | `CustomEvent<any>` |
 | `zListItemLinkClick` | emitted on list item link click, returns linkId | `CustomEvent<any>` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-combobox](../../inputs/z-combobox)
- - [z-list](../z-list)
+- [z-combobox](../../inputs/z-combobox)
+- [z-list](../z-list)
 
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-list-item --> z-icon
@@ -51,6 +49,6 @@ graph TD;
   style z-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -3,11 +3,11 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZNavigationTab } from "./index";
 
 describe("Suite test ZNavigationTab", () => {
-
   it("Test render ZNavigationTab empty", async () => {
     const page = await newSpecPage({
       components: [ZNavigationTab],
-      html: `<z-navigation-tab></z-navigation-tab>`});
+      html: `<z-navigation-tab></z-navigation-tab>`,
+    });
 
     expect(page.root).toEqualHtml(`
       <z-navigation-tab orientation="horizontal" size="big">
@@ -31,7 +31,7 @@ describe("Suite test ZNavigationTab", () => {
             <span slot="label">Home</span>
           </button>
         </z-navigation-tab>
-      `
+      `,
     });
 
     expect(page.root).toEqualHtml(`
@@ -59,7 +59,7 @@ describe("Suite test ZNavigationTab", () => {
             <span slot="label">App</span>
           </button>
         </z-navigation-tab>
-      `
+      `,
     });
 
     expect(page.root).toEqualHtml(`
@@ -86,7 +86,7 @@ describe("Suite test ZNavigationTab", () => {
             <z-icon name="house" slot="icon"></z-icon>
           </button>
         </z-navigation-tab>
-      `
+      `,
     });
 
     expect(page.root).toEqualHtml(`

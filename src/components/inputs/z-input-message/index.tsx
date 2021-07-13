@@ -4,7 +4,7 @@ import { InputStatusBean } from "../../../beans";
 @Component({
   tag: "z-input-message",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZInputMessage {
   /** input helper message */
@@ -15,11 +15,11 @@ export class ZInputMessage {
   private statusIcons = {
     success: "checkmark-circle",
     error: "multiply-circled",
-    warning: "exclamation-circle"
+    warning: "exclamation-circle",
   };
 
   renderMsgClassName(): string {
-    return this.status ? `msg_${this.status}` : '';
+    return this.status ? `msg_${this.status}` : "";
   }
 
   render() {

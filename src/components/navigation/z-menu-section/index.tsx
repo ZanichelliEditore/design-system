@@ -7,8 +7,8 @@ import {
   EventEmitter,
   Element,
   Listen,
-  Host
-} from '@stencil/core';
+  Host,
+} from "@stencil/core";
 
 /**
  * @slot - Menu section label
@@ -16,11 +16,10 @@ import {
  */
 
 @Component({
-  tag: 'z-menu-section',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-menu-section",
+  styleUrl: "styles.css",
+  shadow: true,
 })
-
 export class ZMenuSection {
   @Prop({ reflect: true }) active?: boolean;
   @State() open: boolean;
@@ -40,7 +39,7 @@ export class ZMenuSection {
     this.open ? this.opened.emit() : this.closed.emit();
   }
 
-  @Listen('click', { target: 'document' })
+  @Listen("click", { target: "document" })
   /** Close the list when a click is performed outside of this Element. */
   handleClick(ev) {
     if (!this.open || this.hostElement.contains(ev.target)) {
@@ -55,7 +54,8 @@ export class ZMenuSection {
    * Check if some content slot is set.
    */
   checkContent() {
-    this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length;
+    this.hasContent =
+      !!this.hostElement.querySelectorAll('[slot="item"]').length;
   }
 
   componentWillLoad() {
@@ -63,14 +63,27 @@ export class ZMenuSection {
   }
 
   render() {
-    return <Host role="menu" open={this.open}>
-      <button class="label" aria-pressed={this.open ? 'true' : 'false'} onClick={this.toggle.bind(this)}>
-        <slot></slot>
-        {this.hasContent && <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />}
-      </button>
-      {this.open && <div class="items">
-        <slot name="item" onSlotchange={this.checkContent.bind(this)}></slot>
-      </div>}
-    </Host>
+    return (
+      <Host role="menu" open={this.open}>
+        <button
+          class="label"
+          aria-pressed={this.open ? "true" : "false"}
+          onClick={this.toggle.bind(this)}
+        >
+          <slot></slot>
+          {this.hasContent && (
+            <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
+          )}
+        </button>
+        {this.open && (
+          <div class="items">
+            <slot
+              name="item"
+              onSlotchange={this.checkContent.bind(this)}
+            ></slot>
+          </div>
+        )}
+      </Host>
+    );
   }
 }

@@ -8,8 +8,8 @@ import {
   Listen,
   Element,
   Host,
-  Watch
-} from '@stencil/core';
+  Watch,
+} from "@stencil/core";
 
 /**
  * @slot - Menu label
@@ -18,11 +18,10 @@ import {
  */
 
 @Component({
-  tag: 'z-menu',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-menu",
+  styleUrl: "styles.css",
+  shadow: true,
 })
-
 export class ZMenu {
   /** Flag to set the active status of the menu. */
   @Prop({ reflect: true }) active?: boolean;
@@ -32,7 +31,7 @@ export class ZMenu {
    * stacked beneath it otherwise.
    * @default false
    */
-  @Prop({ reflect: true }) floating?= false;
+  @Prop({ reflect: true }) floating? = false;
   /**
    * The opening state of the menu.
    * @default false
@@ -58,14 +57,10 @@ export class ZMenu {
     this.open ? this.opened.emit() : this.closed.emit();
   }
 
-  @Listen('click', { target: 'document' })
+  @Listen("click", { target: "document" })
   /** Close the floating list when a click is performed outside of this Element. */
   handleClick(ev) {
-    if (
-      !this.floating ||
-      !this.open ||
-      this.hostElement.contains(ev.target)
-    ) {
+    if (!this.floating || !this.open || this.hostElement.contains(ev.target)) {
       return;
     }
 
@@ -74,7 +69,7 @@ export class ZMenu {
     this.closed.emit();
   }
 
-  @Watch('open')
+  @Watch("open")
   onOpenChanged() {
     if (this.open) {
       this.reflow(true);
@@ -92,9 +87,12 @@ export class ZMenu {
       const { style } = this.content;
       const { left } = this.hostElement.getBoundingClientRect();
       const widthPx = getComputedStyle(this.content).width;
-      const width = widthPx ? parseFloat(widthPx.replace('px', '')) : 375;
+      const width = widthPx ? parseFloat(widthPx.replace("px", "")) : 375;
       const safeScrollbarSpace = 30;
-      style.left = `${Math.min(window.innerWidth - left - width - safeScrollbarSpace, 0)}px`;
+      style.left = `${Math.min(
+        window.innerWidth - left - width - safeScrollbarSpace,
+        0
+      )}px`;
     }
     if (live) {
       this.raf = requestAnimationFrame(this.reflow.bind(this, live));
@@ -105,8 +103,11 @@ export class ZMenu {
    * Check if some content slot is set.
    */
   checkContent() {
-    this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
-    this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
+    this.hasHeader =
+      !!this.hostElement.querySelectorAll('[slot="header"]').length;
+    this.hasContent =
+      !!this.hostElement.querySelectorAll('[slot="item"]').length ||
+      this.hasHeader;
   }
 
   componentWillLoad() {
@@ -114,21 +115,43 @@ export class ZMenu {
   }
 
   render() {
-    return <Host role="menu">
-      <button class="label" aria-pressed={this.open ? 'true' : 'false'} onClick={this.toggle.bind(this)}>
-        <div class="label-content">
-          <slot></slot>
-          {this.hasContent && <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />}
+    return (
+      <Host role="menu">
+        <button
+          class="label"
+          aria-pressed={this.open ? "true" : "false"}
+          onClick={this.toggle.bind(this)}
+        >
+          <div class="label-content">
+            <slot></slot>
+            {this.hasContent && (
+              <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
+            )}
+          </div>
+        </button>
+        <div
+          class="content"
+          ref={(el) => {
+            this.content = el;
+          }}
+          hidden={!this.open}
+        >
+          {this.hasHeader && (
+            <header class="header">
+              <slot
+                name="header"
+                onSlotchange={this.checkContent.bind(this)}
+              ></slot>
+            </header>
+          )}
+          <div class="items">
+            <slot
+              name="item"
+              onSlotchange={this.checkContent.bind(this)}
+            ></slot>
+          </div>
         </div>
-      </button>
-      <div class="content" ref={(el) => { this.content = el; }} hidden={!this.open}>
-        {this.hasHeader && <header class="header">
-          <slot name="header" onSlotchange={this.checkContent.bind(this)}></slot>
-        </header>}
-        <div class="items">
-          <slot name="item" onSlotchange={this.checkContent.bind(this)}></slot>
-        </div>
-      </div>
-    </Host>
+      </Host>
+    );
   }
 }

@@ -5,6 +5,7 @@
 ## Implementation state
 
 Variants:
+
 - [x] Default
 - [x] Border
 - [x] Shadow
@@ -12,16 +13,19 @@ Variants:
 - [ ] Text
 
 Orientation:
+
 - [x] Vertical
 - [ ] Horizontal
 
 Interactions:
+
 - [x] Click
 - [ ] Multi select
 - [ ] Hover actions
 - [ ] Reveal
 
 Cover variants:
+
 - [x] Horizontal
 - [ ] Vertical
 - [x] With icon
@@ -29,19 +33,22 @@ Cover variants:
 - [ ] Circle
 
 ---
+
 ## CSS Variables
+
 - `--z-card--color-cover-background`: used to set the background color of the color cover.
 - `--z-card--border-color`: used to set the border color of the card.
 - `--aspect-ratio`: used to set the ratio of the cover (respecting the indications of the design). Default is `1.62`.
 
 ---
+
 ## Notes
+
 The width of the card must be set externally, respecting the grid indication of the design.
 
 ---
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -51,13 +58,11 @@ The width of the card must be set externally, respecting the grid indication of 
 | `coverIcon` | `cover-icon` | Name of the icon to place over the image cover                                                              | `string`                                                             | `undefined` |
 | `variant`   | `variant`    | Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card. | `CardVariants.border \| CardVariants.overlay \| CardVariants.shadow` | `undefined` |
 
-
 ## Events
 
 | Event         | Description                                          | Type               |
 | ------------- | ---------------------------------------------------- | ------------------ |
 | `cardClicked` | Card click event. Fired only if `clickable` is true. | `CustomEvent<any>` |
-
 
 ## Dependencies
 
@@ -66,12 +71,13 @@ The width of the card must be set externally, respecting the grid indication of 
 - [z-icon](../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-card --> z-icon
   style z-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

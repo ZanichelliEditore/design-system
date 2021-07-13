@@ -11,15 +11,15 @@ it("Test ZButtonSort should emit buttonSortClick event", async () => {
   // Define a window.onCustomEvent function on the page.
   let buttonSortClickCounter = 0;
   let buttonSortAsc = true;
-  await page.exposeFunction("onButtonSortClick", e => {
+  await page.exposeFunction("onButtonSortClick", (e) => {
     buttonSortClickCounter = 1;
     buttonSortAsc = e.detail.sortAsc;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "buttonSortClick";
-  page.evaluateOnNewDocument(type => {
-    document.addEventListener(type, e => {
+  page.evaluateOnNewDocument((type) => {
+    document.addEventListener(type, (e) => {
       (window as CustomWindow).onButtonSortClick({ type, detail: e.detail });
     });
   }, type);

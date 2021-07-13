@@ -1,9 +1,6 @@
 # z-popover
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,20 +12,20 @@
 | `position`        | `position`         | [optional] Popover position                   | `typeof PopoverPosition["above-center"] \| typeof PopoverPosition["above-left"] \| typeof PopoverPosition["above-right"] \| typeof PopoverPosition["after-center"] \| typeof PopoverPosition["after-down"] \| typeof PopoverPosition["after-up"] \| typeof PopoverPosition["before-center"] \| typeof PopoverPosition["before-down"] \| typeof PopoverPosition["before-up"] \| typeof PopoverPosition["below-center"] \| typeof PopoverPosition["below-left"] \| typeof PopoverPosition["below-right"]` | `PopoverPosition["after-up"]` |
 | `showArrow`       | `show-arrow`       | [optional] Show or hide arrow                 | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `false`                       |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-registro-table-header](../../snowflakes/registro-table/z-registro-table-header)
+- [z-registro-table-header](../../snowflakes/registro-table/z-registro-table-header)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-registro-table-header --> z-popover
   style z-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

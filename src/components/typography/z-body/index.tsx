@@ -3,7 +3,7 @@ import { ZTypographyLevels } from "../z-typography";
 
 @Component({
   tag: "z-body",
-  shadow: true
+  shadow: true,
 })
 export class ZBody {
   @Prop() level: 1 | 2 | 3 | 4 | 5;

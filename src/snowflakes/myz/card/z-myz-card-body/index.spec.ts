@@ -6,7 +6,7 @@ describe("Suite test ZMyzCardBody", () => {
   it("Test render ZMyzCardBody vuoto", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardBody],
-      html: `<z-myz-card-body></z-myz-card-body>`
+      html: `<z-myz-card-body></z-myz-card-body>`,
     });
 
     expect(page.root).toEqualHtml(`

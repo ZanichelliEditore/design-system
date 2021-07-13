@@ -3,7 +3,7 @@ import { Component, Prop, h, State, Event, EventEmitter } from "@stencil/core";
 @Component({
   tag: "z-toggle-button",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZToggleButton {
   /** label text */

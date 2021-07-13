@@ -1,9 +1,6 @@
 # z-cookiebar
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -13,13 +10,11 @@
 | `cookiepolicyurl` | `cookiepolicyurl` | cookie policy link url                         | `string`    | `undefined` |
 | `hide`            | `hide`            | hide cookie bar (optional)                     | `boolean`   | `undefined` |
 
-
 ## Events
 
 | Event    | Description                                    | Type               |
 | -------- | ---------------------------------------------- | ------------------ |
 | `accept` | emitted on ACCETTA button click, returns event | `CustomEvent<any>` |
-
 
 ## Dependencies
 
@@ -29,6 +24,7 @@
 - [z-candybar](../z-candybar)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-cookiebar --> z-button
@@ -37,6 +33,6 @@ graph TD;
   style z-cookiebar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

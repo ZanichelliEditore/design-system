@@ -7,7 +7,7 @@ import { LicenseTypeEnum } from "../../../../beans/index";
 @Component({
   tag: "z-myz-card-header",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardHeader {
   /** volume title */
@@ -37,7 +37,7 @@ export class ZMyzCardHeader {
     return {
       real: this.cardtype === LicenseTypeEnum.real,
       trial: this.cardtype === LicenseTypeEnum.trial,
-      faded: this.faded
+      faded: this.faded,
     };
   }
 
@@ -45,7 +45,7 @@ export class ZMyzCardHeader {
     return (
       <header class={this.retrieveClass()}>
         <h2
-          ref={el => (this.ellipsis = el as HTMLElement)}
+          ref={(el) => (this.ellipsis = el as HTMLElement)}
           title={this.getTitle()}
         >
           {this.titolo}

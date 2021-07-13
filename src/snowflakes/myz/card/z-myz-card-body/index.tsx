@@ -7,7 +7,7 @@ import { Component, h } from "@stencil/core";
 @Component({
   tag: "z-myz-card-body",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardBody {
   render() {

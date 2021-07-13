@@ -3,7 +3,7 @@ import { Component, Prop, Event, EventEmitter, h } from "@stencil/core";
 @Component({
   tag: "z-button-filter",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZButtonFilter {
   /** filter text content */
@@ -22,7 +22,7 @@ export class ZButtonFilter {
     eventName: "removefilter",
     composed: true,
     cancelable: true,
-    bubbles: true
+    bubbles: true,
   })
   removefilter: EventEmitter;
 
@@ -32,7 +32,7 @@ export class ZButtonFilter {
 
   handleRemovingFilterClick(): void {
     this.removefilter.emit({
-      filterid: this.filterid
+      filterid: this.filterid,
     });
   }
 

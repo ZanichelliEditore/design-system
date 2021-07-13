@@ -6,13 +6,13 @@ import {
   Listen,
   Watch,
   Event,
-  EventEmitter
+  EventEmitter,
 } from "@stencil/core";
 import {
   ComboItemBean,
   InputTypeBean,
   InputTypeEnum,
-  keybordKeyCodeEnum
+  keybordKeyCodeEnum,
 } from "../../../beans";
 import { ZInput } from "../z-input";
 import { handleKeyboardSubmit } from "../../../utils/utils";
@@ -20,7 +20,7 @@ import { handleKeyboardSubmit } from "../../../utils/utils";
 @Component({
   tag: "z-combobox",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZCombobox {
   /** input unique id */
@@ -65,7 +65,7 @@ export class ZCombobox {
   watchItems() {
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-    this.selectedCounter = this.itemsList.filter(item => item.checked).length;
+    this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
     if (this.searchValue) {
       this.filterItems(this.searchValue);
     } else {
@@ -109,7 +109,7 @@ export class ZCombobox {
   }
 
   componentWillRender() {
-    this.selectedCounter = this.itemsList.filter(item => item.checked).length;
+    this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
     if (this.searchValue) {
       this.filterItems(this.searchValue);
     }
@@ -129,7 +129,7 @@ export class ZCombobox {
     this.searchValue = value;
 
     this.resetRenderItemsList();
-    this.renderItemsList = this.renderItemsList.filter(item => {
+    this.renderItemsList = this.renderItemsList.filter((item) => {
       const start = item.name.toUpperCase().indexOf(value.toUpperCase());
       const end = start + value.length;
       const newName =
@@ -145,7 +145,7 @@ export class ZCombobox {
   checkAll(checked = true): void {
     this.itemsList = this.itemsList.map((item: ComboItemBean) => ({
       ...item,
-      checked: checked
+      checked: checked,
     }));
     this.resetRenderItemsList();
     this.emitComboboxChange();

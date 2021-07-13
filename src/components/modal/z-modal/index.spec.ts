@@ -5,7 +5,7 @@ describe("Suite test ZModal", () => {
   it("Test render empty ZModal", async () => {
     const page = await newSpecPage({
       components: [ZModal],
-      html: `<z-modal></z-modal>`
+      html: `<z-modal></z-modal>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -31,7 +31,7 @@ describe("Suite test ZModal", () => {
   it("Test render ZModal with props", async () => {
     const page = await newSpecPage({
       components: [ZModal],
-      html: `<z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle"></z-modal>`
+      html: `<z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle"></z-modal>`,
     });
     expect(page.root).toEqualHtml(`
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle">
@@ -59,7 +59,7 @@ describe("Suite test ZModal", () => {
   it("Test render ZModal with slotted content", async () => {
     const page = await newSpecPage({
       components: [ZModal],
-      html: `<z-modal><div slot="modalContent">Contenuto dello <b>slot</b></div></z-modal>`
+      html: `<z-modal><div slot="modalContent">Contenuto dello <b>slot</b></div></z-modal>`,
     });
 
     expect(page.root).toEqualHtml(`

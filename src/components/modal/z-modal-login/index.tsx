@@ -39,9 +39,8 @@ export class zModalLogin {
   @State() externalProviderCheck: boolean = false;
 
   componentDidLoad() {
-    this.externalProviderCheck = !!this.hostElement.querySelectorAll(
-      '[slot="provider"]'
-    ).length;
+    this.externalProviderCheck =
+      !!this.hostElement.querySelectorAll('[slot="provider"]').length;
   }
 
   /** Emitted on login submit */
@@ -94,7 +93,8 @@ export class zModalLogin {
   cleanUsername(username: string): string {
     username = username.trim().toLowerCase();
 
-    const mobileRegex = /^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/g;
+    const mobileRegex =
+      /^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/g;
     if (mobileRegex.test(username)) {
       username = username.replace(/[- .)(]/g, "");
       if (/^[\d ]*$/.test(username)) username = "+39" + username;

@@ -6,7 +6,7 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button></z-button>`
+      html: `<z-button></z-button>`,
     });
     expect(page.root).toEqualHtml(`
       <z-button size="big" variant="primary" style="pointer-events: auto;">
@@ -24,7 +24,7 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton con contenuto", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button>label</z-button>`
+      html: `<z-button>label</z-button>`,
     });
     expect(page.root).toEqualHtml(`
       <z-button size="big" variant="primary" style="pointer-events: auto;">
@@ -43,7 +43,7 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton con icon", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button icon="icon"></z-button>`
+      html: `<z-button icon="icon"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
       <z-button size="big" variant="primary" icon="icon" style="pointer-events: auto;">
@@ -62,7 +62,7 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton variant", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button variant="secondary"></z-button>`
+      html: `<z-button variant="secondary"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
       <z-button size="big" variant="secondary" style="pointer-events: auto;">
@@ -80,7 +80,7 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton small", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button issmall></z-button>`
+      html: `<z-button issmall></z-button>`,
     });
     expect(page.root).toEqualHtml(`
       <z-button issmall size="big" variant="primary" style="pointer-events: auto;">
@@ -98,7 +98,7 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton disabled", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button disabled></z-button>`
+      html: `<z-button disabled></z-button>`,
     });
     expect(page.root).toEqualHtml(`
       <z-button size="big" variant="primary" disabled style="pointer-events: none;">
@@ -118,7 +118,7 @@ describe("Suite test ZButton", () => {
       components: [ZButton],
       html: `<z-button>
         <button>invio</button>
-      </z-button>`
+      </z-button>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -140,7 +140,7 @@ describe("Suite test ZButton", () => {
       components: [ZButton],
       html: `<z-button variant="primary">
         <a href="https://wikipedia.com">Link</button>
-      </z-button>`
+      </z-button>`,
     });
 
     expect(page.root).toEqualHtml(`

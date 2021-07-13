@@ -20,7 +20,7 @@ button > z-icon {
 button > z-icon.light {
   color: var(--bg-grey-900);
   fill: currentColor;
-} 
+}
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {

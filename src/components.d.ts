@@ -5,3032 +5,3134 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, NotificationType, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import {
+  AvatarSize,
+  ButtonSizeEnum,
+  ButtonVariantBean,
+  CardVariants,
+  ComboItemBean,
+  DividerOrientation,
+  DividerSize,
+  HeaderUserData,
+  InputStatusBean,
+  InputTypeBean,
+  MenuItem,
+  NotificationType,
+  PopoverBorderRadius,
+  PopoverPosition,
+  PopoverShadow,
+  SelectItemBean,
+  StatusTagStatus,
+  TableHeaderSize,
+  TabOrientationBean,
+  TabSizeBean,
+  ThemeVariant,
+  ThemeVariantBean,
+} from "./beans";
 import { ListItemBean } from "./beans/index.js";
-import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
+import {
+  LicenseTypeEnum,
+  MenuItem as MenuItem1,
+  TooltipPosition,
+} from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
-    interface ZAppHeader {
-        /**
-          * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
-         */
-        "drawer": boolean;
-        /**
-          * Control menu bar position in the header. **Optional**
-         */
-        "flow": 'auto'|'stack';
-        /**
-          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
-         */
-        "hero": string;
-        /**
-          * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
-         */
-        "overlay": boolean;
-        /**
-          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
-         */
-        "stuck": boolean;
-    }
-    interface ZAppSwitcher {
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariantBean;
-    }
-    interface ZAppTopbar {
-        /**
-          * optional hashtag string
-         */
-        "hashtag"?: string;
-        /**
-          * logged status flag
-         */
-        "logged"?: boolean;
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariantBean;
-    }
-    interface ZAvatar {
-        /**
-          * [optional] Avatar background color
-         */
-        "backgroundColor"?: string;
-        /**
-          * [optional] Avatar image
-         */
-        "image"?: string;
-        /**
-          * [optional] Avatar size
-         */
-        "size"?: AvatarSize;
-        /**
-          * [optional] Avatar text
-         */
-        "text"?: string;
-        /**
-          * [optional] Avatar text color
-         */
-        "textColor"?: string;
-    }
-    interface ZBody {
-        "component": string;
-        "level": 1 | 2 | 3 | 4 | 5;
-        "variant": "regular" | "semibold";
-    }
-    interface ZButton {
-        /**
-          * HTML button disabled attribute.
-         */
-        "disabled"?: boolean;
-        /**
-          * Identifier, should be unique.
-         */
-        "htmlid"?: string;
-        /**
-          * `z-icon` name to use (optional).
-         */
-        "icon"?: string;
-        /**
-          * Reduce button size (deprecated).
-          * @deprecated Use `size` prop.
-         */
-        "issmall"?: boolean;
-        /**
-          * HTML button name attribute.
-         */
-        "name"?: string;
-        /**
-          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-         */
-        "size"?: ButtonSizeEnum;
-        /**
-          * Spy to render square button.
-         */
-        "square"?: boolean;
-        /**
-          * HTML button type attribute.
-         */
-        "type"?: HTMLButtonElement["type"];
-        /**
-          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
-         */
-        "variant"?: ButtonVariantBean;
-    }
-    interface ZButtonFilter {
-        /**
-          * filter id
-         */
-        "filterid": string;
-        /**
-          * filter text content
-         */
-        "filtername": string;
-        /**
-          * add icon to button
-         */
-        "hasicon": boolean;
-        /**
-          * disable action on button
-         */
-        "isfixed": boolean;
-        /**
-          * reduce button size (optional)
-         */
-        "issmall"?: boolean;
-    }
-    interface ZButtonSort {
-        /**
-          * id, should be unique
-         */
-        "buttonid": string;
-        /**
-          * occurrencies counter (optional)
-         */
-        "counter"?: number;
-        /**
-          * label content (descending)
-         */
-        "desclabel"?: string;
-        /**
-          * selected flag (optional)
-         */
-        "isselected"?: boolean;
-        /**
-          * label content (ascending)
-         */
-        "label": string;
-        /**
-          * sortable flag (optional)
-         */
-        "sortasc"?: boolean;
-        /**
-          * sort label content (ascending) (optional)
-         */
-        "sortlabelasc"?: string;
-        /**
-          * sort label content (descending) (optional)
-         */
-        "sortlabeldesc"?: string;
-    }
-    interface ZCandybar {
-    }
-    interface ZCard {
-        /**
-          * Enable click interactions on the card. Default: false
-         */
-        "clickable": boolean;
-        /**
-          * Name of the icon to place over the image cover
-         */
-        "coverIcon": string;
-        /**
-          * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
-         */
-        "variant": CardVariants;
-    }
-    interface ZChip {
-        "boldtext"?: number;
-        "regulartext"?: string;
-    }
-    interface ZCombobox {
-        /**
-          * check all label (optional)
-         */
-        "checkalltext"?: string;
-        /**
-          * close combobox list text
-         */
-        "closesearchtext"?: string;
-        /**
-          * show "check all" checkbox (optional)
-         */
-        "hascheckall"?: boolean;
-        /**
-          * show search input flag (optional)
-         */
-        "hassearch"?: boolean;
-        /**
-          * input unique id
-         */
-        "inputid": string;
-        /**
-          * fixed style flag
-         */
-        "isfixed": boolean;
-        /**
-          * toggle combo list opening flag
-         */
-        "isopen": boolean;
-        /**
-          * list items array
-         */
-        "items": ComboItemBean[] | string;
-        /**
-          * label text
-         */
-        "label": string;
-        /**
-          * max number of checkable items (0 = unlimited)
-         */
-        "maxcheckableitems": number;
-        /**
-          * no result text message
-         */
-        "noresultslabel"?: string;
-        /**
-          * search input label text (optional)
-         */
-        "searchlabel"?: string;
-        /**
-          * search input placeholder text (optional)
-         */
-        "searchplaceholder"?: string;
-        /**
-          * search input title text (optional)
-         */
-        "searchtitle"?: string;
-        /**
-          * uncheck all label (optional)
-         */
-        "uncheckalltext"?: string;
-    }
-    interface ZCookiebar {
-        /**
-          * callback to handle ok button action (optional)
-         */
-        "callback"?: () => any;
-        /**
-          * cookie policy link url
-         */
-        "cookiepolicyurl": string;
-        /**
-          * hide cookie bar (optional)
-         */
-        "hide"?: boolean;
-    }
-    interface ZDivider {
-        /**
-          * [optional] Divider color
-         */
-        "color"?: string;
-        /**
-          * [optional] Divider orintation
-         */
-        "orientation"?: DividerOrientation;
-        /**
-          * [optional] Divider size
-         */
-        "size"?: DividerSize;
-    }
-    interface ZFooter {
-        /**
-          * deprecated - set copyright user
-         */
-        "copyrightuser"?: string;
-        /**
-          * deprecated - JSON stringified data to fill the footer
-         */
-        "data"?: string;
-    }
-    interface ZFooterLink {
-        /**
-          * link
-         */
-        "href": string;
-    }
-    interface ZFooterSection {
-        /**
-          * section title
-         */
-        "name": string;
-    }
-    interface ZFooterSocial {
-        /**
-          * social description
-         */
-        "description"?: string;
-        /**
-          * social link
-         */
-        "href": string;
-        /**
-          * icon url
-         */
-        "icon": string;
-    }
-    interface ZHeader {
-        /**
-          * set current active menu link (optional)
-         */
-        "activeintlinkid"?: string;
-        /**
-          * set current active sub menu link (optional)
-         */
-        "activesublinkid"?: string;
-        /**
-          * data to fill external navigation links
-         */
-        "extlinkdata"?: string | MenuItem[];
-        /**
-          * hide login button if true (optional)
-         */
-        "hideloginbutton"?: boolean;
-        /**
-          * alternative logo title text (optional)
-         */
-        "imagealt"?: string;
-        /**
-          * data to fill internal navigation links
-         */
-        "intlinkdata"?: string | MenuItem[];
-        /**
-          * graphic flag to set myzanichelli style
-         */
-        "ismyz": boolean;
-        /**
-          * url to attach to logo (optional)
-         */
-        "logolink"?: string;
-        /**
-          * data to fill user dropdown menu (optional)
-         */
-        "userdata"?: string | HeaderUserData;
-    }
-    interface ZHeading {
-        "component": string;
-        "level": 1 | 2 | 3 | 4;
-        "variant": "regular" | "semibold" | "light";
-    }
-    interface ZIcon {
-        /**
-          * icon height (optional)
-         */
-        "height"?: number;
-        /**
-          * icon id (optional)
-         */
-        "iconid"?: string;
-        /**
-          * icon name (choice between available icons)
-         */
-        "name": string;
-        /**
-          * icon width (optional)
-         */
-        "width"?: number;
-    }
-    interface ZIconPackage {
-    }
-    interface ZInfoBox {
-        /**
-          * info box unique id
-         */
-        "boxid": string;
-        /**
-          * render close icon flag
-         */
-        "isclosable": boolean;
-    }
-    interface ZInput {
-        /**
-          * the input has autocomplete option (optional): available for select, input
-         */
-        "autocomplete"?: boolean | string;
-        /**
-          * checked: available for checkbox, radio
-         */
-        "checked"?: boolean;
-        /**
-          * the input is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * get the input value
-         */
-        "getValue": () => Promise<string | string[]>;
-        /**
-          * render clear icon when typing (optional): available for text
-         */
-        "hasclearicon"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
-        /**
-          * the id of the input element
-         */
-        "htmlid": string;
-        /**
-          * the input html title (optional)
-         */
-        "htmltitle"?: string;
-        /**
-          * render icon (optional): available for text, select
-         */
-        "icon"?: string;
-        /**
-          * get checked status
-         */
-        "isChecked": () => Promise<boolean>;
-        /**
-          * items (optional): available for select
-         */
-        "items"?: SelectItemBean[] | string;
-        /**
-          * the input label
-         */
-        "label"?: string;
-        /**
-          * the input label position: available for checkbox, radio
-         */
-        "labelafter"?: boolean;
-        /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "message"?: string;
-        /**
-          * multiple options can be selected (optional): available for select
-         */
-        "multiple"?: boolean;
-        /**
-          * the input name
-         */
-        "name"?: string;
-        /**
-          * the input placeholder (optional)
-         */
-        "placeholder"?: string;
-        /**
-          * the input is readonly
-         */
-        "readonly"?: boolean;
-        /**
-          * the input is required (optional): available for text, password, number, email, textarea, checkbox
-         */
-        "required"?: boolean;
-        /**
-          * set the input value
-         */
-        "setValue": (value: string | string[]) => Promise<void>;
-        /**
-          * the input status (optional): available for text, password, number, email, textarea, select
-         */
-        "status"?: InputStatusBean;
-        /**
-          * input types
-         */
-        "type": InputTypeBean;
-        /**
-          * timeout setting before trigger `inputChange` event (optional): available for text, textarea
-         */
-        "typingtimeout"?: number;
-        /**
-          * the input value
-         */
-        "value"?: string;
-    }
-    interface ZInputLabel {
-        /**
-          * the label is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * the label value
-         */
-        "value": string;
-    }
-    interface ZInputMessage {
-        /**
-          * input helper message
-         */
-        "message": string;
-        /**
-          * input status (optional)
-         */
-        "status"?: InputStatusBean;
-    }
-    interface ZLink {
-        /**
-          * big link version
-         */
-        "big"?: boolean;
-        /**
-          * link url (optional)
-         */
-        "href"?: string;
-        /**
-          * link id (optional)
-         */
-        "htmlid"?: string;
-        /**
-          * tabindex link attribute (optional)
-         */
-        "htmltabindex"?: number;
-        /**
-          * link icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * active link flag (optional)
-         */
-        "isactive"?: boolean;
-        /**
-          * disable link flag (optional)
-         */
-        "isdisabled"?: boolean;
-        /**
-          * white variant flag (optional)
-         */
-        "iswhite"?: boolean;
-        /**
-          * link target (optional)
-         */
-        "target"?: string;
-        /**
-          * link text variant (optional)
-         */
-        "textcolor"?: 'white' | 'blue' | 'black';
-    }
-    interface ZList {
-        /**
-          * json stringified list data (mutable, optional)
-         */
-        "inputrawdata"?: string;
-        /**
-          * list item data (mutable, optional)
-         */
-        "list"?: ListItemBean[];
-    }
-    interface ZListItem {
-        /**
-          * data-action attribute (optional)
-         */
-        "action"?: string;
-        /**
-          * icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * link url (optional)
-         */
-        "link"?: string;
-        /**
-          * link target (optional)
-         */
-        "linktarget"?: string;
-        /**
-          * id (optional)
-         */
-        "listitemid"?: string;
-        /**
-          * content text
-         */
-        "text": string;
-        /**
-          * underlined style flag
-         */
-        "underlined": boolean;
-    }
-    interface ZLogo {
-        /**
-          * image height
-         */
-        "height": number;
-        /**
-          * alternative image text
-         */
-        "imagealt"?: string;
-        /**
-          * link url (optional)
-         */
-        "link"?: string;
-        /**
-          * link target (optional)
-         */
-        "targetblank"?: boolean;
-        /**
-          * image width
-         */
-        "width": number;
-    }
-    interface ZMenu {
-        /**
-          * Flag to set the active status of the menu.
-         */
-        "active"?: boolean;
-        /**
-          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
-          * @default false
-         */
-        "floating"?: boolean;
-        /**
-          * The opening state of the menu.
-          * @default false
-         */
-        "open": boolean;
-    }
-    interface ZMenuDropdown {
-        /**
-          * unique button id
-         */
-        "buttonid": string;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menucontent": string | MenuItem[];
-        /**
-          * user name text
-         */
-        "nomeutente": string;
-    }
-    interface ZMenuSection {
-        "active"?: boolean;
-    }
-    interface ZModal {
-        /**
-          * unique id
-         */
-        "modalid": string;
-        /**
-          * subtitle (optional)
-         */
-        "modalsubtitle"?: string;
-        /**
-          * title text (optional)
-         */
-        "modaltitle"?: string;
-    }
-    interface ZModalLogin {
-        /**
-          * Login modal title
-         */
-        "heading"?: string;
-        /**
-          * Username helper message
-         */
-        "message"?: string;
-        /**
-          * Username/password input status
-         */
-        "status"?: InputStatusBean;
-    }
-    interface ZMyzCard {
-        /**
-          * graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * highlighted status
-         */
-        "ishighlighted": boolean;
-        /**
-          * pressed status
-         */
-        "ispressed": boolean;
-    }
-    interface ZMyzCardAlert {
-        /**
-          * action button text
-         */
-        "actiontext"?: string;
-        /**
-          * content text
-         */
-        "contenttext": string;
-        /**
-          * icon name
-         */
-        "iconname": string;
-        /**
-          * alert variant type
-         */
-        "type": string;
-    }
-    interface ZMyzCardBody {
-    }
-    interface ZMyzCardCover {
-        /**
-          * default error image source
-         */
-        "defaultimg": string;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * image source
-         */
-        "img": string;
-        /**
-          * cover alt title
-         */
-        "titolo": string;
-    }
-    interface ZMyzCardFooter {
-        /**
-          * authors name text
-         */
-        "autori": string;
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * volume isbn
-         */
-        "isbn": string;
-        /**
-          * volume title
-         */
-        "titolo": string;
-    }
-    interface ZMyzCardHeader {
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * volume title
-         */
-        "titolo": string;
-    }
-    interface ZMyzCardIcon {
-        /**
-          * icon name
-         */
-        "icon": string;
-        /**
-          * disabled status flag
-         */
-        "isdisabled": boolean;
-    }
-    interface ZMyzCardList {
-        /**
-          * list data stringified array
-         */
-        "listdata": string;
-    }
-    interface ZNavigationTab {
-        "disabled"?: boolean;
-        "orientation": string;
-        "selected"?: boolean;
-        "size": string;
-    }
-    interface ZNavigationTabs {
-        /**
-          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
-         */
-        "orientation"?: TabOrientationBean;
-        /**
-          * Available sizes: `big` and `small`. Defaults to `big`.
-         */
-        "size"?: TabSizeBean;
-    }
-    interface ZNotification {
-        /**
-          * action button text
-         */
-        "actiontext"?: string;
-        /**
-          * icon on the left of the content
-         */
-        "contenticonname"?: string;
-        /**
-          * enable close icon
-         */
-        "showclose"?: boolean;
-        /**
-          * enable shadow
-         */
-        "showshadow"?: boolean;
-        /**
-          * alert variant type
-         */
-        "type": NotificationType;
-    }
-    interface ZPaginationBar {
-        /**
-          * current displayed page (mutable)
-         */
-        "currentpage": number;
-        /**
-          * json stringified history of visited pages (optional)
-         */
-        "historyraw"?: string;
-        /**
-          * array of history of visited pages (mutable, optional)
-         */
-        "listhistoryrow"?: number[];
-        /**
-          * pages number
-         */
-        "pages": number;
-        /**
-          * initial page (mutable)
-         */
-        "startpage": number;
-        /**
-          * number of visible pages
-         */
-        "visiblepages": number;
-    }
-    interface ZPaginationPage {
-        /**
-          * disabled status flag
-         */
-        "isdisabled": boolean;
-        /**
-          * selected status flag
-         */
-        "isselected": boolean;
-        /**
-          * visited status flag
-         */
-        "isvisited": boolean;
-        /**
-          * anchor html id
-         */
-        "pageid": string;
-        /**
-          * numeric page value (optional)
-         */
-        "value"?: number;
-    }
-    interface ZPanelElem {
-        /**
-          * name of slot container (optional)
-         */
-        "descr_slot_name"?: string;
-        /**
-          * html element id (optional)
-         */
-        "elemid"?: string;
-        /**
-          * alternative image text (optional)
-         */
-        "imgalt"?: string;
-        /**
-          * image url source (optional)
-         */
-        "imgurl"?: string;
-        /**
-          * disabled status flag (optional)
-         */
-        "isdisabled"?: boolean;
-        /**
-          * icon link name (optional)
-         */
-        "linkicon"?: string;
-        /**
-          * link label text
-         */
-        "linklabel": string;
-        /**
-          * link target (optional)
-         */
-        "target"?: string;
-        /**
-          * link url
-         */
-        "url": string;
-    }
-    interface ZPopover {
-        /**
-          * [optional] Background color token for popover
-         */
-        "backgroundColor"?: string;
-        /**
-          * [optional] Border radius token for popover
-         */
-        "borderRadius"?: PopoverBorderRadius;
-        /**
-          * [optional] Box shadow token for popover
-         */
-        "boxShadow"?: PopoverShadow;
-        /**
-          * [optional] Popover position
-         */
-        "position"?: PopoverPosition;
-        /**
-          * [optional] Show or hide arrow
-         */
-        "showArrow"?: boolean;
-    }
-    interface ZRegistroTable {
-        /**
-          * Sets table with border
-         */
-        "bordered"?: boolean;
-        /**
-          * Sets first column sticky
-         */
-        "columnSticky"?: boolean;
-        /**
-          * Sets header sticky
-         */
-        "headerSticky"?: boolean;
-    }
-    interface ZRegistroTableBody {
-    }
-    interface ZRegistroTableCell {
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-    }
-    interface ZRegistroTableExpandedRow {
-        /**
-          * Number table column plus 1 for the expand button
-         */
-        "colSpan": number;
-    }
-    interface ZRegistroTableFooter {
-    }
-    interface ZRegistroTableHead {
-    }
-    interface ZRegistroTableHeader {
-        /**
-          * Column ID
-         */
-        "columnId": string;
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-        /**
-          * [Optional] Padding of the header
-         */
-        "size"?: TableHeaderSize;
-        /**
-          * [Optional] Make the header sortable
-         */
-        "sortable"?: boolean;
-    }
-    interface ZRegistroTableHeaderRow {
-        "expandable"?: boolean;
-    }
-    interface ZRegistroTableRow {
-        "expandable"?: boolean;
-    }
-    interface ZRegistroTableStickyFooter {
-    }
-    interface ZSelect {
-        /**
-          * the input has autocomplete option
-         */
-        "autocomplete"?: boolean | string;
-        /**
-          * the input is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * get the input selected options
-         */
-        "getSelectedItems": () => Promise<SelectItemBean[]>;
-        /**
-          * get the input value
-         */
-        "getValue": () => Promise<string | string[]>;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
-        /**
-          * the id of the input element
-         */
-        "htmlid": string;
-        /**
-          * the input html title (optional)
-         */
-        "htmltitle"?: string;
-        /**
-          * the input select options
-         */
-        "items": SelectItemBean[] | string;
-        /**
-          * the input label
-         */
-        "label"?: string;
-        /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "message"?: string;
-        /**
-          * multiple options can be selected
-         */
-        "multiple"?: boolean;
-        /**
-          * the input name
-         */
-        "name"?: string;
-        /**
-          * no result text message
-         */
-        "noresultslabel"?: string;
-        /**
-          * the input placeholder (optional)
-         */
-        "placeholder"?: string;
-        /**
-          * the input is readonly
-         */
-        "readonly"?: boolean;
-        /**
-          * set the input value
-         */
-        "setValue": (value: string | string[]) => Promise<void>;
-        /**
-          * the input status (optional): available for text, password, number, email, textarea, select
-         */
-        "status"?: InputStatusBean;
-    }
-    interface ZStatusTag {
-        /**
-          * [optional] Hide the text and show it on hover
-         */
-        "expandable"?: boolean;
-        /**
-          * [optional] Status tag icon
-         */
-        "icon"?: string;
-        /**
-          * [optional] Status tag color
-         */
-        "status"?: StatusTagStatus;
-        /**
-          * [optional] Status tag text
-         */
-        "text"?: string;
-        /**
-          * [optional] Status tag style
-         */
-        "variant"?: ThemeVariant;
-    }
-    interface ZStepper {
-    }
-    interface ZStepperItem {
-        /**
-          * The disabled state of the item.
-         */
-        "disabled": boolean;
-        /**
-          * The href to navigate on click.
-         */
-        "href": string;
-        /**
-          * The number of the step item.
-         */
-        "index": number;
-        /**
-          * The pressed state of the item.
-         */
-        "pressed": boolean;
-    }
-    interface ZToggleButton {
-        /**
-          * avoidclick status flag
-         */
-        "avoidclick": boolean;
-        /**
-          * disabled status flag (optional)
-         */
-        "isdisabled"?: boolean;
-        /**
-          * label text
-         */
-        "label": string;
-    }
-    interface ZTooltip {
-        /**
-          * content text
-         */
-        "content": string;
-        /**
-          * tooltip position variant
-         */
-        "type": TooltipPosition;
-    }
-    interface ZTypography {
-        "component": string;
-        "level": ZTypographyLevels;
-        "variant": "regular" | "semibold" | "light";
-    }
-    interface ZUserDropdown {
-        /**
-          * logged status flag
-         */
-        "logged"?: boolean;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menucontent"?: string | MenuItem[];
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariantBean;
-        /**
-          * user full name
-         */
-        "userfullname"?: string;
-    }
+  interface ZAppHeader {
+    /**
+     * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
+     */
+    drawer: boolean;
+    /**
+     * Control menu bar position in the header. **Optional**
+     */
+    flow: "auto" | "stack";
+    /**
+     * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
+     */
+    hero: string;
+    /**
+     * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
+     */
+    overlay: boolean;
+    /**
+     * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
+     */
+    stuck: boolean;
+  }
+  interface ZAppSwitcher {
+    /**
+     * theme variant, default 'dark'
+     */
+    theme?: ThemeVariantBean;
+  }
+  interface ZAppTopbar {
+    /**
+     * optional hashtag string
+     */
+    hashtag?: string;
+    /**
+     * logged status flag
+     */
+    logged?: boolean;
+    /**
+     * theme variant, default 'dark'
+     */
+    theme?: ThemeVariantBean;
+  }
+  interface ZAvatar {
+    /**
+     * [optional] Avatar background color
+     */
+    backgroundColor?: string;
+    /**
+     * [optional] Avatar image
+     */
+    image?: string;
+    /**
+     * [optional] Avatar size
+     */
+    size?: AvatarSize;
+    /**
+     * [optional] Avatar text
+     */
+    text?: string;
+    /**
+     * [optional] Avatar text color
+     */
+    textColor?: string;
+  }
+  interface ZBody {
+    component: string;
+    level: 1 | 2 | 3 | 4 | 5;
+    variant: "regular" | "semibold";
+  }
+  interface ZButton {
+    /**
+     * HTML button disabled attribute.
+     */
+    disabled?: boolean;
+    /**
+     * Identifier, should be unique.
+     */
+    htmlid?: string;
+    /**
+     * `z-icon` name to use (optional).
+     */
+    icon?: string;
+    /**
+     * Reduce button size (deprecated).
+     * @deprecated Use `size` prop.
+     */
+    issmall?: boolean;
+    /**
+     * HTML button name attribute.
+     */
+    name?: string;
+    /**
+     * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+     */
+    size?: ButtonSizeEnum;
+    /**
+     * Spy to render square button.
+     */
+    square?: boolean;
+    /**
+     * HTML button type attribute.
+     */
+    type?: HTMLButtonElement["type"];
+    /**
+     * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
+     */
+    variant?: ButtonVariantBean;
+  }
+  interface ZButtonFilter {
+    /**
+     * filter id
+     */
+    filterid: string;
+    /**
+     * filter text content
+     */
+    filtername: string;
+    /**
+     * add icon to button
+     */
+    hasicon: boolean;
+    /**
+     * disable action on button
+     */
+    isfixed: boolean;
+    /**
+     * reduce button size (optional)
+     */
+    issmall?: boolean;
+  }
+  interface ZButtonSort {
+    /**
+     * id, should be unique
+     */
+    buttonid: string;
+    /**
+     * occurrencies counter (optional)
+     */
+    counter?: number;
+    /**
+     * label content (descending)
+     */
+    desclabel?: string;
+    /**
+     * selected flag (optional)
+     */
+    isselected?: boolean;
+    /**
+     * label content (ascending)
+     */
+    label: string;
+    /**
+     * sortable flag (optional)
+     */
+    sortasc?: boolean;
+    /**
+     * sort label content (ascending) (optional)
+     */
+    sortlabelasc?: string;
+    /**
+     * sort label content (descending) (optional)
+     */
+    sortlabeldesc?: string;
+  }
+  interface ZCandybar {}
+  interface ZCard {
+    /**
+     * Enable click interactions on the card. Default: false
+     */
+    clickable: boolean;
+    /**
+     * Name of the icon to place over the image cover
+     */
+    coverIcon: string;
+    /**
+     * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
+     */
+    variant: CardVariants;
+  }
+  interface ZChip {
+    boldtext?: number;
+    regulartext?: string;
+  }
+  interface ZCombobox {
+    /**
+     * check all label (optional)
+     */
+    checkalltext?: string;
+    /**
+     * close combobox list text
+     */
+    closesearchtext?: string;
+    /**
+     * show "check all" checkbox (optional)
+     */
+    hascheckall?: boolean;
+    /**
+     * show search input flag (optional)
+     */
+    hassearch?: boolean;
+    /**
+     * input unique id
+     */
+    inputid: string;
+    /**
+     * fixed style flag
+     */
+    isfixed: boolean;
+    /**
+     * toggle combo list opening flag
+     */
+    isopen: boolean;
+    /**
+     * list items array
+     */
+    items: ComboItemBean[] | string;
+    /**
+     * label text
+     */
+    label: string;
+    /**
+     * max number of checkable items (0 = unlimited)
+     */
+    maxcheckableitems: number;
+    /**
+     * no result text message
+     */
+    noresultslabel?: string;
+    /**
+     * search input label text (optional)
+     */
+    searchlabel?: string;
+    /**
+     * search input placeholder text (optional)
+     */
+    searchplaceholder?: string;
+    /**
+     * search input title text (optional)
+     */
+    searchtitle?: string;
+    /**
+     * uncheck all label (optional)
+     */
+    uncheckalltext?: string;
+  }
+  interface ZCookiebar {
+    /**
+     * callback to handle ok button action (optional)
+     */
+    callback?: () => any;
+    /**
+     * cookie policy link url
+     */
+    cookiepolicyurl: string;
+    /**
+     * hide cookie bar (optional)
+     */
+    hide?: boolean;
+  }
+  interface ZDivider {
+    /**
+     * [optional] Divider color
+     */
+    color?: string;
+    /**
+     * [optional] Divider orintation
+     */
+    orientation?: DividerOrientation;
+    /**
+     * [optional] Divider size
+     */
+    size?: DividerSize;
+  }
+  interface ZFooter {
+    /**
+     * deprecated - set copyright user
+     */
+    copyrightuser?: string;
+    /**
+     * deprecated - JSON stringified data to fill the footer
+     */
+    data?: string;
+  }
+  interface ZFooterLink {
+    /**
+     * link
+     */
+    href: string;
+  }
+  interface ZFooterSection {
+    /**
+     * section title
+     */
+    name: string;
+  }
+  interface ZFooterSocial {
+    /**
+     * social description
+     */
+    description?: string;
+    /**
+     * social link
+     */
+    href: string;
+    /**
+     * icon url
+     */
+    icon: string;
+  }
+  interface ZHeader {
+    /**
+     * set current active menu link (optional)
+     */
+    activeintlinkid?: string;
+    /**
+     * set current active sub menu link (optional)
+     */
+    activesublinkid?: string;
+    /**
+     * data to fill external navigation links
+     */
+    extlinkdata?: string | MenuItem[];
+    /**
+     * hide login button if true (optional)
+     */
+    hideloginbutton?: boolean;
+    /**
+     * alternative logo title text (optional)
+     */
+    imagealt?: string;
+    /**
+     * data to fill internal navigation links
+     */
+    intlinkdata?: string | MenuItem[];
+    /**
+     * graphic flag to set myzanichelli style
+     */
+    ismyz: boolean;
+    /**
+     * url to attach to logo (optional)
+     */
+    logolink?: string;
+    /**
+     * data to fill user dropdown menu (optional)
+     */
+    userdata?: string | HeaderUserData;
+  }
+  interface ZHeading {
+    component: string;
+    level: 1 | 2 | 3 | 4;
+    variant: "regular" | "semibold" | "light";
+  }
+  interface ZIcon {
+    /**
+     * icon height (optional)
+     */
+    height?: number;
+    /**
+     * icon id (optional)
+     */
+    iconid?: string;
+    /**
+     * icon name (choice between available icons)
+     */
+    name: string;
+    /**
+     * icon width (optional)
+     */
+    width?: number;
+  }
+  interface ZIconPackage {}
+  interface ZInfoBox {
+    /**
+     * info box unique id
+     */
+    boxid: string;
+    /**
+     * render close icon flag
+     */
+    isclosable: boolean;
+  }
+  interface ZInput {
+    /**
+     * the input has autocomplete option (optional): available for select, input
+     */
+    autocomplete?: boolean | string;
+    /**
+     * checked: available for checkbox, radio
+     */
+    checked?: boolean;
+    /**
+     * the input is disabled
+     */
+    disabled?: boolean;
+    /**
+     * get the input value
+     */
+    getValue: () => Promise<string | string[]>;
+    /**
+     * render clear icon when typing (optional): available for text
+     */
+    hasclearicon?: boolean;
+    /**
+     * show input helper message (optional): available for text, password, number, email, textarea, select
+     */
+    hasmessage?: boolean;
+    /**
+     * the id of the input element
+     */
+    htmlid: string;
+    /**
+     * the input html title (optional)
+     */
+    htmltitle?: string;
+    /**
+     * render icon (optional): available for text, select
+     */
+    icon?: string;
+    /**
+     * get checked status
+     */
+    isChecked: () => Promise<boolean>;
+    /**
+     * items (optional): available for select
+     */
+    items?: SelectItemBean[] | string;
+    /**
+     * the input label
+     */
+    label?: string;
+    /**
+     * the input label position: available for checkbox, radio
+     */
+    labelafter?: boolean;
+    /**
+     * input helper message (optional): available for text, password, number, email, textarea, select
+     */
+    message?: string;
+    /**
+     * multiple options can be selected (optional): available for select
+     */
+    multiple?: boolean;
+    /**
+     * the input name
+     */
+    name?: string;
+    /**
+     * the input placeholder (optional)
+     */
+    placeholder?: string;
+    /**
+     * the input is readonly
+     */
+    readonly?: boolean;
+    /**
+     * the input is required (optional): available for text, password, number, email, textarea, checkbox
+     */
+    required?: boolean;
+    /**
+     * set the input value
+     */
+    setValue: (value: string | string[]) => Promise<void>;
+    /**
+     * the input status (optional): available for text, password, number, email, textarea, select
+     */
+    status?: InputStatusBean;
+    /**
+     * input types
+     */
+    type: InputTypeBean;
+    /**
+     * timeout setting before trigger `inputChange` event (optional): available for text, textarea
+     */
+    typingtimeout?: number;
+    /**
+     * the input value
+     */
+    value?: string;
+  }
+  interface ZInputLabel {
+    /**
+     * the label is disabled
+     */
+    disabled?: boolean;
+    /**
+     * the label value
+     */
+    value: string;
+  }
+  interface ZInputMessage {
+    /**
+     * input helper message
+     */
+    message: string;
+    /**
+     * input status (optional)
+     */
+    status?: InputStatusBean;
+  }
+  interface ZLink {
+    /**
+     * big link version
+     */
+    big?: boolean;
+    /**
+     * link url (optional)
+     */
+    href?: string;
+    /**
+     * link id (optional)
+     */
+    htmlid?: string;
+    /**
+     * tabindex link attribute (optional)
+     */
+    htmltabindex?: number;
+    /**
+     * link icon name (optional)
+     */
+    icon?: string;
+    /**
+     * active link flag (optional)
+     */
+    isactive?: boolean;
+    /**
+     * disable link flag (optional)
+     */
+    isdisabled?: boolean;
+    /**
+     * white variant flag (optional)
+     */
+    iswhite?: boolean;
+    /**
+     * link target (optional)
+     */
+    target?: string;
+    /**
+     * link text variant (optional)
+     */
+    textcolor?: "white" | "blue" | "black";
+  }
+  interface ZList {
+    /**
+     * json stringified list data (mutable, optional)
+     */
+    inputrawdata?: string;
+    /**
+     * list item data (mutable, optional)
+     */
+    list?: ListItemBean[];
+  }
+  interface ZListItem {
+    /**
+     * data-action attribute (optional)
+     */
+    action?: string;
+    /**
+     * icon name (optional)
+     */
+    icon?: string;
+    /**
+     * link url (optional)
+     */
+    link?: string;
+    /**
+     * link target (optional)
+     */
+    linktarget?: string;
+    /**
+     * id (optional)
+     */
+    listitemid?: string;
+    /**
+     * content text
+     */
+    text: string;
+    /**
+     * underlined style flag
+     */
+    underlined: boolean;
+  }
+  interface ZLogo {
+    /**
+     * image height
+     */
+    height: number;
+    /**
+     * alternative image text
+     */
+    imagealt?: string;
+    /**
+     * link url (optional)
+     */
+    link?: string;
+    /**
+     * link target (optional)
+     */
+    targetblank?: boolean;
+    /**
+     * image width
+     */
+    width: number;
+  }
+  interface ZMenu {
+    /**
+     * Flag to set the active status of the menu.
+     */
+    active?: boolean;
+    /**
+     * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+     * @default false
+     */
+    floating?: boolean;
+    /**
+     * The opening state of the menu.
+     * @default false
+     */
+    open: boolean;
+  }
+  interface ZMenuDropdown {
+    /**
+     * unique button id
+     */
+    buttonid: string;
+    /**
+     * Json stringified or array to fill menu dropdown
+     */
+    menucontent: string | MenuItem[];
+    /**
+     * user name text
+     */
+    nomeutente: string;
+  }
+  interface ZMenuSection {
+    active?: boolean;
+  }
+  interface ZModal {
+    /**
+     * unique id
+     */
+    modalid: string;
+    /**
+     * subtitle (optional)
+     */
+    modalsubtitle?: string;
+    /**
+     * title text (optional)
+     */
+    modaltitle?: string;
+  }
+  interface ZModalLogin {
+    /**
+     * Login modal title
+     */
+    heading?: string;
+    /**
+     * Username helper message
+     */
+    message?: string;
+    /**
+     * Username/password input status
+     */
+    status?: InputStatusBean;
+  }
+  interface ZMyzCard {
+    /**
+     * graphic variant (optional)
+     */
+    cardtype?: LicenseTypeEnum;
+    /**
+     * faded status
+     */
+    faded: boolean;
+    /**
+     * highlighted status
+     */
+    ishighlighted: boolean;
+    /**
+     * pressed status
+     */
+    ispressed: boolean;
+  }
+  interface ZMyzCardAlert {
+    /**
+     * action button text
+     */
+    actiontext?: string;
+    /**
+     * content text
+     */
+    contenttext: string;
+    /**
+     * icon name
+     */
+    iconname: string;
+    /**
+     * alert variant type
+     */
+    type: string;
+  }
+  interface ZMyzCardBody {}
+  interface ZMyzCardCover {
+    /**
+     * default error image source
+     */
+    defaultimg: string;
+    /**
+     * faded status
+     */
+    faded: boolean;
+    /**
+     * image source
+     */
+    img: string;
+    /**
+     * cover alt title
+     */
+    titolo: string;
+  }
+  interface ZMyzCardFooter {
+    /**
+     * authors name text
+     */
+    autori: string;
+    /**
+     * card graphic variant (optional)
+     */
+    cardtype?: LicenseTypeEnum;
+    /**
+     * faded status
+     */
+    faded: boolean;
+    /**
+     * volume isbn
+     */
+    isbn: string;
+    /**
+     * volume title
+     */
+    titolo: string;
+  }
+  interface ZMyzCardHeader {
+    /**
+     * card graphic variant (optional)
+     */
+    cardtype?: LicenseTypeEnum;
+    /**
+     * faded status
+     */
+    faded: boolean;
+    /**
+     * volume title
+     */
+    titolo: string;
+  }
+  interface ZMyzCardIcon {
+    /**
+     * icon name
+     */
+    icon: string;
+    /**
+     * disabled status flag
+     */
+    isdisabled: boolean;
+  }
+  interface ZMyzCardList {
+    /**
+     * list data stringified array
+     */
+    listdata: string;
+  }
+  interface ZNavigationTab {
+    disabled?: boolean;
+    orientation: string;
+    selected?: boolean;
+    size: string;
+  }
+  interface ZNavigationTabs {
+    /**
+     * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+     */
+    orientation?: TabOrientationBean;
+    /**
+     * Available sizes: `big` and `small`. Defaults to `big`.
+     */
+    size?: TabSizeBean;
+  }
+  interface ZNotification {
+    /**
+     * action button text
+     */
+    actiontext?: string;
+    /**
+     * icon on the left of the content
+     */
+    contenticonname?: string;
+    /**
+     * enable close icon
+     */
+    showclose?: boolean;
+    /**
+     * enable shadow
+     */
+    showshadow?: boolean;
+    /**
+     * alert variant type
+     */
+    type: NotificationType;
+  }
+  interface ZPaginationBar {
+    /**
+     * current displayed page (mutable)
+     */
+    currentpage: number;
+    /**
+     * json stringified history of visited pages (optional)
+     */
+    historyraw?: string;
+    /**
+     * array of history of visited pages (mutable, optional)
+     */
+    listhistoryrow?: number[];
+    /**
+     * pages number
+     */
+    pages: number;
+    /**
+     * initial page (mutable)
+     */
+    startpage: number;
+    /**
+     * number of visible pages
+     */
+    visiblepages: number;
+  }
+  interface ZPaginationPage {
+    /**
+     * disabled status flag
+     */
+    isdisabled: boolean;
+    /**
+     * selected status flag
+     */
+    isselected: boolean;
+    /**
+     * visited status flag
+     */
+    isvisited: boolean;
+    /**
+     * anchor html id
+     */
+    pageid: string;
+    /**
+     * numeric page value (optional)
+     */
+    value?: number;
+  }
+  interface ZPanelElem {
+    /**
+     * name of slot container (optional)
+     */
+    descr_slot_name?: string;
+    /**
+     * html element id (optional)
+     */
+    elemid?: string;
+    /**
+     * alternative image text (optional)
+     */
+    imgalt?: string;
+    /**
+     * image url source (optional)
+     */
+    imgurl?: string;
+    /**
+     * disabled status flag (optional)
+     */
+    isdisabled?: boolean;
+    /**
+     * icon link name (optional)
+     */
+    linkicon?: string;
+    /**
+     * link label text
+     */
+    linklabel: string;
+    /**
+     * link target (optional)
+     */
+    target?: string;
+    /**
+     * link url
+     */
+    url: string;
+  }
+  interface ZPopover {
+    /**
+     * [optional] Background color token for popover
+     */
+    backgroundColor?: string;
+    /**
+     * [optional] Border radius token for popover
+     */
+    borderRadius?: PopoverBorderRadius;
+    /**
+     * [optional] Box shadow token for popover
+     */
+    boxShadow?: PopoverShadow;
+    /**
+     * [optional] Popover position
+     */
+    position?: PopoverPosition;
+    /**
+     * [optional] Show or hide arrow
+     */
+    showArrow?: boolean;
+  }
+  interface ZRegistroTable {
+    /**
+     * Sets table with border
+     */
+    bordered?: boolean;
+    /**
+     * Sets first column sticky
+     */
+    columnSticky?: boolean;
+    /**
+     * Sets header sticky
+     */
+    headerSticky?: boolean;
+  }
+  interface ZRegistroTableBody {}
+  interface ZRegistroTableCell {
+    /**
+     * [Optional] Show contextual menu button
+     */
+    showButton?: boolean;
+  }
+  interface ZRegistroTableExpandedRow {
+    /**
+     * Number table column plus 1 for the expand button
+     */
+    colSpan: number;
+  }
+  interface ZRegistroTableFooter {}
+  interface ZRegistroTableHead {}
+  interface ZRegistroTableHeader {
+    /**
+     * Column ID
+     */
+    columnId: string;
+    /**
+     * [Optional] Show contextual menu button
+     */
+    showButton?: boolean;
+    /**
+     * [Optional] Padding of the header
+     */
+    size?: TableHeaderSize;
+    /**
+     * [Optional] Make the header sortable
+     */
+    sortable?: boolean;
+  }
+  interface ZRegistroTableHeaderRow {
+    expandable?: boolean;
+  }
+  interface ZRegistroTableRow {
+    expandable?: boolean;
+  }
+  interface ZRegistroTableStickyFooter {}
+  interface ZSelect {
+    /**
+     * the input has autocomplete option
+     */
+    autocomplete?: boolean | string;
+    /**
+     * the input is disabled
+     */
+    disabled?: boolean;
+    /**
+     * get the input selected options
+     */
+    getSelectedItems: () => Promise<SelectItemBean[]>;
+    /**
+     * get the input value
+     */
+    getValue: () => Promise<string | string[]>;
+    /**
+     * show input helper message (optional): available for text, password, number, email, textarea, select
+     */
+    hasmessage?: boolean;
+    /**
+     * the id of the input element
+     */
+    htmlid: string;
+    /**
+     * the input html title (optional)
+     */
+    htmltitle?: string;
+    /**
+     * the input select options
+     */
+    items: SelectItemBean[] | string;
+    /**
+     * the input label
+     */
+    label?: string;
+    /**
+     * input helper message (optional): available for text, password, number, email, textarea, select
+     */
+    message?: string;
+    /**
+     * multiple options can be selected
+     */
+    multiple?: boolean;
+    /**
+     * the input name
+     */
+    name?: string;
+    /**
+     * no result text message
+     */
+    noresultslabel?: string;
+    /**
+     * the input placeholder (optional)
+     */
+    placeholder?: string;
+    /**
+     * the input is readonly
+     */
+    readonly?: boolean;
+    /**
+     * set the input value
+     */
+    setValue: (value: string | string[]) => Promise<void>;
+    /**
+     * the input status (optional): available for text, password, number, email, textarea, select
+     */
+    status?: InputStatusBean;
+  }
+  interface ZStatusTag {
+    /**
+     * [optional] Hide the text and show it on hover
+     */
+    expandable?: boolean;
+    /**
+     * [optional] Status tag icon
+     */
+    icon?: string;
+    /**
+     * [optional] Status tag color
+     */
+    status?: StatusTagStatus;
+    /**
+     * [optional] Status tag text
+     */
+    text?: string;
+    /**
+     * [optional] Status tag style
+     */
+    variant?: ThemeVariant;
+  }
+  interface ZStepper {}
+  interface ZStepperItem {
+    /**
+     * The disabled state of the item.
+     */
+    disabled: boolean;
+    /**
+     * The href to navigate on click.
+     */
+    href: string;
+    /**
+     * The number of the step item.
+     */
+    index: number;
+    /**
+     * The pressed state of the item.
+     */
+    pressed: boolean;
+  }
+  interface ZToggleButton {
+    /**
+     * avoidclick status flag
+     */
+    avoidclick: boolean;
+    /**
+     * disabled status flag (optional)
+     */
+    isdisabled?: boolean;
+    /**
+     * label text
+     */
+    label: string;
+  }
+  interface ZTooltip {
+    /**
+     * content text
+     */
+    content: string;
+    /**
+     * tooltip position variant
+     */
+    type: TooltipPosition;
+  }
+  interface ZTypography {
+    component: string;
+    level: ZTypographyLevels;
+    variant: "regular" | "semibold" | "light";
+  }
+  interface ZUserDropdown {
+    /**
+     * logged status flag
+     */
+    logged?: boolean;
+    /**
+     * Json stringified or array to fill menu dropdown
+     */
+    menucontent?: string | MenuItem[];
+    /**
+     * theme variant, default 'dark'
+     */
+    theme?: ThemeVariantBean;
+    /**
+     * user full name
+     */
+    userfullname?: string;
+  }
 }
 declare global {
-    interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
-    }
-    var HTMLZAppHeaderElement: {
-        prototype: HTMLZAppHeaderElement;
-        new (): HTMLZAppHeaderElement;
-    };
-    interface HTMLZAppSwitcherElement extends Components.ZAppSwitcher, HTMLStencilElement {
-    }
-    var HTMLZAppSwitcherElement: {
-        prototype: HTMLZAppSwitcherElement;
-        new (): HTMLZAppSwitcherElement;
-    };
-    interface HTMLZAppTopbarElement extends Components.ZAppTopbar, HTMLStencilElement {
-    }
-    var HTMLZAppTopbarElement: {
-        prototype: HTMLZAppTopbarElement;
-        new (): HTMLZAppTopbarElement;
-    };
-    interface HTMLZAvatarElement extends Components.ZAvatar, HTMLStencilElement {
-    }
-    var HTMLZAvatarElement: {
-        prototype: HTMLZAvatarElement;
-        new (): HTMLZAvatarElement;
-    };
-    interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
-    }
-    var HTMLZBodyElement: {
-        prototype: HTMLZBodyElement;
-        new (): HTMLZBodyElement;
-    };
-    interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {
-    }
-    var HTMLZButtonElement: {
-        prototype: HTMLZButtonElement;
-        new (): HTMLZButtonElement;
-    };
-    interface HTMLZButtonFilterElement extends Components.ZButtonFilter, HTMLStencilElement {
-    }
-    var HTMLZButtonFilterElement: {
-        prototype: HTMLZButtonFilterElement;
-        new (): HTMLZButtonFilterElement;
-    };
-    interface HTMLZButtonSortElement extends Components.ZButtonSort, HTMLStencilElement {
-    }
-    var HTMLZButtonSortElement: {
-        prototype: HTMLZButtonSortElement;
-        new (): HTMLZButtonSortElement;
-    };
-    interface HTMLZCandybarElement extends Components.ZCandybar, HTMLStencilElement {
-    }
-    var HTMLZCandybarElement: {
-        prototype: HTMLZCandybarElement;
-        new (): HTMLZCandybarElement;
-    };
-    interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
-    }
-    var HTMLZCardElement: {
-        prototype: HTMLZCardElement;
-        new (): HTMLZCardElement;
-    };
-    interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
-    }
-    var HTMLZChipElement: {
-        prototype: HTMLZChipElement;
-        new (): HTMLZChipElement;
-    };
-    interface HTMLZComboboxElement extends Components.ZCombobox, HTMLStencilElement {
-    }
-    var HTMLZComboboxElement: {
-        prototype: HTMLZComboboxElement;
-        new (): HTMLZComboboxElement;
-    };
-    interface HTMLZCookiebarElement extends Components.ZCookiebar, HTMLStencilElement {
-    }
-    var HTMLZCookiebarElement: {
-        prototype: HTMLZCookiebarElement;
-        new (): HTMLZCookiebarElement;
-    };
-    interface HTMLZDividerElement extends Components.ZDivider, HTMLStencilElement {
-    }
-    var HTMLZDividerElement: {
-        prototype: HTMLZDividerElement;
-        new (): HTMLZDividerElement;
-    };
-    interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {
-    }
-    var HTMLZFooterElement: {
-        prototype: HTMLZFooterElement;
-        new (): HTMLZFooterElement;
-    };
-    interface HTMLZFooterLinkElement extends Components.ZFooterLink, HTMLStencilElement {
-    }
-    var HTMLZFooterLinkElement: {
-        prototype: HTMLZFooterLinkElement;
-        new (): HTMLZFooterLinkElement;
-    };
-    interface HTMLZFooterSectionElement extends Components.ZFooterSection, HTMLStencilElement {
-    }
-    var HTMLZFooterSectionElement: {
-        prototype: HTMLZFooterSectionElement;
-        new (): HTMLZFooterSectionElement;
-    };
-    interface HTMLZFooterSocialElement extends Components.ZFooterSocial, HTMLStencilElement {
-    }
-    var HTMLZFooterSocialElement: {
-        prototype: HTMLZFooterSocialElement;
-        new (): HTMLZFooterSocialElement;
-    };
-    interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {
-    }
-    var HTMLZHeaderElement: {
-        prototype: HTMLZHeaderElement;
-        new (): HTMLZHeaderElement;
-    };
-    interface HTMLZHeadingElement extends Components.ZHeading, HTMLStencilElement {
-    }
-    var HTMLZHeadingElement: {
-        prototype: HTMLZHeadingElement;
-        new (): HTMLZHeadingElement;
-    };
-    interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {
-    }
-    var HTMLZIconElement: {
-        prototype: HTMLZIconElement;
-        new (): HTMLZIconElement;
-    };
-    interface HTMLZIconPackageElement extends Components.ZIconPackage, HTMLStencilElement {
-    }
-    var HTMLZIconPackageElement: {
-        prototype: HTMLZIconPackageElement;
-        new (): HTMLZIconPackageElement;
-    };
-    interface HTMLZInfoBoxElement extends Components.ZInfoBox, HTMLStencilElement {
-    }
-    var HTMLZInfoBoxElement: {
-        prototype: HTMLZInfoBoxElement;
-        new (): HTMLZInfoBoxElement;
-    };
-    interface HTMLZInputElement extends Components.ZInput, HTMLStencilElement {
-    }
-    var HTMLZInputElement: {
-        prototype: HTMLZInputElement;
-        new (): HTMLZInputElement;
-    };
-    interface HTMLZInputLabelElement extends Components.ZInputLabel, HTMLStencilElement {
-    }
-    var HTMLZInputLabelElement: {
-        prototype: HTMLZInputLabelElement;
-        new (): HTMLZInputLabelElement;
-    };
-    interface HTMLZInputMessageElement extends Components.ZInputMessage, HTMLStencilElement {
-    }
-    var HTMLZInputMessageElement: {
-        prototype: HTMLZInputMessageElement;
-        new (): HTMLZInputMessageElement;
-    };
-    interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {
-    }
-    var HTMLZLinkElement: {
-        prototype: HTMLZLinkElement;
-        new (): HTMLZLinkElement;
-    };
-    interface HTMLZListElement extends Components.ZList, HTMLStencilElement {
-    }
-    var HTMLZListElement: {
-        prototype: HTMLZListElement;
-        new (): HTMLZListElement;
-    };
-    interface HTMLZListItemElement extends Components.ZListItem, HTMLStencilElement {
-    }
-    var HTMLZListItemElement: {
-        prototype: HTMLZListItemElement;
-        new (): HTMLZListItemElement;
-    };
-    interface HTMLZLogoElement extends Components.ZLogo, HTMLStencilElement {
-    }
-    var HTMLZLogoElement: {
-        prototype: HTMLZLogoElement;
-        new (): HTMLZLogoElement;
-    };
-    interface HTMLZMenuElement extends Components.ZMenu, HTMLStencilElement {
-    }
-    var HTMLZMenuElement: {
-        prototype: HTMLZMenuElement;
-        new (): HTMLZMenuElement;
-    };
-    interface HTMLZMenuDropdownElement extends Components.ZMenuDropdown, HTMLStencilElement {
-    }
-    var HTMLZMenuDropdownElement: {
-        prototype: HTMLZMenuDropdownElement;
-        new (): HTMLZMenuDropdownElement;
-    };
-    interface HTMLZMenuSectionElement extends Components.ZMenuSection, HTMLStencilElement {
-    }
-    var HTMLZMenuSectionElement: {
-        prototype: HTMLZMenuSectionElement;
-        new (): HTMLZMenuSectionElement;
-    };
-    interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
-    }
-    var HTMLZModalElement: {
-        prototype: HTMLZModalElement;
-        new (): HTMLZModalElement;
-    };
-    interface HTMLZModalLoginElement extends Components.ZModalLogin, HTMLStencilElement {
-    }
-    var HTMLZModalLoginElement: {
-        prototype: HTMLZModalLoginElement;
-        new (): HTMLZModalLoginElement;
-    };
-    interface HTMLZMyzCardElement extends Components.ZMyzCard, HTMLStencilElement {
-    }
-    var HTMLZMyzCardElement: {
-        prototype: HTMLZMyzCardElement;
-        new (): HTMLZMyzCardElement;
-    };
-    interface HTMLZMyzCardAlertElement extends Components.ZMyzCardAlert, HTMLStencilElement {
-    }
-    var HTMLZMyzCardAlertElement: {
-        prototype: HTMLZMyzCardAlertElement;
-        new (): HTMLZMyzCardAlertElement;
-    };
-    interface HTMLZMyzCardBodyElement extends Components.ZMyzCardBody, HTMLStencilElement {
-    }
-    var HTMLZMyzCardBodyElement: {
-        prototype: HTMLZMyzCardBodyElement;
-        new (): HTMLZMyzCardBodyElement;
-    };
-    interface HTMLZMyzCardCoverElement extends Components.ZMyzCardCover, HTMLStencilElement {
-    }
-    var HTMLZMyzCardCoverElement: {
-        prototype: HTMLZMyzCardCoverElement;
-        new (): HTMLZMyzCardCoverElement;
-    };
-    interface HTMLZMyzCardFooterElement extends Components.ZMyzCardFooter, HTMLStencilElement {
-    }
-    var HTMLZMyzCardFooterElement: {
-        prototype: HTMLZMyzCardFooterElement;
-        new (): HTMLZMyzCardFooterElement;
-    };
-    interface HTMLZMyzCardHeaderElement extends Components.ZMyzCardHeader, HTMLStencilElement {
-    }
-    var HTMLZMyzCardHeaderElement: {
-        prototype: HTMLZMyzCardHeaderElement;
-        new (): HTMLZMyzCardHeaderElement;
-    };
-    interface HTMLZMyzCardIconElement extends Components.ZMyzCardIcon, HTMLStencilElement {
-    }
-    var HTMLZMyzCardIconElement: {
-        prototype: HTMLZMyzCardIconElement;
-        new (): HTMLZMyzCardIconElement;
-    };
-    interface HTMLZMyzCardListElement extends Components.ZMyzCardList, HTMLStencilElement {
-    }
-    var HTMLZMyzCardListElement: {
-        prototype: HTMLZMyzCardListElement;
-        new (): HTMLZMyzCardListElement;
-    };
-    interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
-    }
-    var HTMLZNavigationTabElement: {
-        prototype: HTMLZNavigationTabElement;
-        new (): HTMLZNavigationTabElement;
-    };
-    interface HTMLZNavigationTabsElement extends Components.ZNavigationTabs, HTMLStencilElement {
-    }
-    var HTMLZNavigationTabsElement: {
-        prototype: HTMLZNavigationTabsElement;
-        new (): HTMLZNavigationTabsElement;
-    };
-    interface HTMLZNotificationElement extends Components.ZNotification, HTMLStencilElement {
-    }
-    var HTMLZNotificationElement: {
-        prototype: HTMLZNotificationElement;
-        new (): HTMLZNotificationElement;
-    };
-    interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
-    }
-    var HTMLZPaginationBarElement: {
-        prototype: HTMLZPaginationBarElement;
-        new (): HTMLZPaginationBarElement;
-    };
-    interface HTMLZPaginationPageElement extends Components.ZPaginationPage, HTMLStencilElement {
-    }
-    var HTMLZPaginationPageElement: {
-        prototype: HTMLZPaginationPageElement;
-        new (): HTMLZPaginationPageElement;
-    };
-    interface HTMLZPanelElemElement extends Components.ZPanelElem, HTMLStencilElement {
-    }
-    var HTMLZPanelElemElement: {
-        prototype: HTMLZPanelElemElement;
-        new (): HTMLZPanelElemElement;
-    };
-    interface HTMLZPopoverElement extends Components.ZPopover, HTMLStencilElement {
-    }
-    var HTMLZPopoverElement: {
-        prototype: HTMLZPopoverElement;
-        new (): HTMLZPopoverElement;
-    };
-    interface HTMLZRegistroTableElement extends Components.ZRegistroTable, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableElement: {
-        prototype: HTMLZRegistroTableElement;
-        new (): HTMLZRegistroTableElement;
-    };
-    interface HTMLZRegistroTableBodyElement extends Components.ZRegistroTableBody, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableBodyElement: {
-        prototype: HTMLZRegistroTableBodyElement;
-        new (): HTMLZRegistroTableBodyElement;
-    };
-    interface HTMLZRegistroTableCellElement extends Components.ZRegistroTableCell, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableCellElement: {
-        prototype: HTMLZRegistroTableCellElement;
-        new (): HTMLZRegistroTableCellElement;
-    };
-    interface HTMLZRegistroTableExpandedRowElement extends Components.ZRegistroTableExpandedRow, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableExpandedRowElement: {
-        prototype: HTMLZRegistroTableExpandedRowElement;
-        new (): HTMLZRegistroTableExpandedRowElement;
-    };
-    interface HTMLZRegistroTableFooterElement extends Components.ZRegistroTableFooter, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableFooterElement: {
-        prototype: HTMLZRegistroTableFooterElement;
-        new (): HTMLZRegistroTableFooterElement;
-    };
-    interface HTMLZRegistroTableHeadElement extends Components.ZRegistroTableHead, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableHeadElement: {
-        prototype: HTMLZRegistroTableHeadElement;
-        new (): HTMLZRegistroTableHeadElement;
-    };
-    interface HTMLZRegistroTableHeaderElement extends Components.ZRegistroTableHeader, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableHeaderElement: {
-        prototype: HTMLZRegistroTableHeaderElement;
-        new (): HTMLZRegistroTableHeaderElement;
-    };
-    interface HTMLZRegistroTableHeaderRowElement extends Components.ZRegistroTableHeaderRow, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableHeaderRowElement: {
-        prototype: HTMLZRegistroTableHeaderRowElement;
-        new (): HTMLZRegistroTableHeaderRowElement;
-    };
-    interface HTMLZRegistroTableRowElement extends Components.ZRegistroTableRow, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableRowElement: {
-        prototype: HTMLZRegistroTableRowElement;
-        new (): HTMLZRegistroTableRowElement;
-    };
-    interface HTMLZRegistroTableStickyFooterElement extends Components.ZRegistroTableStickyFooter, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableStickyFooterElement: {
-        prototype: HTMLZRegistroTableStickyFooterElement;
-        new (): HTMLZRegistroTableStickyFooterElement;
-    };
-    interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
-    }
-    var HTMLZSelectElement: {
-        prototype: HTMLZSelectElement;
-        new (): HTMLZSelectElement;
-    };
-    interface HTMLZStatusTagElement extends Components.ZStatusTag, HTMLStencilElement {
-    }
-    var HTMLZStatusTagElement: {
-        prototype: HTMLZStatusTagElement;
-        new (): HTMLZStatusTagElement;
-    };
-    interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
-    }
-    var HTMLZStepperElement: {
-        prototype: HTMLZStepperElement;
-        new (): HTMLZStepperElement;
-    };
-    interface HTMLZStepperItemElement extends Components.ZStepperItem, HTMLStencilElement {
-    }
-    var HTMLZStepperItemElement: {
-        prototype: HTMLZStepperItemElement;
-        new (): HTMLZStepperItemElement;
-    };
-    interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
-    }
-    var HTMLZToggleButtonElement: {
-        prototype: HTMLZToggleButtonElement;
-        new (): HTMLZToggleButtonElement;
-    };
-    interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
-    }
-    var HTMLZTooltipElement: {
-        prototype: HTMLZTooltipElement;
-        new (): HTMLZTooltipElement;
-    };
-    interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
-    }
-    var HTMLZTypographyElement: {
-        prototype: HTMLZTypographyElement;
-        new (): HTMLZTypographyElement;
-    };
-    interface HTMLZUserDropdownElement extends Components.ZUserDropdown, HTMLStencilElement {
-    }
-    var HTMLZUserDropdownElement: {
-        prototype: HTMLZUserDropdownElement;
-        new (): HTMLZUserDropdownElement;
-    };
-    interface HTMLElementTagNameMap {
-        "z-app-header": HTMLZAppHeaderElement;
-        "z-app-switcher": HTMLZAppSwitcherElement;
-        "z-app-topbar": HTMLZAppTopbarElement;
-        "z-avatar": HTMLZAvatarElement;
-        "z-body": HTMLZBodyElement;
-        "z-button": HTMLZButtonElement;
-        "z-button-filter": HTMLZButtonFilterElement;
-        "z-button-sort": HTMLZButtonSortElement;
-        "z-candybar": HTMLZCandybarElement;
-        "z-card": HTMLZCardElement;
-        "z-chip": HTMLZChipElement;
-        "z-combobox": HTMLZComboboxElement;
-        "z-cookiebar": HTMLZCookiebarElement;
-        "z-divider": HTMLZDividerElement;
-        "z-footer": HTMLZFooterElement;
-        "z-footer-link": HTMLZFooterLinkElement;
-        "z-footer-section": HTMLZFooterSectionElement;
-        "z-footer-social": HTMLZFooterSocialElement;
-        "z-header": HTMLZHeaderElement;
-        "z-heading": HTMLZHeadingElement;
-        "z-icon": HTMLZIconElement;
-        "z-icon-package": HTMLZIconPackageElement;
-        "z-info-box": HTMLZInfoBoxElement;
-        "z-input": HTMLZInputElement;
-        "z-input-label": HTMLZInputLabelElement;
-        "z-input-message": HTMLZInputMessageElement;
-        "z-link": HTMLZLinkElement;
-        "z-list": HTMLZListElement;
-        "z-list-item": HTMLZListItemElement;
-        "z-logo": HTMLZLogoElement;
-        "z-menu": HTMLZMenuElement;
-        "z-menu-dropdown": HTMLZMenuDropdownElement;
-        "z-menu-section": HTMLZMenuSectionElement;
-        "z-modal": HTMLZModalElement;
-        "z-modal-login": HTMLZModalLoginElement;
-        "z-myz-card": HTMLZMyzCardElement;
-        "z-myz-card-alert": HTMLZMyzCardAlertElement;
-        "z-myz-card-body": HTMLZMyzCardBodyElement;
-        "z-myz-card-cover": HTMLZMyzCardCoverElement;
-        "z-myz-card-footer": HTMLZMyzCardFooterElement;
-        "z-myz-card-header": HTMLZMyzCardHeaderElement;
-        "z-myz-card-icon": HTMLZMyzCardIconElement;
-        "z-myz-card-list": HTMLZMyzCardListElement;
-        "z-navigation-tab": HTMLZNavigationTabElement;
-        "z-navigation-tabs": HTMLZNavigationTabsElement;
-        "z-notification": HTMLZNotificationElement;
-        "z-pagination-bar": HTMLZPaginationBarElement;
-        "z-pagination-page": HTMLZPaginationPageElement;
-        "z-panel-elem": HTMLZPanelElemElement;
-        "z-popover": HTMLZPopoverElement;
-        "z-registro-table": HTMLZRegistroTableElement;
-        "z-registro-table-body": HTMLZRegistroTableBodyElement;
-        "z-registro-table-cell": HTMLZRegistroTableCellElement;
-        "z-registro-table-expanded-row": HTMLZRegistroTableExpandedRowElement;
-        "z-registro-table-footer": HTMLZRegistroTableFooterElement;
-        "z-registro-table-head": HTMLZRegistroTableHeadElement;
-        "z-registro-table-header": HTMLZRegistroTableHeaderElement;
-        "z-registro-table-header-row": HTMLZRegistroTableHeaderRowElement;
-        "z-registro-table-row": HTMLZRegistroTableRowElement;
-        "z-registro-table-sticky-footer": HTMLZRegistroTableStickyFooterElement;
-        "z-select": HTMLZSelectElement;
-        "z-status-tag": HTMLZStatusTagElement;
-        "z-stepper": HTMLZStepperElement;
-        "z-stepper-item": HTMLZStepperItemElement;
-        "z-toggle-button": HTMLZToggleButtonElement;
-        "z-tooltip": HTMLZTooltipElement;
-        "z-typography": HTMLZTypographyElement;
-        "z-user-dropdown": HTMLZUserDropdownElement;
-    }
+  interface HTMLZAppHeaderElement
+    extends Components.ZAppHeader,
+      HTMLStencilElement {}
+  var HTMLZAppHeaderElement: {
+    prototype: HTMLZAppHeaderElement;
+    new (): HTMLZAppHeaderElement;
+  };
+  interface HTMLZAppSwitcherElement
+    extends Components.ZAppSwitcher,
+      HTMLStencilElement {}
+  var HTMLZAppSwitcherElement: {
+    prototype: HTMLZAppSwitcherElement;
+    new (): HTMLZAppSwitcherElement;
+  };
+  interface HTMLZAppTopbarElement
+    extends Components.ZAppTopbar,
+      HTMLStencilElement {}
+  var HTMLZAppTopbarElement: {
+    prototype: HTMLZAppTopbarElement;
+    new (): HTMLZAppTopbarElement;
+  };
+  interface HTMLZAvatarElement extends Components.ZAvatar, HTMLStencilElement {}
+  var HTMLZAvatarElement: {
+    prototype: HTMLZAvatarElement;
+    new (): HTMLZAvatarElement;
+  };
+  interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {}
+  var HTMLZBodyElement: {
+    prototype: HTMLZBodyElement;
+    new (): HTMLZBodyElement;
+  };
+  interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {}
+  var HTMLZButtonElement: {
+    prototype: HTMLZButtonElement;
+    new (): HTMLZButtonElement;
+  };
+  interface HTMLZButtonFilterElement
+    extends Components.ZButtonFilter,
+      HTMLStencilElement {}
+  var HTMLZButtonFilterElement: {
+    prototype: HTMLZButtonFilterElement;
+    new (): HTMLZButtonFilterElement;
+  };
+  interface HTMLZButtonSortElement
+    extends Components.ZButtonSort,
+      HTMLStencilElement {}
+  var HTMLZButtonSortElement: {
+    prototype: HTMLZButtonSortElement;
+    new (): HTMLZButtonSortElement;
+  };
+  interface HTMLZCandybarElement
+    extends Components.ZCandybar,
+      HTMLStencilElement {}
+  var HTMLZCandybarElement: {
+    prototype: HTMLZCandybarElement;
+    new (): HTMLZCandybarElement;
+  };
+  interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {}
+  var HTMLZCardElement: {
+    prototype: HTMLZCardElement;
+    new (): HTMLZCardElement;
+  };
+  interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {}
+  var HTMLZChipElement: {
+    prototype: HTMLZChipElement;
+    new (): HTMLZChipElement;
+  };
+  interface HTMLZComboboxElement
+    extends Components.ZCombobox,
+      HTMLStencilElement {}
+  var HTMLZComboboxElement: {
+    prototype: HTMLZComboboxElement;
+    new (): HTMLZComboboxElement;
+  };
+  interface HTMLZCookiebarElement
+    extends Components.ZCookiebar,
+      HTMLStencilElement {}
+  var HTMLZCookiebarElement: {
+    prototype: HTMLZCookiebarElement;
+    new (): HTMLZCookiebarElement;
+  };
+  interface HTMLZDividerElement
+    extends Components.ZDivider,
+      HTMLStencilElement {}
+  var HTMLZDividerElement: {
+    prototype: HTMLZDividerElement;
+    new (): HTMLZDividerElement;
+  };
+  interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {}
+  var HTMLZFooterElement: {
+    prototype: HTMLZFooterElement;
+    new (): HTMLZFooterElement;
+  };
+  interface HTMLZFooterLinkElement
+    extends Components.ZFooterLink,
+      HTMLStencilElement {}
+  var HTMLZFooterLinkElement: {
+    prototype: HTMLZFooterLinkElement;
+    new (): HTMLZFooterLinkElement;
+  };
+  interface HTMLZFooterSectionElement
+    extends Components.ZFooterSection,
+      HTMLStencilElement {}
+  var HTMLZFooterSectionElement: {
+    prototype: HTMLZFooterSectionElement;
+    new (): HTMLZFooterSectionElement;
+  };
+  interface HTMLZFooterSocialElement
+    extends Components.ZFooterSocial,
+      HTMLStencilElement {}
+  var HTMLZFooterSocialElement: {
+    prototype: HTMLZFooterSocialElement;
+    new (): HTMLZFooterSocialElement;
+  };
+  interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {}
+  var HTMLZHeaderElement: {
+    prototype: HTMLZHeaderElement;
+    new (): HTMLZHeaderElement;
+  };
+  interface HTMLZHeadingElement
+    extends Components.ZHeading,
+      HTMLStencilElement {}
+  var HTMLZHeadingElement: {
+    prototype: HTMLZHeadingElement;
+    new (): HTMLZHeadingElement;
+  };
+  interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {}
+  var HTMLZIconElement: {
+    prototype: HTMLZIconElement;
+    new (): HTMLZIconElement;
+  };
+  interface HTMLZIconPackageElement
+    extends Components.ZIconPackage,
+      HTMLStencilElement {}
+  var HTMLZIconPackageElement: {
+    prototype: HTMLZIconPackageElement;
+    new (): HTMLZIconPackageElement;
+  };
+  interface HTMLZInfoBoxElement
+    extends Components.ZInfoBox,
+      HTMLStencilElement {}
+  var HTMLZInfoBoxElement: {
+    prototype: HTMLZInfoBoxElement;
+    new (): HTMLZInfoBoxElement;
+  };
+  interface HTMLZInputElement extends Components.ZInput, HTMLStencilElement {}
+  var HTMLZInputElement: {
+    prototype: HTMLZInputElement;
+    new (): HTMLZInputElement;
+  };
+  interface HTMLZInputLabelElement
+    extends Components.ZInputLabel,
+      HTMLStencilElement {}
+  var HTMLZInputLabelElement: {
+    prototype: HTMLZInputLabelElement;
+    new (): HTMLZInputLabelElement;
+  };
+  interface HTMLZInputMessageElement
+    extends Components.ZInputMessage,
+      HTMLStencilElement {}
+  var HTMLZInputMessageElement: {
+    prototype: HTMLZInputMessageElement;
+    new (): HTMLZInputMessageElement;
+  };
+  interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {}
+  var HTMLZLinkElement: {
+    prototype: HTMLZLinkElement;
+    new (): HTMLZLinkElement;
+  };
+  interface HTMLZListElement extends Components.ZList, HTMLStencilElement {}
+  var HTMLZListElement: {
+    prototype: HTMLZListElement;
+    new (): HTMLZListElement;
+  };
+  interface HTMLZListItemElement
+    extends Components.ZListItem,
+      HTMLStencilElement {}
+  var HTMLZListItemElement: {
+    prototype: HTMLZListItemElement;
+    new (): HTMLZListItemElement;
+  };
+  interface HTMLZLogoElement extends Components.ZLogo, HTMLStencilElement {}
+  var HTMLZLogoElement: {
+    prototype: HTMLZLogoElement;
+    new (): HTMLZLogoElement;
+  };
+  interface HTMLZMenuElement extends Components.ZMenu, HTMLStencilElement {}
+  var HTMLZMenuElement: {
+    prototype: HTMLZMenuElement;
+    new (): HTMLZMenuElement;
+  };
+  interface HTMLZMenuDropdownElement
+    extends Components.ZMenuDropdown,
+      HTMLStencilElement {}
+  var HTMLZMenuDropdownElement: {
+    prototype: HTMLZMenuDropdownElement;
+    new (): HTMLZMenuDropdownElement;
+  };
+  interface HTMLZMenuSectionElement
+    extends Components.ZMenuSection,
+      HTMLStencilElement {}
+  var HTMLZMenuSectionElement: {
+    prototype: HTMLZMenuSectionElement;
+    new (): HTMLZMenuSectionElement;
+  };
+  interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {}
+  var HTMLZModalElement: {
+    prototype: HTMLZModalElement;
+    new (): HTMLZModalElement;
+  };
+  interface HTMLZModalLoginElement
+    extends Components.ZModalLogin,
+      HTMLStencilElement {}
+  var HTMLZModalLoginElement: {
+    prototype: HTMLZModalLoginElement;
+    new (): HTMLZModalLoginElement;
+  };
+  interface HTMLZMyzCardElement
+    extends Components.ZMyzCard,
+      HTMLStencilElement {}
+  var HTMLZMyzCardElement: {
+    prototype: HTMLZMyzCardElement;
+    new (): HTMLZMyzCardElement;
+  };
+  interface HTMLZMyzCardAlertElement
+    extends Components.ZMyzCardAlert,
+      HTMLStencilElement {}
+  var HTMLZMyzCardAlertElement: {
+    prototype: HTMLZMyzCardAlertElement;
+    new (): HTMLZMyzCardAlertElement;
+  };
+  interface HTMLZMyzCardBodyElement
+    extends Components.ZMyzCardBody,
+      HTMLStencilElement {}
+  var HTMLZMyzCardBodyElement: {
+    prototype: HTMLZMyzCardBodyElement;
+    new (): HTMLZMyzCardBodyElement;
+  };
+  interface HTMLZMyzCardCoverElement
+    extends Components.ZMyzCardCover,
+      HTMLStencilElement {}
+  var HTMLZMyzCardCoverElement: {
+    prototype: HTMLZMyzCardCoverElement;
+    new (): HTMLZMyzCardCoverElement;
+  };
+  interface HTMLZMyzCardFooterElement
+    extends Components.ZMyzCardFooter,
+      HTMLStencilElement {}
+  var HTMLZMyzCardFooterElement: {
+    prototype: HTMLZMyzCardFooterElement;
+    new (): HTMLZMyzCardFooterElement;
+  };
+  interface HTMLZMyzCardHeaderElement
+    extends Components.ZMyzCardHeader,
+      HTMLStencilElement {}
+  var HTMLZMyzCardHeaderElement: {
+    prototype: HTMLZMyzCardHeaderElement;
+    new (): HTMLZMyzCardHeaderElement;
+  };
+  interface HTMLZMyzCardIconElement
+    extends Components.ZMyzCardIcon,
+      HTMLStencilElement {}
+  var HTMLZMyzCardIconElement: {
+    prototype: HTMLZMyzCardIconElement;
+    new (): HTMLZMyzCardIconElement;
+  };
+  interface HTMLZMyzCardListElement
+    extends Components.ZMyzCardList,
+      HTMLStencilElement {}
+  var HTMLZMyzCardListElement: {
+    prototype: HTMLZMyzCardListElement;
+    new (): HTMLZMyzCardListElement;
+  };
+  interface HTMLZNavigationTabElement
+    extends Components.ZNavigationTab,
+      HTMLStencilElement {}
+  var HTMLZNavigationTabElement: {
+    prototype: HTMLZNavigationTabElement;
+    new (): HTMLZNavigationTabElement;
+  };
+  interface HTMLZNavigationTabsElement
+    extends Components.ZNavigationTabs,
+      HTMLStencilElement {}
+  var HTMLZNavigationTabsElement: {
+    prototype: HTMLZNavigationTabsElement;
+    new (): HTMLZNavigationTabsElement;
+  };
+  interface HTMLZNotificationElement
+    extends Components.ZNotification,
+      HTMLStencilElement {}
+  var HTMLZNotificationElement: {
+    prototype: HTMLZNotificationElement;
+    new (): HTMLZNotificationElement;
+  };
+  interface HTMLZPaginationBarElement
+    extends Components.ZPaginationBar,
+      HTMLStencilElement {}
+  var HTMLZPaginationBarElement: {
+    prototype: HTMLZPaginationBarElement;
+    new (): HTMLZPaginationBarElement;
+  };
+  interface HTMLZPaginationPageElement
+    extends Components.ZPaginationPage,
+      HTMLStencilElement {}
+  var HTMLZPaginationPageElement: {
+    prototype: HTMLZPaginationPageElement;
+    new (): HTMLZPaginationPageElement;
+  };
+  interface HTMLZPanelElemElement
+    extends Components.ZPanelElem,
+      HTMLStencilElement {}
+  var HTMLZPanelElemElement: {
+    prototype: HTMLZPanelElemElement;
+    new (): HTMLZPanelElemElement;
+  };
+  interface HTMLZPopoverElement
+    extends Components.ZPopover,
+      HTMLStencilElement {}
+  var HTMLZPopoverElement: {
+    prototype: HTMLZPopoverElement;
+    new (): HTMLZPopoverElement;
+  };
+  interface HTMLZRegistroTableElement
+    extends Components.ZRegistroTable,
+      HTMLStencilElement {}
+  var HTMLZRegistroTableElement: {
+    prototype: HTMLZRegistroTableElement;
+    new (): HTMLZRegistroTableElement;
+  };
+  interface HTMLZRegistroTableBodyElement
+    extends Components.ZRegistroTableBody,
+      HTMLStencilElement {}
+  var HTMLZRegistroTableBodyElement: {
+    prototype: HTMLZRegistroTableBodyElement;
+    new (): HTMLZRegistroTableBodyElement;
+  };
+  interface HTMLZRegistroTableCellElement
+    extends Components.ZRegistroTableCell,
+      HTMLStencilElement {}
+  var HTMLZRegistroTableCellElement: {
+    prototype: HTMLZRegistroTableCellElement;
+    new (): HTMLZRegistroTableCellElement;
+  };
+  interface HTMLZRegistroTableExpandedRowElement
+    extends Components.ZRegistroTableExpandedRow,
+      HTMLStencilElement {}
+  var HTMLZRegistroTableExpandedRowElement: {
+    prototype: HTMLZRegistroTableExpandedRowElement;
+    new (): HTMLZRegistroTableExpandedRowElement;
+  };
+  interface HTMLZRegistroTableFooterElement
+    extends Components.ZRegistroTableFooter,
+      HTMLStencilElement {}
+  var HTMLZRegistroTableFooterElement: {
+    prototype: HTMLZRegistroTableFooterElement;
+    new (): HTMLZRegistroTableFooterElement;
+  };
+  interface HTMLZRegistroTableHeadElement
+    extends Components.ZRegistroTableHead,
+      HTMLStencilElement {}
+  var HTMLZRegistroTableHeadElement: {
+    prototype: HTMLZRegistroTableHeadElement;
+    new (): HTMLZRegistroTableHeadElement;
+  };
+  interface HTMLZRegistroTableHeaderElement
+    extends Components.ZRegistroTableHeader,
+      HTMLStencilElement {}
+  var HTMLZRegistroTableHeaderElement: {
+    prototype: HTMLZRegistroTableHeaderElement;
+    new (): HTMLZRegistroTableHeaderElement;
+  };
+  interface HTMLZRegistroTableHeaderRowElement
+    extends Components.ZRegistroTableHeaderRow,
+      HTMLStencilElement {}
+  var HTMLZRegistroTableHeaderRowElement: {
+    prototype: HTMLZRegistroTableHeaderRowElement;
+    new (): HTMLZRegistroTableHeaderRowElement;
+  };
+  interface HTMLZRegistroTableRowElement
+    extends Components.ZRegistroTableRow,
+      HTMLStencilElement {}
+  var HTMLZRegistroTableRowElement: {
+    prototype: HTMLZRegistroTableRowElement;
+    new (): HTMLZRegistroTableRowElement;
+  };
+  interface HTMLZRegistroTableStickyFooterElement
+    extends Components.ZRegistroTableStickyFooter,
+      HTMLStencilElement {}
+  var HTMLZRegistroTableStickyFooterElement: {
+    prototype: HTMLZRegistroTableStickyFooterElement;
+    new (): HTMLZRegistroTableStickyFooterElement;
+  };
+  interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {}
+  var HTMLZSelectElement: {
+    prototype: HTMLZSelectElement;
+    new (): HTMLZSelectElement;
+  };
+  interface HTMLZStatusTagElement
+    extends Components.ZStatusTag,
+      HTMLStencilElement {}
+  var HTMLZStatusTagElement: {
+    prototype: HTMLZStatusTagElement;
+    new (): HTMLZStatusTagElement;
+  };
+  interface HTMLZStepperElement
+    extends Components.ZStepper,
+      HTMLStencilElement {}
+  var HTMLZStepperElement: {
+    prototype: HTMLZStepperElement;
+    new (): HTMLZStepperElement;
+  };
+  interface HTMLZStepperItemElement
+    extends Components.ZStepperItem,
+      HTMLStencilElement {}
+  var HTMLZStepperItemElement: {
+    prototype: HTMLZStepperItemElement;
+    new (): HTMLZStepperItemElement;
+  };
+  interface HTMLZToggleButtonElement
+    extends Components.ZToggleButton,
+      HTMLStencilElement {}
+  var HTMLZToggleButtonElement: {
+    prototype: HTMLZToggleButtonElement;
+    new (): HTMLZToggleButtonElement;
+  };
+  interface HTMLZTooltipElement
+    extends Components.ZTooltip,
+      HTMLStencilElement {}
+  var HTMLZTooltipElement: {
+    prototype: HTMLZTooltipElement;
+    new (): HTMLZTooltipElement;
+  };
+  interface HTMLZTypographyElement
+    extends Components.ZTypography,
+      HTMLStencilElement {}
+  var HTMLZTypographyElement: {
+    prototype: HTMLZTypographyElement;
+    new (): HTMLZTypographyElement;
+  };
+  interface HTMLZUserDropdownElement
+    extends Components.ZUserDropdown,
+      HTMLStencilElement {}
+  var HTMLZUserDropdownElement: {
+    prototype: HTMLZUserDropdownElement;
+    new (): HTMLZUserDropdownElement;
+  };
+  interface HTMLElementTagNameMap {
+    "z-app-header": HTMLZAppHeaderElement;
+    "z-app-switcher": HTMLZAppSwitcherElement;
+    "z-app-topbar": HTMLZAppTopbarElement;
+    "z-avatar": HTMLZAvatarElement;
+    "z-body": HTMLZBodyElement;
+    "z-button": HTMLZButtonElement;
+    "z-button-filter": HTMLZButtonFilterElement;
+    "z-button-sort": HTMLZButtonSortElement;
+    "z-candybar": HTMLZCandybarElement;
+    "z-card": HTMLZCardElement;
+    "z-chip": HTMLZChipElement;
+    "z-combobox": HTMLZComboboxElement;
+    "z-cookiebar": HTMLZCookiebarElement;
+    "z-divider": HTMLZDividerElement;
+    "z-footer": HTMLZFooterElement;
+    "z-footer-link": HTMLZFooterLinkElement;
+    "z-footer-section": HTMLZFooterSectionElement;
+    "z-footer-social": HTMLZFooterSocialElement;
+    "z-header": HTMLZHeaderElement;
+    "z-heading": HTMLZHeadingElement;
+    "z-icon": HTMLZIconElement;
+    "z-icon-package": HTMLZIconPackageElement;
+    "z-info-box": HTMLZInfoBoxElement;
+    "z-input": HTMLZInputElement;
+    "z-input-label": HTMLZInputLabelElement;
+    "z-input-message": HTMLZInputMessageElement;
+    "z-link": HTMLZLinkElement;
+    "z-list": HTMLZListElement;
+    "z-list-item": HTMLZListItemElement;
+    "z-logo": HTMLZLogoElement;
+    "z-menu": HTMLZMenuElement;
+    "z-menu-dropdown": HTMLZMenuDropdownElement;
+    "z-menu-section": HTMLZMenuSectionElement;
+    "z-modal": HTMLZModalElement;
+    "z-modal-login": HTMLZModalLoginElement;
+    "z-myz-card": HTMLZMyzCardElement;
+    "z-myz-card-alert": HTMLZMyzCardAlertElement;
+    "z-myz-card-body": HTMLZMyzCardBodyElement;
+    "z-myz-card-cover": HTMLZMyzCardCoverElement;
+    "z-myz-card-footer": HTMLZMyzCardFooterElement;
+    "z-myz-card-header": HTMLZMyzCardHeaderElement;
+    "z-myz-card-icon": HTMLZMyzCardIconElement;
+    "z-myz-card-list": HTMLZMyzCardListElement;
+    "z-navigation-tab": HTMLZNavigationTabElement;
+    "z-navigation-tabs": HTMLZNavigationTabsElement;
+    "z-notification": HTMLZNotificationElement;
+    "z-pagination-bar": HTMLZPaginationBarElement;
+    "z-pagination-page": HTMLZPaginationPageElement;
+    "z-panel-elem": HTMLZPanelElemElement;
+    "z-popover": HTMLZPopoverElement;
+    "z-registro-table": HTMLZRegistroTableElement;
+    "z-registro-table-body": HTMLZRegistroTableBodyElement;
+    "z-registro-table-cell": HTMLZRegistroTableCellElement;
+    "z-registro-table-expanded-row": HTMLZRegistroTableExpandedRowElement;
+    "z-registro-table-footer": HTMLZRegistroTableFooterElement;
+    "z-registro-table-head": HTMLZRegistroTableHeadElement;
+    "z-registro-table-header": HTMLZRegistroTableHeaderElement;
+    "z-registro-table-header-row": HTMLZRegistroTableHeaderRowElement;
+    "z-registro-table-row": HTMLZRegistroTableRowElement;
+    "z-registro-table-sticky-footer": HTMLZRegistroTableStickyFooterElement;
+    "z-select": HTMLZSelectElement;
+    "z-status-tag": HTMLZStatusTagElement;
+    "z-stepper": HTMLZStepperElement;
+    "z-stepper-item": HTMLZStepperItemElement;
+    "z-toggle-button": HTMLZToggleButtonElement;
+    "z-tooltip": HTMLZTooltipElement;
+    "z-typography": HTMLZTypographyElement;
+    "z-user-dropdown": HTMLZUserDropdownElement;
+  }
 }
 declare namespace LocalJSX {
-    interface ZAppHeader {
-        /**
-          * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
-         */
-        "drawer"?: boolean;
-        /**
-          * Control menu bar position in the header. **Optional**
-         */
-        "flow"?: 'auto'|'stack';
-        /**
-          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
-         */
-        "hero"?: string;
-        /**
-          * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
-         */
-        "overlay"?: boolean;
-        /**
-          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
-         */
-        "stuck"?: boolean;
-    }
-    interface ZAppSwitcher {
-        /**
-          * emitted on app button icon click, returns open/closed state
-         */
-        "onAppButtonClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariantBean;
-    }
-    interface ZAppTopbar {
-        /**
-          * optional hashtag string
-         */
-        "hashtag"?: string;
-        /**
-          * logged status flag
-         */
-        "logged"?: boolean;
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariantBean;
-    }
-    interface ZAvatar {
-        /**
-          * [optional] Avatar background color
-         */
-        "backgroundColor"?: string;
-        /**
-          * [optional] Avatar image
-         */
-        "image"?: string;
-        /**
-          * [optional] Avatar size
-         */
-        "size"?: AvatarSize;
-        /**
-          * [optional] Avatar text
-         */
-        "text"?: string;
-        /**
-          * [optional] Avatar text color
-         */
-        "textColor"?: string;
-    }
-    interface ZBody {
-        "component"?: string;
-        "level"?: 1 | 2 | 3 | 4 | 5;
-        "variant"?: "regular" | "semibold";
-    }
-    interface ZButton {
-        /**
-          * HTML button disabled attribute.
-         */
-        "disabled"?: boolean;
-        /**
-          * Identifier, should be unique.
-         */
-        "htmlid"?: string;
-        /**
-          * `z-icon` name to use (optional).
-         */
-        "icon"?: string;
-        /**
-          * Reduce button size (deprecated).
-          * @deprecated Use `size` prop.
-         */
-        "issmall"?: boolean;
-        /**
-          * HTML button name attribute.
-         */
-        "name"?: string;
-        /**
-          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-         */
-        "size"?: ButtonSizeEnum;
-        /**
-          * Spy to render square button.
-         */
-        "square"?: boolean;
-        /**
-          * HTML button type attribute.
-         */
-        "type"?: HTMLButtonElement["type"];
-        /**
-          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
-         */
-        "variant"?: ButtonVariantBean;
-    }
-    interface ZButtonFilter {
-        /**
-          * filter id
-         */
-        "filterid"?: string;
-        /**
-          * filter text content
-         */
-        "filtername"?: string;
-        /**
-          * add icon to button
-         */
-        "hasicon"?: boolean;
-        /**
-          * disable action on button
-         */
-        "isfixed"?: boolean;
-        /**
-          * reduce button size (optional)
-         */
-        "issmall"?: boolean;
-        /**
-          * remove filter click event, returns filterid
-         */
-        "onRemovefilter"?: (event: CustomEvent<any>) => void;
-    }
-    interface ZButtonSort {
-        /**
-          * id, should be unique
-         */
-        "buttonid"?: string;
-        /**
-          * occurrencies counter (optional)
-         */
-        "counter"?: number;
-        /**
-          * label content (descending)
-         */
-        "desclabel"?: string;
-        /**
-          * selected flag (optional)
-         */
-        "isselected"?: boolean;
-        /**
-          * label content (ascending)
-         */
-        "label"?: string;
-        /**
-          * sorting direction click event, returns buttonid and sortAsc
-         */
-        "onButtonSortClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * sortable flag (optional)
-         */
-        "sortasc"?: boolean;
-        /**
-          * sort label content (ascending) (optional)
-         */
-        "sortlabelasc"?: string;
-        /**
-          * sort label content (descending) (optional)
-         */
-        "sortlabeldesc"?: string;
-    }
-    interface ZCandybar {
-    }
-    interface ZCard {
-        /**
-          * Enable click interactions on the card. Default: false
-         */
-        "clickable"?: boolean;
-        /**
-          * Name of the icon to place over the image cover
-         */
-        "coverIcon"?: string;
-        /**
-          * Card click event. Fired only if `clickable` is true.
-         */
-        "onCardClicked"?: (event: CustomEvent<any>) => void;
-        /**
-          * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
-         */
-        "variant"?: CardVariants;
-    }
-    interface ZChip {
-        "boldtext"?: number;
-        "regulartext"?: string;
-    }
-    interface ZCombobox {
-        /**
-          * check all label (optional)
-         */
-        "checkalltext"?: string;
-        /**
-          * close combobox list text
-         */
-        "closesearchtext"?: string;
-        /**
-          * show "check all" checkbox (optional)
-         */
-        "hascheckall"?: boolean;
-        /**
-          * show search input flag (optional)
-         */
-        "hassearch"?: boolean;
-        /**
-          * input unique id
-         */
-        "inputid"?: string;
-        /**
-          * fixed style flag
-         */
-        "isfixed"?: boolean;
-        /**
-          * toggle combo list opening flag
-         */
-        "isopen"?: boolean;
-        /**
-          * list items array
-         */
-        "items"?: ComboItemBean[] | string;
-        /**
-          * label text
-         */
-        "label"?: string;
-        /**
-          * max number of checkable items (0 = unlimited)
-         */
-        "maxcheckableitems"?: number;
-        /**
-          * no result text message
-         */
-        "noresultslabel"?: string;
-        /**
-          * Emitted when value is checked/unchecked. Returns id, items.
-         */
-        "onComboboxChange"?: (event: CustomEvent<any>) => void;
-        /**
-          * search input label text (optional)
-         */
-        "searchlabel"?: string;
-        /**
-          * search input placeholder text (optional)
-         */
-        "searchplaceholder"?: string;
-        /**
-          * search input title text (optional)
-         */
-        "searchtitle"?: string;
-        /**
-          * uncheck all label (optional)
-         */
-        "uncheckalltext"?: string;
-    }
-    interface ZCookiebar {
-        /**
-          * callback to handle ok button action (optional)
-         */
-        "callback"?: () => any;
-        /**
-          * cookie policy link url
-         */
-        "cookiepolicyurl"?: string;
-        /**
-          * hide cookie bar (optional)
-         */
-        "hide"?: boolean;
-        /**
-          * emitted on ACCETTA button click, returns event
-         */
-        "onAccept"?: (event: CustomEvent<any>) => void;
-    }
-    interface ZDivider {
-        /**
-          * [optional] Divider color
-         */
-        "color"?: string;
-        /**
-          * [optional] Divider orintation
-         */
-        "orientation"?: DividerOrientation;
-        /**
-          * [optional] Divider size
-         */
-        "size"?: DividerSize;
-    }
-    interface ZFooter {
-        /**
-          * deprecated - set copyright user
-         */
-        "copyrightuser"?: string;
-        /**
-          * deprecated - JSON stringified data to fill the footer
-         */
-        "data"?: string;
-    }
-    interface ZFooterLink {
-        /**
-          * link
-         */
-        "href"?: string;
-    }
-    interface ZFooterSection {
-        /**
-          * section title
-         */
-        "name"?: string;
-    }
-    interface ZFooterSocial {
-        /**
-          * social description
-         */
-        "description"?: string;
-        /**
-          * social link
-         */
-        "href"?: string;
-        /**
-          * icon url
-         */
-        "icon"?: string;
-    }
-    interface ZHeader {
-        /**
-          * set current active menu link (optional)
-         */
-        "activeintlinkid"?: string;
-        /**
-          * set current active sub menu link (optional)
-         */
-        "activesublinkid"?: string;
-        /**
-          * data to fill external navigation links
-         */
-        "extlinkdata"?: string | MenuItem[];
-        /**
-          * hide login button if true (optional)
-         */
-        "hideloginbutton"?: boolean;
-        /**
-          * alternative logo title text (optional)
-         */
-        "imagealt"?: string;
-        /**
-          * data to fill internal navigation links
-         */
-        "intlinkdata"?: string | MenuItem[];
-        /**
-          * graphic flag to set myzanichelli style
-         */
-        "ismyz"?: boolean;
-        /**
-          * url to attach to logo (optional)
-         */
-        "logolink"?: string;
-        /**
-          * data to fill user dropdown menu (optional)
-         */
-        "userdata"?: string | HeaderUserData;
-    }
-    interface ZHeading {
-        "component"?: string;
-        "level"?: 1 | 2 | 3 | 4;
-        "variant"?: "regular" | "semibold" | "light";
-    }
-    interface ZIcon {
-        /**
-          * icon height (optional)
-         */
-        "height"?: number;
-        /**
-          * icon id (optional)
-         */
-        "iconid"?: string;
-        /**
-          * icon name (choice between available icons)
-         */
-        "name"?: string;
-        /**
-          * icon width (optional)
-         */
-        "width"?: number;
-    }
-    interface ZIconPackage {
-    }
-    interface ZInfoBox {
-        /**
-          * info box unique id
-         */
-        "boxid"?: string;
-        /**
-          * render close icon flag
-         */
-        "isclosable"?: boolean;
-        /**
-          * emitted on close icon click
-         */
-        "onInfoBoxClose"?: (event: CustomEvent<any>) => void;
-    }
-    interface ZInput {
-        /**
-          * the input has autocomplete option (optional): available for select, input
-         */
-        "autocomplete"?: boolean | string;
-        /**
-          * checked: available for checkbox, radio
-         */
-        "checked"?: boolean;
-        /**
-          * the input is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * render clear icon when typing (optional): available for text
-         */
-        "hasclearicon"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
-        /**
-          * the id of the input element
-         */
-        "htmlid"?: string;
-        /**
-          * the input html title (optional)
-         */
-        "htmltitle"?: string;
-        /**
-          * render icon (optional): available for text, select
-         */
-        "icon"?: string;
-        /**
-          * items (optional): available for select
-         */
-        "items"?: SelectItemBean[] | string;
-        /**
-          * the input label
-         */
-        "label"?: string;
-        /**
-          * the input label position: available for checkbox, radio
-         */
-        "labelafter"?: boolean;
-        /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "message"?: string;
-        /**
-          * multiple options can be selected (optional): available for select
-         */
-        "multiple"?: boolean;
-        /**
-          * the input name
-         */
-        "name"?: string;
-        /**
-          * Emitted on input value change, returns value, keycode, validity
-         */
-        "onInputChange"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
-         */
-        "onInputCheck"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
-         */
-        "onOptionSelect"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted when user starts typing
-         */
-        "onStartTyping"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted when user stops typing, returns value, validity
-         */
-        "onStopTyping"?: (event: CustomEvent<any>) => void;
-        /**
-          * the input placeholder (optional)
-         */
-        "placeholder"?: string;
-        /**
-          * the input is readonly
-         */
-        "readonly"?: boolean;
-        /**
-          * the input is required (optional): available for text, password, number, email, textarea, checkbox
-         */
-        "required"?: boolean;
-        /**
-          * the input status (optional): available for text, password, number, email, textarea, select
-         */
-        "status"?: InputStatusBean;
-        /**
-          * input types
-         */
-        "type"?: InputTypeBean;
-        /**
-          * timeout setting before trigger `inputChange` event (optional): available for text, textarea
-         */
-        "typingtimeout"?: number;
-        /**
-          * the input value
-         */
-        "value"?: string;
-    }
-    interface ZInputLabel {
-        /**
-          * the label is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * the label value
-         */
-        "value"?: string;
-    }
-    interface ZInputMessage {
-        /**
-          * input helper message
-         */
-        "message"?: string;
-        /**
-          * input status (optional)
-         */
-        "status"?: InputStatusBean;
-    }
-    interface ZLink {
-        /**
-          * big link version
-         */
-        "big"?: boolean;
-        /**
-          * link url (optional)
-         */
-        "href"?: string;
-        /**
-          * link id (optional)
-         */
-        "htmlid"?: string;
-        /**
-          * tabindex link attribute (optional)
-         */
-        "htmltabindex"?: number;
-        /**
-          * link icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * active link flag (optional)
-         */
-        "isactive"?: boolean;
-        /**
-          * disable link flag (optional)
-         */
-        "isdisabled"?: boolean;
-        /**
-          * white variant flag (optional)
-         */
-        "iswhite"?: boolean;
-        /**
-          * emitted on link click, returns linkId
-         */
-        "onZLinkClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * link target (optional)
-         */
-        "target"?: string;
-        /**
-          * link text variant (optional)
-         */
-        "textcolor"?: 'white' | 'blue' | 'black';
-    }
-    interface ZList {
-        /**
-          * json stringified list data (mutable, optional)
-         */
-        "inputrawdata"?: string;
-        /**
-          * list item data (mutable, optional)
-         */
-        "list"?: ListItemBean[];
-    }
-    interface ZListItem {
-        /**
-          * data-action attribute (optional)
-         */
-        "action"?: string;
-        /**
-          * icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * link url (optional)
-         */
-        "link"?: string;
-        /**
-          * link target (optional)
-         */
-        "linktarget"?: string;
-        /**
-          * id (optional)
-         */
-        "listitemid"?: string;
-        /**
-          * emitted on list item click, returns listitemid
-         */
-        "onZListItemClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * emitted on list item link click, returns linkId
-         */
-        "onZListItemLinkClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * content text
-         */
-        "text"?: string;
-        /**
-          * underlined style flag
-         */
-        "underlined"?: boolean;
-    }
-    interface ZLogo {
-        /**
-          * image height
-         */
-        "height"?: number;
-        /**
-          * alternative image text
-         */
-        "imagealt"?: string;
-        /**
-          * link url (optional)
-         */
-        "link"?: string;
-        /**
-          * link target (optional)
-         */
-        "targetblank"?: boolean;
-        /**
-          * image width
-         */
-        "width"?: number;
-    }
-    interface ZMenu {
-        /**
-          * Flag to set the active status of the menu.
-         */
-        "active"?: boolean;
-        /**
-          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
-          * @default false
-         */
-        "floating"?: boolean;
-        /**
-          * The menu has been closed.
-         */
-        "onClosed"?: (event: CustomEvent<any>) => void;
-        /**
-          * The menu has been opened.
-         */
-        "onOpened"?: (event: CustomEvent<any>) => void;
-        /**
-          * The opening state of the menu.
-          * @default false
-         */
-        "open"?: boolean;
-    }
-    interface ZMenuDropdown {
-        /**
-          * unique button id
-         */
-        "buttonid"?: string;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menucontent"?: string | MenuItem[];
-        /**
-          * user name text
-         */
-        "nomeutente"?: string;
-    }
-    interface ZMenuSection {
-        "active"?: boolean;
-        /**
-          * The section has been closed.
-         */
-        "onClosed"?: (event: CustomEvent<any>) => void;
-        /**
-          * The section has been opened.
-         */
-        "onOpened"?: (event: CustomEvent<any>) => void;
-    }
-    interface ZModal {
-        /**
-          * unique id
-         */
-        "modalid"?: string;
-        /**
-          * subtitle (optional)
-         */
-        "modalsubtitle"?: string;
-        /**
-          * title text (optional)
-         */
-        "modaltitle"?: string;
-        /**
-          * emitted on background click, returns modalid
-         */
-        "onModalBackgroundClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * emitted on close button click, returns modalid
-         */
-        "onModalClose"?: (event: CustomEvent<any>) => void;
-        /**
-          * emitted on modal header click, returns modalid
-         */
-        "onModalHeaderActive"?: (event: CustomEvent<any>) => void;
-    }
-    interface ZModalLogin {
-        /**
-          * Login modal title
-         */
-        "heading"?: string;
-        /**
-          * Username helper message
-         */
-        "message"?: string;
-        /**
-          * Emitted on login submit
-         */
-        "onLoginSubmit"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted on signup button click
-         */
-        "onSignupClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted on zaino digitale button click
-         */
-        "onZainoDigitaleClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * Username/password input status
-         */
-        "status"?: InputStatusBean;
-    }
-    interface ZMyzCard {
-        /**
-          * graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * highlighted status
-         */
-        "ishighlighted"?: boolean;
-        /**
-          * pressed status
-         */
-        "ispressed"?: boolean;
-    }
-    interface ZMyzCardAlert {
-        /**
-          * action button text
-         */
-        "actiontext"?: string;
-        /**
-          * content text
-         */
-        "contenttext"?: string;
-        /**
-          * icon name
-         */
-        "iconname"?: string;
-        /**
-          * undo action click/keyboard event, returns actionType
-         */
-        "onUndoAction"?: (event: CustomEvent<any>) => void;
-        /**
-          * alert variant type
-         */
-        "type"?: string;
-    }
-    interface ZMyzCardBody {
-    }
-    interface ZMyzCardCover {
-        /**
-          * default error image source
-         */
-        "defaultimg"?: string;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * image source
-         */
-        "img"?: string;
-        /**
-          * cover alt title
-         */
-        "titolo"?: string;
-    }
-    interface ZMyzCardFooter {
-        /**
-          * authors name text
-         */
-        "autori"?: string;
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * volume isbn
-         */
-        "isbn"?: string;
-        /**
-          * volume title
-         */
-        "titolo"?: string;
-    }
-    interface ZMyzCardHeader {
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseTypeEnum;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * volume title
-         */
-        "titolo"?: string;
-    }
-    interface ZMyzCardIcon {
-        /**
-          * icon name
-         */
-        "icon"?: string;
-        /**
-          * disabled status flag
-         */
-        "isdisabled"?: boolean;
-    }
-    interface ZMyzCardList {
-        /**
-          * list data stringified array
-         */
-        "listdata"?: string;
-    }
-    interface ZNavigationTab {
-        "disabled"?: boolean;
-        "onSelected"?: (event: CustomEvent<any>) => void;
-        "orientation"?: string;
-        "selected"?: boolean;
-        "size"?: string;
-    }
-    interface ZNavigationTabs {
-        /**
-          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
-         */
-        "orientation"?: TabOrientationBean;
-        /**
-          * Available sizes: `big` and `small`. Defaults to `big`.
-         */
-        "size"?: TabSizeBean;
-    }
-    interface ZNotification {
-        /**
-          * action button text
-         */
-        "actiontext"?: string;
-        /**
-          * icon on the left of the content
-         */
-        "contenticonname"?: string;
-        /**
-          * notification action event
-         */
-        "onNotificationAction"?: (event: CustomEvent<any>) => void;
-        /**
-          * notification close event
-         */
-        "onNotificationClose"?: (event: CustomEvent<any>) => void;
-        /**
-          * enable close icon
-         */
-        "showclose"?: boolean;
-        /**
-          * enable shadow
-         */
-        "showshadow"?: boolean;
-        /**
-          * alert variant type
-         */
-        "type"?: NotificationType;
-    }
-    interface ZPaginationBar {
-        /**
-          * current displayed page (mutable)
-         */
-        "currentpage"?: number;
-        /**
-          * json stringified history of visited pages (optional)
-         */
-        "historyraw"?: string;
-        /**
-          * array of history of visited pages (mutable, optional)
-         */
-        "listhistoryrow"?: number[];
-        /**
-          * emitted on adding page to isvisited array, returns page
-         */
-        "onAddPageToHistory"?: (event: CustomEvent<any>) => void;
-        /**
-          * emitted on start page change, returns startpage
-         */
-        "onChangeStartPage"?: (event: CustomEvent<any>) => void;
-        /**
-          * emitted on page number click, returns page
-         */
-        "onGoToPage"?: (event: CustomEvent<any>) => void;
-        /**
-          * pages number
-         */
-        "pages"?: number;
-        /**
-          * initial page (mutable)
-         */
-        "startpage"?: number;
-        /**
-          * number of visible pages
-         */
-        "visiblepages"?: number;
-    }
-    interface ZPaginationPage {
-        /**
-          * disabled status flag
-         */
-        "isdisabled"?: boolean;
-        /**
-          * selected status flag
-         */
-        "isselected"?: boolean;
-        /**
-          * visited status flag
-         */
-        "isvisited"?: boolean;
-        /**
-          * anchor html id
-         */
-        "pageid"?: string;
-        /**
-          * numeric page value (optional)
-         */
-        "value"?: number;
-    }
-    interface ZPanelElem {
-        /**
-          * name of slot container (optional)
-         */
-        "descr_slot_name"?: string;
-        /**
-          * html element id (optional)
-         */
-        "elemid"?: string;
-        /**
-          * alternative image text (optional)
-         */
-        "imgalt"?: string;
-        /**
-          * image url source (optional)
-         */
-        "imgurl"?: string;
-        /**
-          * disabled status flag (optional)
-         */
-        "isdisabled"?: boolean;
-        /**
-          * icon link name (optional)
-         */
-        "linkicon"?: string;
-        /**
-          * link label text
-         */
-        "linklabel"?: string;
-        /**
-          * link target (optional)
-         */
-        "target"?: string;
-        /**
-          * link url
-         */
-        "url"?: string;
-    }
-    interface ZPopover {
-        /**
-          * [optional] Background color token for popover
-         */
-        "backgroundColor"?: string;
-        /**
-          * [optional] Border radius token for popover
-         */
-        "borderRadius"?: PopoverBorderRadius;
-        /**
-          * [optional] Box shadow token for popover
-         */
-        "boxShadow"?: PopoverShadow;
-        /**
-          * [optional] Popover position
-         */
-        "position"?: PopoverPosition;
-        /**
-          * [optional] Show or hide arrow
-         */
-        "showArrow"?: boolean;
-    }
-    interface ZRegistroTable {
-        /**
-          * Sets table with border
-         */
-        "bordered"?: boolean;
-        /**
-          * Sets first column sticky
-         */
-        "columnSticky"?: boolean;
-        /**
-          * Sets header sticky
-         */
-        "headerSticky"?: boolean;
-    }
-    interface ZRegistroTableBody {
-    }
-    interface ZRegistroTableCell {
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-    }
-    interface ZRegistroTableExpandedRow {
-        /**
-          * Number table column plus 1 for the expand button
-         */
-        "colSpan"?: number;
-    }
-    interface ZRegistroTableFooter {
-    }
-    interface ZRegistroTableHead {
-    }
-    interface ZRegistroTableHeader {
-        /**
-          * Column ID
-         */
-        "columnId"?: string;
-        /**
-          * [Optional] callback for sorting
-         */
-        "onSort"?: (event: CustomEvent<any>) => void;
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-        /**
-          * [Optional] Padding of the header
-         */
-        "size"?: TableHeaderSize;
-        /**
-          * [Optional] Make the header sortable
-         */
-        "sortable"?: boolean;
-    }
-    interface ZRegistroTableHeaderRow {
-        "expandable"?: boolean;
-    }
-    interface ZRegistroTableRow {
-        "expandable"?: boolean;
-        "onExpand"?: (event: CustomEvent<any>) => void;
-    }
-    interface ZRegistroTableStickyFooter {
-    }
-    interface ZSelect {
-        /**
-          * the input has autocomplete option
-         */
-        "autocomplete"?: boolean | string;
-        /**
-          * the input is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
-        /**
-          * the id of the input element
-         */
-        "htmlid"?: string;
-        /**
-          * the input html title (optional)
-         */
-        "htmltitle"?: string;
-        /**
-          * the input select options
-         */
-        "items"?: SelectItemBean[] | string;
-        /**
-          * the input label
-         */
-        "label"?: string;
-        /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "message"?: string;
-        /**
-          * multiple options can be selected
-         */
-        "multiple"?: boolean;
-        /**
-          * the input name
-         */
-        "name"?: string;
-        /**
-          * no result text message
-         */
-        "noresultslabel"?: string;
-        /**
-          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
-         */
-        "onOptionSelect"?: (event: CustomEvent<any>) => void;
-        /**
-          * the input placeholder (optional)
-         */
-        "placeholder"?: string;
-        /**
-          * the input is readonly
-         */
-        "readonly"?: boolean;
-        /**
-          * the input status (optional): available for text, password, number, email, textarea, select
-         */
-        "status"?: InputStatusBean;
-    }
-    interface ZStatusTag {
-        /**
-          * [optional] Hide the text and show it on hover
-         */
-        "expandable"?: boolean;
-        /**
-          * [optional] Status tag icon
-         */
-        "icon"?: string;
-        /**
-          * [optional] Status tag color
-         */
-        "status"?: StatusTagStatus;
-        /**
-          * [optional] Status tag text
-         */
-        "text"?: string;
-        /**
-          * [optional] Status tag style
-         */
-        "variant"?: ThemeVariant;
-    }
-    interface ZStepper {
-    }
-    interface ZStepperItem {
-        /**
-          * The disabled state of the item.
-         */
-        "disabled"?: boolean;
-        /**
-          * The href to navigate on click.
-         */
-        "href"?: string;
-        /**
-          * The number of the step item.
-         */
-        "index"?: number;
-        /**
-          * The pressed state of the item.
-         */
-        "pressed"?: boolean;
-    }
-    interface ZToggleButton {
-        /**
-          * avoidclick status flag
-         */
-        "avoidclick"?: boolean;
-        /**
-          * disabled status flag (optional)
-         */
-        "isdisabled"?: boolean;
-        /**
-          * label text
-         */
-        "label"?: string;
-        /**
-          * emitted on toggle button click, returns isOpen
-         */
-        "onToggleClick"?: (event: CustomEvent<any>) => void;
-    }
-    interface ZTooltip {
-        /**
-          * content text
-         */
-        "content"?: string;
-        /**
-          * tooltip position variant
-         */
-        "type"?: TooltipPosition;
-    }
-    interface ZTypography {
-        "component"?: string;
-        "level"?: ZTypographyLevels;
-        "variant"?: "regular" | "semibold" | "light";
-    }
-    interface ZUserDropdown {
-        /**
-          * logged status flag
-         */
-        "logged"?: boolean;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menucontent"?: string | MenuItem[];
-        /**
-          * Emitted on dropdown menu zlink click, returns zlink linkId
-         */
-        "onDropdownMenuLinkClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted on enter or user Button click, returns ismenuopen (bool)
-         */
-        "onUserButtonClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariantBean;
-        /**
-          * user full name
-         */
-        "userfullname"?: string;
-    }
-    interface IntrinsicElements {
-        "z-app-header": ZAppHeader;
-        "z-app-switcher": ZAppSwitcher;
-        "z-app-topbar": ZAppTopbar;
-        "z-avatar": ZAvatar;
-        "z-body": ZBody;
-        "z-button": ZButton;
-        "z-button-filter": ZButtonFilter;
-        "z-button-sort": ZButtonSort;
-        "z-candybar": ZCandybar;
-        "z-card": ZCard;
-        "z-chip": ZChip;
-        "z-combobox": ZCombobox;
-        "z-cookiebar": ZCookiebar;
-        "z-divider": ZDivider;
-        "z-footer": ZFooter;
-        "z-footer-link": ZFooterLink;
-        "z-footer-section": ZFooterSection;
-        "z-footer-social": ZFooterSocial;
-        "z-header": ZHeader;
-        "z-heading": ZHeading;
-        "z-icon": ZIcon;
-        "z-icon-package": ZIconPackage;
-        "z-info-box": ZInfoBox;
-        "z-input": ZInput;
-        "z-input-label": ZInputLabel;
-        "z-input-message": ZInputMessage;
-        "z-link": ZLink;
-        "z-list": ZList;
-        "z-list-item": ZListItem;
-        "z-logo": ZLogo;
-        "z-menu": ZMenu;
-        "z-menu-dropdown": ZMenuDropdown;
-        "z-menu-section": ZMenuSection;
-        "z-modal": ZModal;
-        "z-modal-login": ZModalLogin;
-        "z-myz-card": ZMyzCard;
-        "z-myz-card-alert": ZMyzCardAlert;
-        "z-myz-card-body": ZMyzCardBody;
-        "z-myz-card-cover": ZMyzCardCover;
-        "z-myz-card-footer": ZMyzCardFooter;
-        "z-myz-card-header": ZMyzCardHeader;
-        "z-myz-card-icon": ZMyzCardIcon;
-        "z-myz-card-list": ZMyzCardList;
-        "z-navigation-tab": ZNavigationTab;
-        "z-navigation-tabs": ZNavigationTabs;
-        "z-notification": ZNotification;
-        "z-pagination-bar": ZPaginationBar;
-        "z-pagination-page": ZPaginationPage;
-        "z-panel-elem": ZPanelElem;
-        "z-popover": ZPopover;
-        "z-registro-table": ZRegistroTable;
-        "z-registro-table-body": ZRegistroTableBody;
-        "z-registro-table-cell": ZRegistroTableCell;
-        "z-registro-table-expanded-row": ZRegistroTableExpandedRow;
-        "z-registro-table-footer": ZRegistroTableFooter;
-        "z-registro-table-head": ZRegistroTableHead;
-        "z-registro-table-header": ZRegistroTableHeader;
-        "z-registro-table-header-row": ZRegistroTableHeaderRow;
-        "z-registro-table-row": ZRegistroTableRow;
-        "z-registro-table-sticky-footer": ZRegistroTableStickyFooter;
-        "z-select": ZSelect;
-        "z-status-tag": ZStatusTag;
-        "z-stepper": ZStepper;
-        "z-stepper-item": ZStepperItem;
-        "z-toggle-button": ZToggleButton;
-        "z-tooltip": ZTooltip;
-        "z-typography": ZTypography;
-        "z-user-dropdown": ZUserDropdown;
-    }
+  interface ZAppHeader {
+    /**
+     * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
+     */
+    drawer?: boolean;
+    /**
+     * Control menu bar position in the header. **Optional**
+     */
+    flow?: "auto" | "stack";
+    /**
+     * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
+     */
+    hero?: string;
+    /**
+     * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
+     */
+    overlay?: boolean;
+    /**
+     * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
+     */
+    stuck?: boolean;
+  }
+  interface ZAppSwitcher {
+    /**
+     * emitted on app button icon click, returns open/closed state
+     */
+    onAppButtonClick?: (event: CustomEvent<any>) => void;
+    /**
+     * theme variant, default 'dark'
+     */
+    theme?: ThemeVariantBean;
+  }
+  interface ZAppTopbar {
+    /**
+     * optional hashtag string
+     */
+    hashtag?: string;
+    /**
+     * logged status flag
+     */
+    logged?: boolean;
+    /**
+     * theme variant, default 'dark'
+     */
+    theme?: ThemeVariantBean;
+  }
+  interface ZAvatar {
+    /**
+     * [optional] Avatar background color
+     */
+    backgroundColor?: string;
+    /**
+     * [optional] Avatar image
+     */
+    image?: string;
+    /**
+     * [optional] Avatar size
+     */
+    size?: AvatarSize;
+    /**
+     * [optional] Avatar text
+     */
+    text?: string;
+    /**
+     * [optional] Avatar text color
+     */
+    textColor?: string;
+  }
+  interface ZBody {
+    component?: string;
+    level?: 1 | 2 | 3 | 4 | 5;
+    variant?: "regular" | "semibold";
+  }
+  interface ZButton {
+    /**
+     * HTML button disabled attribute.
+     */
+    disabled?: boolean;
+    /**
+     * Identifier, should be unique.
+     */
+    htmlid?: string;
+    /**
+     * `z-icon` name to use (optional).
+     */
+    icon?: string;
+    /**
+     * Reduce button size (deprecated).
+     * @deprecated Use `size` prop.
+     */
+    issmall?: boolean;
+    /**
+     * HTML button name attribute.
+     */
+    name?: string;
+    /**
+     * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+     */
+    size?: ButtonSizeEnum;
+    /**
+     * Spy to render square button.
+     */
+    square?: boolean;
+    /**
+     * HTML button type attribute.
+     */
+    type?: HTMLButtonElement["type"];
+    /**
+     * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
+     */
+    variant?: ButtonVariantBean;
+  }
+  interface ZButtonFilter {
+    /**
+     * filter id
+     */
+    filterid?: string;
+    /**
+     * filter text content
+     */
+    filtername?: string;
+    /**
+     * add icon to button
+     */
+    hasicon?: boolean;
+    /**
+     * disable action on button
+     */
+    isfixed?: boolean;
+    /**
+     * reduce button size (optional)
+     */
+    issmall?: boolean;
+    /**
+     * remove filter click event, returns filterid
+     */
+    onRemovefilter?: (event: CustomEvent<any>) => void;
+  }
+  interface ZButtonSort {
+    /**
+     * id, should be unique
+     */
+    buttonid?: string;
+    /**
+     * occurrencies counter (optional)
+     */
+    counter?: number;
+    /**
+     * label content (descending)
+     */
+    desclabel?: string;
+    /**
+     * selected flag (optional)
+     */
+    isselected?: boolean;
+    /**
+     * label content (ascending)
+     */
+    label?: string;
+    /**
+     * sorting direction click event, returns buttonid and sortAsc
+     */
+    onButtonSortClick?: (event: CustomEvent<any>) => void;
+    /**
+     * sortable flag (optional)
+     */
+    sortasc?: boolean;
+    /**
+     * sort label content (ascending) (optional)
+     */
+    sortlabelasc?: string;
+    /**
+     * sort label content (descending) (optional)
+     */
+    sortlabeldesc?: string;
+  }
+  interface ZCandybar {}
+  interface ZCard {
+    /**
+     * Enable click interactions on the card. Default: false
+     */
+    clickable?: boolean;
+    /**
+     * Name of the icon to place over the image cover
+     */
+    coverIcon?: string;
+    /**
+     * Card click event. Fired only if `clickable` is true.
+     */
+    onCardClicked?: (event: CustomEvent<any>) => void;
+    /**
+     * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
+     */
+    variant?: CardVariants;
+  }
+  interface ZChip {
+    boldtext?: number;
+    regulartext?: string;
+  }
+  interface ZCombobox {
+    /**
+     * check all label (optional)
+     */
+    checkalltext?: string;
+    /**
+     * close combobox list text
+     */
+    closesearchtext?: string;
+    /**
+     * show "check all" checkbox (optional)
+     */
+    hascheckall?: boolean;
+    /**
+     * show search input flag (optional)
+     */
+    hassearch?: boolean;
+    /**
+     * input unique id
+     */
+    inputid?: string;
+    /**
+     * fixed style flag
+     */
+    isfixed?: boolean;
+    /**
+     * toggle combo list opening flag
+     */
+    isopen?: boolean;
+    /**
+     * list items array
+     */
+    items?: ComboItemBean[] | string;
+    /**
+     * label text
+     */
+    label?: string;
+    /**
+     * max number of checkable items (0 = unlimited)
+     */
+    maxcheckableitems?: number;
+    /**
+     * no result text message
+     */
+    noresultslabel?: string;
+    /**
+     * Emitted when value is checked/unchecked. Returns id, items.
+     */
+    onComboboxChange?: (event: CustomEvent<any>) => void;
+    /**
+     * search input label text (optional)
+     */
+    searchlabel?: string;
+    /**
+     * search input placeholder text (optional)
+     */
+    searchplaceholder?: string;
+    /**
+     * search input title text (optional)
+     */
+    searchtitle?: string;
+    /**
+     * uncheck all label (optional)
+     */
+    uncheckalltext?: string;
+  }
+  interface ZCookiebar {
+    /**
+     * callback to handle ok button action (optional)
+     */
+    callback?: () => any;
+    /**
+     * cookie policy link url
+     */
+    cookiepolicyurl?: string;
+    /**
+     * hide cookie bar (optional)
+     */
+    hide?: boolean;
+    /**
+     * emitted on ACCETTA button click, returns event
+     */
+    onAccept?: (event: CustomEvent<any>) => void;
+  }
+  interface ZDivider {
+    /**
+     * [optional] Divider color
+     */
+    color?: string;
+    /**
+     * [optional] Divider orintation
+     */
+    orientation?: DividerOrientation;
+    /**
+     * [optional] Divider size
+     */
+    size?: DividerSize;
+  }
+  interface ZFooter {
+    /**
+     * deprecated - set copyright user
+     */
+    copyrightuser?: string;
+    /**
+     * deprecated - JSON stringified data to fill the footer
+     */
+    data?: string;
+  }
+  interface ZFooterLink {
+    /**
+     * link
+     */
+    href?: string;
+  }
+  interface ZFooterSection {
+    /**
+     * section title
+     */
+    name?: string;
+  }
+  interface ZFooterSocial {
+    /**
+     * social description
+     */
+    description?: string;
+    /**
+     * social link
+     */
+    href?: string;
+    /**
+     * icon url
+     */
+    icon?: string;
+  }
+  interface ZHeader {
+    /**
+     * set current active menu link (optional)
+     */
+    activeintlinkid?: string;
+    /**
+     * set current active sub menu link (optional)
+     */
+    activesublinkid?: string;
+    /**
+     * data to fill external navigation links
+     */
+    extlinkdata?: string | MenuItem[];
+    /**
+     * hide login button if true (optional)
+     */
+    hideloginbutton?: boolean;
+    /**
+     * alternative logo title text (optional)
+     */
+    imagealt?: string;
+    /**
+     * data to fill internal navigation links
+     */
+    intlinkdata?: string | MenuItem[];
+    /**
+     * graphic flag to set myzanichelli style
+     */
+    ismyz?: boolean;
+    /**
+     * url to attach to logo (optional)
+     */
+    logolink?: string;
+    /**
+     * data to fill user dropdown menu (optional)
+     */
+    userdata?: string | HeaderUserData;
+  }
+  interface ZHeading {
+    component?: string;
+    level?: 1 | 2 | 3 | 4;
+    variant?: "regular" | "semibold" | "light";
+  }
+  interface ZIcon {
+    /**
+     * icon height (optional)
+     */
+    height?: number;
+    /**
+     * icon id (optional)
+     */
+    iconid?: string;
+    /**
+     * icon name (choice between available icons)
+     */
+    name?: string;
+    /**
+     * icon width (optional)
+     */
+    width?: number;
+  }
+  interface ZIconPackage {}
+  interface ZInfoBox {
+    /**
+     * info box unique id
+     */
+    boxid?: string;
+    /**
+     * render close icon flag
+     */
+    isclosable?: boolean;
+    /**
+     * emitted on close icon click
+     */
+    onInfoBoxClose?: (event: CustomEvent<any>) => void;
+  }
+  interface ZInput {
+    /**
+     * the input has autocomplete option (optional): available for select, input
+     */
+    autocomplete?: boolean | string;
+    /**
+     * checked: available for checkbox, radio
+     */
+    checked?: boolean;
+    /**
+     * the input is disabled
+     */
+    disabled?: boolean;
+    /**
+     * render clear icon when typing (optional): available for text
+     */
+    hasclearicon?: boolean;
+    /**
+     * show input helper message (optional): available for text, password, number, email, textarea, select
+     */
+    hasmessage?: boolean;
+    /**
+     * the id of the input element
+     */
+    htmlid?: string;
+    /**
+     * the input html title (optional)
+     */
+    htmltitle?: string;
+    /**
+     * render icon (optional): available for text, select
+     */
+    icon?: string;
+    /**
+     * items (optional): available for select
+     */
+    items?: SelectItemBean[] | string;
+    /**
+     * the input label
+     */
+    label?: string;
+    /**
+     * the input label position: available for checkbox, radio
+     */
+    labelafter?: boolean;
+    /**
+     * input helper message (optional): available for text, password, number, email, textarea, select
+     */
+    message?: string;
+    /**
+     * multiple options can be selected (optional): available for select
+     */
+    multiple?: boolean;
+    /**
+     * the input name
+     */
+    name?: string;
+    /**
+     * Emitted on input value change, returns value, keycode, validity
+     */
+    onInputChange?: (event: CustomEvent<any>) => void;
+    /**
+     * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
+     */
+    onInputCheck?: (event: CustomEvent<any>) => void;
+    /**
+     * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
+     */
+    onOptionSelect?: (event: CustomEvent<any>) => void;
+    /**
+     * Emitted when user starts typing
+     */
+    onStartTyping?: (event: CustomEvent<any>) => void;
+    /**
+     * Emitted when user stops typing, returns value, validity
+     */
+    onStopTyping?: (event: CustomEvent<any>) => void;
+    /**
+     * the input placeholder (optional)
+     */
+    placeholder?: string;
+    /**
+     * the input is readonly
+     */
+    readonly?: boolean;
+    /**
+     * the input is required (optional): available for text, password, number, email, textarea, checkbox
+     */
+    required?: boolean;
+    /**
+     * the input status (optional): available for text, password, number, email, textarea, select
+     */
+    status?: InputStatusBean;
+    /**
+     * input types
+     */
+    type?: InputTypeBean;
+    /**
+     * timeout setting before trigger `inputChange` event (optional): available for text, textarea
+     */
+    typingtimeout?: number;
+    /**
+     * the input value
+     */
+    value?: string;
+  }
+  interface ZInputLabel {
+    /**
+     * the label is disabled
+     */
+    disabled?: boolean;
+    /**
+     * the label value
+     */
+    value?: string;
+  }
+  interface ZInputMessage {
+    /**
+     * input helper message
+     */
+    message?: string;
+    /**
+     * input status (optional)
+     */
+    status?: InputStatusBean;
+  }
+  interface ZLink {
+    /**
+     * big link version
+     */
+    big?: boolean;
+    /**
+     * link url (optional)
+     */
+    href?: string;
+    /**
+     * link id (optional)
+     */
+    htmlid?: string;
+    /**
+     * tabindex link attribute (optional)
+     */
+    htmltabindex?: number;
+    /**
+     * link icon name (optional)
+     */
+    icon?: string;
+    /**
+     * active link flag (optional)
+     */
+    isactive?: boolean;
+    /**
+     * disable link flag (optional)
+     */
+    isdisabled?: boolean;
+    /**
+     * white variant flag (optional)
+     */
+    iswhite?: boolean;
+    /**
+     * emitted on link click, returns linkId
+     */
+    onZLinkClick?: (event: CustomEvent<any>) => void;
+    /**
+     * link target (optional)
+     */
+    target?: string;
+    /**
+     * link text variant (optional)
+     */
+    textcolor?: "white" | "blue" | "black";
+  }
+  interface ZList {
+    /**
+     * json stringified list data (mutable, optional)
+     */
+    inputrawdata?: string;
+    /**
+     * list item data (mutable, optional)
+     */
+    list?: ListItemBean[];
+  }
+  interface ZListItem {
+    /**
+     * data-action attribute (optional)
+     */
+    action?: string;
+    /**
+     * icon name (optional)
+     */
+    icon?: string;
+    /**
+     * link url (optional)
+     */
+    link?: string;
+    /**
+     * link target (optional)
+     */
+    linktarget?: string;
+    /**
+     * id (optional)
+     */
+    listitemid?: string;
+    /**
+     * emitted on list item click, returns listitemid
+     */
+    onZListItemClick?: (event: CustomEvent<any>) => void;
+    /**
+     * emitted on list item link click, returns linkId
+     */
+    onZListItemLinkClick?: (event: CustomEvent<any>) => void;
+    /**
+     * content text
+     */
+    text?: string;
+    /**
+     * underlined style flag
+     */
+    underlined?: boolean;
+  }
+  interface ZLogo {
+    /**
+     * image height
+     */
+    height?: number;
+    /**
+     * alternative image text
+     */
+    imagealt?: string;
+    /**
+     * link url (optional)
+     */
+    link?: string;
+    /**
+     * link target (optional)
+     */
+    targetblank?: boolean;
+    /**
+     * image width
+     */
+    width?: number;
+  }
+  interface ZMenu {
+    /**
+     * Flag to set the active status of the menu.
+     */
+    active?: boolean;
+    /**
+     * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+     * @default false
+     */
+    floating?: boolean;
+    /**
+     * The menu has been closed.
+     */
+    onClosed?: (event: CustomEvent<any>) => void;
+    /**
+     * The menu has been opened.
+     */
+    onOpened?: (event: CustomEvent<any>) => void;
+    /**
+     * The opening state of the menu.
+     * @default false
+     */
+    open?: boolean;
+  }
+  interface ZMenuDropdown {
+    /**
+     * unique button id
+     */
+    buttonid?: string;
+    /**
+     * Json stringified or array to fill menu dropdown
+     */
+    menucontent?: string | MenuItem[];
+    /**
+     * user name text
+     */
+    nomeutente?: string;
+  }
+  interface ZMenuSection {
+    active?: boolean;
+    /**
+     * The section has been closed.
+     */
+    onClosed?: (event: CustomEvent<any>) => void;
+    /**
+     * The section has been opened.
+     */
+    onOpened?: (event: CustomEvent<any>) => void;
+  }
+  interface ZModal {
+    /**
+     * unique id
+     */
+    modalid?: string;
+    /**
+     * subtitle (optional)
+     */
+    modalsubtitle?: string;
+    /**
+     * title text (optional)
+     */
+    modaltitle?: string;
+    /**
+     * emitted on background click, returns modalid
+     */
+    onModalBackgroundClick?: (event: CustomEvent<any>) => void;
+    /**
+     * emitted on close button click, returns modalid
+     */
+    onModalClose?: (event: CustomEvent<any>) => void;
+    /**
+     * emitted on modal header click, returns modalid
+     */
+    onModalHeaderActive?: (event: CustomEvent<any>) => void;
+  }
+  interface ZModalLogin {
+    /**
+     * Login modal title
+     */
+    heading?: string;
+    /**
+     * Username helper message
+     */
+    message?: string;
+    /**
+     * Emitted on login submit
+     */
+    onLoginSubmit?: (event: CustomEvent<any>) => void;
+    /**
+     * Emitted on signup button click
+     */
+    onSignupClick?: (event: CustomEvent<any>) => void;
+    /**
+     * Emitted on zaino digitale button click
+     */
+    onZainoDigitaleClick?: (event: CustomEvent<any>) => void;
+    /**
+     * Username/password input status
+     */
+    status?: InputStatusBean;
+  }
+  interface ZMyzCard {
+    /**
+     * graphic variant (optional)
+     */
+    cardtype?: LicenseTypeEnum;
+    /**
+     * faded status
+     */
+    faded?: boolean;
+    /**
+     * highlighted status
+     */
+    ishighlighted?: boolean;
+    /**
+     * pressed status
+     */
+    ispressed?: boolean;
+  }
+  interface ZMyzCardAlert {
+    /**
+     * action button text
+     */
+    actiontext?: string;
+    /**
+     * content text
+     */
+    contenttext?: string;
+    /**
+     * icon name
+     */
+    iconname?: string;
+    /**
+     * undo action click/keyboard event, returns actionType
+     */
+    onUndoAction?: (event: CustomEvent<any>) => void;
+    /**
+     * alert variant type
+     */
+    type?: string;
+  }
+  interface ZMyzCardBody {}
+  interface ZMyzCardCover {
+    /**
+     * default error image source
+     */
+    defaultimg?: string;
+    /**
+     * faded status
+     */
+    faded?: boolean;
+    /**
+     * image source
+     */
+    img?: string;
+    /**
+     * cover alt title
+     */
+    titolo?: string;
+  }
+  interface ZMyzCardFooter {
+    /**
+     * authors name text
+     */
+    autori?: string;
+    /**
+     * card graphic variant (optional)
+     */
+    cardtype?: LicenseTypeEnum;
+    /**
+     * faded status
+     */
+    faded?: boolean;
+    /**
+     * volume isbn
+     */
+    isbn?: string;
+    /**
+     * volume title
+     */
+    titolo?: string;
+  }
+  interface ZMyzCardHeader {
+    /**
+     * card graphic variant (optional)
+     */
+    cardtype?: LicenseTypeEnum;
+    /**
+     * faded status
+     */
+    faded?: boolean;
+    /**
+     * volume title
+     */
+    titolo?: string;
+  }
+  interface ZMyzCardIcon {
+    /**
+     * icon name
+     */
+    icon?: string;
+    /**
+     * disabled status flag
+     */
+    isdisabled?: boolean;
+  }
+  interface ZMyzCardList {
+    /**
+     * list data stringified array
+     */
+    listdata?: string;
+  }
+  interface ZNavigationTab {
+    disabled?: boolean;
+    onSelected?: (event: CustomEvent<any>) => void;
+    orientation?: string;
+    selected?: boolean;
+    size?: string;
+  }
+  interface ZNavigationTabs {
+    /**
+     * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+     */
+    orientation?: TabOrientationBean;
+    /**
+     * Available sizes: `big` and `small`. Defaults to `big`.
+     */
+    size?: TabSizeBean;
+  }
+  interface ZNotification {
+    /**
+     * action button text
+     */
+    actiontext?: string;
+    /**
+     * icon on the left of the content
+     */
+    contenticonname?: string;
+    /**
+     * notification action event
+     */
+    onNotificationAction?: (event: CustomEvent<any>) => void;
+    /**
+     * notification close event
+     */
+    onNotificationClose?: (event: CustomEvent<any>) => void;
+    /**
+     * enable close icon
+     */
+    showclose?: boolean;
+    /**
+     * enable shadow
+     */
+    showshadow?: boolean;
+    /**
+     * alert variant type
+     */
+    type?: NotificationType;
+  }
+  interface ZPaginationBar {
+    /**
+     * current displayed page (mutable)
+     */
+    currentpage?: number;
+    /**
+     * json stringified history of visited pages (optional)
+     */
+    historyraw?: string;
+    /**
+     * array of history of visited pages (mutable, optional)
+     */
+    listhistoryrow?: number[];
+    /**
+     * emitted on adding page to isvisited array, returns page
+     */
+    onAddPageToHistory?: (event: CustomEvent<any>) => void;
+    /**
+     * emitted on start page change, returns startpage
+     */
+    onChangeStartPage?: (event: CustomEvent<any>) => void;
+    /**
+     * emitted on page number click, returns page
+     */
+    onGoToPage?: (event: CustomEvent<any>) => void;
+    /**
+     * pages number
+     */
+    pages?: number;
+    /**
+     * initial page (mutable)
+     */
+    startpage?: number;
+    /**
+     * number of visible pages
+     */
+    visiblepages?: number;
+  }
+  interface ZPaginationPage {
+    /**
+     * disabled status flag
+     */
+    isdisabled?: boolean;
+    /**
+     * selected status flag
+     */
+    isselected?: boolean;
+    /**
+     * visited status flag
+     */
+    isvisited?: boolean;
+    /**
+     * anchor html id
+     */
+    pageid?: string;
+    /**
+     * numeric page value (optional)
+     */
+    value?: number;
+  }
+  interface ZPanelElem {
+    /**
+     * name of slot container (optional)
+     */
+    descr_slot_name?: string;
+    /**
+     * html element id (optional)
+     */
+    elemid?: string;
+    /**
+     * alternative image text (optional)
+     */
+    imgalt?: string;
+    /**
+     * image url source (optional)
+     */
+    imgurl?: string;
+    /**
+     * disabled status flag (optional)
+     */
+    isdisabled?: boolean;
+    /**
+     * icon link name (optional)
+     */
+    linkicon?: string;
+    /**
+     * link label text
+     */
+    linklabel?: string;
+    /**
+     * link target (optional)
+     */
+    target?: string;
+    /**
+     * link url
+     */
+    url?: string;
+  }
+  interface ZPopover {
+    /**
+     * [optional] Background color token for popover
+     */
+    backgroundColor?: string;
+    /**
+     * [optional] Border radius token for popover
+     */
+    borderRadius?: PopoverBorderRadius;
+    /**
+     * [optional] Box shadow token for popover
+     */
+    boxShadow?: PopoverShadow;
+    /**
+     * [optional] Popover position
+     */
+    position?: PopoverPosition;
+    /**
+     * [optional] Show or hide arrow
+     */
+    showArrow?: boolean;
+  }
+  interface ZRegistroTable {
+    /**
+     * Sets table with border
+     */
+    bordered?: boolean;
+    /**
+     * Sets first column sticky
+     */
+    columnSticky?: boolean;
+    /**
+     * Sets header sticky
+     */
+    headerSticky?: boolean;
+  }
+  interface ZRegistroTableBody {}
+  interface ZRegistroTableCell {
+    /**
+     * [Optional] Show contextual menu button
+     */
+    showButton?: boolean;
+  }
+  interface ZRegistroTableExpandedRow {
+    /**
+     * Number table column plus 1 for the expand button
+     */
+    colSpan?: number;
+  }
+  interface ZRegistroTableFooter {}
+  interface ZRegistroTableHead {}
+  interface ZRegistroTableHeader {
+    /**
+     * Column ID
+     */
+    columnId?: string;
+    /**
+     * [Optional] callback for sorting
+     */
+    onSort?: (event: CustomEvent<any>) => void;
+    /**
+     * [Optional] Show contextual menu button
+     */
+    showButton?: boolean;
+    /**
+     * [Optional] Padding of the header
+     */
+    size?: TableHeaderSize;
+    /**
+     * [Optional] Make the header sortable
+     */
+    sortable?: boolean;
+  }
+  interface ZRegistroTableHeaderRow {
+    expandable?: boolean;
+  }
+  interface ZRegistroTableRow {
+    expandable?: boolean;
+    onExpand?: (event: CustomEvent<any>) => void;
+  }
+  interface ZRegistroTableStickyFooter {}
+  interface ZSelect {
+    /**
+     * the input has autocomplete option
+     */
+    autocomplete?: boolean | string;
+    /**
+     * the input is disabled
+     */
+    disabled?: boolean;
+    /**
+     * show input helper message (optional): available for text, password, number, email, textarea, select
+     */
+    hasmessage?: boolean;
+    /**
+     * the id of the input element
+     */
+    htmlid?: string;
+    /**
+     * the input html title (optional)
+     */
+    htmltitle?: string;
+    /**
+     * the input select options
+     */
+    items?: SelectItemBean[] | string;
+    /**
+     * the input label
+     */
+    label?: string;
+    /**
+     * input helper message (optional): available for text, password, number, email, textarea, select
+     */
+    message?: string;
+    /**
+     * multiple options can be selected
+     */
+    multiple?: boolean;
+    /**
+     * the input name
+     */
+    name?: string;
+    /**
+     * no result text message
+     */
+    noresultslabel?: string;
+    /**
+     * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
+     */
+    onOptionSelect?: (event: CustomEvent<any>) => void;
+    /**
+     * the input placeholder (optional)
+     */
+    placeholder?: string;
+    /**
+     * the input is readonly
+     */
+    readonly?: boolean;
+    /**
+     * the input status (optional): available for text, password, number, email, textarea, select
+     */
+    status?: InputStatusBean;
+  }
+  interface ZStatusTag {
+    /**
+     * [optional] Hide the text and show it on hover
+     */
+    expandable?: boolean;
+    /**
+     * [optional] Status tag icon
+     */
+    icon?: string;
+    /**
+     * [optional] Status tag color
+     */
+    status?: StatusTagStatus;
+    /**
+     * [optional] Status tag text
+     */
+    text?: string;
+    /**
+     * [optional] Status tag style
+     */
+    variant?: ThemeVariant;
+  }
+  interface ZStepper {}
+  interface ZStepperItem {
+    /**
+     * The disabled state of the item.
+     */
+    disabled?: boolean;
+    /**
+     * The href to navigate on click.
+     */
+    href?: string;
+    /**
+     * The number of the step item.
+     */
+    index?: number;
+    /**
+     * The pressed state of the item.
+     */
+    pressed?: boolean;
+  }
+  interface ZToggleButton {
+    /**
+     * avoidclick status flag
+     */
+    avoidclick?: boolean;
+    /**
+     * disabled status flag (optional)
+     */
+    isdisabled?: boolean;
+    /**
+     * label text
+     */
+    label?: string;
+    /**
+     * emitted on toggle button click, returns isOpen
+     */
+    onToggleClick?: (event: CustomEvent<any>) => void;
+  }
+  interface ZTooltip {
+    /**
+     * content text
+     */
+    content?: string;
+    /**
+     * tooltip position variant
+     */
+    type?: TooltipPosition;
+  }
+  interface ZTypography {
+    component?: string;
+    level?: ZTypographyLevels;
+    variant?: "regular" | "semibold" | "light";
+  }
+  interface ZUserDropdown {
+    /**
+     * logged status flag
+     */
+    logged?: boolean;
+    /**
+     * Json stringified or array to fill menu dropdown
+     */
+    menucontent?: string | MenuItem[];
+    /**
+     * Emitted on dropdown menu zlink click, returns zlink linkId
+     */
+    onDropdownMenuLinkClick?: (event: CustomEvent<any>) => void;
+    /**
+     * Emitted on enter or user Button click, returns ismenuopen (bool)
+     */
+    onUserButtonClick?: (event: CustomEvent<any>) => void;
+    /**
+     * theme variant, default 'dark'
+     */
+    theme?: ThemeVariantBean;
+    /**
+     * user full name
+     */
+    userfullname?: string;
+  }
+  interface IntrinsicElements {
+    "z-app-header": ZAppHeader;
+    "z-app-switcher": ZAppSwitcher;
+    "z-app-topbar": ZAppTopbar;
+    "z-avatar": ZAvatar;
+    "z-body": ZBody;
+    "z-button": ZButton;
+    "z-button-filter": ZButtonFilter;
+    "z-button-sort": ZButtonSort;
+    "z-candybar": ZCandybar;
+    "z-card": ZCard;
+    "z-chip": ZChip;
+    "z-combobox": ZCombobox;
+    "z-cookiebar": ZCookiebar;
+    "z-divider": ZDivider;
+    "z-footer": ZFooter;
+    "z-footer-link": ZFooterLink;
+    "z-footer-section": ZFooterSection;
+    "z-footer-social": ZFooterSocial;
+    "z-header": ZHeader;
+    "z-heading": ZHeading;
+    "z-icon": ZIcon;
+    "z-icon-package": ZIconPackage;
+    "z-info-box": ZInfoBox;
+    "z-input": ZInput;
+    "z-input-label": ZInputLabel;
+    "z-input-message": ZInputMessage;
+    "z-link": ZLink;
+    "z-list": ZList;
+    "z-list-item": ZListItem;
+    "z-logo": ZLogo;
+    "z-menu": ZMenu;
+    "z-menu-dropdown": ZMenuDropdown;
+    "z-menu-section": ZMenuSection;
+    "z-modal": ZModal;
+    "z-modal-login": ZModalLogin;
+    "z-myz-card": ZMyzCard;
+    "z-myz-card-alert": ZMyzCardAlert;
+    "z-myz-card-body": ZMyzCardBody;
+    "z-myz-card-cover": ZMyzCardCover;
+    "z-myz-card-footer": ZMyzCardFooter;
+    "z-myz-card-header": ZMyzCardHeader;
+    "z-myz-card-icon": ZMyzCardIcon;
+    "z-myz-card-list": ZMyzCardList;
+    "z-navigation-tab": ZNavigationTab;
+    "z-navigation-tabs": ZNavigationTabs;
+    "z-notification": ZNotification;
+    "z-pagination-bar": ZPaginationBar;
+    "z-pagination-page": ZPaginationPage;
+    "z-panel-elem": ZPanelElem;
+    "z-popover": ZPopover;
+    "z-registro-table": ZRegistroTable;
+    "z-registro-table-body": ZRegistroTableBody;
+    "z-registro-table-cell": ZRegistroTableCell;
+    "z-registro-table-expanded-row": ZRegistroTableExpandedRow;
+    "z-registro-table-footer": ZRegistroTableFooter;
+    "z-registro-table-head": ZRegistroTableHead;
+    "z-registro-table-header": ZRegistroTableHeader;
+    "z-registro-table-header-row": ZRegistroTableHeaderRow;
+    "z-registro-table-row": ZRegistroTableRow;
+    "z-registro-table-sticky-footer": ZRegistroTableStickyFooter;
+    "z-select": ZSelect;
+    "z-status-tag": ZStatusTag;
+    "z-stepper": ZStepper;
+    "z-stepper-item": ZStepperItem;
+    "z-toggle-button": ZToggleButton;
+    "z-tooltip": ZTooltip;
+    "z-typography": ZTypography;
+    "z-user-dropdown": ZUserDropdown;
+  }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
-    export namespace JSX {
-        interface IntrinsicElements {
-            "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
-            "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
-            "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
-            "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
-            "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
-            "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
-            "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
-            "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
-            "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
-            "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
-            "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
-            "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
-            "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
-            "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
-            "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
-            "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
-            "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
-            "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
-            "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
-            "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
-            "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
-            "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
-            "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
-            "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
-            "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
-            "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
-            "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
-            "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
-            "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
-            "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
-            "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
-            "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
-            "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
-            "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
-            "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
-            "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
-            "z-myz-card-alert": LocalJSX.ZMyzCardAlert & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
-            "z-myz-card-body": LocalJSX.ZMyzCardBody & JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
-            "z-myz-card-cover": LocalJSX.ZMyzCardCover & JSXBase.HTMLAttributes<HTMLZMyzCardCoverElement>;
-            "z-myz-card-footer": LocalJSX.ZMyzCardFooter & JSXBase.HTMLAttributes<HTMLZMyzCardFooterElement>;
-            "z-myz-card-header": LocalJSX.ZMyzCardHeader & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
-            "z-myz-card-icon": LocalJSX.ZMyzCardIcon & JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
-            "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
-            "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
-            "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
-            "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
-            "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
-            "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
-            "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
-            "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
-            "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
-            "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
-            "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
-            "z-registro-table-expanded-row": LocalJSX.ZRegistroTableExpandedRow & JSXBase.HTMLAttributes<HTMLZRegistroTableExpandedRowElement>;
-            "z-registro-table-footer": LocalJSX.ZRegistroTableFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableFooterElement>;
-            "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
-            "z-registro-table-header": LocalJSX.ZRegistroTableHeader & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderElement>;
-            "z-registro-table-header-row": LocalJSX.ZRegistroTableHeaderRow & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderRowElement>;
-            "z-registro-table-row": LocalJSX.ZRegistroTableRow & JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
-            "z-registro-table-sticky-footer": LocalJSX.ZRegistroTableStickyFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableStickyFooterElement>;
-            "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
-            "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
-            "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
-            "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
-            "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
-            "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
-            "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
-            "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
-        }
+  export namespace JSX {
+    interface IntrinsicElements {
+      "z-app-header": LocalJSX.ZAppHeader &
+        JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
+      "z-app-switcher": LocalJSX.ZAppSwitcher &
+        JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
+      "z-app-topbar": LocalJSX.ZAppTopbar &
+        JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
+      "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
+      "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
+      "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
+      "z-button-filter": LocalJSX.ZButtonFilter &
+        JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
+      "z-button-sort": LocalJSX.ZButtonSort &
+        JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
+      "z-candybar": LocalJSX.ZCandybar &
+        JSXBase.HTMLAttributes<HTMLZCandybarElement>;
+      "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
+      "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
+      "z-combobox": LocalJSX.ZCombobox &
+        JSXBase.HTMLAttributes<HTMLZComboboxElement>;
+      "z-cookiebar": LocalJSX.ZCookiebar &
+        JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
+      "z-divider": LocalJSX.ZDivider &
+        JSXBase.HTMLAttributes<HTMLZDividerElement>;
+      "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
+      "z-footer-link": LocalJSX.ZFooterLink &
+        JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
+      "z-footer-section": LocalJSX.ZFooterSection &
+        JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
+      "z-footer-social": LocalJSX.ZFooterSocial &
+        JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
+      "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
+      "z-heading": LocalJSX.ZHeading &
+        JSXBase.HTMLAttributes<HTMLZHeadingElement>;
+      "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
+      "z-icon-package": LocalJSX.ZIconPackage &
+        JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
+      "z-info-box": LocalJSX.ZInfoBox &
+        JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
+      "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
+      "z-input-label": LocalJSX.ZInputLabel &
+        JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
+      "z-input-message": LocalJSX.ZInputMessage &
+        JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
+      "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
+      "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
+      "z-list-item": LocalJSX.ZListItem &
+        JSXBase.HTMLAttributes<HTMLZListItemElement>;
+      "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
+      "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
+      "z-menu-dropdown": LocalJSX.ZMenuDropdown &
+        JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
+      "z-menu-section": LocalJSX.ZMenuSection &
+        JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
+      "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
+      "z-modal-login": LocalJSX.ZModalLogin &
+        JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
+      "z-myz-card": LocalJSX.ZMyzCard &
+        JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
+      "z-myz-card-alert": LocalJSX.ZMyzCardAlert &
+        JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
+      "z-myz-card-body": LocalJSX.ZMyzCardBody &
+        JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
+      "z-myz-card-cover": LocalJSX.ZMyzCardCover &
+        JSXBase.HTMLAttributes<HTMLZMyzCardCoverElement>;
+      "z-myz-card-footer": LocalJSX.ZMyzCardFooter &
+        JSXBase.HTMLAttributes<HTMLZMyzCardFooterElement>;
+      "z-myz-card-header": LocalJSX.ZMyzCardHeader &
+        JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
+      "z-myz-card-icon": LocalJSX.ZMyzCardIcon &
+        JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
+      "z-myz-card-list": LocalJSX.ZMyzCardList &
+        JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
+      "z-navigation-tab": LocalJSX.ZNavigationTab &
+        JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
+      "z-navigation-tabs": LocalJSX.ZNavigationTabs &
+        JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
+      "z-notification": LocalJSX.ZNotification &
+        JSXBase.HTMLAttributes<HTMLZNotificationElement>;
+      "z-pagination-bar": LocalJSX.ZPaginationBar &
+        JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
+      "z-pagination-page": LocalJSX.ZPaginationPage &
+        JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
+      "z-panel-elem": LocalJSX.ZPanelElem &
+        JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+      "z-popover": LocalJSX.ZPopover &
+        JSXBase.HTMLAttributes<HTMLZPopoverElement>;
+      "z-registro-table": LocalJSX.ZRegistroTable &
+        JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
+      "z-registro-table-body": LocalJSX.ZRegistroTableBody &
+        JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
+      "z-registro-table-cell": LocalJSX.ZRegistroTableCell &
+        JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
+      "z-registro-table-expanded-row": LocalJSX.ZRegistroTableExpandedRow &
+        JSXBase.HTMLAttributes<HTMLZRegistroTableExpandedRowElement>;
+      "z-registro-table-footer": LocalJSX.ZRegistroTableFooter &
+        JSXBase.HTMLAttributes<HTMLZRegistroTableFooterElement>;
+      "z-registro-table-head": LocalJSX.ZRegistroTableHead &
+        JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
+      "z-registro-table-header": LocalJSX.ZRegistroTableHeader &
+        JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderElement>;
+      "z-registro-table-header-row": LocalJSX.ZRegistroTableHeaderRow &
+        JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderRowElement>;
+      "z-registro-table-row": LocalJSX.ZRegistroTableRow &
+        JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
+      "z-registro-table-sticky-footer": LocalJSX.ZRegistroTableStickyFooter &
+        JSXBase.HTMLAttributes<HTMLZRegistroTableStickyFooterElement>;
+      "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
+      "z-status-tag": LocalJSX.ZStatusTag &
+        JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
+      "z-stepper": LocalJSX.ZStepper &
+        JSXBase.HTMLAttributes<HTMLZStepperElement>;
+      "z-stepper-item": LocalJSX.ZStepperItem &
+        JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
+      "z-toggle-button": LocalJSX.ZToggleButton &
+        JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
+      "z-tooltip": LocalJSX.ZTooltip &
+        JSXBase.HTMLAttributes<HTMLZTooltipElement>;
+      "z-typography": LocalJSX.ZTypography &
+        JSXBase.HTMLAttributes<HTMLZTypographyElement>;
+      "z-user-dropdown": LocalJSX.ZUserDropdown &
+        JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
     }
+  }
 }

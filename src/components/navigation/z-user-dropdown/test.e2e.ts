@@ -3,7 +3,7 @@ import { newE2EPage } from "@stencil/core/testing";
 type CustomWindow = Window &
   typeof globalThis & {
     onUserButtonClick: (a) => unknown;
-    onDropdownMenuLinkClick : (a) => unknown
+    onDropdownMenuLinkClick: (a) => unknown;
   };
 
 it("Test dropdown button should open list", async () => {
@@ -17,13 +17,19 @@ it("Test dropdown button should open list", async () => {
     ></z-user-dropdown>
   `);
 
-  const wrapperDiv = await page.find("z-user-dropdown >>> div > div:nth-child(2)");
+  const wrapperDiv = await page.find(
+    "z-user-dropdown >>> div > div:nth-child(2)"
+  );
   expect(wrapperDiv).not.toHaveClass("open");
 
-  let linkList = await page.find("z-user-dropdown >>> div > div:nth-child(2) > ul");
+  let linkList = await page.find(
+    "z-user-dropdown >>> div > div:nth-child(2) > ul"
+  );
   expect(linkList).toBeNull();
 
-  const toggleButton = await page.find("z-user-dropdown >>> div > div:nth-child(2) > button");
+  const toggleButton = await page.find(
+    "z-user-dropdown >>> div > div:nth-child(2) > button"
+  );
   toggleButton.click();
 
   await page.waitForChanges();
@@ -56,7 +62,9 @@ it("Test enter and user button click should emit userButtonClick event", async (
     ></z-user-dropdown>
   `);
 
-  const toggleButton = await page.find("z-user-dropdown >>> div > div:nth-child(2) > button");
+  const toggleButton = await page.find(
+    "z-user-dropdown >>> div > div:nth-child(2) > button"
+  );
   toggleButton.click();
 
   await page.waitForChanges();
@@ -72,7 +80,9 @@ it("Test enter and user button click should emit userButtonClick event", async (
     elm.logged = false;
   });
 
-  const enterButton = await page.find("z-user-dropdown >>> div > div:nth-child(1) > z-link");
+  const enterButton = await page.find(
+    "z-user-dropdown >>> div > div:nth-child(1) > z-link"
+  );
   enterButton.click();
 
   await page.waitForChanges();
@@ -82,7 +92,6 @@ it("Test enter and user button click should emit userButtonClick event", async (
 
   await page.waitForChanges();
   expect(ismenuopen).toEqual(false);
-
 });
 
 it("Test dropdown menu zLink click should emit dropdownMenuLinkClick event", async () => {
@@ -96,7 +105,10 @@ it("Test dropdown menu zLink click should emit dropdownMenuLinkClick event", asy
   const type = "dropdownMenuLinkClick";
   page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
-      (window as CustomWindow).onDropdownMenuLinkClick({ type, detail: e.detail });
+      (window as CustomWindow).onDropdownMenuLinkClick({
+        type,
+        detail: e.detail,
+      });
     });
   }, type);
 
@@ -108,15 +120,18 @@ it("Test dropdown menu zLink click should emit dropdownMenuLinkClick event", asy
     ></z-user-dropdown>
   `);
 
-  const toggleButton = await page.find("z-user-dropdown >>> div > div:nth-child(2) > button");
+  const toggleButton = await page.find(
+    "z-user-dropdown >>> div > div:nth-child(2) > button"
+  );
   toggleButton.click();
 
   await page.waitForChanges();
-  const logoutLink = await page.find("z-user-dropdown >>> div > .open > ul > #logout > z-link")
+  const logoutLink = await page.find(
+    "z-user-dropdown >>> div > .open > ul > #logout > z-link"
+  );
 
   logoutLink.click();
 
   await page.waitForChanges();
-  expect(linkId).toEqual('logout');
-
+  expect(linkId).toEqual("logout");
 });

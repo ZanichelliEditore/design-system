@@ -1,9 +1,6 @@
 # z-chip
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -12,7 +9,6 @@
 | `boldtext`    | `boldtext`    |             | `number` | `undefined` |
 | `regulartext` | `regulartext` |             | `string` | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

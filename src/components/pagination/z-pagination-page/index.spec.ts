@@ -6,7 +6,7 @@ describe("Suite test ZPaginationPage", () => {
   it("Test render ZPaginationPage vuoto", async () => {
     const page = await newSpecPage({
       components: [ZPaginationPage],
-      html: `<z-pagination-page></z-pagination-page>`
+      html: `<z-pagination-page></z-pagination-page>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -21,7 +21,7 @@ describe("Suite test ZPaginationPage", () => {
   it("Test render ZPaginationPage senza classi", async () => {
     const page = await newSpecPage({
       components: [ZPaginationPage],
-      html: `<z-pagination-page pageId='10' value='10'></z-pagination-page>`
+      html: `<z-pagination-page pageId='10' value='10'></z-pagination-page>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -38,7 +38,7 @@ describe("Suite test ZPaginationPage", () => {
   it("Test render ZPaginationPage selected Page", async () => {
     const page = await newSpecPage({
       components: [ZPaginationPage],
-      html: `<z-pagination-page pageId='10' value='10' isselected></z-pagination-page>`
+      html: `<z-pagination-page pageId='10' value='10' isselected></z-pagination-page>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -55,7 +55,7 @@ describe("Suite test ZPaginationPage", () => {
   it("Test render ZPaginationPage disabled Page", async () => {
     const page = await newSpecPage({
       components: [ZPaginationPage],
-      html: `<z-pagination-page pageId='10' value='10' isdisabled></z-pagination-page>`
+      html: `<z-pagination-page pageId='10' value='10' isdisabled></z-pagination-page>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -72,7 +72,7 @@ describe("Suite test ZPaginationPage", () => {
   it("Test render ZPaginationPage visited Page", async () => {
     const page = await newSpecPage({
       components: [ZPaginationPage],
-      html: `<z-pagination-page pageId='10' value='10' isvisited></z-pagination-page>`
+      html: `<z-pagination-page pageId='10' value='10' isvisited></z-pagination-page>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -89,7 +89,7 @@ describe("Suite test ZPaginationPage", () => {
   it("Test render ZPaginationPage visited and selected Page", async () => {
     const page = await newSpecPage({
       components: [ZPaginationPage],
-      html: `<z-pagination-page pageId='10' value='10' isselected isvisited></z-pagination-page>`
+      html: `<z-pagination-page pageId='10' value='10' isselected isvisited></z-pagination-page>`,
     });
 
     expect(page.root).toEqualHtml(`

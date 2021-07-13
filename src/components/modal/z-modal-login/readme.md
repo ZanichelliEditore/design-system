@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property  | Attribute | Description                    | Type                                               | Default                   |
@@ -11,7 +10,6 @@
 | `message` | `message` | Username helper message        | `string`                                           | `undefined`               |
 | `status`  | `status`  | Username/password input status | `"error" \| "selecting" \| "success" \| "warning"` | `undefined`               |
 
-
 ## Events
 
 | Event                | Description                            | Type               |
@@ -19,7 +17,6 @@
 | `loginSubmit`        | Emitted on login submit                | `CustomEvent<any>` |
 | `signupClick`        | Emitted on signup button click         | `CustomEvent<any>` |
 | `zainoDigitaleClick` | Emitted on zaino digitale button click | `CustomEvent<any>` |
-
 
 ## Slots
 
@@ -30,7 +27,6 @@
 | `"provider"` | expternal providers login buttons |
 | `"signup"`   | signup button                     |
 | `"username"` | username input                    |
-
 
 ## Dependencies
 
@@ -43,6 +39,7 @@
 - [z-body](../../typography/z-body)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-modal-login --> z-button
@@ -68,6 +65,6 @@ graph TD;
   style z-modal-login fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

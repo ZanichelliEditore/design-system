@@ -3,7 +3,7 @@ import { Component, Prop, h } from "@stencil/core";
 @Component({
   tag: "z-input-label",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZInputLabel {
   /** the label value */
