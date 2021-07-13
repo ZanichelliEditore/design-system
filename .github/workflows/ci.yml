@@ -25,6 +25,8 @@ jobs:
             ${{ runner.os }}-yarn-
   prettier:
     name: Run prettier
+    needs:
+      - setup
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
