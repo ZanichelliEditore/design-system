@@ -36,7 +36,7 @@ export class ZMenu {
    * The opening state of the menu.
    * @default false
    */
-  @Prop({ mutable: true, reflect: true }) open: boolean = false;
+  @Prop({ mutable: true, reflect: true }) open = false;
   @State() hasHeader: boolean;
   @State() hasContent: boolean;
   @Element() hostElement: HTMLElement;
@@ -82,7 +82,7 @@ export class ZMenu {
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
    */
-  reflow(live: boolean = false) {
+  reflow(live = false) {
     if (this.content) {
       const { style } = this.content;
       const { left } = this.hostElement.getBoundingClientRect();

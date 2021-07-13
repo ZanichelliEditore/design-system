@@ -25,7 +25,7 @@ export class ZUserDropdown {
   /** theme variant, default 'dark' */
   @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
 
-  @State() ismenuopen: boolean = false;
+  @State() ismenuopen = false;
   @State() isMobile: boolean;
 
   private linkarray: MenuItem[];

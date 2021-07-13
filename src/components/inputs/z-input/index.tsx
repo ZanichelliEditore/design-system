@@ -69,10 +69,10 @@ export class ZInput {
   /** render icon (optional): available for text, select */
   @Prop() icon?: string;
 
-  @State() isTyping: boolean = false;
-  @State() textareaWrapperHover: string = "";
-  @State() textareaWrapperFocus: string = "";
-  @State() passwordHidden: boolean = true;
+  @State() isTyping = false;
+  @State() textareaWrapperHover = "";
+  @State() textareaWrapperFocus = "";
+  @State() passwordHidden = true;
 
   private timer;
   private selectElem: HTMLZSelectElement;

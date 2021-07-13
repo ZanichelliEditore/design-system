@@ -36,7 +36,7 @@ export class zModalLogin {
   /** Username helper message */
   @Prop({ mutable: true }) message?: string;
 
-  @State() externalProviderCheck: boolean = false;
+  @State() externalProviderCheck = false;
 
   componentDidLoad() {
     this.externalProviderCheck =
@@ -57,7 +57,7 @@ export class zModalLogin {
     if (!usernameInput || !passwordInput) return;
 
     let username = usernameInput.value;
-    let password = passwordInput.value;
+    const password = passwordInput.value;
 
     if (!username || !password) {
       this.status = InputStatusEnum.error;

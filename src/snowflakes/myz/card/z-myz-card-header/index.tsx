@@ -17,7 +17,7 @@ export class ZMyzCardHeader {
   /** card graphic variant (optional) */
   @Prop() cardtype?: LicenseTypeEnum;
 
-  @State() allowTooltip: boolean = false;
+  @State() allowTooltip = false;
 
   private ellipsis?: HTMLElement;
 

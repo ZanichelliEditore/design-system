@@ -16,7 +16,7 @@ import {
 export class ZRegistroTableRow {
   @Prop({ reflect: true }) expandable?: boolean;
 
-  @State() expanded: boolean = false;
+  @State() expanded = false;
 
   @Event() expand: EventEmitter;
   emitOnExpand() {

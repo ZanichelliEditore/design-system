@@ -27,7 +27,7 @@ export class ZPopover {
   /** [optional] Show or hide arrow */
   @Prop() showArrow?: boolean = false;
 
-  @State() isVisible: boolean = false;
+  @State() isVisible = false;
 
   private popoverElem: HTMLElement;
   private defaultPosition: PopoverPosition = this.position;

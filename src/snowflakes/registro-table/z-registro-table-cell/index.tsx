@@ -13,7 +13,7 @@ export class ZRegistroTableCell {
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
-  @State() isMenuOpened: boolean = false;
+  @State() isMenuOpened = false;
 
   handleMenu() {
     this.isMenuOpened = !this.isMenuOpened;

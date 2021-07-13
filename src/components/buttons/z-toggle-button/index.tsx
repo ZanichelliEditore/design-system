@@ -13,7 +13,7 @@ export class ZToggleButton {
   /** avoidclick status flag */
   @Prop() avoidclick: boolean;
 
-  @State() isOpen: boolean = false;
+  @State() isOpen = false;
 
   /** emitted on toggle button click, returns isOpen */
   @Event() toggleClick: EventEmitter;

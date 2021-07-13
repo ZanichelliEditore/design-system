@@ -12,7 +12,7 @@ export class ZInfoBox {
   /** info box unique id */
   @Prop() boxid: string;
   /** render close icon flag */
-  @Prop() isclosable: boolean = true;
+  @Prop() isclosable = true;
 
   /** emitted on close icon click */
   @Event() infoBoxClose: EventEmitter;

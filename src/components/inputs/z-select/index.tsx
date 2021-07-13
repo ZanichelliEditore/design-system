@@ -59,7 +59,7 @@ export class ZSelect {
   /** no result text message */
   @Prop() noresultslabel?: string = "Nessun risultato";
 
-  @State() isOpen: boolean = false;
+  @State() isOpen = false;
   @State() selectedItems: SelectItemBean[];
   @State() searchString: null | string;
 
@@ -233,7 +233,7 @@ export class ZSelect {
     if (focusElem) focusElem.focus();
   }
 
-  toggleSelectUl(selfFocusOnClose: boolean = false) {
+  toggleSelectUl(selfFocusOnClose = false) {
     if (this.disabled || this.readonly) return;
 
     if (!this.isOpen) {

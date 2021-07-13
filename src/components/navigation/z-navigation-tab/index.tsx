@@ -23,8 +23,8 @@ export class ZNavigationTab {
 
   @Prop({ mutable: true, reflect: true }) selected?: boolean = false;
   @Prop({ reflect: true }) disabled?: boolean = false;
-  @Prop({ reflect: true }) orientation: string = "horizontal";
-  @Prop({ reflect: true }) size: string = "big";
+  @Prop({ reflect: true }) orientation = "horizontal";
+  @Prop({ reflect: true }) size = "big";
 
   @Event({ eventName: "selected" })
   private emitSelected: EventEmitter;

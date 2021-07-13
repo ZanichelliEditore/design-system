@@ -12,7 +12,7 @@ export class ZFooterSection {
   /** section title */
   @Prop() name: string;
 
-  @State() isOpen: boolean = false;
+  @State() isOpen = false;
 
   renderToggleButton(): HTMLButtonElement {
     return (

@@ -22,9 +22,9 @@ export class ZMyzCardFooter {
   /** card graphic variant (optional) */
   @Prop() cardtype?: LicenseTypeEnum;
 
-  @State() isOpen: boolean = false;
+  @State() isOpen = false;
 
-  @State() allowTooltipAuthors: boolean = false;
+  @State() allowTooltipAuthors = false;
 
   private ellipsisAuthors?: HTMLElement;
 

@@ -104,7 +104,7 @@ describe("Suite test ZPaginationBar", () => {
       </z-pagination-bar>
     `);
 
-    let chevrons = page.root.shadowRoot
+    const chevrons = page.root.shadowRoot
       .querySelector("div")
       .querySelectorAll("z-icon");
 
@@ -159,7 +159,7 @@ describe("Suite test ZPaginationBar", () => {
       </z-pagination-bar>
     `);
 
-    let chevrons = page.root.shadowRoot
+    const chevrons = page.root.shadowRoot
       .querySelector("div")
       .querySelectorAll("z-icon");
 

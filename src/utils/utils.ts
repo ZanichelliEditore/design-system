@@ -16,8 +16,8 @@ export function randomId(): string {
 
 export function handleKeyboardSubmit(
   ev: KeyboardEvent,
-  callback: Function,
-  ...args: any[]
+  callback: (...args:unknown[]) => unknown,
+  ...args: unknown[]
 ) {
   if (
     ev.keyCode === keybordKeyCodeEnum.ENTER ||

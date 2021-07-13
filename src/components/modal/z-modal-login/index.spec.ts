@@ -4,6 +4,7 @@ import { zModalLogin } from "./index";
 
 describe("Suite test zModalLogin", () => {
   beforeEach(() => {
+    /*eslint-disable*/
     jest.spyOn(console, "warn").mockImplementation(() => {});
   });
 

@@ -15,9 +15,9 @@ export class ZPaginationBar {
   /** number of visible pages*/
   @Prop() visiblepages: number;
   /** current displayed page (mutable) */
-  @Prop({ mutable: true }) currentpage: number = 1;
+  @Prop({ mutable: true }) currentpage = 1;
   /** initial page (mutable) */
-  @Prop({ mutable: true }) startpage: number = 1;
+  @Prop({ mutable: true }) startpage = 1;
   /** json stringified history of visited pages (optional) */
   @Prop() historyraw?: string;
   /** array of history of visited pages (mutable, optional) */
@@ -25,7 +25,7 @@ export class ZPaginationBar {
 
   @State() currentPages: number[] = [];
 
-  velocityConstantMultiplier: number = 2;
+  velocityConstantMultiplier = 2;
 
   bar: HTMLElement;
 
@@ -37,7 +37,7 @@ export class ZPaginationBar {
 
   componentDidLoad() {
     this.scrollPage = this.scrollPage.bind(this);
-    let mc = new Hammer(this.bar);
+    const mc = new Hammer(this.bar);
     // listen to events...
     mc.on("swiperight", this.scrollPage);
     mc.on("swipeleft", this.scrollPage);
@@ -63,23 +63,27 @@ export class ZPaginationBar {
   }
 
   scrollPage(ev: HammerInput): void {
-    let vel =
+    const vel =
       Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
     const deltaPage = Math.max(1, vel);
     switch (ev.type) {
       case "swiperight":
-        if (!this.canNavigateLeft()) break;
-        const newstartPage1 = this.startpage - deltaPage;
-        if (newstartPage1 > 1) this.emitChangeStartPage(newstartPage1);
-        else this.emitChangeStartPage(1);
-        break;
+        {
+          if (!this.canNavigateLeft()) break;
+          const newstartPage1 = this.startpage - deltaPage;
+          if (newstartPage1 > 1) this.emitChangeStartPage(newstartPage1);
+          else this.emitChangeStartPage(1);
+          break;
+        }
       case "swipeleft":
-        if (!this.canNavigateRight()) break;
-        const newstartPage2 = this.startpage + deltaPage;
-        if (newstartPage2 < this.pages - this.visiblepages + 1)
-          this.emitChangeStartPage(newstartPage2);
-        else this.emitChangeStartPage(this.pages - this.visiblepages + 1);
-        break;
+        {
+          if (!this.canNavigateRight()) break;
+          const newstartPage2 = this.startpage + deltaPage;
+          if (newstartPage2 < this.pages - this.visiblepages + 1)
+            this.emitChangeStartPage(newstartPage2);
+          else this.emitChangeStartPage(this.pages - this.visiblepages + 1);
+          break;
+        }
       default:
         break;
     }

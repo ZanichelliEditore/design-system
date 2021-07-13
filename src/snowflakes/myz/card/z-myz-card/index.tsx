@@ -15,9 +15,9 @@ export class ZMyzCardComponent {
   /** graphic variant (optional) */
   @Prop() cardtype?: LicenseTypeEnum;
   /** pressed status */
-  @Prop() ispressed: boolean = false;
+  @Prop() ispressed = false;
   /** highlighted status */
-  @Prop() ishighlighted: boolean = false;
+  @Prop() ishighlighted = false;
 
   retrieveClass() {
     let elemClasses = "";

@@ -38,7 +38,7 @@ export class ZRegistroTableHeader {
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
-  @State() isMenuOpened: boolean = false;
+  @State() isMenuOpened = false;
 
   @State() sortingOrientation: SortingOrientation = SortingOrientation["none"];
 
