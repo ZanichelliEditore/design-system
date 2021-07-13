@@ -7,7 +7,7 @@ describe("Suite test ZMenuDropdown", () => {
     expect(() => {
       newSpecPage({
         components: [ZMenuDropdown],
-        html: `<z-menu-dropdown menucontent=''></z-menu-dropdown>`
+        html: `<z-menu-dropdown menucontent=''></z-menu-dropdown>`,
       });
     }).toThrowError;
   });
@@ -15,7 +15,7 @@ describe("Suite test ZMenuDropdown", () => {
   it("Test  ZMenuDropdown con lista", async () => {
     const page = await newSpecPage({
       components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`
+      html: `<z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`,
     });
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
@@ -41,7 +41,7 @@ describe("Suite test ZMenuDropdown", () => {
   it("Test ZMenuDropdown con lista on click", async () => {
     const page = await newSpecPage({
       components: [ZMenuDropdown],
-      html: `<z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`
+      html: `<z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente"></z-menu-dropdown>`,
     });
     expect(page.root).toEqualHtml(`
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">

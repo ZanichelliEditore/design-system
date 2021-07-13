@@ -6,7 +6,7 @@ describe("Suite test z-list-item", () => {
   it("Empty list item with shadow dom", async () => {
     const page = await newSpecPage({
       components: [ZListItem],
-      html: `<z-list-item></z-list-item>`
+      html: `<z-list-item></z-list-item>`,
     });
     expect(page.root).toEqualHtml(`
       <z-list-item>
@@ -25,7 +25,7 @@ describe("Suite test z-list-item", () => {
   it("Text element", async () => {
     const page = await newSpecPage({
       components: [ZListItem],
-      html: `<z-list-item text='testo'></z-list-item>`
+      html: `<z-list-item text='testo'></z-list-item>`,
     });
     expect(page.root).toEqualHtml(`
      <z-list-item text=\"testo\">
@@ -44,7 +44,7 @@ describe("Suite test z-list-item", () => {
   it("Link element", async () => {
     const page = await newSpecPage({
       components: [ZListItem],
-      html: `<z-list-item text='testo' link =='http://www.google.it'></z-list-item>`
+      html: `<z-list-item text='testo' link =='http://www.google.it'></z-list-item>`,
     });
     expect(page.root).toEqualHtml(`
      <z-list-item link=\"='http://www.google.it'\" text=\"testo\">
@@ -65,7 +65,7 @@ describe("Suite test z-list-item", () => {
   it("Slot element", async () => {
     const page = await newSpecPage({
       components: [ZListItem],
-      html: `<z-list-item>z list inner content</z-list-item>`
+      html: `<z-list-item>z list inner content</z-list-item>`,
     });
     expect(page.root).toEqualHtml(`
      <z-list-item>

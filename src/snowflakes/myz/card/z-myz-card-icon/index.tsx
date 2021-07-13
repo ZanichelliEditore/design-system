@@ -3,7 +3,7 @@ import { Component, Prop, h } from "@stencil/core";
 @Component({
   tag: "z-myz-card-icon",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardIcon {
   /** icon name */

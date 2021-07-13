@@ -8,25 +8,24 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property     | Attribute     | Description                            | Type      | Default     |
 | ------------ | ------------- | -------------------------------------- | --------- | ----------- |
 | `showButton` | `show-button` | [Optional] Show contextual menu button | `boolean` | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-registro-table-row](../z-registro-table-row)
+- [z-registro-table-row](../z-registro-table-row)
 
 ### Depends on
 
 - [z-button](../../../components/buttons/z-button)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-registro-table-cell --> z-button
@@ -35,6 +34,6 @@ graph TD;
   style z-registro-table-cell fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

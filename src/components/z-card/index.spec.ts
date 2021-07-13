@@ -13,7 +13,7 @@ describe("Suite test ZCard", () => {
         <p class="body-3" slot="text">Description</p>
         <z-icon name="share" slot="action"></z-icon>
         <z-icon name="delete" slot="action"></z-icon>
-      </z-card>`
+      </z-card>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -51,7 +51,7 @@ describe("Suite test ZCard", () => {
         <p class="body-3" slot="text">Description</p>
         <z-icon name="share" slot="action"></z-icon>
         <z-icon name="delete" slot="action"></z-icon>
-      </z-card>`
+      </z-card>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -87,7 +87,7 @@ describe("Suite test ZCard", () => {
         <h2 class="body-5" slot="metadata">metadata</h2>
         <h3 slot="title">Card title</h3>
         <p class="body-3" slot="text">Description</p>
-      </z-card>`
+      </z-card>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -122,12 +122,12 @@ describe("Suite test ZCard", () => {
         <h2 class="body-5" slot="metadata">metadata</h2>
         <h3 slot="title">Card title</h3>
         <p class="body-3" slot="text">Description</p>
-      </z-card>`
+      </z-card>`,
     });
 
-    const card = page.body.querySelector('z-card');
+    const card = page.body.querySelector("z-card");
     const cardClickedCallback = jest.fn();
-    page.doc.addEventListener('cardClicked', cardClickedCallback);
+    page.doc.addEventListener("cardClicked", cardClickedCallback);
     card.click();
 
     expect(cardClickedCallback).toHaveBeenCalled();

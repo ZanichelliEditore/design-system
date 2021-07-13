@@ -1,16 +1,15 @@
-import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
-import { NotificationType } from '../../../beans';
+import { NotificationType } from "../../../beans";
 
 /**
  * @slot - the content of the notification
  */
 @Component({
-  tag: 'z-notification',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-notification",
+  styleUrl: "styles.css",
+  shadow: true,
 })
-
 export class ZNotification {
   /** icon on the left of the content  */
   @Prop() contenticonname?: string;
@@ -22,7 +21,6 @@ export class ZNotification {
   @Prop() showclose?: boolean = false;
   /** enable shadow */
   @Prop() showshadow?: boolean = false;
-
 
   /** notification action event */
   @Event() notificationAction: EventEmitter;
@@ -40,22 +38,22 @@ export class ZNotification {
 
   render() {
     return (
-      <div class={{
-        "notification-container": true,
-        "success-notification": this.type === NotificationType.success,
-        "warning-notification": this.type === NotificationType.warning,
-        "error-notification": this.type === NotificationType.error,
-        "shadow": this.showshadow
-      }}>
+      <div
+        class={{
+          "notification-container": true,
+          "success-notification": this.type === NotificationType.success,
+          "warning-notification": this.type === NotificationType.warning,
+          "error-notification": this.type === NotificationType.error,
+          shadow: this.showshadow,
+        }}
+      >
         {this.contenticonname && (
-          <z-icon
-            name={this.contenticonname}
-            width={16}
-            height={16}
-          />
+          <z-icon name={this.contenticonname} width={16} height={16} />
         )}
         <div class="content-container">
-          <z-body class="content-text" level={4}><slot></slot></z-body>
+          <z-body class="content-text" level={4}>
+            <slot></slot>
+          </z-body>
           {this.actiontext && !!this.actiontext.trim().length && (
             <z-body
               class="action-text"

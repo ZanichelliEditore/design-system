@@ -1,14 +1,13 @@
-import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 /**
  * @slot content - set the info box content
  */
 @Component({
-  tag: 'z-info-box',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-info-box",
+  styleUrl: "styles.css",
+  shadow: true,
 })
-
 export class ZInfoBox {
   /** info box unique id */
   @Prop() boxid: string;
@@ -25,7 +24,13 @@ export class ZInfoBox {
     return (
       <div id={this.boxid}>
         <slot name="content" />
-        {this.isclosable && <z-icon name="multiply" data-action="infoBoxClose" onClick={() => this.emitInfoBoxClose()} />}
+        {this.isclosable && (
+          <z-icon
+            name="multiply"
+            data-action="infoBoxClose"
+            onClick={() => this.emitInfoBoxClose()}
+          />
+        )}
       </div>
     );
   }

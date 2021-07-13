@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text } from '@storybook/addon-knobs';
+import { text } from "@storybook/addon-knobs";
 
 <Meta title="Navigation/ZAppSwitcher" component="z-app-switcher" />
 
@@ -13,11 +13,8 @@ import { text } from '@storybook/addon-knobs';
     </div>`}
   </Story>
   <Story name="ZAppSwitcher-light">
-    {html`<z-app-switcher
-      theme="${text("theme", "light")}"></z-app-switcher>`}
+    {html`<z-app-switcher theme="${text("theme", "light")}"></z-app-switcher>`}
   </Story>
 </Preview>
 
 <Props of="z-app-switcher" />
-
-

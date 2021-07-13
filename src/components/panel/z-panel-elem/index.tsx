@@ -6,7 +6,7 @@ import { Component, Prop, h } from "@stencil/core";
 @Component({
   tag: "z-panel-elem",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZPanelElem {
   /** html element id (optional) */

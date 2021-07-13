@@ -1,6 +1,6 @@
-import { newE2EPage } from '@stencil/core/testing';
+import { newE2EPage } from "@stencil/core/testing";
 
-it('Test ZMyzCardFooter should receive toggle event', async () => {
+it("Test ZMyzCardFooter should receive toggle event", async () => {
   const page = await newE2EPage();
 
   await page.setContent(`
@@ -9,8 +9,8 @@ it('Test ZMyzCardFooter should receive toggle event', async () => {
     </z-myz-card-footer>
   `);
 
-  const toggleSpy = await page.spyOnEvent('toggleClick');
-  const button = await page.find('z-toggle-button');
+  const toggleSpy = await page.spyOnEvent("toggleClick");
+  const button = await page.find("z-toggle-button");
 
   button.click();
   await page.waitForChanges();

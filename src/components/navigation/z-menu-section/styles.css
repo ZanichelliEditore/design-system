@@ -67,7 +67,7 @@
   padding: calc(var(--space-unit) / 2) 0 calc(var(--space-unit) / 2 * 3);
 }
 
-.items > ::slotted([slot='item']) {
+.items > ::slotted([slot="item"]) {
   display: inline-flex;
   margin: 0;
   padding: calc(var(--space-unit) / 2) calc(var(--space-unit) / 2);
@@ -76,10 +76,10 @@
   outline: none;
 }
 
-.items > ::slotted([slot='item']:focus:focus-visible) {
+.items > ::slotted([slot="item"]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
 }
 
-.items > ::slotted([slot='item']:hover) {
+.items > ::slotted([slot="item"]:hover) {
   color: var(--color-secondary01);
 }

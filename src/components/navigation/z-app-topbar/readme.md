@@ -1,9 +1,6 @@
 # z-topbar
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -13,7 +10,6 @@
 | `logged`  | `logged`  | logged status flag            | `boolean`           | `undefined`         |
 | `theme`   | `theme`   | theme variant, default 'dark' | `"dark" \| "light"` | `ThemeVariant.dark` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

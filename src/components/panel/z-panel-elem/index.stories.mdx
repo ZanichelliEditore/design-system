@@ -1,25 +1,28 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text } from '@storybook/addon-knobs';
+import { text } from "@storybook/addon-knobs";
 
 ## Stories
 
 <Meta title="Panel/ZPanelElem" component="z-panel-elem" />
 
-  # ZPanelElem
+# ZPanelElem
 
 <Preview>
   <Story name="z-panel-elem">
-    {html`
-      <z-panel-elem
-        imgurl="${text('imgurl', 'https://staticdemomy.zanichelli.it/download/biblioteca.png')}"
-        linkicon="${text('linkicon', 'arrow-quad-down')}"
-        linklabel="${text('linklabel', 'Biblioteca')}"
-        url="${text('url', 'https://biblioteca.scuola.zanichelli.it/')}"
-        elemid="${text('elemid', 'elements_id')}"
-      ><z-panel-elem>`}
+    {html` <z-panel-elem
+      imgurl="${text(
+        "imgurl",
+        "https://staticdemomy.zanichelli.it/download/biblioteca.png"
+      )}"
+      linkicon="${text("linkicon", "arrow-quad-down")}"
+      linklabel="${text("linklabel", "Biblioteca")}"
+      url="${text("url", "https://biblioteca.scuola.zanichelli.it/")}"
+      elemid="${text("elemid", "elements_id")}"
+      ><z-panel-elem></z-panel-elem
+    ></z-panel-elem>`}
   </Story>
 </Preview>
 
-  <Props of="z-panel-elem" />
-
+{" "}
+<Props of="z-panel-elem" />

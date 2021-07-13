@@ -1,25 +1,25 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, boolean } from '@storybook/addon-knobs';
+import { text, boolean } from "@storybook/addon-knobs";
 
 ## Stories
 
 <Meta title="List/ZListItem" component="z-list-item" />
 
-  # ZListItem
+# ZListItem
 
 <Preview>
   <Story name="z-list-item">
-    {html`
-      <z-list-item
-        action="${text('action', '10')}"
-        icon="${text('icon', 'cart')}"
-        linktarget="${text('linktarget', '_blank')}"
-        link="${text('link', 'www.zanichelli.it')}"
-        underlined="${boolean('underlined', true)}"
-      >ITEM 1</z-list-item>`}
+    {html` <z-list-item
+      action="${text("action", "10")}"
+      icon="${text("icon", "cart")}"
+      linktarget="${text("linktarget", "_blank")}"
+      link="${text("link", "www.zanichelli.it")}"
+      underlined="${boolean("underlined", true)}"
+      >ITEM 1</z-list-item
+    >`}
   </Story>
 </Preview>
 
-  <Props of="z-list-item" />
-
+{" "}
+<Props of="z-list-item" />

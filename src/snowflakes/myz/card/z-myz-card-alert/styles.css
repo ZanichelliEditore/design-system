@@ -34,14 +34,14 @@
   border-top: none;
 }
 
-:host div>.contentText {
+:host div > .contentText {
   color: var(--text-grey-800);
   font-size: 14px;
   letter-spacing: 0.16px;
   line-height: 20px;
 }
 
-:host div>.contentAction {
+:host div > .contentAction {
   color: var(--myz-blue);
   font-size: 12px;
   font-weight: var(--font-sb);
@@ -51,16 +51,16 @@
   cursor: pointer;
 }
 
-:host div>z-icon {
+:host div > z-icon {
   justify-self: center;
 }
 
-:host div>z-icon.addAlert {
+:host div > z-icon.addAlert {
   color: var(--status-success-green);
   fill: var(--status-success-green);
 }
 
-:host div>z-icon.removeAlert {
+:host div > z-icon.removeAlert {
   color: var(--status-warning-yellow-dark);
   fill: var(--status-warning-yellow-dark);
 }

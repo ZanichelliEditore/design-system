@@ -7,7 +7,7 @@ import { handleKeyboardSubmit } from "../../../utils/utils";
 @Component({
   tag: "z-pagination-bar",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZPaginationBar {
   /** pages number */
@@ -146,7 +146,7 @@ export class ZPaginationBar {
 
   render() {
     return (
-      <div ref={el => (this.bar = el as HTMLElement)}>
+      <div ref={(el) => (this.bar = el as HTMLElement)}>
         <z-icon
           name="chevron-left"
           class={!this.canNavigateLeft() && "disabled"}
@@ -156,7 +156,7 @@ export class ZPaginationBar {
           }
           tabindex={this.canNavigateLeft() ? 0 : -1}
         />
-        {this.currentPages.map(page => (
+        {this.currentPages.map((page) => (
           <z-pagination-page
             value={page}
             isselected={page === this.currentpage}

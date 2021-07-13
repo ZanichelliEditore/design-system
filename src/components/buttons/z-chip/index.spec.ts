@@ -4,10 +4,9 @@ import { ZChip } from "./index";
 
 describe("Suite test ZChip", () => {
   it("Test render ZChip empty", async () => {
-
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip></z-chip>`
+      html: `<z-chip></z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -21,11 +20,10 @@ describe("Suite test ZChip", () => {
     `);
   });
 
-
   it("Test render ZChip with attributes", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip boldtext="20" regulartext="libri trovati"></z-chip>`
+      html: `<z-chip boldtext="20" regulartext="libri trovati"></z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -42,7 +40,7 @@ describe("Suite test ZChip", () => {
   it("Test render ZChip with children", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip><z-body>ciao 1</z-body></z-chip>`
+      html: `<z-chip><z-body>ciao 1</z-body></z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -62,7 +60,7 @@ describe("Suite test ZChip", () => {
       components: [ZChip],
       html: `<z-chip boldtext="20" regulartext="libri trovati">
                <z-body>ciao 1</z-body>
-             </z-chip>`
+             </z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -77,4 +75,3 @@ describe("Suite test ZChip", () => {
     `);
   });
 });
-

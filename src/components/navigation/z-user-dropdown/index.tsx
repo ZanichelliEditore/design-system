@@ -61,7 +61,7 @@ export class ZUserDropdown {
       window.innerWidth <= mobileBreakpoint;
     if (this.gosthDiv)
       this.gosthDiv.style.width =
-        this.logged && (!this.isMobile && this.ismenuopen)
+        this.logged && !this.isMobile && this.ismenuopen
           ? `${this.userButton?.offsetWidth}px`
           : "";
   }
@@ -100,7 +100,7 @@ export class ZUserDropdown {
   }
 
   handleDropdownLinkClick(e) {
-    this.emitDropdownMenuLinkClick(e)
+    this.emitDropdownMenuLinkClick(e);
   }
 
   renderCaretIcon() {

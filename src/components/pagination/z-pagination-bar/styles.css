@@ -1,21 +1,21 @@
-:host>div {
+:host > div {
   height: 48px;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-around;
-	align-items: center;
-	align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
 }
 
-:host>div>z-icon {
+:host > div > z-icon {
   cursor: pointer;
   margin: 15px 0;
   color: var(--myz-blue);
   fill: var(--myz-blue);
 }
 
-:host>div>z-icon.disabled {
+:host > div > z-icon.disabled {
   cursor: default;
   pointer-events: none;
   color: var(--bg-neutral-200);

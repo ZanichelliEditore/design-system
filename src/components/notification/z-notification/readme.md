@@ -1,9 +1,6 @@
 # z-notification
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,7 +12,6 @@
 | `showshadow`      | `showshadow`      | enable shadow                   | `boolean`                                                                        | `false`     |
 | `type`            | `type`            | alert variant type              | `NotificationType.error \| NotificationType.success \| NotificationType.warning` | `undefined` |
 
-
 ## Events
 
 | Event                | Description               | Type               |
@@ -23,13 +19,11 @@
 | `notificationAction` | notification action event | `CustomEvent<any>` |
 | `notificationClose`  | notification close event  | `CustomEvent<any>` |
 
-
 ## Slots
 
 | Slot | Description                     |
 | ---- | ------------------------------- |
 |      | the content of the notification |
-
 
 ## Dependencies
 
@@ -39,6 +33,7 @@
 - [z-body](../../typography/z-body)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-notification --> z-icon
@@ -47,6 +42,6 @@ graph TD;
   style z-notification fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -14,7 +14,7 @@ export type ZTypographyLevels =
 @Component({
   tag: "z-typography",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZTypography {
   @Prop() component: string;
@@ -33,7 +33,7 @@ export class ZTypography {
           [this.level]: Boolean(this.level),
           regular: this.variant === "regular",
           semibold: this.variant === "semibold",
-          light: this.variant === "light"
+          light: this.variant === "light",
         }}
       />
     );

@@ -1,71 +1,71 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, number, boolean } from '@storybook/addon-knobs';
+import { text, number, boolean } from "@storybook/addon-knobs";
 
 ## Stories
 
 <Meta title="Navigation/ZLink" component="z-link" />
 
-  # ZLink
+# ZLink
 
 <Preview>
   <Story name="z-link">
-    {html`
-      <z-link
-        href="${text('href', 'www.zanichelli.it')}"
-        target="${text('target', '_blank')}"
-        icon="${text('icon', 'download')}"
-        htmlid="${number('htmlid', 1)}"
-        htmltabindex="${number('htmltabindex', 1)}"
-        iswhite="${boolean('iswhite', false)}"
-        isdisabled="${boolean('isdisabled', false)}"
-        isactive="${boolean('isactive', false)}"
-      >z-link</z-link>`}
+    {html` <z-link
+      href="${text("href", "www.zanichelli.it")}"
+      target="${text("target", "_blank")}"
+      icon="${text("icon", "download")}"
+      htmlid="${number("htmlid", 1)}"
+      htmltabindex="${number("htmltabindex", 1)}"
+      iswhite="${boolean("iswhite", false)}"
+      isdisabled="${boolean("isdisabled", false)}"
+      isactive="${boolean("isactive", false)}"
+      >z-link</z-link
+    >`}
   </Story>
   <Story name="z-link white">
-    {html`
-      <z-link
-        style="background-color:black"
-        href="${text('href', 'www.zanichelli.it')}"
-        target="${text('target', '_blank')}"
-        icon="${text('icon', 'download')}"
-        htmlid="${number('htmlid', 1)}"
-        htmltabindex="${number('htmltabindex', 1)}"
-        iswhite="${boolean('iswhite', true)}"
-        isdisabled="${boolean('isdisabled', false)}"
-        isactive="${boolean('isactive', false)}"
-      >z-link</z-link>`}
+    {html` <z-link
+      style="background-color:black"
+      href="${text("href", "www.zanichelli.it")}"
+      target="${text("target", "_blank")}"
+      icon="${text("icon", "download")}"
+      htmlid="${number("htmlid", 1)}"
+      htmltabindex="${number("htmltabindex", 1)}"
+      iswhite="${boolean("iswhite", true)}"
+      isdisabled="${boolean("isdisabled", false)}"
+      isactive="${boolean("isactive", false)}"
+      >z-link</z-link
+    >`}
   </Story>
-    <Story name="z-link big">
-    {html`
-      <z-link
-        style="background-color:black"
-        href="${text('href', 'www.zanichelli.it')}"
-        target="${text('target', '_blank')}"
-        icon="${text('icon', 'download')}"
-        htmlid="${number('htmlid', 1)}"
-        htmltabindex="${number('htmltabindex', 1)}"
-        iswhite="${boolean('iswhite', true)}"
-        isdisabled="${boolean('isdisabled', false)}"
-        isactive="${boolean('isactive', false)}"
-        big="${boolean('big', true)}"
-      >z-link</z-link>`}
+  <Story name="z-link big">
+    {html` <z-link
+      style="background-color:black"
+      href="${text("href", "www.zanichelli.it")}"
+      target="${text("target", "_blank")}"
+      icon="${text("icon", "download")}"
+      htmlid="${number("htmlid", 1)}"
+      htmltabindex="${number("htmltabindex", 1)}"
+      iswhite="${boolean("iswhite", true)}"
+      isdisabled="${boolean("isdisabled", false)}"
+      isactive="${boolean("isactive", false)}"
+      big="${boolean("big", true)}"
+      >z-link</z-link
+    >`}
   </Story>
   <Story name="z-link textcolor black">
-    {html`
-      <z-link
-        style="background-color:black"
-        href="${text('href', 'www.zanichelli.it')}"
-        target="${text('target', '_blank')}"
-        icon="${text('icon', 'download')}"
-        htmlid="${number('htmlid', 1)}"
-        htmltabindex="${number('htmltabindex', 1)}"
-        isdisabled="${boolean('isdisabled', false)}"
-        isactive="${boolean('isactive', false)}"
-        textcolor="${text('textcolor', 'black')}"
-      >z-link</z-link>`}
+    {html` <z-link
+      style="background-color:black"
+      href="${text("href", "www.zanichelli.it")}"
+      target="${text("target", "_blank")}"
+      icon="${text("icon", "download")}"
+      htmlid="${number("htmlid", 1)}"
+      htmltabindex="${number("htmltabindex", 1)}"
+      isdisabled="${boolean("isdisabled", false)}"
+      isactive="${boolean("isactive", false)}"
+      textcolor="${text("textcolor", "black")}"
+      >z-link</z-link
+    >`}
   </Story>
 </Preview>
 
-  <Props of="z-link" />
-
+{" "}
+<Props of="z-link" />

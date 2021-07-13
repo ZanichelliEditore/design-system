@@ -6,7 +6,7 @@ describe("Suite test ZBody", () => {
   it("Test render ZBody vuoto", async () => {
     const page = await newSpecPage({
       components: [ZBody],
-      html: `<z-body level="1" variant="regular">This is a test</z-body>`
+      html: `<z-body level="1" variant="regular">This is a test</z-body>`,
     });
 
     expect(page.root).toEqualHtml(`

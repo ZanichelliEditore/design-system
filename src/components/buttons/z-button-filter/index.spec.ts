@@ -6,7 +6,7 @@ describe("Suite test ZButtonFilter", () => {
   it("Test render ZButtonFilter vuoto", async () => {
     const page = await newSpecPage({
       components: [ZButtonFilter],
-      html: `<z-button-filter filtername=""></z-button-filter>`
+      html: `<z-button-filter filtername=""></z-button-filter>`,
     });
     expect(page.root).toEqualHtml(`
       <z-button-filter filtername="">
@@ -23,7 +23,7 @@ describe("Suite test ZButtonFilter", () => {
   it("Test render ZButtonFilter con label", async () => {
     const page = await newSpecPage({
       components: [ZButtonFilter],
-      html: `<z-button-filter filtername="FILTRO"></z-button-filter>`
+      html: `<z-button-filter filtername="FILTRO"></z-button-filter>`,
     });
     expect(page.root).toEqualHtml(`
       <z-button-filter filtername="FILTRO">
@@ -40,7 +40,7 @@ describe("Suite test ZButtonFilter", () => {
   it("Test render ZButtonFilter fixed", async () => {
     const page = await newSpecPage({
       components: [ZButtonFilter],
-      html: `<z-button-filter filtername="" isfixed></z-button-filter>`
+      html: `<z-button-filter filtername="" isfixed></z-button-filter>`,
     });
     expect(page.root).toEqualHtml(`
       <z-button-filter filtername="" isfixed>
@@ -57,7 +57,7 @@ describe("Suite test ZButtonFilter", () => {
   it("Test render ZButtonFilter small", async () => {
     const page = await newSpecPage({
       components: [ZButtonFilter],
-      html: `<z-button-filter filtername="FILTRO" issmall></z-button-filter>`
+      html: `<z-button-filter filtername="FILTRO" issmall></z-button-filter>`,
     });
     expect(page.root).toEqualHtml(`
       <z-button-filter filtername="FILTRO" issmall>

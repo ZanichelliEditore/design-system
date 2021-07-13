@@ -10,15 +10,17 @@ import { text, boolean } from "@storybook/addon-knobs";
 
 <Preview>
   <Story name="ZFooterSocial">
-    {html` 
-    <div style="background: #ccc;">
-      <z-footer-social 
-        href="${text("href", "https://www.zanichelli.it")}" 
-        icon="${text("icon", "https://staticmy.zanichelli.it/footer/images/png/facebook.png")}" 
-        description="${text("description", "Facebook")}">
+    {html` <div style="background: #ccc;">
+      <z-footer-social
+        href="${text("href", "https://www.zanichelli.it")}"
+        icon="${text(
+          "icon",
+          "https://staticmy.zanichelli.it/footer/images/png/facebook.png"
+        )}"
+        description="${text("description", "Facebook")}"
+      >
       </z-footer-social>
-    </div>`
-      }
+    </div>`}
   </Story>
 </Preview>
 

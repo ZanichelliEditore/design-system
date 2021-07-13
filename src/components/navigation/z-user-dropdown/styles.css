@@ -51,7 +51,7 @@ button > .userfullname {
 ul {
   position: absolute;
   left: 0;
-  padding: var(--space-unit)  0 0 0;
+  padding: var(--space-unit) 0 0 0;
   width: 100%;
   margin: 0;
   background: var(--bg-grey-900);
@@ -101,10 +101,10 @@ ul > li:last-child {
     width: min-content;
     position: absolute;
     right: 0;
-    box-shadow: 0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px calc(var(--space-unit) * 0.5) 0px rgba(0, 0, 0, 0.5);
     background: var(--bg-white);
-    border-radius: calc(var(--space-unit) * .5);
-    padding: calc(var(--space-unit) * .5) 0;
+    border-radius: calc(var(--space-unit) * 0.5);
+    padding: calc(var(--space-unit) * 0.5) 0;
     transform: translate(0, -4px);
   }
 
@@ -125,8 +125,8 @@ ul > li:last-child {
   button.open {
     background-color: var(--bg-white);
     border-top: var(--border-size-small) solid var(--bg-white);
-    border-top-left-radius: calc(var(--space-unit) * .5);
-    border-top-right-radius: calc(var(--space-unit) * .5);
+    border-top-left-radius: calc(var(--space-unit) * 0.5);
+    border-top-right-radius: calc(var(--space-unit) * 0.5);
     max-width: initial;
   }
 
@@ -161,7 +161,7 @@ ul > li:last-child {
   ul > li {
     color: var(--gray900);
     border-bottom: var(--border-base) solid rgb(202, 204, 206);
-    padding: calc(var(--space-unit) * .5) var(--space-unit);
+    padding: calc(var(--space-unit) * 0.5) var(--space-unit);
   }
 
   ul > li > * {

@@ -1,9 +1,6 @@
 # z-select
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -24,13 +21,11 @@
 | `readonly`       | `readonly`       | the input is readonly                                                                               | `boolean`                                          | `false`              |
 | `status`         | `status`         | the input status (optional): available for text, password, number, email, textarea, select          | `"error" \| "selecting" \| "success" \| "warning"` | `undefined`          |
 
-
 ## Events
 
 | Event          | Description                                                                                                          | Type               |
 | -------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `optionSelect` | Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) | `CustomEvent<any>` |
-
 
 ## Methods
 
@@ -42,8 +37,6 @@ get the input selected options
 
 Type: `Promise<SelectItemBean[]>`
 
-
-
 ### `getValue() => Promise<string | string[]>`
 
 get the input value
@@ -51,8 +44,6 @@ get the input value
 #### Returns
 
 Type: `Promise<string | string[]>`
-
-
 
 ### `setValue(value: string | string[]) => Promise<void>`
 
@@ -62,14 +53,11 @@ set the input value
 
 Type: `Promise<void>`
 
-
-
-
 ## Dependencies
 
 ### Used by
 
- - [z-input](../z-input)
+- [z-input](../z-input)
 
 ### Depends on
 
@@ -80,6 +68,7 @@ Type: `Promise<void>`
 - [z-input-message](../z-input-message)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-select --> z-input-label
@@ -93,6 +82,6 @@ graph TD;
   style z-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

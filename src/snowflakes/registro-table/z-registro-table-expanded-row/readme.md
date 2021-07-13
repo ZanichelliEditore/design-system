@@ -1,9 +1,6 @@
 # z-registro-table-expanded-row
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -11,7 +8,6 @@
 | --------- | ---------- | ------------------------------------------------ | -------- | ----------- |
 | `colSpan` | `col-span` | Number table column plus 1 for the expand button | `number` | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

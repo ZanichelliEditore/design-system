@@ -4,7 +4,7 @@ import { ActionBean } from "../../../../beans";
 @Component({
   tag: "z-myz-card-list",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardList {
   /** list data stringified array */

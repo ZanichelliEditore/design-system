@@ -47,8 +47,8 @@
   box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px;
 }
 
-.tooltip[class*='-arrow']:after {
-  content: '';
+.tooltip[class*="-arrow"]:after {
+  content: "";
   position: absolute;
   width: var(--arrow-size);
   height: var(--arrow-size);
@@ -103,4 +103,3 @@
   left: calc(25% - calc(var(--arrow-size) / 2));
   bottom: calc(var(--arrow-size) / 2 * -1);
 }
-

@@ -1,9 +1,6 @@
 # z-app-header
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,7 +12,6 @@
 | `overlay` | `overlay` | Should place an overlay over the hero image. Useful for legibility purpose. **Optional**                               | `boolean`           | `false`     |
 | `stuck`   | `stuck`   | Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**                 | `boolean`           | `false`     |
 
-
 ## Dependencies
 
 ### Depends on
@@ -23,12 +19,13 @@
 - [z-icon](../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-app-header --> z-icon
   style z-app-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

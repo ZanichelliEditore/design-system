@@ -11,7 +11,7 @@ describe("Suite test ZMenuSection", () => {
         <a href="#" slot="item">Item 1</a>
         <a href="#" slot="item">Item 2</a>
         <a href="#" slot="item">Item 3</a>
-      </z-menu-section>`
+      </z-menu-section>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -26,7 +26,7 @@ describe("Suite test ZMenuSection", () => {
         <a href="#" slot="item">Item 1</a>
         <a href="#" slot="item">Item 2</a>
         <a href="#" slot="item">Item 3</a>
-    </z-menu-section>`)
+    </z-menu-section>`);
   });
 
   it("Test ZMenuSection toggle events", async () => {
@@ -34,19 +34,19 @@ describe("Suite test ZMenuSection", () => {
       components: [ZMenuSection],
       html: `<z-menu-section>
         <div slot="item">item</div>
-      </z-menu-section>`
+      </z-menu-section>`,
     });
     const menu = page.rootInstance;
 
     const openedCallback = jest.fn();
-    page.doc.addEventListener('opened', openedCallback);
+    page.doc.addEventListener("opened", openedCallback);
     await page.waitForChanges();
     // call `toggle` to open the menu
     menu.toggle();
     expect(openedCallback).toHaveBeenCalled();
 
     const closedCallback = jest.fn();
-    page.doc.addEventListener('closed', closedCallback);
+    page.doc.addEventListener("closed", closedCallback);
     await page.waitForChanges();
     // the menu is already open, this call will close it
     menu.toggle();

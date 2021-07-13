@@ -3,7 +3,7 @@ import { ZTypographyLevels } from "../z-typography";
 
 @Component({
   tag: "z-heading",
-  shadow: true
+  shadow: true,
 })
 export class ZHeading {
   @Prop() level: 1 | 2 | 3 | 4;

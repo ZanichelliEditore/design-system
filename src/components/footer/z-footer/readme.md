@@ -4,14 +4,12 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property        | Attribute       | Description                                           | Type     | Default     |
 | --------------- | --------------- | ----------------------------------------------------- | -------- | ----------- |
 | `copyrightuser` | `copyrightuser` | deprecated - set copyright user                       | `string` | `undefined` |
 | `data`          | `data`          | deprecated - JSON stringified data to fill the footer | `string` | `undefined` |
-
 
 ## Slots
 
@@ -20,7 +18,6 @@
 |            | main navigation   |
 | `"links"`  | bottom navigation |
 | `"social"` | social links      |
-
 
 ## Dependencies
 
@@ -32,6 +29,7 @@
 - [z-footer-social](../z-footer-social)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-footer --> z-logo
@@ -42,6 +40,6 @@ graph TD;
   style z-footer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

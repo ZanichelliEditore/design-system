@@ -6,7 +6,7 @@ describe("Suite test ZPaginationBar", () => {
   it("Test render ZPaginationBar vuoto", async () => {
     const page = await newSpecPage({
       components: [ZPaginationBar],
-      html: `<z-pagination-bar></z-pagination-bar>`
+      html: `<z-pagination-bar></z-pagination-bar>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -24,7 +24,7 @@ describe("Suite test ZPaginationBar", () => {
   it("Test render ZPaginationBar pieno", async () => {
     const page = await newSpecPage({
       components: [ZPaginationBar],
-      html: `<z-pagination-bar pages="20" visiblepages="10" currentpage="1"></z-pagination-bar>`
+      html: `<z-pagination-bar pages="20" visiblepages="10" currentpage="1"></z-pagination-bar>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -52,7 +52,7 @@ describe("Suite test ZPaginationBar", () => {
   it("Test render ZPaginationBar pieno", async () => {
     const page = await newSpecPage({
       components: [ZPaginationBar],
-      html: `<z-pagination-bar pages="20" visiblepages="10" currentpage="5"></z-pagination-bar>`
+      html: `<z-pagination-bar pages="20" visiblepages="10" currentpage="5"></z-pagination-bar>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -80,7 +80,7 @@ describe("Suite test ZPaginationBar", () => {
   it("Test render ZPaginationBar pieno click avanti", async () => {
     const page = await newSpecPage({
       components: [ZPaginationBar],
-      html: `<z-pagination-bar pages="20" visiblepages="10" currentpage="5"></z-pagination-bar>`
+      html: `<z-pagination-bar pages="20" visiblepages="10" currentpage="5"></z-pagination-bar>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -135,7 +135,7 @@ describe("Suite test ZPaginationBar", () => {
   it("Test render ZPaginationBar start click indietro", async () => {
     const page = await newSpecPage({
       components: [ZPaginationBar],
-      html: `<z-pagination-bar pages="20" visiblepages="10" currentpage="5"></z-pagination-bar>`
+      html: `<z-pagination-bar pages="20" visiblepages="10" currentpage="5"></z-pagination-bar>`,
     });
 
     expect(page.root).toEqualHtml(`

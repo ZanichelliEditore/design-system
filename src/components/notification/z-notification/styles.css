@@ -5,7 +5,7 @@
 
 .notification-container {
   display: flex;
-  padding:  0 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
+  padding: 0 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
   outline: none;
   border-bottom: var(--border-size-medium) solid var(--color-surface03);
 }
@@ -73,8 +73,6 @@
   margin-right: calc(var(--space-unit) * 2);
 }
 
-
-
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   .content-container {
@@ -87,7 +85,9 @@
 }
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {}
+@media only screen and (min-width: 1152px) {
+}
 
 /* Wide breakpoint */
-@media only screen and (min-width: 1366px) {}
+@media only screen and (min-width: 1366px) {
+}

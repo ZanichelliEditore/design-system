@@ -35,13 +35,13 @@ button {
 
 :host(:hover:not([disabled])) button::after,
 :host([selected]) button::after {
-  content: '';
+  content: "";
   position: absolute;
   background-color: var(--color-hover-secondary);
 }
 
-:host([orientation='horizontal']:hover:not([disabled])) button::after,
-:host([orientation='horizontal'][selected]) button::after {
+:host([orientation="horizontal"]:hover:not([disabled])) button::after,
+:host([orientation="horizontal"][selected]) button::after {
   bottom: 0;
   left: 0;
   width: 100%;
@@ -64,40 +64,41 @@ button:focus:focus-visible {
 }
 
 /* Size small (only available for horizontal) */
-:host([size='small']) button {
+:host([size="small"]) button {
   font-size: var(--font-size-2);
   line-height: 1.4;
   letter-spacing: 0.16px;
 }
 
-:host([size='small'][orientation='horizontal']) button {
+:host([size="small"][orientation="horizontal"]) button {
   padding: var(--space-unit) calc(var(--space-unit) * 2);
 }
 
-:host([size='small'][orientation='horizontal']:not([disabled])):hover button::after,
-:host([size='small'][orientation='horizontal'][selected]) button::after {
+:host([size="small"][orientation="horizontal"]:not([disabled])):hover
+  button::after,
+:host([size="small"][orientation="horizontal"][selected]) button::after {
   height: var(--border-size-medium);
 }
 
-:host([size='small']:not([orientation='vertical'])) ::slotted(z-icon) {
+:host([size="small"]:not([orientation="vertical"])) ::slotted(z-icon) {
   --z-icon-width: 14px;
   --z-icon-height: 14px;
 }
 
 /* Orientation Vertical */
-:host([orientation='vertical']) button {
+:host([orientation="vertical"]) button {
   padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
 }
 
-:host([orientation='vertical']:hover:not([disabled])) button::after,
-:host([orientation='vertical'][selected]) button::after {
+:host([orientation="vertical"]:hover:not([disabled])) button::after,
+:host([orientation="vertical"][selected]) button::after {
   width: var(--border-size-large);
   height: 100%;
   top: 0;
   right: 0;
 }
 
-:host([orientation='vertical']) ::slotted([slot='label']) {
+:host([orientation="vertical"]) ::slotted([slot="label"]) {
   display: none;
 }
 

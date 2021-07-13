@@ -3,7 +3,7 @@ import { Component, Prop, h } from "@stencil/core";
 @Component({
   tag: "z-logo",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZLogo {
   /** image width */
@@ -48,7 +48,11 @@ export class ZLogo {
     return (
       <div>
         {this.link && (
-          <a style={{width: `${this.width}px`, height:`${this.height}px`}} href={this.link} target={this.targetblank ? "_blank" : undefined}>
+          <a
+            style={{ width: `${this.width}px`, height: `${this.height}px` }}
+            href={this.link}
+            target={this.targetblank ? "_blank" : undefined}
+          >
             {this.renderSvg()}
           </a>
         )}

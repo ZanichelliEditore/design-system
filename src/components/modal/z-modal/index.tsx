@@ -6,7 +6,7 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 @Component({
   tag: "z-modal",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZModal {
   /** unique id */
@@ -50,11 +50,12 @@ export class ZModal {
           <slot name="modalContent"></slot>
         </main>
       </div>,
-      <div class="modal-background"
+      <div
+        class="modal-background"
         data-action="modalBackground"
         data-modal={this.modalid}
         onClick={this.emitBackgroundClick.bind(this)}
-      ></div>
+      ></div>,
     ];
   }
 }

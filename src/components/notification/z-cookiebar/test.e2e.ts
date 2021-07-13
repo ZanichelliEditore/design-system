@@ -11,8 +11,8 @@ it("Test OK button should emit okButtonClick event", async () => {
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "accept";
-  await page.evaluateOnNewDocument(type => {
-    document.addEventListener(type, e => {
+  await page.evaluateOnNewDocument((type) => {
+    document.addEventListener(type, (e) => {
       window.onAccept({ type, detail: e.detail });
     });
   }, type);

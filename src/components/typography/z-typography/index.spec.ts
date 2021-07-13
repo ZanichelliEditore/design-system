@@ -6,7 +6,7 @@ describe("Suite test ZTypography", () => {
   it("Test render ZTypography vuoto", async () => {
     const page = await newSpecPage({
       components: [ZTypography],
-      html: `<z-typography>This is your z-typography component This is your default prop</z-typography>`
+      html: `<z-typography>This is your z-typography component This is your default prop</z-typography>`,
     });
 
     expect(page.root).toEqualHtml(`

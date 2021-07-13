@@ -1,35 +1,34 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, boolean, number } from '@storybook/addon-knobs';
+import { text, boolean, number } from "@storybook/addon-knobs";
 
 ## Stories
 
 <Meta title="Inputs/ZCombobox" component="z-combobox" />
 
-  # ZCombobox
+# ZCombobox
 
 <Preview>
   <Story name="z-combobox">
-    {html`
-      <z-combobox
-        checkalltext="${text('checkalltext', 'Select all')}"
-        closesearchtext="${text('closesearchtext', 'Close')}"
-        hascheckall="${boolean('hascheckall', true)}"
-        hassearch="${boolean('hassearch', true)}"
-        inputid="${text('inputid', 'combo_1')}"
-        isfixed="${boolean('isfixed', true)}"
-        isopen="${boolean('isopen', true)}"
-        items='[{"id":"item_1","name":"First item","checked":false},{"id":"item_2","name":"Second item","checked":true},{"id":"item_3","name":"Other item","checked":false},{"id":"item_4","name":"Last item","checked":true}]'
-        label="${text('label', 'Combobox Label')}"
-        maxcheckableitems="${number('maxcheckableitems', 4)}"
-        noresultslabel="${text('noresultslabel', 'No items')}"
-        searchlabel="${text('searchlabel', 'Search Label')}"
-        searchplaceholder="${text('searchplaceholder', 'Search Placeholder')}"
-        searchtitle="${text('searchtitle', 'Search Title')}"
-        uncheckalltext="${text('uncheckalltext', 'Uncheck All')}"
-      />`}
+    {html` <z-combobox
+      checkalltext="${text("checkalltext", "Select all")}"
+      closesearchtext="${text("closesearchtext", "Close")}"
+      hascheckall="${boolean("hascheckall", true)}"
+      hassearch="${boolean("hassearch", true)}"
+      inputid="${text("inputid", "combo_1")}"
+      isfixed="${boolean("isfixed", true)}"
+      isopen="${boolean("isopen", true)}"
+      items='[{"id":"item_1","name":"First item","checked":false},{"id":"item_2","name":"Second item","checked":true},{"id":"item_3","name":"Other item","checked":false},{"id":"item_4","name":"Last item","checked":true}]'
+      label="${text("label", "Combobox Label")}"
+      maxcheckableitems="${number("maxcheckableitems", 4)}"
+      noresultslabel="${text("noresultslabel", "No items")}"
+      searchlabel="${text("searchlabel", "Search Label")}"
+      searchplaceholder="${text("searchplaceholder", "Search Placeholder")}"
+      searchtitle="${text("searchtitle", "Search Title")}"
+      uncheckalltext="${text("uncheckalltext", "Uncheck All")}"
+    />`}
   </Story>
 </Preview>
 
-  <Props of="z-combobox" />
-
+{" "}
+<Props of="z-combobox" />

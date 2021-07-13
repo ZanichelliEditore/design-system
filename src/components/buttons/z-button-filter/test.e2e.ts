@@ -10,14 +10,14 @@ it("Test ZButtonFilter should emit removefilter event", async () => {
 
   // Define a window.onCustomEvent function on the page.
   let removefilterCounter = 0;
-  await page.exposeFunction("onRemoveFilter", e => {
+  await page.exposeFunction("onRemoveFilter", (e) => {
     removefilterCounter = 1;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "removefilter";
-  page.evaluateOnNewDocument(type => {
-    document.addEventListener(type, e => {
+  page.evaluateOnNewDocument((type) => {
+    document.addEventListener(type, (e) => {
       (window as CustomWindow).onRemoveFilter({ type, detail: e.detail });
     });
   }, type);
@@ -40,14 +40,14 @@ it("Test ZButtonFilter fixed button should not emit removefilter event", async (
 
   // Define a window.onCustomEvent function on the page.
   let removefilterCounter = 0;
-  await page.exposeFunction("onRemoveFilter", e => {
+  await page.exposeFunction("onRemoveFilter", (e) => {
     removefilterCounter = 1;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "removefilter";
-  page.evaluateOnNewDocument(type => {
-    document.addEventListener(type, e => {
+  page.evaluateOnNewDocument((type) => {
+    document.addEventListener(type, (e) => {
       (window as CustomWindow).onRemoveFilter({ type, detail: e.detail });
     });
   }, type);

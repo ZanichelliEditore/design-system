@@ -52,8 +52,8 @@ export type CardBean = {
 export enum CardVariants {
   border = "border",
   shadow = "shadow",
-  overlay = "overlay"
-};
+  overlay = "overlay",
+}
 
 export declare type ActionBean = {
   isLink: boolean;

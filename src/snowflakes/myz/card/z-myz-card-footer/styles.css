@@ -32,7 +32,8 @@ footer > h2 {
   line-height: 22px;
   height: 40px;
   margin: 0px;
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2) var(--space-unit) calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2)
+    var(--space-unit) calc(var(--space-unit) * 2);
   overflow: hidden;
   background-color: var(--bg-white);
   transition: all 200ms linear;
