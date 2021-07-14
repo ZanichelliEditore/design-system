@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.1](https://github.com/ZanichelliEditore/design-system/compare/v2.10.0...v2.10.1) (2021-07-14)
+
+
+### Bug Fixes
+
+* menu content background token ([525d54a](https://github.com/ZanichelliEditore/design-system/commit/525d54a3daec571beafec00a7d5817858ebbca32))
+
 ## [2.10.0](https://github.com/ZanichelliEditore/design-system/compare/v2.9.0...v2.10.0) (2021-07-09)
 
 
