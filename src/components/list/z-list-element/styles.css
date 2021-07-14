@@ -20,7 +20,7 @@
 
 :host([expandable]:focus:focus-visible),
 :host([clickable]:focus:focus-visible) {
-  box-shadow: 0px 0px 2px 2px var(--accent-dark);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 :host([expandable]:active),

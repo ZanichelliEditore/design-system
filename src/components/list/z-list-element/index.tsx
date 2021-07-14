@@ -1,5 +1,9 @@
 import { Component, h, Host, Prop, State } from "@stencil/core";
-import { ExpandableListStyle, ExpandableListButtonAlign } from "../../../beans";
+import {
+  ExpandableListStyle,
+  ExpandableListButtonAlign,
+  ListDividerType,
+} from "../../../beans";
 
 @Component({
   tag: "z-list-element",
@@ -27,6 +31,8 @@ export class ZListElement {
    */
   @Prop({ reflect: true }) alignButton?: ExpandableListButtonAlign =
     ExpandableListButtonAlign.left;
+
+  @Prop({ reflect: true }) dividerType?: ListDividerType = ListDividerType.none;
 
   @State() showInnerContent = false;
 
@@ -114,6 +120,7 @@ export class ZListElement {
           <slot />
         </div>
         {this._renderExpandedContent()}
+        {this.dividerType === ListDividerType.element && <z-divider />}
       </Host>
     );
   }

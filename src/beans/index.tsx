@@ -289,3 +289,9 @@ export enum ExpandableListButtonAlign {
   right = "right",
   left = "left",
 }
+
+export enum ListDividerType {
+  none = "none",
+  header = "header",
+  element = "element",
+}
