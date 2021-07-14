@@ -65,7 +65,7 @@
 
 .content {
   padding: var(--space-unit) 0;
-  background: var(--color-surface02);
+  background: var(--color-surface01);
 }
 
 .content[hidden] {
