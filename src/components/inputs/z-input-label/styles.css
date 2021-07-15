@@ -1,15 +1,16 @@
-:host > label {
+label {
   display: block;
-  color: var(--text-grey-800);
-  font-family: var(--dashboard-font);
+  margin: var(--space-unit) 0;
+  color: var(--color-text02);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-1);
   font-weight: var(--font-sb);
-  font-size: 12px;
-  line-height: 16px;
+  line-height: 1.33;
+  letter-spacing: 0.32px;
   text-transform: uppercase;
   text-align: left;
-  margin: var(--space-unit) 0;
 }
 
-:host > label.disabled {
-  color: var(--text-grey-700);
+label.disabled {
+  color: var(--color-disabled02);
 }

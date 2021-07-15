@@ -3,152 +3,129 @@
   width: inherit;
 }
 
-/* GENERAL */
-:host ul[role="listbox"] {
-  background: var(--bg-white);
-  border-radius: 0px;
-  border: var(--border-size-small) solid var(--bg-grey-200);
-  border-color: var(--bg-grey-200);
-  box-sizing: border-box;
-  color: var(--text-grey-800);
-  fill: var(--text-grey-800);
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-  font-size: 16px;
-  outline: none;
-}
-
-/* FILLED */
-:host .filled {
-  border-color: var(--text-grey-800) !important;
-}
-
 /* FOCUS */
-:host li[role="option"]:focus {
+li[role="option"]:focus:focus-visible {
   border-color: transparent;
-  box-shadow: 0 0 2px 2px var(--accent-dark);
+  box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
 
-:host > div.selectWrapper > z-input {
+.selectWrapper > z-input {
   width: 100%;
 }
 
-:host > div.selectWrapper > div {
+.selectWrapper > div {
   position: relative;
 }
 
-:host > div.selectWrapper > div.closed {
-  height: 0px;
+.selectWrapper > div.closed {
+  height: 0;
   overflow: hidden;
 }
 
-:host > div.selectWrapper > div > div.ulScrollWrapper {
-  background: var(--bg-white);
+.selectWrapper .ulScrollWrapper {
+  background: var(--color-surface01);
   position: absolute;
   padding: calc(var(--space-unit) * .5) var(--space-unit);
-  border: var(--border-size-small) solid var(--bg-grey-200);
+  border: var(--border-size-small) solid var(--gray200);
   border-top: none;
   width: 100%;
   box-sizing: border-box;
+  outline: none;
 }
 
-:host > div.selectWrapper > div.closed > div.ulScrollWrapper {
+.selectWrapper .closed .ulScrollWrapper {
   z-index: 10;
 }
 
-:host > div.selectWrapper > div.open > div.ulScrollWrapper {
+.selectWrapper .open .ulScrollWrapper {
   z-index: 20;
 }
 
-:host > div.selectWrapper > div > div.ulScrollWrapper > ul {
-  list-style: none;
+.selectWrapper .ulScrollWrapper > ul {
+  position: relative;
   margin: 0;
   padding: 0;
-  border: 0px;
+  list-style: none;
+  border: 0;
   max-height: 240px;
   overflow: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--myz-blue) var(--bg-grey-200);
-  position: relative;
+  outline: none;
+
+  /* Firefox scrollbar */
+  scrollbar-color: var(--color-primary01) transparent;
 }
 
-:host > div.selectWrapper > div > div.ulScrollWrapper > ul::-webkit-scrollbar {
+.selectWrapper .ulScrollWrapper > ul::-webkit-scrollbar {
   background: linear-gradient(
-    90deg,
-    var(--bg-white) 2px,
-    var(--bg-grey-200) 4px,
-    var(--bg-white) 8px
+    to right,
+    transparent 0 3px,
+    var(--gray200) 3px 7px,
+    transparent 7px 10px
   );
-  border-radius: var(--border-radius);
   width: 10px;
+  border-radius: var(--border-radius);
 }
 
-:host
-  > div.selectWrapper
-  > div
-  > div.ulScrollWrapper
-  > ul::-webkit-scrollbar-thumb {
-  background-color: var(--myz-blue);
-  border-radius: var(--border-radius);
-  width: 10px;
+.selectWrapper .ulScrollWrapper > ul::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
-:host > div.selectWrapper > div > div.ulScrollWrapper > ul > li {
+.selectWrapper .ulScrollWrapper > ul::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: var(--color-primary01);
+  border-radius: var(--border-radius);
+}
+
+.selectWrapper .ulScrollWrapper > ul::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-hover-primary);
+}
+
+.selectWrapper .ulScrollWrapper ul li {
   display: flex;
   align-items: center;
-  box-sizing: border-box;
-  min-height: 44px;
+  min-height: calc(var(--space-unit) * 5.5);
   padding: calc(var(--space-unit) * 1.5);
+  box-sizing: border-box;
+  border-bottom: var(--border-size-small) solid var(--gray200);
   text-align: left;
   cursor: pointer;
-  border-bottom: var(--border-size-small) solid var(--bg-grey-200);
 }
 
-:host > div.selectWrapper > div > div.ulScrollWrapper > ul > li:hover {
-  color: var(--myz-blue-dark);
-  background: var(--bg-grey-050);
+.selectWrapper .ulScrollWrapper ul li:hover {
+  color: var(--color-hover-primary);
+  background: var(--color-surface02);
 }
 
-:host > div.selectWrapper > div > div.ulScrollWrapper > ul > li:focus {
+.selectWrapper .ulScrollWrapper ul li:focus:focus-visible {
   margin: 2px;
 }
 
-:host
-  > div.selectWrapper
-  > div
-  > div.ulScrollWrapper
-  > ul
-  > li[aria-selected=""] {
+.selectWrapper .ulScrollWrapper ul li[aria-selected=""] {
   font-weight: var(--font-sb);
 }
 
-:host > div.selectWrapper > div > div.ulScrollWrapper > ul > li.disabled {
-  color: var(--text-grey-700);
+.selectWrapper .ulScrollWrapper ul li.disabled {
+  color: var(--color-disabled02);
   cursor: default;
   pointer-events: none;
 }
 
-:host > div.selectWrapper > div > div.ulScrollWrapper > ul > li.noResults {
-  color: var(--myz-blue);
-  fill: var(--myz-blue);
+.selectWrapper .ulScrollWrapper ul li.noResults {
+  color: var(--color-primary01);
+  fill: currentColor;
+  border: none;
 }
 
-:host
-  > div.selectWrapper
-  > div
-  > div.ulScrollWrapper
-  > ul
-  > li.noResults
-  > z-icon {
+.selectWrapper .ulScrollWrapper .noResults z-icon {
   margin-right: var(--space-unit);
 }
 
-:host > div.selectWrapper > div.chipsWrapper {
+.selectWrapper .chipsWrapper {
   padding-bottom: var(--space-unit);
 }
 
-:host > div.selectWrapper > div.chipsWrapper > z-button-filter {
+.selectWrapper .chipsWrapper z-button-filter {
   display: inline-block;
-  margin: 4px;
+  margin: calc(var(--space-unit) * 0.5);
 }

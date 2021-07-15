@@ -1,53 +1,54 @@
-:host > div.textWrapper > div {
-  fill: var(--text-grey-800);
+.textWrapper > div {
+  fill: var(--color-icon02);
 }
 
-:host > div.textWrapper > div > input {
-  height: 44px;
+.textWrapper > div > input {
   width: 100%;
+  height: calc(var(--space-unit) * 5.5);
   margin: 0;
   padding: 0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);
   box-sizing: border-box;
 }
 
-:host > div.textWrapper > div > input.hasIcon,
-:host > div.textWrapper > div > input.hasClearIcon {
+.textWrapper > div > input.hasIcon,
+.textWrapper > div > input.hasClearIcon {
   padding-right: calc(var(--space-unit) * 4);
 }
 
-:host > div.textWrapper > div > input.hasIcon.hasClearIcon {
+.textWrapper > div > input.hasIcon.hasClearIcon {
   padding-right: calc(var(--space-unit) * 7);
 }
 
-:host > div.textWrapper > div {
+.textWrapper > div {
   position: relative;
   z-index: 1;
 }
 
-:host > div.textWrapper > div > span.iconsWrapper {
+.textWrapper .iconsWrapper {
   position: absolute;
   bottom: calc(var(--space-unit) * 1.5);
   right: calc(var(--space-unit) * 1.5);
-  z-index: 2;
-  height: 18px;
   display: flex;
+  z-index: 2;
 }
 
-:host > div.textWrapper > div > span.iconsWrapper > z-icon {
+.textWrapper .iconsWrapper > z-icon {
+  --z-icon-width: 18px;
+  --z-icon-height: 18px;
+
   display: block;
-  height: 18px;
-  width: 18px;
   margin-left: calc(var(--space-unit) * 0.5);
 }
 
-:host > div.textWrapper > div > span.iconsWrapper > z-icon.resetIcon {
+.textWrapper .iconsWrapper > z-icon.resetIcon,
+.textWrapper .iconsWrapper > z-icon.showHidePasswordIcon {
   cursor: pointer;
 }
 
 /* Disable background color webkit */
-:host > div.textWrapper > div > input:-webkit-autofill,
-:host > div.textWrapper > div > input:-webkit-autofill:hover,
-:host > div.textWrapper > div > input:-webkit-autofill:focus,
-:host > div.textWrapper > div > input:-webkit-autofill:active {
+.textWrapper > div > input:-webkit-autofill,
+.textWrapper > div > input:-webkit-autofill:hover,
+.textWrapper > div > input:-webkit-autofill:focus,
+.textWrapper > div > input:-webkit-autofill:active {
   -webkit-background-clip: text !important;
 }
