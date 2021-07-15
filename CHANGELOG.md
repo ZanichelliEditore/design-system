@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.2](https://github.com/ZanichelliEditore/design-system/compare/v2.10.1...v2.10.2) (2021-07-15)
+
+
+### Bug Fixes
+
+* vertical navigation tab icon spacing ([b847727](https://github.com/ZanichelliEditore/design-system/commit/b847727eeb9a3d82e7ac5c263edaf017b862d969))
+
 ### [2.10.1](https://github.com/ZanichelliEditore/design-system/compare/v2.10.0...v2.10.1) (2021-07-14)
 
 
