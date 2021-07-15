@@ -28,9 +28,9 @@ export class ZNavigationTab {
     }
   }
   render() {
-    return h("button", { disabled: this.disabled, role: "tab" },
+    return (h("button", { disabled: this.disabled, role: "tab" },
       h("slot", { name: "icon" }),
-      h("slot", { name: "label" }));
+      this.orientation === "horizontal" && h("slot", { name: "label" })));
   }
   static get is() { return "z-navigation-tab"; }
   static get encapsulation() { return "shadow"; }
