@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.3](https://github.com/ZanichelliEditore/design-system/compare/v2.10.2...v2.10.3) (2021-07-16)
+
+
+### Bug Fixes
+
+* **clav-24:** fix style for z table ([d5fd20b](https://github.com/ZanichelliEditore/design-system/commit/d5fd20b5131a31a633ae0a4afeecbf51d9aa0c5c))
+
 ### [2.10.2](https://github.com/ZanichelliEditore/design-system/compare/v2.10.1...v2.10.2) (2021-07-15)
 
 
