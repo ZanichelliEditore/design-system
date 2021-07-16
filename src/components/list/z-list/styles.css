@@ -5,35 +5,3 @@
   display: flex;
   flex-direction: column;
 }
-
-/**
- * Horizontal
- */
-:host > ::slotted(z-list-group) {
-  display: flex;
-  flex-direction: column;
-}
-
-:host > ::slotted(z-list-element) {
-  box-sizing: border-box;
-}
-
-:host([size="small"]) > ::slotted(z-list-element) {
-  padding: calc(var(--space-unit) / 2) 0;
-  min-height: calc(var(--space-unit) * 4);
-}
-
-:host([size="medium"]) > ::slotted(z-list-element) {
-  padding: var(--space-unit) 0;
-  min-height: calc(var(--space-unit) * 5);
-}
-
-:host([size="large"]) > ::slotted(z-list-element) {
-  padding: calc(var(--space-unit) * 2) 0;
-  min-height: calc(var(--space-unit) * 7);
-}
-
-:host([size="x-large"]) > ::slotted(z-list-element) {
-  padding: calc(var(--space-unit) * 3) 0;
-  min-height: calc(var(--space-unit) * 9);
-}

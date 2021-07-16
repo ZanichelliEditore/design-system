@@ -1,4 +1,4 @@
-:host {
+:host > .container {
   --background-color-list-element: var(--bg-white);
   --background-hover-color-list-element: var(--gray50);
   --background-active-color-list-element: var(--gray50);
@@ -8,50 +8,93 @@
   outline: none;
 }
 
-:host([expandable]),
-:host([clickable]) {
+:host > .container {
+  display: flex;
+  flex-direction: column;
+}
+
+:host > .container {
+  box-sizing: border-box;
+}
+
+/*z-list-element size*/
+
+:host([size="small"]) > .container {
+  padding: calc(var(--space-unit) / 2) 0;
+  min-height: calc(var(--space-unit) * 4);
+}
+
+:host([size="medium"]) > .container {
+  padding: var(--space-unit) 0;
+  min-height: calc(var(--space-unit) * 5);
+}
+
+:host([size="large"]) > .container {
+  padding: calc(var(--space-unit) * 2) 0;
+  min-height: calc(var(--space-unit) * 7);
+}
+
+:host([size="x-large"]) > .container {
+  padding: calc(var(--space-unit) * 3) 0;
+  min-height: calc(var(--space-unit) * 9);
+}
+
+/*-----------------*/
+
+:host([expandable]) > .container,
+:host([clickable]) > .container {
   cursor: pointer;
 }
 
-:host([expandable]:hover),
-:host([clickable]:hover) {
+:host([expandable]:hover) > .container,
+:host([clickable]:hover) > .container {
   background-color: var(--background-hover-color-list-element);
 }
 
-:host([expandable]:focus:focus-visible),
-:host([clickable]:focus:focus-visible) {
+:host([expandable]:focus:focus-visible) > .container,
+:host([clickable]:focus:focus-visible) > .container {
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([expandable]:active),
-:host([clickable]:active) {
+:host([expandable]:active) > .container,
+:host([clickable]:active) > .container {
   background-color: var(--background-active-color-list-element);
 }
 
-:host([align-button="left"][expandable]) > .z-list-element-container {
+:host([align-button="left"][expandable])
+  > .container
+  > .z-list-element-container {
   display: flex;
   padding-left: calc(var(--space-unit) * 2);
 }
 
-:host([align-button="right"][expandable]) > .z-list-element-container {
+:host([align-button="right"][expandable])
+  > .container
+  > .z-list-element-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   padding-right: calc(var(--space-unit) * 2);
 }
 
-:host([align-button="left"][expandable]) > .z-list-element-container > z-icon {
+:host([align-button="left"][expandable])
+  > .container
+  > .z-list-element-container
+  > z-icon {
   margin-right: var(--space-unit);
 }
 
-:host([align-button="right"][expandable]) > .z-list-element-container > z-icon {
+:host([align-button="right"][expandable])
+  > .container
+  > .z-list-element-container
+  > z-icon {
   margin-left: var(--space-unit);
 }
 
-:host > .z-list-element-inner-container {
+:host > .container > .z-list-element-inner-container {
   display: none;
 }
 
-:host > .z-list-element-inner-container.expanded {
+:host > .container > .z-list-element-inner-container.expanded {
   display: block;
 }

@@ -3,6 +3,7 @@ import {
   ExpandableListStyle,
   ExpandableListButtonAlign,
   ListDividerType,
+  ListSize,
 } from "../../../beans";
 
 @Component({
@@ -32,7 +33,15 @@ export class ZListElement {
   @Prop({ reflect: true }) alignButton?: ExpandableListButtonAlign =
     ExpandableListButtonAlign.left;
 
+  /**
+   * [optional] Sets the position where to insert the divider.
+   */
   @Prop({ reflect: true }) dividerType?: ListDividerType = ListDividerType.none;
+
+  /**
+   * [optional] Sets size of inside elements.
+   */
+  @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
 
   @State() showInnerContent = false;
 
@@ -115,11 +124,13 @@ export class ZListElement {
         onClick={this.handleClick}
         tabIndex="0"
       >
-        <div class="z-list-element-container">
-          {this._renderExpandableButton()}
-          <slot />
+        <div class="container">
+          <div class="z-list-element-container">
+            {this._renderExpandableButton()}
+            <slot />
+          </div>
+          {this._renderExpandedContent()}
         </div>
-        {this._renderExpandedContent()}
         {this.dividerType === ListDividerType.element && <z-divider />}
       </Host>
     );

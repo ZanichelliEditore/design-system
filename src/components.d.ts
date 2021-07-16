@@ -546,6 +546,9 @@ export namespace Components {
           * [optional] Sets element clickable.
          */
         "clickable"?: boolean;
+        /**
+          * [optional] Sets the position where to insert the divider.
+         */
         "dividerType"?: ListDividerType;
         /**
           * [optional] Sets element as expandable.
@@ -555,8 +558,15 @@ export namespace Components {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] Sets size of inside elements.
+         */
+        "size"?: ListSize;
     }
     interface ZListGroup {
+        /**
+          * [optional] Sets the position where to insert the divider.
+         */
         "dividerType"?: ListDividerType;
         /**
           * [optional] Sets size of inside elements.
@@ -2198,6 +2208,9 @@ declare namespace LocalJSX {
           * [optional] Sets element clickable.
          */
         "clickable"?: boolean;
+        /**
+          * [optional] Sets the position where to insert the divider.
+         */
         "dividerType"?: ListDividerType;
         /**
           * [optional] Sets element as expandable.
@@ -2207,8 +2220,15 @@ declare namespace LocalJSX {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] Sets size of inside elements.
+         */
+        "size"?: ListSize;
     }
     interface ZListGroup {
+        /**
+          * [optional] Sets the position where to insert the divider.
+         */
         "dividerType"?: ListDividerType;
         /**
           * [optional] Sets size of inside elements.

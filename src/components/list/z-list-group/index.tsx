@@ -14,12 +14,16 @@ export class ZListGroup {
    */
   @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
 
+  /**
+   * [optional] Sets the position where to insert the divider.
+   */
   @Prop({ reflect: true }) dividerType?: ListDividerType = ListDividerType.none;
 
   setChildrenDividerType() {
     const children = this.host.children;
     for (let i = 0; i < children.length - 1; i++) {
       children[i].setAttribute("divider-type", this.dividerType);
+      children[i].setAttribute("size", this.size);
     }
   }
 
