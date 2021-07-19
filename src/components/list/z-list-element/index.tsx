@@ -61,6 +61,7 @@ export class ZListElement {
    */
   constructor() {
     this.handleClick = this.handleClick.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   /**
@@ -72,6 +73,14 @@ export class ZListElement {
       return;
     }
 
+    this.showInnerContent = !this.showInnerContent;
+  }
+
+  handleKeyDown(event) {
+    const expandByKey = event.code === "Enter" || event.code === "Space";
+    if (!this.expandable || !expandByKey) {
+      return;
+    }
     this.showInnerContent = !this.showInnerContent;
   }
 
@@ -122,6 +131,7 @@ export class ZListElement {
         role="listitem"
         aria-expanded={this.expandable ? this.showInnerContent : null}
         onClick={this.handleClick}
+        onKeyDown={this.handleKeyDown}
         tabIndex="0"
       >
         <div class="container">

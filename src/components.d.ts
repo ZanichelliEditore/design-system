@@ -565,9 +565,21 @@ export namespace Components {
     }
     interface ZListGroup {
         /**
+          * [optional] Align expandable button left or right.
+         */
+        "alignButton"?: ExpandableListButtonAlign;
+        /**
           * [optional] Sets the position where to insert the divider.
          */
         "dividerType"?: ListDividerType;
+        /**
+          * [optional] Allow expandable behaviour.
+         */
+        "expandable"?: boolean;
+        /**
+          * [optional] Sets expandable style to element.
+         */
+        "expandableStyle"?: ExpandableListStyle;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -2227,9 +2239,21 @@ declare namespace LocalJSX {
     }
     interface ZListGroup {
         /**
+          * [optional] Align expandable button left or right.
+         */
+        "alignButton"?: ExpandableListButtonAlign;
+        /**
           * [optional] Sets the position where to insert the divider.
          */
         "dividerType"?: ListDividerType;
+        /**
+          * [optional] Allow expandable behaviour.
+         */
+        "expandable"?: boolean;
+        /**
+          * [optional] Sets expandable style to element.
+         */
+        "expandableStyle"?: ExpandableListStyle;
         /**
           * [optional] Sets size of inside elements.
          */
