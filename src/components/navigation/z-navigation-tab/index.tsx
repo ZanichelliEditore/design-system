@@ -45,9 +45,11 @@ export class ZNavigationTab {
   }
 
   render() {
-    return <button disabled={this.disabled} role="tab">
-      <slot name="icon"></slot>
-      <slot name="label"></slot>
-    </button>;
+    return (
+      <button disabled={this.disabled} role="tab">
+        <slot name="icon"></slot>
+        {this.orientation === "horizontal" && <slot name="label"></slot>}
+      </button>
+    );
   }
 }
