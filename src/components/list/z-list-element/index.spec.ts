@@ -10,13 +10,17 @@ describe("Suite test ZListElement", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="left" role="listitem" tabindex="0">
+      <z-list-element align-button="left" divider-color="gray200" divider-size="small" divider-type="none" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="z-list-element-container">
-            <slot></slot>
+          <div class="container">
+            <div class="z-list-element-container">
+              <slot></slot>
+            </div>
           </div>
         </mock:shadow-root>
-        <span>Test</span>
+        <span>
+          Test
+        </span>
       </z-list-element>
     `);
   });
@@ -28,13 +32,17 @@ describe("Suite test ZListElement", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="left" role="listitem" tabindex="0">
+      <z-list-element align-button="left" divider-color="gray200" divider-size="small" divider-type="none" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="z-list-element-container">
-            <slot></slot>
+          <div class="container">
+            <div class="z-list-element-container">
+              <slot></slot>
+            </div>
           </div>
         </mock:shadow-root>
-        <span>Test</span>
+        <span>
+          Test
+        </span>
       </z-list-element>
     `);
   });
@@ -46,18 +54,24 @@ describe("Suite test ZListElement", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="left" role="listitem" tabindex="0" expandable="true">
+      <z-list-element align-button="left" divider-color="gray200" divider-size="small" divider-type="none" expandable="true" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="z-list-element-container">
-            <z-icon name="plus-circled"></z-icon>
-            <slot></slot>
-          </div>
-          <div class="z-list-element-inner-container">
-            <slot name="inner-content"></slot>
+          <div class="container">
+            <div class="z-list-element-container">
+              <z-icon name="plus-circled"></z-icon>
+              <slot></slot>
+            </div>
+            <div class="z-list-element-inner-container">
+              <slot name="inner-content"></slot>
+            </div>
           </div>
         </mock:shadow-root>
-        <span>Test</span>
-        <div slot="inner-content">Test</div>
+        <span>
+          Test
+        </span>
+        <div slot="inner-content">
+          Test
+        </div>
       </z-list-element>
     `);
   });
@@ -72,18 +86,24 @@ describe("Suite test ZListElement", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="left" role="listitem" tabindex="0" expandable="true" aria-expanded>
+      <z-list-element align-button="left" aria-expanded="" divider-color="gray200" divider-size="small" divider-type="none" expandable="true" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="z-list-element-container">
-            <z-icon name="minus-circled"></z-icon>
-            <slot></slot>
-          </div>
-          <div class="z-list-element-inner-container expanded">
-            <slot name="inner-content"></slot>
+          <div class="container">
+            <div class="z-list-element-container">
+              <z-icon name="minus-circled"></z-icon>
+              <slot></slot>
+            </div>
+            <div class="expanded z-list-element-inner-container">
+              <slot name="inner-content"></slot>
+            </div>
           </div>
         </mock:shadow-root>
-        <span>Test</span>
-        <div slot="inner-content">Test</div>
+        <span>
+          Test
+        </span>
+        <div slot="inner-content">
+          Test
+        </div>
       </z-list-element>
     `);
   });
@@ -95,18 +115,24 @@ describe("Suite test ZListElement", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="left" role="listitem" tabindex="0" expandable="true" expandable-style="menu">
+      <z-list-element align-button="left" divider-color="gray200" divider-size="small" divider-type="none" expandable="true" expandable-style="menu" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="z-list-element-container">
-            <z-icon name="chevron-down"></z-icon>
-            <slot></slot>
-          </div>
-          <div class="z-list-element-inner-container">
-            <slot name="inner-content"></slot>
+          <div class="container">
+            <div class="z-list-element-container">
+              <z-icon name="chevron-down"></z-icon>
+              <slot></slot>
+            </div>
+            <div class="z-list-element-inner-container">
+              <slot name="inner-content"></slot>
+            </div>
           </div>
         </mock:shadow-root>
-        <span>Test</span>
-        <div slot="inner-content">Test</div>
+        <span>
+          Test
+        </span>
+        <div slot="inner-content">
+          Test
+        </div>
       </z-list-element>
     `);
   });
@@ -118,18 +144,24 @@ describe("Suite test ZListElement", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="right" role="listitem" tabindex="0" expandable="true">
+      <z-list-element align-button="right" divider-color="gray200" divider-size="small" divider-type="none" expandable="true" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="z-list-element-container">
-            <z-icon name="plus-circled"></z-icon>
-            <slot></slot>
-          </div>
-          <div class="z-list-element-inner-container">
-            <slot name="inner-content"></slot>
+          <div class="container">
+            <div class="z-list-element-container">
+              <z-icon name="plus-circled"></z-icon>
+              <slot></slot>
+            </div>
+            <div class="z-list-element-inner-container">
+              <slot name="inner-content"></slot>
+            </div>
           </div>
         </mock:shadow-root>
-        <span>Test</span>
-        <div slot="inner-content">Test</div>
+        <span>
+          Test
+        </span>
+        <div slot="inner-content">
+          Test
+        </div>
       </z-list-element>
     `);
   });
