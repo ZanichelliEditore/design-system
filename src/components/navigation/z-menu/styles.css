@@ -8,25 +8,22 @@
   display: inline-flex;
   flex-direction: column;
   position: relative;
-
-  --border-size-large: 4px;
-  --focus-shadow: 0 0 2px 2px var(--blue100);
 }
 
 ::slotted(a) {
-  color: var(--text-grey-800);
+  color: var(--color-text01);
   text-decoration: none;
 }
 
 ::slotted(*) {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
 
 :host([active]) .label-content,
 :host([open]) .label-content,
 .label:hover .label-content {
-  border-color: var(--blue500);
+  border-color: var(--color-secondary01);
 }
 
 .label {
@@ -45,11 +42,11 @@
   display: flex;
   align-items: center;
   padding: var(--space-unit) calc(var(--space-unit) / 2) var(--space-unit);
-  border-bottom: var(--border-size-large) solid currentColor;
+  border-bottom: var(--border-size-large) solid var(--color-surface05);
 }
 
 .label:focus:focus-visible {
-  box-shadow: var(--focus-shadow);
+  box-shadow: var(--shadow-focus-primary);
   z-index: 1;
 }
 
@@ -57,8 +54,8 @@
   width: 100%;
   margin: 0;
   appearance: none;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: var(--font-size-5);
+  line-height: 1.2;
 }
 
 .label z-icon {
@@ -68,7 +65,7 @@
 
 .content {
   padding: var(--space-unit) 0;
-  background: var(--color-white);
+  background: var(--color-surface01);
 }
 
 .content[hidden] {
@@ -109,36 +106,36 @@
   margin: auto 0;
   margin-left: calc(var(--space-unit) / 2 * 3);
   font-weight: var(--font-sb);
-  font-size: 16px;
-  line-height: 24px;
+  font-size: var(--font-size-3);
+  line-height: 1.5;
 }
 
 .items {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background: var(--color-white);
+  background: inherit;
 }
 
 .items > ::slotted([slot='item']) {
   display: inline-flex;
   width: 100%;
   margin: 0;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: var(--font-size-3);
+  line-height: 1.25;
   outline: none;
 }
 
 .items > ::slotted([slot='item']:focus:focus-visible) {
-  box-shadow: var(--focus-shadow);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 .items > ::slotted([slot='item']:not(z-menu-section)) {
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);
-  border-bottom: var(--border-size-small) solid currentColor;
+  border-bottom: var(--border-size-small) solid var(--color-surface05);
 }
 
 .items > ::slotted([slot='item']:hover),
 .items > ::slotted([slot='item']:active) {
-  border-color: var(--blue500);
+  border-color: var(--color-secondary01);
 }

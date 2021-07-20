@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.4](https://github.com/ZanichelliEditore/design-system/compare/v2.10.3...v2.10.4) (2021-07-19)
+
+### [2.10.3](https://github.com/ZanichelliEditore/design-system/compare/v2.10.2...v2.10.3) (2021-07-16)
+
+
+### Bug Fixes
+
+* **clav-24:** fix style for z table ([d5fd20b](https://github.com/ZanichelliEditore/design-system/commit/d5fd20b5131a31a633ae0a4afeecbf51d9aa0c5c))
+
+### [2.10.2](https://github.com/ZanichelliEditore/design-system/compare/v2.10.1...v2.10.2) (2021-07-15)
+
+
+### Bug Fixes
+
+* vertical navigation tab icon spacing ([b847727](https://github.com/ZanichelliEditore/design-system/commit/b847727eeb9a3d82e7ac5c263edaf017b862d969))
+
+### [2.10.1](https://github.com/ZanichelliEditore/design-system/compare/v2.10.0...v2.10.1) (2021-07-14)
+
+
+### Bug Fixes
+
+* menu content background token ([525d54a](https://github.com/ZanichelliEditore/design-system/commit/525d54a3daec571beafec00a7d5817858ebbca32))
+
+## [2.10.0](https://github.com/ZanichelliEditore/design-system/compare/v2.9.0...v2.10.0) (2021-07-09)
+
+
+### Features
+
+* add ZNotification component ([5b44b04](https://github.com/ZanichelliEditore/design-system/commit/5b44b04672d8e50a01df804993c99fb9b30cc01b))
+* add background click event; restore data attribute on bg for backward compatibility; tests ([d69b044](https://github.com/ZanichelliEditore/design-system/commit/d69b0442158dff2b0cb5ed37ad60bfeff0f3a106))
+
+
+### Bug Fixes
+
+* button focus styles ([7fa8fb6](https://github.com/ZanichelliEditore/design-system/commit/7fa8fb60ca9e591c199494a6abccbca7af784ee8))
+* button variants colors ([67f30a2](https://github.com/ZanichelliEditore/design-system/commit/67f30a2f21987660ee2607a22a318fed9e21751e))
+* buttons focus shadow ([281b68f](https://github.com/ZanichelliEditore/design-system/commit/281b68fa5ff92d0ca7ca9e9e879315505ee0d7fa))
+* buttons, card, modal surface color token ([da68fab](https://github.com/ZanichelliEditore/design-system/commit/da68fab5a72af424d163084192c708c390c302eb))
+* font family ([1f7d717](https://github.com/ZanichelliEditore/design-system/commit/1f7d717bfcd10c2a5db292184e2774fa47e47f19))
+* media query ([a18de88](https://github.com/ZanichelliEditore/design-system/commit/a18de881549a910321efbd09e3d1c232657f1da6))
+* navigation tab text wrapping ([ab0e28f](https://github.com/ZanichelliEditore/design-system/commit/ab0e28f2ac7bacadfa6c0ab374444db6e33a4f74))
+* remove unnecessary ruile ([ebac0bc](https://github.com/ZanichelliEditore/design-system/commit/ebac0bcb5902aeafd14def3f6edd8adce1cf4d9a))
+* tab focus; color tokens; scroll ([4f14503](https://github.com/ZanichelliEditore/design-system/commit/4f14503802c2baf34a323d64aa317b38b5b0a9fd))
+* tests ([6ee7e5d](https://github.com/ZanichelliEditore/design-system/commit/6ee7e5d84ea20cf5c9a570b5ce0931392e72023f))
+
+## [2.9.0](https://github.com/ZanichelliEditore/design-system/compare/v2.8.0...v2.9.0) (2021-07-07)
+
+
+### Features
+
+* **CLAV-42:** add doc ([28eda38](https://github.com/ZanichelliEditore/design-system/commit/28eda38678f7c4a44abcda8fc5ca4b942979c5a4))
+* **CLAV-42:** add documentation ([7078540](https://github.com/ZanichelliEditore/design-system/commit/70785406a54dd8a03fd3c69e3295430066666f8c))
+* **CLAV-42:** add z-avatar component ([17d5958](https://github.com/ZanichelliEditore/design-system/commit/17d5958be14ccc315bf3ac7ac2b65631fa8dd362))
+
+
+### Bug Fixes
+
+* **CLAV-42:** fix ([9e31c3a](https://github.com/ZanichelliEditore/design-system/commit/9e31c3a78d1e563a5d5b9a316a1038edd5e25c12))
+* **CLAV-42:** fix for pr ([2b14da9](https://github.com/ZanichelliEditore/design-system/commit/2b14da97121a35d341626415aae8b6dfa34b5c2f))
+
 ## [2.8.0](https://github.com/ZanichelliEditore/design-system/compare/v2.7.0...v2.8.0) (2021-06-25)
 
 

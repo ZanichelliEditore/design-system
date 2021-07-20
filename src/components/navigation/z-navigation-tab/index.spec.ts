@@ -10,7 +10,7 @@ describe("Suite test ZNavigationTab", () => {
       html: `<z-navigation-tab></z-navigation-tab>`});
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tab>
+      <z-navigation-tab orientation="horizontal" size="big">
         <mock:shadow-root>
           <button role="tab">
             <slot name="icon"></slot>
@@ -35,7 +35,7 @@ describe("Suite test ZNavigationTab", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tab>
+      <z-navigation-tab orientation="horizontal" size="big">
         <mock:shadow-root>
           <button role="tab">
             <slot name="icon"></slot>
@@ -53,14 +53,17 @@ describe("Suite test ZNavigationTab", () => {
   it("Test render ZNavigationTab with only label", async () => {
     const page = await newSpecPage({
       components: [ZNavigationTab],
-      html: `<z-navigation-tab>
-        <button>
-          <span slot="label">App</span>
-        </button>
-      </z-navigation-tab>`});
+      html: `
+        <z-navigation-tab>
+          <button>
+            <span slot="label">App</span>
+          </button>
+        </z-navigation-tab>
+      `
+    });
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tab>
+      <z-navigation-tab orientation="horizontal" size="big">
         <mock:shadow-root>
           <button role="tab">
             <slot name="icon"></slot>
@@ -78,15 +81,16 @@ describe("Suite test ZNavigationTab", () => {
     const page = await newSpecPage({
       components: [ZNavigationTab],
       html: `
-      <z-navigation-tab>
-        <button>
-          <z-icon name="house" slot="icon"></z-icon>
-        </button>
-      </z-navigation-tab>`
+        <z-navigation-tab>
+          <button>
+            <z-icon name="house" slot="icon"></z-icon>
+          </button>
+        </z-navigation-tab>
+      `
     });
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tab>
+      <z-navigation-tab orientation="horizontal" size="big">
         <mock:shadow-root>
           <button role="tab">
             <slot name="icon"></slot>

@@ -265,6 +265,12 @@ export enum SortingOrientation {
   none = "none",
 }
 
+export enum AvatarSize {
+  small = "small",
+  medium = "medium",
+  large = "large",
+}
+
 export enum StatusTagStatus {
   warning = "warning",
   error = "error",
@@ -294,4 +300,10 @@ export enum ListDividerType {
   none = "none",
   header = "header",
   element = "element",
+}
+
+export enum NotificationType {
+  success = "success",
+  warning = "warning",
+  error = "error",
 }
