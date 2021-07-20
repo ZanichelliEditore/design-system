@@ -547,6 +547,14 @@ export namespace Components {
          */
         "clickable"?: boolean;
         /**
+          * [optional] Sets the divider color.
+         */
+        "dividerColor"?: string;
+        /**
+          * [optional] Sets the divider size.
+         */
+        "dividerSize"?: DividerSize;
+        /**
           * [optional] Sets the position where to insert the divider.
          */
         "dividerType"?: ListDividerType;
@@ -568,6 +576,14 @@ export namespace Components {
           * [optional] Align expandable button left or right.
          */
         "alignButton"?: ExpandableListButtonAlign;
+        /**
+          * [optional] Sets the divider color.
+         */
+        "dividerColor"?: string;
+        /**
+          * [optional] Sets the divider size.
+         */
+        "dividerSize"?: DividerSize;
         /**
           * [optional] Sets the position where to insert the divider.
          */
@@ -2221,6 +2237,14 @@ declare namespace LocalJSX {
          */
         "clickable"?: boolean;
         /**
+          * [optional] Sets the divider color.
+         */
+        "dividerColor"?: string;
+        /**
+          * [optional] Sets the divider size.
+         */
+        "dividerSize"?: DividerSize;
+        /**
           * [optional] Sets the position where to insert the divider.
          */
         "dividerType"?: ListDividerType;
@@ -2242,6 +2266,14 @@ declare namespace LocalJSX {
           * [optional] Align expandable button left or right.
          */
         "alignButton"?: ExpandableListButtonAlign;
+        /**
+          * [optional] Sets the divider color.
+         */
+        "dividerColor"?: string;
+        /**
+          * [optional] Sets the divider size.
+         */
+        "dividerSize"?: DividerSize;
         /**
           * [optional] Sets the position where to insert the divider.
          */

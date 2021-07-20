@@ -2,3 +2,14 @@
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
+
+:host > .z-list-group-header-container {
+  padding-top: var(--space-unit);
+  padding-bottom: var(--space-unit);
+
+  color: var(--text-grey-700);
+}
+
+:host > .z-list-group-header-container > .z-divider-container {
+  padding-top: var(--space-unit);
+}

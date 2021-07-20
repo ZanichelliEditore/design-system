@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop, State } from "@stencil/core";
 import {
+  DividerSize,
   ExpandableListStyle,
   ExpandableListButtonAlign,
   ListDividerType,
@@ -42,6 +43,16 @@ export class ZListElement {
    * [optional] Sets size of inside elements.
    */
   @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
+
+  /**
+   * [optional] Sets the divider size.
+   */
+  @Prop({ reflect: true }) dividerSize?: DividerSize = DividerSize.small;
+
+  /**
+   * [optional] Sets the divider color.
+   */
+  @Prop({ reflect: true }) dividerColor?: string = "gray200";
 
   @State() showInnerContent = false;
 
@@ -141,7 +152,9 @@ export class ZListElement {
           </div>
           {this._renderExpandedContent()}
         </div>
-        {this.dividerType === ListDividerType.element && <z-divider />}
+        {this.dividerType === ListDividerType.element && (
+          <z-divider color={this.dividerColor} size={this.dividerSize} />
+        )}
       </Host>
     );
   }
