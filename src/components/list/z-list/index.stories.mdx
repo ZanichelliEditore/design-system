@@ -82,21 +82,19 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 <Preview>
   <Story name="ZList-with-expandable-content">
     {html`<z-list size="large">
-      <z-list-group
-        divider-type="element"
-        expandable="true"
-        align-button="right"
-      >
-        <z-list-element
-          ><span>Elemento 1 exp a right!</span
-          ><span slot="inner-content">INNER CONTENT 1</span></z-list-element
+      <z-list-group divider-type="element">
+        <z-list-element expandable="true" align-button="left"
+          ><span>Elemento 1</span
+          ><span slot="inner-content"
+            >INNER CONTENT 1 BUTTON LEFT</span
+          ></z-list-element
         >
-        <z-list-element
-          ><span>Elemento 2 exp</span
+        <z-list-element expandable="true" align-button="right"
+          ><span>Elemento 2</span
           ><span slot="inner-content">INNER CONTENT 2</span></z-list-element
         >
-        <z-list-element
-          ><span>Elemento 3 expsss</span
+        <z-list-element expandable="true" align-button="right"
+          ><span>Elemento 3</span
           ><span slot="inner-content">INNER CONTENT 3</span></z-list-element
         >
       </z-list-group>
@@ -109,21 +107,25 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 <Preview>
   <Story name="ZList-with-expandable-content-menu-style">
     {html`<z-list size="large">
-      <z-list-group
-        divider-type="element"
-        expandable="true"
-        expandable-style="menu"
-        align-button="right"
-      >
+      <z-list-group divider-type="element">
         <z-list-element
+          expandable="true"
+          expandable-style="menu"
+          align-button="right"
           ><span>Elemento 1</span
           ><span slot="inner-content">INNER CONTENT 1</span></z-list-element
         >
         <z-list-element
+          expandable="true"
+          expandable-style="menu"
+          align-button="right"
           ><span>Elemento 2</span
           ><span slot="inner-content">INNER CONTENT 2</span></z-list-element
         >
         <z-list-element
+          expandable="true"
+          expandable-style="menu"
+          align-button="right"
           ><span>Elemento 3</span
           ><span slot="inner-content">INNER CONTENT 3</span></z-list-element
         >

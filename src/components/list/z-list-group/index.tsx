@@ -1,11 +1,5 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
-import {
-  DividerSize,
-  ListSize,
-  ListDividerType,
-  ExpandableListStyle,
-  ExpandableListButtonAlign,
-} from "../../../beans";
+import { DividerSize, ListSize, ListDividerType } from "../../../beans";
 
 @Component({
   tag: "z-list-group",
@@ -26,22 +20,6 @@ export class ZListGroup {
   @Prop({ reflect: true }) dividerType?: ListDividerType = ListDividerType.none;
 
   /**
-   * [optional] Allow expandable behaviour.
-   */
-  @Prop({ reflect: true }) expandable?: boolean = false;
-
-  /**
-   * [optional] Sets expandable style to element.
-   */
-  @Prop() expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
-
-  /**
-   * [optional] Align expandable button left or right.
-   */
-  @Prop({ reflect: true }) alignButton?: ExpandableListButtonAlign =
-    ExpandableListButtonAlign.left;
-
-  /**
    * [optional] Sets the divider size.
    */
   @Prop({ reflect: true }) dividerSize?: DividerSize = DividerSize.small;
@@ -59,12 +37,6 @@ export class ZListGroup {
         children[i].setAttribute("divider-size", this.dividerSize);
         children[i].setAttribute("divider-color", this.dividerColor);
       }
-      children[i].setAttribute("align-button", this.alignButton);
-      children[i].setAttribute(
-        "expandable",
-        this.expandable ? "true" : "false"
-      );
-      children[i].setAttribute("expandable-style", this.expandableStyle);
       children[i].setAttribute("size", this.size);
     }
   }

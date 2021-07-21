@@ -14,14 +14,35 @@ import {
 })
 export class ZListElement {
   /**
+   * [optional] Align expandable button left or right.
+   */
+  @Prop({ reflect: true }) alignButton?: ExpandableListButtonAlign =
+    ExpandableListButtonAlign.left;
+
+  /**
    * [optional] Sets element clickable.
    */
   @Prop({ reflect: true }) clickable?: boolean = false;
 
   /**
+   * [optional] Sets the divider color.
+   */
+  @Prop() dividerColor?: string = "gray200";
+
+  /**
+   * [optional] Sets the position where to insert the divider.
+   */
+  @Prop() dividerType?: ListDividerType = ListDividerType.none;
+
+  /**
+   * [optional] Sets the divider size.
+   */
+  @Prop() dividerSize?: DividerSize = DividerSize.small;
+
+  /**
    * [optional] Sets element as expandable.
    */
-  @Prop() expandable?: boolean = false;
+  @Prop({ reflect: true }) expandable?: boolean = false;
 
   /**
    * [optional] Sets expandable style to element.
@@ -29,30 +50,9 @@ export class ZListElement {
   @Prop() expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
 
   /**
-   * [optional] Align expandable button left or right.
-   */
-  @Prop({ reflect: true }) alignButton?: ExpandableListButtonAlign =
-    ExpandableListButtonAlign.left;
-
-  /**
-   * [optional] Sets the position where to insert the divider.
-   */
-  @Prop({ reflect: true }) dividerType?: ListDividerType = ListDividerType.none;
-
-  /**
    * [optional] Sets size of inside elements.
    */
   @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
-
-  /**
-   * [optional] Sets the divider size.
-   */
-  @Prop({ reflect: true }) dividerSize?: DividerSize = DividerSize.small;
-
-  /**
-   * [optional] Sets the divider color.
-   */
-  @Prop({ reflect: true }) dividerColor?: string = "gray200";
 
   @State() showInnerContent = false;
 
@@ -83,7 +83,6 @@ export class ZListElement {
     if (!this.expandable) {
       return;
     }
-
     this.showInnerContent = !this.showInnerContent;
   }
 
