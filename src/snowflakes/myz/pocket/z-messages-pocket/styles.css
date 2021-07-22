@@ -1,5 +1,5 @@
 :host {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
 
@@ -14,27 +14,27 @@
 :host > z-pocket > z-pocket-header {
   font-size: 12px;
   font-weight: var(--font-sb);
-  color: var(--myz-blue);
-  fill: var(--myz-blue);
+  color: var(--color-primary01);
+  fill: var(--color-primary01);
 }
 
 :host > z-pocket > z-pocket-header span.badge {
-  background: var(--myz-red);
-  color: var(--text-white);
+  background: var(--color-secondary02);
+  color: var(--color-surface01);
   border-radius: 50%;
-  padding: 0 var(--half-x1);
+  padding: 0 calc(var(--space-unit)* 0.5);
   display: inline-block;
-  margin-left: var(--basex1);
+  margin-left: var(--space-unit);
 }
 
 :host > z-pocket > z-pocket-header > z-icon {
-  margin-left: var(--basex1);
+  margin-left: var(--space-unit);
 }
 
 :host > z-pocket > z-pocket-body > div.body {
   overflow: hidden;
-  margin: 0 var(--basex1);
-  padding: var(--basex1);
+  margin: 0 var(--space-unit);
+  padding: var(--space-unit);
 }
 
 :host > z-pocket.preview > z-pocket-body {
@@ -80,24 +80,24 @@
 @media only screen and (min-width: 1152px) {
   :host > z-pocket.open > z-pocket-body > div.body {
     scrollbar-width: thin;
-    scrollbar-color: var(--myz-blue) var(--bg-grey-200);
+    scrollbar-color: var(--color-primary01) var(--color-surface03);
   }
 
   :host ::-webkit-scrollbar {
     background: linear-gradient(
       90deg,
-      var(--bg-white) 2px,
-      var(--bg-grey-200) 4px,
-      var(--bg-white) 8px
+      var(--color-surface01) 2px,
+      var(--color-surface03) 4px,
+      var(--color-surface01) 8px
     );
     border-radius: var(--radius-base);
     width: 10px;
   }
 
   :host ::-webkit-scrollbar-thumb {
-    background-color: var(--myz-blue);
+    background-color: var(--color-primary01);
     border-radius: var(--radius-base);
-    width: 8px;
+    width: var(--space-unit);
   }
 }
 

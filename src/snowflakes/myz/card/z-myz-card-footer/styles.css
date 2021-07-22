@@ -1,18 +1,18 @@
 footer {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  color: var(--text-grey-800);
-  background-color: var(--bg-white);
+  color: var(--color-surface05);
+  background-color: var(--color-surface01);
   margin: 0px;
   padding: 0px;
   position: relative;
   z-index: 5;
-  height: 48px;
+  height: calc(var(--space-unit) * 6);
   width: auto;
   top: 0px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
   border-radius: 0px 0px var(--border-radius) var(--border-radius);
-  border-top: var(--border-size-medium) solid var(--bg-grey-200);
+  border-top: var(--border-size-medium) solid var(--color-surface03);
 }
 
 footer.real,
@@ -21,12 +21,12 @@ footer.trial {
 }
 
 footer .bold {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
 }
 
 footer > h2 {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   font-size: 16px;
   line-height: 22px;
@@ -35,7 +35,7 @@ footer > h2 {
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2)
     var(--space-unit) calc(var(--space-unit) * 2);
   overflow: hidden;
-  background-color: var(--bg-white);
+  background-color: var(--color-surface01);
   transition: all 200ms linear;
 }
 
@@ -43,6 +43,7 @@ footer.isopen > h2 {
   font-size: 14px;
   font-weight: var(--font-sb);
   transition: all 200ms linear;
+  /* TODO: non esiste l'equivalente nei token nuovi: implementare */
   background-color: var(--bg-neutral-200);
 }
 
@@ -65,7 +66,7 @@ footer > div.content {
 }
 
 footer > div.content > div:not(.slot-handler) {
-  padding: var(--basex1) var(--basex2);
+  padding: var(--space-unit) calc(var(--space-unit) * 2);
 }
 
 footer > div.content > div > p {

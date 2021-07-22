@@ -1,28 +1,28 @@
 :host {
   display: block;
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   font-size: 14px;
-  line-height: 16px;
-  color: var(--text-grey-800);
+  line-height: calc(var(--space-unit) * 2);
+  color: var(--color-surface05);
   box-sizing: border-box;
 }
 
 :host > div {
-  padding: 16px;
+  padding: calc(var(--space-unit) * 2);
 }
 
 :host > .success {
-  fill: var(--status-success-green);
-  background: var(--status-success-green-lighter);
+  fill: var(--color-success01);
+  background: var(--color-success-inverse);
 }
 
 :host > .warning {
-  fill: var(--status-warning-yellow-dark);
-  background: var(--status-warning-yellow-lighter);
+  fill: var(--color-warning01);
+  background: var(--color-warning-inverse);
 }
 
 :host > .error {
-  fill: var(--status-error-red-dark);
-  background: var(--status-error-red-lighter);
+  fill: var(--color-error01);
+  background: var(--color-error-inverse);
 }

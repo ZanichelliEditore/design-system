@@ -1,15 +1,15 @@
 :host {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
 
 :host > div > footer {
   box-sizing: border-box;
   border-radius: 0px 0px var(--radius-base) var(--radius-base);
-  border-top: var(--border-base) solid var(--bg-grey-200);
-  padding: var(--basex1) var(--basex2) 0;
+  border-top: var(--border-base) solid var(--color-surface03);
+  padding: var(--space-unit) calc(var(--space-unit) * 2) 0;
   height: 128px;
-  color: var(--text-grey-800);
+  color: var(--color-surface05);
   font-size: 16px;
   line-height: 24px;
 }

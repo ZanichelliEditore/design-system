@@ -1,5 +1,5 @@
 :host {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
 
@@ -52,13 +52,13 @@
 :host > div .front z-button {
   position: absolute;
   z-index: 3;
-  top: var(--half-x1);
-  left: calc(-1 * var(--basex1));
+  top: calc(var(--space-unit) * 0.5);
+  left: calc(-1 * var(--space-unit));
 }
 
 :host > div .back {
-  padding: 0 var(--basex1);
-  margin-left: calc(-1 * var(--basex1));
+  padding: 0 var(--space-unit);
+  margin-left: calc(-1 * var(--space-unit));
   z-index: 1;
   top: 0;
   left: 0;

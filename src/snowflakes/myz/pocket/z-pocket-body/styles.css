@@ -1,5 +1,5 @@
 :host {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   display: block;
   width: 100%;
@@ -7,9 +7,9 @@
 }
 
 :host > main {
-  background: var(--bg-white);
-  border-left: var(--border-size-small) solid var(--bg-grey-200);
-  border-right: var(--border-size-small) solid var(--bg-grey-200);
+  background: var(--color-surface01);
+  border-left: var(--border-size-small) solid var(--color-surface03);
+  border-right: var(--border-size-small) solid var(--color-surface03);
   overflow: auto;
   scrollbar-width: none;
 }

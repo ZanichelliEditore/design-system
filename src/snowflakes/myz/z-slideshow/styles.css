@@ -1,5 +1,5 @@
 :host {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   display: block;
   width: inherit;
@@ -23,8 +23,8 @@ main z-icon.scroll {
   width: auto;
   cursor: pointer;
   transition: 0.6s ease;
-  margin: 0 var(--basex1);
-  fill: var(--myz-blue);
+  margin: 0 var(--space-unit);
+  fill: var(--color-primary01);
   z-index: 10;
 }
 
@@ -53,7 +53,7 @@ footer {
   grid-template-columns: 2;
   grid-template-rows: 2;
   grid-template-areas: "center center" "left right";
-  border-top: var(--border-base) solid var(--bg-grey-050);
+  border-top: var(--border-base) solid var(--color-surface02);
 }
 
 footer > div {
@@ -85,7 +85,7 @@ footer .bulletContainer .bullet {
   height: 8px;
   border-radius: 50%;
   background-color: var(--bg-neutral-150);
-  margin: var(--basex1) 2px;
+  margin: var(--space-unit) 2px;
   pointer-events: none;
 }
 
@@ -101,13 +101,13 @@ footer .bulletContainer .bullet.selected {
     grid-template-rows: 1;
     grid-template-areas: "left center right";
     height: 76px;
-    border-top: var(--border-base) solid var(--bg-grey-050);
+    border-top: var(--border-base) solid var(--color-surface02);
   }
 
   footer .bulletContainer .bullet {
     width: 10px;
     height: 10px;
-    margin: var(--basex1) 3px;
+    margin: var(--space-unit) 3px;
   }
 }
 
@@ -121,7 +121,7 @@ footer .bulletContainer .bullet.selected {
   footer .bulletContainer .bullet {
     width: 16px;
     height: 16px;
-    margin: var(--basex1) var(--half-x1);
+    margin: var(--space-unit) calc(var(--space-unit) * 0.5);
     pointer-events: auto;
     cursor: pointer;
   }

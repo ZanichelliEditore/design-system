@@ -1,5 +1,5 @@
 :host {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   width: inherit;
   height: 100%;
@@ -38,9 +38,9 @@
 }
 
 :host > div > div.contentWrapper > div {
-  border-radius: 8px 8px 0px 0px;
-  box-shadow: 0px -2px 4px 0px rgba(66, 69, 72, 0.4);
-  margin: 4px 4px 0 4px;
+  border-radius: var(--space-unit) var(--space-unit) 0px 0px;
+  box-shadow: 0px -2px calc(var(--space-unit) * 0.5) 0px rgba(66, 69, 72, 0.4);
+  margin: calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 0.5) 0 calc(var(--space-unit) * 0.5);
 }
 
 /* Tablet breakpoint */
