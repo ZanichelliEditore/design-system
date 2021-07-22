@@ -1,5 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { handleKeyboardSubmit } from "../../../utils/utils";
+import { handleKeyboardSubmit } from "../../../../utils/utils";
 import Hammer from "hammerjs";
 
 /**

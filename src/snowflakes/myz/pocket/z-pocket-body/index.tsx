@@ -1,5 +1,5 @@
 import { Component, h, Prop, Listen } from "@stencil/core";
-import { PocketStatus, PocketStatusEnum } from "../../../beans";
+import { PocketStatus, PocketStatusEnum } from "../../../../beans";
 
 /**
  * @slot  - pocket body content

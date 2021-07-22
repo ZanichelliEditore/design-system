@@ -9,7 +9,7 @@ import {
   Element,
   Watch
 } from "@stencil/core";
-import { PocketStatus, PocketStatusEnum } from "../../../beans";
+import { PocketStatus, PocketStatusEnum } from "../../../../beans";
 
 /**
  * @slot  - pocket content
