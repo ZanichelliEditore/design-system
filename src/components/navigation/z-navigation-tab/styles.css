@@ -48,6 +48,10 @@ button {
   height: var(--border-size-large);
 }
 
+:host([orientation='horizontal']) ::slotted(z-icon) {
+  margin-right: var(--space-unit);
+}
+
 :host(:hover:not([disabled])) button {
   background-color: var(--color-background);
 }
@@ -102,11 +106,8 @@ button:focus:focus-visible {
 }
 
 ::slotted(z-icon) {
+  --z-icon-width: calc(var(--space-unit) * 2);
+  --z-icon-height: calc(var(--space-unit) * 2);
   margin: 0;
-  --z-icon-width: 16px;
-  --z-icon-height: 16px;
 }
 
-::slotted(:not(:last-child)) {
-  margin-right: var(--space-unit);
-}
