@@ -34,7 +34,7 @@
 
 ### Depends on
 
-- [z-alert](../../../../components/notification/z-alert)
+- [z-alert](../../z-alert)
 - [z-icon](../../../../components/icons/z-icon)
 
 ### Graph

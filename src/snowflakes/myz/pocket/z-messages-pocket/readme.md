@@ -26,7 +26,7 @@
 ### Depends on
 
 - [z-pocket-header](../z-pocket-header)
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../../../components/icons/z-icon)
 - [z-pocket-body](../z-pocket-body)
 - [z-pocket](../z-pocket)
 

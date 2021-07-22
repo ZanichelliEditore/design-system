@@ -23,7 +23,7 @@
 
 ### Used by
 
- - [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
+ - [z-myz-card-alert](../card/z-myz-card-alert)
 
 ### Graph
 ```mermaid
