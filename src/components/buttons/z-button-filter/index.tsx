@@ -39,15 +39,8 @@ export class ZButtonFilter {
   renderFixedPillow(filtername) {
     return (
       <button class={`container ${this.issmall ? "small" : ""}`}>
-        {this.hasicon && (
-          <z-icon
-            class="close-icon-container"
-            name="multiply"
-            height={12}
-            width={12}
-          />
-        )}
-        <span class="text-container">{filtername}</span>
+        {this.renderIcon()}
+        {this.renderContent(filtername)}
       </button>
     );
   }
@@ -58,17 +51,26 @@ export class ZButtonFilter {
         class={`container isactive ${this.issmall ? "small" : ""}`}
         onClick={this.handleRemovingFilterClick}
       >
-        {this.hasicon && (
-          <z-icon
-            class="close-icon-container"
-            name="multiply"
-            height={12}
-            width={12}
-          />
-        )}
-        <span class="text-container">{filtername}</span>
+        {this.renderIcon()}
+        {this.renderContent(filtername)}
       </button>
     );
+  }
+
+  renderIcon() {
+    if (!this.hasicon) return null;
+    return (
+      <z-icon
+        class="close-icon-container"
+        name="multiply"
+        height={12}
+        width={12}
+      />
+    );
+  }
+
+  renderContent(filtername) {
+    return <span class="text-container">{filtername}</span>;
   }
 
   render() {
