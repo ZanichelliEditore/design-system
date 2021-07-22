@@ -1149,7 +1149,7 @@ const ZInfoBox = class {
 };
 ZInfoBox.style = stylesCss$E;
 
-const stylesCss$D = ".sc-z-input-h{display:inline-block;width:inherit}.sc-z-input-h input.sc-z-input::-ms-clear,.sc-z-input-h input.sc-z-input::-ms-reveal{display:none}.sc-z-input-h input.sc-z-input,.sc-z-input-h textarea.sc-z-input,.sc-z-input-h ul[role=\"listbox\"].sc-z-input{background:var(--bg-white);border-radius:0px;border:var(--border-size-small) solid var(--bg-grey-200);border-color:var(--bg-grey-200);box-sizing:border-box;color:var(--text-grey-800);fill:var(--text-grey-800);font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:16px;outline:none}.sc-z-input-h .filled.sc-z-input{border-color:var(--text-grey-800) !important}.sc-z-input-h input.sc-z-input:focus,.sc-z-input-h ul[role=\"listbox\"].closed.sc-z-input:focus,.sc-z-input-h li[role=\"option\"].sc-z-input:focus,.sc-z-input-h .focus.sc-z-input{border-color:transparent;box-shadow:0 0 2px 2px var(--accent-dark);outline:none}.sc-z-input-h input.sc-z-input:hover,.sc-z-input-h textarea.sc-z-input:hover,.sc-z-input-h ul[role=\"listbox\"].closed.sc-z-input:hover,.sc-z-input-h .hover.sc-z-input{background:var(--bg-grey-050) !important;border-color:var(--text-grey-800) !important}.sc-z-input-h input[readonly].sc-z-input,.sc-z-input-h .readonly.sc-z-input,.sc-z-input-h input[readonly].filled.sc-z-input,.sc-z-input-h .readonly.filled.sc-z-input,.sc-z-input-h ul[role=\"listbox\"].closed.readonly.sc-z-input{border-color:var(--text-grey-200) !important;color:var(--text-grey-800) !important;pointer-events:none}.sc-z-input-h input[readonly].sc-z-input:hover,.sc-z-input-h textarea[readonly].sc-z-input:hover,.sc-z-input-h .readonly.hover.sc-z-input,.sc-z-input-h ul[role=\"listbox\"].closed[readonly].sc-z-input:hover{background:var(--bg-white)}.sc-z-input-h input.sc-z-input:disabled,.sc-z-input-h .disabled.sc-z-input,.sc-z-input-h .filled.sc-z-input:disabled,.sc-z-input-h input.sc-z-input:disabled:hover,.sc-z-input-h textarea.sc-z-input:disabled:hover,.sc-z-input-h .disabled.hover.sc-z-input,.sc-z-input-h ul[role=\"listbox\"].closed.disabled.sc-z-input,.sc-z-input-h ul[role=\"listbox\"].closed.disabled.sc-z-input:hover{background:var(--bg-white) !important;border-color:var(--bg-grey-200) !important;box-shadow:none !important;color:var(--text-grey-700) !important;fill:var(--bg-grey-200) !important;pointer-events:none}.sc-z-input-h .input_success.sc-z-input,.sc-z-input-h .input_success.sc-z-input:hover,.sc-z-input-h .input_success.hover.sc-z-input{background:var(--status-success-green-lighter) !important;border-color:var(--status-success-green) !important}.sc-z-input-h .input_error.sc-z-input,.sc-z-input-h .input_error.sc-z-input:hover,.sc-z-input-h .input_error.hover.sc-z-input{background:var(--status-error-red-lighter) !important;border-color:var(--status-error-red) !important}.sc-z-input-h .input_warning.sc-z-input,.sc-z-input-h .input_warning.sc-z-input:hover,.sc-z-input-h .input_warning.hover.sc-z-input{background:var(--status-warning-yellow-lighter) !important;border-color:var(--status-warning-yellow) !important}.sc-z-input-h .input_selecting.sc-z-input,.sc-z-input-h .input_selecting.sc-z-input:hover,.sc-z-input-h input[readonly].input_selecting.sc-z-input,.sc-z-input-h input[readonly].input_selecting.sc-z-input:hover{border-color:var(--myz-blue) !important;box-shadow:0 0 0 0 transparent !important;color:var(--myz-blue) !important}.sc-z-input-h input.sc-z-input:focus.istyping,.sc-z-input-h .focus.istyping.sc-z-input{border-color:var(--myz-blue) !important;box-shadow:var(--shadow-0);color:var(--myz-blue)}.sc-z-input-h input.sc-z-input::placeholder,.sc-z-input-h textarea.sc-z-input::placeholder{color:var(--text-grey-700)}.sc-z-input::-webkit-input-placeholder,.sc-z-input::-webkit-textarea-placeholder{color:var(--text-grey-700)}.sc-z-input:-ms-input-placeholder,.sc-z-input:-ms-textarea-placeholder{color:var(--text-grey-700)}.sc-z-input::-moz-placeholder{color:var(--text-grey-700)}.sc-z-input:-moz-placeholder{color:var(--text-grey-700)}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input{fill:var(--text-grey-800)}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input{height:44px;width:100%;margin:0;padding:0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);box-sizing:border-box}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>input.hasIcon.sc-z-input,.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>input.hasClearIcon.sc-z-input{padding-right:calc(var(--space-unit) * 4)}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>input.hasIcon.hasClearIcon.sc-z-input{padding-right:calc(var(--space-unit) * 7)}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input{position:relative;z-index:1}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>span.iconsWrapper.sc-z-input{position:absolute;bottom:calc(var(--space-unit) * 1.5);right:calc(var(--space-unit) * 1.5);z-index:2;height:18px;display:flex}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>span.iconsWrapper.sc-z-input>z-icon.sc-z-input{display:block;height:18px;width:18px;margin-left:calc(var(--space-unit) * 0.5)}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>span.iconsWrapper.sc-z-input>z-icon.resetIcon.sc-z-input{cursor:pointer}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill,.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:hover,.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:focus,.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:active{-webkit-background-clip:text !important}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.sc-z-input{background:var(--bg-white);border:var(--border-size-small) solid var(--bg-grey-200);padding:calc(var(--space-unit) * 1.5)}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.sc-z-input>textarea.sc-z-input{min-height:132px;width:100%;margin:0;padding:0;resize:none;scrollbar-width:thin;scrollbar-color:var(--myz-blue) var(--bg-grey-200);border-color:transparent}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.sc-z-input>textarea.sc-z-input:hover{border-color:transparent !important}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.sc-z-input>textarea.filled.sc-z-input,.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.sc-z-input>textarea.input_success.sc-z-input,.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.sc-z-input>textarea.input_warning.sc-z-input,.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.sc-z-input>textarea.input_error.sc-z-input{border:none}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.input_success.disabled.sc-z-input,.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.input_warning.disabled.sc-z-input,.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.input_error.disabled.sc-z-input{background:var(--bg-white) !important;border-color:var(--bg-grey-200) !important}.sc-z-input-h>div.textWrapper.sc-z-input>div.sc-z-input>div.textareaWrapper.sc-z-input>textarea.istyping.sc-z-input{color:var(--myz-blue)}.sc-z-input::-webkit-scrollbar{background:linear-gradient(\n    90deg,\n    var(--bg-white) 2px,\n    var(--bg-grey-200) 4px,\n    var(--bg-white) 8px\n  );border-radius:var(--border-radius);width:10px;margin-right:20px;padding-right:20px}.sc-z-input::-webkit-scrollbar-thumb{background-color:var(--myz-blue);border-radius:var(--border-radius);width:10px;margin-right:20px;padding:20px}.sc-z-input-h>.checkboxWrapper.sc-z-input{display:inline-block;font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:inherit;position:relative}.sc-z-input-h>.checkboxWrapper.sc-z-input>input[type=\"checkbox\"].sc-z-input{opacity:0;position:absolute;z-index:0}.sc-z-input-h label.sc-z-input{display:block}.sc-z-input-h label.disabledLabel.sc-z-input{color:var(--text-grey-700)}.sc-z-input-h>.checkboxWrapper.sc-z-input>label.checkboxLabel.sc-z-input{display:inline-flex;line-height:16px;color:inherit;font-family:inherit;font-weight:inherit;font-size:inherit;text-transform:inherit;margin:0}.sc-z-input-h>.checkboxWrapper.sc-z-input>label.checkboxLabel.after.sc-z-input{flex-direction:row}.sc-z-input-h>.checkboxWrapper.sc-z-input>label.checkboxLabel.before.sc-z-input{flex-direction:row-reverse}.sc-z-input-h>.checkboxWrapper.sc-z-input>label.checkboxLabel.after.sc-z-input>span.sc-z-input{margin-left:var(--space-unit)}.sc-z-input-h>.checkboxWrapper.sc-z-input>label.checkboxLabel.before.sc-z-input>span.sc-z-input{margin-right:var(--space-unit)}.sc-z-input-h>.checkboxWrapper.sc-z-input>label.checkboxLabel.sc-z-input>z-icon.sc-z-input{fill:var(--myz-blue);height:18px;width:18px}.sc-z-input-h>.checkboxWrapper.sc-z-input>input[type=\"checkbox\"].sc-z-input:focus+label.checkboxLabel.sc-z-input>z-icon.sc-z-input{box-shadow:0 0 2px 2px var(--accent-dark);border-radius:2px}.sc-z-input-h>.checkboxWrapper.sc-z-input>input[type=\"checkbox\"].sc-z-input:disabled+label.checkboxLabel.sc-z-input>z-icon.sc-z-input{fill:var(--bg-grey-700);cursor:default}.sc-z-input-h>.checkboxWrapper.sc-z-input>input[type=\"checkbox\"][readonly].sc-z-input+label.checkboxLabel.sc-z-input>z-icon.sc-z-input{fill:var(--bg-grey-800);pointer-events:none;cursor:default}.sc-z-input-h>.radioWrapper.sc-z-input{display:inline-block;font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:inherit;position:relative}.sc-z-input-h>.radioWrapper.sc-z-input>input[type=\"radio\"].sc-z-input{opacity:0;position:absolute;z-index:0}.sc-z-input-h label.sc-z-input{display:block}.sc-z-input-h label.disabledLabel.sc-z-input{color:var(--text-grey-700)}.sc-z-input-h>.radioWrapper.sc-z-input>label.radioLabel.sc-z-input{display:inline-flex;line-height:16px;color:inherit;font-family:inherit;font-weight:inherit;font-size:inherit;text-transform:inherit;margin:0}.sc-z-input-h>.radioWrapper.sc-z-input>label.radioLabel.after.sc-z-input{flex-direction:row}.sc-z-input-h>.radioWrapper.sc-z-input>label.radioLabel.before.sc-z-input{flex-direction:row-reverse}.sc-z-input-h>.radioWrapper.sc-z-input>label.radioLabel.after.sc-z-input>span.sc-z-input{margin-left:var(--space-unit)}.sc-z-input-h>.radioWrapper.sc-z-input>label.radioLabel.before.sc-z-input>span.sc-z-input{margin-right:var(--space-unit)}.sc-z-input-h>.radioWrapper.sc-z-input>label.radioLabel.sc-z-input>z-icon.sc-z-input{fill:var(--myz-blue);height:18px;width:18px}.sc-z-input-h>.radioWrapper.sc-z-input>input[type=\"radio\"].sc-z-input:focus+label.radioLabel.sc-z-input>z-icon.sc-z-input{box-shadow:0 0 2px 2px var(--accent-dark);border-radius:50%}.sc-z-input-h>.radioWrapper.sc-z-input>input[type=\"radio\"].sc-z-input:disabled+label.radioLabel.sc-z-input>z-icon.sc-z-input{fill:var(--bg-grey-700);cursor:default}.sc-z-input-h>.radioWrapper.sc-z-input>input[type=\"radio\"][readonly].sc-z-input+label.radioLabel.sc-z-input>z-icon.sc-z-input{fill:var(--bg-grey-800);pointer-events:none;cursor:default}";
+const stylesCss$D = ".sc-z-input-h{display:inline-block;width:inherit}input.sc-z-input::-ms-clear,input.sc-z-input::-ms-reveal{display:none}input.sc-z-input,textarea.sc-z-input,.textareaWrapper.sc-z-input,ul[role=\"listbox\"].sc-z-input{background:var(--color-input-field01);border-radius:var(--border-radius-small);border:var(--border-size-small) solid var(--color-surface04);box-sizing:border-box;color:var(--color-text02);fill:var(--color-icon02);font-family:var(--font-family-sans);font-weight:var(--font-rg);font-size:var(--font-size-3);outline:none}input.sc-z-input:focus:focus-visible,li[role=\"option\"].sc-z-input:focus:focus-visible,.focus.sc-z-input{box-shadow:var(--shadow-focus-primary)}.filled.sc-z-input{border-color:var(--color-surface05)}.istyping.sc-z-input,.focus.istyping.sc-z-input,.input_selecting.sc-z-input{border-color:var(--color-primary01);color:var(--color-primary01)}.input_success.sc-z-input,.input_success.sc-z-input:hover,.input_success.hover.sc-z-input{background:var(--color-success-inverse);border-color:var(--color-success01);fill:var(--color-success01)}.input_error.sc-z-input,.input_error.sc-z-input:hover,.input_error.hover.sc-z-input{background:var(--color-error-inverse);border-color:var(--color-error01);fill:var(--color-error01)}.input_warning.sc-z-input,.input_warning.sc-z-input:hover,.input_warning.hover.sc-z-input{background:var(--color-warning-inverse);border-color:var(--color-warning01);fill:var(--color-warning01)}input[readonly].sc-z-input,.readonly.sc-z-input{border-color:var(--color-disabled01);fill:var(--color-disabled01);pointer-events:none}input.sc-z-input:disabled,.disabled.sc-z-input,.filled.sc-z-input:disabled{border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled01);pointer-events:none;box-shadow:none}input.sc-z-input::placeholder,textarea.sc-z-input::placeholder{color:var(--color-text05)}.sc-z-input::-webkit-input-placeholder,.sc-z-input::-webkit-textarea-placeholder{color:var(--color-text05)}.sc-z-input:-ms-input-placeholder,.sc-z-input:-ms-textarea-placeholder{color:var(--color-text05)}.sc-z-input::-moz-placeholder{color:var(--color-text05)}.sc-z-input:-moz-placeholder{color:var(--color-text05)}.textWrapper.sc-z-input>div.sc-z-input{fill:var(--color-icon02)}.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input{width:100%;height:calc(var(--space-unit) * 5.5);margin:0;padding:0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);box-sizing:border-box}.textWrapper.sc-z-input>div.sc-z-input>input.hasIcon.sc-z-input,.textWrapper.sc-z-input>div.sc-z-input>input.hasClearIcon.sc-z-input{padding-right:calc(var(--space-unit) * 4)}.textWrapper.sc-z-input>div.sc-z-input>input.hasIcon.hasClearIcon.sc-z-input{padding-right:calc(var(--space-unit) * 7)}.textWrapper.sc-z-input>div.sc-z-input{position:relative;z-index:1}.textWrapper.sc-z-input .iconsWrapper.sc-z-input{position:absolute;bottom:calc(var(--space-unit) * 1.5);right:calc(var(--space-unit) * 1.5);display:flex;z-index:2}.textWrapper.sc-z-input .iconsWrapper.sc-z-input>z-icon.sc-z-input{--z-icon-width:18px;--z-icon-height:18px;display:block;margin-left:calc(var(--space-unit) * 0.5)}.textWrapper.sc-z-input .iconsWrapper.sc-z-input>z-icon.resetIcon.sc-z-input,.textWrapper.sc-z-input .iconsWrapper.sc-z-input>z-icon.showHidePasswordIcon.sc-z-input{cursor:pointer}.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill,.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:hover,.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:focus,.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:active{-webkit-background-clip:text !important}.textareaWrapper.sc-z-input{padding:calc(var(--space-unit) * 1.5);scrollbar-color:var(--color-primary01) transparent}textarea.sc-z-input::-webkit-scrollbar{background:linear-gradient(\n    to right,\n    transparent 0 3px,\n    var(--gray200) 3px 7px,\n    transparent 7px 10px\n  );width:10px;border-radius:var(--border-radius)}textarea.sc-z-input::-webkit-scrollbar-track{background-color:transparent}textarea.sc-z-input::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}textarea.sc-z-input::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}textarea.sc-z-input{min-height:132px;width:100%;margin:0;padding:0;border:none;resize:none}.radioWrapper.sc-z-input,.checkboxWrapper.sc-z-input{display:inline-flex;flex-direction:row;align-items:center;font-family:var(--font-family-sans);position:relative;color:var(--color-text01);fill:var(--color-primary01)}.radioWrapper.sc-z-input:hover,.checkboxWrapper.sc-z-input:hover{color:var(--color-hover-primary);fill:currentColor}.radioWrapper.sc-z-input>input.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input{position:absolute;opacity:0;z-index:-1;pointer-events:none}.radioWrapper.sc-z-input .radioLabel.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.sc-z-input{display:inline-flex;align-items:center;margin:0;line-height:1;color:inherit;font-family:inherit;font-weight:inherit;font-size:inherit;text-transform:inherit}.radioWrapper.sc-z-input input.sc-z-input:not(:disabled)+.radioLabel.sc-z-input,.checkboxWrapper.sc-z-input input.sc-z-input:not(:disabled)+.checkboxLabel.sc-z-input{cursor:pointer}.radioWrapper.sc-z-input .radioLabel.sc-z-input z-icon.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.sc-z-input z-icon.sc-z-input{fill:inherit;cursor:pointer}.radioWrapper.sc-z-input .radioLabel.after.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.after.sc-z-input{flex-direction:row}.radioWrapper.sc-z-input .radioLabel.before.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.before.sc-z-input{flex-direction:row-reverse}.radioWrapper.sc-z-input .radioLabel.after.sc-z-input>span.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.after.sc-z-input>span.sc-z-input{margin-left:var(--space-unit)}.radioWrapper.sc-z-input .radioLabel.before.sc-z-input>span.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.before.sc-z-input>span.sc-z-input{margin-right:var(--space-unit)}.radioWrapper.sc-z-input>input.sc-z-input:focus:focus-visible+.radioLabel.sc-z-input>z-icon.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input:focus:focus-visible+.checkboxLabel.sc-z-input>z-icon.sc-z-input{box-shadow:var(--shadow-focus-primary);border-radius:var(--border-radius-small)}.radioWrapper.sc-z-input>input.sc-z-input:disabled+.radioLabel.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input:disabled+.checkboxLabel.sc-z-input{color:var(--color-disabled02)}.radioWrapper.sc-z-input>input.sc-z-input:disabled+.radioLabel.sc-z-input>z-icon.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input:disabled+.checkboxLabel.sc-z-input>z-icon.sc-z-input{fill:var(--color-disabled01);cursor:default}";
 
 const ZInput = class {
   constructor(hostRef) {
@@ -1282,23 +1282,26 @@ const ZInput = class {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
-      class: `
-        ${this.status ? "input_" + this.status : "input_default"}
-        ${this.isTyping && "istyping"}
-        ${!this.isTyping && this.value && "filled"}
-      `,
+      class: [
+        `input_${this.status || "default"}`,
+        this.isTyping && "istyping",
+        !this.isTyping && this.value && "filled"
+      ].filter(Boolean).join(" "),
       onInput: (e) => this.emitInputChange(e.target.value, e.keyCode),
     };
-    if (this.autocomplete)
+    if (this.autocomplete) {
       attr["autocomplete"] = this.autocomplete;
+    }
     return attr;
   }
   renderInputText(type = index$1.InputTypeEnum.text) {
     const attr = this.getTextAttributes();
-    if (this.icon || type === index$1.InputTypeEnum.password)
-      attr.class = attr.class + " hasIcon";
-    if (this.hasclearicon)
-      attr.class = attr.class + " hasClearIcon";
+    if (this.icon || type === index$1.InputTypeEnum.password) {
+      attr.class += " hasIcon";
+    }
+    if (this.hasclearicon) {
+      attr.class += " hasClearIcon";
+    }
     return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", null, index.h("input", Object.assign({ type: type === index$1.InputTypeEnum.password && !this.passwordHidden
         ? index$1.InputTypeEnum.text
         : type }, attr, { "aria-labelledby": `${this.htmlid}_label` })), this.renderIcons()), this.renderMessage()));
@@ -1309,7 +1312,10 @@ const ZInput = class {
     return (index.h("z-input-label", { value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_label` }));
   }
   renderIcons() {
-    return (index.h("span", { class: `iconsWrapper ${this.disabled ? "disabled" : ""}` }, this.renderResetIcon(), this.renderIcon()));
+    return (index.h("span", { class: {
+        iconsWrapper: true,
+        disabled: this.disabled
+      } }, this.renderResetIcon(), this.renderIcon()));
   }
   renderIcon() {
     if (this.type === index$1.InputTypeEnum.password) {
@@ -1325,7 +1331,7 @@ const ZInput = class {
     return (index.h("z-icon", { class: "resetIcon", name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
   }
   renderShowHidePassword() {
-    return (index.h("z-icon", { class: "inputIcon", name: this.passwordHidden ? "view" : "view-off", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
+    return (index.h("z-icon", { class: "showHidePasswordIcon", name: this.passwordHidden ? "view" : "view-off", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
   }
   renderMessage() {
     if (!this.hasmessage)
@@ -1335,45 +1341,38 @@ const ZInput = class {
   /* END text/password/email/number */
   /* START textarea */
   renderTextarea() {
-    return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", null, this.renderTextareaBody()), this.renderMessage()));
-  }
-  renderTextareaBody() {
     const attributes = this.getTextAttributes();
-    return (index.h("div", { class: `
-            textareaWrapper
-            ${attributes.class}
-            ${attributes.disabled && " disabled"}
-            ${attributes.readonly && " readonly"}
-            ${this.isTyping && " istyping"}
-            ${this.textareaWrapperFocus}
-            ${this.textareaWrapperHover}
-          ` }, index.h("textarea", Object.assign({}, attributes, this.getTextareaExtraAttributes()))));
-  }
-  getTextareaExtraAttributes() {
-    return {
-      onFocus: () => (this.textareaWrapperFocus = "focus"),
-      onBlur: () => (this.textareaWrapperFocus = ""),
-      onMouseOver: () => (this.textareaWrapperHover = "hover"),
-      onMouseOut: () => (this.textareaWrapperHover = ""),
-    };
+    return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", { class: [
+        "textareaWrapper",
+        attributes.class,
+        attributes.disabled && "disabled",
+        attributes.readonly && "readonly",
+        this.isTyping && "istyping",
+        this.textareaWrapperFocus,
+        this.textareaWrapperHover,
+      ].filter(Boolean).join(" ") }, index.h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-labelledby": `${this.htmlid}_label` }))), this.renderMessage()));
   }
   /* END textarea */
-  /* START checkbox */
-  handleCheckboxChange() {
-    this.checked = !this.checked;
+  handleCheck(ev) {
+    this.checked = ev.target.checked;
     this.emitInputCheck(this.checked);
   }
+  /* START checkbox */
   renderCheckbox() {
-    return (index.h("div", { class: "checkboxWrapper" }, index.h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: () => this.handleCheckboxChange(), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: `checkboxLabel ${this.labelafter ? "after" : "before"}` }, index.h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": true }), this.label && index.h("span", { innerHTML: this.label }))));
+    return (index.h("div", { class: "checkboxWrapper" }, index.h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: {
+        checkboxLabel: true,
+        after: this.labelafter,
+        before: !this.labelafter,
+      } }, index.h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": true }), this.label && index.h("span", { innerHTML: this.label }))));
   }
   /* END checkbox */
   /* START radio */
-  handleRadioChange() {
-    this.checked = true;
-    this.emitInputCheck(this.checked);
-  }
   renderRadio() {
-    return (index.h("div", { class: "radioWrapper" }, index.h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: () => this.handleRadioChange(), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: `radioLabel ${this.labelafter ? "after" : "before"}` }, index.h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": true }), this.label && index.h("span", { innerHTML: this.label }))));
+    return (index.h("div", { class: "radioWrapper" }, index.h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: {
+        radioLabel: true,
+        after: this.labelafter,
+        before: !this.labelafter,
+      } }, index.h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": true }), this.label && index.h("span", { innerHTML: this.label }))));
   }
   /* END radio */
   /* START select */
@@ -1404,7 +1403,7 @@ const ZInput = class {
 };
 ZInput.style = stylesCss$D;
 
-const stylesCss$C = ":host>label{display:block;color:var(--text-grey-800);font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:12px;line-height:16px;text-transform:uppercase;text-align:left;margin:var(--space-unit) 0}:host>label.disabled{color:var(--text-grey-700)}";
+const stylesCss$C = "label{display:block;margin:var(--space-unit) 0;color:var(--color-text02);font-family:var(--font-family-sans);font-size:var(--font-size-1);font-weight:var(--font-sb);line-height:1.33;letter-spacing:0.32px;text-transform:uppercase;text-align:left}label.disabled{color:var(--color-disabled02)}";
 
 const ZInputLabel = class {
   constructor(hostRef) {
@@ -1413,12 +1412,12 @@ const ZInputLabel = class {
     this.disabled = false;
   }
   render() {
-    return index.h("label", { class: this.disabled ? "disabled" : "" }, this.value);
+    return index.h("label", { class: { disabled: this.disabled } }, this.value);
   }
 };
 ZInputLabel.style = stylesCss$C;
 
-const stylesCss$B = ":host span.statusMsg{font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:14px;line-height:16px;min-height:16px;color:var(--text-grey-700);fill:var(--text-grey-700);margin-top:var(--space-unit);display:flex}:host span.statusMsg.msg_success{color:var(--status-success-green);fill:var(--status-success-green)}:host span.statusMsg.msg_error{color:var(--status-error-red);fill:var(--status-error-red)}:host span.statusMsg.msg_warning{color:var(--status-warning-yellow-dark);fill:var(--status-warning-yellow-dark)}:host span.statusMsg>z-icon{margin-right:var(--space-unit);margin-top:1px}";
+const stylesCss$B = ":host{display:flex;align-items:center;min-height:calc(var(--space-unit) * 2);margin-top:var(--space-unit);color:var(--color-text05);fill:currentColor;font-family:var(--font-family-sans);font-size:var(--font-size-2);letter-spacing:0.16px}:host([status='success']){color:var(--color-text-success)}:host([status='error']){color:var(--color-text-error)}:host([status='warning']){color:var(--color-warning02)}:host>z-icon{--z-icon-width:calc(var(--space-unit) * 2);--z-icon-height:calc(var(--space-unit) * 2);margin-right:var(--space-unit)}";
 
 const ZInputMessage = class {
   constructor(hostRef) {
@@ -1429,11 +1428,12 @@ const ZInputMessage = class {
       warning: "exclamation-circle"
     };
   }
-  renderMsgClassName() {
-    return this.status ? `msg_${this.status}` : '';
-  }
   render() {
-    return (index.h("span", { class: `statusMsg ${this.renderMsgClassName()}` }, this.status && this.statusIcons[this.status] && this.message ? (index.h("z-icon", { name: this.statusIcons[this.status], width: 14, height: 14 })) : null, index.h("span", { innerHTML: this.message })));
+    return [
+      this.statusIcons[this.status] && this.message &&
+        index.h("z-icon", { name: this.statusIcons[this.status] }),
+      index.h("span", null, this.message)
+    ];
   }
 };
 ZInputMessage.style = stylesCss$B;
@@ -5092,7 +5092,7 @@ const ZRegistroTableStickyFooter = class {
 };
 ZRegistroTableStickyFooter.style = stylesCss$8;
 
-const stylesCss$7 = ":host{display:inline-block;width:inherit}:host ul[role=\"listbox\"]{background:var(--bg-white);border-radius:0px;border:var(--border-size-small) solid var(--bg-grey-200);border-color:var(--bg-grey-200);box-sizing:border-box;color:var(--text-grey-800);fill:var(--text-grey-800);font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:16px;outline:none}:host .filled{border-color:var(--text-grey-800) !important}:host li[role=\"option\"]:focus{border-color:transparent;box-shadow:0 0 2px 2px var(--accent-dark);outline:none}:host>div.selectWrapper>z-input{width:100%}:host>div.selectWrapper>div{position:relative}:host>div.selectWrapper>div.closed{height:0px;overflow:hidden}:host>div.selectWrapper>div>div.ulScrollWrapper{background:var(--bg-white);position:absolute;padding:calc(var(--space-unit) * .5) var(--space-unit);border:var(--border-size-small) solid var(--bg-grey-200);border-top:none;width:100%;box-sizing:border-box}:host>div.selectWrapper>div.closed>div.ulScrollWrapper{z-index:10}:host>div.selectWrapper>div.open>div.ulScrollWrapper{z-index:20}:host>div.selectWrapper>div>div.ulScrollWrapper>ul{list-style:none;margin:0;padding:0;border:0px;max-height:240px;overflow:auto;scrollbar-width:thin;scrollbar-color:var(--myz-blue) var(--bg-grey-200);position:relative}:host>div.selectWrapper>div>div.ulScrollWrapper>ul::-webkit-scrollbar{background:linear-gradient(\n    90deg,\n    var(--bg-white) 2px,\n    var(--bg-grey-200) 4px,\n    var(--bg-white) 8px\n  );border-radius:var(--border-radius);width:10px}:host>div.selectWrapper>div>div.ulScrollWrapper>ul::-webkit-scrollbar-thumb{background-color:var(--myz-blue);border-radius:var(--border-radius);width:10px}:host>div.selectWrapper>div>div.ulScrollWrapper>ul>li{display:flex;align-items:center;box-sizing:border-box;min-height:44px;padding:calc(var(--space-unit) * 1.5);text-align:left;cursor:pointer;border-bottom:var(--border-size-small) solid var(--bg-grey-200)}:host>div.selectWrapper>div>div.ulScrollWrapper>ul>li:hover{color:var(--myz-blue-dark);background:var(--bg-grey-050)}:host>div.selectWrapper>div>div.ulScrollWrapper>ul>li:focus{margin:2px}:host>div.selectWrapper>div>div.ulScrollWrapper>ul>li[aria-selected=\"\"]{font-weight:var(--font-sb)}:host>div.selectWrapper>div>div.ulScrollWrapper>ul>li.disabled{color:var(--text-grey-700);cursor:default;pointer-events:none}:host>div.selectWrapper>div>div.ulScrollWrapper>ul>li.noResults{color:var(--myz-blue);fill:var(--myz-blue)}:host>div.selectWrapper>div>div.ulScrollWrapper>ul>li.noResults>z-icon{margin-right:var(--space-unit)}:host>div.selectWrapper>div.chipsWrapper{padding-bottom:var(--space-unit)}:host>div.selectWrapper>div.chipsWrapper>z-button-filter{display:inline-block;margin:4px}";
+const stylesCss$7 = ":host{display:inline-block;width:inherit}li[role=\"option\"]:focus:focus-visible{border-color:transparent;box-shadow:var(--shadow-focus-primary);outline:none}.selectWrapper>z-input{width:100%}.selectWrapper>div{position:relative}.selectWrapper>div.closed{height:0;overflow:hidden}.selectWrapper .ulScrollWrapper{background:var(--color-surface01);position:absolute;padding:calc(var(--space-unit) * .5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;width:100%;box-sizing:border-box;outline:none}.selectWrapper .closed .ulScrollWrapper{z-index:10}.selectWrapper .open .ulScrollWrapper{z-index:20}.selectWrapper .ulScrollWrapper>ul{position:relative;margin:0;padding:0;list-style:none;border:0;max-height:240px;overflow:auto;outline:none;scrollbar-color:var(--color-primary01) transparent}.selectWrapper .ulScrollWrapper>ul::-webkit-scrollbar{background:linear-gradient(\n    to right,\n    transparent 0 3px,\n    var(--gray200) 3px 7px,\n    transparent 7px 10px\n  );width:10px;border-radius:var(--border-radius)}.selectWrapper .ulScrollWrapper>ul::-webkit-scrollbar-track{background-color:transparent}.selectWrapper .ulScrollWrapper>ul::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.selectWrapper .ulScrollWrapper>ul::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.selectWrapper .ulScrollWrapper ul li{display:flex;align-items:center;min-height:calc(var(--space-unit) * 5.5);padding:calc(var(--space-unit) * 1.5);box-sizing:border-box;border-bottom:var(--border-size-small) solid var(--gray200);text-align:left;cursor:pointer}.selectWrapper .ulScrollWrapper ul li:hover{color:var(--color-hover-primary);background:var(--color-surface02)}.selectWrapper .ulScrollWrapper ul li:focus:focus-visible{margin:2px}.selectWrapper .ulScrollWrapper ul li[aria-selected=\"\"]{font-weight:var(--font-sb)}.selectWrapper .ulScrollWrapper ul li.disabled{color:var(--color-disabled02);cursor:default;pointer-events:none}.selectWrapper .ulScrollWrapper ul li.noResults{color:var(--color-primary01);fill:currentColor;border:none}.selectWrapper .ulScrollWrapper .noResults z-icon{margin-right:var(--space-unit)}.selectWrapper .chipsWrapper{padding-bottom:var(--space-unit)}.selectWrapper .chipsWrapper z-button-filter{display:inline-block;margin:calc(var(--space-unit) * 0.5)}";
 
 const ZSelect = class {
   constructor(hostRef) {
@@ -5330,16 +5330,16 @@ const ZSelect = class {
     return (index.h("div", { class: `chipsWrapper ${this.isOpen ? "open" : ""}` }, this.selectedItems.map((item) => (index.h("z-button-filter", { filterid: item.id, filtername: item.name.replace(/<[^>]+>/g, ""), issmall: true, onRemovefilter: () => this.selectItem(item, false) })))));
   }
   renderSelectUl() {
-    return (index.h("div", { class: this.isOpen ? "open" : "closed" }, index.h("div", { class: "ulScrollWrapper" }, index.h("ul", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": !this.multiple && this.selectedItems.length
+    return (index.h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, index.h("div", { class: "ulScrollWrapper", tabindex: "-1" }, index.h("ul", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": !this.multiple && this.selectedItems.length
         ? this.selectedItems[0].id
         : null, "aria-multiselectable": !!this.multiple, class: `
-            ${this.disabled ? " disabled" : ""}
-            ${this.readonly ? " readonly" : ""}
-            ${!this.isOpen && this.status
+              ${this.disabled ? " disabled" : ""}
+              ${this.readonly ? " readonly" : ""}
+              ${!this.isOpen && this.status
         ? " input_" + this.status
         : " input_default"}
-            ${this.selectedItems.length ? " filled" : ""}
-          ` }, this.renderSelectUlItems()))));
+              ${this.selectedItems.length ? " filled" : ""}
+            ` }, this.renderSelectUlItems()))));
   }
   renderSelectUlItems() {
     if (!this.itemsList.length)

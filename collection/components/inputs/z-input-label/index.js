@@ -5,7 +5,7 @@ export class ZInputLabel {
     this.disabled = false;
   }
   render() {
-    return h("label", { class: this.disabled ? "disabled" : "" }, this.value);
+    return h("label", { class: { disabled: this.disabled } }, this.value);
   }
   static get is() { return "z-input-label"; }
   static get encapsulation() { return "shadow"; }

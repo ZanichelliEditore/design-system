@@ -235,18 +235,18 @@ export class ZSelect {
     return (h("div", { class: `chipsWrapper ${this.isOpen ? "open" : ""}` }, this.selectedItems.map((item) => (h("z-button-filter", { filterid: item.id, filtername: item.name.replace(/<[^>]+>/g, ""), issmall: true, onRemovefilter: () => this.selectItem(item, false) })))));
   }
   renderSelectUl() {
-    return (h("div", { class: this.isOpen ? "open" : "closed" },
-      h("div", { class: "ulScrollWrapper" },
+    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" },
+      h("div", { class: "ulScrollWrapper", tabindex: "-1" },
         h("ul", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": !this.multiple && this.selectedItems.length
             ? this.selectedItems[0].id
             : null, "aria-multiselectable": !!this.multiple, class: `
-            ${this.disabled ? " disabled" : ""}
-            ${this.readonly ? " readonly" : ""}
-            ${!this.isOpen && this.status
+              ${this.disabled ? " disabled" : ""}
+              ${this.readonly ? " readonly" : ""}
+              ${!this.isOpen && this.status
             ? " input_" + this.status
             : " input_default"}
-            ${this.selectedItems.length ? " filled" : ""}
-          ` }, this.renderSelectUlItems()))));
+              ${this.selectedItems.length ? " filled" : ""}
+            ` }, this.renderSelectUlItems()))));
   }
   renderSelectUlItems() {
     if (!this.itemsList.length)

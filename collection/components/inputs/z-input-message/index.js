@@ -7,13 +7,12 @@ export class ZInputMessage {
       warning: "exclamation-circle"
     };
   }
-  renderMsgClassName() {
-    return this.status ? `msg_${this.status}` : '';
-  }
   render() {
-    return (h("span", { class: `statusMsg ${this.renderMsgClassName()}` },
-      this.status && this.statusIcons[this.status] && this.message ? (h("z-icon", { name: this.statusIcons[this.status], width: 14, height: 14 })) : null,
-      h("span", { innerHTML: this.message })));
+    return [
+      this.statusIcons[this.status] && this.message &&
+        h("z-icon", { name: this.statusIcons[this.status] }),
+      h("span", null, this.message)
+    ];
   }
   static get is() { return "z-input-message"; }
   static get encapsulation() { return "shadow"; }
@@ -61,7 +60,7 @@ export class ZInputMessage {
         "text": "input status (optional)"
       },
       "attribute": "status",
-      "reflect": false
+      "reflect": true
     }
   }; }
 }

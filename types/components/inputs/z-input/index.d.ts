@@ -92,16 +92,8 @@ export declare class ZInput {
   renderShowHidePassword(): any;
   renderMessage(): any;
   renderTextarea(): any;
-  renderTextareaBody(): any;
-  getTextareaExtraAttributes(): {
-    onFocus: () => string;
-    onBlur: () => string;
-    onMouseOver: () => string;
-    onMouseOut: () => string;
-  };
-  handleCheckboxChange(): void;
+  handleCheck(ev: any): void;
   renderCheckbox(): any;
-  handleRadioChange(): void;
   renderRadio(): any;
   renderSelect(): any;
   render(): any;

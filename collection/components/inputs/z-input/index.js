@@ -126,23 +126,26 @@ export class ZInput {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
-      class: `
-        ${this.status ? "input_" + this.status : "input_default"}
-        ${this.isTyping && "istyping"}
-        ${!this.isTyping && this.value && "filled"}
-      `,
+      class: [
+        `input_${this.status || "default"}`,
+        this.isTyping && "istyping",
+        !this.isTyping && this.value && "filled"
+      ].filter(Boolean).join(" "),
       onInput: (e) => this.emitInputChange(e.target.value, e.keyCode),
     };
-    if (this.autocomplete)
+    if (this.autocomplete) {
       attr["autocomplete"] = this.autocomplete;
+    }
     return attr;
   }
   renderInputText(type = InputTypeEnum.text) {
     const attr = this.getTextAttributes();
-    if (this.icon || type === InputTypeEnum.password)
-      attr.class = attr.class + " hasIcon";
-    if (this.hasclearicon)
-      attr.class = attr.class + " hasClearIcon";
+    if (this.icon || type === InputTypeEnum.password) {
+      attr.class += " hasIcon";
+    }
+    if (this.hasclearicon) {
+      attr.class += " hasClearIcon";
+    }
     return (h("div", { class: "textWrapper" },
       this.renderLabel(),
       h("div", null,
@@ -158,7 +161,10 @@ export class ZInput {
     return (h("z-input-label", { value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_label` }));
   }
   renderIcons() {
-    return (h("span", { class: `iconsWrapper ${this.disabled ? "disabled" : ""}` },
+    return (h("span", { class: {
+        iconsWrapper: true,
+        disabled: this.disabled
+      } },
       this.renderResetIcon(),
       this.renderIcon()));
   }
@@ -176,7 +182,7 @@ export class ZInput {
     return (h("z-icon", { class: "resetIcon", name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
   }
   renderShowHidePassword() {
-    return (h("z-icon", { class: "inputIcon", name: this.passwordHidden ? "view" : "view-off", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
+    return (h("z-icon", { class: "showHidePasswordIcon", name: this.passwordHidden ? "view" : "view-off", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
   }
   renderMessage() {
     if (!this.hasmessage)
@@ -186,55 +192,48 @@ export class ZInput {
   /* END text/password/email/number */
   /* START textarea */
   renderTextarea() {
+    const attributes = this.getTextAttributes();
     return (h("div", { class: "textWrapper" },
       this.renderLabel(),
-      h("div", null, this.renderTextareaBody()),
+      h("div", { class: [
+          "textareaWrapper",
+          attributes.class,
+          attributes.disabled && "disabled",
+          attributes.readonly && "readonly",
+          this.isTyping && "istyping",
+          this.textareaWrapperFocus,
+          this.textareaWrapperHover,
+        ].filter(Boolean).join(" ") },
+        h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-labelledby": `${this.htmlid}_label` }))),
       this.renderMessage()));
   }
-  renderTextareaBody() {
-    const attributes = this.getTextAttributes();
-    return (h("div", { class: `
-            textareaWrapper
-            ${attributes.class}
-            ${attributes.disabled && " disabled"}
-            ${attributes.readonly && " readonly"}
-            ${this.isTyping && " istyping"}
-            ${this.textareaWrapperFocus}
-            ${this.textareaWrapperHover}
-          ` },
-      h("textarea", Object.assign({}, attributes, this.getTextareaExtraAttributes()))));
-  }
-  getTextareaExtraAttributes() {
-    return {
-      onFocus: () => (this.textareaWrapperFocus = "focus"),
-      onBlur: () => (this.textareaWrapperFocus = ""),
-      onMouseOver: () => (this.textareaWrapperHover = "hover"),
-      onMouseOut: () => (this.textareaWrapperHover = ""),
-    };
-  }
   /* END textarea */
-  /* START checkbox */
-  handleCheckboxChange() {
-    this.checked = !this.checked;
+  handleCheck(ev) {
+    this.checked = ev.target.checked;
     this.emitInputCheck(this.checked);
   }
+  /* START checkbox */
   renderCheckbox() {
     return (h("div", { class: "checkboxWrapper" },
-      h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: () => this.handleCheckboxChange(), value: this.value }),
-      h("label", { htmlFor: this.htmlid, class: `checkboxLabel ${this.labelafter ? "after" : "before"}` },
+      h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }),
+      h("label", { htmlFor: this.htmlid, class: {
+          checkboxLabel: true,
+          after: this.labelafter,
+          before: !this.labelafter,
+        } },
         h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": true }),
         this.label && h("span", { innerHTML: this.label }))));
   }
   /* END checkbox */
   /* START radio */
-  handleRadioChange() {
-    this.checked = true;
-    this.emitInputCheck(this.checked);
-  }
   renderRadio() {
     return (h("div", { class: "radioWrapper" },
-      h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: () => this.handleRadioChange(), value: this.value }),
-      h("label", { htmlFor: this.htmlid, class: `radioLabel ${this.labelafter ? "after" : "before"}` },
+      h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }),
+      h("label", { htmlFor: this.htmlid, class: {
+          radioLabel: true,
+          after: this.labelafter,
+          before: !this.labelafter,
+        } },
         h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": true }),
         this.label && h("span", { innerHTML: this.label }))));
   }
