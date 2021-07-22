@@ -2,10 +2,9 @@ div {
   background-color: var(--bg-white);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   width: auto;
   box-sizing: border-box;
-  width: 256px;
+  width: 256px; /* TODO: width must be 100% - must be handled in dashboard */
   height: 522px;
   border: var(--border-size-medium) solid var(--bg-grey-200);
   border-radius: var(--border-radius);

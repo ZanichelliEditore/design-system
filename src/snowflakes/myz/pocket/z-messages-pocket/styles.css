@@ -1,0 +1,106 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host > z-pocket {
+  width: 100%;
+}
+
+:host > z-pocket.closed {
+  width: 158px;
+}
+
+:host > z-pocket > z-pocket-header {
+  font-size: 12px;
+  font-weight: var(--font-sb);
+  color: var(--myz-blue);
+  fill: var(--myz-blue);
+}
+
+:host > z-pocket > z-pocket-header span.badge {
+  background: var(--myz-red);
+  color: var(--text-white);
+  border-radius: 50%;
+  padding: 0 var(--half-x1);
+  display: inline-block;
+  margin-left: var(--basex1);
+}
+
+:host > z-pocket > z-pocket-header > z-icon {
+  margin-left: var(--basex1);
+}
+
+:host > z-pocket > z-pocket-body > div.body {
+  overflow: hidden;
+  margin: 0 var(--basex1);
+  padding: var(--basex1);
+}
+
+:host > z-pocket.preview > z-pocket-body {
+  position: relative;
+}
+
+:host > z-pocket.preview > z-pocket-body > div.gradient {
+  background-image: linear-gradient(rgba(255, 0, 0, 0), white);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+:host > z-pocket.open > z-pocket-body > div.body {
+  max-height: calc(100vh - 166px);
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+:host ::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  :host > z-pocket {
+    width: 768px;
+    margin: 0 calc((100% - 768px) / 2);
+  }
+
+  :host > z-pocket.closed {
+    margin: 0 calc((100% - 158px) / 2);
+  }
+
+  :host > z-pocket.open > z-pocket-body > div.body {
+    max-height: 326px;
+  }
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+  :host > z-pocket.open > z-pocket-body > div.body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--myz-blue) var(--bg-grey-200);
+  }
+
+  :host ::-webkit-scrollbar {
+    background: linear-gradient(
+      90deg,
+      var(--bg-white) 2px,
+      var(--bg-grey-200) 4px,
+      var(--bg-white) 8px
+    );
+    border-radius: var(--radius-base);
+    width: 10px;
+  }
+
+  :host ::-webkit-scrollbar-thumb {
+    background-color: var(--myz-blue);
+    border-radius: var(--radius-base);
+    width: 8px;
+  }
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}

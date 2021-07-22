@@ -1,0 +1,56 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  width: inherit;
+  height: 100%;
+  margin: inherit;
+}
+
+:host > div {
+  width: inherit;
+  height: 100%;
+  margin: inherit;
+}
+
+:host > div > div.background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 998;
+  width: 0;
+  height: 0;
+}
+
+:host > div > div.background.open {
+  height: 100%;
+  width: 100%;
+}
+
+:host > div > div.contentWrapper {
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  left: 0;
+  width: inherit;
+  margin: inherit;
+}
+
+:host > div > div.contentWrapper > div {
+  border-radius: 8px 8px 0px 0px;
+  box-shadow: 0px -2px 4px 0px rgba(66, 69, 72, 0.4);
+  margin: 4px 4px 0 4px;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}

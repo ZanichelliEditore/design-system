@@ -32,7 +32,8 @@ footer > h2 {
   line-height: 22px;
   height: 40px;
   margin: 0px;
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2) var(--space-unit) calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2)
+    var(--space-unit) calc(var(--space-unit) * 2);
   overflow: hidden;
   background-color: var(--bg-white);
   transition: all 200ms linear;
@@ -50,12 +51,6 @@ footer.isopen.trial > h2 {
   background-color: var(--accent);
 }
 
-footer > div:not(.slot-handler) {
-  padding: var(--space-unit) calc(var(--space-unit) * 2);
-  height: 40px;
-  overflow: hidden;
-}
-
 footer .visible {
   display: block;
 }
@@ -64,7 +59,16 @@ footer .hidden {
   display: none;
 }
 
-footer > div > p {
+footer > div.content {
+  height: 60px;
+  overflow: hidden;
+}
+
+footer > div.content > div:not(.slot-handler) {
+  padding: var(--basex1) var(--basex2);
+}
+
+footer > div.content > div > p {
   font-size: 14px;
   height: 20px;
   line-height: 20px;
@@ -75,31 +79,47 @@ footer > div > p {
   text-overflow: ellipsis;
 }
 
-footer > div > p.year_isbn {
+footer > div.content > div > p.year_isbn {
   padding-top: var(--space-unit);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-footer > div > p.year_isbn > span.isbn {
+footer > div.content > div > p.year_isbn > span.isbn {
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-footer.isopen > div:not(.slot-handler) {
+footer.isopen > div.content > div:not(.slot-handler) {
   height: 68px;
 }
 
-footer.isopen > div > p.authors {
+footer.isopen > div.content > div > p.authors {
   height: 40px;
   white-space: initial;
   text-overflow: initial;
 }
 
+footer.isopen > div.content > div > p.year_isbn {
+  flex-direction: column;
+  height: 50px;
+  padding-left: 0px;
+}
+
+footer.isopen > div.content > div > p.year_isbn > span.isbn {
+  display: inline-grid;
+  padding-left: 0px;
+}
+
 footer.isopen {
-  height: 300px;
-  top: -200px;
+  height: 295px;
+  top: -169px;
+  transition: height 500ms ease-in-out, top 500ms ease-in-out;
+}
+
+footer.isopen > div.content {
+  height: 230px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
 

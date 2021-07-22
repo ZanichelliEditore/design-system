@@ -2,12 +2,13 @@ header {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: space-between;
   width: auto;
   height: calc(var(--space-unit) * 6);
   position: relative;
   border-bottom: var(--border-size-medium) solid var(--bg-grey-200);
-  border-radius: var(--border-radius) var(--border-radius) var(--border-no-radius)
-    var(--border-no-radius);
+  border-radius: var(--border-radius) var(--border-radius)
+    var(--border-no-radius) var(--border-no-radius);
   background-color: var(--bg-white);
 }
 
@@ -21,7 +22,6 @@ h2 {
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   color: var(--text-grey-800);
-  width: 80%;
   height: calc(var(--space-unit) * 2);
   font-size: 12px;
   text-transform: uppercase;

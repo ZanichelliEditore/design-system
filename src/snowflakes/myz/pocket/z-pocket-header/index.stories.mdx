@@ -1,0 +1,19 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text } from '@storybook/addon-knobs';
+
+<Meta title="Notification/ZPocketHeader" component="z-pocket-header" />
+
+# ZPocketHeader
+
+<Preview>
+  <Story name="z-pocket-header">
+    {html`<z-pocket-header
+      pocketid="${text('pocketid', 'my-pocket')}"
+    >
+      ZPocketHeader Content
+    </z-pocket-header>`}
+  </Story>
+</Preview>
+
+<Props of="z-pocket-header" />

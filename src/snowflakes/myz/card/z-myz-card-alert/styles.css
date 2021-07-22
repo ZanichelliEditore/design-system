@@ -8,20 +8,28 @@
   z-index: 2;
 }
 
+:host > z-alert {
+  height: 48px;
+}
+
 .relativeContainer {
   position: relative;
-  height: 48px;
   display: grid;
-  grid-template-columns: 34px auto 48px;
+  grid-template-columns: 18px auto 46px;
   grid-template-rows: 1fr;
   grid-column-gap: 8px;
   align-items: center;
-  padding: 0 var(--space-unit);
+  padding: 0;
   outline: none;
 }
 
 .relativeContainer::-moz-focus-inner {
   border: 0;
+}
+
+.alert-external-wrapper.removeAlert {
+  border: var(--border-base) solid var(--bg-grey-200);
+  border-top: none;
 }
 
 :host div.addAlert {
@@ -30,18 +38,16 @@
 
 :host div.removeAlert {
   background: var(--status-warning-yellow-lighter);
-  border: var(--border-size-medium) solid var(--bg-grey-200);
-  border-top: none;
 }
 
-:host div>.contentText {
+:host div > .contentText {
   color: var(--text-grey-800);
   font-size: 14px;
   letter-spacing: 0.16px;
   line-height: 20px;
 }
 
-:host div>.contentAction {
+:host div > .contentAction {
   color: var(--myz-blue);
   font-size: 12px;
   font-weight: var(--font-sb);
@@ -51,16 +57,6 @@
   cursor: pointer;
 }
 
-:host div>z-icon {
+:host div > z-icon {
   justify-self: center;
-}
-
-:host div>z-icon.addAlert {
-  color: var(--status-success-green);
-  fill: var(--status-success-green);
-}
-
-:host div>z-icon.removeAlert {
-  color: var(--status-warning-yellow-dark);
-  fill: var(--status-warning-yellow-dark);
 }

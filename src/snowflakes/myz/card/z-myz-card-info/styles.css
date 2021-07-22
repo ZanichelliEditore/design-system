@@ -1,0 +1,124 @@
+:host {
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  width: 100%;
+}
+
+:host > div {
+  background: var(--bg-white);
+  width: calc(100% + var(--basex2));
+  margin-left: calc(-1 * var(--basex1));
+  height: 402px;
+  border: var(--border-size-small) solid var(--myz-blue);
+  box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.35);
+  border-radius: 0px;
+  box-sizing: border-box;
+  padding: var(--basex2) var(--basex3);
+  position: relative;
+}
+
+:host > div > z-icon {
+  fill: var(--myz-blue);
+  cursor: pointer;
+  position: absolute;
+  top: var(--basex1);
+  right: var(--basex1);
+}
+
+:host > div {
+  display: grid;
+}
+
+:host > div > div.cta-wrapper {
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+:host > div > div.content-wrapper {
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+}
+
+:host > div > div.content-wrapper > section {
+  border-bottom: var(--border-size-small) solid var(--bg-grey-700);
+  color: var(--text-grey-800);
+  padding: var(--basex1) 0;
+  font-size: 14px;
+  line-height: 20px;
+  box-sizing: border-box;
+}
+
+:host > div > div.content-wrapper > section:last-child {
+  border-bottom: none;
+}
+
+:host > div > div.content-wrapper > section.info-wrapper {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+:host > div > div.content-wrapper > section.info-wrapper.hidden:after {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0) 60%,
+    white
+  );
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+:host > div > div.content-wrapper > section > span.license-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+:host
+  > div
+  > div.content-wrapper
+  > section
+  > span.license-heading
+  > span.expired {
+  color: var(--myz-red);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+:host
+  > div
+  > div.content-wrapper
+  > section
+  > span.license-heading
+  > span.expiring {
+  color: #85641a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+:host > div > div.content-wrapper > z-tooltip {
+  position: absolute;
+  top: 0px;
+  left: var(--basex4);
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}
