@@ -21,8 +21,8 @@ describe("Suite test ZSelect", () => {
                 placeholder="select here"
                 icon="caret-down"
               ></z-input>
-              <div class="closed">
-                <div class="ulScrollWrapper">
+              <div class="closed" tabindex="-1">
+                <div class="ulScrollWrapper" tabindex="-1">
                   <ul
                     role="listbox"
                     tabindex="-1"
@@ -67,8 +67,8 @@ describe("Suite test ZSelect", () => {
                 readonly=""
                 status="selecting"
               ></z-input>
-              <div class="open">
-                <div class="ulScrollWrapper">
+              <div class="open" tabindex="-1">
+                <div class="ulScrollWrapper" tabindex="-1">
                   <ul
                     role="listbox"
                     tabindex="0"
@@ -83,7 +83,7 @@ describe("Suite test ZSelect", () => {
                     >
                       <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </li>
-                   <li
+                    <li
                       role="option"
                       tabindex="0"
                       class=""
@@ -121,8 +121,8 @@ describe("Suite test ZSelect", () => {
               readonly=""
               status="selecting"
             ></z-input>
-            <div class="open">
-              <div class="ulScrollWrapper">
+            <div class="open" tabindex="-1">
+              <div class="ulScrollWrapper" tabindex="-1">
                 <ul
                   role="listbox"
                   tabindex="0"
@@ -177,8 +177,8 @@ describe("Suite test ZSelect", () => {
                 disabled=""
                 readonly=""
               ></z-input>
-              <div class="closed">
-                <div class="ulScrollWrapper">
+              <div class="closed" tabindex="-1">
+                <div class="ulScrollWrapper" tabindex="-1">
                   <ul
                     role="listbox"
                     tabindex="-1"
@@ -230,8 +230,8 @@ describe("Suite test ZSelect", () => {
                   icon="caret-down"
                   status="success"
                 ></z-input>
-                <div class="closed">
-                  <div class="ulScrollWrapper">
+                <div class="closed" tabindex="-1">
+                  <div class="ulScrollWrapper" tabindex="-1">
                     <ul
                       role="listbox"
                       tabindex="-1"
@@ -284,8 +284,8 @@ describe("Suite test ZSelect", () => {
                 readonly=""
                 status="selecting"
               ></z-input>
-              <div class="open">
-                <div class="ulScrollWrapper">
+              <div class="open" tabindex="-1">
+                <div class="ulScrollWrapper" tabindex="-1">
                   <ul
                     role="listbox"
                     tabindex="0"
@@ -338,8 +338,8 @@ describe("Suite test ZSelect", () => {
               readonly=""
               status="selecting"
             ></z-input>
-            <div class="open">
-              <div class="ulScrollWrapper">
+            <div class="open" tabindex="-1">
+              <div class="ulScrollWrapper" tabindex="-1">
                 <ul
                   role="listbox"
                   tabindex="0"
@@ -396,8 +396,8 @@ describe("Suite test ZSelect", () => {
               readonly=""
               status="selecting"
             ></z-input>
-            <div class="open">
-              <div class="ulScrollWrapper">
+            <div class="open" tabindex="-1">
+              <div class="ulScrollWrapper" tabindex="-1">
                 <ul
                   role="listbox"
                   tabindex="0"
@@ -452,8 +452,8 @@ describe("Suite test ZSelect", () => {
               hasclearicon=""
               status="selecting"
             ></z-input>
-            <div class="open">
-              <div class="ulScrollWrapper">
+            <div class="open" tabindex="-1">
+              <div class="ulScrollWrapper" tabindex="-1">
                 <ul
                   role="listbox"
                   tabindex="0"
@@ -507,8 +507,8 @@ describe("Suite test ZSelect", () => {
               hasclearicon=""
               status="selecting"
             ></z-input>
-            <div class="open">
-              <div class="ulScrollWrapper">
+            <div class="open" tabindex="-1">
+              <div class="ulScrollWrapper" tabindex="-1">
                 <ul
                   role="listbox"
                   tabindex="0"

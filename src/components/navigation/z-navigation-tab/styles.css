@@ -40,7 +40,7 @@ button {
   background-color: var(--color-hover-secondary);
 }
 
-:host([orientation='horizontal']:hover:not([disabled])) button::after,
+:host([orientation='horizontal']:not([disabled]):hover) button::after,
 :host([orientation='horizontal'][selected]) button::after {
   bottom: 0;
   left: 0;
@@ -74,7 +74,7 @@ button:focus:focus-visible {
   padding: var(--space-unit) calc(var(--space-unit) * 2);
 }
 
-:host([size='small'][orientation='horizontal']:not([disabled])):hover button::after,
+:host([size='small'][orientation='horizontal']:not([disabled]):hover) button::after,
 :host([size='small'][orientation='horizontal'][selected]) button::after {
   height: var(--border-size-medium);
 }
