@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, boolean, number } from '@storybook/addon-knobs';
+import { text, boolean, number, radios, select } from '@storybook/addon-knobs';
+import { InputStatusEnum } from "../../../beans";
 
 ## Stories
 
@@ -12,14 +13,14 @@ import { text, boolean, number } from '@storybook/addon-knobs';
   <Story name="z-input type:text">
     {html`
       <z-input
-        type="text"
-        label="${text('label', 'text')}"
-        placeholder="${text('placeholder', 'placeholder')}"
-        disabled="${boolean('disabled', true)}"
+        type="${select('type', ["text", "password", "number", "email"], 'text')}"
+        label="Label"
+        placeholder="Placeholder text"
+        disabled="${boolean('disabled', false)}"
         value="${text('value', 'value')}"
-        status="${text('status', 'success')}"
-        message="${text('message', 'This is valid')}"
-        readonly="${boolean('readonly', true)}"
+        status="${select('status', ['default', ...Object.keys(InputStatusEnum)], 'default')}"
+        message="${text('message', 'Helper text')}"
+        readonly="${boolean('readonly', false)}"
       ></z-input>`}
   </Story>
   <Story name="z-input type:checkbox">
@@ -28,34 +29,34 @@ import { text, boolean, number } from '@storybook/addon-knobs';
         type="checkbox"
         label="${text('label', 'Checkbox Label')}"
         labelafter="${boolean('labelafter', true)}"
-        placeholder="${text('placeholder', 'placeholder')}"
-        disabled="${boolean('disabled', true)}"
+        disabled="${boolean('disabled', false)}"
         value="${text('value', 'checkbox')}"
-        readonly="${boolean('readonly', true)}"
         checked="${boolean('checked', true)}"
-      ></z-input>`}
+      ></z-input>
+    `}
   </Story>
   <Story name="z-input type:radio">
     {html`
       <z-input
         type="radio"
+        name="test-radio"
+        id="radio1"
         label="${text('label', 'Radio Label')}"
         labelafter="${boolean('labelafter', true)}"
-        placeholder="${text('placeholder', 'placeholder')}"
-        disabled="${boolean('disabled', true)}"
+        disabled="${boolean('disabled', false)}"
         value="${text('value', 'radio')}"
-        readonly="${boolean('readonly', true)}"
-        checked="${boolean('checked', true)}"
-      ></z-input>`}
+        checked="${boolean('checked', false)}"
+      ></z-input>
+    `}
   </Story>
   <Story name="z-input type:select">
     {html`
       <z-input
         type="select"
         label="${text('label', 'Select Label')}"
-        placeholder="${text('placeholder', 'placeholder')}"
+        placeholder="Placeholder text"
         status="${text('status', 'success')}"
-        message="${text('message', 'This is valid')}"
+        message="${text('message', 'Helper text')}"
         value="${text('value', 'select')}"
         items='[{"id":"item_1","name":"first item","selected":false},{"id":"item_2","name":"second item","selected":true}]'
       ></z-input>`}
@@ -64,11 +65,13 @@ import { text, boolean, number } from '@storybook/addon-knobs';
     {html`
       <z-input
         type="textarea"
-        label="${text('label', 'Select Label')}"
-        placeholder="${text('placeholder', 'placeholder')}"
-        status="${text('status', 'success')}"
-        message="${text('message', 'This is valid')}"
-        value="${text('value', 'select')}"
+        label="${text('label', 'textarea')}"
+        placeholder="Placeholder text"
+        disabled="${boolean('disabled', false)}"
+        value="${text('value', 'text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text')}"
+        status="${select('status', ['default', ...Object.keys(InputStatusEnum)], 'default')}"
+        message="${text('message', 'Helper text')}"
+        readonly="${boolean('readonly', false)}"
       ></z-input>`}
   </Story>
   <Story name="z-input type:password">

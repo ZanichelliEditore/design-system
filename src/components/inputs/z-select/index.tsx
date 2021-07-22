@@ -379,8 +379,8 @@ export class ZSelect {
 
   renderSelectUl() {
     return (
-      <div class={this.isOpen ? "open" : "closed"}>
-        <div class="ulScrollWrapper">
+      <div class={this.isOpen ? "open" : "closed"} tabindex="-1">
+        <div class="ulScrollWrapper" tabindex="-1">
           <ul
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
@@ -392,15 +392,15 @@ export class ZSelect {
             }
             aria-multiselectable={!!this.multiple}
             class={`
-            ${this.disabled ? " disabled" : ""}
-            ${this.readonly ? " readonly" : ""}
-            ${
-              !this.isOpen && this.status
-                ? " input_" + this.status
-                : " input_default"
-            }
-            ${this.selectedItems.length ? " filled" : ""}
-          `}
+              ${this.disabled ? " disabled" : ""}
+              ${this.readonly ? " readonly" : ""}
+              ${
+                !this.isOpen && this.status
+                  ? " input_" + this.status
+                  : " input_default"
+              }
+              ${this.selectedItems.length ? " filled" : ""}
+            `}
           >
             {this.renderSelectUlItems()}
           </ul>
