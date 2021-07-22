@@ -4,9 +4,6 @@
 }
 
 :host > .z-list-group-header-container {
-  padding-top: var(--space-unit);
-  padding-bottom: var(--space-unit);
-
   color: var(--gray700);
 
   font-size: var(--font-size-2);
@@ -15,6 +12,11 @@
   letter-spacing: 0.16px;
 }
 
-:host > .z-list-group-header-container > z-divider {
+:host > .z-list-group-header-container.has-header {
+  padding-top: var(--space-unit);
+  padding-bottom: var(--space-unit);
+}
+
+:host > .z-list-group-header-container.has-header > z-divider {
   margin-top: var(--space-unit);
 }

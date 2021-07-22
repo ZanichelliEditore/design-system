@@ -1,6 +1,5 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import { DividerSize, ListSize, ListDividerType } from "../../../beans";
-import classNames from "classnames";
 
 @Component({
   tag: "z-list-group",
@@ -30,8 +29,12 @@ export class ZListGroup {
    */
   @Prop({ reflect: true }) dividerColor?: string = "gray200";
 
+  hasHeader: boolean;
+
   componentDidLoad() {
     const children = this.host.children;
+    this.hasHeader = !!this.host.querySelector('[slot="header-title"]');
+    console.log("header", this.hasHeader);
     for (let i = 0; i < children.length; i++) {
       if (children.length - 1 > i) {
         children[i].setAttribute("divider-type", this.dividerType);
@@ -45,7 +48,12 @@ export class ZListGroup {
   render() {
     return (
       <Host role="group">
-        <div class={classNames("z-list-group-header-container ", "body-4-sb")}>
+        <div
+          class={{
+            "z-list-group-header-container": true,
+            "has-header": true,
+          }}
+        >
           <slot name="header-title" />
           {this.dividerType === ListDividerType.header && (
             <z-divider color={this.dividerColor} size={this.dividerSize} />
