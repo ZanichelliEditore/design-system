@@ -74,7 +74,6 @@ export class ZSelect {
   @Watch("items")
   watchItems() {
     this.itemsList = this.getInitialItemsArray();
-    typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedItems = this.itemsList.filter(
       (item: SelectItemBean) => item.selected
     );
@@ -435,7 +434,7 @@ export class ZSelect {
   renderNoSearchResults() {
     return (
       <li class="noResults">
-        <z-icon name="circle-cross-stroke" />
+        <z-icon name="multiply-circle" />
         {this.noresultslabel}
       </li>
     );

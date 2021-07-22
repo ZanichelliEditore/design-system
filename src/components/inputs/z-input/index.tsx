@@ -204,8 +204,10 @@ export class ZInput {
       class: [
         `input_${this.status || "default"}`,
         this.isTyping && "istyping",
-        !this.isTyping && this.value && "filled"
-      ].filter(Boolean).join(" "),
+        !this.isTyping && this.value && "filled",
+      ]
+        .filter(Boolean)
+        .join(" "),
       onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode),
     };
     if (this.autocomplete) {
@@ -259,10 +261,12 @@ export class ZInput {
 
   renderIcons() {
     return (
-      <span class={{
-        iconsWrapper: true,
-        disabled: this.disabled
-      }}>
+      <span
+        class={{
+          iconsWrapper: true,
+          disabled: this.disabled,
+        }}
+      >
         {this.renderResetIcon()}
         {this.renderIcon()}
       </span>
@@ -296,7 +300,7 @@ export class ZInput {
     return (
       <z-icon
         class="showHidePasswordIcon"
-        name={this.passwordHidden ? "view" : "view-off"}
+        name={this.passwordHidden ? "view-filled" : "view-off-filled"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
       />
     );
@@ -327,7 +331,9 @@ export class ZInput {
             this.isTyping && "istyping",
             this.textareaWrapperFocus,
             this.textareaWrapperHover,
-          ].filter(Boolean).join(" ")}
+          ]
+            .filter(Boolean)
+            .join(" ")}
         >
           <textarea
             {...attributes}

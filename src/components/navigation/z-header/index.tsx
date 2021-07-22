@@ -5,13 +5,13 @@ import {
   State,
   Element,
   Listen,
-  Watch
+  Watch,
 } from "@stencil/core";
 import {
   MenuItem,
   HeaderUserData,
   ListItemBean,
-  ButtonVariantEnum
+  ButtonVariantEnum,
 } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
@@ -21,7 +21,7 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
 @Component({
   tag: "z-header",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZHeader {
   /** data to fill internal navigation links */
@@ -121,7 +121,7 @@ export class ZHeader {
 
     return (
       <div id="link-int" class="link-int">
-        {menuItems.map(item => this.renderIntMenuItem(item))}
+        {menuItems.map((item) => this.renderIntMenuItem(item))}
       </div>
     );
   }
@@ -154,7 +154,11 @@ export class ZHeader {
         <svg
           height="8"
           width="16"
-          class={(!this.activeMenuItem || this.activeMenuItem.id !== id) ? "hidden" : ""}
+          class={
+            !this.activeMenuItem || this.activeMenuItem.id !== id
+              ? "hidden"
+              : ""
+          }
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
@@ -170,11 +174,12 @@ export class ZHeader {
   handleToggleMobileMenuItem(elementId: string): void {
     if (!this.isMobile) return;
 
+    // TODO: controllare perché era stata fatta sta cosa che non mi ricordo
     this.element.shadowRoot
-      .getElementById(elementId)
+      .querySelector(`#${elementId}`)
       .classList.toggle("isopen");
     this.element.shadowRoot
-      .getElementById("mobile-dropdown-" + elementId)
+      .querySelector("#mobile-dropdown-" + elementId)
       .classList.toggle("visible");
   }
 
@@ -186,7 +191,7 @@ export class ZHeader {
         id: item.id,
         text: item.label,
         link: item.link,
-        listitemid: item.id
+        listitemid: item.id,
       };
     });
     return this.renderMobileSubMenu(listItems, menuItem.id);
@@ -234,26 +239,24 @@ export class ZHeader {
 
     return (
       <div id="link-ext" class="link-ext">
-        {menuItems.map(
-          (menuItem: MenuItem): HTMLSpanElement => {
-            const { id, label, link, icon } = menuItem;
-            return (
-              <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
-                <z-link
-                  id={id}
-                  htmlid={id}
-                  href={link}
-                  icon={icon}
-                  iswhite={!!this.ismyz}
-                  target="_blank"
-                  htmltabindex={10}
-                >
-                  {label}
-                </z-link>
-              </span>
-            );
-          }
-        )}
+        {menuItems.map((menuItem: MenuItem): HTMLSpanElement => {
+          const { id, label, link, icon } = menuItem;
+          return (
+            <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
+              <z-link
+                id={id}
+                htmlid={id}
+                href={link}
+                icon={icon}
+                iswhite={!!this.ismyz}
+                target="_blank"
+                htmltabindex={10}
+              >
+                {label}
+              </z-link>
+            </span>
+          );
+        })}
       </div>
     );
   }
@@ -323,7 +326,7 @@ export class ZHeader {
           text: item.label,
           link: item.link,
           icon: item.icon,
-          listitemid: item.id
+          listitemid: item.id,
         };
       }
     );
@@ -341,7 +344,10 @@ export class ZHeader {
 
   renderMainHeader(): HTMLDivElement {
     return (
-      <div id="main-header" class={`main-header${this.ismyz ? "" : " myz-out"}`}>
+      <div
+        id="main-header"
+        class={`main-header${this.ismyz ? "" : " myz-out"}`}
+      >
         {this.renderLogoDiv()}
         {this.renderIntMenu(this.intMenuData)}
         {this.renderExtMenu(this.extMenuData)}
@@ -399,7 +405,9 @@ export class ZHeader {
     return (
       <div
         id="mobile-content"
-        class={`mobile-content${this.isMenuMobileOpen ? " open" : ""}${this.ismyz ? "" : " myz-out"}`}
+        class={`mobile-content${this.isMenuMobileOpen ? " open" : ""}${
+          this.ismyz ? "" : " myz-out"
+        }`}
       >
         {this.renderMobileLoginDiv(this.userData)}
         {this.ismyz && <hr />}
