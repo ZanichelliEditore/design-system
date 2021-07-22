@@ -91,31 +91,29 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
   await page.setContent(
-    `<z-input htmlid="checkid" type="password"> </z-input>`
+    `<z-input htmlid="checkid" type="password"></z-input>`
   );
-  //const select = await page.find("z-input >>> div.textWrapper");
-  const icon = await page.find(
-    "z-input div.textWrapper div span.iconsWrapper z-icon.inputIcon"
-  );
+  const icon = await page.find("z-input z-icon.showHidePasswordIcon");
   //icon will be an open eye on first click
   await icon.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated inputIcon sc-z-input">
+    `<z-icon class="hydrated showHidePasswordIcon sc-z-input">
       <mock:shadow-root>
-        <svg viewBox="0 0 1000 1000" width='18' height='18'>
+        <svg viewBox="0 0 1000 1000" width="18" height="18">
             <path d="${icons["view-off"]}"></path>
         </svg>
       </mock:shadow-root>
     </z-icon>`
   );
+
   //icon will be a closed eye on second click
   await icon.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated inputIcon sc-z-input">
+    `<z-icon class="hydrated showHidePasswordIcon sc-z-input">
       <mock:shadow-root>
-        <svg viewBox="0 0 1000 1000" width='18' height='18'>
+        <svg viewBox="0 0 1000 1000" width="18" height="18">
           <path d="${icons["view"]}"></path>
         </svg>
       </mock:shadow-root>
@@ -127,12 +125,11 @@ it("Test ZInput - input password - change input type on icon click to show/hide 
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
   await page.setContent(
-    `<z-input htmlid="checkid" type="password"> </z-input>`
+    `<z-input htmlid="checkid" type="password"></z-input>`
   );
   const input = await page.find("z-input div.textWrapper div input");
-  const icon = await page.find(
-    "z-input div.textWrapper div span.iconsWrapper z-icon.inputIcon"
-  );
+  const icon = await page.find("z-input z-icon.showHidePasswordIcon");
+
   //input will be type text after first click on icon
   await icon.click();
   await page.waitForChanges();
