@@ -17,7 +17,7 @@ div.trial {
 
 /* HIDDEN status */
 div.faded {
-  border: none;
+  border: var(--border-size-medium) solid var(--color-surface02);
 }
 
 /* HIGHLIGHTED status */

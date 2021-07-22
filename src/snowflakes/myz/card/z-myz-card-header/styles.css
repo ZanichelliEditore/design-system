@@ -35,9 +35,7 @@ h2 {
 }
 
 .faded {
-  border-top: var(--border-size-medium) solid var(--color-surface03);
-  border-right: var(--border-size-medium) solid var(--color-surface03);
-  border-left: var(--border-size-medium) solid var(--color-surface03);
+  border-bottom: var(--border-size-medium) solid var(--color-surface02);
 }
 
 .faded.real,

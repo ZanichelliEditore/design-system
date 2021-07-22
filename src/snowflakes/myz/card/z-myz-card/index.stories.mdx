@@ -12,12 +12,15 @@ import { text, boolean } from '@storybook/addon-knobs';
   <Story name="z-myz-card">
     {html`
       <z-myz-card
-        cardtype="${text('cardtype', 'reale')}"
+        cardtype="${text('cardtype', 'virtuale')}"
         faded="${boolean('faded', false)}"
-        ishighlighted="${boolean('ishighlighted', true)}"
+        ishighlighted="${boolean('ishighlighted', false)}"
         ispressed="${boolean('ispressed', true)}"
         >
-        <z-myz-card-header titolo="Card Header">
+        <z-myz-card-header
+          cardtype="${text('cardtype', 'reale')}"
+          faded="${boolean('faded', false)}"
+          titolo="${text('titolo', 'Card Header')}" />
           <z-myz-card-icon icon="book-minus" slot="icon" />
         </z-myz-card-header>
         <z-myz-card-body>
