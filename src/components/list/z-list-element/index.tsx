@@ -98,7 +98,7 @@ export class ZListElement {
    * Renders button to expand element.
    * @returns expadable button
    */
-  _renderExpandableButton() {
+  renderExpandableButton() {
     if (!this.expandable) {
       return null;
     }
@@ -118,7 +118,7 @@ export class ZListElement {
    * Renders expanded content if element is expandable.
    * @returns expanded content
    */
-  _renderExpandedContent() {
+  renderExpandedContent() {
     if (!this.expandable) {
       return null;
     }
@@ -146,10 +146,10 @@ export class ZListElement {
       >
         <div class="container">
           <div class="z-list-element-container">
-            {this._renderExpandableButton()}
+            {this.renderExpandableButton()}
             <slot />
           </div>
-          {this._renderExpandedContent()}
+          {this.renderExpandedContent()}
         </div>
         {this.dividerType === ListDividerType.element && (
           <z-divider color={this.dividerColor} size={this.dividerSize} />

@@ -6,14 +6,11 @@
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   outline: none;
-}
 
-:host > .container {
   display: flex;
   flex-direction: column;
-}
+  justify-content: center;
 
-:host > .container {
   box-sizing: border-box;
 }
 
