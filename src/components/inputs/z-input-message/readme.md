@@ -18,6 +18,7 @@
 ### Used by
 
  - [z-input](../z-input)
+ - [z-otp](../../../snowflakes/myz/z-otp)
  - [z-select](../z-select)
 
 ### Depends on
@@ -29,6 +30,7 @@
 graph TD;
   z-input-message --> z-icon
   z-input --> z-input-message
+  z-otp --> z-input-message
   z-select --> z-input-message
   style z-input-message fill:#f9f,stroke:#333,stroke-width:4px
 ```

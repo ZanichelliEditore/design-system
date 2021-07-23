@@ -1,0 +1,83 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from '@storybook/addon-knobs';
+
+<Meta title="Myz/MyzCard/ZMyzCardDictionary" component="z-myz-card-dictionary" />
+
+# ZMyzCardDictionary
+
+<Preview>
+  <Story name="card-default">
+    {html`
+      <z-myz-card-dictionary
+        name="${text('name', 'Lo Zingarelli')}"
+        cover="${text('cover', 'https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg')}"
+        disabled="${boolean('disabled', false)}"
+        hideinfobtn="${boolean("hideinfobtn", false)}"
+        flipped="${boolean('flipped', false)}"
+        flipbuttonlabel="${text('flipbuttonlabel', 'info')}"
+      >
+        <z-myz-card-footer-sections>
+          <div slot="top">Vocabolario della lingua italiana</div>
+          <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
+        </z-myz-card-footer-sections>
+        <z-myz-card-info
+          slot="info"
+          data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1"},"offlineLicense":{"expiration":"30/06/2021","installations":"2"}}'
+        >
+          <z-button variant="tertiary" icon="gear">Gestisci Licenze</z-button>
+        </z-myz-card-info>
+      </z-myz-card-dictionary>
+    `}
+  </Story>
+  <Story name="card-flipped">
+    {html`
+      <z-myz-card-dictionary
+        name="${text('name', 'Lo Zingarelli')}"
+        cover="${text('cover', 'https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg')}"
+        disabled="${boolean('disabled', false)}"
+        hideinfobtn="${boolean("hideinfobtn", false)}"
+        flipped="${boolean('flipped', true)}"
+        flipbuttonlabel="${text('flipbuttonlabel', 'info')}"
+      >
+        <z-myz-card-footer-sections>
+          <div slot="top">Vocabolario della lingua italiana</div>
+          <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
+        </z-myz-card-footer-sections>
+        <z-myz-card-info
+          slot="info"
+          data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1"},"offlineLicense":{"expiration":"30/06/2021","installations":"2"}}'
+        >
+          <z-button variant="tertiary" icon="gear">Gestisci Licenze</z-button>
+        </z-myz-card-info>
+      </z-myz-card-dictionary>
+    `}
+  </Story>
+  <Story name="card-no-info-button">
+    {html`
+      <z-myz-card-dictionary
+        name="${text('name', 'Lo Zingarelli')}"
+        cover="${text('cover', 'https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg')}"
+        disabled="${boolean('disabled', false)}"
+        hideinfobtn="${boolean("hideinfobtn", true)}"
+        flipped="${boolean('flipped', false)}"
+        flipbuttonlabel="${text('flipbuttonlabel', 'info')}"
+      >
+        <z-myz-card-footer-sections>
+          <div slot="top">Vocabolario della lingua italiana</div>
+          <div slot="bottom"><z-button variant="primary" style="width:100%;">VAI AL PRODOTTO</z-button></div>
+        </z-myz-card-footer-sections>
+        <z-myz-card-info
+          slot="info"
+          data='{"author":"Nicola Zingarelli","year":"2021","title":"Vocabolario della lingua italiana","description":"A cura di Mario Cannella, Beata Lazzarini","onlineLicense":{"expiration":"31/12/2021","installations":"1"},"offlineLicense":{"expiration":"30/06/2021","installations":"2"}}'
+        >
+          <z-button variant="tertiary" icon="gear">Gestisci Licenze</z-button>
+        </z-myz-card-info>
+      </z-myz-card-dictionary>
+    `}
+  </Story>
+</Preview>
+
+<Props of="z-myz-card-dictionary" />
+
+

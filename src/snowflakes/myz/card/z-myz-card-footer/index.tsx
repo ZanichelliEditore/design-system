@@ -21,6 +21,8 @@ export class ZMyzCardFooter {
   @Prop() faded: boolean;
   /** card graphic variant (optional) */
   @Prop() cardtype?: LicenseTypeEnum;
+  /** footer opened by default (optional) */
+  @Prop() opened?: boolean = false;
 
   @State() isOpen: boolean = false;
 
@@ -35,6 +37,10 @@ export class ZMyzCardFooter {
 
   getTitleAuthors(): string {
     return this.allowTooltipAuthors ? this.autori : "";
+  }
+
+  componentWillLoad() {
+    if (this.opened) this.isOpen = true;
   }
 
   elementsEllipsis(): void {
@@ -72,25 +78,27 @@ export class ZMyzCardFooter {
             <slot name="toggle" />
           </span>
           <h2>{this.titolo}</h2>
-          <div>
-            <p
-              class="authors"
-              ref={el => (this.ellipsisAuthors = el as HTMLElement)}
-            >
-              <span title={this.getTitleAuthors()}>
-                <span class="bold">{this.autori}</span>
-              </span>
-            </p>
-            <p class="year_isbn">
-              <span class="isbn">
-                <span>
-                  <span class="bold">{this.isbn}</span> (ed. cartacea)
+          <div class="content">
+            <div>
+              <p
+                class="authors"
+                ref={el => (this.ellipsisAuthors = el as HTMLElement)}
+              >
+                <span title={this.getTitleAuthors()}>
+                  <span class="bold">{this.autori}</span>
                 </span>
-              </span>
-            </p>
-          </div>
-          <div class={`slot-handler ${this.isOpen ? "visible" : "hidden"}`}>
-            <slot name="list" />
+              </p>
+              <p class="year_isbn">
+                <span class="isbn">
+                  <span>
+                    <span class="bold">{this.isbn}</span> (ed. cartacea)
+                  </span>
+                </span>
+              </p>
+            </div>
+            <div class={`slot-handler ${this.isOpen ? "visible" : "hidden"}`}>
+              <slot name="list" />
+            </div>
           </div>
         </footer>
       </div>

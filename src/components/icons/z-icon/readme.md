@@ -42,15 +42,19 @@
  - [z-menu](../../navigation/z-menu)
  - [z-menu-dropdown](../../navigation/z-menu-dropdown)
  - [z-menu-section](../../navigation/z-menu-section)
+ - [z-messages-pocket](../../../snowflakes/myz/pocket/z-messages-pocket)
  - [z-modal](../../modal/z-modal)
  - [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
  - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
+ - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
  - [z-navigation-tabs](../../navigation/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
+ - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
  - [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
  - [z-registro-table-row](../../../snowflakes/registro-table/z-registro-table-row)
  - [z-select](../../inputs/z-select)
+ - [z-slideshow](../../../snowflakes/myz/z-slideshow)
  - [z-status-tag](../../z-status-tag)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-user-dropdown](../../navigation/z-user-dropdown)
@@ -76,15 +80,19 @@ graph TD;
   z-menu --> z-icon
   z-menu-dropdown --> z-icon
   z-menu-section --> z-icon
+  z-messages-pocket --> z-icon
   z-modal --> z-icon
   z-myz-card-alert --> z-icon
   z-myz-card-icon --> z-icon
+  z-myz-card-info --> z-icon
   z-navigation-tabs --> z-icon
   z-notification --> z-icon
   z-pagination-bar --> z-icon
+  z-pocket-message --> z-icon
   z-registro-table-header --> z-icon
   z-registro-table-row --> z-icon
   z-select --> z-icon
+  z-slideshow --> z-icon
   z-status-tag --> z-icon
   z-toggle-button --> z-icon
   z-user-dropdown --> z-icon
