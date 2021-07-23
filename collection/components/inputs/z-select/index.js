@@ -25,7 +25,6 @@ export class ZSelect {
   }
   watchItems() {
     this.itemsList = this.getInitialItemsArray();
-    typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedItems = this.itemsList.filter((item) => item.selected);
   }
   /** get the input selected options */
@@ -258,7 +257,7 @@ export class ZSelect {
   }
   renderNoSearchResults() {
     return (h("li", { class: "noResults" },
-      h("z-icon", { name: "circle-cross-stroke" }),
+      h("z-icon", { name: "multiply-circle" }),
       this.noresultslabel));
   }
   renderMessage() {

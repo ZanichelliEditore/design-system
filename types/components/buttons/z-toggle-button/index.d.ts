@@ -6,7 +6,8 @@ export declare class ZToggleButton {
   isdisabled?: boolean;
   /** avoidclick status flag */
   avoidclick: boolean;
-  isOpen: boolean;
+  /** open by default (optional) */
+  opened?: boolean;
   /** emitted on toggle button click, returns isOpen */
   toggleClick: EventEmitter;
   emitToggleClick(): void;

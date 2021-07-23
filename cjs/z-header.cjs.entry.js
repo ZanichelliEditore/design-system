@@ -71,9 +71,7 @@ const ZHeader = class {
         this.activeMenuItem = menuItem;
       }, onMouseLeave: () => {
         this.activeMenuItem = this.currentMenuItem;
-      }, role: link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) }, index.h("span", null, label), menuItem.subMenu ? index.h("i", null) : null), index.h("svg", { height: "8", width: "16", class: !this.activeMenuItem || this.activeMenuItem.id !== id
-        ? "hidden"
-        : "" }, index.h("polygon", { points: "8,0 16,8 0,8", class: "arrow" })), this.isMobile && this.renderMenuItemsData(menuItem)));
+      }, role: link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) }, index.h("span", null, label), menuItem.subMenu ? index.h("i", null) : null), index.h("svg", { height: "8", width: "16", class: { hidden: !this.activeMenuItem || this.activeMenuItem.id !== id } }, index.h("polygon", { points: "8,0 16,8 0,8", class: "arrow" })), this.isMobile && this.renderMenuItemsData(menuItem)));
   }
   getIntMenuItemTabindex(item) {
     return this.intMenuData.indexOf(item) + 1;
@@ -82,10 +80,10 @@ const ZHeader = class {
     if (!this.isMobile)
       return;
     this.element.shadowRoot
-      .getElementById(elementId)
+      .querySelector(`#${elementId}`)
       .classList.toggle("isopen");
     this.element.shadowRoot
-      .getElementById("mobile-dropdown-" + elementId)
+      .querySelector("#mobile-dropdown-" + elementId)
       .classList.toggle("visible");
   }
   renderMenuItemsData(menuItem) {
@@ -149,7 +147,10 @@ const ZHeader = class {
     return (index.h("header", { class: !this.ismyz ? "myz-out" : "" }, this.renderMainHeader(), this.renderSubMenu(this.activeMenuItem)));
   }
   renderMainHeader() {
-    return (index.h("div", { id: "main-header", class: `main-header${this.ismyz ? "" : " myz-out"}` }, this.renderLogoDiv(), this.renderIntMenu(this.intMenuData), this.renderExtMenu(this.extMenuData), this.renderLoginDiv(this.userData)));
+    return (index.h("div", { id: "main-header", class: {
+        "main-header": true,
+        "myz-out": !this.ismyz,
+      } }, this.renderLogoDiv(), this.renderIntMenu(this.intMenuData), this.renderExtMenu(this.extMenuData), this.renderLoginDiv(this.userData)));
   }
   renderMobileHeader() {
     return (index.h("header", null, this.renderMobileMenu(), this.renderMobileMenuContent()));
@@ -165,7 +166,11 @@ const ZHeader = class {
   renderMobileMenuContent() {
     if (!this.isLogged)
       return null;
-    return (index.h("div", { id: "mobile-content", class: `mobile-content${this.isMenuMobileOpen ? " open" : ""}${this.ismyz ? "" : " myz-out"}` }, this.renderMobileLoginDiv(this.userData), this.ismyz && index.h("hr", null), this.renderIntMenu(this.intMenuData), index.h("hr", null), this.renderExtMenu(this.extMenuData)));
+    return (index.h("div", { id: "mobile-content", class: {
+        "mobile-content": true,
+        "open": this.isMenuMobileOpen,
+        "myz-out": !this.ismyz,
+      } }, this.renderMobileLoginDiv(this.userData), this.ismyz && index.h("hr", null), this.renderIntMenu(this.intMenuData), index.h("hr", null), this.renderExtMenu(this.extMenuData)));
   }
   render() {
     return this.isMobile

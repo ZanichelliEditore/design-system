@@ -16,8 +16,13 @@ export declare class ZButtonSort {
   isselected?: boolean;
   /** sortable flag (optional) */
   sortasc?: boolean;
+  allowTooltip: boolean;
+  private ellipsis?;
   /** sorting direction click event, returns buttonid and sortAsc */
   buttonSortClick: EventEmitter;
   emitButtonSortClick(): void;
+  componentDidLoad(): void;
+  setButtonTitle(): string;
+  elementHasEllipsis(): boolean;
   render(): any;
 }

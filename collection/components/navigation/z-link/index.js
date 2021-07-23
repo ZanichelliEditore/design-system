@@ -1,4 +1,7 @@
 import { Component, Prop, h, Event } from "@stencil/core";
+/**
+ * @slot - link content
+ */
 export class ZLink {
   constructor() {
     /** link target (optional) */
@@ -12,7 +15,7 @@ export class ZLink {
     /** white variant flag (optional) */
     this.iswhite = false;
     /** link text variant (optional) */
-    this.textcolor = 'blue';
+    this.textcolor = "blue";
     /** big link version */
     this.big = false;
     this.emitZLinkClick = this.emitZLinkClick.bind(this);
@@ -20,7 +23,7 @@ export class ZLink {
   }
   componentWillRender() {
     if (this.iswhite) {
-      console.warn('z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead');
+      console.warn("z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead");
     }
   }
   emitZLinkClick(e, linkId) {
@@ -35,7 +38,7 @@ export class ZLink {
           ${this.textcolor}
           ${this.iswhite && "white"}
           ${this.big && "big"}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) },
-      this.icon && h("z-icon", { name: this.icon, width: this.big ? 18 : 12, height: this.big ? 18 : 12 }),
+      this.icon && (h("z-icon", { name: this.icon, width: this.big ? 18 : 12, height: this.big ? 18 : 12 })),
       h("slot", null)));
   }
   static get is() { return "z-link"; }
@@ -175,7 +178,7 @@ export class ZLink {
       "type": "string",
       "mutable": false,
       "complexType": {
-        "original": "'white' | 'blue' | 'black'",
+        "original": "\"white\" | \"blue\" | \"black\"",
         "resolved": "\"black\" | \"blue\" | \"white\"",
         "references": {}
       },
@@ -187,7 +190,7 @@ export class ZLink {
       },
       "attribute": "textcolor",
       "reflect": false,
-      "defaultValue": "'blue'"
+      "defaultValue": "\"blue\""
     },
     "icon": {
       "type": "string",

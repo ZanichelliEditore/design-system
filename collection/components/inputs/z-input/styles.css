@@ -9,6 +9,11 @@ input::-ms-reveal {
 }
 
 /* GENERAL */
+:host input::-ms-clear,
+:host input::-ms-reveal {
+  display: none;
+}
+
 input,
 textarea,
 .textareaWrapper,

@@ -1,4 +1,5 @@
-import { Component, Prop, h, Event } from "@stencil/core";
+import { Component, Prop, State, h, Event } from "@stencil/core";
+import { tabletBreakpoint } from "../../../constants/breakpoints";
 export class ZButtonSort {
   constructor() {
     /** sort label content (ascending) (optional) */
@@ -9,6 +10,7 @@ export class ZButtonSort {
     this.isselected = false;
     /** sortable flag (optional) */
     this.sortasc = true;
+    this.allowTooltip = false;
   }
   emitButtonSortClick() {
     if (!this.isselected) {
@@ -22,13 +24,25 @@ export class ZButtonSort {
       sortAsc: this.sortasc,
     });
   }
+  componentDidLoad() {
+    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
+      this.allowTooltip = true;
+  }
+  setButtonTitle() {
+    return this.allowTooltip
+      ? `${this.sortasc ? this.label : this.desclabel}`
+      : "";
+  }
+  elementHasEllipsis() {
+    return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
+  }
   render() {
-    return (h("button", { id: this.buttonid, class: this.isselected && "selected", onClick: () => this.emitButtonSortClick() },
+    return (h("button", { title: this.setButtonTitle(), id: this.buttonid, class: this.isselected && "selected", onClick: () => this.emitButtonSortClick() },
       h("label", null,
-        !this.sortasc && this.desclabel ? this.desclabel : this.label,
-        this.counter && ` (${this.counter})`),
-      h("span", null, this.sortasc ? this.sortlabelasc : this.sortlabeldesc),
-      h("z-icon", { name: "caret-up-down", width: 16, height: 16 })));
+        h("span", { ref: (el) => (this.ellipsis = el), class: "ellipsis" }, !this.sortasc && this.desclabel ? this.desclabel : this.label),
+        h("span", { class: "counter" }, this.counter && ` (${this.counter})`),
+        h("span", { class: "sort" }, this.sortasc ? this.sortlabelasc : this.sortlabeldesc),
+        h("z-icon", { name: "caret-up-down", width: 16, height: 16 }))));
   }
   static get is() { return "z-button-sort"; }
   static get encapsulation() { return "shadow"; }
@@ -179,6 +193,9 @@ export class ZButtonSort {
       "reflect": false,
       "defaultValue": "true"
     }
+  }; }
+  static get states() { return {
+    "allowTooltip": {}
   }; }
   static get events() { return [{
       "method": "buttonSortClick",

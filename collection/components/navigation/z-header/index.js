@@ -71,9 +71,7 @@ export class ZHeader {
         }, role: link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) },
         h("span", null, label),
         menuItem.subMenu ? h("i", null) : null),
-      h("svg", { height: "8", width: "16", class: !this.activeMenuItem || this.activeMenuItem.id !== id
-          ? "hidden"
-          : "" },
+      h("svg", { height: "8", width: "16", class: { hidden: !this.activeMenuItem || this.activeMenuItem.id !== id } },
         h("polygon", { points: "8,0 16,8 0,8", class: "arrow" })),
       this.isMobile && this.renderMenuItemsData(menuItem)));
   }
@@ -84,10 +82,10 @@ export class ZHeader {
     if (!this.isMobile)
       return;
     this.element.shadowRoot
-      .getElementById(elementId)
+      .querySelector(`#${elementId}`)
       .classList.toggle("isopen");
     this.element.shadowRoot
-      .getElementById("mobile-dropdown-" + elementId)
+      .querySelector("#mobile-dropdown-" + elementId)
       .classList.toggle("visible");
   }
   renderMenuItemsData(menuItem) {
@@ -164,7 +162,10 @@ export class ZHeader {
       this.renderSubMenu(this.activeMenuItem)));
   }
   renderMainHeader() {
-    return (h("div", { id: "main-header", class: `main-header${this.ismyz ? "" : " myz-out"}` },
+    return (h("div", { id: "main-header", class: {
+        "main-header": true,
+        "myz-out": !this.ismyz,
+      } },
       this.renderLogoDiv(),
       this.renderIntMenu(this.intMenuData),
       this.renderExtMenu(this.extMenuData),
@@ -193,7 +194,11 @@ export class ZHeader {
   renderMobileMenuContent() {
     if (!this.isLogged)
       return null;
-    return (h("div", { id: "mobile-content", class: `mobile-content${this.isMenuMobileOpen ? " open" : ""}${this.ismyz ? "" : " myz-out"}` },
+    return (h("div", { id: "mobile-content", class: {
+        "mobile-content": true,
+        "open": this.isMenuMobileOpen,
+        "myz-out": !this.ismyz,
+      } },
       this.renderMobileLoginDiv(this.userData),
       this.ismyz && h("hr", null),
       this.renderIntMenu(this.intMenuData),

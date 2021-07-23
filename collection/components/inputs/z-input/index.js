@@ -129,8 +129,10 @@ export class ZInput {
       class: [
         `input_${this.status || "default"}`,
         this.isTyping && "istyping",
-        !this.isTyping && this.value && "filled"
-      ].filter(Boolean).join(" "),
+        !this.isTyping && this.value && "filled",
+      ]
+        .filter(Boolean)
+        .join(" "),
       onInput: (e) => this.emitInputChange(e.target.value, e.keyCode),
     };
     if (this.autocomplete) {
@@ -163,7 +165,7 @@ export class ZInput {
   renderIcons() {
     return (h("span", { class: {
         iconsWrapper: true,
-        disabled: this.disabled
+        disabled: this.disabled,
       } },
       this.renderResetIcon(),
       this.renderIcon()));
@@ -182,7 +184,7 @@ export class ZInput {
     return (h("z-icon", { class: "resetIcon", name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
   }
   renderShowHidePassword() {
-    return (h("z-icon", { class: "showHidePasswordIcon", name: this.passwordHidden ? "view" : "view-off", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
+    return (h("z-icon", { class: "showHidePasswordIcon", name: this.passwordHidden ? "view-filled" : "view-off-filled", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
   }
   renderMessage() {
     if (!this.hasmessage)
@@ -203,7 +205,9 @@ export class ZInput {
           this.isTyping && "istyping",
           this.textareaWrapperFocus,
           this.textareaWrapperHover,
-        ].filter(Boolean).join(" ") },
+        ]
+          .filter(Boolean)
+          .join(" ") },
         h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-labelledby": `${this.htmlid}_label` }))),
       this.renderMessage()));
   }

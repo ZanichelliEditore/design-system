@@ -16,5 +16,7 @@ export declare class ZButtonFilter {
   handleRemovingFilterClick(): void;
   renderFixedPillow(filtername: any): any;
   renderDynamicPillow(filtername: any): any;
+  renderIcon(): any;
+  renderContent(filtername: any): any;
   render(): any;
 }

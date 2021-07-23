@@ -1,25 +1,26 @@
-import { Component, Prop, h, State, Event } from "@stencil/core";
+import { Component, Prop, h, Event } from "@stencil/core";
 export class ZToggleButton {
   constructor() {
     /** disabled status flag (optional) */
     this.isdisabled = false;
-    this.isOpen = false;
+    /** open by default (optional) */
+    this.opened = false;
   }
   emitToggleClick() {
     if (this.isdisabled)
       return;
-    this.isOpen = !this.isOpen;
-    this.toggleClick.emit(this.isOpen);
+    this.opened = !this.opened;
+    this.toggleClick.emit(this.opened);
   }
   retrieveButtonClass() {
-    let className = this.isOpen && "isopen";
+    let className = this.opened && "isopen";
     if (this.avoidclick)
       className = className + " avoid-clicks";
     return className;
   }
   render() {
     return (h("button", { tabindex: this.avoidclick ? "-1" : "0", class: this.retrieveButtonClass(), disabled: this.isdisabled, onClick: () => this.emitToggleClick() },
-      h("z-icon", { name: this.isOpen ? "chevron-down" : "chevron-up", width: 16, height: 16 }),
+      h("z-icon", { name: this.opened ? "chevron-down" : "chevron-up", width: 16, height: 16 }),
       this.label));
   }
   static get is() { return "z-toggle-button"; }
@@ -82,10 +83,25 @@ export class ZToggleButton {
       },
       "attribute": "avoidclick",
       "reflect": false
+    },
+    "opened": {
+      "type": "boolean",
+      "mutable": true,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "open by default (optional)"
+      },
+      "attribute": "opened",
+      "reflect": false,
+      "defaultValue": "false"
     }
-  }; }
-  static get states() { return {
-    "isOpen": {}
   }; }
   static get events() { return [{
       "method": "toggleClick",

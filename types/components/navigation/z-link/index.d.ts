@@ -1,4 +1,7 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
+/**
+ * @slot - link content
+ */
 export declare class ZLink {
   /** link id (optional) */
   htmlid?: string;
@@ -15,7 +18,7 @@ export declare class ZLink {
   /** white variant flag (optional) */
   iswhite?: boolean;
   /** link text variant (optional) */
-  textcolor?: 'white' | 'blue' | 'black';
+  textcolor?: "white" | "blue" | "black";
   /** link icon name (optional) */
   icon?: string;
   /** big link version */

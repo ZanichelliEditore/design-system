@@ -1,6 +1,6 @@
 import { r as registerInstance, h, c as createEvent, g as getElement, H as Host } from './index-6eb9a735.js';
 import { T as ThemeVariant, A as AvatarSize, B as ButtonTypeEnum, a as ButtonVariantEnum, b as ButtonSizeEnum, C as CardVariants, I as InputTypeEnum, k as keybordKeyCodeEnum, D as DividerSize, c as DividerOrientation, L as ListSize, E as ExpandableListButtonAlign, d as ListDividerType, e as ExpandableListStyle, f as LicenseTypeEnum, g as AlertTypesEnum, N as NotificationType, P as PopoverPosition, h as PopoverBorderRadius, i as PopoverShadow, K as KeyboardKeys, j as TableHeaderSize, S as SortingOrientation, l as InputStatusEnum, m as StatusTagStatus, n as TooltipPosition } from './index-946283aa.js';
-import { m as mobileBreakpoint } from './breakpoints-c386984e.js';
+import { m as mobileBreakpoint, t as tabletBreakpoint } from './breakpoints-c386984e.js';
 import { c as createCommonjsModule, h as hammer } from './hammer-c807d0b5.js';
 import { h as handleKeyboardSubmit, r as randomId, g as getElementTree, a as getClickedElement } from './utils-c19608a5.js';
 
@@ -211,7 +211,7 @@ const ZButton = class {
 };
 ZButton.style = stylesCss$U;
 
-const stylesCss$T = "button.container{min-height:32px;line-height:32px;border:var(--border-size-small) solid var(--bg-grey-200);border-radius:16px;box-shadow:0px 2px 5px 0px var(--bg-neutral-300);-webkit-box-shadow:0px 2px 5px 0px var(--bg-neutral-300);-moz-box-shadow:0px 2px 5px 0px var(--bg-neutral-300);text-align:center;padding:0 calc(var(--space-unit) * 2);cursor:pointer;letter-spacing:0.17px;font-family:var(--dashboard-font);font-size:12px;font-weight:var(--font-sb);opacity:1;transition:all 200ms linear}button.container.small{min-height:24px;line-height:24px}button.container:focus{outline:0}button.container::-moz-focus-inner{border:0}.text-container{margin-left:4px}button.container,button.container:focus,button.container:hover{background-color:var(--bg-white);color:var(--text-grey-700);fill:var(--text-grey-700)}button.container.isactive{background-color:var(--bg-white);color:var(--myz-blue);fill:var(--myz-blue)}button.container.isactive:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}button.container.isactive:focus{background-color:var(--myz-blue-dark);border-color:var(--myz-blue-dark);box-shadow:0px 0px 4px 0px var(--text-grey-800);color:var(--bg-white);fill:var(--bg-white)}";
+const stylesCss$T = "button.container{min-height:32px;line-height:32px;border:var(--border-size-small) solid var(--bg-grey-200);border-radius:16px;box-shadow:0px 2px 5px 0px var(--bg-neutral-300);-webkit-box-shadow:0px 2px 5px 0px var(--bg-neutral-300);-moz-box-shadow:0px 2px 5px 0px var(--bg-neutral-300);text-align:center;padding:0 calc(var(--space-unit) * 2);cursor:pointer;letter-spacing:0.17px;font-family:var(--dashboard-font);font-size:12px;font-weight:var(--font-sb);opacity:1;transition:all 200ms linear}button.container.small{min-height:24px;line-height:24px}button.container:focus{outline:0}button.container::-moz-focus-inner{border:0}.text-container{margin-left:4px}button.container,button.container:focus,button.container:hover{background-color:var(--bg-white);color:var(--text-grey-700);fill:var(--text-grey-700)}button.container.isactive{background-color:var(--bg-white);color:var(--myz-blue);fill:var(--myz-blue)}button.container.isactive:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}button.container.isactive:focus{background-color:var(--myz-blue-dark);border-color:var(--myz-blue-dark);box-shadow:0px 0px 4px 0px var(--text-grey-800);color:var(--bg-white);fill:var(--bg-white)}button z-icon{display:inline-block}";
 
 const ZButtonFilter = class {
   constructor(hostRef) {
@@ -227,14 +227,22 @@ const ZButtonFilter = class {
   }
   handleRemovingFilterClick() {
     this.removefilter.emit({
-      filterid: this.filterid
+      filterid: this.filterid,
     });
   }
   renderFixedPillow(filtername) {
-    return (h("button", { class: "container" }, this.hasicon && (h("z-icon", { class: "close-icon-container", name: "multiply", height: 12, width: 12 })), h("span", { class: "text-container" }, filtername)));
+    return (h("button", { class: `container ${this.issmall ? "small" : ""}` }, this.renderIcon(), this.renderContent(filtername)));
   }
   renderDynamicPillow(filtername) {
-    return (h("button", { class: `container isactive ${this.issmall ? "small" : ""}`, onClick: this.handleRemovingFilterClick }, this.hasicon && (h("z-icon", { class: "close-icon-container", name: "multiply", height: 12, width: 12 })), h("span", { class: "text-container" }, filtername)));
+    return (h("button", { class: `container isactive ${this.issmall ? "small" : ""}`, onClick: this.handleRemovingFilterClick }, this.renderIcon(), this.renderContent(filtername)));
+  }
+  renderIcon() {
+    if (!this.hasicon)
+      return null;
+    return (h("z-icon", { class: "close-icon-container", name: "multiply", height: 12, width: 12 }));
+  }
+  renderContent(filtername) {
+    return h("span", { class: "text-container" }, filtername);
   }
   render() {
     if (this.isfixed) {
@@ -245,7 +253,7 @@ const ZButtonFilter = class {
 };
 ZButtonFilter.style = stylesCss$T;
 
-const stylesCss$S = "button{height:36px;border:var(--border-size-medium) solid var(--myz-blue);border-radius:var(--border-radius);color:var(--myz-blue);fill:var(--myz-blue);background-color:var(--bg-white);outline:none;padding:0 var(--space-unit);cursor:pointer}button::-moz-focus-inner{border:0}button:hover{border-color:var(--myz-blue-dark);color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}button:focus{border-color:var(--myz-blue);color:var(--myz-blue);fill:var(--myz-blue);box-shadow:0px 0px 2px 2px var(--accent-dark)}button:active{border-color:var(--myz-blue-light);color:var(--myz-blue-light);fill:var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.selected{border-color:var(--myz-blue-dark);background-color:var(--myz-blue-dark);color:var(--bg-white);fill:var(--bg-white)}button>label{cursor:pointer;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;margin-right:calc(var(--space-unit) * 2)}button>span{font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:14px;margin-right:calc(var(--space-unit) * .5)}button>z-icon{padding-top:calc(var(--space-unit) * .5)}";
+const stylesCss$S = ":host,button{max-width:100%}button{height:36px;border:var(--border-size-medium) solid var(--myz-blue);border-radius:var(--border-radius);color:var(--myz-blue);fill:var(--myz-blue);background-color:var(--bg-white);outline:none;padding:0 var(--space-unit);cursor:pointer}button::-moz-focus-inner{border:0}button:hover{border-color:var(--myz-blue-dark);color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}button:focus{border-color:var(--myz-blue);color:var(--myz-blue);fill:var(--myz-blue);box-shadow:0px 0px 2px 2px var(--accent-dark)}button:active{border-color:var(--myz-blue-light);color:var(--myz-blue-light);fill:var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}button.selected{border-color:var(--myz-blue-dark);background-color:var(--myz-blue-dark);color:var(--bg-white);fill:var(--bg-white)}button>label{cursor:pointer;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;display:flex;align-items:center}button>label>span.ellipsis{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;margin:0;padding:0}button>label>span.counter{margin-left:calc(var(--space-unit) / 2);margin-right:calc(var(--space-unit) * 2)}button>label>span.sort{margin-right:var(--half-x1);white-space:nowrap}button>span{font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:14px;margin-right:calc(var(--space-unit) * 0.5)}button>z-icon{padding-top:calc(var(--space-unit) * 0.5)}@media only screen and (min-width: 768px){:host,button{max-width:325px}}@media only screen and (min-width: 1025px){:host,button{max-width:490px}}";
 
 const ZButtonSort = class {
   constructor(hostRef) {
@@ -259,6 +267,7 @@ const ZButtonSort = class {
     this.isselected = false;
     /** sortable flag (optional) */
     this.sortasc = true;
+    this.allowTooltip = false;
   }
   emitButtonSortClick() {
     if (!this.isselected) {
@@ -272,8 +281,20 @@ const ZButtonSort = class {
       sortAsc: this.sortasc,
     });
   }
+  componentDidLoad() {
+    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
+      this.allowTooltip = true;
+  }
+  setButtonTitle() {
+    return this.allowTooltip
+      ? `${this.sortasc ? this.label : this.desclabel}`
+      : "";
+  }
+  elementHasEllipsis() {
+    return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
+  }
   render() {
-    return (h("button", { id: this.buttonid, class: this.isselected && "selected", onClick: () => this.emitButtonSortClick() }, h("label", null, !this.sortasc && this.desclabel ? this.desclabel : this.label, this.counter && ` (${this.counter})`), h("span", null, this.sortasc ? this.sortlabelasc : this.sortlabeldesc), h("z-icon", { name: "caret-up-down", width: 16, height: 16 })));
+    return (h("button", { title: this.setButtonTitle(), id: this.buttonid, class: this.isselected && "selected", onClick: () => this.emitButtonSortClick() }, h("label", null, h("span", { ref: (el) => (this.ellipsis = el), class: "ellipsis" }, !this.sortasc && this.desclabel ? this.desclabel : this.label), h("span", { class: "counter" }, this.counter && ` (${this.counter})`), h("span", { class: "sort" }, this.sortasc ? this.sortlabelasc : this.sortlabeldesc), h("z-icon", { name: "caret-up-down", width: 16, height: 16 }))));
   }
 };
 ZButtonSort.style = stylesCss$S;
@@ -1129,7 +1150,7 @@ const ZInfoBox = class {
 };
 ZInfoBox.style = stylesCss$H;
 
-const stylesCss$G = ".sc-z-input-h{display:inline-block;width:inherit}input.sc-z-input::-ms-clear,input.sc-z-input::-ms-reveal{display:none}input.sc-z-input,textarea.sc-z-input,.textareaWrapper.sc-z-input,ul[role=\"listbox\"].sc-z-input{background:var(--color-input-field01);border-radius:var(--border-radius-small);border:var(--border-size-small) solid var(--color-surface04);box-sizing:border-box;color:var(--color-text02);fill:var(--color-icon02);font-family:var(--font-family-sans);font-weight:var(--font-rg);font-size:var(--font-size-3);outline:none}input.sc-z-input:focus:focus-visible,li[role=\"option\"].sc-z-input:focus:focus-visible,.focus.sc-z-input{box-shadow:var(--shadow-focus-primary)}.filled.sc-z-input{border-color:var(--color-surface05)}.istyping.sc-z-input,.focus.istyping.sc-z-input,.input_selecting.sc-z-input{border-color:var(--color-primary01);color:var(--color-primary01)}.input_success.sc-z-input,.input_success.sc-z-input:hover,.input_success.hover.sc-z-input{background:var(--color-success-inverse);border-color:var(--color-success01);fill:var(--color-success01)}.input_error.sc-z-input,.input_error.sc-z-input:hover,.input_error.hover.sc-z-input{background:var(--color-error-inverse);border-color:var(--color-error01);fill:var(--color-error01)}.input_warning.sc-z-input,.input_warning.sc-z-input:hover,.input_warning.hover.sc-z-input{background:var(--color-warning-inverse);border-color:var(--color-warning01);fill:var(--color-warning01)}input[readonly].sc-z-input,.readonly.sc-z-input{border-color:var(--color-disabled01);fill:var(--color-disabled01);pointer-events:none}input.sc-z-input:disabled,.disabled.sc-z-input,.filled.sc-z-input:disabled{border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled01);pointer-events:none;box-shadow:none}input.sc-z-input::placeholder,textarea.sc-z-input::placeholder{color:var(--color-text05)}.sc-z-input::-webkit-input-placeholder,.sc-z-input::-webkit-textarea-placeholder{color:var(--color-text05)}.sc-z-input:-ms-input-placeholder,.sc-z-input:-ms-textarea-placeholder{color:var(--color-text05)}.sc-z-input::-moz-placeholder{color:var(--color-text05)}.sc-z-input:-moz-placeholder{color:var(--color-text05)}.textWrapper.sc-z-input>div.sc-z-input{fill:var(--color-icon02)}.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input{width:100%;height:calc(var(--space-unit) * 5.5);margin:0;padding:0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);box-sizing:border-box}.textWrapper.sc-z-input>div.sc-z-input>input.hasIcon.sc-z-input,.textWrapper.sc-z-input>div.sc-z-input>input.hasClearIcon.sc-z-input{padding-right:calc(var(--space-unit) * 4)}.textWrapper.sc-z-input>div.sc-z-input>input.hasIcon.hasClearIcon.sc-z-input{padding-right:calc(var(--space-unit) * 7)}.textWrapper.sc-z-input>div.sc-z-input{position:relative;z-index:1}.textWrapper.sc-z-input .iconsWrapper.sc-z-input{position:absolute;bottom:calc(var(--space-unit) * 1.5);right:calc(var(--space-unit) * 1.5);display:flex;z-index:2}.textWrapper.sc-z-input .iconsWrapper.sc-z-input>z-icon.sc-z-input{--z-icon-width:18px;--z-icon-height:18px;display:block;margin-left:calc(var(--space-unit) * 0.5)}.textWrapper.sc-z-input .iconsWrapper.sc-z-input>z-icon.resetIcon.sc-z-input,.textWrapper.sc-z-input .iconsWrapper.sc-z-input>z-icon.showHidePasswordIcon.sc-z-input{cursor:pointer}.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill,.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:hover,.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:focus,.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:active{-webkit-background-clip:text !important}.textareaWrapper.sc-z-input{padding:calc(var(--space-unit) * 1.5);scrollbar-color:var(--color-primary01) transparent}textarea.sc-z-input::-webkit-scrollbar{background:linear-gradient(\n    to right,\n    transparent 0 3px,\n    var(--gray200) 3px 7px,\n    transparent 7px 10px\n  );width:10px;border-radius:var(--border-radius)}textarea.sc-z-input::-webkit-scrollbar-track{background-color:transparent}textarea.sc-z-input::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}textarea.sc-z-input::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}textarea.sc-z-input{min-height:132px;width:100%;margin:0;padding:0;border:none;resize:none}.radioWrapper.sc-z-input,.checkboxWrapper.sc-z-input{display:inline-flex;flex-direction:row;align-items:center;font-family:var(--font-family-sans);position:relative;color:var(--color-text01);fill:var(--color-primary01)}.radioWrapper.sc-z-input:hover,.checkboxWrapper.sc-z-input:hover{color:var(--color-hover-primary);fill:currentColor}.radioWrapper.sc-z-input>input.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input{position:absolute;opacity:0;z-index:-1;pointer-events:none}.radioWrapper.sc-z-input .radioLabel.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.sc-z-input{display:inline-flex;align-items:center;margin:0;line-height:1;color:inherit;font-family:inherit;font-weight:inherit;font-size:inherit;text-transform:inherit}.radioWrapper.sc-z-input input.sc-z-input:not(:disabled)+.radioLabel.sc-z-input,.checkboxWrapper.sc-z-input input.sc-z-input:not(:disabled)+.checkboxLabel.sc-z-input{cursor:pointer}.radioWrapper.sc-z-input .radioLabel.sc-z-input z-icon.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.sc-z-input z-icon.sc-z-input{fill:inherit;cursor:pointer}.radioWrapper.sc-z-input .radioLabel.after.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.after.sc-z-input{flex-direction:row}.radioWrapper.sc-z-input .radioLabel.before.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.before.sc-z-input{flex-direction:row-reverse}.radioWrapper.sc-z-input .radioLabel.after.sc-z-input>span.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.after.sc-z-input>span.sc-z-input{margin-left:var(--space-unit)}.radioWrapper.sc-z-input .radioLabel.before.sc-z-input>span.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.before.sc-z-input>span.sc-z-input{margin-right:var(--space-unit)}.radioWrapper.sc-z-input>input.sc-z-input:focus:focus-visible+.radioLabel.sc-z-input>z-icon.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input:focus:focus-visible+.checkboxLabel.sc-z-input>z-icon.sc-z-input{box-shadow:var(--shadow-focus-primary);border-radius:var(--border-radius-small)}.radioWrapper.sc-z-input>input.sc-z-input:disabled+.radioLabel.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input:disabled+.checkboxLabel.sc-z-input{color:var(--color-disabled02)}.radioWrapper.sc-z-input>input.sc-z-input:disabled+.radioLabel.sc-z-input>z-icon.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input:disabled+.checkboxLabel.sc-z-input>z-icon.sc-z-input{fill:var(--color-disabled01);cursor:default}";
+const stylesCss$G = ".sc-z-input-h{display:inline-block;width:inherit}input.sc-z-input::-ms-clear,input.sc-z-input::-ms-reveal{display:none}.sc-z-input-h input.sc-z-input::-ms-clear,.sc-z-input-h input.sc-z-input::-ms-reveal{display:none}input.sc-z-input,textarea.sc-z-input,.textareaWrapper.sc-z-input,ul[role=\"listbox\"].sc-z-input{background:var(--color-input-field01);border-radius:var(--border-radius-small);border:var(--border-size-small) solid var(--color-surface04);box-sizing:border-box;color:var(--color-text02);fill:var(--color-icon02);font-family:var(--font-family-sans);font-weight:var(--font-rg);font-size:var(--font-size-3);outline:none}input.sc-z-input:focus:focus-visible,li[role=\"option\"].sc-z-input:focus:focus-visible,.focus.sc-z-input{box-shadow:var(--shadow-focus-primary)}.filled.sc-z-input{border-color:var(--color-surface05)}.istyping.sc-z-input,.focus.istyping.sc-z-input,.input_selecting.sc-z-input{border-color:var(--color-primary01);color:var(--color-primary01)}.input_success.sc-z-input,.input_success.sc-z-input:hover,.input_success.hover.sc-z-input{background:var(--color-success-inverse);border-color:var(--color-success01);fill:var(--color-success01)}.input_error.sc-z-input,.input_error.sc-z-input:hover,.input_error.hover.sc-z-input{background:var(--color-error-inverse);border-color:var(--color-error01);fill:var(--color-error01)}.input_warning.sc-z-input,.input_warning.sc-z-input:hover,.input_warning.hover.sc-z-input{background:var(--color-warning-inverse);border-color:var(--color-warning01);fill:var(--color-warning01)}input[readonly].sc-z-input,.readonly.sc-z-input{border-color:var(--color-disabled01);fill:var(--color-disabled01);pointer-events:none}input.sc-z-input:disabled,.disabled.sc-z-input,.filled.sc-z-input:disabled{border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled01);pointer-events:none;box-shadow:none}input.sc-z-input::placeholder,textarea.sc-z-input::placeholder{color:var(--color-text05)}.sc-z-input::-webkit-input-placeholder,.sc-z-input::-webkit-textarea-placeholder{color:var(--color-text05)}.sc-z-input:-ms-input-placeholder,.sc-z-input:-ms-textarea-placeholder{color:var(--color-text05)}.sc-z-input::-moz-placeholder{color:var(--color-text05)}.sc-z-input:-moz-placeholder{color:var(--color-text05)}.textWrapper.sc-z-input>div.sc-z-input{fill:var(--color-icon02)}.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input{width:100%;height:calc(var(--space-unit) * 5.5);margin:0;padding:0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);box-sizing:border-box}.textWrapper.sc-z-input>div.sc-z-input>input.hasIcon.sc-z-input,.textWrapper.sc-z-input>div.sc-z-input>input.hasClearIcon.sc-z-input{padding-right:calc(var(--space-unit) * 4)}.textWrapper.sc-z-input>div.sc-z-input>input.hasIcon.hasClearIcon.sc-z-input{padding-right:calc(var(--space-unit) * 7)}.textWrapper.sc-z-input>div.sc-z-input{position:relative;z-index:1}.textWrapper.sc-z-input .iconsWrapper.sc-z-input{position:absolute;bottom:calc(var(--space-unit) * 1.5);right:calc(var(--space-unit) * 1.5);display:flex;z-index:2}.textWrapper.sc-z-input .iconsWrapper.sc-z-input>z-icon.sc-z-input{--z-icon-width:18px;--z-icon-height:18px;display:block;margin-left:calc(var(--space-unit) * 0.5)}.textWrapper.sc-z-input .iconsWrapper.sc-z-input>z-icon.resetIcon.sc-z-input,.textWrapper.sc-z-input .iconsWrapper.sc-z-input>z-icon.showHidePasswordIcon.sc-z-input{cursor:pointer}.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill,.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:hover,.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:focus,.textWrapper.sc-z-input>div.sc-z-input>input.sc-z-input:-webkit-autofill:active{-webkit-background-clip:text !important}.textareaWrapper.sc-z-input{padding:calc(var(--space-unit) * 1.5);scrollbar-color:var(--color-primary01) transparent}textarea.sc-z-input::-webkit-scrollbar{background:linear-gradient(\n    to right,\n    transparent 0 3px,\n    var(--gray200) 3px 7px,\n    transparent 7px 10px\n  );width:10px;border-radius:var(--border-radius)}textarea.sc-z-input::-webkit-scrollbar-track{background-color:transparent}textarea.sc-z-input::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}textarea.sc-z-input::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}textarea.sc-z-input{min-height:132px;width:100%;margin:0;padding:0;border:none;resize:none}.radioWrapper.sc-z-input,.checkboxWrapper.sc-z-input{display:inline-flex;flex-direction:row;align-items:center;font-family:var(--font-family-sans);position:relative;color:var(--color-text01);fill:var(--color-primary01)}.radioWrapper.sc-z-input:hover,.checkboxWrapper.sc-z-input:hover{color:var(--color-hover-primary);fill:currentColor}.radioWrapper.sc-z-input>input.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input{position:absolute;opacity:0;z-index:-1;pointer-events:none}.radioWrapper.sc-z-input .radioLabel.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.sc-z-input{display:inline-flex;align-items:center;margin:0;line-height:1;color:inherit;font-family:inherit;font-weight:inherit;font-size:inherit;text-transform:inherit}.radioWrapper.sc-z-input input.sc-z-input:not(:disabled)+.radioLabel.sc-z-input,.checkboxWrapper.sc-z-input input.sc-z-input:not(:disabled)+.checkboxLabel.sc-z-input{cursor:pointer}.radioWrapper.sc-z-input .radioLabel.sc-z-input z-icon.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.sc-z-input z-icon.sc-z-input{fill:inherit;cursor:pointer}.radioWrapper.sc-z-input .radioLabel.after.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.after.sc-z-input{flex-direction:row}.radioWrapper.sc-z-input .radioLabel.before.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.before.sc-z-input{flex-direction:row-reverse}.radioWrapper.sc-z-input .radioLabel.after.sc-z-input>span.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.after.sc-z-input>span.sc-z-input{margin-left:var(--space-unit)}.radioWrapper.sc-z-input .radioLabel.before.sc-z-input>span.sc-z-input,.checkboxWrapper.sc-z-input .checkboxLabel.before.sc-z-input>span.sc-z-input{margin-right:var(--space-unit)}.radioWrapper.sc-z-input>input.sc-z-input:focus:focus-visible+.radioLabel.sc-z-input>z-icon.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input:focus:focus-visible+.checkboxLabel.sc-z-input>z-icon.sc-z-input{box-shadow:var(--shadow-focus-primary);border-radius:var(--border-radius-small)}.radioWrapper.sc-z-input>input.sc-z-input:disabled+.radioLabel.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input:disabled+.checkboxLabel.sc-z-input{color:var(--color-disabled02)}.radioWrapper.sc-z-input>input.sc-z-input:disabled+.radioLabel.sc-z-input>z-icon.sc-z-input,.checkboxWrapper.sc-z-input>input.sc-z-input:disabled+.checkboxLabel.sc-z-input>z-icon.sc-z-input{fill:var(--color-disabled01);cursor:default}";
 
 const ZInput = class {
   constructor(hostRef) {
@@ -1265,8 +1286,10 @@ const ZInput = class {
       class: [
         `input_${this.status || "default"}`,
         this.isTyping && "istyping",
-        !this.isTyping && this.value && "filled"
-      ].filter(Boolean).join(" "),
+        !this.isTyping && this.value && "filled",
+      ]
+        .filter(Boolean)
+        .join(" "),
       onInput: (e) => this.emitInputChange(e.target.value, e.keyCode),
     };
     if (this.autocomplete) {
@@ -1294,7 +1317,7 @@ const ZInput = class {
   renderIcons() {
     return (h("span", { class: {
         iconsWrapper: true,
-        disabled: this.disabled
+        disabled: this.disabled,
       } }, this.renderResetIcon(), this.renderIcon()));
   }
   renderIcon() {
@@ -1311,7 +1334,7 @@ const ZInput = class {
     return (h("z-icon", { class: "resetIcon", name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
   }
   renderShowHidePassword() {
-    return (h("z-icon", { class: "showHidePasswordIcon", name: this.passwordHidden ? "view" : "view-off", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
+    return (h("z-icon", { class: "showHidePasswordIcon", name: this.passwordHidden ? "view-filled" : "view-off-filled", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
   }
   renderMessage() {
     if (!this.hasmessage)
@@ -1330,7 +1353,9 @@ const ZInput = class {
         this.isTyping && "istyping",
         this.textareaWrapperFocus,
         this.textareaWrapperHover,
-      ].filter(Boolean).join(" ") }, h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-labelledby": `${this.htmlid}_label` }))), this.renderMessage()));
+      ]
+        .filter(Boolean)
+        .join(" ") }, h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-labelledby": `${this.htmlid}_label` }))), this.renderMessage()));
   }
   /* END textarea */
   handleCheck(ev) {
@@ -1435,7 +1460,7 @@ const ZLink = class {
     /** white variant flag (optional) */
     this.iswhite = false;
     /** link text variant (optional) */
-    this.textcolor = 'blue';
+    this.textcolor = "blue";
     /** big link version */
     this.big = false;
     this.emitZLinkClick = this.emitZLinkClick.bind(this);
@@ -1443,7 +1468,7 @@ const ZLink = class {
   }
   componentWillRender() {
     if (this.iswhite) {
-      console.warn('z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead');
+      console.warn("z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead");
     }
   }
   emitZLinkClick(e, linkId) {
@@ -1457,7 +1482,7 @@ const ZLink = class {
           ${this.isactive && "active"}
           ${this.textcolor}
           ${this.iswhite && "white"}
-          ${this.big && "big"}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) }, this.icon && h("z-icon", { name: this.icon, width: this.big ? 18 : 12, height: this.big ? 18 : 12 }), h("slot", null)));
+          ${this.big && "big"}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) }, this.icon && (h("z-icon", { name: this.icon, width: this.big ? 18 : 12, height: this.big ? 18 : 12 })), h("slot", null)));
   }
 };
 ZLink.style = stylesCss$D;
@@ -1738,7 +1763,7 @@ const ZMenu = class {
 };
 ZMenu.style = stylesCss$y;
 
-const stylesCss$x = ":host{font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:12px;height:32px;width:inherit;letter-spacing:0.17px}a,a:visited,a:active{color:inherit;text-decoration:none}:host>a{display:block;background:var(--bg-grey-050);color:var(--text-grey-800);border-radius:var(--border-radius);border:var(--border-size-small) solid transparent;width:88px;outline:none}:host>a::-moz-focus-inner{border:0}:host>a:hover,:host>a.menu-opened:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}:host>a:focus{color:var(--myz-blue);fill:var(--myz-blue);border:var(--border-size-small) solid var(--myz-blue);box-shadow:0px 0px 2px 2px var(--myz-blue-light)}:host>a:active{color:var(--myz-blue-light);fill:var(--myz-blue-light);border:var(--border-size-small) solid var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}div.container{display:flex;align-items:center;justify-content:space-between;height:32px;position:relative;padding:0 var(--basex1)}div.container>span.user-wrapper{display:flex}div.container>span.user-wrapper>span.user{padding:0 var(--basex1);text-overflow:ellipsis;white-space:nowrap;overflow:hidden;cursor:pointer;width:30px}div.container>span.arrow{display:flex;justify-content:center;align-items:center}div.container>span.arrow>z-icon{transform:rotate(360deg);transition:all 200ms linear}ul{list-style:none;padding-inline-start:var(--basex4);margin:0px}li{height:var(--basex3);display:flex;align-items:center}.menu-opened{padding-bottom:calc(var(--space-unit) * 2);width:auto !important;min-width:147px;position:inherit}.menu-opened a,.menu-opened a:active,.menu-opened a:visited{color:var(--myz-blue);fill:var(--myz-blue)}.menu-opened a:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}.menu-opened>div.container{margin-bottom:var(--basex1)}.menu-opened>div.container>span.user-wrapper>span.user{width:auto}.menu-opened span.arrow>z-icon{transform:rotate(180deg);transition:all 200ms linear}@media only screen and (min-width: 1152px){:host>a{width:147px}div.container>span.user-wrapper>span.user{width:87px}}";
+const stylesCss$x = ":host{font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:12px;height:32px;width:inherit;letter-spacing:0.17px}a,a:visited,a:active{color:inherit;text-decoration:none}:host>a{display:block;background:var(--bg-grey-050);color:var(--text-grey-800);border-radius:var(--border-radius);border:var(--border-size-small) solid transparent;outline:none}:host>a::-moz-focus-inner{border:0}:host>a:hover,:host>a.menu-opened:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}:host>a:focus{color:var(--myz-blue);fill:var(--myz-blue);border:var(--border-size-small) solid var(--myz-blue);box-shadow:0px 0px 2px 2px var(--myz-blue-light)}:host>a:active{color:var(--myz-blue-light);fill:var(--myz-blue-light);border:var(--border-size-small) solid var(--myz-blue-light);box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.4)}div.container{display:flex;align-items:center;justify-content:space-between;height:32px;position:relative;padding:0 var(--basex1)}div.container>span.user-wrapper{display:flex}div.container>span.user-wrapper>span.user{padding:0 var(--basex1);text-overflow:ellipsis;white-space:nowrap;overflow:hidden;cursor:pointer;width:30px}div.container>span.arrow{display:flex;justify-content:center;align-items:center}div.container>span.arrow>z-icon{transform:rotate(360deg);transition:all 200ms linear}ul{list-style:none;padding:0 calc(var(--space-unit) * 2);margin:0px}li{height:var(--basex3);display:flex;align-items:center;padding:calc(var(--space-unit) / 4) 0;width:max-content}.menu-opened{padding-bottom:calc(var(--space-unit) * 2);width:auto !important;min-width:147px;position:inherit}.menu-opened a,.menu-opened a:active,.menu-opened a:visited{color:var(--myz-blue);fill:var(--myz-blue)}.menu-opened a:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}.menu-opened>div.container{margin-bottom:var(--basex1)}.menu-opened>div.container>span.user-wrapper>span.user{width:auto}.menu-opened>div.container>span.arrow>z-icon{transform:rotate(180deg);transition:all 200ms linear}@media only screen and (min-width: 1152px){:host>a{width:147px;padding:0 calc(var(--space-unit) / 4)}:host>a.menu-opened{width:147px;padding-bottom:calc(var(--space-unit) * 2)}div.container>span.user-wrapper>span.user{width:80px}}";
 
 const ZMenuDropdown = class {
   constructor(hostRef) {
@@ -2645,7 +2670,6 @@ const ZSelect = class {
   }
   watchItems() {
     this.itemsList = this.getInitialItemsArray();
-    typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedItems = this.itemsList.filter((item) => item.selected);
   }
   /** get the input selected options */
@@ -2874,7 +2898,7 @@ const ZSelect = class {
     });
   }
   renderNoSearchResults() {
-    return (h("li", { class: "noResults" }, h("z-icon", { name: "circle-cross-stroke" }), this.noresultslabel));
+    return (h("li", { class: "noResults" }, h("z-icon", { name: "multiply-circle" }), this.noresultslabel));
   }
   renderMessage() {
     if (!this.hasmessage)
@@ -2945,22 +2969,23 @@ const ZToggleButton = class {
     this.toggleClick = createEvent(this, "toggleClick", 7);
     /** disabled status flag (optional) */
     this.isdisabled = false;
-    this.isOpen = false;
+    /** open by default (optional) */
+    this.opened = false;
   }
   emitToggleClick() {
     if (this.isdisabled)
       return;
-    this.isOpen = !this.isOpen;
-    this.toggleClick.emit(this.isOpen);
+    this.opened = !this.opened;
+    this.toggleClick.emit(this.opened);
   }
   retrieveButtonClass() {
-    let className = this.isOpen && "isopen";
+    let className = this.opened && "isopen";
     if (this.avoidclick)
       className = className + " avoid-clicks";
     return className;
   }
   render() {
-    return (h("button", { tabindex: this.avoidclick ? "-1" : "0", class: this.retrieveButtonClass(), disabled: this.isdisabled, onClick: () => this.emitToggleClick() }, h("z-icon", { name: this.isOpen ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
+    return (h("button", { tabindex: this.avoidclick ? "-1" : "0", class: this.retrieveButtonClass(), disabled: this.isdisabled, onClick: () => this.emitToggleClick() }, h("z-icon", { name: this.opened ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
   }
 };
 ZToggleButton.style = stylesCss$3;
