@@ -34,7 +34,6 @@ export class ZListGroup {
   componentDidLoad() {
     const children = this.host.children;
     this.hasHeader = !!this.host.querySelector('[slot="header-title"]');
-    console.log("header", this.hasHeader);
     for (let i = 0; i < children.length; i++) {
       if (children.length - 1 > i) {
         children[i].setAttribute("divider-type", this.dividerType);
@@ -51,7 +50,7 @@ export class ZListGroup {
         <div
           class={{
             "z-list-group-header-container": true,
-            "has-header": true,
+            "has-header": this.hasHeader,
           }}
         >
           <slot name="header-title" />

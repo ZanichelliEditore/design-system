@@ -1,3 +1,7 @@
+:host {
+  outline: none;
+}
+
 :host > .container {
   --background-color-list-element: var(--bg-white);
   --background-hover-color-list-element: var(--gray50);

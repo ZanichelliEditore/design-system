@@ -7,7 +7,7 @@
   color: var(--gray700);
 
   font-size: var(--font-size-2);
-  font-weight: var(--font-rg);
+  font-weight: var(--font-sb) !important;
   line-height: 1.4;
   letter-spacing: 0.16px;
 }
