@@ -1,0 +1,22 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from "@storybook/addon-knobs";
+
+## Stories
+
+<Meta title="Myz/MyzCard/ZMyzCardFooterSections" component="z-myz-card-footer-sections" />
+
+# ZMyzCardFooterSections
+
+<Preview>
+  <Story name="z-myz-card-footer-sections">
+    {html`
+      <z-myz-card-footer-sections>
+        <span slot="top">Top footer content</span>
+        <span slot="bottom">Bottom footer content</span>
+      </z-myz-card-footer-sections>
+    `}
+  </Story>
+</Preview>
+
+<Props of="z-myz-card-footer-sections" />

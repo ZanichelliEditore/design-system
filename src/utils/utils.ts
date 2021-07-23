@@ -1,4 +1,5 @@
-import { keybordKeyCodeEnum } from "../beans/index";
+import { keybordKeyCodeEnum, DeviceEnum } from "../beans/index";
+import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 
 export function format(first: string, middle: string, last: string): string {
   return (
@@ -56,4 +57,38 @@ export function getElementTree(
   }
 
   return tree;
+}
+
+export function getSiblings(elem: HTMLElement) {
+  let siblings = [];
+  if (!elem || !elem.parentNode || !elem.parentNode.childNodes) {
+    return siblings;
+  }
+
+  elem.parentNode.childNodes.forEach((child) => {
+    if (child.nodeType === 1 && child !== elem) {
+      siblings.push(child);
+    }
+  });
+
+  return siblings;
+}
+
+export function getDevice(): DeviceEnum {
+  switch (true) {
+    case window.innerWidth <= mobileBreakpoint:
+      return DeviceEnum.mobile;
+    case window.innerWidth <= tabletBreakpoint:
+      return DeviceEnum.tablet;
+    default:
+      return DeviceEnum.desktop;
+  }
+}
+
+export function convertJson(data: string): any {
+  try {
+    return JSON.parse(data);
+  } catch (e) {
+    return false;
+  }
 }

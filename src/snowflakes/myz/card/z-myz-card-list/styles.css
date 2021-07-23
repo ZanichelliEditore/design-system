@@ -1,6 +1,6 @@
 ul {
-  font-family: var(--dashboard-font);
-  color: var(--myz-blue);
+  font-family: var(--font-family-sans);
+  color: var(--color-primary02);
   margin: 0 calc(var(--space-unit) * 2);
   padding: 0px;
   overflow: hidden;
@@ -19,7 +19,7 @@ ul > li > a {
   font-size: 14px;
   font-weight: var(--font-sb);
   text-decoration: none;
-  color: var(--myz-blue);
+  color: var(--color-primary01);
   letter-spacing: 0.16px;
   line-height: calc(var(--space-unit) * 2.5);
   padding-top: calc(var(--space-unit) * .5);
@@ -34,7 +34,7 @@ ul > li > span {
   font-size: 14px;
   font-weight: var(--font-rg);
   text-decoration: none;
-  color: var(--text-grey-700);
+  color: var(--color-surface04);
   padding: 0 calc(var(--space-unit) * 2);
   letter-spacing: 0.16px;
   line-height: calc(var(--space-unit) * 2.5);

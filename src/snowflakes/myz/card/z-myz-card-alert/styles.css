@@ -1,6 +1,6 @@
 :host {
   position: absolute;
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   width: 100%;
   top: 0px;
@@ -8,15 +8,18 @@
   z-index: 2;
 }
 
+:host > z-alert {
+  height: calc(var(--space-unit) * 6);
+}
+
 .relativeContainer {
   position: relative;
-  height: 48px;
   display: grid;
-  grid-template-columns: 34px auto 48px;
+  grid-template-columns: 18px auto 46px;
   grid-template-rows: 1fr;
-  grid-column-gap: 8px;
+  grid-column-gap: var(--space-unit);
   align-items: center;
-  padding: 0 var(--space-unit);
+  padding: 0;
   outline: none;
 }
 
@@ -24,25 +27,28 @@
   border: 0;
 }
 
-:host div.addAlert {
-  background: var(--status-success-green-lighter);
-}
-
-:host div.removeAlert {
-  background: var(--status-warning-yellow-lighter);
-  border: var(--border-size-medium) solid var(--bg-grey-200);
+.alert-external-wrapper.removeAlert {
+  border: var(--border-size-medium) solid var(--color-surface02);
   border-top: none;
 }
 
-:host div>.contentText {
-  color: var(--text-grey-800);
+:host div.addAlert {
+  background: var(--color-success-inverse);
+}
+
+:host div.removeAlert {
+  background: var(--color-warning-inverse);
+}
+
+:host div > .contentText {
+  color: var(--color-surface05);
   font-size: 14px;
   letter-spacing: 0.16px;
   line-height: 20px;
 }
 
-:host div>.contentAction {
-  color: var(--myz-blue);
+:host div > .contentAction {
+  color: var(--color-primary01);
   font-size: 12px;
   font-weight: var(--font-sb);
   height: 20px;
@@ -51,16 +57,6 @@
   cursor: pointer;
 }
 
-:host div>z-icon {
+:host div > z-icon {
   justify-self: center;
-}
-
-:host div>z-icon.addAlert {
-  color: var(--status-success-green);
-  fill: var(--status-success-green);
-}
-
-:host div>z-icon.removeAlert {
-  color: var(--status-warning-yellow-dark);
-  fill: var(--status-warning-yellow-dark);
 }
