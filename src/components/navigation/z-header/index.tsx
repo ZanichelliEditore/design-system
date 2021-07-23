@@ -195,7 +195,7 @@ export class ZHeader {
   renderMobileSubMenu(menuItems: ListItemBean[], id?: string): HTMLSpanElement {
     return (
       <span class="mobile-dropdown" id={id ? `mobile-dropdown-${id}` : ""}>
-        <z-list list={menuItems} />
+        <z-myz-list list={menuItems} />
       </span>
     );
   }

@@ -1,45 +1,36 @@
-import { Component, Prop, h, Watch } from "@stencil/core";
-import { ListItemBean } from "../../../beans/index.js";
+import { Component, Element, h, Prop, Host } from "@stencil/core";
+
+import { ListSize } from "../../../beans";
 
 @Component({
   tag: "z-list",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZList {
-  /** json stringified list data (mutable, optional) */
-  @Prop({mutable: true}) inputrawdata?: string;
-  /** list item data (mutable, optional)*/
-  @Prop({ mutable: true }) list?: ListItemBean[];
+  @Element() host: HTMLElement;
 
-  componentWillLoad() {
-    if (this.inputrawdata) {
-      this.parseinputrawdata(this.inputrawdata);
+  /**
+   * [optional] Sets size of inside elements.
+   */
+  @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
+
+  setChildrenSizeType() {
+    const children = this.host.children;
+    for (let i = 0; i < children.length - 1; i++) {
+      children[i].setAttribute("size", this.size);
     }
   }
 
-  parseinputrawdata(inputrawdata: string) {
-    this.list = [...JSON.parse(inputrawdata)];
-  }
-
-  @Watch("inputrawdata") //this will run everytime values are changed
-  oninputrawdataChange(newValue: string) {
-    this.parseinputrawdata(newValue);
+  componentDidLoad() {
+    this.setChildrenSizeType();
   }
 
   render() {
-    const lastElem = this.list? this.list.length -1:-1;
     return (
-      <ul>
-        {this.list &&
-          this.list.map((bean,i) => (
-            <z-list-item
-              listitemid={bean.listitemid} text={bean.text}
-              link={bean.link} linktarget={bean.linktarget}
-              icon={bean.icon} underlined={lastElem != i}
-            />
-          ))}
-      </ul>
+      <Host role="list">
+        <slot />
+      </Host>
     );
   }
 }

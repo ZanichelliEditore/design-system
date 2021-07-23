@@ -1,153 +1,36 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZListItem } from "../z-list-item/index";
-
 import { ZList } from "./index";
 
-describe("Suite test z-list", () => {
-  it("Test render lista vuota", async () => {
+describe("Suite test ZList", () => {
+  it("Test render ZList", async () => {
     const page = await newSpecPage({
-      components: [ZList, ZListItem],
-      html: `<z-list></z-list>`
+      components: [ZList],
+      html: `<z-list><z-list-element></z-list-element></z-list>`,
     });
 
     expect(page.root).toEqualHtml(`
-    <z-list>
+      <z-list role="list" size="medium">
         <mock:shadow-root>
-          <ul>
-          </ul>
+          <slot></slot>
         </mock:shadow-root>
+        <z-list-element></z-list-element>
       </z-list>
     `);
   });
 
-  it("Test render lista con un elemento testuale", async () => {
+  it("Test render ZList size prop", async () => {
     const page = await newSpecPage({
-      components: [ZList, ZListItem],
-      html: `<z-list></z-list>`
-    });
-
-    page.root.inputrawdata = '[{"text":"elemento lista"}]';
-    await page.waitForChanges();
-
-    expect(page.root).toEqualHtml(`
-    <z-list>
-        <mock:shadow-root>
-          <ul>
-            <z-list-item>
-              <mock:shadow-root>
-                <li role="button">
-                  <span>
-                      <span>elemento lista</span>
-                      <slot></slot>
-                  </span>
-                </li>
-              </mock:shadow-root>
-            </z-list-item>
-          </ul>
-        </mock:shadow-root>
-      </z-list>
-    `);
-  });
-
-  it("Test render lista con un elemento link", async () => {
-    const page = await newSpecPage({
-      components: [ZList, ZListItem],
-      html: `<z-list inputrawdata='[{"text":"elemento lista","link":"http://www.google.it"}]'></z-list>`
+      components: [ZList],
+      html: `<z-list size="large"><z-list-element></z-list-element></z-list>`,
     });
 
     expect(page.root).toEqualHtml(`
-    <z-list inputrawdata='[{"text":"elemento lista","link":"http://www.google.it"}]'>
+      <z-list role="list" size="large">
         <mock:shadow-root>
-          <ul>
-            <z-list-item>
-              <mock:shadow-root>
-                <li role="button">
-                  <span>
-                    <a href=\"http://www.google.it\" target="_self" role="link" tabindex="0"> elemento lista</a>
-                    <slot></slot>
-                  </span>
-                </li>
-              </mock:shadow-root>
-            </z-list-item>
-          </ul>
+          <slot></slot>
         </mock:shadow-root>
-      </z-list>
-    `);
-  });
-
-  it("Test render lista 2 un elemento, testo e link", async () => {
-    const page = await newSpecPage({
-      components: [ZList, ZListItem],
-      html: `<z-list inputrawdata='[{"text":"elemento lista"},{"text":"link lista","link":"http://www.google.it"}]'></z-list>`
-    });
-
-    expect(page.root).toEqualHtml(`
-    <z-list inputrawdata=\"[{&quot;text&quot;:&quot;elemento lista&quot;},{&quot;text&quot;:&quot;link lista&quot;,&quot;link&quot;:&quot;http://www.google.it&quot;}]\">
-      <mock:shadow-root>
-        <ul>
-          <z-list-item>
-            <mock:shadow-root>
-              <li role="button">
-                <span class="border">
-                  <span>elemento lista</span>
-                  <slot></slot>
-                </span>
-              </li>
-            </mock:shadow-root>
-          </z-list-item>
-          <z-list-item>
-            <mock:shadow-root>
-              <li role="button">
-                <span>
-                  <a href=\"http://www.google.it\" tabindex="0" target="_self" role="link">
-                    link lista
-                  </a>
-                  <slot></slot>
-                </span>
-              </li>
-            </mock:shadow-root>
-          </z-list-item>
-        </ul>
-      </mock:shadow-root>
-    </z-list>
-    `);
-  });
-
-  it("Test aggiornamento lista da proprietà raw", async () => {
-    const page = await newSpecPage({
-      components: [ZList, ZListItem],
-      html: `<z-list></z-list>`
-    });
-
-    expect(page.root).toEqualHtml(`
-    <z-list>
-        <mock:shadow-root>
-          <ul>
-          </ul>
-        </mock:shadow-root>
-      </z-list>
-    `);
-
-    page.rootInstance.inputrawdata = '[{"text":"testo di esempio"}]';
-    await page.waitForChanges();
-
-    expect(page.root).toEqualHtml(`
-    <z-list>
-        <mock:shadow-root>
-          <ul>
-            <z-list-item>
-              <mock:shadow-root>
-                <li role="button">
-                  <span>
-                      <span>testo di esempio</span>
-                      <slot></slot>
-                  </span>
-                </li>
-              </mock:shadow-root>
-            </z-list-item>
-          </ul>
-        </mock:shadow-root>
+        <z-list-element></z-list-element>
       </z-list>
     `);
   });
