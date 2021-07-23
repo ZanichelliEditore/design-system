@@ -96,4 +96,5 @@
 
 :host > .container > .z-list-element-inner-container.expanded {
   display: block;
+  margin-top: 8px;
 }
