@@ -1,5 +1,5 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-
+import { Component, Prop, State, h, Event, EventEmitter } from "@stencil/core";
+import { tabletBreakpoint } from "../../../constants/breakpoints";
 @Component({
   tag: "z-button-sort",
   styleUrl: "styles.css",
@@ -23,6 +23,10 @@ export class ZButtonSort {
   /** sortable flag (optional) */
   @Prop({ mutable: true }) sortasc?: boolean = true;
 
+  @State() allowTooltip: boolean = false;
+
+  private ellipsis?: HTMLSpanElement;
+
   /** sorting direction click event, returns buttonid and sortAsc */
   @Event() buttonSortClick: EventEmitter;
 
@@ -38,19 +42,42 @@ export class ZButtonSort {
     });
   }
 
+  componentDidLoad() {
+    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
+      this.allowTooltip = true;
+  }
+
+  setButtonTitle(): string {
+    return this.allowTooltip
+      ? `${this.sortasc ? this.label : this.desclabel}`
+      : "";
+  }
+
+  elementHasEllipsis(): boolean {
+    return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
+  }
+
   render() {
     return (
       <button
+        title={this.setButtonTitle()}
         id={this.buttonid}
         class={this.isselected && "selected"}
         onClick={() => this.emitButtonSortClick()}
       >
         <label>
-          {!this.sortasc && this.desclabel ? this.desclabel : this.label}
-          {this.counter && ` (${this.counter})`}
+          <span
+            ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
+            class="ellipsis"
+          >
+            {!this.sortasc && this.desclabel ? this.desclabel : this.label}
+          </span>
+          <span class="counter">{this.counter && ` (${this.counter})`}</span>
+          <span class="sort">
+            {this.sortasc ? this.sortlabelasc : this.sortlabeldesc}
+          </span>
+          <z-icon name="caret-up-down" width={16} height={16} />
         </label>
-        <span>{this.sortasc ? this.sortlabelasc : this.sortlabeldesc}</span>
-        <z-icon name="caret-up-down" width={16} height={16} />
       </button>
     );
   }

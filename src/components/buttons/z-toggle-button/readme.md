@@ -18,6 +18,7 @@
 | `avoidclick` | `avoidclick` | avoidclick status flag          | `boolean` | `undefined` |
 | `isdisabled` | `isdisabled` | disabled status flag (optional) | `boolean` | `false`     |
 | `label`      | `label`      | label text                      | `string`  | `undefined` |
+| `opened`     | `opened`     | open by default (optional)      | `boolean` | `false`     |
 
 
 ## Events

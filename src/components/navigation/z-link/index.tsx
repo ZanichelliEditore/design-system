@@ -1,9 +1,12 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
+/**
+ * @slot - link content
+ */
 @Component({
   tag: "z-link",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZLink {
   /** link id (optional) */
@@ -21,7 +24,7 @@ export class ZLink {
   /** white variant flag (optional) */
   @Prop() iswhite?: boolean = false;
   /** link text variant (optional) */
-  @Prop() textcolor?: 'white' | 'blue' | 'black' = 'blue';
+  @Prop() textcolor?: "white" | "blue" | "black" = "blue";
   /** link icon name (optional) */
   @Prop() icon?: string;
   /** big link version */
@@ -37,7 +40,9 @@ export class ZLink {
 
   componentWillRender() {
     if (this.iswhite) {
-      console.warn('z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead')
+      console.warn(
+        "z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead"
+      );
     }
   }
 
@@ -58,18 +63,19 @@ export class ZLink {
           ${this.isactive && "active"}
           ${this.textcolor}
           ${this.iswhite && "white"}
-          ${this.big && "big"}`
-        }
+          ${this.big && "big"}`}
         target={this.target}
         role={this.href ? "link" : "button"}
         tabindex={this.htmltabindex}
         onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.htmlid)}
       >
-        {this.icon && <z-icon
-          name={this.icon}
-          width={this.big ? 18 : 12}
-          height={this.big ? 18 : 12}
-          />}
+        {this.icon && (
+          <z-icon
+            name={this.icon}
+            width={this.big ? 18 : 12}
+            height={this.big ? 18 : 12}
+          />
+        )}
         <slot />
       </a>
     );

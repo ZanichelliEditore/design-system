@@ -68,3 +68,7 @@ button.container.isactive:focus {
   color: var(--bg-white);
   fill: var(--bg-white);
 }
+
+button z-icon {
+  display: inline-block;
+}

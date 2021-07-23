@@ -90,9 +90,7 @@ it("Test ZInput typing state", async () => {
 it("Test ZInput - input password - change hide/show icon on click", async () => {
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
-  await page.setContent(
-    `<z-input htmlid="checkid" type="password"></z-input>`
-  );
+  await page.setContent(`<z-input htmlid="checkid" type="password"></z-input>`);
   const icon = await page.find("z-input z-icon.showHidePasswordIcon");
   //icon will be an open eye on first click
   await icon.click();
@@ -101,7 +99,7 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
     `<z-icon class="hydrated showHidePasswordIcon sc-z-input">
       <mock:shadow-root>
         <svg viewBox="0 0 1000 1000" width="18" height="18">
-            <path d="${icons["view-off"]}"></path>
+            <path d="${icons["view-off-filled"]}"></path>
         </svg>
       </mock:shadow-root>
     </z-icon>`
@@ -114,7 +112,7 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
     `<z-icon class="hydrated showHidePasswordIcon sc-z-input">
       <mock:shadow-root>
         <svg viewBox="0 0 1000 1000" width="18" height="18">
-          <path d="${icons["view"]}"></path>
+          <path d="${icons["view-filled"]}"></path>
         </svg>
       </mock:shadow-root>
     </z-icon>`
@@ -124,9 +122,7 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
 it("Test ZInput - input password - change input type on icon click to show/hide password", async () => {
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
-  await page.setContent(
-    `<z-input htmlid="checkid" type="password"></z-input>`
-  );
+  await page.setContent(`<z-input htmlid="checkid" type="password"></z-input>`);
   const input = await page.find("z-input div.textWrapper div input");
   const icon = await page.find("z-input z-icon.showHidePasswordIcon");
 
