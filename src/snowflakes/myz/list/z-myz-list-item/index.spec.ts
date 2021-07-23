@@ -1,11 +1,11 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZListItem } from "./index";
+import { ZMyzListItem } from "./index";
 
 describe("Suite test z-myz-list-item", () => {
   it("Empty list item with shadow dom", async () => {
     const page = await newSpecPage({
-      components: [ZListItem],
+      components: [ZMyzListItem],
       html: `<z-myz-list-item></z-myz-list-item>`
     });
     expect(page.root).toEqualHtml(`
@@ -24,7 +24,7 @@ describe("Suite test z-myz-list-item", () => {
 
   it("Text element", async () => {
     const page = await newSpecPage({
-      components: [ZListItem],
+      components: [ZMyzListItem],
       html: `<z-myz-list-item text='testo'></z-myz-list-item>`
     });
     expect(page.root).toEqualHtml(`
@@ -43,7 +43,7 @@ describe("Suite test z-myz-list-item", () => {
 
   it("Link element", async () => {
     const page = await newSpecPage({
-      components: [ZListItem],
+      components: [ZMyzListItem],
       html: `<z-myz-list-item text='testo' link =='http://www.google.it'></z-myz-list-item>`
     });
     expect(page.root).toEqualHtml(`
@@ -64,7 +64,7 @@ describe("Suite test z-myz-list-item", () => {
 
   it("Slot element", async () => {
     const page = await newSpecPage({
-      components: [ZListItem],
+      components: [ZMyzListItem],
       html: `<z-myz-list-item>z list inner content</z-myz-list-item>`
     });
     expect(page.root).toEqualHtml(`

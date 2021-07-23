@@ -6,7 +6,7 @@ import { ListItemBean } from "../../../../beans/index.js";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZList {
+export class ZMyzList {
   /** json stringified list data (mutable, optional) */
   @Prop({ mutable: true }) inputrawdata?: string;
   /** list item data (mutable, optional)*/

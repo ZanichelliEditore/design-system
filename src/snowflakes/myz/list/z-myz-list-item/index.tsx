@@ -6,7 +6,7 @@ import { handleKeyboardSubmit } from "../../../../utils/utils";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZListItem {
+export class ZMyzListItem {
   /** content text */
   @Prop() text: string;
   /** link url (optional) */
