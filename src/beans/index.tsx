@@ -184,6 +184,8 @@ export enum keybordKeyCodeEnum {
   ENTER = 13,
   ARROW_UP = 38,
   ARROW_DOWN = 40,
+  BACKSPACE = 8,
+  DELETE = 46,
 }
 
 export enum KeyboardKeys {
@@ -307,3 +309,42 @@ export enum NotificationType {
   warning = "warning",
   error = "error",
 }
+
+export enum AlertTypesEnum {
+  success = "success",
+  warning = "warning",
+  error = "error",
+}
+
+export type AlertTypes = AlertTypesEnum;
+
+export enum DeviceEnum {
+  mobile = "mobile",
+  tablet = "tablet",
+  desktop = "desktop",
+}
+
+export type DeviceType = DeviceEnum;
+
+export type DictionaryData = {
+  author: string;
+  year: string;
+  title: string;
+  description: string;
+  onlineLicense: DictionaryLicenseData;
+  offlineLicense: DictionaryLicenseData;
+};
+
+export type DictionaryLicenseData = {
+  expiration: string;
+  expired: boolean;
+  expiring: boolean;
+  installations: string;
+};
+
+export enum PocketStatusEnum {
+  preview = "preview",
+  open = "open",
+  closed = "closed",
+}
+export type PocketStatus = PocketStatusEnum;

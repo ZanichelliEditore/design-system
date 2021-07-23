@@ -1,28 +1,28 @@
 button {
   width: 42px;
-  height: 40px;
+  height: calc(var(--space-unit) * 5);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--myz-blue);
-  fill: var(--myz-blue);
+  color: var(--color-primary01);
+  fill: var(--color-primary01);
   cursor: pointer;
   outline: none;
 
   background: none;
   border: none;
-  border-left: var(--border-size-medium) solid var(--bg-grey-200);
+  border-left: var(--border-size-medium) solid var(--color-surface03);
   border-radius: 0px var(--border-radius) 0px 0px;
   margin: 0;
   padding: 0px;
-  width: 48px;
-  height: 48px;
+  width: calc(var(--space-unit) * 6);
+  height: calc(var(--space-unit) * 6);
 }
 
 button:active,
 button:focus {
-  color: var(--myz-blue-dark);
-  fill: var(--myz-blue-dark);
+  color: var(--blue700);
+  fill: var(--blue700);
 }
 
 button > span {
@@ -36,17 +36,17 @@ button > span {
 }
 
 button:hover > span {
-  background: var(--myz-blue-lighter);
+  background: var(--color-primary03);
 }
 
 button:focus > span {
-  background: var(--bg-white);
+  background: var(--color-surface01);
   border-radius: var(--border-radius);
   box-shadow: 0px 0px 2px 2px var(--accent-dark);
 }
 
 button:active > span {
-  background: var(--bg-white);
+  background: var(--color-surface01);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-2);
 }
@@ -62,7 +62,7 @@ button:disabled > span {
 }
 
 button:disabled > span > z-icon {
-  fill: var(--bg-grey-200);
+  fill: var(--color-surface03);
 }
 
 button::-moz-focus-inner {

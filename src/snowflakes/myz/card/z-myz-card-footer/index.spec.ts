@@ -20,22 +20,24 @@ describe("Suite test ZMyzCardFooter", () => {
               <h2>
                 titolo
               </h2>
-              <div>
-                <p class="authors">
-                  <span><span class="bold">
-                    Mario Rossi, Paolo Bianchi
-                  </span></span>
-                </p>
-                <p class="year_isbn">
-                  <span class=\"isbn\">
+              <div class="content">
+                <div>
+                  <p class="authors">
                     <span><span class="bold">
-                      123456
-                    </span> (ed. cartacea)</span>
-                  </span>
-                </p>
-              </div>
-              <div class="hidden slot-handler">
-                <slot name="list"></slot>
+                      Mario Rossi, Paolo Bianchi
+                    </span></span>
+                  </p>
+                  <p class="year_isbn">
+                    <span class=\"isbn\">
+                      <span><span class="bold">
+                        123456
+                      </span> (ed. cartacea)</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="hidden slot-handler">
+                  <slot name="list"></slot>
+                </div>
               </div>
             </footer>
           </div>
@@ -61,20 +63,22 @@ describe("Suite test ZMyzCardFooter", () => {
               <h2>
                 titolo
               </h2>
-              <div>
-                <p class="authors">
-                  <span><span class="bold">
-                    Mario Rossi, Paolo Bianchi
-                  </span></span>
-                </p>
-                <p class="year_isbn">
-                  <span class=\"isbn\">
-                    <span><span class="bold"></span> (ed. cartacea)</span>
-                  </span>
-                </p>
-              </div>
-              <div class="hidden slot-handler">
-                <slot name="list"></slot>
+              <div class="content">
+                <div>
+                  <p class="authors">
+                    <span><span class="bold">
+                      Mario Rossi, Paolo Bianchi
+                    </span></span>
+                  </p>
+                  <p class="year_isbn">
+                    <span class=\"isbn\">
+                      <span><span class="bold"></span> (ed. cartacea)</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="hidden slot-handler">
+                  <slot name="list"></slot>
+                </div>
               </div>
             </footer>
           </div>
@@ -98,18 +102,20 @@ describe("Suite test ZMyzCardFooter", () => {
                 <slot name=\"toggle\"></slot>
               </span>
               <h2></h2>
-              <div>
-                <p class="authors">
-                  <span><span class="bold"></span></span>
-                </p>
-                <p class="year_isbn">
-                  <span class=\"isbn\">
-                    <span><span class="bold"></span> (ed. cartacea)</span>
-                  </span>
-                </p>
-              </div>
-              <div class="hidden slot-handler">
-                <slot name="list"></slot>
+              <div class="content">
+                <div>
+                  <p class="authors">
+                    <span><span class="bold"></span></span>
+                  </p>
+                  <p class="year_isbn">
+                    <span class=\"isbn\">
+                      <span><span class="bold"></span> (ed. cartacea)</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="hidden slot-handler">
+                  <slot name="list"></slot>
+                </div>
               </div>
             </footer>
           </div>
@@ -136,20 +142,62 @@ describe("Suite test ZMyzCardFooter", () => {
               <h2>
                 titolo
               </h2>
-              <div>
-                <p class="authors">
-                  <span><span class="bold">
-                    Mario Rossi, Paolo Bianchi
-                  </span></span>
-                </p>
-                <p class="year_isbn">
-                  <span class=\"isbn\">
-                    <span><span class="bold"></span> (ed. cartacea)</span>
-                  </span>
-                </p>
+              <div class="content">
+                <div>
+                  <p class="authors">
+                    <span><span class="bold">
+                      Mario Rossi, Paolo Bianchi
+                    </span></span>
+                  </p>
+                  <p class="year_isbn">
+                    <span class=\"isbn\">
+                      <span><span class="bold"></span> (ed. cartacea)</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="slot-handler visible">
+                  <slot name="list"></slot>
+                </div>
               </div>
-              <div class="slot-handler visible">
-                <slot name="list"></slot>
+            </footer>
+          </div>
+        </mock:shadow-root>
+      </z-card-footer>
+    `);
+  });
+
+  it("Test render ZMyzCardFooter aperto tramite prop", async () => {
+    const page = await newSpecPage({
+      components: [ZMyzCardFooter],
+      html: `<z-myz-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019" opened=true></z-myz-card-footer>`
+    });
+    expect(page.root).toEqualHtml(`
+      <z-myz-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" titolo=\"titolo\" opened=true>
+        <mock:shadow-root>
+          <div>
+            <footer class="isopen">
+              <span class=\"toggle\">
+                <slot name=\"toggle\"></slot>
+              </span>
+              <h2>
+                titolo
+              </h2>
+              <div class="content">
+                <div>
+                  <p class="authors">
+                    <span><span class="bold">
+                      Mario Rossi, Paolo Bianchi
+                    </span></span>
+                  </p>
+                  <p class="year_isbn">
+                    <span class=\"isbn\">
+                      <span><span class="bold"></span> (ed. cartacea)</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="slot-handler visible">
+                  <slot name="list"></slot>
+                </div>
               </div>
             </footer>
           </div>

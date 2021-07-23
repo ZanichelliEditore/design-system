@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.11.0](https://github.com/ZanichelliEditore/design-system/compare/v2.10.4...v2.11.0) (2021-07-22)
+
+
+### Features
+
+* z-select theming color tokens ([1305c3e](https://github.com/ZanichelliEditore/design-system/commit/1305c3efe32b946d310b68251acb16785a23d9cd))
+
+
+### Bug Fixes
+
+* icons color ([00eea88](https://github.com/ZanichelliEditore/design-system/commit/00eea881d88d2aac1cdc4e19c578947afa45815a))
+* label tokens ([932e851](https://github.com/ZanichelliEditore/design-system/commit/932e851bce3bde468ce80eccec7f374a6b085cb7))
+* test e2e ([27a0fb7](https://github.com/ZanichelliEditore/design-system/commit/27a0fb7da58b3d7ffa2c6eeb54f8c3d585107344))
+* tests ([bdef32d](https://github.com/ZanichelliEditore/design-system/commit/bdef32d166b128896ee7df2a19996a5220d9828c))
+
 ### [2.10.4](https://github.com/ZanichelliEditore/design-system/compare/v2.10.3...v2.10.4) (2021-07-19)
 
 ### [2.10.3](https://github.com/ZanichelliEditore/design-system/compare/v2.10.2...v2.10.3) (2021-07-16)
