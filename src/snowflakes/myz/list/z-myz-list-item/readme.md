@@ -1,11 +1,11 @@
-# z-list-item
+# z-myz-list-item
 
 <!-- readme-group="list" -->
-```html
-<z-list-item text='testo' ></z-list-item>
-<z-list-item text='testo' link ='http://www.google.it'></z-list-item>`
-```
 
+```html
+<z-myz-list-item text="testo"></z-myz-list-item>
+<z-myz-list-item text="testo" link="http://www.google.it"></z-myz-list-item>`
+```
 
 <!-- Auto Generated Below -->
 
@@ -35,20 +35,20 @@
 
 ### Used by
 
- - [z-combobox](../../inputs/z-combobox)
- - [z-list](../z-list)
+ - [z-combobox](../../../../components/inputs/z-combobox)
+ - [z-myz-list](../z-myz-list)
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../../../components/icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-list-item --> z-icon
-  z-combobox --> z-list-item
-  z-list --> z-list-item
-  style z-list-item fill:#f9f,stroke:#333,stroke-width:4px
+  z-myz-list-item --> z-icon
+  z-combobox --> z-myz-list-item
+  z-myz-list --> z-myz-list-item
+  style z-myz-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

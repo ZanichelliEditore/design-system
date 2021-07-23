@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -561,43 +561,61 @@ export namespace Components {
     }
     interface ZList {
         /**
-          * json stringified list data (mutable, optional)
+          * [optional] Sets size of inside elements.
          */
-        "inputrawdata"?: string;
-        /**
-          * list item data (mutable, optional)
-         */
-        "list"?: ListItemBean[];
+        "size"?: ListSize;
     }
-    interface ZListItem {
+    interface ZListElement {
         /**
-          * data-action attribute (optional)
+          * [optional] Align expandable button left or right.
          */
-        "action"?: string;
+        "alignButton"?: ExpandableListButtonAlign;
         /**
-          * icon name (optional)
+          * [optional] Sets element clickable.
          */
-        "icon"?: string;
+        "clickable"?: boolean;
         /**
-          * link url (optional)
+          * [optional] Sets the divider color.
          */
-        "link"?: string;
+        "dividerColor"?: string;
         /**
-          * link target (optional)
+          * [optional] Sets the divider size.
          */
-        "linktarget"?: string;
+        "dividerSize"?: DividerSize;
         /**
-          * id (optional)
+          * [optional] Sets the position where to insert the divider.
          */
-        "listitemid"?: string;
+        "dividerType"?: ListDividerType;
         /**
-          * content text
+          * [optional] Sets element as expandable.
          */
-        "text": string;
+        "expandable"?: boolean;
         /**
-          * underlined style flag
+          * [optional] Sets expandable style to element.
          */
-        "underlined": boolean;
+        "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] Sets size of inside elements.
+         */
+        "size"?: ListSize;
+    }
+    interface ZListGroup {
+        /**
+          * [optional] Sets the divider color.
+         */
+        "dividerColor"?: string;
+        /**
+          * [optional] Sets the divider size.
+         */
+        "dividerSize"?: DividerSize;
+        /**
+          * [optional] Sets the position where to insert the divider.
+         */
+        "dividerType"?: ListDividerType;
+        /**
+          * [optional] Sets size of inside elements.
+         */
+        "size"?: ListSize;
     }
     interface ZLogo {
         /**
@@ -845,6 +863,46 @@ export namespace Components {
           * list data stringified array
          */
         "listdata": string;
+    }
+    interface ZMyzList {
+        /**
+          * json stringified list data (mutable, optional)
+         */
+        "inputrawdata"?: string;
+        /**
+          * list item data (mutable, optional)
+         */
+        "list"?: ListItemBean[];
+    }
+    interface ZMyzListItem {
+        /**
+          * data-action attribute (optional)
+         */
+        "action"?: string;
+        /**
+          * icon name (optional)
+         */
+        "icon"?: string;
+        /**
+          * link url (optional)
+         */
+        "link"?: string;
+        /**
+          * link target (optional)
+         */
+        "linktarget"?: string;
+        /**
+          * id (optional)
+         */
+        "listitemid"?: string;
+        /**
+          * content text
+         */
+        "text": string;
+        /**
+          * underlined style flag
+         */
+        "underlined": boolean;
     }
     interface ZNavigationTab {
         "disabled"?: boolean;
@@ -1436,11 +1494,17 @@ declare global {
         prototype: HTMLZListElement;
         new (): HTMLZListElement;
     };
-    interface HTMLZListItemElement extends Components.ZListItem, HTMLStencilElement {
+    interface HTMLZListElementElement extends Components.ZListElement, HTMLStencilElement {
     }
-    var HTMLZListItemElement: {
-        prototype: HTMLZListItemElement;
-        new (): HTMLZListItemElement;
+    var HTMLZListElementElement: {
+        prototype: HTMLZListElementElement;
+        new (): HTMLZListElementElement;
+    };
+    interface HTMLZListGroupElement extends Components.ZListGroup, HTMLStencilElement {
+    }
+    var HTMLZListGroupElement: {
+        prototype: HTMLZListGroupElement;
+        new (): HTMLZListGroupElement;
     };
     interface HTMLZLogoElement extends Components.ZLogo, HTMLStencilElement {
     }
@@ -1549,6 +1613,18 @@ declare global {
     var HTMLZMyzCardListElement: {
         prototype: HTMLZMyzCardListElement;
         new (): HTMLZMyzCardListElement;
+    };
+    interface HTMLZMyzListElement extends Components.ZMyzList, HTMLStencilElement {
+    }
+    var HTMLZMyzListElement: {
+        prototype: HTMLZMyzListElement;
+        new (): HTMLZMyzListElement;
+    };
+    interface HTMLZMyzListItemElement extends Components.ZMyzListItem, HTMLStencilElement {
+    }
+    var HTMLZMyzListItemElement: {
+        prototype: HTMLZMyzListItemElement;
+        new (): HTMLZMyzListItemElement;
     };
     interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
     }
@@ -1766,7 +1842,8 @@ declare global {
         "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
         "z-list": HTMLZListElement;
-        "z-list-item": HTMLZListItemElement;
+        "z-list-element": HTMLZListElementElement;
+        "z-list-group": HTMLZListGroupElement;
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
@@ -1785,6 +1862,8 @@ declare global {
         "z-myz-card-icon": HTMLZMyzCardIconElement;
         "z-myz-card-info": HTMLZMyzCardInfoElement;
         "z-myz-card-list": HTMLZMyzCardListElement;
+        "z-myz-list": HTMLZMyzListElement;
+        "z-myz-list-item": HTMLZMyzListItemElement;
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
@@ -2410,51 +2489,61 @@ declare namespace LocalJSX {
     }
     interface ZList {
         /**
-          * json stringified list data (mutable, optional)
+          * [optional] Sets size of inside elements.
          */
-        "inputrawdata"?: string;
-        /**
-          * list item data (mutable, optional)
-         */
-        "list"?: ListItemBean[];
+        "size"?: ListSize;
     }
-    interface ZListItem {
+    interface ZListElement {
         /**
-          * data-action attribute (optional)
+          * [optional] Align expandable button left or right.
          */
-        "action"?: string;
+        "alignButton"?: ExpandableListButtonAlign;
         /**
-          * icon name (optional)
+          * [optional] Sets element clickable.
          */
-        "icon"?: string;
+        "clickable"?: boolean;
         /**
-          * link url (optional)
+          * [optional] Sets the divider color.
          */
-        "link"?: string;
+        "dividerColor"?: string;
         /**
-          * link target (optional)
+          * [optional] Sets the divider size.
          */
-        "linktarget"?: string;
+        "dividerSize"?: DividerSize;
         /**
-          * id (optional)
+          * [optional] Sets the position where to insert the divider.
          */
-        "listitemid"?: string;
+        "dividerType"?: ListDividerType;
         /**
-          * emitted on list item click, returns listitemid
+          * [optional] Sets element as expandable.
          */
-        "onZListItemClick"?: (event: CustomEvent<any>) => void;
+        "expandable"?: boolean;
         /**
-          * emitted on list item link click, returns linkId
+          * [optional] Sets expandable style to element.
          */
-        "onZListItemLinkClick"?: (event: CustomEvent<any>) => void;
+        "expandableStyle"?: ExpandableListStyle;
         /**
-          * content text
+          * [optional] Sets size of inside elements.
          */
-        "text"?: string;
+        "size"?: ListSize;
+    }
+    interface ZListGroup {
         /**
-          * underlined style flag
+          * [optional] Sets the divider color.
          */
-        "underlined"?: boolean;
+        "dividerColor"?: string;
+        /**
+          * [optional] Sets the divider size.
+         */
+        "dividerSize"?: DividerSize;
+        /**
+          * [optional] Sets the position where to insert the divider.
+         */
+        "dividerType"?: ListDividerType;
+        /**
+          * [optional] Sets size of inside elements.
+         */
+        "size"?: ListSize;
     }
     interface ZLogo {
         /**
@@ -2754,6 +2843,54 @@ declare namespace LocalJSX {
           * list data stringified array
          */
         "listdata"?: string;
+    }
+    interface ZMyzList {
+        /**
+          * json stringified list data (mutable, optional)
+         */
+        "inputrawdata"?: string;
+        /**
+          * list item data (mutable, optional)
+         */
+        "list"?: ListItemBean[];
+    }
+    interface ZMyzListItem {
+        /**
+          * data-action attribute (optional)
+         */
+        "action"?: string;
+        /**
+          * icon name (optional)
+         */
+        "icon"?: string;
+        /**
+          * link url (optional)
+         */
+        "link"?: string;
+        /**
+          * link target (optional)
+         */
+        "linktarget"?: string;
+        /**
+          * id (optional)
+         */
+        "listitemid"?: string;
+        /**
+          * emitted on list item click, returns listitemid
+         */
+        "onZListItemClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * emitted on list item link click, returns linkId
+         */
+        "onZListItemLinkClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * content text
+         */
+        "text"?: string;
+        /**
+          * underlined style flag
+         */
+        "underlined"?: boolean;
     }
     interface ZNavigationTab {
         "disabled"?: boolean;
@@ -3234,7 +3371,8 @@ declare namespace LocalJSX {
         "z-input-message": ZInputMessage;
         "z-link": ZLink;
         "z-list": ZList;
-        "z-list-item": ZListItem;
+        "z-list-element": ZListElement;
+        "z-list-group": ZListGroup;
         "z-logo": ZLogo;
         "z-menu": ZMenu;
         "z-menu-dropdown": ZMenuDropdown;
@@ -3253,6 +3391,8 @@ declare namespace LocalJSX {
         "z-myz-card-icon": ZMyzCardIcon;
         "z-myz-card-info": ZMyzCardInfo;
         "z-myz-card-list": ZMyzCardList;
+        "z-myz-list": ZMyzList;
+        "z-myz-list-item": ZMyzListItem;
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
         "z-notification": ZNotification;
@@ -3319,7 +3459,8 @@ declare module "@stencil/core" {
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
-            "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
+            "z-list-element": LocalJSX.ZListElement & JSXBase.HTMLAttributes<HTMLZListElementElement>;
+            "z-list-group": LocalJSX.ZListGroup & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
@@ -3338,6 +3479,8 @@ declare module "@stencil/core" {
             "z-myz-card-icon": LocalJSX.ZMyzCardIcon & JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
             "z-myz-card-info": LocalJSX.ZMyzCardInfo & JSXBase.HTMLAttributes<HTMLZMyzCardInfoElement>;
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
+            "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
+            "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;

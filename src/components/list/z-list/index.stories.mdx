@@ -1,24 +1,133 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text } from '@storybook/addon-knobs';
-
-## Stories
 
 <Meta title="List/ZList" component="z-list" />
 
-  # ZList
+# ZList
 
 <Preview>
-  <Story name="z-list">
-    {html`
-      <z-list inputrawdata='[
-        {"text":"list element 1","link":"http://www.zanichelli.it","listitemid":"id1","icon":"checkbox-checked"},
-        {"text":"list element 2","link":"http://my.zanichelli.it","listitemid":"id2","icon":"checkbox"},
-        {"text":""}
-        ]'>
-      </z-list>`}
+  <Story name="ZList-simple">
+    {html`<z-list>
+      <z-list-group>
+        <z-list-element>Elemento 1</z-list-element>
+        <z-list-element>Elemento 2</z-list-element>
+        <z-list-element>Elemento 3</z-list-element>
+      </z-list-group>
+    </z-list>`}
   </Story>
 </Preview>
 
-  <Props of="z-list" />
+## Props z-list
 
+<Props of="z-list" />
+
+### ZList with header divider
+
+<Preview>
+  <Story name="ZList-with-header-divider">
+    {html`<z-list>
+      <z-list-group divider-type="header">
+        <div slot="header-title">Gruppo 1</div>
+        <z-list-element>Elemento 1</z-list-element>
+        <z-list-element>Elemento 2</z-list-element>
+        <z-list-element>Elemento 3</z-list-element>
+      </z-list-group>
+      <z-list-group divider-type="header">
+        <div slot="header-title">Gruppo 2</div>
+        <z-list-element>Elemento 1</z-list-element>
+        <z-list-element>Elemento 2</z-list-element>
+        <z-list-element>Elemento 3</z-list-element>
+      </z-list-group>
+    </z-list>`}
+  </Story>
+</Preview>
+
+### ZList with element divider
+
+<Preview>
+  <Story name="ZList-with-element-divider">
+    {html`<z-list>
+      <z-list-group divider-type="element">
+        <div slot="header-title">Gruppo 1</div>
+        <z-list-element>Elemento 1</z-list-element>
+        <z-list-element>Elemento 2</z-list-element>
+        <z-list-element>Elemento 3</z-list-element>
+      </z-list-group>
+      <z-list-group divider-type="element">
+        <div slot="header-title">Gruppo 2</div>
+        <z-list-element>Elemento 1</z-list-element>
+        <z-list-element>Elemento 2</z-list-element>
+        <z-list-element>Elemento 3</z-list-element>
+      </z-list-group>
+    </z-list>`}
+  </Story>
+</Preview>
+
+## ZList with clickable elements
+
+<Preview>
+  <Story name="ZList-with-clickable-content">
+    {html`<z-list>
+      <z-list-group>
+        <z-list-element clickable>Elemento 1</z-list-element>
+        <z-list-element clickable>Elemento 2</z-list-element>
+        <z-list-element clickable>Elemento 3</z-list-element>
+      </z-list-group>
+    </z-list>`}
+  </Story>
+</Preview>
+
+## ZList with expandable elements
+
+<Preview>
+  <Story name="ZList-with-expandable-content">
+    {html`<z-list size="large">
+      <z-list-group divider-type="element">
+        <z-list-element
+          expandable
+          align-button="left"
+          expandable-style="accordion"
+          ><span>Elemento 1</span
+          ><span slot="inner-content"
+            >INNER CONTENT 1 BUTTON LEFT</span
+          ></z-list-element
+        >
+        <z-list-element expandable align-button="right" expandable-style="menu"
+          ><span>Elemento 2</span
+          ><span slot="inner-content">INNER CONTENT 2</span></z-list-element
+        >
+        <z-list-element expandable align-button="right" expandable-style="menu"
+          ><span>Elemento 3</span
+          ><span slot="inner-content">INNER CONTENT 3</span></z-list-element
+        >
+      </z-list-group>
+    </z-list>`}
+  </Story>
+</Preview>
+
+## ZList with expandable elements
+
+<Preview>
+  <Story name="ZList-with-expandable-content-menu-style">
+    {html`<z-list size="large">
+      <z-list-group divider-type="element">
+        <z-list-element expandable expandable-style="menu" align-button="right"
+          ><span>Elemento 1</span
+          ><span slot="inner-content">INNER CONTENT 1</span></z-list-element
+        >
+        <z-list-element expandable expandable-style="menu" align-button="right"
+          ><span>Elemento 2</span
+          ><span slot="inner-content">INNER CONTENT 2</span></z-list-element
+        >
+        <z-list-element expandable expandable-style="menu" align-button="right"
+          ><span>Elemento 3</span
+          ><span slot="inner-content">INNER CONTENT 3</span></z-list-element
+        >
+      </z-list-group>
+    </z-list>`}
+  </Story>
+</Preview>
+
+## N.B.
+
+There is no default padding in the expandable content; its management is entirely left to the product

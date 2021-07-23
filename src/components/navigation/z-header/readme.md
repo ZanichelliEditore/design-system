@@ -95,7 +95,7 @@
 ### Depends on
 
 - [z-logo](../../logo/z-logo)
-- [z-list](../../list/z-list)
+- [z-myz-list](../../../snowflakes/myz/list/z-myz-list)
 - [z-link](../z-link)
 - [z-menu-dropdown](../z-menu-dropdown)
 - [z-button](../../buttons/z-button)
@@ -105,13 +105,13 @@
 ```mermaid
 graph TD;
   z-header --> z-logo
-  z-header --> z-list
+  z-header --> z-myz-list
   z-header --> z-link
   z-header --> z-menu-dropdown
   z-header --> z-button
   z-header --> z-icon
-  z-list --> z-list-item
-  z-list-item --> z-icon
+  z-myz-list --> z-myz-list-item
+  z-myz-list-item --> z-icon
   z-link --> z-icon
   z-menu-dropdown --> z-link
   z-menu-dropdown --> z-icon

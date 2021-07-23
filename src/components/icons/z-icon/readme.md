@@ -1,8 +1,9 @@
 # z-icon
 
 <!-- readme-group="icon" -->
+
 ```html
-<z-icon name="book-plus" ></z-icon>
+<z-icon name="book-plus"></z-icon>
 <z-icon name="chevron-down" iconid="zicon"></z-icon>
 <z-icon name="download" iconid="zicon" width="10" height="10"></z-icon>
 ```
@@ -38,7 +39,7 @@
  - [z-input](../../inputs/z-input)
  - [z-input-message](../../inputs/z-input-message)
  - [z-link](../../navigation/z-link)
- - [z-list-item](../../list/z-list-item)
+ - [z-list-element](../../list/z-list-element)
  - [z-menu](../../navigation/z-menu)
  - [z-menu-dropdown](../../navigation/z-menu-dropdown)
  - [z-menu-section](../../navigation/z-menu-section)
@@ -47,6 +48,7 @@
  - [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
  - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
  - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
+ - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
  - [z-navigation-tabs](../../navigation/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
@@ -76,7 +78,7 @@ graph TD;
   z-input --> z-icon
   z-input-message --> z-icon
   z-link --> z-icon
-  z-list-item --> z-icon
+  z-list-element --> z-icon
   z-menu --> z-icon
   z-menu-dropdown --> z-icon
   z-menu-section --> z-icon
@@ -85,6 +87,7 @@ graph TD;
   z-myz-card-alert --> z-icon
   z-myz-card-icon --> z-icon
   z-myz-card-info --> z-icon
+  z-myz-list-item --> z-icon
   z-navigation-tabs --> z-icon
   z-notification --> z-icon
   z-pagination-bar --> z-icon

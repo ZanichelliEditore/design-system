@@ -884,16 +884,16 @@
       <br />
 
       <br />
-      <z-list inputrawdata='[
+      <z-myz-list inputrawdata='[
         {"text":"elemento lista","link":"http://www.google.it","listitemid":"id1","icon":"checkbox-checked"},
         {"text":"elemento lista","link":"http://www.google.it","listitemid":"id2","icon":"checkbox"},
         {"text":""}
         ]'>
-      </z-list>
+      </z-myz-list>
       <ul>
-        <z-list-item>ITEM 1</z-list-item>
-        <z-list-item>ITEM 2</z-list-item>
-        <z-list-item>ITEM 3 <z-input type="checkbox"></z-input></z-list-item>
+        <z-myz-list-item>ITEM 1</z-myz-list-item>
+        <z-myz-list-item>ITEM 2</z-myz-list-item>
+        <z-myz-list-item>ITEM 3 <z-input type="checkbox"></z-input></z-myz-list-item>
       </ul>
 
       <div style="display: inline-flex; align-items: center; margin-left:100px;">
@@ -1112,7 +1112,7 @@
 
   <z-registro-table bordered="false">
     <z-registro-table-head>
-      <z-registro-table-header-row expandable="true">
+      <z-registro-table-header-row expandable>
         <z-registro-table-header show-button="true" sortable="true" column-id="1">Colonna 1<br />Colonna 2</z-registro-table-header>
         <z-registro-table-header show-button="true" sortable="true" column-id="2">Colonna 2</z-registro-table-header>
         <z-registro-table-header show-button="true" sortable="true" column-id="3">Colonna 3</z-registro-table-header>
@@ -1120,7 +1120,7 @@
     </z-registro-table-head>
 
     <z-registro-table-body>
-      <z-registro-table-row expandable="true">
+      <z-registro-table-row expandable>
         <z-registro-table-cell show-button="true"><span slot="contextual-menu">Span Button</span>Valore 1-1</z-registro-table-cell>
         <z-registro-table-cell show-button="true">Valore 1-2</z-registro-table-cell>
         <z-registro-table-cell show-button="true">
@@ -1132,7 +1132,7 @@
         <div>ci scrivo qualcosa</div>
       </z-registro-table-expanded-row>
 
-      <z-registro-table-row expandable="true">
+      <z-registro-table-row expandable>
         <z-registro-table-cell show-button="true">Valore 2-1</z-registro-table-cell>
         <z-registro-table-cell show-button="true">Valore 2-2</z-registro-table-cell>
         <z-registro-table-cell show-button="true">
@@ -1166,8 +1166,49 @@
   <br /><br /><br /><br /><br /><br />
 
   <div style="padding-left: 280px;">
-    <z-status-tag icon="gear" text="z-status-tag" status="default" variant="dark" expandable="true"></z-status-tag>
+    <z-status-tag icon="gear" text="z-status-tag" status="default" variant="dark" expandable></z-status-tag>
   </div>
+  <br /><br /><br /><br /><br /><br />
+
+
+  <div style="padding-left: 280px; width: 150px">
+    <z-list size="large">
+      <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
+     
+        <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
+        <z-list-element><z-avatar text="AB" ></z-avatar><span>no header 123456</span></z-list-element>
+        <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
+      </z-list-group>
+
+      <z-list-group size="large" divider-type="element">
+        <p slot="header-title">Z-LIST-GROUP  TITOLO 1</p>
+        <z-list-element><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
+        <z-list-element><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
+        <z-list-element expandable="false"><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
+      </z-list-group>
+    </z-list>
+  </div>
+
+  <div style="padding-left: 280px; width: 80%">
+
+    <z-list size="large">
+      <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
+        <p slot="header-title">Z-LIST-GROUP TITOLO 1</p>
+        <z-list-element ><z-avatar text="AB"></z-avatar><span>no clickable</span></z-list-element>
+        <z-list-element expandable align-button="right"><span>123456</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <z-list-element expandable align-button="left"><z-avatar text="AB"></z-avatar><span>123456</span><p slot="inner-content">testo espanso</p></z-list-element>
+      </z-list-group>
+
+      <z-list-group size="large" divider-type="element">
+        <p slot="header-title">Z-LIST-GROUP  TITOLO 1</p>
+        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
+     
+      </z-list-group>
+    </z-list>
+  </div>
+
   <br /><br /><br /><br /><br /><br />
 
   <z-footer copyrightuser='Zanichelli' data='{
