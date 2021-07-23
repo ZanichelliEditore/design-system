@@ -1,4 +1,5 @@
 import { Component, Prop, h, Event } from "@stencil/core";
+import { AlertTypesEnum } from "../../../../beans";
 export class ZMyzCardAlert {
   emitUndoAction() {
     this.undoAction.emit({ actionType: this.type });
@@ -28,15 +29,27 @@ export class ZMyzCardAlert {
     }
     return className;
   }
+  getAlertType() {
+    switch (this.type) {
+      case "add":
+        return AlertTypesEnum.success;
+      case "remove":
+        return AlertTypesEnum.warning;
+      default:
+        return null;
+    }
+  }
   render() {
-    return (h("div", { class: `relativeContainer ${this.retrieveClass()}` },
-      h("z-icon", { name: this.iconname, width: 18, height: 18, class: this.retrieveClass() }),
-      h("span", { class: "contentText" }, this.contenttext),
-      this.actiontext && !!this.actiontext.trim().length && (h("span", { role: "button", tabindex: "0", class: "contentAction", onClick: (e) => {
-          this.handleActionButtonClick(e);
-        }, onKeyPress: (e) => {
-          this.handleSpaceKeyPress(e);
-        } }, this.actiontext))));
+    return (h("div", { class: "alert-external-wrapper " + this.retrieveClass() },
+      h("z-alert", { type: this.getAlertType() },
+        h("div", { class: "relativeContainer" },
+          h("z-icon", { name: this.iconname, width: 18, height: 18, class: this.retrieveClass() }),
+          h("span", { class: "contentText" }, this.contenttext),
+          this.actiontext && !!this.actiontext.trim().length && (h("span", { role: "button", tabindex: "0", class: "contentAction", onClick: (e) => {
+              this.handleActionButtonClick(e);
+            }, onKeyPress: (e) => {
+              this.handleSpaceKeyPress(e);
+            } }, this.actiontext))))));
   }
   static get is() { return "z-myz-card-alert"; }
   static get encapsulation() { return "shadow"; }

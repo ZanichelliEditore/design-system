@@ -6,6 +6,8 @@ import { LicenseTypeEnum } from "../../../../beans/index";
  */
 export class ZMyzCardFooter {
   constructor() {
+    /** footer opened by default (optional) */
+    this.opened = false;
     this.isOpen = false;
     this.allowTooltipAuthors = false;
   }
@@ -14,6 +16,10 @@ export class ZMyzCardFooter {
   }
   getTitleAuthors() {
     return this.allowTooltipAuthors ? this.autori : "";
+  }
+  componentWillLoad() {
+    if (this.opened)
+      this.isOpen = true;
   }
   elementsEllipsis() {
     this.allowTooltipAuthors = this.elementAuthorsHasEllipsis() ? true : false;
@@ -39,17 +45,18 @@ export class ZMyzCardFooter {
         h("span", { class: "toggle" },
           h("slot", { name: "toggle" })),
         h("h2", null, this.titolo),
-        h("div", null,
-          h("p", { class: "authors", ref: el => (this.ellipsisAuthors = el) },
-            h("span", { title: this.getTitleAuthors() },
-              h("span", { class: "bold" }, this.autori))),
-          h("p", { class: "year_isbn" },
-            h("span", { class: "isbn" },
-              h("span", null,
-                h("span", { class: "bold" }, this.isbn),
-                " (ed. cartacea)")))),
-        h("div", { class: `slot-handler ${this.isOpen ? "visible" : "hidden"}` },
-          h("slot", { name: "list" })))));
+        h("div", { class: "content" },
+          h("div", null,
+            h("p", { class: "authors", ref: el => (this.ellipsisAuthors = el) },
+              h("span", { title: this.getTitleAuthors() },
+                h("span", { class: "bold" }, this.autori))),
+            h("p", { class: "year_isbn" },
+              h("span", { class: "isbn" },
+                h("span", null,
+                  h("span", { class: "bold" }, this.isbn),
+                  " (ed. cartacea)")))),
+          h("div", { class: `slot-handler ${this.isOpen ? "visible" : "hidden"}` },
+            h("slot", { name: "list" }))))));
   }
   static get is() { return "z-myz-card-footer"; }
   static get encapsulation() { return "shadow"; }
@@ -149,6 +156,24 @@ export class ZMyzCardFooter {
       },
       "attribute": "cardtype",
       "reflect": false
+    },
+    "opened": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "footer opened by default (optional)"
+      },
+      "attribute": "opened",
+      "reflect": false,
+      "defaultValue": "false"
     }
   }; }
   static get states() { return {

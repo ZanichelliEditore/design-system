@@ -1,5 +1,5 @@
-import { Component, Prop, h, State, Element, Listen, Watch } from "@stencil/core";
-import { ButtonVariantEnum } from "../../../beans";
+import { Component, Prop, h, State, Element, Listen, Watch, } from "@stencil/core";
+import { ButtonVariantEnum, } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 /**
  * @slot editors - top menu editors images bar (only with ismyz prop === true)
@@ -54,7 +54,7 @@ export class ZHeader {
   renderIntMenu(menuItems) {
     if (!this.isLogged || !this.ismyz)
       return;
-    return (h("div", { id: "link-int", class: "link-int" }, menuItems.map(item => this.renderIntMenuItem(item))));
+    return (h("div", { id: "link-int", class: "link-int" }, menuItems.map((item) => this.renderIntMenuItem(item))));
   }
   renderIntMenuItem(menuItem) {
     const { id, label, link } = menuItem;
@@ -71,7 +71,9 @@ export class ZHeader {
         }, role: link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) },
         h("span", null, label),
         menuItem.subMenu ? h("i", null) : null),
-      h("svg", { height: "8", width: "16", class: (!this.activeMenuItem || this.activeMenuItem.id !== id) ? "hidden" : "" },
+      h("svg", { height: "8", width: "16", class: !this.activeMenuItem || this.activeMenuItem.id !== id
+          ? "hidden"
+          : "" },
         h("polygon", { points: "8,0 16,8 0,8", class: "arrow" })),
       this.isMobile && this.renderMenuItemsData(menuItem)));
   }
@@ -96,14 +98,14 @@ export class ZHeader {
         id: item.id,
         text: item.label,
         link: item.link,
-        listitemid: item.id
+        listitemid: item.id,
       };
     });
     return this.renderMobileSubMenu(listItems, menuItem.id);
   }
   renderMobileSubMenu(menuItems, id) {
     return (h("span", { class: "mobile-dropdown", id: id ? `mobile-dropdown-${id}` : "" },
-      h("z-list", { list: menuItems })));
+      h("z-myz-list", { list: menuItems })));
   }
   renderSubMenu(menuItem) {
     if (!this.ismyz || !this.isLogged)
@@ -151,7 +153,7 @@ export class ZHeader {
         text: item.label,
         link: item.link,
         icon: item.icon,
-        listitemid: item.id
+        listitemid: item.id,
       };
     });
     return this.renderMobileSubMenu(listItems, "user-data");

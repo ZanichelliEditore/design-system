@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-3793b368.js');
+const index = require('./index-2e494cc2.js');
 
 const stylesCss = ".sc-z-registro-table-footer-h{display:table-footer-group;font-family:var(--dashboard-font);font-weight:var(--font-rg)}";
 

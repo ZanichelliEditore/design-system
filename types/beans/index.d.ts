@@ -155,7 +155,9 @@ export declare enum keybordKeyCodeEnum {
   ESC = 27,
   ENTER = 13,
   ARROW_UP = 38,
-  ARROW_DOWN = 40
+  ARROW_DOWN = 40,
+  BACKSPACE = 8,
+  DELETE = 46
 }
 export declare enum KeyboardKeys {
   ESC = "Escape"
@@ -234,8 +236,59 @@ export declare enum StatusTagStatus {
   neutral = "neutral",
   default = "default"
 }
+export declare enum ListSize {
+  small = "small",
+  medium = "medium",
+  large = "large",
+  "x-large" = "x-large"
+}
+export declare enum ExpandableListStyle {
+  accordion = "accordion",
+  menu = "menu"
+}
+export declare enum ExpandableListButtonAlign {
+  right = "right",
+  left = "left"
+}
+export declare enum ListDividerType {
+  none = "none",
+  header = "header",
+  element = "element"
+}
 export declare enum NotificationType {
   success = "success",
   warning = "warning",
   error = "error"
 }
+export declare enum AlertTypesEnum {
+  success = "success",
+  warning = "warning",
+  error = "error"
+}
+export declare type AlertTypes = AlertTypesEnum;
+export declare enum DeviceEnum {
+  mobile = "mobile",
+  tablet = "tablet",
+  desktop = "desktop"
+}
+export declare type DeviceType = DeviceEnum;
+export declare type DictionaryData = {
+  author: string;
+  year: string;
+  title: string;
+  description: string;
+  onlineLicense: DictionaryLicenseData;
+  offlineLicense: DictionaryLicenseData;
+};
+export declare type DictionaryLicenseData = {
+  expiration: string;
+  expired: boolean;
+  expiring: boolean;
+  installations: string;
+};
+export declare enum PocketStatusEnum {
+  preview = "preview",
+  open = "open",
+  closed = "closed"
+}
+export declare type PocketStatus = PocketStatusEnum;

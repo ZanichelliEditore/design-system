@@ -5,11 +5,17 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DividerOrientation, DividerSize, HeaderUserData, InputStatusBean, InputTypeBean, MenuItem, NotificationType, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
-import { LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
+    interface ZAlert {
+        /**
+          * alert variant type
+         */
+        "type": AlertTypes;
+    }
     interface ZAppHeader {
         /**
           * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
@@ -555,43 +561,61 @@ export namespace Components {
     }
     interface ZList {
         /**
-          * json stringified list data (mutable, optional)
+          * [optional] Sets size of inside elements.
          */
-        "inputrawdata"?: string;
-        /**
-          * list item data (mutable, optional)
-         */
-        "list"?: ListItemBean[];
+        "size"?: ListSize;
     }
-    interface ZListItem {
+    interface ZListElement {
         /**
-          * data-action attribute (optional)
+          * [optional] Align expandable button left or right.
          */
-        "action"?: string;
+        "alignButton"?: ExpandableListButtonAlign;
         /**
-          * icon name (optional)
+          * [optional] Sets element clickable.
          */
-        "icon"?: string;
+        "clickable"?: boolean;
         /**
-          * link url (optional)
+          * [optional] Sets the divider color.
          */
-        "link"?: string;
+        "dividerColor"?: string;
         /**
-          * link target (optional)
+          * [optional] Sets the divider size.
          */
-        "linktarget"?: string;
+        "dividerSize"?: DividerSize;
         /**
-          * id (optional)
+          * [optional] Sets the position where to insert the divider.
          */
-        "listitemid"?: string;
+        "dividerType"?: ListDividerType;
         /**
-          * content text
+          * [optional] Sets element as expandable.
          */
-        "text": string;
+        "expandable"?: boolean;
         /**
-          * underlined style flag
+          * [optional] Sets expandable style to element.
          */
-        "underlined": boolean;
+        "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] Sets size of inside elements.
+         */
+        "size"?: ListSize;
+    }
+    interface ZListGroup {
+        /**
+          * [optional] Sets the divider color.
+         */
+        "dividerColor"?: string;
+        /**
+          * [optional] Sets the divider size.
+         */
+        "dividerSize"?: DividerSize;
+        /**
+          * [optional] Sets the position where to insert the divider.
+         */
+        "dividerType"?: ListDividerType;
+        /**
+          * [optional] Sets size of inside elements.
+         */
+        "size"?: ListSize;
     }
     interface ZLogo {
         /**
@@ -647,6 +671,20 @@ export namespace Components {
     }
     interface ZMenuSection {
         "active"?: boolean;
+    }
+    interface ZMessagesPocket {
+        /**
+          * number of messages
+         */
+        "messages": number;
+        /**
+          * pocket id
+         */
+        "pocketid": string;
+        /**
+          * pocket status
+         */
+        "status": PocketStatus;
     }
     interface ZModal {
         /**
@@ -732,6 +770,32 @@ export namespace Components {
          */
         "titolo": string;
     }
+    interface ZMyzCardDictionary {
+        /**
+          * card cover
+         */
+        "cover": string;
+        /**
+          * card is disabled
+         */
+        "disabled": boolean;
+        /**
+          * flip button label
+         */
+        "flipbuttonlabel": string;
+        /**
+          * card is flipped
+         */
+        "flipped": boolean;
+        /**
+          * hide info button
+         */
+        "hideinfobtn": boolean;
+        /**
+          * card title
+         */
+        "name": string;
+    }
     interface ZMyzCardFooter {
         /**
           * authors name text
@@ -750,9 +814,15 @@ export namespace Components {
          */
         "isbn": string;
         /**
+          * footer opened by default (optional)
+         */
+        "opened"?: boolean;
+        /**
           * volume title
          */
         "titolo": string;
+    }
+    interface ZMyzCardFooterSections {
     }
     interface ZMyzCardHeader {
         /**
@@ -778,11 +848,61 @@ export namespace Components {
          */
         "isdisabled": boolean;
     }
+    interface ZMyzCardInfo {
+        /**
+          * dictionary info
+         */
+        "data": string | DictionaryData;
+        /**
+          * tabindex link attribute (optional)
+         */
+        "htmltabindex"?: number;
+    }
     interface ZMyzCardList {
         /**
           * list data stringified array
          */
         "listdata": string;
+    }
+    interface ZMyzList {
+        /**
+          * json stringified list data (mutable, optional)
+         */
+        "inputrawdata"?: string;
+        /**
+          * list item data (mutable, optional)
+         */
+        "list"?: ListItemBean[];
+    }
+    interface ZMyzListItem {
+        /**
+          * data-action attribute (optional)
+         */
+        "action"?: string;
+        /**
+          * icon name (optional)
+         */
+        "icon"?: string;
+        /**
+          * link url (optional)
+         */
+        "link"?: string;
+        /**
+          * link target (optional)
+         */
+        "linktarget"?: string;
+        /**
+          * id (optional)
+         */
+        "listitemid"?: string;
+        /**
+          * content text
+         */
+        "text": string;
+        /**
+          * underlined style flag
+         */
+        "underlined": boolean;
     }
     interface ZNavigationTab {
         "disabled"?: boolean;
@@ -821,6 +941,11 @@ export namespace Components {
           * alert variant type
          */
         "type": NotificationType;
+    }
+    interface ZOtp {
+        "inputNum"?: number;
+        "message"?: string;
+        "status"?: InputStatusBean;
     }
     interface ZPaginationBar {
         /**
@@ -907,6 +1032,42 @@ export namespace Components {
           * link url
          */
         "url": string;
+    }
+    interface ZPocket {
+        /**
+          * close z-pocket
+         */
+        "close": () => Promise<void>;
+        /**
+          * open z-pocket
+         */
+        "open": () => Promise<void>;
+        /**
+          * pocket id
+         */
+        "pocketid": string;
+        /**
+          * pocket status
+         */
+        "status": PocketStatus;
+    }
+    interface ZPocketBody {
+        /**
+          * pocket id
+         */
+        "pocketid": string;
+        /**
+          * pocket status
+         */
+        "status": PocketStatus;
+    }
+    interface ZPocketHeader {
+        /**
+          * pocket id
+         */
+        "pocketid": string;
+    }
+    interface ZPocketMessage {
     }
     interface ZPopover {
         /**
@@ -1058,6 +1219,16 @@ export namespace Components {
          */
         "status"?: InputStatusBean;
     }
+    interface ZSlideshow {
+        /**
+          * array or JSON stringified images urls
+         */
+        "data": string[] | string;
+        /**
+          * slideshow id
+         */
+        "slideshowid": string;
+    }
     interface ZStatusTag {
         /**
           * [optional] Hide the text and show it on hover
@@ -1149,6 +1320,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
+    }
+    var HTMLZAlertElement: {
+        prototype: HTMLZAlertElement;
+        new (): HTMLZAlertElement;
+    };
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
     }
     var HTMLZAppHeaderElement: {
@@ -1317,11 +1494,17 @@ declare global {
         prototype: HTMLZListElement;
         new (): HTMLZListElement;
     };
-    interface HTMLZListItemElement extends Components.ZListItem, HTMLStencilElement {
+    interface HTMLZListElementElement extends Components.ZListElement, HTMLStencilElement {
     }
-    var HTMLZListItemElement: {
-        prototype: HTMLZListItemElement;
-        new (): HTMLZListItemElement;
+    var HTMLZListElementElement: {
+        prototype: HTMLZListElementElement;
+        new (): HTMLZListElementElement;
+    };
+    interface HTMLZListGroupElement extends Components.ZListGroup, HTMLStencilElement {
+    }
+    var HTMLZListGroupElement: {
+        prototype: HTMLZListGroupElement;
+        new (): HTMLZListGroupElement;
     };
     interface HTMLZLogoElement extends Components.ZLogo, HTMLStencilElement {
     }
@@ -1346,6 +1529,12 @@ declare global {
     var HTMLZMenuSectionElement: {
         prototype: HTMLZMenuSectionElement;
         new (): HTMLZMenuSectionElement;
+    };
+    interface HTMLZMessagesPocketElement extends Components.ZMessagesPocket, HTMLStencilElement {
+    }
+    var HTMLZMessagesPocketElement: {
+        prototype: HTMLZMessagesPocketElement;
+        new (): HTMLZMessagesPocketElement;
     };
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
     }
@@ -1383,11 +1572,23 @@ declare global {
         prototype: HTMLZMyzCardCoverElement;
         new (): HTMLZMyzCardCoverElement;
     };
+    interface HTMLZMyzCardDictionaryElement extends Components.ZMyzCardDictionary, HTMLStencilElement {
+    }
+    var HTMLZMyzCardDictionaryElement: {
+        prototype: HTMLZMyzCardDictionaryElement;
+        new (): HTMLZMyzCardDictionaryElement;
+    };
     interface HTMLZMyzCardFooterElement extends Components.ZMyzCardFooter, HTMLStencilElement {
     }
     var HTMLZMyzCardFooterElement: {
         prototype: HTMLZMyzCardFooterElement;
         new (): HTMLZMyzCardFooterElement;
+    };
+    interface HTMLZMyzCardFooterSectionsElement extends Components.ZMyzCardFooterSections, HTMLStencilElement {
+    }
+    var HTMLZMyzCardFooterSectionsElement: {
+        prototype: HTMLZMyzCardFooterSectionsElement;
+        new (): HTMLZMyzCardFooterSectionsElement;
     };
     interface HTMLZMyzCardHeaderElement extends Components.ZMyzCardHeader, HTMLStencilElement {
     }
@@ -1401,11 +1602,29 @@ declare global {
         prototype: HTMLZMyzCardIconElement;
         new (): HTMLZMyzCardIconElement;
     };
+    interface HTMLZMyzCardInfoElement extends Components.ZMyzCardInfo, HTMLStencilElement {
+    }
+    var HTMLZMyzCardInfoElement: {
+        prototype: HTMLZMyzCardInfoElement;
+        new (): HTMLZMyzCardInfoElement;
+    };
     interface HTMLZMyzCardListElement extends Components.ZMyzCardList, HTMLStencilElement {
     }
     var HTMLZMyzCardListElement: {
         prototype: HTMLZMyzCardListElement;
         new (): HTMLZMyzCardListElement;
+    };
+    interface HTMLZMyzListElement extends Components.ZMyzList, HTMLStencilElement {
+    }
+    var HTMLZMyzListElement: {
+        prototype: HTMLZMyzListElement;
+        new (): HTMLZMyzListElement;
+    };
+    interface HTMLZMyzListItemElement extends Components.ZMyzListItem, HTMLStencilElement {
+    }
+    var HTMLZMyzListItemElement: {
+        prototype: HTMLZMyzListItemElement;
+        new (): HTMLZMyzListItemElement;
     };
     interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
     }
@@ -1425,6 +1644,12 @@ declare global {
         prototype: HTMLZNotificationElement;
         new (): HTMLZNotificationElement;
     };
+    interface HTMLZOtpElement extends Components.ZOtp, HTMLStencilElement {
+    }
+    var HTMLZOtpElement: {
+        prototype: HTMLZOtpElement;
+        new (): HTMLZOtpElement;
+    };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
     var HTMLZPaginationBarElement: {
@@ -1442,6 +1667,30 @@ declare global {
     var HTMLZPanelElemElement: {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
+    };
+    interface HTMLZPocketElement extends Components.ZPocket, HTMLStencilElement {
+    }
+    var HTMLZPocketElement: {
+        prototype: HTMLZPocketElement;
+        new (): HTMLZPocketElement;
+    };
+    interface HTMLZPocketBodyElement extends Components.ZPocketBody, HTMLStencilElement {
+    }
+    var HTMLZPocketBodyElement: {
+        prototype: HTMLZPocketBodyElement;
+        new (): HTMLZPocketBodyElement;
+    };
+    interface HTMLZPocketHeaderElement extends Components.ZPocketHeader, HTMLStencilElement {
+    }
+    var HTMLZPocketHeaderElement: {
+        prototype: HTMLZPocketHeaderElement;
+        new (): HTMLZPocketHeaderElement;
+    };
+    interface HTMLZPocketMessageElement extends Components.ZPocketMessage, HTMLStencilElement {
+    }
+    var HTMLZPocketMessageElement: {
+        prototype: HTMLZPocketMessageElement;
+        new (): HTMLZPocketMessageElement;
     };
     interface HTMLZPopoverElement extends Components.ZPopover, HTMLStencilElement {
     }
@@ -1515,6 +1764,12 @@ declare global {
         prototype: HTMLZSelectElement;
         new (): HTMLZSelectElement;
     };
+    interface HTMLZSlideshowElement extends Components.ZSlideshow, HTMLStencilElement {
+    }
+    var HTMLZSlideshowElement: {
+        prototype: HTMLZSlideshowElement;
+        new (): HTMLZSlideshowElement;
+    };
     interface HTMLZStatusTagElement extends Components.ZStatusTag, HTMLStencilElement {
     }
     var HTMLZStatusTagElement: {
@@ -1558,6 +1813,7 @@ declare global {
         new (): HTMLZUserDropdownElement;
     };
     interface HTMLElementTagNameMap {
+        "z-alert": HTMLZAlertElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
         "z-app-topbar": HTMLZAppTopbarElement;
@@ -1586,27 +1842,39 @@ declare global {
         "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
         "z-list": HTMLZListElement;
-        "z-list-item": HTMLZListItemElement;
+        "z-list-element": HTMLZListElementElement;
+        "z-list-group": HTMLZListGroupElement;
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
         "z-menu-dropdown": HTMLZMenuDropdownElement;
         "z-menu-section": HTMLZMenuSectionElement;
+        "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-modal": HTMLZModalElement;
         "z-modal-login": HTMLZModalLoginElement;
         "z-myz-card": HTMLZMyzCardElement;
         "z-myz-card-alert": HTMLZMyzCardAlertElement;
         "z-myz-card-body": HTMLZMyzCardBodyElement;
         "z-myz-card-cover": HTMLZMyzCardCoverElement;
+        "z-myz-card-dictionary": HTMLZMyzCardDictionaryElement;
         "z-myz-card-footer": HTMLZMyzCardFooterElement;
+        "z-myz-card-footer-sections": HTMLZMyzCardFooterSectionsElement;
         "z-myz-card-header": HTMLZMyzCardHeaderElement;
         "z-myz-card-icon": HTMLZMyzCardIconElement;
+        "z-myz-card-info": HTMLZMyzCardInfoElement;
         "z-myz-card-list": HTMLZMyzCardListElement;
+        "z-myz-list": HTMLZMyzListElement;
+        "z-myz-list-item": HTMLZMyzListItemElement;
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
+        "z-otp": HTMLZOtpElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
+        "z-pocket": HTMLZPocketElement;
+        "z-pocket-body": HTMLZPocketBodyElement;
+        "z-pocket-header": HTMLZPocketHeaderElement;
+        "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
         "z-registro-table": HTMLZRegistroTableElement;
         "z-registro-table-body": HTMLZRegistroTableBodyElement;
@@ -1619,6 +1887,7 @@ declare global {
         "z-registro-table-row": HTMLZRegistroTableRowElement;
         "z-registro-table-sticky-footer": HTMLZRegistroTableStickyFooterElement;
         "z-select": HTMLZSelectElement;
+        "z-slideshow": HTMLZSlideshowElement;
         "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
@@ -1629,6 +1898,12 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ZAlert {
+        /**
+          * alert variant type
+         */
+        "type"?: AlertTypes;
+    }
     interface ZAppHeader {
         /**
           * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
@@ -2214,51 +2489,61 @@ declare namespace LocalJSX {
     }
     interface ZList {
         /**
-          * json stringified list data (mutable, optional)
+          * [optional] Sets size of inside elements.
          */
-        "inputrawdata"?: string;
-        /**
-          * list item data (mutable, optional)
-         */
-        "list"?: ListItemBean[];
+        "size"?: ListSize;
     }
-    interface ZListItem {
+    interface ZListElement {
         /**
-          * data-action attribute (optional)
+          * [optional] Align expandable button left or right.
          */
-        "action"?: string;
+        "alignButton"?: ExpandableListButtonAlign;
         /**
-          * icon name (optional)
+          * [optional] Sets element clickable.
          */
-        "icon"?: string;
+        "clickable"?: boolean;
         /**
-          * link url (optional)
+          * [optional] Sets the divider color.
          */
-        "link"?: string;
+        "dividerColor"?: string;
         /**
-          * link target (optional)
+          * [optional] Sets the divider size.
          */
-        "linktarget"?: string;
+        "dividerSize"?: DividerSize;
         /**
-          * id (optional)
+          * [optional] Sets the position where to insert the divider.
          */
-        "listitemid"?: string;
+        "dividerType"?: ListDividerType;
         /**
-          * emitted on list item click, returns listitemid
+          * [optional] Sets element as expandable.
          */
-        "onZListItemClick"?: (event: CustomEvent<any>) => void;
+        "expandable"?: boolean;
         /**
-          * emitted on list item link click, returns linkId
+          * [optional] Sets expandable style to element.
          */
-        "onZListItemLinkClick"?: (event: CustomEvent<any>) => void;
+        "expandableStyle"?: ExpandableListStyle;
         /**
-          * content text
+          * [optional] Sets size of inside elements.
          */
-        "text"?: string;
+        "size"?: ListSize;
+    }
+    interface ZListGroup {
         /**
-          * underlined style flag
+          * [optional] Sets the divider color.
          */
-        "underlined"?: boolean;
+        "dividerColor"?: string;
+        /**
+          * [optional] Sets the divider size.
+         */
+        "dividerSize"?: DividerSize;
+        /**
+          * [optional] Sets the position where to insert the divider.
+         */
+        "dividerType"?: ListDividerType;
+        /**
+          * [optional] Sets size of inside elements.
+         */
+        "size"?: ListSize;
     }
     interface ZLogo {
         /**
@@ -2330,6 +2615,20 @@ declare namespace LocalJSX {
           * The section has been opened.
          */
         "onOpened"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZMessagesPocket {
+        /**
+          * number of messages
+         */
+        "messages"?: number;
+        /**
+          * pocket id
+         */
+        "pocketid"?: string;
+        /**
+          * pocket status
+         */
+        "status"?: PocketStatus;
     }
     interface ZModal {
         /**
@@ -2443,6 +2742,36 @@ declare namespace LocalJSX {
          */
         "titolo"?: string;
     }
+    interface ZMyzCardDictionary {
+        /**
+          * card cover
+         */
+        "cover"?: string;
+        /**
+          * card is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * flip button label
+         */
+        "flipbuttonlabel"?: string;
+        /**
+          * card is flipped
+         */
+        "flipped"?: boolean;
+        /**
+          * hide info button
+         */
+        "hideinfobtn"?: boolean;
+        /**
+          * card title
+         */
+        "name"?: string;
+        /**
+          * when card is flipped
+         */
+        "onCardFlipped"?: (event: CustomEvent<any>) => void;
+    }
     interface ZMyzCardFooter {
         /**
           * authors name text
@@ -2461,9 +2790,15 @@ declare namespace LocalJSX {
          */
         "isbn"?: string;
         /**
+          * footer opened by default (optional)
+         */
+        "opened"?: boolean;
+        /**
           * volume title
          */
         "titolo"?: string;
+    }
+    interface ZMyzCardFooterSections {
     }
     interface ZMyzCardHeader {
         /**
@@ -2489,11 +2824,73 @@ declare namespace LocalJSX {
          */
         "isdisabled"?: boolean;
     }
+    interface ZMyzCardInfo {
+        /**
+          * dictionary info
+         */
+        "data"?: string | DictionaryData;
+        /**
+          * tabindex link attribute (optional)
+         */
+        "htmltabindex"?: number;
+        /**
+          * flip card to front
+         */
+        "onFlipCard"?: (event: CustomEvent<any>) => void;
+    }
     interface ZMyzCardList {
         /**
           * list data stringified array
          */
         "listdata"?: string;
+    }
+    interface ZMyzList {
+        /**
+          * json stringified list data (mutable, optional)
+         */
+        "inputrawdata"?: string;
+        /**
+          * list item data (mutable, optional)
+         */
+        "list"?: ListItemBean[];
+    }
+    interface ZMyzListItem {
+        /**
+          * data-action attribute (optional)
+         */
+        "action"?: string;
+        /**
+          * icon name (optional)
+         */
+        "icon"?: string;
+        /**
+          * link url (optional)
+         */
+        "link"?: string;
+        /**
+          * link target (optional)
+         */
+        "linktarget"?: string;
+        /**
+          * id (optional)
+         */
+        "listitemid"?: string;
+        /**
+          * emitted on list item click, returns listitemid
+         */
+        "onZListItemClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * emitted on list item link click, returns linkId
+         */
+        "onZListItemLinkClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * content text
+         */
+        "text"?: string;
+        /**
+          * underlined style flag
+         */
+        "underlined"?: boolean;
     }
     interface ZNavigationTab {
         "disabled"?: boolean;
@@ -2541,6 +2938,12 @@ declare namespace LocalJSX {
           * alert variant type
          */
         "type"?: NotificationType;
+    }
+    interface ZOtp {
+        "inputNum"?: number;
+        "message"?: string;
+        "onOtpChange"?: (event: CustomEvent<any>) => void;
+        "status"?: InputStatusBean;
     }
     interface ZPaginationBar {
         /**
@@ -2639,6 +3042,46 @@ declare namespace LocalJSX {
           * link url
          */
         "url"?: string;
+    }
+    interface ZPocket {
+        /**
+          * Emitted on pocket toggle, returns pocket id and status
+         */
+        "onPocketToggle"?: (event: CustomEvent<any>) => void;
+        /**
+          * pocket id
+         */
+        "pocketid"?: string;
+        /**
+          * pocket status
+         */
+        "status"?: PocketStatus;
+    }
+    interface ZPocketBody {
+        /**
+          * pocket id
+         */
+        "pocketid"?: string;
+        /**
+          * pocket status
+         */
+        "status"?: PocketStatus;
+    }
+    interface ZPocketHeader {
+        /**
+          * Emitted on pocket header click
+         */
+        "onPocketHeaderClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on pocket header pan
+         */
+        "onPocketHeaderPan"?: (event: CustomEvent<any>) => void;
+        /**
+          * pocket id
+         */
+        "pocketid"?: string;
+    }
+    interface ZPocketMessage {
     }
     interface ZPopover {
         /**
@@ -2787,6 +3230,16 @@ declare namespace LocalJSX {
          */
         "status"?: InputStatusBean;
     }
+    interface ZSlideshow {
+        /**
+          * array or JSON stringified images urls
+         */
+        "data"?: string[] | string;
+        /**
+          * slideshow id
+         */
+        "slideshowid"?: string;
+    }
     interface ZStatusTag {
         /**
           * [optional] Hide the text and show it on hover
@@ -2889,6 +3342,7 @@ declare namespace LocalJSX {
         "userfullname"?: string;
     }
     interface IntrinsicElements {
+        "z-alert": ZAlert;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
         "z-app-topbar": ZAppTopbar;
@@ -2917,27 +3371,39 @@ declare namespace LocalJSX {
         "z-input-message": ZInputMessage;
         "z-link": ZLink;
         "z-list": ZList;
-        "z-list-item": ZListItem;
+        "z-list-element": ZListElement;
+        "z-list-group": ZListGroup;
         "z-logo": ZLogo;
         "z-menu": ZMenu;
         "z-menu-dropdown": ZMenuDropdown;
         "z-menu-section": ZMenuSection;
+        "z-messages-pocket": ZMessagesPocket;
         "z-modal": ZModal;
         "z-modal-login": ZModalLogin;
         "z-myz-card": ZMyzCard;
         "z-myz-card-alert": ZMyzCardAlert;
         "z-myz-card-body": ZMyzCardBody;
         "z-myz-card-cover": ZMyzCardCover;
+        "z-myz-card-dictionary": ZMyzCardDictionary;
         "z-myz-card-footer": ZMyzCardFooter;
+        "z-myz-card-footer-sections": ZMyzCardFooterSections;
         "z-myz-card-header": ZMyzCardHeader;
         "z-myz-card-icon": ZMyzCardIcon;
+        "z-myz-card-info": ZMyzCardInfo;
         "z-myz-card-list": ZMyzCardList;
+        "z-myz-list": ZMyzList;
+        "z-myz-list-item": ZMyzListItem;
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
         "z-notification": ZNotification;
+        "z-otp": ZOtp;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
+        "z-pocket": ZPocket;
+        "z-pocket-body": ZPocketBody;
+        "z-pocket-header": ZPocketHeader;
+        "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
         "z-registro-table": ZRegistroTable;
         "z-registro-table-body": ZRegistroTableBody;
@@ -2950,6 +3416,7 @@ declare namespace LocalJSX {
         "z-registro-table-row": ZRegistroTableRow;
         "z-registro-table-sticky-footer": ZRegistroTableStickyFooter;
         "z-select": ZSelect;
+        "z-slideshow": ZSlideshow;
         "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
@@ -2963,6 +3430,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
             "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
@@ -2991,27 +3459,39 @@ declare module "@stencil/core" {
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
-            "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
+            "z-list-element": LocalJSX.ZListElement & JSXBase.HTMLAttributes<HTMLZListElementElement>;
+            "z-list-group": LocalJSX.ZListGroup & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
+            "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
             "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
             "z-myz-card-alert": LocalJSX.ZMyzCardAlert & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
             "z-myz-card-body": LocalJSX.ZMyzCardBody & JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
             "z-myz-card-cover": LocalJSX.ZMyzCardCover & JSXBase.HTMLAttributes<HTMLZMyzCardCoverElement>;
+            "z-myz-card-dictionary": LocalJSX.ZMyzCardDictionary & JSXBase.HTMLAttributes<HTMLZMyzCardDictionaryElement>;
             "z-myz-card-footer": LocalJSX.ZMyzCardFooter & JSXBase.HTMLAttributes<HTMLZMyzCardFooterElement>;
+            "z-myz-card-footer-sections": LocalJSX.ZMyzCardFooterSections & JSXBase.HTMLAttributes<HTMLZMyzCardFooterSectionsElement>;
             "z-myz-card-header": LocalJSX.ZMyzCardHeader & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
             "z-myz-card-icon": LocalJSX.ZMyzCardIcon & JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
+            "z-myz-card-info": LocalJSX.ZMyzCardInfo & JSXBase.HTMLAttributes<HTMLZMyzCardInfoElement>;
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
+            "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
+            "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
+            "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-pocket": LocalJSX.ZPocket & JSXBase.HTMLAttributes<HTMLZPocketElement>;
+            "z-pocket-body": LocalJSX.ZPocketBody & JSXBase.HTMLAttributes<HTMLZPocketBodyElement>;
+            "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
+            "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
             "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
@@ -3024,6 +3504,7 @@ declare module "@stencil/core" {
             "z-registro-table-row": LocalJSX.ZRegistroTableRow & JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
             "z-registro-table-sticky-footer": LocalJSX.ZRegistroTableStickyFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableStickyFooterElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
+            "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
             "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;

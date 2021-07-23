@@ -1,4 +1,4 @@
-import { r as registerInstance, h, g as getElement } from './index-3f358781.js';
+import { r as registerInstance, h, g as getElement } from './index-6eb9a735.js';
 
 const stylesCss = ".sc-z-registro-table-footer-h{display:table-footer-group;font-family:var(--dashboard-font);font-weight:var(--font-rg)}";
 

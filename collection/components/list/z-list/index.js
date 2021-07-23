@@ -1,20 +1,24 @@
-import { Component, Prop, h, Watch } from "@stencil/core";
+import { Component, Element, h, Prop, Host } from "@stencil/core";
+import { ListSize } from "../../../beans";
 export class ZList {
-  componentWillLoad() {
-    if (this.inputrawdata) {
-      this.parseinputrawdata(this.inputrawdata);
+  constructor() {
+    /**
+     * [optional] Sets size of inside elements.
+     */
+    this.size = ListSize.medium;
+  }
+  setChildrenSizeType() {
+    const children = this.host.children;
+    for (let i = 0; i < children.length - 1; i++) {
+      children[i].setAttribute("size", this.size);
     }
   }
-  parseinputrawdata(inputrawdata) {
-    this.list = [...JSON.parse(inputrawdata)];
-  }
-  oninputrawdataChange(newValue) {
-    this.parseinputrawdata(newValue);
+  componentDidLoad() {
+    this.setChildrenSizeType();
   }
   render() {
-    const lastElem = this.list ? this.list.length - 1 : -1;
-    return (h("ul", null, this.list &&
-      this.list.map((bean, i) => (h("z-list-item", { listitemid: bean.listitemid, text: bean.text, link: bean.link, linktarget: bean.linktarget, icon: bean.icon, underlined: lastElem != i })))));
+    return (h(Host, { role: "list" },
+      h("slot", null)));
   }
   static get is() { return "z-list"; }
   static get encapsulation() { return "shadow"; }
@@ -25,33 +29,16 @@ export class ZList {
     "$": ["styles.css"]
   }; }
   static get properties() { return {
-    "inputrawdata": {
+    "size": {
       "type": "string",
-      "mutable": true,
+      "mutable": false,
       "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "json stringified list data (mutable, optional)"
-      },
-      "attribute": "inputrawdata",
-      "reflect": false
-    },
-    "list": {
-      "type": "unknown",
-      "mutable": true,
-      "complexType": {
-        "original": "ListItemBean[]",
-        "resolved": "ListItemBean[]",
+        "original": "ListSize",
+        "resolved": "ListSize.large | ListSize.medium | ListSize.small | typeof ListSize[\"x-large\"]",
         "references": {
-          "ListItemBean": {
+          "ListSize": {
             "location": "import",
-            "path": "../../../beans/index.js"
+            "path": "../../../beans"
           }
         }
       },
@@ -59,12 +46,12 @@ export class ZList {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "list item data (mutable, optional)"
-      }
+        "text": "[optional] Sets size of inside elements."
+      },
+      "attribute": "size",
+      "reflect": true,
+      "defaultValue": "ListSize.medium"
     }
   }; }
-  static get watchers() { return [{
-      "propName": "inputrawdata",
-      "methodName": "oninputrawdataChange"
-    }]; }
+  static get elementRef() { return "host"; }
 }

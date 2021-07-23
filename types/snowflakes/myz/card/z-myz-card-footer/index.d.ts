@@ -14,11 +14,14 @@ export declare class ZMyzCardFooter {
   faded: boolean;
   /** card graphic variant (optional) */
   cardtype?: LicenseTypeEnum;
+  /** footer opened by default (optional) */
+  opened?: boolean;
   isOpen: boolean;
   allowTooltipAuthors: boolean;
   private ellipsisAuthors?;
   handleToggle(): void;
   getTitleAuthors(): string;
+  componentWillLoad(): void;
   elementsEllipsis(): void;
   elementAuthorsHasEllipsis(): boolean;
   retrieveClass(): {

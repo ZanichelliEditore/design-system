@@ -1,11 +1,11 @@
-import { ListItemBean } from "../../../beans/index.js";
+import { ListSize } from "../../../beans";
 export declare class ZList {
-  /** json stringified list data (mutable, optional) */
-  inputrawdata?: string;
-  /** list item data (mutable, optional)*/
-  list?: ListItemBean[];
-  componentWillLoad(): void;
-  parseinputrawdata(inputrawdata: string): void;
-  oninputrawdataChange(newValue: string): void;
+  host: HTMLElement;
+  /**
+   * [optional] Sets size of inside elements.
+   */
+  size?: ListSize;
+  setChildrenSizeType(): void;
+  componentDidLoad(): void;
   render(): any;
 }

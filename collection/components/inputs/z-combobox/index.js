@@ -1,5 +1,5 @@
-import { Component, Prop, h, State, Listen, Watch, Event } from "@stencil/core";
-import { InputTypeEnum, keybordKeyCodeEnum } from "../../../beans";
+import { Component, Prop, h, State, Listen, Watch, Event, } from "@stencil/core";
+import { InputTypeEnum, keybordKeyCodeEnum, } from "../../../beans";
 import { handleKeyboardSubmit } from "../../../utils/utils";
 export class ZCombobox {
   constructor() {
@@ -30,7 +30,7 @@ export class ZCombobox {
   watchItems() {
     this.itemsList =
       typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-    this.selectedCounter = this.itemsList.filter(item => item.checked).length;
+    this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
     if (this.searchValue) {
       this.filterItems(this.searchValue);
     }
@@ -60,7 +60,7 @@ export class ZCombobox {
     this.watchItems();
   }
   componentWillRender() {
-    this.selectedCounter = this.itemsList.filter(item => item.checked).length;
+    this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
     if (this.searchValue) {
       this.filterItems(this.searchValue);
     }
@@ -77,7 +77,7 @@ export class ZCombobox {
       return this.closeFilterItems();
     this.searchValue = value;
     this.resetRenderItemsList();
-    this.renderItemsList = this.renderItemsList.filter(item => {
+    this.renderItemsList = this.renderItemsList.filter((item) => {
       const start = item.name.toUpperCase().indexOf(value.toUpperCase());
       const end = start + value.length;
       const newName = item.name.substring(0, start) +
@@ -130,7 +130,7 @@ export class ZCombobox {
     if (!items.length && this.searchValue)
       return this.renderNoSearchResults();
     return (h("ul", null, items.map((item, i) => {
-      return (h("z-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: i === items.length - 1 ? false : true },
+      return (h("z-myz-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: i === items.length - 1 ? false : true },
         h("z-input", { type: InputTypeEnum.checkbox, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked &&
             this.maxcheckableitems &&
             this.maxcheckableitems === this.selectedCounter })));
@@ -138,7 +138,7 @@ export class ZCombobox {
   }
   renderNoSearchResults() {
     return (h("ul", null,
-      h("z-list-item", { id: "no-results", text: this.noresultslabel, listitemid: "no-results", icon: "multiply-circle" })));
+      h("z-myz-list-item", { id: "no-results", text: this.noresultslabel, listitemid: "no-results", icon: "multiply-circle" })));
   }
   renderCloseButton() {
     return (h("div", null,

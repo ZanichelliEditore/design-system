@@ -1,4 +1,5 @@
-import { keybordKeyCodeEnum } from "../beans/index";
+import { keybordKeyCodeEnum, DeviceEnum } from "../beans/index";
+import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 export function format(first, middle, last) {
   return ((first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : ""));
 }
@@ -37,4 +38,34 @@ export function getElementTree(elem, tree = []) {
     return getElementTree(elem, tree);
   }
   return tree;
+}
+export function getSiblings(elem) {
+  let siblings = [];
+  if (!elem || !elem.parentNode || !elem.parentNode.childNodes) {
+    return siblings;
+  }
+  elem.parentNode.childNodes.forEach((child) => {
+    if (child.nodeType === 1 && child !== elem) {
+      siblings.push(child);
+    }
+  });
+  return siblings;
+}
+export function getDevice() {
+  switch (true) {
+    case window.innerWidth <= mobileBreakpoint:
+      return DeviceEnum.mobile;
+    case window.innerWidth <= tabletBreakpoint:
+      return DeviceEnum.tablet;
+    default:
+      return DeviceEnum.desktop;
+  }
+}
+export function convertJson(data) {
+  try {
+    return JSON.parse(data);
+  }
+  catch (e) {
+    return false;
+  }
 }
