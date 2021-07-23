@@ -33,7 +33,7 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
         <z-list-element>Elemento 3</z-list-element>
       </z-list-group>
       <z-list-group divider-type="header">
-        <z-body slot="header-title">Gruppo 2</z-body>
+        <div slot="header-title">Gruppo 2</div>
         <z-list-element>Elemento 1</z-list-element>
         <z-list-element>Elemento 2</z-list-element>
         <z-list-element>Elemento 3</z-list-element>
@@ -48,13 +48,13 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
   <Story name="ZList-with-element-divider">
     {html`<z-list>
       <z-list-group divider-type="element">
-        <z-body slot="header-title">Gruppo 1</z-body>
+        <div slot="header-title">Gruppo 1</div>
         <z-list-element>Elemento 1</z-list-element>
         <z-list-element>Elemento 2</z-list-element>
         <z-list-element>Elemento 3</z-list-element>
       </z-list-group>
       <z-list-group divider-type="element">
-        <z-body slot="header-title">Gruppo 2</z-body>
+        <div slot="header-title">Gruppo 2</div>
         <z-list-element>Elemento 1</z-list-element>
         <z-list-element>Elemento 2</z-list-element>
         <z-list-element>Elemento 3</z-list-element>
@@ -77,23 +77,26 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
   </Story>
 </Preview>
 
-## ZList with expandable elements PROVA
+## ZList with expandable elements
 
 <Preview>
   <Story name="ZList-with-expandable-content">
     {html`<z-list size="large">
       <z-list-group divider-type="element">
-        <z-list-element expandable align-button="left"
+        <z-list-element
+          expandable
+          align-button="left"
+          expandable-style="accordion"
           ><span>Elemento 1</span
           ><span slot="inner-content"
             >INNER CONTENT 1 BUTTON LEFT</span
           ></z-list-element
         >
-        <z-list-element expandable align-button="right"
+        <z-list-element expandable align-button="right" expandable-style="menu"
           ><span>Elemento 2</span
           ><span slot="inner-content">INNER CONTENT 2</span></z-list-element
         >
-        <z-list-element expandable align-button="right"
+        <z-list-element expandable align-button="right" expandable-style="menu"
           ><span>Elemento 3</span
           ><span slot="inner-content">INNER CONTENT 3</span></z-list-element
         >
@@ -124,3 +127,7 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
     </z-list>`}
   </Story>
 </Preview>
+
+## N.B.
+
+There is no default padding in the expandable content; its management is entirely left to the product

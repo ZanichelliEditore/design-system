@@ -33,7 +33,6 @@ export class ZListGroup {
 
   componentDidLoad() {
     const children = this.host.children;
-    this.hasHeader = !!this.host.querySelector('[slot="header-title"]');
     for (let i = 0; i < children.length; i++) {
       if (children.length - 1 > i) {
         children[i].setAttribute("divider-type", this.dividerType);
@@ -42,6 +41,10 @@ export class ZListGroup {
       }
       children[i].setAttribute("size", this.size);
     }
+  }
+
+  componentWillLoad() {
+    this.hasHeader = !!this.host.querySelector('[slot="header-title"]');
   }
 
   render() {

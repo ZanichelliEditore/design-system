@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZList } from "../../../snowflakes/myz/list/z-myz-list";
+import { ZMyzList } from "../../../snowflakes/myz/list/z-myz-list";
 
 import { ZHeader } from "./index";
 
@@ -121,7 +121,7 @@ describe("Suite test ZHeader", () => {
 
   it("Test render ZHeader mobile myz loggato open", async () => {
     const page = await newSpecPage({
-      components: [ZHeader, ZList],
+      components: [ZHeader, ZMyzList],
       html: initHeader(true, true, true, true, true, "", false)
     });
     page.rootInstance.isMobile = true;

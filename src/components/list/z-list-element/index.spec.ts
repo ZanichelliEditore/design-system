@@ -10,29 +10,7 @@ describe("Suite test ZListElement", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="left" divider-color="gray200" divider-size="small" divider-type="none" role="listitem" size="medium" tabindex="0">
-        <mock:shadow-root>
-          <div class="container">
-            <div class="z-list-element-container">
-              <slot></slot>
-            </div>
-          </div>
-        </mock:shadow-root>
-        <span>
-          Test
-        </span>
-      </z-list-element>
-    `);
-  });
-
-  it("Test render ZListElement", async () => {
-    const page = await newSpecPage({
-      components: [ZListElement],
-      html: `<z-list-element><span>Test</span></z-list-element>`,
-    });
-
-    expect(page.root).toEqualHtml(`
-      <z-list-element align-button="left" divider-color="gray200" divider-size="small" divider-type="none" role="listitem" size="medium" tabindex="0">
+    <z-list-element align-button="left" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
           <div class="container">
             <div class="z-list-element-container">
@@ -54,7 +32,7 @@ describe("Suite test ZListElement", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="left" divider-color="gray200" divider-size="small" divider-type="none" expandable="true" role="listitem" size="medium" tabindex="0">
+      <z-list-element align-button="left" expandable="" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
           <div class="container">
             <div class="z-list-element-container">
@@ -86,7 +64,7 @@ describe("Suite test ZListElement", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="left" aria-expanded="" divider-color="gray200" divider-size="small" divider-type="none" expandable="true" role="listitem" size="medium" tabindex="0">
+      <z-list-element align-button="left" aria-expanded="" expandable="" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
           <div class="container">
             <div class="z-list-element-container">
@@ -115,7 +93,7 @@ describe("Suite test ZListElement", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="left" divider-color="gray200" divider-size="small" divider-type="none" expandable="true" expandable-style="menu" role="listitem" size="medium" tabindex="0">
+      <z-list-element align-button="left" expandable="" expandable-style="menu" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
           <div class="container">
             <div class="z-list-element-container">
@@ -144,7 +122,7 @@ describe("Suite test ZListElement", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-element align-button="right" divider-color="gray200" divider-size="small" divider-type="none" expandable="true" role="listitem" size="medium" tabindex="0">
+      <z-list-element align-button="right" expandable="" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
           <div class="container">
             <div class="z-list-element-container">

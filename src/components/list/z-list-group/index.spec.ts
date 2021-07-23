@@ -10,14 +10,14 @@ describe("Suite test ZListGroup", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-group align-button="left" divider-color="gray200" divider-size="small" divider-type="none" role="group" size="medium">
+    <z-list-group divider-color="gray200" divider-size="small" divider-type="none" role="group" size="medium">
         <mock:shadow-root>
-          <div class="body-4-sb z-list-group-header-container">
+          <div class="z-list-group-header-container">
             <slot name="header-title"></slot>
           </div>
           <slot></slot>
         </mock:shadow-root>
-        <z-list-element align-button="left" expandable="false" expandable-style="accordion" size="medium"></z-list-element>
+        <z-list-element size="medium"></z-list-element>
       </z-list-group>
     `);
   });
@@ -29,14 +29,14 @@ describe("Suite test ZListGroup", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list-group align-button="left" divider-color="gray200" divider-size="small" divider-type="none" role="group" size="small">
+      <z-list-group divider-color="gray200" divider-size="small" divider-type="none" role="group" size="small">
         <mock:shadow-root>
-          <div class="body-4-sb z-list-group-header-container">
+          <div class="z-list-group-header-container">
             <slot name="header-title"></slot>
           </div>
           <slot></slot>
         </mock:shadow-root>
-        <z-list-element align-button="left" expandable="false" expandable-style="accordion" size="small"></z-list-element>
+        <z-list-element size="small"></z-list-element>
       </z-list-group>
     `);
   });
