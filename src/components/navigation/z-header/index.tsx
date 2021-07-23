@@ -154,11 +154,7 @@ export class ZHeader {
         <svg
           height="8"
           width="16"
-          class={
-            !this.activeMenuItem || this.activeMenuItem.id !== id
-              ? "hidden"
-              : ""
-          }
+          class={{hidden: !this.activeMenuItem || this.activeMenuItem.id !== id}}
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
@@ -174,7 +170,6 @@ export class ZHeader {
   handleToggleMobileMenuItem(elementId: string): void {
     if (!this.isMobile) return;
 
-    // TODO: controllare perché era stata fatta sta cosa che non mi ricordo
     this.element.shadowRoot
       .querySelector(`#${elementId}`)
       .classList.toggle("isopen");
@@ -346,7 +341,10 @@ export class ZHeader {
     return (
       <div
         id="main-header"
-        class={`main-header${this.ismyz ? "" : " myz-out"}`}
+        class={{
+          "main-header": true,
+          "myz-out": !this.ismyz,
+        }}
       >
         {this.renderLogoDiv()}
         {this.renderIntMenu(this.intMenuData)}
@@ -405,9 +403,11 @@ export class ZHeader {
     return (
       <div
         id="mobile-content"
-        class={`mobile-content${this.isMenuMobileOpen ? " open" : ""}${
-          this.ismyz ? "" : " myz-out"
-        }`}
+        class={{
+          "mobile-content": true,
+          "open": this.isMenuMobileOpen,
+          "myz-out": !this.ismyz,
+        }}
       >
         {this.renderMobileLoginDiv(this.userData)}
         {this.ismyz && <hr />}

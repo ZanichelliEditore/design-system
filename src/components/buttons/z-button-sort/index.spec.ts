@@ -34,11 +34,11 @@ describe("Suite test ZButtonSort", () => {
         <mock:shadow-root>
           <button>
           <label>
-          <span class="ellipsis">label</span>
-          <span class="counter"> (5)</span>
-          <span class="sort">A-Z</span>
-          <z-icon name="caret-up-down" width="16" height="16" />
-        </label>
+            <span class="ellipsis">label</span>
+            <span class="counter"> (5)</span>
+            <span class="sort">A-Z</span>
+            <z-icon name="caret-up-down" width="16" height="16" />
+          </label>
           </button>
         </mock:shadow-root>
       </z-button-sort>

@@ -99,13 +99,13 @@ describe("Suite test ZToggleButton", () => {
     });
 
     const button = page.root.shadowRoot.querySelector("button");
-    expect(page.rootInstance.isOpen).toEqual(false);
+    expect(page.rootInstance.opened).toEqual(false);
     button.click();
     await page.waitForChanges();
-    expect(page.rootInstance.isOpen).toEqual(true);
+    expect(page.rootInstance.opened).toEqual(true);
     button.click();
     await page.waitForChanges();
-    expect(page.rootInstance.isOpen).toEqual(false);
+    expect(page.rootInstance.opened).toEqual(false);
   });
 
   it("Test click ZToggleButton disabled", async () => {
@@ -115,9 +115,9 @@ describe("Suite test ZToggleButton", () => {
     });
 
     const button = page.root.shadowRoot.querySelector("button");
-    expect(page.rootInstance.isOpen).toEqual(false);
+    expect(page.rootInstance.opened).toEqual(false);
     button.click();
     await page.waitForChanges();
-    expect(page.rootInstance.isOpen).toEqual(false);
+    expect(page.rootInstance.opened).toEqual(false);
   });
 });

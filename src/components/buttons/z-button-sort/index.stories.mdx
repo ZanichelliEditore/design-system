@@ -21,6 +21,18 @@ import { text, boolean, number } from '@storybook/addon-knobs';
         sortasc="${boolean('sortasc', true)}"
       ></z-button-sort>`}
   </Story>
+  <Story name="z-button-sort ellipsis">
+    {html`
+      <z-button-sort
+        label="${text('label', 'Testo molto lungo lungo lungo lunghissimo lunghissimo lunghissimo ancora di più')}"
+        counter="${number('counter', 3)}"
+        desclabel="${text('desclabel', 'label DESC')}"
+        sortlabelasc="${text('sortlabelasc', '1-9')}"
+        sortlabeldesc="${text('sortlabeldesc', '9-1')}"
+        isselected="${boolean('isselected', true)}"
+        sortasc="${boolean('sortasc', true)}"
+      ></z-button-sort>`}
+  </Story>
 </Preview>
 
   <Props of="z-button-sort" />
