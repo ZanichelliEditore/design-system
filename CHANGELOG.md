@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.12.0](https://github.com/ZanichelliEditore/design-system/compare/v2.11.0...v2.12.0) (2021-07-23)
+
+
+### Features
+
+* **CLAV-54:** move existent component z-list to z-myz-list ([437ec8b](https://github.com/ZanichelliEditore/design-system/commit/437ec8b268c63cd1514eccdf5622727cf5d3edc2))
+* **clav-76:** add focus, active status ([34f427c](https://github.com/ZanichelliEditore/design-system/commit/34f427c2ef86edf26e6b54b48f34ad529b33e4ae))
+* **clav-76:** handle prop by group, and accessibility ([7052b1e](https://github.com/ZanichelliEditore/design-system/commit/7052b1e01bd969bbc7a5132aa209c4a28acbcb94))
+* **clav-76:** set element clickable ([e921d48](https://github.com/ZanichelliEditore/design-system/commit/e921d480a4ad2cab2ea0d8f6338b6059ab6e776e))
+* **CLAV-76:** add new component ([2227ea9](https://github.com/ZanichelliEditore/design-system/commit/2227ea9eb563f9b448f4a9692b9492f8858dae25))
+* **CLAV-76:** add z-list style ([beea3d7](https://github.com/ZanichelliEditore/design-system/commit/beea3d74f8a3fc6a84a23488f3af9f295eafd2f5))
+* **CLAV-76:** fix divider style ([a5bb073](https://github.com/ZanichelliEditore/design-system/commit/a5bb073eaa8b785c2d23ee57ca160f7aab11014f))
+* **CLAV-76:** fix divider style and minor pr fix ([90ae53d](https://github.com/ZanichelliEditore/design-system/commit/90ae53d2b8bd82ce7655e3c59fca009f701d58c4))
+* **CLAV-76:** refactor of divider implementation ([3b7390f](https://github.com/ZanichelliEditore/design-system/commit/3b7390f4c8f5e8b23002a05b6757c68313f904ff))
+
+
+### Bug Fixes
+
+* **clav-76:** pr comment ([3dc2e62](https://github.com/ZanichelliEditore/design-system/commit/3dc2e622482cde8b0c3a8189e1a597b8cc984d50))
+* **clav-76:** some list item style issue ([164e2bd](https://github.com/ZanichelliEditore/design-system/commit/164e2bd2f0a6734843ed176f1cae4f0ca470f8cc))
+* **CLAV-76:** add padding to expandable content ([fdfe34d](https://github.com/ZanichelliEditore/design-system/commit/fdfe34da6e2874c4618403872a7d992abd07c171))
+* **CLAV-76:** fix for pr ([280ae3a](https://github.com/ZanichelliEditore/design-system/commit/280ae3ae0e91af1ed860b6074ca606ee7c61b68e))
+* **CLAV-76:** fix for pr ([37dfe89](https://github.com/ZanichelliEditore/design-system/commit/37dfe8981d5db588e5bebb8a81628abf3628cf5f))
+* **CLAV-76:** rename class ([700ae62](https://github.com/ZanichelliEditore/design-system/commit/700ae62522e404b3e87c4c62856ecc32e6e2b291))
+
 ## [2.11.0](https://github.com/ZanichelliEditore/design-system/compare/v2.10.4...v2.11.0) (2021-07-22)
 
 
