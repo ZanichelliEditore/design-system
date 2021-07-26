@@ -50,6 +50,8 @@ graph TD;
   z-myz-card-dictionary --> z-myz-card-body
   z-myz-card-dictionary --> z-myz-card-cover
   z-myz-card-dictionary --> z-button
+  z-myz-card-cover --> z-body
+  z-body --> z-typography
   z-button --> z-icon
   style z-myz-card-dictionary fill:#f9f,stroke:#333,stroke-width:4px
 ```

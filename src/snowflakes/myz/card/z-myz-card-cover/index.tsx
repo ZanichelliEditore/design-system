@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Host } from "@stencil/core";
 
 @Component({
   tag: "z-myz-card-cover",
@@ -14,6 +14,8 @@ export class ZMyzCardCover {
   @Prop() faded: boolean;
   /** default error image source */
   @Prop() defaultimg: string;
+  /** out of catalog flag */
+  @Prop() outOfCatalog: boolean = true;
 
   hadleOnImageError() {
     this.img = this.defaultimg;
@@ -21,12 +23,15 @@ export class ZMyzCardCover {
 
   render() {
     return (
-      <img
-        class={this.faded && "faded"}
-        onError={this.hadleOnImageError.bind(this)}
-        alt={this.titolo}
-        src={this.img}
-      />
+      <Host>
+        <img
+          class={this.faded && "faded"}
+          onError={this.hadleOnImageError.bind(this)}
+          alt={this.titolo}
+          src={this.img}
+        />
+        {this.outOfCatalog && (<z-body class={this.faded && "faded"} level={1}><strong>Fuori Catalogo</strong></z-body>)}
+      </Host>
     );
   }
 }

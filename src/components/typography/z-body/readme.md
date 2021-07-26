@@ -17,6 +17,7 @@
 ### Used by
 
  - [z-modal-login](../../modal/z-modal-login)
+ - [z-myz-card-cover](../../../snowflakes/myz/card/z-myz-card-cover)
  - [z-notification](../../notification/z-notification)
 
 ### Depends on
@@ -28,6 +29,7 @@
 graph TD;
   z-body --> z-typography
   z-modal-login --> z-body
+  z-myz-card-cover --> z-body
   z-notification --> z-body
   style z-body fill:#f9f,stroke:#333,stroke-width:4px
 ```

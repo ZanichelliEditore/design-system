@@ -766,6 +766,10 @@ export namespace Components {
          */
         "img": string;
         /**
+          * out of catalog flag
+         */
+        "outOfCatalog": boolean;
+        /**
           * cover alt title
          */
         "titolo": string;
@@ -2741,6 +2745,10 @@ declare namespace LocalJSX {
           * image source
          */
         "img"?: string;
+        /**
+          * out of catalog flag
+         */
+        "outOfCatalog"?: boolean;
         /**
           * cover alt title
          */
