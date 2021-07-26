@@ -1,0 +1,62 @@
+z-tooltip .container z-button:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+z-tooltip.dark {
+  --z-tooltip-theme--surface: var(--color-surface05);
+  --z-tooltip-theme--text: var(--color-text-inverse);
+}
+
+.tooltip-container {
+  position: relative;
+  width: 100px;
+  margin: 32px 64px;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.tooltip-container button {
+  width: 100%;
+  height: 32px;
+  margin: 0;
+}
+
+.tooltip-container z-tooltip {
+  position: absolute;
+  margin: auto;
+}
+
+.tooltip-container z-tooltip[type^="top"] {
+  bottom: 100%;
+  margin-bottom: var(--arrow-size);
+}
+
+.tooltip-container z-tooltip[type$="_right"] {
+  right: 0;
+  margin-left: var(--arrow-size);
+  transform: translateX(calc(100% - 32px));
+}
+
+.tooltip-container z-tooltip[type="right"] {
+  left: 100%;
+  margin-left: var(--arrow-size);
+}
+
+.tooltip-container z-tooltip[type^="bottom"] {
+  top: 100%;
+  margin-top: var(--arrow-size);
+}
+
+.tooltip-container z-tooltip[type$="_left"] {
+  left: 0;
+  transform: translateX(calc(-100% + 32px));
+  margin-right: var(--arrow-size);
+}
+
+.tooltip-container z-tooltip[type="left"] {
+  right: 100%;
+  margin-right: var(--arrow-size);
+}

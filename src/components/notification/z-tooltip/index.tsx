@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Host, Watch } from "@stencil/core";
 import { TooltipPosition } from "../../../beans/index";
 
 @Component({
@@ -7,46 +7,39 @@ import { TooltipPosition } from "../../../beans/index";
   shadow: true
 })
 export class ZTooltip {
-  /** content text */
+  /** Content text */
   @Prop() content: string;
-  /** tooltip position variant */
-  @Prop() type: TooltipPosition;
 
-  getArrowClass() {
-    const direction = TooltipPosition[(this.type).toUpperCase()];
-    switch (direction) {
-      case TooltipPosition.TOP:
-        return "tooltip tooltip-bottom-arrow";
-      case TooltipPosition.BOTTOM:
-        return "tooltip tooltip-top-arrow";
-      case TooltipPosition.LEFT:
-        return "tooltip tooltip-right-arrow";
-      case TooltipPosition.RIGHT:
-        return "tooltip tooltip-left-arrow";
-      case TooltipPosition.TOP_LEFT:
-          return "tooltip tooltip-bottom-right-arrow";
-      case TooltipPosition.TOP_RIGHT:
-          return "tooltip tooltip-bottom-left-arrow";
-      case TooltipPosition.BOTTOM_LEFT:
-          return "tooltip tooltip-top-right-arrow";
-      case TooltipPosition.BOTTOM_RIGHT:
-          return "tooltip tooltip-top-left-arrow";
+  /** Tooltip position */
+  @Prop({ reflect: true, mutable: true }) type: TooltipPosition;
+
+  @Watch('type')
+  validateType(newValue) {
+    if (
+      newValue &&
+      Object
+        .values(TooltipPosition)
+        .every((position) => newValue !== position)
+      ) {
+      this.type = null;
     }
+  }
+
+  componentWillLoad() {
+    this.validateType(this.type);
   }
 
   render() {
     if (this.content) {
         return (
-          <div class={`${this.getArrowClass()} legacy`}>
+          <Host class="legacy">
             {this.content}
-          </div>
+          </Host>
       );
     }
 
     return (
-      <div class={this.getArrowClass()}>
-        <slot/>
-      </div>
+      <slot></slot>
     );
   }
 }

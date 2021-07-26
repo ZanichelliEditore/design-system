@@ -1,6 +1,8 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, select } from '@storybook/addon-knobs';
+import { text, select, radios } from '@storybook/addon-knobs';
+import { TooltipPosition } from "../../../beans/index.tsx";
+import "./index.stories.css";
 
 ## Stories
 
@@ -11,20 +13,14 @@ import { text, select } from '@storybook/addon-knobs';
 <Preview>
   <Story name="buttons">
     {(args) => html`
-      <z-tooltip
-        type="${select('type', ['top', 'bottom', 'left', 'right', 'top_left', 'top_right', 'bottom_left', 'bottom_right'], 'top')}">
-        <div class="container" style="display: flex;">
-          <z-button variant="primary" style="margin-right: 0.5rem;">
-            Open
-          </z-button>
-          <z-button variant="primary" style="margin-right: 0.5rem;">
-            Save as
-          </z-button>
-          <z-button variant="primary"">
-            Share
-          </z-button>
+      <z-tooltip type="${select('type', TooltipPosition, 'top')}">
+        <div class="container">
+          <z-button>Open</z-button>
+          <z-button>Save as</z-button>
+          <z-button>Share</z-button>
         </div>
-      </z-tooltip>`}
+      </z-tooltip>
+    `}
   </Story>
 </Preview>
 
@@ -33,141 +29,34 @@ import { text, select } from '@storybook/addon-knobs';
     {(args) => html`
       <z-tooltip
         content="${text('content', 'Aggiungi libro')}"
-        type="${select('type', ['top', 'bottom', 'left', 'right', 'top_left', 'top_right', 'bottom_left', 'bottom_right'], 'top')}"
+        type="${select('type', TooltipPosition, 'top')}"
       ></z-tooltip>`}
   </Story>
 </Preview>
 
 <Preview>
   <Story name="legacy dark mode">
-    {(args) => html`
+    {html`
       <z-tooltip
-        style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);"
+        class="dark"
         content="${text('content', 'Aggiungi libro')}"
-        type="${select('type', ['top', 'bottom', 'left', 'right', 'top_left', 'top_right', 'bottom_left', 'bottom_right'], 'top')}"
-      ></z-tooltip>`}
+        type="${select('type', TooltipPosition, 'top')}"
+      ></z-tooltip>
+    `}
   </Story>
 </Preview>
 
 <Preview>
-  <Story name="position-top">
+  <Story name="With an element">
     {() => html`
-      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
-        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top">
-          <div class="container" style="display: flex;">
-            <span>Open</span>
-          </div>
+      <div class="tooltip-container">
+        <z-tooltip class="dark" type="${radios('type', TooltipPosition, 'bottom')}">
+          <span>Open</span>
         </z-tooltip>
-        <button style="margin-top: 0.5rem; width: 5rem;">Element</button>
-      </div>`
-    }
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="position-bottom">
-    {() => html`
-      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
-        <button style="margin-bottom: 0.5rem; width: 5rem;">Element</button>
-        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom">
-          <div class="container" style="display: flex;">
-            <span>Open</span>
-          </div>
-        </z-tooltip>
-      </div>`
-    }
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="position-right">
-    {() => html`
-      <div style="display: inline-flex; width: fit-content; align-items: center;">
-        <button style="margin-right: 0.5rem; width: 5rem;">Element</button>
-        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="right">
-          <div class="container" style="display: flex;">
-            <span>Open</span>
-          </div>
-        </z-tooltip>
-      </div>`
-    }
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="position-left">
-    {() => html`
-      <div style="display: inline-flex; align-items: center;">
-        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="left">
-          <div class="container" style="display: flex;">
-            <span>Open</span>
-          </div>
-        </z-tooltip>
-        <button style="margin-left: 0.5rem; width: 5rem;">Element</button>
-      </div>`
-    }
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="position-top-left">
-    {() => html`
-      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
-        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top_left">
-          <div class="container" style="display: flex;">
-            <span>Open</span>
-          </div>
-        </z-tooltip>
-        <button style="margin-top: 0.5rem; align-self: flex-end; width: 5rem;">Element</button>
-      </div>`
-    }
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="position-top-right">
-    {() => html`
-      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
-        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="top_right">
-          <div class="container" style="display: flex;">
-            <span>Open</span>
-          </div>
-        </z-tooltip>
-        <button style="margin-top: 0.5rem; align-self: flex-start; width: 5rem;">Element</button>
-      </div>`
-    }
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="position-bottom-left">
-    {() => html`
-      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
-        <button style="margin-bottom: 0.5rem; align-self: flex-end; width: 5rem;">Element</button>
-        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom_left">
-          <div class="container" style="display: flex;">
-            <span>Open</span>
-          </div>
-        </z-tooltip>
-      </div>`
-    }
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="position-bottom-right">
-    {() => html`
-      <div style="display: inline-flex; width: fit-content; flex-direction: column; align-items: center;">
-        <button style="margin-bottom: 0.5rem; align-self: flex-start; width: 5rem;">Element</button>
-        <z-tooltip style="--z-tooltip-theme--text: var(--color-white); --z-tooltip-theme--surface: var(--bg-grey-800);" type="bottom_right">
-          <div class="container" style="display: flex;">
-            <span>Open</span>
-          </div>
-        </z-tooltip>
-      </div>`
-    }
+        <button>Element</button>
+      </div>
+    `}
   </Story>
 </Preview>
 
 <Props of="z-tooltip" />
-

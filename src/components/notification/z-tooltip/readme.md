@@ -14,10 +14,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description              | Type                                                                                                                                                                                                                                                 | Default     |
-| --------- | --------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `content` | `content` | content text             | `string`                                                                                                                                                                                                                                             | `undefined` |
-| `type`    | `type`    | tooltip position variant | `TooltipPosition.BOTTOM \| TooltipPosition.BOTTOM_LEFT \| TooltipPosition.BOTTOM_RIGHT \| TooltipPosition.LEFT \| TooltipPosition.NO_ARROW \| TooltipPosition.RIGHT \| TooltipPosition.TOP \| TooltipPosition.TOP_LEFT \| TooltipPosition.TOP_RIGHT` | `undefined` |
+| Property  | Attribute | Description      | Type                                                                                                                                                                                                                     | Default     |
+| --------- | --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `content` | `content` | Content text     | `string`                                                                                                                                                                                                                 | `undefined` |
+| `type`    | `type`    | Tooltip position | `TooltipPosition.BOTTOM \| TooltipPosition.BOTTOM_LEFT \| TooltipPosition.BOTTOM_RIGHT \| TooltipPosition.LEFT \| TooltipPosition.RIGHT \| TooltipPosition.TOP \| TooltipPosition.TOP_LEFT \| TooltipPosition.TOP_RIGHT` | `undefined` |
 
 
 ## Dependencies

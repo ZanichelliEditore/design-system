@@ -1291,11 +1291,11 @@ export namespace Components {
     }
     interface ZTooltip {
         /**
-          * content text
+          * Content text
          */
         "content": string;
         /**
-          * tooltip position variant
+          * Tooltip position
          */
         "type": TooltipPosition;
     }
@@ -3310,11 +3310,11 @@ declare namespace LocalJSX {
     }
     interface ZTooltip {
         /**
-          * content text
+          * Content text
          */
         "content"?: string;
         /**
-          * tooltip position variant
+          * Tooltip position
          */
         "type"?: TooltipPosition;
     }
