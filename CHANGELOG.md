@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.12.2](https://github.com/ZanichelliEditore/design-system/compare/v2.12.1...v2.12.2) (2021-07-27)
+
+
+### Bug Fixes
+
+* z-input-message fix ([1d2ad21](https://github.com/ZanichelliEditore/design-system/commit/1d2ad2158883c58d1aa29b29bd3685038d446d99))
+
 ### [2.12.1](https://github.com/ZanichelliEditore/design-system/compare/v2.12.0...v2.12.1) (2021-07-23)
 
 
