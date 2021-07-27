@@ -22,7 +22,7 @@ export class ZInputMessage {
     return [
       this.statusIcons[this.status] && this.message &&
         <z-icon name={this.statusIcons[this.status]}></z-icon>,
-      <span>{this.message}</span>
+      <span innerHTML={this.message}/>
     ];
   }
 }
