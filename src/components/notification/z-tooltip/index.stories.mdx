@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, select, radios } from '@storybook/addon-knobs';
+import { text, radios, boolean } from '@storybook/addon-knobs';
 import { TooltipPosition } from "../../../beans/index.tsx";
 import "./index.stories.css";
 
@@ -13,13 +13,37 @@ import "./index.stories.css";
 <Preview>
   <Story name="buttons">
     {(args) => html`
-      <z-tooltip type="${select('type', TooltipPosition, 'top')}">
-        <div class="container">
-          <z-button>Open</z-button>
-          <z-button>Save as</z-button>
-          <z-button>Share</z-button>
-        </div>
-      </z-tooltip>
+      <div class="tooltip-container">
+        <z-tooltip
+          type="${radios('type', TooltipPosition, 'top')}"
+          open="${boolean('open', true)}"
+          bind-to="#icon"
+        >
+          <div class="container">
+            <z-button>Open</z-button>
+            <z-button>Save as</z-button>
+            <z-button>Share</z-button>
+          </div>
+        </z-tooltip>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Bound to an element">
+    {() => html`
+      <div class="tooltip-container">
+        <z-tooltip class="dark"
+          bind-to="#icon"
+          type="${radios('type', TooltipPosition, 'bottom')}"
+          open="${boolean('open', true)}"
+        >
+          <span>Open</span>
+        </z-tooltip>
+        <z-icon id="icon" name="informationsource"></z-icon>
+      </div>
     `}
   </Story>
 </Preview>
@@ -29,7 +53,7 @@ import "./index.stories.css";
     {(args) => html`
       <z-tooltip
         content="${text('content', 'Aggiungi libro')}"
-        type="${select('type', TooltipPosition, 'top')}"
+        type="${radios('type', TooltipPosition, 'top')}"
       ></z-tooltip>`}
   </Story>
 </Preview>
@@ -40,21 +64,8 @@ import "./index.stories.css";
       <z-tooltip
         class="dark"
         content="${text('content', 'Aggiungi libro')}"
-        type="${select('type', TooltipPosition, 'top')}"
+        type="${radios('type', TooltipPosition, 'top')}"
       ></z-tooltip>
-    `}
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="With an element">
-    {() => html`
-      <div class="tooltip-container">
-        <z-tooltip class="dark" type="${radios('type', TooltipPosition, 'bottom')}">
-          <span>Open</span>
-        </z-tooltip>
-        <button>Element</button>
-      </div>
     `}
   </Story>
 </Preview>
