@@ -90,7 +90,7 @@ export class ZTooltip {
   @State() position?: TooltipPosition;
 
   /**
-   * position change event.
+   * Position change event.
    */
   @Event() positionChange: EventEmitter;
 
