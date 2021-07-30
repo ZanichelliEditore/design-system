@@ -127,6 +127,7 @@ export enum ButtonVariantEnum {
   primary = "primary",
   secondary = "secondary",
   tertiary = "tertiary",
+  "dark-bg" = "dark-bg"
 }
 
 export enum ButtonTypeEnum {
