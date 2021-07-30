@@ -3304,6 +3304,9 @@ declare namespace LocalJSX {
         "autoclose"?: number;
         "closebutton"?: boolean;
         "message"?: string;
+        /**
+          * notification action event
+         */
         "onToastAction"?: (event: CustomEvent<any>) => void;
         /**
           * notification close event

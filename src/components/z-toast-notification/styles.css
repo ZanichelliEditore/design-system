@@ -5,66 +5,68 @@
   max-width: 100%;
 }
 
-:host > div {
+:host > #external-container {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   border-radius: 4px;
   font-size: 14px;
   letter-spacing: 0.16px;
-  line-height: 20px;
-  display: grid;
-  column-gap: 16px;
-  grid-template-columns: 4fr 0fr 0fr;
-  align-items: center;
   box-sizing: border-box;
   box-shadow: 0px 3px 6px 0px rgba(66, 69, 72, 0.4);
 }
 
-:host > div > #text > .title {
+:host > #external-container > div:first-child {
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+:host > #external-container > div > #text > .title {
   margin-right: 4px;
   font-weight: 600;
 }
 
-:host > div > #text {
+:host > #external-container > div > #text {
   color: var(--color-white);
+  margin-right: 16px;
+  letter-spacing: 0.16px;
 }
 
-:host > div > #icon {
+:host > #external-container > div > #icon {
   cursor: pointer;
   fill: var(--color-white);
 }
 
-:host > .dark {
+:host > #external-container.dark {
   background: var(--gray800);
 }
 
-:host > .light {
+:host > #external-container.light {
   background: var(--color-background);
 }
 
-:host > .light > #icon {
+:host > #external-container.light #icon {
   fill: var(--color-icon01);
 }
 
-:host > .light > #text {
+:host > #external-container.light #text {
   color: var(--grey800)
 }
 
-:host > .accent {
+:host > #external-container.accent {
   background: var(--color-primary01);
 }
 
-
-:host > .error {
+:host > #external-container.error {
   background: var(--color-error-default);
 }
 
-:host > .success {
+:host > #external-container.success {
   background: var(--color-success-default);
 }
 
 
-:host > .warning {
+:host > #external-container.warning {
   background: var(--color-warning-default);
 }
 
