@@ -6,7 +6,10 @@ import {
   EventEmitter,
   Element,
 } from "@stencil/core";
-import { ButtonSizeEnum, ButtonVariantEnum, ToastNotificationEnum, ToastNotificationTypes } from "../../beans";
+import {
+  ToastNotificationEnum,
+  ToastNotificationTypes,
+} from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
@@ -63,7 +66,6 @@ export class ZToastNotification {
     if (this.toastText.offsetHeight > 20) {
       this.toastContainer.style.gridTemplateColumns = "4fr 0fr";
       this.toastContainer.style.gridTemplateRows = "auto 1fr";
-      this.toastContainer.style.gridTemplateAreas = '"testo testo testo testo icona" "tasto"';
     }
   }
 
@@ -82,9 +84,7 @@ export class ZToastNotification {
           <span class="message">{this.message}</span>
         </div>
         <div id="button" onClick={() => this.emitToastAction()}>
-          <slot name="button">
-            <z-button variant={ButtonVariantEnum.tertiary} size={ButtonSizeEnum.small}>BUTTON</z-button>
-          </slot>
+          <slot name="button" />
         </div>
         <div id="icon">
           {this.closebutton && (
