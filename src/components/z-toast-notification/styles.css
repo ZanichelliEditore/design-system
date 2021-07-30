@@ -25,38 +25,47 @@
   font-weight: 600;
 }
 
-:host > div > {
-  display: flex;
-  align-items: center;
+:host > div > #text {
+  color: var(--color-white);
 }
 
 :host > div > #icon {
   cursor: pointer;
+  fill: var(--color-white);
 }
 
 :host > .dark {
-  background: var(--color-background);
+  background: var(--gray800);
 }
 
 :host > .light {
   background: var(--color-background);
-  fill: var(--blue500);
+}
+
+:host > .light > #icon {
+  fill: var(--color-icon01);
+}
+
+:host > .light > #text {
+  color: var(--grey800)
 }
 
 :host > .accent {
   background: var(--color-primary01);
 }
 
+
 :host > .error {
-  background: var(--color-error01);
+  background: var(--color-error-default);
 }
 
 :host > .success {
-  background: var(--color-success01);
+  background: var(--color-success-default);
 }
 
+
 :host > .warning {
-  background: var(--color-warning01);
+  background: var(--color-warning-default);
 }
 
 /* Tablet breakpoint */
