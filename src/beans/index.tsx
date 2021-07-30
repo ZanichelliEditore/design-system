@@ -348,3 +348,13 @@ export enum PocketStatusEnum {
   closed = "closed",
 }
 export type PocketStatus = PocketStatusEnum;
+
+export enum ToastNotificationEnum {
+  dark = "dark",
+  light = "light",
+  accent = "accent",
+  error = "error",
+  success = "success",
+  warning = "warning"
+}
+export type ToastNotificationTypes = ToastNotificationEnum;
