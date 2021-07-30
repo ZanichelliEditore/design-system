@@ -1,53 +1,48 @@
 :host {
-  --z-tooltip-theme--surface: var(--bg-white);
-  --z-tooltip-theme--text: var(--text-grey-800);
+  --z-tooltip-theme--surface: var(--color-surface01);
+  --z-tooltip-theme--text: var(--color-text01);
   --arrow-size: 6px;
 
-  color: var(--z-tooltip-theme--text);
-  fill: var(--z-tooltip-theme--text);
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-  line-height: 16px;
-  letter-spacing: 0.32px;
-  font-size: 12px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-/* Tooltips common style */
-.tooltip {
   position: relative;
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: var(--space-unit);
   min-width: calc(var(--space-unit) * 8);
   min-height: calc(var(--space-unit) * 4);
-  border-radius: var(--border-radius-small);
+  color: var(--z-tooltip-theme--text);
+  fill: currentColor;
+  font-family: var(--font-family-sans);
   text-align: center;
+  border-radius: var(--border-radius-small);
   background: var(--z-tooltip-theme--surface);
-  box-shadow: var(--shadow-4);
+  filter: drop-shadow(0 4px 8px var(--shadow-color-base));
+  will-change: filter;
 }
 
-.tooltip.legacy {
+:host(.legacy) {
+  display: inline-flex;
   padding: calc(var(--space-unit) * 2);
   min-width: auto;
   min-height: auto;
   max-width: 200px;
   font-style: italic;
-  border: 1px solid var(--bg-grey-200);
-  border-radius: var(--border-radius-base);
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08);
+  line-height: 16px;
+  letter-spacing: 0.32px;
+  font-size: 12px;
+  border: var(--border-size-small) solid var(--gray200);
+  border-radius: var(--border-radius);
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.08));
 }
 
-.tooltip.legacy:after {
+:host(.legacy)::before {
   --arrow-size: 14px;
-  box-shadow: rgb(0 0 0 / 8%) 1px 1px 2px 0px;
 }
 
-.tooltip[class*='-arrow']:after {
+:host([position])::before {
+  --arrow-edge-offset: calc(100% - calc(var(--arrow-size) / 2));
+  --arrow-center-offset: calc(50% - calc(var(--arrow-size) / 2));
+
   content: '';
   position: absolute;
   width: var(--arrow-size);
@@ -56,51 +51,74 @@
   transform: rotate(45deg);
 }
 
-/* Tooltip Top */
-.tooltip-top-arrow:after {
-  left: calc(50% - calc(var(--arrow-size) / 2));
-  top: calc(var(--arrow-size) / 2 * -1);
+:host([open][style*='top:']),
+:host([open][style*='inset:']) {
+  display: inline-flex;
 }
 
-/* Tooltip Bottom */
-.tooltip-bottom-arrow:after {
-  left: calc(50% - calc(var(--arrow-size) / 2));
-  bottom: calc(var(--arrow-size) / 2 * -1);
+:host([position^='top']) {
+  margin-bottom: var(--space-unit);
 }
 
-/* Tooltip Left */
-.tooltip-left-arrow:after {
-  top: calc(50% - calc(var(--arrow-size) / 2));
-  left: calc(var(--arrow-size) / 2 * -1);
+:host([position='right']) {
+  margin-left: var(--space-unit);
 }
 
-/* Tooltip Right */
-.tooltip-right-arrow:after {
-  top: calc(50% - calc(var(--arrow-size) / 2));
-  right: calc(var(--arrow-size) / 2 * -1);
+:host([position$='_right']) {
+  margin-left: calc(var(--space-unit) * -1);
 }
 
-/* Tooltip Top Right */
-.tooltip-top-right-arrow:after {
-  right: calc(25% - calc(var(--arrow-size) / 2));
-  top: calc(var(--arrow-size) / 2 * -1);
+:host([position^='bottom']) {
+  margin-top: var(--space-unit);
 }
 
-/* Tooltip Top Left */
-.tooltip-top-left-arrow:after {
-  left: calc(25% - calc(var(--arrow-size) / 2));
-  top: calc(var(--arrow-size) / 2 * -1);
+:host([position='left']) {
+  margin-right: var(--space-unit);
 }
 
-/* Tooltip Bottom Right */
-.tooltip-bottom-right-arrow:after {
-  right: calc(25% - calc(var(--arrow-size) / 2));
-  bottom: calc(var(--arrow-size) / 2 * -1);
+:host([position$='_left']) {
+  margin-right: calc(var(--space-unit) * -1);
 }
 
-/* Tooltip Bottom Left */
-.tooltip-bottom-left-arrow:after {
-  left: calc(25% - calc(var(--arrow-size) / 2));
-  bottom: calc(var(--arrow-size) / 2 * -1);
+/* Arrow style */
+
+:host([position^='top'])::before {
+  top: var(--arrow-edge-offset);
 }
 
+:host([position^='bottom'])::before {
+  bottom: var(--arrow-edge-offset);
+}
+
+:host([position='top'])::before,
+:host([position='bottom'])::before {
+  left: var(--arrow-center-offset);
+}
+
+:host([position='right'])::before,
+:host([position='left'])::before {
+  top: var(--arrow-center-offset);
+}
+
+:host([position='right'])::before {
+  right: var(--arrow-edge-offset);
+}
+
+/* Top right, bottom right */
+:host([position$='_right'])::before {
+  right: calc(100% - calc(var(--arrow-size) / 2) - calc(var(--space-unit) * 2));
+}
+
+:host([position='left'])::before {
+  left: var(--arrow-edge-offset);
+}
+
+/* Top left, bottom left */
+:host([position$='_left'])::before {
+  left: calc(100% - calc(var(--arrow-size) / 2) - calc(var(--space-unit) * 2));
+}
+
+::slotted(*) {
+  flex: 1 auto;
+  overflow: auto;
+}

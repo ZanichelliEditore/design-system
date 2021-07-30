@@ -1291,11 +1291,20 @@ export namespace Components {
     }
     interface ZTooltip {
         /**
-          * content text
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Content text.
+          * @deprecated
          */
         "content": string;
         /**
-          * tooltip position variant
+          * The open state of the tooltip.
+         */
+        "open": boolean;
+        /**
+          * Tooltip position.
          */
         "type": TooltipPosition;
     }
@@ -3310,11 +3319,24 @@ declare namespace LocalJSX {
     }
     interface ZTooltip {
         /**
-          * content text
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Content text.
+          * @deprecated
          */
         "content"?: string;
         /**
-          * tooltip position variant
+          * position change event.
+         */
+        "onPositionChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The open state of the tooltip.
+         */
+        "open"?: boolean;
+        /**
+          * Tooltip position.
          */
         "type"?: TooltipPosition;
     }
