@@ -1,0 +1,91 @@
+:host {
+  display: inline-block;
+  min-height: 52px;
+  min-width: 200px;
+  max-width: 100%;
+}
+
+:host > div {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+  border-radius: 4px;
+  font-size: 14px;
+  letter-spacing: 0.16px;
+  line-height: 20px;
+  display: grid;
+  grid-template-columns: 4fr 0fr 0fr;
+  grid-template-areas: "testo testo testo testo tasto icona";
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 6px 0px rgba(66, 69, 72, 0.4);
+}
+
+:host > div > #text {
+  grid-area: testo;
+}
+
+:host > div > #button {
+  grid-area: tasto;
+}
+
+:host > div > #icon {
+  grid-area: icona;
+}
+
+:host > div > #text > .title {
+  margin-right: 4px;
+  font-weight: 600;
+}
+
+:host > div > {
+  display: flex;
+  align-items: center;
+}
+
+:host > div > #icon {
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+:host > .dark {
+  background: var(--color-background);
+}
+
+:host > .light {
+  background: var(--color-background);
+  fill: var(--blue500);
+}
+
+:host > .accent {
+  background: var(--color-primary01);
+}
+
+:host > .error {
+  background: var(--color-error01);
+}
+
+:host > .success {
+  background: var(--color-success01);
+}
+
+:host > .warning {
+  background: var(--color-warning01);
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  :host {
+    max-width: calc(100% / 2);
+  }
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+  :host {
+    max-width: calc(100% / 3);
+  }
+}
