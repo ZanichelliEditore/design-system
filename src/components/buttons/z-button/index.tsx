@@ -26,7 +26,7 @@ export class ZButton {
   @Prop({ reflect: true }) disabled?: boolean = false;
   /** HTML button type attribute. */
   @Prop() type?: HTMLButtonElement["type"] = ButtonTypeEnum.button;
-  /** Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`. */
+  /** Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`. */
   @Prop({ reflect: true }) variant?: ButtonVariantBean =
     ButtonVariantEnum.primary;
   /** `z-icon` name to use (optional). */
