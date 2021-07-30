@@ -6,7 +6,7 @@ import {
   EventEmitter,
   Element,
 } from "@stencil/core";
-import { ToastNotificationEnum, ToastNotificationTypes } from "../../beans";
+import { ButtonSizeEnum, ButtonVariantEnum, ToastNotificationEnum, ToastNotificationTypes } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
@@ -82,7 +82,9 @@ export class ZToastNotification {
           <span class="message">{this.message}</span>
         </div>
         <div id="button" onClick={() => this.emitToastAction()}>
-          <slot name="button" />
+          <slot name="button">
+            <z-button variant={ButtonVariantEnum.tertiary} size={ButtonSizeEnum.small}>BUTTON</z-button>
+          </slot>
         </div>
         <div id="icon">
           {this.closebutton && (
