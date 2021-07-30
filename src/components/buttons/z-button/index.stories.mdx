@@ -47,6 +47,30 @@ import { text, boolean, select } from "@storybook/addon-knobs";
   </Story>
 </Preview>
 
+## Ocher Background, slotted label span
+
+<Preview>
+  <Story name="Ocher Background">
+    {(args) => html`
+    <div style="background: rgb(246, 187, 59); width: auto; padding:8px">
+      <z-button
+        variant="${select(
+          "Variant",
+          ["primary", "secondary", "tertiary", "dark-bg"],
+          "dark-bg"
+        )}"
+        size="${select("Size", ["x-small", "small", "big"], "big")}"
+        disabled="${boolean("Disabled", false)}"
+      >
+        <span style="color:rgb(66, 69, 72);">
+          <z-icon style="color: rgb(66, 69, 72);" name="download"></z-icon>
+          button
+        </span>
+      </z-button>
+    </div>`}
+  </Story>
+</Preview>
+
 ## Icon only
 
 In this special case we need to override `min-width` (achieved with additional `square` prop). **Note:** `z-icon` drops its spacing accordingly.
