@@ -11,7 +11,7 @@ export class ZInputMessage {
     return [
       this.statusIcons[this.status] && this.message &&
         h("z-icon", { name: this.statusIcons[this.status] }),
-      h("span", null, this.message)
+      h("span", { innerHTML: this.message })
     ];
   }
   static get is() { return "z-input-message"; }

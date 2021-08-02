@@ -1422,7 +1422,7 @@ const ZInputLabel = class {
 };
 ZInputLabel.style = stylesCss$F;
 
-const stylesCss$E = ":host{display:flex;align-items:center;min-height:calc(var(--space-unit) * 2);margin-top:var(--space-unit);color:var(--color-text05);fill:currentColor;font-family:var(--font-family-sans);font-size:var(--font-size-2);letter-spacing:0.16px}:host([status='success']){color:var(--color-text-success)}:host([status='error']){color:var(--color-text-error)}:host([status='warning']){color:var(--color-warning02)}:host>z-icon{--z-icon-width:calc(var(--space-unit) * 2);--z-icon-height:calc(var(--space-unit) * 2);margin-right:var(--space-unit)}";
+const stylesCss$E = ":host{display:flex;align-items:start;min-height:calc(var(--space-unit) * 2);margin-top:var(--space-unit);color:var(--color-text05);fill:currentColor;font-family:var(--font-family-sans);font-size:var(--font-size-2);letter-spacing:0.16px}:host([status='success']){color:var(--color-text-success)}:host([status='error']){color:var(--color-text-error)}:host([status='warning']){color:var(--color-warning02)}:host>z-icon{--z-icon-width:calc(var(--space-unit) * 2);--z-icon-height:calc(var(--space-unit) * 2);margin:calc(var(--space-unit) / 3) var(--space-unit) 0 0}";
 
 const ZInputMessage = class {
   constructor(hostRef) {
@@ -1437,7 +1437,7 @@ const ZInputMessage = class {
     return [
       this.statusIcons[this.status] && this.message &&
         h("z-icon", { name: this.statusIcons[this.status] }),
-      h("span", null, this.message)
+      h("span", { innerHTML: this.message })
     ];
   }
 };
