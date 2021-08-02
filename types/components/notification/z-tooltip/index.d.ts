@@ -1,9 +1,39 @@
+import { EventEmitter } from "../../../stencil-public-runtime";
 import { TooltipPosition } from "../../../beans/index";
 export declare class ZTooltip {
-  /** content text */
+  /** Content text.
+   * @deprecated
+   */
   content: string;
-  /** tooltip position variant */
+  /** Tooltip position. */
   type: TooltipPosition;
-  getArrowClass(): "tooltip tooltip-bottom-arrow" | "tooltip tooltip-top-arrow" | "tooltip tooltip-right-arrow" | "tooltip tooltip-left-arrow" | "tooltip tooltip-bottom-right-arrow" | "tooltip tooltip-bottom-left-arrow" | "tooltip tooltip-top-right-arrow" | "tooltip tooltip-top-left-arrow";
+  /**
+   * The open state of the tooltip.
+   */
+  open: boolean;
+  /**
+   * The selector or the element bound with the tooltip.
+   */
+  bindTo?: string | HTMLElement;
+  /**
+   * The current position of the tooltip.
+   */
+  position?: TooltipPosition;
+  /**
+   * Position change event.
+   */
+  positionChange: EventEmitter;
+  host: HTMLElement;
+  validateType(newValue: any): void;
+  onPositionChange(): void;
+  /**
+   * Setup tooltip behaviors on opening.
+   */
+  onOpen(): void;
+  /**
+   * Set the position of the tooltip.
+   */
+  private setPosition;
+  componentWillLoad(): void;
   render(): any;
 }

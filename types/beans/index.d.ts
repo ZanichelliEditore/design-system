@@ -139,15 +139,15 @@ export declare enum InputStatusEnum {
 }
 export declare type TooltipPositionBean = keyof typeof TooltipPosition;
 export declare enum TooltipPosition {
-  TOP = "TOP",
-  BOTTOM = "BOTTOM",
-  LEFT = "LEFT",
-  RIGHT = "RIGHT",
-  NO_ARROW = "NO_ARROW",
-  TOP_LEFT = "TOP_LEFT",
-  TOP_RIGHT = "TOP_RIGHT",
-  BOTTOM_LEFT = "BOTTOM_LEFT",
-  BOTTOM_RIGHT = "BOTTOM_RIGHT"
+  AUTO = "auto",
+  TOP = "top",
+  RIGHT = "right",
+  BOTTOM = "bottom",
+  LEFT = "left",
+  TOP_RIGHT = "top_right",
+  TOP_LEFT = "top_left",
+  BOTTOM_RIGHT = "bottom_right",
+  BOTTOM_LEFT = "bottom_left"
 }
 export declare enum keybordKeyCodeEnum {
   TAB = 9,

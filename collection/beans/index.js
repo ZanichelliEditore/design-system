@@ -58,15 +58,15 @@ export var InputStatusEnum;
 })(InputStatusEnum || (InputStatusEnum = {}));
 export var TooltipPosition;
 (function (TooltipPosition) {
-  TooltipPosition["TOP"] = "TOP";
-  TooltipPosition["BOTTOM"] = "BOTTOM";
-  TooltipPosition["LEFT"] = "LEFT";
-  TooltipPosition["RIGHT"] = "RIGHT";
-  TooltipPosition["NO_ARROW"] = "NO_ARROW";
-  TooltipPosition["TOP_LEFT"] = "TOP_LEFT";
-  TooltipPosition["TOP_RIGHT"] = "TOP_RIGHT";
-  TooltipPosition["BOTTOM_LEFT"] = "BOTTOM_LEFT";
-  TooltipPosition["BOTTOM_RIGHT"] = "BOTTOM_RIGHT";
+  TooltipPosition["AUTO"] = "auto";
+  TooltipPosition["TOP"] = "top";
+  TooltipPosition["RIGHT"] = "right";
+  TooltipPosition["BOTTOM"] = "bottom";
+  TooltipPosition["LEFT"] = "left";
+  TooltipPosition["TOP_RIGHT"] = "top_right";
+  TooltipPosition["TOP_LEFT"] = "top_left";
+  TooltipPosition["BOTTOM_RIGHT"] = "bottom_right";
+  TooltipPosition["BOTTOM_LEFT"] = "bottom_left";
 })(TooltipPosition || (TooltipPosition = {}));
 export var keybordKeyCodeEnum;
 (function (keybordKeyCodeEnum) {
