@@ -5,6 +5,15 @@
   max-width: 100%;
 }
 
+@keyframes translate {
+  0% {
+    transform: translateY(-150px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 :host > #external-container {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
@@ -13,6 +22,10 @@
   letter-spacing: 0.16px;
   box-sizing: border-box;
   box-shadow: 0px 3px 6px 0px rgba(66, 69, 72, 0.4);
+  animation-name: translate;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 0.1);
 }
 
 :host > #external-container > div:first-child {
@@ -50,7 +63,7 @@
 }
 
 :host > #external-container.light #text {
-  color: var(--grey800)
+  color: var(--grey800);
 }
 
 :host > #external-container.accent {
@@ -64,7 +77,6 @@
 :host > #external-container.success {
   background: var(--color-success-default);
 }
-
 
 :host > #external-container.warning {
   background: var(--color-warning-default);

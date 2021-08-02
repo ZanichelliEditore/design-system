@@ -20,7 +20,7 @@ export class ZToastNotification {
   @Prop() titolo?: string;
   @Prop() message: string;
   @Prop() closebutton: boolean;
-  @Prop() autoclose?: boolean | number = 10000;
+  @Prop() autoclose?: boolean | number = 5000;
   @Prop() pauseonfocusloss?: boolean;
   @Prop() type?: ToastNotificationTypes;
 
@@ -36,6 +36,8 @@ export class ZToastNotification {
   /** notification close event */
   @Event() toastClose: EventEmitter;
   emitToastClose() {
+    this.timeoutHandle = null;
+    this.elapsedTime = null;
     this.toastClose.emit();
     console.log("toast closed!");
   }
@@ -51,19 +53,15 @@ export class ZToastNotification {
     this.startTime = Date.now();
     this.setCorrectPaddingAndMargin();
 
-    if (this.autoclose && typeof this.autoclose === "number") {
-      this.startClosingTimeout(this.autoclose);
-    }
-
     if (window.innerWidth <= mobileBreakpoint) {
       this.setMobileView();
     }
 
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "hidden") {
-        this.onBlur();
+        this.timeoutHandle && this.onBlur();
       } else {
-        this.onFocus();
+        this.elapsedTime && this.onFocus();
       }
     });
   }
@@ -74,13 +72,15 @@ export class ZToastNotification {
     if (this.elapsedTime && typeof this.autoclose === "number") {
       time = this.autoclose - this.elapsedTime;
     }
-    if (time > 0 && typeof this.autoclose === "number")
+    if (time > 0 && typeof this.autoclose === "number") {
+      console.log("Start Time!");
       this.startClosingTimeout(time);
+    }
   }
 
   onBlur() {
-    console.log("Focus lost");
     this.elapsedTime = Date.now() - this.startTime;
+    console.log(`Stop time - Elapsed ${this.elapsedTime}ms`);
     clearTimeout(this.timeoutHandle);
   }
 
@@ -115,6 +115,11 @@ export class ZToastNotification {
         id="external-container"
         ref={(el) => (this.toastContainer = el as HTMLElement)}
         class={this.type ? this.type : ToastNotificationEnum.dark}
+        onAnimationEnd={() => {
+          if (this.autoclose && typeof this.autoclose === "number") {
+            this.startClosingTimeout(this.autoclose);
+          }
+        }}
       >
         <div id="flex-container">
           <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
