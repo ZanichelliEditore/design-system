@@ -216,7 +216,8 @@
     <p>Toast</p>
     <br>
     <z-toast-notification 
-      titolo="Titolo" 
+      titolo="Titolo"
+      autoclose="false" 
       type="light"
       message="One line toast message. One line toast message."
       closebutton="true"></z-toast-notification>
@@ -224,7 +225,8 @@
       <br><br>
 
       <z-toast-notification 
-      titolo="Titolo" 
+      titolo="Titolo"
+      autoclose="false" 
       type="error"
       message="One line toast message. One line toast message." >
       <z-button slot="button" variant="dark-bg" size="small">BUTTON</z-button>
@@ -233,7 +235,8 @@
     <br><br>
 
     <z-toast-notification 
-      titolo="Titolo" 
+      titolo="Titolo"
+      autoclose="false" 
       type="dark"
       message="One line toast message. One line toast message." 
       closebutton="true">
@@ -243,7 +246,8 @@
     <br><br>
 
     <z-toast-notification 
-      titolo="Titolo" 
+      titolo="Titolo"
+      autoclose="false" 
       type="light"
       message="Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci.Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci.Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci.Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci." 
       closebutton="true"></z-toast-notification>
@@ -251,18 +255,30 @@
       <br><br>
 
       <z-toast-notification 
-      titolo="Titolo" 
+      titolo="Titolo"
+      autoclose="false" 
       type="accent"
       message="Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci.Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci.Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci.Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci." 
       >
       <z-button slot="button" variant="dark-bg" size="small">BUTTON</z-button>
     </z-toast-notification>
 
+    <br><br>
+
+    <z-toast-notification 
+    titolo="Titolo" 
+    type="dark"
+    message="Questa notification si autodistruggerà entro 5 secondi." 
+    >
+    <z-button slot="button" variant="dark-bg" size="small">BUTTON</z-button>
+  </z-toast-notification>
+
 
     <br><br>
 
     <z-toast-notification 
     titolo="Titolo" 
+    autoclose="false"
     type="success"
     message="Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci.Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci.Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci.Multiline toast message. Il messaggio della toast notification non sarà mai buono come i veri toast, ma dobbiamo accontentarci." 
     closebutton="true"

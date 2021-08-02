@@ -1272,9 +1272,10 @@ export namespace Components {
         "pressed": boolean;
     }
     interface ZToastNotification {
-        "autoclose"?: number;
+        "autoclose"?: boolean | number;
         "closebutton": boolean;
         "message": string;
+        "pauseonfocusloss"?: boolean;
         "titolo"?: string;
         "type"?: ToastNotificationTypes;
     }
@@ -3301,7 +3302,7 @@ declare namespace LocalJSX {
         "pressed"?: boolean;
     }
     interface ZToastNotification {
-        "autoclose"?: number;
+        "autoclose"?: boolean | number;
         "closebutton"?: boolean;
         "message"?: string;
         /**
@@ -3312,6 +3313,7 @@ declare namespace LocalJSX {
           * notification close event
          */
         "onToastClose"?: (event: CustomEvent<any>) => void;
+        "pauseonfocusloss"?: boolean;
         "titolo"?: string;
         "type"?: ToastNotificationTypes;
     }
