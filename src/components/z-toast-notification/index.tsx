@@ -23,6 +23,9 @@ export class ZToastNotification {
   @Prop() autoclose?: boolean | number = 5000;
   @Prop() pauseonfocusloss?: boolean;
   @Prop() type?: ToastNotificationTypes;
+  @Prop() isdraggable?: boolean = true;
+  @Prop() draggablepercentage?: number = 80;
+  @Prop() transition?: string = "slideInDown";
 
   private toastText: HTMLElement;
   private toastButton: HTMLElement;
@@ -38,8 +41,7 @@ export class ZToastNotification {
   emitToastClose() {
     this.timeoutHandle = null;
     this.elapsedTime = null;
-    this.toastClose.emit();
-    console.log("toast closed!");
+    this.handleCloseAnimation();
   }
 
   /** notification action event */
@@ -47,6 +49,10 @@ export class ZToastNotification {
   emitToastAction() {
     this.toastAction.emit();
     console.log("toast action!");
+  }
+
+  disconnectedCallback() {
+    this.toastClose.emit();
   }
 
   componentDidLoad() {
@@ -64,6 +70,71 @@ export class ZToastNotification {
         this.elapsedTime && this.onFocus();
       }
     });
+
+    this.handleSlideInAnimation();
+
+    this.handleSlideOutAnimation();
+  }
+
+  handleSlideInAnimation(){
+    const dimension = -this.hostElement.offsetWidth;
+
+    const animation = this.hostElement.animate(
+      [
+        { transform: `translateX(${dimension}px)` },
+        { transform: `translateX(0)` },
+      ],
+      {
+        duration: 1000,
+        fill: "forwards",
+        easing: "cubic-bezier(0.25, 0.1, 0.25, 0.1)",
+      }
+    );
+
+    animation.onfinish = () => {
+      if (this.autoclose && typeof this.autoclose === "number") {
+        this.startClosingTimeout(this.autoclose);
+      }
+    };
+  }
+
+  handleSlideOutAnimation() {
+    var sliderManager = new Hammer.Manager(this.toastContainer);
+    sliderManager.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
+    sliderManager.on("pan", (e) => {
+      this.toastContainer.style.transform = "translateX( " + e.deltaX + "% )";
+      var bounding = this.toastContainer.getBoundingClientRect();
+      if (e.isFinal) {
+        var draggablepx = (bounding.width / 100) * this.draggablepercentage;
+        if (draggablepx + bounding.x < 0) {
+          this.toastContainer.style.height = "0";
+          this.emitToastClose();
+        } else {
+          this.toastContainer.style.transform = "translateX(0)";
+        }
+      }
+    });
+  }
+
+  handleCloseAnimation(){
+    const dimension = -this.hostElement.offsetWidth;
+
+    const animation = this.hostElement.animate(
+      [
+        { transform: `translateX(0)` },
+        { transform: `translateX(${dimension}px)` }
+      ],
+      {
+        duration: 1000,
+        fill: "forwards",
+        easing: "cubic-bezier(0.25, 0.1, 0.25, 0.1)",
+      }
+    );
+
+    animation.onfinish = () => {
+      this.hostElement.parentNode.removeChild(this.hostElement);
+    };
+   
   }
 
   onFocus() {
@@ -115,11 +186,6 @@ export class ZToastNotification {
         id="external-container"
         ref={(el) => (this.toastContainer = el as HTMLElement)}
         class={this.type ? this.type : ToastNotificationEnum.dark}
-        onAnimationEnd={() => {
-          if (this.autoclose && typeof this.autoclose === "number") {
-            this.startClosingTimeout(this.autoclose);
-          }
-        }}
       >
         <div id="flex-container">
           <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
