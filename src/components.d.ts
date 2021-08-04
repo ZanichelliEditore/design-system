@@ -276,6 +276,11 @@ export namespace Components {
          */
         "hide"?: boolean;
     }
+    interface ZDavideX {
+        "href"?: string;
+        "icon"?: string;
+        "notstyled"?: boolean;
+    }
     interface ZDivider {
         /**
           * [optional] Divider color
@@ -1417,6 +1422,12 @@ declare global {
         prototype: HTMLZCookiebarElement;
         new (): HTMLZCookiebarElement;
     };
+    interface HTMLZDavideXElement extends Components.ZDavideX, HTMLStencilElement {
+    }
+    var HTMLZDavideXElement: {
+        prototype: HTMLZDavideXElement;
+        new (): HTMLZDavideXElement;
+    };
     interface HTMLZDividerElement extends Components.ZDivider, HTMLStencilElement {
     }
     var HTMLZDividerElement: {
@@ -1840,6 +1851,7 @@ declare global {
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
         "z-cookiebar": HTMLZCookiebarElement;
+        "z-davide-x": HTMLZDavideXElement;
         "z-divider": HTMLZDividerElement;
         "z-footer": HTMLZFooterElement;
         "z-footer-link": HTMLZFooterLinkElement;
@@ -2200,6 +2212,12 @@ declare namespace LocalJSX {
           * emitted on ACCETTA button click, returns event
          */
         "onAccept"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZDavideX {
+        "href"?: string;
+        "icon"?: string;
+        "notstyled"?: boolean;
+        "onOnClick"?: (event: CustomEvent<any>) => void;
     }
     interface ZDivider {
         /**
@@ -3328,7 +3346,7 @@ declare namespace LocalJSX {
          */
         "content"?: string;
         /**
-          * position change event.
+          * Position change event.
          */
         "onPositionChange"?: (event: CustomEvent<any>) => void;
         /**
@@ -3386,6 +3404,7 @@ declare namespace LocalJSX {
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
         "z-cookiebar": ZCookiebar;
+        "z-davide-x": ZDavideX;
         "z-divider": ZDivider;
         "z-footer": ZFooter;
         "z-footer-link": ZFooterLink;
@@ -3474,6 +3493,7 @@ declare module "@stencil/core" {
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
+            "z-davide-x": LocalJSX.ZDavideX & JSXBase.HTMLAttributes<HTMLZDavideXElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;

@@ -40,7 +40,7 @@ Maybe you want to know where the tooltip goes when the `type` is set to `auto`, 
 
 | Event            | Description            | Type               |
 | ---------------- | ---------------------- | ------------------ |
-| `positionChange` | position change event. | `CustomEvent<any>` |
+| `positionChange` | Position change event. | `CustomEvent<any>` |
 
 
 ## Dependencies

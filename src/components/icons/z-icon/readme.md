@@ -32,6 +32,7 @@
  - [z-button-sort](../../buttons/z-button-sort)
  - [z-card](../../z-card)
  - [z-combobox](../../inputs/z-combobox)
+ - [z-davide-x](../../z-davide-x)
  - [z-footer-section](../../footer/z-footer-section)
  - [z-header](../../navigation/z-header)
  - [z-icon-package](../z-icon-package)
@@ -71,6 +72,7 @@ graph TD;
   z-button-sort --> z-icon
   z-card --> z-icon
   z-combobox --> z-icon
+  z-davide-x --> z-icon
   z-footer-section --> z-icon
   z-header --> z-icon
   z-icon-package --> z-icon
