@@ -25,7 +25,7 @@ export class ZToastNotification {
   @Prop() type?: ToastNotificationTypes;
   @Prop() isdraggable?: boolean = true;
   @Prop() draggablepercentage?: number = 80;
-  @Prop() transition?: string = "slideInDown";
+  @Prop() transition?: string = "slideInLeft";
 
   private toastText: HTMLElement;
   private toastButton: HTMLElement;
@@ -76,14 +76,72 @@ export class ZToastNotification {
     this.handleSlideOutAnimation();
   }
 
-  handleSlideInAnimation(){
-    const dimension = -this.hostElement.offsetWidth;
+  buildSlideInAnimationKeyframe() {
+    switch (this.transition) {
+      case "slideInDown":
+        const slideInDowndimension = this.hostElement.offsetHeight;
 
+        return [
+          { transform: `translateY(-${Math.abs(slideInDowndimension)}px)` },
+          { transform: `translateY(0)` },
+        ];
+      case "slideInUp":
+        const slideInUpdimension =
+          window.innerHeight + this.hostElement.offsetHeight;
+        return [
+          { transform: `translateY(${slideInUpdimension}px)` },
+          { transform: `translateY(0)` },
+        ];
+      case "slideInLeft":
+        const slideInLeftdimension =
+          window.innerWidth + this.hostElement.offsetWidth;
+        return [
+          { transform: `translateX(${slideInLeftdimension}px)` },
+          { transform: `translateX(0)` },
+        ];
+      case "slideInRight":
+        const slideInRightdimension = -this.hostElement.offsetWidth;
+        return [
+          { transform: `translateX(${slideInRightdimension}px)` },
+          { transform: `translateX(0)` },
+        ];
+    }
+  }
+
+  buildSlideOutAnimationKeyframe() {
+    switch (this.transition) {
+      case "slideInDown":
+        const slideInDowndimension = this.hostElement.offsetHeight;
+        return [
+          { transform: `translateY(0)` },
+          { transform: `translateY(-${slideInDowndimension}px)` },
+        ];
+      case "slideInUp":
+        const slideInUpdimension =
+          window.innerHeight + this.hostElement.offsetHeight;
+        return [
+          { transform: `translateY(0)` },
+          { transform: `translateY(${slideInUpdimension}px)` },
+        ];
+      case "slideInLeft":
+        const slideInLeftdimension =
+          window.innerWidth + this.hostElement.offsetWidth;
+        return [
+          { transform: `translateX(0)` },
+          { transform: `translateX(${slideInLeftdimension}px)` },
+        ];
+      case "slideInRight":
+        const slideInRightdimension = -this.hostElement.offsetWidth;
+        return [
+          { transform: `translateX(${slideInRightdimension}px)` },
+          { transform: `translateX(0)` },
+        ];
+    }
+  }
+
+  handleSlideInAnimation() {
     const animation = this.hostElement.animate(
-      [
-        { transform: `translateX(${dimension}px)` },
-        { transform: `translateX(0)` },
-      ],
+      this.buildSlideInAnimationKeyframe(),
       {
         duration: 1000,
         fill: "forwards",
@@ -98,34 +156,85 @@ export class ZToastNotification {
     };
   }
 
+  mapSlideOutDirection() {
+    switch (this.transition) {
+      case "slideInDown":
+        return Hammer.DIRECTION_UP;
+      case "slideInUp":
+        return Hammer.DIRECTION_DOWN;
+      case "slideInLeft":
+        return Hammer.DIRECTION_RIGHT;
+      case "slideInRight":
+        return Hammer.DIRECTION_LEFT;
+    }
+  }
+
+  mapSlideOutTranslate(event, bounding) {
+    let draggablepx;
+    switch (this.transition) {
+      case "slideInDown":
+        draggablepx = (bounding.height / 100) * this.draggablepercentage;
+        return {
+          translate: "translateY( " + event.deltaY + "% )",
+          condition: (window.innerHeight + Math.abs(bounding.y) > window.innerHeight + draggablepx),
+          translateBack: "translateY(0)",
+        };
+      case "slideInUp":
+        draggablepx = (bounding.height / 100) * this.draggablepercentage;
+        return {
+          translate: "translateY( " + event.deltaY + "% )",
+          condition: false,
+          translateBack: "translateY(0)",
+        };
+      case "slideInLeft":
+        draggablepx = (bounding.width / 100) * this.draggablepercentage;
+        console.log(draggablepx);
+        return {
+          translate: "translateX( " + event.deltaX + "% )",
+          condition: (bounding.x > window.innerWidth - draggablepx),
+          translateBack: "translateX(0)",
+        };
+      case "slideInRight":
+        draggablepx = (bounding.width / 100) * this.draggablepercentage;
+        return {
+          translate: "translateX( " + event.deltaX + "% )",
+          condition: draggablepx + bounding.x < 0,
+          translateBack: "translateX(0)",
+        };
+    }
+  }
+
   handleSlideOutAnimation() {
-    var sliderManager = new Hammer.Manager(this.toastContainer);
-    sliderManager.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
+    var sliderManager = new Hammer.Manager(this.hostElement);
+    sliderManager.add(
+      new Hammer.Pan({
+        threshold: 0,
+        pointers: 0,
+        direction: Hammer.DIRECTION_ALL,
+      })
+    );
     sliderManager.on("pan", (e) => {
-      this.toastContainer.style.transform = "translateX( " + e.deltaX + "% )";
-      var bounding = this.toastContainer.getBoundingClientRect();
+      var bounding = this.hostElement.getBoundingClientRect();
+      const translateObj = this.mapSlideOutTranslate(e, bounding);
+      if (e.direction === this.mapSlideOutDirection())
+        this.hostElement.style.transform = translateObj.translate;
       if (e.isFinal) {
-        var draggablepx = (bounding.width / 100) * this.draggablepercentage;
-        if (draggablepx + bounding.x < 0) {
-          this.toastContainer.style.height = "0";
+        console.log(bounding.x, bounding.y)
+        if (translateObj.condition) {
+          this.hostElement.style.height = "0";
           this.emitToastClose();
         } else {
-          this.toastContainer.style.transform = "translateX(0)";
+          this.hostElement.style.transform = translateObj.translateBack;
         }
       }
     });
   }
 
-  handleCloseAnimation(){
-    const dimension = -this.hostElement.offsetWidth;
-
+  handleCloseAnimation() {
     const animation = this.hostElement.animate(
-      [
-        { transform: `translateX(0)` },
-        { transform: `translateX(${dimension}px)` }
-      ],
+      this.buildSlideOutAnimationKeyframe(),
       {
-        duration: 1000,
+        duration: 500,
         fill: "forwards",
         easing: "cubic-bezier(0.25, 0.1, 0.25, 0.1)",
       }
@@ -134,7 +243,6 @@ export class ZToastNotification {
     animation.onfinish = () => {
       this.hostElement.parentNode.removeChild(this.hostElement);
     };
-   
   }
 
   onFocus() {
@@ -170,13 +278,10 @@ export class ZToastNotification {
   }
 
   setMobileView() {
-    const container = this.hostElement.shadowRoot.getElementById(
-      "external-container"
-    );
     if (this.toastText.offsetHeight > 20) {
+      this.toastContainer.style.display = "block";
       this.toastIcon.style.alignSelf = "flex-start";
-      container.append(this.toastButton);
-      this.toastButton.style.marginTop = "16px";
+      this.toastContainer.append(this.toastButton);
     }
   }
 
