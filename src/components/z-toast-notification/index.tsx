@@ -6,6 +6,7 @@ import {
   EventEmitter,
   Element,
   Host,
+  State
 } from "@stencil/core";
 import {
   ToastNotificationEnum,
@@ -32,6 +33,8 @@ export class ZToastNotification {
   @Prop() isdraggable?: boolean = true;
   @Prop() draggablepercentage?: number = 80;
   @Prop() transition?: ToastNotificationTransisionTypes;
+
+  @State() percentage: number;
 
   private toastText: HTMLElement;
   private toastButton: HTMLElement;
@@ -107,38 +110,26 @@ export class ZToastNotification {
     }
   }
 
-  mapSlideOutTranslate(event, bounding) {
-    let draggablepx;
+  mapSlideOutTranslate(event) {
     switch (this.transition) {
       case ToastNotificationTransisionsEnum.slideInDown:
-        draggablepx = (bounding.height / 100) * this.draggablepercentage;
         return {
           translate: "translateY( " + event.deltaY + "% )",
-          condition:
-            window.innerHeight + Math.abs(bounding.y) >
-            window.innerHeight + draggablepx,
           translateBack: "translateY(0)",
         };
       case ToastNotificationTransisionsEnum.slideInUp:
-        draggablepx = (bounding.height / 100) * this.draggablepercentage;
         return {
           translate: "translateY( " + event.deltaY + "% )",
-          condition: false,
           translateBack: "translateY(0)",
         };
       case ToastNotificationTransisionsEnum.slideInLeft:
-        draggablepx = (bounding.width / 100) * this.draggablepercentage;
-        console.log(draggablepx);
         return {
           translate: "translateX( " + event.deltaX + "% )",
-          condition: false,
           translateBack: "translateX(0)",
         };
       case ToastNotificationTransisionsEnum.slideInRight:
-        draggablepx = (bounding.width / 100) * this.draggablepercentage;
         return {
           translate: "translateX( " + event.deltaX + "% )",
-          condition: draggablepx + bounding.x < 0,
           translateBack: "translateX(0)",
         };
     }
@@ -155,18 +146,34 @@ export class ZToastNotification {
     );
     sliderManager.on("pan", (e) => {
       this.hostElement.classList.remove(this.transition);
-      var bounding = this.hostElement.getBoundingClientRect();
-      const translateObj = this.mapSlideOutTranslate(e, bounding);
+      this.percentage = this.calculatePercentage();
+      console.log(this.percentage);
+      const translateObj = this.mapSlideOutTranslate(e);
       if (e.direction === this.mapSlideOutDirection())
         this.hostElement.style.transform = translateObj.translate;
       if (e.isFinal) {
-        if (translateObj.condition) {
+        if (Math.abs(this.calculatePercentage()) > this.draggablepercentage) {
           this.emitToastClose();
         } else {
           this.hostElement.style.transform = translateObj.translateBack;
         }
       }
     });
+  }
+
+  calculatePercentage(){
+    var bounding = this.hostElement.getBoundingClientRect();
+    switch(this.transition){
+      case ToastNotificationTransisionsEnum.slideInLeft:
+        return Math.round(((100 * (window.innerWidth - bounding.right)) / bounding.width) * -1);
+      case ToastNotificationTransisionsEnum.slideInRight:
+        return (100 - Math.round(((100 * bounding.right) / bounding.width))) * -1;
+      case ToastNotificationTransisionsEnum.slideInDown:
+        return (100 - Math.round(((100 * bounding.bottom) / bounding.height))) * -1;
+      case ToastNotificationTransisionsEnum.slideInUp:
+        return Math.round(((100 * (window.innerHeight - bounding.bottom)) / bounding.height) * -1);
+    }
+    
   }
 
   handleCloseAnimation() {
@@ -216,10 +223,15 @@ export class ZToastNotification {
   render() {
     return (
       <Host
+        style={{['--percentuale' as any]: `${this.percentage}%` as any}}
         class={this.transition ? this.transition : "slide-in-down"}
-        onAnimationEnd={() => {
-          if (this.autoclose) {
+        onAnimationEnd={(e: AnimationEvent) => {
+          console.log(e.animationName);
+          if (this.autoclose && e.animationName.includes("slidein")) {
             this.startClosingTimeout(this.autoclose);
+          } 
+          if (e.animationName.includes("slideout")){
+            this.hostElement.parentNode.removeChild(this.hostElement);
           }
         }}
       >

@@ -2,6 +2,8 @@
   display: inline-block;
   min-width: 200px;
   max-width: 100%;
+
+  --percentuale: 50%
 }
 
 :host(.slide-in-left) {
@@ -21,19 +23,19 @@
 }
 
 :host(.slide-out-left) {
-  animation: slideoutleft 1s forwards;
+  animation: slideoutleft 0.5s forwards;
 }
 
 :host(.slide-out-right) {
-  animation: slideoutright 1s forwards;
+  animation: slideoutright 0.5s forwards;
 }
 
 :host(.slide-out-down) {
-  animation: slideoutdown 1s forwards;
+  animation: slideoutdown 0.5s forwards;
 }
 
 :host(.slide-out-up) {
-  animation: slideoutup 1s forwards;
+  animation: slideoutup 0.5s forwards;
 }
 
 @keyframes slideinleft {
@@ -74,7 +76,7 @@
 
 @keyframes slideoutleft {
   0% {
-    transform: translateX(0);
+    transform: translateX(var(--percentuale));
   }
   100% {
     transform: translateX(-100%);
@@ -83,16 +85,16 @@
 
 @keyframes slideoutright {
   0% {
-    transform: translateX(0);
+    transform: translateX(var(--percentuale));
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
 }
 
 @keyframes slideoutup {
   0% {
-    transform: translateY(0);
+    transform: translateY(var(--percentuale));
   }
   100% {
     transform: translateY(-100%);
@@ -101,7 +103,7 @@
 
 @keyframes slideoutdown {
   0% {
-    transform: translateY(0);
+    transform: translateY(var(--percentuale));
   }
   100% {
     transform: translateY(100%);
