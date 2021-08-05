@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationTypes } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationTransisionTypes, ToastNotificationTypes } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1272,14 +1272,14 @@ export namespace Components {
         "pressed": boolean;
     }
     interface ZToastNotification {
-        "autoclose"?: boolean | number;
+        "autoclose"?: number;
         "closebutton": boolean;
         "draggablepercentage"?: number;
         "isdraggable"?: boolean;
         "message": string;
         "pauseonfocusloss"?: boolean;
         "titolo"?: string;
-        "transition"?: string;
+        "transition"?: ToastNotificationTransisionTypes;
         "type"?: ToastNotificationTypes;
     }
     interface ZToggleButton {
@@ -3305,7 +3305,7 @@ declare namespace LocalJSX {
         "pressed"?: boolean;
     }
     interface ZToastNotification {
-        "autoclose"?: boolean | number;
+        "autoclose"?: number;
         "closebutton"?: boolean;
         "draggablepercentage"?: number;
         "isdraggable"?: boolean;
@@ -3320,7 +3320,7 @@ declare namespace LocalJSX {
         "onToastClose"?: (event: CustomEvent<any>) => void;
         "pauseonfocusloss"?: boolean;
         "titolo"?: string;
-        "transition"?: string;
+        "transition"?: ToastNotificationTransisionTypes;
         "type"?: ToastNotificationTypes;
     }
     interface ZToggleButton {

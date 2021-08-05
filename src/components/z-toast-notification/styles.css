@@ -4,6 +4,110 @@
   max-width: 100%;
 }
 
+:host(.slide-in-left) {
+  animation: slideinleft 1s forwards;
+}
+
+:host(.slide-in-right) {
+  animation: slideinright 1s forwards;
+}
+
+:host(.slide-in-down) {
+  animation: slideindown 1s forwards;
+}
+
+:host(.slide-in-up) {
+  animation: slideinup 1s forwards;
+}
+
+:host(.slide-out-left) {
+  animation: slideoutleft 1s forwards;
+}
+
+:host(.slide-out-right) {
+  animation: slideoutright 1s forwards;
+}
+
+:host(.slide-out-down) {
+  animation: slideoutdown 1s forwards;
+}
+
+:host(.slide-out-up) {
+  animation: slideoutup 1s forwards;
+}
+
+@keyframes slideinleft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideinright {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideinup {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideindown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideoutleft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideoutright {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideoutup {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideoutdown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
 :host > #external-container {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
@@ -34,7 +138,7 @@
   letter-spacing: 0.16px;
 }
 
-:host > #external-container > #button ::slotted(z-button){
+:host > #external-container > #button ::slotted(z-button) {
   margin-top: 16px;
 }
 
@@ -77,9 +181,6 @@
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-  :host {
-    max-width: calc(100% / 2);
-  }
 }
 
 /* Desktop breakpoint */
@@ -88,7 +189,4 @@
 
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {
-  :host {
-    max-width: calc(100% / 3);
-  }
 }

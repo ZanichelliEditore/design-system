@@ -8,6 +8,34 @@
   <link rel="stylesheet" type="text/css" href="/build/web-components-library.css" />
   <script type="module" src="/build/web-components-library.esm.js"></script>
   <script nomodule src="/build/web-components-library.js"></script>
+  <style>
+    .toast-container-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 10000;
+      position: fixed;
+      top: 0;
+      right: 0;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      align-content: stretch;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .toast-container {
+      z-index: 10000;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      max-width: 100%;
+      overflow: hidden;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body style="width: 100%;margin: 0; background-color: #f9f9f9;">
@@ -139,9 +167,9 @@
   <br><br>
   <p>Toast</p>
   <br>
-  <div style="z-index: 10000; position: fixed; top: 0; text-align: right; width: 100%; max-width: 100%; overflow: hidden;">
-    <z-toast-notification class="toast" titolo="Titolo" autoclose="false" type="dark"
-      message="One line toast message. One line toast message." closebutton="true"></z-toast-notification>
+  <div class="toast-container">
+    <z-toast-notification class="toast" titolo="Titolo" type="dark" message="Questa se ne va da ultima."
+      closebutton="true" transition="slide-in-up" autoclose="10000"></z-toast-notification>
   </div>
 
   <p>App Menu</p>

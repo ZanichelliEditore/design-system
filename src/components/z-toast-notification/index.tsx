@@ -5,8 +5,14 @@ import {
   Event,
   EventEmitter,
   Element,
+  Host,
 } from "@stencil/core";
-import { ToastNotificationEnum, ToastNotificationTypes } from "../../beans";
+import {
+  ToastNotificationEnum,
+  ToastNotificationTransisionsEnum,
+  ToastNotificationTransisionTypes,
+  ToastNotificationTypes,
+} from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
 @Component({
@@ -20,12 +26,12 @@ export class ZToastNotification {
   @Prop() titolo?: string;
   @Prop() message: string;
   @Prop() closebutton: boolean;
-  @Prop() autoclose?: boolean | number = 5000;
+  @Prop() autoclose?: number;
   @Prop() pauseonfocusloss?: boolean;
   @Prop() type?: ToastNotificationTypes;
   @Prop() isdraggable?: boolean = true;
   @Prop() draggablepercentage?: number = 80;
-  @Prop() transition?: string = "slideInLeft";
+  @Prop() transition?: ToastNotificationTransisionTypes;
 
   private toastText: HTMLElement;
   private toastButton: HTMLElement;
@@ -62,139 +68,73 @@ export class ZToastNotification {
     if (window.innerWidth <= mobileBreakpoint) {
       this.setMobileView();
     }
-
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "hidden") {
-        this.timeoutHandle && this.onBlur();
-      } else {
-        this.elapsedTime && this.onFocus();
-      }
-    });
-
-    this.handleSlideInAnimation();
+    if (this.autoclose && this.pauseonfocusloss) {
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "hidden") {
+          this.timeoutHandle && this.onBlur();
+        } else {
+          this.elapsedTime && this.onFocus();
+        }
+      });
+    }
 
     this.handleSlideOutAnimation();
   }
 
-  buildSlideInAnimationKeyframe() {
-    switch (this.transition) {
-      case "slideInDown":
-        const slideInDowndimension = this.hostElement.offsetHeight;
-
-        return [
-          { transform: `translateY(-${Math.abs(slideInDowndimension)}px)` },
-          { transform: `translateY(0)` },
-        ];
-      case "slideInUp":
-        const slideInUpdimension =
-          window.innerHeight + this.hostElement.offsetHeight;
-        return [
-          { transform: `translateY(${slideInUpdimension}px)` },
-          { transform: `translateY(0)` },
-        ];
-      case "slideInLeft":
-        const slideInLeftdimension =
-          window.innerWidth + this.hostElement.offsetWidth;
-        return [
-          { transform: `translateX(${slideInLeftdimension}px)` },
-          { transform: `translateX(0)` },
-        ];
-      case "slideInRight":
-        const slideInRightdimension = -this.hostElement.offsetWidth;
-        return [
-          { transform: `translateX(${slideInRightdimension}px)` },
-          { transform: `translateX(0)` },
-        ];
-    }
-  }
-
-  buildSlideOutAnimationKeyframe() {
-    switch (this.transition) {
-      case "slideInDown":
-        const slideInDowndimension = this.hostElement.offsetHeight;
-        return [
-          { transform: `translateY(0)` },
-          { transform: `translateY(-${slideInDowndimension}px)` },
-        ];
-      case "slideInUp":
-        const slideInUpdimension =
-          window.innerHeight + this.hostElement.offsetHeight;
-        return [
-          { transform: `translateY(0)` },
-          { transform: `translateY(${slideInUpdimension}px)` },
-        ];
-      case "slideInLeft":
-        const slideInLeftdimension =
-          window.innerWidth + this.hostElement.offsetWidth;
-        return [
-          { transform: `translateX(0)` },
-          { transform: `translateX(${slideInLeftdimension}px)` },
-        ];
-      case "slideInRight":
-        const slideInRightdimension = -this.hostElement.offsetWidth;
-        return [
-          { transform: `translateX(${slideInRightdimension}px)` },
-          { transform: `translateX(0)` },
-        ];
-    }
-  }
-
-  handleSlideInAnimation() {
-    const animation = this.hostElement.animate(
-      this.buildSlideInAnimationKeyframe(),
-      {
-        duration: 1000,
-        fill: "forwards",
-        easing: "cubic-bezier(0.25, 0.1, 0.25, 0.1)",
-      }
-    );
-
-    animation.onfinish = () => {
-      if (this.autoclose && typeof this.autoclose === "number") {
-        this.startClosingTimeout(this.autoclose);
-      }
-    };
-  }
-
   mapSlideOutDirection() {
     switch (this.transition) {
-      case "slideInDown":
+      case ToastNotificationTransisionsEnum.slideInDown:
         return Hammer.DIRECTION_UP;
-      case "slideInUp":
+      case ToastNotificationTransisionsEnum.slideInUp:
         return Hammer.DIRECTION_DOWN;
-      case "slideInLeft":
+      case ToastNotificationTransisionsEnum.slideInLeft:
         return Hammer.DIRECTION_RIGHT;
-      case "slideInRight":
+      case ToastNotificationTransisionsEnum.slideInRight:
         return Hammer.DIRECTION_LEFT;
+    }
+  }
+
+  mapSlideOuClass() {
+    switch (this.transition) {
+      case ToastNotificationTransisionsEnum.slideInDown:
+        return ToastNotificationTransisionsEnum.slideOutUp;
+      case ToastNotificationTransisionsEnum.slideInUp:
+        return ToastNotificationTransisionsEnum.slideOutDown;
+      case ToastNotificationTransisionsEnum.slideInLeft:
+        return ToastNotificationTransisionsEnum.slideOutRight;
+      case ToastNotificationTransisionsEnum.slideInRight:
+        return ToastNotificationTransisionsEnum.slideOutLeft;
     }
   }
 
   mapSlideOutTranslate(event, bounding) {
     let draggablepx;
     switch (this.transition) {
-      case "slideInDown":
+      case ToastNotificationTransisionsEnum.slideInDown:
         draggablepx = (bounding.height / 100) * this.draggablepercentage;
         return {
           translate: "translateY( " + event.deltaY + "% )",
-          condition: (window.innerHeight + Math.abs(bounding.y) > window.innerHeight + draggablepx),
+          condition:
+            window.innerHeight + Math.abs(bounding.y) >
+            window.innerHeight + draggablepx,
           translateBack: "translateY(0)",
         };
-      case "slideInUp":
+      case ToastNotificationTransisionsEnum.slideInUp:
         draggablepx = (bounding.height / 100) * this.draggablepercentage;
         return {
           translate: "translateY( " + event.deltaY + "% )",
           condition: false,
           translateBack: "translateY(0)",
         };
-      case "slideInLeft":
+      case ToastNotificationTransisionsEnum.slideInLeft:
         draggablepx = (bounding.width / 100) * this.draggablepercentage;
         console.log(draggablepx);
         return {
           translate: "translateX( " + event.deltaX + "% )",
-          condition: (bounding.x > window.innerWidth - draggablepx),
+          condition: false,
           translateBack: "translateX(0)",
         };
-      case "slideInRight":
+      case ToastNotificationTransisionsEnum.slideInRight:
         draggablepx = (bounding.width / 100) * this.draggablepercentage;
         return {
           translate: "translateX( " + event.deltaX + "% )",
@@ -214,14 +154,13 @@ export class ZToastNotification {
       })
     );
     sliderManager.on("pan", (e) => {
+      this.hostElement.classList.remove(this.transition);
       var bounding = this.hostElement.getBoundingClientRect();
       const translateObj = this.mapSlideOutTranslate(e, bounding);
       if (e.direction === this.mapSlideOutDirection())
         this.hostElement.style.transform = translateObj.translate;
       if (e.isFinal) {
-        console.log(bounding.x, bounding.y)
         if (translateObj.condition) {
-          this.hostElement.style.height = "0";
           this.emitToastClose();
         } else {
           this.hostElement.style.transform = translateObj.translateBack;
@@ -231,27 +170,16 @@ export class ZToastNotification {
   }
 
   handleCloseAnimation() {
-    const animation = this.hostElement.animate(
-      this.buildSlideOutAnimationKeyframe(),
-      {
-        duration: 500,
-        fill: "forwards",
-        easing: "cubic-bezier(0.25, 0.1, 0.25, 0.1)",
-      }
-    );
-
-    animation.onfinish = () => {
-      this.hostElement.parentNode.removeChild(this.hostElement);
-    };
+    this.hostElement.classList.add(this.mapSlideOuClass());
   }
 
   onFocus() {
     let time;
     time = this.autoclose;
-    if (this.elapsedTime && typeof this.autoclose === "number") {
+    if (this.elapsedTime) {
       time = this.autoclose - this.elapsedTime;
     }
-    if (time > 0 && typeof this.autoclose === "number") {
+    if (time > 0) {
       console.log("Start Time!");
       this.startClosingTimeout(time);
     }
@@ -287,35 +215,44 @@ export class ZToastNotification {
 
   render() {
     return (
-      <div
-        id="external-container"
-        ref={(el) => (this.toastContainer = el as HTMLElement)}
-        class={this.type ? this.type : ToastNotificationEnum.dark}
+      <Host
+        class={this.transition ? this.transition : "slide-in-down"}
+        onAnimationEnd={() => {
+          if (this.autoclose) {
+            this.startClosingTimeout(this.autoclose);
+          }
+        }}
       >
-        <div id="flex-container">
-          <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
-            <span class="title">{this.titolo}</span>
-            <span class="message">{this.message}</span>
-          </div>
-          <div
-            id="button"
-            onClick={() => this.emitToastAction()}
-            ref={(el) => (this.toastButton = el as HTMLElement)}
-          >
-            <slot name="button" />
-          </div>
-          <div id="icon" ref={(el) => (this.toastIcon = el as HTMLElement)}>
-            {this.closebutton && (
-              <z-icon
-                name="multiply-circled"
-                width={15}
-                height={15}
-                onClick={() => this.emitToastClose()}
-              />
-            )}
+        <div
+          id="external-container"
+          ref={(el) => (this.toastContainer = el as HTMLElement)}
+          class={this.type ? this.type : ToastNotificationEnum.dark}
+        >
+          <div id="flex-container">
+            <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
+              <span class="title">{this.titolo}</span>
+              <span class="message">{this.message}</span>
+            </div>
+            <div
+              id="button"
+              onClick={() => this.emitToastAction()}
+              ref={(el) => (this.toastButton = el as HTMLElement)}
+            >
+              <slot name="button" />
+            </div>
+            <div id="icon" ref={(el) => (this.toastIcon = el as HTMLElement)}>
+              {this.closebutton && (
+                <z-icon
+                  name="multiply-circled"
+                  width={15}
+                  height={15}
+                  onClick={() => this.emitToastClose()}
+                />
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }
