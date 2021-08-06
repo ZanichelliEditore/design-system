@@ -6,7 +6,8 @@ import {
   EventEmitter,
   Element,
   Host,
-  State
+  State,
+  Watch,
 } from "@stencil/core";
 import {
   ToastNotificationEnum,
@@ -24,15 +25,30 @@ import { mobileBreakpoint } from "../../constants/breakpoints";
 export class ZToastNotification {
   @Element() hostElement: HTMLElement;
 
-  @Prop() titolo?: string;
+  /** toast notification's title */
+  @Prop() heading?: string;
+  /** toast notification's message */
   @Prop() message: string;
+  /** toast notification's closing icon */
   @Prop() closebutton: boolean;
+  /** toast notification can close by itself */
   @Prop() autoclose?: number;
-  @Prop() pauseonfocusloss?: boolean;
+  /** toast notification autoclose can be paused */
+  @Prop() pauseonfocusloss?: boolean = true;
+  /** toast notification type:  dark, light, accent, error, success, warning*/
   @Prop() type?: ToastNotificationTypes;
+  /** toast notification can be draggable*/
   @Prop() isdraggable?: boolean = true;
+  /** toast notification draggable percentage*/
   @Prop() draggablepercentage?: number = 80;
+  /** toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up*/
   @Prop() transition?: ToastNotificationTransisionTypes;
+
+  @Watch('autoclose')
+  validateAutoclose(newValue: string) {
+    const isBlank = typeof newValue !== 'number' || newValue === '';
+    if(isBlank && !this.closebutton) throw new Error("At least one between autoclose and closebutton must be present")
+  }
 
   @State() percentage: number;
 
@@ -51,13 +67,6 @@ export class ZToastNotification {
     this.timeoutHandle = null;
     this.elapsedTime = null;
     this.handleCloseAnimation();
-  }
-
-  /** notification action event */
-  @Event() toastAction: EventEmitter;
-  emitToastAction() {
-    this.toastAction.emit();
-    console.log("toast action!");
   }
 
   disconnectedCallback() {
@@ -81,7 +90,7 @@ export class ZToastNotification {
       });
     }
 
-    this.handleSlideOutAnimation();
+    this.isdraggable && this.handleSlideOutDragAnimation();
   }
 
   mapSlideOutDirection() {
@@ -135,8 +144,8 @@ export class ZToastNotification {
     }
   }
 
-  handleSlideOutAnimation() {
-    var sliderManager = new Hammer.Manager(this.hostElement);
+  handleSlideOutDragAnimation() {
+    const sliderManager = new Hammer.Manager(this.hostElement);
     sliderManager.add(
       new Hammer.Pan({
         threshold: 0,
@@ -146,13 +155,12 @@ export class ZToastNotification {
     );
     sliderManager.on("pan", (e) => {
       this.hostElement.classList.remove(this.transition);
-      this.percentage = this.calculatePercentage();
-      console.log(this.percentage);
+      this.percentage = this.calculatePercentageToBeDragged();
       const translateObj = this.mapSlideOutTranslate(e);
       if (e.direction === this.mapSlideOutDirection())
         this.hostElement.style.transform = translateObj.translate;
       if (e.isFinal) {
-        if (Math.abs(this.calculatePercentage()) > this.draggablepercentage) {
+        if (Math.abs(this.calculatePercentageToBeDragged()) > this.draggablepercentage) {
           this.emitToastClose();
         } else {
           this.hostElement.style.transform = translateObj.translateBack;
@@ -161,19 +169,25 @@ export class ZToastNotification {
     });
   }
 
-  calculatePercentage(){
-    var bounding = this.hostElement.getBoundingClientRect();
-    switch(this.transition){
+  calculatePercentageToBeDragged() {
+    const bounding = this.hostElement.getBoundingClientRect();
+    switch (this.transition) {
       case ToastNotificationTransisionsEnum.slideInLeft:
-        return Math.round(((100 * (window.innerWidth - bounding.right)) / bounding.width) * -1);
+        return Math.round(
+          ((100 * (window.innerWidth - bounding.right)) / bounding.width) * -1
+        );
       case ToastNotificationTransisionsEnum.slideInRight:
-        return (100 - Math.round(((100 * bounding.right) / bounding.width))) * -1;
+        return (100 - Math.round((100 * bounding.right) / bounding.width)) * -1;
       case ToastNotificationTransisionsEnum.slideInDown:
-        return (100 - Math.round(((100 * bounding.bottom) / bounding.height))) * -1;
+        return (
+          (100 - Math.round((100 * bounding.bottom) / bounding.height)) * -1
+        );
       case ToastNotificationTransisionsEnum.slideInUp:
-        return Math.round(((100 * (window.innerHeight - bounding.bottom)) / bounding.height) * -1);
+        return Math.round(
+          ((100 * (window.innerHeight - bounding.bottom)) / bounding.height) *
+            -1
+        );
     }
-    
   }
 
   handleCloseAnimation() {
@@ -186,15 +200,11 @@ export class ZToastNotification {
     if (this.elapsedTime) {
       time = this.autoclose - this.elapsedTime;
     }
-    if (time > 0) {
-      console.log("Start Time!");
-      this.startClosingTimeout(time);
-    }
+    if (time > 0) this.startClosingTimeout(time);
   }
 
   onBlur() {
     this.elapsedTime = Date.now() - this.startTime;
-    console.log(`Stop time - Elapsed ${this.elapsedTime}ms`);
     clearTimeout(this.timeoutHandle);
   }
 
@@ -215,6 +225,7 @@ export class ZToastNotification {
   setMobileView() {
     if (this.toastText.offsetHeight > 20) {
       this.toastContainer.style.display = "block";
+      this.toastContainer.style.textAlign = "left";
       this.toastIcon.style.alignSelf = "flex-start";
       this.toastContainer.append(this.toastButton);
     }
@@ -223,14 +234,13 @@ export class ZToastNotification {
   render() {
     return (
       <Host
-        style={{['--percentuale' as any]: `${this.percentage}%` as any}}
+        style={{ ["--percentuale" as any]: `${this.percentage}%` as any }}
         class={this.transition ? this.transition : "slide-in-down"}
         onAnimationEnd={(e: AnimationEvent) => {
-          console.log(e.animationName);
           if (this.autoclose && e.animationName.includes("slidein")) {
             this.startClosingTimeout(this.autoclose);
-          } 
-          if (e.animationName.includes("slideout")){
+          }
+          if (e.animationName.includes("slideout")) {
             this.hostElement.parentNode.removeChild(this.hostElement);
           }
         }}
@@ -242,12 +252,11 @@ export class ZToastNotification {
         >
           <div id="flex-container">
             <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
-              <span class="title">{this.titolo}</span>
+              <span class="title">{this.heading}</span>
               <span class="message">{this.message}</span>
             </div>
             <div
               id="button"
-              onClick={() => this.emitToastAction()}
               ref={(el) => (this.toastButton = el as HTMLElement)}
             >
               <slot name="button" />

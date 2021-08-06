@@ -2,40 +2,48 @@
   display: inline-block;
   min-width: 200px;
   max-width: 100%;
-
+  box-shadow: var(--shadow-3);
   --percentuale: 50%
 }
 
 :host(.slide-in-left) {
-  animation: slideinleft 1s forwards;
+  animation: slideinleft 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);
+  animation-fill-mode: forwards;
 }
 
 :host(.slide-in-right) {
-  animation: slideinright 1s forwards;
+  animation: slideinright 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);
+  animation-fill-mode: forwards;
 }
 
 :host(.slide-in-down) {
-  animation: slideindown 1s forwards;
+  animation: slideindown 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);
+  animation-fill-mode: forwards;
 }
 
 :host(.slide-in-up) {
-  animation: slideinup 1s forwards;
+  animation: slideinup 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);
+  animation-fill-mode: forwards;
 }
 
 :host(.slide-out-left) {
-  animation: slideoutleft 0.5s forwards;
+  animation: slideoutleft 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);
+  animation-fill-mode: forwards;
 }
 
 :host(.slide-out-right) {
-  animation: slideoutright 0.5s forwards;
+  animation: slideoutright 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);
+  animation-fill-mode: forwards;
 }
 
 :host(.slide-out-down) {
-  animation: slideoutdown 0.5s forwards;
+  animation: slideoutdown 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);
+  animation-fill-mode: forwards;
 }
 
 :host(.slide-out-up) {
-  animation: slideoutup 0.5s forwards;
+  animation: slideoutup 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);
+  animation-fill-mode: forwards;
 }
 
 @keyframes slideinleft {
@@ -129,15 +137,16 @@
   align-items: center;
 }
 
-:host > #external-container > div > #text > .title {
-  margin-right: 4px;
-  font-weight: 600;
-}
-
 :host > #external-container > div > #text {
   color: var(--color-white);
   margin-right: 16px;
   letter-spacing: 0.16px;
+  text-align: left;
+}
+
+:host > #external-container > div > #text > .title {
+  margin-right: 4px;
+  font-weight: 600;
 }
 
 :host > #external-container > #button ::slotted(z-button) {

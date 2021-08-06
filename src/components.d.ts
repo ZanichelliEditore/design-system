@@ -1272,14 +1272,41 @@ export namespace Components {
         "pressed": boolean;
     }
     interface ZToastNotification {
+        /**
+          * toast notification can close by itself
+         */
         "autoclose"?: number;
+        /**
+          * toast notification's closing icon
+         */
         "closebutton": boolean;
+        /**
+          * toast notification draggable percentage
+         */
         "draggablepercentage"?: number;
+        /**
+          * toast notification's title
+         */
+        "heading"?: string;
+        /**
+          * toast notification can be draggable
+         */
         "isdraggable"?: boolean;
+        /**
+          * toast notification's message
+         */
         "message": string;
+        /**
+          * toast notification autoclose can be paused
+         */
         "pauseonfocusloss"?: boolean;
-        "titolo"?: string;
+        /**
+          * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
+         */
         "transition"?: ToastNotificationTransisionTypes;
+        /**
+          * toast notification type:  dark, light, accent, error, success, warning
+         */
         "type"?: ToastNotificationTypes;
     }
     interface ZToggleButton {
@@ -3305,22 +3332,45 @@ declare namespace LocalJSX {
         "pressed"?: boolean;
     }
     interface ZToastNotification {
-        "autoclose"?: number;
-        "closebutton"?: boolean;
-        "draggablepercentage"?: number;
-        "isdraggable"?: boolean;
-        "message"?: string;
         /**
-          * notification action event
+          * toast notification can close by itself
          */
-        "onToastAction"?: (event: CustomEvent<any>) => void;
+        "autoclose"?: number;
+        /**
+          * toast notification's closing icon
+         */
+        "closebutton"?: boolean;
+        /**
+          * toast notification draggable percentage
+         */
+        "draggablepercentage"?: number;
+        /**
+          * toast notification's title
+         */
+        "heading"?: string;
+        /**
+          * toast notification can be draggable
+         */
+        "isdraggable"?: boolean;
+        /**
+          * toast notification's message
+         */
+        "message"?: string;
         /**
           * notification close event
          */
         "onToastClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * toast notification autoclose can be paused
+         */
         "pauseonfocusloss"?: boolean;
-        "titolo"?: string;
+        /**
+          * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
+         */
         "transition"?: ToastNotificationTransisionTypes;
+        /**
+          * toast notification type:  dark, light, accent, error, success, warning
+         */
         "type"?: ToastNotificationTypes;
     }
     interface ZToggleButton {

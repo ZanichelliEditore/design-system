@@ -33,7 +33,7 @@
       left: 0;
       max-width: 100%;
       overflow: hidden;
-      text-align: left;
+      text-align: center;
     }
   </style>
 </head>
@@ -168,8 +168,10 @@
   <p>Toast</p>
   <br>
   <div class="toast-container">
-    <z-toast-notification class="toast" titolo="Titolo" type="dark" message="Questa se ne va da ultima."
-      closebutton="true" transition="slide-in-down"></z-toast-notification>
+    <z-toast-notification class="toast" type="dark" heading="Notification" message="I toast da mangiare sono meglio."
+      closebutton="true" transition="slide-in-down" autoclose="100000" draggablepercentage="50">
+      <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+    </z-toast-notification>
   </div>
 
   <p>App Menu</p>
