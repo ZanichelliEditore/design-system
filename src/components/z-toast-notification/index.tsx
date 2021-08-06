@@ -17,6 +17,8 @@ import {
 } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
 
+import Hammer from "hammerjs";
+
 @Component({
   tag: "z-toast-notification",
   styleUrl: "styles.css",
