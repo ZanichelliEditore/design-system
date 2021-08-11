@@ -7,33 +7,6 @@ import { text, boolean } from "@storybook/addon-knobs";
 # ZRegistroTable
 
 <Preview>
-    <Story name="ZRegistroTable-empty">
-    {html`<z-registro-table
-      bordered="${boolean("bordered", false)}"
-      header-sticky="${boolean("header-sticky", false)}"
-      column-sticky="${boolean("column-sticky", false)}"
-      empty="true"
-    >
-      <z-registro-table-head>
-        <z-registro-table-header-row>
-          <z-registro-table-header>
-            <span>Titolo 1</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 2</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 3</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 4</span>
-          </z-registro-table-header>
-        </z-registro-table-header-row>
-      </z-registro-table-head>
-
-    </z-registro-table>`}
-
-  </Story>
   <Story name="ZRegistroTable-sample">
     {html`<z-registro-table
       bordered="${boolean("bordered", false)}"
@@ -117,6 +90,47 @@ import { text, boolean } from "@storybook/addon-knobs";
       <z-registro-table-sticky-footer slot="sticky-footer">
         <span>This is a sticky footer</span>
       </z-registro-table-sticky-footer>
+    </z-registro-table>`}
+  </Story>
+  <Story name="ZRegistroTable-empty-no-header">
+    {html`<z-registro-table
+      bordered="${boolean("bordered", false)}"
+      header-sticky="${boolean("header-sticky", false)}"
+      column-sticky="${boolean("column-sticky", false)}"
+      empty="${boolean("empty", true)}"
+      call-to-action-label="${text("call-to-action-label", "")}"
+      call-to-action-two-label="${text("call-to-action-two-label", "")}"
+    >
+    </z-registro-table>`}
+  </Story>
+  <Story name="ZRegistroTable-empty">
+    {html`<z-registro-table
+      bordered="${boolean("bordered", false)}"
+      header-sticky="${boolean("header-sticky", false)}"
+      column-sticky="${boolean("column-sticky", false)}"
+      empty="${boolean("empty", true)}"
+      call-to-action-label="${text("call-to-action-label", "Call to action")}"
+      call-to-action-two-label="${text(
+        "call-to-action-two-label",
+        "Call to action 2"
+      )}"
+    >
+      <z-registro-table-head>
+        <z-registro-table-header-row>
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 2</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 3</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 4</span>
+          </z-registro-table-header>
+        </z-registro-table-header-row>
+      </z-registro-table-head>
     </z-registro-table>`}
   </Story>
 </Preview>
