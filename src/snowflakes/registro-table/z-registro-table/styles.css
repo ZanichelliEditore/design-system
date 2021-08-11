@@ -107,3 +107,10 @@ z-registro-table
   > z-registro-table-header:first-child {
   z-index: 5;
 }
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  z-registro-table > div.table-empty {
+    display: none;
+  }
+}

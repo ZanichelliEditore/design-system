@@ -6,8 +6,11 @@ import {
   Host,
   Prop,
   h,
+  State,
+  Listen,
 } from "@stencil/core";
-import { ButtonVariantEnum } from "../../../beans";
+import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
+import { mobileBreakpoint } from "../../../constants/breakpoints";
 
 /**
  * @slot - table elements
@@ -41,6 +44,9 @@ export class ZRegistroTable {
   /** Sets call to action label */
   @Prop() callToActionTwoLabel?: string;
 
+  /** Handle mobile */
+  @State() isMobile: boolean;
+
   /** remove call to action event */
   @Event({
     eventName: "callToAction",
@@ -59,6 +65,20 @@ export class ZRegistroTable {
   })
   callToActionTwo: EventEmitter;
 
+  @Listen("resize", { target: "window" })
+  handleResize(): void {
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
+  }
+
+  @Listen("orientationchange", { target: "window" })
+  handleOrientationChange(): void {
+    this.isMobile = screen.width <= mobileBreakpoint;
+  }
+
+  componentWillLoad() {
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
+  }
+
   componentWillRender() {
     this.host.setAttribute("role", "table");
   }
@@ -68,7 +88,7 @@ export class ZRegistroTable {
       return (
         <Host>
           <div
-            class={`table ${this.bordered ? "table-bordered" : ""}
+            class={`table table-empty ${this.bordered ? "table-bordered" : ""}
             ${this.columnSticky ? "table-column-sticky" : ""}
             ${this.headerSticky ? "table-header-sticky" : ""}`}
           >
@@ -85,6 +105,7 @@ export class ZRegistroTable {
                 slot="cta1"
                 variant={ButtonVariantEnum.tertiary}
                 onClick={() => this.callToAction.emit()}
+                size={this.isMobile ? ButtonSizeEnum.small : ButtonSizeEnum.big}
               >
                 {this.callToActionLabel}
               </z-button>
@@ -94,6 +115,7 @@ export class ZRegistroTable {
                 slot="cta2"
                 variant={ButtonVariantEnum.tertiary}
                 onClick={() => this.callToActionTwo.emit()}
+                size={this.isMobile ? ButtonSizeEnum.small : ButtonSizeEnum.big}
               >
                 {this.callToActionTwoLabel}
               </z-button>

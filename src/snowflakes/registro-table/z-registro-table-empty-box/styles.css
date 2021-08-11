@@ -1,13 +1,24 @@
 :host {
   display: block;
-  padding: 24px 56px 24px 56px;
+  padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 7)
+    calc(var(--space-unit) * 3) calc(var(--space-unit) * 7);
   background-color: var(--bg-white);
 }
 
 ::slotted(*) {
-  margin-right: 16px;
+  margin-right: calc(var(--space-unit) * 2);
+  margin-top: var(--space-unit);
 }
 
 div.cta {
-  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  margin-top: var(--space-unit);
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  div.cta {
+    flex-direction: column;
+  }
 }

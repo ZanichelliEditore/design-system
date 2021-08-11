@@ -42,6 +42,13 @@
       </z-registro-table-head>
 
     </z-registro-table>
+    <h2>Empty table one cta</h2>
+    <z-registro-table
+        empty="true"
+        call-to-action-label="Action 1"
+        id='empty-table-two'
+      >
+      </z-registro-table>
     <h2>Empty table no column</h2>
   <z-registro-table
       empty="true"
@@ -1509,6 +1516,8 @@
       const emptytable = document.getElementById("empty-table");
       emptytable.addEventListener('callToAction',() => console.log('call to action 1'));
       emptytable.addEventListener('callToActionTwo',() => console.log('call to action 2'));
+      const emptytable_due = document.getElementById("empty-table-two");
+      emptytable_due.addEventListener('callToAction',() => console.log('call to action per seconda tabella'));
     </script>
   </body>
 </html>
