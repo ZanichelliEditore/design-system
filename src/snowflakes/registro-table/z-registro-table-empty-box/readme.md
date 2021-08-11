@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description             | Type     | Default                                                               |
-| ---------- | ---------- | ----------------------- | -------- | --------------------------------------------------------------------- |
-| `message`  | `message`  | Sets main title message | `string` | `"Siamo spicenti, al momento non sono presenti dati da visualizzare"` |
-| `subtitle` | `subtitle` | Sets message            | `string` | `""`                                                                  |
+| Property   | Attribute  | Description             | Type     | Default                                                                |
+| ---------- | ---------- | ----------------------- | -------- | ---------------------------------------------------------------------- |
+| `message`  | `message`  | Sets main title message | `string` | `"Siamo spicenti, al momento non sono presenti dati da visualizzare."` |
+| `subtitle` | `subtitle` | Sets message            | `string` | `""`                                                                   |
 
 
 ## Dependencies

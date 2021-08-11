@@ -1,4 +1,12 @@
-import { Component, Element, Host, Prop, h } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+} from "@stencil/core";
 import { ButtonVariantEnum } from "../../../beans";
 
 /**
@@ -27,6 +35,30 @@ export class ZRegistroTable {
   /** Sets empty table */
   @Prop() empty?: boolean = false;
 
+  /** Sets call to action label */
+  @Prop() callToActionLabel?: string;
+
+  /** Sets call to action label */
+  @Prop() callToActionTwoLabel?: string;
+
+  /** remove call to action event */
+  @Event({
+    eventName: "callToAction",
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  callToAction: EventEmitter;
+
+  /** remove call to action event */
+  @Event({
+    eventName: "callToActionTwo",
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  callToActionTwo: EventEmitter;
+
   componentWillRender() {
     this.host.setAttribute("role", "table");
   }
@@ -48,12 +80,24 @@ export class ZRegistroTable {
             }
             subtitle={"Eventuale testo"}
           >
-            <z-button slot="cta1" variant={ButtonVariantEnum.tertiary}>
-              CIAO1
-            </z-button>
-            <z-button slot="cta2" variant={ButtonVariantEnum.tertiary}>
-              CIAO2
-            </z-button>
+            {this.callToActionLabel !== "" && (
+              <z-button
+                slot="cta1"
+                variant={ButtonVariantEnum.tertiary}
+                onClick={() => this.callToAction.emit()}
+              >
+                {this.callToActionLabel}
+              </z-button>
+            )}
+            {this.callToActionTwoLabel !== "" && (
+              <z-button
+                slot="cta2"
+                variant={ButtonVariantEnum.tertiary}
+                onClick={() => this.callToActionTwo.emit()}
+              >
+                {this.callToActionTwoLabel}
+              </z-button>
+            )}
           </z-registro-table-empty-box>
         </Host>
       );

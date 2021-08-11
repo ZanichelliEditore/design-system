@@ -1097,6 +1097,14 @@ export namespace Components {
          */
         "bordered"?: boolean;
         /**
+          * Sets call to action label
+         */
+        "callToActionLabel"?: string;
+        /**
+          * Sets call to action label
+         */
+        "callToActionTwoLabel"?: string;
+        /**
           * Sets first column sticky
          */
         "columnSticky"?: boolean;
@@ -3145,6 +3153,14 @@ declare namespace LocalJSX {
          */
         "bordered"?: boolean;
         /**
+          * Sets call to action label
+         */
+        "callToActionLabel"?: string;
+        /**
+          * Sets call to action label
+         */
+        "callToActionTwoLabel"?: string;
+        /**
           * Sets first column sticky
          */
         "columnSticky"?: boolean;
@@ -3156,6 +3172,14 @@ declare namespace LocalJSX {
           * Sets header sticky
          */
         "headerSticky"?: boolean;
+        /**
+          * remove call to action event
+         */
+        "onCallToAction"?: (event: CustomEvent<any>) => void;
+        /**
+          * remove call to action event
+         */
+        "onCallToActionTwo"?: (event: CustomEvent<any>) => void;
     }
     interface ZRegistroTableBody {
     }
