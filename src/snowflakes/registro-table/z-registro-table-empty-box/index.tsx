@@ -24,7 +24,6 @@ export class ZRegistroTableEmptyBox {
         <z-body level={4} variant={"regular"}>
           {this.subtitle}
         </z-body>
-
         <div class="cta">
           <slot name="cta1"></slot>
           <slot name="cta2"></slot>
