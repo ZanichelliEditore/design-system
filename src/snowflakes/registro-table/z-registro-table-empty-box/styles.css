@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  padding: 24px 56px 24px 56px;
+  background-color: var(--bg-white);
+}
+
+::slotted(*) {
+  margin-right: 16px;
+}
+
+div.cta {
+  margin-top: 16px;
+}

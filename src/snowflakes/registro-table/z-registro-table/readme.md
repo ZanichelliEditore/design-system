@@ -15,6 +15,7 @@
 | -------------- | --------------- | ------------------------ | --------- | ------- |
 | `bordered`     | `bordered`      | Sets table with border   | `boolean` | `false` |
 | `columnSticky` | `column-sticky` | Sets first column sticky | `boolean` | `false` |
+| `empty`        | `empty`         | Sets empty table         | `boolean` | `false` |
 | `headerSticky` | `header-sticky` | Sets header sticky       | `boolean` | `false` |
 
 
@@ -25,6 +26,24 @@
 |                   | table elements                       |
 | `"sticky-footer"` | set the content of the sticky footer |
 
+
+## Dependencies
+
+### Depends on
+
+- [z-registro-table-empty-box](../z-registro-table-empty-box)
+- [z-button](../../../components/buttons/z-button)
+
+### Graph
+```mermaid
+graph TD;
+  z-registro-table --> z-registro-table-empty-box
+  z-registro-table --> z-button
+  z-registro-table-empty-box --> z-body
+  z-body --> z-typography
+  z-button --> z-icon
+  style z-registro-table fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

@@ -7,6 +7,33 @@ import { text, boolean } from "@storybook/addon-knobs";
 # ZRegistroTable
 
 <Preview>
+    <Story name="ZRegistroTable-empty">
+    {html`<z-registro-table
+      bordered="${boolean("bordered", false)}"
+      header-sticky="${boolean("header-sticky", false)}"
+      column-sticky="${boolean("column-sticky", false)}"
+      empty="true"
+    >
+      <z-registro-table-head>
+        <z-registro-table-header-row>
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 2</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 3</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 4</span>
+          </z-registro-table-header>
+        </z-registro-table-header-row>
+      </z-registro-table-head>
+
+    </z-registro-table>`}
+
+  </Story>
   <Story name="ZRegistroTable-sample">
     {html`<z-registro-table
       bordered="${boolean("bordered", false)}"

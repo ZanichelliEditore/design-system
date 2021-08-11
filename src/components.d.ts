@@ -1101,6 +1101,10 @@ export namespace Components {
          */
         "columnSticky"?: boolean;
         /**
+          * Sets empty table
+         */
+        "empty"?: boolean;
+        /**
           * Sets header sticky
          */
         "headerSticky"?: boolean;
@@ -1112,6 +1116,16 @@ export namespace Components {
           * [Optional] Show contextual menu button
          */
         "showButton"?: boolean;
+    }
+    interface ZRegistroTableEmptyBox {
+        /**
+          * Sets main title message
+         */
+        "message"?: string;
+        /**
+          * Sets message
+         */
+        "subtitle"?: string;
     }
     interface ZRegistroTableExpandedRow {
         /**
@@ -1729,6 +1743,12 @@ declare global {
         prototype: HTMLZRegistroTableCellElement;
         new (): HTMLZRegistroTableCellElement;
     };
+    interface HTMLZRegistroTableEmptyBoxElement extends Components.ZRegistroTableEmptyBox, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableEmptyBoxElement: {
+        prototype: HTMLZRegistroTableEmptyBoxElement;
+        new (): HTMLZRegistroTableEmptyBoxElement;
+    };
     interface HTMLZRegistroTableExpandedRowElement extends Components.ZRegistroTableExpandedRow, HTMLStencilElement {
     }
     var HTMLZRegistroTableExpandedRowElement: {
@@ -1892,6 +1912,7 @@ declare global {
         "z-registro-table": HTMLZRegistroTableElement;
         "z-registro-table-body": HTMLZRegistroTableBodyElement;
         "z-registro-table-cell": HTMLZRegistroTableCellElement;
+        "z-registro-table-empty-box": HTMLZRegistroTableEmptyBoxElement;
         "z-registro-table-expanded-row": HTMLZRegistroTableExpandedRowElement;
         "z-registro-table-footer": HTMLZRegistroTableFooterElement;
         "z-registro-table-head": HTMLZRegistroTableHeadElement;
@@ -3128,6 +3149,10 @@ declare namespace LocalJSX {
          */
         "columnSticky"?: boolean;
         /**
+          * Sets empty table
+         */
+        "empty"?: boolean;
+        /**
           * Sets header sticky
          */
         "headerSticky"?: boolean;
@@ -3139,6 +3164,16 @@ declare namespace LocalJSX {
           * [Optional] Show contextual menu button
          */
         "showButton"?: boolean;
+    }
+    interface ZRegistroTableEmptyBox {
+        /**
+          * Sets main title message
+         */
+        "message"?: string;
+        /**
+          * Sets message
+         */
+        "subtitle"?: string;
     }
     interface ZRegistroTableExpandedRow {
         /**
@@ -3328,7 +3363,7 @@ declare namespace LocalJSX {
          */
         "content"?: string;
         /**
-          * position change event.
+          * Position change event.
          */
         "onPositionChange"?: (event: CustomEvent<any>) => void;
         /**
@@ -3438,6 +3473,7 @@ declare namespace LocalJSX {
         "z-registro-table": ZRegistroTable;
         "z-registro-table-body": ZRegistroTableBody;
         "z-registro-table-cell": ZRegistroTableCell;
+        "z-registro-table-empty-box": ZRegistroTableEmptyBox;
         "z-registro-table-expanded-row": ZRegistroTableExpandedRow;
         "z-registro-table-footer": ZRegistroTableFooter;
         "z-registro-table-head": ZRegistroTableHead;
@@ -3526,6 +3562,7 @@ declare module "@stencil/core" {
             "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
             "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
             "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
+            "z-registro-table-empty-box": LocalJSX.ZRegistroTableEmptyBox & JSXBase.HTMLAttributes<HTMLZRegistroTableEmptyBoxElement>;
             "z-registro-table-expanded-row": LocalJSX.ZRegistroTableExpandedRow & JSXBase.HTMLAttributes<HTMLZRegistroTableExpandedRowElement>;
             "z-registro-table-footer": LocalJSX.ZRegistroTableFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableFooterElement>;
             "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
