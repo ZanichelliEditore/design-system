@@ -84,14 +84,18 @@ export class ZRegistroTable {
   }
 
   render() {
+    const buttonSize = this.isMobile
+      ? ButtonSizeEnum.small
+      : ButtonSizeEnum.big;
+    const tableClass = `table ${this.isMobile ? "table-empty" : ""} ${
+      this.bordered ? "table-bordered" : ""
+    }
+    ${this.columnSticky ? "table-column-sticky" : ""}
+    ${this.headerSticky ? "table-header-sticky" : ""}`;
     if (this.empty) {
       return (
         <Host>
-          <div
-            class={`table table-empty ${this.bordered ? "table-bordered" : ""}
-            ${this.columnSticky ? "table-column-sticky" : ""}
-            ${this.headerSticky ? "table-header-sticky" : ""}`}
-          >
+          <div class={tableClass}>
             <slot />
           </div>
           <z-registro-table-empty-box
@@ -100,22 +104,22 @@ export class ZRegistroTable {
             }
             subtitle={"Eventuale testo"}
           >
-            {this.callToActionLabel !== "" && (
+            {!!this.callToActionLabel && (
               <z-button
                 slot="cta1"
                 variant={ButtonVariantEnum.tertiary}
                 onClick={() => this.callToAction.emit()}
-                size={this.isMobile ? ButtonSizeEnum.small : ButtonSizeEnum.big}
+                size={buttonSize}
               >
                 {this.callToActionLabel}
               </z-button>
             )}
-            {this.callToActionTwoLabel !== "" && (
+            {!!this.callToActionTwoLabel && (
               <z-button
                 slot="cta2"
                 variant={ButtonVariantEnum.tertiary}
                 onClick={() => this.callToActionTwo.emit()}
-                size={this.isMobile ? ButtonSizeEnum.small : ButtonSizeEnum.big}
+                size={buttonSize}
               >
                 {this.callToActionTwoLabel}
               </z-button>
@@ -126,11 +130,7 @@ export class ZRegistroTable {
     }
     return (
       <Host>
-        <div
-          class={`table ${this.bordered ? "table-bordered" : ""} 
-            ${this.columnSticky ? "table-column-sticky" : ""} 
-            ${this.headerSticky ? "table-header-sticky" : ""}`}
-        >
+        <div class={tableClass}>
           <slot />
         </div>
         <slot name="sticky-footer" />
