@@ -9,7 +9,7 @@ import { Component, h, Host, Prop } from "@stencil/core";
 export class ZRegistroTableEmptyBox {
   /** Sets main title message*/
   @Prop() message?: string =
-    "Siamo spicenti, al momento non sono presenti dati da visualizzare";
+    "Siamo spicenti, al momento non sono presenti dati da visualizzare.";
 
   /** Sets message */
   @Prop() subtitle?: string = "";
