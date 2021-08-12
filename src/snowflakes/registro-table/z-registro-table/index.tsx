@@ -51,6 +51,9 @@ export class ZRegistroTable {
   /** Set subtitle */
   @Prop() subtitle?: string = "";
 
+  /** Set if has table content, useful when empty conte to who first column */
+  @State() hasTableBody: boolean;
+
   /** Handle mobile */
   @State() isMobile: boolean;
 
@@ -84,6 +87,7 @@ export class ZRegistroTable {
 
   componentWillLoad() {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.hasTableBody = !!this.host.querySelector('[slot="table-body"]');
   }
 
   componentWillRender() {
@@ -94,16 +98,54 @@ export class ZRegistroTable {
     const buttonSize = this.isMobile
       ? ButtonSizeEnum.small
       : ButtonSizeEnum.big;
-    const tableClass = `table ${this.isMobile ? "table-empty" : ""} ${
+    const tableClass = `table ${this.empty ? "table-empty" : ""} ${
       this.bordered ? "table-bordered" : ""
     }
     ${this.columnSticky ? "table-column-sticky" : ""}
     ${this.headerSticky ? "table-header-sticky" : ""}`;
-    if (this.empty) {
+    const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
+    if (this.empty && this.hasTableBody) {
       return (
         <Host>
           <div class={tableClass}>
-            <slot />
+            <slot name="table-header" />
+            <div class={tableContentClass}>
+              <slot name="table-body" />
+              <z-registro-table-empty-box
+                message={this.message}
+                subtitle={this.subtitle}
+              >
+                {!!this.callToActionLabel && (
+                  <z-button
+                    slot="cta1"
+                    variant={ButtonVariantEnum.tertiary}
+                    onClick={() => this.callToAction.emit()}
+                    size={buttonSize}
+                  >
+                    {this.callToActionLabel}
+                  </z-button>
+                )}
+                {!!this.callToActionTwoLabel && (
+                  <z-button
+                    slot="cta2"
+                    variant={ButtonVariantEnum.tertiary}
+                    onClick={() => this.callToActionTwo.emit()}
+                    size={buttonSize}
+                  >
+                    {this.callToActionTwoLabel}
+                  </z-button>
+                )}
+              </z-registro-table-empty-box>
+            </div>
+          </div>
+        </Host>
+      );
+    }
+    if (this.empty && !this.hasTableBody) {
+      return (
+        <Host>
+          <div class={tableClass}>
+            <slot name="table-header" />
           </div>
           <z-registro-table-empty-box
             message={this.message}

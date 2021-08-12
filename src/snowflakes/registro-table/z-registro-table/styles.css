@@ -114,3 +114,11 @@ z-registro-table
     display: none;
   }
 }
+.table-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.table-content :first-child {
+  width: auto;
+}

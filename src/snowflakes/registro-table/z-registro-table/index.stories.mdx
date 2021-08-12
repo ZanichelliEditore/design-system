@@ -125,7 +125,7 @@ import { text, boolean } from "@storybook/addon-knobs";
       )}"
       subtitle="${text("subtitle", "Eventuale testo")}"
     >
-      <z-registro-table-head>
+      <z-registro-table-head slot="table-header">
         <z-registro-table-header-row>
           <z-registro-table-header>
             <span>Titolo 1</span>
@@ -141,6 +141,53 @@ import { text, boolean } from "@storybook/addon-knobs";
           </z-registro-table-header>
         </z-registro-table-header-row>
       </z-registro-table-head>
+    </z-registro-table>`}
+  </Story>
+  <Story name="ZRegistroTable-empty-with-header-column">
+    {html`<z-registro-table
+      bordered="${boolean("bordered", false)}"
+      call-to-action-label="${text("call-to-action-label", "Call to action")}"
+      call-to-action-two-label="${text(
+        "call-to-action-two-label",
+        "Call to action"
+      )}"
+      column-sticky="${boolean("column-sticky", false)}"
+      empty="${boolean("empty", true)}"
+      header-sticky="${boolean("header-sticky", false)}"
+      message="${text(
+        "message",
+        "Siamo spicenti, al momento non sono presenti dati da visualizzare!"
+      )}"
+      subtitle="${text("subtitle", "Eventuale testo")}"
+    >
+      <z-registro-table-head slot="table-header">
+        <z-registro-table-header-row>
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+      </z-registro-table-head>
+      <z-registro-table-body slot="table-body">
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 1-1</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 1-2</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 1-3</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+            <span>Contenuto 1-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+      </z-registro-table-body>
     </z-registro-table>`}
   </Story>
 </Preview>
