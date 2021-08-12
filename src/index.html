@@ -896,20 +896,20 @@
         <z-myz-list-item>ITEM 3 <z-input type="checkbox"></z-input></z-myz-list-item>
       </ul>
 
-      <div style="display: inline-flex; align-items: center; margin-left:100px;">
-        <div style="min-width: 200px; min-height: 70px; ">
-          <z-tooltip content="Aggiungi libro" type="top"></z-tooltip>
-        </div>
+      <div style="display: flex; align-items: center; margin-left:16px; gap: 16px;">
+        <h3>ZTooltip Legacy</h3>
+        <z-tooltip content="Aggiungi libro" type="top"></z-tooltip>
+        <z-tooltip content="Aggiungi libro" type="bottom"></z-tooltip>
+        <z-tooltip content="Rimuovi libro" type="left"></z-tooltip>
+        <z-tooltip content="Rimuovi libro" type="right"></z-tooltip>
+      </div>
 
-        <div style="min-width: 200px; min-height: 70px; ">
-          <z-tooltip content="Aggiungi libro" type="bottom"></z-tooltip>
-        </div>
-        <div style="min-width: 200px; min-height: 70px; ">
-          <z-tooltip content="Rimuovi libro" type="left"></z-tooltip>
-        </div>
-        <div style="min-width: 200px; min-height: 70px; ">
-          <z-tooltip content="Rimuovi libro" type="right"></z-tooltip>
-        </div>
+      <div style="margin-left: 16px;">
+        <h3>ZTooltip</h3>
+        <z-tooltip bind-to="#tooltip-btn" type="bottom_right" open>
+          <span>Tooltip text</span>
+        </z-tooltip>
+        <z-button id="tooltip-btn" square icon="informationsource"></z-button>
       </div>
 
       <br /><br />
@@ -923,7 +923,7 @@
       <z-input type="text" label="error" placeholder="placeholder" status="error" message="message message" value="testo">
       </z-input>
       <z-input type="text" label="warning" placeholder="placeholder" status="warning"
-        message="message message message message message message message message message message message message message message message message message message">
+        message="message message message message message <br/> message message message message <br/> message message message message message message message message message">
       </z-input>
       <z-input type="text" label="message" placeholder="placeholder" message="helper message"></z-input>
       <z-input type="password" label="password" value="password" placeholder="Inserisci password"></z-input>
@@ -1174,6 +1174,10 @@
   <div style="padding-left: 280px; width: 150px">
     <z-list size="large">
       <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
+<<<<<<< HEAD
+=======
+
+>>>>>>> b79cf337ab1b3da815456fe0c1d31098a8eeb7ea
         <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
         <z-list-element><z-avatar text="AB" ></z-avatar><span>no header 123456</span></z-list-element>
         <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
@@ -1201,6 +1205,7 @@
       <z-list-group size="large" divider-type="element">
         <p slot="header-title">Z-LIST-GROUP  TITOLO 1</p>
         <z-list-element background-color="myz-blue" expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
         <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
         <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
 

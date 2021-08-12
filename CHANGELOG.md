@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.13.0](https://github.com/ZanichelliEditore/design-system/compare/v2.12.2...v2.13.0) (2021-08-02)
+
+
+### Features
+
+* element binding prop; auto positioning algorithm ([58d1c60](https://github.com/ZanichelliEditore/design-system/commit/58d1c60fdf019950544b92e0bb55ef87fc6516c2))
+
+### [2.12.2](https://github.com/ZanichelliEditore/design-system/compare/v2.12.1...v2.12.2) (2021-07-27)
+
+
+### Bug Fixes
+
+* z-input-message fix ([1d2ad21](https://github.com/ZanichelliEditore/design-system/commit/1d2ad2158883c58d1aa29b29bd3685038d446d99))
+
+### [2.12.1](https://github.com/ZanichelliEditore/design-system/compare/v2.12.0...v2.12.1) (2021-07-23)
+
+
+### Bug Fixes
+
+* firefox scrollbar overflow ([78ca396](https://github.com/ZanichelliEditore/design-system/commit/78ca396a2909da546c13acbc0f55918e6ba30a1e))
+* fixed z-button-filter ([bdb41e0](https://github.com/ZanichelliEditore/design-system/commit/bdb41e062a642d03225c27e92861d07a774b81e1))
+
 ## [2.12.0](https://github.com/ZanichelliEditore/design-system/compare/v2.11.0...v2.12.0) (2021-07-23)
 
 

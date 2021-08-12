@@ -563,7 +563,7 @@ export namespace Components {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: 'white' | 'blue' | 'black';
+        "textcolor"?: "white" | "blue" | "black";
     }
     interface ZList {
         /**
@@ -1294,14 +1294,27 @@ export namespace Components {
           * label text
          */
         "label": string;
+        /**
+          * open by default (optional)
+         */
+        "opened"?: boolean;
     }
     interface ZTooltip {
         /**
-          * content text
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Content text.
+          * @deprecated
          */
         "content": string;
         /**
-          * tooltip position variant
+          * The open state of the tooltip.
+         */
+        "open": boolean;
+        /**
+          * Tooltip position.
          */
         "type": TooltipPosition;
     }
@@ -2508,7 +2521,7 @@ declare namespace LocalJSX {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: 'white' | 'blue' | 'black';
+        "textcolor"?: "white" | "blue" | "black";
     }
     interface ZList {
         /**
@@ -3326,14 +3339,31 @@ declare namespace LocalJSX {
           * emitted on toggle button click, returns isOpen
          */
         "onToggleClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * open by default (optional)
+         */
+        "opened"?: boolean;
     }
     interface ZTooltip {
         /**
-          * content text
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Content text.
+          * @deprecated
          */
         "content"?: string;
         /**
-          * tooltip position variant
+          * position change event.
+         */
+        "onPositionChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The open state of the tooltip.
+         */
+        "open"?: boolean;
+        /**
+          * Tooltip position.
          */
         "type"?: TooltipPosition;
     }

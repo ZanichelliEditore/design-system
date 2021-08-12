@@ -157,7 +157,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default hasClearIcon hasIcon" type="password" aria-labelledby="id_label" />
               <span class="iconsWrapper">
-                <z-icon name="view" class="showHidePasswordIcon"></z-icon>
+                <z-icon name="view-filled" class="showHidePasswordIcon"></z-icon>
               </span>
             </div>
           </div>
@@ -180,7 +180,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default hasClearIcon hasIcon" type="text" aria-labelledby="id_label" />
               <span class="iconsWrapper">
-                <z-icon name="view-off" class="showHidePasswordIcon"></z-icon>
+                <z-icon name="view-off-filled" class="showHidePasswordIcon"></z-icon>
               </span>
             </div>
           </div>

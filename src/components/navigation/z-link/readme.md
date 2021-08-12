@@ -26,7 +26,7 @@
 | `isdisabled`   | `isdisabled`   | disable link flag (optional)       | `boolean`                      | `false`     |
 | `iswhite`      | `iswhite`      | white variant flag (optional)      | `boolean`                      | `false`     |
 | `target`       | `target`       | link target (optional)             | `string`                       | `"_self"`   |
-| `textcolor`    | `textcolor`    | link text variant (optional)       | `"black" \| "blue" \| "white"` | `'blue'`    |
+| `textcolor`    | `textcolor`    | link text variant (optional)       | `"black" \| "blue" \| "white"` | `"blue"`    |
 
 
 ## Events
@@ -34,6 +34,13 @@
 | Event        | Description                           | Type               |
 | ------------ | ------------------------------------- | ------------------ |
 | `zLinkClick` | emitted on link click, returns linkId | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot | Description  |
+| ---- | ------------ |
+|      | link content |
 
 
 ## Dependencies

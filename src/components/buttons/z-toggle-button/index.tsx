@@ -1,9 +1,9 @@
-import { Component, Prop, h, State, Event, EventEmitter } from "@stencil/core";
+import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 @Component({
   tag: "z-toggle-button",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZToggleButton {
   /** label text */
@@ -12,20 +12,20 @@ export class ZToggleButton {
   @Prop() isdisabled?: boolean = false;
   /** avoidclick status flag */
   @Prop() avoidclick: boolean;
-
-  @State() isOpen: boolean = false;
+  /** open by default (optional) */
+  @Prop({mutable: true}) opened?: boolean = false;
 
   /** emitted on toggle button click, returns isOpen */
   @Event() toggleClick: EventEmitter;
   emitToggleClick() {
     if (this.isdisabled) return;
 
-    this.isOpen = !this.isOpen;
-    this.toggleClick.emit(this.isOpen);
+    this.opened = !this.opened;
+    this.toggleClick.emit(this.opened);
   }
 
   retrieveButtonClass() {
-    let className = this.isOpen && "isopen";
+    let className = this.opened && "isopen";
     if (this.avoidclick) className = className + " avoid-clicks";
     return className;
   }
@@ -39,7 +39,7 @@ export class ZToggleButton {
         onClick={() => this.emitToggleClick()}
       >
         <z-icon
-          name={this.isOpen ? "chevron-down" : "chevron-up"}
+          name={this.opened ? "chevron-down" : "chevron-up"}
           width={16}
           height={16}
         />

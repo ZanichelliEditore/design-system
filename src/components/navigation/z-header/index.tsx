@@ -154,11 +154,7 @@ export class ZHeader {
         <svg
           height="8"
           width="16"
-          class={
-            !this.activeMenuItem || this.activeMenuItem.id !== id
-              ? "hidden"
-              : ""
-          }
+          class={{hidden: !this.activeMenuItem || this.activeMenuItem.id !== id}}
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
@@ -175,10 +171,10 @@ export class ZHeader {
     if (!this.isMobile) return;
 
     this.element.shadowRoot
-      .getElementById(elementId)
+      .querySelector(`#${elementId}`)
       .classList.toggle("isopen");
     this.element.shadowRoot
-      .getElementById("mobile-dropdown-" + elementId)
+      .querySelector("#mobile-dropdown-" + elementId)
       .classList.toggle("visible");
   }
 
@@ -238,26 +234,24 @@ export class ZHeader {
 
     return (
       <div id="link-ext" class="link-ext">
-        {menuItems.map(
-          (menuItem: MenuItem): HTMLSpanElement => {
-            const { id, label, link, icon } = menuItem;
-            return (
-              <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
-                <z-link
-                  id={id}
-                  htmlid={id}
-                  href={link}
-                  icon={icon}
-                  iswhite={!!this.ismyz}
-                  target="_blank"
-                  htmltabindex={10}
-                >
-                  {label}
-                </z-link>
-              </span>
-            );
-          }
-        )}
+        {menuItems.map((menuItem: MenuItem): HTMLSpanElement => {
+          const { id, label, link, icon } = menuItem;
+          return (
+            <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
+              <z-link
+                id={id}
+                htmlid={id}
+                href={link}
+                icon={icon}
+                iswhite={!!this.ismyz}
+                target="_blank"
+                htmltabindex={10}
+              >
+                {label}
+              </z-link>
+            </span>
+          );
+        })}
       </div>
     );
   }
@@ -347,7 +341,10 @@ export class ZHeader {
     return (
       <div
         id="main-header"
-        class={`main-header${this.ismyz ? "" : " myz-out"}`}
+        class={{
+          "main-header": true,
+          "myz-out": !this.ismyz,
+        }}
       >
         {this.renderLogoDiv()}
         {this.renderIntMenu(this.intMenuData)}
@@ -406,9 +403,11 @@ export class ZHeader {
     return (
       <div
         id="mobile-content"
-        class={`mobile-content${this.isMenuMobileOpen ? " open" : ""}${
-          this.ismyz ? "" : " myz-out"
-        }`}
+        class={{
+          "mobile-content": true,
+          "open": this.isMenuMobileOpen,
+          "myz-out": !this.ismyz,
+        }}
       >
         {this.renderMobileLoginDiv(this.userData)}
         {this.ismyz && <hr />}
