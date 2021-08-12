@@ -11,14 +11,16 @@
 
 ## Properties
 
-| Property               | Attribute                  | Description               | Type      | Default     |
-| ---------------------- | -------------------------- | ------------------------- | --------- | ----------- |
-| `bordered`             | `bordered`                 | Sets table with border    | `boolean` | `false`     |
-| `callToActionLabel`    | `call-to-action-label`     | Sets call to action label | `string`  | `undefined` |
-| `callToActionTwoLabel` | `call-to-action-two-label` | Sets call to action label | `string`  | `undefined` |
-| `columnSticky`         | `column-sticky`            | Sets first column sticky  | `boolean` | `false`     |
-| `empty`                | `empty`                    | Sets empty table          | `boolean` | `false`     |
-| `headerSticky`         | `header-sticky`            | Sets header sticky        | `boolean` | `false`     |
+| Property               | Attribute                  | Description               | Type      | Default                                                               |
+| ---------------------- | -------------------------- | ------------------------- | --------- | --------------------------------------------------------------------- |
+| `bordered`             | `bordered`                 | Sets table with border    | `boolean` | `false`                                                               |
+| `callToActionLabel`    | `call-to-action-label`     | Sets call to action label | `string`  | `undefined`                                                           |
+| `callToActionTwoLabel` | `call-to-action-two-label` | Sets call to action label | `string`  | `undefined`                                                           |
+| `columnSticky`         | `column-sticky`            | Sets first column sticky  | `boolean` | `false`                                                               |
+| `empty`                | `empty`                    | Sets empty table          | `boolean` | `false`                                                               |
+| `headerSticky`         | `header-sticky`            | Sets header sticky        | `boolean` | `false`                                                               |
+| `message`              | `message`                  | Set message               | `string`  | `"Siamo spicenti, al momento non sono presenti dati da visualizzare"` |
+| `subtitle`             | `subtitle`                 | Set subtitle              | `string`  | `""`                                                                  |
 
 
 ## Events

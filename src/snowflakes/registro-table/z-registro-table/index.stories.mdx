@@ -10,8 +10,8 @@ import { text, boolean } from "@storybook/addon-knobs";
   <Story name="ZRegistroTable-sample">
     {html`<z-registro-table
       bordered="${boolean("bordered", false)}"
-      header-sticky="${boolean("header-sticky", false)}"
       column-sticky="${boolean("column-sticky", false)}"
+      header-sticky="${boolean("header-sticky", false)}"
     >
       <z-registro-table-head>
         <z-registro-table-header-row>
@@ -95,25 +95,35 @@ import { text, boolean } from "@storybook/addon-knobs";
   <Story name="ZRegistroTable-empty-no-header">
     {html`<z-registro-table
       bordered="${boolean("bordered", false)}"
-      header-sticky="${boolean("header-sticky", false)}"
-      column-sticky="${boolean("column-sticky", false)}"
-      empty="${boolean("empty", true)}"
       call-to-action-label="${text("call-to-action-label", "")}"
       call-to-action-two-label="${text("call-to-action-two-label", "")}"
+      column-sticky="${boolean("column-sticky", false)}"
+      empty="${boolean("empty", true)}"
+      header-sticky="${boolean("header-sticky", false)}"
+      message="${text(
+        "message",
+        "Siamo spicenti, al momento non sono presenti dati da visualizzare"
+      )}"
+      subtitle="${text("subtitle", "Eventuale testo")}"
     >
     </z-registro-table>`}
   </Story>
   <Story name="ZRegistroTable-empty">
     {html`<z-registro-table
       bordered="${boolean("bordered", false)}"
-      header-sticky="${boolean("header-sticky", false)}"
-      column-sticky="${boolean("column-sticky", false)}"
-      empty="${boolean("empty", true)}"
       call-to-action-label="${text("call-to-action-label", "Call to action")}"
       call-to-action-two-label="${text(
         "call-to-action-two-label",
-        "Call to action 2"
+        "Call to action"
       )}"
+      column-sticky="${boolean("column-sticky", false)}"
+      empty="${boolean("empty", true)}"
+      header-sticky="${boolean("header-sticky", false)}"
+      message="${text(
+        "message",
+        "Siamo spicenti, al momento non sono presenti dati da visualizzare!"
+      )}"
+      subtitle="${text("subtitle", "Eventuale testo")}"
     >
       <z-registro-table-head>
         <z-registro-table-header-row>

@@ -1116,6 +1116,14 @@ export namespace Components {
           * Sets header sticky
          */
         "headerSticky"?: boolean;
+        /**
+          * Set message
+         */
+        "message"?: string;
+        /**
+          * Set subtitle
+         */
+        "subtitle"?: string;
     }
     interface ZRegistroTableBody {
     }
@@ -3173,6 +3181,10 @@ declare namespace LocalJSX {
          */
         "headerSticky"?: boolean;
         /**
+          * Set message
+         */
+        "message"?: string;
+        /**
           * remove call to action event
          */
         "onCallToAction"?: (event: CustomEvent<any>) => void;
@@ -3180,6 +3192,10 @@ declare namespace LocalJSX {
           * remove call to action event
          */
         "onCallToActionTwo"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set subtitle
+         */
+        "subtitle"?: string;
     }
     interface ZRegistroTableBody {
     }

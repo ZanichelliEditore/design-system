@@ -29,20 +29,27 @@ export class ZRegistroTable {
   /** Sets table with border */
   @Prop() bordered?: boolean = false;
 
-  /** Sets first column sticky */
-  @Prop() columnSticky?: boolean = false;
-
-  /** Sets header sticky */
-  @Prop() headerSticky?: boolean = false;
-
-  /** Sets empty table */
-  @Prop() empty?: boolean = false;
-
   /** Sets call to action label */
   @Prop() callToActionLabel?: string;
 
   /** Sets call to action label */
   @Prop() callToActionTwoLabel?: string;
+
+  /** Sets first column sticky */
+  @Prop() columnSticky?: boolean = false;
+
+  /** Sets empty table */
+  @Prop() empty?: boolean = false;
+
+  /** Sets header sticky */
+  @Prop() headerSticky?: boolean = false;
+
+  /** Set message */
+  @Prop() message?: string =
+    "Siamo spicenti, al momento non sono presenti dati da visualizzare";
+
+  /** Set subtitle */
+  @Prop() subtitle?: string = "";
 
   /** Handle mobile */
   @State() isMobile: boolean;
@@ -99,10 +106,8 @@ export class ZRegistroTable {
             <slot />
           </div>
           <z-registro-table-empty-box
-            message={
-              "Siamo spicenti, al momento non sono presenti dati da visualizzare"
-            }
-            subtitle={"Eventuale testo"}
+            message={this.message}
+            subtitle={this.subtitle}
           >
             {!!this.callToActionLabel && (
               <z-button
