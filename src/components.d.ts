@@ -10,6 +10,12 @@ import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemB
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
+    interface ContextualMenu {
+        /**
+          * deprecated - JSON stringified data to fill the footer
+         */
+        "elements"?: string;
+    }
     interface ZAlert {
         /**
           * alert variant type
@@ -570,6 +576,10 @@ export namespace Components {
           * [optional] Align expandable button left or right.
          */
         "alignButton"?: ExpandableListButtonAlign;
+        /**
+          * [optional] Sets background color of the element.
+         */
+        "backgroundColor"?: string;
         /**
           * [optional] Sets element clickable.
          */
@@ -1320,6 +1330,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLContextualMenuElement extends Components.ContextualMenu, HTMLStencilElement {
+    }
+    var HTMLContextualMenuElement: {
+        prototype: HTMLContextualMenuElement;
+        new (): HTMLContextualMenuElement;
+    };
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
     }
     var HTMLZAlertElement: {
@@ -1813,6 +1829,7 @@ declare global {
         new (): HTMLZUserDropdownElement;
     };
     interface HTMLElementTagNameMap {
+        "contextual-menu": HTMLContextualMenuElement;
         "z-alert": HTMLZAlertElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
@@ -1898,6 +1915,12 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ContextualMenu {
+        /**
+          * deprecated - JSON stringified data to fill the footer
+         */
+        "elements"?: string;
+    }
     interface ZAlert {
         /**
           * alert variant type
@@ -2498,6 +2521,10 @@ declare namespace LocalJSX {
           * [optional] Align expandable button left or right.
          */
         "alignButton"?: ExpandableListButtonAlign;
+        /**
+          * [optional] Sets background color of the element.
+         */
+        "backgroundColor"?: string;
         /**
           * [optional] Sets element clickable.
          */
@@ -3342,6 +3369,7 @@ declare namespace LocalJSX {
         "userfullname"?: string;
     }
     interface IntrinsicElements {
+        "contextual-menu": ContextualMenu;
         "z-alert": ZAlert;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
@@ -3430,6 +3458,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "contextual-menu": LocalJSX.ContextualMenu & JSXBase.HTMLAttributes<HTMLContextualMenuElement>;
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;

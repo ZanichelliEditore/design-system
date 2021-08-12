@@ -54,6 +54,11 @@ export class ZListElement {
    */
   @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
 
+  /**
+   * [optional] Sets background color of the element.
+   */
+  @Prop({ reflect: true }) backgroundColor?: string = 'none';
+
   @State() showInnerContent = false;
 
   private openElementConfig = {
@@ -144,7 +149,7 @@ export class ZListElement {
         onKeyDown={this.handleKeyDown}
         tabIndex="0"
       >
-        <div class="container">
+        <div class="container" style={{backgroundColor: `var(--${this.backgroundColor})`}}>
           <div class="z-list-element-container">
             {this.renderExpandableButton()}
             <slot />

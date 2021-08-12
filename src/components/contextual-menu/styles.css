@@ -1,0 +1,29 @@
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+}
+
+.popover-content-container {
+  min-width: 112px;
+  max-width: 280px;
+  white-space: initial;
+
+}
+
+.element-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon-container {
+  padding-right: 8px;
+}
+
+.text-container {
+  display: flex;
+  align-items: center;
+}
+
+:host > z-popover > z-icon {
+  cursor: pointer;
+}
