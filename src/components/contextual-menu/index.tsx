@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from "@stencil/core";
+import { Component, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
 import { ListSize, PopoverPosition } from "../../beans";
 
 @Component({
@@ -9,6 +9,15 @@ import { ListSize, PopoverPosition } from "../../beans";
 export class ContextualMenu {
   /** deprecated - JSON stringified data to fill the footer */
   @Prop() elements?: string;
+
+    /** remove filter click event, returns filterid */
+    @Event({
+      eventName: "clickItem",
+      composed: true,
+      cancelable: true,
+      bubbles: true,
+    })
+    clickItem: EventEmitter;
 
   private jsonElements;
 
@@ -42,18 +51,18 @@ export class ContextualMenu {
             <z-list>
               <z-list-group divider-type="element" size={ListSize.small}>
                 {this.jsonElements.map((element) => (
-                  <z-list-element clickable={true} backgroundColor="bg-grey-050">
-                    <div class="element-container">
-                      {this.showIcon() &&
-                        <div class="icon-container">
-                          <z-icon name={element.icon} />
+                    <z-list-element clickable={true} class="my-z-list-element">
+                      <div class="element-container" onClick={() => this.clickItem.emit(element.key)}>
+                        {this.showIcon() &&
+                          <div class="icon-container">
+                            <z-icon name={element.icon} />
+                          </div>
+                        }
+                        <div class="text-container">
+                          <span>{element.text}</span>
                         </div>
-                      }
-                      <div class="text-container">
-                        <span>{element.text}</span>
                       </div>
-                    </div>
-                  </z-list-element>
+                    </z-list-element>
                 ))}
               </z-list-group>
             </z-list>

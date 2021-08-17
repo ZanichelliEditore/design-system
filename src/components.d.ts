@@ -1933,6 +1933,10 @@ declare namespace LocalJSX {
           * deprecated - JSON stringified data to fill the footer
          */
         "elements"?: string;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickItem"?: (event: CustomEvent<any>) => void;
     }
     interface ZAlert {
         /**
@@ -3355,7 +3359,7 @@ declare namespace LocalJSX {
          */
         "content"?: string;
         /**
-          * position change event.
+          * Position change event.
          */
         "onPositionChange"?: (event: CustomEvent<any>) => void;
         /**

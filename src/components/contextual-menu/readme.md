@@ -12,6 +12,13 @@
 | `elements` | `elements` | deprecated - JSON stringified data to fill the footer | `string` | `undefined` |
 
 
+## Events
+
+| Event       | Description                                 | Type               |
+| ----------- | ------------------------------------------- | ------------------ |
+| `clickItem` | remove filter click event, returns filterid | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Depends on

@@ -20,11 +20,13 @@
 
 ### Used by
 
+ - [contextual-menu](../contextual-menu)
  - [z-registro-table-header](../../snowflakes/registro-table/z-registro-table-header)
 
 ### Graph
 ```mermaid
 graph TD;
+  contextual-menu --> z-popover
   z-registro-table-header --> z-popover
   style z-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```

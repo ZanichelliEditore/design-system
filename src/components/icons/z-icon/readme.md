@@ -25,6 +25,7 @@
 
 ### Used by
 
+ - [contextual-menu](../../contextual-menu)
  - [z-app-header](../../navigation/z-app-header)
  - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
@@ -64,6 +65,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  contextual-menu --> z-icon
   z-app-header --> z-icon
   z-app-switcher --> z-icon
   z-button --> z-icon

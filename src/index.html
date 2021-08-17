@@ -1174,10 +1174,6 @@
   <div style="padding-left: 280px; width: 150px">
     <z-list size="large">
       <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
-<<<<<<< HEAD
-=======
-
->>>>>>> b79cf337ab1b3da815456fe0c1d31098a8eeb7ea
         <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
         <z-list-element><z-avatar text="AB" ></z-avatar><span>no header 123456</span></z-list-element>
         <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
@@ -1218,7 +1214,7 @@
 
 
   <div style="padding-left: 280px; width: 80%">
-    <contextual-menu elements='[{"icon": "share", "text": "Elem entoL UNG HISS IMOEl emen toLUN GH ISSIMO"}, {"icon": "delete", "text": "Elemento 2"}]'>
+    <contextual-menu id="contextual-menu-1" elements='[{"icon": "share", "text": "Element 1", "key": "0"}, {"icon": "delete", "text": "Elemento 2", "key": "1"}]'>
     </contextual-menu>
   </div>
 
@@ -1397,6 +1393,9 @@
       }
       const appMenu = document.getElementById("app-switcher");
       appMenu.addEventListener("appButtonClick", (e) => openModal(e));
+
+      const contextualMenu = document.getElementById("contextual-menu-1");
+      contextualMenu.addEventListener("clickItem", (e) => console.log('LOG', e));
     </script>
   </body>
 </html>

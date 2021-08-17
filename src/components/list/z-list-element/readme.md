@@ -10,6 +10,7 @@
 | Property          | Attribute          | Description                                               | Type                                                                                | Default                          |
 | ----------------- | ------------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------------------------------- |
 | `alignButton`     | `align-button`     | [optional] Align expandable button left or right.         | `ExpandableListButtonAlign.left \| ExpandableListButtonAlign.right`                 | `ExpandableListButtonAlign.left` |
+| `backgroundColor` | `background-color` | [optional] Sets background color of the element.          | `string`                                                                            | `'none'`                         |
 | `clickable`       | `clickable`        | [optional] Sets element clickable.                        | `boolean`                                                                           | `false`                          |
 | `dividerColor`    | `divider-color`    | [optional] Sets the divider color.                        | `string`                                                                            | `"gray200"`                      |
 | `dividerSize`     | `divider-size`     | [optional] Sets the divider size.                         | `DividerSize.large \| DividerSize.medium \| DividerSize.small`                      | `DividerSize.small`              |
@@ -21,6 +22,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [contextual-menu](../../contextual-menu)
+
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
@@ -31,6 +36,7 @@
 graph TD;
   z-list-element --> z-icon
   z-list-element --> z-divider
+  contextual-menu --> z-list-element
   style z-list-element fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
