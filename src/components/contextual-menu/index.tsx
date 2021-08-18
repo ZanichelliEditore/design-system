@@ -8,16 +8,24 @@ import { ListSize, PopoverPosition } from "../../beans";
 })
 export class ContextualMenu {
   /** deprecated - JSON stringified data to fill the footer */
+  /**
+   *  elements of ContextualMenu
+   */
   @Prop() elements?: string;
 
-    /** remove filter click event, returns filterid */
-    @Event({
-      eventName: "clickItem",
-      composed: true,
-      cancelable: true,
-      bubbles: true,
-    })
-    clickItem: EventEmitter;
+  /**
+   * [optional] Sets text color of ContextualMenu's content
+   */
+  @Prop() color?: string = "var(--color-primary01)";
+
+  /** remove filter click event, returns filterid */
+  @Event({
+    eventName: "clickItem",
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  clickItem: EventEmitter;
 
   private jsonElements;
 
@@ -45,24 +53,42 @@ export class ContextualMenu {
           background-color="gray50"
           box-shadow="shadow-2"
           position={PopoverPosition["after-down"]}
+          padding={0}
         >
-          <z-icon slot="trigger" name="contextual-menu" />
+          <z-icon
+            slot="trigger"
+            name="contextual-menu"
+            fill="var(--color-primary01)"
+          />
           <div class="popover-content-container" slot="popover">
             <z-list>
               <z-list-group divider-type="element" size={ListSize.small}>
                 {this.jsonElements.map((element) => (
-                    <z-list-element clickable={true} class="my-z-list-element">
-                      <div class="element-container" onClick={() => this.clickItem.emit(element.key)}>
-                        {this.showIcon() &&
-                          <div class="icon-container">
-                            <z-icon name={element.icon} />
-                          </div>
-                        }
-                        <div class="text-container">
-                          <span>{element.text}</span>
+                  <z-list-element
+                    clickable
+                    class="my-z-list-element"
+                    align-button="left"
+                    expandable-style="accordion"
+                    color={this.color}
+                    isContextualMenu
+                  >
+                    <div
+                      class="element-container"
+                      onClick={() => this.clickItem.emit(element.key)}
+                    >
+                      {this.showIcon() && (
+                        <div class="icon-container">
+                          <z-icon
+                            name={element.icon}
+                            fill="var(--color-primary01)"
+                          />
                         </div>
+                      )}
+                      <div class="text-container">
+                        <span>{element.text}</span>
                       </div>
-                    </z-list-element>
+                    </div>
+                  </z-list-element>
                 ))}
               </z-list-group>
             </z-list>

@@ -26,6 +26,8 @@ export class ZPopover {
   @Prop() boxShadow?: PopoverShadow = PopoverShadow["shadow-1"];
   /** [optional] Show or hide arrow */
   @Prop() showArrow?: boolean = false;
+  /** [optional] Sets padding for Popover container */
+  @Prop() padding?: number = 8;
 
   @State() isVisible: boolean = false;
 
@@ -142,6 +144,7 @@ export class ZPopover {
           )}
           style={{
             backgroundColor: `var(--${this.backgroundColor})`,
+            padding: `${this.padding}px`,
           }}
         >
           <slot name="popover"></slot>

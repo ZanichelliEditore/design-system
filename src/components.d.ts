@@ -12,7 +12,11 @@ import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ContextualMenu {
         /**
-          * deprecated - JSON stringified data to fill the footer
+          * [optional] Sets text color of ContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ContextualMenu
          */
         "elements"?: string;
     }
@@ -377,6 +381,10 @@ export namespace Components {
     }
     interface ZIcon {
         /**
+          * icon fill (optional)
+         */
+        "fill"?: string;
+        /**
           * icon height (optional)
          */
         "height"?: number;
@@ -577,13 +585,13 @@ export namespace Components {
          */
         "alignButton"?: ExpandableListButtonAlign;
         /**
-          * [optional] Sets background color of the element.
-         */
-        "backgroundColor"?: string;
-        /**
           * [optional] Sets element clickable.
          */
         "clickable"?: boolean;
+        /**
+          * [optional] Sets text color of the element.
+         */
+        "color"?: string;
         /**
           * [optional] Sets the divider color.
          */
@@ -604,6 +612,10 @@ export namespace Components {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] If is used in ContextualMenu component
+         */
+        "isContextualMenu"?: boolean;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -1092,6 +1104,10 @@ export namespace Components {
           * [optional] Box shadow token for popover
          */
         "boxShadow"?: PopoverShadow;
+        /**
+          * [optional] Sets padding for Popover container
+         */
+        "padding"?: number;
         /**
           * [optional] Popover position
          */
@@ -1930,7 +1946,11 @@ declare global {
 declare namespace LocalJSX {
     interface ContextualMenu {
         /**
-          * deprecated - JSON stringified data to fill the footer
+          * [optional] Sets text color of ContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ContextualMenu
          */
         "elements"?: string;
         /**
@@ -2323,6 +2343,10 @@ declare namespace LocalJSX {
     }
     interface ZIcon {
         /**
+          * icon fill (optional)
+         */
+        "fill"?: string;
+        /**
           * icon height (optional)
          */
         "height"?: number;
@@ -2539,13 +2563,13 @@ declare namespace LocalJSX {
          */
         "alignButton"?: ExpandableListButtonAlign;
         /**
-          * [optional] Sets background color of the element.
-         */
-        "backgroundColor"?: string;
-        /**
           * [optional] Sets element clickable.
          */
         "clickable"?: boolean;
+        /**
+          * [optional] Sets text color of the element.
+         */
+        "color"?: string;
         /**
           * [optional] Sets the divider color.
          */
@@ -2566,6 +2590,10 @@ declare namespace LocalJSX {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] If is used in ContextualMenu component
+         */
+        "isContextualMenu"?: boolean;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -3140,6 +3168,10 @@ declare namespace LocalJSX {
           * [optional] Box shadow token for popover
          */
         "boxShadow"?: PopoverShadow;
+        /**
+          * [optional] Sets padding for Popover container
+         */
+        "padding"?: number;
         /**
           * [optional] Popover position
          */

@@ -55,9 +55,14 @@ export class ZListElement {
   @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
 
   /**
-   * [optional] Sets background color of the element.
+   * [optional] Sets text color of the element.
    */
-  @Prop({ reflect: true }) backgroundColor?: string = 'none';
+  @Prop({ reflect: true }) color?: string = "none";
+
+  /**
+   * [optional] If is used in ContextualMenu component
+   */
+  @Prop({ reflect: true }) isContextualMenu?: boolean = false;
 
   @State() showInnerContent = false;
 
@@ -89,6 +94,14 @@ export class ZListElement {
       return;
     }
     this.showInnerContent = !this.showInnerContent;
+  }
+
+  getClass() {
+    if (this.isContextualMenu) {
+      return "container-contextual-menu";
+    }
+
+    return "container";
   }
 
   handleKeyDown(event) {
@@ -148,8 +161,9 @@ export class ZListElement {
         onClick={this.handleClick}
         onKeyDown={this.handleKeyDown}
         tabIndex="0"
+        clickable={this.clickable}
       >
-        <div class="container" style={{backgroundColor: `var(--${this.backgroundColor})`}}>
+        <div class={this.getClass()} style={{ color: this.color }}>
           <div class="z-list-element-container">
             {this.renderExpandableButton()}
             <slot />

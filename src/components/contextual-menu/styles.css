@@ -6,13 +6,11 @@
 .popover-content-container {
   min-width: 112px;
   max-width: 280px;
-  white-space: initial;
-
+  white-space: nowrap;
 }
 
 .element-container {
   display: flex;
-  flex-direction: row;
 }
 
 .icon-container {
