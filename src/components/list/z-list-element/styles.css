@@ -19,7 +19,7 @@
 }
 
 :host > .container-contextual-menu {
-  --background-hover-color-list-element-contextual-menu: var(--gray200);
+  --background-hover-color-list-element-contextual-menu: var(--gray100);
 }
 
 /*z-list-element size*/

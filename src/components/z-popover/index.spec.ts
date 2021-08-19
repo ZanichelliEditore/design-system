@@ -14,7 +14,7 @@ describe("Suite test ZPopover", () => {
           <div>
             <z-button slot="trigger">Trigger</z-button>
           </div>
-          <div class="after-up border-radius-small popover-content-container shadow-1" style="background-color: var(--color-white);">
+          <div class="after-up border-radius-small popover-content-container shadow-1" style="background-color: var(--color-white); padding: 8px;">
             <div slot="popover">
               Content
             </div>
@@ -34,7 +34,7 @@ describe("Suite test ZPopover", () => {
           <div>
             <z-button slot="trigger">Trigger</z-button>
           </div>
-          <div class="after-center border-radius-small popover-content-container shadow-1" style="background-color: var(--color-white);">
+          <div class="after-center border-radius-small popover-content-container shadow-1" style="background-color: var(--color-white); padding: 8px;">
             <div slot="popover">
               Content
             </div>
@@ -54,7 +54,7 @@ describe("Suite test ZPopover", () => {
           <div>
             <z-button slot="trigger">Trigger</z-button>
           </div>
-          <div class="after-up border-radius-medium popover-content-container shadow-1" style="background-color: var(--color-white);">
+          <div class="after-up border-radius-medium popover-content-container shadow-1" style="background-color: var(--color-white); padding: 8px;">
             <div slot="popover">
               Content
             </div>
@@ -74,7 +74,7 @@ describe("Suite test ZPopover", () => {
           <div>
             <z-button slot="trigger">Trigger</z-button>
           </div>
-          <div class="after-up border-radius-small popover-content-container shadow-4" style="background-color: var(--color-white);">
+          <div class="after-up border-radius-small popover-content-container shadow-4" style="background-color: var(--color-white); padding: 8px;">
             <div slot="popover">
               Content
             </div>
@@ -94,7 +94,7 @@ describe("Suite test ZPopover", () => {
           <div>
             <z-button slot="trigger">Trigger</z-button>
           </div>
-          <div class="after-up border-radius-small popover-content-container shadow-1" style="background-color: var(--blue800);">
+          <div class="after-up border-radius-small popover-content-container shadow-1" style="background-color: var(--blue800); padding: 8px;">
             <div slot="popover">
               Content
             </div>
@@ -114,7 +114,7 @@ describe("Suite test ZPopover", () => {
           <div>
             <z-button slot="trigger">Trigger</z-button>
           </div>
-          <div class="after-up border-radius-small popover-content-container shadow-1 show-arrow" style="background-color: var(--color-white);">
+          <div class="after-up border-radius-small popover-content-container shadow-1 show-arrow" style="background-color: var(--color-white); padding: 8px;">
             <div slot="popover">
               Content
             </div>

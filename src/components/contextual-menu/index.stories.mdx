@@ -6,11 +6,31 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 # ContextualMenu
 
 <Preview>
-  <Story name="ContextualMenu-sample">
-    {html`<contextual-menu></contextual-menu>`}
+  <Story name="ContextualMenu with icons">
+    {html` <div
+      style="height: 200px; display: flex; align-items: center; justify-content: center"
+    >
+      <contextual-menu
+        id="contextual-menu-1"
+        elements='[{"icon": "share", "text": "Element 1", "key": "0"}, {"icon": "delete", "text": "Elemento 2", "key": "1"}]'
+      >
+      </contextual-menu>
+    </div>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="ContextualMenu without icons">
+    {html` <div
+      style="height: 200px; display: flex; align-items: center; justify-content: center"
+    >
+      <contextual-menu
+        id="contextual-menu-2"
+        elements='[{ "text": "Element 1", "key": "0"}, { "text": "Elemento 2", "key": "1"}, { "text": "Elemento 3", "key": "2"}]'
+      >
+      </contextual-menu>
+    </div>`}
   </Story>
 </Preview>
 
 <Props of="contextual-menu" />
-
-

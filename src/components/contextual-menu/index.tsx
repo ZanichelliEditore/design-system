@@ -59,11 +59,12 @@ export class ContextualMenu {
             slot="trigger"
             name="contextual-menu"
             fill="var(--color-primary01)"
+            style={{ cursor: "pointer" }}
           />
           <div class="popover-content-container" slot="popover">
             <z-list>
               <z-list-group divider-type="element" size={ListSize.small}>
-                {this.jsonElements.map((element) => (
+                {this.jsonElements?.map((element) => (
                   <z-list-element
                     clickable
                     class="my-z-list-element"

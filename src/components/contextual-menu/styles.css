@@ -21,7 +21,3 @@
   display: flex;
   align-items: center;
 }
-
-:host > z-popover > z-icon {
-  cursor: pointer;
-}

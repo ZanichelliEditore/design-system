@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                           | Type     | Default     |
-| ---------- | ---------- | ----------------------------------------------------- | -------- | ----------- |
-| `elements` | `elements` | deprecated - JSON stringified data to fill the footer | `string` | `undefined` |
+| Property   | Attribute  | Description                                            | Type     | Default                    |
+| ---------- | ---------- | ------------------------------------------------------ | -------- | -------------------------- |
+| `color`    | `color`    | [optional] Sets text color of ContextualMenu's content | `string` | `"var(--color-primary01)"` |
+| `elements` | `elements` | elements of ContextualMenu                             | `string` | `undefined`                |
 
 
 ## Events
