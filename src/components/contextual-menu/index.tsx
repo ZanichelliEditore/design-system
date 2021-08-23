@@ -48,7 +48,7 @@ export class ContextualMenu {
 
   render() {
     return (
-      <Host>
+      <Host tabIndex="0">
         <z-popover
           background-color="gray50"
           box-shadow="shadow-2"

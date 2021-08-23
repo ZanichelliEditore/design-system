@@ -46,6 +46,13 @@ export class ZPopover {
     }
   }
 
+  @Listen("keyup", { target: "window" })
+  openPopoverWithKeyboard(e: any) {
+    if (e.key === KeyboardKeys.ENTER) {
+      this.isVisible = true;
+    }
+  }
+
   handleClick(event) {
     this.isVisible = !this.isVisible;
     this.checkSpaceAvailable();

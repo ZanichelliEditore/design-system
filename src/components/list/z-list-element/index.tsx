@@ -5,6 +5,7 @@ import {
   ExpandableListButtonAlign,
   ListDividerType,
   ListSize,
+  KeyboardKeys,
 } from "../../../beans";
 
 @Component({
@@ -105,7 +106,7 @@ export class ZListElement {
   }
 
   handleKeyDown(event) {
-    const expandByKey = event.code === "Enter" || event.code === "Space";
+    const expandByKey = event.code === KeyboardKeys.ENTER;
     if (!this.expandable || !expandByKey) {
       return;
     }
@@ -160,10 +161,14 @@ export class ZListElement {
         aria-expanded={this.expandable ? this.showInnerContent : null}
         onClick={this.handleClick}
         onKeyDown={this.handleKeyDown}
-        tabIndex="0"
         clickable={this.clickable}
+        tabIndex={!this.isContextualMenu ? "0" : null}
       >
-        <div class={this.getClass()} style={{ color: this.color }}>
+        <div
+          class={this.getClass()}
+          style={{ color: this.color }}
+          tabindex={this.isContextualMenu ? "0" : "-1"}
+        >
           <div class="z-list-element-container">
             {this.renderExpandableButton()}
             <slot />
