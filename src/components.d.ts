@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationTransisionTypes, ToastNotificationTypes } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1273,7 +1273,7 @@ export namespace Components {
     }
     interface ZToastNotification {
         /**
-          * toast notification can close by itself
+          * toast notification closing timeout (ms)
          */
         "autoclose"?: number;
         /**
@@ -1303,7 +1303,7 @@ export namespace Components {
         /**
           * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
          */
-        "transition"?: ToastNotificationTransisionTypes;
+        "transition"?: ToastNotificationTransitionTypes;
         /**
           * toast notification type:  dark, light, accent, error, success, warning
          */
@@ -3333,7 +3333,7 @@ declare namespace LocalJSX {
     }
     interface ZToastNotification {
         /**
-          * toast notification can close by itself
+          * toast notification closing timeout (ms)
          */
         "autoclose"?: number;
         /**
@@ -3367,7 +3367,7 @@ declare namespace LocalJSX {
         /**
           * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
          */
-        "transition"?: ToastNotificationTransisionTypes;
+        "transition"?: ToastNotificationTransitionTypes;
         /**
           * toast notification type:  dark, light, accent, error, success, warning
          */

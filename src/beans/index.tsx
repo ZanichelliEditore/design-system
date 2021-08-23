@@ -360,7 +360,7 @@ export enum ToastNotificationEnum {
 }
 export type ToastNotificationTypes = ToastNotificationEnum;
 
-export enum ToastNotificationTransisionsEnum {
+export enum ToastNotificationTransitionsEnum {
   slideInLeft = "slide-in-left",
   slideInRight = "slide-in-right",
   slideInDown = "slide-in-down",
@@ -371,4 +371,4 @@ export enum ToastNotificationTransisionsEnum {
   slideOutUp = "slide-out-up"
 } 
 
-export type ToastNotificationTransisionTypes = ToastNotificationTransisionsEnum;
+export type ToastNotificationTransitionTypes = ToastNotificationTransitionsEnum;

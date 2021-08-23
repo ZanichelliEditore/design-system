@@ -7,12 +7,11 @@ import {
   Element,
   Host,
   State,
-  Watch,
 } from "@stencil/core";
 import {
   //ToastNotificationEnum,
-  ToastNotificationTransisionsEnum,
-  ToastNotificationTransisionTypes,
+  ToastNotificationTransitionsEnum,
+  ToastNotificationTransitionTypes,
   ToastNotificationTypes,
 } from "../../beans";
 import { mobileBreakpoint } from "../../constants/breakpoints";
@@ -33,7 +32,7 @@ export class ZToastNotification {
   @Prop() message: string;
   /** toast notification's closing icon */
   @Prop() closebutton: boolean;
-  /** toast notification can close by itself */
+  /** toast notification closing timeout (ms) */
   @Prop() autoclose?: number;
   /** toast notification autoclose can be paused */
   @Prop() pauseonfocusloss?: boolean = true;
@@ -44,16 +43,7 @@ export class ZToastNotification {
   /** toast notification draggable percentage*/
   @Prop() draggablepercentage?: number = 80;
   /** toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up*/
-  @Prop() transition?: ToastNotificationTransisionTypes;
-
-  @Watch("autoclose")
-  validateAutoclose(newValue: string) {
-    const isBlank = typeof newValue !== "number" || newValue === "";
-    if (isBlank && !this.closebutton)
-      throw new Error(
-        "At least one between autoclose and closebutton must be present"
-      );
-  }
+  @Prop() transition?: ToastNotificationTransitionTypes;
 
   @State() percentage: number;
   @State() isTextLong: boolean;
@@ -80,12 +70,12 @@ export class ZToastNotification {
 
   componentWillLoad() {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.validateAutoclose();
   }
 
   componentDidLoad() {
     this.startTime = Date.now();
     this.isTextLong = this.detectWrap() || this.toastText.offsetHeight > 20;
-    console.log(this.isTextLong);
     if (this.autoclose && this.pauseonfocusloss) {
       document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "hidden") {
@@ -99,50 +89,56 @@ export class ZToastNotification {
     this.isdraggable && this.handleSlideOutDragAnimation();
   }
 
+  validateAutoclose() {
+    if (!this.autoclose && !this.closebutton)
+      console.error(
+        "At least one between autoclose and closebutton must be present"
+      );
+  } 
   mapSlideOutDirection() {
     switch (this.transition) {
-      case ToastNotificationTransisionsEnum.slideInDown:
+      case ToastNotificationTransitionsEnum.slideInDown:
         return Hammer.DIRECTION_UP;
-      case ToastNotificationTransisionsEnum.slideInUp:
+      case ToastNotificationTransitionsEnum.slideInUp:
         return Hammer.DIRECTION_DOWN;
-      case ToastNotificationTransisionsEnum.slideInLeft:
+      case ToastNotificationTransitionsEnum.slideInLeft:
         return Hammer.DIRECTION_RIGHT;
-      case ToastNotificationTransisionsEnum.slideInRight:
+      case ToastNotificationTransitionsEnum.slideInRight:
         return Hammer.DIRECTION_LEFT;
     }
   }
 
   mapSlideOuClass() {
     switch (this.transition) {
-      case ToastNotificationTransisionsEnum.slideInDown:
-        return ToastNotificationTransisionsEnum.slideOutUp;
-      case ToastNotificationTransisionsEnum.slideInUp:
-        return ToastNotificationTransisionsEnum.slideOutDown;
-      case ToastNotificationTransisionsEnum.slideInLeft:
-        return ToastNotificationTransisionsEnum.slideOutRight;
-      case ToastNotificationTransisionsEnum.slideInRight:
-        return ToastNotificationTransisionsEnum.slideOutLeft;
+      case ToastNotificationTransitionsEnum.slideInDown:
+        return ToastNotificationTransitionsEnum.slideOutUp;
+      case ToastNotificationTransitionsEnum.slideInUp:
+        return ToastNotificationTransitionsEnum.slideOutDown;
+      case ToastNotificationTransitionsEnum.slideInLeft:
+        return ToastNotificationTransitionsEnum.slideOutRight;
+      case ToastNotificationTransitionsEnum.slideInRight:
+        return ToastNotificationTransitionsEnum.slideOutLeft;
     }
   }
 
   mapSlideOutTranslate(event) {
     switch (this.transition) {
-      case ToastNotificationTransisionsEnum.slideInDown:
+      case ToastNotificationTransitionsEnum.slideInDown:
         return {
           translate: "translateY( " + event.deltaY + "% )",
           translateBack: "translateY(0)",
         };
-      case ToastNotificationTransisionsEnum.slideInUp:
+      case ToastNotificationTransitionsEnum.slideInUp:
         return {
           translate: "translateY( " + event.deltaY + "% )",
           translateBack: "translateY(0)",
         };
-      case ToastNotificationTransisionsEnum.slideInLeft:
+      case ToastNotificationTransitionsEnum.slideInLeft:
         return {
           translate: "translateX( " + event.deltaX + "% )",
           translateBack: "translateX(0)",
         };
-      case ToastNotificationTransisionsEnum.slideInRight:
+      case ToastNotificationTransitionsEnum.slideInRight:
         return {
           translate: "translateX( " + event.deltaX + "% )",
           translateBack: "translateX(0)",
@@ -181,17 +177,17 @@ export class ZToastNotification {
   calculatePercentageToBeDragged() {
     const bounding = this.hostElement.getBoundingClientRect();
     switch (this.transition) {
-      case ToastNotificationTransisionsEnum.slideInLeft:
+      case ToastNotificationTransitionsEnum.slideInLeft:
         return Math.round(
           ((100 * (window.innerWidth - bounding.right)) / bounding.width) * -1
         );
-      case ToastNotificationTransisionsEnum.slideInRight:
+      case ToastNotificationTransitionsEnum.slideInRight:
         return (100 - Math.round((100 * bounding.right) / bounding.width)) * -1;
-      case ToastNotificationTransisionsEnum.slideInDown:
+      case ToastNotificationTransitionsEnum.slideInDown:
         return (
           (100 - Math.round((100 * bounding.bottom) / bounding.height)) * -1
         );
-      case ToastNotificationTransisionsEnum.slideInUp:
+      case ToastNotificationTransitionsEnum.slideInUp:
         return Math.round(
           ((100 * (window.innerHeight - bounding.bottom)) / bounding.height) *
             -1
