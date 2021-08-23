@@ -10,7 +10,7 @@ import {
   Watch,
 } from "@stencil/core";
 import {
-  ToastNotificationEnum,
+  //ToastNotificationEnum,
   ToastNotificationTransisionsEnum,
   ToastNotificationTransisionTypes,
   ToastNotificationTypes,
@@ -46,22 +46,25 @@ export class ZToastNotification {
   /** toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up*/
   @Prop() transition?: ToastNotificationTransisionTypes;
 
-  @Watch('autoclose')
+  @Watch("autoclose")
   validateAutoclose(newValue: string) {
-    const isBlank = typeof newValue !== 'number' || newValue === '';
-    if(isBlank && !this.closebutton) throw new Error("At least one between autoclose and closebutton must be present")
+    const isBlank = typeof newValue !== "number" || newValue === "";
+    if (isBlank && !this.closebutton)
+      throw new Error(
+        "At least one between autoclose and closebutton must be present"
+      );
   }
 
   @State() percentage: number;
+  @State() isTextLong: boolean;
 
+  private container: HTMLElement;
   private toastText: HTMLElement;
-  private toastButton: HTMLElement;
-  private toastIcon: HTMLElement;
-  private toastContainer: HTMLElement;
 
   private elapsedTime: number;
   private timeoutHandle: any;
   private startTime: number;
+  private isMobile: boolean;
 
   /** notification close event */
   @Event() toastClose: EventEmitter;
@@ -75,13 +78,14 @@ export class ZToastNotification {
     this.toastClose.emit();
   }
 
+  componentWillLoad() {
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
+  }
+
   componentDidLoad() {
     this.startTime = Date.now();
-    this.setCorrectPaddingAndMargin();
-
-    if (window.innerWidth <= mobileBreakpoint) {
-      this.setMobileView();
-    }
+    this.isTextLong = this.detectWrap() || this.toastText.offsetHeight > 20;
+    console.log(this.isTextLong);
     if (this.autoclose && this.pauseonfocusloss) {
       document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "hidden") {
@@ -162,7 +166,10 @@ export class ZToastNotification {
       if (e.direction === this.mapSlideOutDirection())
         this.hostElement.style.transform = translateObj.translate;
       if (e.isFinal) {
-        if (Math.abs(this.calculatePercentageToBeDragged()) > this.draggablepercentage) {
+        if (
+          Math.abs(this.calculatePercentageToBeDragged()) >
+          this.draggablepercentage
+        ) {
           this.emitToastClose();
         } else {
           this.hostElement.style.transform = translateObj.translateBack;
@@ -214,23 +221,84 @@ export class ZToastNotification {
     this.timeoutHandle = setTimeout(() => this.emitToastClose(), time);
   }
 
-  setCorrectPaddingAndMargin() {
-    if (this.closebutton) this.toastButton.style.marginRight = "16px";
+  detectWrap() {
+    const parentWidth = this.container.offsetWidth;
+    const children = this.container.children;
+    let totalWidth = 0;
 
-    if (this.toastText.offsetHeight > 20) {
-      this.toastContainer.style.padding = "16px";
-    } else {
-      this.toastContainer.style.padding = "8px 16px";
+    for (let i = 0; i < children.length; i++) {
+      totalWidth += (children[i] as HTMLElement).offsetWidth;
     }
+
+    return totalWidth > parentWidth;
   }
 
-  setMobileView() {
-    if (this.toastText.offsetHeight > 20) {
-      this.toastContainer.style.display = "block";
-      this.toastContainer.style.textAlign = "left";
-      this.toastIcon.style.alignSelf = "flex-start";
-      this.toastContainer.append(this.toastButton);
-    }
+  renderContainer() {
+    return (
+      <div
+        id="external-container"
+        class={{
+          [this.type]: !!this.type,
+          "several-lines-padding": this.isTextLong,
+
+        }}
+        ref={(el) => (this.container = el as HTMLElement)}
+      >
+        <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
+          <span class="title">{this.heading}</span>
+          <span class="message">{this.message}</span>
+        </div>
+        <div id="button">
+          <slot name="button" />
+        </div>
+        <div id="icon">
+          {this.closebutton && (
+            <z-icon
+              name="multiply-circled"
+              width={15}
+              height={15}
+              onClick={() => this.emitToastClose()}
+            />
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  renderMobileContainer() {
+    return (
+      <div
+        id="external-container"
+        class={{
+          [this.type]: !!this.type,
+          "several-lines-padding": this.isTextLong,
+          "mobile-wrapped": this.isTextLong
+        }}
+      >
+        <div
+          id="flex-container"
+          ref={(el) => (this.container = el as HTMLElement)}
+        >
+          <div id="text">
+            <span class="title">{this.heading}</span>
+            <span class="message">{this.message}</span>
+          </div>
+          <div id="button">
+            <slot name="button" />
+          </div>
+        </div>
+        <div id="icon">
+          {this.closebutton && (
+            <z-icon
+              name="multiply-circled"
+              width={15}
+              height={15}
+              onClick={() => this.emitToastClose()}
+            />
+          )}
+        </div>
+      </div>
+    );
   }
 
   render() {
@@ -247,34 +315,7 @@ export class ZToastNotification {
           }
         }}
       >
-        <div
-          id="external-container"
-          ref={(el) => (this.toastContainer = el as HTMLElement)}
-          class={this.type ? this.type : ToastNotificationEnum.dark}
-        >
-          <div id="flex-container">
-            <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
-              <span class="title">{this.heading}</span>
-              <span class="message">{this.message}</span>
-            </div>
-            <div
-              id="button"
-              ref={(el) => (this.toastButton = el as HTMLElement)}
-            >
-              <slot name="button" />
-            </div>
-            <div id="icon" ref={(el) => (this.toastIcon = el as HTMLElement)}>
-              {this.closebutton && (
-                <z-icon
-                  name="multiply-circled"
-                  width={15}
-                  height={15}
-                  onClick={() => this.emitToastClose()}
-                />
-              )}
-            </div>
-          </div>
-        </div>
+        {this.isMobile ? this.renderMobileContainer() : this.renderContainer()}
       </Host>
     );
   }

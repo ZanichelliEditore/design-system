@@ -28,11 +28,9 @@
     .toast-container {
       z-index: 10000;
       position: fixed;
-      width: 100%;
+      width: calc(100% / 3);
       top: 0;
       left: 0;
-      max-width: 100%;
-      overflow: hidden;
       text-align: center;
     }
   </style>
@@ -168,7 +166,7 @@
   <p>Toast</p>
   <br>
   <div class="toast-container">
-    <z-toast-notification class="toast" type="dark" heading="Notification" message="I toast da mangiare sono meglio."
+    <z-toast-notification class="toast" type="dark" heading="Notification" message="I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio."
       closebutton="true" transition="slide-in-down" autoclose="100000" draggablepercentage="50">
       <z-button slot="button" variant="dark-bg" size="small">button</z-button>
     </z-toast-notification>

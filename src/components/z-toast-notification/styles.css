@@ -3,7 +3,8 @@
   min-width: 200px;
   max-width: 100%;
   box-shadow: var(--shadow-3);
-  --percentuale: 50%
+  --percentuale: 50%;
+  width: 100%;
 }
 
 :host(.slide-in-left) {
@@ -127,35 +128,51 @@
   box-sizing: border-box;
   box-shadow: 0px 3px 6px 0px rgba(66, 69, 72, 0.4);
   min-height: 52px;
-  display: flex;
-  margin: auto;
-}
-
-:host > #external-container > div:first-child {
-  line-height: 20px;
+  padding: 8px 16px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-:host > #external-container > div > #text {
+:host > #external-container.mobile-wrapped > #icon {
+  align-self: flex-start;
+}
+
+:host > #external-container.several-lines-padding{
+  padding: 16px;
+}
+
+
+:host > #external-container > #flex-container {
+  display: flex;
+	flex-wrap: wrap;
+  align-items: center;
+	justify-content: space-between;
+  width: 100%;
+}
+
+:host > #external-container #text {
   color: var(--color-white);
+  line-height: 20px;
   margin-right: 16px;
   letter-spacing: 0.16px;
   text-align: left;
 }
 
-:host > #external-container > div > #text > .title {
+
+:host > #external-container #text > .title {
   margin-right: 4px;
   font-weight: 600;
 }
 
-:host > #external-container > #button ::slotted(z-button) {
+ :host > #external-container.mobile-wrapped #button ::slotted(z-button) {
   margin-top: 16px;
 }
 
-:host > #external-container > div > #icon {
+:host > #external-container #icon {
   cursor: pointer;
   fill: var(--color-white);
+  margin-left: 16px;
 }
 
 :host > #external-container.dark {
@@ -192,6 +209,13 @@
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
+  :host > #external-container > #flex-container {
+    flex-wrap: nowrap;
+  }
+
+  :host > #external-container #text{
+    width: 100%;
+  }
 }
 
 /* Desktop breakpoint */
