@@ -9,7 +9,6 @@ import {
   State,
 } from "@stencil/core";
 import {
-  //ToastNotificationEnum,
   ToastNotificationTransitionsEnum,
   ToastNotificationTransitionTypes,
   ToastNotificationTypes,
@@ -48,8 +47,8 @@ export class ZToastNotification {
   @State() percentage: number;
   @State() isTextLong: boolean;
 
-  private container: HTMLElement;
-  private toastText: HTMLElement;
+  private container!: HTMLElement;
+  private toastText!: HTMLElement;
 
   private elapsedTime: number;
   private timeoutHandle: any;
@@ -74,8 +73,8 @@ export class ZToastNotification {
   }
 
   componentDidLoad() {
-    this.startTime = Date.now();
     this.isTextLong = this.detectWrap() || this.toastText.offsetHeight > 20;
+    this.startTime = Date.now();
     if (this.autoclose && this.pauseonfocusloss) {
       document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "hidden") {
