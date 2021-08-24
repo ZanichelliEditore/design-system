@@ -20,7 +20,6 @@ describe("Suite test ZToastNotification", () => {
           <div id="button">
             <slot name="button"></slot>
           </div>
-          <div id="icon"></div>
         </div>
       </mock:shadow-root>
     </z-toast-notification>

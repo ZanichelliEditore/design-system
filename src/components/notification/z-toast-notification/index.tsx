@@ -12,8 +12,8 @@ import {
   ToastNotificationTransitionsEnum,
   ToastNotificationTransitionTypes,
   ToastNotificationTypes,
-} from "../../beans";
-import { mobileBreakpoint } from "../../constants/breakpoints";
+} from "../../../beans";
+import { mobileBreakpoint } from "../../../constants/breakpoints";
 
 import Hammer from "hammerjs";
 
@@ -29,7 +29,7 @@ export class ZToastNotification {
   @Prop() heading?: string;
   /** toast notification's message */
   @Prop() message: string;
-  /** toast notification's closing icon */
+  /** toggles closing button rendering */
   @Prop() closebutton: boolean;
   /** toast notification closing timeout (ms) */
   @Prop() autoclose?: number;
@@ -294,7 +294,7 @@ export class ZToastNotification {
     return (
       <Host
         style={{ ["--percentuale" as any]: `${this.percentage}%` as any }}
-        class={this.transition ? this.transition : "slide-in-down"}
+        class={this.transition ? this.transition : ToastNotificationTransitionsEnum.slideInDown}
         onAnimationEnd={(e: AnimationEvent) => {
           if (this.autoclose && e.animationName.includes("slidein")) {
             this.startClosingTimeout(this.autoclose);

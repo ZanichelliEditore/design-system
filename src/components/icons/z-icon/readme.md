@@ -58,7 +58,7 @@
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
  - [z-status-tag](../../z-status-tag)
- - [z-toast-notification](../../z-toast-notification)
+ - [z-toast-notification](../../notification/z-toast-notification)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-user-dropdown](../../navigation/z-user-dropdown)
 

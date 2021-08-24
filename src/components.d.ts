@@ -1277,7 +1277,7 @@ export namespace Components {
          */
         "autoclose"?: number;
         /**
-          * toast notification's closing icon
+          * toggles closing button rendering
          */
         "closebutton": boolean;
         /**
@@ -3337,7 +3337,7 @@ declare namespace LocalJSX {
          */
         "autoclose"?: number;
         /**
-          * toast notification's closing icon
+          * toggles closing button rendering
          */
         "closebutton"?: boolean;
         /**
