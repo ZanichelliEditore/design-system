@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.13.0](https://github.com/ZanichelliEditore/design-system/compare/v2.12.2...v2.13.0) (2021-08-02)
+
+
+### Features
+
+* element binding prop; auto positioning algorithm ([58d1c60](https://github.com/ZanichelliEditore/design-system/commit/58d1c60fdf019950544b92e0bb55ef87fc6516c2))
+
 ### [2.12.2](https://github.com/ZanichelliEditore/design-system/compare/v2.12.1...v2.12.2) (2021-07-27)
 
 
