@@ -2,86 +2,124 @@
 <html dir="ltr" lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>Stencil Component Starter</title>
-  <link rel="stylesheet" type="text/css" href="/build/web-components-library.css" />
-  <script type="module" src="/build/web-components-library.esm.js"></script>
-  <script nomodule src="/build/web-components-library.js"></script>
-  <style>
-    .main-container {
-      height: 500px;
-      background: lightcoral;
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      padding: 24px;
-    }
-    .toast-container-top {
-      position: relative;
-      margin: 0;
-      background: aliceblue;
-      align-self: flex-start;
-    }
-    .toast-container-left {
-      position: relative;
-      margin: 0;
-      background: aliceblue;
-      align-self: flex-start;
-    }
-    .toast-container-right {
-      position: relative;
-      margin: 0;
-      background: aliceblue;
-      align-self: flex-end;
-    }
-    .toast-container-bottom {
-      position: relative;
-      margin: 0;
-      background: aliceblue;
-      align-self: flex-end;
-    }
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+    <link rel="stylesheet" type="text/css" href="/build/web-components-library.css" />
+    <script type="module" src="/build/web-components-library.esm.js"></script>
+    <script nomodule src="/build/web-components-library.js"></script>
+    <style>
+        .main-container {
+            height: 500px;
+            background: lightcoral;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            padding: 8px;
+        }
+
+        .toast-container-top {
+            position: relative;
+            margin: 0;
+            align-self: flex-start;
+        }
+
+        .toast-container-left {
+            position: relative;
+            margin: 0;
+            align-self: flex-start;
+        }
+
+        .toast-container-right {
+            position: relative;
+            margin: 0;
+            align-self: flex-end;
+        }
+
+        .toast-container-bottom {
+            position: relative;
+            margin: 0;
+            align-self: flex-end;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .main-container {
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+                padding: 24px;
+            }
+
+            .toast-container-top,
+            .toast-container-left,
+            .toast-container-right,
+            .toast-container-bottom {
+                max-width: 50vw;
+            }
+
+            .toast-container-left,
+            .toast-container-bottom {
+                justify-self: end;
+            }
+        }
+
+        /* Wide breakpoint */
+        @media only screen and (min-width: 1366px) {
+
+            .toast-container-top,
+            .toast-container-left,
+            .toast-container-right,
+            .toast-container-bottom {
+                max-width: 33vw;
+            }
+        }
+    </style>
 </head>
 
 <body style="width: 100%;margin: 0; background-color: #f9f9f9;">
-  <z-app-topbar hashtag="via crucis">
-    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
-    </z-logo>
-    <z-link textcolor="white" big icon="support-filled" slot="actions" href="./pages/notification.html">Notification</z-link>
-    <z-link textcolor="white" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
-    <z-user-dropdown userfullname="docente di calabresi per italiani" logged="false" slot="login"></z-user-dropdown>
-    <z-app-switcher slot="app-switcher"></z-app-switcher>
-  </z-app-topbar>
-  <div class="main-container">
-    <div class="toast-container-top">
-      <z-toast-notification class="toast" type="dark" heading="Notification" message="I toast da "
-        transition="slide-in-down" draggablepercentage="50" closebutton>
-        <z-button slot="button" variant="dark-bg" size="small">button</z-button>
-      </z-toast-notification>
+    <z-app-topbar hashtag="via crucis">
+        <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it"
+            targetblank>
+        </z-logo>
+        <z-link textcolor="white" big icon="support-filled" slot="actions" href="./pages/notification.html">Notification
+        </z-link>
+        <z-link textcolor="white" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
+        <z-user-dropdown userfullname="docente di calabresi per italiani" logged="false" slot="login"></z-user-dropdown>
+        <z-app-switcher slot="app-switcher"></z-app-switcher>
+    </z-app-topbar>
+    <div class="main-container">
+        <div class="toast-container-top">
+            <z-toast-notification class="toast" type="dark" heading="Notification" message="Testo corto."
+                transition="slide-in-down" draggablepercentage="50" closebutton>
+                <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+            </z-toast-notification>
+        </div>
+        <div class="toast-container-left">
+            <z-toast-notification class="toast" type="accent" heading="Notification"
+                message="Testo lungo ma molto lungo ma proprio lungo parecchio lungo lunghissimo."
+                transition="slide-in-left" draggablepercentage="50" closebutton>
+                <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+            </z-toast-notification>
+        </div>
+        <div class="toast-container-right">
+            <z-toast-notification class="toast" type="success" heading="Notification" message="Senza pulsante."
+                transition="slide-in-right" draggablepercentage="50" closebutton>
+            </z-toast-notification>
+        </div>
+        <div class="toast-container-bottom">
+            <z-toast-notification class="toast" type="warning" heading="Notification" message="Autoclose in 10s."
+                transition="slide-in-up" draggablepercentage="50" autoclose="10000">
+                <z-button slot="button" variant="dark-bg" size="small">
+                    <span style="color:rgb(66, 69, 72);">
+                        button
+                    </span>
+                </z-button>
+            </z-toast-notification>
+        </div>
     </div>
-    <div class="toast-container-left">
-      <z-toast-notification class="toast" type="dark" heading="Notification" message="I toast da "
-        transition="slide-in-left" draggablepercentage="50" closebutton>
-        <z-button slot="button" variant="dark-bg" size="small">button</z-button>
-      </z-toast-notification>
-    </div>
-    <div class="toast-container-right">
-      <z-toast-notification class="toast" type="dark" heading="Notification" message="I toast da "
-        transition="slide-in-right" draggablepercentage="50" closebutton>
-        <z-button slot="button" variant="dark-bg" size="small">button</z-button>
-      </z-toast-notification>
-    </div>
-    <div class="toast-container-bottom">
-      <z-toast-notification class="toast" type="dark" heading="Notification" message="I toast da "
-        transition="slide-in-up" draggablepercentage="50" closebutton>
-        <z-button slot="button" variant="dark-bg" size="small">button</z-button>
-      </z-toast-notification>
-    </div>
-  </div>
 
-  <z-footer copyrightuser='Zanichelli' data='{
+    <z-footer copyrightuser='Zanichelli' data='{
     "zanichelliLinks": [{
         "title": "Zanichelli.it",
         "items": [{

@@ -138,16 +138,15 @@
   align-self: flex-start;
 }
 
-:host > #external-container.several-lines-padding{
+:host > #external-container.several-lines-padding {
   padding: 16px;
 }
 
-
 :host > #external-container > #flex-container {
   display: flex;
-	flex-wrap: wrap;
+  flex-wrap: wrap;
   align-items: center;
-	justify-content: space-between;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -159,13 +158,12 @@
   text-align: left;
 }
 
-
 :host > #external-container #text > .title {
   margin-right: 4px;
   font-weight: 600;
 }
 
- :host > #external-container.mobile-wrapped #button ::slotted(z-button) {
+:host > #external-container.mobile-wrapped #button ::slotted(z-button) {
   margin-top: 16px;
 }
 
@@ -183,11 +181,13 @@
   background: var(--color-background);
 }
 
-:host > #external-container.light #icon {
+:host > #external-container.light #icon,
+:host > #external-container.warning #text {
   fill: var(--color-icon01);
 }
 
-:host > #external-container.light #text {
+:host > #external-container.light #text,
+:host > #external-container.warning #text {
   color: var(--grey800);
 }
 
@@ -213,7 +213,7 @@
     flex-wrap: nowrap;
   }
 
-  :host > #external-container #text{
+  :host > #external-container #text {
     width: 100%;
   }
 }

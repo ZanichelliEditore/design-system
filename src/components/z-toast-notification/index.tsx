@@ -148,11 +148,7 @@ export class ZToastNotification {
   handleSlideOutDragAnimation() {
     const sliderManager = new Hammer.Manager(this.hostElement);
     sliderManager.add(
-      new Hammer.Pan({
-        threshold: 0,
-        pointers: 0,
-        direction: Hammer.DIRECTION_ALL,
-      })
+      new Hammer.Pan()
     );
     sliderManager.on("pan", (e) => {
       this.hostElement.classList.remove(this.transition);
