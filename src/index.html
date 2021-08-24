@@ -8,33 +8,6 @@
   <link rel="stylesheet" type="text/css" href="/build/web-components-library.css" />
   <script type="module" src="/build/web-components-library.esm.js"></script>
   <script nomodule src="/build/web-components-library.js"></script>
-  <style>
-    .toast-container-flex {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      z-index: 10000;
-      position: fixed;
-      top: 0;
-      right: 0;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-items: stretch;
-      align-content: stretch;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .toast-container {
-      z-index: 10000;
-      position: fixed;
-      width: 100%;
-      /* width: calc(100% / 3); */
-      top: 0;
-      left: 0;
-      text-align: center;
-    }
-  </style>
 </head>
 
 <body style="width: 100%;margin: 0; background-color: #f9f9f9;">
@@ -107,7 +80,7 @@
   <z-app-topbar hashtag="via crucis">
     <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
     </z-logo>
-    <z-link textcolor="white" big icon="support-filled" slot="actions" href="#">Supporto</z-link>
+    <z-link textcolor="white" big icon="support-filled" slot="actions" href="./pages/notification.html">Notification</z-link>
     <z-link textcolor="white" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
     <z-user-dropdown userfullname="docente di calabresi per italiani" logged="false" slot="login"></z-user-dropdown>
     <z-app-switcher slot="app-switcher"></z-app-switcher>
@@ -167,8 +140,8 @@
   <p>Toast</p>
   <br>
   <div class="toast-container">
-    <z-toast-notification class="toast" type="dark" heading="Notification" message="I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio.I toast da mangiare sono meglio."
-       transition="slide-in-down" draggablepercentage="50">
+    <z-toast-notification class="toast" type="dark" heading="Notification" message="I toast da "
+       transition="slide-in-down" draggablepercentage="80" closebutton>
       <z-button slot="button" variant="dark-bg" size="small">button</z-button>
     </z-toast-notification>
   </div>

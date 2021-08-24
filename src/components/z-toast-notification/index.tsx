@@ -157,6 +157,7 @@ export class ZToastNotification {
     sliderManager.on("pan", (e) => {
       this.hostElement.classList.remove(this.transition);
       this.percentage = this.calculatePercentageToBeDragged();
+      console.log(this.percentage);
       const translateObj = this.mapSlideOutTranslate(e);
       if (e.direction === this.mapSlideOutDirection())
         this.hostElement.style.transform = translateObj.translate;
@@ -175,22 +176,23 @@ export class ZToastNotification {
 
   calculatePercentageToBeDragged() {
     const bounding = this.hostElement.getBoundingClientRect();
+    const parentBounding = (this.hostElement.parentNode as HTMLElement).getBoundingClientRect();
+    const relativePos = {      
+      top : bounding.top - parentBounding.top,
+      right : bounding.right - parentBounding.right,
+      bottom : bounding.bottom - parentBounding.bottom,
+      left : bounding.left - parentBounding.left
+    };
+
     switch (this.transition) {
       case ToastNotificationTransitionsEnum.slideInLeft:
-        return Math.round(
-          ((100 * (window.innerWidth - bounding.right)) / bounding.width) * -1
-        );
+        return Math.round((100 * Math.abs(relativePos.left)) / bounding.width);
       case ToastNotificationTransitionsEnum.slideInRight:
-        return (100 - Math.round((100 * bounding.right) / bounding.width)) * -1;
+        return Math.round((100 * Math.abs(relativePos.right)) / bounding.width) * -1;
       case ToastNotificationTransitionsEnum.slideInDown:
-        return (
-          (100 - Math.round((100 * bounding.bottom) / bounding.height)) * -1
-        );
+        return Math.round((100 * Math.abs(relativePos.top)) / bounding.height) * -1;
       case ToastNotificationTransitionsEnum.slideInUp:
-        return Math.round(
-          ((100 * (window.innerHeight - bounding.bottom)) / bounding.height) *
-            -1
-        );
+        return Math.round((100 * Math.abs(relativePos.bottom)) / bounding.height);
     }
   }
 

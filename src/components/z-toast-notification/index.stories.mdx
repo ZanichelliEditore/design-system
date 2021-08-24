@@ -11,7 +11,21 @@ import { text, boolean, select } from "@storybook/addon-knobs";
 
 <Preview>
   <Story name="ZToastNotification-slideInRight">
-    {html`<div style="text-align: left;">
+    {html`
+    <style>
+      .toast-container {
+        z-index: 10000;
+        position: fixed;
+        width: calc(100% / 3);
+        top: 0;
+        left: 0;
+        text-align: center;
+        background: aliceblue;
+        margin: 40px;
+        height: 200px;
+      }
+    </style>
+    <div class="toast-container">
       <z-toast-notification
         heading="${text("heading", "Titolo")}"
         message="${text("message", "Questo è un messaggio di prova.")}"
@@ -34,7 +48,21 @@ import { text, boolean, select } from "@storybook/addon-knobs";
     </div>`}
   </Story>
   <Story name="ZToastNotification-slideInLeft">
-    {html`<div style="text-align: right;">
+    {html`
+    <style>
+      .toast-container {
+        z-index: 10000;
+        position: fixed;
+        width: calc(100% / 3);
+        top: 0;
+        right: 0;
+        text-align: center;
+        background: aliceblue;
+        margin: 40px;
+        height: 200px;
+      }
+    </style>
+    <div class="toast-container">
       <z-toast-notification
         heading="${text("heading", "Titolo")}"
         message="${text("message", "Questo è un messaggio di prova.")}"
@@ -57,7 +85,21 @@ import { text, boolean, select } from "@storybook/addon-knobs";
     </div>`}
   </Story>
   <Story name="ZToastNotification-slideInDown">
-    {html`<div style="text-align: center;">
+    {html`
+    <style>
+      .toast-container {
+        z-index: 10000;
+        position: fixed;
+        width: calc(100% / 3);
+        top: 0;
+        left: 0;
+        text-align: center;
+        background: aliceblue;
+        margin: 40px;
+        height: 200px;
+      }
+    </style>
+    <div class="toast-container">
       <z-toast-notification
         heading="${text("heading", "Titolo")}"
         message="${text("message", "Questo è un messaggio di prova.")}"
@@ -80,7 +122,21 @@ import { text, boolean, select } from "@storybook/addon-knobs";
     </div>`}
   </Story>
   <Story name="ZToastNotification-slideInUp">
-    {html`<div style="text-align: center;">
+    {html`
+    <style>
+      .toast-container {
+        z-index: 10000;
+        position: fixed;
+        width: calc(100% / 3);
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        background: aliceblue;
+        margin: 40px;
+        height: 200px;
+      }
+    </style>
+    <div class="toast-container">
       <z-toast-notification
         heading="${text("heading", "Titolo")}"
         message="${text("message", "Questo è un messaggio di prova.")}"
@@ -103,7 +159,21 @@ import { text, boolean, select } from "@storybook/addon-knobs";
     </div>`}
   </Story>
     <Story name="ZToastNotification-slottedButton">
-    {html`<div style="text-align: center;">
+    {html`
+    <style>
+      .toast-container {
+        z-index: 10000;
+        position: fixed;
+        width: calc(100% / 3);
+        top: 0;
+        left: 0;
+        text-align: center;
+        background: aliceblue;
+        margin: 40px;
+        height: 200px;
+      }
+    </style>
+    <div class="toast-container">
       <z-toast-notification
         heading="${text("heading", "Titolo")}"
         message="${text("message", "Questo è un messaggio di prova.")}"
