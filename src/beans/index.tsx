@@ -1,3 +1,7 @@
+export type AccessibleFocusEventData = {
+  host: HTMLElement;
+};
+
 export type FooterBean = {
   zanichelliLinks: FooterGroupBean[];
   myzLink: MyzLinkBean;

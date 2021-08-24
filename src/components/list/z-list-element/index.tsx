@@ -1,11 +1,22 @@
-import { Component, h, Host, Prop, State } from "@stencil/core";
 import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from "@stencil/core";
+import {
+  AccessibleFocusEventData,
   DividerSize,
-  ExpandableListStyle,
   ExpandableListButtonAlign,
+  ExpandableListStyle,
+  KeyboardKeys,
   ListDividerType,
   ListSize,
-  KeyboardKeys,
 } from "../../../beans";
 
 @Component({
@@ -14,6 +25,28 @@ import {
   shadow: true,
 })
 export class ZListElement {
+  @Element() host: HTMLElement;
+
+  /** remove filter click event, returns filterid */
+  @Event({
+    eventName: "accessibleFocus",
+    composed: true,
+    cancelable: true,
+    bubbles: false,
+  })
+  accessibleFocus: EventEmitter<AccessibleFocusEventData>;
+
+  @Listen("accessibleFocus", { target: "document" })
+  accessibleFocusHandler(e: CustomEvent) {
+    console.log("yeaaa");
+    const accessibleFocusEventData = e.detail.host;
+    console.log("focus!!", accessibleFocusEventData);
+    // check sono io
+    // this.host === e.element
+
+    accessibleFocusEventData.focus();
+  }
+
   /**
    * [optional] Align expandable button left or right.
    */
@@ -106,7 +139,18 @@ export class ZListElement {
   }
 
   handleKeyDown(event) {
+    console.log("keydown ", event.code);
     const expandByKey = event.code === KeyboardKeys.ENTER;
+    if (event.code === KeyboardKeys.ARROW_DOWN) {
+      console.log("next ", this.host.nextElementSibling);
+
+      this.accessibleFocus.emit({
+        host: this.host.nextElementSibling as HTMLElement,
+      });
+    }
+    if (event.code === KeyboardKeys.ARROW_UP) {
+      console.log("up");
+    }
     if (!this.expandable || !expandByKey) {
       return;
     }

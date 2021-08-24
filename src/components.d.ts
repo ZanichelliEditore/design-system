@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AccessibleFocusEventData, AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -2594,6 +2594,10 @@ declare namespace LocalJSX {
           * [optional] If is used in ContextualMenu component
          */
         "isContextualMenu"?: boolean;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onAccessibleFocus"?: (event: CustomEvent<AccessibleFocusEventData>) => void;
         /**
           * [optional] Sets size of inside elements.
          */
