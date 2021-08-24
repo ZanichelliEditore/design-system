@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.14.0](https://github.com/ZanichelliEditore/design-system/compare/v2.13.0...v2.14.0) (2021-08-24)
+
+
+### Features
+
+* **clav-110:** add subtitle and message knobs ([7c4eaad](https://github.com/ZanichelliEditore/design-system/commit/7c4eaadb034f08aad3faa1e68a1b76a679de747c))
+* **clav-110:** handle cta action ([9e5a19a](https://github.com/ZanichelliEditore/design-system/commit/9e5a19acf142bd2fa612fff620202f7054f8aa38))
+* **clav-110:** handle empty table ([ee8420d](https://github.com/ZanichelliEditore/design-system/commit/ee8420da27d3c6dff69bae50feab52e0fc0bf828))
+* **clav-110:** handle mobile ([4e58ed6](https://github.com/ZanichelliEditore/design-system/commit/4e58ed62a5a6819f5fcc127f01deeabd810fc047))
+* **clav-110:** hanlde first col on emprty table ([0433417](https://github.com/ZanichelliEditore/design-system/commit/043341770c3365cf20bdeca1ba778947f55aafc4))
+* **clav-110:** storybook abptu empty table ([e593eb4](https://github.com/ZanichelliEditore/design-system/commit/e593eb4f14d788d781d9ea4ff01bd05b262479eb))
+
 ## [2.13.0](https://github.com/ZanichelliEditore/design-system/compare/v2.12.2...v2.13.0) (2021-08-02)
 
 
