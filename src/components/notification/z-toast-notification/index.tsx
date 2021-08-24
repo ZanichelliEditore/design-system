@@ -148,15 +148,18 @@ export class ZToastNotification {
   handleSlideOutDragAnimation() {
     const sliderManager = new Hammer.Manager(this.hostElement);
     sliderManager.add(
-      new Hammer.Pan()
+      new Hammer.Pan({
+        direction: this.mapSlideOutDirection(),
+      })
     );
     sliderManager.on("pan", (e) => {
       this.hostElement.classList.remove(this.transition);
       this.percentage = this.calculatePercentageToBeDragged();
-      console.log(this.percentage);
       const translateObj = this.mapSlideOutTranslate(e);
-      if (e.direction === this.mapSlideOutDirection())
+      
+      if (e.direction === e.offsetDirection && e.direction === this.mapSlideOutDirection()) {
         this.hostElement.style.transform = translateObj.translate;
+      }
       if (e.isFinal) {
         if (
           Math.abs(this.calculatePercentageToBeDragged()) >
