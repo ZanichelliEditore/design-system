@@ -242,15 +242,13 @@ export class ZToastNotification {
   }
 
   renderCloseIcon() {
-    return <div id="icon">
-      {this.closebutton && (
+    return this.closebutton && <div id="icon">
         <z-icon
           name="multiply-circled"
           width={15}
           height={15}
           onClick={() => this.emitToastClose()}
         />
-      )}
     </div>
   }
 
