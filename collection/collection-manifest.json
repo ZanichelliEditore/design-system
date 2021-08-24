@@ -75,6 +75,7 @@
     "./snowflakes/registro-table/z-registro-table/index.js",
     "./snowflakes/registro-table/z-registro-table-body/index.js",
     "./snowflakes/registro-table/z-registro-table-cell/index.js",
+    "./snowflakes/registro-table/z-registro-table-empty-box/index.js",
     "./snowflakes/registro-table/z-registro-table-expanded-row/index.js",
     "./snowflakes/registro-table/z-registro-table-footer/index.js",
     "./snowflakes/registro-table/z-registro-table-head/index.js",
