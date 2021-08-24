@@ -228,6 +228,32 @@ export class ZToastNotification {
     return totalWidth > parentWidth;
   }
 
+  renderText() {
+    return <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
+      <span class="title">{this.heading}</span>
+      <span class="message">{this.message}</span>
+    </div>
+  }
+
+  renderButton() {
+    return <div id="button">
+      <slot name="button" />
+    </div>
+  }
+
+  renderCloseIcon() {
+    return <div id="icon">
+      {this.closebutton && (
+        <z-icon
+          name="multiply-circled"
+          width={15}
+          height={15}
+          onClick={() => this.emitToastClose()}
+        />
+      )}
+    </div>
+  }
+
   renderContainer() {
     return (
       <div
@@ -239,23 +265,9 @@ export class ZToastNotification {
         }}
         ref={(el) => (this.container = el as HTMLElement)}
       >
-        <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
-          <span class="title">{this.heading}</span>
-          <span class="message">{this.message}</span>
-        </div>
-        <div id="button">
-          <slot name="button" />
-        </div>
-        <div id="icon">
-          {this.closebutton && (
-            <z-icon
-              name="multiply-circled"
-              width={15}
-              height={15}
-              onClick={() => this.emitToastClose()}
-            />
-          )}
-        </div>
+        {this.renderText()}
+        {this.renderButton()}
+        {this.renderCloseIcon()}
       </div>
     );
   }
@@ -274,24 +286,10 @@ export class ZToastNotification {
           id="flex-container"
           ref={(el) => (this.container = el as HTMLElement)}
         >
-          <div id="text">
-            <span class="title">{this.heading}</span>
-            <span class="message">{this.message}</span>
-          </div>
-          <div id="button">
-            <slot name="button" />
-          </div>
+          {this.renderText()}
+          {this.renderButton()}
         </div>
-        <div id="icon">
-          {this.closebutton && (
-            <z-icon
-              name="multiply-circled"
-              width={15}
-              height={15}
-              onClick={() => this.emitToastClose()}
-            />
-          )}
-        </div>
+        {this.renderCloseIcon()}
       </div>
     );
   }
