@@ -4,6 +4,7 @@
   max-width: 100%;
   box-shadow: var(--shadow-3);
   --percentuale: 50%;
+  --percentuale-finale: 100%;
   width: 100%;
 }
 
@@ -106,7 +107,7 @@
     transform: translateY(var(--percentuale));
   }
   100% {
-    transform: translateY(-100%);
+    transform: translateY(var(--percentuale-finale));
   }
 }
 
@@ -115,7 +116,7 @@
     transform: translateY(var(--percentuale));
   }
   100% {
-    transform: translateY(100%);
+    transform: translateY(var(--percentuale-finale));
   }
 }
 

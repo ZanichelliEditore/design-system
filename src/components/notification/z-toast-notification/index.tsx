@@ -63,6 +63,10 @@ export class ZToastNotification {
     this.handleCloseAnimation();
   }
 
+  connectedCallback() {
+    // this.percentage = 0;
+  }
+
   disconnectedCallback() {
     this.toastClose.emit();
   }
@@ -120,7 +124,7 @@ export class ZToastNotification {
     }
   }
 
-  mapSlideOutTranslate(event) {
+  mapSlideOutTranslate(event : HammerInput) {
     switch (this.transition) {
       case ToastNotificationTransitionsEnum.slideInDown:
         return {
@@ -173,6 +177,20 @@ export class ZToastNotification {
     });
   }
 
+  getAbsoluteHeight(el) {
+    var styles = window.getComputedStyle(el);
+    var margin = parseFloat(styles['gap'])
+    return Math.ceil(el.offsetHeight + margin);
+  }
+
+  getParentChildrenTotalHeight() {
+    let total = 0;
+    Array.from(this.hostElement.children).forEach(child => {
+      total += child.clientHeight;
+    })
+    return total
+  }
+
   calculatePercentageToBeDragged() {
     const bounding = this.hostElement.getBoundingClientRect();
     const parentBounding = (this.hostElement.parentNode as HTMLElement).getBoundingClientRect();
@@ -183,6 +201,12 @@ export class ZToastNotification {
       left : bounding.left - parentBounding.left
     };
 
+    // const parentChildrenTotalHeight = this.getParentChildrenTotalHeight();
+    // const parentChildrenLength = this.hostElement.parentNode.children.length
+    // const parentAbsoluteHeight = this.getAbsoluteHeight(this.hostElement.parentNode as HTMLElement)
+
+    // TODO: calcolare percentuale di uscita in base all'altezza del componente padre
+    
     switch (this.transition) {
       case ToastNotificationTransitionsEnum.slideInLeft:
         return Math.round((100 * Math.abs(relativePos.left)) / bounding.width);
@@ -293,10 +317,19 @@ export class ZToastNotification {
     );
   }
 
+  calculateFinalPercentage() {
+    const sign = this.mapSlideOuClass() === ToastNotificationTransitionsEnum.slideOutUp ? '-' : '';
+    const absolute = isNaN(this.percentage) ? 100 : Math.abs(this.percentage) + 100
+    return `${sign}${absolute}`
+  }
+
   render() {
     return (
       <Host
-        style={{ ["--percentuale" as any]: `${this.percentage}%` as any }}
+        style={{ 
+          ["--percentuale" as string]: `${this.percentage}%` as string, 
+          ["--percentuale-finale" as string]: `${this.calculateFinalPercentage()}%` as string,  
+        }}
         class={this.transition ? this.transition : ToastNotificationTransitionsEnum.slideInDown}
         onAnimationEnd={(e: AnimationEvent) => {
           if (this.autoclose && e.animationName.includes("slidein")) {
