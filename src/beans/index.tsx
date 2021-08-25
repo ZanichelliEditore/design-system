@@ -1,5 +1,5 @@
 export type AccessibleFocusEventData = {
-  host: HTMLElement;
+  target: HTMLElement;
 };
 
 export type FooterBean = {

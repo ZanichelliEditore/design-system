@@ -32,19 +32,23 @@ export class ZListElement {
     eventName: "accessibleFocus",
     composed: true,
     cancelable: true,
-    bubbles: false,
+    bubbles: true,
   })
   accessibleFocus: EventEmitter<AccessibleFocusEventData>;
 
   @Listen("accessibleFocus", { target: "document" })
   accessibleFocusHandler(e: CustomEvent) {
-    console.log("yeaaa");
-    const accessibleFocusEventData = e.detail.host;
-    console.log("focus!!", accessibleFocusEventData);
-    // check sono io
-    // this.host === e.element
-
-    accessibleFocusEventData.focus();
+    const { target } = e.detail;
+    console.log("event ", e);
+    console.log("host", this.host.outerHTML);
+    console.log("target", target.outerHTML);
+    if (target.outerHTML === this.host.outerHTML) {
+      console.log("focused");
+      target.background = "red";
+      target.focus();
+    } else {
+      console.log("not my focus");
+    }
   }
 
   /**
@@ -145,11 +149,15 @@ export class ZListElement {
       console.log("next ", this.host.nextElementSibling);
 
       this.accessibleFocus.emit({
-        host: this.host.nextElementSibling as HTMLElement,
+        target: this.host.nextElementSibling as HTMLElement,
       });
     }
     if (event.code === KeyboardKeys.ARROW_UP) {
-      console.log("up");
+      console.log("prev ", this.host.previousElementSibling);
+
+      this.accessibleFocus.emit({
+        target: this.host.previousElementSibling as HTMLElement,
+      });
     }
     if (!this.expandable || !expandByKey) {
       return;
