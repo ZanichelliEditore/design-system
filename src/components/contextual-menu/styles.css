@@ -21,3 +21,11 @@
   display: flex;
   align-items: center;
 }
+
+:host(:focus-within) > z-popover {
+  box-shadow: var(--shadow-focus-primary);
+}
+
+:host(:focus-within) {
+  outline: none;
+}
