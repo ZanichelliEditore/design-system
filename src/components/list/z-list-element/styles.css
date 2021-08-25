@@ -110,3 +110,8 @@
 .container-contextual-menu {
   padding: 8px;
 }
+
+.container-contextual-menu:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
