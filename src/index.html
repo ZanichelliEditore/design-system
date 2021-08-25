@@ -20,7 +20,7 @@
  <!-- Contextual menu -->
  <h2>Contextual menu</h2>
  <div style="padding-left: 280px; width: 80%">
-  <contextual-menu id="contextual-menu-1" elements='[{"icon": "share", "text": "Element 1", "key": "0"}, {"icon": "delete", "text": "Elemento 2", "key": "1"}]'>
+  <contextual-menu id="contextual-menu-1" elements='[{"icon": "share", "text": "Element 1"}, {"icon": "delete", "text": "Elemento 2"}]'>
   </contextual-menu>
 </div>
 <br /><br /><br />
@@ -1392,7 +1392,7 @@
       appMenu.addEventListener("appButtonClick", (e) => openModal(e));
 
       const contextualMenu = document.getElementById("contextual-menu-1");
-      contextualMenu.addEventListener("clickItem", (e) => console.log('LOG', e));
+      contextualMenu.addEventListener("clickItem", (e) => console.log('LOG id ', e.detail));
     </script>
   </body>
 </html>

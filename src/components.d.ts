@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AccessibleFocusEventData, AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -616,6 +616,7 @@ export namespace Components {
           * [optional] If is used in ContextualMenu component
          */
         "isContextualMenu"?: boolean;
+        "listElementId"?: number;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -2594,10 +2595,11 @@ declare namespace LocalJSX {
           * [optional] If is used in ContextualMenu component
          */
         "isContextualMenu"?: boolean;
+        "listElementId"?: number;
         /**
           * remove filter click event, returns filterid
          */
-        "onAccessibleFocus"?: (event: CustomEvent<AccessibleFocusEventData>) => void;
+        "onAccessibleFocus"?: (event: CustomEvent<number>) => void;
         /**
           * [optional] Sets size of inside elements.
          */

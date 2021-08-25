@@ -10,7 +10,6 @@ import {
   State,
 } from "@stencil/core";
 import {
-  AccessibleFocusEventData,
   DividerSize,
   ExpandableListButtonAlign,
   ExpandableListStyle,
@@ -34,20 +33,15 @@ export class ZListElement {
     cancelable: true,
     bubbles: true,
   })
-  accessibleFocus: EventEmitter<AccessibleFocusEventData>;
+  accessibleFocus: EventEmitter<number>;
 
   @Listen("accessibleFocus", { target: "document" })
   accessibleFocusHandler(e: CustomEvent) {
-    const { target } = e.detail;
-    console.log("event ", e);
-    console.log("host", this.host.outerHTML);
-    console.log("target", target.outerHTML);
-    if (target.outerHTML === this.host.outerHTML) {
-      console.log("focused");
-      target.background = "red";
-      target.focus();
-    } else {
-      console.log("not my focus");
+    if (this.listElementId === e.detail) {
+      const toFocus = this.host.shadowRoot.getElementById(
+        `z-list-element-id-${e.detail}`
+      );
+      toFocus.focus();
     }
   }
 
@@ -86,6 +80,8 @@ export class ZListElement {
    * [optional] Sets expandable style to element.
    */
   @Prop() expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
+
+  @Prop({ reflect: true }) listElementId?: number;
 
   /**
    * [optional] Sets size of inside elements.
@@ -134,7 +130,7 @@ export class ZListElement {
     this.showInnerContent = !this.showInnerContent;
   }
 
-  getClass() {
+  calculateClass() {
     if (this.isContextualMenu) {
       return "container-contextual-menu";
     }
@@ -143,21 +139,12 @@ export class ZListElement {
   }
 
   handleKeyDown(event) {
-    console.log("keydown ", event.code);
     const expandByKey = event.code === KeyboardKeys.ENTER;
     if (event.code === KeyboardKeys.ARROW_DOWN) {
-      console.log("next ", this.host.nextElementSibling);
-
-      this.accessibleFocus.emit({
-        target: this.host.nextElementSibling as HTMLElement,
-      });
+      this.accessibleFocus.emit(this.listElementId + 1);
     }
     if (event.code === KeyboardKeys.ARROW_UP) {
-      console.log("prev ", this.host.previousElementSibling);
-
-      this.accessibleFocus.emit({
-        target: this.host.previousElementSibling as HTMLElement,
-      });
+      this.accessibleFocus.emit(this.listElementId - 1);
     }
     if (!this.expandable || !expandByKey) {
       return;
@@ -217,9 +204,10 @@ export class ZListElement {
         tabIndex={!this.isContextualMenu ? "0" : null}
       >
         <div
-          class={this.getClass()}
+          class={this.calculateClass()}
           style={{ color: this.color }}
           tabindex={this.isContextualMenu ? "0" : "-1"}
+          id={`z-list-element-id-${this.listElementId}`}
         >
           <div class="z-list-element-container">
             {this.renderExpandableButton()}

@@ -64,7 +64,7 @@ export class ContextualMenu {
           <div class="popover-content-container" slot="popover">
             <z-list>
               <z-list-group divider-type="element" size={ListSize.small}>
-                {this.jsonElements?.map((element) => (
+                {this.jsonElements?.map((element, index) => (
                   <z-list-element
                     clickable
                     class="my-z-list-element"
@@ -72,10 +72,11 @@ export class ContextualMenu {
                     expandable-style="accordion"
                     color={this.color}
                     isContextualMenu
+                    listElementId={index}
                   >
                     <div
                       class="element-container"
-                      onClick={() => this.clickItem.emit(element.key)}
+                      onClick={() => this.clickItem.emit(index)}
                     >
                       {this.showIcon() && (
                         <div class="icon-container">
