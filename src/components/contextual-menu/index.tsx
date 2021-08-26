@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
+import { Component, Host, Prop, h } from "@stencil/core";
 import { ListSize, PopoverPosition } from "../../beans";
 
 @Component({
@@ -17,15 +17,6 @@ export class ContextualMenu {
    * [optional] Sets text color of ContextualMenu's content
    */
   @Prop() color?: string = "var(--color-primary01)";
-
-  // /** remove filter click event, returns filterid */
-  // @Event({
-  //   eventName: "clickItem",
-  //   composed: true,
-  //   cancelable: true,
-  //   bubbles: true,
-  // })
-  // clickItem: EventEmitter;
 
   private jsonElements;
 
