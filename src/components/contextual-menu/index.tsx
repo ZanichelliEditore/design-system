@@ -53,9 +53,10 @@ export class ContextualMenu {
           background-color="gray50"
           box-shadow="shadow-2"
           position={PopoverPosition["after-down"]}
-          padding="0 4px"
+          padding="0"
         >
           <z-icon
+            aria-label="apri-menu-contestuale"
             slot="trigger"
             name="contextual-menu"
             fill="var(--color-primary01)"
