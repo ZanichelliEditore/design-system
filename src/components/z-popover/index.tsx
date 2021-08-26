@@ -27,7 +27,7 @@ export class ZPopover {
   /** [optional] Show or hide arrow */
   @Prop() showArrow?: boolean = false;
   /** [optional] Sets padding for Popover container */
-  @Prop({ reflect: true }) padding?: string = "8px";
+  @Prop() padding?: string = "8px";
 
   @State() isVisible: boolean = false;
 

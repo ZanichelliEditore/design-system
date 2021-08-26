@@ -112,6 +112,10 @@
   outline: none;
 }
 
+.container-contextual-menu {
+  padding: 0 4px;
+}
+
 .short {
   padding-top: 4px;
   padding-bottom: 4px;

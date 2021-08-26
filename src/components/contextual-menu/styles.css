@@ -15,6 +15,7 @@
 
 .icon-container {
   padding-right: 8px;
+  display: flex;
 }
 
 .text-container {
