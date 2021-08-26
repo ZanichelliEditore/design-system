@@ -146,12 +146,20 @@ export class ZListElement {
 
   handleKeyDown(event) {
     const expandByKey = event.code === KeyboardKeys.ENTER;
-    if (event.code === KeyboardKeys.ARROW_DOWN) {
-      this.accessibleFocus.emit(this.listElementId + 1);
+    switch (event.code) {
+      case KeyboardKeys.ARROW_DOWN:
+        this.accessibleFocus.emit(this.listElementId + 1);
+        break;
+      case KeyboardKeys.ARROW_UP:
+        this.accessibleFocus.emit(this.listElementId - 1);
+        break;
+      case KeyboardKeys.ENTER:
+        this.handleClick();
+        break;
+      default:
+        break;
     }
-    if (event.code === KeyboardKeys.ARROW_UP) {
-      this.accessibleFocus.emit(this.listElementId - 1);
-    }
+
     if (!this.expandable || !expandByKey) {
       return;
     }
