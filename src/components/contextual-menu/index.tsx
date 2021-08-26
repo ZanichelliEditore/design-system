@@ -56,6 +56,7 @@ export class ContextualMenu {
           padding="0"
         >
           <z-icon
+            aria-label="apri-menu-contestuale"
             slot="trigger"
             name="contextual-menu"
             fill="var(--color-primary01)"
