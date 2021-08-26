@@ -16,6 +16,7 @@ import {
   KeyboardKeys,
   ListDividerType,
   ListSize,
+  Density,
 } from "../../../beans";
 
 @Component({
@@ -97,6 +98,11 @@ export class ZListElement {
    * [optional] If is used in ContextualMenu component
    */
   @Prop({ reflect: true }) isContextualMenu?: boolean = false;
+
+  /**
+   * [optional] Sets density of the element.
+   */
+  @Prop({ reflect: true }) density?: Density = Density.short;
 
   @State() showInnerContent = false;
 
@@ -204,7 +210,7 @@ export class ZListElement {
         tabIndex={!this.isContextualMenu ? "0" : null}
       >
         <div
-          class={this.calculateClass()}
+          class={`${this.calculateClass()} ${this.density}`}
           style={{ color: this.color }}
           tabindex={this.isContextualMenu ? "0" : "-1"}
           id={`z-list-element-id-${this.listElementId}`}

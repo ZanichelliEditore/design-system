@@ -53,7 +53,7 @@ export class ContextualMenu {
           background-color="gray50"
           box-shadow="shadow-2"
           position={PopoverPosition["after-down"]}
-          padding={0}
+          padding="0 4px"
         >
           <z-icon
             slot="trigger"

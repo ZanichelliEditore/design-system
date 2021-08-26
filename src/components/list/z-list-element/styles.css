@@ -107,11 +107,12 @@
   background-color: var(--background-hover-color-list-element-contextual-menu);
 }
 
-.container-contextual-menu {
-  padding: 8px;
-}
-
 .container-contextual-menu:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
+}
+
+.short {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
