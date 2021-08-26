@@ -18,14 +18,14 @@ export class ContextualMenu {
    */
   @Prop() color?: string = "var(--color-primary01)";
 
-  /** remove filter click event, returns filterid */
-  @Event({
-    eventName: "clickItem",
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  clickItem: EventEmitter;
+  // /** remove filter click event, returns filterid */
+  // @Event({
+  //   eventName: "clickItem",
+  //   composed: true,
+  //   cancelable: true,
+  //   bubbles: true,
+  // })
+  // clickItem: EventEmitter;
 
   private jsonElements;
 
@@ -74,10 +74,7 @@ export class ContextualMenu {
                     isContextualMenu
                     listElementId={index}
                   >
-                    <div
-                      class="element-container"
-                      onClick={() => this.clickItem.emit(index)}
-                    >
+                    <div class="element-container">
                       {this.showIcon() && (
                         <div class="icon-container">
                           <z-icon

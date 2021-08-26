@@ -36,6 +36,15 @@ export class ZListElement {
   })
   accessibleFocus: EventEmitter<number>;
 
+  /** remove filter click event, returns filterid */
+  @Event({
+    eventName: "clickItem",
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  clickItem: EventEmitter;
+
   @Listen("accessibleFocus", { target: "document" })
   accessibleFocusHandler(e: CustomEvent) {
     if (this.listElementId === e.detail) {
@@ -130,6 +139,7 @@ export class ZListElement {
    * @returns void
    */
   handleClick() {
+    this.clickItem.emit(this.listElementId);
     if (!this.expandable) {
       return;
     }
@@ -154,7 +164,7 @@ export class ZListElement {
         this.accessibleFocus.emit(this.listElementId - 1);
         break;
       case KeyboardKeys.ENTER:
-        this.handleClick();
+        this.clickItem.emit(this.listElementId);
         break;
       default:
         break;

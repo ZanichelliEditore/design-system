@@ -1958,10 +1958,6 @@ declare namespace LocalJSX {
           * elements of ContextualMenu
          */
         "elements"?: string;
-        /**
-          * remove filter click event, returns filterid
-         */
-        "onClickItem"?: (event: CustomEvent<any>) => void;
     }
     interface ZAlert {
         /**
@@ -2608,6 +2604,10 @@ declare namespace LocalJSX {
           * remove filter click event, returns filterid
          */
         "onAccessibleFocus"?: (event: CustomEvent<number>) => void;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickItem"?: (event: CustomEvent<any>) => void;
         /**
           * [optional] Sets size of inside elements.
          */
