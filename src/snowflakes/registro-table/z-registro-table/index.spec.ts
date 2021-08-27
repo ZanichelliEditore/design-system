@@ -3,6 +3,169 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZRegistroTable } from "./index";
 
 describe("Suite test ZRegistroTable", () => {
+  it("Test render ZRegistroTable with empty content", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table empty="true"></z-registro-table>`,
+    });
+    expect(page.root)
+      .toEqualHtml(`<z-registro-table empty=\"true\" role=\"table\">
+    <div class=\"table table-empty\"></div>
+    <z-registro-table-empty-box message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\"></z-registro-table-empty-box>
+  </z-registro-table>`);
+  });
+
+  it("Test render ZRegistroTable with empty content and header", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table empty="true" slot="table-header">
+      <z-registro-table-head>
+      <z-registro-table-header-row>
+        <z-registro-table-header>
+          <span>Titolo 1</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 3</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 4</span>
+        </z-registro-table-header>
+      </z-registro-table-header-row>
+    </z-registro-table-head></z-registro-table>`,
+    });
+    expect(page.root)
+      .toEqualHtml(`<z-registro-table empty=\"true\" role=\"table\" slot=\"table-header\">                                                                   
+    <z-registro-table-head hidden=\"\">                                                                                                               
+      <z-registro-table-header-row>                                                                                                                   
+        <z-registro-table-header>
+          <span>
+            Titolo 1
+          </span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>
+            Titolo 2
+          </span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>
+            Titolo 3
+          </span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>
+            Titolo 4
+          </span>
+        </z-registro-table-header>
+      </z-registro-table-header-row>
+    </z-registro-table-head>
+    <div class=\"table table-empty\"></div>
+    <z-registro-table-empty-box message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\"></z-registro-table-empty-box>
+  </z-registro-table>`);
+  });
+
+  it("Test render ZRegistroTable with empty content and one call to action", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table empty="true" call-to-action-label="Call To Action"></z-registro-table>`,
+    });
+    expect(page.root)
+      .toEqualHtml(`<z-registro-table call-to-action-label=\"Call To Action\" empty=\"true\" role=\"table\">
+    <div class=\"table table-empty\"></div>
+    <z-registro-table-empty-box message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">
+      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+        Call To Action
+      </z-button>
+    </z-registro-table-empty-box>
+  </z-registro-table>`);
+  });
+
+  it("Test render ZRegistroTable with empty content and two call to action", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table empty="true" call-to-action-label="Call To Action" call-to-action-two-label="Call To Action 2" ></z-registro-table>`,
+    });
+    expect(page.root)
+      .toEqualHtml(`<z-registro-table call-to-action-label=\"Call To Action\" call-to-action-two-label=\"Call To Action 2\" empty=\"true\" role=\"table\">
+    <div class=\"table table-empty\"></div>
+    <z-registro-table-empty-box message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">                          
+      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+        Call To Action
+      </z-button>
+      <z-button size=\"big\" slot=\"cta2\" variant=\"tertiary\">
+        Call To Action 2
+      </z-button>
+    </z-registro-table-empty-box>
+  </z-registro-table>`);
+  });
+
+  it("Test render ZRegistroTable with empty content with first column", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table
+      call-to-action-label="Call to action"
+      empty="true"
+      message="Siamo spicenti, al momento non sono presenti dati da visualizzare!"
+      subtitle="Eventuale testo"
+    >
+      <z-registro-table-head slot="table-header">
+        <z-registro-table-header-row>
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 2</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 3</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 4</span>
+          </z-registro-table-header>
+        </z-registro-table-header-row>
+      </z-registro-table-head>
+    </z-registro-table>`,
+    });
+
+    expect(page.root)
+      .toEqualHtml(`<z-registro-table call-to-action-label=\"Call to action\" empty=\"true\" message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare!\" role=\"table\" subtitle=\"Eventuale testo\">
+    <div class=\"table table-empty\">
+      <z-registro-table-head slot=\"table-header\">
+        <z-registro-table-header-row>
+          <z-registro-table-header>
+            <span>
+              Titolo 1
+            </span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>
+              Titolo 2
+            </span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>
+              Titolo 3
+            </span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>
+              Titolo 4
+            </span>
+          </z-registro-table-header>
+        </z-registro-table-header-row>
+      </z-registro-table-head>
+    </div>
+    <z-registro-table-empty-box message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare!\" subtitle=\"Eventuale testo\">
+      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+        Call to action
+      </z-button>
+    </z-registro-table-empty-box>
+  </z-registro-table>`);
+  });
+
   it("Test render ZRegistroTable con slot", async () => {
     const page = await newSpecPage({
       components: [ZRegistroTable],
