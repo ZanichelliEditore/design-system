@@ -19,14 +19,12 @@ export class ZToastNotificationList {
 
   render() {
     return (
-      <div id="toast-container">
-        <div class={
-          this.position
-            ? this.position
-            : ToastNotificationPositionsEnum.topRight
-        }>
+      <div id="toast-container" class={
+        this.position
+          ? this.position
+          : ToastNotificationPositionsEnum.topRight
+      }>
           <slot></slot>
-        </div>
       </div>
     );
   }

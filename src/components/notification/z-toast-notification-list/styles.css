@@ -1,70 +1,61 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+  display: block;
 }
 
-:host > #toast-container > div {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-}
-
-:host > #toast-container .top-centre {
+:host > #toast-container {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+	flex-wrap: nowrap;
+  gap: 8px;
+  z-index: 10000;
 }
 
-:host > .bottom-centre {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+:host > #toast-container ::slotted(z-toast-notification) {
+  width: 100%;
 }
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
 
-  :host > #toast-container > div {
+  :host > #toast-container ::slotted(z-toast-notification) {
     width: calc(100% / 2);
   }
 
-  :host > #toast-container .top-centre {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  :host > .bottom-centre {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  :host > #toast-container.top-centre {
+    justify-content: flex-start;
+	  align-items: center;
   }
 
-  :host > .top-left {
-    position: fixed;
-    top: 0;
-    left: 0;
+  :host > #toast-container.top-left {
+    justify-content: flex-start;
+	  align-items: flex-start;
   }
 
-  :host > .top-right {
-    position: fixed;
-    top: 0;
-    right: 0;
+  :host > #toast-container.top-right {
+    justify-content: flex-start;
+	  align-items: flex-end;
   }
 
-  :host > .bottom-right {
-    position: fixed;
-    bottom: 0;
-    right: 0;
+  :host > #toast-container.bottom-centre {
+    justify-content: flex-end;
+	  align-items: center;
   }
 
-  :host > .bottom-left {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+  :host > #toast-container.bottom-right {
+    justify-content: flex-end;
+	  align-items: flex-end;
+  }
+
+  :host > #toast-container.bottom-left {
+    justify-content: flex-end;
+	  align-items: flex-start;
   }
 
 }
@@ -74,7 +65,7 @@
 
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {
-  :host > #toast-container > div {
+  :host > #toast-container ::slotted(z-toast-notification) {
     width: calc(100% / 3);
   }
 }
