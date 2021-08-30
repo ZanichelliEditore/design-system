@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, GhostLoadingSize, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -325,6 +325,12 @@ export namespace Components {
           * icon url
          */
         "icon": string;
+    }
+    interface ZGhostLoading {
+        /**
+          * [optional] Sets the ghost loading size.
+         */
+        "size"?: GhostLoadingSize;
     }
     interface ZHeader {
         /**
@@ -1477,6 +1483,12 @@ declare global {
         prototype: HTMLZFooterSocialElement;
         new (): HTMLZFooterSocialElement;
     };
+    interface HTMLZGhostLoadingElement extends Components.ZGhostLoading, HTMLStencilElement {
+    }
+    var HTMLZGhostLoadingElement: {
+        prototype: HTMLZGhostLoadingElement;
+        new (): HTMLZGhostLoadingElement;
+    };
     interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {
     }
     var HTMLZHeaderElement: {
@@ -1881,6 +1893,7 @@ declare global {
         "z-footer-link": HTMLZFooterLinkElement;
         "z-footer-section": HTMLZFooterSectionElement;
         "z-footer-social": HTMLZFooterSocialElement;
+        "z-ghost-loading": HTMLZGhostLoadingElement;
         "z-header": HTMLZHeaderElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
@@ -2287,6 +2300,12 @@ declare namespace LocalJSX {
           * icon url
          */
         "icon"?: string;
+    }
+    interface ZGhostLoading {
+        /**
+          * [optional] Sets the ghost loading size.
+         */
+        "size"?: GhostLoadingSize;
     }
     interface ZHeader {
         /**
@@ -3466,6 +3485,7 @@ declare namespace LocalJSX {
         "z-footer-link": ZFooterLink;
         "z-footer-section": ZFooterSection;
         "z-footer-social": ZFooterSocial;
+        "z-ghost-loading": ZGhostLoading;
         "z-header": ZHeader;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
@@ -3555,6 +3575,7 @@ declare module "@stencil/core" {
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
             "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
             "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
+            "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;

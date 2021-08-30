@@ -1,0 +1,46 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { select } from "@storybook/addon-knobs";
+
+<Meta title="ZGhostLoading" component="z-ghost-loading" />
+
+# ZGhostLoading
+
+<Preview>
+  <Story name="ZGhostLoading-sample">
+    {html`<z-ghost-loading size="${select(
+      "size",
+      [
+        "small",
+        "large",
+      ],
+      "small"
+    )}"></z-ghost-loading>`}
+  </Story>
+</Preview>
+
+## Props of ZGhostLoading
+<Props of="z-ghost-loading" />
+
+
+### ZGhostLoading examples
+
+<Preview>
+  <Story name="ZGhostLoading-multiple">
+    {html`<z-ghost-loading size="large"></z-ghost-loading>
+    <div style="width:50%;"><z-ghost-loading size="large"></z-ghost-loading></div>
+    <br /><br />
+    <z-ghost-loading size="small"></z-ghost-loading>
+    <z-ghost-loading size="small"></z-ghost-loading>
+    <z-ghost-loading size="small"></z-ghost-loading>
+    <div style="width:50%;"><z-ghost-loading size="small"></z-ghost-loading></div>
+    <br /><br />
+    <div style="display:flex">
+    <div style="width:30%; padding-right:20px"><z-ghost-loading size="large"></div>
+    <div style="width:30%; padding-right:20px"><z-ghost-loading size="large"></div>
+    <div style="width:30%""><z-ghost-loading size="large"></div>
+    </div>`}
+  </Story>
+</Preview>
+
+

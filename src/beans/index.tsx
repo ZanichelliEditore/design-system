@@ -348,3 +348,9 @@ export enum PocketStatusEnum {
   closed = "closed",
 }
 export type PocketStatus = PocketStatusEnum;
+
+
+export enum GhostLoadingSize {
+  small = "small",
+  large = "large",
+}
