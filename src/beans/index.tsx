@@ -372,3 +372,14 @@ export enum ToastNotificationTransitionsEnum {
 } 
 
 export type ToastNotificationTransitionTypes = ToastNotificationTransitionsEnum;
+
+export enum ToastNotificationPositionsEnum {
+  topRight = "top-right",
+  topLeft = "top-left",
+  topCentre = "top-centre",
+  bottomRight = "bottom-right",
+  bottomLeft = "bottom-left",
+  bottomCentre = "bottom-centre"
+} 
+
+export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;

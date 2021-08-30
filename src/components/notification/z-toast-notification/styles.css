@@ -4,7 +4,6 @@
   max-width: 100%;
   box-shadow: var(--shadow-3);
   --percentuale: 50%;
-  --percentuale-finale: 100%;
   width: 100%;
 }
 
@@ -87,18 +86,22 @@
 @keyframes slideoutleft {
   0% {
     transform: translateX(var(--percentuale));
+    opacity: 100%;
   }
   100% {
     transform: translateX(-100%);
+    opacity: 0%;
   }
 }
 
 @keyframes slideoutright {
   0% {
     transform: translateX(var(--percentuale));
+    opacity: 100%;
   }
   100% {
     transform: translateX(100%);
+    opacity: 0%;
   }
 }
 
@@ -107,7 +110,7 @@
     transform: translateY(var(--percentuale));
   }
   100% {
-    transform: translateY(var(--percentuale-finale));
+    transform: translateY(-100%);
   }
 }
 
@@ -116,7 +119,7 @@
     transform: translateY(var(--percentuale));
   }
   100% {
-    transform: translateY(var(--percentuale-finale));
+    transform: translateY(100%);
   }
 }
 

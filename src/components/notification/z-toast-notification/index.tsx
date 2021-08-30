@@ -57,14 +57,14 @@ export class ZToastNotification {
 
   /** notification close event */
   @Event() toastClose: EventEmitter;
-  emitToastClose() {
+  emitToastClose(cssClass: string) {
     this.timeoutHandle = null;
     this.elapsedTime = null;
-    this.handleCloseAnimation();
+    this.hostElement.classList.add(cssClass);
   }
 
   connectedCallback() {
-    // this.percentage = 0;
+    this.percentage = 0;
   }
 
   disconnectedCallback() {
@@ -97,21 +97,9 @@ export class ZToastNotification {
       console.error(
         "At least one between autoclose and closebutton must be present"
       );
-  } 
-  mapSlideOutDirection() {
-    switch (this.transition) {
-      case ToastNotificationTransitionsEnum.slideInDown:
-        return Hammer.DIRECTION_UP;
-      case ToastNotificationTransitionsEnum.slideInUp:
-        return Hammer.DIRECTION_DOWN;
-      case ToastNotificationTransitionsEnum.slideInLeft:
-        return Hammer.DIRECTION_RIGHT;
-      case ToastNotificationTransitionsEnum.slideInRight:
-        return Hammer.DIRECTION_LEFT;
-    }
   }
 
-  mapSlideOuClass() {
+  mapSlideOutClass() {
     switch (this.transition) {
       case ToastNotificationTransitionsEnum.slideInDown:
         return ToastNotificationTransitionsEnum.slideOutUp;
@@ -124,103 +112,40 @@ export class ZToastNotification {
     }
   }
 
-  mapSlideOutTranslate(event : HammerInput) {
-    switch (this.transition) {
-      case ToastNotificationTransitionsEnum.slideInDown:
-        return {
-          translate: "translateY( " + event.deltaY + "% )",
-          translateBack: "translateY(0)",
-        };
-      case ToastNotificationTransitionsEnum.slideInUp:
-        return {
-          translate: "translateY( " + event.deltaY + "% )",
-          translateBack: "translateY(0)",
-        };
-      case ToastNotificationTransitionsEnum.slideInLeft:
-        return {
-          translate: "translateX( " + event.deltaX + "% )",
-          translateBack: "translateX(0)",
-        };
-      case ToastNotificationTransitionsEnum.slideInRight:
-        return {
-          translate: "translateX( " + event.deltaX + "% )",
-          translateBack: "translateX(0)",
-        };
-    }
-  }
-
   handleSlideOutDragAnimation() {
-    const sliderManager = new Hammer.Manager(this.hostElement);
-    sliderManager.add(
-      new Hammer.Pan({
-        direction: this.mapSlideOutDirection(),
-      })
-    );
+    const sliderManager = new Hammer(this.hostElement);
+    sliderManager.get("pan").set({
+      direction: Hammer.DIRECTION_HORIZONTAL,
+    });
+
     sliderManager.on("pan", (e) => {
+      this.hostElement.style.transition = "none";
       this.hostElement.classList.remove(this.transition);
-      this.percentage = this.calculatePercentageToBeDragged();
-      const translateObj = this.mapSlideOutTranslate(e);
-      
-      if (e.direction === e.offsetDirection && e.direction === this.mapSlideOutDirection()) {
-        this.hostElement.style.transform = translateObj.translate;
-      }
-      if (e.isFinal) {
-        if (
-          Math.abs(this.calculatePercentageToBeDragged()) >
-          this.draggablepercentage
-        ) {
-          this.emitToastClose();
-        } else {
-          this.hostElement.style.transform = translateObj.translateBack;
+      const translateObj = {
+        translate: "translateX( " + e.deltaX + "% )",
+        translateBack: "translateX(0)",
+      };
+
+      this.percentage = e.deltaX;
+      this.hostElement.style.transform = translateObj.translate;
+      if (
+        e.direction === Hammer.DIRECTION_LEFT ||
+        e.direction === Hammer.DIRECTION_RIGHT
+      ) {
+        if (Math.abs(e.deltaX) > this.draggablepercentage) {
+          this.emitToastClose(
+            e.direction === Hammer.DIRECTION_LEFT
+              ? "slide-out-left"
+              : "slide-out-right"
+          );
         }
       }
+
+      if (e.isFinal && Math.abs(e.deltaX) < this.draggablepercentage){
+        this.hostElement.style.transform = translateObj.translateBack;
+        this.hostElement.style.transition = "all 1s";
+      }
     });
-  }
-
-  getAbsoluteHeight(el) {
-    var styles = window.getComputedStyle(el);
-    var margin = parseFloat(styles['gap'])
-    return Math.ceil(el.offsetHeight + margin);
-  }
-
-  getParentChildrenTotalHeight() {
-    let total = 0;
-    Array.from(this.hostElement.children).forEach(child => {
-      total += child.clientHeight;
-    })
-    return total
-  }
-
-  calculatePercentageToBeDragged() {
-    const bounding = this.hostElement.getBoundingClientRect();
-    const parentBounding = (this.hostElement.parentNode as HTMLElement).getBoundingClientRect();
-    const relativePos = {      
-      top : bounding.top - parentBounding.top,
-      right : bounding.right - parentBounding.right,
-      bottom : bounding.bottom - parentBounding.bottom,
-      left : bounding.left - parentBounding.left
-    };
-
-    // const parentChildrenTotalHeight = this.getParentChildrenTotalHeight();
-    // const parentChildrenLength = this.hostElement.parentNode.children.length
-    // const parentAbsoluteHeight = this.getAbsoluteHeight(this.hostElement.parentNode as HTMLElement)
-
-    // TODO: calcolare percentuale di uscita in base all'altezza del componente padre
-    
-    switch (this.transition) {
-      case ToastNotificationTransitionsEnum.slideInLeft:
-        return Math.round((100 * Math.abs(relativePos.left)) / bounding.width);
-      case ToastNotificationTransitionsEnum.slideInRight:
-        return Math.round((100 * Math.abs(relativePos.right)) / bounding.width) * -1;
-      case ToastNotificationTransitionsEnum.slideInDown:
-        return Math.round((100 * Math.abs(relativePos.top)) / bounding.height) * -1;
-      case ToastNotificationTransitionsEnum.slideInUp:
-        return Math.round((100 * Math.abs(relativePos.bottom)) / bounding.height);
-    }
-  }
-
-  handleCloseAnimation() {
-    this.hostElement.classList.add(this.mapSlideOuClass());
   }
 
   onFocus() {
@@ -238,7 +163,10 @@ export class ZToastNotification {
   }
 
   startClosingTimeout(time: number) {
-    this.timeoutHandle = setTimeout(() => this.emitToastClose(), time);
+    this.timeoutHandle = setTimeout(
+      () => this.emitToastClose(this.mapSlideOutClass()),
+      time
+    );
   }
 
   detectWrap() {
@@ -254,27 +182,35 @@ export class ZToastNotification {
   }
 
   renderText() {
-    return <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
-      <span class="title">{this.heading}</span>
-      <span class="message">{this.message}</span>
-    </div>
+    return (
+      <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
+        <span class="title">{this.heading}</span>
+        <span class="message">{this.message}</span>
+      </div>
+    );
   }
 
   renderButton() {
-    return <div id="button">
-      <slot name="button" />
-    </div>
+    return (
+      <div id="button">
+        <slot name="button" />
+      </div>
+    );
   }
 
   renderCloseIcon() {
-    return this.closebutton && <div id="icon">
-        <z-icon
-          name="multiply-circled"
-          width={15}
-          height={15}
-          onClick={() => this.emitToastClose()}
-        />
-    </div>
+    return (
+      this.closebutton && (
+        <div id="icon">
+          <z-icon
+            name="multiply-circled"
+            width={15}
+            height={15}
+            onClick={() => this.emitToastClose(this.mapSlideOutClass())}
+          />
+        </div>
+      )
+    );
   }
 
   renderContainer() {
@@ -284,7 +220,6 @@ export class ZToastNotification {
         class={{
           [this.type]: !!this.type,
           "several-lines-padding": this.isTextLong,
-
         }}
         ref={(el) => (this.container = el as HTMLElement)}
       >
@@ -302,7 +237,7 @@ export class ZToastNotification {
         class={{
           [this.type]: !!this.type,
           "several-lines-padding": this.isTextLong,
-          "mobile-wrapped": this.isTextLong
+          "mobile-wrapped": this.isTextLong,
         }}
       >
         <div
@@ -317,20 +252,17 @@ export class ZToastNotification {
     );
   }
 
-  calculateFinalPercentage() {
-    const sign = this.mapSlideOuClass() === ToastNotificationTransitionsEnum.slideOutUp ? '-' : '';
-    const absolute = isNaN(this.percentage) ? 100 : Math.abs(this.percentage) + 100
-    return `${sign}${absolute}`
-  }
-
   render() {
     return (
       <Host
-        style={{ 
-          ["--percentuale" as string]: `${this.percentage}%` as string, 
-          ["--percentuale-finale" as string]: `${this.calculateFinalPercentage()}%` as string,  
+        style={{
+          ["--percentuale" as string]: `${this.percentage}%` as string,
         }}
-        class={this.transition ? this.transition : ToastNotificationTransitionsEnum.slideInDown}
+        class={
+          this.transition
+            ? this.transition
+            : ToastNotificationTransitionsEnum.slideInDown
+        }
         onAnimationEnd={(e: AnimationEvent) => {
           if (this.autoclose && e.animationName.includes("slidein")) {
             this.startClosingTimeout(this.autoclose);

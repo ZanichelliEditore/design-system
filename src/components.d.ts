@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1309,6 +1309,10 @@ export namespace Components {
          */
         "type"?: ToastNotificationTypes;
     }
+    interface ZToastNotificationList {
+        "newestOnTop": boolean;
+        "position": ToastNotificationPositionsTypes;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -1836,6 +1840,12 @@ declare global {
         prototype: HTMLZToastNotificationElement;
         new (): HTMLZToastNotificationElement;
     };
+    interface HTMLZToastNotificationListElement extends Components.ZToastNotificationList, HTMLStencilElement {
+    }
+    var HTMLZToastNotificationListElement: {
+        prototype: HTMLZToastNotificationListElement;
+        new (): HTMLZToastNotificationListElement;
+    };
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
     }
     var HTMLZToggleButtonElement: {
@@ -1940,6 +1950,7 @@ declare global {
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-toast-notification": HTMLZToastNotificationElement;
+        "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
@@ -3373,6 +3384,10 @@ declare namespace LocalJSX {
          */
         "type"?: ToastNotificationTypes;
     }
+    interface ZToastNotificationList {
+        "newestOnTop"?: boolean;
+        "position"?: ToastNotificationPositionsTypes;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -3516,6 +3531,7 @@ declare namespace LocalJSX {
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-toast-notification": ZToastNotification;
+        "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
@@ -3605,6 +3621,7 @@ declare module "@stencil/core" {
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
+            "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
