@@ -292,13 +292,6 @@ export enum ListSize {
   "x-large" = "x-large",
 }
 
-export enum Density {
-  short = "short",
-  default = "default",
-  tall = "tall",
-  "extra-tall" = "extra-tall",
-}
-
 export enum ExpandableListStyle {
   accordion = "accordion",
   menu = "menu",

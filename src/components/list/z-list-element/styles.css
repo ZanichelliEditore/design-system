@@ -2,7 +2,8 @@
   outline: none;
 }
 
-:host > .container {
+:host > .container,
+:host > .container-contextual-menu {
   --background-color-list-element: var(--bg-white);
   --background-hover-color-list-element: var(--gray50);
   --background-active-color-list-element: var(--gray50);
@@ -24,22 +25,26 @@
 
 /*z-list-element size*/
 
-:host([size="small"]) > .container {
+:host([size="small"]) > .container,
+:host([size="small"]) > .container-contextual-menu {
   padding: calc(var(--space-unit) / 2) 0;
   min-height: calc(var(--space-unit) * 4);
 }
 
-:host([size="medium"]) > .container {
+:host([size="medium"]) > .container,
+:host([size="medium"]) > .container-contextual-menu {
   padding: var(--space-unit) 0;
   min-height: calc(var(--space-unit) * 5);
 }
 
-:host([size="large"]) > .container {
+:host([size="large"]) > .container,
+:host([size="large"]) > .container-contextual-menu {
   padding: calc(var(--space-unit) * 2) 0;
   min-height: calc(var(--space-unit) * 7);
 }
 
-:host([size="x-large"]) > .container {
+:host([size="x-large"]) > .container,
+:host([size="x-large"]) > .container-contextual-menu {
   padding: calc(var(--space-unit) * 3) 0;
   min-height: calc(var(--space-unit) * 9);
 }
@@ -47,34 +52,47 @@
 /*-----------------*/
 
 :host([expandable]) > .container,
+:host([expandable]) > .container-contextual-menu,
 :host([clickable]) > .container,
-.container-contextual-menu {
+:host([clickable]) > .container-contextual-menu {
   cursor: pointer;
 }
 
 :host([expandable]:hover) > .container,
-:host([clickable]:hover) > .container {
+:host([expandable]:hover) > .container-contextual-menu,
+:host([clickable]:hover) > .container,
+:host([clickable]:hover) > .container-contextual-menu {
   background-color: var(--background-hover-color-list-element);
 }
 
 :host([expandable]:focus:focus-visible) > .container,
-:host([clickable]:focus:focus-visible) > .container {
+:host([expandable]:focus:focus-visible) > .container-contextual-menu,
+:host([clickable]:focus:focus-visible) > .container,
+:host([clickable]:focus:focus-visible) > .container-contextual-menu {
   box-shadow: var(--shadow-focus-primary);
 }
 
 :host([expandable]:active) > .container,
-:host([clickable]:active) > .container {
+:host([expandable]:active) > .container-contextual-menu,
+:host([clickable]:active) > .container,
+:host([clickable]:active) > .container-contextual-menu {
   background-color: var(--background-active-color-list-element);
 }
 
 :host([align-button="left"][expandable])
   > .container
+  > .z-list-element-container,
+:host([align-button="left"][expandable])
+  > .container-contextual-menu
   > .z-list-element-container {
   display: flex;
 }
 
 :host([align-button="right"][expandable])
   > .container
+  > .z-list-element-container,
+:host([align-button="right"][expandable])
+  > .container-contextual-menu
   > .z-list-element-container {
   display: flex;
   flex-direction: row-reverse;
@@ -84,6 +102,10 @@
 :host([align-button="left"][expandable])
   > .container
   > .z-list-element-container
+  > z-icon,
+:host([align-button="left"][expandable])
+  > .container-contextual-menu
+  > .z-list-element-container
   > z-icon {
   margin-right: var(--space-unit);
 }
@@ -91,15 +113,21 @@
 :host([align-button="right"][expandable])
   > .container
   > .z-list-element-container
+  > z-icon,
+:host([align-button="right"][expandable])
+  > .container-contextual-menu
+  > .z-list-element-container
   > z-icon {
   margin-left: var(--space-unit);
 }
 
-:host > .container > .z-list-element-inner-container {
+:host > .container > .z-list-element-inner-container,
+:host > .container-contextual-menu > .z-list-element-inner-container {
   display: none;
 }
 
-:host > .container > .z-list-element-inner-container.expanded {
+:host > .container > .z-list-element-inner-container.expanded,
+:host > .container-contextual-menu > .z-list-element-inner-container.expanded {
   display: block;
 }
 
@@ -110,13 +138,4 @@
 .container-contextual-menu:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
-}
-
-.container-contextual-menu {
-  padding: 0 4px;
-}
-
-.short {
-  padding-top: 4px;
-  padding-bottom: 4px;
 }
