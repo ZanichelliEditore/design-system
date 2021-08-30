@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element } from "@stencil/core";
+import { Component, Prop, h, Element, Host} from "@stencil/core";
 import {
   ToastNotificationPositionsEnum,
   ToastNotificationPositionsTypes,
@@ -19,13 +19,13 @@ export class ZToastNotificationList {
 
   render() {
     return (
-      <div id="toast-container" class={
+      <Host class={
         this.position
           ? this.position
           : ToastNotificationPositionsEnum.topRight
       }>
           <slot></slot>
-      </div>
+      </Host>
     );
   }
 }

@@ -19,10 +19,6 @@
             /* padding: 8px; */
         }
 
-        z-toast-notification-list {
-            margin-top: 50px;
-        }
-
         .toast-container-top {
             position: relative;
             margin: 0;
@@ -383,7 +379,7 @@
         notification.setAttribute("type", "success");
         notification.setAttribute("heading", "Notification");
         notification.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante.");
-        notification.setAttribute("transition", "slide-in-right");
+        notification.setAttribute("transition", "slide-in-up");
         console.log(notificationList, notification)
         setTimeout(() => {
             notificationList.insertBefore(notification, notificationList.firstChild);
