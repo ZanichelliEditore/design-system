@@ -378,13 +378,24 @@
         const notification = document.createElement('Z-TOAST-NOTIFICATION');
         notification.setAttribute("type", "success");
         notification.setAttribute("heading", "Notification");
-        notification.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante.");
+        notification.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 1");
         notification.setAttribute("transition", "slide-in-up");
         notification.setAttribute("closebutton", "true");
         console.log(notificationList, notification)
         setTimeout(() => {
             notificationList.appendChild(notification);
         }, 2000);
+
+        const notification2 = document.createElement('Z-TOAST-NOTIFICATION');
+        notification2.setAttribute("type", "success");
+        notification2.setAttribute("heading", "Notification");
+        notification2.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 2");
+        notification2.setAttribute("transition", "slide-in-up");
+        notification2.setAttribute("closebutton", "true");
+        console.log(notificationList, notification)
+        setTimeout(() => {
+            notificationList.appendChild(notification2);
+        }, 4000);
     </script>
 </body>
 

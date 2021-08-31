@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property      | Attribute       | Description | Type                                                                                                                                                                                                                                                                      | Default     |
-| ------------- | --------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `newestOnTop` | `newest-on-top` |             | `boolean`                                                                                                                                                                                                                                                                 | `true`      |
-| `position`    | `position`      |             | `ToastNotificationPositionsEnum.bottomCentre \| ToastNotificationPositionsEnum.bottomLeft \| ToastNotificationPositionsEnum.bottomRight \| ToastNotificationPositionsEnum.topCentre \| ToastNotificationPositionsEnum.topLeft \| ToastNotificationPositionsEnum.topRight` | `undefined` |
+| Property      | Attribute     | Description | Type                                                                                                                                                                                                                                                                      | Default     |
+| ------------- | ------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `newestontop` | `newestontop` |             | `boolean`                                                                                                                                                                                                                                                                 | `true`      |
+| `position`    | `position`    |             | `ToastNotificationPositionsEnum.bottomCentre \| ToastNotificationPositionsEnum.bottomLeft \| ToastNotificationPositionsEnum.bottomRight \| ToastNotificationPositionsEnum.topCentre \| ToastNotificationPositionsEnum.topLeft \| ToastNotificationPositionsEnum.topRight` | `undefined` |
 
 
 ----------------------------------------------

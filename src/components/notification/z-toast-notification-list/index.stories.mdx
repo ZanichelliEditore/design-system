@@ -1,13 +1,192 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { boolean, select } from "@storybook/addon-knobs";
 
-<Meta title="ZToastNotificationList" component="z-toast-notification-list" />
+
+<Meta title="Notification/ZToastNotificationList" component="z-toast-notification-list" />
 
 # ZToastNotificationList
 
 <Preview>
-  <Story name="ZToastNotificationList-sample">
-    {html`<z-toast-notification-list></z-toast-notification-list>`}
+  <Story name="ZToastNotificationList-topLeft-slideInDown">
+    {html`<z-toast-notification-list position="${select(
+          "position",
+          ["top-left", "top-centre", "top-right", "bottom-right", "bottom-centre", "bottom-left"],
+          "top-left")}"
+          newestontop="${boolean("newestontop", true)}">
+        <z-toast-notification type="dark" heading="Notification" message="Autoclose 18s."
+          transition="slide-in-down" draggablepercentage="50" autoclose="18000" closebutton >
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+          transition="slide-in-down" draggablepercentage="50" closebutton>
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Con pulsante"
+          transition="slide-in-down" draggablepercentage="50" closebutton>
+          <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+        </z-toast-notification>
+      </z-toast-notification-list>`}
+  </Story>
+  <Story name="ZToastNotificationList-topLeft-slideInRight">
+    {html`<z-toast-notification-list position="${select(
+          "position",
+          ["top-left", "top-centre", "top-right", "bottom-right", "bottom-centre", "bottom-left"],
+          "top-left")}"
+          newestontop="${boolean("newestontop", true)}">
+        <z-toast-notification type="dark" heading="Notification" message="Autoclose 18s."
+          transition="slide-in-right" draggablepercentage="50" autoclose="18000" closebutton >
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+          transition="slide-in-right" draggablepercentage="50" closebutton>
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Con pulsante"
+          transition="slide-in-right" draggablepercentage="50" closebutton>
+          <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+        </z-toast-notification>
+      </z-toast-notification-list>`}
+  </Story>
+  <Story name="ZToastNotificationList-topCentre">
+    {html`<z-toast-notification-list position="${select(
+          "position",
+          ["top-left", "top-centre", "top-right", "bottom-right", "bottom-centre", "bottom-left"],
+          "top-centre")}"
+          newestontop="${boolean("newestontop", true)}">
+        <z-toast-notification type="dark" heading="Notification" message="Autoclose 18s."
+          transition="slide-in-down" draggablepercentage="50" autoclose="18000" closebutton >
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+          transition="slide-in-down" draggablepercentage="50" closebutton>
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Con pulsante"
+          transition="slide-in-down" draggablepercentage="50" closebutton>
+          <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+        </z-toast-notification>
+      </z-toast-notification-list>`}
+  </Story>
+  <Story name="ZToastNotificationList-topRight-slideInDown">
+    {html`<z-toast-notification-list position="${select(
+          "position",
+          ["top-left", "top-centre", "top-right", "bottom-right", "bottom-centre", "bottom-left"],
+          "top-right")}"
+          newestontop="${boolean("newestontop", true)}">
+        <z-toast-notification type="dark" heading="Notification" message="Autoclose 18s."
+          transition="slide-in-down" draggablepercentage="50" autoclose="18000" closebutton >
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+          transition="slide-in-down" draggablepercentage="50" closebutton>
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Con pulsante"
+          transition="slide-in-down" draggablepercentage="50" closebutton>
+          <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+        </z-toast-notification>
+      </z-toast-notification-list>`}
+  </Story>
+  <Story name="ZToastNotificationList-topRight-slideInLeft">
+    {html`<z-toast-notification-list position="${select(
+          "position",
+          ["top-left", "top-centre", "top-right", "bottom-right", "bottom-centre", "bottom-left"],
+          "top-right")}"
+          newestontop="${boolean("newestontop", true)}">
+        <z-toast-notification type="dark" heading="Notification" message="Autoclose 18s."
+          transition="slide-in-left" draggablepercentage="50" autoclose="18000" closebutton >
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+          transition="slide-in-left" draggablepercentage="50" closebutton>
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Con pulsante"
+          transition="slide-in-left" draggablepercentage="50" closebutton>
+          <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+        </z-toast-notification>
+      </z-toast-notification-list>`}
+  </Story>
+  <Story name="ZToastNotificationList-bottomRight-slideInUp">
+    {html`<z-toast-notification-list position="${select(
+          "position",
+          ["top-left", "top-centre", "top-right", "bottom-right", "bottom-centre", "bottom-left"],
+          "bottom-right")}"
+          newestontop="${boolean("newestontop", true)}">
+        <z-toast-notification type="dark" heading="Notification" message="Autoclose 18s."
+          transition="slide-in-up" draggablepercentage="50" autoclose="18000" closebutton >
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+          transition="slide-in-up" draggablepercentage="50" closebutton>
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Con pulsante"
+          transition="slide-in-up" draggablepercentage="50" closebutton>
+          <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+        </z-toast-notification>
+      </z-toast-notification-list>`}
+  </Story>
+  <Story name="ZToastNotificationList-bottomRight-slideInLeft">
+    {html`<z-toast-notification-list position="${select(
+          "position",
+          ["top-left", "top-centre", "top-right", "bottom-right", "bottom-centre", "bottom-left"],
+          "bottom-right")}"
+          newestontop="${boolean("newestontop", true)}">
+        <z-toast-notification type="dark" heading="Notification" message="Autoclose 18s."
+          transition="slide-in-left" draggablepercentage="50" autoclose="18000" closebutton >
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+          transition="slide-in-left" draggablepercentage="50" closebutton>
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Con pulsante"
+          transition="slide-in-left" draggablepercentage="50" closebutton>
+          <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+        </z-toast-notification>
+      </z-toast-notification-list>`}
+  </Story>
+  <Story name="ZToastNotificationList-bottomCentre">
+    {html`<z-toast-notification-list position="${select(
+          "position",
+          ["top-left", "top-centre", "top-right", "bottom-right", "bottom-centre", "bottom-left"],
+          "bottom-centre")}"
+          newestontop="${boolean("newestontop", true)}">
+        <z-toast-notification type="dark" heading="Notification" message="Autoclose 18s."
+          transition="slide-in-up" draggablepercentage="50" autoclose="18000" closebutton >
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+          transition="slide-in-up" draggablepercentage="50" closebutton>
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Con pulsante"
+          transition="slide-in-up" draggablepercentage="50" closebutton>
+          <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+        </z-toast-notification>
+      </z-toast-notification-list>`}
+  </Story>
+  <Story name="ZToastNotificationList-bottomCentre-SlideInUp">
+    {html`<z-toast-notification-list position="${select(
+          "position",
+          ["top-left", "top-centre", "top-right", "bottom-right", "bottom-centre", "bottom-left"],
+          "bottom-left")}"
+          newestontop="${boolean("newestontop", true)}">
+        <z-toast-notification type="dark" heading="Notification" message="Autoclose 18s."
+          transition="slide-in-up" draggablepercentage="50" autoclose="18000" closebutton >
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+          transition="slide-in-up" draggablepercentage="50" closebutton>
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Con pulsante"
+          transition="slide-in-up" draggablepercentage="50" closebutton>
+          <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+        </z-toast-notification>
+      </z-toast-notification-list>`}
+  </Story>
+  <Story name="ZToastNotificationList-bottomLeft-slideInRight">
+    {html`<z-toast-notification-list position="${select(
+          "position",
+          ["top-left", "top-centre", "top-right", "bottom-right", "bottom-centre", "bottom-left"],
+          "bottom-left")}"
+          newestontop="${boolean("newestontop", true)}">
+        <z-toast-notification type="dark" heading="Notification" message="Autoclose 18s."
+          transition="slide-in-right" draggablepercentage="50" autoclose="18000" closebutton >
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+          transition="slide-in-right" draggablepercentage="50" closebutton>
+        </z-toast-notification>
+        <z-toast-notification type="dark" heading="Notification" message="Con pulsante"
+          transition="slide-in-right" draggablepercentage="50" closebutton>
+          <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+        </z-toast-notification>
+      </z-toast-notification-list>`}
   </Story>
 </Preview>
 
