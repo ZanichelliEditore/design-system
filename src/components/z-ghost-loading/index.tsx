@@ -1,7 +1,4 @@
-import { Component, Prop, h, Host } from '@stencil/core';
-
-import { GhostLoadingSize } from '../../beans';
-
+import { Component, h, Host } from '@stencil/core';
 @Component({
   tag: 'z-ghost-loading',
   styleUrl: 'styles.css',
@@ -9,11 +6,6 @@ import { GhostLoadingSize } from '../../beans';
 })
 
 export class ZGhostLoading {
-
-  /**
- * [optional] Sets the ghost loading size.
- */
-  @Prop({reflect: true}) size?: GhostLoadingSize = GhostLoadingSize.large;
 
   render() {
     return (

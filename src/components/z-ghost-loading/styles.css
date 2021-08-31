@@ -6,16 +6,10 @@
 :host {
   display: inline-block;
   width: 100%;
+  height: 100%;
   background: var(--bg-neutral-100);
   overflow: hidden;
   border-radius: 4px;
-}
-
-:host([size="small"]) {
-  height: calc(var(--space-unit) * 1.5);
-}
-:host([size="large"]) {
-  height: calc(var(--space-unit) * 3);
 }
 
 :host::after {

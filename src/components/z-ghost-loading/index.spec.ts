@@ -11,35 +11,7 @@ describe("Suite test ZGhostLoading", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-ghost-loading size="large">
-      <mock:shadow-root></mock:shadow-root>
-    </z-ghost-loading>
-    `)
-  });
-
-  it("Test render small ZGhostLoading", async () => {
-
-    const page = await newSpecPage({
-      components: [ZGhostLoading],
-      html: `<z-ghost-loading size="small"></z-ghost-loading>`
-    });
-
-    expect(page.root).toEqualHtml(`
-    <z-ghost-loading size="small">
-      <mock:shadow-root></mock:shadow-root>
-    </z-ghost-loading>
-    `)
-  });
-
-  it("Test render large ZGhostLoading", async () => {
-
-    const page = await newSpecPage({
-      components: [ZGhostLoading],
-      html: `<z-ghost-loading size="large"></z-ghost-loading>`
-    });
-
-    expect(page.root).toEqualHtml(`
-    <z-ghost-loading size="large">
+    <z-ghost-loading>
       <mock:shadow-root></mock:shadow-root>
     </z-ghost-loading>
     `)
