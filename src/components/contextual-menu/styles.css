@@ -31,3 +31,11 @@
 :host(:focus-within) {
   outline: none;
 }
+
+.sc-z-popover,
+.sc-z-popover-s {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--space-unit) * 0.2);
+}

@@ -16,7 +16,7 @@ export class ZIcon {
   /** icon id (optional) */
   @Prop() iconid?: string;
   /** icon fill (optional) */
-  @Prop() fill?: string = "";
+  @Prop() fill?: string;
 
   selectPathOrPolygon(iconName: string): HTMLElement {
     if (iconName && iconName.startsWith("M")) {
@@ -33,7 +33,7 @@ export class ZIcon {
         width={this.width}
         height={this.height}
         id={this.iconid}
-        fill={this.fill}
+        fill={this.fill ? `var(--${this.fill})` : ""}
       >
         {this.selectPathOrPolygon(icons[this.name])}
       </svg>

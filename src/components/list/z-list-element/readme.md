@@ -18,7 +18,16 @@
 | `expandable`       | `expandable`         | [optional] Sets element as expandable.                    | `boolean`                                                                           | `false`                          |
 | `expandableStyle`  | `expandable-style`   | [optional] Sets expandable style to element.              | `ExpandableListStyle.accordion \| ExpandableListStyle.menu`                         | `ExpandableListStyle.accordion`  |
 | `isContextualMenu` | `is-contextual-menu` | [optional] If is used in ContextualMenu component         | `boolean`                                                                           | `false`                          |
+| `listElementId`    | `list-element-id`    |                                                           | `number`                                                                            | `undefined`                      |
 | `size`             | `size`               | [optional] Sets size of inside elements.                  | `ListSize.large \| ListSize.medium \| ListSize.small \| typeof ListSize["x-large"]` | `ListSize.medium`                |
+
+
+## Events
+
+| Event             | Description                                 | Type                  |
+| ----------------- | ------------------------------------------- | --------------------- |
+| `accessibleFocus` | remove filter click event, returns filterid | `CustomEvent<number>` |
+| `clickItem`       | remove filter click event, returns filterid | `CustomEvent<any>`    |
 
 
 ## Dependencies

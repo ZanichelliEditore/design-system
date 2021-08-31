@@ -16,7 +16,7 @@ export class ContextualMenu {
   /**
    * [optional] Sets text color of ContextualMenu's content
    */
-  @Prop() color?: string = "var(--color-primary01)";
+  @Prop() color?: string = "color-primary01";
 
   private jsonElements;
 
@@ -50,7 +50,7 @@ export class ContextualMenu {
             aria-label="apri-menu-contestuale"
             slot="trigger"
             name="contextual-menu"
-            fill="var(--color-primary01)"
+            fill="color-primary01"
             style={{ cursor: "pointer" }}
           />
           <div class="popover-content-container" slot="popover">
@@ -62,17 +62,14 @@ export class ContextualMenu {
                     class="my-z-list-element"
                     align-button="left"
                     expandable-style="accordion"
-                    color={this.color}
+                    color={`var(--${this.color})`}
                     isContextualMenu
                     listElementId={index}
                   >
                     <div class="element-container">
                       {this.showIcon() && (
                         <div class="icon-container">
-                          <z-icon
-                            name={element.icon}
-                            fill="var(--color-primary01)"
-                          />
+                          <z-icon name={element.icon} fill="color-primary01" />
                         </div>
                       )}
                       <div class="text-container">

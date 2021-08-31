@@ -7,17 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                            | Type     | Default                    |
-| ---------- | ---------- | ------------------------------------------------------ | -------- | -------------------------- |
-| `color`    | `color`    | [optional] Sets text color of ContextualMenu's content | `string` | `"var(--color-primary01)"` |
-| `elements` | `elements` | elements of ContextualMenu                             | `string` | `undefined`                |
-
-
-## Events
-
-| Event       | Description                                 | Type               |
-| ----------- | ------------------------------------------- | ------------------ |
-| `clickItem` | remove filter click event, returns filterid | `CustomEvent<any>` |
+| Property   | Attribute  | Description                                            | Type     | Default             |
+| ---------- | ---------- | ------------------------------------------------------ | -------- | ------------------- |
+| `color`    | `color`    | [optional] Sets text color of ContextualMenu's content | `string` | `"color-primary01"` |
+| `elements` | `elements` | elements of ContextualMenu                             | `string` | `undefined`         |
 
 
 ## Dependencies

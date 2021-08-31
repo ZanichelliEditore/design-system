@@ -87,10 +87,10 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon con fill", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon fill="var(--color-primary01)"></z-icon>`,
+      html: `<z-icon fill="color-primary01"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-icon fill="var(--color-primary01)">
+      <z-icon fill="color-primary01">
         <mock:shadow-root>
           <svg fill="var(--color-primary01)" viewBox="0 0 1000 1000" width='18' height='18' id="">
             <polygon></polygon>
