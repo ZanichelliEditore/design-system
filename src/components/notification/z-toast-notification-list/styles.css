@@ -4,7 +4,6 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  gap: 8px;
   display: flex;
   flex-direction: column;
 	flex-wrap: nowrap;
@@ -14,6 +13,10 @@
 
 ::slotted(z-toast-notification) {
   width: 100%;
+}
+
+::slotted(:not(:last-child)) {
+  margin-bottom: 8px;
 }
 
 /* Tablet breakpoint */
