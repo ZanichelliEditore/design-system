@@ -124,10 +124,12 @@ export class ZToastNotification {
       const translateObj = {
         translate: "translateX( " + e.deltaX + "% )",
         translateBack: "translateX(0)",
+        transition: "transform 0.2s ease 0s"
       };
 
       this.percentage = e.deltaX;
       this.hostElement.style.transform = translateObj.translate;
+      this.hostElement.style.transition = translateObj.transition;
       if (
         e.direction === Hammer.DIRECTION_LEFT ||
         e.direction === Hammer.DIRECTION_RIGHT
