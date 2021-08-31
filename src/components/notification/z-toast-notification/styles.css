@@ -108,18 +108,22 @@
 @keyframes slideoutup {
   0% {
     transform: translateY(var(--percentuale));
+    opacity: 100%;
   }
   100% {
     transform: translateY(-100%);
+    opacity: 0;
   }
 }
 
 @keyframes slideoutdown {
   0% {
     transform: translateY(var(--percentuale));
+    opacity: 100%;
   }
   100% {
     transform: translateY(100%);
+    opacity: 0;
   }
 }
 

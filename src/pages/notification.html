@@ -191,18 +191,18 @@
                 </z-button>
             </z-toast-notification>
         </div> -->
-        <z-toast-notification-list position="top-left">
+        <z-toast-notification-list position="bottom-right">
             <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-down" draggablepercentage="50" closebutton>
+                transition="slide-in-up" draggablepercentage="50" closebutton>
             </z-toast-notification>
             <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-down" draggablepercentage="50" closebutton>
+                transition="slide-in-up" draggablepercentage="50" closebutton>
             </z-toast-notification>
             <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-down" draggablepercentage="50" closebutton>
+                transition="slide-in-up" draggablepercentage="50" closebutton>
             </z-toast-notification>
             <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-down" draggablepercentage="50" closebutton>
+                transition="slide-in-up" draggablepercentage="50" closebutton>
             </z-toast-notification>
         </z-toast-notification-list>
     </div>
@@ -379,11 +379,12 @@
         notification.setAttribute("type", "success");
         notification.setAttribute("heading", "Notification");
         notification.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante.");
-        notification.setAttribute("transition", "slide-in-down");
+        notification.setAttribute("transition", "slide-in-up");
+        notification.setAttribute("closebutton", "true");
         console.log(notificationList, notification)
         setTimeout(() => {
-            notificationList.insertBefore(notification, notificationList.firstChild);
-        }, 10000);
+            notificationList.appendChild(notification);
+        }, 2000);
     </script>
 </body>
 

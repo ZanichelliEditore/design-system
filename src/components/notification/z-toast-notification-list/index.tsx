@@ -13,7 +13,7 @@ export class ZToastNotificationList {
   @Element() hostElement: HTMLElement;
 
   @Prop() position: ToastNotificationPositionsTypes;
-  @Prop() newestOnTop: boolean = true;
+  @Prop() newestontop?: boolean = true;
 
   componentWillLoad() {}
 
@@ -24,7 +24,11 @@ export class ZToastNotificationList {
           ? this.position
           : ToastNotificationPositionsEnum.topRight
       }>
+        <div id="notification-stack" class={
+          this.newestontop ? "newest-on-top" : ''
+        }>
           <slot></slot>
+        </div>
       </Host>
     );
   }
