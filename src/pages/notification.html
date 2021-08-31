@@ -191,7 +191,7 @@
                 </z-button>
             </z-toast-notification>
         </div> -->
-        <z-toast-notification-list position="bottom-left">
+        <z-toast-notification-list position="top-left">
             <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
                 transition="slide-in-down" draggablepercentage="50" closebutton>
             </z-toast-notification>
@@ -379,7 +379,7 @@
         notification.setAttribute("type", "success");
         notification.setAttribute("heading", "Notification");
         notification.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante.");
-        notification.setAttribute("transition", "slide-in-up");
+        notification.setAttribute("transition", "slide-in-down");
         console.log(notificationList, notification)
         setTimeout(() => {
             notificationList.insertBefore(notification, notificationList.firstChild);

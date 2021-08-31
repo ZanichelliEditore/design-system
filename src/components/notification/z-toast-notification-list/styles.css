@@ -8,7 +8,7 @@
   flex-direction: column;
 	flex-wrap: nowrap;
   z-index: 10000;
-  margin: 16px;
+  margin: calc(var(--space-unit) * 2);
 }
 
 ::slotted(z-toast-notification) {
@@ -16,7 +16,7 @@
 }
 
 ::slotted(:not(:last-child)) {
-  margin-bottom: 8px;
+  margin-bottom: calc(var(--space-unit) * 1);
 }
 
 /* Tablet breakpoint */
@@ -27,7 +27,7 @@
   }
 
   :host {
-    margin: 24px;
+    margin: calc(var(--space-unit) * 3);
   }
 
   :host(.top-centre) {
@@ -83,7 +83,7 @@
 @media only screen and (min-width: 1366px) {
 
   :host {
-    margin: 32px;;
+    margin: calc(var(--space-unit) * 4)
   }
 
   ::slotted(z-toast-notification) {

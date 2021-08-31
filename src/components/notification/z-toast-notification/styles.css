@@ -130,9 +130,8 @@
   font-size: 14px;
   letter-spacing: 0.16px;
   box-sizing: border-box;
-  box-shadow: 0px 3px 6px 0px rgba(66, 69, 72, 0.4);
   min-height: 52px;
-  padding: 8px 16px;
+  padding: calc(var(--space-unit) * 1) calc(var(--space-unit) * 2);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -143,7 +142,7 @@
 }
 
 :host > #external-container.several-lines-padding {
-  padding: 16px;
+  padding: calc(var(--space-unit) * 2);
 }
 
 :host > #external-container > #flex-container {
@@ -157,7 +156,7 @@
 :host > #external-container #text {
   color: var(--color-white);
   line-height: 20px;
-  margin-right: 16px;
+  margin-right: calc(var(--space-unit) * 2);
   letter-spacing: 0.16px;
   text-align: left;
 }
@@ -168,13 +167,13 @@
 }
 
 :host > #external-container.mobile-wrapped #button ::slotted(z-button) {
-  margin-top: 16px;
+  margin-top: calc(var(--space-unit) * 2);
 }
 
 :host > #external-container #icon {
   cursor: pointer;
   fill: var(--color-white);
-  margin-left: 16px;
+  margin-left: calc(var(--space-unit) * 2);
 }
 
 :host > #external-container.dark {
