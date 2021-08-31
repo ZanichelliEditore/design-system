@@ -6,11 +6,11 @@ describe("Suite test ZToastNotification", () => {
 
     const page = await newSpecPage({
       components: [ZToastNotification],
-      html: `<z-toast-notification></z-toast-notification>`
+      html: `<z-toast-notification closebutton="true"></z-toast-notification>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-toast-notification class="slide-in-down" style="--percentuale: undefined%; undefined: rgba(0,0,0,0);">
+    <z-toast-notification closebutton="true" class="slide-in-down" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
       <mock:shadow-root>
         <div id="external-container">
           <div id="text">
@@ -19,6 +19,9 @@ describe("Suite test ZToastNotification", () => {
           </div>
           <div id="button">
             <slot name="button"></slot>
+          </div>
+          <div id="icon">
+            <z-icon height="15" name="multiply-circled" width="15"></z-icon>
           </div>
         </div>
       </mock:shadow-root>
@@ -30,18 +33,18 @@ describe("Suite test ZToastNotification", () => {
 
     const page = await newSpecPage({
       components: [ZToastNotification],
-      html: `<z-toast-notification 
-        heading="Titolo" 
-        type="dark" 
-        message="descrizione della notifica" 
-        closebutton="true" 
+      html: `<z-toast-notification
+        heading="Titolo"
+        type="dark"
+        message="descrizione della notifica"
+        closebutton="true"
         transition="slide-in-down"
         draggablepercentage="10"
       ></z-toast-notification>`
     });
 
     expect(page.root).toEqualHtml(`
-    <z-toast-notification class="slide-in-down" closebutton="true" draggablepercentage="10" heading="Titolo" message="descrizione della notifica" transition="slide-in-down" type="dark" style="--percentuale: undefined%; undefined: rgba(0,0,0,0);">
+    <z-toast-notification class="slide-in-down" closebutton="true" draggablepercentage="10" heading="Titolo" message="descrizione della notifica" transition="slide-in-down" type="dark" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
       <mock:shadow-root>
         <div class="dark" id="external-container">
           <div id="text">
@@ -68,12 +71,12 @@ describe("Suite test ZToastNotification", () => {
 
     const page = await newSpecPage({
       components: [ZToastNotification],
-      html: `<z-toast-notification 
-        heading="Titolo" 
-        type="dark" 
-        message="descrizione della notifica" 
-        closebutton="true" 
-        transition="slide-in-down" 
+      html: `<z-toast-notification
+        heading="Titolo"
+        type="dark"
+        message="descrizione della notifica"
+        closebutton="true"
+        transition="slide-in-down"
         draggablepercentage="10"
       >
         <z-button variant="dark-bg" issmall slot="button">button</z-button>
@@ -81,7 +84,7 @@ describe("Suite test ZToastNotification", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-toast-notification class="slide-in-down" closebutton="true" draggablepercentage="10" heading="Titolo" message="descrizione della notifica" transition="slide-in-down" type="dark" style="--percentuale: undefined%; undefined: rgba(0,0,0,0);">
+    <z-toast-notification class="slide-in-down" closebutton="true" draggablepercentage="10" heading="Titolo" message="descrizione della notifica" transition="slide-in-down" type="dark" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
       <mock:shadow-root>
         <div class="dark" id="external-container">
           <div id="text">

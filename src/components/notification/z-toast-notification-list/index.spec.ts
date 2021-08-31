@@ -11,12 +11,9 @@ describe("Suite test ZToastNotificationList", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toast-notification-list>
+      <z-toast-notification-list class="top-right">
         <mock:shadow-root>
-          <div>
-            This is your z-toast-notification-list component
-            This is your default prop:
-          </div>
+          <slot></slot>
         </mock:shadow-root>
       </z-toast-notification-list>
     `)
