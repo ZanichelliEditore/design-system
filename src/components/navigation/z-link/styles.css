@@ -1,15 +1,19 @@
 :host {
+  --font-size-link: inherit;
+}
+
+:host {
   font-family: var(--dashboard-font);
   font-weight: inherit;
-  font-size: inherit;
+  font-size: var(--font-size-link);
   line-height: inherit;
   outline: none;
 }
 
 a {
   cursor: pointer;
-  color: var(--myz-blue);
-  fill: var(--myz-blue);
+  color: var(--color-link01);
+  fill: var(--color-link01);
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -18,24 +22,57 @@ a {
   border-bottom: var(--border-size-medium) solid transparent;
 }
 
-a:hover {
-  color: var(--myz-blue-dark);
-  fill: var(--myz-blue-dark);
-  text-decoration: none;
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus,
+a:visited {
+  color: var(--color-hover-primary);
+  fill: var(--color-hover-primary);
+}
+
+a:active {
+  color: var(--color-pressed-primary);
+  fill: var(--color-pressed-primary);
 }
 
 a.disabled {
   cursor: default;
   pointer-events: none;
+  color: var(--color-disabled03);
+  fill: var(--color-disabled03);
+}
+
+a.underline,
+a.underline:active,
+a.underline:hover,
+a.underline:visited,
+a.underline.disabled {
+  text-decoration: underline;
 }
 
 a.disabled,
 a.disabled:active,
 a.disabled:visited,
 a.disabled:hover {
-  color: var(--bg-neutral-200);
-  fill: var(--bg-neutral-200);
   text-decoration: none;
+}
+
+a.default-inverse,
+a.default-inverse:focus,
+a.default-inverse:active,
+a.default-inverse:hover {
+  color: var(--color-text-inverse);
+  fill: var(--color-text-inverse);
+}
+
+a.default-inverse:visited {
+  color: var(--color-text-inverse);
+  fill: var(--color-text-inverse);
 }
 
 a.black,

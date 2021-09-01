@@ -65,7 +65,38 @@ import { text, number, boolean } from '@storybook/addon-knobs';
         textcolor="${text('textcolor', 'black')}"
       >z-link</z-link>`}
   </Story>
+  <Story name="z-link textcolor default-inverse">
+    {html`
+      <z-link
+        style="background-color:black"
+        href="${text('href', 'www.zanichelli.it')}"
+        target="${text('target', '_blank')}"
+        icon="${text('icon', 'download')}"
+        htmlid="${number('htmlid', 1)}"
+        htmltabindex="${number('htmltabindex', 1)}"
+        isdisabled="${boolean('isdisabled', false)}"
+        isactive="${boolean('isactive', false)}"
+        textcolor="${text('textcolor', 'default-inverse')}"
+      >z-link</z-link>`}
+  </Story>
+  <Story name="z-link underline">
+    {html`
+      <z-link
+        href="${text('href', 'www.zanichelli.it')}"
+        target="${text('target', '_blank')}"
+        icon="${text('icon', 'download')}"
+        htmlid="${number('htmlid', 1)}"
+        htmltabindex="${number('htmltabindex', 1)}"
+        isdisabled="${boolean('isdisabled', false)}"
+        isactive="${boolean('isactive', false)}"
+        underline:"${boolean('underline', true)}"
+      >z-link</z-link>`}
+  </Story>
 </Preview>
 
   <Props of="z-link" />
 
+## How to use
+
+Icon dimension is calculated using the link font size multiplied by 1.125
+To change the font size set the --font-size-link variable in style; defaults to inherit

@@ -1,4 +1,5 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import { Component, Prop, h, Event, EventEmitter, Element } from "@stencil/core";
+import { forceUpdate, HostElement } from "@stencil/core/internal";
 
 /**
  * @slot - link content
@@ -24,18 +25,27 @@ export class ZLink {
   /** white variant flag (optional) */
   @Prop() iswhite?: boolean = false;
   /** link text variant (optional) */
-  @Prop() textcolor?: "white" | "blue" | "black" = "blue";
+  @Prop() textcolor?: "default"| "default-inverse" | "white" | "black" = "default";
   /** link icon name (optional) */
   @Prop() icon?: string;
   /** big link version */
   @Prop() big?: boolean = false;
+  /** link icon position (optional) */
+  @Prop() iconposition?: "left" | "right" = "left";
+  /** draw underline on text (optional) */
+  @Prop() underline?: boolean = false;  
 
   /** emitted on link click, returns linkId */
   @Event() zLinkClick: EventEmitter;
 
+  @Element() hostElement: HostElement;
+
+  iconSize: number;
+
   constructor() {
     this.emitZLinkClick = this.emitZLinkClick.bind(this);
     this.emitZLinkInteraction = this.emitZLinkInteraction.bind(this);
+    this.iconSize = 18;
   }
 
   componentWillRender() {
@@ -54,7 +64,22 @@ export class ZLink {
     this.zLinkClick.emit({ e, linkId });
   }
 
+  calculateIconSize() {
+    let height: number = parseFloat(window.getComputedStyle(this.hostElement).getPropertyValue('font-size'));
+    const currentSize = this.big ? 18 : Math.round(height * 1.125);
+    if(!Number.isNaN(currentSize) && this.iconSize !== currentSize){
+      this.iconSize = currentSize;
+      forceUpdate(this);
+    }
+  }
+
+  componentDidLoad() {
+    if(this.icon)
+      this.calculateIconSize();
+  }
+
   render() {
+
     return (
       <a
         id={this.htmlid}
@@ -63,20 +88,22 @@ export class ZLink {
           ${this.isactive && "active"}
           ${this.textcolor}
           ${this.iswhite && "white"}
-          ${this.big && "big"}`}
+          ${this.big && "big"}
+          ${this.underline && "underline"}`}
         target={this.target}
         role={this.href ? "link" : "button"}
-        tabindex={this.htmltabindex}
+        tabindex={this.isdisabled ? -1 : this.htmltabindex}
         onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.htmlid)}
       >
-        {this.icon && (
-          <z-icon
-            name={this.icon}
-            width={this.big ? 18 : 12}
-            height={this.big ? 18 : 12}
-          />
-        )}
-        <slot />
+        {this.iconposition === "right" && <slot />}
+        {this.icon &&
+        <z-icon
+          style={{"--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString()}}
+          name={this.icon}
+          height={this.iconSize}
+          width={this.iconSize}
+        />}
+        {this.iconposition === "left" && <slot />}
       </a>
     );
   }
