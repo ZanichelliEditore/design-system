@@ -41,7 +41,7 @@ export class ContextualMenu {
     return (
       <Host tabIndex="0">
         <z-popover
-          background-color="gray50"
+          background-color="color-background"
           box-shadow="shadow-2"
           position={PopoverPosition["after-down"]}
           padding="0"

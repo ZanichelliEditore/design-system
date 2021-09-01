@@ -68,7 +68,7 @@ export class ZListElement {
   /**
    * [optional] Sets the divider color.
    */
-  @Prop() dividerColor?: string = "gray200";
+  @Prop() dividerColor?: string = "color-surface03";
 
   /**
    * [optional] Sets the position where to insert the divider.

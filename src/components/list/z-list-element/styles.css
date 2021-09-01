@@ -5,8 +5,8 @@
 :host > .container,
 :host > .container-contextual-menu {
   --background-color-list-element: var(--bg-white);
-  --background-hover-color-list-element: var(--gray50);
-  --background-active-color-list-element: var(--gray50);
+  --background-hover-color-list-element: var(--color-surface02);
+  --background-active-color-list-element: var(--color-surface02);
 
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
@@ -17,10 +17,6 @@
   justify-content: center;
 
   box-sizing: border-box;
-}
-
-:host > .container-contextual-menu {
-  --background-hover-color-list-element-contextual-menu: var(--gray100);
 }
 
 /*z-list-element size*/
@@ -132,7 +128,7 @@
 }
 
 :host([clickable]:hover) > .container-contextual-menu {
-  background-color: var(--background-hover-color-list-element-contextual-menu);
+  background-color: var(--color-surface03);
 }
 
 .container-contextual-menu:focus-visible {

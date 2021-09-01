@@ -12,7 +12,7 @@ describe("Suite test ContextualMenu", () => {
     expect(page.root).toEqualHtml(`
       <contextual-menu tabindex="0">
         <mock:shadow-root>
-        <z-popover background-color="gray50" box-shadow="shadow-2" padding="0" position="after-down">
+        <z-popover background-color="color-background" box-shadow="shadow-2" padding="0" position="after-down">
                <z-icon aria-label="apri-menu-contestuale" fill="color-primary01" name="contextual-menu" slot="trigger" style="cursor: pointer;"></z-icon>
                <div class="popover-content-container" slot="popover">
                  <z-list>
@@ -33,7 +33,7 @@ describe("Suite test ContextualMenu", () => {
     expect(page.root).toEqualHtml(`
       <contextual-menu '="" elements='[{"icon":"share","text":"Element 1","key": "0"},{"icon":"delete","text":"Elemento 2","key": "1"}]' tabindex="0">
         <mock:shadow-root>
-         <z-popover background-color="gray50" box-shadow="shadow-2" padding="0" position="after-down">
+         <z-popover background-color="color-background" box-shadow="shadow-2" padding="0" position="after-down">
                  <z-icon aria-label="apri-menu-contestuale" fill="color-primary01" name="contextual-menu" slot="trigger" style="cursor: pointer;"></z-icon>
                  <div class="popover-content-container" slot="popover">
                    <z-list>
