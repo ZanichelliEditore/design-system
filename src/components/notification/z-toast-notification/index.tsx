@@ -125,7 +125,6 @@ export class ZToastNotification {
       const translateObj = {
         translate: "translateX( " + e.deltaX + "% )",
         translateBack: "translateX(0)",
-        transition: "transform 0.2s ease 0s"
       };
 
       this.percentage = e.deltaX;
