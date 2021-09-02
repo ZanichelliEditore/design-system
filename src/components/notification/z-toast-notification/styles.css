@@ -3,7 +3,6 @@
   min-width: 200px;
   max-width: 100%;
   box-shadow: var(--shadow-3);
-  --percentuale: 50%;
   width: 100%;
 }
 
@@ -68,25 +67,29 @@
 @keyframes slideinup {
   0% {
     transform: translateY(100%);
+    opacity: 0;
   }
   100% {
     transform: translateY(0);
+    opacity: 100%;
   }
 }
 
 @keyframes slideindown {
   0% {
     transform: translateY(-100%);
+    opacity: 0;
   }
   100% {
     transform: translateY(0);
+    opacity: 100%;
   }
 }
 
 @keyframes slideoutleft {
   0% {
     transform: translateX(var(--percentuale));
-    opacity: 100%;
+    opacity: var(--percentuale);
   }
   100% {
     transform: translateX(-100%);
@@ -97,7 +100,7 @@
 @keyframes slideoutright {
   0% {
     transform: translateX(var(--percentuale));
-    opacity: 100%;
+    opacity: var(--percentuale);
   }
   100% {
     transform: translateX(100%);

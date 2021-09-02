@@ -131,10 +131,12 @@ export class ZToastNotification {
       this.percentage = e.deltaX;
       this.hostElement.style.transform = translateObj.translate;
       this.hostElement.style.transition = translateObj.transition;
+      this.hostElement.style.opacity = `${ 100 - Math.abs(e.deltaX)}%`
       if (
         e.direction === Hammer.DIRECTION_LEFT ||
         e.direction === Hammer.DIRECTION_RIGHT
       ) {
+
         if (Math.abs(e.deltaX) > this.draggablepercentage && !this.isCloseEventCalled) {
           this.isCloseEventCalled = true;
           this.emitToastClose(
@@ -145,9 +147,10 @@ export class ZToastNotification {
         }
       }
 
-      if (e.isFinal && Math.abs(e.deltaX) < this.draggablepercentage){
+      if (e.isFinal && Math.abs(this.percentage) < this.draggablepercentage){
         this.hostElement.style.transform = translateObj.translateBack;
         this.hostElement.style.transition = "all 1s";
+        this.hostElement.style.opacity = `100%`
       }
     });
   }
