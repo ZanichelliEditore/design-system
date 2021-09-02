@@ -1,7 +1,7 @@
 :host {
   display: inline-block;
   min-width: 200px;
-  max-width: 100%;
+  width: 100%;
   box-shadow: var(--shadow-3);
 }
 
