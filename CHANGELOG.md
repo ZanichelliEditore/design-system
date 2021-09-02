@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.15.0](https://github.com/ZanichelliEditore/design-system/compare/v2.14.1...v2.15.0) (2021-09-02)
+
+
+### Features
+
+* **CLAV-113:** add z-ghost-loading component ([b627729](https://github.com/ZanichelliEditore/design-system/commit/b62772996a8a2d96481d86372bdbac3e9017b352))
+* **CLAV-113:** fix safari bug ([5b77c6e](https://github.com/ZanichelliEditore/design-system/commit/5b77c6eecfa448f839f247d0bcc49ec48a23f27d))
+* **CLAV-113:** refactor of z-ghost-loading height ([9f403be](https://github.com/ZanichelliEditore/design-system/commit/9f403befdb83a3a51b2a508392addc20b7115fab))
+* **CLAV-113:** remove unused css ([a807e80](https://github.com/ZanichelliEditore/design-system/commit/a807e8065e65de4aeea4ec4e92e3afb237026ee0))
+
 ### [2.14.1](https://github.com/ZanichelliEditore/design-system/compare/v2.14.0...v2.14.1) (2021-08-27)
 
 ## [2.14.0](https://github.com/ZanichelliEditore/design-system/compare/v2.13.0...v2.14.0) (2021-08-24)
