@@ -326,6 +326,8 @@ export namespace Components {
          */
         "icon": string;
     }
+    interface ZGhostLoading {
+    }
     interface ZHeader {
         /**
           * set current active menu link (optional)
@@ -1477,6 +1479,12 @@ declare global {
         prototype: HTMLZFooterSocialElement;
         new (): HTMLZFooterSocialElement;
     };
+    interface HTMLZGhostLoadingElement extends Components.ZGhostLoading, HTMLStencilElement {
+    }
+    var HTMLZGhostLoadingElement: {
+        prototype: HTMLZGhostLoadingElement;
+        new (): HTMLZGhostLoadingElement;
+    };
     interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {
     }
     var HTMLZHeaderElement: {
@@ -1881,6 +1889,7 @@ declare global {
         "z-footer-link": HTMLZFooterLinkElement;
         "z-footer-section": HTMLZFooterSectionElement;
         "z-footer-social": HTMLZFooterSocialElement;
+        "z-ghost-loading": HTMLZGhostLoadingElement;
         "z-header": HTMLZHeaderElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
@@ -2287,6 +2296,8 @@ declare namespace LocalJSX {
           * icon url
          */
         "icon"?: string;
+    }
+    interface ZGhostLoading {
     }
     interface ZHeader {
         /**
@@ -3466,6 +3477,7 @@ declare namespace LocalJSX {
         "z-footer-link": ZFooterLink;
         "z-footer-section": ZFooterSection;
         "z-footer-social": ZFooterSocial;
+        "z-ghost-loading": ZGhostLoading;
         "z-header": ZHeader;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
@@ -3555,6 +3567,7 @@ declare module "@stencil/core" {
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
             "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
             "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
+            "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
