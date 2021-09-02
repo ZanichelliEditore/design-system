@@ -54,6 +54,7 @@ export class ZToastNotification {
   private timeoutHandle: any;
   private startTime: number;
   private isMobile: boolean;
+  private isCloseEventCalled: boolean = false;
 
   /** notification close event */
   @Event() toastClose: EventEmitter;
@@ -134,7 +135,8 @@ export class ZToastNotification {
         e.direction === Hammer.DIRECTION_LEFT ||
         e.direction === Hammer.DIRECTION_RIGHT
       ) {
-        if (Math.abs(e.deltaX) > this.draggablepercentage) {
+        if (Math.abs(e.deltaX) > this.draggablepercentage && !this.isCloseEventCalled) {
+          this.isCloseEventCalled = true;
           this.emitToastClose(
             e.direction === Hammer.DIRECTION_LEFT
               ? "slide-out-left"
