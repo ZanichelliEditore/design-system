@@ -149,6 +149,7 @@ export class ZToastNotification {
         this.hostElement.style.transform = translateObj.translateBack;
         this.hostElement.style.transition = "all 1s";
         this.hostElement.style.opacity = `100%`
+        this.percentage = 0;
       }
     });
   }
