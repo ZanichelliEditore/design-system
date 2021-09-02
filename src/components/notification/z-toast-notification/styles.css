@@ -3,7 +3,6 @@
   min-width: 200px;
   max-width: 100%;
   box-shadow: var(--shadow-3);
-  width: 100%;
 }
 
 :host(.slide-in-left) {
@@ -219,6 +218,11 @@
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
+
+  :host {
+    max-width: 50vw;
+  }
+
   :host > #external-container > #flex-container {
     flex-wrap: nowrap;
   }
@@ -234,4 +238,7 @@
 
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {
+  :host {
+    max-width: 33vw;
+  }
 }

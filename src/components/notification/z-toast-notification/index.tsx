@@ -127,14 +127,13 @@ export class ZToastNotification {
         translateBack: "translateX(0)",
       };
 
-      this.percentage = e.deltaX;
-      this.hostElement.style.transform = translateObj.translate;
-      this.hostElement.style.opacity = `${ 100 - Math.abs(e.deltaX)}%`
       if (
-        e.direction === Hammer.DIRECTION_LEFT ||
-        e.direction === Hammer.DIRECTION_RIGHT
+        e.eventType === Hammer.DIRECTION_LEFT ||
+        e.eventType === Hammer.DIRECTION_RIGHT
       ) {
-
+        this.percentage = e.deltaX;
+        this.hostElement.style.transform = translateObj.translate;
+        this.hostElement.style.opacity = `${ 100 - Math.abs(e.deltaX)}%`
         if (Math.abs(e.deltaX) > this.draggablepercentage && !this.isCloseEventCalled) {
           this.isCloseEventCalled = true;
           this.emitToastClose(

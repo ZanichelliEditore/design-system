@@ -12,82 +12,6 @@
         .main-container {
             height: 500px;
             background: lightcoral;
-            /*             display: grid;
-            grid-template-rows: 1fr 1fr 1fr 1fr;
-            grid-template-columns: 1fr;
-            gap: 8px; */
-            /* padding: 8px; */
-        }
-
-        .toast-container-top {
-            position: relative;
-            margin: 0;
-            align-self: flex-start;
-        }
-
-        .toast-container-left {
-            position: relative;
-            margin: 0;
-            align-self: flex-start;
-        }
-
-        .toast-container-right {
-            position: relative;
-            margin: 0;
-            align-self: flex-end;
-        }
-
-        .toast-container-bottom {
-            position: relative;
-            margin: 0;
-            align-self: flex-end;
-        }
-
-        @media only screen and (min-width: 768px) {
-            .main-container {
-                grid-template-rows: 1fr 1fr;
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-                padding: 24px;
-            }
-
-            .toast-container-top,
-            .toast-container-left,
-            .toast-container-right,
-            .toast-container-bottom {
-                max-width: 50vw;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: nowrap;
-                align-content: stretch;
-                justify-content: space-between;
-                align-items: flex-start;
-                gap: 16px;
-                width: fit-content;
-            }
-
-
-
-            .toast-container-left,
-            .toast-container-bottom {
-                justify-self: end;
-            }
-
-            .toast-container-top,
-            .toast-container-right {
-                justify-self: start;
-            }
-        }
-
-        /* Wide breakpoint */
-        @media only screen and (min-width: 1366px) {
-
-            .toast-container-top,
-            .toast-container-left,
-            .toast-container-right,
-            .toast-container-bottom {
-                max-width: 33vw;
-            }
         }
     </style>
 </head>
@@ -104,109 +28,57 @@
         <z-app-switcher slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
     <div class="main-container">
-        <!--         <div class="toast-container-top">
-            <z-toast-notification class="toast" type="warning" heading="Notification" message="Autoclose in 10s."
-                transition="slide-in-down" draggablepercentage="50" autoclose="2000">
+        <z-toast-notification-list position="top-left">
+            <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+                transition="slide-in-right" draggablepercentage="80" closebutton>
                 <z-button slot="button" variant="dark-bg" size="small">
-                    <span style="color:rgb(66, 69, 72);">
-                        button
-                    </span>
-                </z-button>
+                  <span style="color:rgb(66, 69, 72);">
+                      button
+                  </span>
+              </z-button>
             </z-toast-notification>
-            <z-toast-notification class="toast" type="dark" heading="Notification" message="Testo corto."
-                transition="slide-in-down" draggablepercentage="50" closebutton>
-                <z-button slot="button" variant="dark-bg" size="small">button</z-button>
+            <z-toast-notification type="accent" heading="Notification" message="Autoclose in 10s."
+                transition="slide-in-right" draggablepercentage="80" autoclose="10000">
             </z-toast-notification>
-            <z-toast-notification class="toast" type="warning" heading="Notification" message="Autoclose in 10s... no scherzo"
-            transition="slide-in-down" draggablepercentage="50">
-            <z-button slot="button" variant="dark-bg" size="small">
-                <span style="color:rgb(66, 69, 72);">
-                    button
-                </span>
-            </z-button>
-        </z-toast-notification>
-        </div>
-        <div class="toast-container-left">
-            <z-toast-notification class="toast" type="warning" heading="Notification" message="Autoclose in 10s."
-                transition="slide-in-left" draggablepercentage="50" autoclose="10000">
-                <z-button slot="button" variant="dark-bg" size="small">
-                    <span style="color:rgb(66, 69, 72);">
-                        button
-                    </span>
-                </z-button>
+            <z-toast-notification type="light" heading="Notification" message="Senza pulsante."
+                transition="slide-in-right" draggablepercentage="80">
             </z-toast-notification>
-            <z-toast-notification class="toast" type="accent" heading="Notification"
-                message="Testo lungo ma molto lungo ma proprio lungo parecchio lungo lunghissimo."
-                transition="slide-in-left" draggablepercentage="50" closebutton>
-                <z-button slot="button" variant="dark-bg" size="small">button</z-button>
-            </z-toast-notification>
-            <z-toast-notification class="toast" type="warning" heading="Notification" message="Autoclose in 10s. testo lungo"
-            transition="slide-in-left" draggablepercentage="50" autoclose="12000">
-            <z-button slot="button" variant="dark-bg" size="small">
-                <span style="color:rgb(66, 69, 72);">
-                    button
-                </span>
-            </z-button>
-        </z-toast-notification>
-        </div>
-        <div class="toast-container-right">
-            <z-toast-notification class="toast" type="warning" heading="Notification" message="Autoclose in 10s."
-                transition="slide-in-right" draggablepercentage="50" autoclose="5000">
-                <z-button slot="button" variant="dark-bg" size="small">
-                    <span style="color:rgb(66, 69, 72);">
-                        button
-                    </span>
-                </z-button>
-            </z-toast-notification>
-            <z-toast-notification class="toast" type="success" heading="Notification" message="Senza pulsante."
-                transition="slide-in-right" draggablepercentage="50" closebutton>
-            </z-toast-notification>
-            <z-toast-notification class="toast" type="warning" heading="Notification" message="Autoclose in 10s."
-            transition="slide-in-right" draggablepercentage="50" autoclose="7000">
-            <z-button slot="button" variant="dark-bg" size="small">
-                <span style="color:rgb(66, 69, 72);">
-                    button
-                </span>
-            </z-button>
-        </z-toast-notification>
-        </div>
-        <div class="toast-container-bottom">
-            <z-toast-notification class="toast" type="warning" heading="Notification" message="Autoclose in 10s."
-                transition="slide-in-up" draggablepercentage="50" autoclose="15000">
-                <z-button slot="button" variant="dark-bg" size="small">
-                    <span style="color:rgb(66, 69, 72);">
-                        button
-                    </span>
-                </z-button>
-            </z-toast-notification>
-            <z-toast-notification class="toast" type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-up" draggablepercentage="50" closebutton>
-            </z-toast-notification>
-            <z-toast-notification class="toast" type="warning" heading="Notification" message="Autoclose in 10s."
-                transition="slide-in-up" draggablepercentage="50" autoclose="18000">
-                <z-button slot="button" variant="dark-bg" size="small">
-                    <span style="color:rgb(66, 69, 72);">
-                        button
-                    </span>
-                </z-button>
-            </z-toast-notification>
-        </div> -->
-        <z-toast-notification-list position="bottom-right">
-            <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-up" draggablepercentage="80" closebutton>
+            <z-toast-notification type="accent" heading="Notification" message="Senza pulsante."
+                transition="slide-in-right" draggablepercentage="80" closebutton>
             </z-toast-notification>
             <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-up" draggablepercentage="80" closebutton>
+                transition="slide-in-right" draggablepercentage="80" closebutton>
             </z-toast-notification>
-            <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-up" draggablepercentage="80" closebutton>
-            </z-toast-notification>
-            <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-up" draggablepercentage="80" closebutton>
+            <z-toast-notification type="warning" heading="Notification" message="Senza pulsante."
+                transition="slide-in-right" draggablepercentage="80" closebutton>
             </z-toast-notification>
         </z-toast-notification-list>
     </div>
 
+    <script>
+      const notificationList = document.querySelector("z-toast-notification-list");
+      const notification = document.createElement('Z-TOAST-NOTIFICATION');
+      notification.setAttribute("type", "success");
+      notification.setAttribute("heading", "Notification");
+      notification.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 1");
+      notification.setAttribute("transition", "slide-in-right");
+      notification.setAttribute("closebutton", "true");
+      console.log(notificationList, notification)
+      setTimeout(() => {
+          notificationList.appendChild(notification);
+      }, 2000);
+
+      const notification2 = document.createElement('Z-TOAST-NOTIFICATION');
+      notification2.setAttribute("type", "success");
+      notification2.setAttribute("heading", "Notification");
+      notification2.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 2");
+      notification2.setAttribute("transition", "slide-in-right");
+      notification2.setAttribute("closebutton", "true");
+      console.log(notificationList, notification)
+      setTimeout(() => {
+          notificationList.appendChild(notification2);
+      }, 4000);
+  </script>
     <z-footer copyrightuser='Zanichelli' data='{
     "zanichelliLinks": [{
         "title": "Zanichelli.it",
@@ -373,30 +245,6 @@
         "link": "https://my.zanichelli.it/privacy"
     }]
 }'></z-footer>
-    <script>
-        const notificationList = document.querySelector("z-toast-notification-list");
-        const notification = document.createElement('Z-TOAST-NOTIFICATION');
-        notification.setAttribute("type", "success");
-        notification.setAttribute("heading", "Notification");
-        notification.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 1");
-        notification.setAttribute("transition", "slide-in-up");
-        notification.setAttribute("closebutton", "true");
-        console.log(notificationList, notification)
-        setTimeout(() => {
-            notificationList.appendChild(notification);
-        }, 2000);
-
-        const notification2 = document.createElement('Z-TOAST-NOTIFICATION');
-        notification2.setAttribute("type", "success");
-        notification2.setAttribute("heading", "Notification");
-        notification2.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 2");
-        notification2.setAttribute("transition", "slide-in-up");
-        notification2.setAttribute("closebutton", "true");
-        console.log(notificationList, notification)
-        setTimeout(() => {
-            notificationList.appendChild(notification2);
-        }, 4000);
-    </script>
 </body>
 
 </html>
