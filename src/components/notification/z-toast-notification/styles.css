@@ -88,7 +88,7 @@
 @keyframes slideoutleft {
   0% {
     transform: translateX(var(--percentuale));
-    opacity: var(--percentuale);
+    opacity: calc(100-var(--percentuale));
   }
   100% {
     transform: translateX(-100%);
@@ -99,7 +99,7 @@
 @keyframes slideoutright {
   0% {
     transform: translateX(var(--percentuale));
-    opacity: var(--percentuale);
+    opacity: calc(100-var(--percentuale));
   }
   100% {
     transform: translateX(100%);

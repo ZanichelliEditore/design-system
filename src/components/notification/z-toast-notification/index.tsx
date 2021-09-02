@@ -123,18 +123,19 @@ export class ZToastNotification {
       this.hostElement.style.transition = "none";
       this.hostElement.classList.remove(this.transition);
       const translateObj = {
-        translate: "translateX( " + e.deltaX + "% )",
+        translate: "translateX( " + (e.deltaX / 5) + "% )",
         translateBack: "translateX(0)",
       };
 
+      this.percentage = (e.deltaX / 5);
+      this.hostElement.style.opacity = `${( 100 - (Math.abs(e.deltaX)) / 5)}%`
       if (
         e.eventType === Hammer.DIRECTION_LEFT ||
         e.eventType === Hammer.DIRECTION_RIGHT
       ) {
-        this.percentage = e.deltaX;
         this.hostElement.style.transform = translateObj.translate;
-        this.hostElement.style.opacity = `${ 100 - Math.abs(e.deltaX)}%`
-        if (Math.abs(e.deltaX) > this.draggablepercentage && !this.isCloseEventCalled) {
+        if (Math.abs(this.percentage) > this.draggablepercentage  && !this.isCloseEventCalled) {
+
           this.isCloseEventCalled = true;
           this.emitToastClose(
             e.direction === Hammer.DIRECTION_LEFT
@@ -150,6 +151,8 @@ export class ZToastNotification {
         this.hostElement.style.opacity = `100%`
         this.percentage = 0;
       }
+      this.hostElement.style.transition = "none";
+
     });
   }
 
