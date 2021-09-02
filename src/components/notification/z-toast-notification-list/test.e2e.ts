@@ -45,6 +45,24 @@ describe("z-toast-notification-list test end2end", () => {
 
     const notification2 = await page.find("z-toast-notification-list z-toast-notification");
     expect(notification2).toBeNull();
+  });
 
+  it("Test z-toast-notification autoclose", async () => {
+    const page = await newE2EPage();
+
+    await page.setContent(`
+    <z-toast-notification-list position="bottom-centre">
+      <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+        transition="slide-in-up" draggablepercentage="50" closebutton autoclose="1000">
+      </z-toast-notification>
+    </z-toast-notification-list>`);
+
+    const notification = await page.find("z-toast-notification-list z-toast-notification");
+    expect(notification).not.toBeNull();
+
+    await page.waitForFunction(() => !document.querySelector('z-toast-notification'));
+
+    const notification2 = await page.find("z-toast-notification-list z-toast-notification");
+    expect(notification2).toBeNull();
   });
 });
