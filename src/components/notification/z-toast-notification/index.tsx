@@ -130,7 +130,6 @@ export class ZToastNotification {
 
       this.percentage = e.deltaX;
       this.hostElement.style.transform = translateObj.translate;
-      this.hostElement.style.transition = translateObj.transition;
       this.hostElement.style.opacity = `${ 100 - Math.abs(e.deltaX)}%`
       if (
         e.direction === Hammer.DIRECTION_LEFT ||
