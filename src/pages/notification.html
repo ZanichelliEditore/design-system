@@ -28,20 +28,18 @@
         <z-app-switcher slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
     <div class="main-container">
-        <z-toast-notification-list position="top-left">
+        <z-toast-notification-list position="bottom-left">
             <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
                 transition="slide-in-right" draggablepercentage="80" closebutton>
                 <z-button slot="button" variant="dark-bg" size="small">
-                  <span style="color:rgb(66, 69, 72);">
-                      button
-                  </span>
+                      Button
               </z-button>
             </z-toast-notification>
             <z-toast-notification type="accent" heading="Notification" message="Autoclose in 10s."
                 transition="slide-in-right" draggablepercentage="80" autoclose="10000">
             </z-toast-notification>
             <z-toast-notification type="light" heading="Notification" message="Senza pulsante."
-                transition="slide-in-right" draggablepercentage="80">
+                transition="slide-in-right" draggablepercentage="80" closebutton>
             </z-toast-notification>
             <z-toast-notification type="accent" heading="Notification" message="Senza pulsante."
                 transition="slide-in-right" draggablepercentage="80" closebutton>
