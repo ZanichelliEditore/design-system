@@ -123,19 +123,21 @@ export class ZToastNotification {
       this.hostElement.style.transition = "none";
       this.hostElement.classList.remove(this.transition);
       const translateObj = {
-        translate: "translateX( " + (e.deltaX / 5) + "% )",
+        translate: "translateX( " + e.deltaX / 5 + "% )",
         translateBack: "translateX(0)",
       };
 
-      this.percentage = (e.deltaX / 5);
-      this.hostElement.style.opacity = `${( 100 - (Math.abs(e.deltaX)) / 5)}%`
+      this.percentage = e.deltaX / 5;
+      this.hostElement.style.opacity = `${100 - Math.abs(e.deltaX) / 5}%`;
       if (
         e.eventType === Hammer.DIRECTION_LEFT ||
         e.eventType === Hammer.DIRECTION_RIGHT
       ) {
         this.hostElement.style.transform = translateObj.translate;
-        if (Math.abs(this.percentage) > this.draggablepercentage  && !this.isCloseEventCalled) {
-
+        if (
+          Math.abs(this.percentage) > this.draggablepercentage &&
+          !this.isCloseEventCalled
+        ) {
           this.isCloseEventCalled = true;
           this.emitToastClose(
             e.direction === Hammer.DIRECTION_LEFT
@@ -145,14 +147,13 @@ export class ZToastNotification {
         }
       }
 
-      if (e.isFinal && Math.abs(this.percentage) < this.draggablepercentage){
+      if (e.isFinal && Math.abs(this.percentage) < this.draggablepercentage) {
         this.hostElement.style.transform = translateObj.translateBack;
         this.hostElement.style.transition = "all 1s";
-        this.hostElement.style.opacity = `100%`
+        this.hostElement.style.opacity = `100%`;
         this.percentage = 0;
       }
       this.hostElement.style.transition = "none";
-
     });
   }
 
@@ -211,10 +212,17 @@ export class ZToastNotification {
       this.closebutton && (
         <div id="icon">
           <z-icon
+            tabIndex={0}
             name="multiply-circled"
             width={15}
             height={15}
             onClick={() => this.emitToastClose(this.mapSlideOutClass())}
+            onKeyPress={(e) => {
+              if (e.keyCode == 32 || e.keyCode == 13) {
+                e.preventDefault();
+                this.emitToastClose(this.mapSlideOutClass());
+              }
+            }}
           />
         </div>
       )
@@ -224,6 +232,7 @@ export class ZToastNotification {
   renderContainer() {
     return (
       <div
+        tabIndex={0}
         id="external-container"
         class={{
           [this.type]: !!this.type,
