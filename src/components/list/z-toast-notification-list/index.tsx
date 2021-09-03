@@ -24,7 +24,7 @@ export class ZToastNotificationList {
           ? this.position
           : ToastNotificationPositionsEnum.topRight
       }>
-        <div id="notification-stack" class={
+        <div tabIndex={0} id="notification-stack" class={
           this.newestontop ? "newest-on-top" : ''
         }>
           <slot></slot>
