@@ -28,55 +28,57 @@
         <z-app-switcher slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
     <div class="main-container">
-        <z-toast-notification-list position="bottom-left">
+        <z-toast-notification-list position="top-right">
             <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
-                transition="slide-in-right" draggablepercentage="80" closebutton>
+                transition="slide-in-left" draggablepercentage="80" closebutton slot="toasts">
                 <z-button slot="button" variant="dark-bg" size="small">
-                      Button
-              </z-button>
+                    Button
+                </z-button>
             </z-toast-notification>
             <z-toast-notification type="accent" heading="Notification" message="Autoclose in 10s."
-                transition="slide-in-right" draggablepercentage="80" autoclose="10000">
+                transition="slide-in-left" draggablepercentage="80" autoclose="10000" slot="toasts">
             </z-toast-notification>
             <z-toast-notification type="light" heading="Notification" message="Senza pulsante."
-                transition="slide-in-right" draggablepercentage="80" closebutton>
+                transition="slide-in-left" draggablepercentage="80" closebutton slot="toasts">
             </z-toast-notification>
             <z-toast-notification type="accent" heading="Notification" message="Senza pulsante."
-                transition="slide-in-right" draggablepercentage="80" closebutton>
+                transition="slide-in-left" draggablepercentage="80" closebutton slot="toasts">
             </z-toast-notification>
             <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-right" draggablepercentage="80" closebutton>
+                transition="slide-in-left" draggablepercentage="80" closebutton slot="toasts">
             </z-toast-notification>
             <z-toast-notification type="warning" heading="Notification" message="Senza pulsante."
-                transition="slide-in-right" draggablepercentage="80" closebutton>
+                transition="slide-in-left" draggablepercentage="80" closebutton slot="toasts">
             </z-toast-notification>
         </z-toast-notification-list>
     </div>
 
     <script>
-      const notificationList = document.querySelector("z-toast-notification-list");
-      const notification = document.createElement('Z-TOAST-NOTIFICATION');
-      notification.setAttribute("type", "success");
-      notification.setAttribute("heading", "Notification");
-      notification.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 1");
-      notification.setAttribute("transition", "slide-in-right");
-      notification.setAttribute("closebutton", "true");
-      console.log(notificationList, notification)
-      setTimeout(() => {
-          notificationList.appendChild(notification);
-      }, 2000);
+        const notificationList = document.querySelector("z-toast-notification-list");
+        const notification = document.createElement('Z-TOAST-NOTIFICATION');
+        notification.setAttribute("type", "success");
+        notification.setAttribute("heading", "Notification");
+        notification.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 1");
+        notification.setAttribute("transition", "slide-in-left");
+        notification.setAttribute("closebutton", "true");
+        notification.setAttribute("slot", "toasts");
+        console.log(notificationList, notification)
+        setTimeout(() => {
+            notificationList.appendChild(notification);
+        }, 2000);
 
-      const notification2 = document.createElement('Z-TOAST-NOTIFICATION');
-      notification2.setAttribute("type", "success");
-      notification2.setAttribute("heading", "Notification");
-      notification2.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 2");
-      notification2.setAttribute("transition", "slide-in-right");
-      notification2.setAttribute("closebutton", "true");
-      console.log(notificationList, notification)
-      setTimeout(() => {
-          notificationList.appendChild(notification2);
-      }, 4000);
-  </script>
+        const notification2 = document.createElement('Z-TOAST-NOTIFICATION');
+        notification2.setAttribute("type", "success");
+        notification2.setAttribute("heading", "Notification");
+        notification2.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 2");
+        notification2.setAttribute("transition", "slide-in-left");
+        notification2.setAttribute("closebutton", "true");
+        notification2.setAttribute("slot", "toasts");
+        console.log(notificationList, notification)
+        setTimeout(() => {
+            notificationList.appendChild(notification2);
+        }, 4000);
+    </script>
     <z-footer copyrightuser='Zanichelli' data='{
     "zanichelliLinks": [{
         "title": "Zanichelli.it",
