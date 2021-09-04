@@ -113,6 +113,12 @@ export class ZToastNotification {
     }
   }
 
+  calculateDraggedPercentage(e) {
+    const bounding = this.hostElement.getBoundingClientRect();
+
+    return Math.round((100 * e.deltaX) / bounding.width);
+  }
+
   handleSlideOutDragAnimation() {
     const sliderManager = new Hammer(this.hostElement);
     sliderManager.get("pan").set({
@@ -120,15 +126,16 @@ export class ZToastNotification {
     });
 
     sliderManager.on("pan", (e) => {
+      console.log(this.calculateDraggedPercentage(e));
+      this.percentage = this.calculateDraggedPercentage(e);
       this.hostElement.style.transition = "none";
       this.hostElement.classList.remove(this.transition);
       const translateObj = {
-        translate: "translateX( " + e.deltaX / 5 + "% )",
+        translate: "translateX( " + this.percentage + "% )",
         translateBack: "translateX(0)",
       };
 
-      this.percentage = e.deltaX / 5;
-      this.hostElement.style.opacity = `${100 - Math.abs(e.deltaX) / 5}%`;
+      this.hostElement.style.opacity = `${100 - Math.abs(this.percentage)}%`;
       if (
         e.eventType === Hammer.DIRECTION_LEFT ||
         e.eventType === Hammer.DIRECTION_RIGHT
