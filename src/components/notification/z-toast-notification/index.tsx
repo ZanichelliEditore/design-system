@@ -126,7 +126,6 @@ export class ZToastNotification {
     });
 
     sliderManager.on("pan", (e) => {
-      console.log(this.calculateDraggedPercentage(e));
       this.percentage = this.calculateDraggedPercentage(e);
       this.hostElement.style.transition = "none";
       this.hostElement.classList.remove(this.transition);
@@ -160,7 +159,6 @@ export class ZToastNotification {
         this.hostElement.style.opacity = `100%`;
         this.percentage = 0;
       }
-      this.hostElement.style.transition = "none";
     });
   }
 

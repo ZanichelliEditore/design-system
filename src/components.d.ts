@@ -1310,7 +1310,13 @@ export namespace Components {
         "type"?: ToastNotificationTypes;
     }
     interface ZToastNotificationList {
+        /**
+          * Set the entry position of new notification in the list
+         */
         "newestontop"?: boolean;
+        /**
+          * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
+         */
         "position": ToastNotificationPositionsTypes;
     }
     interface ZToggleButton {
@@ -3385,7 +3391,13 @@ declare namespace LocalJSX {
         "type"?: ToastNotificationTypes;
     }
     interface ZToastNotificationList {
+        /**
+          * Set the entry position of new notification in the list
+         */
         "newestontop"?: boolean;
+        /**
+          * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
+         */
         "position"?: ToastNotificationPositionsTypes;
     }
     interface ZToggleButton {
