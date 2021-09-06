@@ -29,26 +29,23 @@
     </z-app-topbar>
     <div class="main-container">
         <z-toast-notification-list position="top-right">
-            <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
-                transition="slide-in-left" draggablepercentage="80" closebutton slot="toasts">
+            <z-toast-notification type="dark" heading="Notification" message="Con pulsante."
+                transition="slide-in-down" draggablepercentage="80" closebutton slot="toasts">
                 <z-button slot="button" variant="dark-bg" size="small">
                     Button
                 </z-button>
             </z-toast-notification>
             <z-toast-notification type="accent" heading="Notification" message="Autoclose in 10s."
-                transition="slide-in-left" draggablepercentage="80" autoclose="10000" slot="toasts">
+                transition="slide-in-down" draggablepercentage="80" autoclose="10000" slot="toasts">
             </z-toast-notification>
             <z-toast-notification type="light" heading="Notification" message="Senza pulsante."
-                transition="slide-in-left" draggablepercentage="80" closebutton slot="toasts">
-            </z-toast-notification>
-            <z-toast-notification type="accent" heading="Notification" message="Senza pulsante."
-                transition="slide-in-left" draggablepercentage="80" closebutton slot="toasts">
+                transition="slide-in-down" draggablepercentage="80" closebutton slot="toasts">
             </z-toast-notification>
             <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
-                transition="slide-in-left" draggablepercentage="80" closebutton slot="toasts">
+                transition="slide-in-down" draggablepercentage="80" closebutton slot="toasts">
             </z-toast-notification>
             <z-toast-notification type="warning" heading="Notification" message="Senza pulsante."
-                transition="slide-in-left" draggablepercentage="80" closebutton slot="toasts">
+                transition="slide-in-down" draggablepercentage="80" closebutton slot="toasts">
             </z-toast-notification>
         </z-toast-notification-list>
     </div>
@@ -59,7 +56,7 @@
         notification.setAttribute("type", "success");
         notification.setAttribute("heading", "Notification");
         notification.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 1");
-        notification.setAttribute("transition", "slide-in-left");
+        notification.setAttribute("transition", "slide-in-down");
         notification.setAttribute("closebutton", "true");
         notification.setAttribute("slot", "toasts");
         console.log(notificationList, notification)
@@ -71,7 +68,7 @@
         notification2.setAttribute("type", "success");
         notification2.setAttribute("heading", "Notification");
         notification2.setAttribute("message", "Senza pulsante. Senza pulsante.Senza pulsante.Senza pulsante.Senza pulsante. 2");
-        notification2.setAttribute("transition", "slide-in-left");
+        notification2.setAttribute("transition", "slide-in-down");
         notification2.setAttribute("closebutton", "true");
         notification2.setAttribute("slot", "toasts");
         console.log(notificationList, notification)
