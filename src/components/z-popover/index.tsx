@@ -46,13 +46,6 @@ export class ZPopover {
     }
   }
 
-  @Listen("keyup", { target: "window" })
-  openPopoverWithKeyboard(e: any) {
-    if (e.key === KeyboardKeys.ENTER) {
-      this.isVisible = true;
-    }
-  }
-
   handleClick(event) {
     this.isVisible = !this.isVisible;
     this.checkSpaceAvailable();
@@ -136,7 +129,16 @@ export class ZPopover {
   render() {
     return (
       <Host>
-        <div onClick={(event) => this.handleClick(event)}>
+        <div
+          tabindex="0"
+          onClick={(event) => this.handleClick(event)}
+          onKeyUp={(event) => {
+            if (event.key === KeyboardKeys.ENTER) {
+              console.log("clikkete");
+              this.handleClick(event);
+            }
+          }}
+        >
           <slot name="trigger"></slot>
         </div>
         <div

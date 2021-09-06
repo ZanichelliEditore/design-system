@@ -39,12 +39,13 @@ export class ContextualMenu {
 
   render() {
     return (
-      <Host tabIndex="0">
+      <Host >
         <z-popover
           background-color="color-background"
           box-shadow="shadow-2"
           position={PopoverPosition["after-down"]}
           padding="0"
+          
         >
           <z-icon
             aria-label="apri-menu-contestuale"
