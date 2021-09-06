@@ -12,16 +12,8 @@
 .element-container {
   display: flex;
   padding: 0 8px;
-}
-
-.icon-container {
-  padding-right: 8px;
-  display: flex;
-}
-
-.text-container {
-  display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 :host(:focus-within) > z-popover {

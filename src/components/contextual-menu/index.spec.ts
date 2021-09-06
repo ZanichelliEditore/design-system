@@ -40,10 +40,10 @@ describe("Suite test ContextualMenu", () => {
                      <z-list-group divider-type="element" size="small">
                        <z-list-element align-button="left" class="my-z-list-element" clickable="" color="var(--color-primary01)" expandable-style="accordion" iscontextualmenu="" listelementid="0">
                          <div class="element-container">
-                           <div class="icon-container">
+                           <div>
                              <z-icon fill="color-primary01" name="share"></z-icon>
                            </div>
-                           <div class="text-container">
+                           <div>
                              <span>
                                Element 1
                              </span>
@@ -52,10 +52,10 @@ describe("Suite test ContextualMenu", () => {
                        </z-list-element>
                        <z-list-element align-button="left" class="my-z-list-element" clickable="" color="var(--color-primary01)" expandable-style="accordion" iscontextualmenu="" listelementid="1">
                          <div class="element-container">
-                           <div class="icon-container">
+                           <div>
                              <z-icon fill="color-primary01" name="delete"></z-icon>
                            </div>
-                           <div class="text-container">
+                           <div>
                              <span>
                                Elemento 2
                              </span>
