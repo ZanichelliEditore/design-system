@@ -62,14 +62,11 @@ export class ZToastNotification {
     this.timeoutHandle = null;
     this.elapsedTime = null;
     this.hostElement.classList.add(cssClass);
+    this.toastClose.emit();
   }
 
   connectedCallback() {
     this.percentage = 0;
-  }
-
-  disconnectedCallback() {
-    this.toastClose.emit();
   }
 
   componentWillLoad() {
