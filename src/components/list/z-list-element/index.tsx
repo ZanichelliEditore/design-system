@@ -152,12 +152,15 @@ export class ZListElement {
     const expandByKey = event.code === KeyboardKeys.ENTER;
     switch (event.code) {
       case KeyboardKeys.ARROW_DOWN:
+        event.preventDefault();
         this.accessibleFocus.emit(this.listElementId + 1);
         break;
       case KeyboardKeys.ARROW_UP:
+        event.preventDefault();
         this.accessibleFocus.emit(this.listElementId - 1);
         break;
       case KeyboardKeys.ENTER:
+        event.preventDefault();
         this.clickItem.emit(this.listElementId);
         break;
       default:
