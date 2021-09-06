@@ -27,14 +27,7 @@ export class ContextualMenu {
   }
 
   showIcon() {
-    let showIcon = true;
-
-    this.jsonElements.forEach((element) => {
-      if (!element.icon || element.icon === "") {
-        showIcon = false;
-      }
-    });
-    return showIcon;
+    return !this.jsonElements.some((element) => !element.icon);
   }
 
   render() {
@@ -68,11 +61,11 @@ export class ContextualMenu {
                   >
                     <div class="element-container">
                       {this.showIcon() && (
-                        <div class="icon-container">
+                        <div>
                           <z-icon name={element.icon} fill="color-primary01" />
                         </div>
                       )}
-                      <div class="text-container">
+                      <div>
                         <span>{element.text}</span>
                       </div>
                     </div>

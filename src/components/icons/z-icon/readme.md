@@ -15,7 +15,7 @@
 
 | Property | Attribute | Description                                | Type     | Default     |
 | -------- | --------- | ------------------------------------------ | -------- | ----------- |
-| `fill`   | `fill`    | icon fill (optional)                       | `string` | `""`        |
+| `fill`   | `fill`    | icon fill (optional)                       | `string` | `undefined` |
 | `height` | `height`  | icon height (optional)                     | `number` | `18`        |
 | `iconid` | `iconid`  | icon id (optional)                         | `string` | `undefined` |
 | `name`   | `name`    | icon name (choice between available icons) | `string` | `undefined` |
