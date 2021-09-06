@@ -1991,6 +1991,10 @@ declare namespace LocalJSX {
           * elements of ContextualMenu
          */
         "elements"?: string;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
     }
     interface ZAlert {
         /**

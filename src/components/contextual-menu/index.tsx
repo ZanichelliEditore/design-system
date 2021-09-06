@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from "@stencil/core";
+import { Component, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
 import { ListSize, PopoverPosition } from "../../beans";
 
 @Component({
@@ -7,7 +7,6 @@ import { ListSize, PopoverPosition } from "../../beans";
   shadow: true,
 })
 export class ContextualMenu {
-  /** deprecated - JSON stringified data to fill the footer */
   /**
    *  elements of ContextualMenu
    */
@@ -17,6 +16,16 @@ export class ContextualMenu {
    * [optional] Sets text color of ContextualMenu's content
    */
   @Prop() color?: string = "color-primary01";
+
+
+  /** remove filter click event, returns filterid */
+  @Event({
+    eventName: "clickContextualMenu",
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  clickContextualMenu: EventEmitter;
 
   private jsonElements;
 
@@ -38,7 +47,6 @@ export class ContextualMenu {
           box-shadow="shadow-2"
           position={PopoverPosition["after-down"]}
           padding="0"
-          
         >
           <z-icon
             aria-label="apri-menu-contestuale"
@@ -59,6 +67,7 @@ export class ContextualMenu {
                     color={`var(--${this.color})`}
                     isContextualMenu
                     listElementId={index}
+                    onClickItem={(event) => this.clickContextualMenu.emit(event.detail)}
                   >
                     <div class="element-container">
                       {this.showIcon() && (

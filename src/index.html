@@ -1346,8 +1346,6 @@
   </div>
   <br /><br /><br /><br /><br /><br />
 
-  
-
   <z-footer copyrightuser='Zanichelli' data='{
       "zanichelliLinks": [{
           "title": "Zanichelli.it",
@@ -1522,7 +1520,7 @@
       appMenu.addEventListener("appButtonClick", (e) => openModal(e));
 
       const contextualMenu = document.getElementById("contextual-menu-1");
-      contextualMenu.addEventListener("clickItem", (e) => console.log('LOG id ', e.detail));
+      contextualMenu.addEventListener("clickContextualMenu", (e) => console.log('LOG id ', e.detail));
       const emptytable = document.getElementById("empty-table");
       emptytable.addEventListener('callToAction',() => console.log('call to action 1'));
       emptytable.addEventListener('callToActionTwo',() => console.log('call to action 2'));

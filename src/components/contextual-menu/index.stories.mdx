@@ -37,3 +37,14 @@ import { text } from "@storybook/addon-knobs";
 </Preview>
 
 <Props of="contextual-menu" />
+
+
+# How to use
+
+This component receives a prop called "elements" which consists of an array of objects with two attributes:
+- icon (optional): the icon of the list element;
+- text: the text of the list element;
+In order to pass this property correctly, the array must be converted into a string
+
+## N.B.
+The icons are shown only if all the elements have valued this attribute
