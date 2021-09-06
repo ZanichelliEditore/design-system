@@ -6,7 +6,7 @@ describe("z-toast-notification-list test end2end", () => {
 
     await page.setContent(`
     <z-toast-notification-list position="bottom-centre">
-      <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+      <z-toast-notification slot="toasts" type="dark" heading="Notification" message="Senza pulsante."
         transition="slide-in-up" draggablepercentage="50" closebutton>
       </z-toast-notification>
     </z-toast-notification-list>`);
@@ -27,7 +27,7 @@ describe("z-toast-notification-list test end2end", () => {
 
     await page.setContent(`
     <z-toast-notification-list position="bottom-centre">
-      <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+      <z-toast-notification slot="toasts" type="dark" heading="Notification" message="Senza pulsante."
         transition="slide-in-up" draggablepercentage="50" closebutton>
       </z-toast-notification>
     </z-toast-notification-list>`);
@@ -52,7 +52,7 @@ describe("z-toast-notification-list test end2end", () => {
 
     await page.setContent(`
     <z-toast-notification-list position="bottom-centre">
-      <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+      <z-toast-notification slot="toasts" type="dark" heading="Notification" message="Senza pulsante."
         transition="slide-in-up" draggablepercentage="50" closebutton autoclose="1000">
       </z-toast-notification>
     </z-toast-notification-list>`);
@@ -71,7 +71,7 @@ describe("z-toast-notification-list test end2end", () => {
 
     await page.setContent(`
     <z-toast-notification-list position="bottom-centre">
-      <z-toast-notification type="dark" heading="Notification" message="Senza pulsante."
+      <z-toast-notification slot="toasts" type="dark" heading="Notification" message="Senza pulsante."
         transition="slide-in-up" draggablepercentage="50" closebutton autoclose="1000">
       </z-toast-notification>
     </z-toast-notification-list>`);

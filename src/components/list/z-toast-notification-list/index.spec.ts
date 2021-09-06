@@ -13,9 +13,7 @@ describe("Suite test ZToastNotificationList", () => {
     expect(page.root).toEqualHtml(`
       <z-toast-notification-list class="top-right">
         <mock:shadow-root>
-          <div class="newest-on-top" id="notification-stack">
-            <slot></slot>
-          </div>
+            <slot name="toasts"></slot>
         </mock:shadow-root>
       </z-toast-notification-list>
     `)
@@ -32,9 +30,7 @@ describe("Suite test ZToastNotificationList", () => {
     expect(page.root).toEqualHtml(`
       <z-toast-notification-list newestontop="false" position="top-centre" class="top-centre">
         <mock:shadow-root>
-          <div id="notification-stack">
-            <slot></slot>
-          </div>
+            <slot name="toasts"></slot>
         </mock:shadow-root>
       </z-toast-notification-list>
     `)
@@ -57,9 +53,7 @@ describe("Suite test ZToastNotificationList", () => {
     expect(page.root).toEqualHtml(`
       <z-toast-notification-list position="top-centre" class="top-centre">
         <mock:shadow-root>
-          <div class="newest-on-top" id="notification-stack">
-            <slot></slot>
-          </div>
+            <slot name="toasts"></slot>
         </mock:shadow-root>
         <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
           transition="slide-in-up" draggablepercentage="50" closebutton>
