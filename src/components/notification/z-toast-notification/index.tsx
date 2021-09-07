@@ -7,6 +7,7 @@ import {
   Element,
   Host,
   State,
+  Watch,
 } from "@stencil/core";
 import {
   ToastNotificationTransitionsEnum,
@@ -50,11 +51,37 @@ export class ZToastNotification {
   private container!: HTMLElement;
   private toastText!: HTMLElement;
 
+  private sliderManager: any;
+
   private elapsedTime: number;
   private timeoutHandle: any;
   private startTime: number;
   private isMobile: boolean;
   private isCloseEventCalled: boolean = false;
+
+  @Watch("isdraggable")
+  watchPropIsdraggable(newValue: boolean) {
+    if(newValue){
+      this.sliderManager.get('pan').set({ enable: true });
+    }else{
+      this.sliderManager.get('pan').set({ enable: false });
+    }
+  }
+
+  @Watch("autoclose")
+  watchPropAutoclose(newValue: number) {
+    clearTimeout(this.timeoutHandle);
+    this.startClosingTimeout(newValue);
+  }
+
+  @Watch("pauseonfocusloss")
+  watchPropPauseonfocusloss(newValue: boolean) {
+    if(newValue){
+      document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
+    }else{
+      document.removeEventListener("visibilitychange", this.visibilityChangeEventHandler);
+    }
+  }
 
   /** notification close event */
   @Event() toastClose: EventEmitter;
@@ -63,10 +90,6 @@ export class ZToastNotification {
     this.elapsedTime = null;
     this.hostElement.classList.add(cssClass);
     this.toastClose.emit();
-  }
-
-  connectedCallback() {
-    this.percentage = 0;
   }
 
   componentWillLoad() {
@@ -78,16 +101,18 @@ export class ZToastNotification {
     this.isTextLong = this.detectWrap() || this.toastText.offsetHeight > 20;
     this.startTime = Date.now();
     if (this.autoclose && this.pauseonfocusloss) {
-      document.addEventListener("visibilitychange", () => {
-        if (document.visibilityState === "hidden") {
-          this.timeoutHandle && this.onBlur();
-        } else {
-          this.elapsedTime && this.onFocus();
-        }
-      });
+      document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
     }
 
     this.isdraggable && this.handleSlideOutDragAnimation();
+  }
+
+  visibilityChangeEventHandler() {
+    if (document.visibilityState === "hidden") {
+      this.timeoutHandle && this.onBlur();
+    } else {
+      this.elapsedTime && this.onFocus();
+    }
   }
 
   validateAutoclose() {
@@ -117,12 +142,13 @@ export class ZToastNotification {
   }
 
   handleSlideOutDragAnimation() {
-    const sliderManager = new Hammer(this.hostElement);
-    sliderManager.get("pan").set({
+    this.sliderManager = new Hammer(this.hostElement);
+    this.sliderManager.get("pan").set({
       direction: Hammer.DIRECTION_HORIZONTAL,
     });
 
-    sliderManager.on("pan", (e) => {
+    this.sliderManager.on("pan", (e) => {
+      console.log(this.calculateDraggedPercentage(e));
       this.percentage = this.calculateDraggedPercentage(e);
       this.hostElement.style.transition = "none";
       this.hostElement.classList.remove(this.transition);
@@ -156,6 +182,7 @@ export class ZToastNotification {
         this.hostElement.style.opacity = `100%`;
         this.percentage = 0;
       }
+      this.hostElement.style.transition = "none";
     });
   }
 
