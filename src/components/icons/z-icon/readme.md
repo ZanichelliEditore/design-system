@@ -15,10 +15,10 @@
 
 | Property | Attribute | Description                                | Type     | Default     |
 | -------- | --------- | ------------------------------------------ | -------- | ----------- |
-| `height` | `height`  | icon height (optional)                     | `number` | `18`        |
+| `height` | `height`  | icon height (optional)                     | `number` | `undefined` |
 | `iconid` | `iconid`  | icon id (optional)                         | `string` | `undefined` |
 | `name`   | `name`    | icon name (choice between available icons) | `string` | `undefined` |
-| `width`  | `width`   | icon width (optional)                      | `number` | `18`        |
+| `width`  | `width`   | icon width (optional)                      | `number` | `undefined` |
 
 
 ## Dependencies
