@@ -9,73 +9,294 @@ import "./index.story.css";
 
 <Preview>
   <Story name="Colors">
-    {(args) => html`
-    <div
+    {(args) => html` <div
       class="${select("class", ["default", "theme-black-yellow"], "default")}"
     >
-    <h2>Colors</h2>
+      <z-body>
+        Zanichelli DS currently supports two color themes, the
+        <z-link
+          target="_blank"
+          href="https://app.abstract.com/projects/fd370780-e659-11e8-99dc-0d08537c5fde/branches/eac24e1a-798f-445d-b8c4-3812cd9adb9f/commits/latest/files/9f586aa0-bd5b-4c12-9541-aed2e98a7a9c/layers/7834C2AE-38FF-4FDD-8EAB-D3A1BFFF45CF?collectionId=1a973a75-0d81-49aa-b31f-f38f2e36879a&collectionLayerId=d55cc2c2-b660-4d0f-8c11-bfa3968b67cd"
+          >default</z-link
+        >
+        theme and the
+        <z-link
+          target="_blank"
+          href="https://app.abstract.com/projects/fd370780-e659-11e8-99dc-0d08537c5fde/branches/eac24e1a-798f-445d-b8c4-3812cd9adb9f/commits/latest/files/9f586aa0-bd5b-4c12-9541-aed2e98a7a9c/layers/4EF5FE71-9450-4CBA-811C-D72CC0203A8A?collectionId=1a973a75-0d81-49aa-b31f-f38f2e36879a&collectionLayerId=98c9877b-1058-4039-8619-26db7a27e2e3"
+          >black-yellow</z-link
+        >
+        theme.
+      </z-body>
+      <z-body>
+        On this page you can see which are the color tokens of both themes and
+        select them from the dropdown menu below
+      </z-body>
+      <p />
+      <z-heading level="2">Color Tokens</z-heading>
       <ul>
         <li>
           <code>--color-primary01</code>
-          <span style="background-color:var(--color-primary01)"></span>
+          <span style="background-color: var(--color-primary01)"></span>
+        </li>
+        <li>
+          <code>--color-background</code>
+          <span style="background-color: var(--color-background)"></span>
+        </li>
+        <li>
+          <code>--color-primary01</code>
+          <span style="background-color: var(--color-primary01)"></span>
         </li>
         <li>
           <code>--color-primary02</code>
-          <span style="background-color:var(--color-primary02)"></span>
+          <span style="background-color: var(--color-primary02)"></span>
         </li>
         <li>
           <code>--color-primary03</code>
-          <span style="background-color:var(--color-primary03)"></span>
+          <span style="background-color: var(--color-primary03)"></span>
         </li>
         <li>
           <code>--color-secondary01</code>
-          <span style="background-color:var(--color-secondary01)"></span>
+          <span style="background-color: var(--color-secondary01)"></span>
         </li>
         <li>
           <code>--color-secondary02</code>
-          <span style="background-color:var(--color-secondary02)"></span>
+          <span style="background-color: var(--color-secondary02)"></span>
         </li>
         <li>
           <code>--color-secondary03</code>
-          <span style="background-color:var(--color-secondary03)"></span>
+          <span style="background-color: var(--color-secondary03)"></span>
+        </li>
+        <li>
+          <code>--color-danger01</code>
+          <span style="background-color: var(--color-danger01)"></span>
+        </li>
+        <li>
+          <code>--color-danger02</code>
+          <span style="background-color: var(--color-danger02)"></span>
+        </li>
+        <li>
+          <code>--color-error01</code>
+          <span style="background-color: var(--color-error01)"></span>
+        </li>
+        <li>
+          <code>--color-error02</code>
+          <span style="background-color: var(--color-error02)"></span>
+        </li>
+        <li>
+          <code>--color-error-inverse</code>
+          <span style="background-color: var(--color-error-inverse)"></span>
+        </li>
+        <li>
+          <code>--color-text-error</code>
+          <span style="background-color: var(--color-text-error)"></span>
+        </li>
+        <li>
+          <code>--color-success01</code>
+          <span style="background-color: var(--color-success01)"></span>
+        </li>
+        <li>
+          <code>--color-success02</code>
+          <span style="background-color: var(--color-success02)"></span>
+        </li>
+        <li>
+          <code>--color-text-success</code>
+          <span style="background-color: var(--color-text-success)"></span>
+        </li>
+        <li>
+          <code>--color-success-inverse</code>
+          <span style="background-color: var(--color-success-inverse)"></span>
+        </li>
+        <li>
+          <code>--color-warning01</code>
+          <span style="background-color: var(--color-warning01)"></span>
+        </li>
+        <li>
+          <code>--color-warning02</code>
+          <span style="background-color: var(--color-warning02)"></span>
+        </li>
+        <li>
+          <code>--color-text-warning</code>
+          <span style="background-color: var(--color-text-warning)"></span>
+        </li>
+        <li>
+          <code>--color-warning-inverse</code>
+          <span style="background-color: var(--color-warning-inverse)"></span>
+        </li>
+        <li>
+          <code>--color-surface01</code>
+          <span style="background-color: var(--color-surface01)"></span>
+        </li>
+        <li>
+          <code>--color-surface02</code>
+          <span style="background-color: var(--color-surface02)"></span>
+        </li>
+        <li>
+          <code>--color-surface03</code>
+          <span style="background-color: var(--color-surface03)"></span>
+        </li>
+        <li>
+          <code>--color-surface04</code>
+          <span style="background-color: var(--color-surface04)"></span>
+        </li>
+        <li>
+          <code>--color-surface05</code>
+          <span style="background-color: var(--color-surface05)"></span>
         </li>
         <li>
           <code>--color-text01</code>
-          <span style="background-color:var(--color-text01)"></span>
+          <span style="background-color: var(--color-text01)"></span>
+        </li>
+        <li>
+          <code>--color-text02</code>
+          <span style="background-color: var(--color-text02)"></span>
+        </li>
+        <li>
+          <code>--color-text03</code>
+          <span style="background-color: var(--color-text03)"></span>
+        </li>
+        <li>
+          <code>--color-text04</code>
+          <span style="background-color: var(--color-text04)"></span>
+        </li>
+        <li>
+          <code>--color-text05</code>
+          <span style="background-color: var(--color-text05)"></span>
         </li>
         <li>
           <code>--color-text-inverse</code>
-          <span style="background-color:var(--color-text-inverse)"></span>
+          <span style="background-color: var(--color-text-inverse)"></span>
+        </li>
+        <li>
+          <code>--color-link01</code>
+          <span style="background-color: var(--color-link01)"></span>
+        </li>
+        <li>
+          <code>--color-link02</code>
+          <span style="background-color: var(--color-link02)"></span>
+        </li>
+        <li>
+          <code>--color-link-inverse</code>
+          <span style="background-color: var(--color-link-inverse)"></span>
+        </li>
+        <li>
+          <code>--color-link-visited</code>
+          <span style="background-color: var(--color-link-visited)"></span>
         </li>
         <li>
           <code>--color-icon01</code>
-          <span style="background-color:var(--color-icon01)"></span>
+          <span style="background-color: var(--color-icon01)"></span>
         </li>
         <li>
-          <code>--color-active-primary</code>
-          <span style="background-color:var(--color-active-primary)"></span>
+          <code>--color-icon02</code>
+          <span style="background-color: var(--color-icon02)"></span>
         </li>
         <li>
-          <code>--color-pressed-primary</code>
-          <span style="background-color:var(--color-pressed-primary)"></span>
+          <code>--color-icon03</code>
+          <span style="background-color: var(--color-icon03)"></span>
+        </li>
+        <li>
+          <code>--color-input-field01</code>
+          <span style="background-color: var(--color-input-field01)"></span>
+        </li>
+        <li>
+          <code>--color-input-field02</code>
+          <span style="background-color: var(--color-input-field02)"></span>
         </li>
         <li>
           <code>--color-hover-primary</code>
-          <span style="background-color:var(--color-hover-primary)"></span>
-        </li>
-        <li>
-          <code>--color-hover-secondary</code>
-          <span style="background-color:var(--color-hover-secondary)"></span>
-        </li>
-        <li>
-          <code>--color-hover-tertiary</code>
-          <span style="background-color:var(--color-hover-tertiary)"></span>
+          <span style="background-color: var(--color-hover-primary)"></span>
         </li>
         <li>
           <code>--color-hover-primary-text</code>
-          <span style="background-color:var(--color-hover-primary-text)"></span>
+          <span
+            style="background-color: var(--color-hover-primary-text)"
+          ></span>
         </li>
-    </div>`
-    }
+        <li>
+          <code>--color-hover-secondary</code>
+          <span style="background-color: var(--color-hover-secondary)"></span>
+        </li>
+        <li>
+          <code>--color-hover-tertiary</code>
+          <span style="background-color: var(--color-hover-tertiary)"></span>
+        </li>
+        <li>
+          <code>--color-hover-surface</code>
+          <span style="background-color: var(--color-hover-surface)"></span>
+        </li>
+        <li>
+          <code>--color-hover-light</code>
+          <span style="background-color: var(--color-hover-light)"></span>
+        </li>
+        <li>
+          <code>--color-hover-danger</code>
+          <span style="background-color: var(--color-hover-danger)"></span>
+        </li>
+        <li>
+          <code>--color-active-primary</code>
+          <span style="background-color: var(--color-active-primary)"></span>
+        </li>
+        <li>
+          <code>--color-active-secondary</code>
+          <span style="background-color: var(--color-active-secondary)"></span>
+        </li>
+        <li>
+          <code>--color-active-tertiary</code>
+          <span style="background-color: var(--color-active-tertiary)"></span>
+        </li>
+        <li>
+          <code>--color-active-surface</code>
+          <span style="background-color: var(--color-active-surface)"></span>
+        </li>
+        <li>
+          <code>--color-active-light</code>
+          <span style="background-color: var(--color-active-light)"></span>
+        </li>
+        <li>
+          <code>--color-pressed-primary</code>
+          <span style="background-color: var(--color-pressed-primary)"></span>
+        </li>
+        <li>
+          <code>--color-pressed-secondary</code>
+          <span style="background-color: var(--color-pressed-secondary)"></span>
+        </li>
+        <li>
+          <code>--color-selected-surface</code>
+          <span style="background-color: var(--color-selected-surface)"></span>
+        </li>
+        <li>
+          <code>--color-selected-light</code>
+          <span style="background-color: var(--color-selected-light)"></span>
+        </li>
+        <li>
+          <code>--color-highlight</code>
+          <span style="background-color: var(--color-highlight)"></span>
+        </li>
+        <li>
+          <code>--color-ghost01</code>
+          <span style="background-color: var(--color-ghost01)"></span>
+        </li>
+        <li>
+          <code>--color-ghost02</code>
+          <span style="background-color: var(--color-ghost02)"></span>
+        </li>
+        <li>
+          <code>--color-disabled01</code>
+          <span style="background-color: var(--color-disabled01)"></span>
+        </li>
+        <li>
+          <code>--color-disabled02</code>
+          <span style="background-color: var(--color-disabled02)"></span>
+        </li>
+        <li>
+          <code>--color-disabled03</code>
+          <span style="background-color: var(--color-disabled03)"></span>
+        </li>
+        <li>
+          <code>--shadow-focus-primary</code>
+          <span style="background-color: var(--shadow-focus-primary)"></span>
+        </li>
+      </ul>
+    </div>`}
   </Story>
 </Preview>

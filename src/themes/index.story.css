@@ -1,7 +1,13 @@
+z-body {
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+
 ul {
   display: flex;
   flex-direction: column;
   width: 400px;
+  padding: 0;
 }
 
 ul > li {
