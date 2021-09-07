@@ -1,6 +1,7 @@
 module.exports = {
   stories: [
     // files MUST end with .story.mdx or .stories.mdx (@see https://github.com/storybookjs/storybook/issues/9918)
+    "../src/themes/*.story.mdx",
     "../src/components/**/*.story.mdx",
     "../src/components/**/*.stories.mdx",
     "../src/snowflakes/**/*.story.mdx",

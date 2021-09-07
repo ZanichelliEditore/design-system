@@ -1,0 +1,23 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+ul > li {
+  display: flex;
+  margin: 4px;
+  justify-content: space-between;
+}
+
+ul > li > code {
+  margin-right: 8px;
+}
+
+ul > li > span {
+  width: 100px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 4px;
+  box-shadow: 0px 0px 3px 0px;
+}

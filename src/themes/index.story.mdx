@@ -1,0 +1,81 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean, select } from "@storybook/addon-knobs";
+import "./index.story.css";
+
+<Meta title="Themes/Colors" />
+
+# Default
+
+<Preview>
+  <Story name="Colors">
+    {(args) => html`
+    <div
+      class="${select("class", ["default", "theme-black-yellow"], "default")}"
+    >
+    <h2>Colors</h2>
+      <ul>
+        <li>
+          <code>--color-primary01</code>
+          <span style="background-color:var(--color-primary01)"></span>
+        </li>
+        <li>
+          <code>--color-primary02</code>
+          <span style="background-color:var(--color-primary02)"></span>
+        </li>
+        <li>
+          <code>--color-primary03</code>
+          <span style="background-color:var(--color-primary03)"></span>
+        </li>
+        <li>
+          <code>--color-secondary01</code>
+          <span style="background-color:var(--color-secondary01)"></span>
+        </li>
+        <li>
+          <code>--color-secondary02</code>
+          <span style="background-color:var(--color-secondary02)"></span>
+        </li>
+        <li>
+          <code>--color-secondary03</code>
+          <span style="background-color:var(--color-secondary03)"></span>
+        </li>
+        <li>
+          <code>--color-text01</code>
+          <span style="background-color:var(--color-text01)"></span>
+        </li>
+        <li>
+          <code>--color-text-inverse</code>
+          <span style="background-color:var(--color-text-inverse)"></span>
+        </li>
+        <li>
+          <code>--color-icon01</code>
+          <span style="background-color:var(--color-icon01)"></span>
+        </li>
+        <li>
+          <code>--color-active-primary</code>
+          <span style="background-color:var(--color-active-primary)"></span>
+        </li>
+        <li>
+          <code>--color-pressed-primary</code>
+          <span style="background-color:var(--color-pressed-primary)"></span>
+        </li>
+        <li>
+          <code>--color-hover-primary</code>
+          <span style="background-color:var(--color-hover-primary)"></span>
+        </li>
+        <li>
+          <code>--color-hover-secondary</code>
+          <span style="background-color:var(--color-hover-secondary)"></span>
+        </li>
+        <li>
+          <code>--color-hover-tertiary</code>
+          <span style="background-color:var(--color-hover-tertiary)"></span>
+        </li>
+        <li>
+          <code>--color-hover-primary-text</code>
+          <span style="background-color:var(--color-hover-primary-text)"></span>
+        </li>
+    </div>`
+    }
+  </Story>
+</Preview>
