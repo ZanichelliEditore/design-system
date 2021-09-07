@@ -13,7 +13,7 @@ import { text } from "@storybook/addon-knobs";
     >
       <contextual-menu
         id="contextual-menu-1"
-        elements='[{"icon": "share", "text": "Element 1"}, {"icon": "delete", "text": "Elemento 2"}]'
+        elements="${text('elements', `[{"icon": "share", "text": "Element 1"}, {"icon": "delete", "text": "Elemento 2"}]`)}"
         color="${text("color", "color-primary01")}"
       >
       </contextual-menu>
@@ -28,7 +28,7 @@ import { text } from "@storybook/addon-knobs";
     >
       <contextual-menu
         id="contextual-menu-2"
-        elements='[{ "text": "Element 1"}, { "text": "Elemento 2"}, { "text": "Elemento 3"}]'
+        elements="${text('elements', `[{ "text": "Element 1"}, { "text": "Elemento 2"}, { "text": "Elemento 3"}]`)}"
         color="${text("color", "color-primary01")}"
       >
       </contextual-menu>
@@ -42,12 +42,13 @@ import { text } from "@storybook/addon-knobs";
 ## How to use
 
 ### elements prop
-This component receives a prop called "elements" which consists of an array of objects with two attributes:
+This component receives a prop _elements_ which consists of an array of objects with two attributes:
 - icon (optional): the icon of the list element;
 - text: the text of the list element;
-In order to pass this property correctly, the array must be converted into a string
 
 #### N.B.
+In order to pass this property correctly, the array must be converted into a string
+
 The icons are shown only if all the elements have valued this attribute
 
 ### onClickContextualMenu event

@@ -31,7 +31,7 @@ export class ContextualMenu {
 
   componentWillLoad() {
     if (this.elements) {
-      this.jsonElements = JSON.parse(this.elements);
+      this.jsonElements = JSON.parse(this.elements.replace(/&quot;/g, '\"'));
     }
   }
 
