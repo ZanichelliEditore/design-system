@@ -39,12 +39,18 @@ import { text } from "@storybook/addon-knobs";
 <Props of="contextual-menu" />
 
 
-# How to use
+## How to use
 
+### elements prop
 This component receives a prop called "elements" which consists of an array of objects with two attributes:
 - icon (optional): the icon of the list element;
 - text: the text of the list element;
 In order to pass this property correctly, the array must be converted into a string
 
-## N.B.
+#### N.B.
 The icons are shown only if all the elements have valued this attribute
+
+### onClickContextualMenu event
+This component also have an Event that manages the behaviour of the contextual-menu items.
+The callback function receives the index of the clicked item and must handle all the contextual-menu items
+using - for example - a switch statement.

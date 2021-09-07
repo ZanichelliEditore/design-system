@@ -13,6 +13,13 @@
 | `elements` | `elements` | elements of ContextualMenu                             | `string` | `undefined`         |
 
 
+## Events
+
+| Event                 | Description                                 | Type               |
+| --------------------- | ------------------------------------------- | ------------------ |
+| `clickContextualMenu` | remove filter click event, returns filterid | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Depends on
