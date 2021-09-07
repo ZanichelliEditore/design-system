@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element, Host } from "@stencil/core";
+import { Component, Prop, h, Element, Host, Watch } from "@stencil/core";
 import {
   ToastNotificationPositionsEnum,
   ToastNotificationPositionsTypes,
@@ -18,6 +18,16 @@ export class ZToastNotificationList {
 
   private notificationArray: Element[];
 
+  @Watch("newestontop")
+  watchPropNewestontop(newValue: boolean) {
+    this.hostElement.append(...this.notificationArray.reverse());
+    if(newValue){
+      this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
+    }else{
+      this.hostElement.shadowRoot.removeEventListener("slotchange", this.slotChangeHandler);
+    }
+  }
+
   componentWillLoad() {
     this.newestontop && this.handleNewestOnTop();
   }
@@ -26,19 +36,21 @@ export class ZToastNotificationList {
     this.notificationArray = Array.from(this.hostElement.children);
     this.hostElement.append(...this.notificationArray.reverse());
 
-    this.hostElement.shadowRoot.addEventListener("slotchange", () => {
-      const difference = Array.from(this.hostElement.children).filter(
-        (elem) => !this.notificationArray.includes(elem)
-      );
-      if (difference) {
-        difference.forEach((elem) => {
-          this.notificationArray.push(elem);
-          const newElem = elem;
-          elem.remove();
-          this.hostElement.prepend(newElem);
-        });
-      }
-    });
+    this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
+  }
+
+  slotChangeHandler = () => {
+    const difference = Array.from(this.hostElement.children).filter(
+      (elem) => !this.notificationArray.includes(elem)
+    );
+    if (difference) {
+      difference.forEach((elem) => {
+        this.notificationArray.push(elem);
+        const newElem = elem;
+        elem.remove();
+        this.hostElement.prepend(newElem);
+      });
+    }
   }
 
   render() {

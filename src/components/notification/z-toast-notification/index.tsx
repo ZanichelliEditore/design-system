@@ -76,10 +76,12 @@ export class ZToastNotification {
 
   @Watch("pauseonfocusloss")
   watchPropPauseonfocusloss(newValue: boolean) {
-    if(newValue){
-      document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
-    }else{
-      document.removeEventListener("visibilitychange", this.visibilityChangeEventHandler);
+    if(this.autoclose){
+      if(newValue){
+        document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
+      }else{
+        document.removeEventListener("visibilitychange", this.visibilityChangeEventHandler);
+      }
     }
   }
 
@@ -107,7 +109,7 @@ export class ZToastNotification {
     this.isdraggable && this.handleSlideOutDragAnimation();
   }
 
-  visibilityChangeEventHandler() {
+  visibilityChangeEventHandler = () => {
     if (document.visibilityState === "hidden") {
       this.timeoutHandle && this.onBlur();
     } else {
@@ -190,7 +192,9 @@ export class ZToastNotification {
     if (this.elapsedTime) {
       time = this.autoclose - this.elapsedTime;
     }
-    if (time > 0) this.startClosingTimeout(time);
+    if (time > 0) {
+      this.startClosingTimeout(time);
+    }
   }
 
   onBlur() {
