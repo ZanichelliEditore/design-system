@@ -11,6 +11,7 @@
   searchplaceholder="Cerca Autore"
   label="Combo Corta"
   closesearchtext="CHIUDI"
+  isopen="true"
 ></z-combobox>
 <z-combobox
   inputid="combo_2"
@@ -19,7 +20,6 @@
   searchlabel="Autore"
   searchplaceholder="Cerca Autore"
   label="Combo Corta"
-  isopen="false"
   label="Combo Lunga"
   closesearchtext="CHIUDI"
 ></z-combobox>
