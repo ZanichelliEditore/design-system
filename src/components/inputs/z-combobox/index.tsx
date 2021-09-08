@@ -100,7 +100,7 @@ export class ZCombobox {
   }
 
   constructor() {
-    this.closeComboBox = this.closeComboBox.bind(this);
+    this.toggleComboBox = this.toggleComboBox.bind(this);
     this.closeFilterItems = this.closeFilterItems.bind(this);
   }
 
@@ -156,7 +156,7 @@ export class ZCombobox {
     this.resetRenderItemsList();
   }
 
-  closeComboBox(): void {
+  toggleComboBox(): void {
     this.isopen = !this.isopen;
   }
 
@@ -164,12 +164,12 @@ export class ZCombobox {
     return (
       <div
         class="header"
-        onClick={() => this.closeComboBox()}
+        onClick={() => this.toggleComboBox()}
         onKeyDown={(ev: KeyboardEvent) => {
           if (ev.keyCode === keybordKeyCodeEnum.SPACE) ev.preventDefault();
         }}
         onKeyUp={(ev: KeyboardEvent) =>
-          handleKeyboardSubmit(ev, this.closeComboBox)
+          handleKeyboardSubmit(ev, this.toggleComboBox)
         }
         role="button"
         tabindex={0}
@@ -220,7 +220,7 @@ export class ZCombobox {
               id={item.id}
               listitemid={item.id}
               action={`combo-li-${this.inputid}`}
-              underlined={i === items.length - 1 ? false : true}
+              underlined={i !== items.length - 1}
             >
               <z-input
                 type={InputTypeEnum.checkbox}
@@ -314,7 +314,7 @@ export class ZCombobox {
     return (
       <div
         data-action={`combo-${this.inputid}`}
-        class={`${this.isopen && "open"} ${this.isfixed && "fixed"}`}
+        class={`${this.isopen ? "open" : ""} ${this.isfixed ? "fixed": ""}`}
         id={this.inputid}
       >
         {this.renderHeader()}
