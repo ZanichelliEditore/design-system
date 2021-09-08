@@ -40,7 +40,7 @@ export class ZCombobox {
   /** no result text message */
   @Prop() noresultslabel?: string = "Nessun risultato";
   /** toggle combo list opening flag */
-  @Prop({ mutable: true }) isopen: boolean = true;
+  @Prop({ mutable: true }) isopen: boolean = false;
   /** fixed style flag */
   @Prop() isfixed: boolean = false;
   /** close combobox list text */

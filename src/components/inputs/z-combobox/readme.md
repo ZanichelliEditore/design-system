@@ -38,7 +38,7 @@
 | `hassearch`         | `hassearch`         | show search input flag (optional)             | `boolean`                   | `false`               |
 | `inputid`           | `inputid`           | input unique id                               | `string`                    | `undefined`           |
 | `isfixed`           | `isfixed`           | fixed style flag                              | `boolean`                   | `false`               |
-| `isopen`            | `isopen`            | toggle combo list opening flag                | `boolean`                   | `true`                |
+| `isopen`            | `isopen`            | toggle combo list opening flag                | `boolean`                   | `false`               |
 | `items`             | `items`             | list items array                              | `ComboItemBean[] \| string` | `undefined`           |
 | `label`             | `label`             | label text                                    | `string`                    | `undefined`           |
 | `maxcheckableitems` | `maxcheckableitems` | max number of checkable items (0 = unlimited) | `number`                    | `0`                   |
