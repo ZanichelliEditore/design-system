@@ -326,6 +326,8 @@ export namespace Components {
          */
         "icon": string;
     }
+    interface ZGhostLoading {
+    }
     interface ZHeader {
         /**
           * set current active menu link (optional)
@@ -1097,13 +1099,33 @@ export namespace Components {
          */
         "bordered"?: boolean;
         /**
+          * Sets call to action label
+         */
+        "callToActionLabel"?: string;
+        /**
+          * Sets call to action label
+         */
+        "callToActionTwoLabel"?: string;
+        /**
           * Sets first column sticky
          */
         "columnSticky"?: boolean;
         /**
+          * Sets empty table
+         */
+        "empty"?: boolean;
+        /**
           * Sets header sticky
          */
         "headerSticky"?: boolean;
+        /**
+          * Set message
+         */
+        "message"?: string;
+        /**
+          * Set subtitle
+         */
+        "subtitle"?: string;
     }
     interface ZRegistroTableBody {
     }
@@ -1112,6 +1134,16 @@ export namespace Components {
           * [Optional] Show contextual menu button
          */
         "showButton"?: boolean;
+    }
+    interface ZRegistroTableEmptyBox {
+        /**
+          * Sets main title message
+         */
+        "message"?: string;
+        /**
+          * Sets message
+         */
+        "subtitle"?: string;
     }
     interface ZRegistroTableExpandedRow {
         /**
@@ -1339,11 +1371,20 @@ export namespace Components {
     }
     interface ZTooltip {
         /**
-          * content text
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Content text.
+          * @deprecated
          */
         "content": string;
         /**
-          * tooltip position variant
+          * The open state of the tooltip.
+         */
+        "open": boolean;
+        /**
+          * Tooltip position.
          */
         "type": TooltipPosition;
     }
@@ -1485,6 +1526,12 @@ declare global {
     var HTMLZFooterSocialElement: {
         prototype: HTMLZFooterSocialElement;
         new (): HTMLZFooterSocialElement;
+    };
+    interface HTMLZGhostLoadingElement extends Components.ZGhostLoading, HTMLStencilElement {
+    }
+    var HTMLZGhostLoadingElement: {
+        prototype: HTMLZGhostLoadingElement;
+        new (): HTMLZGhostLoadingElement;
     };
     interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {
     }
@@ -1768,6 +1815,12 @@ declare global {
         prototype: HTMLZRegistroTableCellElement;
         new (): HTMLZRegistroTableCellElement;
     };
+    interface HTMLZRegistroTableEmptyBoxElement extends Components.ZRegistroTableEmptyBox, HTMLStencilElement {
+    }
+    var HTMLZRegistroTableEmptyBoxElement: {
+        prototype: HTMLZRegistroTableEmptyBoxElement;
+        new (): HTMLZRegistroTableEmptyBoxElement;
+    };
     interface HTMLZRegistroTableExpandedRowElement extends Components.ZRegistroTableExpandedRow, HTMLStencilElement {
     }
     var HTMLZRegistroTableExpandedRowElement: {
@@ -1896,6 +1949,7 @@ declare global {
         "z-footer-link": HTMLZFooterLinkElement;
         "z-footer-section": HTMLZFooterSectionElement;
         "z-footer-social": HTMLZFooterSocialElement;
+        "z-ghost-loading": HTMLZGhostLoadingElement;
         "z-header": HTMLZHeaderElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
@@ -1943,6 +1997,7 @@ declare global {
         "z-registro-table": HTMLZRegistroTableElement;
         "z-registro-table-body": HTMLZRegistroTableBodyElement;
         "z-registro-table-cell": HTMLZRegistroTableCellElement;
+        "z-registro-table-empty-box": HTMLZRegistroTableEmptyBoxElement;
         "z-registro-table-expanded-row": HTMLZRegistroTableExpandedRowElement;
         "z-registro-table-footer": HTMLZRegistroTableFooterElement;
         "z-registro-table-head": HTMLZRegistroTableHeadElement;
@@ -2303,6 +2358,8 @@ declare namespace LocalJSX {
           * icon url
          */
         "icon"?: string;
+    }
+    interface ZGhostLoading {
     }
     interface ZHeader {
         /**
@@ -3177,13 +3234,41 @@ declare namespace LocalJSX {
          */
         "bordered"?: boolean;
         /**
+          * Sets call to action label
+         */
+        "callToActionLabel"?: string;
+        /**
+          * Sets call to action label
+         */
+        "callToActionTwoLabel"?: string;
+        /**
           * Sets first column sticky
          */
         "columnSticky"?: boolean;
         /**
+          * Sets empty table
+         */
+        "empty"?: boolean;
+        /**
           * Sets header sticky
          */
         "headerSticky"?: boolean;
+        /**
+          * Set message
+         */
+        "message"?: string;
+        /**
+          * remove call to action event
+         */
+        "onCallToAction"?: (event: CustomEvent<any>) => void;
+        /**
+          * remove call to action event
+         */
+        "onCallToActionTwo"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set subtitle
+         */
+        "subtitle"?: string;
     }
     interface ZRegistroTableBody {
     }
@@ -3192,6 +3277,16 @@ declare namespace LocalJSX {
           * [Optional] Show contextual menu button
          */
         "showButton"?: boolean;
+    }
+    interface ZRegistroTableEmptyBox {
+        /**
+          * Sets main title message
+         */
+        "message"?: string;
+        /**
+          * Sets message
+         */
+        "subtitle"?: string;
     }
     interface ZRegistroTableExpandedRow {
         /**
@@ -3424,11 +3519,24 @@ declare namespace LocalJSX {
     }
     interface ZTooltip {
         /**
-          * content text
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Content text.
+          * @deprecated
          */
         "content"?: string;
         /**
-          * tooltip position variant
+          * Position change event.
+         */
+        "onPositionChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The open state of the tooltip.
+         */
+        "open"?: boolean;
+        /**
+          * Tooltip position.
          */
         "type"?: TooltipPosition;
     }
@@ -3483,6 +3591,7 @@ declare namespace LocalJSX {
         "z-footer-link": ZFooterLink;
         "z-footer-section": ZFooterSection;
         "z-footer-social": ZFooterSocial;
+        "z-ghost-loading": ZGhostLoading;
         "z-header": ZHeader;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
@@ -3530,6 +3639,7 @@ declare namespace LocalJSX {
         "z-registro-table": ZRegistroTable;
         "z-registro-table-body": ZRegistroTableBody;
         "z-registro-table-cell": ZRegistroTableCell;
+        "z-registro-table-empty-box": ZRegistroTableEmptyBox;
         "z-registro-table-expanded-row": ZRegistroTableExpandedRow;
         "z-registro-table-footer": ZRegistroTableFooter;
         "z-registro-table-head": ZRegistroTableHead;
@@ -3573,6 +3683,7 @@ declare module "@stencil/core" {
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
             "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
             "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
+            "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
@@ -3620,6 +3731,7 @@ declare module "@stencil/core" {
             "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
             "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
             "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
+            "z-registro-table-empty-box": LocalJSX.ZRegistroTableEmptyBox & JSXBase.HTMLAttributes<HTMLZRegistroTableEmptyBoxElement>;
             "z-registro-table-expanded-row": LocalJSX.ZRegistroTableExpandedRow & JSXBase.HTMLAttributes<HTMLZRegistroTableExpandedRowElement>;
             "z-registro-table-footer": LocalJSX.ZRegistroTableFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableFooterElement>;
             "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
