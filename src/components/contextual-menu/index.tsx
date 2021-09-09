@@ -70,10 +70,21 @@ export class ContextualMenu {
                       this.clickContextualMenu.emit(event.detail)
                     }
                   >
-                    <div class={element.disabled ? "disabled-element-container" : "element-container"}>
+                    <div
+                      class={
+                        element.disabled
+                          ? "disabled-element-container"
+                          : "element-container"
+                      }
+                    >
                       {this.showIcon() && (
                         <div>
-                          <z-icon name={element.icon} fill={element.disabled ? `gray500` : `color-primary01`} />
+                          <z-icon
+                            name={element.icon}
+                            fill={
+                              element.disabled ? `gray500` : `color-primary01`
+                            }
+                          />
                         </div>
                       )}
                       <div class="element-text">

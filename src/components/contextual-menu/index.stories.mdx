@@ -32,7 +32,10 @@ import { text } from "@storybook/addon-knobs";
     >
       <contextual-menu
         id="contextual-menu-2"
-        elements="${text('elements', `[{ "text": "Elemento 1"}, { "text": "Elemento 2"}, { "text": "Elemento 4", "disabled": "true"}, { "text": "Elemento 3"}]`)}"
+        elements="${text(
+          "elements",
+          `[{ "text": "Elemento 1"}, { "text": "Elemento 2"}, { "text": "Elemento 4", "disabled": "true"}, { "text": "Elemento 3"}]`
+        )}"
         color="${text("color", "color-primary01")}"
       >
       </contextual-menu>
