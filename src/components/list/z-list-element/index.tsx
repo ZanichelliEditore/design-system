@@ -231,7 +231,7 @@ export class ZListElement {
       >
         <div
           class={`${this.calculateClass()}`}
-          style={{ color: `var(--${this.color}` }}
+          style={{ color: `var(--${this.color})` }}
           tabindex={this.isContextualMenu ? "0" : "-1"}
           id={`z-list-element-id-${this.listElementId}`}
         >

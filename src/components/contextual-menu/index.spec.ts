@@ -10,7 +10,7 @@ describe("Suite test ContextualMenu", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <contextual-menu tabindex="0">
+      <contextual-menu>
         <mock:shadow-root>
         <z-popover background-color="color-background" box-shadow="shadow-2" padding="0" position="after-down">
                <z-icon aria-label="apri-menu-contestuale" fill="color-primary01" name="contextual-menu" slot="trigger" style="cursor: pointer;"></z-icon>
@@ -31,7 +31,7 @@ describe("Suite test ContextualMenu", () => {
       html: `<contextual-menu elements='[{"icon":"share","text":"Element 1","key": "0"},{"icon":"delete","text":"Elemento 2","key": "1"}]''></contextual-menu>`,
     });
     expect(page.root).toEqualHtml(`
-      <contextual-menu '="" elements='[{"icon":"share","text":"Element 1","key": "0"},{"icon":"delete","text":"Elemento 2","key": "1"}]' tabindex="0">
+      <contextual-menu '="" elements='[{"icon":"share","text":"Element 1","key": "0"},{"icon":"delete","text":"Elemento 2","key": "1"}]'>
         <mock:shadow-root>
          <z-popover background-color="color-background" box-shadow="shadow-2" padding="0" position="after-down">
                  <z-icon aria-label="apri-menu-contestuale" fill="color-primary01" name="contextual-menu" slot="trigger" style="cursor: pointer;"></z-icon>
@@ -43,7 +43,7 @@ describe("Suite test ContextualMenu", () => {
                            <div>
                              <z-icon fill="color-primary01" name="share"></z-icon>
                            </div>
-                           <div>
+                           <div class="element-text">
                              <span>
                                Element 1
                              </span>
@@ -55,7 +55,7 @@ describe("Suite test ContextualMenu", () => {
                            <div>
                              <z-icon fill="color-primary01" name="delete"></z-icon>
                            </div>
-                           <div>
+                           <div class="element-text">
                              <span>
                                Elemento 2
                              </span>
