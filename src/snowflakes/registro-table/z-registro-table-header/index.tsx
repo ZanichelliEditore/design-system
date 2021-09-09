@@ -15,6 +15,7 @@ import {
   ButtonVariantEnum,
   PopoverPosition,
   SortingOrientation,
+  SortingOrientationEnum,
   TableHeaderSize,
 } from "../../../beans";
 import { getElementTree } from "../../../utils/utils";
@@ -38,7 +39,7 @@ export class ZRegistroTableHeader {
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
-  @Prop({ mutable: true }) sortingOrientation: SortingOrientation = SortingOrientation["none"];
+  @Prop({ mutable: true }) sortingOrientation: SortingOrientation = SortingOrientationEnum.none;
 
   @State() isMenuOpened: boolean = false;
 
@@ -60,12 +61,12 @@ export class ZRegistroTableHeader {
       return;
     }
     if (
-      this.sortingOrientation === SortingOrientation["none"] ||
-      this.sortingOrientation === SortingOrientation["desc"]
+      this.sortingOrientation === SortingOrientationEnum.none ||
+      this.sortingOrientation === SortingOrientationEnum.desc
     ) {
-      this.sortingOrientation = SortingOrientation["asc"];
-    } else if (this.sortingOrientation === SortingOrientation["asc"]) {
-      this.sortingOrientation = SortingOrientation["desc"];
+      this.sortingOrientation = SortingOrientationEnum.asc;
+    } else if (this.sortingOrientation === SortingOrientationEnum.asc) {
+      this.sortingOrientation = SortingOrientationEnum.desc;
     }
 
     this.emitOnSort();
@@ -101,7 +102,7 @@ export class ZRegistroTableHeader {
       parent &&
       parent.attributes.getNamedItem("column-id").value !== this.columnId
     ) {
-      this.sortingOrientation = SortingOrientation["none"];
+      this.sortingOrientation = SortingOrientationEnum.none;
     }
   }
 
@@ -119,10 +120,10 @@ export class ZRegistroTableHeader {
       >
         <div class={classNames("container")}>
           <slot />
-          {this.sortable && this.sortingOrientation !== SortingOrientation["none"] && (
+          {this.sortable && this.sortingOrientation !== SortingOrientationEnum.none && (
             <z-icon
               name={
-                this.sortingOrientation === SortingOrientation["asc"]
+                this.sortingOrientation === SortingOrientationEnum.asc
                   ? "arrow-up"
                   : "arrow-down"
               }
