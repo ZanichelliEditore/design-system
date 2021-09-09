@@ -15,7 +15,8 @@ import { text } from "@storybook/addon-knobs";
         id="contextual-menu-1"
         elements="${text(
           "elements",
-          `[{"icon": "share", "text": "Elemento 1"}, {"icon": "delete", "text": "Elemento 2"}]`
+          `[{"icon": "share", "text": "Elemento 1"}, {"icon": "delete", "text": "Elemento 2"},
+          {"icon": "delete", "text": "Elemento 3", "disabled": "true"}, {"icon": "delete", "text": "Elemento 4"}]`
         )}"
         color="${text("color", "color-primary01")}"
       >
@@ -31,10 +32,7 @@ import { text } from "@storybook/addon-knobs";
     >
       <contextual-menu
         id="contextual-menu-2"
-        elements="${text(
-          "elements",
-          `[{ "text": "Elemento 1"}, { "text": "Elemento 2"}, { "text": "Elemento 3"}]`
-        )}"
+        elements="${text('elements', `[{ "text": "Elemento 1"}, { "text": "Elemento 2"}, { "text": "Elemento 4", "disabled": "true"}, { "text": "Elemento 3"}]`)}"
         color="${text("color", "color-primary01")}"
       >
       </contextual-menu>
@@ -70,6 +68,8 @@ This component receives a prop _elements_ which consists of an array of objects 
 
 - icon (optional): the icon of the list element;
 - text: the text of the list element;
+- icon (optional): the icon of the list element;
+- disabled (optional): used to determine if the list element is disabled:
 
 #### N.B.
 

@@ -595,6 +595,10 @@ export namespace Components {
          */
         "color"?: string;
         /**
+          * [optional] Sets disabled style of the element.
+         */
+        "disabled"?: boolean;
+        /**
           * [optional] Sets the divider color.
          */
         "dividerColor"?: string;
@@ -2619,6 +2623,10 @@ declare namespace LocalJSX {
           * [optional] Sets text color of the element.
          */
         "color"?: string;
+        /**
+          * [optional] Sets disabled style of the element.
+         */
+        "disabled"?: boolean;
         /**
           * [optional] Sets the divider color.
          */

@@ -34,6 +34,14 @@ export class ZPopover {
   private popoverElem: HTMLElement;
   private defaultPosition: PopoverPosition = this.position;
 
+  /**
+   * Constructor.
+   */
+   constructor() {
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+
+
   @Listen("closePopover")
   closePopover() {
     this.isVisible = false;
@@ -50,6 +58,13 @@ export class ZPopover {
     this.isVisible = !this.isVisible;
     this.checkSpaceAvailable();
     event.stopPropagation();
+  }
+
+  handleKeyDown(event) {
+    if (event.code === KeyboardKeys.ENTER) {
+      this.isVisible = !this.isVisible;
+      this.checkSpaceAvailable();
+    }
   }
 
   @Listen("click", { target: "body", capture: true })
@@ -128,7 +143,7 @@ export class ZPopover {
 
   render() {
     return (
-      <Host>
+      <Host onKeyDown={this.handleKeyDown}>
         <div
           tabindex="0"
           onClick={(event) => this.handleClick(event)}

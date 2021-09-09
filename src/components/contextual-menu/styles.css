@@ -3,19 +3,6 @@
   font-weight: var(--font-rg);
 }
 
-.popover-content-container {
-  min-width: 112px;
-  max-width: 280px;
-  white-space: nowrap;
-}
-
-.element-container {
-  display: flex;
-  padding: 0 8px;
-  align-items: center;
-  gap: 8px;
-}
-
 :host(:focus-within) > z-popover {
   box-shadow: var(--shadow-focus-primary);
 }
@@ -24,12 +11,26 @@
   outline: none;
 }
 
+.popover-content-container {
+  min-width: 112px;
+  max-width: 280px;
+  white-space: nowrap;
+}
+
 .sc-z-popover,
 .sc-z-popover-s {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: calc(var(--space-unit) * 0.2);
+}
+
+.element-container,
+.disabled-element-container {
+  display: flex;
+  padding: 0 8px;
+  align-items: center;
+  gap: 8px;
 }
 
 .element-container:hover {

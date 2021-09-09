@@ -103,6 +103,11 @@ export class ZListElement {
   @Prop({ reflect: true }) color?: string = "none";
 
   /**
+   * [optional] Sets disabled style of the element.
+   */
+  @Prop({ reflect: true }) disabled?: boolean = false;
+
+  /**
    * [optional] If is used in ContextualMenu component
    */
   @Prop({ reflect: true }) isContextualMenu?: boolean = false;
@@ -221,12 +226,12 @@ export class ZListElement {
         aria-expanded={this.expandable ? this.showInnerContent : null}
         onClick={this.handleClick}
         onKeyDown={this.handleKeyDown}
-        clickable={this.clickable}
+        clickable={this.clickable && !this.disabled}
         tabIndex={!this.isContextualMenu ? "0" : null}
       >
         <div
           class={`${this.calculateClass()}`}
-          style={{ color: this.color }}
+          style={{ color: `var(--${this.color}` }}
           tabindex={this.isContextualMenu ? "0" : "-1"}
           id={`z-list-element-id-${this.listElementId}`}
         >

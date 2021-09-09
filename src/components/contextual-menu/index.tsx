@@ -59,21 +59,21 @@ export class ContextualMenu {
               <z-list-group divider-type="element" size={ListSize.small}>
                 {this.jsonElements?.map((element, index) => (
                   <z-list-element
-                    clickable
+                    clickable={!element.disabled}
                     class="my-z-list-element"
                     align-button="left"
                     expandable-style="accordion"
-                    color={`var(--${this.color})`}
+                    color={element.disabled ? `gray500` : this.color}
                     isContextualMenu
                     listElementId={index}
                     onClickItem={(event) =>
                       this.clickContextualMenu.emit(event.detail)
                     }
                   >
-                    <div class="element-container">
+                    <div class={element.disabled ? "disabled-element-container" : "element-container"}>
                       {this.showIcon() && (
                         <div>
-                          <z-icon name={element.icon} fill="color-primary01" />
+                          <z-icon name={element.icon} fill={element.disabled ? `gray500` : `color-primary01`} />
                         </div>
                       )}
                       <div class="element-text">

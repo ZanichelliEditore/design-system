@@ -38,7 +38,7 @@ describe("Suite test ContextualMenu", () => {
                  <div class="popover-content-container" slot="popover">
                    <z-list>
                      <z-list-group divider-type="element" size="small">
-                       <z-list-element align-button="left" class="my-z-list-element" clickable="" color="var(--color-primary01)" expandable-style="accordion" iscontextualmenu="" listelementid="0">
+                       <z-list-element align-button="left" class="my-z-list-element" clickable="" color="color-primary01" expandable-style="accordion" iscontextualmenu="" listelementid="0">
                          <div class="element-container">
                            <div>
                              <z-icon fill="color-primary01" name="share"></z-icon>
@@ -50,7 +50,7 @@ describe("Suite test ContextualMenu", () => {
                            </div>
                          </div>
                        </z-list-element>
-                       <z-list-element align-button="left" class="my-z-list-element" clickable="" color="var(--color-primary01)" expandable-style="accordion" iscontextualmenu="" listelementid="1">
+                       <z-list-element align-button="left" class="my-z-list-element" clickable="" color="color-primary01" expandable-style="accordion" iscontextualmenu="" listelementid="1">
                          <div class="element-container">
                            <div>
                              <z-icon fill="color-primary01" name="delete"></z-icon>
