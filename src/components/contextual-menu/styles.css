@@ -31,3 +31,12 @@
   align-items: center;
   padding: calc(var(--space-unit) * 0.2);
 }
+
+.element-container:hover {
+  color: var(--myz-blue-dark);
+}
+
+.element-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

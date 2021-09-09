@@ -17,7 +17,6 @@ export class ContextualMenu {
    */
   @Prop() color?: string = "color-primary01";
 
-
   /** remove filter click event, returns filterid */
   @Event({
     eventName: "clickContextualMenu",
@@ -31,7 +30,7 @@ export class ContextualMenu {
 
   componentWillLoad() {
     if (this.elements) {
-      this.jsonElements = JSON.parse(this.elements.replace(/&quot;/g, '\"'));
+      this.jsonElements = JSON.parse(this.elements.replace(/&quot;/g, '"'));
     }
   }
 
@@ -41,7 +40,7 @@ export class ContextualMenu {
 
   render() {
     return (
-      <Host >
+      <Host>
         <z-popover
           background-color="color-background"
           box-shadow="shadow-2"
@@ -67,7 +66,9 @@ export class ContextualMenu {
                     color={`var(--${this.color})`}
                     isContextualMenu
                     listElementId={index}
-                    onClickItem={(event) => this.clickContextualMenu.emit(event.detail)}
+                    onClickItem={(event) =>
+                      this.clickContextualMenu.emit(event.detail)
+                    }
                   >
                     <div class="element-container">
                       {this.showIcon() && (
@@ -75,7 +76,7 @@ export class ContextualMenu {
                           <z-icon name={element.icon} fill="color-primary01" />
                         </div>
                       )}
-                      <div>
+                      <div class="element-text">
                         <span>{element.text}</span>
                       </div>
                     </div>

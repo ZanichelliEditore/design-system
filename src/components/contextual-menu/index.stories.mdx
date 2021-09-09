@@ -13,7 +13,10 @@ import { text } from "@storybook/addon-knobs";
     >
       <contextual-menu
         id="contextual-menu-1"
-        elements="${text('elements', `[{"icon": "share", "text": "Element 1"}, {"icon": "delete", "text": "Elemento 2"}]`)}"
+        elements="${text(
+          "elements",
+          `[{"icon": "share", "text": "Elemento 1"}, {"icon": "delete", "text": "Elemento 2"}]`
+        )}"
         color="${text("color", "color-primary01")}"
       >
       </contextual-menu>
@@ -28,7 +31,28 @@ import { text } from "@storybook/addon-knobs";
     >
       <contextual-menu
         id="contextual-menu-2"
-        elements="${text('elements', `[{ "text": "Element 1"}, { "text": "Elemento 2"}, { "text": "Elemento 3"}]`)}"
+        elements="${text(
+          "elements",
+          `[{ "text": "Elemento 1"}, { "text": "Elemento 2"}, { "text": "Elemento 3"}]`
+        )}"
+        color="${text("color", "color-primary01")}"
+      >
+      </contextual-menu>
+    </div>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="ContextualMenu with icons and long text">
+    {html` <div
+      style="height: 200px; display: flex; align-items: center; justify-content: center"
+    >
+      <contextual-menu
+        id="contextual-menu-1"
+        elements="${text(
+          "elements",
+          `[{"icon": "share", "text": "ElementoConTestoLungoElementoConTestoLungo"}, {"icon": "delete", "text": "ElementoConTestoLungo ElementoConTestoLungo ElementoConTestoLungo"}]`
+        )}"
         color="${text("color", "color-primary01")}"
       >
       </contextual-menu>
@@ -38,20 +62,23 @@ import { text } from "@storybook/addon-knobs";
 
 <Props of="contextual-menu" />
 
-
 ## How to use
 
 ### elements prop
+
 This component receives a prop _elements_ which consists of an array of objects with two attributes:
+
 - icon (optional): the icon of the list element;
 - text: the text of the list element;
 
 #### N.B.
+
 In order to pass this property correctly, the array must be converted into a string
 
 The icons are shown only if all the elements have valued this attribute
 
 ### onClickContextualMenu event
+
 This component also have an Event that manages the behaviour of the contextual-menu items.
 The callback function receives the index of the clicked item and must handle all the contextual-menu items
 using - for example - a switch statement.
