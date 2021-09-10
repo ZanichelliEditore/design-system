@@ -41,7 +41,7 @@ describe("Suite test ContextualMenu", () => {
                        <z-list-element align-button="left" class="my-z-list-element" clickable="" color="color-primary01" expandable-style="accordion" iscontextualmenu="" listelementid="0">
                          <div class="element-container">
                            <div>
-                             <z-icon fill="color-primary01" name="share"></z-icon>
+                           <z-icon name="share"></z-icon>
                            </div>
                            <div class="element-text">
                              <span>
@@ -53,7 +53,7 @@ describe("Suite test ContextualMenu", () => {
                        <z-list-element align-button="left" class="my-z-list-element" clickable="" color="color-primary01" expandable-style="accordion" iscontextualmenu="" listelementid="1">
                          <div class="element-container">
                            <div>
-                             <z-icon fill="color-primary01" name="delete"></z-icon>
+                           <z-icon name="delete"></z-icon>
                            </div>
                            <div class="element-text">
                              <span>

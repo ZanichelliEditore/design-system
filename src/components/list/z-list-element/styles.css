@@ -21,26 +21,22 @@
 
 /*z-list-element size*/
 
-:host([size="small"]) > .container,
-:host([size="small"]) > .container-contextual-menu {
+:host([size="small"]) > .container {
   padding: calc(var(--space-unit) / 2) 0;
   min-height: calc(var(--space-unit) * 4);
 }
 
-:host([size="medium"]) > .container,
-:host([size="medium"]) > .container-contextual-menu {
+:host([size="medium"]) > .container {
   padding: var(--space-unit) 0;
   min-height: calc(var(--space-unit) * 5);
 }
 
-:host([size="large"]) > .container,
-:host([size="large"]) > .container-contextual-menu {
+:host([size="large"]) > .container {
   padding: calc(var(--space-unit) * 2) 0;
   min-height: calc(var(--space-unit) * 7);
 }
 
-:host([size="x-large"]) > .container,
-:host([size="x-large"]) > .container-contextual-menu {
+:host([size="x-large"]) > .container {
   padding: calc(var(--space-unit) * 3) 0;
   min-height: calc(var(--space-unit) * 9);
 }

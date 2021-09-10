@@ -79,12 +79,7 @@ export class ContextualMenu {
                     >
                       {this.showIcon() && (
                         <div>
-                          <z-icon
-                            name={element.icon}
-                            fill={
-                              element.disabled ? `gray500` : `color-primary01`
-                            }
-                          />
+                          <z-icon name={element.icon} />
                         </div>
                       )}
                       <div class="element-text">

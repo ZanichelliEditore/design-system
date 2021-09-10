@@ -25,19 +25,26 @@
   padding: calc(var(--space-unit) * 0.2);
 }
 
+.element-container:hover {
+  color: var(--myz-blue-dark);
+  fill: var(--myz-blue-dark);
+}
+
+.element-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .element-container,
 .disabled-element-container {
   display: flex;
   padding: 0 8px;
   align-items: center;
   gap: 8px;
+  fill: var(--gray500);
+  padding: 4px 8px;
 }
 
-.element-container:hover {
-  color: var(--myz-blue-dark);
-}
-
-.element-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
+.element-container {
+  fill: var(--color-primary01);
 }
