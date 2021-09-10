@@ -38,9 +38,9 @@ export class ZRegistroTableHeader {
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
-  @Prop({ mutable: true }) sortingOrientation: SortingOrientation = SortingOrientation["none"];
-
   @State() isMenuOpened: boolean = false;
+
+  @State() sortingOrientation: SortingOrientation = SortingOrientation["none"];
 
   constructor() {
     this.emitOnSort = this.emitOnSort.bind(this);
@@ -49,10 +49,7 @@ export class ZRegistroTableHeader {
   /** [Optional] callback for sorting */
   @Event() sort: EventEmitter;
   emitOnSort() {
-    this.sort.emit({ 
-      columnId: this.columnId,
-      sortingOrientation: this.sortingOrientation
-    });
+    this.sort.emit({ sortingOrientation: this.sortingOrientation });
   }
 
   handleSort() {
@@ -119,14 +116,16 @@ export class ZRegistroTableHeader {
       >
         <div class={classNames("container")}>
           <slot />
-          {this.sortable && this.sortingOrientation !== SortingOrientation["none"] && (
+          {this.sortable && (
             <z-icon
               name={
                 this.sortingOrientation === SortingOrientation["asc"]
                   ? "arrow-up"
                   : "arrow-down"
               }
-              class="arrow"
+              class={classNames("arrow", {
+                hidden: this.sortingOrientation === SortingOrientation["none"],
+              })}
             />
           )}
         </div>
