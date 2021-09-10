@@ -6,6 +6,7 @@
     "./components/buttons/z-button-sort/index.js",
     "./components/buttons/z-chip/index.js",
     "./components/buttons/z-toggle-button/index.js",
+    "./components/contextual-menu/index.js",
     "./components/footer/z-footer/index.js",
     "./components/footer/z-footer-link/index.js",
     "./components/footer/z-footer-section/index.js",

@@ -1,5 +1,5 @@
-import { Component, h, Host, Prop, State } from "@stencil/core";
-import { DividerSize, ExpandableListStyle, ExpandableListButtonAlign, ListDividerType, ListSize, } from "../../../beans";
+import { Component, Element, Event, h, Host, Listen, Prop, State, } from "@stencil/core";
+import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, KeyboardKeys, ListDividerType, ListSize, } from "../../../beans";
 export class ZListElement {
   /**
    * Constructor.
@@ -16,7 +16,7 @@ export class ZListElement {
     /**
      * [optional] Sets the divider color.
      */
-    this.dividerColor = "gray200";
+    this.dividerColor = "color-surface03";
     /**
      * [optional] Sets the position where to insert the divider.
      */
@@ -37,6 +37,18 @@ export class ZListElement {
      * [optional] Sets size of inside elements.
      */
     this.size = ListSize.medium;
+    /**
+     * [optional] Sets text color of the element.
+     */
+    this.color = "none";
+    /**
+     * [optional] Sets disabled style of the element.
+     */
+    this.disabled = false;
+    /**
+     * [optional] If is used in ContextualMenu component
+     */
+    this.isContextualMenu = false;
     this.showInnerContent = false;
     this.openElementConfig = {
       accordion: {
@@ -51,18 +63,47 @@ export class ZListElement {
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
+  accessibleFocusHandler(e) {
+    if (this.listElementId === e.detail) {
+      const toFocus = this.host.shadowRoot.getElementById(`z-list-element-id-${e.detail}`);
+      toFocus.focus();
+    }
+  }
   /**
    * Handler for click on element. If element is expandable, change state.
    * @returns void
    */
   handleClick() {
+    this.clickItem.emit(this.listElementId);
     if (!this.expandable) {
       return;
     }
     this.showInnerContent = !this.showInnerContent;
   }
+  calculateClass() {
+    if (this.isContextualMenu) {
+      return "container-contextual-menu";
+    }
+    return "container";
+  }
   handleKeyDown(event) {
-    const expandByKey = event.code === "Enter" || event.code === "Space";
+    const expandByKey = event.code === KeyboardKeys.ENTER;
+    switch (event.code) {
+      case KeyboardKeys.ARROW_DOWN:
+        event.preventDefault();
+        this.accessibleFocus.emit(this.listElementId + 1);
+        break;
+      case KeyboardKeys.ARROW_UP:
+        event.preventDefault();
+        this.accessibleFocus.emit(this.listElementId - 1);
+        break;
+      case KeyboardKeys.ENTER:
+        event.preventDefault();
+        this.clickItem.emit(this.listElementId);
+        break;
+      default:
+        break;
+    }
     if (!this.expandable || !expandByKey) {
       return;
     }
@@ -95,8 +136,8 @@ export class ZListElement {
       h("slot", { name: "inner-content" })));
   }
   render() {
-    return (h(Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: "0" },
-      h("div", { class: "container" },
+    return (h(Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null },
+      h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}` },
         h("div", { class: "z-list-element-container" },
           this.renderExpandableButton(),
           h("slot", null)),
@@ -169,7 +210,7 @@ export class ZListElement {
       },
       "attribute": "divider-color",
       "reflect": false,
-      "defaultValue": "\"gray200\""
+      "defaultValue": "\"color-surface03\""
     },
     "dividerType": {
       "type": "string",
@@ -258,6 +299,23 @@ export class ZListElement {
       "reflect": false,
       "defaultValue": "ExpandableListStyle.accordion"
     },
+    "listElementId": {
+      "type": "number",
+      "mutable": false,
+      "complexType": {
+        "original": "number",
+        "resolved": "number",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": ""
+      },
+      "attribute": "list-element-id",
+      "reflect": true
+    },
     "size": {
       "type": "string",
       "mutable": false,
@@ -280,9 +338,102 @@ export class ZListElement {
       "attribute": "size",
       "reflect": true,
       "defaultValue": "ListSize.medium"
+    },
+    "color": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "[optional] Sets text color of the element."
+      },
+      "attribute": "color",
+      "reflect": true,
+      "defaultValue": "\"none\""
+    },
+    "disabled": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "[optional] Sets disabled style of the element."
+      },
+      "attribute": "disabled",
+      "reflect": true,
+      "defaultValue": "false"
+    },
+    "isContextualMenu": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "[optional] If is used in ContextualMenu component"
+      },
+      "attribute": "is-contextual-menu",
+      "reflect": true,
+      "defaultValue": "false"
     }
   }; }
   static get states() { return {
     "showInnerContent": {}
   }; }
+  static get events() { return [{
+      "method": "accessibleFocus",
+      "name": "accessibleFocus",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": {
+        "tags": [],
+        "text": "remove filter click event, returns filterid"
+      },
+      "complexType": {
+        "original": "number",
+        "resolved": "number",
+        "references": {}
+      }
+    }, {
+      "method": "clickItem",
+      "name": "clickItem",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": {
+        "tags": [],
+        "text": "remove filter click event, returns filterid"
+      },
+      "complexType": {
+        "original": "any",
+        "resolved": "any",
+        "references": {}
+      }
+    }]; }
+  static get elementRef() { return "host"; }
+  static get listeners() { return [{
+      "name": "accessibleFocus",
+      "method": "accessibleFocusHandler",
+      "target": "document",
+      "capture": false,
+      "passive": false
+    }]; }
 }

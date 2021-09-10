@@ -1,5 +1,5 @@
-import { Component, Prop, h } from '@stencil/core';
-import { icons } from '../icons';
+import { Component, Prop, h } from "@stencil/core";
+import { icons } from "../icons";
 export class ZIcon {
   constructor() {
     /** icon height (optional) */
@@ -8,7 +8,7 @@ export class ZIcon {
     this.width = 18;
   }
   selectPathOrPolygon(iconName) {
-    if (iconName && iconName.startsWith('M')) {
+    if (iconName && iconName.startsWith("M")) {
       return h("path", { d: icons[this.name] });
     }
     else {
@@ -16,7 +16,7 @@ export class ZIcon {
     }
   }
   render() {
-    return (h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid }, this.selectPathOrPolygon(icons[this.name])));
+    return (h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid, fill: this.fill ? `var(--${this.fill})` : "" }, this.selectPathOrPolygon(icons[this.name])));
   }
   static get is() { return "z-icon"; }
   static get encapsulation() { return "shadow"; }
@@ -95,6 +95,23 @@ export class ZIcon {
         "text": "icon id (optional)"
       },
       "attribute": "iconid",
+      "reflect": false
+    },
+    "fill": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "icon fill (optional)"
+      },
+      "attribute": "fill",
       "reflect": false
     }
   }; }

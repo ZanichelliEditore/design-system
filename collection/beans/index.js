@@ -81,7 +81,11 @@ export var keybordKeyCodeEnum;
 })(keybordKeyCodeEnum || (keybordKeyCodeEnum = {}));
 export var KeyboardKeys;
 (function (KeyboardKeys) {
+  KeyboardKeys["ARROW_DOWN"] = "ArrowDown";
+  KeyboardKeys["ARROW_UP"] = "ArrowUp";
+  KeyboardKeys["ENTER"] = "Enter";
   KeyboardKeys["ESC"] = "Escape";
+  KeyboardKeys["SPACE"] = "Space";
 })(KeyboardKeys || (KeyboardKeys = {}));
 export var ThemeVariant;
 (function (ThemeVariant) {

@@ -10,6 +10,16 @@ import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemB
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
+    interface ContextualMenu {
+        /**
+          * [optional] Sets text color of ContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ContextualMenu
+         */
+        "elements"?: string;
+    }
     interface ZAlert {
         /**
           * alert variant type
@@ -373,6 +383,10 @@ export namespace Components {
     }
     interface ZIcon {
         /**
+          * icon fill (optional)
+         */
+        "fill"?: string;
+        /**
           * icon height (optional)
          */
         "height"?: number;
@@ -577,6 +591,14 @@ export namespace Components {
          */
         "clickable"?: boolean;
         /**
+          * [optional] Sets text color of the element.
+         */
+        "color"?: string;
+        /**
+          * [optional] Sets disabled style of the element.
+         */
+        "disabled"?: boolean;
+        /**
           * [optional] Sets the divider color.
          */
         "dividerColor"?: string;
@@ -596,6 +618,11 @@ export namespace Components {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] If is used in ContextualMenu component
+         */
+        "isContextualMenu"?: boolean;
+        "listElementId"?: number;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -1085,6 +1112,10 @@ export namespace Components {
          */
         "boxShadow"?: PopoverShadow;
         /**
+          * [optional] Sets padding for Popover container
+         */
+        "padding"?: string;
+        /**
           * [optional] Popover position
          */
         "position"?: PopoverPosition;
@@ -1365,6 +1396,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLContextualMenuElement extends Components.ContextualMenu, HTMLStencilElement {
+    }
+    var HTMLContextualMenuElement: {
+        prototype: HTMLContextualMenuElement;
+        new (): HTMLContextualMenuElement;
+    };
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
     }
     var HTMLZAlertElement: {
@@ -1870,6 +1907,7 @@ declare global {
         new (): HTMLZUserDropdownElement;
     };
     interface HTMLElementTagNameMap {
+        "contextual-menu": HTMLContextualMenuElement;
         "z-alert": HTMLZAlertElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
@@ -1957,6 +1995,20 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ContextualMenu {
+        /**
+          * [optional] Sets text color of ContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ContextualMenu
+         */
+        "elements"?: string;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
+    }
     interface ZAlert {
         /**
           * alert variant type
@@ -2344,6 +2396,10 @@ declare namespace LocalJSX {
     }
     interface ZIcon {
         /**
+          * icon fill (optional)
+         */
+        "fill"?: string;
+        /**
           * icon height (optional)
          */
         "height"?: number;
@@ -2564,6 +2620,14 @@ declare namespace LocalJSX {
          */
         "clickable"?: boolean;
         /**
+          * [optional] Sets text color of the element.
+         */
+        "color"?: string;
+        /**
+          * [optional] Sets disabled style of the element.
+         */
+        "disabled"?: boolean;
+        /**
           * [optional] Sets the divider color.
          */
         "dividerColor"?: string;
@@ -2583,6 +2647,19 @@ declare namespace LocalJSX {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] If is used in ContextualMenu component
+         */
+        "isContextualMenu"?: boolean;
+        "listElementId"?: number;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onAccessibleFocus"?: (event: CustomEvent<number>) => void;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickItem"?: (event: CustomEvent<any>) => void;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -3158,6 +3235,10 @@ declare namespace LocalJSX {
          */
         "boxShadow"?: PopoverShadow;
         /**
+          * [optional] Sets padding for Popover container
+         */
+        "padding"?: string;
+        /**
           * [optional] Popover position
          */
         "position"?: PopoverPosition;
@@ -3458,6 +3539,7 @@ declare namespace LocalJSX {
         "userfullname"?: string;
     }
     interface IntrinsicElements {
+        "contextual-menu": ContextualMenu;
         "z-alert": ZAlert;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
@@ -3548,6 +3630,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "contextual-menu": LocalJSX.ContextualMenu & JSXBase.HTMLAttributes<HTMLContextualMenuElement>;
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;

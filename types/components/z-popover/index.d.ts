@@ -10,12 +10,19 @@ export declare class ZPopover {
   boxShadow?: PopoverShadow;
   /** [optional] Show or hide arrow */
   showArrow?: boolean;
+  /** [optional] Sets padding for Popover container */
+  padding?: string;
   isVisible: boolean;
   private popoverElem;
   private defaultPosition;
+  /**
+   * Constructor.
+   */
+  constructor();
   closePopover(): void;
   closePopoverWithKeyboard(e: any): void;
   handleClick(event: any): void;
+  handleKeyDown(event: any): void;
   handleOutsideClick(e: any): void;
   checkSpaceAvailable(): void;
   render(): any;

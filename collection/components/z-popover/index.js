@@ -3,6 +3,9 @@ import classNames from "classnames";
 import { PopoverPosition, PopoverBorderRadius, PopoverShadow, KeyboardKeys, } from "../../beans";
 import { getElementTree } from "../../utils/utils";
 export class ZPopover {
+  /**
+   * Constructor.
+   */
   constructor() {
     /** [optional] Popover position */
     this.position = PopoverPosition["after-up"];
@@ -14,8 +17,11 @@ export class ZPopover {
     this.boxShadow = PopoverShadow["shadow-1"];
     /** [optional] Show or hide arrow */
     this.showArrow = false;
+    /** [optional] Sets padding for Popover container */
+    this.padding = "8px";
     this.isVisible = false;
     this.defaultPosition = this.position;
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
   closePopover() {
     this.isVisible = false;
@@ -29,6 +35,12 @@ export class ZPopover {
     this.isVisible = !this.isVisible;
     this.checkSpaceAvailable();
     event.stopPropagation();
+  }
+  handleKeyDown(event) {
+    if (event.code === KeyboardKeys.ENTER) {
+      this.isVisible = !this.isVisible;
+      this.checkSpaceAvailable();
+    }
   }
   handleOutsideClick(e) {
     const tree = getElementTree(e.target);
@@ -91,11 +103,16 @@ export class ZPopover {
     this.position = PopoverPosition[`${firstSide}-${secondSide}`];
   }
   render() {
-    return (h(Host, null,
-      h("div", { onClick: (event) => this.handleClick(event) },
+    return (h(Host, { onKeyDown: this.handleKeyDown },
+      h("div", { tabindex: "0", onClick: (event) => this.handleClick(event), onKeyDown: (event) => {
+          if (event.key === KeyboardKeys.ENTER) {
+            this.handleClick(event);
+          }
+        } },
         h("slot", { name: "trigger" })),
       h("div", { ref: (e) => (this.popoverElem = e), class: classNames("popover-content-container", this.position, `border-radius-${this.borderRadius}`, this.boxShadow, { "show-arrow": this.showArrow }, { visible: this.isVisible }), style: {
           backgroundColor: `var(--${this.backgroundColor})`,
+          padding: this.padding,
         } },
         h("slot", { name: "popover" }))));
   }
@@ -212,6 +229,24 @@ export class ZPopover {
       "attribute": "show-arrow",
       "reflect": false,
       "defaultValue": "false"
+    },
+    "padding": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "[optional] Sets padding for Popover container"
+      },
+      "attribute": "padding",
+      "reflect": false,
+      "defaultValue": "\"8px\""
     }
   }; }
   static get states() { return {

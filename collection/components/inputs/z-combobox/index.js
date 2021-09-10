@@ -8,7 +8,7 @@ export class ZCombobox {
     /** no result text message */
     this.noresultslabel = "Nessun risultato";
     /** toggle combo list opening flag */
-    this.isopen = true;
+    this.isopen = false;
     /** fixed style flag */
     this.isfixed = false;
     /** close combobox list text */
@@ -24,7 +24,7 @@ export class ZCombobox {
     this.renderItemsList = []; // used for render only
     this.itemsList = [];
     this.inputType = InputTypeEnum.text;
-    this.closeComboBox = this.closeComboBox.bind(this);
+    this.toggleComboBox = this.toggleComboBox.bind(this);
     this.closeFilterItems = this.closeFilterItems.bind(this);
   }
   watchItems() {
@@ -96,14 +96,14 @@ export class ZCombobox {
     this.searchValue = "";
     this.resetRenderItemsList();
   }
-  closeComboBox() {
+  toggleComboBox() {
     this.isopen = !this.isopen;
   }
   renderHeader() {
-    return (h("div", { class: "header", onClick: () => this.closeComboBox(), onKeyDown: (ev) => {
+    return (h("div", { class: "header", onClick: () => this.toggleComboBox(), onKeyDown: (ev) => {
         if (ev.keyCode === keybordKeyCodeEnum.SPACE)
           ev.preventDefault();
-      }, onKeyUp: (ev) => handleKeyboardSubmit(ev, this.closeComboBox), role: "button", tabindex: 0 },
+      }, onKeyUp: (ev) => handleKeyboardSubmit(ev, this.toggleComboBox), role: "button", tabindex: 0 },
       h("h2", null,
         this.label,
         h("span", null, this.selectedCounter > 0 && ` (${this.selectedCounter})`)),
@@ -130,7 +130,7 @@ export class ZCombobox {
     if (!items.length && this.searchValue)
       return this.renderNoSearchResults();
     return (h("ul", null, items.map((item, i) => {
-      return (h("z-myz-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: i === items.length - 1 ? false : true },
+      return (h("z-myz-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: i !== items.length - 1 },
         h("z-input", { type: InputTypeEnum.checkbox, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked &&
             this.maxcheckableitems &&
             this.maxcheckableitems === this.selectedCounter })));
@@ -162,7 +162,7 @@ export class ZCombobox {
           this.maxcheckableitems < this.itemsList.length })));
   }
   render() {
-    return (h("div", { "data-action": `combo-${this.inputid}`, class: `${this.isopen && "open"} ${this.isfixed && "fixed"}`, id: this.inputid },
+    return (h("div", { "data-action": `combo-${this.inputid}`, class: `${this.isopen ? "open" : ""} ${this.isfixed ? "fixed" : ""}`, id: this.inputid },
       this.renderHeader(),
       this.renderContent()));
   }
@@ -334,7 +334,7 @@ export class ZCombobox {
       },
       "attribute": "isopen",
       "reflect": false,
-      "defaultValue": "true"
+      "defaultValue": "false"
     },
     "isfixed": {
       "type": "boolean",

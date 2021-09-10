@@ -160,7 +160,11 @@ export declare enum keybordKeyCodeEnum {
   DELETE = 46
 }
 export declare enum KeyboardKeys {
-  ESC = "Escape"
+  ARROW_DOWN = "ArrowDown",
+  ARROW_UP = "ArrowUp",
+  ENTER = "Enter",
+  ESC = "Escape",
+  SPACE = "Space"
 }
 export declare type SelectItemBean = {
   id: string;

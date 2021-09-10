@@ -7,6 +7,8 @@ export declare class ZIcon {
   width?: number;
   /** icon id (optional) */
   iconid?: string;
+  /** icon fill (optional) */
+  fill?: string;
   selectPathOrPolygon(iconName: string): HTMLElement;
   render(): any;
 }

@@ -1,5 +1,12 @@
-import { DividerSize, ExpandableListStyle, ExpandableListButtonAlign, ListDividerType, ListSize } from "../../../beans";
+import { EventEmitter } from "../../../stencil-public-runtime";
+import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, ListDividerType, ListSize } from "../../../beans";
 export declare class ZListElement {
+  host: HTMLElement;
+  /** remove filter click event, returns filterid */
+  accessibleFocus: EventEmitter<number>;
+  /** remove filter click event, returns filterid */
+  clickItem: EventEmitter;
+  accessibleFocusHandler(e: CustomEvent): void;
   /**
    * [optional] Align expandable button left or right.
    */
@@ -28,10 +35,23 @@ export declare class ZListElement {
    * [optional] Sets expandable style to element.
    */
   expandableStyle?: ExpandableListStyle;
+  listElementId?: number;
   /**
    * [optional] Sets size of inside elements.
    */
   size?: ListSize;
+  /**
+   * [optional] Sets text color of the element.
+   */
+  color?: string;
+  /**
+   * [optional] Sets disabled style of the element.
+   */
+  disabled?: boolean;
+  /**
+   * [optional] If is used in ContextualMenu component
+   */
+  isContextualMenu?: boolean;
   showInnerContent: boolean;
   private openElementConfig;
   /**
@@ -43,6 +63,7 @@ export declare class ZListElement {
    * @returns void
    */
   handleClick(): void;
+  calculateClass(): "container-contextual-menu" | "container";
   handleKeyDown(event: any): void;
   /**
    * Renders button to expand element.

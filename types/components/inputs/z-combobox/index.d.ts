@@ -49,7 +49,7 @@ export declare class ZCombobox {
   filterItems(value: string): void;
   checkAll(checked?: boolean): void;
   closeFilterItems(): void;
-  closeComboBox(): void;
+  toggleComboBox(): void;
   renderHeader(): HTMLDivElement;
   renderContent(): HTMLDivElement | undefined;
   renderItems(): HTMLDivElement | undefined;
