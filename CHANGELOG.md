@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.16.0](https://github.com/ZanichelliEditore/design-system/compare/v2.15.0...v2.16.0) (2021-09-10)
+
+
+### Features
+
+* **clav-43:**  handle keyboard interaction ([c0168d1](https://github.com/ZanichelliEditore/design-system/commit/c0168d1f7ca0c9ab101fdbf2d7c43a08d30a6ab6))
+* **clav-43:** add over color and ellipsis on text overflow ([1bcd5e6](https://github.com/ZanichelliEditore/design-system/commit/1bcd5e60857885b50f037b6ea1c4a1b851bdf64c))
+* **clav-43:** add style to contextual menu component ([507fe96](https://github.com/ZanichelliEditore/design-system/commit/507fe9625454d0ce081b8ebe1786b4dd2d0c22c5))
+* **clav-43:** focus on key up, down ([385d5e1](https://github.com/ZanichelliEditore/design-system/commit/385d5e16cea83a0bc5ca52531311e67f33a0d104))
+* **clav-43:** handle custom event ([c32305a](https://github.com/ZanichelliEditore/design-system/commit/c32305a7d51ee219a3d3c03e08b28c4f6c8c4f33))
+* **clav-43:** handle key up or down ([b2011b7](https://github.com/ZanichelliEditore/design-system/commit/b2011b7b68d6ac95cc00ce14bd3441c59aea54ad))
+* **clav-43:** handle tabindex ([9288037](https://github.com/ZanichelliEditore/design-system/commit/9288037edcdb534e753a0de4a2ced6c029aee803))
+* **CLAV-43:** add action to z-list-element ([5168fe1](https://github.com/ZanichelliEditore/design-system/commit/5168fe1912088bd224217f047b2e34e6482de2cc))
+* **CLAV-43:** add contextual-menu ([6bd0a91](https://github.com/ZanichelliEditore/design-system/commit/6bd0a91adcd46e771dddd9dc065da34fc2f72af9))
+* **CLAV-43:** add doc ([d2a4b2a](https://github.com/ZanichelliEditore/design-system/commit/d2a4b2a70d3e5904652a434318d06b0fe170b78d))
+* **CLAV-43:** add event ([7cb2d5d](https://github.com/ZanichelliEditore/design-system/commit/7cb2d5d253f2682e0ea42679d481af6e3e4232aa))
+* **CLAV-43:** fix double quote error ([14f3d49](https://github.com/ZanichelliEditore/design-system/commit/14f3d49eb6f216c93d428de56e1b7eb6145deecc))
+* **CLAV-43:** fix style ([3e0d7cd](https://github.com/ZanichelliEditore/design-system/commit/3e0d7cd14d860f5a7b7eafed60cc06d279265932))
+* change z-combobox default state to closed ([ae79fc2](https://github.com/ZanichelliEditore/design-system/commit/ae79fc2f31e4ced60995ca49d8ba2c3555a29eef))
+
+
+### Bug Fixes
+
+* **clav-43:** contextual menu opening with enter ([2b7b32b](https://github.com/ZanichelliEditore/design-system/commit/2b7b32bfe20057384ff5a515ea7db8571dde4450))
+* fix tests ([680d53f](https://github.com/ZanichelliEditore/design-system/commit/680d53f53d26d7487bd618f194c5508f9e902d6c))
+* **clav-43:** better keyboard action handling ([40f857e](https://github.com/ZanichelliEditore/design-system/commit/40f857ebd172c699a554370a438927d590c65899))
+* **clav-43:** handle event propagation & key nav ([32ce1af](https://github.com/ZanichelliEditore/design-system/commit/32ce1af6265261458171df456b166c0e4a6018c6))
+* **clav-43:** prevent arrow key ([0dd0901](https://github.com/ZanichelliEditore/design-system/commit/0dd0901ec8f4e3cc6549f03a00eb603a84f3eda4))
+
 ## [2.15.0](https://github.com/ZanichelliEditore/design-system/compare/v2.14.1...v2.15.0) (2021-09-02)
 
 
