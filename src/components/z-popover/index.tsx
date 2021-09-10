@@ -37,10 +37,9 @@ export class ZPopover {
   /**
    * Constructor.
    */
-   constructor() {
+  constructor() {
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
-
 
   @Listen("closePopover")
   closePopover() {
@@ -147,9 +146,8 @@ export class ZPopover {
         <div
           tabindex="0"
           onClick={(event) => this.handleClick(event)}
-          onKeyUp={(event) => {
+          onKeyDown={(event) => {
             if (event.key === KeyboardKeys.ENTER) {
-              console.log("clikkete");
               this.handleClick(event);
             }
           }}
