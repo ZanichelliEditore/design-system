@@ -94,11 +94,11 @@ export function convertJson(data: string): any {
 }
 
 const prefix = 'avatar-C'    // prefix for color vars name
-const colorCount = 19        // available colors
+const colorsCount = 19        // available colors
 
 export function colorFromId(id) {
     const seed = Math.ceil(2**31 - 1) * parseFloat(`0.${id}`);
-    let color = Math.ceil( colorCount * (seed%1));
+    let color = Math.ceil( colorsCount * (seed%1));
 
     // if result of mc is 0
     // es.: 3895229
