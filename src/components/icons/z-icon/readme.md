@@ -15,6 +15,7 @@
 
 | Property | Attribute | Description                                | Type     | Default     |
 | -------- | --------- | ------------------------------------------ | -------- | ----------- |
+| `fill`   | `fill`    | icon fill (optional)                       | `string` | `undefined` |
 | `height` | `height`  | icon height (optional)                     | `number` | `18`        |
 | `iconid` | `iconid`  | icon id (optional)                         | `string` | `undefined` |
 | `name`   | `name`    | icon name (choice between available icons) | `string` | `undefined` |
@@ -25,6 +26,7 @@
 
 ### Used by
 
+ - [contextual-menu](../../contextual-menu)
  - [z-app-header](../../navigation/z-app-header)
  - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
@@ -64,6 +66,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  contextual-menu --> z-icon
   z-app-header --> z-icon
   z-app-switcher --> z-icon
   z-button --> z-icon
