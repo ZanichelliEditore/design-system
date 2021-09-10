@@ -32,7 +32,7 @@ describe("Suite test ZRegistroTableHeader", () => {
     expect(page.root.getAttribute("role")).toEqual("columnheader");
   });
 
-  it("Test render sortable icon when sortable is true", async () => {
+  it("Test render without icon when sortable is true and sorting-orientation is not defined", async () => {
     const page = await newSpecPage({
       components: [ZRegistroTableHeader],
       html: `<z-registro-table-header sortable="true"></z-registro-table-header>`,
@@ -43,7 +43,6 @@ describe("Suite test ZRegistroTableHeader", () => {
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
-            <z-icon class="arrow hidden" name="arrow-down"></z-icon>
           </div>
         </mock:shadow-root>
       </z-registro-table-header>
@@ -194,6 +193,59 @@ describe("Suite test ZRegistroTableHeader", () => {
 
     expect(page.root).toEqualHtml(`
       <z-registro-table-header class="size-medium sortable" role="columnheader" sortable="true" column-id="col-1">
+        <mock:shadow-root>
+          <div class="container">
+            <slot></slot>
+            <z-icon class="arrow" name="arrow-down"></z-icon>
+          </div>
+        </mock:shadow-root>
+      </z-registro-table-header>
+    `);
+  });
+
+  it("Test render without arrow when sorting-orientation is none", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTableHeader],
+      html: `<z-registro-table-header sortable="true" sorting-orientation="none" column-id="col-1"></z-registro-table-header>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-registro-table-header class="size-medium sortable" role="columnheader" sortable="true" sorting-orientation="none"  column-id="col-1">
+        <mock:shadow-root>
+          <div class="container">
+            <slot></slot>
+          </div>
+        </mock:shadow-root>
+      </z-registro-table-header>
+    `);
+  });
+
+  it("Test render correct arrow when sorting-orientation is asc", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTableHeader],
+      html: `<z-registro-table-header sortable="true" sorting-orientation="asc" column-id="col-1"></z-registro-table-header>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-registro-table-header class="size-medium sortable" role="columnheader" sortable="true" sorting-orientation="asc" column-id="col-1">
+        <mock:shadow-root>
+          <div class="container">
+            <slot></slot>
+            <z-icon class="arrow" name="arrow-up"></z-icon>
+          </div>
+        </mock:shadow-root>
+      </z-registro-table-header>
+    `);
+  });
+
+  it("Test render correct arrow when sorting-orientation is desc", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTableHeader],
+      html: `<z-registro-table-header sortable="true" sorting-orientation="desc" column-id="col-1"></z-registro-table-header>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-registro-table-header class="size-medium sortable" role="columnheader" sortable="true" sorting-orientation="desc" column-id="col-1">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>

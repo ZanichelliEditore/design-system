@@ -12,7 +12,7 @@ describe("Suite test ZIcon", () => {
     expect(page.root).toEqualHtml(`
       <z-icon>
         <mock:shadow-root>
-          <svg viewBox="0 0 1000 1000" width='18' height='18' id="">
+          <svg viewBox="0 0 1000 1000" id="">
             <polygon></polygon>
           </svg>
         </mock:shadow-root>
@@ -28,7 +28,7 @@ describe("Suite test ZIcon", () => {
     expect(page.root).toEqualHtml(`
       <z-icon name="download" iconid="zicon">
         <mock:shadow-root>
-          <svg viewBox="0 0 1000 1000" width='18' height='18' id="zicon">
+          <svg viewBox="0 0 1000 1000" id="zicon">
             <path d="${icons["download"]}"></path>
           </svg>
         </mock:shadow-root>
@@ -60,7 +60,7 @@ describe("Suite test ZIcon", () => {
     expect(page.root).toEqualHtml(`
       <z-icon name="chevron-down" iconid="zicon">
         <mock:shadow-root>
-          <svg viewBox="0 0 1000 1000" width='18' height='18' id="zicon">
+          <svg viewBox="0 0 1000 1000" id="zicon">
             <path d="${icons["chevron-down"]}"></path>
           </svg>
         </mock:shadow-root>

@@ -1,10 +1,11 @@
 :host {
   --font-size-link: inherit;
+  --font-weight-link: inherit;
 }
 
 :host {
   font-family: var(--dashboard-font);
-  font-weight: inherit;
+  font-weight: var(--font-weight-link);
   font-size: var(--font-size-link);
   line-height: inherit;
   outline: none;
@@ -12,8 +13,8 @@
 
 a {
   cursor: pointer;
-  color: var(--color-link01);
-  fill: var(--color-link01);
+  color: var(--color-link-primary);
+  fill: var(--color-link-primary);
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -28,16 +29,25 @@ a:active {
   text-decoration: underline;
 }
 
+a.active {
+  color: var(--color-active-link);
+  fill: var(--color-active-link);
+}
+
 a:hover,
-a:focus,
-a:visited {
-  color: var(--color-hover-primary);
-  fill: var(--color-hover-primary);
+a:focus {
+  color: var(--color-hover-link);
+  fill: var(--color-hover-link);
 }
 
 a:active {
-  color: var(--color-pressed-primary);
-  fill: var(--color-pressed-primary);
+  color: var(--color-pressed-link);
+  fill: var(--color-pressed-link);
+}
+
+a:visited {
+  color: var(--color-visited-link);
+  fill: var(--color-visited-link);
 }
 
 a.disabled {
@@ -62,49 +72,68 @@ a.disabled:hover {
   text-decoration: none;
 }
 
-a.default-inverse,
-a.default-inverse:focus,
-a.default-inverse:active,
-a.default-inverse:hover {
-  color: var(--color-text-inverse);
-  fill: var(--color-text-inverse);
+a.inverse {
+  color: var(--color-inverse-link);
+  fill: var(--color-inverse-link);
 }
 
-a.default-inverse:visited {
-  color: var(--color-text-inverse);
-  fill: var(--color-text-inverse);
+a.inverse.active {
+  color: var(--color-inverse-active-link);
+  fill: var(--color-inverse-active-link);
 }
 
-a.black,
-a.black:active,
-a.black:visited,
-a.black:hover {
+a.inverse:hover,
+a.inverse:focus {
+  color: var(--color-inverse-hover-link);
+  fill: var(--color-inverse-hover-link);
+}
+
+a.inverse:active {
+  color: var(--color-inverse-pressed-link);
+  fill: var(--color-inverse-pressed-link);
+}
+
+a.inverse:visited {
+  color: var(--color-inverse-visited-link);
+  fill: var(--color-inverse-visited-link);
+}
+
+a.black {
   color: var(--bg-grey-900);
   fill: var(--bg-grey-900);
   text-decoration: none;
 }
 
+a.black:hover,
+a.black.active,
+a.black:visited {
+  color: var(--bg-black);
+  fill: var(--bg-black);
+}
+
+a.black:active {
+  color: var(--gray-700);
+  fill: var(--gray-700);
+}
+
 a.white,
 a.white:active,
-a.white:visited,
-a.white:hover {
+a.white:hover,
+a.white.active {
   color: var(--bg-white);
   fill: var(--bg-white);
   text-decoration: none;
 }
 
-a.active,
-a.active:active,
-a.active:visited {
-  color: var(--text-grey-800);
-  fill: var(--text-grey-800);
-  text-decoration: none;
-  border-bottom: var(--border-size-medium) solid var(--myz-blue);
+a.white:visited {
+  color: var(--bg-gray-300);
+  fill: var(--bg-gray-300);
 }
 
-a.big {
-  font-size: 16px;
-  font-weight: 600;
+a.white.disabled,
+a.black.disabled {
+  color: var(--bg-gray-500);
+  fill: var(--bg-gray-500);
 }
 
 a > z-icon {

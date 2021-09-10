@@ -1,5 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter, Element } from "@stencil/core";
-import { forceUpdate, HostElement } from "@stencil/core/internal";
+import { forceUpdate, Host, HostElement } from "@stencil/core/internal";
 
 /**
  * @slot - link content
@@ -25,7 +25,7 @@ export class ZLink {
   /** white variant flag (optional) */
   @Prop() iswhite?: boolean = false;
   /** link text variant (optional) */
-  @Prop() textcolor?: "default"| "default-inverse" | "white" | "black" = "default";
+  @Prop() textcolor?: "primary"| "inverse" | "white" | "black" = "primary";
   /** link icon name (optional) */
   @Prop() icon?: string;
   /** big link version */
@@ -54,6 +54,11 @@ export class ZLink {
         "z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead"
       );
     }
+    if (this.big) {
+      console.warn(
+        "z-link big prop is deprecated and will be dropped in a next release, please override --font-size-link and --font-weight-link variables instead"
+      );
+    }
   }
 
   emitZLinkClick(e: MouseEvent, linkId) {
@@ -80,31 +85,34 @@ export class ZLink {
 
   render() {
 
+    const style = this.big ? { "--font-size-link": "16px", "--font-weight-link": "600" } : {};
+
     return (
-      <a
-        id={this.htmlid}
-        href={this.href ? this.href : null}
-        class={`${this.isdisabled && "disabled"}
-          ${this.isactive && "active"}
-          ${this.textcolor}
-          ${this.iswhite && "white"}
-          ${this.big && "big"}
-          ${this.underline && "underline"}`}
-        target={this.target}
-        role={this.href ? "link" : "button"}
-        tabindex={this.isdisabled ? -1 : this.htmltabindex}
-        onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.htmlid)}
-      >
-        {this.iconposition === "right" && <slot />}
-        {this.icon &&
-        <z-icon
-          style={{"--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString()}}
-          name={this.icon}
-          height={this.iconSize}
-          width={this.iconSize}
-        />}
-        {this.iconposition === "left" && <slot />}
-      </a>
+      <Host style={style}>
+        <a
+          id={this.htmlid}
+          href={this.href ? this.href : null}
+          class={`${this.isdisabled && "disabled"}
+            ${this.isactive && "active"}
+            ${this.textcolor}
+            ${this.iswhite && "white"}
+            ${this.underline && "underline"}`}
+          target={this.target}
+          role={this.href ? "link" : "button"}
+          tabindex={this.isdisabled ? -1 : this.htmltabindex}
+          onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.htmlid)}
+        >
+          {this.iconposition === "right" && <slot />}
+          {this.icon &&
+          <z-icon
+            style={{"--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString()}}
+            name={this.icon}
+            height={this.iconSize}
+            width={this.iconSize}
+          />}
+          {this.iconposition === "left" && <slot />}
+        </a>
+      </Host>
     );
   }
 }
