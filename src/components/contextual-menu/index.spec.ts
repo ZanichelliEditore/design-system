@@ -40,7 +40,7 @@ describe("Suite test ContextualMenu", () => {
                      <z-list-group divider-type="element" size="small">
                        <z-list-element align-button="left" class="my-z-list-element" clickable="" color="color-primary01" expandable-style="accordion" iscontextualmenu="" listelementid="0">
                          <div class="element-container">
-                           <div>
+                         <div class="element-icon">
                            <z-icon name="share"></z-icon>
                            </div>
                            <div class="element-text">
@@ -52,7 +52,7 @@ describe("Suite test ContextualMenu", () => {
                        </z-list-element>
                        <z-list-element align-button="left" class="my-z-list-element" clickable="" color="color-primary01" expandable-style="accordion" iscontextualmenu="" listelementid="1">
                          <div class="element-container">
-                           <div>
+                         <div class="element-icon">
                            <z-icon name="delete"></z-icon>
                            </div>
                            <div class="element-text">
