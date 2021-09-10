@@ -50,7 +50,8 @@ a:visited {
   fill: var(--color-visited-link);
 }
 
-a.disabled {
+a.disabled,
+a.inverse.disabled {
   cursor: default;
   pointer-events: none;
   color: var(--color-disabled03);
@@ -61,7 +62,9 @@ a.underline,
 a.underline:active,
 a.underline:hover,
 a.underline:visited,
-a.underline.disabled {
+a.underline.disabled,
+a.underline.black,
+a.underline.white {
   text-decoration: underline;
 }
 
@@ -111,6 +114,12 @@ a.black:visited {
   fill: var(--bg-black);
 }
 
+a.black:hover,
+a.black:focus,
+a.black:active {
+  text-decoration: underline;
+}
+
 a.black:active {
   color: var(--gray-700);
   fill: var(--gray-700);
@@ -130,12 +139,23 @@ a.white:visited {
   fill: var(--bg-gray-300);
 }
 
+a.white:hover,
+a.white:focus,
+a.white:active {
+  text-decoration: underline;
+}
+
+
 a.white.disabled,
 a.black.disabled {
   color: var(--bg-gray-500);
   fill: var(--bg-gray-500);
 }
 
-a > z-icon {
+a > z-icon:first-child {
   margin-right: 8px;
+}
+
+a > z-icon:last-child {
+  margin-left: 8px;
 }
