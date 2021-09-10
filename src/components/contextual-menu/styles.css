@@ -45,3 +45,7 @@
 .element-container {
   fill: var(--color-primary01);
 }
+
+.element-container .element-icon {
+  display: flex;
+}

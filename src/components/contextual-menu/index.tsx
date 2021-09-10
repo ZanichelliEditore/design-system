@@ -78,7 +78,7 @@ export class ContextualMenu {
                       }
                     >
                       {this.showIcon() && (
-                        <div>
+                        <div class="element-icon">
                           <z-icon name={element.icon} />
                         </div>
                       )}
