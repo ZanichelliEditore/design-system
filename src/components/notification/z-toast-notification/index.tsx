@@ -107,6 +107,8 @@ export class ZToastNotification {
     }
 
     this.isdraggable && this.handleSlideOutDragAnimation();
+
+    this.percentage = 0;
   }
 
   visibilityChangeEventHandler = () => {

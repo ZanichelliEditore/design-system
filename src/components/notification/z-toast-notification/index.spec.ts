@@ -12,7 +12,7 @@ describe("Suite test ZToastNotification", () => {
     expect(page.root).toEqualHtml(`
     <z-toast-notification closebutton="true" class="slide-in-down" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
       <mock:shadow-root>
-        <div id="external-container">
+        <div id="external-container" tabindex="0">
           <div id="text">
             <span class="title"></span>
             <span class="message"></span>
@@ -21,7 +21,7 @@ describe("Suite test ZToastNotification", () => {
             <slot name="button"></slot>
           </div>
           <div id="icon">
-            <z-icon height="15" name="multiply-circled" width="15"></z-icon>
+            <z-icon height="15" name="multiply-circled" tabindex="0" width="15"></z-icon>
           </div>
         </div>
       </mock:shadow-root>
@@ -46,7 +46,7 @@ describe("Suite test ZToastNotification", () => {
     expect(page.root).toEqualHtml(`
     <z-toast-notification class="slide-in-down" closebutton="true" draggablepercentage="10" heading="Titolo" message="descrizione della notifica" transition="slide-in-down" type="dark" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
       <mock:shadow-root>
-        <div class="dark" id="external-container">
+        <div class="dark" id="external-container" tabindex="0">
           <div id="text">
             <span class="title">
               Titolo
@@ -59,7 +59,7 @@ describe("Suite test ZToastNotification", () => {
             <slot name="button"></slot>
           </div>
           <div id="icon">
-            <z-icon height="15" name="multiply-circled" width="15"></z-icon>
+            <z-icon height="15" name="multiply-circled" tabindex="0" width="15"></z-icon>
           </div>
         </div>
       </mock:shadow-root>
@@ -86,7 +86,7 @@ describe("Suite test ZToastNotification", () => {
     expect(page.root).toEqualHtml(`
     <z-toast-notification class="slide-in-down" closebutton="true" draggablepercentage="10" heading="Titolo" message="descrizione della notifica" transition="slide-in-down" type="dark" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
       <mock:shadow-root>
-        <div class="dark" id="external-container">
+        <div class="dark" id="external-container" tabindex="0">
           <div id="text">
             <span class="title">
               Titolo
@@ -99,7 +99,7 @@ describe("Suite test ZToastNotification", () => {
             <slot name="button"></slot>
           </div>
           <div id="icon">
-            <z-icon height="15" name="multiply-circled" width="15"></z-icon>
+            <z-icon height="15" name="multiply-circled" tabindex="0" width="15"></z-icon>
           </div>
         </div>
       </mock:shadow-root>
