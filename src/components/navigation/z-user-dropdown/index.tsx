@@ -72,10 +72,10 @@ export class ZUserDropdown {
     this.userButtonClick.emit(this.ismenuopen);
   }
 
-  /** Emitted on dropdown menu zlink click, returns zlink linkId */
+  /** Emitted on dropdown menu zlink click, returns event */
   @Event() dropdownMenuLinkClick: EventEmitter;
   emitDropdownMenuLinkClick(e: CustomEvent) {
-    this.dropdownMenuLinkClick.emit(e.detail.linkId);
+    this.dropdownMenuLinkClick.emit(e);
   }
   @Listen("resize", { target: "window" })
   handleResize(): void {
@@ -100,7 +100,6 @@ export class ZUserDropdown {
   }
 
   handleDropdownLinkClick(e: CustomEvent) {
-    e.preventDefault()
     this.emitDropdownMenuLinkClick(e)
   }
 
