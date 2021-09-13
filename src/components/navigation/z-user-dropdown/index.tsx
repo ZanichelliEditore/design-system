@@ -99,7 +99,8 @@ export class ZUserDropdown {
     this.emitUserButtonClick();
   }
 
-  handleDropdownLinkClick(e) {
+  handleDropdownLinkClick(e: CustomEvent) {
+    e.preventDefault()
     this.emitDropdownMenuLinkClick(e)
   }
 
@@ -165,7 +166,7 @@ export class ZUserDropdown {
                   htmlid={link.id}
                   target={link.target}
                   icon={link.icon}
-                  onZLinkClick={(e) => this.handleDropdownLinkClick(e)}
+                  onZLinkClick={(e: CustomEvent) => this.handleDropdownLinkClick(e)}
                 >
                   {link.label}
                 </z-link>
