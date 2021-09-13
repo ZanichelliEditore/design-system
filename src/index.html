@@ -16,6 +16,52 @@
     <script nomodule src="/build/web-components-library.js"></script>
   </head>
 <body style="width: 100%;margin: 0; background-color: #f9f9f9;">
+
+ <!-- Contextual menu -->
+ <h2>Contextual menu</h2>
+ <div style="padding-left: 280px; width: 80%">
+  <contextual-menu id="contextual-menu-1" elements='[{"icon": "share", "text": "Element 1"}, {"icon": "delete", "text": "Elemento 2"}, {"icon": "delete", "text": "Elemento 2", "disabled": "true"}]'>
+  </contextual-menu>
+</div>
+<br /><br /><br />
+<h2>Z-List</h2>
+  <div style="padding-left: 280px; width: 150px">
+    <z-list size="large">
+      <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
+        <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
+        <z-list-element><z-avatar text="AB" ></z-avatar><span>no header 123456</span></z-list-element>
+        <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
+      </z-list-group>
+
+      <z-list-group size="large" divider-type="element">
+        <p slot="header-title">Z-LIST-GROUP  TITOLO 1</p>
+        <z-list-element><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
+        <z-list-element><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
+        <z-list-element expandable="false"><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
+      </z-list-group>
+    </z-list>
+  </div>
+
+  <div style="padding-left: 280px; width: 80%">
+
+    <z-list size="large">
+      <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
+        <p slot="header-title">Z-LIST-GROUP TITOLO 1</p>
+        <z-list-element ><z-avatar text="AB"></z-avatar><span>no clickable</span></z-list-element>
+        <z-list-element expandable align-button="right"><span>123456</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <z-list-element expandable align-button="left"><z-avatar text="AB"></z-avatar><span>123456</span><p slot="inner-content">testo espanso</p></z-list-element>
+      </z-list-group>
+
+      <z-list-group size="large" divider-type="element">
+        <p slot="header-title">Z-LIST-GROUP  TITOLO 1</p>
+        <z-list-element background-color="myz-blue" expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
+
+      </z-list-group>
+    </z-list>
+  </div>
   <h1>Table</h1>
   <h2>Empty table</h2>
   <z-registro-table
@@ -1300,7 +1346,6 @@
   </div>
   <br /><br /><br /><br /><br /><br />
 
-
   <div style="padding-left: 280px; width: 150px">
     <z-list size="large">
       <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
@@ -1338,6 +1383,13 @@
       </z-list-group>
     </z-list>
   </div>
+
+  <br /><br /><br /><br /><br /><br />
+
+  <div style="margin-left: 200px; padding: 50px; width: 300px; height: 50px;">
+    <z-ghost-loading></z-ghost-loading>
+  </div>
+
 
   <br /><br /><br /><br /><br /><br />
 
@@ -1513,6 +1565,9 @@
       }
       const appMenu = document.getElementById("app-switcher");
       appMenu.addEventListener("appButtonClick", (e) => openModal(e));
+
+      const contextualMenu = document.getElementById("contextual-menu-1");
+      contextualMenu.addEventListener("clickContextualMenu", (e) => console.log('LOG id ', e.detail));
       const emptytable = document.getElementById("empty-table");
       emptytable.addEventListener('callToAction',() => console.log('call to action 1'));
       emptytable.addEventListener('callToActionTwo',() => console.log('call to action 2'));

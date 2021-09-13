@@ -10,6 +10,16 @@ import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemB
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
+    interface ContextualMenu {
+        /**
+          * [optional] Sets text color of ContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ContextualMenu
+         */
+        "elements"?: string;
+    }
     interface ZAlert {
         /**
           * alert variant type
@@ -326,6 +336,8 @@ export namespace Components {
          */
         "icon": string;
     }
+    interface ZGhostLoading {
+    }
     interface ZHeader {
         /**
           * set current active menu link (optional)
@@ -370,6 +382,10 @@ export namespace Components {
         "variant": "regular" | "semibold" | "light";
     }
     interface ZIcon {
+        /**
+          * icon fill (optional)
+         */
+        "fill"?: string;
         /**
           * icon height (optional)
          */
@@ -583,6 +599,14 @@ export namespace Components {
          */
         "clickable"?: boolean;
         /**
+          * [optional] Sets text color of the element.
+         */
+        "color"?: string;
+        /**
+          * [optional] Sets disabled style of the element.
+         */
+        "disabled"?: boolean;
+        /**
           * [optional] Sets the divider color.
          */
         "dividerColor"?: string;
@@ -602,6 +626,11 @@ export namespace Components {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] If is used in ContextualMenu component
+         */
+        "isContextualMenu"?: boolean;
+        "listElementId"?: number;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -1091,6 +1120,10 @@ export namespace Components {
          */
         "boxShadow"?: PopoverShadow;
         /**
+          * [optional] Sets padding for Popover container
+         */
+        "padding"?: string;
+        /**
           * [optional] Popover position
          */
         "position"?: PopoverPosition;
@@ -1371,6 +1404,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLContextualMenuElement extends Components.ContextualMenu, HTMLStencilElement {
+    }
+    var HTMLContextualMenuElement: {
+        prototype: HTMLContextualMenuElement;
+        new (): HTMLContextualMenuElement;
+    };
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
     }
     var HTMLZAlertElement: {
@@ -1484,6 +1523,12 @@ declare global {
     var HTMLZFooterSocialElement: {
         prototype: HTMLZFooterSocialElement;
         new (): HTMLZFooterSocialElement;
+    };
+    interface HTMLZGhostLoadingElement extends Components.ZGhostLoading, HTMLStencilElement {
+    }
+    var HTMLZGhostLoadingElement: {
+        prototype: HTMLZGhostLoadingElement;
+        new (): HTMLZGhostLoadingElement;
     };
     interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {
     }
@@ -1870,6 +1915,7 @@ declare global {
         new (): HTMLZUserDropdownElement;
     };
     interface HTMLElementTagNameMap {
+        "contextual-menu": HTMLContextualMenuElement;
         "z-alert": HTMLZAlertElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
@@ -1889,6 +1935,7 @@ declare global {
         "z-footer-link": HTMLZFooterLinkElement;
         "z-footer-section": HTMLZFooterSectionElement;
         "z-footer-social": HTMLZFooterSocialElement;
+        "z-ghost-loading": HTMLZGhostLoadingElement;
         "z-header": HTMLZHeaderElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
@@ -1956,6 +2003,20 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ContextualMenu {
+        /**
+          * [optional] Sets text color of ContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ContextualMenu
+         */
+        "elements"?: string;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
+    }
     interface ZAlert {
         /**
           * alert variant type
@@ -2296,6 +2357,8 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
     }
+    interface ZGhostLoading {
+    }
     interface ZHeader {
         /**
           * set current active menu link (optional)
@@ -2340,6 +2403,10 @@ declare namespace LocalJSX {
         "variant"?: "regular" | "semibold" | "light";
     }
     interface ZIcon {
+        /**
+          * icon fill (optional)
+         */
+        "fill"?: string;
         /**
           * icon height (optional)
          */
@@ -2569,6 +2636,14 @@ declare namespace LocalJSX {
          */
         "clickable"?: boolean;
         /**
+          * [optional] Sets text color of the element.
+         */
+        "color"?: string;
+        /**
+          * [optional] Sets disabled style of the element.
+         */
+        "disabled"?: boolean;
+        /**
           * [optional] Sets the divider color.
          */
         "dividerColor"?: string;
@@ -2588,6 +2663,19 @@ declare namespace LocalJSX {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] If is used in ContextualMenu component
+         */
+        "isContextualMenu"?: boolean;
+        "listElementId"?: number;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onAccessibleFocus"?: (event: CustomEvent<number>) => void;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickItem"?: (event: CustomEvent<any>) => void;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -3163,6 +3251,10 @@ declare namespace LocalJSX {
          */
         "boxShadow"?: PopoverShadow;
         /**
+          * [optional] Sets padding for Popover container
+         */
+        "padding"?: string;
+        /**
           * [optional] Popover position
          */
         "position"?: PopoverPosition;
@@ -3463,6 +3555,7 @@ declare namespace LocalJSX {
         "userfullname"?: string;
     }
     interface IntrinsicElements {
+        "contextual-menu": ContextualMenu;
         "z-alert": ZAlert;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
@@ -3482,6 +3575,7 @@ declare namespace LocalJSX {
         "z-footer-link": ZFooterLink;
         "z-footer-section": ZFooterSection;
         "z-footer-social": ZFooterSocial;
+        "z-ghost-loading": ZGhostLoading;
         "z-header": ZHeader;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
@@ -3552,6 +3646,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "contextual-menu": LocalJSX.ContextualMenu & JSXBase.HTMLAttributes<HTMLContextualMenuElement>;
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
@@ -3571,6 +3666,7 @@ declare module "@stencil/core" {
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
             "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
             "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
+            "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
             "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;

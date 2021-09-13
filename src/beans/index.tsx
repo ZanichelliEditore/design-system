@@ -189,7 +189,11 @@ export enum keybordKeyCodeEnum {
 }
 
 export enum KeyboardKeys {
+  ARROW_DOWN = "ArrowDown",
+  ARROW_UP = "ArrowUp",
+  ENTER = "Enter",
   ESC = "Escape",
+  SPACE = "Space",
 }
 
 export type SelectItemBean = {

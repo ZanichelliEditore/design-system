@@ -26,11 +26,20 @@ export class ZPopover {
   @Prop() boxShadow?: PopoverShadow = PopoverShadow["shadow-1"];
   /** [optional] Show or hide arrow */
   @Prop() showArrow?: boolean = false;
+  /** [optional] Sets padding for Popover container */
+  @Prop() padding?: string = "8px";
 
   @State() isVisible: boolean = false;
 
   private popoverElem: HTMLElement;
   private defaultPosition: PopoverPosition = this.position;
+
+  /**
+   * Constructor.
+   */
+  constructor() {
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
 
   @Listen("closePopover")
   closePopover() {
@@ -48,6 +57,13 @@ export class ZPopover {
     this.isVisible = !this.isVisible;
     this.checkSpaceAvailable();
     event.stopPropagation();
+  }
+
+  handleKeyDown(event) {
+    if (event.code === KeyboardKeys.ENTER) {
+      this.isVisible = !this.isVisible;
+      this.checkSpaceAvailable();
+    }
   }
 
   @Listen("click", { target: "body", capture: true })
@@ -126,8 +142,16 @@ export class ZPopover {
 
   render() {
     return (
-      <Host>
-        <div onClick={(event) => this.handleClick(event)}>
+      <Host onKeyDown={this.handleKeyDown}>
+        <div
+          tabindex="0"
+          onClick={(event) => this.handleClick(event)}
+          onKeyDown={(event) => {
+            if (event.key === KeyboardKeys.ENTER) {
+              this.handleClick(event);
+            }
+          }}
+        >
           <slot name="trigger"></slot>
         </div>
         <div
@@ -142,6 +166,7 @@ export class ZPopover {
           )}
           style={{
             backgroundColor: `var(--${this.backgroundColor})`,
+            padding: this.padding,
           }}
         >
           <slot name="popover"></slot>
