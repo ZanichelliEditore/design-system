@@ -1,7 +1,7 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 import { text, boolean, select } from "@storybook/addon-knobs";
-import { getCssColorVars, createColorListItem } from './index.story.js'
+import { getCssColorVars } from './index.story.js'
 
 import "./index.story.css";
 
@@ -13,9 +13,8 @@ import "./index.story.css";
   <Story name="Colors">
     {(args) => { 
       const cssColorVars = getCssColorVars();
-      const items = cssColorVars.map(color => createColorListItem(color))
       return html`<div
-      class="${select("class", ["default", "theme-black-yellow"], "default")}"
+      class="${select("theme", ["default", "theme-black-yellow"], "default")}"
     >
       <z-body>
         Zanichelli DS currently supports two color themes, the
@@ -39,7 +38,12 @@ import "./index.story.css";
       <p />
       <z-heading level="2">Color Tokens</z-heading>
       <ul>
-        ${items}
+        ${cssColorVars.map((color) => html`
+          <li>
+            <code>${color}</code>
+            <span style="background-color: var(${color})"></span>
+          </li>
+        `)}
       </ul>
     </div>`}}
   </Story>

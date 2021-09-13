@@ -1,28 +1,18 @@
 export function getCssColorVars() {
-  for (var i = 0; i < document.styleSheets.length; i++) {
-    var sheet = document.styleSheets[i];
-    if (sheet.href && sheet.href.includes("web-components-library.css")) {
-      const cssVarsSet = [];
-      sheet.cssRules.forEach((rule) => {
-        if (rule.cssText.includes("--color")) {
-          const cssVars = Object.values(rule.style).filter((value) =>
-            value.includes("--")
-          );
-          cssVarsSet.push(...cssVars);
-        }
-      });
-      return [...new Set(cssVarsSet)];
-    }
-  }
-}
+  const styleSheet = [...document.styleSheets].find((sheet) =>
+    sheet.href?.includes("web-components-library")
+  );
 
-export function createColorListItem(color) {
-  const li = document.createElement("li");
-  const code = document.createElement("code");
-  code.innerText = color;
-  const span = document.createElement("span");
-  span.style.backgroundColor = `var(${color})`;
-  li.appendChild(code);
-  li.appendChild(span);
-  return li;
+  const themeVariables = [...styleSheet.cssRules]
+    .filter(
+      (rule) =>
+        // only take the declarations for :root and containing `--color`
+        rule.selectorText === ":root" &&
+        Object.values(rule.style).some((decl) => decl.startsWith("--color"))
+    )
+    .map((rule) => Object.values(rule.style))
+    .flat()
+    .filter((i) => i);
+  // return removing duplicates
+  return [...new Set(themeVariables)];
 }

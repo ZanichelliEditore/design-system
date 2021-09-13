@@ -12,8 +12,10 @@ ul {
 
 ul > li {
   display: flex;
-  margin: 4px;
   justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--gray200);
+  padding: var(--space-unit) 0;
 }
 
 ul > li > code {
@@ -24,6 +26,6 @@ ul > li > span {
   width: 100px;
   height: 20px;
   display: inline-block;
+  border: 1px solid var(--gray400);
   border-radius: 4px;
-  box-shadow: 0px 0px 3px 0px;
 }
