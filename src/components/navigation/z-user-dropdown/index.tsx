@@ -34,6 +34,7 @@ export class ZUserDropdown {
 
   constructor() {
     this.handleToggle = this.handleToggle.bind(this);
+    this.emitDropdownMenuLinkClick = this.emitDropdownMenuLinkClick.bind(this);
   }
 
   componentWillLoad() {
@@ -99,10 +100,6 @@ export class ZUserDropdown {
     this.emitUserButtonClick();
   }
 
-  handleDropdownLinkClick(e: CustomEvent) {
-    this.emitDropdownMenuLinkClick(e);
-  }
-
   renderCaretIcon() {
     const direction = this.ismenuopen ? "up" : "down";
     return (
@@ -165,9 +162,7 @@ export class ZUserDropdown {
                   htmlid={link.id}
                   target={link.target}
                   icon={link.icon}
-                  onZLinkClick={(e: CustomEvent) =>
-                    this.handleDropdownLinkClick(e)
-                  }
+                  onZLinkClick={this.emitDropdownMenuLinkClick}
                 >
                   {link.label}
                 </z-link>
