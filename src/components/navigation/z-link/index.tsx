@@ -47,6 +47,7 @@ export class ZLink {
   }
 
   emitZLinkClick(e: MouseEvent, linkId) {
+    e.preventDefault();
     this.emitZLinkInteraction(e, linkId);
   }
 
