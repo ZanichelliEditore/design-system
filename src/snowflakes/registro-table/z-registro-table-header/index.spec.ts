@@ -32,7 +32,7 @@ describe("Suite test ZRegistroTableHeader", () => {
     expect(page.root.getAttribute("role")).toEqual("columnheader");
   });
 
-  it("Test render without icon when sortable is true and sorting-direction is not defined", async () => {
+  it("Test render without icon when sortable is true and sort-direction is not defined", async () => {
     const page = await newSpecPage({
       components: [ZRegistroTableHeader],
       html: `<z-registro-table-header sortable="true"></z-registro-table-header>`,
@@ -203,7 +203,7 @@ describe("Suite test ZRegistroTableHeader", () => {
     `);
   });
 
-  it("Test render without arrow when sorting-orientation is none", async () => {
+  it("Test render without arrow when sort-direction is none", async () => {
     const page = await newSpecPage({
       components: [ZRegistroTableHeader],
       html: `<z-registro-table-header sortable="true" sort-direction="none" column-id="col-1"></z-registro-table-header>`,
@@ -220,7 +220,7 @@ describe("Suite test ZRegistroTableHeader", () => {
     `);
   });
 
-  it("Test render correct arrow when sorting-orientation is asc", async () => {
+  it("Test render correct arrow when sort-direction is asc", async () => {
     const page = await newSpecPage({
       components: [ZRegistroTableHeader],
       html: `<z-registro-table-header sortable="true" sort-direction="asc" column-id="col-1"></z-registro-table-header>`,
