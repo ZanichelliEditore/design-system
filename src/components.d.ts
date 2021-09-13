@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortingOrientation, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1168,11 +1168,11 @@ export namespace Components {
           * [Optional] Padding of the header
          */
         "size"?: TableHeaderSize;
+        "sortDirection": SortDirection;
         /**
           * [Optional] Make the header sortable
          */
         "sortable"?: boolean;
-        "sortingOrientation": SortingOrientation;
     }
     interface ZRegistroTableHeaderRow {
         "expandable"?: boolean;
@@ -3254,11 +3254,11 @@ declare namespace LocalJSX {
           * [Optional] Padding of the header
          */
         "size"?: TableHeaderSize;
+        "sortDirection"?: SortDirection;
         /**
           * [Optional] Make the header sortable
          */
         "sortable"?: boolean;
-        "sortingOrientation"?: SortingOrientation;
     }
     interface ZRegistroTableHeaderRow {
         "expandable"?: boolean;

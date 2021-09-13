@@ -14,8 +14,8 @@ import {
   ButtonSizeEnum,
   ButtonVariantEnum,
   PopoverPosition,
-  SortingOrientation,
-  SortingOrientationEnum,
+  SortDirection,
+  SortDirectionEnum,
   TableHeaderSize,
 } from "../../../beans";
 import { getElementTree } from "../../../utils/utils";
@@ -39,7 +39,7 @@ export class ZRegistroTableHeader {
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
-  @Prop({ mutable: true }) sortingOrientation: SortingOrientation = SortingOrientationEnum.none;
+  @Prop({ mutable: true }) sortDirection: SortDirection = SortDirectionEnum.none;
 
   @State() isMenuOpened: boolean = false;
 
@@ -52,7 +52,7 @@ export class ZRegistroTableHeader {
   emitOnSort() {
     this.sort.emit({ 
       columnId: this.columnId,
-      sortingOrientation: this.sortingOrientation
+      sortDirection: this.sortDirection
     });
   }
 
@@ -61,12 +61,12 @@ export class ZRegistroTableHeader {
       return;
     }
     if (
-      this.sortingOrientation === SortingOrientationEnum.none ||
-      this.sortingOrientation === SortingOrientationEnum.desc
+      this.sortDirection === SortDirectionEnum.none ||
+      this.sortDirection === SortDirectionEnum.desc
     ) {
-      this.sortingOrientation = SortingOrientationEnum.asc;
-    } else if (this.sortingOrientation === SortingOrientationEnum.asc) {
-      this.sortingOrientation = SortingOrientationEnum.desc;
+      this.sortDirection = SortDirectionEnum.asc;
+    } else if (this.sortDirection === SortDirectionEnum.asc) {
+      this.sortDirection = SortDirectionEnum.desc;
     }
 
     this.emitOnSort();
@@ -102,7 +102,7 @@ export class ZRegistroTableHeader {
       parent &&
       parent.attributes.getNamedItem("column-id").value !== this.columnId
     ) {
-      this.sortingOrientation = SortingOrientationEnum.none;
+      this.sortDirection = SortDirectionEnum.none;
     }
   }
 
@@ -120,10 +120,10 @@ export class ZRegistroTableHeader {
       >
         <div class={classNames("container")}>
           <slot />
-          {this.sortable && this.sortingOrientation !== SortingOrientationEnum.none && (
+          {this.sortable && this.sortDirection !== SortDirectionEnum.none && (
             <z-icon
               name={
-                this.sortingOrientation === SortingOrientationEnum.asc
+                this.sortDirection === SortDirectionEnum.asc
                   ? "arrow-up"
                   : "arrow-down"
               }
