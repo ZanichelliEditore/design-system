@@ -61,7 +61,7 @@ export class ZUserDropdown {
       window.innerWidth <= mobileBreakpoint;
     if (this.gosthDiv)
       this.gosthDiv.style.width =
-        this.logged && (!this.isMobile && this.ismenuopen)
+        this.logged && !this.isMobile && this.ismenuopen
           ? `${this.userButton?.offsetWidth}px`
           : "";
   }
@@ -75,7 +75,7 @@ export class ZUserDropdown {
   /** Emitted on dropdown menu zlink click, returns event */
   @Event() dropdownMenuLinkClick: EventEmitter;
   emitDropdownMenuLinkClick(e: CustomEvent) {
-    this.dropdownMenuLinkClick.emit(e);
+    this.dropdownMenuLinkClick.emit({ e, linkId: e.detail.linkId });
   }
   @Listen("resize", { target: "window" })
   handleResize(): void {
@@ -100,7 +100,7 @@ export class ZUserDropdown {
   }
 
   handleDropdownLinkClick(e: CustomEvent) {
-    this.emitDropdownMenuLinkClick(e)
+    this.emitDropdownMenuLinkClick(e);
   }
 
   renderCaretIcon() {
@@ -165,7 +165,9 @@ export class ZUserDropdown {
                   htmlid={link.id}
                   target={link.target}
                   icon={link.icon}
-                  onZLinkClick={(e: CustomEvent) => this.handleDropdownLinkClick(e)}
+                  onZLinkClick={(e: CustomEvent) =>
+                    this.handleDropdownLinkClick(e)
+                  }
                 >
                   {link.label}
                 </z-link>
