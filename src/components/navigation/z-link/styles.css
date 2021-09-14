@@ -1,15 +1,20 @@
 :host {
+  --font-size-link: inherit;
+  --font-weight-link: inherit;
+}
+
+:host {
   font-family: var(--dashboard-font);
-  font-weight: inherit;
-  font-size: inherit;
+  font-weight: var(--font-weight-link);
+  font-size: var(--font-size-link);
   line-height: inherit;
   outline: none;
 }
 
 a {
   cursor: pointer;
-  color: var(--myz-blue);
-  fill: var(--myz-blue);
+  color: var(--color-link-primary);
+  fill: var(--color-link-primary);
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -18,58 +23,139 @@ a {
   border-bottom: var(--border-size-medium) solid transparent;
 }
 
-a:hover {
-  color: var(--myz-blue-dark);
-  fill: var(--myz-blue-dark);
-  text-decoration: none;
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline;
 }
 
-a.disabled {
+a.active {
+  color: var(--color-active-link);
+  fill: var(--color-active-link);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-hover-link);
+  fill: var(--color-hover-link);
+}
+
+a:active {
+  color: var(--color-pressed-link);
+  fill: var(--color-pressed-link);
+}
+
+a:visited {
+  color: var(--color-visited-link);
+  fill: var(--color-visited-link);
+}
+
+a.disabled,
+a.inverse.disabled {
   cursor: default;
   pointer-events: none;
+  color: var(--color-disabled03);
+  fill: var(--color-disabled03);
+}
+
+a.underline,
+a.underline:active,
+a.underline:hover,
+a.underline:visited,
+a.underline.disabled,
+a.underline.black,
+a.underline.white {
+  text-decoration: underline;
 }
 
 a.disabled,
 a.disabled:active,
 a.disabled:visited,
 a.disabled:hover {
-  color: var(--bg-neutral-200);
-  fill: var(--bg-neutral-200);
   text-decoration: none;
 }
 
-a.black,
-a.black:active,
-a.black:visited,
-a.black:hover {
+a.inverse {
+  color: var(--color-inverse-link);
+  fill: var(--color-inverse-link);
+}
+
+a.inverse.active {
+  color: var(--color-inverse-active-link);
+  fill: var(--color-inverse-active-link);
+}
+
+a.inverse:hover,
+a.inverse:focus {
+  color: var(--color-inverse-hover-link);
+  fill: var(--color-inverse-hover-link);
+}
+
+a.inverse:active {
+  color: var(--color-inverse-pressed-link);
+  fill: var(--color-inverse-pressed-link);
+}
+
+a.inverse:visited {
+  color: var(--color-inverse-visited-link);
+  fill: var(--color-inverse-visited-link);
+}
+
+a.black {
   color: var(--bg-grey-900);
   fill: var(--bg-grey-900);
   text-decoration: none;
 }
 
+a.black:hover,
+a.black.active,
+a.black:visited {
+  color: var(--bg-black);
+  fill: var(--bg-black);
+}
+
+a.black:hover,
+a.black:focus,
+a.black:active {
+  text-decoration: underline;
+}
+
+a.black:active {
+  color: var(--gray-700);
+  fill: var(--gray-700);
+}
+
 a.white,
 a.white:active,
-a.white:visited,
-a.white:hover {
+a.white:hover,
+a.white.active {
   color: var(--bg-white);
   fill: var(--bg-white);
   text-decoration: none;
 }
 
-a.active,
-a.active:active,
-a.active:visited {
-  color: var(--text-grey-800);
-  fill: var(--text-grey-800);
-  text-decoration: none;
-  border-bottom: var(--border-size-medium) solid var(--myz-blue);
+a.white:visited {
+  color: var(--bg-gray-300);
+  fill: var(--bg-gray-300);
 }
 
-a.big {
-  font-size: 16px;
-  font-weight: 600;
+a.white:hover,
+a.white:focus,
+a.white:active {
+  text-decoration: underline;
 }
 
-a > z-icon {
+
+a.white.disabled,
+a.black.disabled {
+  color: var(--bg-gray-500);
+  fill: var(--bg-gray-500);
+}
+
+a > z-icon:first-child {
   margin-right: 8px;
+}
+
+a > z-icon:last-child {
+  margin-left: 8px;
 }

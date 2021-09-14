@@ -10,9 +10,9 @@ export class ZIcon {
   /** icon name (choice between available icons) */
   @Prop() name: string;
   /** icon height (optional) */
-  @Prop() height?: number = 18;
+  @Prop() height?: number;
   /** icon width (optional) */
-  @Prop() width?: number = 18;
+  @Prop() width?: number;
   /** icon id (optional) */
   @Prop() iconid?: string;
   /** icon fill (optional) */

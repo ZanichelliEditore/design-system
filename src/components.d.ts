@@ -555,6 +555,10 @@ export namespace Components {
          */
         "icon"?: string;
         /**
+          * link icon position (optional)
+         */
+        "iconposition"?: "left" | "right";
+        /**
           * active link flag (optional)
          */
         "isactive"?: boolean;
@@ -573,7 +577,11 @@ export namespace Components {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "white" | "blue" | "black";
+        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        /**
+          * draw underline on text (optional)
+         */
+        "underline"?: boolean;
     }
     interface ZList {
         /**
@@ -2642,6 +2650,10 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
+          * link icon position (optional)
+         */
+        "iconposition"?: "left" | "right";
+        /**
           * active link flag (optional)
          */
         "isactive"?: boolean;
@@ -2664,7 +2676,11 @@ declare namespace LocalJSX {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "white" | "blue" | "black";
+        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        /**
+          * draw underline on text (optional)
+         */
+        "underline"?: boolean;
     }
     interface ZList {
         /**
