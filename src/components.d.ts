@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -130,7 +130,7 @@ export namespace Components {
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
+          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -1334,6 +1334,54 @@ export namespace Components {
          */
         "pressed": boolean;
     }
+    interface ZToastNotification {
+        /**
+          * toast notification closing timeout (ms)
+         */
+        "autoclose"?: number;
+        /**
+          * toggles closing button rendering
+         */
+        "closebutton": boolean;
+        /**
+          * toast notification draggable percentage
+         */
+        "draggablepercentage"?: number;
+        /**
+          * toast notification's title
+         */
+        "heading"?: string;
+        /**
+          * toast notification can be draggable
+         */
+        "isdraggable"?: boolean;
+        /**
+          * toast notification's message
+         */
+        "message": string;
+        /**
+          * toast notification autoclose can be paused
+         */
+        "pauseonfocusloss"?: boolean;
+        /**
+          * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
+         */
+        "transition"?: ToastNotificationTransitionTypes;
+        /**
+          * toast notification type:  dark, light, accent, error, success, warning
+         */
+        "type"?: ToastNotificationTypes;
+    }
+    interface ZToastNotificationList {
+        /**
+          * Set the entry position of new notification in the list
+         */
+        "newestontop"?: boolean;
+        /**
+          * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
+         */
+        "position": ToastNotificationPositionsTypes;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -1882,6 +1930,18 @@ declare global {
         prototype: HTMLZStepperItemElement;
         new (): HTMLZStepperItemElement;
     };
+    interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
+    }
+    var HTMLZToastNotificationElement: {
+        prototype: HTMLZToastNotificationElement;
+        new (): HTMLZToastNotificationElement;
+    };
+    interface HTMLZToastNotificationListElement extends Components.ZToastNotificationList, HTMLStencilElement {
+    }
+    var HTMLZToastNotificationListElement: {
+        prototype: HTMLZToastNotificationListElement;
+        new (): HTMLZToastNotificationListElement;
+    };
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
     }
     var HTMLZToggleButtonElement: {
@@ -1988,6 +2048,8 @@ declare global {
         "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
+        "z-toast-notification": HTMLZToastNotificationElement;
+        "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
@@ -2123,7 +2185,7 @@ declare namespace LocalJSX {
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
+          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -3462,6 +3524,58 @@ declare namespace LocalJSX {
          */
         "pressed"?: boolean;
     }
+    interface ZToastNotification {
+        /**
+          * toast notification closing timeout (ms)
+         */
+        "autoclose"?: number;
+        /**
+          * toggles closing button rendering
+         */
+        "closebutton"?: boolean;
+        /**
+          * toast notification draggable percentage
+         */
+        "draggablepercentage"?: number;
+        /**
+          * toast notification's title
+         */
+        "heading"?: string;
+        /**
+          * toast notification can be draggable
+         */
+        "isdraggable"?: boolean;
+        /**
+          * toast notification's message
+         */
+        "message"?: string;
+        /**
+          * notification close event
+         */
+        "onToastClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * toast notification autoclose can be paused
+         */
+        "pauseonfocusloss"?: boolean;
+        /**
+          * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
+         */
+        "transition"?: ToastNotificationTransitionTypes;
+        /**
+          * toast notification type:  dark, light, accent, error, success, warning
+         */
+        "type"?: ToastNotificationTypes;
+    }
+    interface ZToastNotificationList {
+        /**
+          * Set the entry position of new notification in the list
+         */
+        "newestontop"?: boolean;
+        /**
+          * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
+         */
+        "position"?: ToastNotificationPositionsTypes;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -3620,6 +3734,8 @@ declare namespace LocalJSX {
         "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
+        "z-toast-notification": ZToastNotification;
+        "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
@@ -3711,6 +3827,8 @@ declare module "@stencil/core" {
             "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
+            "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
+            "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;

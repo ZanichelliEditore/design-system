@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
-    <title>Stencil Component Starter</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/build/web-components-library.css"
-    />
-    <script type="module" src="/build/web-components-library.esm.js"></script>
-    <script nomodule src="/build/web-components-library.js"></script>
-  </head>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+  <link rel="stylesheet" type="text/css" href="/build/web-components-library.css" />
+  <script type="module" src="/build/web-components-library.esm.js"></script>
+  <script nomodule src="/build/web-components-library.js"></script>
+</head>
+
 <body style="width: 100%;margin: 0; background-color: #f9f9f9;">
 
  <!-- Contextual menu -->
@@ -256,345 +251,226 @@
     </z-button>
     <z-link slot="provider">Cos'è Zaino Digitale?</z-link>
   </z-modal-login> -->
-    <p>Not Logged</p>
+  <p>Not Logged</p>
 
-    <z-app-topbar hashtag="via crucis">
-      <z-logo
-        slot="logo"
-        width="138"
-        height="36"
-        imagealt="zanichelli-logo"
-        link="https://www.zanichelli.it"
-        targetblank
-      ></z-logo>
-      <z-link
-        textcolor="white"
-        big
-        icon="support-filled"
-        slot="actions"
-        href="#"
-        >Supporto</z-link
-      >
-      <z-link
-        textcolor="white"
-        big
-        icon="shopping-cart-filled"
-        slot="actions"
-        href="#"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        userfullname="docente di calabresi per italiani"
-        logged="false"
-        slot="login"
-      ></z-user-dropdown>
-      <z-app-switcher slot="app-switcher"></z-app-switcher>
-    </z-app-topbar>
+  <z-app-topbar hashtag="via crucis">
+    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
+    </z-logo>
+    <z-link textcolor="white" big icon="support-filled" slot="actions" href="./pages/notification.html">Notification</z-link>
+    <z-link textcolor="white" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
+    <z-user-dropdown userfullname="docente di calabresi per italiani" logged="false" slot="login"></z-user-dropdown>
+    <z-app-switcher slot="app-switcher"></z-app-switcher>
+  </z-app-topbar>
 
-    <p>Logged</p>
+  <p>Logged</p>
 
-    <z-app-topbar hashtag="faresci" logged>
-      <z-logo
-        slot="logo"
-        width="138"
-        height="36"
-        imagealt="zanichelli-logo"
-        link="https://www.zanichelli.it"
-        targetblank
-      ></z-logo>
-      <z-link
-        onclick="openModal(this)"
-        textcolor="white"
-        big
-        icon="support-filled"
-        slot="actions"
-        href="#"
-        >Supporto</z-link
-      >
-      <z-link
-        onclick="openModal(this)"
-        iswhite
-        big
-        icon="shopping-cart-filled"
-        slot="actions"
-        href="#"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        userfullname="Von Axl Maranan Fernandez"
-        logged="true"
-        slot="login"
-        menucontent='[
+  <z-app-topbar hashtag="faresci" logged>
+    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
+    </z-logo>
+    <z-link onclick="openModal(this)" textcolor="white" big icon="support-filled" slot="actions" href="#">Supporto
+    </z-link>
+    <z-link onclick="openModal(this)" iswhite big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
+    <z-user-dropdown userfullname="Von Axl Maranan Fernandez" logged="true" slot="login" menucontent='[
         {"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"},
         {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},
         {"label":"Chiedi al tuo responsabile", "link":"http://www.zanichelli.it", "icon":"question-mark"},
         {"label":"Esci", "link":"http://www.google.it", "icon":"enter"}
-        ]'
-      >
-      </z-user-dropdown>
-      <z-app-switcher slot="app-switcher"></z-app-switcher>
-    </z-app-topbar>
+        ]'>
+    </z-user-dropdown>
+    <z-app-switcher slot="app-switcher"></z-app-switcher>
+  </z-app-topbar>
 
-    <p>User Dropdown</p>
-    <div style="height: 150px; width: fit-content;">
-      <z-user-dropdown
-        userfullname="Sandro Studente"
-        islogged="true"
-        menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
-      >
-      </z-user-dropdown>
-    </div>
+  <p>User Dropdown</p>
+  <div style="height: 150px; width: fit-content;">
+    <z-user-dropdown userfullname="Sandro Studente" islogged="true"
+      menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'>
+    </z-user-dropdown>
+  </div>
 
-    <p>Notification</p>
-    <div style="margin-top:10px; width: 100%;">
-      <z-notification
-        id="noti"
-        contenticonname="gear"
-        actiontext="Annulla"
-        type="success"
-        showclose="true"
-        showshadow="true"
-      >Io ne ho viste cose che voi umani non potreste immaginarvi: navi da combattimento in fiamme al largo dei bastioni di Orione, e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser. E tutti quei momenti andranno perduti nel tempo, come lacrime nella pioggia. È tempo di morire.</z-notification>
-    </div>
-    <div style="margin-top:10px; width: 100%;">
-      <z-notification
-        contenticonname="gear"
-        actiontext="Annulla"
-        type="success"
-        showclose="true"
-      >Io ne ho viste cose</z-notification>
-    </div>
-    <div style="margin-top:10px; width: 100%;">
-      <z-notification
-        contenticonname="gear"
-        actiontext="Delete"
-        type="warning"
-        showclose="false"
-      >Io ne ho viste cose</z-notification>
-    </div>
-    <div style="margin-top:10px; width: 100%;">
-      <z-notification
-        contenticonname="checkmark-circle-filled"
-        actiontext="Call To Action"
-        type="error"
-        showclose="true"
-      >Io ne ho viste cose che voi umani non potreste immaginarvi: navi da combattimento in fiamme al largo dei bastioni di Orione, e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser. E tutti quei momenti andranno perduti nel tempo, come lacrime nella pioggia. È tempo di morire.</z-notification>
-    </div>
-    <div style="margin-top:10px; width: 100%;">
-      <z-notification
-        actiontext="Delete"
-        type="success"
-        showshadow="true"
-      >Io ne ho viste cose</z-notification>
-    </div>
+  <p>Notification</p>
+  <div style="margin-top:10px; width: 100%;">
+    <z-notification id="noti" contenticonname="gear" actiontext="Annulla" type="success" showclose="true"
+      showshadow="true">Io ne ho viste cose che voi umani non potreste immaginarvi: navi da combattimento in fiamme al
+      largo dei bastioni di Orione, e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser. E tutti quei
+      momenti andranno perduti nel tempo, come lacrime nella pioggia. È tempo di morire.</z-notification>
+  </div>
+  <div style="margin-top:10px; width: 100%;">
+    <z-notification contenticonname="gear" actiontext="Annulla" type="success" showclose="true">Io ne ho viste cose
+    </z-notification>
+  </div>
+  <div style="margin-top:10px; width: 100%;">
+    <z-notification contenticonname="gear" actiontext="Delete" type="warning" showclose="false">Io ne ho viste cose
+    </z-notification>
+  </div>
+  <div style="margin-top:10px; width: 100%;">
+    <z-notification contenticonname="checkmark-circle-filled" actiontext="Call To Action" type="error" showclose="true">
+      Io ne ho viste cose che voi umani non potreste immaginarvi: navi da combattimento in fiamme al largo dei bastioni
+      di Orione, e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser. E tutti quei momenti andranno
+      perduti nel tempo, come lacrime nella pioggia. È tempo di morire.</z-notification>
+  </div>
+  <div style="margin-top:10px; width: 100%;">
+    <z-notification actiontext="Delete" type="success" showshadow="true">Io ne ho viste cose</z-notification>
+  </div>
 
+  <br><br>
 
-    <p>App Menu</p>
+  <p>App Menu</p>
 
-    <div
-      style="
+  <div style="
         background-color: rgb(66, 69, 72);
         width: fit-content;
         padding: 16px;
-      "
-    >
-      <z-app-switcher id="app-switcher" slot="app-switcher"></z-app-switcher>
+      ">
+    <z-app-switcher id="app-switcher" slot="app-switcher"></z-app-switcher>
+  </div>
+
+  <p>Light Variant</p>
+  <z-app-topbar theme="light" hashtag="faresci">
+    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
+    </z-logo>
+    <z-link textcolor="black" big icon="support-filled" slot="actions" href="#">Supporto</z-link>
+    <z-link textcolor="black" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
+    <z-user-dropdown theme="light" userfullname="docente di calabresi per italiani" islogged="false" slot="login">
+    </z-user-dropdown>
+    <z-app-switcher theme="light" slot="app-switcher"></z-app-switcher>
+  </z-app-topbar>
+
+  <p>Logged</p>
+
+  <z-app-topbar theme="light" hashtag="faresci" logged>
+    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
+    </z-logo>
+    <z-link onclick="openModal(this)" textcolor="black" big icon="support-filled" slot="actions" href="#">Supporto
+    </z-link>
+    <z-link onclick="openModal(this)" textcolor="black" big icon="shopping-cart-filled" slot="actions" href="#">Carrello
+    </z-link>
+    <z-user-dropdown theme="light" userfullname="Dario Docente di Lingua e Letteratura" logged="true" slot="login"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'>
+    </z-user-dropdown>
+    <z-app-switcher theme="light" id="app-switcher-2" slot="app-switcher"></z-app-switcher>
+  </z-app-topbar>
+
+  <style>
+    .z-cards {
+      display: flex;
+      padding: 24px;
+    }
+
+    z-card {
+      width: 356px;
+    }
+
+    .z-cards z-card+z-card {
+      margin-left: 24px;
+    }
+  </style>
+  <section>
+    <h4>z-card default variant</h4>
+    <div class="z-cards">
+      <z-card clickable>
+        <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
+      <z-card clickable cover-icon="play-filled">
+        <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
+      <z-card clickable style="--z-card--color-cover-background: orange;">
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
     </div>
+  </section>
 
-    <p>Light Variant</p>
-    <z-app-topbar theme="light" hashtag="faresci">
-      <z-logo
-        slot="logo"
-        width="138"
-        height="36"
-        imagealt="zanichelli-logo"
-        link="https://www.zanichelli.it"
-        targetblank
-      ></z-logo>
-      <z-link
-        textcolor="black"
-        big
-        icon="support-filled"
-        slot="actions"
-        href="#"
-        >Supporto</z-link
-      >
-      <z-link
-        textcolor="black"
-        big
-        icon="shopping-cart-filled"
-        slot="actions"
-        href="#"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        theme="light"
-        userfullname="docente di calabresi per italiani"
-        islogged="false"
-        slot="login"
-      ></z-user-dropdown>
-      <z-app-switcher theme="light" slot="app-switcher"></z-app-switcher>
-    </z-app-topbar>
+  <section>
+    <h4>z-card border variant</h4>
+    <div class="z-cards">
+      <z-card clickable variant="border">
+        <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
+      <z-card clickable variant="border" cover-icon="play-filled">
+        <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
+      <z-card clickable variant="border" style="--z-card--color-cover-background: orange;">
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
+    </div>
+  </section>
 
-    <p>Logged</p>
+  <section>
+    <h4>z-card shadow variant</h4>
+    <div class="z-cards">
+      <z-card clickable variant="shadow">
+        <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
+      <z-card clickable variant="shadow" cover-icon="play-filled">
+        <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
+      <z-card clickable variant="shadow" style="--z-card--color-cover-background: orange;">
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
+    </div>
+  </section>
 
-    <z-app-topbar theme="light" hashtag="faresci" logged>
-      <z-logo
-        slot="logo"
-        width="138"
-        height="36"
-        imagealt="zanichelli-logo"
-        link="https://www.zanichelli.it"
-        targetblank
-      ></z-logo>
-      <z-link
-        onclick="openModal(this)"
-        textcolor="black"
-        big
-        icon="support-filled"
-        slot="actions"
-        href="#"
-        >Supporto</z-link
-      >
-      <z-link
-        onclick="openModal(this)"
-        textcolor="black"
-        big
-        icon="shopping-cart-filled"
-        slot="actions"
-        href="#"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        theme="light"
-        userfullname="Dario Docente di Lingua e Letteratura"
-        logged="true"
-        slot="login"
-        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
-      >
-      </z-user-dropdown>
-      <z-app-switcher theme="light" id="app-switcher-2" slot="app-switcher"></z-app-switcher>
-    </z-app-topbar>
-
-    <style>
-      .z-cards {
-        display: flex;
-        padding: 24px;
-      }
-      z-card {
-        width: 356px;
-      }
-      .z-cards z-card + z-card {
-        margin-left: 24px;
-      }
-    </style>
-    <section>
-      <h4>z-card default variant</h4>
-      <div class="z-cards">
-        <z-card clickable>
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable cover-icon="play-filled">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable style="--z-card--color-cover-background: orange;">
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-      </div>
-    </section>
-
-    <section>
-      <h4>z-card border variant</h4>
-      <div class="z-cards">
-        <z-card clickable variant="border">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable variant="border" cover-icon="play-filled">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable variant="border" style="--z-card--color-cover-background: orange;">
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-      </div>
-    </section>
-
-    <section>
-      <h4>z-card shadow variant</h4>
-      <div class="z-cards">
-        <z-card clickable variant="shadow">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable variant="shadow" cover-icon="play-filled">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable variant="shadow" style="--z-card--color-cover-background: orange;">
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-      </div>
-    </section>
-
-    <section>
-      <h4>z-card overlay variant</h4>
-      <div class="z-cards">
-        <z-card clickable variant="overlay">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable variant="overlay" style="--z-card--color-cover-background: orange;">
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-      </div>
-    </section>
+  <section>
+    <h4>z-card overlay variant</h4>
+    <div class="z-cards">
+      <z-card clickable variant="overlay">
+        <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
+      <z-card clickable variant="overlay" style="--z-card--color-cover-background: orange;">
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card>
+    </div>
+  </section>
 
   <!-- non zanichelli logged -->
   <!-- <z-header
@@ -651,7 +527,7 @@
 
   <p style="height:50px;"></p> -->
 
-   <!-- zanichelli unlogged -->
+  <!-- zanichelli unlogged -->
   <!-- <z-header
     intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
     extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
@@ -741,8 +617,8 @@
             <z-myz-card-cover slot="cover" titolo="titolo"
               img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
           </z-myz-card-body>
-          <z-myz-card-footer titolo="Biologia molecolare, genetica, corpo umano" autori="Helena Curtis, N Sue Barnes, Adriana Schnek, Alicia Massarini"
-            isbn="9788808720979">
+          <z-myz-card-footer titolo="Biologia molecolare, genetica, corpo umano"
+            autori="Helena Curtis, N Sue Barnes, Adriana Schnek, Alicia Massarini" isbn="9788808720979">
             <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
             <z-myz-card-list
               listdata='[{"isLink":true,"value":"Leggi il libro online","url":"https://booktab.it/"},{"isLink":true,"value":"Leggi su Interactive ebook","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"TUTOR","url":"https://zte.zanichelli.it/"},{"isLink":true,"value":"Vai alla scheda catalogo","url":"https://www.zanichelli.it/"}]'
@@ -755,13 +631,13 @@
             <z-myz-card-icon icon="book-minus" slot="icon" />
           </z-myz-card-header>
           <z-myz-card-body>
-            <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro rimosso dai tuoi libri" actiontext="annulla" type="remove"
-              faded=true></z-myz-card-alert>
+            <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro rimosso dai tuoi libri"
+              actiontext="annulla" type="remove" faded=true></z-myz-card-alert>
             <z-myz-card-cover slot="cover" titolo="titolo"
               img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" faded=true />
           </z-myz-card-body>
-          <z-myz-card-footer titolo="titolo" autori="autori autori autori autoriautori autori"
-            isbn="97-88-80-8620-710" faded=false>
+          <z-myz-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710"
+            faded=false>
             <z-toggle-button label="risorse" slot="toggle" avoidclick=true></z-toggle-button>
             <z-myz-card-list
               listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
@@ -785,124 +661,162 @@
         </z-myz-card>
       </div>
       <br>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-template-rows:1fr 1fr; grid-column-gap:16px; grid-row-gap:16px;">
-      <z-myz-card>
-        <z-myz-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+      <div
+        style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-template-rows:1fr 1fr; grid-column-gap:16px; grid-row-gap:16px;">
+        <z-myz-card>
+          <z-myz-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-myz-card-icon icon="book-minus" slot="icon" />
+          </z-myz-card-header>
+          <z-myz-card-body>
+            <z-myz-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+          </z-myz-card-body>
+          <z-myz-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+            <z-myz-card-list
+              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              slot="list" />
+          </z-myz-card-footer>
+        </z-myz-card>
+        <z-myz-card ishighlighted>
+          <z-myz-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-myz-card-icon icon="book-minus" slot="icon" />
+          </z-myz-card-header>
+          <z-myz-card-body>
+            <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto ai miei libri"
+              actiontext="Annulla" type="add"></z-myz-card-alert>
+            <z-myz-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+          </z-myz-card-body>
+          <z-myz-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+            <z-myz-card-list
+              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              slot="list" />
+          </z-myz-card-footer>
+        </z-myz-card>
+        <z-myz-card ispressed>
+          <z-myz-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-myz-card-icon icon="book-minus" slot="icon" />
+          </z-myz-card-header>
+          <z-myz-card-body>
+            <z-myz-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+          </z-myz-card-body>
+          <z-myz-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+            <z-myz-card-list
+              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              slot="list" />
+          </z-myz-card-footer>
+        </z-myz-card>
+        <z-myz-card faded=true>
+          <z-myz-card-header faded=true titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-myz-card-icon icon="book-minus" slot="icon" />
+          </z-myz-card-header>
+          <z-myz-card-body>
+            <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro rimosso dai tuoi libri"
+              type="remove" faded=true></z-myz-card-alert>
+            <z-myz-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" faded=true />
+          </z-myz-card-body>
+          <z-myz-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710"
+            faded=true>
+            <z-toggle-button label="risorse" slot="toggle" avoidclick=true></z-toggle-button>
+            <z-myz-card-list
+              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              slot="list" />
+          </z-myz-card-footer>
+        </z-myz-card>
+        <z-myz-card cardtype="reale">
+          <z-myz-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-myz-card-icon icon="book-minus" slot="icon" />
+          </z-myz-card-header>
+          <z-myz-card-body>
+            <z-myz-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+          </z-myz-card-body>
+          <z-myz-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori"
+            isbn="97-88-80-8620-710">
+            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+            <z-myz-card-list
+              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              slot="list" />
+          </z-myz-card-footer>
+        </z-myz-card>
+        <z-myz-card cardtype="reale" ishighlighted>
+          <z-myz-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-myz-card-icon icon="book-minus" slot="icon" />
+          </z-myz-card-header>
+          <z-myz-card-body>
+            <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto ai miei libri"
+              type="add"></z-myz-card-alert>
+            <z-myz-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+          </z-myz-card-body>
+          <z-myz-card-footer cardtype="reale"
+            titolo="Las reglas del juego con risorse digitali Scuolabook risorse digitali Scuolabook Scuolabook risorse digitali ScuolabookScuolabook risorse digitali ScuolabookScuolabook risorse digitali Scuolabook"
+            autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+            <z-myz-card-list
+              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              slot="list" />
+          </z-myz-card-footer>
+        </z-myz-card>
+
+        <z-myz-card cardtype="reale">
+          <z-myz-card-header cardtype="reale" titolo="titolo titolo titolotitolo titolo titolo titolo">
+            <z-myz-card-icon icon="book-minus" slot="icon" />
+          </z-myz-card-header>
+          <z-myz-card-body>
+            <z-myz-card-cover slot="cover" titolo="titolo"
+              img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
+          </z-myz-card-body>
+          <z-myz-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori"
+            isbn="97-88-80-8620-710">
+            <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
+            <z-myz-card-list
+              listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+              slot="list" />
+          </z-myz-card-footer>
+        </z-myz-card>
+      </div>
+
+      <z-myz-card cardtype="reale">
+        <z-myz-card-header cardtype="reale" titolo="titolo titolo titolotitolo titolo titolo titolo">
           <z-myz-card-icon icon="book-minus" slot="icon" />
         </z-myz-card-header>
         <z-myz-card-body>
-          <z-myz-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+          <z-myz-card-cover slot="cover" titolo="titolo"
+            img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
         </z-myz-card-body>
-        <z-myz-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+        <z-myz-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori"
+          isbn="97-88-80-8620-710">
           <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-          <z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+          <z-myz-card-list
+            listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+            slot="list" />
         </z-myz-card-footer>
       </z-myz-card>
-      <z-myz-card ishighlighted>
-        <z-myz-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
+
+      <z-myz-card cardtype="saggio">
+        <z-myz-card-header cardtype="saggio" titolo="titolo titolo titolotitolo titolo titolo titolo">
           <z-myz-card-icon icon="book-minus" slot="icon" />
         </z-myz-card-header>
         <z-myz-card-body>
-          <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-myz-card-alert>
-          <z-myz-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
+          <z-myz-card-cover slot="cover" titolo="titolo"
+            img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
         </z-myz-card-body>
-        <z-myz-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
+        <z-myz-card-footer cardtype="saggio" titolo="titolo" autori="autori autori autori autoriautori autori"
+          isbn="97-88-80-8620-710">
           <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-          <z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
+          <z-myz-card-list
+            listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+            slot="list" />
         </z-myz-card-footer>
       </z-myz-card>
-      <z-myz-card ispressed>
-        <z-myz-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
-          <z-myz-card-icon icon="book-minus" slot="icon" />
-        </z-myz-card-header>
-        <z-myz-card-body>
-          <z-myz-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" />
-        </z-myz-card-body>
-        <z-myz-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
-          <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-          <z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
-        </z-myz-card-footer>
-      </z-myz-card>
-      <z-myz-card faded=true>
-        <z-myz-card-header faded=true titolo="titolo titolo titolotitolo titolo titolo titolo">
-          <z-myz-card-icon icon="book-minus" slot="icon" />
-        </z-myz-card-header>
-        <z-myz-card-body>
-          <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro rimosso dai tuoi libri" type="remove" faded=true></z-myz-card-alert>
-          <z-myz-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808720740.jpg" faded=true />
-        </z-myz-card-body>
-        <z-myz-card-footer titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710" faded=true>
-          <z-toggle-button label="risorse" slot="toggle" avoidclick=true></z-toggle-button>
-          <z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
-        </z-myz-card-footer>
-      </z-myz-card>
-    <z-myz-card cardtype="reale">
-      <z-myz-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
-        <z-myz-card-icon icon="book-minus" slot="icon" />
-      </z-myz-card-header>
-      <z-myz-card-body>
-        <z-myz-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
-      </z-myz-card-body>
-      <z-myz-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
-        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-        <z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
-      </z-myz-card-footer>
-    </z-myz-card>
-    <z-myz-card cardtype="reale" ishighlighted>
-      <z-myz-card-header titolo="titolo titolo titolotitolo titolo titolo titolo">
-        <z-myz-card-icon icon="book-minus" slot="icon" />
-      </z-myz-card-header>
-      <z-myz-card-body>
-        <z-myz-card-alert slot="alert" iconName="checkmark-circle" contenttext="Libro aggiunto ai miei libri" type="add"></z-myz-card-alert>
-        <z-myz-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
-      </z-myz-card-body>
-      <z-myz-card-footer cardtype="reale" titolo="Las reglas del juego con risorse digitali Scuolabook risorse digitali Scuolabook Scuolabook risorse digitali ScuolabookScuolabook risorse digitali ScuolabookScuolabook risorse digitali Scuolabook" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
-        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-        <z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
-      </z-myz-card-footer>
-    </z-myz-card>
 
-    <z-myz-card cardtype="reale">
-      <z-myz-card-header cardtype="reale" titolo="titolo titolo titolotitolo titolo titolo titolo">
-        <z-myz-card-icon icon="book-minus" slot="icon" />
-      </z-myz-card-header>
-      <z-myz-card-body>
-        <z-myz-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
-      </z-myz-card-body>
-      <z-myz-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
-        <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-        <z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
-      </z-myz-card-footer>
-    </z-myz-card>
-  </div>
-
-  <z-myz-card cardtype="reale">
-    <z-myz-card-header cardtype="reale" titolo="titolo titolo titolotitolo titolo titolo titolo">
-      <z-myz-card-icon icon="book-minus" slot="icon" />
-    </z-myz-card-header>
-    <z-myz-card-body>
-      <z-myz-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
-    </z-myz-card-body>
-    <z-myz-card-footer cardtype="reale" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
-      <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-      <z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
-    </z-myz-card-footer>
-  </z-myz-card>
-
-  <z-myz-card cardtype="saggio">
-    <z-myz-card-header cardtype="saggio" titolo="titolo titolo titolotitolo titolo titolo titolo">
-      <z-myz-card-icon icon="book-minus" slot="icon" />
-    </z-myz-card-header>
-    <z-myz-card-body>
-      <z-myz-card-cover slot="cover" titolo="titolo" img="https://staticmy.zanichelli.it/catalogo/assets/9788808250681_01.jpg" />
-    </z-myz-card-body>
-    <z-myz-card-footer cardtype="saggio" titolo="titolo" autori="autori autori autori autoriautori autori" isbn="97-88-80-8620-710">
-      <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
-      <z-myz-card-list listdata='[{"isLink":true,"value":"Leggi sul browser sul browser sul browser sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]' slot="list" />
-    </z-myz-card-footer>
-  </z-myz-card>
-
-  <br />
+      <br />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
         dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
@@ -960,6 +874,35 @@
       <z-button variant="secondary" issmall isdisabled>button</z-button>
       <z-button variant="tertiary" issmall>button</z-button>
       <z-button variant="tertiary" issmall isdisabled>button</z-button>
+      <div style="background: rgb(66, 69, 72); padding:8px 0">
+        <z-button icon="download" variant="dark-bg">button</z-button>
+        <z-button variant="dark-bg" isdisabled>button</z-button>
+        <z-button variant="dark-bg" issmall>button</z-button>
+        <z-button variant="dark-bg" issmall disabled>button</z-button>
+      </div>
+      <div style="background: rgb(246, 187, 59); padding:8px 0">
+        <z-button variant="dark-bg">
+          <span style="color:rgb(66, 69, 72);">
+            <z-icon style="color: rgb(66, 69, 72);" name="download"></z-icon>
+            button
+          </span>
+        </z-button>
+        <z-button variant="dark-bg" isdisabled>
+          <span style="color:rgb(66, 69, 72);">
+            button
+          </span>
+        </z-button>
+        <z-button variant="dark-bg" issmall>
+          <span style="color:rgb(66, 69, 72);">
+            button
+          </span>
+        </z-button>
+        <z-button variant="dark-bg" issmall disabled>
+          <span style="color:rgb(66, 69, 72);">
+            button
+          </span>
+        </z-button>
+      </div>
       <br />
       <z-button type="submit">submit</z-button>
       <z-button type="reset">reset</z-button>
@@ -977,8 +920,8 @@
       <z-link icon="download" style="font-size:12px;font-weight:bold;">z-link</z-link>
       <br />
       <hr>
-      <z-logo ></z-logo>
-      <z-logo imagealt="logo" ></z-logo>
+      <z-logo></z-logo>
+      <z-logo imagealt="logo"></z-logo>
       <z-logo imagealt="logo" height="50" width="200"></z-logo>
       <z-logo imagealt="logo" height="25" width="100"></z-logo>
       <br />
@@ -1047,8 +990,8 @@
         <z-body level="4">ciao 3</z-body>
       </z-chip>
       <z-chip boldtext="0"></z-chip>
-      <br/>
-      <br/>
+      <br />
+      <br />
 
       <z-button-sort label="Chimica" counter="3"></z-button-sort>
       <z-button-sort label="Biologia" counter="5"></z-button-sort>
@@ -1069,7 +1012,8 @@
       <ul>
         <z-myz-list-item>ITEM 1</z-myz-list-item>
         <z-myz-list-item>ITEM 2</z-myz-list-item>
-        <z-myz-list-item>ITEM 3 <z-input type="checkbox"></z-input></z-myz-list-item>
+        <z-myz-list-item>ITEM 3 <z-input type="checkbox"></z-input>
+        </z-myz-list-item>
       </ul>
 
       <div style="display: flex; align-items: center; margin-left:16px; gap: 16px;">
@@ -1094,16 +1038,19 @@
       <z-input type="text" label="filled" value="testo testo testo"></z-input>
       <z-input type="text" label="disabled" placeholder="placeholder" disabled value="i'm disabled"></z-input>
       <z-input type="text" label="readonly" placeholder="placeholder" readonly value="i'm read-only"></z-input>
-      <z-input type="text" label="success" placeholder="placeholder" status="success" message="message message" value="">
+      <z-input type="text" label="success" placeholder="placeholder" status="success" message="message message"
+        value="">
       </z-input>
-      <z-input type="text" label="error" placeholder="placeholder" status="error" message="message message" value="testo">
+      <z-input type="text" label="error" placeholder="placeholder" status="error" message="message message"
+        value="testo">
       </z-input>
       <z-input type="text" label="warning" placeholder="placeholder" status="warning"
         message="message message message message message <br/> message message message message <br/> message message message message message message message message message">
       </z-input>
       <z-input type="text" label="message" placeholder="placeholder" message="helper message"></z-input>
       <z-input type="password" label="password" value="password" placeholder="Inserisci password"></z-input>
-      <z-input type="password" label="password disabled" value="password" placeholder="Non inscerisci password" disabled></z-input>
+      <z-input type="password" label="password disabled" value="password" placeholder="Non inscerisci password"
+        disabled></z-input>
 
       <br /><br />
       <z-input type="textarea" required></z-input>
@@ -1111,9 +1058,11 @@
       <z-input type="textarea" label="filled" value="testo testo testo"></z-input>
       <z-input type="textarea" label="disabled" placeholder="placeholder" disabled value="i'm disabled"></z-input>
       <z-input type="textarea" label="readonly" placeholder="placeholder" readonly value="i'm read-only"></z-input>
-      <z-input type="textarea" label="success" placeholder="placeholder" status="success" message="message message" value="">
+      <z-input type="textarea" label="success" placeholder="placeholder" status="success" message="message message"
+        value="">
       </z-input>
-      <z-input type="textarea" label="error" placeholder="placeholder" status="error" message="message message" value="testo">
+      <z-input type="textarea" label="error" placeholder="placeholder" status="error" message="message message"
+        value="testo">
       </z-input>
       <z-input type="textarea" label="warning" placeholder="placeholder" status="warning" message="message message">
       </z-input>
@@ -1122,28 +1071,54 @@
       <br /><br />
       <z-input type="checkbox" htmlid="check1" required></z-input><br />
       <z-input type="checkbox" htmlid="check2" label="this is a checkbox" checked></z-input><br />
-      <div style="width:150px;background:grey;font-size:10px;"><z-input type="checkbox" htmlid="check3" label="unchecked with long long long longlong long long label" labelafter="false"></z-input></div>
-      <z-input type="checkbox" htmlid="check4" value="value" disabled label="disabled" ></z-input><br />
+      <div style="width:150px;background:grey;font-size:10px;">
+        <z-input type="checkbox" htmlid="check3" label="unchecked with long long long longlong long long label"
+          labelafter="false"></z-input>
+      </div>
+      <z-input type="checkbox" htmlid="check4" value="value" disabled label="disabled"></z-input><br />
       <z-input type="checkbox" htmlid="check5" value="value" readonly label="read-only" checked></z-input><br />
 
       <br /><br />
       <z-input type="radio" htmlid="radio1" name="radio-selected" value="1"></z-input><br />
       <z-input type="radio" htmlid="radio2" name="radio-selected" value="2" label="opzione 2"></z-input><br />
-      <z-input type="radio" htmlid="radio3" name="radio-selected" value="3" labelafter="false" label="opzione 3"></z-input><br />
+      <z-input type="radio" htmlid="radio3" name="radio-selected" value="3" labelafter="false" label="opzione 3">
+      </z-input><br />
       <z-input type="radio" htmlid="radio4" name="radio-selected" value="4" label="disabled" disabled></z-input><br />
       <z-input type="radio" htmlid="radio5" name="radio-selected" value="5" label="readonly" readonly></z-input><br />
       <br /><br />
       <div style="width:300px;">
-        <z-input type="select" label="default" placeholder="Seleziona qui" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
-        <z-input type="select" label="disabled" placeholder="Seleziona qui" disabled items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":true}]'></z-input><br />
-        <z-input type="select" label="readonly" placeholder="Seleziona qui" readonly items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input><br />
-        <z-input type="select" label="success" placeholder="Seleziona qui" status="success" message="message message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input><br />
-        <z-input type="select" label="error" placeholder="Seleziona qui" status="error" message="message message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input><br />
-        <z-input type="select" label="warning" placeholder="Seleziona qui" status="warning" message="message message message" items='[{"id":"item_1","name":"primo elemento","selected":true},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
-        <z-input type="select" label="message" placeholder="Seleziona qui" message="helper message" items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'></z-input>
-        <z-input type="select" label="multiple" placeholder="Seleziona qui" multiple="true" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'></z-input>
-        <z-input type="select" label="autocomplete" placeholder="Seleziona qui" autocomplete="true" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'></z-input>
-        <z-input type="select" label="multiple autocomplete" placeholder="Seleziona qui" autocomplete="true" multiple="true" items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'></z-input>
+        <z-input type="select" label="default" placeholder="Seleziona qui"
+          items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'>
+        </z-input>
+        <z-input type="select" label="disabled" placeholder="Seleziona qui" disabled
+          items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":true}]'>
+        </z-input><br />
+        <z-input type="select" label="readonly" placeholder="Seleziona qui" readonly
+          items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'>
+        </z-input><br />
+        <z-input type="select" label="success" placeholder="Seleziona qui" status="success" message="message message"
+          items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'>
+        </z-input><br />
+        <z-input type="select" label="error" placeholder="Seleziona qui" status="error" message="message message"
+          items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'>
+        </z-input><br />
+        <z-input type="select" label="warning" placeholder="Seleziona qui" status="warning"
+          message="message message message"
+          items='[{"id":"item_1","name":"primo elemento","selected":true},{"id":"item_2","name":"secondo elemento","selected":false}]'>
+        </z-input>
+        <z-input type="select" label="message" placeholder="Seleziona qui" message="helper message"
+          items='[{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false}]'>
+        </z-input>
+        <z-input type="select" label="multiple" placeholder="Seleziona qui" multiple="true"
+          items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'>
+        </z-input>
+        <z-input type="select" label="autocomplete" placeholder="Seleziona qui" autocomplete="true"
+          items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'>
+        </z-input>
+        <z-input type="select" label="multiple autocomplete" placeholder="Seleziona qui" autocomplete="true"
+          multiple="true"
+          items='[{"id":"item_0","name":"seleziona questa opzione con etichetta lunga lunga lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false},{"id":"item_2","name":"secondo elemento","selected":false},{"id":"item_3","name":"terzo elemento","selected":false},{"id":"item_4","name":"quarto elemento","selected":false},{"id":"item_5","name":"quinto elemento","selected":false},{"id":"item_6","name":"sesto elemento","selected":false},{"id":"item_7","name":"settimo elemento","selected":false}]'>
+        </z-input>
       </div>
 
       <br /><br />
@@ -1161,12 +1136,14 @@
       <br /><br />
       <z-combobox inputid="combo_1"
         items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'
-        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta" closesearchtext="CHIUDI">
+        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta"
+        closesearchtext="CHIUDI">
       </z-combobox>
       <br />
       <z-combobox inputid="combo_2"
         items='[{"id":"item_1","name":"Brimo elemento","checked":false},{"id":"item_2","name":"sbecondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
-        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta" isopen="false" label="Combo Lunga" closesearchtext="CHIUDI">
+        hassearch=true searchlabel="Autore" searchplaceholder="Cerca Autore" label="Combo Corta" isopen="false"
+        label="Combo Lunga" closesearchtext="CHIUDI">
       </z-combobox>
       <br />
       <z-combobox inputid="combo_3"
@@ -1179,7 +1156,7 @@
         label="Combo Max 3" closesearchtext="CHIUDI" maxcheckableitems="3">
       </z-combobox>
 
-    <br /><br />
+      <br /><br />
       <section id="ideePerInsegnare"
         style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
         <z-panel-elem imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png" linkicon="arrow-quad-down"
@@ -1188,8 +1165,8 @@
       <section id="ideePerInsegnare"
         style="max-width: 200px; max-height: 200px; margin:  10px 40px 0; border: 1px solid violet;">
         <z-panel-elem isdisabled="true" imgurl="https://staticdemomy.zanichelli.it/download/biblioteca.png"
-          linkicon="arrow-quad-down" linklabel="Tutte le prove"
-          url="http://online.scuola.zanichelli.it/tutteleprove/" descr_slot_name="xxx1" elemid="prova2">
+          linkicon="arrow-quad-down" linklabel="Tutte le prove" url="http://online.scuola.zanichelli.it/tutteleprove/"
+          descr_slot_name="xxx1" elemid="prova2">
           <span slot="xxx1">
             L’archivio di prove in pdf e word pronto da stampare: prove
             comuni, simulazioni, prove interdisciplinari
@@ -1289,7 +1266,8 @@
   <z-registro-table bordered="false">
     <z-registro-table-head>
       <z-registro-table-header-row expandable>
-        <z-registro-table-header show-button="true" sortable="true" column-id="1">Colonna 1<br />Colonna 2</z-registro-table-header>
+        <z-registro-table-header show-button="true" sortable="true" column-id="1">Colonna 1<br />Colonna 2
+        </z-registro-table-header>
         <z-registro-table-header show-button="true" sortable="true" column-id="2">Colonna 2</z-registro-table-header>
         <z-registro-table-header show-button="true" sortable="true" column-id="3">Colonna 3</z-registro-table-header>
       </z-registro-table-header-row>
@@ -1297,7 +1275,8 @@
 
     <z-registro-table-body>
       <z-registro-table-row expandable>
-        <z-registro-table-cell show-button="true"><span slot="contextual-menu">Span Button</span>Valore 1-1</z-registro-table-cell>
+        <z-registro-table-cell show-button="true"><span slot="contextual-menu">Span Button</span>Valore 1-1
+        </z-registro-table-cell>
         <z-registro-table-cell show-button="true">Valore 1-2</z-registro-table-cell>
         <z-registro-table-cell show-button="true">
           <z-button icon="gear">Prova 1-3</z-button>
@@ -1322,22 +1301,23 @@
     </z-registro-table-body>
 
     <z-registro-table-sticky-footer slot="sticky-footer">
-        Test footer
+      Test footer
     </z-registro-table-sticky-footer>
 
   </z-registro-table>
   <br /><br /><br /><br /><br /><br />
   <div style="padding-left: 280px;">
-    <z-popover position="after-up" show-arrow="true" background-color="color-white" box-shadow="shadow-1" border-radius="small">
+    <z-popover position="after-up" show-arrow="true" background-color="color-white" box-shadow="shadow-1"
+      border-radius="small">
       <z-button slot="trigger">Action button</z-button>
       <div slot="popover">Conenuto popover</div>
     </z-popover>
   </div>
 
-<br /><br /><br /><br /><br /><br />
-<div style="padding-left: 280px;">
-  <z-avatar text="Abcde" size="medium" image="https://cdn.eso.org/images/thumb700x/eso1907a.jpg"></z-avatar>
-</div>
+  <br /><br /><br /><br /><br /><br />
+  <div style="padding-left: 280px;">
+    <z-avatar text="Abcde" size="medium" image="https://cdn.eso.org/images/thumb700x/eso1907a.jpg"></z-avatar>
+  </div>
 
   <br /><br /><br /><br /><br /><br />
 
@@ -1356,10 +1336,16 @@
       </z-list-group>
 
       <z-list-group size="large" divider-type="element">
-        <p slot="header-title">Z-LIST-GROUP  TITOLO 1</p>
-        <z-list-element><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
-        <z-list-element><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
-        <z-list-element expandable="false"><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
+        <p slot="header-title">Z-LIST-GROUP TITOLO 1</p>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+        </z-list-element>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+        </z-list-element>
+        <z-list-element expandable="false">
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+        </z-list-element>
       </z-list-group>
     </z-list>
   </div>
@@ -1369,9 +1355,16 @@
     <z-list size="large">
       <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
         <p slot="header-title">Z-LIST-GROUP TITOLO 1</p>
-        <z-list-element ><z-avatar text="AB"></z-avatar><span>no clickable</span></z-list-element>
-        <z-list-element expandable align-button="right"><span>123456</span><p slot="inner-content">testo espanso</p></z-list-element>
-        <z-list-element expandable align-button="left"><z-avatar text="AB"></z-avatar><span>123456</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>no clickable</span>
+        </z-list-element>
+        <z-list-element expandable align-button="right"><span>123456</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
+        <z-list-element expandable align-button="left">
+          <z-avatar text="AB"></z-avatar><span>123456</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
       </z-list-group>
 
       <z-list-group size="large" divider-type="element">
