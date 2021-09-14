@@ -1,5 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter, Element } from "@stencil/core";
-import { forceUpdate, Host, HostElement } from "@stencil/core/internal";
+import { Host, HostElement, State } from "@stencil/core/internal";
 
 /**
  * @slot - link content
@@ -40,12 +40,11 @@ export class ZLink {
 
   @Element() hostElement: HostElement;
 
-  iconSize: number;
+  @State() iconSize: number = 18;
 
   constructor() {
     this.emitZLinkClick = this.emitZLinkClick.bind(this);
     this.emitZLinkInteraction = this.emitZLinkInteraction.bind(this);
-    this.iconSize = 18;
   }
 
   componentWillRender() {
@@ -69,18 +68,14 @@ export class ZLink {
     this.zLinkClick.emit({ e, linkId });
   }
 
-  calculateIconSize() {
-    let height: number = parseFloat(window.getComputedStyle(this.hostElement).getPropertyValue('font-size'));
-    const currentSize = this.big ? 18 : Math.round(height * 1.125);
-    if(!Number.isNaN(currentSize) && this.iconSize !== currentSize){
-      this.iconSize = currentSize;
-      forceUpdate(this);
+  componentDidRender() {
+    if(this.icon){
+      const height: number = parseFloat(window.getComputedStyle(this.hostElement).getPropertyValue('font-size'));
+      const currentSize = this.big ? 18 : Math.round(height * 1.125);
+      if(!Number.isNaN(currentSize) && this.iconSize !== currentSize){
+        this.iconSize = currentSize;
+      }
     }
-  }
-
-  componentDidLoad() {
-    if(this.icon)
-      this.calculateIconSize();
   }
 
   render() {
@@ -91,12 +86,12 @@ export class ZLink {
       <Host style={style}>
         <a
           id={this.htmlid}
-          href={this.href ? this.href : null}
-          class={`${this.isdisabled && "disabled"}
-            ${this.isactive && "active"}
+          href={this.href}
+          class={`${this.isdisabled ? "disabled" : ""}
+            ${this.isactive ? "active" : ""}
             ${this.textcolor}
-            ${this.iswhite && "white"}
-            ${this.underline && "underline"}`}
+            ${this.iswhite ? "white" : ""}
+            ${this.underline ? "underline" : ""}`}
           target={this.target}
           role={this.href ? "link" : "button"}
           tabindex={this.isdisabled ? -1 : this.htmltabindex}
