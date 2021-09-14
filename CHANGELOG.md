@@ -63,6 +63,8 @@ All notable changes to this project will be documented in this file. See [standa
 * fixed test ([a49d18d](https://github.com/ZanichelliEditore/design-system/commit/a49d18d80308d8235285be70cf847d87692c9efc))
 * removed unused console.log and transtion ([823f58e](https://github.com/ZanichelliEditore/design-system/commit/823f58e334e2eda73b231c381029c845de76c2b8))
 
+### [2.16.1-alpha](https://github.com/ZanichelliEditore/design-system/compare/v2.16.0...v2.16.1-alpha) (2021-09-13)
+
 ## [2.16.0](https://github.com/ZanichelliEditore/design-system/compare/v2.15.0...v2.16.0) (2021-09-10)
 
 
