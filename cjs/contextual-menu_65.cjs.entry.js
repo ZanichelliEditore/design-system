@@ -3,10 +3,10 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-2e494cc2.js');
-const index$1 = require('./index-3a977d24.js');
+const index$1 = require('./index-66eb89b1.js');
 const breakpoints = require('./breakpoints-88c4fd6c.js');
 const hammer = require('./hammer-6e321f0b.js');
-const utils = require('./utils-943dc109.js');
+const utils = require('./utils-2636e75b.js');
 
 const stylesCss$$ = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host(:focus-within)>z-popover{box-shadow:var(--shadow-focus-primary)}.popover-content-container{min-width:112px;max-width:280px;white-space:nowrap}.sc-z-popover,.sc-z-popover-s{display:flex;justify-content:center;align-items:center;padding:calc(var(--space-unit) * 0.2);outline:none}.element-container:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}.element-text{overflow:hidden;text-overflow:ellipsis}.element-container,.disabled-element-container{display:flex;padding:0 8px;align-items:center;gap:8px;fill:var(--gray500);padding:4px 8px}.element-container{fill:var(--color-primary01)}.element-container .element-icon{display:flex}";
 
@@ -1137,15 +1137,11 @@ icons["cross"] = icons["multiply"];
 icons["exit"] = icons["logout"];
 icons["enter"] = icons["login"];
 
-const stylesCss$K = ":host{line-height:0;vertical-align:middle;width:var(--z-icon-width, 18px);height:var(--z-icon-height, 18px);margin-right:var(--z-icon-right-margin, 0);margin-left:var(--z-icon-left-margin, 0)}:host(:not([width])) svg{width:var(--z-icon-width, 18px)}:host(:not([height])) svg{height:var(--z-icon-height, 18px)}";
+const stylesCss$K = ":host{line-height:0;vertical-align:middle;margin-right:var(--z-icon-right-margin, 0);margin-left:var(--z-icon-left-margin, 0)}:host svg:not([width]){width:var(--z-icon-width, 18px)}:host svg:not([height]){height:var(--z-icon-height, 18px)}";
 
 const ZIcon = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
-    /** icon height (optional) */
-    this.height = 18;
-    /** icon width (optional) */
-    this.width = 18;
   }
   selectPathOrPolygon(iconName) {
     if (iconName && iconName.startsWith("M")) {
@@ -1487,7 +1483,7 @@ const ZInputMessage = class {
 };
 ZInputMessage.style = stylesCss$F;
 
-const stylesCss$E = ":host{font-family:var(--dashboard-font);font-weight:inherit;font-size:inherit;line-height:inherit;outline:none}a{cursor:pointer;color:var(--myz-blue);fill:var(--myz-blue);display:inline-flex;align-items:center;text-decoration:none;padding:calc(var(--space-unit) * .5) 0;border-top:var(--border-size-medium) solid transparent;border-bottom:var(--border-size-medium) solid transparent}a:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark);text-decoration:none}a.disabled{cursor:default;pointer-events:none}a.disabled,a.disabled:active,a.disabled:visited,a.disabled:hover{color:var(--bg-neutral-200);fill:var(--bg-neutral-200);text-decoration:none}a.black,a.black:active,a.black:visited,a.black:hover{color:var(--bg-grey-900);fill:var(--bg-grey-900);text-decoration:none}a.white,a.white:active,a.white:visited,a.white:hover{color:var(--bg-white);fill:var(--bg-white);text-decoration:none}a.active,a.active:active,a.active:visited{color:var(--text-grey-800);fill:var(--text-grey-800);text-decoration:none;border-bottom:var(--border-size-medium) solid var(--myz-blue)}a.big{font-size:16px;font-weight:600}a>z-icon{margin-right:8px}";
+const stylesCss$E = ":host{--font-size-link:inherit;--font-weight-link:inherit}:host{font-family:var(--dashboard-font);font-weight:var(--font-weight-link);font-size:var(--font-size-link);line-height:inherit;outline:none}a{cursor:pointer;color:var(--color-link-primary);fill:var(--color-link-primary);display:inline-flex;align-items:center;text-decoration:none;padding:calc(var(--space-unit) * .5) 0;border-top:var(--border-size-medium) solid transparent;border-bottom:var(--border-size-medium) solid transparent}a:hover,a:focus,a:active{text-decoration:underline}a.active{color:var(--color-active-link);fill:var(--color-active-link)}a:hover,a:focus{color:var(--color-hover-link);fill:var(--color-hover-link)}a:active{color:var(--color-pressed-link);fill:var(--color-pressed-link)}a:visited{color:var(--color-visited-link);fill:var(--color-visited-link)}a.disabled,a.inverse.disabled{cursor:default;pointer-events:none;color:var(--color-disabled03);fill:var(--color-disabled03)}a.underline,a.underline:active,a.underline:hover,a.underline:visited,a.underline.disabled,a.underline.black,a.underline.white{text-decoration:underline}a.disabled,a.disabled:active,a.disabled:visited,a.disabled:hover{text-decoration:none}a.inverse{color:var(--color-inverse-link);fill:var(--color-inverse-link)}a.inverse.active{color:var(--color-inverse-active-link);fill:var(--color-inverse-active-link)}a.inverse:hover,a.inverse:focus{color:var(--color-inverse-hover-link);fill:var(--color-inverse-hover-link)}a.inverse:active{color:var(--color-inverse-pressed-link);fill:var(--color-inverse-pressed-link)}a.inverse:visited{color:var(--color-inverse-visited-link);fill:var(--color-inverse-visited-link)}a.black{color:var(--bg-grey-900);fill:var(--bg-grey-900);text-decoration:none}a.black:hover,a.black.active,a.black:visited{color:var(--bg-black);fill:var(--bg-black)}a.black:hover,a.black:focus,a.black:active{text-decoration:underline}a.black:active{color:var(--gray-700);fill:var(--gray-700)}a.white,a.white:active,a.white:hover,a.white.active{color:var(--bg-white);fill:var(--bg-white);text-decoration:none}a.white:visited{color:var(--bg-gray-300);fill:var(--bg-gray-300)}a.white:hover,a.white:focus,a.white:active{text-decoration:underline}a.white.disabled,a.black.disabled{color:var(--bg-gray-500);fill:var(--bg-gray-500)}a>z-icon:first-child{margin-right:8px}a>z-icon:last-child{margin-left:8px}";
 
 const ZLink = class {
   constructor(hostRef) {
@@ -1504,15 +1500,23 @@ const ZLink = class {
     /** white variant flag (optional) */
     this.iswhite = false;
     /** link text variant (optional) */
-    this.textcolor = "blue";
+    this.textcolor = "primary";
     /** big link version */
     this.big = false;
+    /** link icon position (optional) */
+    this.iconposition = "left";
+    /** draw underline on text (optional) */
+    this.underline = false;
+    this.iconSize = 18;
     this.emitZLinkClick = this.emitZLinkClick.bind(this);
     this.emitZLinkInteraction = this.emitZLinkInteraction.bind(this);
   }
   componentWillRender() {
     if (this.iswhite) {
       console.warn("z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead");
+    }
+    if (this.big) {
+      console.warn("z-link big prop is deprecated and will be dropped in a next release, please override --font-size-link and --font-weight-link variables instead");
     }
   }
   emitZLinkClick(e, linkId) {
@@ -1521,13 +1525,25 @@ const ZLink = class {
   emitZLinkInteraction(e, linkId) {
     this.zLinkClick.emit({ e, linkId });
   }
-  render() {
-    return (index.h("a", { id: this.htmlid, href: this.href ? this.href : null, class: `${this.isdisabled && "disabled"}
-          ${this.isactive && "active"}
-          ${this.textcolor}
-          ${this.iswhite && "white"}
-          ${this.big && "big"}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) }, this.icon && (index.h("z-icon", { name: this.icon, width: this.big ? 18 : 12, height: this.big ? 18 : 12 })), index.h("slot", null)));
+  componentDidRender() {
+    if (this.icon) {
+      const height = parseFloat(window.getComputedStyle(this.hostElement).getPropertyValue('font-size'));
+      const currentSize = this.big ? 18 : Math.round(height * 1.125);
+      if (!Number.isNaN(currentSize) && this.iconSize !== currentSize) {
+        this.iconSize = currentSize;
+      }
+    }
   }
+  render() {
+    const style = this.big ? { "--font-size-link": "16px", "--font-weight-link": "600" } : {};
+    return (index.h(index.Host, { style: style }, index.h("a", { id: this.htmlid, href: this.href, class: `${this.isdisabled ? "disabled" : ""}
+            ${this.isactive ? "active" : ""}
+            ${this.textcolor}
+            ${this.iswhite ? "white" : ""}
+            ${this.underline ? "underline" : ""}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.isdisabled ? -1 : this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) }, this.iconposition === "right" && index.h("slot", null), this.icon &&
+      index.h("z-icon", { style: { "--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString() }, name: this.icon, height: this.iconSize, width: this.iconSize }), this.iconposition === "left" && index.h("slot", null))));
+  }
+  get hostElement() { return index.getElement(this); }
 };
 ZLink.style = stylesCss$E;
 
@@ -2672,7 +2688,7 @@ const ZRegistroTableHead = class {
 };
 ZRegistroTableHead.style = stylesCss$c;
 
-const stylesCss$b = ":host{display:table-cell;background-color:var(--gray50);border-bottom:var(--border-size-medium) solid var(--gray200);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start;position:relative}.container{display:flex;align-items:flex-end}:host(.sortable){cursor:pointer}:host(.size-x-small){padding:calc(var(--space-unit) / 2)}:host(.size-small){padding:var(--space-unit)}:host(.size-medium){padding:calc(var(--space-unit) * 2)}:host(.size-large){padding:calc(var(--space-unit) * 3)}:host(.size-special){padding:20px 40px}.arrow{opacity:1;padding-left:var(--space-unit)}.arrow.hidden{opacity:0}.popover-container{position:absolute;top:var(--space-unit);right:var(--space-unit);display:none}.popover-container.visible{display:block}:host(:hover) .popover-container{display:block}";
+const stylesCss$b = ":host{display:table-cell;background-color:var(--gray50);border-bottom:var(--border-size-medium) solid var(--gray200);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start;position:relative}.container{display:flex;align-items:flex-end}:host(.sortable){cursor:pointer}:host(.size-x-small){padding:calc(var(--space-unit) / 2)}:host(.size-small){padding:var(--space-unit)}:host(.size-medium){padding:calc(var(--space-unit) * 2)}:host(.size-large){padding:calc(var(--space-unit) * 3)}:host(.size-special){padding:20px 40px}.arrow{opacity:1;padding-left:var(--space-unit)}.popover-container{position:absolute;top:var(--space-unit);right:var(--space-unit);display:none}.popover-container.visible{display:block}:host(:hover) .popover-container{display:block}";
 
 const ZRegistroTableHeader = class {
   constructor(hostRef) {
@@ -2680,23 +2696,26 @@ const ZRegistroTableHeader = class {
     this.sort = index.createEvent(this, "sort", 7);
     /** [Optional] Padding of the header */
     this.size = index$1.TableHeaderSize["medium"];
+    this.sortDirection = index$1.SortDirectionEnum.none;
     this.isMenuOpened = false;
-    this.sortingOrientation = index$1.SortingOrientation["none"];
     this.emitOnSort = this.emitOnSort.bind(this);
   }
   emitOnSort() {
-    this.sort.emit({ sortingOrientation: this.sortingOrientation });
+    this.sort.emit({
+      columnId: this.columnId,
+      sortDirection: this.sortDirection
+    });
   }
   handleSort() {
     if (!this.sortable) {
       return;
     }
-    if (this.sortingOrientation === index$1.SortingOrientation["none"] ||
-      this.sortingOrientation === index$1.SortingOrientation["desc"]) {
-      this.sortingOrientation = index$1.SortingOrientation["asc"];
+    if (this.sortDirection === index$1.SortDirectionEnum.none ||
+      this.sortDirection === index$1.SortDirectionEnum.desc) {
+      this.sortDirection = index$1.SortDirectionEnum.asc;
     }
-    else if (this.sortingOrientation === index$1.SortingOrientation["asc"]) {
-      this.sortingOrientation = index$1.SortingOrientation["desc"];
+    else if (this.sortDirection === index$1.SortDirectionEnum.asc) {
+      this.sortDirection = index$1.SortDirectionEnum.desc;
     }
     this.emitOnSort();
   }
@@ -2718,7 +2737,7 @@ const ZRegistroTableHeader = class {
     const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-registro-table-header");
     if (parent &&
       parent.attributes.getNamedItem("column-id").value !== this.columnId) {
-      this.sortingOrientation = index$1.SortingOrientation["none"];
+      this.sortDirection = index$1.SortDirectionEnum.none;
     }
   }
   componentWillRender() {
@@ -2727,11 +2746,9 @@ const ZRegistroTableHeader = class {
   render() {
     return (index.h(index.Host, { class: classnames(`size-${this.size}`, {
         sortable: this.sortable,
-      }), onClick: () => this.handleSort() }, index.h("div", { class: classnames("container") }, index.h("slot", null), this.sortable && (index.h("z-icon", { name: this.sortingOrientation === index$1.SortingOrientation["asc"]
+      }), onClick: () => this.handleSort() }, index.h("div", { class: classnames("container") }, index.h("slot", null), this.sortable && this.sortDirection !== index$1.SortDirectionEnum.none && (index.h("z-icon", { name: this.sortDirection === index$1.SortDirectionEnum.asc
         ? "arrow-up"
-        : "arrow-down", class: classnames("arrow", {
-        hidden: this.sortingOrientation === index$1.SortingOrientation["none"],
-      }) }))), this.showButton && (index.h("div", { class: classnames("popover-container", {
+        : "arrow-down", class: "arrow" }))), this.showButton && (index.h("div", { class: classnames("popover-container", {
         visible: this.isMenuOpened,
       }) }, index.h("z-popover", { position: index$1.PopoverPosition["below-center"], "background-color": "gray200" }, index.h("z-button", { icon: "contextual-menu", variant: index$1.ButtonVariantEnum["tertiary"], size: index$1.ButtonSizeEnum["x-small"], square: true, slot: "trigger", onClick: () => this.handleMenuClick() }), index.h("div", { slot: "popover" }, index.h("slot", { name: "contextual-menu" })))))));
   }

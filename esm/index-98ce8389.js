@@ -145,12 +145,12 @@ var TableHeaderSize;
   TableHeaderSize["large"] = "large";
   TableHeaderSize["special"] = "special";
 })(TableHeaderSize || (TableHeaderSize = {}));
-var SortingOrientation;
-(function (SortingOrientation) {
-  SortingOrientation["asc"] = "asc";
-  SortingOrientation["desc"] = "desc";
-  SortingOrientation["none"] = "none";
-})(SortingOrientation || (SortingOrientation = {}));
+var SortDirectionEnum;
+(function (SortDirectionEnum) {
+  SortDirectionEnum["asc"] = "asc";
+  SortDirectionEnum["desc"] = "desc";
+  SortDirectionEnum["none"] = "none";
+})(SortDirectionEnum || (SortDirectionEnum = {}));
 var AvatarSize;
 (function (AvatarSize) {
   AvatarSize["small"] = "small";
@@ -242,4 +242,4 @@ var ToastNotificationPositionsEnum;
   ToastNotificationPositionsEnum["bottomCentre"] = "bottom-centre";
 })(ToastNotificationPositionsEnum || (ToastNotificationPositionsEnum = {}));
 
-export { AvatarSize as A, ButtonTypeEnum as B, CardVariants as C, DeviceEnum as D, ExpandableListButtonAlign as E, InputTypeEnum as I, KeyboardKeys as K, ListSize as L, NotificationType as N, PopoverPosition as P, SortingOrientation as S, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, DividerSize as c, DividerOrientation as d, ListDividerType as e, ExpandableListStyle as f, LicenseTypeEnum as g, AlertTypesEnum as h, PopoverBorderRadius as i, PopoverShadow as j, keybordKeyCodeEnum as k, TableHeaderSize as l, InputStatusEnum as m, StatusTagStatus as n, TooltipPosition as o, PocketStatusEnum as p, TabOrientationEnum as q, TabSizeEnum as r, ToastNotificationTransitionsEnum as s, ToastNotificationPositionsEnum as t };
+export { AvatarSize as A, ButtonTypeEnum as B, CardVariants as C, DeviceEnum as D, ExpandableListButtonAlign as E, InputTypeEnum as I, KeyboardKeys as K, ListSize as L, NotificationType as N, PopoverPosition as P, SortDirectionEnum as S, ThemeVariant as T, ButtonVariantEnum as a, ButtonSizeEnum as b, DividerSize as c, DividerOrientation as d, ListDividerType as e, ExpandableListStyle as f, LicenseTypeEnum as g, AlertTypesEnum as h, PopoverBorderRadius as i, PopoverShadow as j, keybordKeyCodeEnum as k, TableHeaderSize as l, InputStatusEnum as m, StatusTagStatus as n, TooltipPosition as o, PocketStatusEnum as p, TabOrientationEnum as q, TabSizeEnum as r, ToastNotificationTransitionsEnum as s, ToastNotificationPositionsEnum as t };

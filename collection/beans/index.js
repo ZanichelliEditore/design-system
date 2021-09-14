@@ -145,12 +145,12 @@ export var TableHeaderSize;
   TableHeaderSize["large"] = "large";
   TableHeaderSize["special"] = "special";
 })(TableHeaderSize || (TableHeaderSize = {}));
-export var SortingOrientation;
-(function (SortingOrientation) {
-  SortingOrientation["asc"] = "asc";
-  SortingOrientation["desc"] = "desc";
-  SortingOrientation["none"] = "none";
-})(SortingOrientation || (SortingOrientation = {}));
+export var SortDirectionEnum;
+(function (SortDirectionEnum) {
+  SortDirectionEnum["asc"] = "asc";
+  SortDirectionEnum["desc"] = "desc";
+  SortDirectionEnum["none"] = "none";
+})(SortDirectionEnum || (SortDirectionEnum = {}));
 export var AvatarSize;
 (function (AvatarSize) {
   AvatarSize["small"] = "small";

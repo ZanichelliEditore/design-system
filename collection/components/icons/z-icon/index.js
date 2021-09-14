@@ -1,12 +1,6 @@
 import { Component, Prop, h } from "@stencil/core";
 import { icons } from "../icons";
 export class ZIcon {
-  constructor() {
-    /** icon height (optional) */
-    this.height = 18;
-    /** icon width (optional) */
-    this.width = 18;
-  }
   selectPathOrPolygon(iconName) {
     if (iconName && iconName.startsWith("M")) {
       return h("path", { d: icons[this.name] });
@@ -59,8 +53,7 @@ export class ZIcon {
         "text": "icon height (optional)"
       },
       "attribute": "height",
-      "reflect": false,
-      "defaultValue": "18"
+      "reflect": false
     },
     "width": {
       "type": "number",
@@ -77,8 +70,7 @@ export class ZIcon {
         "text": "icon width (optional)"
       },
       "attribute": "width",
-      "reflect": false,
-      "defaultValue": "18"
+      "reflect": false
     },
     "iconid": {
       "type": "string",

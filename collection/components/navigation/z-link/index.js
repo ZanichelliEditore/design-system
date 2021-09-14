@@ -1,4 +1,5 @@
-import { Component, Prop, h, Event } from "@stencil/core";
+import { Component, Prop, h, Event, Element } from "@stencil/core";
+import { Host, State } from "@stencil/core/internal";
 /**
  * @slot - link content
  */
@@ -15,15 +16,23 @@ export class ZLink {
     /** white variant flag (optional) */
     this.iswhite = false;
     /** link text variant (optional) */
-    this.textcolor = "blue";
+    this.textcolor = "primary";
     /** big link version */
     this.big = false;
+    /** link icon position (optional) */
+    this.iconposition = "left";
+    /** draw underline on text (optional) */
+    this.underline = false;
+    this.iconSize = 18;
     this.emitZLinkClick = this.emitZLinkClick.bind(this);
     this.emitZLinkInteraction = this.emitZLinkInteraction.bind(this);
   }
   componentWillRender() {
     if (this.iswhite) {
       console.warn("z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead");
+    }
+    if (this.big) {
+      console.warn("z-link big prop is deprecated and will be dropped in a next release, please override --font-size-link and --font-weight-link variables instead");
     }
   }
   emitZLinkClick(e, linkId) {
@@ -32,14 +41,27 @@ export class ZLink {
   emitZLinkInteraction(e, linkId) {
     this.zLinkClick.emit({ e, linkId });
   }
+  componentDidRender() {
+    if (this.icon) {
+      const height = parseFloat(window.getComputedStyle(this.hostElement).getPropertyValue('font-size'));
+      const currentSize = this.big ? 18 : Math.round(height * 1.125);
+      if (!Number.isNaN(currentSize) && this.iconSize !== currentSize) {
+        this.iconSize = currentSize;
+      }
+    }
+  }
   render() {
-    return (h("a", { id: this.htmlid, href: this.href ? this.href : null, class: `${this.isdisabled && "disabled"}
-          ${this.isactive && "active"}
-          ${this.textcolor}
-          ${this.iswhite && "white"}
-          ${this.big && "big"}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) },
-      this.icon && (h("z-icon", { name: this.icon, width: this.big ? 18 : 12, height: this.big ? 18 : 12 })),
-      h("slot", null)));
+    const style = this.big ? { "--font-size-link": "16px", "--font-weight-link": "600" } : {};
+    return (h(Host, { style: style },
+      h("a", { id: this.htmlid, href: this.href, class: `${this.isdisabled ? "disabled" : ""}
+            ${this.isactive ? "active" : ""}
+            ${this.textcolor}
+            ${this.iswhite ? "white" : ""}
+            ${this.underline ? "underline" : ""}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.isdisabled ? -1 : this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) },
+        this.iconposition === "right" && h("slot", null),
+        this.icon &&
+          h("z-icon", { style: { "--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString() }, name: this.icon, height: this.iconSize, width: this.iconSize }),
+        this.iconposition === "left" && h("slot", null))));
   }
   static get is() { return "z-link"; }
   static get encapsulation() { return "shadow"; }
@@ -178,8 +200,8 @@ export class ZLink {
       "type": "string",
       "mutable": false,
       "complexType": {
-        "original": "\"white\" | \"blue\" | \"black\"",
-        "resolved": "\"black\" | \"blue\" | \"white\"",
+        "original": "\"primary\"| \"inverse\" | \"white\" | \"black\"",
+        "resolved": "\"black\" | \"inverse\" | \"primary\" | \"white\"",
         "references": {}
       },
       "required": false,
@@ -190,7 +212,7 @@ export class ZLink {
       },
       "attribute": "textcolor",
       "reflect": false,
-      "defaultValue": "\"blue\""
+      "defaultValue": "\"primary\""
     },
     "icon": {
       "type": "string",
@@ -226,7 +248,46 @@ export class ZLink {
       "attribute": "big",
       "reflect": false,
       "defaultValue": "false"
+    },
+    "iconposition": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "\"left\" | \"right\"",
+        "resolved": "\"left\" | \"right\"",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "link icon position (optional)"
+      },
+      "attribute": "iconposition",
+      "reflect": false,
+      "defaultValue": "\"left\""
+    },
+    "underline": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "draw underline on text (optional)"
+      },
+      "attribute": "underline",
+      "reflect": false,
+      "defaultValue": "false"
     }
+  }; }
+  static get states() { return {
+    "iconSize": {}
   }; }
   static get events() { return [{
       "method": "zLinkClick",
@@ -244,4 +305,5 @@ export class ZLink {
         "references": {}
       }
     }]; }
+  static get elementRef() { return "hostElement"; }
 }

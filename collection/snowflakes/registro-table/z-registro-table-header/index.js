@@ -1,28 +1,31 @@
 import { Component, Element, Event, h, Host, Listen, Prop, State, } from "@stencil/core";
 import classNames from "classnames";
-import { ButtonSizeEnum, ButtonVariantEnum, PopoverPosition, SortingOrientation, TableHeaderSize, } from "../../../beans";
+import { ButtonSizeEnum, ButtonVariantEnum, PopoverPosition, SortDirectionEnum, TableHeaderSize, } from "../../../beans";
 import { getElementTree } from "../../../utils/utils";
 export class ZRegistroTableHeader {
   constructor() {
     /** [Optional] Padding of the header */
     this.size = TableHeaderSize["medium"];
+    this.sortDirection = SortDirectionEnum.none;
     this.isMenuOpened = false;
-    this.sortingOrientation = SortingOrientation["none"];
     this.emitOnSort = this.emitOnSort.bind(this);
   }
   emitOnSort() {
-    this.sort.emit({ sortingOrientation: this.sortingOrientation });
+    this.sort.emit({
+      columnId: this.columnId,
+      sortDirection: this.sortDirection
+    });
   }
   handleSort() {
     if (!this.sortable) {
       return;
     }
-    if (this.sortingOrientation === SortingOrientation["none"] ||
-      this.sortingOrientation === SortingOrientation["desc"]) {
-      this.sortingOrientation = SortingOrientation["asc"];
+    if (this.sortDirection === SortDirectionEnum.none ||
+      this.sortDirection === SortDirectionEnum.desc) {
+      this.sortDirection = SortDirectionEnum.asc;
     }
-    else if (this.sortingOrientation === SortingOrientation["asc"]) {
-      this.sortingOrientation = SortingOrientation["desc"];
+    else if (this.sortDirection === SortDirectionEnum.asc) {
+      this.sortDirection = SortDirectionEnum.desc;
     }
     this.emitOnSort();
   }
@@ -44,7 +47,7 @@ export class ZRegistroTableHeader {
     const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-registro-table-header");
     if (parent &&
       parent.attributes.getNamedItem("column-id").value !== this.columnId) {
-      this.sortingOrientation = SortingOrientation["none"];
+      this.sortDirection = SortDirectionEnum.none;
     }
   }
   componentWillRender() {
@@ -56,11 +59,9 @@ export class ZRegistroTableHeader {
       }), onClick: () => this.handleSort() },
       h("div", { class: classNames("container") },
         h("slot", null),
-        this.sortable && (h("z-icon", { name: this.sortingOrientation === SortingOrientation["asc"]
+        this.sortable && this.sortDirection !== SortDirectionEnum.none && (h("z-icon", { name: this.sortDirection === SortDirectionEnum.asc
             ? "arrow-up"
-            : "arrow-down", class: classNames("arrow", {
-            hidden: this.sortingOrientation === SortingOrientation["none"],
-          }) }))),
+            : "arrow-down", class: "arrow" }))),
       this.showButton && (h("div", { class: classNames("popover-container", {
           visible: this.isMenuOpened,
         }) },
@@ -151,11 +152,33 @@ export class ZRegistroTableHeader {
       },
       "attribute": "show-button",
       "reflect": false
+    },
+    "sortDirection": {
+      "type": "string",
+      "mutable": true,
+      "complexType": {
+        "original": "SortDirection",
+        "resolved": "SortDirectionEnum.asc | SortDirectionEnum.desc | SortDirectionEnum.none",
+        "references": {
+          "SortDirection": {
+            "location": "import",
+            "path": "../../../beans"
+          }
+        }
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": ""
+      },
+      "attribute": "sort-direction",
+      "reflect": false,
+      "defaultValue": "SortDirectionEnum.none"
     }
   }; }
   static get states() { return {
-    "isMenuOpened": {},
-    "sortingOrientation": {}
+    "isMenuOpened": {}
   }; }
   static get events() { return [{
       "method": "sort",

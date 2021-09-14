@@ -224,11 +224,12 @@ export declare enum TableHeaderSize {
   large = "large",
   special = "special"
 }
-export declare enum SortingOrientation {
+export declare enum SortDirectionEnum {
   asc = "asc",
   desc = "desc",
   none = "none"
 }
+export declare type SortDirection = SortDirectionEnum;
 export declare enum AvatarSize {
   small = "small",
   medium = "medium",

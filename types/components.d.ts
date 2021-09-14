@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -555,6 +555,10 @@ export namespace Components {
          */
         "icon"?: string;
         /**
+          * link icon position (optional)
+         */
+        "iconposition"?: "left" | "right";
+        /**
           * active link flag (optional)
          */
         "isactive"?: boolean;
@@ -573,7 +577,11 @@ export namespace Components {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "white" | "blue" | "black";
+        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        /**
+          * draw underline on text (optional)
+         */
+        "underline"?: boolean;
     }
     interface ZList {
         /**
@@ -1199,6 +1207,7 @@ export namespace Components {
           * [Optional] Padding of the header
          */
         "size"?: TableHeaderSize;
+        "sortDirection": SortDirection;
         /**
           * [Optional] Make the header sortable
          */
@@ -2642,6 +2651,10 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
+          * link icon position (optional)
+         */
+        "iconposition"?: "left" | "right";
+        /**
           * active link flag (optional)
          */
         "isactive"?: boolean;
@@ -2664,7 +2677,11 @@ declare namespace LocalJSX {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "white" | "blue" | "black";
+        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        /**
+          * draw underline on text (optional)
+         */
+        "underline"?: boolean;
     }
     interface ZList {
         /**
@@ -3396,6 +3413,7 @@ declare namespace LocalJSX {
           * [Optional] Padding of the header
          */
         "size"?: TableHeaderSize;
+        "sortDirection"?: SortDirection;
         /**
           * [Optional] Make the header sortable
          */

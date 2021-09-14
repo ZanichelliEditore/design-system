@@ -48,10 +48,6 @@ Sorting arrow
   padding-left: var(--space-unit);
 }
 
-.arrow.hidden {
-  opacity: 0;
-}
-
 /*
 Contextual menu
 */

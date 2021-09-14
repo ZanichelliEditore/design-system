@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { SortingOrientation, TableHeaderSize } from "../../../beans";
+import { SortDirection, TableHeaderSize } from "../../../beans";
 export declare class ZRegistroTableHeader {
   host: HTMLElement;
   /** Column ID */
@@ -10,8 +10,8 @@ export declare class ZRegistroTableHeader {
   sortable?: boolean;
   /** [Optional] Show contextual menu button */
   showButton?: boolean;
+  sortDirection: SortDirection;
   isMenuOpened: boolean;
-  sortingOrientation: SortingOrientation;
   constructor();
   /** [Optional] callback for sorting */
   sort: EventEmitter;

@@ -1,4 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
+import { HostElement } from "../../../stencil-public-runtime";
 /**
  * @slot - link content
  */
@@ -18,16 +19,23 @@ export declare class ZLink {
   /** white variant flag (optional) */
   iswhite?: boolean;
   /** link text variant (optional) */
-  textcolor?: "white" | "blue" | "black";
+  textcolor?: "primary" | "inverse" | "white" | "black";
   /** link icon name (optional) */
   icon?: string;
   /** big link version */
   big?: boolean;
+  /** link icon position (optional) */
+  iconposition?: "left" | "right";
+  /** draw underline on text (optional) */
+  underline?: boolean;
   /** emitted on link click, returns linkId */
   zLinkClick: EventEmitter;
+  hostElement: HostElement;
+  iconSize: number;
   constructor();
   componentWillRender(): void;
   emitZLinkClick(e: MouseEvent, linkId: any): void;
   emitZLinkInteraction(e: Event, linkId: string): void;
+  componentDidRender(): void;
   render(): any;
 }

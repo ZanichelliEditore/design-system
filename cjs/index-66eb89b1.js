@@ -147,12 +147,12 @@ exports.TableHeaderSize = void 0;
   TableHeaderSize["large"] = "large";
   TableHeaderSize["special"] = "special";
 })(exports.TableHeaderSize || (exports.TableHeaderSize = {}));
-exports.SortingOrientation = void 0;
-(function (SortingOrientation) {
-  SortingOrientation["asc"] = "asc";
-  SortingOrientation["desc"] = "desc";
-  SortingOrientation["none"] = "none";
-})(exports.SortingOrientation || (exports.SortingOrientation = {}));
+exports.SortDirectionEnum = void 0;
+(function (SortDirectionEnum) {
+  SortDirectionEnum["asc"] = "asc";
+  SortDirectionEnum["desc"] = "desc";
+  SortDirectionEnum["none"] = "none";
+})(exports.SortDirectionEnum || (exports.SortDirectionEnum = {}));
 exports.AvatarSize = void 0;
 (function (AvatarSize) {
   AvatarSize["small"] = "small";

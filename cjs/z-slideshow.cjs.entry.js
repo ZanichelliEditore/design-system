@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-2e494cc2.js');
-const index$1 = require('./index-3a977d24.js');
-const utils = require('./utils-943dc109.js');
+const index$1 = require('./index-66eb89b1.js');
+const utils = require('./utils-2636e75b.js');
 require('./breakpoints-88c4fd6c.js');
 
 const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);display:block;width:inherit}:host>div{display:flex;flex-direction:column;width:inherit}main{position:relative;overflow:hidden;width:100%}main z-icon.scroll{position:absolute;top:50%;width:auto;cursor:pointer;transition:0.6s ease;margin:0 var(--space-unit);fill:var(--color-primary01);z-index:10}main .scroll.disabled{opacity:50%;pointer-events:none}main .scroll.right{right:0}#slides{display:flex;flex-wrap:wrap;transition:all 300ms;line-height:0px;overflow-y:hidden}footer{height:56px;width:100%;align-items:center;display:grid;grid-template-columns:2;grid-template-rows:2;grid-template-areas:\"center center\" \"left right\";border-top:var(--border-base) solid var(--color-surface02)}footer>div{align-items:center;width:100%}footer .footerCenter{grid-area:center}footer .footerLeft{grid-area:left}footer .footerRight{grid-area:right}footer .bulletContainer{display:flex;margin:0 auto;justify-content:center;align-items:center;min-height:60px}footer .bulletContainer .bullet{width:8px;height:8px;border-radius:50%;background-color:var(--bg-neutral-150);margin:var(--space-unit) 2px;pointer-events:none}footer .bulletContainer .bullet.selected{background-color:var(--bg-neutral-400)}@media only screen and (min-width: 768px){footer{grid-template-columns:1fr 2fr 1fr;grid-template-rows:1;grid-template-areas:\"left center right\";height:76px;border-top:var(--border-base) solid var(--color-surface02)}footer .bulletContainer .bullet{width:10px;height:10px;margin:var(--space-unit) 3px}}@media only screen and (min-width: 1025px){main z-icon.scroll{margin:0 10px}footer .bulletContainer .bullet{width:16px;height:16px;margin:var(--space-unit) calc(var(--space-unit) * 0.5);pointer-events:auto;cursor:pointer}}";
