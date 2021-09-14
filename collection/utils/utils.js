@@ -69,3 +69,14 @@ export function convertJson(data) {
     return false;
   }
 }
+const prefix = 'avatar-C'; // prefix for color vars name
+const colorsCount = 19; // available colors
+export function colorFromId(id) {
+  const seed = Math.ceil(2 ** 31 - 1) * parseFloat(`0.${id}`);
+  let color = Math.ceil(colorsCount * (seed % 1));
+  // if result of mc is 0
+  // es.: 3895229
+  if (color === 0)
+    color = 1;
+  return `${prefix}${color.toString().padStart(2, '0')}`;
+}

@@ -8,3 +8,4 @@ export declare function getElementTree(elem: Element, tree?: Element[]): null | 
 export declare function getSiblings(elem: HTMLElement): any[];
 export declare function getDevice(): DeviceEnum;
 export declare function convertJson(data: string): any;
+export declare function colorFromId(id: any): string;

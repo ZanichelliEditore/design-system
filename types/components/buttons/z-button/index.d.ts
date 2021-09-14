@@ -12,7 +12,7 @@ export declare class ZButton {
   disabled?: boolean;
   /** HTML button type attribute. */
   type?: HTMLButtonElement["type"];
-  /** Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`. */
+  /** Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`. */
   variant?: ButtonVariantBean;
   /** `z-icon` name to use (optional). */
   icon?: string;

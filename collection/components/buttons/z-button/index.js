@@ -10,7 +10,7 @@ export class ZButton {
     this.disabled = false;
     /** HTML button type attribute. */
     this.type = ButtonTypeEnum.button;
-    /** Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`. */
+    /** Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`. */
     this.variant = ButtonVariantEnum.primary;
     /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
     this.size = ButtonSizeEnum.big;
@@ -117,7 +117,7 @@ export class ZButton {
       "mutable": false,
       "complexType": {
         "original": "ButtonVariantBean",
-        "resolved": "ButtonVariantEnum.primary | ButtonVariantEnum.secondary | ButtonVariantEnum.tertiary",
+        "resolved": "ButtonVariantEnum.primary | ButtonVariantEnum.secondary | ButtonVariantEnum.tertiary | typeof ButtonVariantEnum[\"dark-bg\"]",
         "references": {
           "ButtonVariantBean": {
             "location": "import",
@@ -129,7 +129,7 @@ export class ZButton {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`."
+        "text": "Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`."
       },
       "attribute": "variant",
       "reflect": true,

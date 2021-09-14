@@ -107,7 +107,8 @@ export declare type ButtonVariantBean = ButtonVariantEnum;
 export declare enum ButtonVariantEnum {
   primary = "primary",
   secondary = "secondary",
-  tertiary = "tertiary"
+  tertiary = "tertiary",
+  "dark-bg" = "dark-bg"
 }
 export declare enum ButtonTypeEnum {
   submit = "submit",
@@ -296,3 +297,32 @@ export declare enum PocketStatusEnum {
   closed = "closed"
 }
 export declare type PocketStatus = PocketStatusEnum;
+export declare enum ToastNotificationEnum {
+  dark = "dark",
+  light = "light",
+  accent = "accent",
+  error = "error",
+  success = "success",
+  warning = "warning"
+}
+export declare type ToastNotificationTypes = ToastNotificationEnum;
+export declare enum ToastNotificationTransitionsEnum {
+  slideInLeft = "slide-in-left",
+  slideInRight = "slide-in-right",
+  slideInDown = "slide-in-down",
+  slideInUp = "slide-in-up",
+  slideOutLeft = "slide-out-left",
+  slideOutRight = "slide-out-right",
+  slideOutDown = "slide-out-down",
+  slideOutUp = "slide-out-up"
+}
+export declare type ToastNotificationTransitionTypes = ToastNotificationTransitionsEnum;
+export declare enum ToastNotificationPositionsEnum {
+  topRight = "top-right",
+  topLeft = "top-left",
+  topCentre = "top-centre",
+  bottomRight = "bottom-right",
+  bottomLeft = "bottom-left",
+  bottomCentre = "bottom-centre"
+}
+export declare type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;

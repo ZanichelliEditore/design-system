@@ -25,6 +25,7 @@ export var ButtonVariantEnum;
   ButtonVariantEnum["primary"] = "primary";
   ButtonVariantEnum["secondary"] = "secondary";
   ButtonVariantEnum["tertiary"] = "tertiary";
+  ButtonVariantEnum["dark-bg"] = "dark-bg";
 })(ButtonVariantEnum || (ButtonVariantEnum = {}));
 export var ButtonTypeEnum;
 (function (ButtonTypeEnum) {
@@ -211,3 +212,32 @@ export var PocketStatusEnum;
   PocketStatusEnum["open"] = "open";
   PocketStatusEnum["closed"] = "closed";
 })(PocketStatusEnum || (PocketStatusEnum = {}));
+export var ToastNotificationEnum;
+(function (ToastNotificationEnum) {
+  ToastNotificationEnum["dark"] = "dark";
+  ToastNotificationEnum["light"] = "light";
+  ToastNotificationEnum["accent"] = "accent";
+  ToastNotificationEnum["error"] = "error";
+  ToastNotificationEnum["success"] = "success";
+  ToastNotificationEnum["warning"] = "warning";
+})(ToastNotificationEnum || (ToastNotificationEnum = {}));
+export var ToastNotificationTransitionsEnum;
+(function (ToastNotificationTransitionsEnum) {
+  ToastNotificationTransitionsEnum["slideInLeft"] = "slide-in-left";
+  ToastNotificationTransitionsEnum["slideInRight"] = "slide-in-right";
+  ToastNotificationTransitionsEnum["slideInDown"] = "slide-in-down";
+  ToastNotificationTransitionsEnum["slideInUp"] = "slide-in-up";
+  ToastNotificationTransitionsEnum["slideOutLeft"] = "slide-out-left";
+  ToastNotificationTransitionsEnum["slideOutRight"] = "slide-out-right";
+  ToastNotificationTransitionsEnum["slideOutDown"] = "slide-out-down";
+  ToastNotificationTransitionsEnum["slideOutUp"] = "slide-out-up";
+})(ToastNotificationTransitionsEnum || (ToastNotificationTransitionsEnum = {}));
+export var ToastNotificationPositionsEnum;
+(function (ToastNotificationPositionsEnum) {
+  ToastNotificationPositionsEnum["topRight"] = "top-right";
+  ToastNotificationPositionsEnum["topLeft"] = "top-left";
+  ToastNotificationPositionsEnum["topCentre"] = "top-centre";
+  ToastNotificationPositionsEnum["bottomRight"] = "bottom-right";
+  ToastNotificationPositionsEnum["bottomLeft"] = "bottom-left";
+  ToastNotificationPositionsEnum["bottomCentre"] = "bottom-centre";
+})(ToastNotificationPositionsEnum || (ToastNotificationPositionsEnum = {}));
