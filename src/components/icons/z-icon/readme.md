@@ -26,7 +26,6 @@
 
 ### Used by
 
- - [contextual-menu](../../contextual-menu)
  - [z-app-header](../../navigation/z-app-header)
  - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
@@ -34,6 +33,7 @@
  - [z-button-sort](../../buttons/z-button-sort)
  - [z-card](../../z-card)
  - [z-combobox](../../inputs/z-combobox)
+ - [z-contextual-menu](../../contextual-menu)
  - [z-footer-section](../../footer/z-footer-section)
  - [z-header](../../navigation/z-header)
  - [z-icon-package](../z-icon-package)
@@ -67,7 +67,6 @@
 ### Graph
 ```mermaid
 graph TD;
-  contextual-menu --> z-icon
   z-app-header --> z-icon
   z-app-switcher --> z-icon
   z-button --> z-icon
@@ -75,6 +74,7 @@ graph TD;
   z-button-sort --> z-icon
   z-card --> z-icon
   z-combobox --> z-icon
+  z-contextual-menu --> z-icon
   z-footer-section --> z-icon
   z-header --> z-icon
   z-icon-package --> z-icon

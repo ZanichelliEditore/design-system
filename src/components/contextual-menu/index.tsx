@@ -1,12 +1,12 @@
 import { Component, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
-import { ListSize, PopoverPosition } from "../../beans";
+import { PopoverPosition } from "../../beans";
 
 @Component({
-  tag: "contextual-menu",
+  tag: "z-contextual-menu",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ContextualMenu {
+export class ZContextualMenu {
   /**
    *  elements of ContextualMenu
    */
@@ -56,7 +56,7 @@ export class ContextualMenu {
           />
           <div class="popover-content-container" slot="popover">
             <z-list>
-              <z-list-group divider-type="element" size={ListSize.small}>
+              <z-list-group divider-type="element">
                 {this.jsonElements?.map((element, index) => (
                   <z-list-element
                     clickable={!element.disabled}
@@ -79,7 +79,7 @@ export class ContextualMenu {
                     >
                       {this.showIcon() && (
                         <div class="element-icon">
-                          <z-icon name={element.icon} />
+                          <z-icon name={element.icon} width={16} height={16} />
                         </div>
                       )}
                       <div class="element-text">

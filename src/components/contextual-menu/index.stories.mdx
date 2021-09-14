@@ -4,14 +4,14 @@ import { text } from "@storybook/addon-knobs";
 
 <Meta title="ContextualMenu" component="contextual-menu" />
 
-# ContextualMenu
+# ZContextualMenu
 
 <Preview>
   <Story name="ContextualMenu with icons">
     {html` <div
       style="height: 200px; display: flex; align-items: center; justify-content: center"
     >
-      <contextual-menu
+      <z-contextual-menu
         id="contextual-menu-1"
         elements="${text(
           "elements",
@@ -20,7 +20,7 @@ import { text } from "@storybook/addon-knobs";
         )}"
         color="${text("color", "color-primary01")}"
       >
-      </contextual-menu>
+      </z-contextual-menu>
     </div>`}
   </Story>
 </Preview>
@@ -30,7 +30,7 @@ import { text } from "@storybook/addon-knobs";
     {html` <div
       style="height: 200px; display: flex; align-items: center; justify-content: center"
     >
-      <contextual-menu
+      <z-contextual-menu
         id="contextual-menu-2"
         elements="${text(
           "elements",
@@ -38,7 +38,7 @@ import { text } from "@storybook/addon-knobs";
         )}"
         color="${text("color", "color-primary01")}"
       >
-      </contextual-menu>
+      </z-contextual-menu>
     </div>`}
   </Story>
 </Preview>
@@ -48,7 +48,7 @@ import { text } from "@storybook/addon-knobs";
     {html` <div
       style="height: 200px; display: flex; align-items: center; justify-content: center"
     >
-      <contextual-menu
+      <z-contextual-menu
         id="contextual-menu-1"
         elements="${text(
           "elements",
@@ -56,12 +56,12 @@ import { text } from "@storybook/addon-knobs";
         )}"
         color="${text("color", "color-primary01")}"
       >
-      </contextual-menu>
+      </z-contextual-menu>
     </div>`}
   </Story>
 </Preview>
 
-<Props of="contextual-menu" />
+<Props of="z-contextual-menu" />
 
 ## How to use
 
@@ -82,6 +82,6 @@ The icons are shown only if all the elements have valued this attribute
 
 ### onClickContextualMenu event
 
-This component also have an Event that manages the behaviour of the contextual-menu items.
-The callback function receives the index of the clicked item and must handle all the contextual-menu items
+This component also have an Event that manages the behaviour of the z-contextual-menu items.
+The callback function receives the index of the clicked item and must handle all the z-contextual-menu items
 using - for example - a switch statement.

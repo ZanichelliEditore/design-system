@@ -33,15 +33,15 @@
 ### Graph
 ```mermaid
 graph TD;
-  contextual-menu --> z-popover
-  contextual-menu --> z-icon
-  contextual-menu --> z-list
-  contextual-menu --> z-list-group
-  contextual-menu --> z-list-element
+  z-contextual-menu --> z-popover
+  z-contextual-menu --> z-icon
+  z-contextual-menu --> z-list
+  z-contextual-menu --> z-list-group
+  z-contextual-menu --> z-list-element
   z-list-group --> z-divider
   z-list-element --> z-icon
   z-list-element --> z-divider
-  style contextual-menu fill:#f9f,stroke:#333,stroke-width:4px
+  style z-contextual-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

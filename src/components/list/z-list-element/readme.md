@@ -35,7 +35,7 @@
 
 ### Used by
 
- - [contextual-menu](../../contextual-menu)
+ - [z-contextual-menu](../../contextual-menu)
 
 ### Depends on
 
@@ -47,7 +47,7 @@
 graph TD;
   z-list-element --> z-icon
   z-list-element --> z-divider
-  contextual-menu --> z-list-element
+  z-contextual-menu --> z-list-element
   style z-list-element fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
