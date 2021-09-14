@@ -10,10 +10,10 @@ describe("Suite test zModalLogin", () => {
   it("Test render zModalLogin - default", async () => {
     const page = await newSpecPage({
       components: [zModalLogin],
-      html: `<z-modal-login></z-modal-login>`,
+      html: `<z-modal-login forgot-password-url="https://my.zanichelli.it"></z-modal-login>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-modal-login>
+      <z-modal-login forgot-password-url="https://my.zanichelli.it">
         <z-modal modaltitle="${modalTitle}">
           <div class="wrapper" slot="modalContent">
             <form method="post">
@@ -46,10 +46,10 @@ describe("Suite test zModalLogin", () => {
   it("Test render zModalLogin - with props", async () => {
     const page = await newSpecPage({
       components: [zModalLogin],
-      html: `<z-modal-login heading="test heading" status="error" message="error message"></z-modal-login>`,
+      html: `<z-modal-login heading="test heading" status="error" message="error message" forgot-password-url="https://my.zanichelli.it"></z-modal-login>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-modal-login heading="test heading" status="error" message="error message">
+      <z-modal-login heading="test heading" status="error" message="error message" forgot-password-url="https://my.zanichelli.it">
         <z-modal modaltitle="test heading">
           <div class="wrapper" slot="modalContent">
             <form method="post">
@@ -82,7 +82,7 @@ describe("Suite test zModalLogin", () => {
   it("Test render zModalLogin - with slots", async () => {
     const page = await newSpecPage({
       components: [zModalLogin],
-      html: `<z-modal-login>
+      html: `<z-modal-login forgot-password-url="https://my.zanichelli.it">
         <z-input type="text" slot="username">slotted username input</z-input>
         <z-input type="password" slot="password">slotted password input</z-input>
         <z-button slot="login">slotted login button</z-button>
@@ -91,7 +91,7 @@ describe("Suite test zModalLogin", () => {
       </z-modal-login>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-modal-login>
+      <z-modal-login forgot-password-url="https://my.zanichelli.it">
         <z-modal modaltitle="${modalTitle}">
           <div class="wrapper" slot="modalContent">
             <form method="post">
@@ -114,10 +114,6 @@ describe("Suite test zModalLogin", () => {
             <div class="signup">
               <z-button slot="signup">slotted signup button</z-button>
               ${renderSignup(true)}
-            </div>
-            <div class="providers">
-              <z-button slot="provider">slotted provider button</z-button>
-              ${renderProvidersHeading()}
             </div>
           </div>
         </z-modal>
