@@ -8,12 +8,10 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox items='[]'></z-combobox>`
     });
-    page.rootInstance.isopen = false;
-    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox items='[]'>
         <mock:shadow-root>
-          <div class="false" data-action="combo-undefined">
+          <div data-action="combo-undefined">
             <div class="header" role="button" tabindex="0">
               <h2><span></span></h2>
               <z-icon name="caret-down" width="18" height="18" />
@@ -29,12 +27,10 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox items='[]' inputid="combobox" label="label" isfixed></z-combobox>`
     });
-    page.rootInstance.isopen = false;
-    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox items='[]' inputid="combobox" label="label" isfixed>
         <mock:shadow-root>
-          <div class="false fixed" id="combobox" data-action="combo-combobox">
+          <div class="fixed" id="combobox" data-action="combo-combobox">
             <div class="header" role="button" tabindex="0">
               <h2>
                 label
@@ -53,12 +49,10 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' inputid="combobox" label="label"></z-combobox>`
     });
-    page.rootInstance.isopen = false;
-    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' inputid="combobox" label="label">
         <mock:shadow-root>
-          <div class="false" data-action="combo-combobox" id="combobox">
+          <div data-action="combo-combobox" id="combobox">
             <div class="header" role="button" tabindex="0">
               <h2>
                 label
@@ -77,10 +71,12 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox items='[]' noresultslabel='non ci sono risultati'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
+    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox items='[]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-undefined">
+          <div class="open" data-action="combo-undefined">
             <div class="header" role="button" tabindex="0">
               <h2><span></span></h2>
               <z-icon name="caret-down" width="18" height="18"></z-icon>
@@ -101,10 +97,12 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox inputid="combo" label="combo" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
+    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="caret-down" width="18" height="18" />
@@ -132,10 +130,12 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
+    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="caret-down" width="18" height="18" />
@@ -164,12 +164,13 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
     page.rootInstance.searchValue = "primo";
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="caret-down" width="18" height="18" />
@@ -198,12 +199,13 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
     page.rootInstance.searchValue = "primo";
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="caret-down" width="18" height="18" />
@@ -232,12 +234,13 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
     page.rootInstance.searchValue = "prova";
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="caret-down" width="18" height="18" />
@@ -264,10 +267,12 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
+    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="caret-down" width="18" height="18" />
@@ -298,10 +303,12 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
+    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(2)</span></h2>
               <z-icon name="caret-down" width="18" height="18" />
@@ -332,10 +339,12 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox inputid="combo" label="combo" maxcheckableitems="1" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
+    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" maxcheckableitems="1" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="caret-down" width="18" height="18" />
@@ -363,10 +372,12 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox inputid="combo" label="combo" maxcheckableitems="3" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
+    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" maxcheckableitems="3" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="caret-down" width="18" height="18" />
@@ -397,10 +408,12 @@ describe("Suite test ZCombobox", () => {
       components: [ZCombobox],
       html: `<z-combobox inputid="combo" label="combo" maxcheckableitems="1" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'></z-combobox>`
     });
+    page.rootInstance.isopen = true;
+    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-combobox inputid="combo" label="combo" maxcheckableitems="1" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
         <mock:shadow-root>
-          <div class="open false" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
               <h2>combo<span>(1)</span></h2>
               <z-icon name="caret-down" width="18" height="18" />

@@ -127,6 +127,7 @@ export enum ButtonVariantEnum {
   primary = "primary",
   secondary = "secondary",
   tertiary = "tertiary",
+  "dark-bg" = "dark-bg"
 }
 
 export enum ButtonTypeEnum {
@@ -189,7 +190,11 @@ export enum keybordKeyCodeEnum {
 }
 
 export enum KeyboardKeys {
+  ARROW_DOWN = "ArrowDown",
+  ARROW_UP = "ArrowUp",
+  ENTER = "Enter",
   ESC = "Escape",
+  SPACE = "Space",
 }
 
 export type SelectItemBean = {
@@ -350,3 +355,37 @@ export enum PocketStatusEnum {
   closed = "closed",
 }
 export type PocketStatus = PocketStatusEnum;
+
+export enum ToastNotificationEnum {
+  dark = "dark",
+  light = "light",
+  accent = "accent",
+  error = "error",
+  success = "success",
+  warning = "warning"
+}
+export type ToastNotificationTypes = ToastNotificationEnum;
+
+export enum ToastNotificationTransitionsEnum {
+  slideInLeft = "slide-in-left",
+  slideInRight = "slide-in-right",
+  slideInDown = "slide-in-down",
+  slideInUp = "slide-in-up",
+  slideOutLeft = "slide-out-left",
+  slideOutRight = "slide-out-right",
+  slideOutDown = "slide-out-down",
+  slideOutUp = "slide-out-up"
+} 
+
+export type ToastNotificationTransitionTypes = ToastNotificationTransitionsEnum;
+
+export enum ToastNotificationPositionsEnum {
+  topRight = "top-right",
+  topLeft = "top-left",
+  topCentre = "top-centre",
+  bottomRight = "bottom-right",
+  bottomLeft = "bottom-left",
+  bottomCentre = "bottom-centre"
+} 
+
+export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;

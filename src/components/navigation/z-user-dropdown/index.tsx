@@ -34,6 +34,7 @@ export class ZUserDropdown {
 
   constructor() {
     this.handleToggle = this.handleToggle.bind(this);
+    this.emitDropdownMenuLinkClick = this.emitDropdownMenuLinkClick.bind(this);
   }
 
   componentWillLoad() {
@@ -61,7 +62,7 @@ export class ZUserDropdown {
       window.innerWidth <= mobileBreakpoint;
     if (this.gosthDiv)
       this.gosthDiv.style.width =
-        this.logged && (!this.isMobile && this.ismenuopen)
+        this.logged && !this.isMobile && this.ismenuopen
           ? `${this.userButton?.offsetWidth}px`
           : "";
   }
@@ -72,10 +73,10 @@ export class ZUserDropdown {
     this.userButtonClick.emit(this.ismenuopen);
   }
 
-  /** Emitted on dropdown menu zlink click, returns zlink linkId */
+  /** Emitted on dropdown menu zlink click, returns event */
   @Event() dropdownMenuLinkClick: EventEmitter;
   emitDropdownMenuLinkClick(e: CustomEvent) {
-    this.dropdownMenuLinkClick.emit(e.detail.linkId);
+    this.dropdownMenuLinkClick.emit({ e, linkId: e.detail.linkId });
   }
   @Listen("resize", { target: "window" })
   handleResize(): void {
@@ -97,10 +98,6 @@ export class ZUserDropdown {
   handleToggle() {
     this.ismenuopen = !this.ismenuopen;
     this.emitUserButtonClick();
-  }
-
-  handleDropdownLinkClick(e) {
-    this.emitDropdownMenuLinkClick(e)
   }
 
   renderCaretIcon() {
@@ -165,7 +162,7 @@ export class ZUserDropdown {
                   htmlid={link.id}
                   target={link.target}
                   icon={link.icon}
-                  onZLinkClick={(e) => this.handleDropdownLinkClick(e)}
+                  onZLinkClick={this.emitDropdownMenuLinkClick}
                 >
                   {link.label}
                 </z-link>

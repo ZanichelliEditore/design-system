@@ -1,71 +1,70 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, number, boolean } from '@storybook/addon-knobs';
-
-## Stories
+import { text, number, boolean, select } from '@storybook/addon-knobs';
 
 <Meta title="Navigation/ZLink" component="z-link" />
 
-  # ZLink
+## How to use
 
+Icon dimension is calculated using the link font size multiplied by 1.125. To change the font size set the --font-size-link variable in style; defaults to inherit (es. inline).
+
+Current available text color is : primary, inverse, black and white. Primary and Inverse use the theming values from design-tokens; Black and White has fixed colors.
+
+
+# ZLink primary
 <Preview>
-  <Story name="z-link">
+  <Story name="z-link primary">
     {html`
       <z-link
-        href="${text('href', 'www.zanichelli.it')}"
+        href="${text('href', 'http://www.zanichelli.it')}"
         target="${text('target', '_blank')}"
+        textcolor="${select("textcolor", ["primary", "inverse", "black", "white"], "primary")}"
         icon="${text('icon', 'download')}"
-        htmlid="${number('htmlid', 1)}"
-        htmltabindex="${number('htmltabindex', 1)}"
-        iswhite="${boolean('iswhite', false)}"
-        isdisabled="${boolean('isdisabled', false)}"
-        isactive="${boolean('isactive', false)}"
-      >z-link</z-link>`}
-  </Story>
-  <Story name="z-link white">
-    {html`
-      <z-link
-        style="background-color:black"
-        href="${text('href', 'www.zanichelli.it')}"
-        target="${text('target', '_blank')}"
-        icon="${text('icon', 'download')}"
-        htmlid="${number('htmlid', 1)}"
-        htmltabindex="${number('htmltabindex', 1)}"
-        iswhite="${boolean('iswhite', true)}"
-        isdisabled="${boolean('isdisabled', false)}"
-        isactive="${boolean('isactive', false)}"
-      >z-link</z-link>`}
-  </Story>
-    <Story name="z-link big">
-    {html`
-      <z-link
-        style="background-color:black"
-        href="${text('href', 'www.zanichelli.it')}"
-        target="${text('target', '_blank')}"
-        icon="${text('icon', 'download')}"
-        htmlid="${number('htmlid', 1)}"
-        htmltabindex="${number('htmltabindex', 1)}"
-        iswhite="${boolean('iswhite', true)}"
-        isdisabled="${boolean('isdisabled', false)}"
-        isactive="${boolean('isactive', false)}"
-        big="${boolean('big', true)}"
-      >z-link</z-link>`}
-  </Story>
-  <Story name="z-link textcolor black">
-    {html`
-      <z-link
-        style="background-color:black"
-        href="${text('href', 'www.zanichelli.it')}"
-        target="${text('target', '_blank')}"
-        icon="${text('icon', 'download')}"
+        iconposition="${select("iconposition", ["left", "right"], "left")}"
         htmlid="${number('htmlid', 1)}"
         htmltabindex="${number('htmltabindex', 1)}"
         isdisabled="${boolean('isdisabled', false)}"
         isactive="${boolean('isactive', false)}"
-        textcolor="${text('textcolor', 'black')}"
+        underline="${boolean('underline', false)}"
       >z-link</z-link>`}
   </Story>
 </Preview>
 
-  <Props of="z-link" />
+# Zlink inverse
+<Preview>
+  <Story name="z-link inverse">
+    {html`
+      <z-link
+        style="background-color:black"
+        href="${text('href', 'http://www.zanichelli.it')}"
+        target="${text('target', '_blank')}"
+        textcolor="inverse"
+        icon="${text('icon', 'download')}"
+        iconposition="${select("iconposition", ["left", "right"], "left")}"
+        htmlid="${number('htmlid', 1)}"
+        htmltabindex="${number('htmltabindex', 1)}"
+        isdisabled="${boolean('isdisabled', false)}"
+        isactive="${boolean('isactive', false)}"
+        underline="${boolean('underline', false)}"
+      >z-link</z-link>`}
+  </Story>
+</Preview>
 
+# Zlink inline without icon
+<Preview>
+   <Story name="z-link inline">
+    {html`
+      <z-body level="1" variant="regular">Clicca sul <z-link
+        href="${text('href', 'http://www.zanichelli.it')}"
+        target="${text('target', '_blank')}"
+        textcolor="${select("textcolor", ["primary", "inverse", "black", "white"], "primary")}"
+        htmlid="${number('htmlid', 1)}"
+        htmltabindex="${number('htmltabindex', 1)}"
+        isdisabled="${boolean('isdisabled', false)}"
+        isactive="${boolean('isactive', false)}"
+        underline="true"
+      >z-link</z-link>.</z-body>`}
+  </Story>
+</Preview>
+
+<Props of="z-link" />

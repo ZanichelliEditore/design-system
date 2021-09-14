@@ -19,7 +19,7 @@
 
 | Event                   | Description                                                      | Type               |
 | ----------------------- | ---------------------------------------------------------------- | ------------------ |
-| `dropdownMenuLinkClick` | Emitted on dropdown menu zlink click, returns zlink linkId       | `CustomEvent<any>` |
+| `dropdownMenuLinkClick` | Emitted on dropdown menu zlink click, returns event              | `CustomEvent<any>` |
 | `userButtonClick`       | Emitted on enter or user Button click, returns ismenuopen (bool) | `CustomEvent<any>` |
 
 

@@ -15,16 +15,18 @@
 
 | Property | Attribute | Description                                | Type     | Default     |
 | -------- | --------- | ------------------------------------------ | -------- | ----------- |
-| `height` | `height`  | icon height (optional)                     | `number` | `18`        |
+| `fill`   | `fill`    | icon fill (optional)                       | `string` | `undefined` |
+| `height` | `height`  | icon height (optional)                     | `number` | `undefined` |
 | `iconid` | `iconid`  | icon id (optional)                         | `string` | `undefined` |
 | `name`   | `name`    | icon name (choice between available icons) | `string` | `undefined` |
-| `width`  | `width`   | icon width (optional)                      | `number` | `18`        |
+| `width`  | `width`   | icon width (optional)                      | `number` | `undefined` |
 
 
 ## Dependencies
 
 ### Used by
 
+ - [contextual-menu](../../contextual-menu)
  - [z-app-header](../../navigation/z-app-header)
  - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
@@ -58,12 +60,14 @@
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
  - [z-status-tag](../../z-status-tag)
+ - [z-toast-notification](../../notification/z-toast-notification)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-user-dropdown](../../navigation/z-user-dropdown)
 
 ### Graph
 ```mermaid
 graph TD;
+  contextual-menu --> z-icon
   z-app-header --> z-icon
   z-app-switcher --> z-icon
   z-button --> z-icon
@@ -97,6 +101,7 @@ graph TD;
   z-select --> z-icon
   z-slideshow --> z-icon
   z-status-tag --> z-icon
+  z-toast-notification --> z-icon
   z-toggle-button --> z-icon
   z-user-dropdown --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px

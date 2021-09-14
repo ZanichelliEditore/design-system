@@ -2,6 +2,107 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.17.1](https://github.com/ZanichelliEditore/design-system/compare/v2.17.0...v2.17.1) (2021-09-14)
+
+
+### Bug Fixes
+
+* z-user-bropdown e2e test ([55a3166](https://github.com/ZanichelliEditore/design-system/commit/55a31663ad33095c7e2ba4d03d05937a3a0cfd39))
+
+### [2.16.1-alpha](https://github.com/ZanichelliEditore/design-system/compare/v2.16.0...v2.16.1-alpha) (2021-09-13)
+
+## [2.17.0](https://github.com/ZanichelliEditore/design-system/compare/v2.16.0...v2.17.0) (2021-09-14)
+
+
+### Features
+
+*  check to not trigger event multiple times ([de92e89](https://github.com/ZanichelliEditore/design-system/commit/de92e890db7276d637412d9a7e18f38f745f5605))
+* add drag test ([b96582d](https://github.com/ZanichelliEditore/design-system/commit/b96582d3d5ca74224fdebd0113f2e66c995433ae))
+* add newestontop prop ([ba73bcb](https://github.com/ZanichelliEditore/design-system/commit/ba73bcb4cfc1d199052652518356a7c70627e837))
+* add notifation-list tests ([9c983d3](https://github.com/ZanichelliEditore/design-system/commit/9c983d3496c630bffd40895112ac3914acfe0800))
+* add storybook ([348b278](https://github.com/ZanichelliEditore/design-system/commit/348b278c6ca666b7c6f34defe03cc3b45cf2705d))
+* add toast-notification-list positions ([ef85d64](https://github.com/ZanichelliEditore/design-system/commit/ef85d6470cd5069c5d3ce97f40720d11fda414b5))
+* add transition translate ([cbb7a99](https://github.com/ZanichelliEditore/design-system/commit/cbb7a99cce4463b3101797b939770033bed3a221))
+* added token ([cba84ca](https://github.com/ZanichelliEditore/design-system/commit/cba84ca06a133fe6cd1017aa8ee5c3554c95bc37))
+* better dragged percentage calculation ([ef4af20](https://github.com/ZanichelliEditore/design-system/commit/ef4af20c8c142bd95111fdaf019bce334283f514))
+* calculation on multiple notifications (wip) ([748cd4f](https://github.com/ZanichelliEditore/design-system/commit/748cd4f897c1ae881eae488e2bbf6e9e389bd79d))
+* change gap with margin ([e16b90d](https://github.com/ZanichelliEditore/design-system/commit/e16b90d705b0e0a9c9ae9b3dd47c1e4cfcf97b10))
+* clean ([c58060b](https://github.com/ZanichelliEditore/design-system/commit/c58060bafe5892376f017a1a03809a620429e888))
+* drag percentage fix ([d64ac3a](https://github.com/ZanichelliEditore/design-system/commit/d64ac3ab25a8e1dcc9a8a38ab15eb93d5c1b4552))
+* dry code refactoring ([74ed12a](https://github.com/ZanichelliEditore/design-system/commit/74ed12a3dea8603623bfca2e78969e4be09b5418))
+* edit scaffolding and fixed test ([4d63e1f](https://github.com/ZanichelliEditore/design-system/commit/4d63e1f5908641d6fea0b98ab3c71e110d62120e))
+* fix ([b2cdd41](https://github.com/ZanichelliEditore/design-system/commit/b2cdd41f94f8dba09fb56f91a2d825361f4ef909))
+* fix emitToastClose ([dda6523](https://github.com/ZanichelliEditore/design-system/commit/dda65238eba0e45cc530652f9a24e6a1c4d7dba7))
+* fix positions mobile ([168c9ef](https://github.com/ZanichelliEditore/design-system/commit/168c9ef69fdc702d5789f4b89c4b921a62e1365f))
+* fix reset percentage after drag ([3298571](https://github.com/ZanichelliEditore/design-system/commit/329857165db722f6bfe471a09ba80e7302ece8a3))
+* fix storybook ([62d42a0](https://github.com/ZanichelliEditore/design-system/commit/62d42a07da67b189aed8bc143a6b48f3dc6b818c))
+* fix storybook ([194c5d5](https://github.com/ZanichelliEditore/design-system/commit/194c5d591b7ff39bdfd90a650b223adb1008e4f3))
+* fix swipe to mobile ([44ebe5b](https://github.com/ZanichelliEditore/design-system/commit/44ebe5bd385808a3304e0aa0fd0cb649d7a755d3))
+* fix test event on close button click, add test autoclose ([92901ff](https://github.com/ZanichelliEditore/design-system/commit/92901ff41f8625fa3b142f47cea44e7d8c8ef9db))
+* fix test part-1 ([7ff0af7](https://github.com/ZanichelliEditore/design-system/commit/7ff0af783503fe402251d58fe492fe2dfbaab5b1))
+* fix tests ([7646c60](https://github.com/ZanichelliEditore/design-system/commit/7646c608c1f609a0680cb9b33cdc5f42bfba82dd))
+* fix tests ([d775a88](https://github.com/ZanichelliEditore/design-system/commit/d775a88f9d43ddb4236d0a0e1e010071a871e9e2))
+* fix transition ([0c251a5](https://github.com/ZanichelliEditore/design-system/commit/0c251a52c4d906864fa1c56c3f3b25176aa450df))
+* fix width css ([686a315](https://github.com/ZanichelliEditore/design-system/commit/686a3151bcb080c91a26a6abb214de45b2463ced))
+* fixed demo page style ([08ffbeb](https://github.com/ZanichelliEditore/design-system/commit/08ffbeb79005e563cfd1c96912b5f77220be5959))
+* fixed icon margin ([4d77ab3](https://github.com/ZanichelliEditore/design-system/commit/4d77ab3145bba8c93da9d607a9b6bab47c81a74d))
+* handled newest on top reverting element inside dom ([ada9efc](https://github.com/ZanichelliEditore/design-system/commit/ada9efc51e4f95298936ef34348da0581f3a7ad6))
+* merging ([1b928d7](https://github.com/ZanichelliEditore/design-system/commit/1b928d7eafe61fa05968e1310ca6056bfefb86a1))
+* offsetDirection control ([574a45f](https://github.com/ZanichelliEditore/design-system/commit/574a45fe4ec392a459b55dff9faff5751a7270e7))
+* readme ([dfa6635](https://github.com/ZanichelliEditore/design-system/commit/dfa6635b8dafc7af34f9d90a70213626a988d139))
+* refactoring behaviour of notification component ([ac1ba3c](https://github.com/ZanichelliEditore/design-system/commit/ac1ba3cf9c7afbbcecde0980e573acc2b5e79222))
+* refactoring scaffolding ([defa4bb](https://github.com/ZanichelliEditore/design-system/commit/defa4bbb86b4501d05f9679195f3d0cc78818b40))
+* refactoring scaffolding, storybook ([84ded97](https://github.com/ZanichelliEditore/design-system/commit/84ded97030c6b26eff5d098b3b7c2143ccb6b3a5))
+* refactoring storybook and notification page ([b7a670b](https://github.com/ZanichelliEditore/design-system/commit/b7a670b6ee70e1e5edb4b7dd63f5224fadc63e69))
+* slideout animation refactoring and fixing ([79e9864](https://github.com/ZanichelliEditore/design-system/commit/79e9864f2de1db82331fe07364591ee6cc4e0cf2))
+* watch for prop change ([8a62b54](https://github.com/ZanichelliEditore/design-system/commit/8a62b54e17d56b14383a9441f0e872c68484e9f1))
+* wip  refactoring positions ([f976c5b](https://github.com/ZanichelliEditore/design-system/commit/f976c5b35021cc4d4683728de6e16431f13f4ab4))
+* wip accessibility ([3e6237f](https://github.com/ZanichelliEditore/design-system/commit/3e6237f79cb7fc2a243bc7c9c63d77b510e90dce))
+* wip e2e ([b5b43c1](https://github.com/ZanichelliEditore/design-system/commit/b5b43c1a1545261ade51f72b362e4514422639aa))
+* wip test e2e ([c07735c](https://github.com/ZanichelliEditore/design-system/commit/c07735c681433bb03f273090f3601567ee1d9c80))
+* wip toast notification list ([a62bc6b](https://github.com/ZanichelliEditore/design-system/commit/a62bc6b85ddb9170d5a2c6411d9cfdd3a2c63676))
+
+
+### Bug Fixes
+
+* event handlers ([3d579c2](https://github.com/ZanichelliEditore/design-system/commit/3d579c2db33088c6e35b0564d58d798ce97de8f2))
+* fix z-toast-notification width ([fcc1575](https://github.com/ZanichelliEditore/design-system/commit/fcc15752c938f409c88c3aa95b22e816edc9dea9))
+* fixed box-shadow ([8e4f749](https://github.com/ZanichelliEditore/design-system/commit/8e4f74924e3d36586ff6cae5d8d4bccc33eda8db))
+* fixed list style ([655586b](https://github.com/ZanichelliEditore/design-system/commit/655586bc1ae9c3b02c7af92db38216c6d0799a79))
+* fixed test ([a49d18d](https://github.com/ZanichelliEditore/design-system/commit/a49d18d80308d8235285be70cf847d87692c9efc))
+* removed unused console.log and transtion ([823f58e](https://github.com/ZanichelliEditore/design-system/commit/823f58e334e2eda73b231c381029c845de76c2b8))
+
+### [2.16.1-alpha](https://github.com/ZanichelliEditore/design-system/compare/v2.16.0...v2.16.1-alpha) (2021-09-13)
+
+## [2.16.0](https://github.com/ZanichelliEditore/design-system/compare/v2.15.0...v2.16.0) (2021-09-10)
+
+
+### Features
+
+* **clav-43:**  handle keyboard interaction ([c0168d1](https://github.com/ZanichelliEditore/design-system/commit/c0168d1f7ca0c9ab101fdbf2d7c43a08d30a6ab6))
+* **clav-43:** add over color and ellipsis on text overflow ([1bcd5e6](https://github.com/ZanichelliEditore/design-system/commit/1bcd5e60857885b50f037b6ea1c4a1b851bdf64c))
+* **clav-43:** add style to contextual menu component ([507fe96](https://github.com/ZanichelliEditore/design-system/commit/507fe9625454d0ce081b8ebe1786b4dd2d0c22c5))
+* **clav-43:** focus on key up, down ([385d5e1](https://github.com/ZanichelliEditore/design-system/commit/385d5e16cea83a0bc5ca52531311e67f33a0d104))
+* **clav-43:** handle custom event ([c32305a](https://github.com/ZanichelliEditore/design-system/commit/c32305a7d51ee219a3d3c03e08b28c4f6c8c4f33))
+* **clav-43:** handle key up or down ([b2011b7](https://github.com/ZanichelliEditore/design-system/commit/b2011b7b68d6ac95cc00ce14bd3441c59aea54ad))
+* **clav-43:** handle tabindex ([9288037](https://github.com/ZanichelliEditore/design-system/commit/9288037edcdb534e753a0de4a2ced6c029aee803))
+* **CLAV-43:** add action to z-list-element ([5168fe1](https://github.com/ZanichelliEditore/design-system/commit/5168fe1912088bd224217f047b2e34e6482de2cc))
+* **CLAV-43:** add contextual-menu ([6bd0a91](https://github.com/ZanichelliEditore/design-system/commit/6bd0a91adcd46e771dddd9dc065da34fc2f72af9))
+* **CLAV-43:** add doc ([d2a4b2a](https://github.com/ZanichelliEditore/design-system/commit/d2a4b2a70d3e5904652a434318d06b0fe170b78d))
+* **CLAV-43:** add event ([7cb2d5d](https://github.com/ZanichelliEditore/design-system/commit/7cb2d5d253f2682e0ea42679d481af6e3e4232aa))
+* **CLAV-43:** fix double quote error ([14f3d49](https://github.com/ZanichelliEditore/design-system/commit/14f3d49eb6f216c93d428de56e1b7eb6145deecc))
+* **CLAV-43:** fix style ([3e0d7cd](https://github.com/ZanichelliEditore/design-system/commit/3e0d7cd14d860f5a7b7eafed60cc06d279265932))
+* change z-combobox default state to closed ([ae79fc2](https://github.com/ZanichelliEditore/design-system/commit/ae79fc2f31e4ced60995ca49d8ba2c3555a29eef))
+
+
+### Bug Fixes
+
+* **clav-43:** contextual menu opening with enter ([2b7b32b](https://github.com/ZanichelliEditore/design-system/commit/2b7b32bfe20057384ff5a515ea7db8571dde4450))
+* fix tests ([680d53f](https://github.com/ZanichelliEditore/design-system/commit/680d53f53d26d7487bd618f194c5508f9e902d6c))
+* **clav-43:** better keyboard action handling ([40f857e](https://github.com/ZanichelliEditore/design-system/commit/40f857ebd172c699a554370a438927d590c65899))
+* **clav-43:** handle event propagation & key nav ([32ce1af](https://github.com/ZanichelliEditore/design-system/commit/32ce1af6265261458171df456b166c0e4a6018c6))
+* **clav-43:** prevent arrow key ([0dd0901](https://github.com/ZanichelliEditore/design-system/commit/0dd0901ec8f4e3cc6549f03a00eb603a84f3eda4))
+
 ## [2.15.0](https://github.com/ZanichelliEditore/design-system/compare/v2.14.1...v2.15.0) (2021-09-02)
 
 

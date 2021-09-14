@@ -6,10 +6,20 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
+    interface ContextualMenu {
+        /**
+          * [optional] Sets text color of ContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ContextualMenu
+         */
+        "elements"?: string;
+    }
     interface ZAlert {
         /**
           * alert variant type
@@ -120,7 +130,7 @@ export namespace Components {
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
+          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -373,6 +383,10 @@ export namespace Components {
     }
     interface ZIcon {
         /**
+          * icon fill (optional)
+         */
+        "fill"?: string;
+        /**
           * icon height (optional)
          */
         "height"?: number;
@@ -541,6 +555,10 @@ export namespace Components {
          */
         "icon"?: string;
         /**
+          * link icon position (optional)
+         */
+        "iconposition"?: "left" | "right";
+        /**
           * active link flag (optional)
          */
         "isactive"?: boolean;
@@ -559,7 +577,11 @@ export namespace Components {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "white" | "blue" | "black";
+        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        /**
+          * draw underline on text (optional)
+         */
+        "underline"?: boolean;
     }
     interface ZList {
         /**
@@ -576,6 +598,14 @@ export namespace Components {
           * [optional] Sets element clickable.
          */
         "clickable"?: boolean;
+        /**
+          * [optional] Sets text color of the element.
+         */
+        "color"?: string;
+        /**
+          * [optional] Sets disabled style of the element.
+         */
+        "disabled"?: boolean;
         /**
           * [optional] Sets the divider color.
          */
@@ -596,6 +626,11 @@ export namespace Components {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] If is used in ContextualMenu component
+         */
+        "isContextualMenu"?: boolean;
+        "listElementId"?: number;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -1085,6 +1120,10 @@ export namespace Components {
          */
         "boxShadow"?: PopoverShadow;
         /**
+          * [optional] Sets padding for Popover container
+         */
+        "padding"?: string;
+        /**
           * [optional] Popover position
          */
         "position"?: PopoverPosition;
@@ -1304,6 +1343,54 @@ export namespace Components {
          */
         "pressed": boolean;
     }
+    interface ZToastNotification {
+        /**
+          * toast notification closing timeout (ms)
+         */
+        "autoclose"?: number;
+        /**
+          * toggles closing button rendering
+         */
+        "closebutton": boolean;
+        /**
+          * toast notification draggable percentage
+         */
+        "draggablepercentage"?: number;
+        /**
+          * toast notification's title
+         */
+        "heading"?: string;
+        /**
+          * toast notification can be draggable
+         */
+        "isdraggable"?: boolean;
+        /**
+          * toast notification's message
+         */
+        "message": string;
+        /**
+          * toast notification autoclose can be paused
+         */
+        "pauseonfocusloss"?: boolean;
+        /**
+          * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
+         */
+        "transition"?: ToastNotificationTransitionTypes;
+        /**
+          * toast notification type:  dark, light, accent, error, success, warning
+         */
+        "type"?: ToastNotificationTypes;
+    }
+    interface ZToastNotificationList {
+        /**
+          * Set the entry position of new notification in the list
+         */
+        "newestontop"?: boolean;
+        /**
+          * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
+         */
+        "position": ToastNotificationPositionsTypes;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -1366,6 +1453,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLContextualMenuElement extends Components.ContextualMenu, HTMLStencilElement {
+    }
+    var HTMLContextualMenuElement: {
+        prototype: HTMLContextualMenuElement;
+        new (): HTMLContextualMenuElement;
+    };
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
     }
     var HTMLZAlertElement: {
@@ -1846,6 +1939,18 @@ declare global {
         prototype: HTMLZStepperItemElement;
         new (): HTMLZStepperItemElement;
     };
+    interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
+    }
+    var HTMLZToastNotificationElement: {
+        prototype: HTMLZToastNotificationElement;
+        new (): HTMLZToastNotificationElement;
+    };
+    interface HTMLZToastNotificationListElement extends Components.ZToastNotificationList, HTMLStencilElement {
+    }
+    var HTMLZToastNotificationListElement: {
+        prototype: HTMLZToastNotificationListElement;
+        new (): HTMLZToastNotificationListElement;
+    };
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
     }
     var HTMLZToggleButtonElement: {
@@ -1871,6 +1976,7 @@ declare global {
         new (): HTMLZUserDropdownElement;
     };
     interface HTMLElementTagNameMap {
+        "contextual-menu": HTMLContextualMenuElement;
         "z-alert": HTMLZAlertElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
@@ -1951,6 +2057,8 @@ declare global {
         "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
+        "z-toast-notification": HTMLZToastNotificationElement;
+        "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
@@ -1958,6 +2066,20 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ContextualMenu {
+        /**
+          * [optional] Sets text color of ContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ContextualMenu
+         */
+        "elements"?: string;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
+    }
     interface ZAlert {
         /**
           * alert variant type
@@ -2072,7 +2194,7 @@ declare namespace LocalJSX {
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
+          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -2345,6 +2467,10 @@ declare namespace LocalJSX {
     }
     interface ZIcon {
         /**
+          * icon fill (optional)
+         */
+        "fill"?: string;
+        /**
           * icon height (optional)
          */
         "height"?: number;
@@ -2525,6 +2651,10 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
+          * link icon position (optional)
+         */
+        "iconposition"?: "left" | "right";
+        /**
           * active link flag (optional)
          */
         "isactive"?: boolean;
@@ -2547,7 +2677,11 @@ declare namespace LocalJSX {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "white" | "blue" | "black";
+        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        /**
+          * draw underline on text (optional)
+         */
+        "underline"?: boolean;
     }
     interface ZList {
         /**
@@ -2564,6 +2698,14 @@ declare namespace LocalJSX {
           * [optional] Sets element clickable.
          */
         "clickable"?: boolean;
+        /**
+          * [optional] Sets text color of the element.
+         */
+        "color"?: string;
+        /**
+          * [optional] Sets disabled style of the element.
+         */
+        "disabled"?: boolean;
         /**
           * [optional] Sets the divider color.
          */
@@ -2584,6 +2726,19 @@ declare namespace LocalJSX {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] If is used in ContextualMenu component
+         */
+        "isContextualMenu"?: boolean;
+        "listElementId"?: number;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onAccessibleFocus"?: (event: CustomEvent<number>) => void;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickItem"?: (event: CustomEvent<any>) => void;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -3159,6 +3314,10 @@ declare namespace LocalJSX {
          */
         "boxShadow"?: PopoverShadow;
         /**
+          * [optional] Sets padding for Popover container
+         */
+        "padding"?: string;
+        /**
           * [optional] Popover position
          */
         "position"?: PopoverPosition;
@@ -3383,6 +3542,58 @@ declare namespace LocalJSX {
          */
         "pressed"?: boolean;
     }
+    interface ZToastNotification {
+        /**
+          * toast notification closing timeout (ms)
+         */
+        "autoclose"?: number;
+        /**
+          * toggles closing button rendering
+         */
+        "closebutton"?: boolean;
+        /**
+          * toast notification draggable percentage
+         */
+        "draggablepercentage"?: number;
+        /**
+          * toast notification's title
+         */
+        "heading"?: string;
+        /**
+          * toast notification can be draggable
+         */
+        "isdraggable"?: boolean;
+        /**
+          * toast notification's message
+         */
+        "message"?: string;
+        /**
+          * notification close event
+         */
+        "onToastClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * toast notification autoclose can be paused
+         */
+        "pauseonfocusloss"?: boolean;
+        /**
+          * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
+         */
+        "transition"?: ToastNotificationTransitionTypes;
+        /**
+          * toast notification type:  dark, light, accent, error, success, warning
+         */
+        "type"?: ToastNotificationTypes;
+    }
+    interface ZToastNotificationList {
+        /**
+          * Set the entry position of new notification in the list
+         */
+        "newestontop"?: boolean;
+        /**
+          * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
+         */
+        "position"?: ToastNotificationPositionsTypes;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -3443,7 +3654,7 @@ declare namespace LocalJSX {
          */
         "menucontent"?: string | MenuItem[];
         /**
-          * Emitted on dropdown menu zlink click, returns zlink linkId
+          * Emitted on dropdown menu zlink click, returns event
          */
         "onDropdownMenuLinkClick"?: (event: CustomEvent<any>) => void;
         /**
@@ -3460,6 +3671,7 @@ declare namespace LocalJSX {
         "userfullname"?: string;
     }
     interface IntrinsicElements {
+        "contextual-menu": ContextualMenu;
         "z-alert": ZAlert;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
@@ -3540,6 +3752,8 @@ declare namespace LocalJSX {
         "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
+        "z-toast-notification": ZToastNotification;
+        "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
@@ -3550,6 +3764,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "contextual-menu": LocalJSX.ContextualMenu & JSXBase.HTMLAttributes<HTMLContextualMenuElement>;
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
@@ -3630,6 +3845,8 @@ declare module "@stencil/core" {
             "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
+            "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
+            "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
