@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.18.0](https://github.com/ZanichelliEditore/design-system/compare/v2.17.1...v2.18.0) (2021-09-14)
+
+### Features
+
+* update z-link style and tokens version ([f2c75b58](https://github.com/ZanichelliEditore/design-system/commit/f2c75b58fea3703daeb7204e3e7770bf39509290))
+* refactoring sort event and sortingOrientation prop, renamed SortingOrientationEnum and added SortingOrientation type ([e66aa3f](https://github.com/ZanichelliEditore/design-system/commit/e66aa3f4014d220ac595269a5e6d0badbde35eed))
+
 ### [2.17.1](https://github.com/ZanichelliEditore/design-system/compare/v2.17.0...v2.17.1) (2021-09-14)
 
 
