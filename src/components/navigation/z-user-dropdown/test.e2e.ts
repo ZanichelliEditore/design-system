@@ -117,6 +117,6 @@ it("Test dropdown menu zLink click should emit dropdownMenuLinkClick event", asy
   logoutLink.click();
 
   await page.waitForChanges();
-  expect(linkId).toEqual('logout');
+  expect(linkId).toEqual({"e": {"isTrusted": false}, "linkId": "logout"});
 
 });
