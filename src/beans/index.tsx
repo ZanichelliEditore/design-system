@@ -266,11 +266,13 @@ export enum TableHeaderSize {
   special = "special",
 }
 
-export enum SortingOrientation {
+export enum SortDirectionEnum {
   asc = "asc",
   desc = "desc",
   none = "none",
 }
+
+export type SortDirection = SortDirectionEnum;
 
 export enum AvatarSize {
   small = "small",

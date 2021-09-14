@@ -14,7 +14,8 @@ import {
   ButtonSizeEnum,
   ButtonVariantEnum,
   PopoverPosition,
-  SortingOrientation,
+  SortDirection,
+  SortDirectionEnum,
   TableHeaderSize,
 } from "../../../beans";
 import { getElementTree } from "../../../utils/utils";
@@ -38,9 +39,9 @@ export class ZRegistroTableHeader {
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
-  @State() isMenuOpened: boolean = false;
+  @Prop({ mutable: true }) sortDirection: SortDirection = SortDirectionEnum.none;
 
-  @State() sortingOrientation: SortingOrientation = SortingOrientation["none"];
+  @State() isMenuOpened: boolean = false;
 
   constructor() {
     this.emitOnSort = this.emitOnSort.bind(this);
@@ -49,7 +50,10 @@ export class ZRegistroTableHeader {
   /** [Optional] callback for sorting */
   @Event() sort: EventEmitter;
   emitOnSort() {
-    this.sort.emit({ sortingOrientation: this.sortingOrientation });
+    this.sort.emit({ 
+      columnId: this.columnId,
+      sortDirection: this.sortDirection
+    });
   }
 
   handleSort() {
@@ -57,12 +61,12 @@ export class ZRegistroTableHeader {
       return;
     }
     if (
-      this.sortingOrientation === SortingOrientation["none"] ||
-      this.sortingOrientation === SortingOrientation["desc"]
+      this.sortDirection === SortDirectionEnum.none ||
+      this.sortDirection === SortDirectionEnum.desc
     ) {
-      this.sortingOrientation = SortingOrientation["asc"];
-    } else if (this.sortingOrientation === SortingOrientation["asc"]) {
-      this.sortingOrientation = SortingOrientation["desc"];
+      this.sortDirection = SortDirectionEnum.asc;
+    } else if (this.sortDirection === SortDirectionEnum.asc) {
+      this.sortDirection = SortDirectionEnum.desc;
     }
 
     this.emitOnSort();
@@ -98,7 +102,7 @@ export class ZRegistroTableHeader {
       parent &&
       parent.attributes.getNamedItem("column-id").value !== this.columnId
     ) {
-      this.sortingOrientation = SortingOrientation["none"];
+      this.sortDirection = SortDirectionEnum.none;
     }
   }
 
@@ -116,16 +120,14 @@ export class ZRegistroTableHeader {
       >
         <div class={classNames("container")}>
           <slot />
-          {this.sortable && (
+          {this.sortable && this.sortDirection !== SortDirectionEnum.none && (
             <z-icon
               name={
-                this.sortingOrientation === SortingOrientation["asc"]
+                this.sortDirection === SortDirectionEnum.asc
                   ? "arrow-up"
                   : "arrow-down"
               }
-              class={classNames("arrow", {
-                hidden: this.sortingOrientation === SortingOrientation["none"],
-              })}
+              class="arrow"
             />
           )}
         </div>
