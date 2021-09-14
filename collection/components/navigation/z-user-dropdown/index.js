@@ -7,6 +7,7 @@ export class ZUserDropdown {
     this.theme = ThemeVariant.dark;
     this.ismenuopen = false;
     this.handleToggle = this.handleToggle.bind(this);
+    this.emitDropdownMenuLinkClick = this.emitDropdownMenuLinkClick.bind(this);
   }
   componentWillLoad() {
     this.setMobileAndGhostDivWidth();
@@ -30,7 +31,7 @@ export class ZUserDropdown {
         window.innerWidth <= mobileBreakpoint;
     if (this.gosthDiv)
       this.gosthDiv.style.width =
-        this.logged && (!this.isMobile && this.ismenuopen)
+        this.logged && !this.isMobile && this.ismenuopen
           ? `${(_a = this.userButton) === null || _a === void 0 ? void 0 : _a.offsetWidth}px`
           : "";
   }
@@ -38,7 +39,7 @@ export class ZUserDropdown {
     this.userButtonClick.emit(this.ismenuopen);
   }
   emitDropdownMenuLinkClick(e) {
-    this.dropdownMenuLinkClick.emit(e.detail.linkId);
+    this.dropdownMenuLinkClick.emit({ e, linkId: e.detail.linkId });
   }
   handleResize() {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
@@ -54,9 +55,6 @@ export class ZUserDropdown {
   handleToggle() {
     this.ismenuopen = !this.ismenuopen;
     this.emitUserButtonClick();
-  }
-  handleDropdownLinkClick(e) {
-    this.emitDropdownMenuLinkClick(e);
   }
   renderCaretIcon() {
     const direction = this.ismenuopen ? "up" : "down";
@@ -82,7 +80,7 @@ export class ZUserDropdown {
   renderDropdownMenu() {
     return (this.ismenuopen && (h("ul", { class: this.theme }, this.linkarray.map((link) => {
       return (h("li", { id: link.id },
-        h("z-link", { textcolor: this.retrieveLiTextColor(), big: true, href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: (e) => this.handleDropdownLinkClick(e) }, link.label)));
+        h("z-link", { textcolor: this.retrieveLiTextColor(), big: true, href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: this.emitDropdownMenuLinkClick }, link.label)));
     }))));
   }
   render() {
@@ -208,7 +206,7 @@ export class ZUserDropdown {
       "composed": true,
       "docs": {
         "tags": [],
-        "text": "Emitted on dropdown menu zlink click, returns zlink linkId"
+        "text": "Emitted on dropdown menu zlink click, returns event"
       },
       "complexType": {
         "original": "any",

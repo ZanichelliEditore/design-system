@@ -3379,6 +3379,7 @@ const ZUserDropdown = class {
     this.theme = index$1.ThemeVariant.dark;
     this.ismenuopen = false;
     this.handleToggle = this.handleToggle.bind(this);
+    this.emitDropdownMenuLinkClick = this.emitDropdownMenuLinkClick.bind(this);
   }
   componentWillLoad() {
     this.setMobileAndGhostDivWidth();
@@ -3402,7 +3403,7 @@ const ZUserDropdown = class {
         window.innerWidth <= breakpoints.mobileBreakpoint;
     if (this.gosthDiv)
       this.gosthDiv.style.width =
-        this.logged && (!this.isMobile && this.ismenuopen)
+        this.logged && !this.isMobile && this.ismenuopen
           ? `${(_a = this.userButton) === null || _a === void 0 ? void 0 : _a.offsetWidth}px`
           : "";
   }
@@ -3410,7 +3411,7 @@ const ZUserDropdown = class {
     this.userButtonClick.emit(this.ismenuopen);
   }
   emitDropdownMenuLinkClick(e) {
-    this.dropdownMenuLinkClick.emit(e.detail.linkId);
+    this.dropdownMenuLinkClick.emit({ e, linkId: e.detail.linkId });
   }
   handleResize() {
     this.isMobile = window.innerWidth <= breakpoints.mobileBreakpoint;
@@ -3426,9 +3427,6 @@ const ZUserDropdown = class {
   handleToggle() {
     this.ismenuopen = !this.ismenuopen;
     this.emitUserButtonClick();
-  }
-  handleDropdownLinkClick(e) {
-    this.emitDropdownMenuLinkClick(e);
   }
   renderCaretIcon() {
     const direction = this.ismenuopen ? "up" : "down";
@@ -3450,7 +3448,7 @@ const ZUserDropdown = class {
   }
   renderDropdownMenu() {
     return (this.ismenuopen && (index.h("ul", { class: this.theme }, this.linkarray.map((link) => {
-      return (index.h("li", { id: link.id }, index.h("z-link", { textcolor: this.retrieveLiTextColor(), big: true, href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: (e) => this.handleDropdownLinkClick(e) }, link.label)));
+      return (index.h("li", { id: link.id }, index.h("z-link", { textcolor: this.retrieveLiTextColor(), big: true, href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: this.emitDropdownMenuLinkClick }, link.label)));
     }))));
   }
   render() {

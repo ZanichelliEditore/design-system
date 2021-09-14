@@ -23,14 +23,13 @@ export declare class ZUserDropdown {
   /** Emitted on enter or user Button click, returns ismenuopen (bool) */
   userButtonClick: EventEmitter;
   emitUserButtonClick(): void;
-  /** Emitted on dropdown menu zlink click, returns zlink linkId */
+  /** Emitted on dropdown menu zlink click, returns event */
   dropdownMenuLinkClick: EventEmitter;
   emitDropdownMenuLinkClick(e: CustomEvent): void;
   handleResize(): void;
   handleOrientationChange(): void;
   handleClickOutside(e: MouseEvent): void;
   handleToggle(): void;
-  handleDropdownLinkClick(e: any): void;
   renderCaretIcon(): any;
   renderGuestButton(): any;
   renderLoggedButton(): any;
