@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.18.3](https://github.com/ZanichelliEditore/design-system/compare/v2.18.2...v2.18.3) (2021-09-15)
+
+
+### Bug Fixes
+
+* z-user-dropdown style fix ([4ac5b35](https://github.com/ZanichelliEditore/design-system/commit/4ac5b357d76b6e9f0ece4e795385b07c0996c7c8))
+
 ### [2.18.2](https://github.com/ZanichelliEditore/design-system/compare/v2.18.1...v2.18.2) (2021-09-15)
 
 ### [2.18.1](https://github.com/ZanichelliEditore/design-system/compare/v2.18.0...v2.18.1) (2021-09-14)
