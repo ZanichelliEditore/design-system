@@ -28,7 +28,7 @@ export class ZContextualMenu {
 
   private jsonElements;
 
-  componentWillLoad() {
+  componentWillRender() {
     if (this.elements) {
       this.jsonElements = JSON.parse(this.elements.replace(/&quot;/g, '"'));
     }
