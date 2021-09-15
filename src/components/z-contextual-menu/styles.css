@@ -14,15 +14,6 @@
   padding: calc(var(--space-unit) / 2) 0;
 }
 
-.sc-z-popover,
-.sc-z-popover-s {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: calc(var(--space-unit) * 0.2);
-  outline: none;
-}
-
 .element-container:hover {
   color: var(--myz-blue-dark);
   fill: var(--myz-blue-dark);
