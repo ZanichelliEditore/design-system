@@ -10,16 +10,6 @@ import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemB
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
-    interface ContextualMenu {
-        /**
-          * [optional] Sets text color of ContextualMenu's content
-         */
-        "color"?: string;
-        /**
-          * elements of ContextualMenu
-         */
-        "elements"?: string;
-    }
     interface ZAlert {
         /**
           * alert variant type
@@ -271,6 +261,16 @@ export namespace Components {
           * uncheck all label (optional)
          */
         "uncheckalltext"?: string;
+    }
+    interface ZContextualMenu {
+        /**
+          * [optional] Sets text color of ZContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ZContextualMenu
+         */
+        "elements"?: string;
     }
     interface ZCookiebar {
         /**
@@ -627,7 +627,7 @@ export namespace Components {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
-          * [optional] If is used in ContextualMenu component
+          * [optional] If is used in ZContextualMenu component
          */
         "isContextualMenu"?: boolean;
         "listElementId"?: number;
@@ -1453,12 +1453,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLContextualMenuElement extends Components.ContextualMenu, HTMLStencilElement {
-    }
-    var HTMLContextualMenuElement: {
-        prototype: HTMLContextualMenuElement;
-        new (): HTMLContextualMenuElement;
-    };
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
     }
     var HTMLZAlertElement: {
@@ -1536,6 +1530,12 @@ declare global {
     var HTMLZComboboxElement: {
         prototype: HTMLZComboboxElement;
         new (): HTMLZComboboxElement;
+    };
+    interface HTMLZContextualMenuElement extends Components.ZContextualMenu, HTMLStencilElement {
+    }
+    var HTMLZContextualMenuElement: {
+        prototype: HTMLZContextualMenuElement;
+        new (): HTMLZContextualMenuElement;
     };
     interface HTMLZCookiebarElement extends Components.ZCookiebar, HTMLStencilElement {
     }
@@ -1976,7 +1976,6 @@ declare global {
         new (): HTMLZUserDropdownElement;
     };
     interface HTMLElementTagNameMap {
-        "contextual-menu": HTMLContextualMenuElement;
         "z-alert": HTMLZAlertElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
@@ -1990,6 +1989,7 @@ declare global {
         "z-card": HTMLZCardElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
+        "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
         "z-divider": HTMLZDividerElement;
         "z-footer": HTMLZFooterElement;
@@ -2066,20 +2066,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface ContextualMenu {
-        /**
-          * [optional] Sets text color of ContextualMenu's content
-         */
-        "color"?: string;
-        /**
-          * elements of ContextualMenu
-         */
-        "elements"?: string;
-        /**
-          * remove filter click event, returns filterid
-         */
-        "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
-    }
     interface ZAlert {
         /**
           * alert variant type
@@ -2351,6 +2337,20 @@ declare namespace LocalJSX {
           * uncheck all label (optional)
          */
         "uncheckalltext"?: string;
+    }
+    interface ZContextualMenu {
+        /**
+          * [optional] Sets text color of ZContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ZContextualMenu
+         */
+        "elements"?: string;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
     }
     interface ZCookiebar {
         /**
@@ -2727,7 +2727,7 @@ declare namespace LocalJSX {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
-          * [optional] If is used in ContextualMenu component
+          * [optional] If is used in ZContextualMenu component
          */
         "isContextualMenu"?: boolean;
         "listElementId"?: number;
@@ -3671,7 +3671,6 @@ declare namespace LocalJSX {
         "userfullname"?: string;
     }
     interface IntrinsicElements {
-        "contextual-menu": ContextualMenu;
         "z-alert": ZAlert;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
@@ -3685,6 +3684,7 @@ declare namespace LocalJSX {
         "z-card": ZCard;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
+        "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
         "z-divider": ZDivider;
         "z-footer": ZFooter;
@@ -3764,7 +3764,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "contextual-menu": LocalJSX.ContextualMenu & JSXBase.HTMLAttributes<HTMLContextualMenuElement>;
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
@@ -3778,6 +3777,7 @@ declare module "@stencil/core" {
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
+            "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;

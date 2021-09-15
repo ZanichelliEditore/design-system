@@ -16,12 +16,12 @@
 
 ### Used by
 
- - [contextual-menu](../../contextual-menu)
+ - [z-contextual-menu](../../z-contextual-menu)
 
 ### Graph
 ```mermaid
 graph TD;
-  contextual-menu --> z-list
+  z-contextual-menu --> z-list
   style z-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

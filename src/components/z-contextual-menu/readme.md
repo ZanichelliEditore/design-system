@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                            | Type     | Default             |
-| ---------- | ---------- | ------------------------------------------------------ | -------- | ------------------- |
-| `color`    | `color`    | [optional] Sets text color of ContextualMenu's content | `string` | `"color-primary01"` |
-| `elements` | `elements` | elements of ContextualMenu                             | `string` | `undefined`         |
+| Property   | Attribute  | Description                                             | Type     | Default             |
+| ---------- | ---------- | ------------------------------------------------------- | -------- | ------------------- |
+| `color`    | `color`    | [optional] Sets text color of ZContextualMenu's content | `string` | `"color-primary01"` |
+| `elements` | `elements` | elements of ZContextualMenu                             | `string` | `undefined`         |
 
 
 ## Events
@@ -33,15 +33,15 @@
 ### Graph
 ```mermaid
 graph TD;
-  contextual-menu --> z-popover
-  contextual-menu --> z-icon
-  contextual-menu --> z-list
-  contextual-menu --> z-list-group
-  contextual-menu --> z-list-element
+  z-contextual-menu --> z-popover
+  z-contextual-menu --> z-icon
+  z-contextual-menu --> z-list
+  z-contextual-menu --> z-list-group
+  z-contextual-menu --> z-list-element
   z-list-group --> z-divider
   z-list-element --> z-icon
   z-list-element --> z-divider
-  style contextual-menu fill:#f9f,stroke:#333,stroke-width:4px
+  style z-contextual-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

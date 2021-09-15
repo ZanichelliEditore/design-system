@@ -19,7 +19,7 @@
 
 ### Used by
 
- - [contextual-menu](../../contextual-menu)
+ - [z-contextual-menu](../../z-contextual-menu)
 
 ### Depends on
 
@@ -29,7 +29,7 @@
 ```mermaid
 graph TD;
   z-list-group --> z-divider
-  contextual-menu --> z-list-group
+  z-contextual-menu --> z-list-group
   style z-list-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

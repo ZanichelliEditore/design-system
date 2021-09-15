@@ -18,7 +18,7 @@
 | `dividerType`      | `divider-type`       | [optional] Sets the position where to insert the divider. | `ListDividerType.element \| ListDividerType.header \| ListDividerType.none`         | `ListDividerType.none`           |
 | `expandable`       | `expandable`         | [optional] Sets element as expandable.                    | `boolean`                                                                           | `false`                          |
 | `expandableStyle`  | `expandable-style`   | [optional] Sets expandable style to element.              | `ExpandableListStyle.accordion \| ExpandableListStyle.menu`                         | `ExpandableListStyle.accordion`  |
-| `isContextualMenu` | `is-contextual-menu` | [optional] If is used in ContextualMenu component         | `boolean`                                                                           | `false`                          |
+| `isContextualMenu` | `is-contextual-menu` | [optional] If is used in ZContextualMenu component        | `boolean`                                                                           | `false`                          |
 | `listElementId`    | `list-element-id`    |                                                           | `number`                                                                            | `undefined`                      |
 | `size`             | `size`               | [optional] Sets size of inside elements.                  | `ListSize.large \| ListSize.medium \| ListSize.small \| typeof ListSize["x-large"]` | `ListSize.medium`                |
 
@@ -35,7 +35,7 @@
 
 ### Used by
 
- - [contextual-menu](../../contextual-menu)
+ - [z-contextual-menu](../../z-contextual-menu)
 
 ### Depends on
 
@@ -47,7 +47,7 @@
 graph TD;
   z-list-element --> z-icon
   z-list-element --> z-divider
-  contextual-menu --> z-list-element
+  z-contextual-menu --> z-list-element
   style z-list-element fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

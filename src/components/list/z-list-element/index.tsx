@@ -108,7 +108,7 @@ export class ZListElement {
   @Prop({ reflect: true }) disabled?: boolean = false;
 
   /**
-   * [optional] If is used in ContextualMenu component
+   * [optional] If is used in ZContextualMenu component
    */
   @Prop({ reflect: true }) isContextualMenu?: boolean = false;
 

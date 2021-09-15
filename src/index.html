@@ -12,27 +12,40 @@
 
 <body style="width: 100%;margin: 0; background-color: #f9f9f9;">
 
- <!-- Contextual menu -->
- <h2>Contextual menu</h2>
- <div style="padding-left: 280px; width: 80%">
-  <contextual-menu id="contextual-menu-1" elements='[{"icon": "share", "text": "Element 1"}, {"icon": "delete", "text": "Elemento 2"}, {"icon": "delete", "text": "Elemento 2", "disabled": "true"}]'>
-  </contextual-menu>
-</div>
-<br /><br /><br />
-<h2>Z-List</h2>
+  <!-- Contextual menu -->
+  <h2>ZContextualMenu</h2>
+  <div style="padding-left: 280px; width: 80%">
+    <z-contextual-menu id="contextual-menu-1"
+      elements='[{"icon": "share", "text": "Element 1"}, {"icon": "delete", "text": "Elemento 2"}, {"icon": "delete", "text": "Elemento 2", "disabled": "true"}]'>
+    </z-contextual-menu>
+  </div>
+  <br /><br /><br />
+  <h2>Z-List</h2>
   <div style="padding-left: 280px; width: 150px">
     <z-list size="large">
       <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
-        <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
-        <z-list-element><z-avatar text="AB" ></z-avatar><span>no header 123456</span></z-list-element>
-        <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>no header 123456</span>
+        </z-list-element>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>no header 123456</span>
+        </z-list-element>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>no header 123456</span>
+        </z-list-element>
       </z-list-group>
 
       <z-list-group size="large" divider-type="element">
-        <p slot="header-title">Z-LIST-GROUP  TITOLO 1</p>
-        <z-list-element><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
-        <z-list-element><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
-        <z-list-element expandable="false"><z-avatar text="AB"></z-avatar><span>7890</span></z-list-element>
+        <p slot="header-title">Z-LIST-GROUP TITOLO 1</p>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+        </z-list-element>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+        </z-list-element>
+        <z-list-element expandable="false">
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+        </z-list-element>
       </z-list-group>
     </z-list>
   </div>
@@ -42,150 +55,153 @@
     <z-list size="large">
       <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
         <p slot="header-title">Z-LIST-GROUP TITOLO 1</p>
-        <z-list-element ><z-avatar text="AB"></z-avatar><span>no clickable</span></z-list-element>
-        <z-list-element expandable align-button="right"><span>123456</span><p slot="inner-content">testo espanso</p></z-list-element>
-        <z-list-element expandable align-button="left"><z-avatar text="AB"></z-avatar><span>123456</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>no clickable</span>
+        </z-list-element>
+        <z-list-element expandable align-button="right"><span>123456</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
+        <z-list-element expandable align-button="left">
+          <z-avatar text="AB"></z-avatar><span>123456</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
       </z-list-group>
 
       <z-list-group size="large" divider-type="element">
-        <p slot="header-title">Z-LIST-GROUP  TITOLO 1</p>
-        <z-list-element background-color="myz-blue" expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
-        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
-        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
-        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <p slot="header-title">Z-LIST-GROUP TITOLO 1</p>
+        <z-list-element background-color="myz-blue" expandable-style="menu" expandable>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
+        <z-list-element expandable-style="menu" expandable>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
+        <z-list-element expandable-style="menu" expandable>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
+        <z-list-element expandable-style="menu" expandable>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
 
       </z-list-group>
     </z-list>
   </div>
   <h1>Table</h1>
   <h2>Empty table</h2>
-  <z-registro-table
-      empty="true"
-      call-to-action-label="Action 1"
-      call-to-action-two-label="Action 2"
-      id='empty-table'
-    >
-      <z-registro-table-head>
-        <z-registro-table-header-row>
-          <z-registro-table-header>
-            <span>Titolo 1</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 2</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 3</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 4</span>
-          </z-registro-table-header>
-        </z-registro-table-header-row>
-      </z-registro-table-head>
+  <z-registro-table empty="true" call-to-action-label="Action 1" call-to-action-two-label="Action 2" id='empty-table'>
+    <z-registro-table-head>
+      <z-registro-table-header-row>
+        <z-registro-table-header>
+          <span>Titolo 1</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 3</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 4</span>
+        </z-registro-table-header>
+      </z-registro-table-header-row>
+    </z-registro-table-head>
 
-    </z-registro-table>
-    <h2>Empty table one cta</h2>
-    <z-registro-table
-        empty="true"
-        call-to-action-label="Action 1"
-        id='empty-table-two'
-      >
-      </z-registro-table>
-    <h2>Empty table no column</h2>
-  <z-registro-table
-      empty="true"
- 
-    >
+  </z-registro-table>
+  <h2>Empty table one cta</h2>
+  <z-registro-table empty="true" call-to-action-label="Action 1" id='empty-table-two'>
+  </z-registro-table>
+  <h2>Empty table no column</h2>
+  <z-registro-table empty="true">
 
-      <z-registro-table-head>
+    <z-registro-table-head>
 
-      </z-registro-table-head>
-      
-    </z-registro-table>
+    </z-registro-table-head>
 
-<h2>Simple table</h2>
-<z-registro-table
-      bordered="true"
-      header-sticky="false"
-      column-sticky="false"
-    >
-      <z-registro-table-head>
-        <z-registro-table-header-row>
-          <z-registro-table-header>
-            <span>Titolo 1</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 2</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 3</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 4</span>
-          </z-registro-table-header>
-        </z-registro-table-header-row>
-      </z-registro-table-head>
-      <z-registro-table-body>
-        <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 1-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 1-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 1-3</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 1-4</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-        <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 2-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 2-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 2-3</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 2-4</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-        <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 3-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 3-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 3-3</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 3-4</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-        <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 4-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 4-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 4-3</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <span>Contenuto 4-4</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-      </z-registro-table-body>
-      <z-registro-table-sticky-footer slot="sticky-footer">
-        <span>This is a sticky footer</span>
-      </z-registro-table-sticky-footer>
-    </z-registro-table>
+  </z-registro-table>
+
+  <h2>Simple table</h2>
+  <z-registro-table bordered="true" header-sticky="false" column-sticky="false">
+    <z-registro-table-head>
+      <z-registro-table-header-row>
+        <z-registro-table-header>
+          <span>Titolo 1</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 3</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 4</span>
+        </z-registro-table-header>
+      </z-registro-table-header-row>
+    </z-registro-table-head>
+    <z-registro-table-body>
+      <z-registro-table-row>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 1-1</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 1-2</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 1-3</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 1-4</span>
+        </z-registro-table-cell>
+      </z-registro-table-row>
+      <z-registro-table-row>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 2-1</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 2-2</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 2-3</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 2-4</span>
+        </z-registro-table-cell>
+      </z-registro-table-row>
+      <z-registro-table-row>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 3-1</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 3-2</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 3-3</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 3-4</span>
+        </z-registro-table-cell>
+      </z-registro-table-row>
+      <z-registro-table-row>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 4-1</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 4-2</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 4-3</span>
+        </z-registro-table-cell>
+        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+          <span>Contenuto 4-4</span>
+        </z-registro-table-cell>
+      </z-registro-table-row>
+    </z-registro-table-body>
+    <z-registro-table-sticky-footer slot="sticky-footer">
+      <span>This is a sticky footer</span>
+    </z-registro-table-sticky-footer>
+  </z-registro-table>
 
   <!-- <z-candybar>
     <div class="content" slot="content">
@@ -256,7 +272,8 @@
   <z-app-topbar hashtag="via crucis">
     <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
     </z-logo>
-    <z-link textcolor="white" big icon="support-filled" slot="actions" href="./pages/notification.html">Notification</z-link>
+    <z-link textcolor="white" big icon="support-filled" slot="actions" href="./pages/notification.html">Notification
+    </z-link>
     <z-link textcolor="white" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
     <z-user-dropdown userfullname="docente di calabresi per italiani" logged="false" slot="login"></z-user-dropdown>
     <z-app-switcher slot="app-switcher"></z-app-switcher>
@@ -1330,9 +1347,15 @@
     <z-list size="large">
       <z-list-group size="large" divider-type="header" divider-size="large" divider-color="status-error-red-lighter">
 
-        <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
-        <z-list-element><z-avatar text="AB" ></z-avatar><span>no header 123456</span></z-list-element>
-        <z-list-element><z-avatar text="AB"></z-avatar><span>no header 123456</span></z-list-element>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>no header 123456</span>
+        </z-list-element>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>no header 123456</span>
+        </z-list-element>
+        <z-list-element>
+          <z-avatar text="AB"></z-avatar><span>no header 123456</span>
+        </z-list-element>
       </z-list-group>
 
       <z-list-group size="large" divider-type="element">
@@ -1368,10 +1391,19 @@
       </z-list-group>
 
       <z-list-group size="large" divider-type="element">
-        <p slot="header-title">Z-LIST-GROUP  TITOLO 1</p>
-        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
-        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
-        <z-list-element expandable-style="menu" expandable><z-avatar text="AB"></z-avatar><span>7890</span><p slot="inner-content">testo espanso</p></z-list-element>
+        <p slot="header-title">Z-LIST-GROUP TITOLO 1</p>
+        <z-list-element expandable-style="menu" expandable>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
+        <z-list-element expandable-style="menu" expandable>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
+        <z-list-element expandable-style="menu" expandable>
+          <z-avatar text="AB"></z-avatar><span>7890</span>
+          <p slot="inner-content">testo espanso</p>
+        </z-list-element>
 
       </z-list-group>
     </z-list>
@@ -1552,20 +1584,21 @@
           "link": "https://my.zanichelli.it/privacy"
       }]
   }'></z-footer>
-    <script>
-      function openModal(e) {
-        console.log(e);
-      }
-      const appMenu = document.getElementById("app-switcher");
-      appMenu.addEventListener("appButtonClick", (e) => openModal(e));
+  <script>
+    function openModal(e) {
+      console.log(e);
+    }
+    const appMenu = document.getElementById("app-switcher");
+    appMenu.addEventListener("appButtonClick", (e) => openModal(e));
 
-      const contextualMenu = document.getElementById("contextual-menu-1");
-      contextualMenu.addEventListener("clickContextualMenu", (e) => console.log('LOG id ', e.detail));
-      const emptytable = document.getElementById("empty-table");
-      emptytable.addEventListener('callToAction',() => console.log('call to action 1'));
-      emptytable.addEventListener('callToActionTwo',() => console.log('call to action 2'));
-      const emptytable_due = document.getElementById("empty-table-two");
-      emptytable_due.addEventListener('callToAction',() => console.log('call to action per seconda tabella'));
-    </script>
-  </body>
+    const contextualMenu = document.getElementById("contextual-menu-1");
+    contextualMenu.addEventListener("clickContextualMenu", (e) => console.log('LOG id ', e.detail));
+    const emptytable = document.getElementById("empty-table");
+    emptytable.addEventListener('callToAction', () => console.log('call to action 1'));
+    emptytable.addEventListener('callToActionTwo', () => console.log('call to action 2'));
+    const emptytable_due = document.getElementById("empty-table-two");
+    emptytable_due.addEventListener('callToAction', () => console.log('call to action per seconda tabella'));
+  </script>
+</body>
+
 </html>
