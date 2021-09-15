@@ -3,12 +3,6 @@
   font-weight: var(--font-rg);
 }
 
-z-link {
-  font-weight: var(--font-sb);
-  font-size: calc(var(--space-unit) * 1.5);
-  padding: 6px;
-}
-
 button {
   cursor: pointer;
   display: flex;

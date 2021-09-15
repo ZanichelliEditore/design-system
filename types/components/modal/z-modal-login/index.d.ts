@@ -10,6 +10,8 @@ import { InputStatusBean } from "../../../beans";
  */
 export declare class zModalLogin {
   hostElement: HostElement;
+  /** Forgot Password Url */
+  forgotPasswordUrl: string;
   /** Login modal title */
   heading?: string;
   /** Username/password input status */

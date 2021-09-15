@@ -739,6 +739,10 @@ export namespace Components {
     }
     interface ZModalLogin {
         /**
+          * Forgot Password Url
+         */
+        "forgotPasswordUrl": string;
+        /**
           * Login modal title
          */
         "heading"?: string;
@@ -2874,6 +2878,10 @@ declare namespace LocalJSX {
         "onModalHeaderActive"?: (event: CustomEvent<any>) => void;
     }
     interface ZModalLogin {
+        /**
+          * Forgot Password Url
+         */
+        "forgotPasswordUrl"?: string;
         /**
           * Login modal title
          */

@@ -81,7 +81,7 @@ export class zModalLogin {
           h("div", { class: "password" },
             h("slot", { name: "password" },
               h("z-input", { id: "password", label: "password", placeholder: "Inserisci la tua password", type: "password", name: "password", autocomplete: "current-password", status: this.status, onKeyUp: (e) => this.handleInputKeyUp(e), onInputChange: () => (this.status = null) }))),
-          h("z-link", { class: "forget", href: "https://my.zanichelli.it" }, "Password dimenticata?"),
+          h("z-link", { class: "forget", href: this.forgotPasswordUrl }, "Password dimenticata?"),
           h("div", { class: "login" },
             h("slot", { name: "login" },
               h("z-button", { variant: ButtonVariantEnum.primary, onClick: () => this.emitLoginSubmit() }, "Accedi")))),
@@ -90,9 +90,9 @@ export class zModalLogin {
         h("div", { class: "signup" },
           h("slot", { name: "signup" },
             h("z-button", { variant: ButtonVariantEnum.secondary, onClick: () => this.emitSignupClick() }, "Registrati"))),
-        h("div", { class: "providers" },
+        !this.externalProviderCheck && (h("div", { class: "providers" },
           h("z-body", { class: "provider", level: 5, variant: "regular" }, "OPPURE ACCEDI CON:"),
-          !this.externalProviderCheck && (h("slot", { name: "provider" },
+          h("slot", { name: "provider" },
             this.renderZainoDigitaleButton(),
             h("z-link", { icon: "informationsource", href: "https://www.zainodigitale.it/#/landing" }, "Cos'\u00E8 Zaino Digitale?")))))));
   }
@@ -105,6 +105,23 @@ export class zModalLogin {
     "$": ["styles.css"]
   }; }
   static get properties() { return {
+    "forgotPasswordUrl": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Forgot Password Url"
+      },
+      "attribute": "forgot-password-url",
+      "reflect": false
+    },
     "heading": {
       "type": "string",
       "mutable": false,
