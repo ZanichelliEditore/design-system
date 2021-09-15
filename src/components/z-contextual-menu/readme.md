@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                            | Type     | Default             |
-| ---------- | ---------- | ------------------------------------------------------ | -------- | ------------------- |
-| `color`    | `color`    | [optional] Sets text color of ContextualMenu's content | `string` | `"color-primary01"` |
-| `elements` | `elements` | elements of ContextualMenu                             | `string` | `undefined`         |
+| Property   | Attribute  | Description                                             | Type     | Default             |
+| ---------- | ---------- | ------------------------------------------------------- | -------- | ------------------- |
+| `color`    | `color`    | [optional] Sets text color of ZContextualMenu's content | `string` | `"color-primary01"` |
+| `elements` | `elements` | elements of ZContextualMenu                             | `string` | `undefined`         |
 
 
 ## Events

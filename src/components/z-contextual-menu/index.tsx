@@ -8,12 +8,12 @@ import { PopoverPosition } from "../../beans";
 })
 export class ZContextualMenu {
   /**
-   *  elements of ContextualMenu
+   *  elements of ZContextualMenu
    */
   @Prop() elements?: string;
 
   /**
-   * [optional] Sets text color of ContextualMenu's content
+   * [optional] Sets text color of ZContextualMenu's content
    */
   @Prop() color?: string = "color-primary01";
 

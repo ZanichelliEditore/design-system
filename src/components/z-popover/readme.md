@@ -21,7 +21,7 @@
 
 ### Used by
 
- - [z-contextual-menu](../contextual-menu)
+ - [z-contextual-menu](../z-contextual-menu)
  - [z-registro-table-header](../../snowflakes/registro-table/z-registro-table-header)
 
 ### Graph

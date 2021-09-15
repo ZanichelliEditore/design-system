@@ -16,7 +16,7 @@
 
 ### Used by
 
- - [z-contextual-menu](../../contextual-menu)
+ - [z-contextual-menu](../../z-contextual-menu)
 
 ### Graph
 ```mermaid

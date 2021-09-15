@@ -264,11 +264,11 @@ export namespace Components {
     }
     interface ZContextualMenu {
         /**
-          * [optional] Sets text color of ContextualMenu's content
+          * [optional] Sets text color of ZContextualMenu's content
          */
         "color"?: string;
         /**
-          * elements of ContextualMenu
+          * elements of ZContextualMenu
          */
         "elements"?: string;
     }
@@ -627,7 +627,7 @@ export namespace Components {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
-          * [optional] If is used in ContextualMenu component
+          * [optional] If is used in ZContextualMenu component
          */
         "isContextualMenu"?: boolean;
         "listElementId"?: number;
@@ -2340,11 +2340,11 @@ declare namespace LocalJSX {
     }
     interface ZContextualMenu {
         /**
-          * [optional] Sets text color of ContextualMenu's content
+          * [optional] Sets text color of ZContextualMenu's content
          */
         "color"?: string;
         /**
-          * elements of ContextualMenu
+          * elements of ZContextualMenu
          */
         "elements"?: string;
         /**
@@ -2727,7 +2727,7 @@ declare namespace LocalJSX {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
-          * [optional] If is used in ContextualMenu component
+          * [optional] If is used in ZContextualMenu component
          */
         "isContextualMenu"?: boolean;
         "listElementId"?: number;

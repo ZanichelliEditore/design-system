@@ -2,8 +2,8 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { ZContextualMenu } from "./index";
 
-describe("Suite test ContextualMenu", () => {
-  it("Test render ContextualMenu vuoto", async () => {
+describe("Suite test ZContextualMenu", () => {
+  it("Test render ZContextualMenu vuoto", async () => {
     const page = await newSpecPage({
       components: [ZContextualMenu],
       html: `<z-contextual-menu></z-contextual-menu>`,
@@ -25,7 +25,7 @@ describe("Suite test ContextualMenu", () => {
     `);
   });
 
-  it("Test render ContextualMenu elements prop", async () => {
+  it("Test render ZContextualMenu elements prop", async () => {
     const page = await newSpecPage({
       components: [ZContextualMenu],
       html: `<z-contextual-menu elements='[{"icon":"share","text":"Element 1","key": "0"},{"icon":"delete","text":"Elemento 2","key": "1"}]''></z-contextual-menu>`,

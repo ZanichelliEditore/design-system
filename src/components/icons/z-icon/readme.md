@@ -33,7 +33,7 @@
  - [z-button-sort](../../buttons/z-button-sort)
  - [z-card](../../z-card)
  - [z-combobox](../../inputs/z-combobox)
- - [z-contextual-menu](../../contextual-menu)
+ - [z-contextual-menu](../../z-contextual-menu)
  - [z-footer-section](../../footer/z-footer-section)
  - [z-header](../../navigation/z-header)
  - [z-icon-package](../z-icon-package)

@@ -11,7 +11,7 @@
   min-width: 112px;
   max-width: 280px;
   white-space: nowrap;
-  padding: 4px 0;
+  padding: calc(var(--space-unit) / 2) 0;
 }
 
 .sc-z-popover,
@@ -37,11 +37,10 @@
 .element-container,
 .disabled-element-container {
   display: flex;
-  padding: 0 8px;
   align-items: center;
-  gap: 8px;
-  fill: var(--gray500);
-  padding: 4px 8px;
+  gap: var(--space-unit);
+  fill: var(--color-disabled03);
+  padding: calc(var(--space-unit) / 2) var(--space-unit);
   min-height: calc(var(--space-unit) * 4);
   box-sizing: border-box;
 }
