@@ -29,6 +29,8 @@ import {
 export class zModalLogin {
   @Element() hostElement: HostElement;
 
+  /** Forgot Password Url */
+  @Prop() forgotPasswordUrl: string;
   /** Login modal title */
   @Prop() heading?: string = "Entra in MyZanichelli";
   /** Username/password input status */
@@ -175,7 +177,7 @@ export class zModalLogin {
               </slot>
             </div>
 
-            <z-link class="forget" href="https://my.zanichelli.it">
+            <z-link class="forget" href={this.forgotPasswordUrl}>
               Password dimenticata?
             </z-link>
 
@@ -208,11 +210,11 @@ export class zModalLogin {
             </slot>
           </div>
 
-          <div class="providers">
-            <z-body class="provider" level={5} variant="regular">
-              OPPURE ACCEDI CON:
-            </z-body>
-            {!this.externalProviderCheck && (
+          {!this.externalProviderCheck && (
+            <div class="providers">
+              <z-body class="provider" level={5} variant="regular">
+                OPPURE ACCEDI CON:
+              </z-body>
               <slot name="provider">
                 {this.renderZainoDigitaleButton()}
                 <z-link
@@ -222,8 +224,8 @@ export class zModalLogin {
                   Cos'è Zaino Digitale?
                 </z-link>
               </slot>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </z-modal>
     );
