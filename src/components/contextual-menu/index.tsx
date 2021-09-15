@@ -63,7 +63,7 @@ export class ZContextualMenu {
                     class="my-z-list-element"
                     align-button="left"
                     expandable-style="accordion"
-                    color={element.disabled ? `gray500` : this.color}
+                    color={element.disabled ? `color-disabled03` : this.color}
                     isContextualMenu
                     listElementId={index}
                     onClickItem={(event) =>

@@ -50,6 +50,6 @@
   fill: var(--color-primary01);
 }
 
-.element-container .element-icon {
+.element-icon {
   display: flex;
 }
