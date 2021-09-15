@@ -49,7 +49,7 @@ export declare class ZListElement {
    */
   disabled?: boolean;
   /**
-   * [optional] If is used in ContextualMenu component
+   * [optional] If is used in ZContextualMenu component
    */
   isContextualMenu?: boolean;
   showInnerContent: boolean;

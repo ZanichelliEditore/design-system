@@ -46,7 +46,7 @@ export class ZListElement {
      */
     this.disabled = false;
     /**
-     * [optional] If is used in ContextualMenu component
+     * [optional] If is used in ZContextualMenu component
      */
     this.isContextualMenu = false;
     this.showInnerContent = false;
@@ -387,7 +387,7 @@ export class ZListElement {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "[optional] If is used in ContextualMenu component"
+        "text": "[optional] If is used in ZContextualMenu component"
       },
       "attribute": "is-contextual-menu",
       "reflect": true,
