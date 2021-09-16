@@ -86,7 +86,7 @@ export class ZLink {
       <Host style={style}>
         <a
           id={this.htmlid}
-          href={this.href}
+          href={this.href ? this.href : null }
           class={`${this.isdisabled ? "disabled" : ""}
             ${this.isactive ? "active" : ""}
             ${this.textcolor}
