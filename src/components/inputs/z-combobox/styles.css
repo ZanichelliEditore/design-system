@@ -4,16 +4,16 @@
 
 :host > div.fixed {
   position: relative;
-  height: 48px;
+  height: 42px;
 }
 
 :host > div > .header {
   background-color: var(--bg-white);
-  border-radius: var(--border-radius);
-  border: var(--border-size-medium) solid var(--bg-grey-200);
+  border-radius: var(--border-radius-small);
+  border: var(--border-size-small) solid var(--bg-grey-700);
   position: relative;
   z-index: 10;
-  min-height: 48px;
+  min-height: 42px;
   margin: 0;
   padding: 0 calc(var(--space-unit) * 2);
   display: flex;
@@ -22,8 +22,10 @@
   cursor: pointer;
 }
 
-:host > div.open > .header {
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
+:host > div > .header:focus:focus-visible {
+  border: var(--border-size-small) solid var(--blue500);
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
 }
 
 :host > div > .header > h2 {
@@ -41,21 +43,26 @@
 }
 
 :host > div > .header > z-icon {
-  fill: var(--myz-blue);
+  fill: var(--text-grey-800);
   transform: rotate(360deg);
   transition: all 200ms linear;
 }
 
+:host > div.open > .header {
+  border-radius: var(border-radius-small) var(border-radius-small) 0 0;
+  border: var(--border-size-small) solid var(--blue500);
+}
+
 :host > div.open > .header > z-icon {
-  fill: var(--myz-blue);
+  fill: var(--text-grey-800);
   transform: rotate(180deg);
   transition: all 200ms linear;
 }
 
 :host > div.open > div.openComboData {
   background-color: var(--bg-white);
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  border: var(--border-size-medium) solid var(--bg-grey-200);
+  border-radius: 0;
+  border: var(--border-size-small) solid var(--gray200);
   border-top: 0px;
   position: relative;
   z-index: 12;
@@ -67,7 +74,7 @@
   max-height: 235px;
   overflow: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--myz-blue) var(--bg-grey-200);
+  scrollbar-color: var(--myz-blue) var(--gray200);
 }
 
 :host > div.open > div.openComboData > z-input {
