@@ -53,7 +53,7 @@ export class ZLink {
   render() {
     const style = this.big ? { "--font-size-link": "16px", "--font-weight-link": "600" } : {};
     return (h(Host, { style: style },
-      h("a", { id: this.htmlid, href: this.href, class: `${this.isdisabled ? "disabled" : ""}
+      h("a", { id: this.htmlid, href: this.href ? this.href : null, class: `${this.isdisabled ? "disabled" : ""}
             ${this.isactive ? "active" : ""}
             ${this.textcolor}
             ${this.iswhite ? "white" : ""}

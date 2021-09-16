@@ -102,16 +102,16 @@ a.inverse:visited {
 }
 
 a.black {
-  color: var(--bg-grey-900);
-  fill: var(--bg-grey-900);
+  color: var(--gray800);
+  fill: var(--gray800);
   text-decoration: none;
 }
 
 a.black:hover,
 a.black.active,
 a.black:visited {
-  color: var(--bg-black);
-  fill: var(--bg-black);
+  color: var(--color-black);
+  fill: var(--color-black);
 }
 
 a.black:hover,
@@ -121,8 +121,8 @@ a.black:active {
 }
 
 a.black:active {
-  color: var(--gray-700);
-  fill: var(--gray-700);
+  color: var(--gray700);
+  fill: var(--gray700);
 }
 
 a.white,
@@ -135,8 +135,8 @@ a.white.active {
 }
 
 a.white:visited {
-  color: var(--bg-gray-300);
-  fill: var(--bg-gray-300);
+  color: var(--gray300);
+  fill: var(--gray300);
 }
 
 a.white:hover,
@@ -145,11 +145,10 @@ a.white:active {
   text-decoration: underline;
 }
 
-
 a.white.disabled,
 a.black.disabled {
-  color: var(--bg-gray-500);
-  fill: var(--bg-gray-500);
+  color: var(--gray500);
+  fill: var(--gray500);
 }
 
 a > z-icon:first-child {
