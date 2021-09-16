@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.18.4](https://github.com/ZanichelliEditore/design-system/compare/v2.18.3...v2.18.4) (2021-09-16)
+
+
+### Bug Fixes
+
+* fix colors for zlink, and href null if not set ([#153](https://github.com/ZanichelliEditore/design-system/issues/153)) ([e0735b1](https://github.com/ZanichelliEditore/design-system/commit/e0735b1df88ce262dafe07ea2723665896e4e1fa))
+
 ### [2.18.3](https://github.com/ZanichelliEditore/design-system/compare/v2.18.2...v2.18.3) (2021-09-15)
 
 
