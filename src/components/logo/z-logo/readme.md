@@ -27,13 +27,13 @@
 ### Used by
 
  - [z-footer](../../footer/z-footer)
- - [z-header](../../navigation/z-header)
+ - [z-myz-topbar](../../../snowflakes/myz/topbar)
 
 ### Graph
 ```mermaid
 graph TD;
   z-footer --> z-logo
-  z-header --> z-logo
+  z-myz-topbar --> z-logo
   style z-logo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -19,11 +19,11 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
  * @slot editors - top menu editors images bar (only with ismyz prop === true)
  */
 @Component({
-  tag: "z-header",
+  tag: "z-myz-topbar",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZHeader {
+export class ZMyzTopbar {
   /** data to fill internal navigation links */
   @Prop() intlinkdata?: string | MenuItem[];
   /** data to fill external navigation links */

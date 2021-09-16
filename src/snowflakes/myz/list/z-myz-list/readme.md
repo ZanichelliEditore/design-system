@@ -23,7 +23,7 @@
 
 ### Used by
 
- - [z-header](../../../../components/navigation/z-header)
+ - [z-myz-topbar](../../topbar)
 
 ### Depends on
 
@@ -34,7 +34,7 @@
 graph TD;
   z-myz-list --> z-myz-list-item
   z-myz-list-item --> z-icon
-  z-header --> z-myz-list
+  z-myz-topbar --> z-myz-list
   style z-myz-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

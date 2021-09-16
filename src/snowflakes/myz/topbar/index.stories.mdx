@@ -4,14 +4,14 @@ import { text, boolean } from '@storybook/addon-knobs';
 
 ## Stories
 
-<Meta title="Navigation/ZHeader" component="z-header" />
+<Meta title="Myz/ZMyzTopbar" component="z-myz-topbar" />
 
-  # ZHeader
+  # ZMyzTopbar
 
 <Preview>
-  <Story name="z-header">
+  <Story name="z-myz-topbar">
     {html`
-        <z-header
+        <z-myz-topbar
           intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"La mia libreria","link":"#libreria"},{"id":"idee","label":"Siti Zanichelli","link":"#idee"}]},{"id":"dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari"}]'
           extlinkdata='[{"id":"supporto","label":"Supporto","link":"http://www.zanichelli.it/contatti/supporto","icon":"question-mark-circle"},{"id":"shop","label":"Carrello","link":"https://www.zanichelli.it","icon":"shopping-cart"},{"id":"chiedi","label":"Chiedi al tuo responsabile","link":"#","icon":"shopping-cart"}]'
           userdata='{
@@ -26,29 +26,29 @@ import { text, boolean } from '@storybook/addon-knobs';
           activeintlinkid="${text('activeintlinkid', 'home')}"
           activesublinkid="${text('activesublinkid', 'idee')}"
           hideloginbutton="${boolean('hideloginbutton', false)}">
-        </z-header>`}
+        </z-myz-topbar>`}
   </Story>
-  <Story name="z-header unlogged">
+  <Story name="z-myz-topbar unlogged">
     {html`
-        <z-header
+        <z-myz-topbar
           ismyz="${boolean('ismyz', true)}"
           imagealt="${text('imagealt', 'none')}"
           activeintlinkid="${text('activeintlinkid', 'home')}"
           activesublinkid="${text('activesublinkid', 'idee')}"
           hideloginbutton="${boolean('hideloginbutton', false)}">
-        </z-header>`}
+        </z-myz-topbar>`}
   </Story>
-  <Story name="z-header no-login">
+  <Story name="z-myz-topbar no-login">
     {html`
-        <z-header
+        <z-myz-topbar
           ismyz="${boolean('ismyz', true)}"
           imagealt="${text('imagealt', 'none')}"
           activeintlinkid="${text('activeintlinkid', 'home')}"
           activesublinkid="${text('activesublinkid', 'idee')}"
           hideloginbutton="${boolean('hideloginbutton', true)}">
-        </z-header>`}
+        </z-myz-topbar>`}
   </Story>
 </Preview>
 
-  <Props of="z-header" />
+  <Props of="z-myz-topbar" />
 
