@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
+import { AlertTypes, LicenseTypeEnum, MenuItem, TooltipPosition } from "./beans/index";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -337,44 +337,6 @@ export namespace Components {
         "icon": string;
     }
     interface ZGhostLoading {
-    }
-    interface ZHeader {
-        /**
-          * set current active menu link (optional)
-         */
-        "activeintlinkid"?: string;
-        /**
-          * set current active sub menu link (optional)
-         */
-        "activesublinkid"?: string;
-        /**
-          * data to fill external navigation links
-         */
-        "extlinkdata"?: string | MenuItem[];
-        /**
-          * hide login button if true (optional)
-         */
-        "hideloginbutton"?: boolean;
-        /**
-          * alternative logo title text (optional)
-         */
-        "imagealt"?: string;
-        /**
-          * data to fill internal navigation links
-         */
-        "intlinkdata"?: string | MenuItem[];
-        /**
-          * graphic flag to set myzanichelli style
-         */
-        "ismyz": boolean;
-        /**
-          * url to attach to logo (optional)
-         */
-        "logolink"?: string;
-        /**
-          * data to fill user dropdown menu (optional)
-         */
-        "userdata"?: string | HeaderUserData;
     }
     interface ZHeading {
         "component": string;
@@ -944,6 +906,44 @@ export namespace Components {
           * underlined style flag
          */
         "underlined": boolean;
+    }
+    interface ZMyzTopbar {
+        /**
+          * set current active menu link (optional)
+         */
+        "activeintlinkid"?: string;
+        /**
+          * set current active sub menu link (optional)
+         */
+        "activesublinkid"?: string;
+        /**
+          * data to fill external navigation links
+         */
+        "extlinkdata"?: string | MenuItem[];
+        /**
+          * hide login button if true (optional)
+         */
+        "hideloginbutton"?: boolean;
+        /**
+          * alternative logo title text (optional)
+         */
+        "imagealt"?: string;
+        /**
+          * data to fill internal navigation links
+         */
+        "intlinkdata"?: string | MenuItem[];
+        /**
+          * graphic flag to set myzanichelli style
+         */
+        "ismyz": boolean;
+        /**
+          * url to attach to logo (optional)
+         */
+        "logolink"?: string;
+        /**
+          * data to fill user dropdown menu (optional)
+         */
+        "userdata"?: string | HeaderUserData;
     }
     interface ZNavigationTab {
         "disabled"?: boolean;
@@ -1583,12 +1583,6 @@ declare global {
         prototype: HTMLZGhostLoadingElement;
         new (): HTMLZGhostLoadingElement;
     };
-    interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {
-    }
-    var HTMLZHeaderElement: {
-        prototype: HTMLZHeaderElement;
-        new (): HTMLZHeaderElement;
-    };
     interface HTMLZHeadingElement extends Components.ZHeading, HTMLStencilElement {
     }
     var HTMLZHeadingElement: {
@@ -1774,6 +1768,12 @@ declare global {
     var HTMLZMyzListItemElement: {
         prototype: HTMLZMyzListItemElement;
         new (): HTMLZMyzListItemElement;
+    };
+    interface HTMLZMyzTopbarElement extends Components.ZMyzTopbar, HTMLStencilElement {
+    }
+    var HTMLZMyzTopbarElement: {
+        prototype: HTMLZMyzTopbarElement;
+        new (): HTMLZMyzTopbarElement;
     };
     interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
     }
@@ -2001,7 +2001,6 @@ declare global {
         "z-footer-section": HTMLZFooterSectionElement;
         "z-footer-social": HTMLZFooterSocialElement;
         "z-ghost-loading": HTMLZGhostLoadingElement;
-        "z-header": HTMLZHeaderElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
         "z-icon-package": HTMLZIconPackageElement;
@@ -2033,6 +2032,7 @@ declare global {
         "z-myz-card-list": HTMLZMyzCardListElement;
         "z-myz-list": HTMLZMyzListElement;
         "z-myz-list-item": HTMLZMyzListItemElement;
+        "z-myz-topbar": HTMLZMyzTopbarElement;
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
@@ -2425,44 +2425,6 @@ declare namespace LocalJSX {
         "icon"?: string;
     }
     interface ZGhostLoading {
-    }
-    interface ZHeader {
-        /**
-          * set current active menu link (optional)
-         */
-        "activeintlinkid"?: string;
-        /**
-          * set current active sub menu link (optional)
-         */
-        "activesublinkid"?: string;
-        /**
-          * data to fill external navigation links
-         */
-        "extlinkdata"?: string | MenuItem[];
-        /**
-          * hide login button if true (optional)
-         */
-        "hideloginbutton"?: boolean;
-        /**
-          * alternative logo title text (optional)
-         */
-        "imagealt"?: string;
-        /**
-          * data to fill internal navigation links
-         */
-        "intlinkdata"?: string | MenuItem[];
-        /**
-          * graphic flag to set myzanichelli style
-         */
-        "ismyz"?: boolean;
-        /**
-          * url to attach to logo (optional)
-         */
-        "logolink"?: string;
-        /**
-          * data to fill user dropdown menu (optional)
-         */
-        "userdata"?: string | HeaderUserData;
     }
     interface ZHeading {
         "component"?: string;
@@ -3117,6 +3079,44 @@ declare namespace LocalJSX {
          */
         "underlined"?: boolean;
     }
+    interface ZMyzTopbar {
+        /**
+          * set current active menu link (optional)
+         */
+        "activeintlinkid"?: string;
+        /**
+          * set current active sub menu link (optional)
+         */
+        "activesublinkid"?: string;
+        /**
+          * data to fill external navigation links
+         */
+        "extlinkdata"?: string | MenuItem[];
+        /**
+          * hide login button if true (optional)
+         */
+        "hideloginbutton"?: boolean;
+        /**
+          * alternative logo title text (optional)
+         */
+        "imagealt"?: string;
+        /**
+          * data to fill internal navigation links
+         */
+        "intlinkdata"?: string | MenuItem[];
+        /**
+          * graphic flag to set myzanichelli style
+         */
+        "ismyz"?: boolean;
+        /**
+          * url to attach to logo (optional)
+         */
+        "logolink"?: string;
+        /**
+          * data to fill user dropdown menu (optional)
+         */
+        "userdata"?: string | HeaderUserData;
+    }
     interface ZNavigationTab {
         "disabled"?: boolean;
         "onSelected"?: (event: CustomEvent<any>) => void;
@@ -3700,7 +3700,6 @@ declare namespace LocalJSX {
         "z-footer-section": ZFooterSection;
         "z-footer-social": ZFooterSocial;
         "z-ghost-loading": ZGhostLoading;
-        "z-header": ZHeader;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
         "z-icon-package": ZIconPackage;
@@ -3732,6 +3731,7 @@ declare namespace LocalJSX {
         "z-myz-card-list": ZMyzCardList;
         "z-myz-list": ZMyzList;
         "z-myz-list-item": ZMyzListItem;
+        "z-myz-topbar": ZMyzTopbar;
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
         "z-notification": ZNotification;
@@ -3793,7 +3793,6 @@ declare module "@stencil/core" {
             "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
             "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
-            "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
@@ -3825,6 +3824,7 @@ declare module "@stencil/core" {
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
             "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
+            "z-myz-topbar": LocalJSX.ZMyzTopbar & JSXBase.HTMLAttributes<HTMLZMyzTopbarElement>;
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;

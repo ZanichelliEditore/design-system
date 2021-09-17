@@ -94,29 +94,29 @@
 
 ### Depends on
 
-- [z-logo](../../logo/z-logo)
-- [z-myz-list](../../../snowflakes/myz/list/z-myz-list)
-- [z-link](../z-link)
-- [z-menu-dropdown](../z-menu-dropdown)
-- [z-button](../../buttons/z-button)
-- [z-icon](../../icons/z-icon)
+- [z-logo](../../../components/logo/z-logo)
+- [z-myz-list](../list/z-myz-list)
+- [z-link](../../../components/navigation/z-link)
+- [z-menu-dropdown](../../../components/navigation/z-menu-dropdown)
+- [z-button](../../../components/buttons/z-button)
+- [z-icon](../../../components/icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-header --> z-logo
-  z-header --> z-myz-list
-  z-header --> z-link
-  z-header --> z-menu-dropdown
-  z-header --> z-button
-  z-header --> z-icon
+  z-myz-topbar --> z-logo
+  z-myz-topbar --> z-myz-list
+  z-myz-topbar --> z-link
+  z-myz-topbar --> z-menu-dropdown
+  z-myz-topbar --> z-button
+  z-myz-topbar --> z-icon
   z-myz-list --> z-myz-list-item
   z-myz-list-item --> z-icon
   z-link --> z-icon
   z-menu-dropdown --> z-link
   z-menu-dropdown --> z-icon
   z-button --> z-icon
-  style z-header fill:#f9f,stroke:#333,stroke-width:4px
+  style z-myz-topbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

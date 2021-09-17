@@ -1,17 +1,17 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZMyzList } from "../../../snowflakes/myz/list/z-myz-list";
+import { ZMyzList } from "../list/z-myz-list";
 
-import { ZHeader } from "./index";
+import { ZMyzTopbar } from "./index";
 
-describe("Suite test ZHeader", () => {
+describe("Suite test ZMyzTopbar", () => {
   /*
   TEST MOBILE
    */
-  it("Test render ZHeader mobile myz utente non loggato", async () => {
+  it("Test render ZMyzTopbar mobile myz utente non loggato", async () => {
     const page = await newSpecPage({
-      components: [ZHeader],
-      html: initHeader(false, false, true, false, false, "", false)
+      components: [ZMyzTopbar],
+      html: initMyzTopbar(false, false, true, false, false, "", false)
     });
 
     //Set mobile state
@@ -19,7 +19,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header activeintlinkid="" extlinkdata="[]" hideloginbutton="false" imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
+    <z-myz-topbar activeintlinkid="" extlinkdata="[]" hideloginbutton="false" imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
         <header>
           <div class="mobile-header" id="mobile-header">
@@ -34,10 +34,10 @@ describe("Suite test ZHeader", () => {
   `);
   });
 
-  it("Test render ZHeader mobile non myz utente non loggato", async () => {
+  it("Test render ZMyzTopbar mobile non myz utente non loggato", async () => {
     const page = await newSpecPage({
-      components: [ZHeader],
-      html: initHeader(true, false, false, false, false, "", false)
+      components: [ZMyzTopbar],
+      html: initMyzTopbar(true, false, false, false, false, "", false)
     });
 
     //Set mobile state
@@ -45,7 +45,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header activeintlinkid="" extlinkdata="[]" hideloginbutton="false"  imagealt="logo zanichelli" intlinkdata="[]" ismyz="false" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":false,"usergroup":4}'>
+    <z-myz-topbar activeintlinkid="" extlinkdata="[]" hideloginbutton="false"  imagealt="logo zanichelli" intlinkdata="[]" ismyz="false" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":false,"usergroup":4}'>
     <mock:shadow-root>
       <header>
         <div class="mobile-header myz-out" id="mobile-header">
@@ -64,10 +64,10 @@ describe("Suite test ZHeader", () => {
   `);
   });
 
-  it("Test render ZHeader mobile myz loggato", async () => {
+  it("Test render ZMyzTopbar mobile myz loggato", async () => {
     const page = await newSpecPage({
-      components: [ZHeader],
-      html: initHeader(true, true, true, false, false, "", false)
+      components: [ZMyzTopbar],
+      html: initMyzTopbar(true, true, true, false, false, "", false)
     });
 
     //Set mobile state
@@ -75,7 +75,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-    <z-header activeintlinkid="" extlinkdata="[]" hideloginbutton="false"  imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]}'>
+    <z-myz-topbar activeintlinkid="" extlinkdata="[]" hideloginbutton="false"  imagealt="logo zanichelli" intlinkdata="[]" ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png" userdata='{"islogged":true,"id":123456,"name":"Dario Docente e Professore","usergroup":15,"userlinks":[{"label":"Profilo","link":"http://www.zanichelli.it"},{"label":"Esci","link":"#home"}]}'>
     <mock:shadow-root>
       <header>
         <div class="mobile-header" id="mobile-header">
@@ -119,16 +119,16 @@ describe("Suite test ZHeader", () => {
     `);
   });
 
-  it("Test render ZHeader mobile myz loggato open", async () => {
+  it("Test render ZMyzTopbar mobile myz loggato open", async () => {
     const page = await newSpecPage({
-      components: [ZHeader, ZMyzList],
-      html: initHeader(true, true, true, true, true, "", false)
+      components: [ZMyzTopbar, ZMyzList],
+      html: initMyzTopbar(true, true, true, true, true, "", false)
     });
     page.rootInstance.isMobile = true;
     page.rootInstance.isMenuMobileOpen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-    <z-header
+    <z-myz-topbar
       intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"la mia libreria","link":"#libreria"}]},{"id":"Dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","label":"Supporto","link":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       hideloginbutton="false"
@@ -214,10 +214,10 @@ describe("Suite test ZHeader", () => {
   `);
   });
 
-  it("Test click ZHeader mobile toggle", async () => {
+  it("Test click ZMyzTopbar mobile toggle", async () => {
     const page = await newSpecPage({
-      components: [ZHeader],
-      html: initHeader(true, true, true, true, true, "", false)
+      components: [ZMyzTopbar],
+      html: initMyzTopbar(true, true, true, true, true, "", false)
     });
 
     expect(page.rootInstance.isMobile).toEqual(false);
@@ -225,7 +225,7 @@ describe("Suite test ZHeader", () => {
     await page.waitForChanges();
     expect(page.rootInstance.isMobile).toEqual(true);
 
-    const menu = page.root.shadowRoot
+    const menu: HTMLElement = page.root.shadowRoot
       .querySelector("header")
       .querySelector("div#mobile-header")
       .querySelector("div#mobile-menu-wrapper")
@@ -247,14 +247,14 @@ describe("Suite test ZHeader", () => {
   TEST DESKTOP
   */
 
-  it("Test render ZHeader myz vuoto", async () => {
+  it("Test render ZMyzTopbar myz vuoto", async () => {
     const page = await newSpecPage({
-      components: [ZHeader],
-      html: initHeader(false, false, true, false, false, "", false)
+      components: [ZMyzTopbar],
+      html: initMyzTopbar(false, false, true, false, false, "", false)
     });
     expect(page.root).toEqualHtml(`
 
-      <z-header activeintlinkid="" extlinkdata='[]' hideloginbutton="false"  imagealt="logo zanichelli" intlinkdata='[]' ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
+      <z-myz-topbar activeintlinkid="" extlinkdata='[]' hideloginbutton="false"  imagealt="logo zanichelli" intlinkdata='[]' ismyz="true" logolink="https://www.zanichelli.it" logopath="./assets/images/png/zanichelli-logo-2.png">
       <mock:shadow-root>
         <header>
           <div class="main-header" id="main-header">
@@ -272,13 +272,13 @@ describe("Suite test ZHeader", () => {
   `);
   });
 
-  it("Test render ZHeader myz loggato", async () => {
+  it("Test render ZMyzTopbar myz loggato", async () => {
     const page = await newSpecPage({
-      components: [ZHeader],
-      html: initHeader(true, true, true, true, true, "home", false)
+      components: [ZMyzTopbar],
+      html: initMyzTopbar(true, true, true, true, true, "home", false)
     });
     expect(page.root).toEqualHtml(`
-    <z-header
+    <z-myz-topbar
       intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"la mia libreria","link":"#libreria"}]},{"id":"Dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","label":"Supporto","link":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       hideloginbutton="false"
@@ -342,13 +342,13 @@ describe("Suite test ZHeader", () => {
   `);
   });
 
-  it("Test render ZHeader myz non loggato", async () => {
+  it("Test render ZMyzTopbar myz non loggato", async () => {
     const page = await newSpecPage({
-      components: [ZHeader],
-      html: initHeader(false, false, true, true, true, "", false)
+      components: [ZMyzTopbar],
+      html: initMyzTopbar(false, false, true, true, true, "", false)
     });
     expect(page.root).toEqualHtml(`
-    <z-header
+    <z-myz-topbar
       intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"la mia libreria","link":"#libreria"}]},{"id":"Dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","label":"Supporto","link":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       hideloginbutton="false"
@@ -383,13 +383,13 @@ describe("Suite test ZHeader", () => {
   `);
   });
 
-  it("Test render ZHeader non myz loggato", async () => {
+  it("Test render ZMyzTopbar non myz loggato", async () => {
     const page = await newSpecPage({
-      components: [ZHeader],
-      html: initHeader(true, true, false, true, true, "", false)
+      components: [ZMyzTopbar],
+      html: initMyzTopbar(true, true, false, true, true, "", false)
     });
     expect(page.root).toEqualHtml(`
-    <z-header
+    <z-myz-topbar
       intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"la mia libreria","link":"#libreria"}]},{"id":"Dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","label":"Supporto","link":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       hideloginbutton="false"
@@ -430,10 +430,10 @@ describe("Suite test ZHeader", () => {
   `);
   });
 
-  it("Test render ZHeader active menu item", async () => {
+  it("Test render ZMyzTopbar active menu item", async () => {
     const page = await newSpecPage({
-      components: [ZHeader],
-      html: initHeader(true, true, true, true, true, "", false)
+      components: [ZMyzTopbar],
+      html: initMyzTopbar(true, true, true, true, true, "", false)
     });
     page.rootInstance.activeMenuItem = {
       id: "Dizionari",
@@ -442,7 +442,7 @@ describe("Suite test ZHeader", () => {
     };
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-    <z-header
+    <z-myz-topbar
       intlinkdata='[{"id":"home","label":"Home","link":"#home","subMenu":[{"id":"libreria","label":"la mia libreria","link":"#libreria"}]},{"id":"Dizionari","label":"Dizionari","link":"https://www.zanichelli.it/dizionari/in-primo-piano"}]'
       extlinkdata='[{"id":"supporto","label":"Supporto","link":"https://www.zanichelli.it/contatti-e-recapiti","icon":"question-mark.png"}]'
       hideloginbutton="false"
@@ -500,12 +500,12 @@ describe("Suite test ZHeader", () => {
   });
   it("Test hide login button", async () => {
     const page = await newSpecPage({
-      components: [ZHeader],
-      html: initHeader(false, false, true, false, false, "", true)
+      components: [ZMyzTopbar],
+      html: initMyzTopbar(false, false, true, false, false, "", true)
     });
     expect(page.root).toEqualHtml(`
 
-      <z-header
+      <z-myz-topbar
         activeintlinkid=""
         extlinkdata='[]'
         hideloginbutton="true"
@@ -536,8 +536,8 @@ describe("Suite test ZHeader", () => {
   */
 });
 
-//Init header
-function initHeader(
+//INFO: Init myz topbar
+function initMyzTopbar(
   userPresent: boolean,
   userLogged: boolean,
   myz: boolean,
@@ -595,7 +595,7 @@ function initHeader(
   const logoPath = "./assets/images/png/zanichelli-logo-2.png";
   const logoLink = "https://www.zanichelli.it";
 
-  return `<z-header
+  return `<z-myz-topbar
   intlinkdata='${intlinkdataBool ? intlinkdata : emptyArray}'
   extlinkdata='${extlinkdataBool ? extlinkdata : emptyArray}'
   ${userTag}

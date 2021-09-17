@@ -35,7 +35,6 @@
  - [z-combobox](../../inputs/z-combobox)
  - [z-contextual-menu](../../z-contextual-menu)
  - [z-footer-section](../../footer/z-footer-section)
- - [z-header](../../navigation/z-header)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
  - [z-input](../../inputs/z-input)
@@ -51,6 +50,7 @@
  - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
  - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
  - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
+ - [z-myz-topbar](../../../snowflakes/myz/topbar)
  - [z-navigation-tabs](../../navigation/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
@@ -76,7 +76,6 @@ graph TD;
   z-combobox --> z-icon
   z-contextual-menu --> z-icon
   z-footer-section --> z-icon
-  z-header --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon
   z-input --> z-icon
@@ -92,6 +91,7 @@ graph TD;
   z-myz-card-icon --> z-icon
   z-myz-card-info --> z-icon
   z-myz-list-item --> z-icon
+  z-myz-topbar --> z-icon
   z-navigation-tabs --> z-icon
   z-notification --> z-icon
   z-pagination-bar --> z-icon
