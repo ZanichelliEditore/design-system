@@ -4,6 +4,7 @@
   --z-icon-width: 16px;
   --z-icon-height: 16px;
   --z-icon-right-margin: var(--space-unit);
+  --rgb-white: 240, 240, 240
 }
 
 button:disabled,
@@ -195,4 +196,36 @@ button.tertiary:disabled,
   background-color: transparent;
   border-color: transparent;
   color: var(--color-disabled02);
+}
+
+button.dark-bg,
+:host([variant="dark-bg"]) ::slotted(button),
+:host([variant="dark-bg"]) ::slotted(a) {
+  background-color: rgba(var(--rgb-white), 0.2);
+  border-color: transparent;
+  color: var(--color-text04);
+}
+
+button.dark-bg.hasContent {
+  padding: 0 var(--space-unit);
+}
+
+@media (hover: hover) {
+  button.dark-bg:hover,
+  :host([variant="dark-bg"]) ::slotted(button:hover),
+  :host([variant="dark-bg"]) ::slotted(a:hover) {
+    background-color: rgba(var(--rgb-white), 0.1);
+  }
+}
+
+button.dark-bg:active,
+:host([variant="dark-bg"]) ::slotted(button:active),
+:host([variant="dark-bg"]) ::slotted(a:active) {
+  background-color: rgba(var(--rgb-white), 0.3);
+}
+
+button.dark-bg:disabled,
+:host([variant="dark-bg"]) ::slotted(button:disabled) {
+  color: var(--color-disabled03);
+  background-color: rgba(var(--rgb-white), 0.05);
 }

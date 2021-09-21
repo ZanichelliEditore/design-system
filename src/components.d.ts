@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean } from "./beans";
+import { AlertTypes, LicenseTypeEnum, MenuItem, TooltipPosition } from "./beans/index";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -120,7 +120,7 @@ export namespace Components {
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
+          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -262,6 +262,16 @@ export namespace Components {
          */
         "uncheckalltext"?: string;
     }
+    interface ZContextualMenu {
+        /**
+          * [optional] Sets text color of ZContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ZContextualMenu
+         */
+        "elements"?: string;
+    }
     interface ZCookiebar {
         /**
           * callback to handle ok button action (optional)
@@ -328,50 +338,16 @@ export namespace Components {
     }
     interface ZGhostLoading {
     }
-    interface ZHeader {
-        /**
-          * set current active menu link (optional)
-         */
-        "activeintlinkid"?: string;
-        /**
-          * set current active sub menu link (optional)
-         */
-        "activesublinkid"?: string;
-        /**
-          * data to fill external navigation links
-         */
-        "extlinkdata"?: string | MenuItem[];
-        /**
-          * hide login button if true (optional)
-         */
-        "hideloginbutton"?: boolean;
-        /**
-          * alternative logo title text (optional)
-         */
-        "imagealt"?: string;
-        /**
-          * data to fill internal navigation links
-         */
-        "intlinkdata"?: string | MenuItem[];
-        /**
-          * graphic flag to set myzanichelli style
-         */
-        "ismyz": boolean;
-        /**
-          * url to attach to logo (optional)
-         */
-        "logolink"?: string;
-        /**
-          * data to fill user dropdown menu (optional)
-         */
-        "userdata"?: string | HeaderUserData;
-    }
     interface ZHeading {
         "component": string;
         "level": 1 | 2 | 3 | 4;
         "variant": "regular" | "semibold" | "light";
     }
     interface ZIcon {
+        /**
+          * icon fill (optional)
+         */
+        "fill"?: string;
         /**
           * icon height (optional)
          */
@@ -541,6 +517,10 @@ export namespace Components {
          */
         "icon"?: string;
         /**
+          * link icon position (optional)
+         */
+        "iconposition"?: "left" | "right";
+        /**
           * active link flag (optional)
          */
         "isactive"?: boolean;
@@ -559,7 +539,11 @@ export namespace Components {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "white" | "blue" | "black";
+        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        /**
+          * draw underline on text (optional)
+         */
+        "underline"?: boolean;
     }
     interface ZList {
         /**
@@ -576,6 +560,14 @@ export namespace Components {
           * [optional] Sets element clickable.
          */
         "clickable"?: boolean;
+        /**
+          * [optional] Sets text color of the element.
+         */
+        "color"?: string;
+        /**
+          * [optional] Sets disabled style of the element.
+         */
+        "disabled"?: boolean;
         /**
           * [optional] Sets the divider color.
          */
@@ -596,6 +588,11 @@ export namespace Components {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] If is used in ZContextualMenu component
+         */
+        "isContextualMenu"?: boolean;
+        "listElementId"?: number;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -703,6 +700,10 @@ export namespace Components {
         "modaltitle"?: string;
     }
     interface ZModalLogin {
+        /**
+          * Forgot Password Url
+         */
+        "forgotPasswordUrl": string;
         /**
           * Login modal title
          */
@@ -906,6 +907,44 @@ export namespace Components {
          */
         "underlined": boolean;
     }
+    interface ZMyzTopbar {
+        /**
+          * set current active menu link (optional)
+         */
+        "activeintlinkid"?: string;
+        /**
+          * set current active sub menu link (optional)
+         */
+        "activesublinkid"?: string;
+        /**
+          * data to fill external navigation links
+         */
+        "extlinkdata"?: string | MenuItem[];
+        /**
+          * hide login button if true (optional)
+         */
+        "hideloginbutton"?: boolean;
+        /**
+          * alternative logo title text (optional)
+         */
+        "imagealt"?: string;
+        /**
+          * data to fill internal navigation links
+         */
+        "intlinkdata"?: string | MenuItem[];
+        /**
+          * graphic flag to set myzanichelli style
+         */
+        "ismyz": boolean;
+        /**
+          * url to attach to logo (optional)
+         */
+        "logolink"?: string;
+        /**
+          * data to fill user dropdown menu (optional)
+         */
+        "userdata"?: string | HeaderUserData;
+    }
     interface ZNavigationTab {
         "disabled"?: boolean;
         "orientation": string;
@@ -1085,6 +1124,10 @@ export namespace Components {
          */
         "boxShadow"?: PopoverShadow;
         /**
+          * [optional] Sets padding for Popover container
+         */
+        "padding"?: string;
+        /**
           * [optional] Popover position
          */
         "position"?: PopoverPosition;
@@ -1168,6 +1211,7 @@ export namespace Components {
           * [Optional] Padding of the header
          */
         "size"?: TableHeaderSize;
+        "sortDirection": SortDirection;
         /**
           * [Optional] Make the header sortable
          */
@@ -1302,6 +1346,54 @@ export namespace Components {
           * The pressed state of the item.
          */
         "pressed": boolean;
+    }
+    interface ZToastNotification {
+        /**
+          * toast notification closing timeout (ms)
+         */
+        "autoclose"?: number;
+        /**
+          * toggles closing button rendering
+         */
+        "closebutton": boolean;
+        /**
+          * toast notification draggable percentage
+         */
+        "draggablepercentage"?: number;
+        /**
+          * toast notification's title
+         */
+        "heading"?: string;
+        /**
+          * toast notification can be draggable
+         */
+        "isdraggable"?: boolean;
+        /**
+          * toast notification's message
+         */
+        "message": string;
+        /**
+          * toast notification autoclose can be paused
+         */
+        "pauseonfocusloss"?: boolean;
+        /**
+          * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
+         */
+        "transition"?: ToastNotificationTransitionTypes;
+        /**
+          * toast notification type:  dark, light, accent, error, success, warning
+         */
+        "type"?: ToastNotificationTypes;
+    }
+    interface ZToastNotificationList {
+        /**
+          * Set the entry position of new notification in the list
+         */
+        "newestontop"?: boolean;
+        /**
+          * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
+         */
+        "position": ToastNotificationPositionsTypes;
     }
     interface ZToggleButton {
         /**
@@ -1443,6 +1535,12 @@ declare global {
         prototype: HTMLZComboboxElement;
         new (): HTMLZComboboxElement;
     };
+    interface HTMLZContextualMenuElement extends Components.ZContextualMenu, HTMLStencilElement {
+    }
+    var HTMLZContextualMenuElement: {
+        prototype: HTMLZContextualMenuElement;
+        new (): HTMLZContextualMenuElement;
+    };
     interface HTMLZCookiebarElement extends Components.ZCookiebar, HTMLStencilElement {
     }
     var HTMLZCookiebarElement: {
@@ -1484,12 +1582,6 @@ declare global {
     var HTMLZGhostLoadingElement: {
         prototype: HTMLZGhostLoadingElement;
         new (): HTMLZGhostLoadingElement;
-    };
-    interface HTMLZHeaderElement extends Components.ZHeader, HTMLStencilElement {
-    }
-    var HTMLZHeaderElement: {
-        prototype: HTMLZHeaderElement;
-        new (): HTMLZHeaderElement;
     };
     interface HTMLZHeadingElement extends Components.ZHeading, HTMLStencilElement {
     }
@@ -1677,6 +1769,12 @@ declare global {
         prototype: HTMLZMyzListItemElement;
         new (): HTMLZMyzListItemElement;
     };
+    interface HTMLZMyzTopbarElement extends Components.ZMyzTopbar, HTMLStencilElement {
+    }
+    var HTMLZMyzTopbarElement: {
+        prototype: HTMLZMyzTopbarElement;
+        new (): HTMLZMyzTopbarElement;
+    };
     interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
     }
     var HTMLZNavigationTabElement: {
@@ -1845,6 +1943,18 @@ declare global {
         prototype: HTMLZStepperItemElement;
         new (): HTMLZStepperItemElement;
     };
+    interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
+    }
+    var HTMLZToastNotificationElement: {
+        prototype: HTMLZToastNotificationElement;
+        new (): HTMLZToastNotificationElement;
+    };
+    interface HTMLZToastNotificationListElement extends Components.ZToastNotificationList, HTMLStencilElement {
+    }
+    var HTMLZToastNotificationListElement: {
+        prototype: HTMLZToastNotificationListElement;
+        new (): HTMLZToastNotificationListElement;
+    };
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
     }
     var HTMLZToggleButtonElement: {
@@ -1883,6 +1993,7 @@ declare global {
         "z-card": HTMLZCardElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
+        "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
         "z-divider": HTMLZDividerElement;
         "z-footer": HTMLZFooterElement;
@@ -1890,7 +2001,6 @@ declare global {
         "z-footer-section": HTMLZFooterSectionElement;
         "z-footer-social": HTMLZFooterSocialElement;
         "z-ghost-loading": HTMLZGhostLoadingElement;
-        "z-header": HTMLZHeaderElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
         "z-icon-package": HTMLZIconPackageElement;
@@ -1922,6 +2032,7 @@ declare global {
         "z-myz-card-list": HTMLZMyzCardListElement;
         "z-myz-list": HTMLZMyzListElement;
         "z-myz-list-item": HTMLZMyzListItemElement;
+        "z-myz-topbar": HTMLZMyzTopbarElement;
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
@@ -1950,6 +2061,8 @@ declare global {
         "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
+        "z-toast-notification": HTMLZToastNotificationElement;
+        "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
@@ -2071,7 +2184,7 @@ declare namespace LocalJSX {
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * Graphical variant: `primary`, `secondary` and `tertiary`. Defaults to `primary`.
+          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -2229,6 +2342,20 @@ declare namespace LocalJSX {
          */
         "uncheckalltext"?: string;
     }
+    interface ZContextualMenu {
+        /**
+          * [optional] Sets text color of ZContextualMenu's content
+         */
+        "color"?: string;
+        /**
+          * elements of ZContextualMenu
+         */
+        "elements"?: string;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
+    }
     interface ZCookiebar {
         /**
           * callback to handle ok button action (optional)
@@ -2299,50 +2426,16 @@ declare namespace LocalJSX {
     }
     interface ZGhostLoading {
     }
-    interface ZHeader {
-        /**
-          * set current active menu link (optional)
-         */
-        "activeintlinkid"?: string;
-        /**
-          * set current active sub menu link (optional)
-         */
-        "activesublinkid"?: string;
-        /**
-          * data to fill external navigation links
-         */
-        "extlinkdata"?: string | MenuItem[];
-        /**
-          * hide login button if true (optional)
-         */
-        "hideloginbutton"?: boolean;
-        /**
-          * alternative logo title text (optional)
-         */
-        "imagealt"?: string;
-        /**
-          * data to fill internal navigation links
-         */
-        "intlinkdata"?: string | MenuItem[];
-        /**
-          * graphic flag to set myzanichelli style
-         */
-        "ismyz"?: boolean;
-        /**
-          * url to attach to logo (optional)
-         */
-        "logolink"?: string;
-        /**
-          * data to fill user dropdown menu (optional)
-         */
-        "userdata"?: string | HeaderUserData;
-    }
     interface ZHeading {
         "component"?: string;
         "level"?: 1 | 2 | 3 | 4;
         "variant"?: "regular" | "semibold" | "light";
     }
     interface ZIcon {
+        /**
+          * icon fill (optional)
+         */
+        "fill"?: string;
         /**
           * icon height (optional)
          */
@@ -2524,6 +2617,10 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
+          * link icon position (optional)
+         */
+        "iconposition"?: "left" | "right";
+        /**
           * active link flag (optional)
          */
         "isactive"?: boolean;
@@ -2546,7 +2643,11 @@ declare namespace LocalJSX {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "white" | "blue" | "black";
+        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        /**
+          * draw underline on text (optional)
+         */
+        "underline"?: boolean;
     }
     interface ZList {
         /**
@@ -2563,6 +2664,14 @@ declare namespace LocalJSX {
           * [optional] Sets element clickable.
          */
         "clickable"?: boolean;
+        /**
+          * [optional] Sets text color of the element.
+         */
+        "color"?: string;
+        /**
+          * [optional] Sets disabled style of the element.
+         */
+        "disabled"?: boolean;
         /**
           * [optional] Sets the divider color.
          */
@@ -2583,6 +2692,19 @@ declare namespace LocalJSX {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] If is used in ZContextualMenu component
+         */
+        "isContextualMenu"?: boolean;
+        "listElementId"?: number;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onAccessibleFocus"?: (event: CustomEvent<number>) => void;
+        /**
+          * remove filter click event, returns filterid
+         */
+        "onClickItem"?: (event: CustomEvent<any>) => void;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -2718,6 +2840,10 @@ declare namespace LocalJSX {
         "onModalHeaderActive"?: (event: CustomEvent<any>) => void;
     }
     interface ZModalLogin {
+        /**
+          * Forgot Password Url
+         */
+        "forgotPasswordUrl"?: string;
         /**
           * Login modal title
          */
@@ -2953,6 +3079,44 @@ declare namespace LocalJSX {
          */
         "underlined"?: boolean;
     }
+    interface ZMyzTopbar {
+        /**
+          * set current active menu link (optional)
+         */
+        "activeintlinkid"?: string;
+        /**
+          * set current active sub menu link (optional)
+         */
+        "activesublinkid"?: string;
+        /**
+          * data to fill external navigation links
+         */
+        "extlinkdata"?: string | MenuItem[];
+        /**
+          * hide login button if true (optional)
+         */
+        "hideloginbutton"?: boolean;
+        /**
+          * alternative logo title text (optional)
+         */
+        "imagealt"?: string;
+        /**
+          * data to fill internal navigation links
+         */
+        "intlinkdata"?: string | MenuItem[];
+        /**
+          * graphic flag to set myzanichelli style
+         */
+        "ismyz"?: boolean;
+        /**
+          * url to attach to logo (optional)
+         */
+        "logolink"?: string;
+        /**
+          * data to fill user dropdown menu (optional)
+         */
+        "userdata"?: string | HeaderUserData;
+    }
     interface ZNavigationTab {
         "disabled"?: boolean;
         "onSelected"?: (event: CustomEvent<any>) => void;
@@ -3158,6 +3322,10 @@ declare namespace LocalJSX {
          */
         "boxShadow"?: PopoverShadow;
         /**
+          * [optional] Sets padding for Popover container
+         */
+        "padding"?: string;
+        /**
           * [optional] Popover position
          */
         "position"?: PopoverPosition;
@@ -3253,6 +3421,7 @@ declare namespace LocalJSX {
           * [Optional] Padding of the header
          */
         "size"?: TableHeaderSize;
+        "sortDirection"?: SortDirection;
         /**
           * [Optional] Make the header sortable
          */
@@ -3381,6 +3550,58 @@ declare namespace LocalJSX {
          */
         "pressed"?: boolean;
     }
+    interface ZToastNotification {
+        /**
+          * toast notification closing timeout (ms)
+         */
+        "autoclose"?: number;
+        /**
+          * toggles closing button rendering
+         */
+        "closebutton"?: boolean;
+        /**
+          * toast notification draggable percentage
+         */
+        "draggablepercentage"?: number;
+        /**
+          * toast notification's title
+         */
+        "heading"?: string;
+        /**
+          * toast notification can be draggable
+         */
+        "isdraggable"?: boolean;
+        /**
+          * toast notification's message
+         */
+        "message"?: string;
+        /**
+          * notification close event
+         */
+        "onToastClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * toast notification autoclose can be paused
+         */
+        "pauseonfocusloss"?: boolean;
+        /**
+          * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
+         */
+        "transition"?: ToastNotificationTransitionTypes;
+        /**
+          * toast notification type:  dark, light, accent, error, success, warning
+         */
+        "type"?: ToastNotificationTypes;
+    }
+    interface ZToastNotificationList {
+        /**
+          * Set the entry position of new notification in the list
+         */
+        "newestontop"?: boolean;
+        /**
+          * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
+         */
+        "position"?: ToastNotificationPositionsTypes;
+    }
     interface ZToggleButton {
         /**
           * avoidclick status flag
@@ -3441,7 +3662,7 @@ declare namespace LocalJSX {
          */
         "menucontent"?: string | MenuItem[];
         /**
-          * Emitted on dropdown menu zlink click, returns zlink linkId
+          * Emitted on dropdown menu zlink click, returns event
          */
         "onDropdownMenuLinkClick"?: (event: CustomEvent<any>) => void;
         /**
@@ -3471,6 +3692,7 @@ declare namespace LocalJSX {
         "z-card": ZCard;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
+        "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
         "z-divider": ZDivider;
         "z-footer": ZFooter;
@@ -3478,7 +3700,6 @@ declare namespace LocalJSX {
         "z-footer-section": ZFooterSection;
         "z-footer-social": ZFooterSocial;
         "z-ghost-loading": ZGhostLoading;
-        "z-header": ZHeader;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
         "z-icon-package": ZIconPackage;
@@ -3510,6 +3731,7 @@ declare namespace LocalJSX {
         "z-myz-card-list": ZMyzCardList;
         "z-myz-list": ZMyzList;
         "z-myz-list-item": ZMyzListItem;
+        "z-myz-topbar": ZMyzTopbar;
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
         "z-notification": ZNotification;
@@ -3538,6 +3760,8 @@ declare namespace LocalJSX {
         "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
+        "z-toast-notification": ZToastNotification;
+        "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
@@ -3561,6 +3785,7 @@ declare module "@stencil/core" {
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
+            "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
@@ -3568,7 +3793,6 @@ declare module "@stencil/core" {
             "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
             "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
-            "z-header": LocalJSX.ZHeader & JSXBase.HTMLAttributes<HTMLZHeaderElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
@@ -3600,6 +3824,7 @@ declare module "@stencil/core" {
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
             "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
+            "z-myz-topbar": LocalJSX.ZMyzTopbar & JSXBase.HTMLAttributes<HTMLZMyzTopbarElement>;
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
@@ -3628,6 +3853,8 @@ declare module "@stencil/core" {
             "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
+            "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
+            "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;

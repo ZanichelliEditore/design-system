@@ -13,17 +13,20 @@ import {
   ListItemBean,
   ButtonVariantEnum,
 } from "../../../beans";
-import { mobileBreakpoint } from "../../../constants/breakpoints";
+import {
+  mobileBreakpoint,
+  tabletBreakpoint,
+} from "../../../constants/breakpoints";
 
 /**
  * @slot editors - top menu editors images bar (only with ismyz prop === true)
  */
 @Component({
-  tag: "z-header",
+  tag: "z-myz-topbar",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZHeader {
+export class ZMyzTopbar {
   /** data to fill internal navigation links */
   @Prop() intlinkdata?: string | MenuItem[];
   /** data to fill external navigation links */
@@ -154,7 +157,9 @@ export class ZHeader {
         <svg
           height="8"
           width="16"
-          class={{hidden: !this.activeMenuItem || this.activeMenuItem.id !== id}}
+          class={{
+            hidden: !this.activeMenuItem || this.activeMenuItem.id !== id,
+          }}
         >
           <polygon points="8,0 16,8 0,8" class="arrow" />
         </svg>
@@ -229,29 +234,37 @@ export class ZHeader {
     );
   }
 
+  renderExtLinksIcons(icon) {
+    const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+    const hideIcons = width > mobileBreakpoint && width < tabletBreakpoint;
+    return !hideIcons && { icon };
+  }
+
   renderExtMenu(menuItems: MenuItem[]): HTMLDivElement {
     if (!this.isLogged) return <div />;
 
     return (
       <div id="link-ext" class="link-ext">
-        {menuItems.map((menuItem: MenuItem): HTMLSpanElement => {
-          const { id, label, link, icon } = menuItem;
-          return (
-            <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
-              <z-link
-                id={id}
-                htmlid={id}
-                href={link}
-                icon={icon}
-                iswhite={!!this.ismyz}
-                target="_blank"
-                htmltabindex={10}
-              >
-                {label}
-              </z-link>
-            </span>
-          );
-        })}
+        {menuItems.map(
+          (menuItem: MenuItem): HTMLSpanElement => {
+            const { id, label, link, icon } = menuItem;
+            return (
+              <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
+                <z-link
+                  id={id}
+                  htmlid={id}
+                  href={link}
+                  iswhite={!!this.ismyz}
+                  target="_blank"
+                  htmltabindex={10}
+                  {...this.renderExtLinksIcons(icon)}
+                >
+                  {label}
+                </z-link>
+              </span>
+            );
+          }
+        )}
       </div>
     );
   }
@@ -405,7 +418,7 @@ export class ZHeader {
         id="mobile-content"
         class={{
           "mobile-content": true,
-          "open": this.isMenuMobileOpen,
+          open: this.isMenuMobileOpen,
           "myz-out": !this.ismyz,
         }}
       >

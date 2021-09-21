@@ -1,8 +1,19 @@
-import { Component, h, Host, Prop, State } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from "@stencil/core";
 import {
   DividerSize,
-  ExpandableListStyle,
   ExpandableListButtonAlign,
+  ExpandableListStyle,
+  KeyboardKeys,
   ListDividerType,
   ListSize,
 } from "../../../beans";
@@ -13,6 +24,36 @@ import {
   shadow: true,
 })
 export class ZListElement {
+  @Element() host: HTMLElement;
+
+  /** remove filter click event, returns filterid */
+  @Event({
+    eventName: "accessibleFocus",
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  accessibleFocus: EventEmitter<number>;
+
+  /** remove filter click event, returns filterid */
+  @Event({
+    eventName: "clickItem",
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  clickItem: EventEmitter;
+
+  @Listen("accessibleFocus", { target: "document" })
+  accessibleFocusHandler(e: CustomEvent) {
+    if (this.listElementId === e.detail) {
+      const toFocus = this.host.shadowRoot.getElementById(
+        `z-list-element-id-${e.detail}`
+      );
+      toFocus.focus();
+    }
+  }
+
   /**
    * [optional] Align expandable button left or right.
    */
@@ -27,7 +68,7 @@ export class ZListElement {
   /**
    * [optional] Sets the divider color.
    */
-  @Prop() dividerColor?: string = "gray200";
+  @Prop() dividerColor?: string = "color-surface03";
 
   /**
    * [optional] Sets the position where to insert the divider.
@@ -49,10 +90,27 @@ export class ZListElement {
    */
   @Prop() expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
 
+  @Prop({ reflect: true }) listElementId?: number;
+
   /**
    * [optional] Sets size of inside elements.
    */
   @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
+
+  /**
+   * [optional] Sets text color of the element.
+   */
+  @Prop({ reflect: true }) color?: string = "none";
+
+  /**
+   * [optional] Sets disabled style of the element.
+   */
+  @Prop({ reflect: true }) disabled?: boolean = false;
+
+  /**
+   * [optional] If is used in ZContextualMenu component
+   */
+  @Prop({ reflect: true }) isContextualMenu?: boolean = false;
 
   @State() showInnerContent = false;
 
@@ -80,14 +138,40 @@ export class ZListElement {
    * @returns void
    */
   handleClick() {
+    this.clickItem.emit(this.listElementId);
     if (!this.expandable) {
       return;
     }
     this.showInnerContent = !this.showInnerContent;
   }
 
+  calculateClass() {
+    if (this.isContextualMenu) {
+      return "container-contextual-menu";
+    }
+
+    return "container";
+  }
+
   handleKeyDown(event) {
-    const expandByKey = event.code === "Enter" || event.code === "Space";
+    const expandByKey = event.code === KeyboardKeys.ENTER;
+    switch (event.code) {
+      case KeyboardKeys.ARROW_DOWN:
+        event.preventDefault();
+        this.accessibleFocus.emit(this.listElementId + 1);
+        break;
+      case KeyboardKeys.ARROW_UP:
+        event.preventDefault();
+        this.accessibleFocus.emit(this.listElementId - 1);
+        break;
+      case KeyboardKeys.ENTER:
+        event.preventDefault();
+        this.clickItem.emit(this.listElementId);
+        break;
+      default:
+        break;
+    }
+
     if (!this.expandable || !expandByKey) {
       return;
     }
@@ -142,9 +226,15 @@ export class ZListElement {
         aria-expanded={this.expandable ? this.showInnerContent : null}
         onClick={this.handleClick}
         onKeyDown={this.handleKeyDown}
-        tabIndex="0"
+        clickable={this.clickable && !this.disabled}
+        tabIndex={!this.isContextualMenu ? "0" : null}
       >
-        <div class="container">
+        <div
+          class={`${this.calculateClass()}`}
+          style={{ color: `var(--${this.color})` }}
+          tabindex={this.isContextualMenu ? "0" : "-1"}
+          id={`z-list-element-id-${this.listElementId}`}
+        >
           <div class="z-list-element-container">
             {this.renderExpandableButton()}
             <slot />

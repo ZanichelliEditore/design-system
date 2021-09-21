@@ -17,6 +17,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-contextual-menu](../../z-contextual-menu)
+
 ### Depends on
 
 - [z-divider](../../z-divider)
@@ -25,6 +29,7 @@
 ```mermaid
 graph TD;
   z-list-group --> z-divider
+  z-contextual-menu --> z-list-group
   style z-list-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
