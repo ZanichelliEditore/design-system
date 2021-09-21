@@ -1,10 +1,10 @@
 import { Component, Prop, h, State, Element, Listen, Watch, } from "@stencil/core";
 import { ButtonVariantEnum, } from "../../../beans";
-import { mobileBreakpoint } from "../../../constants/breakpoints";
+import { mobileBreakpoint, tabletBreakpoint, } from "../../../constants/breakpoints";
 /**
  * @slot editors - top menu editors images bar (only with ismyz prop === true)
  */
-export class ZHeader {
+export class ZMyzTopbar {
   constructor() {
     this.isMobile = true;
     this.isMenuMobileOpen = false;
@@ -71,7 +71,9 @@ export class ZHeader {
         }, role: link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) },
         h("span", null, label),
         menuItem.subMenu ? h("i", null) : null),
-      h("svg", { height: "8", width: "16", class: { hidden: !this.activeMenuItem || this.activeMenuItem.id !== id } },
+      h("svg", { height: "8", width: "16", class: {
+          hidden: !this.activeMenuItem || this.activeMenuItem.id !== id,
+        } },
         h("polygon", { points: "8,0 16,8 0,8", class: "arrow" })),
       this.isMobile && this.renderMenuItemsData(menuItem)));
   }
@@ -115,13 +117,18 @@ export class ZHeader {
       h("ul", { class: "dropdown-links" }, menuItem.subMenu.map((item) => (h("li", null,
         h("a", { id: item.id, class: item.id === this.activesublinkid ? "active" : "", href: item.link ? item.link : null, role: item.link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) }, item.label)))))));
   }
+  renderExtLinksIcons(icon) {
+    const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+    const hideIcons = width > mobileBreakpoint && width < tabletBreakpoint;
+    return !hideIcons && { icon };
+  }
   renderExtMenu(menuItems) {
     if (!this.isLogged)
       return h("div", null);
     return (h("div", { id: "link-ext", class: "link-ext" }, menuItems.map((menuItem) => {
       const { id, label, link, icon } = menuItem;
       return (h("span", { class: `link-ext-span${this.ismyz ? " myz" : ""}` },
-        h("z-link", { id: id, htmlid: id, href: link, icon: icon, iswhite: !!this.ismyz, target: "_blank", htmltabindex: 10 }, label)));
+        h("z-link", Object.assign({ id: id, htmlid: id, href: link, iswhite: !!this.ismyz, target: "_blank", htmltabindex: 10 }, this.renderExtLinksIcons(icon)), label)));
     })));
   }
   renderLoginDiv(userData) {
@@ -196,7 +203,7 @@ export class ZHeader {
       return null;
     return (h("div", { id: "mobile-content", class: {
         "mobile-content": true,
-        "open": this.isMenuMobileOpen,
+        open: this.isMenuMobileOpen,
         "myz-out": !this.ismyz,
       } },
       this.renderMobileLoginDiv(this.userData),
@@ -210,7 +217,7 @@ export class ZHeader {
       ? this.renderMobileHeader()
       : this.renderDesktopHeader();
   }
-  static get is() { return "z-header"; }
+  static get is() { return "z-myz-topbar"; }
   static get encapsulation() { return "shadow"; }
   static get originalStyleUrls() { return {
     "$": ["styles.css"]

@@ -2,7 +2,7 @@ import { MenuItem, HeaderUserData, ListItemBean } from "../../../beans";
 /**
  * @slot editors - top menu editors images bar (only with ismyz prop === true)
  */
-export declare class ZHeader {
+export declare class ZMyzTopbar {
   /** data to fill internal navigation links */
   intlinkdata?: string | MenuItem[];
   /** data to fill external navigation links */
@@ -43,6 +43,9 @@ export declare class ZHeader {
   renderMenuItemsData(menuItem: any): HTMLSpanElement | null;
   renderMobileSubMenu(menuItems: ListItemBean[], id?: string): HTMLSpanElement;
   renderSubMenu(menuItem: MenuItem): HTMLDivElement | undefined;
+  renderExtLinksIcons(icon: any): {
+    icon: any;
+  };
   renderExtMenu(menuItems: MenuItem[]): HTMLDivElement;
   renderLoginDiv(userData: HeaderUserData): HTMLDivElement;
   renderLoginButton(): any;
