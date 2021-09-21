@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.20.0](https://github.com/ZanichelliEditore/design-system/compare/v2.19.1...v2.20.0) (2021-09-21)
+
+
+### Features
+
+* csscolors from stylesheet ([66b9372](https://github.com/ZanichelliEditore/design-system/commit/66b93720ad9d4d8603326e0031f643f33f9baa7f))
+* design tokens updated ([ae83de5](https://github.com/ZanichelliEditore/design-system/commit/ae83de530dbe0b66bc7c85c57f88aa901d2746fa))
+* PR fix ([5c9feed](https://github.com/ZanichelliEditore/design-system/commit/5c9feedcb8191d5bf0b1bb1a58e1adaf3f6839f8))
+* storybook color theme ([8312309](https://github.com/ZanichelliEditore/design-system/commit/83123091375aa3fae2b4f73695bdafadaebde2d9))
+
 ### [2.19.1](https://github.com/ZanichelliEditore/design-system/compare/v2.19.0...v2.19.1) (2021-09-17)
 
 ## [2.19.0](https://github.com/ZanichelliEditore/design-system/compare/v2.18.4...v2.19.0) (2021-09-16)
