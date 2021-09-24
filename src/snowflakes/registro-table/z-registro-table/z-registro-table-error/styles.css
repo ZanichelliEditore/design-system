@@ -1,0 +1,5 @@
+div.content {
+  font-family: var(--dashboard-font);
+  margin-left: 20px;
+  margin-right: var(--space-unit) * 2;
+}

@@ -11,7 +11,24 @@
 </head>
 
 <body style="width: 100%;margin: 0; background-color: #f9f9f9;">
-
+  <div><h2>Error table </h2>
+  <z-registro-table error="true" >
+  </z-registro-table>
+  <hr />
+  <h2>Error table header</h2>
+  <z-registro-table error="true" id='error-table' error-link='https://www.mondora.com'>
+    <z-registro-table-head>
+      <z-registro-table-header-row>
+        <z-registro-table-header>
+          <span>Titolo 1</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        </z-registro-table-header-row>
+  </z-registro-table>
+  
+</div>
   <!-- Contextual menu -->
   <h2>ZContextualMenu</h2>
   <div style="padding-left: 280px; width: 80%">
@@ -126,8 +143,8 @@
   <z-registro-table bordered="true" header-sticky="false" column-sticky="false">
     <z-registro-table-head>
       <z-registro-table-header-row>
-        <z-registro-table-header>
-          <span>Titolo 1</span>
+        <z-registro-table-header style="width: 1000px">
+          <span>T300 </span>
         </z-registro-table-header>
         <z-registro-table-header>
           <span>Titolo 2</span>

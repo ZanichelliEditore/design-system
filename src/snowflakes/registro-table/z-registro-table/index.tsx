@@ -41,6 +41,12 @@ export class ZRegistroTable {
   /** Sets empty table */
   @Prop() empty?: boolean = false;
 
+  /** Set error status */
+  @Prop() error?: boolean = false;
+
+  /** Set error status */
+  @Prop() errorLink?: string;
+
   /** Sets header sticky */
   @Prop() headerSticky?: boolean = false;
 
@@ -56,6 +62,7 @@ export class ZRegistroTable {
 
   /** Handle mobile */
   @State() isMobile: boolean;
+  /** remove call to action event */
 
   /** remove call to action event */
   @Event({
@@ -104,6 +111,15 @@ export class ZRegistroTable {
     ${this.columnSticky ? "table-column-sticky" : ""}
     ${this.headerSticky ? "table-header-sticky" : ""}`;
     const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
+
+    if (this.error) {
+      return (
+        <z-registro-table-error
+          table-class={tableClass}
+          error-link={this.errorLink}
+        />
+      );
+    }
     if (this.empty && this.hasTableBody) {
       return (
         <Host>
