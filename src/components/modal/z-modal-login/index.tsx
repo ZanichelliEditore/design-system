@@ -37,6 +37,8 @@ export class zModalLogin {
   @Prop({ mutable: true }) status?: InputStatusBean;
   /** Username helper message */
   @Prop({ mutable: true }) message?: string;
+  /** Password helper message */
+  @Prop({ mutable: true }) pwdmessage?: string;
 
   @State() externalProviderCheck: boolean = false;
 
@@ -76,6 +78,12 @@ export class zModalLogin {
     });
   }
 
+  /** Emitted on status update */
+  @Event() statusUpdate: EventEmitter;
+  emitStatusUpdate(status: InputStatusBean) {
+    this.statusUpdate.emit(status);
+  }
+
   /** Emitted on signup button click */
   @Event() signupClick: EventEmitter;
   emitSignupClick() {
@@ -91,6 +99,11 @@ export class zModalLogin {
   handleInputKeyUp(e: KeyboardEvent) {
     if (e.code !== "Enter") return;
     this.emitLoginSubmit();
+  }
+
+  handleInputChange() {
+    this.status = null
+    this.emitStatusUpdate(this.status)
   }
 
   cleanUsername(username: string): string {
@@ -156,7 +169,7 @@ export class zModalLogin {
                   status={this.status}
                   message={this.message}
                   onKeyUp={(e: KeyboardEvent) => this.handleInputKeyUp(e)}
-                  onInputChange={() => (this.status = null)}
+                  onInputChange={() => this.handleInputChange()}
                 />
               </slot>
             </div>
@@ -171,8 +184,9 @@ export class zModalLogin {
                   name="password"
                   autocomplete="current-password"
                   status={this.status}
+                  message={this.pwdmessage}
                   onKeyUp={(e: KeyboardEvent) => this.handleInputKeyUp(e)}
-                  onInputChange={() => (this.status = null)}
+                  onInputChange={() => this.handleInputChange()}
                 />
               </slot>
             </div>
