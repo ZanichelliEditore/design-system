@@ -92,6 +92,59 @@ import { text, boolean } from "@storybook/addon-knobs";
       </z-registro-table-sticky-footer>
     </z-registro-table>`}
   </Story>
+  <Story name="ZRegistroTable-error-no-header">
+    {html`<z-registro-table
+      error="${boolean("error", true)}"
+      image="${boolean("image", true)}"
+      lines="${text("lines", "6")}"
+    >
+    </z-registro-table>`}
+  </Story>
+  <Story name="ZRegistroTable-error">
+    {html`<z-registro-table
+        error="${boolean("Error", true)}"
+        show-error-image="${boolean("Show Image", true)}"
+        lines="${text("Lines", "1")}"
+      >
+        <z-registro-table-head slot="table-header">
+          <z-registro-table-header-row>
+            <z-registro-table-header>
+              <span>Titolo 1</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo last</span>
+            </z-registro-table-header>
+          </z-registro-table-header-row>
+        </z-registro-table-head>
+        <div slot="error-action">
+          <z-body level="{4}">
+            <a href="#" target="_blank">Clicca qui</a> per ricaricare la pagina
+          </z-body>
+        </div>
+      </z-registro-table>
+      <p>Altro contenuto</p>`}
+  </Story>
   <Story name="ZRegistroTable-empty-no-header">
     {html`<z-registro-table
       bordered="${boolean("bordered", false)}"
@@ -102,7 +155,7 @@ import { text, boolean } from "@storybook/addon-knobs";
       header-sticky="${boolean("header-sticky", false)}"
       message="${text(
         "message",
-        "Siamo spicenti, al momento non sono presenti dati da visualizzare"
+        "Siamo spiacenti, al momento non sono presenti dati da visualizzare"
       )}"
       subtitle="${text("subtitle", "Eventuale testo")}"
     >
@@ -121,7 +174,7 @@ import { text, boolean } from "@storybook/addon-knobs";
       header-sticky="${boolean("header-sticky", false)}"
       message="${text(
         "message",
-        "Siamo spicenti, al momento non sono presenti dati da visualizzare!"
+        "Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
       )}"
       subtitle="${text("subtitle", "Eventuale testo")}"
     >
@@ -156,7 +209,7 @@ import { text, boolean } from "@storybook/addon-knobs";
       header-sticky="${boolean("header-sticky", false)}"
       message="${text(
         "message",
-        "Siamo spicenti, al momento non sono presenti dati da visualizzare!"
+        "Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
       )}"
       subtitle="${text("subtitle", "Eventuale testo")}"
     >
