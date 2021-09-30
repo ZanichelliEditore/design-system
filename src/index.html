@@ -1,34 +1,68 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>Stencil Component Starter</title>
-  <link rel="stylesheet" type="text/css" href="/build/web-components-library.css" />
-  <script type="module" src="/build/web-components-library.esm.js"></script>
-  <script nomodule src="/build/web-components-library.js"></script>
-</head>
-
-<body style="width: 100%;margin: 0; background-color: #f9f9f9;">
-  <div><h2>Error table </h2>
-  <z-registro-table error="true" >
-  </z-registro-table>
-  <hr />
-  <h2>Error table header</h2>
-  <z-registro-table error="true" id='error-table' error-link='https://www.mondora.com'>
-    <z-registro-table-head>
-      <z-registro-table-header-row>
-        <z-registro-table-header>
-          <span>Titolo 1</span>
-        </z-registro-table-header>
-        <z-registro-table-header>
-          <span>Titolo 2</span>
-        </z-registro-table-header>
-        </z-registro-table-header-row>
-  </z-registro-table>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/web-components-library.css"
+    />
+    <script type="module" src="/build/web-components-library.esm.js"></script>
+    <script nomodule src="/build/web-components-library.js"></script>
+  </head>
+  <body style="width: 100%; margin: 0; background-color: #f9f9f9">
+    <div>
+      <h2>Error table</h2>
+      <z-registro-table error="true" lines="8" show-error-image="false">
+      </z-registro-table>
+      <hr />
+      <h2>Error table header</h2>
+      <z-registro-table error="true" show-error-image="true" id="error-table">
+        <z-registro-table-head slot="table-header">
+          <z-registro-table-header-row>
+            <z-registro-table-header>
+              <span>Titolo 1</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo last</span>
+            </z-registro-table-header>
+          </z-registro-table-header-row>
+        </z-registro-table-head>
+        <div slot="error-action">
+          <z-body level="{4}">
+            <a href="#" target="_blank">Clicca qui</a> per ricaricare la pagina
+          </z-body>
+        </div>
+      </z-registro-table>
+    </div>
+    <!--    -->
   
-</div>
   <!-- Contextual menu -->
   <h2>ZContextualMenu</h2>
   <div style="padding-left: 280px; width: 80%">
@@ -1601,21 +1635,29 @@
           "link": "https://my.zanichelli.it/privacy"
       }]
   }'></z-footer>
+  
   <script>
-    function openModal(e) {
-      console.log(e);
-    }
-    const appMenu = document.getElementById("app-switcher");
-    appMenu.addEventListener("appButtonClick", (e) => openModal(e));
+      function openModal(e) {
+        console.log(e);
+      }
+      const appMenu = document.getElementById("app-switcher");
+      appMenu.addEventListener("appButtonClick", (e) => openModal(e));
 
-    const contextualMenu = document.getElementById("contextual-menu-1");
-    contextualMenu.addEventListener("clickContextualMenu", (e) => console.log('LOG id ', e.detail));
-    const emptytable = document.getElementById("empty-table");
-    emptytable.addEventListener('callToAction', () => console.log('call to action 1'));
-    emptytable.addEventListener('callToActionTwo', () => console.log('call to action 2'));
-    const emptytable_due = document.getElementById("empty-table-two");
-    emptytable_due.addEventListener('callToAction', () => console.log('call to action per seconda tabella'));
-  </script>
-</body>
-
+      const contextualMenu = document.getElementById("contextual-menu-1");
+      contextualMenu.addEventListener("clickContextualMenu", (e) =>
+        console.log("LOG id ", e.detail)
+      );
+      const emptytable = document.getElementById("empty-table");
+      emptytable.addEventListener("callToAction", () =>
+        console.log("call to action 1")
+      );
+      emptytable.addEventListener("callToActionTwo", () =>
+        console.log("call to action 2")
+      );
+      const emptytable_due = document.getElementById("empty-table-two");
+      emptytable_due.addEventListener("callToAction", () =>
+        console.log("call to action per seconda tabella")
+      );
+    </script>
+  </body>
 </html>
