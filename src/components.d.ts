@@ -1166,13 +1166,25 @@ export namespace Components {
          */
         "errorLink"?: string;
         /**
+          * Error message
+         */
+        "errorMessage"?: string;
+        /**
           * Sets header sticky
          */
         "headerSticky"?: boolean;
         /**
+          * Number of lines of element
+         */
+        "lines"?: number;
+        /**
           * Set message
          */
         "message"?: string;
+        /**
+          * Show image if there's an error
+         */
+        "showErrorImage"?: boolean;
         /**
           * Set subtitle
          */
@@ -1195,10 +1207,6 @@ export namespace Components {
           * Sets message
          */
         "subtitle"?: string;
-    }
-    interface ZRegistroTableError {
-        "errorLink"?: string;
-        "tableClass"?: string;
     }
     interface ZRegistroTableExpandedRow {
         /**
@@ -1883,12 +1891,6 @@ declare global {
         prototype: HTMLZRegistroTableEmptyBoxElement;
         new (): HTMLZRegistroTableEmptyBoxElement;
     };
-    interface HTMLZRegistroTableErrorElement extends Components.ZRegistroTableError, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableErrorElement: {
-        prototype: HTMLZRegistroTableErrorElement;
-        new (): HTMLZRegistroTableErrorElement;
-    };
     interface HTMLZRegistroTableExpandedRowElement extends Components.ZRegistroTableExpandedRow, HTMLStencilElement {
     }
     var HTMLZRegistroTableExpandedRowElement: {
@@ -2067,7 +2069,6 @@ declare global {
         "z-registro-table-body": HTMLZRegistroTableBodyElement;
         "z-registro-table-cell": HTMLZRegistroTableCellElement;
         "z-registro-table-empty-box": HTMLZRegistroTableEmptyBoxElement;
-        "z-registro-table-error": HTMLZRegistroTableErrorElement;
         "z-registro-table-expanded-row": HTMLZRegistroTableExpandedRowElement;
         "z-registro-table-footer": HTMLZRegistroTableFooterElement;
         "z-registro-table-head": HTMLZRegistroTableHeadElement;
@@ -3383,9 +3384,17 @@ declare namespace LocalJSX {
          */
         "errorLink"?: string;
         /**
+          * Error message
+         */
+        "errorMessage"?: string;
+        /**
           * Sets header sticky
          */
         "headerSticky"?: boolean;
+        /**
+          * Number of lines of element
+         */
+        "lines"?: number;
         /**
           * Set message
          */
@@ -3398,6 +3407,10 @@ declare namespace LocalJSX {
           * remove call to action event
          */
         "onCallToActionTwo"?: (event: CustomEvent<any>) => void;
+        /**
+          * Show image if there's an error
+         */
+        "showErrorImage"?: boolean;
         /**
           * Set subtitle
          */
@@ -3420,10 +3433,6 @@ declare namespace LocalJSX {
           * Sets message
          */
         "subtitle"?: string;
-    }
-    interface ZRegistroTableError {
-        "errorLink"?: string;
-        "tableClass"?: string;
     }
     interface ZRegistroTableExpandedRow {
         /**
@@ -3779,7 +3788,6 @@ declare namespace LocalJSX {
         "z-registro-table-body": ZRegistroTableBody;
         "z-registro-table-cell": ZRegistroTableCell;
         "z-registro-table-empty-box": ZRegistroTableEmptyBox;
-        "z-registro-table-error": ZRegistroTableError;
         "z-registro-table-expanded-row": ZRegistroTableExpandedRow;
         "z-registro-table-footer": ZRegistroTableFooter;
         "z-registro-table-head": ZRegistroTableHead;
@@ -3873,7 +3881,6 @@ declare module "@stencil/core" {
             "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
             "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
             "z-registro-table-empty-box": LocalJSX.ZRegistroTableEmptyBox & JSXBase.HTMLAttributes<HTMLZRegistroTableEmptyBoxElement>;
-            "z-registro-table-error": LocalJSX.ZRegistroTableError & JSXBase.HTMLAttributes<HTMLZRegistroTableErrorElement>;
             "z-registro-table-expanded-row": LocalJSX.ZRegistroTableExpandedRow & JSXBase.HTMLAttributes<HTMLZRegistroTableExpandedRowElement>;
             "z-registro-table-footer": LocalJSX.ZRegistroTableFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableFooterElement>;
             "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
