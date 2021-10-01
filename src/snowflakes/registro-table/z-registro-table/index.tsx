@@ -20,7 +20,6 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
 
 @Component({
   assetsDirs: ["assets"],
-  shadow: true,
   styleUrl: "styles.css",
   tag: "z-registro-table",
 })
@@ -123,7 +122,6 @@ export class ZRegistroTable {
     ${this.headerSticky ? "table-header-sticky" : ""}`;
     const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
     const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
-
     if (this.error) {
       return (
         <Host>
@@ -134,12 +132,13 @@ export class ZRegistroTable {
             <div class="error-content" style={{ minHeight }}>
               {this.showErrorImage && (
                 <img
+                  alt="Errore"
                   class="error-image"
                   src={getAssetPath("./assets/zanichelli-error-image.png")}
                 />
               )}
               <div class="text">
-                <z-body level={3} variant="semibold">
+                <z-body class="error-message" level={3} variant="semibold">
                   {this.errorMessage}
                 </z-body>
                 <slot name="error-action" />
@@ -157,6 +156,7 @@ export class ZRegistroTable {
             <div class={tableContentClass}>
               <slot name="table-body" />
               <z-registro-table-empty-box
+                class={this.bordered && "bordered"}
                 message={this.message}
                 subtitle={this.subtitle}
               >
@@ -193,6 +193,7 @@ export class ZRegistroTable {
             <slot name="table-header" />
           </div>
           <z-registro-table-empty-box
+            class={this.bordered && "bordered"}
             message={this.message}
             subtitle={this.subtitle}
           >

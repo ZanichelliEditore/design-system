@@ -108,7 +108,13 @@ z-registro-table
   z-index: 5;
 }
 
-z-registro-table-error {
+z-registro-table-empty-box.bordered {
+  background-color: ;
+  border-left: var(--border-size-small) solid var(--bg-grey-200);
+}
+
+.error-message {
+  margin-top: calc(var(--space-unit) * 2);
 }
 
 .table-content {
@@ -130,10 +136,6 @@ z-registro-table-error {
   width: 244px;
   height: 188px;
   margin-right: calc(var(--space-unit) * 3);
-}
-
-::slotted([slot="error-action"]) {
-  margin-top: calc(var(--space-unit) * 2);
 }
 
 /* Mobile */
