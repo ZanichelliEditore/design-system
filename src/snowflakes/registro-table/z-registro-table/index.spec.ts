@@ -3,6 +3,85 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZRegistroTable } from "./index";
 
 describe("Suite test ZRegistroTable", () => {
+  it("Test render ZRegistroTable with err content", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table error="true"></z-registro-table>`,
+    });
+    expect(page.root)
+      .toEqualHtml(`<z-registro-table error=\"true\" role=\"table\">
+        <div class="table"></div>
+        <z-registro-table-error>
+          <div class="error-content" style="min-height: auto;">
+            <img alt="Errore" class="error-image" src="/assets/zanichelli-error-image.png">
+            <div class="text">
+              <z-body class="error-message" level="3" variant="semibold">
+                 Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
+              </z-body>
+            </div>
+          </div>
+        </z-registro-table-error>
+      </z-registro-table>`);
+  });
+
+  it("Test render ZRegistroTable with err content no image", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table error="true" show-error-image="false"></z-registro-table>`,
+    });
+    expect(page.root)
+      .toEqualHtml(`<z-registro-table error="true" role="table" show-error-image="false">
+        <div class="table"></div>
+        <z-registro-table-error>
+          <div class="error-content" style="min-height: auto;">
+            <div class="text">
+              <z-body class="error-message" level="3" variant="semibold">
+                 Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
+              </z-body>
+            </div>
+          </div>
+        </z-registro-table-error>
+      </z-registro-table>`);
+  });
+
+  it("Test render ZRegistroTable with err content with header", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table error="true">
+        <z-registro-table-head slot="table-header">
+          <z-registro-table-header-row>
+            <z-registro-table-header>
+              <span>Titolo 1</span>
+            </z-registro-table-header>
+          </z-registro-table-header-row>
+        </z-registro-table-head>
+      </z-registro-table>`,
+    });
+    expect(page.root).toEqualHtml(
+      `<z-registro-table error=\"true\" role=\"table\">
+        <div class="table">
+          <z-registro-table-head slot="table-header">
+            <z-registro-table-header-row>
+              <z-registro-table-header>
+                <span>Titolo 1</span>
+              </z-registro-table-header>
+            </z-registro-table-header-row>
+          </z-registro-table-head>
+        </div>
+        <z-registro-table-error>
+          <div class="error-content" style="min-height: auto;">
+            <img alt="Errore" class="error-image" src="/assets/zanichelli-error-image.png">
+            <div class="text">
+              <z-body class="error-message" level="3" variant="semibold">
+                 Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
+              </z-body>
+            </div>
+          </div>
+        </z-registro-table-error>
+      </z-registro-table>`
+    );
+  });
+
   it("Test render ZRegistroTable with empty content", async () => {
     const page = await newSpecPage({
       components: [ZRegistroTable],
@@ -11,7 +90,7 @@ describe("Suite test ZRegistroTable", () => {
     expect(page.root)
       .toEqualHtml(`<z-registro-table empty=\"true\" role=\"table\">
     <div class=\"table table-empty\"></div>
-    <z-registro-table-empty-box message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\"></z-registro-table-empty-box>
+    <z-registro-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\"></z-registro-table-empty-box>
   </z-registro-table>`);
   });
 
@@ -63,7 +142,7 @@ describe("Suite test ZRegistroTable", () => {
       </z-registro-table-header-row>
     </z-registro-table-head>
     <div class=\"table table-empty\"></div>
-    <z-registro-table-empty-box message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\"></z-registro-table-empty-box>
+    <z-registro-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\"></z-registro-table-empty-box>
   </z-registro-table>`);
   });
 
@@ -75,7 +154,7 @@ describe("Suite test ZRegistroTable", () => {
     expect(page.root)
       .toEqualHtml(`<z-registro-table call-to-action-label=\"Call To Action\" empty=\"true\" role=\"table\">
     <div class=\"table table-empty\"></div>
-    <z-registro-table-empty-box message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">
+    <z-registro-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">
       <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
         Call To Action
       </z-button>
@@ -91,7 +170,7 @@ describe("Suite test ZRegistroTable", () => {
     expect(page.root)
       .toEqualHtml(`<z-registro-table call-to-action-label=\"Call To Action\" call-to-action-two-label=\"Call To Action 2\" empty=\"true\" role=\"table\">
     <div class=\"table table-empty\"></div>
-    <z-registro-table-empty-box message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">                          
+    <z-registro-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">                          
       <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
         Call To Action
       </z-button>
@@ -108,7 +187,7 @@ describe("Suite test ZRegistroTable", () => {
       html: `<z-registro-table
       call-to-action-label="Call to action"
       empty="true"
-      message="Siamo spicenti, al momento non sono presenti dati da visualizzare!"
+      message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
       subtitle="Eventuale testo"
     >
       <z-registro-table-head slot="table-header">
@@ -131,7 +210,7 @@ describe("Suite test ZRegistroTable", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<z-registro-table call-to-action-label=\"Call to action\" empty=\"true\" message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare!\" role=\"table\" subtitle=\"Eventuale testo\">
+      .toEqualHtml(`<z-registro-table call-to-action-label=\"Call to action\" empty=\"true\" message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare!\" role=\"table\" subtitle=\"Eventuale testo\">
     <div class=\"table table-empty\">
       <z-registro-table-head slot=\"table-header\">
         <z-registro-table-header-row>
@@ -158,7 +237,7 @@ describe("Suite test ZRegistroTable", () => {
         </z-registro-table-header-row>
       </z-registro-table-head>
     </div>
-    <z-registro-table-empty-box message=\"Siamo spicenti, al momento non sono presenti dati da visualizzare!\" subtitle=\"Eventuale testo\">
+    <z-registro-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare!\" subtitle=\"Eventuale testo\">
       <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
         Call to action
       </z-button>

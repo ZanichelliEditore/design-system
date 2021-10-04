@@ -1,16 +1,14 @@
 # z-registro-table-sticky-footer
 
-
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property   | Attribute  | Description             | Type     | Default                                                                |
-| ---------- | ---------- | ----------------------- | -------- | ---------------------------------------------------------------------- |
-| `message`  | `message`  | Sets main title message | `string` | `"Siamo spicenti, al momento non sono presenti dati da visualizzare."` |
-| `subtitle` | `subtitle` | Sets message            | `string` | `""`                                                                   |
+| Property   | Attribute  | Description             | Type     | Default                                                                 |
+| ---------- | ---------- | ----------------------- | -------- | ----------------------------------------------------------------------- |
+| `message`  | `message`  | Sets main title message | `string` | `"Siamo spiacenti, al momento non sono presenti dati da visualizzare."` |
+| `subtitle` | `subtitle` | Sets message            | `string` | `""`                                                                    |
 
 
 ## Dependencies
