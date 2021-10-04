@@ -3,6 +3,85 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ZRegistroTable } from "./index";
 
 describe("Suite test ZRegistroTable", () => {
+  it("Test render ZRegistroTable with err content", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table error="true"></z-registro-table>`,
+    });
+    expect(page.root)
+      .toEqualHtml(`<z-registro-table error=\"true\" role=\"table\">
+        <div class="table"></div>
+        <z-registro-table-error>
+          <div class="error-content" style="min-height: auto;">
+            <img alt="Errore" class="error-image" src="/assets/zanichelli-error-image.png">
+            <div class="text">
+              <z-body class="error-message" level="3" variant="semibold">
+                 Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
+              </z-body>
+            </div>
+          </div>
+        </z-registro-table-error>
+      </z-registro-table>`);
+  });
+
+  it("Test render ZRegistroTable with err content no image", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table error="true" show-error-image="false"></z-registro-table>`,
+    });
+    expect(page.root)
+      .toEqualHtml(`<z-registro-table error="true" role="table" show-error-image="false">
+        <div class="table"></div>
+        <z-registro-table-error>
+          <div class="error-content" style="min-height: auto;">
+            <div class="text">
+              <z-body class="error-message" level="3" variant="semibold">
+                 Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
+              </z-body>
+            </div>
+          </div>
+        </z-registro-table-error>
+      </z-registro-table>`);
+  });
+
+  it("Test render ZRegistroTable with err content with header", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table error="true">
+        <z-registro-table-head slot="table-header">
+          <z-registro-table-header-row>
+            <z-registro-table-header>
+              <span>Titolo 1</span>
+            </z-registro-table-header>
+          </z-registro-table-header-row>
+        </z-registro-table-head>
+      </z-registro-table>`,
+    });
+    expect(page.root).toEqualHtml(
+      `<z-registro-table error=\"true\" role=\"table\">
+        <div class="table">
+          <z-registro-table-head slot="table-header">
+            <z-registro-table-header-row>
+              <z-registro-table-header>
+                <span>Titolo 1</span>
+              </z-registro-table-header>
+            </z-registro-table-header-row>
+          </z-registro-table-head>
+        </div>
+        <z-registro-table-error>
+          <div class="error-content" style="min-height: auto;">
+            <img alt="Errore" class="error-image" src="/assets/zanichelli-error-image.png">
+            <div class="text">
+              <z-body class="error-message" level="3" variant="semibold">
+                 Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
+              </z-body>
+            </div>
+          </div>
+        </z-registro-table-error>
+      </z-registro-table>`
+    );
+  });
+
   it("Test render ZRegistroTable with empty content", async () => {
     const page = await newSpecPage({
       components: [ZRegistroTable],
