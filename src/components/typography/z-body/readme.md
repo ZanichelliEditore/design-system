@@ -18,6 +18,7 @@
 
  - [z-modal-login](../../modal/z-modal-login)
  - [z-notification](../../notification/z-notification)
+ - [z-registro-table](../../../snowflakes/registro-table/z-registro-table)
  - [z-registro-table-empty-box](../../../snowflakes/registro-table/z-registro-table-empty-box)
 
 ### Depends on
@@ -30,6 +31,7 @@ graph TD;
   z-body --> z-typography
   z-modal-login --> z-body
   z-notification --> z-body
+  z-registro-table --> z-body
   z-registro-table-empty-box --> z-body
   style z-body fill:#f9f,stroke:#333,stroke-width:4px
 ```

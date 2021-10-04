@@ -4,10 +4,11 @@ import {
   Event,
   EventEmitter,
   Host,
-  Prop,
-  h,
-  State,
   Listen,
+  Prop,
+  State,
+  getAssetPath,
+  h,
 } from "@stencil/core";
 import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
@@ -18,13 +19,22 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
  */
 
 @Component({
-  tag: "z-registro-table",
+  assetsDirs: ["assets"],
   styleUrl: "styles.css",
-  shadow: false,
-  scoped: false,
+  tag: "z-registro-table",
 })
 export class ZRegistroTable {
   @Element() host: HTMLElement;
+
+  /** Number of lines of element */
+  @Prop({ reflect: true }) lines?: number;
+
+  /** Show image if there's an error */
+  @Prop() showErrorImage?: boolean = true;
+
+  /** Error message */
+  @Prop() errorMessage?: string =
+    "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto";
 
   /** Sets table with border */
   @Prop() bordered?: boolean = false;
@@ -41,12 +51,18 @@ export class ZRegistroTable {
   /** Sets empty table */
   @Prop() empty?: boolean = false;
 
+  /** Set error status */
+  @Prop() error?: boolean = false;
+
+  /** Set error status */
+  @Prop() errorLink?: string;
+
   /** Sets header sticky */
   @Prop() headerSticky?: boolean = false;
 
   /** Set message */
   @Prop() message?: string =
-    "Siamo spicenti, al momento non sono presenti dati da visualizzare";
+    "Siamo spiacenti, al momento non sono presenti dati da visualizzare";
 
   /** Set subtitle */
   @Prop() subtitle?: string = "";
@@ -56,6 +72,7 @@ export class ZRegistroTable {
 
   /** Handle mobile */
   @State() isMobile: boolean;
+  /** remove call to action event */
 
   /** remove call to action event */
   @Event({
@@ -104,6 +121,33 @@ export class ZRegistroTable {
     ${this.columnSticky ? "table-column-sticky" : ""}
     ${this.headerSticky ? "table-header-sticky" : ""}`;
     const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
+    const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
+    if (this.error) {
+      return (
+        <Host>
+          <div class={tableClass}>
+            <slot name="table-header" />
+          </div>
+          <z-registro-table-error>
+            <div class="error-content" style={{ minHeight }}>
+              {this.showErrorImage && (
+                <img
+                  alt="Errore"
+                  class="error-image"
+                  src={getAssetPath("./assets/zanichelli-error-image.png")}
+                />
+              )}
+              <div class="text">
+                <z-body class="error-message" level={3} variant="semibold">
+                  {this.errorMessage}
+                </z-body>
+                <slot name="error-action" />
+              </div>
+            </div>
+          </z-registro-table-error>
+        </Host>
+      );
+    }
     if (this.empty && this.hasTableBody) {
       return (
         <Host>
@@ -112,6 +156,7 @@ export class ZRegistroTable {
             <div class={tableContentClass}>
               <slot name="table-body" />
               <z-registro-table-empty-box
+                class={this.bordered && "bordered"}
                 message={this.message}
                 subtitle={this.subtitle}
               >
@@ -148,6 +193,7 @@ export class ZRegistroTable {
             <slot name="table-header" />
           </div>
           <z-registro-table-empty-box
+            class={this.bordered && "bordered"}
             message={this.message}
             subtitle={this.subtitle}
           >
