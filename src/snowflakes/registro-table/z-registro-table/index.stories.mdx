@@ -93,15 +93,12 @@ import { text, boolean } from "@storybook/addon-knobs";
     </z-registro-table>`}
   </Story>
   <Story name="ZRegistroTable-error-no-header">
-    {html`<z-registro-table
-      error="${boolean("error", true)}"
-      lines="${text("lines", "6")}"
-    >
+    {html`<z-registro-table error="true" lines="${text("lines", "6")}">
     </z-registro-table>`}
   </Story>
   <Story name="ZRegistroTable-error">
     {html`<z-registro-table
-        error="${boolean("Error", true)}"
+        error="true"
         show-error-image="${boolean("Show Image", true)}"
         lines="${text("Lines", "1")}"
       >
