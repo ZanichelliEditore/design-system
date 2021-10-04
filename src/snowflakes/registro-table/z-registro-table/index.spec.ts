@@ -8,8 +8,7 @@ describe("Suite test ZRegistroTable", () => {
       components: [ZRegistroTable],
       html: `<z-registro-table error="true"></z-registro-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-registro-table error=\"true\" role=\"table\">
+    expect(page.root).toEqualHtml(`<z-registro-table error="true" role="table">
         <div class="table"></div>
         <z-registro-table-error>
           <div class="error-content" style="min-height: auto;">
