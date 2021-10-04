@@ -109,7 +109,6 @@ z-registro-table
 }
 
 z-registro-table-empty-box.bordered {
-  background-color: ;
   border-left: var(--border-size-small) solid var(--bg-grey-200);
 }
 
