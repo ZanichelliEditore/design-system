@@ -1,0 +1,1 @@
+import{r as t,h as r}from"./p-a4a01b5e.js";const s=class{constructor(r){t(this,r),this.variant="regular"}render(){return r("z-typography",{component:this.component||`h${this.level}`,level:`h${this.level}`,variant:this.variant},r("slot",null))}};export{s as z_heading}

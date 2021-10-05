@@ -1572,6 +1572,10 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
     // Fallback appLoad event
     endBootstrap();
 };
+const getAssetPath = (path) => {
+    const assetUrl = new URL(path, plt.$resourcesUrl$);
+    return assetUrl.origin !== win.location.origin ? assetUrl.href : assetUrl.pathname;
+};
 const hostRefs = new WeakMap();
 const getHostRef = (ref) => hostRefs.get(ref);
 const registerInstance = (lazyInstance, hostRef) => hostRefs.set((hostRef.$lazyInstance$ = lazyInstance), hostRef);
@@ -1659,4 +1663,4 @@ const flush = () => {
 const nextTick = /*@__PURE__*/ (cb) => promiseResolve().then(cb);
 const writeTask = /*@__PURE__*/ queueTask(queueDomWrites, true);
 
-export { Host as H, bootstrapLazy as b, createEvent as c, getElement as g, h, promiseResolve as p, registerInstance as r };
+export { Host as H, getAssetPath as a, bootstrapLazy as b, createEvent as c, getElement as g, h, promiseResolve as p, registerInstance as r };

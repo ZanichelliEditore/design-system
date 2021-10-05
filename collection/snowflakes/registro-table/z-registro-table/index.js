@@ -1,4 +1,4 @@
-import { Component, Element, Event, Host, Prop, h, State, Listen, } from "@stencil/core";
+import { Component, Element, Event, Host, Listen, Prop, State, getAssetPath, h, } from "@stencil/core";
 import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 /**
@@ -7,16 +7,22 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
  */
 export class ZRegistroTable {
   constructor() {
+    /** Show image if there's an error */
+    this.showErrorImage = true;
+    /** Error message */
+    this.errorMessage = "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto";
     /** Sets table with border */
     this.bordered = false;
     /** Sets first column sticky */
     this.columnSticky = false;
     /** Sets empty table */
     this.empty = false;
+    /** Set error status */
+    this.error = false;
     /** Sets header sticky */
     this.headerSticky = false;
     /** Set message */
-    this.message = "Siamo spicenti, al momento non sono presenti dati da visualizzare";
+    this.message = "Siamo spiacenti, al momento non sono presenti dati da visualizzare";
     /** Set subtitle */
     this.subtitle = "";
   }
@@ -41,13 +47,25 @@ export class ZRegistroTable {
     ${this.columnSticky ? "table-column-sticky" : ""}
     ${this.headerSticky ? "table-header-sticky" : ""}`;
     const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
+    const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
+    if (this.error) {
+      return (h(Host, null,
+        h("div", { class: tableClass },
+          h("slot", { name: "table-header" })),
+        h("z-registro-table-error", null,
+          h("div", { class: "error-content", style: { minHeight } },
+            this.showErrorImage && (h("img", { alt: "Errore", class: "error-image", src: getAssetPath("./assets/zanichelli-error-image.png") })),
+            h("div", { class: "text" },
+              h("z-body", { class: "error-message", level: 3, variant: "semibold" }, this.errorMessage),
+              h("slot", { name: "error-action" }))))));
+    }
     if (this.empty && this.hasTableBody) {
       return (h(Host, null,
         h("div", { class: tableClass },
           h("slot", { name: "table-header" }),
           h("div", { class: tableContentClass },
             h("slot", { name: "table-body" }),
-            h("z-registro-table-empty-box", { message: this.message, subtitle: this.subtitle },
+            h("z-registro-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle },
               !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)),
               !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))))));
     }
@@ -55,7 +73,7 @@ export class ZRegistroTable {
       return (h(Host, null,
         h("div", { class: tableClass },
           h("slot", { name: "table-header" })),
-        h("z-registro-table-empty-box", { message: this.message, subtitle: this.subtitle },
+        h("z-registro-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle },
           !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)),
           !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))));
     }
@@ -71,7 +89,61 @@ export class ZRegistroTable {
   static get styleUrls() { return {
     "$": ["styles.css"]
   }; }
+  static get assetsDirs() { return ["assets"]; }
   static get properties() { return {
+    "lines": {
+      "type": "number",
+      "mutable": false,
+      "complexType": {
+        "original": "number",
+        "resolved": "number",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Number of lines of element"
+      },
+      "attribute": "lines",
+      "reflect": true
+    },
+    "showErrorImage": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Show image if there's an error"
+      },
+      "attribute": "show-error-image",
+      "reflect": false,
+      "defaultValue": "true"
+    },
+    "errorMessage": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Error message"
+      },
+      "attribute": "error-message",
+      "reflect": false,
+      "defaultValue": "\"Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto\""
+    },
     "bordered": {
       "type": "boolean",
       "mutable": false,
@@ -160,6 +232,41 @@ export class ZRegistroTable {
       "reflect": false,
       "defaultValue": "false"
     },
+    "error": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Set error status"
+      },
+      "attribute": "error",
+      "reflect": false,
+      "defaultValue": "false"
+    },
+    "errorLink": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Set error status"
+      },
+      "attribute": "error-link",
+      "reflect": false
+    },
     "headerSticky": {
       "type": "boolean",
       "mutable": false,
@@ -194,7 +301,7 @@ export class ZRegistroTable {
       },
       "attribute": "message",
       "reflect": false,
-      "defaultValue": "\"Siamo spicenti, al momento non sono presenti dati da visualizzare\""
+      "defaultValue": "\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\""
     },
     "subtitle": {
       "type": "string",

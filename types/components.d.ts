@@ -1158,13 +1158,33 @@ export namespace Components {
          */
         "empty"?: boolean;
         /**
+          * Set error status
+         */
+        "error"?: boolean;
+        /**
+          * Set error status
+         */
+        "errorLink"?: string;
+        /**
+          * Error message
+         */
+        "errorMessage"?: string;
+        /**
           * Sets header sticky
          */
         "headerSticky"?: boolean;
         /**
+          * Number of lines of element
+         */
+        "lines"?: number;
+        /**
           * Set message
          */
         "message"?: string;
+        /**
+          * Show image if there's an error
+         */
+        "showErrorImage"?: boolean;
         /**
           * Set subtitle
          */
@@ -3356,9 +3376,25 @@ declare namespace LocalJSX {
          */
         "empty"?: boolean;
         /**
+          * Set error status
+         */
+        "error"?: boolean;
+        /**
+          * Set error status
+         */
+        "errorLink"?: string;
+        /**
+          * Error message
+         */
+        "errorMessage"?: string;
+        /**
           * Sets header sticky
          */
         "headerSticky"?: boolean;
+        /**
+          * Number of lines of element
+         */
+        "lines"?: number;
         /**
           * Set message
          */
@@ -3371,6 +3407,10 @@ declare namespace LocalJSX {
           * remove call to action event
          */
         "onCallToActionTwo"?: (event: CustomEvent<any>) => void;
+        /**
+          * Show image if there's an error
+         */
+        "showErrorImage"?: boolean;
         /**
           * Set subtitle
          */

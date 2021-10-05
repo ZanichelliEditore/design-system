@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-2e494cc2.js');
+const index = require('./index-31e5f406.js');
 const index$1 = require('./index-66eb89b1.js');
 
 const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}.digits-container{display:flex;justify-content:flex-start}input{height:72px;width:calc(var(--space-unit) * 5);font-size:32px;font-weight:300;font-family:var(--font-family-sans);text-align:center;caret-color:transparent;box-sizing:border-box;padding:0;color:var(--color-surface05)}input.error{border:1px solid;border-radius:4px;border-color:var(--color-error01);background-color:var(--color-error-inverse)}input:not(:last-of-type){margin-right:var(--space-unit)}@media only screen and (min-width: 768px){input:not(:last-of-type){margin-right:calc(var(--space-unit) * 2)}}@media only screen and (min-width: 1025px){input{width:calc(var(--space-unit) * 6)}}";

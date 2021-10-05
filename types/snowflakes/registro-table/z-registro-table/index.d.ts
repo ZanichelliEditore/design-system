@@ -5,6 +5,12 @@ import { EventEmitter } from "../../../stencil-public-runtime";
  */
 export declare class ZRegistroTable {
   host: HTMLElement;
+  /** Number of lines of element */
+  lines?: number;
+  /** Show image if there's an error */
+  showErrorImage?: boolean;
+  /** Error message */
+  errorMessage?: string;
   /** Sets table with border */
   bordered?: boolean;
   /** Sets call to action label */
@@ -15,6 +21,10 @@ export declare class ZRegistroTable {
   columnSticky?: boolean;
   /** Sets empty table */
   empty?: boolean;
+  /** Set error status */
+  error?: boolean;
+  /** Set error status */
+  errorLink?: string;
   /** Sets header sticky */
   headerSticky?: boolean;
   /** Set message */
@@ -25,6 +35,7 @@ export declare class ZRegistroTable {
   hasTableBody: boolean;
   /** Handle mobile */
   isMobile: boolean;
+  /** remove call to action event */
   /** remove call to action event */
   callToAction: EventEmitter;
   /** remove call to action event */

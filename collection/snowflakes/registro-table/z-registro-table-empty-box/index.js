@@ -2,7 +2,7 @@ import { Component, h, Host, Prop } from "@stencil/core";
 export class ZRegistroTableEmptyBox {
   constructor() {
     /** Sets main title message*/
-    this.message = "Siamo spicenti, al momento non sono presenti dati da visualizzare.";
+    this.message = "Siamo spiacenti, al momento non sono presenti dati da visualizzare.";
     /** Sets message */
     this.subtitle = "";
   }
@@ -40,7 +40,7 @@ export class ZRegistroTableEmptyBox {
       },
       "attribute": "message",
       "reflect": false,
-      "defaultValue": "\"Siamo spicenti, al momento non sono presenti dati da visualizzare.\""
+      "defaultValue": "\"Siamo spiacenti, al momento non sono presenti dati da visualizzare.\""
     },
     "subtitle": {
       "type": "string",

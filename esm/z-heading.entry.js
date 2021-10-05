@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-6eb9a735.js';
+import { r as registerInstance, h } from './index-0148109c.js';
 
 const ZHeading = class {
   constructor(hostRef) {
