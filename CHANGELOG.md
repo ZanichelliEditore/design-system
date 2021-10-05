@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.21.0](https://github.com/ZanichelliEditore/design-system/compare/v2.20.2...v2.21.0) (2021-10-05)
+
+
+### Features
+
+* **clav-109:** add error table ([56f65aa](https://github.com/ZanichelliEditore/design-system/commit/56f65aa7162138e141bfdb636abf034452442d7e))
+* **clav-109:** add error table into index.html ([20e23a8](https://github.com/ZanichelliEditore/design-system/commit/20e23a8c2a5045fe7df98bdd97dd788c6b80e4e1))
+
+
+### Bug Fixes
+
+* **clav-109:** fix typo ([4da01d7](https://github.com/ZanichelliEditore/design-system/commit/4da01d74a1e8f8525c2855a19b3bad0eb3ca1f73))
+* **clav-109:** pr fixes ([aa41af6](https://github.com/ZanichelliEditore/design-system/commit/aa41af63af6333ca1d413cd535acd6a81f087cb4))
+
+### [2.20.1](https://github.com/ZanichelliEditore/design-system/compare/v2.20.0...v2.20.1) (2021-09-28)
+
+
+### Features
+
+* **clav-109:** add table error component ([fa4a200](https://github.com/ZanichelliEditore/design-system/commit/fa4a2008fb3e6b89fbd2ae478cb19509e6c7d1c6))
+
+
+### Bug Fixes
+
+* **DS-131:** add knob to z-icon ([3b147a0](https://github.com/ZanichelliEditore/design-system/commit/3b147a041cc57a056e5402cce2a940615b085021))
+
 ### [2.20.2](https://github.com/ZanichelliEditore/design-system/compare/v2.20.0...v2.20.2) (2021-10-04)
 
 ### [2.20.1](https://github.com/ZanichelliEditore/design-system/compare/v2.20.0...v2.20.1) (2021-10-04)
