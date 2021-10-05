@@ -36,6 +36,9 @@ export class zModalLogin {
       originalUsername: usernameInput.value,
     });
   }
+  emitStatusUpdate(status) {
+    this.statusUpdate.emit(status);
+  }
   emitSignupClick() {
     this.signupClick.emit();
   }
@@ -46,6 +49,10 @@ export class zModalLogin {
     if (e.code !== "Enter")
       return;
     this.emitLoginSubmit();
+  }
+  handleInputChange() {
+    this.status = null;
+    this.emitStatusUpdate(this.status);
   }
   cleanUsername(username) {
     username = username.trim().toLowerCase();
@@ -77,10 +84,10 @@ export class zModalLogin {
         h("form", { method: "post" },
           h("div", { class: "username" },
             h("slot", { name: "username" },
-              h("z-input", { id: "username", label: "email o numero di cellulare", placeholder: "Inserisci l'email o il cellulare", autocomplete: "username", name: "username", status: this.status, message: this.message, onKeyUp: (e) => this.handleInputKeyUp(e), onInputChange: () => (this.status = null) }))),
+              h("z-input", { id: "username", label: "email o numero di cellulare", placeholder: "Inserisci l'email o il cellulare", autocomplete: "username", name: "username", status: this.status, message: this.message, onKeyUp: (e) => this.handleInputKeyUp(e), onInputChange: () => this.handleInputChange() }))),
           h("div", { class: "password" },
             h("slot", { name: "password" },
-              h("z-input", { id: "password", label: "password", placeholder: "Inserisci la tua password", type: "password", name: "password", autocomplete: "current-password", status: this.status, onKeyUp: (e) => this.handleInputKeyUp(e), onInputChange: () => (this.status = null) }))),
+              h("z-input", { id: "password", label: "password", placeholder: "Inserisci la tua password", type: "password", name: "password", autocomplete: "current-password", status: this.status, message: this.pwdmessage, onKeyUp: (e) => this.handleInputKeyUp(e), onInputChange: () => this.handleInputChange() }))),
           h("z-link", { class: "forget", href: this.forgotPasswordUrl }, "Password dimenticata?"),
           h("div", { class: "login" },
             h("slot", { name: "login" },
@@ -178,6 +185,23 @@ export class zModalLogin {
       },
       "attribute": "message",
       "reflect": false
+    },
+    "pwdmessage": {
+      "type": "string",
+      "mutable": true,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Password helper message"
+      },
+      "attribute": "pwdmessage",
+      "reflect": false
     }
   }; }
   static get states() { return {
@@ -192,6 +216,21 @@ export class zModalLogin {
       "docs": {
         "tags": [],
         "text": "Emitted on login submit"
+      },
+      "complexType": {
+        "original": "any",
+        "resolved": "any",
+        "references": {}
+      }
+    }, {
+      "method": "statusUpdate",
+      "name": "statusUpdate",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": {
+        "tags": [],
+        "text": "Emitted on status update"
       },
       "complexType": {
         "original": "any",

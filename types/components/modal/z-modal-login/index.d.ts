@@ -18,11 +18,16 @@ export declare class zModalLogin {
   status?: InputStatusBean;
   /** Username helper message */
   message?: string;
+  /** Password helper message */
+  pwdmessage?: string;
   externalProviderCheck: boolean;
   componentDidLoad(): void;
   /** Emitted on login submit */
   loginSubmit: EventEmitter;
   emitLoginSubmit(): void;
+  /** Emitted on status update */
+  statusUpdate: EventEmitter;
+  emitStatusUpdate(status: InputStatusBean): void;
   /** Emitted on signup button click */
   signupClick: EventEmitter;
   emitSignupClick(): void;
@@ -30,6 +35,7 @@ export declare class zModalLogin {
   zainoDigitaleClick: EventEmitter;
   emitZainoDigitaleClick(): void;
   handleInputKeyUp(e: KeyboardEvent): void;
+  handleInputChange(): void;
   cleanUsername(username: string): string;
   renderZainoDigitaleButton(): any;
   render(): any;

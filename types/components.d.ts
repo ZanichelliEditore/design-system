@@ -713,6 +713,10 @@ export namespace Components {
          */
         "message"?: string;
         /**
+          * Password helper message
+         */
+        "pwdmessage"?: string;
+        /**
           * Username/password input status
          */
         "status"?: InputStatusBean;
@@ -2881,9 +2885,17 @@ declare namespace LocalJSX {
          */
         "onSignupClick"?: (event: CustomEvent<any>) => void;
         /**
+          * Emitted on status update
+         */
+        "onStatusUpdate"?: (event: CustomEvent<any>) => void;
+        /**
           * Emitted on zaino digitale button click
          */
         "onZainoDigitaleClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Password helper message
+         */
+        "pwdmessage"?: string;
         /**
           * Username/password input status
          */
