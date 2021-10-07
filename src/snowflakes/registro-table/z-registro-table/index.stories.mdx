@@ -93,14 +93,27 @@ import { text, boolean } from "@storybook/addon-knobs";
     </z-registro-table>`}
   </Story>
   <Story name="ZRegistroTable-error-no-header">
-    {html`<z-registro-table error="true" lines="${text("lines", "6")}">
-    </z-registro-table>`}
+    {html`<z-registro-table
+        error="true"
+        lines="${text("Lines", "6")}"
+        show-error-image="${boolean("Show Image", true)}"
+        error-message="${text(
+          "Error Message",
+          "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto"
+        )}"
+      >
+      </z-registro-table>
+      <p>Altro contenuto</p>`}
   </Story>
   <Story name="ZRegistroTable-error">
     {html`<z-registro-table
         error="true"
+        lines="${text("Lines", "6")}"
         show-error-image="${boolean("Show Image", true)}"
-        lines="${text("Lines", "1")}"
+        error-message="${text(
+          "Error Message",
+          "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto"
+        )}"
       >
         <z-registro-table-head slot="table-header">
           <z-registro-table-header-row>
