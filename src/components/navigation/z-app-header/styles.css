@@ -40,10 +40,14 @@
   --app-header-typography-11-tracking: calc(-2.2 / 1em);
   --app-header-typography-12-tracking: calc(-2.4 / 1em);
 
+  /**
+   * Variable to set stucked header and drawer's top offset. Useful when something is absolutely positioned above the header.
+   */
+  --app-header-top-offset: var(var(--app-header-top-offset), 0);
   --app-header-drawer-trigger-size: calc(var(--space-unit) * 4);
 
   display: block;
-  color: var(--text-grey-800);
+  color: var(--gray800);
 }
 
 :host,
@@ -69,7 +73,7 @@
 
 .heading-stucked {
   position: fixed;
-  top: var(--stuck-top, 0);
+  top: var(--app-header-top-offset);
   left: 0;
   z-index: 5;
   display: flex;
@@ -77,9 +81,9 @@
   width: 100%;
   max-width: 100%;
   padding: var(--space-unit) var(--grid-mobile-margin);
-  background: var(--bg-white);
+  background: var(--color-white);
   box-shadow: var(--shadow-2);
-  background: var(--bg-white);
+  background: var(--color-white);
   animation: slideStuckedHeadingIn 250ms ease-out;
 }
 
@@ -101,8 +105,9 @@
   max-width: 100%;
 }
 
-.heading-stucked .heading-title,
+.heading-stucked .heading-title > *,
 ::slotted([slot='title']) {
+  margin: 0;
   font-weight: 700;
   font-family: 'IBM Plex Serif', serif;
   font-size: var(--app-header-typography-3-size);
@@ -110,13 +115,13 @@
   letter-spacing: var(--app-header-typography-3-tracking);
 }
 
-.heading-subtitle {
+:host([drawer]) .heading-subtitle {
   padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 1.5));
 }
 
 ::slotted([slot='subtitle']) {
   margin-top: var(--space-unit);
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-style: italic;
   font-weight: 500;
   font-size: 20px;
@@ -167,7 +172,7 @@
 
 .drawer-container {
   position: fixed;
-  top: 0;
+  top: var(--app-header-top-offset);
   left: 0;
   width: 100%;
   height: 100%;
@@ -183,7 +188,7 @@
   height: 100%;
   z-index: 1;
   display: block;
-  background: var(--bg-grey-900);
+  background: var(--gray900);
   opacity: 0;
   transition: opacity 400ms ease-out;
   pointer-events: none;
@@ -201,7 +206,7 @@
   max-width: 100%;
   height: 100%;
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 2) 0;
-  background: var(--bg-white);
+  background: var(--color-white);
   transform: translate3d(-100%, 0, 0);
   transition: transform 400ms ease-out;
   pointer-events: none;
@@ -219,16 +224,16 @@
 .drawer-content::-webkit-scrollbar {
   background: linear-gradient(
     90deg,
-    var(--bg-white) 2px,
-    var(--bg-grey-200) 4px,
-    var(--bg-white) 8px
+    var(--color-white) 2px,
+    var(--gray200) 4px,
+    var(--color-white) 8px
   );
   border-radius: var(--border-radius);
   width: 10px;
 }
 
 .drawer-content::-webkit-scrollbar-thumb {
-  background-color: var(--myz-blue);
+  background-color: var(--blue500);
   border-radius: var(--border-radius);
   width: 10px;
 }
@@ -274,8 +279,8 @@
 :host([overlay]) .heading-panel .drawer-trigger z-icon,
 :host([overlay]) .heading-panel .heading-container,
 :host([overlay]) .heading-panel .menu-container {
-  color: var(--text-white);
-  fill: var(--text-white);
+  color: var(--color-white);
+  fill: var(--color-white);
 }
 
 :host([overlay]) .hero-container::after {
@@ -318,15 +323,11 @@
     display: none;
   }
 
-  :host(:not([drawer])) .heading-subtitle {
-    padding-left: 0;
-  }
-
   :host(:not([drawer]):not([data-menu-length='0'])) .heading-container:not(:last-child) {
     margin-bottom: calc(var(--space-unit) * 3);
   }
 
-  .heading-stucked .heading-title,
+  .heading-stucked .heading-title > *,
   ::slotted([slot='title']) {
     font-size: var(--app-header-typography-5-size);
     line-height: var(--app-header-typography-5-lineheight);

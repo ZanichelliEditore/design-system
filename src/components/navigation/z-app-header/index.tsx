@@ -42,7 +42,7 @@ export class ZAppHeader {
    * Control menu bar position in the header.
    * **Optional**
    */
-   @Prop({ reflect: true }) flow: 'auto'|'stack' = 'auto';
+  @Prop({ reflect: true }) flow: 'auto'|'stack' = 'auto';
 
   /**
    * The opening state of the drawer.
@@ -72,14 +72,16 @@ export class ZAppHeader {
   componentDidLoad() {
     this.collectMenuElements();
     this.onStuckMode();
+    this.setStuckPosition();
   }
 
   private get title() {
     const titleElement = this.hostElement.querySelector('[slot="title"]');
     if (!titleElement) {
-      return '';
+      return;
     }
-    return titleElement.textContent.trim();
+
+    return titleElement.outerHTML;
   }
 
   private get scrollParent() {
@@ -96,10 +98,13 @@ export class ZAppHeader {
     this.setMenuFloatingMode();
   }
 
+  /**
+   * Set `z-app-topbar`'s height as stucked header top offset.
+   */
   private setStuckPosition() {
     const topbar = this.hostElement.ownerDocument.querySelector('z-app-topbar');
     const top = topbar ? topbar.clientHeight : 0;
-    this.hostElement.style.setProperty('--stuck-top', `${top}px`);
+    this.hostElement.style.setProperty('--app-header-top-offset', `${top}px`);
   }
 
   @Watch('stuck')
@@ -161,9 +166,9 @@ export class ZAppHeader {
         </div>
         <div class="heading-container">
           <div class="heading-title">
-            <button class="drawer-trigger" onClick={this.openDrawer}>
+            {this.drawer && <button class="drawer-trigger" onClick={this.openDrawer}>
               <z-icon name="burger-menu"></z-icon>
-            </button>
+            </button>}
             <slot name="title"></slot>
           </div>
           <div class="heading-subtitle">
@@ -171,7 +176,7 @@ export class ZAppHeader {
           </div>
         </div>
         <div class="menu-container">
-          {(!this.drawerOpen) && <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>}
+          {!this.drawerOpen && <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>}
         </div>
       </div>
       <div class="drawer-container" data-open={this.drawerOpen}>
@@ -186,15 +191,19 @@ export class ZAppHeader {
         </div>
       </div>
       {this.stucked && <div class="heading-stucked">
-        <button class="drawer-trigger" onClick={this.openDrawer}>
+        {this.drawer && <button class="drawer-trigger" onClick={this.openDrawer}>
           <z-icon name="burger-menu"></z-icon>
-        </button>
-        <div class="heading-title">{this.title}</div>
+        </button>}
+        <div class="heading-title" innerHTML={this.title}></div>
       </div>}
     </Host>;
   }
 
   openDrawer() {
+    if (!this.drawer) {
+      return;
+    }
+
     this.drawerOpen = true;
   }
 
