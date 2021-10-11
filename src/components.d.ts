@@ -22,6 +22,10 @@ export namespace Components {
          */
         "drawer": boolean;
         /**
+          * The opening state of the drawer.
+         */
+        "drawerOpen": boolean;
+        /**
           * Control menu bar position in the header. **Optional**
          */
         "flow": 'auto'|'stack';
@@ -2105,6 +2109,10 @@ declare namespace LocalJSX {
           * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
          */
         "drawer"?: boolean;
+        /**
+          * The opening state of the drawer.
+         */
+        "drawerOpen"?: boolean;
         /**
           * Control menu bar position in the header. **Optional**
          */

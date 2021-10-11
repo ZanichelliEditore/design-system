@@ -47,7 +47,7 @@ export class ZAppHeader {
   /**
    * The opening state of the drawer.
    */
-  @State() drawerOpen: boolean = false;
+  @Prop({ reflect: true }) drawerOpen: boolean = false;
 
   /**
    * The stucked state of the bar.
@@ -179,7 +179,7 @@ export class ZAppHeader {
           {!this.drawerOpen && <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>}
         </div>
       </div>
-      <div class="drawer-container" data-open={this.drawerOpen}>
+      <div class="drawer-container">
         <div class="drawer-overlay" onClick={this.closeDrawer}></div>
         <div class="drawer-panel">
           <button class="drawer-close" onClick={this.closeDrawer}>

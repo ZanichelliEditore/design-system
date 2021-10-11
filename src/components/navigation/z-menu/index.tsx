@@ -45,12 +45,15 @@ export class ZMenu {
   private content: HTMLElement;
   private raf: number;
 
+  /** Generic event for clicks on the label. */
+  @Event() labelClick: EventEmitter;
   /** The menu has been opened. */
   @Event() opened: EventEmitter;
   /** The menu has been closed. */
   @Event() closed: EventEmitter;
   toggle() {
     if (!this.hasContent) {
+      this.labelClick.emit();
       return;
     }
 
