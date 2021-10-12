@@ -35,12 +35,16 @@ export class ZRegistroTableRow {
   renderExpandButton() {
     if (this.expandedType == ZRegistroTableRowExpandedType.expandable) {
       return (
-        <z-registro-table-cell>
+        <z-registro-table-cell style={{ borderRight: "none" }}>
           <z-icon name={this.expanded ? "minus-circled" : "plus-circled"} />
         </z-registro-table-cell>
       );
     }
-    return <div class="z-icon-placeholder" />;
+    return (
+      <z-registro-table-cell style={{ borderRight: "none" }}>
+        <div class="z-icon-placeholder" />
+      </z-registro-table-cell>
+    );
   }
 
   render() {
