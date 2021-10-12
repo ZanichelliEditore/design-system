@@ -16,6 +16,8 @@ export class ZModal {
   @Prop() modaltitle?: string;
   /** subtitle (optional) */
   @Prop() modalsubtitle?: string;
+  /** aria-label for close button (optional) */
+  @Prop() closeButtonLabel?: string = 'close modal';
 
   /** emitted on close button click, returns modalid */
   @Event() modalClose: EventEmitter;
@@ -44,7 +46,7 @@ export class ZModal {
             {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
           </div>
           <slot name="modalCloseButton">
-            <button onClick={this.emitModalClose.bind(this)}>
+            <button aria-label={this.closeButtonLabel} onClick={this.emitModalClose.bind(this)}>
               <z-icon name="multiply-circle-filled"></z-icon>
             </button>
           </slot>

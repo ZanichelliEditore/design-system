@@ -15,7 +15,7 @@ describe("Suite test ZModal", () => {
             <header>
               <div></div>
               <slot name="modalCloseButton">
-                <button>
+                <button aria-label="close modal">
                   <z-icon name="multiply-circle-filled"></z-icon>
                 </button>
               </slot>
@@ -33,10 +33,10 @@ describe("Suite test ZModal", () => {
   it("Test render ZModal with props", async () => {
     const page = await newSpecPage({
       components: [ZModal],
-      html: `<z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle"></z-modal>`
+      html: `<z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale"></z-modal>`
     });
     expect(page.root).toEqualHtml(`
-      <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle">
+      <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale">
         <mock:shadow-root>
           <div class="modal-container" id="modal">
             <header>
@@ -45,7 +45,7 @@ describe("Suite test ZModal", () => {
                 <h2>subtitle</h2>
               </div>
               <slot name="modalCloseButton">
-                <button>
+                <button aria-label="chiudi modale">
                   <z-icon name="multiply-circle-filled"></z-icon>
                 </button>
               </slot>
@@ -73,7 +73,7 @@ describe("Suite test ZModal", () => {
             <header>
               <div></div>
               <slot name="modalCloseButton">
-                <button>
+                <button aria-label="close modal">
                   <z-icon name="multiply-circle-filled"></z-icon>
                 </button>
               </slot>
@@ -101,7 +101,7 @@ describe("Suite test ZModal", () => {
             <header>
               <div></div>
               <slot name="modalCloseButton">
-                <button>
+                <button aria-label="close modal">
                   <z-icon name="multiply-circle-filled"></z-icon>
                 </button>
               </slot>
