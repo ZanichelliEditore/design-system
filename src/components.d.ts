@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZRegistroTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1245,7 +1245,7 @@ export namespace Components {
         "expandable"?: boolean;
     }
     interface ZRegistroTableRow {
-        "expandable": any;
+        "expandedType": ZRegistroTableRowExpandedType;
     }
     interface ZRegistroTableStickyFooter {
     }
@@ -3483,7 +3483,7 @@ declare namespace LocalJSX {
         "expandable"?: boolean;
     }
     interface ZRegistroTableRow {
-        "expandable"?: any;
+        "expandedType"?: ZRegistroTableRowExpandedType;
         "onExpand"?: (event: CustomEvent<any>) => void;
     }
     interface ZRegistroTableStickyFooter {

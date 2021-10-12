@@ -10,8 +10,7 @@ describe("Suite test ZRegistroTableRow", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-registro-table-row role="row">
-        <div class="z-icon-placeholder"></div>
+      <z-registro-table-row expanded-type="none" role="row">
         <z-registro-table-cell></z-registro-table-cell>
       </z-registro-table-row>
     `);

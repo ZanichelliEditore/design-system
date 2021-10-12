@@ -7,7 +7,8 @@ import {
   Event,
   EventEmitter,
 } from "@stencil/core";
-import { ExpandedTableRowButtonType } from "../../../beans";
+
+import { ZRegistroTableRowExpandedType } from "../../../beans";
 @Component({
   tag: "z-registro-table-row",
   styleUrl: "styles.css",
@@ -15,7 +16,8 @@ import { ExpandedTableRowButtonType } from "../../../beans";
   scoped: false,
 })
 export class ZRegistroTableRow {
-  @Prop({ reflect: true }) expandable;
+  @Prop({ reflect: true }) expandedType: ZRegistroTableRowExpandedType =
+    ZRegistroTableRowExpandedType.none;
 
   @State() expanded: boolean = false;
 
@@ -31,7 +33,7 @@ export class ZRegistroTableRow {
   }
 
   renderExpandButton() {
-    if (this.expandable == ExpandedTableRowButtonType.expandable) {
+    if (this.expandedType == ZRegistroTableRowExpandedType.expandable) {
       return (
         <z-registro-table-cell>
           <z-icon name={this.expanded ? "minus-circled" : "plus-circled"} />
@@ -47,11 +49,11 @@ export class ZRegistroTableRow {
         role="row"
         expanded={this.expanded}
         onClick={() =>
-          this.expandable === ExpandedTableRowButtonType.expandable &&
+          this.expandedType === ZRegistroTableRowExpandedType.expandable &&
           this.handleExpand()
         }
       >
-        {this.expandable !== ExpandedTableRowButtonType.none &&
+        {this.expandedType !== ZRegistroTableRowExpandedType.none &&
           this.renderExpandButton()}
         <slot />
       </Host>
