@@ -16,8 +16,6 @@ import { ExpandedTableRowButtonType } from "../../../beans";
   scoped: false,
 })
 export class ZRegistroTableRow {
-  @Element() host: HTMLElement;
-
   @Prop({ reflect: true }) expandable;
 
   @State() expanded: boolean = false;
@@ -40,7 +38,8 @@ export class ZRegistroTableRow {
           <z-icon name={this.expanded ? "minus-circled" : "plus-circled"} />
         </z-registro-table-cell>
       );
-    } else return <div class="z-icon-placeholder" />;
+    }
+    return <div class="z-icon-placeholder" />;
   }
 
   render() {
