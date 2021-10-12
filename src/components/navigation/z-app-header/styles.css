@@ -44,10 +44,17 @@
    * Variable to set stucked header and drawer's top offset. Useful when something is absolutely positioned above the header.
    */
   --app-header-top-offset: var(var(--app-header-top-offset), 0);
+
   --app-header-drawer-trigger-size: calc(var(--space-unit) * 4);
 
+  /* Variable to customize header background color. */
+  --app-header-bg: var(--color-white);
+
+  /* Variable to customize text and icon color. */
+  --app-header-text-color: var(--gray800);
+
   display: block;
-  color: var(--gray800);
+  color: var(--app-header-text-color);
 }
 
 :host,
@@ -69,6 +76,7 @@
   padding-right: var(--grid-mobile-margin);
   padding-bottom: calc(var(--space-unit) * 4.5);
   padding-left: var(--grid-mobile-margin);
+  background: var(--app-header-bg);
 }
 
 .heading-stucked {
@@ -81,9 +89,8 @@
   width: 100%;
   max-width: 100%;
   padding: var(--space-unit) var(--grid-mobile-margin);
-  background: var(--color-white);
+  background: var(--app-header-bg);
   box-shadow: var(--shadow-2);
-  background: var(--color-white);
   animation: slideStuckedHeadingIn 250ms ease-out;
 }
 
@@ -161,6 +168,7 @@
   background: none;
   border: 0;
   border-radius: 0;
+  color: inherit;
   appearance: none;
   cursor: pointer;
 }
@@ -168,6 +176,7 @@
 .drawer-trigger z-icon {
   --z-icon-width: var(--app-header-drawer-trigger-size);
   --z-icon-height: var(--app-header-drawer-trigger-size);
+  fill: currentColor;
 }
 
 .drawer-container {
@@ -207,6 +216,7 @@
   height: 100%;
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 2) 0;
   background: var(--color-white);
+  color: var(--gray800);
   transform: translate3d(-100%, 0, 0);
   transition: transform 400ms ease-out;
   pointer-events: none;
@@ -217,7 +227,7 @@
   flex-direction: column;
   flex: 1 auto;
   width: 100%;
-  padding: 0 calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 2);
   overflow: auto;
 }
 
@@ -233,7 +243,7 @@
 }
 
 .drawer-content::-webkit-scrollbar-thumb {
-  background-color: var(--blue500);
+  background-color: var(--color-primary01);
   border-radius: var(--border-radius);
   width: 10px;
 }
@@ -251,6 +261,8 @@
   padding: 0;
   font-size: inherit;
   background: transparent;
+  color: inherit;
+  fill: currentColor;
   border: 0;
   border-radius: 0;
   appearance: none;
