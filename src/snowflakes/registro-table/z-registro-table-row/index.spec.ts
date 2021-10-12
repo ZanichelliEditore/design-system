@@ -11,6 +11,9 @@ describe("Suite test ZRegistroTableRow", () => {
 
     expect(page.root).toEqualHtml(`
       <z-registro-table-row role="row">
+        <z-registro-table-cell>
+          <z-icon name="null"></z-icon>
+        </z-registro-table-cell>
         <z-registro-table-cell></z-registro-table-cell>
       </z-registro-table-row>
     `);
