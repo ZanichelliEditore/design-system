@@ -2,7 +2,6 @@ import {
   Component,
   Prop,
   State,
-  Element,
   Host,
   h,
   Event,
