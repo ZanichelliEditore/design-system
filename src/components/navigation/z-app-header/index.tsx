@@ -166,7 +166,7 @@ export class ZAppHeader {
         </div>
         <div class="heading-container">
           <div class="heading-title">
-            {this.drawer && <button class="drawer-trigger" onClick={this.openDrawer}>
+            {this.drawer && <button class="drawer-trigger" aria-label="Apri menu" onClick={this.openDrawer}>
               <z-icon name="burger-menu"></z-icon>
             </button>}
             <slot name="title"></slot>
@@ -182,7 +182,7 @@ export class ZAppHeader {
       <div class="drawer-container">
         <div class="drawer-overlay" onClick={this.closeDrawer}></div>
         <div class="drawer-panel">
-          <button class="drawer-close" onClick={this.closeDrawer}>
+          <button class="drawer-close" aria-label="Chiudi menu" onClick={this.closeDrawer}>
             <z-icon name="close"></z-icon>
           </button>
           <div class="drawer-content">
@@ -191,7 +191,7 @@ export class ZAppHeader {
         </div>
       </div>
       {this.stucked && <div class="heading-stucked">
-        {this.drawer && <button class="drawer-trigger" onClick={this.openDrawer}>
+        {this.drawer && <button class="drawer-trigger" aria-label="Apri menu" onClick={this.openDrawer}>
           <z-icon name="burger-menu"></z-icon>
         </button>}
         <div class="heading-title" innerHTML={this.title}></div>

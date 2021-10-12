@@ -7,7 +7,6 @@ import {
   EventEmitter,
   Listen,
   Element,
-  Host,
   Watch
 } from '@stencil/core';
 
@@ -45,13 +44,15 @@ export class ZMenu {
   private content: HTMLElement;
   private raf: number;
 
-  /** Generic event for clicks on the label. */
+  /** Generic event for clicks on the label.
+   * Emitted only when the label isn't one of a submenu.
+  */
   @Event() labelClick: EventEmitter;
   /** The menu has been opened. */
   @Event() opened: EventEmitter;
   /** The menu has been closed. */
   @Event() closed: EventEmitter;
-  toggle() {
+  onLabelClick() {
     if (!this.hasContent) {
       this.labelClick.emit();
       return;
@@ -86,6 +87,16 @@ export class ZMenu {
     }
   }
 
+  constructor() {
+    this.onLabelClick = this.onLabelClick.bind(this);
+    this.checkContent = this.checkContent.bind(this);
+    this.onItemsChange = this.onItemsChange.bind(this);
+  }
+
+  componentWillLoad() {
+    this.checkContent();
+  }
+
   /**
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
@@ -107,31 +118,50 @@ export class ZMenu {
   /**
    * Check if some content slot is set.
    */
-  checkContent() {
+  private checkContent() {
     this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
     this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
   }
 
-  componentWillLoad() {
+  /**
+   * Set `menuitem` role to all menu items.
+   */
+  private onItemsChange() {
     this.checkContent();
+    const items = this.hostElement.querySelectorAll('[slot="item"]');
+    if (items.length) {
+      items.forEach((item) => item.setAttribute('role', 'menuitem'));
+    }
+  }
+
+  private renderMenuLabel() {
+    if (this.hasContent) {
+      return <button class="menu-label" aria-expanded={this.open ? 'true' : 'false'} onClick={this.onLabelClick}>
+        <div class="menu-label-content">
+          <slot></slot>
+          <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />
+        </div>
+      </button>;
+    }
+
+    return <div class="menu-label" onClick={this.onLabelClick}>
+      <div class="menu-label-content">
+        <slot></slot>
+      </div>
+    </div>;
   }
 
   render() {
-    return <Host role="menu">
-      <button class="label" aria-pressed={this.open ? 'true' : 'false'} onClick={this.toggle.bind(this)}>
-        <div class="label-content">
-          <slot></slot>
-          {this.hasContent && <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />}
-        </div>
-      </button>
+    return [
+      this.renderMenuLabel(),
       <div class="content" ref={(el) => { this.content = el; }} hidden={!this.open}>
         {this.hasHeader && <header class="header">
-          <slot name="header" onSlotchange={this.checkContent.bind(this)}></slot>
+          <slot name="header" onSlotchange={this.checkContent}></slot>
         </header>}
-        <div class="items">
-          <slot name="item" onSlotchange={this.checkContent.bind(this)}></slot>
+        <div class="items" role="menu">
+          <slot name="item" onSlotchange={this.onItemsChange}></slot>
         </div>
       </div>
-    </Host>
+    ];
   }
 }

@@ -16,11 +16,11 @@
 
 ## Events
 
-| Event        | Description                            | Type               |
-| ------------ | -------------------------------------- | ------------------ |
-| `closed`     | The menu has been closed.              | `CustomEvent<any>` |
-| `labelClick` | Generic event for clicks on the label. | `CustomEvent<any>` |
-| `opened`     | The menu has been opened.              | `CustomEvent<any>` |
+| Event        | Description                                                                                | Type               |
+| ------------ | ------------------------------------------------------------------------------------------ | ------------------ |
+| `closed`     | The menu has been closed.                                                                  | `CustomEvent<any>` |
+| `labelClick` | Generic event for clicks on the label. Emitted only when the label isn't one of a submenu. | `CustomEvent<any>` |
+| `opened`     | The menu has been opened.                                                                  | `CustomEvent<any>` |
 
 
 ## Slots
