@@ -34,19 +34,13 @@ export class ZRegistroTableRow {
   }
 
   renderExpandButton() {
-    return (
-      <z-registro-table-cell>
-        <z-icon
-          name={
-            this.expandable == ExpandedTableRowButtonType.expandable
-              ? this.expanded
-                ? "minus-circled"
-                : "plus-circled"
-              : "null"
-          }
-        />
-      </z-registro-table-cell>
-    );
+    if (this.expandable == ExpandedTableRowButtonType.expandable) {
+      return (
+        <z-registro-table-cell>
+          <z-icon name={this.expanded ? "minus-circled" : "plus-circled"} />
+        </z-registro-table-cell>
+      );
+    } else return <div class="z-icon-placeholder" />;
   }
 
   render() {

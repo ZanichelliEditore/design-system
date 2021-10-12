@@ -24,6 +24,12 @@ z-registro-table-row[expandable="padding"] > z-registro-table-cell:first-child {
   user-select: none;
 }
 
+.z-icon-placeholder {
+  width: 24px;
+  padding-left: 16px;
+  padding-right: 0px;
+}
+
 z-registro-table-row[expandable="expandable"]
   > z-registro-table-cell:nth-child(2),
 z-registro-table-row[expandable="padding"]
