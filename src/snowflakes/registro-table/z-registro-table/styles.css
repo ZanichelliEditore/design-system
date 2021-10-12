@@ -112,6 +112,16 @@ z-registro-table-empty-box.bordered {
   border-left: var(--border-size-small) solid var(--bg-grey-200);
 }
 
+z-registro-table-body {
+  width: auto;
+}
+
+z-registro-table-empty-box {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .error-message {
   margin-top: calc(var(--space-unit) * 2);
 }
@@ -119,10 +129,7 @@ z-registro-table-empty-box.bordered {
 .table-content {
   display: flex;
   flex-direction: row;
-}
-
-.table-content :first-child {
-  width: auto;
+  width: 100%;
 }
 
 .error-content {
