@@ -1245,7 +1245,7 @@ export namespace Components {
         "expandable"?: boolean;
     }
     interface ZRegistroTableRow {
-        "expandable"?: boolean;
+        "expandable": any;
     }
     interface ZRegistroTableStickyFooter {
     }
@@ -3483,7 +3483,7 @@ declare namespace LocalJSX {
         "expandable"?: boolean;
     }
     interface ZRegistroTableRow {
-        "expandable"?: boolean;
+        "expandable"?: any;
         "onExpand"?: (event: CustomEvent<any>) => void;
     }
     interface ZRegistroTableStickyFooter {

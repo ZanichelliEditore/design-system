@@ -11,9 +11,9 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `expandable` | `expandable` |             | `boolean` | `undefined` |
+| Property     | Attribute    | Description | Type  | Default     |
+| ------------ | ------------ | ----------- | ----- | ----------- |
+| `expandable` | `expandable` |             | `any` | `undefined` |
 
 
 ## Events
