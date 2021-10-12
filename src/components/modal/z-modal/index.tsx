@@ -2,6 +2,7 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 /**
  * @slot modalContent - set the content of the modal
+ * @slot modalCloseButton - accept custom close button
  */
 @Component({
   tag: "z-modal",
@@ -42,9 +43,11 @@ export class ZModal {
             {this.modaltitle && <h1>{this.modaltitle}</h1>}
             {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
           </div>
-          <button onClick={this.emitModalClose.bind(this)}>
-            <z-icon name="multiply-circle-filled"></z-icon>
-          </button>
+          <slot name="modalCloseButton">
+            <button onClick={this.emitModalClose.bind(this)}>
+              <z-icon name="multiply-circle-filled"></z-icon>
+            </button>
+          </slot>
         </header>
         <main>
           <slot name="modalContent"></slot>

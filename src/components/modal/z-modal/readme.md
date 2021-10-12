@@ -31,9 +31,10 @@
 
 ## Slots
 
-| Slot             | Description                  |
-| ---------------- | ---------------------------- |
-| `"modalContent"` | set the content of the modal |
+| Slot                 | Description                  |
+| -------------------- | ---------------------------- |
+| `"modalCloseButton"` | accept custom close button   |
+| `"modalContent"`     | set the content of the modal |
 
 
 ## Dependencies
