@@ -687,6 +687,10 @@ export namespace Components {
     }
     interface ZModal {
         /**
+          * aria-label for close button (optional)
+         */
+        "closeButtonLabel"?: string;
+        /**
           * unique id
          */
         "modalid": string;
@@ -2838,6 +2842,10 @@ declare namespace LocalJSX {
         "status"?: PocketStatus;
     }
     interface ZModal {
+        /**
+          * aria-label for close button (optional)
+         */
+        "closeButtonLabel"?: string;
         /**
           * unique id
          */
