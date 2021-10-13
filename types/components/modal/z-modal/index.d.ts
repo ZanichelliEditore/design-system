@@ -1,6 +1,7 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
 /**
  * @slot modalContent - set the content of the modal
+ * @slot modalCloseButton - accept custom close button
  */
 export declare class ZModal {
   /** unique id */
@@ -9,6 +10,8 @@ export declare class ZModal {
   modaltitle?: string;
   /** subtitle (optional) */
   modalsubtitle?: string;
+  /** aria-label for close button (optional) */
+  closeButtonLabel?: string;
   /** emitted on close button click, returns modalid */
   modalClose: EventEmitter;
   emitModalClose(): void;

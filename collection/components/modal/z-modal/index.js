@@ -1,8 +1,13 @@
 import { Component, Prop, h, Event } from "@stencil/core";
 /**
  * @slot modalContent - set the content of the modal
+ * @slot modalCloseButton - accept custom close button
  */
 export class ZModal {
+  constructor() {
+    /** aria-label for close button (optional) */
+    this.closeButtonLabel = 'close modal';
+  }
   emitModalClose() {
     this.modalClose.emit({ modalid: this.modalid });
   }
@@ -19,8 +24,9 @@ export class ZModal {
           h("div", null,
             this.modaltitle && h("h1", null, this.modaltitle),
             this.modalsubtitle && h("h2", null, this.modalsubtitle)),
-          h("button", { onClick: this.emitModalClose.bind(this) },
-            h("z-icon", { name: "multiply-circle-filled" }))),
+          h("slot", { name: "modalCloseButton" },
+            h("button", { "aria-label": this.closeButtonLabel, onClick: this.emitModalClose.bind(this) },
+              h("z-icon", { name: "multiply-circle-filled" })))),
         h("main", null,
           h("slot", { name: "modalContent" }))),
       h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: this.emitBackgroundClick.bind(this) })
@@ -85,6 +91,24 @@ export class ZModal {
       },
       "attribute": "modalsubtitle",
       "reflect": false
+    },
+    "closeButtonLabel": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "aria-label for close button (optional)"
+      },
+      "attribute": "close-button-label",
+      "reflect": false,
+      "defaultValue": "'close modal'"
     }
   }; }
   static get events() { return [{

@@ -12,6 +12,8 @@ const ZModal = class {
     this.modalClose = index.createEvent(this, "modalClose", 7);
     this.modalHeaderActive = index.createEvent(this, "modalHeaderActive", 7);
     this.modalBackgroundClick = index.createEvent(this, "modalBackgroundClick", 7);
+    /** aria-label for close button (optional) */
+    this.closeButtonLabel = 'close modal';
   }
   emitModalClose() {
     this.modalClose.emit({ modalid: this.modalid });
@@ -24,7 +26,7 @@ const ZModal = class {
   }
   render() {
     return [
-      index.h("div", { class: "modal-container", id: this.modalid }, index.h("header", { onClick: this.emitModalHeaderActive.bind(this) }, index.h("div", null, this.modaltitle && index.h("h1", null, this.modaltitle), this.modalsubtitle && index.h("h2", null, this.modalsubtitle)), index.h("button", { onClick: this.emitModalClose.bind(this) }, index.h("z-icon", { name: "multiply-circle-filled" }))), index.h("main", null, index.h("slot", { name: "modalContent" }))),
+      index.h("div", { class: "modal-container", id: this.modalid }, index.h("header", { onClick: this.emitModalHeaderActive.bind(this) }, index.h("div", null, this.modaltitle && index.h("h1", null, this.modaltitle), this.modalsubtitle && index.h("h2", null, this.modalsubtitle)), index.h("slot", { name: "modalCloseButton" }, index.h("button", { "aria-label": this.closeButtonLabel, onClick: this.emitModalClose.bind(this) }, index.h("z-icon", { name: "multiply-circle-filled" })))), index.h("main", null, index.h("slot", { name: "modalContent" }))),
       index.h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: this.emitBackgroundClick.bind(this) })
     ];
   }
