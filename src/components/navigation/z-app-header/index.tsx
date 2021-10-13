@@ -3,6 +3,11 @@ import { ZMenu } from '../z-menu';
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== 'undefined';
 
+/**
+ * @slot title
+ * @slot subtitle
+ * @slot stucked-title - Title for the stucked header. By default it uses the text from the `title` slot.
+ */
 @Component({
   tag: 'z-app-header',
   styleUrl: 'styles.css',
@@ -17,12 +22,6 @@ export class ZAppHeader {
    * **Optional**
    */
   @Prop({ reflect: true }) stuck: boolean = false;
-
-  /**
-   * Collapse the menu container into a side drawer, for a better experience on mobile devices.
-   * **Optional**
-   */
-  @Prop({ reflect: true }) drawer: boolean = false;
 
   /**
    * Set the hero image source for the header.
@@ -40,9 +39,13 @@ export class ZAppHeader {
 
   /**
    * Control menu bar position in the header.
+   * - auto: the menu bar is positioned near the title
+   * - stack: the menu bar is positioned below the title
+   * - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+   *
    * **Optional**
    */
-  @Prop({ reflect: true }) flow: 'auto'|'stack' = 'auto';
+  @Prop({ reflect: true }) flow: 'auto'|'stack'|'offcanvas' = 'auto';
 
   /**
    * The opening state of the drawer.
@@ -53,6 +56,11 @@ export class ZAppHeader {
    * The stucked state of the bar.
    */
   @State() stucked: boolean = false;
+
+  /**
+   * Current count of menu items.
+   */
+  @State() menuLength: Number;
 
   private container?: HTMLDivElement;
   private menuElements?: NodeListOf<HTMLElement>;
@@ -78,10 +86,10 @@ export class ZAppHeader {
   private get title() {
     const titleElement = this.hostElement.querySelector('[slot="title"]');
     if (!titleElement) {
-      return;
+      return '';
     }
 
-    return titleElement.outerHTML;
+    return titleElement.textContent.trim();
   }
 
   private get scrollParent() {
@@ -94,7 +102,7 @@ export class ZAppHeader {
 
   private collectMenuElements() {
     const menuElements = this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]');
-    this.hostElement.setAttribute('data-menu-length', `${menuElements.length}`);
+    this.menuLength = menuElements.length;
     this.setMenuFloatingMode();
   }
 
@@ -157,8 +165,8 @@ export class ZAppHeader {
   }
 
   render() {
-    return <Host>
-      <div class="heading-panel" ref={(el) => this.container = el }>
+    return <Host menu-length={this.menuLength}>
+      <div class="heading-panel" ref={(el) => this.container = el}>
         <div class="hero-container">
           <slot name="hero">
             {this.hero && <img alt="" src={this.hero} />}
@@ -166,7 +174,7 @@ export class ZAppHeader {
         </div>
         <div class="heading-container">
           <div class="heading-title">
-            {this.drawer && <button class="drawer-trigger" aria-label="Apri menu" onClick={this.openDrawer}>
+            {this.menuLength > 0 && <button class="drawer-trigger" aria-label="Apri menu" onClick={this.openDrawer}>
               <z-icon name="burger-menu"></z-icon>
             </button>}
             <slot name="title"></slot>
@@ -176,7 +184,7 @@ export class ZAppHeader {
           </div>
         </div>
         <div class="menu-container">
-          {!this.drawerOpen && <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>}
+          {!this.drawerOpen && this.flow !== 'offcanvas' && <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>}
         </div>
       </div>
       <div class="drawer-container">
@@ -191,19 +199,19 @@ export class ZAppHeader {
         </div>
       </div>
       {this.stucked && <div class="heading-stucked">
-        {this.drawer && <button class="drawer-trigger" aria-label="Apri menu" onClick={this.openDrawer}>
+        {this.menuLength > 0 && <button class="drawer-trigger" aria-label="Apri menu" onClick={this.openDrawer}>
           <z-icon name="burger-menu"></z-icon>
         </button>}
-        <div class="heading-title" innerHTML={this.title}></div>
+        <div class="heading-title">
+          <slot name="stucked-title">
+            {this.title}
+          </slot>
+        </div>
       </div>}
     </Host>;
   }
 
   openDrawer() {
-    if (!this.drawer) {
-      return;
-    }
-
     this.drawerOpen = true;
   }
 

@@ -79,6 +79,13 @@
   background: var(--app-header-bg);
 }
 
+.heading-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 100%;
+}
+
 .heading-stucked {
   position: fixed;
   top: var(--app-header-top-offset);
@@ -94,26 +101,18 @@
   animation: slideStuckedHeadingIn 250ms ease-out;
 }
 
-.heading-stucked .heading-title {
+.heading-stucked .heading-title,
+.heading-stucked .heading-title > *,
+.heading-stucked .heading-title ::slotted([slot='stucked-title']) {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-::slotted(*) {
-  margin: 0;
-}
-
-.heading-title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  max-width: 100%;
-}
-
 .heading-stucked .heading-title > *,
-::slotted([slot='title']) {
+::slotted([slot='title']),
+::slotted([slot='stucked-title']) {
   margin: 0;
   font-weight: 700;
   font-family: 'IBM Plex Serif', serif;
@@ -122,7 +121,7 @@
   letter-spacing: var(--app-header-typography-3-tracking);
 }
 
-:host([drawer]) .heading-subtitle {
+:host([flow='offcanvas']) .heading-subtitle {
   padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 1.5));
 }
 
@@ -327,15 +326,15 @@
     padding-right: var(--grid-tablet-margin);
   }
 
-  :host(:not([drawer])) .menu-container {
+  :host(:not([flow='offcanvas'])) .menu-container {
     display: flex;
   }
 
-  :host(:not([drawer])) .heading-panel .drawer-trigger {
+  :host(:not([flow='offcanvas'])) .heading-container .drawer-trigger {
     display: none;
   }
 
-  :host(:not([drawer]):not([data-menu-length='0'])) .heading-container:not(:last-child) {
+  :host(:not([flow='offcanvas']):not([menu-length='0'])) .heading-container:not(:last-child) {
     margin-bottom: calc(var(--space-unit) * 3);
   }
 
@@ -371,7 +370,7 @@
     width: calc(6 * ((100% - var(--grid-desktop-gutter)) / var(--grid-desktop-column)));
   }
 
-  :host(:not([drawer]):not([data-menu-length='0'])) .heading-container:not(:last-child) {
+  :host(:not([flow='offcanvas']):not([menu-length='0'])) .heading-container:not(:last-child) {
     margin-bottom: calc(var(--space-unit) * 2);
   }
 
@@ -399,7 +398,7 @@
     width: calc(6 * ((100% - var(--grid-wide-gutter)) / var(--grid-wide-column)));
   }
 
-  :host(:not([drawer]):not([data-menu-length='0'])) .heading-container:not(:last-child) {
+  :host(:not([flow='offcanvas']):not([menu-length='0'])) .heading-container:not(:last-child) {
     margin-bottom: 0;
   }
 
