@@ -2789,10 +2789,6 @@ declare namespace LocalJSX {
          */
         "onClosed"?: (event: CustomEvent<any>) => void;
         /**
-          * Generic event for clicks on the label. Emitted only when the label isn't one of a submenu.
-         */
-        "onLabelClick"?: (event: CustomEvent<any>) => void;
-        /**
           * The menu has been opened.
          */
         "onOpened"?: (event: CustomEvent<any>) => void;
