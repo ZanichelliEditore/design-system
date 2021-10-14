@@ -44,17 +44,12 @@ export class ZMenu {
   private content: HTMLElement;
   private raf: number;
 
-  /** Generic event for clicks on the label.
-   * Emitted only when the label isn't one of a submenu.
-  */
-  @Event() labelClick: EventEmitter;
   /** The menu has been opened. */
   @Event() opened: EventEmitter;
   /** The menu has been closed. */
   @Event() closed: EventEmitter;
-  onLabelClick() {
+  toggle() {
     if (!this.hasContent) {
-      this.labelClick.emit();
       return;
     }
 
@@ -88,7 +83,7 @@ export class ZMenu {
   }
 
   constructor() {
-    this.onLabelClick = this.onLabelClick.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.checkContent = this.checkContent.bind(this);
     this.onItemsChange = this.onItemsChange.bind(this);
   }
@@ -129,14 +124,17 @@ export class ZMenu {
   private onItemsChange() {
     this.checkContent();
     const items = this.hostElement.querySelectorAll('[slot="item"]');
-    if (items.length) {
-      items.forEach((item) => item.setAttribute('role', 'menuitem'));
-    }
+    items?.forEach((item) => item.setAttribute('role', 'menuitem'));
   }
 
   private renderMenuLabel() {
     if (this.hasContent) {
-      return <button class="menu-label" aria-expanded={this.open ? 'true' : 'false'} onClick={this.onLabelClick}>
+      return <button
+        class="menu-label"
+        aria-expanded={this.open ? 'true' : 'false'}
+        aria-label={this.open ? 'Chiudi menù' : 'Apri menù'}
+        onClick={this.toggle}
+      >
         <div class="menu-label-content">
           <slot></slot>
           <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />
@@ -144,7 +142,7 @@ export class ZMenu {
       </button>;
     }
 
-    return <div class="menu-label" onClick={this.onLabelClick}>
+    return <div class="menu-label">
       <div class="menu-label-content">
         <slot></slot>
       </div>
