@@ -9,7 +9,83 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 # ZRegistroTableExpandedRow
 
 <Preview>
-  <Story name="ZRegistroTableExpandedRow-sample">
+  <Story name="ZRegistroTableExpandedRow-all-expanded">
+    {html`<z-registro-table bordered="true">
+      <z-registro-table-head>
+        <z-registro-table-header-row expandable="true">
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 2</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 3</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 4</span>
+          </z-registro-table-header>
+        </z-registro-table-header-row>
+      </z-registro-table-head>
+      <z-registro-table-body>
+        <z-registro-table-row expanded-type="expandable">
+          <z-registro-table-cell>
+            <span>Contenuto 1-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 1-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 1-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 1-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-expanded-row col-span="5">
+          <div>Contenuto aggiuntivo 1</div>
+        </z-registro-table-expanded-row>
+        <z-registro-table-row expanded-type="expandable">
+          <z-registro-table-cell>
+            <span>Contenuto 2-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 2-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 2-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 2-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-expanded-row col-span="5">
+          <div>Contenuto aggiuntivo 2</div>
+        </z-registro-table-expanded-row>
+        <z-registro-table-row expanded-type="expandable">
+          <z-registro-table-cell>
+            <span>Contenuto 3-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-expanded-row col-span="5">
+          <div>Contenuto aggiuntivo 3</div>
+        </z-registro-table-expanded-row>
+      </z-registro-table-body>
+      <z-registro-table-sticky-footer slot="sticky-footer">
+        <span>This is a sticky footer</span>
+      </z-registro-table-sticky-footer>
+    </z-registro-table>`}
+  </Story>
+  <Story name="ZRegistroTableExpandedRow-mix">
     {html`<z-registro-table bordered="true">
       <z-registro-table-head>
         <z-registro-table-header-row expandable="true">
@@ -91,7 +167,11 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
 ## How to use
 
-To make a row expandable you need to set **expandable** prop to **true** in the **z-registro-table-row component**, then
+To make a row expandable you need to set **expandable** prop to "**expandable**"" in the **z-registro-table-row component**, then
 you have to add a **z-registro-table-extended-row** after each z-registro-table-row.
 The extended row has a mandatory prop **col-span**, set the number of the total column of the table (consider the additional column for the
 expand button)
+
+N.B.
+If you insert both expandable and non-expandable rows, for non-expandable ones you must set the **expandable** prop to "**padding**"
+to respect the correct alignment.
