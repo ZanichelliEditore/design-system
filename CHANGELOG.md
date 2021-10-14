@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.23.0](https://github.com/ZanichelliEditore/design-system/compare/v2.22.0...v2.23.0) (2021-10-14)
+
+
+### Features
+
+* **CLAV-155:** graphic fix on expand row button ([62ce67d](https://github.com/ZanichelliEditore/design-system/commit/62ce67d313e88c19c76eb48f711af042ee989fcd))
+* **CLAV-155:** minor refacator ([aa88dee](https://github.com/ZanichelliEditore/design-system/commit/aa88deebcfe82c8f79b639b95c7d602e44215303))
+
+
+### Bug Fixes
+
+* **CLAV-155:** add documentation and minor fix ([fea51df](https://github.com/ZanichelliEditore/design-system/commit/fea51df257d2664f6fdb397bacaae798fd7757cc))
+* **CLAV-155:** fix border-right ([b6a75a2](https://github.com/ZanichelliEditore/design-system/commit/b6a75a28d6a378911d6521a5b05483d7ef9fbdc3))
+* **CLAV-155:** fix style ([c62a47e](https://github.com/ZanichelliEditore/design-system/commit/c62a47e6fc6b74a1765d7cafcbc62e7dfbd5f398))
+* **CLAV-155:** minor fix ([fb9bb16](https://github.com/ZanichelliEditore/design-system/commit/fb9bb161af471e22a636b1d0fae5e6ff130685dd))
+
 ## [2.22.0](https://github.com/ZanichelliEditore/design-system/compare/v2.21.3...v2.22.0) (2021-10-14)
 
 
