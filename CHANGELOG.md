@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.22.0](https://github.com/ZanichelliEditore/design-system/compare/v2.21.3...v2.22.0) (2021-10-14)
+
+
+### Features
+
+* add click event on menu label; allow to close header drawer from the outside ([130a56f](https://github.com/ZanichelliEditore/design-system/commit/130a56ff40d4189ddf735c11e2c05b50dec26b8f))
+* allow header custom background and text colors ([f01d0f3](https://github.com/ZanichelliEditore/design-system/commit/f01d0f3e46ea51407dc736625add9fe9d0a0ad9e))
+
+
+### Bug Fixes
+
+* app-header drawer enabling; drawer top offset; preserve title html on stuck header ([01c7cef](https://github.com/ZanichelliEditore/design-system/commit/01c7cefd4cd0f22a8419b42987ca3d68657a2542))
+* drawer behavior; stucked-title slot ([4cfca83](https://github.com/ZanichelliEditore/design-system/commit/4cfca831893090410936d1083a03244f624d7989))
+* header and menu accessibility ([c178370](https://github.com/ZanichelliEditore/design-system/commit/c1783702a0d6ae4a8ab7610eb6a6c3675ffa4503))
+* tests ([1272513](https://github.com/ZanichelliEditore/design-system/commit/12725134db6cb05f1bf17520a02c947af3cb443f))
+
 ### [2.21.3](https://github.com/ZanichelliEditore/design-system/compare/v2.21.2...v2.21.3) (2021-10-13)
 
 ### [2.21.2](https://github.com/ZanichelliEditore/design-system/compare/v2.21.1...v2.21.2) (2021-10-07)
