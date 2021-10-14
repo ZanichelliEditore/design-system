@@ -7,7 +7,6 @@ import {
   EventEmitter,
   Listen,
   Element,
-  Host,
   Watch
 } from '@stencil/core';
 
@@ -83,6 +82,16 @@ export class ZMenu {
     }
   }
 
+  constructor() {
+    this.toggle = this.toggle.bind(this);
+    this.checkContent = this.checkContent.bind(this);
+    this.onItemsChange = this.onItemsChange.bind(this);
+  }
+
+  componentWillLoad() {
+    this.checkContent();
+  }
+
   /**
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
@@ -104,31 +113,53 @@ export class ZMenu {
   /**
    * Check if some content slot is set.
    */
-  checkContent() {
+  private checkContent() {
     this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
     this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
   }
 
-  componentWillLoad() {
+  /**
+   * Set `menuitem` role to all menu items.
+   */
+  private onItemsChange() {
     this.checkContent();
+    const items = this.hostElement.querySelectorAll('[slot="item"]');
+    items?.forEach((item) => item.setAttribute('role', 'menuitem'));
+  }
+
+  private renderMenuLabel() {
+    if (this.hasContent) {
+      return <button
+        class="menu-label"
+        aria-expanded={this.open ? 'true' : 'false'}
+        aria-label={this.open ? 'Chiudi menù' : 'Apri menù'}
+        onClick={this.toggle}
+      >
+        <div class="menu-label-content">
+          <slot></slot>
+          <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />
+        </div>
+      </button>;
+    }
+
+    return <div class="menu-label">
+      <div class="menu-label-content">
+        <slot></slot>
+      </div>
+    </div>;
   }
 
   render() {
-    return <Host role="menu">
-      <button class="label" aria-pressed={this.open ? 'true' : 'false'} onClick={this.toggle.bind(this)}>
-        <div class="label-content">
-          <slot></slot>
-          {this.hasContent && <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />}
-        </div>
-      </button>
+    return [
+      this.renderMenuLabel(),
       <div class="content" ref={(el) => { this.content = el; }} hidden={!this.open}>
         {this.hasHeader && <header class="header">
-          <slot name="header" onSlotchange={this.checkContent.bind(this)}></slot>
+          <slot name="header" onSlotchange={this.checkContent}></slot>
         </header>}
-        <div class="items">
-          <slot name="item" onSlotchange={this.checkContent.bind(this)}></slot>
+        <div class="items" role="menu">
+          <slot name="item" onSlotchange={this.onItemsChange}></slot>
         </div>
       </div>
-    </Host>
+    ];
   }
 }
