@@ -1782,7 +1782,7 @@ const ZLogo = class {
 };
 ZLogo.style = stylesCss$A;
 
-const stylesCss$z = ":host,::slotted(*),*{box-sizing:border-box}:host{display:inline-flex;flex-direction:column;position:relative}::slotted(a){color:var(--color-text01);text-decoration:none}::slotted(*){font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host([active]) .label-content,:host([open]) .label-content,.label:hover .label-content{border-color:var(--color-secondary01)}.label{margin:0;padding:0;color:inherit;background:transparent;border:0;border-radius:0;outline:none;cursor:pointer;text-align:left}.label .label-content{display:flex;align-items:center;padding:var(--space-unit) calc(var(--space-unit) / 2) var(--space-unit);border-bottom:var(--border-size-large) solid var(--color-surface05)}.label:focus:focus-visible{box-shadow:var(--shadow-focus-primary);z-index:1}.label ::slotted(*){width:100%;margin:0;appearance:none;font-size:var(--font-size-5);line-height:1.2}.label z-icon{margin-left:calc(var(--space-unit) * 4);fill:currentColor}.content{padding:var(--space-unit) 0;background:var(--color-surface01)}.content[hidden]{display:none}:host([floating]) .content{width:375px;max-width:100vw;padding:var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2)}:host(:not([floating])) .content{width:100%}:host([floating]) .content{position:absolute;top:100%;left:0;box-shadow:var(--shadow-2);min-width:100%}.header{display:flex;align-items:center;padding:var(--space-unit) 0 calc(var(--space-unit) * 2)}.header ::slotted(img[slot='header']){width:calc(var(--space-unit) * 11.25);object-fit:contain;height:auto}.header ::slotted([slot='header']:not(:first-child)){margin:auto 0;margin-left:calc(var(--space-unit) / 2 * 3);font-weight:var(--font-sb);font-size:var(--font-size-3);line-height:1.5}.items{display:flex;flex-direction:column;align-items:flex-start;background:inherit}.items>::slotted([slot='item']){display:inline-flex;width:100%;margin:0;font-size:var(--font-size-3);line-height:1.25;outline:none}.items>::slotted([slot='item']:focus:focus-visible){box-shadow:var(--shadow-focus-primary)}.items>::slotted([slot='item']:not(z-menu-section)){padding:calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);border-bottom:var(--border-size-small) solid var(--color-surface05)}.items>::slotted([slot='item']:hover),.items>::slotted([slot='item']:active){border-color:var(--color-secondary01)}";
+const stylesCss$z = ":host,::slotted(*),*{box-sizing:border-box}:host{display:inline-flex;flex-direction:column;position:relative}::slotted(a){color:var(--color-text01);text-decoration:none}::slotted(*){font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host([active]) .menu-label-content,:host([open]) .menu-label-content,.menu-label:hover .menu-label-content{border-color:var(--color-secondary01)}.menu-label{margin:0;padding:0;color:inherit;background:transparent;border:0;border-radius:0;outline:none;text-align:left}button.menu-label{cursor:pointer}.menu-label .menu-label-content{display:flex;align-items:center;padding:var(--space-unit) calc(var(--space-unit) / 2) var(--space-unit);border-bottom:var(--border-size-large) solid var(--color-surface05)}.menu-label:focus-within{box-shadow:var(--shadow-focus-primary);z-index:1}.menu-label ::slotted(*){width:100%;margin:0;appearance:none;font-size:var(--font-size-5);line-height:1.2;outline:none}.menu-label z-icon{margin-left:calc(var(--space-unit) * 4);fill:currentColor}.content{padding:var(--space-unit) 0;background:var(--color-surface01)}.content[hidden]{display:none}:host([floating]) .content{width:375px;max-width:100vw;padding:var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2)}:host(:not([floating])) .content{width:100%}:host([floating]) .content{position:absolute;top:100%;left:0;box-shadow:var(--shadow-2);min-width:100%}.header{display:flex;align-items:center;padding:var(--space-unit) 0 calc(var(--space-unit) * 2)}.header ::slotted(img[slot='header']){width:calc(var(--space-unit) * 11.25);object-fit:contain;height:auto}.header ::slotted([slot='header']:not(:first-child)){margin:auto 0;margin-left:calc(var(--space-unit) / 2 * 3);font-weight:var(--font-sb);font-size:var(--font-size-3);line-height:1.5}.items{display:flex;flex-direction:column;align-items:flex-start;background:inherit}.items>::slotted([slot='item']){display:inline-flex;width:100%;margin:0;font-size:var(--font-size-3);line-height:1.25;outline:none}.items>::slotted([slot='item']:focus:focus-visible){box-shadow:var(--shadow-focus-primary)}.items>::slotted([slot='item']:not(z-menu-section)){padding:calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);border-bottom:var(--border-size-small) solid var(--color-surface05)}.items>::slotted([slot='item']:hover),.items>::slotted([slot='item']:active){border-color:var(--color-secondary01)}";
 
 const ZMenu = class {
   constructor(hostRef) {
@@ -1801,6 +1801,9 @@ const ZMenu = class {
      * @default false
      */
     this.open = false;
+    this.toggle = this.toggle.bind(this);
+    this.checkContent = this.checkContent.bind(this);
+    this.onItemsChange = this.onItemsChange.bind(this);
   }
   toggle() {
     if (!this.hasContent) {
@@ -1828,6 +1831,9 @@ const ZMenu = class {
       cancelAnimationFrame(this.raf);
     }
   }
+  componentWillLoad() {
+    this.checkContent();
+  }
   /**
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
@@ -1852,11 +1858,25 @@ const ZMenu = class {
     this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
     this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
   }
-  componentWillLoad() {
+  /**
+   * Set `menuitem` role to all menu items.
+   */
+  onItemsChange() {
     this.checkContent();
+    const items = this.hostElement.querySelectorAll('[slot="item"]');
+    items === null || items === void 0 ? void 0 : items.forEach((item) => item.setAttribute('role', 'menuitem'));
+  }
+  renderMenuLabel() {
+    if (this.hasContent) {
+      return index.h("button", { class: "menu-label", "aria-expanded": this.open ? 'true' : 'false', "aria-label": this.open ? 'Chiudi menù' : 'Apri menù', onClick: this.toggle }, index.h("div", { class: "menu-label-content" }, index.h("slot", null), index.h("z-icon", { name: this.open ? 'chevron-up' : 'chevron-down' })));
+    }
+    return index.h("div", { class: "menu-label" }, index.h("div", { class: "menu-label-content" }, index.h("slot", null)));
   }
   render() {
-    return index.h(index.Host, { role: "menu" }, index.h("button", { class: "label", "aria-pressed": this.open ? 'true' : 'false', onClick: this.toggle.bind(this) }, index.h("div", { class: "label-content" }, index.h("slot", null), this.hasContent && index.h("z-icon", { name: this.open ? 'chevron-up' : 'chevron-down' }))), index.h("div", { class: "content", ref: (el) => { this.content = el; }, hidden: !this.open }, this.hasHeader && index.h("header", { class: "header" }, index.h("slot", { name: "header", onSlotchange: this.checkContent.bind(this) })), index.h("div", { class: "items" }, index.h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) }))));
+    return [
+      this.renderMenuLabel(),
+      index.h("div", { class: "content", ref: (el) => { this.content = el; }, hidden: !this.open }, this.hasHeader && index.h("header", { class: "header" }, index.h("slot", { name: "header", onSlotchange: this.checkContent })), index.h("div", { class: "items", role: "menu" }, index.h("slot", { name: "item", onSlotchange: this.onItemsChange })))
+    ];
   }
   get hostElement() { return index.getElement(this); }
   static get watchers() { return {

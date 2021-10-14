@@ -1,3 +1,8 @@
+/**
+ * @slot title
+ * @slot subtitle
+ * @slot stucked-title - Title for the stucked header. By default it uses the text from the `title` slot.
+ */
 export declare class ZAppHeader {
   hostElement: HTMLElement;
   /**
@@ -6,11 +11,6 @@ export declare class ZAppHeader {
    * **Optional**
    */
   stuck: boolean;
-  /**
-   * Collapse the menu container into a side drawer, for a better experience on mobile devices.
-   * **Optional**
-   */
-  drawer: boolean;
   /**
    * Set the hero image source for the header.
    * You can also use a slot="hero" node for advanced customisation.
@@ -25,9 +25,13 @@ export declare class ZAppHeader {
   overlay: boolean;
   /**
    * Control menu bar position in the header.
+   * - auto: the menu bar is positioned near the title
+   * - stack: the menu bar is positioned below the title
+   * - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+   *
    * **Optional**
    */
-  flow: 'auto' | 'stack';
+  flow: 'auto' | 'stack' | 'offcanvas';
   /**
    * The opening state of the drawer.
    */
@@ -36,6 +40,10 @@ export declare class ZAppHeader {
    * The stucked state of the bar.
    */
   stucked: boolean;
+  /**
+   * Current count of menu items.
+   */
+  menuLength: Number;
   private container?;
   private menuElements?;
   private observer?;
@@ -44,6 +52,9 @@ export declare class ZAppHeader {
   private get title();
   private get scrollParent();
   private collectMenuElements;
+  /**
+   * Set `z-app-topbar`'s height as stucked header top offset.
+   */
   private setStuckPosition;
   onStuckMode(): void;
   enableStuckObserver(): void;

@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Event, Listen, Element, Host, Watch } from '@stencil/core';
+import { Component, h, Prop, State, Event, Listen, Element, Watch } from '@stencil/core';
 /**
  * @slot - Menu label
  * @slot header - Header to display as the first entry of the open menu.
@@ -18,6 +18,9 @@ export class ZMenu {
      * @default false
      */
     this.open = false;
+    this.toggle = this.toggle.bind(this);
+    this.checkContent = this.checkContent.bind(this);
+    this.onItemsChange = this.onItemsChange.bind(this);
   }
   toggle() {
     if (!this.hasContent) {
@@ -45,6 +48,9 @@ export class ZMenu {
       cancelAnimationFrame(this.raf);
     }
   }
+  componentWillLoad() {
+    this.checkContent();
+  }
   /**
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
@@ -69,20 +75,34 @@ export class ZMenu {
     this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
     this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
   }
-  componentWillLoad() {
+  /**
+   * Set `menuitem` role to all menu items.
+   */
+  onItemsChange() {
     this.checkContent();
+    const items = this.hostElement.querySelectorAll('[slot="item"]');
+    items === null || items === void 0 ? void 0 : items.forEach((item) => item.setAttribute('role', 'menuitem'));
+  }
+  renderMenuLabel() {
+    if (this.hasContent) {
+      return h("button", { class: "menu-label", "aria-expanded": this.open ? 'true' : 'false', "aria-label": this.open ? 'Chiudi menù' : 'Apri menù', onClick: this.toggle },
+        h("div", { class: "menu-label-content" },
+          h("slot", null),
+          h("z-icon", { name: this.open ? 'chevron-up' : 'chevron-down' })));
+    }
+    return h("div", { class: "menu-label" },
+      h("div", { class: "menu-label-content" },
+        h("slot", null)));
   }
   render() {
-    return h(Host, { role: "menu" },
-      h("button", { class: "label", "aria-pressed": this.open ? 'true' : 'false', onClick: this.toggle.bind(this) },
-        h("div", { class: "label-content" },
-          h("slot", null),
-          this.hasContent && h("z-icon", { name: this.open ? 'chevron-up' : 'chevron-down' }))),
+    return [
+      this.renderMenuLabel(),
       h("div", { class: "content", ref: (el) => { this.content = el; }, hidden: !this.open },
         this.hasHeader && h("header", { class: "header" },
-          h("slot", { name: "header", onSlotchange: this.checkContent.bind(this) })),
-        h("div", { class: "items" },
-          h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) }))));
+          h("slot", { name: "header", onSlotchange: this.checkContent })),
+        h("div", { class: "items", role: "menu" },
+          h("slot", { name: "item", onSlotchange: this.onItemsChange })))
+    ];
   }
   static get is() { return "z-menu"; }
   static get encapsulation() { return "shadow"; }

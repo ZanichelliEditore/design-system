@@ -32,6 +32,8 @@ export declare class ZMenu {
   /** Close the floating list when a click is performed outside of this Element. */
   handleClick(ev: any): void;
   onOpenChanged(): void;
+  constructor();
+  componentWillLoad(): void;
   /**
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
@@ -40,7 +42,11 @@ export declare class ZMenu {
   /**
    * Check if some content slot is set.
    */
-  checkContent(): void;
-  componentWillLoad(): void;
-  render(): any;
+  private checkContent;
+  /**
+   * Set `menuitem` role to all menu items.
+   */
+  private onItemsChange;
+  private renderMenuLabel;
+  render(): any[];
 }
