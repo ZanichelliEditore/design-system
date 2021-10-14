@@ -121,7 +121,7 @@
   letter-spacing: var(--app-header-typography-3-tracking);
 }
 
-:host([flow='offcanvas']) .heading-subtitle {
+.heading-subtitle {
   padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 1.5));
 }
 
@@ -324,6 +324,10 @@
   .heading-stucked {
     padding-left: var(--grid-tablet-margin);
     padding-right: var(--grid-tablet-margin);
+  }
+
+  :host(:not([flow='offcanvas'])) .heading-subtitle {
+    padding-left: 0;
   }
 
   :host(:not([flow='offcanvas'])) .menu-container {
