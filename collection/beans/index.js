@@ -241,3 +241,9 @@ export var ToastNotificationPositionsEnum;
   ToastNotificationPositionsEnum["bottomLeft"] = "bottom-left";
   ToastNotificationPositionsEnum["bottomCentre"] = "bottom-centre";
 })(ToastNotificationPositionsEnum || (ToastNotificationPositionsEnum = {}));
+export var ZRegistroTableRowExpandedType;
+(function (ZRegistroTableRowExpandedType) {
+  ZRegistroTableRowExpandedType["expandable"] = "expandable";
+  ZRegistroTableRowExpandedType["padding"] = "padding";
+  ZRegistroTableRowExpandedType["none"] = "none";
+})(ZRegistroTableRowExpandedType || (ZRegistroTableRowExpandedType = {}));

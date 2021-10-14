@@ -1,14 +1,12 @@
-'use strict';
-
-const index = require('./index-66eb89b1.js');
-const breakpoints = require('./breakpoints-88c4fd6c.js');
+import { k as keybordKeyCodeEnum, D as DeviceEnum } from './index-ac6e10aa.js';
+import { t as tabletBreakpoint, m as mobileBreakpoint } from './breakpoints-c386984e.js';
 
 function randomId() {
   return Math.random().toString(36).replace("0.", "");
 }
 function handleKeyboardSubmit(ev, callback, ...args) {
-  if (ev.keyCode === index.keybordKeyCodeEnum.ENTER ||
-    ev.keyCode === index.keybordKeyCodeEnum.SPACE) {
+  if (ev.keyCode === keybordKeyCodeEnum.ENTER ||
+    ev.keyCode === keybordKeyCodeEnum.SPACE) {
     ev.preventDefault();
     callback(...args);
   }
@@ -38,12 +36,12 @@ function getElementTree(elem, tree = []) {
 }
 function getDevice() {
   switch (true) {
-    case window.innerWidth <= breakpoints.mobileBreakpoint:
-      return index.DeviceEnum.mobile;
-    case window.innerWidth <= breakpoints.tabletBreakpoint:
-      return index.DeviceEnum.tablet;
+    case window.innerWidth <= mobileBreakpoint:
+      return DeviceEnum.mobile;
+    case window.innerWidth <= tabletBreakpoint:
+      return DeviceEnum.tablet;
     default:
-      return index.DeviceEnum.desktop;
+      return DeviceEnum.desktop;
   }
 }
 function convertJson(data) {
@@ -66,10 +64,4 @@ function colorFromId(id) {
   return `${prefix}${color.toString().padStart(2, '0')}`;
 }
 
-exports.colorFromId = colorFromId;
-exports.convertJson = convertJson;
-exports.getClickedElement = getClickedElement;
-exports.getDevice = getDevice;
-exports.getElementTree = getElementTree;
-exports.handleKeyboardSubmit = handleKeyboardSubmit;
-exports.randomId = randomId;
+export { getClickedElement as a, convertJson as b, colorFromId as c, getDevice as d, getElementTree as g, handleKeyboardSubmit as h, randomId as r };

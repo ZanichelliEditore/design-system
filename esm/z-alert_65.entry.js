@@ -1,8 +1,8 @@
 import { r as registerInstance, h, c as createEvent, g as getElement, H as Host, a as getAssetPath } from './index-0148109c.js';
-import { T as ThemeVariant, A as AvatarSize, B as ButtonTypeEnum, a as ButtonVariantEnum, b as ButtonSizeEnum, C as CardVariants, I as InputTypeEnum, k as keybordKeyCodeEnum, P as PopoverPosition, c as DividerSize, d as DividerOrientation, L as ListSize, E as ExpandableListButtonAlign, e as ListDividerType, f as ExpandableListStyle, K as KeyboardKeys, g as LicenseTypeEnum, h as AlertTypesEnum, N as NotificationType, i as PopoverBorderRadius, j as PopoverShadow, l as TableHeaderSize, S as SortDirectionEnum, m as InputStatusEnum, n as StatusTagStatus, o as TooltipPosition } from './index-98ce8389.js';
+import { T as ThemeVariant, A as AvatarSize, B as ButtonTypeEnum, a as ButtonVariantEnum, b as ButtonSizeEnum, C as CardVariants, I as InputTypeEnum, k as keybordKeyCodeEnum, P as PopoverPosition, c as DividerSize, d as DividerOrientation, L as ListSize, E as ExpandableListButtonAlign, e as ListDividerType, f as ExpandableListStyle, K as KeyboardKeys, g as LicenseTypeEnum, h as AlertTypesEnum, N as NotificationType, i as PopoverBorderRadius, j as PopoverShadow, l as TableHeaderSize, S as SortDirectionEnum, Z as ZRegistroTableRowExpandedType, m as InputStatusEnum, n as StatusTagStatus, o as TooltipPosition } from './index-ac6e10aa.js';
 import { m as mobileBreakpoint, t as tabletBreakpoint } from './breakpoints-c386984e.js';
 import { c as createCommonjsModule, h as hammer } from './hammer-c807d0b5.js';
-import { h as handleKeyboardSubmit, r as randomId, g as getElementTree, a as getClickedElement } from './utils-c7b22832.js';
+import { h as handleKeyboardSubmit, r as randomId, g as getElementTree, a as getClickedElement } from './utils-4da869b8.js';
 
 const stylesCss$$ = ":host{display:block;font-family:var(--font-family-sans);font-weight:var(--font-rg);font-size:14px;line-height:calc(var(--space-unit) * 2);color:var(--color-surface05);box-sizing:border-box}:host>div{padding:calc(var(--space-unit) * 2)}:host>.success{fill:var(--color-success01);background:var(--color-success-inverse)}:host>.warning{fill:var(--color-warning01);background:var(--color-warning-inverse)}:host>.error{fill:var(--color-error01);background:var(--color-error-inverse)}";
 
@@ -2687,7 +2687,7 @@ const ZRegistroTableEmptyBox = class {
 };
 ZRegistroTableEmptyBox.style = stylesCss$e;
 
-const stylesCss$d = ":host{font-family:var(--dashboard-font);background-color:var(--gray50);display:none}:host>td>div.content-container{padding:0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 7)}:host>td>div.content-container>div.inner-content{padding:calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;border-top:1px solid var(--gray200)}";
+const stylesCss$d = ":host{font-family:var(--dashboard-font);background-color:var(--gray50);display:none}:host>td>div.content-container{padding:0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 6)}:host>td>div.content-container>div.inner-content{padding:calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;border-top:1px solid var(--gray200)}";
 
 const ZRegistroTableExpandedRow = class {
   constructor(hostRef) {
@@ -2783,7 +2783,7 @@ const ZRegistroTableHeader = class {
 };
 ZRegistroTableHeader.style = stylesCss$b;
 
-const stylesCss$a = "z-registro-table-header-row{display:table-row}z-registro-table-header-row[expandable]>z-registro-table-header:first-child{width:40px;user-select:none;box-sizing:border-box}";
+const stylesCss$a = "z-registro-table-header-row{display:table-row}z-registro-table-header-row[expandable]>z-registro-table-header:first-child{width:40px;user-select:none;box-sizing:border-box}z-registro-table-header-row[expandable]>z-registro-table-header:nth-child(2){padding-left:8px}";
 
 const ZRegistroTableHeaderRow = class {
   constructor(hostRef) {
@@ -2798,12 +2798,13 @@ const ZRegistroTableHeaderRow = class {
 };
 ZRegistroTableHeaderRow.style = stylesCss$a;
 
-const stylesCss$9 = "z-registro-table-row{display:table-row;font-family:var(--font-family-sans)}z-registro-table-row[expandable]>z-registro-table-cell:first-child{--z-icon-width:16px;--z-icon-height:16px;width:40px;padding:8px;box-sizing:border-box;text-align:center;fill:var(--gray800);user-select:none}z-registro-table-row[expandable]>z-registro-table-cell:first-child:hover{cursor:pointer;fill:var(--myz-blue-dark)}z-registro-table-row[expanded]>z-registro-tale-cell{background-color:var(--gray50)}z-registro-table-row[expanded]+z-registro-table-expanded-row{display:table-row}z-registro-table-row[expanded]>z-registro-table-cell{border-bottom:none}z-registro-table-row[expandable]>z-registro-table-cell:first-child{border-right:none}";
+const stylesCss$9 = "z-registro-table-row{display:table-row;font-family:var(--font-family-sans)}z-registro-table-row[expanded-type=\"expandable\"]:hover{cursor:pointer}z-registro-table-row[expanded-type=\"expandable\"]>z-registro-table-cell:first-child,z-registro-table-row[expanded-type=\"padding\"]>z-registro-table-cell:first-child{--z-icon-width:16px;--z-icon-height:16px;width:24px;padding-left:16px;padding-right:0px;box-sizing:border-box;text-align:center;fill:var(--gray800);user-select:none}.z-icon-placeholder{width:24px;padding-right:0px}z-registro-table-row[expanded-type=\"expandable\"]>z-registro-table-cell:nth-child(2),z-registro-table-row[expanded-type=\"padding\"]>z-registro-table-cell:nth-child(2){padding-left:8px}z-registro-table-row[expanded-type]:hover>z-registro-table-cell:first-child{fill:var(--myz-blue-dark)}z-registro-table-row[expanded]>z-registro-tale-cell{background-color:var(--gray50)}z-registro-table-row[expanded]+z-registro-table-expanded-row{display:table-row}z-registro-table-row[expanded]>z-registro-table-cell{border-bottom:none}";
 
 const ZRegistroTableRow = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.expand = createEvent(this, "expand", 7);
+    this.expandedType = ZRegistroTableRowExpandedType.none;
     this.expanded = false;
   }
   emitOnExpand() {
@@ -2813,11 +2814,16 @@ const ZRegistroTableRow = class {
     this.expanded = !this.expanded;
     this.emitOnExpand();
   }
-  _renderExpandButton() {
-    return (h("z-registro-table-cell", { onClick: () => this.handleExpand() }, h("z-icon", { name: this.expanded ? "minus-circled" : "plus-circled" })));
+  renderExpandButton() {
+    if (this.expandedType == ZRegistroTableRowExpandedType.expandable) {
+      return (h("z-registro-table-cell", { style: { borderRight: "none" } }, h("z-icon", { name: this.expanded ? "minus-circled" : "plus-circled" })));
+    }
+    return (h("z-registro-table-cell", { style: { borderRight: "none" } }, h("div", { class: "z-icon-placeholder" })));
   }
   render() {
-    return (h(Host, { role: "row", expanded: this.expanded }, this.expandable && this._renderExpandButton(), h("slot", null)));
+    return (h(Host, { role: "row", expanded: this.expanded, onClick: () => this.expandedType === ZRegistroTableRowExpandedType.expandable &&
+        this.handleExpand() }, this.expandedType !== ZRegistroTableRowExpandedType.none &&
+      this.renderExpandButton(), h("slot", null)));
   }
 };
 ZRegistroTableRow.style = stylesCss$9;

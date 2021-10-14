@@ -3,10 +3,10 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-31e5f406.js');
-const index$1 = require('./index-66eb89b1.js');
+const index$1 = require('./index-8f4b351d.js');
 const breakpoints = require('./breakpoints-88c4fd6c.js');
 const hammer = require('./hammer-6e321f0b.js');
-const utils = require('./utils-2636e75b.js');
+const utils = require('./utils-6d6841cc.js');
 
 const stylesCss$$ = ":host{display:block;font-family:var(--font-family-sans);font-weight:var(--font-rg);font-size:14px;line-height:calc(var(--space-unit) * 2);color:var(--color-surface05);box-sizing:border-box}:host>div{padding:calc(var(--space-unit) * 2)}:host>.success{fill:var(--color-success01);background:var(--color-success-inverse)}:host>.warning{fill:var(--color-warning01);background:var(--color-warning-inverse)}:host>.error{fill:var(--color-error01);background:var(--color-error-inverse)}";
 
@@ -2691,7 +2691,7 @@ const ZRegistroTableEmptyBox = class {
 };
 ZRegistroTableEmptyBox.style = stylesCss$e;
 
-const stylesCss$d = ":host{font-family:var(--dashboard-font);background-color:var(--gray50);display:none}:host>td>div.content-container{padding:0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 7)}:host>td>div.content-container>div.inner-content{padding:calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;border-top:1px solid var(--gray200)}";
+const stylesCss$d = ":host{font-family:var(--dashboard-font);background-color:var(--gray50);display:none}:host>td>div.content-container{padding:0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 6)}:host>td>div.content-container>div.inner-content{padding:calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;border-top:1px solid var(--gray200)}";
 
 const ZRegistroTableExpandedRow = class {
   constructor(hostRef) {
@@ -2787,7 +2787,7 @@ const ZRegistroTableHeader = class {
 };
 ZRegistroTableHeader.style = stylesCss$b;
 
-const stylesCss$a = "z-registro-table-header-row{display:table-row}z-registro-table-header-row[expandable]>z-registro-table-header:first-child{width:40px;user-select:none;box-sizing:border-box}";
+const stylesCss$a = "z-registro-table-header-row{display:table-row}z-registro-table-header-row[expandable]>z-registro-table-header:first-child{width:40px;user-select:none;box-sizing:border-box}z-registro-table-header-row[expandable]>z-registro-table-header:nth-child(2){padding-left:8px}";
 
 const ZRegistroTableHeaderRow = class {
   constructor(hostRef) {
@@ -2802,12 +2802,13 @@ const ZRegistroTableHeaderRow = class {
 };
 ZRegistroTableHeaderRow.style = stylesCss$a;
 
-const stylesCss$9 = "z-registro-table-row{display:table-row;font-family:var(--font-family-sans)}z-registro-table-row[expandable]>z-registro-table-cell:first-child{--z-icon-width:16px;--z-icon-height:16px;width:40px;padding:8px;box-sizing:border-box;text-align:center;fill:var(--gray800);user-select:none}z-registro-table-row[expandable]>z-registro-table-cell:first-child:hover{cursor:pointer;fill:var(--myz-blue-dark)}z-registro-table-row[expanded]>z-registro-tale-cell{background-color:var(--gray50)}z-registro-table-row[expanded]+z-registro-table-expanded-row{display:table-row}z-registro-table-row[expanded]>z-registro-table-cell{border-bottom:none}z-registro-table-row[expandable]>z-registro-table-cell:first-child{border-right:none}";
+const stylesCss$9 = "z-registro-table-row{display:table-row;font-family:var(--font-family-sans)}z-registro-table-row[expanded-type=\"expandable\"]:hover{cursor:pointer}z-registro-table-row[expanded-type=\"expandable\"]>z-registro-table-cell:first-child,z-registro-table-row[expanded-type=\"padding\"]>z-registro-table-cell:first-child{--z-icon-width:16px;--z-icon-height:16px;width:24px;padding-left:16px;padding-right:0px;box-sizing:border-box;text-align:center;fill:var(--gray800);user-select:none}.z-icon-placeholder{width:24px;padding-right:0px}z-registro-table-row[expanded-type=\"expandable\"]>z-registro-table-cell:nth-child(2),z-registro-table-row[expanded-type=\"padding\"]>z-registro-table-cell:nth-child(2){padding-left:8px}z-registro-table-row[expanded-type]:hover>z-registro-table-cell:first-child{fill:var(--myz-blue-dark)}z-registro-table-row[expanded]>z-registro-tale-cell{background-color:var(--gray50)}z-registro-table-row[expanded]+z-registro-table-expanded-row{display:table-row}z-registro-table-row[expanded]>z-registro-table-cell{border-bottom:none}";
 
 const ZRegistroTableRow = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.expand = index.createEvent(this, "expand", 7);
+    this.expandedType = index$1.ZRegistroTableRowExpandedType.none;
     this.expanded = false;
   }
   emitOnExpand() {
@@ -2817,11 +2818,16 @@ const ZRegistroTableRow = class {
     this.expanded = !this.expanded;
     this.emitOnExpand();
   }
-  _renderExpandButton() {
-    return (index.h("z-registro-table-cell", { onClick: () => this.handleExpand() }, index.h("z-icon", { name: this.expanded ? "minus-circled" : "plus-circled" })));
+  renderExpandButton() {
+    if (this.expandedType == index$1.ZRegistroTableRowExpandedType.expandable) {
+      return (index.h("z-registro-table-cell", { style: { borderRight: "none" } }, index.h("z-icon", { name: this.expanded ? "minus-circled" : "plus-circled" })));
+    }
+    return (index.h("z-registro-table-cell", { style: { borderRight: "none" } }, index.h("div", { class: "z-icon-placeholder" })));
   }
   render() {
-    return (index.h(index.Host, { role: "row", expanded: this.expanded }, this.expandable && this._renderExpandButton(), index.h("slot", null)));
+    return (index.h(index.Host, { role: "row", expanded: this.expanded, onClick: () => this.expandedType === index$1.ZRegistroTableRowExpandedType.expandable &&
+        this.handleExpand() }, this.expandedType !== index$1.ZRegistroTableRowExpandedType.none &&
+      this.renderExpandButton(), index.h("slot", null)));
   }
 };
 ZRegistroTableRow.style = stylesCss$9;
