@@ -18,13 +18,13 @@ export namespace Components {
     }
     interface ZAppHeader {
         /**
-          * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
+          * The opening state of the drawer.
          */
-        "drawer": boolean;
+        "drawerOpen": boolean;
         /**
-          * Control menu bar position in the header. **Optional**
+          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu  **Optional**
          */
-        "flow": 'auto'|'stack';
+        "flow": 'auto'|'stack'|'offcanvas';
         /**
           * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
          */
@@ -2106,13 +2106,13 @@ declare namespace LocalJSX {
     }
     interface ZAppHeader {
         /**
-          * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
+          * The opening state of the drawer.
          */
-        "drawer"?: boolean;
+        "drawerOpen"?: boolean;
         /**
-          * Control menu bar position in the header. **Optional**
+          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu  **Optional**
          */
-        "flow"?: 'auto'|'stack';
+        "flow"?: 'auto'|'stack'|'offcanvas';
         /**
           * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
          */
