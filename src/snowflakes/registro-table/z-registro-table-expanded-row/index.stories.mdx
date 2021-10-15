@@ -167,11 +167,11 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
 ## How to use
 
-To make a row expandable you need to set **expandable** prop to "**expandable**"" in the **z-registro-table-row component**, then
+To make a row expandable you need to set **expandType** prop to "**expandable**"" in the **z-registro-table-row component**, then
 you have to add a **z-registro-table-extended-row** after each z-registro-table-row.
 The extended row has a mandatory prop **col-span**, set the number of the total column of the table (consider the additional column for the
 expand button)
 
 N.B.
-If you insert both expandable and non-expandable rows, for non-expandable ones you must set the **expandable** prop to "**padding**"
+If you insert both expandable and non-expandable rows, for the non-expandable ones you must set the **expandType** prop to "**padding**"
 to respect the correct alignment.

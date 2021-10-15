@@ -176,7 +176,7 @@
   <h2>Simple table</h2>
   <z-registro-table bordered="true" header-sticky="false" column-sticky="false">
     <z-registro-table-head>
-      <z-registro-table-header-row>
+      <z-registro-table-header-row expandable="true">
         <z-registro-table-header style="width: 1000px">
           <span>T300 </span>
         </z-registro-table-header>
@@ -192,62 +192,74 @@
       </z-registro-table-header-row>
     </z-registro-table-head>
     <z-registro-table-body>
-      <z-registro-table-row>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+      <z-registro-table-row expanded-type="expandable">
+        <z-registro-table-cell>
           <span>Contenuto 1-1</span>
+          <span id="table-button-container">
+            <z-button variant="tertiary" id="table-button">button</z-button>
+          </span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 1-2</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 1-3</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 1-4</span>
         </z-registro-table-cell>
       </z-registro-table-row>
-      <z-registro-table-row>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+      <z-registro-table-expanded-row col-span="5">
+        <div>Contenuto aggiuntivo 1</div>
+      </z-registro-table-expanded-row>
+      <z-registro-table-row expanded-type="expandable">
+        <z-registro-table-cell>
           <span>Contenuto 2-1</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 2-2</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 2-3</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 2-4</span>
         </z-registro-table-cell>
       </z-registro-table-row>
-      <z-registro-table-row>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+      <z-registro-table-expanded-row col-span="5">
+        <div>Contenuto aggiuntivo 1</div>
+      </z-registro-table-expanded-row>
+      <z-registro-table-row expanded-type="padding">
+        <z-registro-table-cell>
           <span>Contenuto 3-1</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 3-2</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 3-3</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 3-4</span>
         </z-registro-table-cell>
       </z-registro-table-row>
-      <z-registro-table-row>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+      <z-registro-table-row expanded-type="expandable">
+        <z-registro-table-cell>
           <span>Contenuto 4-1</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 4-2</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 4-3</span>
         </z-registro-table-cell>
-        <z-registro-table-cell show-button="${boolean(" show-button", false)}">
+        <z-registro-table-cell>
           <span>Contenuto 4-4</span>
         </z-registro-table-cell>
       </z-registro-table-row>
+      <z-registro-table-expanded-row col-span="5">
+        <div>Contenuto aggiuntivo 1</div>
+      </z-registro-table-expanded-row>
     </z-registro-table-body>
     <z-registro-table-sticky-footer slot="sticky-footer">
       <span>This is a sticky footer</span>
@@ -1637,6 +1649,9 @@
   }'></z-footer>
   
   <script>
+      const tableButton = document.getElementById("table-button-container");
+      const tablechildren = tableButton.children[0];
+      tablechildren.addEventListener("click", (e) => {console.log('b'); console.log(e.target);});
       function openModal(e) {
         console.log(e);
       }
