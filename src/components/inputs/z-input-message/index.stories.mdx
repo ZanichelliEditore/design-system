@@ -8,7 +8,7 @@ import { text } from '@storybook/addon-knobs';
 
 <Preview>
   <Story name="ZInputMessage-sample">
-    {html`<z-input-message
+    {html`<z-input-message role="alert" tabindex="0" aria-label="${text('message', 'Messaggio')}"
       message="${text('message', 'Messaggio')}"
       status="${text('status', 'error')}"
     ></z-input-message>`}

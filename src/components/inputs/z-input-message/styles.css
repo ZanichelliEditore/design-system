@@ -22,6 +22,10 @@
   color: var(--color-warning02);
 }
 
+:host(:focus) {
+  outline: none;
+}
+
 :host > z-icon {
   --z-icon-width: calc(var(--space-unit) * 2);
   --z-icon-height: calc(var(--space-unit) * 2);
