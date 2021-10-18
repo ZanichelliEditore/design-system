@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.23.4](https://github.com/ZanichelliEditore/design-system/compare/v2.23.3...v2.23.4) (2021-10-18)
+
+
+### Bug Fixes
+
+* **clav-189:** full with content in empty table ([7daa6e2](https://github.com/ZanichelliEditore/design-system/commit/7daa6e21ab5b55cdc4ea0542d09fe6dcc211a787))
+
 ### [2.23.3](https://github.com/ZanichelliEditore/design-system/compare/v2.23.2...v2.23.3) (2021-10-18)
 
 
