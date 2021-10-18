@@ -62,7 +62,7 @@
       </z-registro-table>
     </div>
     <!--    -->
-  
+
   <!-- Contextual menu -->
   <h2>ZContextualMenu</h2>
   <div style="padding-left: 280px; width: 80%">
@@ -195,9 +195,7 @@
       <z-registro-table-row expanded-type="expandable">
         <z-registro-table-cell>
           <span>Contenuto 1-1</span>
-          <span id="table-button-container">
-            <z-button variant="tertiary" id="table-button">button</z-button>
-          </span>
+          <z-button variant="tertiary">button</z-button>
         </z-registro-table-cell>
         <z-registro-table-cell>
           <span>Contenuto 1-2</span>
@@ -1647,11 +1645,8 @@
           "link": "https://my.zanichelli.it/privacy"
       }]
   }'></z-footer>
-  
+
   <script>
-      const tableButton = document.getElementById("table-button-container");
-      const tablechildren = tableButton.children[0];
-      tablechildren.addEventListener("click", (e) => {console.log('b'); console.log(e.target);});
       function openModal(e) {
         console.log(e);
       }

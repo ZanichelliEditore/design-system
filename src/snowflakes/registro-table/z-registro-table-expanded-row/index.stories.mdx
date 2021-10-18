@@ -175,3 +175,6 @@ expand button)
 N.B.
 If you insert both expandable and non-expandable rows, for the non-expandable ones you must set the **expandType** prop to "**padding**"
 to respect the correct alignment.
+
+When you insert a clickable element in the row (for example z-button or z-icon) remember to add **stopPropagation()**
+to the onClick function to prevent unwanted row expansion
