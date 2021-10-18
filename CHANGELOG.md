@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.23.3](https://github.com/ZanichelliEditore/design-system/compare/v2.23.2...v2.23.3) (2021-10-18)
+
+
+### Bug Fixes
+
+* cell positioning correct to use tooltip ([0973a0e](https://github.com/ZanichelliEditore/design-system/commit/0973a0e2e621c83dcd27039275674fcd16dc8f33))
+
 ### [2.23.2](https://github.com/ZanichelliEditore/design-system/compare/v2.23.0...v2.23.2) (2021-10-18)
 
 ### [2.23.1](https://github.com/ZanichelliEditore/design-system/compare/v2.23.0...v2.23.1) (2021-10-14)
