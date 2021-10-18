@@ -10,7 +10,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header data-menu-length="0" flow="auto">
+      <z-app-header menu-length="0" flow="auto" style="--app-header-top-offset: 0px;">
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="hero-container">
@@ -18,9 +18,6 @@ describe("Suite test ZAppHeader", () => {
             </div>
             <div class="heading-container">
               <div class="heading-title">
-                <button class="drawer-trigger">
-                  <z-icon name="burger-menu"></z-icon>
-                </button>
                 <slot name="title"></slot>
               </div>
               <div class="heading-subtitle">
@@ -34,7 +31,7 @@ describe("Suite test ZAppHeader", () => {
           <div class="drawer-container">
             <div class="drawer-overlay"></div>
               <div class="drawer-panel">
-                <button class="drawer-close">
+                <button aria-label="Chiudi menu" class="drawer-close">
                   <z-icon name="close"></z-icon>
                 </button>
                 <div class="drawer-content"></div>
@@ -55,7 +52,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header data-menu-length="0" flow="auto">
+      <z-app-header menu-length="0" flow="auto" style="--app-header-top-offset: 0px;">
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="hero-container">
@@ -63,9 +60,6 @@ describe("Suite test ZAppHeader", () => {
             </div>
             <div class="heading-container">
               <div class="heading-title">
-                <button class="drawer-trigger">
-                  <z-icon name="burger-menu"></z-icon>
-                </button>
                 <slot name="title"></slot>
               </div>
               <div class="heading-subtitle">
@@ -79,7 +73,7 @@ describe("Suite test ZAppHeader", () => {
           <div class="drawer-container">
             <div class="drawer-overlay"></div>
               <div class="drawer-panel">
-                <button class="drawer-close">
+                <button aria-label="Chiudi menu" class="drawer-close">
                   <z-icon name="close"></z-icon>
                 </button>
                 <div class="drawer-content"></div>
@@ -102,7 +96,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header data-menu-length="0" flow="auto">
+      <z-app-header menu-length="0" flow="auto" style="--app-header-top-offset: 0px;">
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="hero-container">
@@ -110,9 +104,6 @@ describe("Suite test ZAppHeader", () => {
             </div>
             <div class="heading-container">
               <div class="heading-title">
-                <button class="drawer-trigger">
-                  <z-icon name="burger-menu"></z-icon>
-                </button>
                 <slot name="title"></slot>
               </div>
               <div class="heading-subtitle">
@@ -127,7 +118,7 @@ describe("Suite test ZAppHeader", () => {
         <div class="drawer-container">
           <div class="drawer-overlay"></div>
             <div class="drawer-panel">
-              <button class="drawer-close">
+              <button aria-label="Chiudi menu" class="drawer-close">
                 <z-icon name="close"></z-icon>
               </button>
               <div class="drawer-content"></div>
@@ -150,7 +141,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header data-menu-length="0" flow="auto" drawer>
+      <z-app-header menu-length="0" flow="auto" drawer style="--app-header-top-offset: 0px;">
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="hero-container">
@@ -158,9 +149,6 @@ describe("Suite test ZAppHeader", () => {
             </div>
             <div class="heading-container">
               <div class="heading-title">
-                <button class="drawer-trigger">
-                  <z-icon name="burger-menu"></z-icon>
-                </button>
                 <slot name="title"></slot>
               </div>
               <div class="heading-subtitle">
@@ -174,7 +162,7 @@ describe("Suite test ZAppHeader", () => {
           <div class="drawer-container">
             <div class="drawer-overlay"></div>
               <div class="drawer-panel">
-                <button class="drawer-close">
+                <button aria-label="Chiudi menu" class="drawer-close">
                   <z-icon name="close"></z-icon>
                 </button>
                 <div class="drawer-content"></div>
@@ -195,7 +183,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header data-menu-length="0" flow="auto" stuck>
+      <z-app-header menu-length="0" flow="auto" stuck style="--app-header-top-offset: 0px;">
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="hero-container">
@@ -203,9 +191,6 @@ describe("Suite test ZAppHeader", () => {
             </div>
             <div class="heading-container">
               <div class="heading-title">
-                <button class="drawer-trigger">
-                  <z-icon name="burger-menu"></z-icon>
-                </button>
                 <slot name="title"></slot>
               </div>
               <div class="heading-subtitle">
@@ -219,7 +204,7 @@ describe("Suite test ZAppHeader", () => {
           <div class="drawer-container">
             <div class="drawer-overlay"></div>
               <div class="drawer-panel">
-                <button class="drawer-close">
+                <button aria-label="Chiudi menu" class="drawer-close">
                   <z-icon name="close"></z-icon>
                 </button>
                 <div class="drawer-content"></div>

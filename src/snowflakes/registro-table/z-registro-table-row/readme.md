@@ -11,9 +11,9 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `expandable` | `expandable` |             | `boolean` | `undefined` |
+| Property       | Attribute       | Description | Type                                                                                                                      | Default                              |
+| -------------- | --------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| `expandedType` | `expanded-type` |             | `ZRegistroTableRowExpandedType.expandable \| ZRegistroTableRowExpandedType.none \| ZRegistroTableRowExpandedType.padding` | `ZRegistroTableRowExpandedType.none` |
 
 
 ## Events

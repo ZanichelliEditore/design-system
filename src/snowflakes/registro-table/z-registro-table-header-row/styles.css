@@ -7,3 +7,7 @@ z-registro-table-header-row[expandable] > z-registro-table-header:first-child {
   user-select: none;
   box-sizing: border-box;
 }
+
+z-registro-table-header-row[expandable] > z-registro-table-header:nth-child(2) {
+  padding-left: 8px;
+}

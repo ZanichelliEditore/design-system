@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZRegistroTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -18,13 +18,13 @@ export namespace Components {
     }
     interface ZAppHeader {
         /**
-          * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
+          * The opening state of the drawer.
          */
-        "drawer": boolean;
+        "drawerOpen": boolean;
         /**
-          * Control menu bar position in the header. **Optional**
+          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu  **Optional**
          */
-        "flow": 'auto'|'stack';
+        "flow": 'auto'|'stack'|'offcanvas';
         /**
           * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
          */
@@ -1249,7 +1249,7 @@ export namespace Components {
         "expandable"?: boolean;
     }
     interface ZRegistroTableRow {
-        "expandable"?: boolean;
+        "expandedType": ZRegistroTableRowExpandedType;
     }
     interface ZRegistroTableStickyFooter {
     }
@@ -2106,13 +2106,13 @@ declare namespace LocalJSX {
     }
     interface ZAppHeader {
         /**
-          * Collapse the menu container into a side drawer, for a better experience on mobile devices. **Optional**
+          * The opening state of the drawer.
          */
-        "drawer"?: boolean;
+        "drawerOpen"?: boolean;
         /**
-          * Control menu bar position in the header. **Optional**
+          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu  **Optional**
          */
-        "flow"?: 'auto'|'stack';
+        "flow"?: 'auto'|'stack'|'offcanvas';
         /**
           * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
          */
@@ -3491,7 +3491,7 @@ declare namespace LocalJSX {
         "expandable"?: boolean;
     }
     interface ZRegistroTableRow {
-        "expandable"?: boolean;
+        "expandedType"?: ZRegistroTableRowExpandedType;
         "onExpand"?: (event: CustomEvent<any>) => void;
     }
     interface ZRegistroTableStickyFooter {
