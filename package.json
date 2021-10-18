@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "2.21.3",
+  "version": "2.23.3",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -35,7 +35,7 @@
     "@commitlint/config-conventional": "^12.0.0",
     "@stencil/core": "^2.4.0",
     "@stencil/react-output-target": "^0.0.9",
-    "@storybook/addon-a11y": "^6.1.20",
+    "@storybook/addon-a11y": "^6.2.9",
     "@storybook/addon-docs": "^6.1.20",
     "@storybook/addon-knobs": "^6.1.20",
     "@storybook/addon-viewport": "^6.1.20",

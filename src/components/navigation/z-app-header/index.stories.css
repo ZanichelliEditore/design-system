@@ -1,0 +1,9 @@
+#z-app-header-with-topbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  padding: 1rem;
+}

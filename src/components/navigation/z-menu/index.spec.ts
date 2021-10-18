@@ -7,7 +7,7 @@ describe("Suite test ZMenu", () => {
   it("Test render ZMenu label only", async () => {
     const page = await newSpecPage({
       components: [ZMenu],
-      html: `<z-menu>
+      html: `<z-menu role="menu">
         <h3>Menu label</h3>
       </z-menu>`
     });
@@ -15,13 +15,13 @@ describe("Suite test ZMenu", () => {
     expect(page.root).toEqualHtml(`
       <z-menu role="menu">
         <mock:shadow-root>
-          <button aria-pressed="false" class="label">
-            <div class="label-content">
+          <div class="menu-label">
+            <div class="menu-label-content">
               <slot></slot>
             </div>
-          </button>
+          </div>
           <div class="content" hidden="">
-            <div class="items">
+            <div class="items" role="menu">
               <slot name="item"></slot>
             </div>
           </div>
@@ -33,7 +33,7 @@ describe("Suite test ZMenu", () => {
   it("Test render ZMenu with items", async () => {
     const page = await newSpecPage({
       components: [ZMenu, ZMenuSection],
-      html: `<z-menu>
+      html: `<z-menu role="menu">
         <h3>Menu label</h3>
         <a href="#" slot="item">Item 1</a>
         <a href="#" slot="item">Item 2</a>
@@ -44,14 +44,14 @@ describe("Suite test ZMenu", () => {
     expect(page.root).toEqualHtml(`
       <z-menu role="menu">
         <mock:shadow-root>
-          <button aria-pressed="false" class="label">
-            <div class="label-content">
+          <button aria-expanded="false" aria-label="Apri menù" class="menu-label">
+            <div class="menu-label-content">
               <slot></slot>
               <z-icon name="chevron-down"></z-icon>
             </div>
           </button>
           <div class="content" hidden="">
-            <div class="items">
+            <div class="items" role="menu">
               <slot name="item"></slot>
             </div>
           </div>
@@ -66,7 +66,7 @@ describe("Suite test ZMenu", () => {
   it("Test render ZMenu with submenu", async () => {
     const page = await newSpecPage({
       components: [ZMenu, ZMenuSection],
-      html: `<z-menu>
+      html: `<z-menu role="menu">
         <h3>Menu label</h3>
         <a href="#" slot="item">Item 1</a>
         <z-menu-section slot="item">
@@ -80,14 +80,14 @@ describe("Suite test ZMenu", () => {
     expect(page.root).toEqualHtml(`
       <z-menu role="menu">
         <mock:shadow-root>
-          <button aria-pressed="false" class="label">
-            <div class="label-content">
+          <button aria-expanded="false" aria-label="Apri menù" class="menu-label">
+            <div class="menu-label-content">
               <slot></slot>
               <z-icon name="chevron-down"></z-icon>
             </div>
           </button>
           <div class="content" hidden="">
-            <div class="items">
+            <div class="items" role="menu">
               <slot name="item"></slot>
             </div>
           </div>
@@ -111,7 +111,7 @@ describe("Suite test ZMenu", () => {
   it("Test ZMenu toggle events", async () => {
     const page = await newSpecPage({
       components: [ZMenu],
-      html: `<z-menu>
+      html: `<z-menu role="menu">
         <div slot="item">item</div>
       </z-menu>`
     });
