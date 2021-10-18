@@ -172,9 +172,10 @@ you have to add a **z-registro-table-extended-row** after each z-registro-table-
 The extended row has a mandatory prop **col-span**, set the number of the total column of the table (consider the additional column for the
 expand button)
 
-N.B.
+### N.B.
+
 If you insert both expandable and non-expandable rows, for the non-expandable ones you must set the **expandType** prop to "**padding**"
 to respect the correct alignment.
 
 When you insert a clickable element in the row (for example z-button or z-icon) remember to add **stopPropagation()**
-to the onClick function to prevent unwanted row expansion
+to the onClick function to prevent unwanted row expansion.
