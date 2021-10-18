@@ -1,18 +1,16 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Host } from "@stencil/core";
 export class ZInputMessage {
   constructor() {
     this.statusIcons = {
       success: "checkmark-circle",
       error: "multiply-circled",
-      warning: "exclamation-circle"
+      warning: "exclamation-circle",
     };
   }
   render() {
-    return [
-      this.statusIcons[this.status] && this.message &&
-        h("z-icon", { name: this.statusIcons[this.status] }),
-      h("span", { innerHTML: this.message })
-    ];
+    return (h(Host, { role: "alert", "aria-label": this.message, tabindex: "0" },
+      this.statusIcons[this.status] && this.message && (h("z-icon", { name: this.statusIcons[this.status] })),
+      h("span", { innerHTML: this.message })));
   }
   static get is() { return "z-input-message"; }
   static get encapsulation() { return "shadow"; }

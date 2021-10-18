@@ -1462,7 +1462,7 @@ const ZInputLabel = class {
 };
 ZInputLabel.style = stylesCss$G;
 
-const stylesCss$F = ":host{display:flex;align-items:start;min-height:calc(var(--space-unit) * 2);margin-top:var(--space-unit);color:var(--color-text05);fill:currentColor;font-family:var(--font-family-sans);font-size:var(--font-size-2);letter-spacing:0.16px}:host([status='success']){color:var(--color-text-success)}:host([status='error']){color:var(--color-text-error)}:host([status='warning']){color:var(--color-warning02)}:host>z-icon{--z-icon-width:calc(var(--space-unit) * 2);--z-icon-height:calc(var(--space-unit) * 2);margin:calc(var(--space-unit) / 3) var(--space-unit) 0 0}";
+const stylesCss$F = ":host{display:flex;align-items:start;min-height:calc(var(--space-unit) * 2);margin-top:var(--space-unit);color:var(--color-text05);fill:currentColor;font-family:var(--font-family-sans);font-size:var(--font-size-2);letter-spacing:0.16px}:host([status='success']){color:var(--color-text-success)}:host([status='error']){color:var(--color-text-error)}:host([status='warning']){color:var(--color-warning02)}:host(:focus){outline:none}:host>z-icon{--z-icon-width:calc(var(--space-unit) * 2);--z-icon-height:calc(var(--space-unit) * 2);margin:calc(var(--space-unit) / 3) var(--space-unit) 0 0}";
 
 const ZInputMessage = class {
   constructor(hostRef) {
@@ -1470,15 +1470,11 @@ const ZInputMessage = class {
     this.statusIcons = {
       success: "checkmark-circle",
       error: "multiply-circled",
-      warning: "exclamation-circle"
+      warning: "exclamation-circle",
     };
   }
   render() {
-    return [
-      this.statusIcons[this.status] && this.message &&
-        index.h("z-icon", { name: this.statusIcons[this.status] }),
-      index.h("span", { innerHTML: this.message })
-    ];
+    return (index.h(index.Host, { role: "alert", "aria-label": this.message, tabindex: "0" }, this.statusIcons[this.status] && this.message && (index.h("z-icon", { name: this.statusIcons[this.status] })), index.h("span", { innerHTML: this.message })));
   }
 };
 ZInputMessage.style = stylesCss$F;
@@ -2570,7 +2566,7 @@ const ZPopover = class {
 };
 ZPopover.style = stylesCss$i;
 
-const stylesCss$h = "z-registro-table{overflow-x:auto;display:block;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-rg)}z-registro-table>div.table{display:table;width:100%;border-collapse:separate}z-registro-table>div.table-bordered>z-registro-table-body>z-registro-table-row>z-registro-table-cell:not(:last-child),z-registro-table>div.table-bordered>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:not(:last-child){border-right:var(--border-size-small) solid var(--bg-grey-200)}z-registro-table>div>z-registro-table-body>z-registro-table-row[expandable]>z-registro-table-cell:first-child,z-registro-table>div>z-registro-table-head>z-registro-table-header-row[expandable]>z-registro-table-header:first-child{border-right:none}z-registro-table>div>z-registro-table-body>z-registro-table-row[expanded]>z-registro-table-cell{background-color:var(--gray50)}z-registro-table>div>z-registro-table-body>z-registro-table-row[expanded]+z-registro-table-expanded-row{border-bottom:1px solid var(--gray200)}z-registro-table>div.table-column-sticky>z-registro-table-body>z-registro-table-row>z-registro-table-cell:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child{position:sticky;left:0;box-shadow:1px 0 4px -1px rgba(66, 69, 72, 0.4);z-index:1}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header{position:sticky;top:0;box-shadow:0 2px 3px -3px rgba(66, 69, 72, 0.4)}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header{z-index:2}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child{z-index:5}z-registro-table-empty-box.bordered{border-left:var(--border-size-small) solid var(--bg-grey-200)}.error-message{margin-top:calc(var(--space-unit) * 2)}.table-content{display:flex;flex-direction:row}.table-content :first-child{width:auto}.error-content{font-family:var(--dashboard-font);padding:calc(var(--space-unit) * 3);display:flex}.error-image{width:244px;height:188px;margin-right:calc(var(--space-unit) * 3)}@media only screen and (max-width: 768px){z-registro-table>div.table-empty{display:none}.error-content{display:flex;flex-direction:column}.error-image{width:auto;height:auto}.text{padding:calc(var(--space-unit) * 3) 0}}";
+const stylesCss$h = "z-registro-table{overflow-x:auto;display:block;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-rg)}z-registro-table>div.table{display:table;width:100%;border-collapse:separate}z-registro-table>div.table-bordered>z-registro-table-body>z-registro-table-row>z-registro-table-cell:not(:last-child),z-registro-table>div.table-bordered>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:not(:last-child){border-right:var(--border-size-small) solid var(--bg-grey-200)}z-registro-table>div>z-registro-table-body>z-registro-table-row[expandable]>z-registro-table-cell:first-child,z-registro-table>div>z-registro-table-head>z-registro-table-header-row[expandable]>z-registro-table-header:first-child{border-right:none}z-registro-table>div>z-registro-table-body>z-registro-table-row[expanded]>z-registro-table-cell{background-color:var(--gray50)}z-registro-table>div>z-registro-table-body>z-registro-table-row[expanded]+z-registro-table-expanded-row{border-bottom:1px solid var(--gray200)}z-registro-table>div.table-column-sticky>z-registro-table-body>z-registro-table-row>z-registro-table-cell:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child{position:sticky;left:0;box-shadow:1px 0 4px -1px rgba(66, 69, 72, 0.4);z-index:1}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header{position:sticky;top:0;box-shadow:0 2px 3px -3px rgba(66, 69, 72, 0.4)}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header{z-index:2}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child{z-index:5}z-registro-table-empty-box.bordered{border-left:var(--border-size-small) solid var(--bg-grey-200)}z-registro-table-body{width:auto}z-registro-table-empty-box{display:flex;flex-direction:column;flex-grow:1}.error-message{margin-top:calc(var(--space-unit) * 2)}.table-content{display:flex;flex-direction:row;width:100%}.error-content{font-family:var(--dashboard-font);padding:calc(var(--space-unit) * 3);display:flex}.error-image{width:244px;height:188px;margin-right:calc(var(--space-unit) * 3)}@media only screen and (max-width: 768px){z-registro-table>div.table-empty{display:none}.error-content{display:flex;flex-direction:column}.error-image{width:auto;height:auto}.text{padding:calc(var(--space-unit) * 3) 0}}";
 
 const ZRegistroTable = class {
   constructor(hostRef) {
@@ -2634,7 +2630,7 @@ const ZRegistroTable = class {
 };
 ZRegistroTable.style = stylesCss$h;
 
-const stylesCss$g = ".sc-z-registro-table-body-h{display:table-row-group;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-rg)}.sc-z-registro-table-body-h>z-registro-table-row[expanded].sc-z-registro-table-body+z-registro-table-expanded-row.sc-z-registro-table-body{display:table-row}";
+const stylesCss$g = ".sc-z-registro-table-body-h{display:table-row-group;font-family:var(--dashboard-font);font-weight:var(--font-rg)}.sc-z-registro-table-body-h>z-registro-table-row[expanded].sc-z-registro-table-body+z-registro-table-expanded-row.sc-z-registro-table-body{display:table-row}";
 
 const ZRegistroTableBody = class {
   constructor(hostRef) {
@@ -2651,7 +2647,7 @@ const ZRegistroTableBody = class {
 };
 ZRegistroTableBody.style = stylesCss$g;
 
-const stylesCss$f = ":host{display:table-cell;padding:calc(var(--space-unit) * 2);background-color:var(--color-white);border-bottom:var(--border-size-small) solid var(--bg-grey-200);font-family:var(--dashboard-font);font-weight:var(--font-rg);position:relative}:host>.button-container{display:none}:host:hover>.button-container{display:initial}.button-container{position:absolute;right:8px;top:8px;z-index:5}.button-content{position:relative}.contextual-menu-container{display:none;position:absolute;top:calc(100% - var(--space-unit));right:0}.button-container.visible,.contextual-menu-container.visible{display:initial}";
+const stylesCss$f = ":host{display:table-cell;padding:calc(var(--space-unit) * 2);background-color:var(--color-white);border-bottom:var(--border-size-small) solid var(--bg-grey-200);font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>.button-container{display:none}:host:hover>.button-container{display:initial}.button-container{position:absolute;right:8px;top:8px;z-index:5}.button-content{position:relative}.contextual-menu-container{display:none;position:absolute;top:calc(100% - var(--space-unit));right:0}.button-container.visible,.contextual-menu-container.visible{display:initial}";
 
 const ZRegistroTableCell = class {
   constructor(hostRef) {

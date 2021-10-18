@@ -5,5 +5,5 @@ export declare class ZInputMessage {
   /** input status (optional) */
   status?: InputStatusBean;
   private statusIcons;
-  render(): any[];
+  render(): any;
 }
