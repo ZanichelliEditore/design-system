@@ -9,7 +9,7 @@ import { text, boolean } from "@storybook/addon-knobs";
 <Preview>
   <Story name="ZRegistroTable-sample">
     {html`<z-registro-table
-      bordered="${boolean("bordered", false)}"
+      bordered="${boolean("bordered", true)}"
       column-sticky="${boolean("column-sticky", false)}"
       header-sticky="${boolean("header-sticky", false)}"
     >
@@ -31,61 +31,61 @@ import { text, boolean } from "@storybook/addon-knobs";
       </z-registro-table-head>
       <z-registro-table-body>
         <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
-            <z-tooltip type="top" open="true" bind-to="#sample-element"
-              >Tooltip di esempio</z-tooltip
-            >
+          <z-registro-table-cell>
+            <z-tooltip type="top" open="true" bind-to="#sample-element">
+              Tooltip di esempio
+            </z-tooltip>
             <span id="sample-element">Contenuto 1-1</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 1-2</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 1-3</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 1-4</span>
           </z-registro-table-cell>
         </z-registro-table-row>
         <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 2-1</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 2-2</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 2-3</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 2-4</span>
           </z-registro-table-cell>
         </z-registro-table-row>
         <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 3-1</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 3-2</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 3-3</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 3-4</span>
           </z-registro-table-cell>
         </z-registro-table-row>
         <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 4-1</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 4-2</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 4-3</span>
           </z-registro-table-cell>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
             <span>Contenuto 4-4</span>
           </z-registro-table-cell>
         </z-registro-table-row>
@@ -110,6 +110,7 @@ import { text, boolean } from "@storybook/addon-knobs";
   </Story>
   <Story name="ZRegistroTable-error">
     {html`<z-registro-table
+        bordered="true"
         error="true"
         lines="${text("Lines", "6")}"
         show-error-image="${boolean("Show Image", true)}"
@@ -160,11 +161,9 @@ import { text, boolean } from "@storybook/addon-knobs";
   <Story name="ZRegistroTable-empty-no-header">
     {html`<z-registro-table
       bordered="${boolean("bordered", false)}"
-      call-to-action-label="${text("call-to-action-label", "")}"
-      call-to-action-two-label="${text("call-to-action-two-label", "")}"
-      column-sticky="${boolean("column-sticky", false)}"
-      empty="${boolean("empty", true)}"
-      header-sticky="${boolean("header-sticky", false)}"
+      call-to-action-label="${text("call-to-action-label", "Action 1")}"
+      call-to-action-two-label="${text("call-to-action-two-label", "Action 2")}"
+      empty="true"
       message="${text(
         "message",
         "Siamo spiacenti, al momento non sono presenti dati da visualizzare"
@@ -181,9 +180,7 @@ import { text, boolean } from "@storybook/addon-knobs";
         "call-to-action-two-label",
         "Call to action"
       )}"
-      column-sticky="${boolean("column-sticky", false)}"
-      empty="${boolean("empty", true)}"
-      header-sticky="${boolean("header-sticky", false)}"
+      empty="true"
       message="${text(
         "message",
         "Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
@@ -210,15 +207,13 @@ import { text, boolean } from "@storybook/addon-knobs";
   </Story>
   <Story name="ZRegistroTable-empty-with-header-column">
     {html`<z-registro-table
-      bordered="${boolean("bordered", false)}"
+      bordered="${boolean("bordered", true)}"
       call-to-action-label="${text("call-to-action-label", "Call to action")}"
       call-to-action-two-label="${text(
         "call-to-action-two-label",
         "Call to action"
       )}"
-      column-sticky="${boolean("column-sticky", false)}"
-      empty="${boolean("empty", true)}"
-      header-sticky="${boolean("header-sticky", false)}"
+      empty="true"
       message="${text(
         "message",
         "Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
@@ -233,22 +228,26 @@ import { text, boolean } from "@storybook/addon-knobs";
       </z-registro-table-head>
       <z-registro-table-body slot="table-body">
         <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
+            <z-avatar text="AS" size="medium" background-color="avatar-C11" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C11);"></z-avatar>
             <span>Contenuto 1-1</span>
           </z-registro-table-cell>
         </z-registro-table-row>
         <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
+            <z-avatar text="FF" size="medium" background-color="avatar-C12" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C12);"></z-avatar>
             <span>Contenuto 1-2</span>
           </z-registro-table-cell>
         </z-registro-table-row>
         <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell>
+            <z-avatar text="AS" size="medium" background-color="avatar-C13" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C13);"></z-avatar>
             <span>Contenuto 1-3</span>
           </z-registro-table-cell>
         </z-registro-table-row>
         <z-registro-table-row>
-          <z-registro-table-cell show-button="${boolean("show-button", false)}">
+          <z-registro-table-cell >
+            <z-avatar text="AS" size="medium" background-color="avatar-C14" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C14);"></z-avatar>
             <span>Contenuto 1-4</span>
           </z-registro-table-cell>
         </z-registro-table-row>
