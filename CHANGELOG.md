@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.23.5](https://github.com/ZanichelliEditore/design-system/compare/v2.23.4...v2.23.5) (2021-10-21)
+
+
+### Bug Fixes
+
+* **CLAV-155:** fix documentation ([1ad5d65](https://github.com/ZanichelliEditore/design-system/commit/1ad5d6596ac8eeb7dbd681dd3ad83159c8834652))
+* **CLAV-155:** fix documentation ([2f88934](https://github.com/ZanichelliEditore/design-system/commit/2f88934eeadbb03adeda48156864ce7c103d04a8))
+* **CLAV-155:** fix documentation and add log ([818e6fa](https://github.com/ZanichelliEditore/design-system/commit/818e6fa3a4b16626e41126200261a6449f483a8c))
+
 ### [2.23.4](https://github.com/ZanichelliEditore/design-system/compare/v2.23.3...v2.23.4) (2021-10-18)
 
 
