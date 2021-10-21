@@ -52,10 +52,10 @@ export class ZRegistroTableRow {
       <Host
         role="row"
         expanded={this.expanded}
-        onClick={() =>
+        onClick={() => {
           this.expandedType === ZRegistroTableRowExpandedType.expandable &&
-          this.handleExpand()
-        }
+            this.handleExpand();
+        }}
       >
         {this.expandedType !== ZRegistroTableRowExpandedType.none &&
           this.renderExpandButton()}
