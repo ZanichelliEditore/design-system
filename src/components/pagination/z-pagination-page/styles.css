@@ -13,9 +13,9 @@
   height: 48px;
   line-height: 48px;
   text-align: center;
-  border-bottom: 4px solid transparent;
+  border-bottom: var(--border-size-large) solid transparent;
   color: var(--color-primary01);
-  font-size: 14px;
+  font-size: var(--font-size-2);
   text-decoration: none;
   transition: border-bottom 0.2s ease, font-size 0.2s ease;
   min-width: 56px;
@@ -29,15 +29,15 @@
 
 
 :host > a:hover {
-  border-bottom: 4px solid var(--color-hover-light);
+  border-bottom: var(--border-size-large) solid var(--color-hover-light);
   background-color: var(--color-background);
   text-decoration: none;
   transition: border-bottom 0.2s ease, background-color 0.2s ease;
 }
 
 :host > a:focus {
-  border-bottom: 4px solid var(--color-hover-light);
-  box-shadow: 0px 0px 2px 2px var(--accent-dark);
+  border-bottom: var(--border-size-large) solid var(--color-hover-light);
+  box-shadow: var(--shadow-focus-primary);
   background-color: var(--color-background);
   text-decoration: none;
 }
@@ -49,6 +49,6 @@
 
 :host > a.selected {
   border-bottom: 4px solid var(--color-primary01);
-  font-size: 28px;
+  font-size: var(--font-size-7);
   transition: border-bottom 0.2s ease, font-size 0.2s ease;
 }
