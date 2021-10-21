@@ -1,4 +1,4 @@
-:host>div {
+:host > div {
   height: 48px;
 	display: flex;
 	flex-direction: row;
@@ -8,16 +8,16 @@
 	align-content: center;
 }
 
-:host>div>z-icon {
+:host > div > z-icon {
   cursor: pointer;
-  margin: 15px 0;
-  color: var(--myz-blue);
-  fill: var(--myz-blue);
+  margin: calc(var(--space-unit) * 2) 0;
+  color: var(--color-primary01);
+  fill: var(--color-primary01);
 }
 
-:host>div>z-icon.disabled {
+:host > div > z-icon.disabled {
   cursor: default;
   pointer-events: none;
-  color: var(--bg-neutral-200);
-  fill: var(--bg-neutral-200);
+  color: var(--color-disabled01);
+  fill: var(--color-disabled01);
 }

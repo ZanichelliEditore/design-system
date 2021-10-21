@@ -6,7 +6,7 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class ZPaginationPage {
-  /** anchor html id */
+  /** html id */
   @Prop() pageid: string;
   /** numeric page value (optional) */
   @Prop() value?: number;
@@ -16,21 +16,20 @@ export class ZPaginationPage {
   @Prop() isdisabled: boolean = false;
   /** visited status flag */
   @Prop() isvisited: boolean = false;
-
-  page: HTMLElement;
+  /** aria-label string */
+  @Prop() ariaLabel?: string;
 
   render() {
     return (
-      <a
+      <button
         id={this.pageid}
-        ref={el => (this.page = el as HTMLElement)}
-        class={`${this.isselected && "selected"} ${this.isdisabled &&
-          "disabled"} ${this.isvisited && "visited"}`}
-        tabindex={this.isdisabled ? -1 : 0}
-        role="button"
+        aria-label={this.ariaLabel ? this.ariaLabel : `Go to page ${this.value}`}
+        class={{ selected: this.isselected, visited: this.isvisited }}
+        disabled={this.isdisabled}
+        type="button"
       >
         {this.value}
-      </a>
+      </button>
     );
   }
 }
