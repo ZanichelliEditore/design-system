@@ -21,8 +21,10 @@ export class ZRegistroTableRow {
       h("div", { class: "z-icon-placeholder" })));
   }
   render() {
-    return (h(Host, { role: "row", expanded: this.expanded, onClick: () => this.expandedType === ZRegistroTableRowExpandedType.expandable &&
-        this.handleExpand() },
+    return (h(Host, { role: "row", expanded: this.expanded, onClick: () => {
+        this.expandedType === ZRegistroTableRowExpandedType.expandable &&
+          this.handleExpand();
+      } },
       this.expandedType !== ZRegistroTableRowExpandedType.none &&
         this.renderExpandButton(),
       h("slot", null)));

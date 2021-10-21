@@ -2817,8 +2817,10 @@ const ZRegistroTableRow = class {
     return (h("z-registro-table-cell", { style: { borderRight: "none" } }, h("div", { class: "z-icon-placeholder" })));
   }
   render() {
-    return (h(Host, { role: "row", expanded: this.expanded, onClick: () => this.expandedType === ZRegistroTableRowExpandedType.expandable &&
-        this.handleExpand() }, this.expandedType !== ZRegistroTableRowExpandedType.none &&
+    return (h(Host, { role: "row", expanded: this.expanded, onClick: () => {
+        this.expandedType === ZRegistroTableRowExpandedType.expandable &&
+          this.handleExpand();
+      } }, this.expandedType !== ZRegistroTableRowExpandedType.none &&
       this.renderExpandButton(), h("slot", null)));
   }
 };
