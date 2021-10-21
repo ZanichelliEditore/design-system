@@ -10,7 +10,7 @@
 
 :host > div > z-icon {
   cursor: pointer;
-  margin: 15px 0;
+  margin: calc(var(--space-unit) * 2) 0;
   color: var(--color-primary01);
   fill: var(--color-primary01);
 }
