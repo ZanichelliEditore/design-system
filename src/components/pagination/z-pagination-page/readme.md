@@ -15,10 +15,11 @@
 
 | Property     | Attribute    | Description                   | Type      | Default     |
 | ------------ | ------------ | ----------------------------- | --------- | ----------- |
+| `ariaLabel`  | `aria-label` | aria-label string             | `string`  | `undefined` |
 | `isdisabled` | `isdisabled` | disabled status flag          | `boolean` | `false`     |
 | `isselected` | `isselected` | selected status flag          | `boolean` | `false`     |
 | `isvisited`  | `isvisited`  | visited status flag           | `boolean` | `false`     |
-| `pageid`     | `pageid`     | anchor html id                | `string`  | `undefined` |
+| `pageid`     | `pageid`     | html id                       | `string`  | `undefined` |
 | `value`      | `value`      | numeric page value (optional) | `number`  | `undefined` |
 
 

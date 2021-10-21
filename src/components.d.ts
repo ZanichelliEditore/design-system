@@ -1024,6 +1024,10 @@ export namespace Components {
     }
     interface ZPaginationPage {
         /**
+          * aria-label string
+         */
+        "ariaLabel"?: string;
+        /**
           * disabled status flag
          */
         "isdisabled": boolean;
@@ -1036,7 +1040,7 @@ export namespace Components {
          */
         "isvisited": boolean;
         /**
-          * anchor html id
+          * html id
          */
         "pageid": string;
         /**
@@ -3250,6 +3254,10 @@ declare namespace LocalJSX {
     }
     interface ZPaginationPage {
         /**
+          * aria-label string
+         */
+        "ariaLabel"?: string;
+        /**
           * disabled status flag
          */
         "isdisabled"?: boolean;
@@ -3262,7 +3270,7 @@ declare namespace LocalJSX {
          */
         "isvisited"?: boolean;
         /**
-          * anchor html id
+          * html id
          */
         "pageid"?: string;
         /**
