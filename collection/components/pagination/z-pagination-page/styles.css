@@ -1,10 +1,10 @@
 :host {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
   display: inline-block;
 }
 
-:host>a {
+:host > button {
   cursor: pointer;
   outline: none;
   display: inline-block;
@@ -13,53 +13,45 @@
   height: 48px;
   line-height: 48px;
   text-align: center;
-  border-bottom: 4px solid transparent;
-  color: var(--myz-blue);
-  font-size: 14px;
+  border: none;
+  border-bottom: var(--border-size-large) solid transparent;
+  color: var(--color-primary01);
+  font-size: var(--font-size-2);
+  font-family: var(--font-family-sans);
+  font-weight: inherit;
+  background: transparent;
   text-decoration: none;
   transition: border-bottom 0.2s ease, font-size 0.2s ease;
   min-width: 56px;
 }
 
-:host>a.disabled {
+:host > button[disabled] {
   pointer-events: none;
   cursor: default;
-  color: var(--text-grey-700);
+  color: var(--color-disabled02);
 }
 
-
-:host>a:hover {
-  border-bottom: 4px solid rgba(0, 86, 193, 0.5);
-  background-color: var(--bg-grey-050);
+:host > button:hover {
+  border-bottom: var(--border-size-large) solid var(--color-hover-light);
+  background-color: var(--color-background);
   text-decoration: none;
   transition: border-bottom 0.2s ease, background-color 0.2s ease;
 }
 
-:host>a:focus {
-  border-bottom: 4px solid var(--bg-grey-200);
-  box-shadow: 0px 0px 2px 2px var(--accent-dark);
-  background-color: var(--bg-grey-050);
+:host > button:focus {
+  border-bottom: var(--border-size-large) solid var(--color-hover-light);
+  box-shadow: var(--shadow-focus-primary);
+  background-color: var(--color-background);
   text-decoration: none;
 }
 
-:host>a.visited {
-  border-color: rgba(0, 86, 193, 0.5);
+:host > button.visited {
+  border-color: var(--color-hover-light);
   text-decoration: none;
 }
 
-:host>a.selected {
-  border-bottom: 4px solid var(--myz-blue);
-  font-size: 28px;
+:host > button.selected {
+  border-bottom: var(--border-size-large) solid var(--color-primary01);
+  font-size: var(--font-size-7);
   transition: border-bottom 0.2s ease, font-size 0.2s ease;
-}
-
-
-/* Tablet / Desktop */
-
-@media only screen and (min-width: 768px) {
-
-  :host>a {
-    /* width: 76px; */
-  }
-
 }

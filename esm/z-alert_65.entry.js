@@ -2288,7 +2288,7 @@ const ZNotification = class {
 };
 ZNotification.style = stylesCss$m;
 
-const stylesCss$l = ":host>div{height:48px;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center;align-content:center}:host>div>z-icon{cursor:pointer;margin:15px 0;color:var(--myz-blue);fill:var(--myz-blue)}:host>div>z-icon.disabled{cursor:default;pointer-events:none;color:var(--bg-neutral-200);fill:var(--bg-neutral-200)}";
+const stylesCss$l = ":host>div{height:48px;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center;align-content:center}:host>div>z-icon{cursor:pointer;margin:calc(var(--space-unit) * 2) 0;color:var(--color-primary01);fill:var(--color-primary01)}:host>div>z-icon.disabled{cursor:default;pointer-events:none;color:var(--color-disabled01);fill:var(--color-disabled01)}";
 
 const ZPaginationBar = class {
   constructor(hostRef) {
@@ -2404,7 +2404,7 @@ const ZPaginationBar = class {
 };
 ZPaginationBar.style = stylesCss$l;
 
-const stylesCss$k = ":host{font-family:var(--dashboard-font);font-weight:var(--font-sb);display:inline-block}:host>a{cursor:pointer;outline:none;display:inline-block;box-sizing:border-box;margin:0;height:48px;line-height:48px;text-align:center;border-bottom:4px solid transparent;color:var(--myz-blue);font-size:14px;text-decoration:none;transition:border-bottom 0.2s ease, font-size 0.2s ease;min-width:56px}:host>a.disabled{pointer-events:none;cursor:default;color:var(--text-grey-700)}:host>a:hover{border-bottom:4px solid rgba(0, 86, 193, 0.5);background-color:var(--bg-grey-050);text-decoration:none;transition:border-bottom 0.2s ease, background-color 0.2s ease}:host>a:focus{border-bottom:4px solid var(--bg-grey-200);box-shadow:0px 0px 2px 2px var(--accent-dark);background-color:var(--bg-grey-050);text-decoration:none}:host>a.visited{border-color:rgba(0, 86, 193, 0.5);text-decoration:none}:host>a.selected{border-bottom:4px solid var(--myz-blue);font-size:28px;transition:border-bottom 0.2s ease, font-size 0.2s ease}@media only screen and (min-width: 768px){:host>a{}}";
+const stylesCss$k = ":host{font-family:var(--font-family-sans);font-weight:var(--font-sb);display:inline-block}:host>button{cursor:pointer;outline:none;display:inline-block;box-sizing:border-box;margin:0;height:48px;line-height:48px;text-align:center;border:none;border-bottom:var(--border-size-large) solid transparent;color:var(--color-primary01);font-size:var(--font-size-2);font-family:var(--font-family-sans);font-weight:inherit;background:transparent;text-decoration:none;transition:border-bottom 0.2s ease, font-size 0.2s ease;min-width:56px}:host>button[disabled]{pointer-events:none;cursor:default;color:var(--color-disabled02)}:host>button:hover{border-bottom:var(--border-size-large) solid var(--color-hover-light);background-color:var(--color-background);text-decoration:none;transition:border-bottom 0.2s ease, background-color 0.2s ease}:host>button:focus{border-bottom:var(--border-size-large) solid var(--color-hover-light);box-shadow:var(--shadow-focus-primary);background-color:var(--color-background);text-decoration:none}:host>button.visited{border-color:var(--color-hover-light);text-decoration:none}:host>button.selected{border-bottom:var(--border-size-large) solid var(--color-primary01);font-size:var(--font-size-7);transition:border-bottom 0.2s ease, font-size 0.2s ease}";
 
 const ZPaginationPage = class {
   constructor(hostRef) {
@@ -2417,8 +2417,7 @@ const ZPaginationPage = class {
     this.isvisited = false;
   }
   render() {
-    return (h("a", { id: this.pageid, ref: el => (this.page = el), class: `${this.isselected && "selected"} ${this.isdisabled &&
-        "disabled"} ${this.isvisited && "visited"}`, tabindex: this.isdisabled ? -1 : 0, role: "button" }, this.value));
+    return (h("button", { id: this.pageid, "aria-label": this.ariaLabel ? this.ariaLabel : `Go to page ${this.value}`, class: { selected: this.isselected, visited: this.isvisited }, disabled: this.isdisabled, type: "button" }, this.value));
   }
 };
 ZPaginationPage.style = stylesCss$k;

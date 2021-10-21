@@ -9,8 +9,7 @@ export class ZPaginationPage {
     this.isvisited = false;
   }
   render() {
-    return (h("a", { id: this.pageid, ref: el => (this.page = el), class: `${this.isselected && "selected"} ${this.isdisabled &&
-        "disabled"} ${this.isvisited && "visited"}`, tabindex: this.isdisabled ? -1 : 0, role: "button" }, this.value));
+    return (h("button", { id: this.pageid, "aria-label": this.ariaLabel ? this.ariaLabel : `Go to page ${this.value}`, class: { selected: this.isselected, visited: this.isvisited }, disabled: this.isdisabled, type: "button" }, this.value));
   }
   static get is() { return "z-pagination-page"; }
   static get encapsulation() { return "shadow"; }
@@ -33,7 +32,7 @@ export class ZPaginationPage {
       "optional": false,
       "docs": {
         "tags": [],
-        "text": "anchor html id"
+        "text": "html id"
       },
       "attribute": "pageid",
       "reflect": false
@@ -108,6 +107,23 @@ export class ZPaginationPage {
       "attribute": "isvisited",
       "reflect": false,
       "defaultValue": "false"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "aria-label string"
+      },
+      "attribute": "aria-label",
+      "reflect": false
     }
   }; }
 }
