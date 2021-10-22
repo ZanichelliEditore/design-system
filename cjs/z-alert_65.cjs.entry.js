@@ -540,6 +540,10 @@ const ZContextualMenu = class {
      * [optional] Sets text color of ZContextualMenu's content
      */
     this.color = "color-primary01";
+    /**
+     * [optional] Sets the position of the popover
+     */
+    this.popoverPosition = index$1.PopoverPosition["after-down"];
   }
   componentWillRender() {
     if (this.elements) {
@@ -551,7 +555,7 @@ const ZContextualMenu = class {
   }
   render() {
     var _a;
-    return (index.h(index.Host, null, index.h("z-popover", { "background-color": "color-background", "box-shadow": "shadow-2", position: index$1.PopoverPosition["after-down"], padding: "0" }, index.h("z-icon", { "aria-label": "apri-menu-contestuale", slot: "trigger", name: "contextual-menu", fill: "color-primary01", style: { cursor: "pointer" } }), index.h("div", { class: "popover-content-container", slot: "popover" }, index.h("z-list", null, index.h("z-list-group", { "divider-type": "element" }, (_a = this.jsonElements) === null || _a === void 0 ? void 0 : _a.map((element, index$1) => (index.h("z-list-element", { clickable: !element.disabled, class: "my-z-list-element", "align-button": "left", "expandable-style": "accordion", color: element.disabled ? `color-disabled03` : this.color, isContextualMenu: true, listElementId: index$1, onClickItem: (event) => this.clickContextualMenu.emit(event.detail) }, index.h("div", { class: element.disabled
+    return (index.h(index.Host, null, index.h("z-popover", { "background-color": "color-background", "box-shadow": "shadow-2", position: this.popoverPosition, padding: "0" }, index.h("z-icon", { "aria-label": "apri-menu-contestuale", slot: "trigger", name: "contextual-menu", fill: "color-primary01", style: { cursor: "pointer" } }), index.h("div", { class: "popover-content-container", slot: "popover" }, index.h("z-list", null, index.h("z-list-group", { "divider-type": "element" }, (_a = this.jsonElements) === null || _a === void 0 ? void 0 : _a.map((element, index$1) => (index.h("z-list-element", { clickable: !element.disabled, class: "my-z-list-element", "align-button": "left", "expandable-style": "accordion", color: element.disabled ? `color-disabled03` : this.color, isContextualMenu: true, listElementId: index$1, onClickItem: (event) => this.clickContextualMenu.emit(event.detail) }, index.h("div", { class: element.disabled
         ? "disabled-element-container"
         : "element-container" }, this.showIcon() && (index.h("div", { class: "element-icon" }, index.h("z-icon", { name: element.icon, width: 16, height: 16 }))), index.h("div", { class: "element-text" }, index.h("span", null, element.text))))))))))));
   }

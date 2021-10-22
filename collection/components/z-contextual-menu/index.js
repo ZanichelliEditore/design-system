@@ -6,6 +6,10 @@ export class ZContextualMenu {
      * [optional] Sets text color of ZContextualMenu's content
      */
     this.color = "color-primary01";
+    /**
+     * [optional] Sets the position of the popover
+     */
+    this.popoverPosition = PopoverPosition["after-down"];
   }
   componentWillRender() {
     if (this.elements) {
@@ -18,7 +22,7 @@ export class ZContextualMenu {
   render() {
     var _a;
     return (h(Host, null,
-      h("z-popover", { "background-color": "color-background", "box-shadow": "shadow-2", position: PopoverPosition["after-down"], padding: "0" },
+      h("z-popover", { "background-color": "color-background", "box-shadow": "shadow-2", position: this.popoverPosition, padding: "0" },
         h("z-icon", { "aria-label": "apri-menu-contestuale", slot: "trigger", name: "contextual-menu", fill: "color-primary01", style: { cursor: "pointer" } }),
         h("div", { class: "popover-content-container", slot: "popover" },
           h("z-list", null,
@@ -74,6 +78,29 @@ export class ZContextualMenu {
       "attribute": "color",
       "reflect": false,
       "defaultValue": "\"color-primary01\""
+    },
+    "popoverPosition": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "PopoverPosition",
+        "resolved": "typeof PopoverPosition[\"above-center\"] | typeof PopoverPosition[\"above-left\"] | typeof PopoverPosition[\"above-right\"] | typeof PopoverPosition[\"after-center\"] | typeof PopoverPosition[\"after-down\"] | typeof PopoverPosition[\"after-up\"] | typeof PopoverPosition[\"before-center\"] | typeof PopoverPosition[\"before-down\"] | typeof PopoverPosition[\"before-up\"] | typeof PopoverPosition[\"below-center\"] | typeof PopoverPosition[\"below-left\"] | typeof PopoverPosition[\"below-right\"]",
+        "references": {
+          "PopoverPosition": {
+            "location": "import",
+            "path": "../../beans"
+          }
+        }
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "[optional] Sets the position of the popover"
+      },
+      "attribute": "popover-position",
+      "reflect": false,
+      "defaultValue": "PopoverPosition[\"after-down\"]"
     }
   }; }
   static get events() { return [{
