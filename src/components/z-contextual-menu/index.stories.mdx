@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text } from "@storybook/addon-knobs";
+import { text, select } from "@storybook/addon-knobs";
 
 <Meta title="ZContextualMenu" component="contextual-menu" />
 
@@ -19,6 +19,24 @@ import { text } from "@storybook/addon-knobs";
           {"icon": "delete", "text": "Elemento 3", "disabled": "true"}, {"icon": "delete", "text": "Elemento 4"}]`
         )}"
         color="${text("color", "color-primary01")}"
+        popover-position="${select(
+          "popover-position",
+          [
+            "after-down",
+            "after-center",
+            "after-up",
+            "below-left",
+            "below-center",
+            "below-right",
+            "before-down",
+            "before-center",
+            "before-up",
+            "above-right",
+            "above-center",
+            "above-left",
+          ],
+          "after-down"
+        )}"
       >
       </z-contextual-menu>
     </div>`}
@@ -37,6 +55,24 @@ import { text } from "@storybook/addon-knobs";
           `[{ "text": "Elemento 1"}, { "text": "Elemento 2"}, { "text": "Elemento 4", "disabled": "true"}, { "text": "Elemento 3"}]`
         )}"
         color="${text("color", "color-primary01")}"
+        popover-position="${select(
+          "popover-position",
+          [
+            "after-down",
+            "after-center",
+            "after-up",
+            "below-left",
+            "below-center",
+            "below-right",
+            "before-down",
+            "before-center",
+            "before-up",
+            "above-right",
+            "above-center",
+            "above-left",
+          ],
+          "after-down"
+        )}"
       >
       </z-contextual-menu>
     </div>`}
@@ -55,6 +91,24 @@ import { text } from "@storybook/addon-knobs";
           `[{"icon": "share", "text": "ElementoConTestoLungoElementoConTestoLungo"}, {"icon": "delete", "text": "ElementoConTestoLungo ElementoConTestoLungo ElementoConTestoLungo"}]`
         )}"
         color="${text("color", "color-primary01")}"
+        popover-positions="${select(
+          "popover-position",
+          [
+            "after-down",
+            "after-center",
+            "after-up",
+            "below-left",
+            "below-center",
+            "below-right",
+            "before-down",
+            "before-center",
+            "before-up",
+            "above-right",
+            "above-center",
+            "above-left",
+          ],
+          "after-down"
+        )}"
       >
       </z-contextual-menu>
     </div>`}

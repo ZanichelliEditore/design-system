@@ -271,6 +271,10 @@ export namespace Components {
           * elements of ZContextualMenu
          */
         "elements"?: string;
+        /**
+          * [optional] Sets the position of the popover
+         */
+        "popoverPosition"?: PopoverPosition;
     }
     interface ZCookiebar {
         /**
@@ -2383,6 +2387,10 @@ declare namespace LocalJSX {
           * remove filter click event, returns filterid
          */
         "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
+        /**
+          * [optional] Sets the position of the popover
+         */
+        "popoverPosition"?: PopoverPosition;
     }
     interface ZCookiebar {
         /**

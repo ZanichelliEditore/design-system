@@ -17,6 +17,11 @@ export class ZContextualMenu {
    */
   @Prop() color?: string = "color-primary01";
 
+  /**
+   * [optional] Sets the position of the popover
+   */
+  @Prop() popoverPosition?: PopoverPosition = PopoverPosition["after-down"];
+
   /** remove filter click event, returns filterid */
   @Event({
     eventName: "clickContextualMenu",
@@ -44,7 +49,7 @@ export class ZContextualMenu {
         <z-popover
           background-color="color-background"
           box-shadow="shadow-2"
-          position={PopoverPosition["after-down"]}
+          position={this.popoverPosition}
           padding="0"
         >
           <z-icon
