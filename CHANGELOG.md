@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.24.0](https://github.com/ZanichelliEditore/design-system/compare/v2.23.6...v2.24.0) (2021-10-22)
+
+
+### Features
+
+* **CLAV-152:** add popover position prop to z-contextual-menu ([2b15bd1](https://github.com/ZanichelliEditore/design-system/commit/2b15bd12b2d8bfb250c2e98612a59140960d1b9b))
+* **CLAV-152:** fix storybook ([d8815ca](https://github.com/ZanichelliEditore/design-system/commit/d8815ca31a35275ef2f6b10549b65bfb01f81c6f))
+
 ### [2.23.6](https://github.com/ZanichelliEditore/design-system/compare/v2.23.5...v2.23.6) (2021-10-21)
 
 
