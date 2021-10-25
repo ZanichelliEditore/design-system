@@ -485,6 +485,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * the label is attached to
+         */
+        "htmlfor"?: string;
+        /**
           * the label value
          */
         "value": string;
@@ -2620,6 +2624,10 @@ declare namespace LocalJSX {
           * the label is disabled
          */
         "disabled"?: boolean;
+        /**
+          * the label is attached to
+         */
+        "htmlfor"?: string;
         /**
           * the label value
          */

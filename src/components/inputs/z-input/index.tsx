@@ -251,6 +251,7 @@ export class ZInput {
 
     return (
       <z-input-label
+        htmlfor={this.htmlid}
         value={this.label}
         disabled={this.disabled}
         aria-label={this.label}

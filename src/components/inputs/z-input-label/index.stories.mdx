@@ -9,6 +9,7 @@ import { text, boolean } from '@storybook/addon-knobs';
 <Preview>
   <Story name="ZInputLabel-sample">
     {html`<z-input-label
+      htmlfor="${text('htmlfor', 'input-id')}"
       value="${text('value', 'Messaggio')}"
       disabled="${boolean('disabled', false)}"
     ></z-input-label>`}
