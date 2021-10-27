@@ -109,16 +109,19 @@ export class ZPaginationBar {
 
   loadPages() {
     this.currentPages.splice(0);
-    const lastPage = this.pageWindow();
 
-    let i: number;
-    for (i = 0; i < lastPage; i++) {
-      this.currentPages.push(i + this.startpage);
+    const pages = this.pageWindow();
+    const start = Math.max(this.startpage, (this.currentpage - pages) + 1);
+
+    for (let i = 0; i < pages; i++) {
+      this.currentPages.push(i + start);
     }
+
+    return this.currentPages;
   }
 
   pageWindow() {
-    return Math.min(this.pages, this.visiblepages); //How many pages are there to show?
+    return Math.min(this.pages, this.visiblepages);
   }
 
   canNavigateLeft() {
