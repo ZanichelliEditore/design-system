@@ -2967,10 +2967,10 @@
   resolved "https://registry.npmjs.org/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zanichelli/albe-design-tokens@^0.2.12":
-  version "0.2.12"
-  resolved "https://registry.npmjs.org/@zanichelli/albe-design-tokens/-/albe-design-tokens-0.2.12.tgz#01e021b0d5c4cb19b1e71491dda31c5830e5fc77"
-  integrity sha512-HNjvnQCqTk9pcWAlHDP7NVV/aQZQmpxDzgB4IUoSN5jIwIW0JGQv88AuzTEsjdscErpLdy4vgl1tcdCiobKGpQ==
+"@zanichelli/albe-design-tokens@^0.2.13":
+  version "0.2.13"
+  resolved "https://registry.npmjs.org/@zanichelli/albe-design-tokens/-/albe-design-tokens-0.2.13.tgz#b938e38d7333d515be88beef75a31e0c3be9358a"
+  integrity sha512-+qy96T4abfGC+ISAO05LHdtK7ZCd0mICeJC+bA6kz0XKzURYQMAZF3whQ4rpX8F1U+4CPhnEYY4UvRUxpvh5iA==
 
 JSONStream@^1.0.4:
   version "1.3.5"

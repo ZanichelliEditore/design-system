@@ -33,7 +33,7 @@
 
 :host > button:hover {
   border-bottom: var(--border-size-large) solid var(--color-hover-light);
-  background-color: var(--color-background);
+  background-color: var(--color-hover-surface);
   text-decoration: none;
   transition: border-bottom 0.2s ease, background-color 0.2s ease;
 }
@@ -41,7 +41,7 @@
 :host > button:focus {
   border-bottom: var(--border-size-large) solid var(--color-hover-light);
   box-shadow: var(--shadow-focus-primary);
-  background-color: var(--color-background);
+  background-color: var(--color-hover-surface);
   text-decoration: none;
 }
 
