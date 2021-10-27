@@ -34,4 +34,15 @@ import { text } from '@storybook/addon-knobs';
   </Story>
 </Preview>
 
+<Preview>
+  <Story name="z-modal with slotted content button">
+    {html`
+      <z-modal>
+        <div slot="modalContent">Contenuto dello <b>slot</b></div>
+        <button slot="modalCloseButton" aria-label="close">X</button>
+      </z-modal>
+    `}
+  </Story>
+</Preview>
+
 <Props of="z-modal" />
