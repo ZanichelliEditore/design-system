@@ -7,7 +7,6 @@ import {
   Listen,
   Prop,
   State,
-  getAssetPath,
   h,
 } from "@stencil/core";
 import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
@@ -111,44 +110,34 @@ export class ZRegistroTable {
     this.host.setAttribute("role", "table");
   }
 
-  render() {
+  renderError(tableClass) {
+    const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
+    return (
+      <Host>
+        <div class={tableClass}>
+          <slot name="table-header" />
+        </div>
+        <z-registro-table-error>
+          <div class="error-content" style={{ minHeight }}>
+            <slot name="error-image" />
+            <div class="text">
+              <z-body class="error-message" level={3} variant="semibold">
+                {this.errorMessage}
+              </z-body>
+              <slot name="error-action" />
+            </div>
+          </div>
+        </z-registro-table-error>
+      </Host>
+    );
+  }
+
+  renderEmpty(tableClass) {
     const buttonSize = this.isMobile
       ? ButtonSizeEnum.small
       : ButtonSizeEnum.big;
-    const tableClass = `table ${this.empty ? "table-empty" : ""} ${
-      this.bordered ? "table-bordered" : ""
-    }
-    ${this.columnSticky ? "table-column-sticky" : ""}
-    ${this.headerSticky ? "table-header-sticky" : ""}`;
     const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
-    const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
-    if (this.error) {
-      return (
-        <Host>
-          <div class={tableClass}>
-            <slot name="table-header" />
-          </div>
-          <z-registro-table-error>
-            <div class="error-content" style={{ minHeight }}>
-              {this.showErrorImage && (
-                <img
-                  alt="Errore"
-                  class="error-image"
-                  src={getAssetPath("./assets/zanichelli-error-image.png")}
-                />
-              )}
-              <div class="text">
-                <z-body class="error-message" level={3} variant="semibold">
-                  {this.errorMessage}
-                </z-body>
-                <slot name="error-action" />
-              </div>
-            </div>
-          </z-registro-table-error>
-        </Host>
-      );
-    }
-    if (this.empty && this.hasTableBody) {
+    if (this.hasTableBody) {
       return (
         <Host>
           <div class={tableClass}>
@@ -186,40 +175,54 @@ export class ZRegistroTable {
         </Host>
       );
     }
-    if (this.empty && !this.hasTableBody) {
-      return (
-        <Host>
-          <div class={tableClass}>
-            <slot name="table-header" />
-          </div>
-          <z-registro-table-empty-box
-            class={this.bordered && "bordered"}
-            message={this.message}
-            subtitle={this.subtitle}
-          >
-            {!!this.callToActionLabel && (
-              <z-button
-                slot="cta1"
-                variant={ButtonVariantEnum.tertiary}
-                onClick={() => this.callToAction.emit()}
-                size={buttonSize}
-              >
-                {this.callToActionLabel}
-              </z-button>
-            )}
-            {!!this.callToActionTwoLabel && (
-              <z-button
-                slot="cta2"
-                variant={ButtonVariantEnum.tertiary}
-                onClick={() => this.callToActionTwo.emit()}
-                size={buttonSize}
-              >
-                {this.callToActionTwoLabel}
-              </z-button>
-            )}
-          </z-registro-table-empty-box>
-        </Host>
-      );
+
+    return (
+      <Host>
+        <div class={tableClass}>
+          <slot name="table-header" />
+        </div>
+        <z-registro-table-empty-box
+          class={this.bordered && "bordered"}
+          message={this.message}
+          subtitle={this.subtitle}
+        >
+          {!!this.callToActionLabel && (
+            <z-button
+              slot="cta1"
+              variant={ButtonVariantEnum.tertiary}
+              onClick={() => this.callToAction.emit()}
+              size={buttonSize}
+            >
+              {this.callToActionLabel}
+            </z-button>
+          )}
+          {!!this.callToActionTwoLabel && (
+            <z-button
+              slot="cta2"
+              variant={ButtonVariantEnum.tertiary}
+              onClick={() => this.callToActionTwo.emit()}
+              size={buttonSize}
+            >
+              {this.callToActionTwoLabel}
+            </z-button>
+          )}
+        </z-registro-table-empty-box>
+      </Host>
+    );
+  }
+
+  render() {
+    const tableClass = `table ${this.empty ? "table-empty" : ""} ${
+      this.bordered ? "table-bordered" : ""
+    }
+    ${this.columnSticky ? "table-column-sticky" : ""}
+    ${this.headerSticky ? "table-header-sticky" : ""}`;
+
+    if (this.error) {
+      return this.renderError(tableClass);
+    }
+    if (this.empty) {
+      return this.renderEmpty(tableClass);
     }
     return (
       <Host>
