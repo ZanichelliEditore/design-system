@@ -115,12 +115,12 @@ footer.isopen > div.content > div > p.year_isbn > span.isbn {
 
 footer.isopen {
   height: 295px;
-  top: -169px;
+  top: -212px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
 
 footer.isopen > div.content {
-  height: 230px;
+  height: 280px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
 
