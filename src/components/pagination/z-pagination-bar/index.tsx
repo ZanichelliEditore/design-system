@@ -108,25 +108,21 @@ export class ZPaginationBar {
   }
 
   loadPages() {
-    this.currentPages.splice(0);
+    this.currentPages = [];
+    const start = Math.max(this.startpage, this.currentpage);
+    const end = Math.min(this.pages, (this.currentpage + this.visiblepages - 1));
 
-    const pages = this.pageWindow();
-    const start = Math.max(this.startpage, (this.currentpage - pages) + 1);
-
-    for (let i = 0; i < pages; i++) {
-      this.currentPages.push(i + start);
+    for (let i = start; i <= end; i++) {
+      this.currentPages.push(i);
     }
 
     return this.currentPages;
   }
 
-  pageWindow() {
-    return Math.min(this.pages, this.visiblepages);
-  }
-
   canNavigateLeft() {
     return this.startpage > 1;
   }
+
   canNavigateRight() {
     return this.startpage + this.visiblepages - 1 < this.pages;
   }
