@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.24.6](https://github.com/ZanichelliEditore/design-system/compare/v2.24.1...v2.24.6) (2021-10-28)
+
+### [2.24.5](https://github.com/ZanichelliEditore/design-system/compare/v2.24.1...v2.24.5) (2021-10-28)
+
+### [2.24.4](https://github.com/ZanichelliEditore/design-system/compare/v2.24.1...v2.24.4) (2021-10-28)
+
+### [2.24.3](https://github.com/ZanichelliEditore/design-system/compare/v2.24.1...v2.24.3) (2021-10-28)
+
+### [2.24.2](https://github.com/ZanichelliEditore/design-system/compare/v2.24.1...v2.24.2) (2021-10-28)
+
 ### [2.24.1](https://github.com/ZanichelliEditore/design-system/compare/v2.24.0...v2.24.1) (2021-10-27)
 
 ## [2.24.0](https://github.com/ZanichelliEditore/design-system/compare/v2.23.6...v2.24.0) (2021-10-22)
