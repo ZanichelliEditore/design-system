@@ -28,9 +28,6 @@ export class ZRegistroTable {
   /** Number of lines of element */
   @Prop({ reflect: true }) lines?: number;
 
-  /** Show image if there's an error */
-  @Prop() showErrorImage?: boolean = true;
-
   /** Error message */
   @Prop() errorMessage?: string =
     "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto";

@@ -1198,10 +1198,6 @@ export namespace Components {
          */
         "message"?: string;
         /**
-          * Show image if there's an error
-         */
-        "showErrorImage"?: boolean;
-        /**
           * Set subtitle
          */
         "subtitle"?: string;
@@ -3443,10 +3439,6 @@ declare namespace LocalJSX {
           * remove call to action event
          */
         "onCallToActionTwo"?: (event: CustomEvent<any>) => void;
-        /**
-          * Show image if there's an error
-         */
-        "showErrorImage"?: boolean;
         /**
           * Set subtitle
          */
