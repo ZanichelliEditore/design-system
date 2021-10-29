@@ -141,7 +141,7 @@ z-registro-table-empty-box {
 .error-content > img {
   width: 244px;
   height: 188px;
-  margin-right: calc(var(--space-unit) * 3);yarn 
+  margin-right: calc(var(--space-unit) * 3);
 }
 
 /* Mobile */
