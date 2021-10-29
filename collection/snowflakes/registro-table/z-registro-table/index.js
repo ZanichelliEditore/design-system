@@ -1,4 +1,4 @@
-import { Component, Element, Event, Host, Listen, Prop, State, getAssetPath, h, } from "@stencil/core";
+import { Component, Element, Event, Host, Listen, Prop, State, h, } from "@stencil/core";
 import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 /**
@@ -7,8 +7,6 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
  */
 export class ZRegistroTable {
   constructor() {
-    /** Show image if there's an error */
-    this.showErrorImage = true;
     /** Error message */
     this.errorMessage = "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto";
     /** Sets table with border */
@@ -39,27 +37,24 @@ export class ZRegistroTable {
   componentWillRender() {
     this.host.setAttribute("role", "table");
   }
-  render() {
+  renderError(tableClass) {
+    const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
+    return (h(Host, null,
+      h("div", { class: tableClass },
+        h("slot", { name: "table-header" })),
+      h("z-registro-table-error", null,
+        h("div", { class: "error-content", style: { minHeight } },
+          h("slot", { name: "error-image" }),
+          h("div", { class: "text" },
+            h("z-body", { class: "error-message", level: 3, variant: "semibold" }, this.errorMessage),
+            h("slot", { name: "error-action" }))))));
+  }
+  renderEmpty(tableClass) {
     const buttonSize = this.isMobile
       ? ButtonSizeEnum.small
       : ButtonSizeEnum.big;
-    const tableClass = `table ${this.empty ? "table-empty" : ""} ${this.bordered ? "table-bordered" : ""}
-    ${this.columnSticky ? "table-column-sticky" : ""}
-    ${this.headerSticky ? "table-header-sticky" : ""}`;
     const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
-    const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
-    if (this.error) {
-      return (h(Host, null,
-        h("div", { class: tableClass },
-          h("slot", { name: "table-header" })),
-        h("z-registro-table-error", null,
-          h("div", { class: "error-content", style: { minHeight } },
-            this.showErrorImage && (h("img", { alt: "Errore", class: "error-image", src: getAssetPath("./assets/zanichelli-error-image.png") })),
-            h("div", { class: "text" },
-              h("z-body", { class: "error-message", level: 3, variant: "semibold" }, this.errorMessage),
-              h("slot", { name: "error-action" }))))));
-    }
-    if (this.empty && this.hasTableBody) {
+    if (this.hasTableBody) {
       return (h(Host, null,
         h("div", { class: tableClass },
           h("slot", { name: "table-header" }),
@@ -69,13 +64,22 @@ export class ZRegistroTable {
               !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)),
               !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))))));
     }
-    if (this.empty && !this.hasTableBody) {
-      return (h(Host, null,
-        h("div", { class: tableClass },
-          h("slot", { name: "table-header" })),
-        h("z-registro-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle },
-          !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)),
-          !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))));
+    return (h(Host, null,
+      h("div", { class: tableClass },
+        h("slot", { name: "table-header" })),
+      h("z-registro-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle },
+        !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)),
+        !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))));
+  }
+  render() {
+    const tableClass = `table ${this.empty ? "table-empty" : ""} ${this.bordered ? "table-bordered" : ""}
+    ${this.columnSticky ? "table-column-sticky" : ""}
+    ${this.headerSticky ? "table-header-sticky" : ""}`;
+    if (this.error) {
+      return this.renderError(tableClass);
+    }
+    if (this.empty) {
+      return this.renderEmpty(tableClass);
     }
     return (h(Host, null,
       h("div", { class: tableClass },
@@ -107,24 +111,6 @@ export class ZRegistroTable {
       },
       "attribute": "lines",
       "reflect": true
-    },
-    "showErrorImage": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Show image if there's an error"
-      },
-      "attribute": "show-error-image",
-      "reflect": false,
-      "defaultValue": "true"
     },
     "errorMessage": {
       "type": "string",

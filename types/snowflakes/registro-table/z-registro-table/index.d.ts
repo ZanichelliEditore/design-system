@@ -7,8 +7,6 @@ export declare class ZRegistroTable {
   host: HTMLElement;
   /** Number of lines of element */
   lines?: number;
-  /** Show image if there's an error */
-  showErrorImage?: boolean;
   /** Error message */
   errorMessage?: string;
   /** Sets table with border */
@@ -44,5 +42,7 @@ export declare class ZRegistroTable {
   handleOrientationChange(): void;
   componentWillLoad(): void;
   componentWillRender(): void;
+  renderError(tableClass: any): any;
+  renderEmpty(tableClass: any): any;
   render(): any;
 }

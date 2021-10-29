@@ -1,4 +1,4 @@
-import { r as registerInstance, h, c as createEvent, g as getElement, H as Host, a as getAssetPath } from './index-0148109c.js';
+import { r as registerInstance, h, c as createEvent, g as getElement, H as Host } from './index-6eb9a735.js';
 import { T as ThemeVariant, A as AvatarSize, B as ButtonTypeEnum, a as ButtonVariantEnum, b as ButtonSizeEnum, C as CardVariants, I as InputTypeEnum, k as keybordKeyCodeEnum, P as PopoverPosition, c as DividerSize, d as DividerOrientation, L as ListSize, E as ExpandableListButtonAlign, e as ListDividerType, f as ExpandableListStyle, K as KeyboardKeys, g as LicenseTypeEnum, h as AlertTypesEnum, N as NotificationType, i as PopoverBorderRadius, j as PopoverShadow, l as TableHeaderSize, S as SortDirectionEnum, Z as ZRegistroTableRowExpandedType, m as InputStatusEnum, n as StatusTagStatus, o as TooltipPosition } from './index-ac6e10aa.js';
 import { m as mobileBreakpoint, t as tabletBreakpoint } from './breakpoints-c386984e.js';
 import { c as createCommonjsModule, h as hammer } from './hammer-c807d0b5.js';
@@ -2565,15 +2565,13 @@ const ZPopover = class {
 };
 ZPopover.style = stylesCss$i;
 
-const stylesCss$h = "z-registro-table{overflow-x:auto;display:block;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-rg)}z-registro-table>div.table{display:table;width:100%;border-collapse:separate}z-registro-table>div.table-bordered>z-registro-table-body>z-registro-table-row>z-registro-table-cell:not(:last-child),z-registro-table>div.table-bordered>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:not(:last-child){border-right:var(--border-size-small) solid var(--bg-grey-200)}z-registro-table>div>z-registro-table-body>z-registro-table-row[expandable]>z-registro-table-cell:first-child,z-registro-table>div>z-registro-table-head>z-registro-table-header-row[expandable]>z-registro-table-header:first-child{border-right:none}z-registro-table>div>z-registro-table-body>z-registro-table-row[expanded]>z-registro-table-cell{background-color:var(--gray50)}z-registro-table>div>z-registro-table-body>z-registro-table-row[expanded]+z-registro-table-expanded-row{border-bottom:1px solid var(--gray200)}z-registro-table>div.table-column-sticky>z-registro-table-body>z-registro-table-row>z-registro-table-cell:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child{position:sticky;left:0;box-shadow:1px 0 4px -1px rgba(66, 69, 72, 0.4);z-index:1}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header{position:sticky;top:0;box-shadow:0 2px 3px -3px rgba(66, 69, 72, 0.4)}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header{z-index:2}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child{z-index:5}z-registro-table-empty-box.bordered{border-left:var(--border-size-small) solid var(--bg-grey-200)}z-registro-table-body{width:auto}z-registro-table-empty-box{display:flex;flex-direction:column;flex-grow:1}.error-message{margin-top:calc(var(--space-unit) * 2)}.table-content{display:flex;flex-direction:row;width:100%}.error-content{font-family:var(--dashboard-font);padding:calc(var(--space-unit) * 3);display:flex}.error-image{width:244px;height:188px;margin-right:calc(var(--space-unit) * 3)}@media only screen and (max-width: 768px){z-registro-table>div.table-empty{display:none}.error-content{display:flex;flex-direction:column}.error-image{width:auto;height:auto}.text{padding:calc(var(--space-unit) * 3) 0}}";
+const stylesCss$h = "z-registro-table{overflow-x:auto;display:block;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-rg)}z-registro-table>div.table{display:table;width:100%;border-collapse:separate}z-registro-table>div.table-bordered>z-registro-table-body>z-registro-table-row>z-registro-table-cell:not(:last-child),z-registro-table>div.table-bordered>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:not(:last-child){border-right:var(--border-size-small) solid var(--bg-grey-200)}z-registro-table>div>z-registro-table-body>z-registro-table-row[expandable]>z-registro-table-cell:first-child,z-registro-table>div>z-registro-table-head>z-registro-table-header-row[expandable]>z-registro-table-header:first-child{border-right:none}z-registro-table>div>z-registro-table-body>z-registro-table-row[expanded]>z-registro-table-cell{background-color:var(--gray50)}z-registro-table>div>z-registro-table-body>z-registro-table-row[expanded]+z-registro-table-expanded-row{border-bottom:1px solid var(--gray200)}z-registro-table>div.table-column-sticky>z-registro-table-body>z-registro-table-row>z-registro-table-cell:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child{position:sticky;left:0;box-shadow:1px 0 4px -1px rgba(66, 69, 72, 0.4);z-index:1}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header{position:sticky;top:0;box-shadow:0 2px 3px -3px rgba(66, 69, 72, 0.4)}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header{z-index:2}z-registro-table>div.table-header-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child,z-registro-table>div.table-column-sticky>z-registro-table-head>z-registro-table-header-row>z-registro-table-header:first-child{z-index:5}z-registro-table-empty-box.bordered{border-left:var(--border-size-small) solid var(--bg-grey-200)}z-registro-table-body{width:auto}z-registro-table-empty-box{display:flex;flex-direction:column;flex-grow:1}.error-message{margin-top:calc(var(--space-unit) * 2)}.table-content{display:flex;flex-direction:row;width:100%}.error-content{font-family:var(--dashboard-font);padding:calc(var(--space-unit) * 3);display:flex}.error-content>img{width:244px;height:188px;margin-right:calc(var(--space-unit) * 3)}@media only screen and (max-width: 768px){z-registro-table>div.table-empty{display:none}.error-content{display:flex;flex-direction:column}.error-content>img{width:auto;height:auto}.text{padding:calc(var(--space-unit) * 3) 0}}";
 
 const ZRegistroTable = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.callToAction = createEvent(this, "callToAction", 7);
     this.callToActionTwo = createEvent(this, "callToActionTwo", 7);
-    /** Show image if there's an error */
-    this.showErrorImage = true;
     /** Error message */
     this.errorMessage = "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto";
     /** Sets table with border */
@@ -2604,23 +2602,29 @@ const ZRegistroTable = class {
   componentWillRender() {
     this.host.setAttribute("role", "table");
   }
-  render() {
+  renderError(tableClass) {
+    const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
+    return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" })), h("z-registro-table-error", null, h("div", { class: "error-content", style: { minHeight } }, h("slot", { name: "error-image" }), h("div", { class: "text" }, h("z-body", { class: "error-message", level: 3, variant: "semibold" }, this.errorMessage), h("slot", { name: "error-action" }))))));
+  }
+  renderEmpty(tableClass) {
     const buttonSize = this.isMobile
       ? ButtonSizeEnum.small
       : ButtonSizeEnum.big;
+    const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
+    if (this.hasTableBody) {
+      return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" }), h("div", { class: tableContentClass }, h("slot", { name: "table-body" }), h("z-registro-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle }, !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)), !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))))));
+    }
+    return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" })), h("z-registro-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle }, !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)), !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))));
+  }
+  render() {
     const tableClass = `table ${this.empty ? "table-empty" : ""} ${this.bordered ? "table-bordered" : ""}
     ${this.columnSticky ? "table-column-sticky" : ""}
     ${this.headerSticky ? "table-header-sticky" : ""}`;
-    const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
-    const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
     if (this.error) {
-      return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" })), h("z-registro-table-error", null, h("div", { class: "error-content", style: { minHeight } }, this.showErrorImage && (h("img", { alt: "Errore", class: "error-image", src: getAssetPath("./assets/zanichelli-error-image.png") })), h("div", { class: "text" }, h("z-body", { class: "error-message", level: 3, variant: "semibold" }, this.errorMessage), h("slot", { name: "error-action" }))))));
+      return this.renderError(tableClass);
     }
-    if (this.empty && this.hasTableBody) {
-      return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" }), h("div", { class: tableContentClass }, h("slot", { name: "table-body" }), h("z-registro-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle }, !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)), !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))))));
-    }
-    if (this.empty && !this.hasTableBody) {
-      return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" })), h("z-registro-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle }, !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)), !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))));
+    if (this.empty) {
+      return this.renderEmpty(tableClass);
     }
     return (h(Host, null, h("div", { class: tableClass }, h("slot", null)), h("slot", { name: "sticky-footer" })));
   }
