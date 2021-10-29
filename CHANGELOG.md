@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.24.8](https://github.com/ZanichelliEditore/design-system/compare/v2.24.7...v2.24.8) (2021-10-29)
+
+
+### Bug Fixes
+
+* **clav-192:** remove bad typo ([42703c2](https://github.com/ZanichelliEditore/design-system/commit/42703c27b9e21d577d6b7560963dc14a240d7412))
+
 ### [2.24.6](https://github.com/ZanichelliEditore/design-system/compare/v2.24.1...v2.24.6) (2021-10-28)
 
 ### [2.24.5](https://github.com/ZanichelliEditore/design-system/compare/v2.24.1...v2.24.5) (2021-10-28)
