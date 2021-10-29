@@ -32,7 +32,12 @@ import { text, boolean } from "@storybook/addon-knobs";
       <z-registro-table-body>
         <z-registro-table-row>
           <z-registro-table-cell>
-            <z-tooltip type="top" open="true" bind-to="#sample-element">
+            <z-tooltip
+              type="top"
+              open="true"
+              bind-to="#sample-element"
+              type="{Too.RIGHT}"
+            >
               Tooltip di esempio
             </z-tooltip>
             <span id="sample-element">Contenuto 1-1</span>
@@ -99,7 +104,6 @@ import { text, boolean } from "@storybook/addon-knobs";
     {html`<z-registro-table
         error="true"
         lines="${text("Lines", "6")}"
-        show-error-image="${boolean("Show Image", true)}"
         error-message="${text(
           "Error Message",
           "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto"
@@ -113,7 +117,6 @@ import { text, boolean } from "@storybook/addon-knobs";
         bordered="true"
         error="true"
         lines="${text("Lines", "6")}"
-        show-error-image="${boolean("Show Image", true)}"
         error-message="${text(
           "Error Message",
           "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto"
@@ -150,6 +153,11 @@ import { text, boolean } from "@storybook/addon-knobs";
             </z-registro-table-header>
           </z-registro-table-header-row>
         </z-registro-table-head>
+        <img
+          src="./images/png/zanichelli-error-image.png"
+          slot="error-image"
+          alt="Error"
+        />
         <div slot="error-action">
           <z-body level="{4}">
             <a href="#" target="_blank">Clicca qui</a> per ricaricare la pagina
