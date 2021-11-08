@@ -60,6 +60,7 @@
 
 ### Depends on
 
+- [z-body](../../typography/z-body)
 - [z-icon](../../icons/z-icon)
 - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
 - [z-input](../z-input)
@@ -67,9 +68,11 @@
 ### Graph
 ```mermaid
 graph TD;
+  z-combobox --> z-body
   z-combobox --> z-icon
   z-combobox --> z-myz-list-item
   z-combobox --> z-input
+  z-body --> z-typography
   z-myz-list-item --> z-icon
   z-input --> z-input-label
   z-input --> z-icon

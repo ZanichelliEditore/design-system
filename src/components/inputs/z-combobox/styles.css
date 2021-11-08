@@ -28,17 +28,13 @@
   outline: none;
 }
 
-:host > div > .header > h2 {
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-  color: var(--text-grey-800);
-  font-size: 16px;
-  line-height: 24px;
+:host > div > .header > z-body {
   margin: 0;
   padding: var(--space-unit) 0;
+  color: var(--text-grey-800);
 }
 
-:host > div > .header > h2 > span {
+:host > div > .header > z-body > span {
   font-weight: var(--font-sb);
 }
 
