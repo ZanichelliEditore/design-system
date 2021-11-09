@@ -5,6 +5,8 @@ You can use the `open` prop to show/hide the tooltip.
 
 Maybe you want to know where the tooltip goes when the `type` is set to `auto`, so the `positionChange` event is fired when it changes its position.
 
+To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
+
 <!-- readme-group="tootlip" -->
 ### Usage
 ```html

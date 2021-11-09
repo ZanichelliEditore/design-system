@@ -251,58 +251,69 @@ export class ZTooltip {
       style.position = "absolute";
     }
 
-    const margin = 16;
     const offsetTop = boundingRect.top - relativeBoundingRect.top;
     const offsetRight = boundingRect.right - relativeBoundingRect.right;
     const offsetBottom = boundingRect.bottom - relativeBoundingRect.bottom;
     const offsetLeft = boundingRect.left - relativeBoundingRect.left;
 
-    if (position === TooltipPosition.TOP || position === TooltipPosition.TOP_RIGHT) {
-      style.top = 'auto';
-      style.right = 'auto';
+    if (
+      position === TooltipPosition.TOP ||
+      position === TooltipPosition.TOP_RIGHT ||
+      position === TooltipPosition.TOP_LEFT
+    ) {
+      style.top = "auto";
       style.bottom = `${offsetBottom + boundingRect.height}px`;
-      style.left = `${offsetLeft}px`;
-      style.maxHeight = `${availableTop - margin}px`;
-      if (position === TooltipPosition.TOP_RIGHT) {
-        style.maxWidth = `${availableRight - margin}px`;
-      }
-    } else if (position === TooltipPosition.TOP_LEFT) {
-      style.top = 'auto';
-      style.right = `${offsetRight}px`;
-      style.bottom = `${offsetBottom + boundingRect.height}px`;
-      style.left = 'auto';
-      style.maxWidth = `${availableLeft - margin}px`;
-      style.maxHeight = `${availableTop - margin}px`;
-    } else if (position === TooltipPosition.BOTTOM || position === TooltipPosition.BOTTOM_RIGHT) {
+    }
+    if (
+      position === TooltipPosition.BOTTOM ||
+      position === TooltipPosition.BOTTOM_RIGHT ||
+      position === TooltipPosition.BOTTOM_LEFT
+    ) {
       style.top = `${offsetTop + boundingRect.height}px`;
-      style.right = 'auto';
-      style.bottom = 'auto';
-      style.left = `${offsetLeft}px`;
-      style.maxHeight = `${availableBottom - margin}px`;
-      if (position === TooltipPosition.BOTTOM_RIGHT) {
-        style.maxWidth = `${availableRight - margin}px`;
-      }
-    } else if (position === TooltipPosition.BOTTOM_LEFT) {
-      style.top = `${offsetTop + boundingRect.height}px`;
-      style.right = `${offsetRight}px`;
-      style.bottom = 'auto';
-      style.left = 'auto';
-      style.maxWidth = `${availableLeft - margin}px`;
-      style.maxHeight = `${availableBottom - margin}px`;
-    } else if (position === TooltipPosition.RIGHT) {
-      style.top = `${offsetTop}px`;
-      style.right = 'auto';
-      style.bottom = 'auto';
+      style.bottom = "auto";
+    }
+    if (
+      position === TooltipPosition.TOP ||
+      position === TooltipPosition.BOTTOM
+    ) {
+      style.left = `${
+        offsetLeft +
+        (boundingRect.width / 2) -
+        (this.host.clientWidth / 2)
+      }px`;
+    }
+    if (
+      position === TooltipPosition.TOP_RIGHT ||
+      position === TooltipPosition.BOTTOM_RIGHT
+    ) {
+      style.right = "auto";
+      style.left = `${offsetLeft + boundingRect.width - 16}px`;
+    }
+    if (
+      position === TooltipPosition.TOP_LEFT ||
+      position === TooltipPosition.BOTTOM_LEFT
+    ) {
+      style.left = "auto";
+      style.right = `${offsetRight + boundingRect.width - 16}px`;
+    }
+    if (
+      position === TooltipPosition.RIGHT ||
+      position === TooltipPosition.LEFT
+    ) {
+      style.top = `${
+        offsetTop +
+        (boundingRect.height / 2) -
+        (this.host.clientHeight / 2)
+      }px`;
+      style.bottom = "auto";
+    }
+    if (position === TooltipPosition.RIGHT) {
+      style.right = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
-      style.maxWidth = `${availableRight - margin}px`;
-      style.maxHeight = `${availableBottom - margin}px`;
-    } else if (position === TooltipPosition.LEFT) {
-      style.top = `${offsetTop}px`;
+    }
+    if (position === TooltipPosition.LEFT) {
+      style.left = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
-      style.bottom = 'auto';
-      style.left = 'auto';
-      style.maxWidth = `${availableLeft - margin}px`;
-      style.maxHeight = `${availableBottom - margin}px`;
     }
 
     this.position = position;
