@@ -11,6 +11,35 @@ import {
 } from "@stencil/core";
 import { TooltipPosition } from "../../../beans/index";
 
+const documentElement = document.documentElement;
+
+/**
+ * Find the closest scrollable parent of a node.
+ *
+ * @param {Element} element The node
+ */
+function findScrollableParent(element: Element) {
+  let parent = element.parentNode as Element;
+  while (parent && parent !== documentElement) {
+    const { overflow, overflowX, overflowY } = window.getComputedStyle(parent);
+    if (overflow === 'hidden' ||
+      overflowY === 'hidden' ||
+      overflowX === 'hidden'
+    ) {
+      return parent;
+    }
+
+    if ((parent.scrollHeight > parent.clientHeight && overflow !== 'visible' && overflowY !== 'visible') ||
+      (parent.scrollWidth > parent.clientWidth && overflow !== 'visible' && overflowX !== 'visible')) {
+      return parent;
+    }
+
+    parent = parent.parentNode as Element;
+  }
+
+  return documentElement;
+}
+
 /**
  * Calculate computed offset.
  * It includes matrix transformations.
@@ -37,6 +66,16 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
       top += offsetParent.offsetTop;
     }
 
+    const style = window.getComputedStyle(offsetParent);
+    const transform = style.transform || style.webkitTransform;
+    const domMatrix = new DOMMatrix(transform);
+    if (domMatrix) {
+      left += domMatrix.m41;
+      if (offsetParent !== document.body) {
+        top += domMatrix.m42;
+      }
+    }
+
     if (!offsetParent.offsetParent) {
       break;
     }
@@ -54,8 +93,8 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
     parentHeight = offsetParent.offsetHeight;
   }
 
-  const right = parentWidth - left;
-  const bottom = parentHeight - top;
+  const right = parentWidth - left - rect.width;
+  const bottom = parentHeight - top - rect.height;
 
   return { top, right, bottom, left, width, height };
 }
@@ -157,28 +196,48 @@ export class ZTooltip {
       return;
     }
 
-    let position = this.type;
-    const boundingRect = computeOffset(element, this.host.offsetParent as HTMLElement);
+    const scrollContainer = findScrollableParent(element) as HTMLElement;
+    const scrollingBoundingRect = scrollContainer.getBoundingClientRect();
+    const offsetContainer = this.host.offsetParent as HTMLElement;
+    const relativeBoundingRect = offsetContainer ? computeOffset(offsetContainer, scrollContainer) : { top: 0, right: 0, bottom: 0, left: 0 };
+    const boundingRect = computeOffset(element, scrollContainer);
 
+    const top = boundingRect.top;
+    const bottom = scrollingBoundingRect.height - (boundingRect.top + boundingRect.height);
+    const left = boundingRect.left;
+    const right = scrollingBoundingRect.width - (boundingRect.left + boundingRect.width);
+
+    const overflowBottom = Math.max(0, scrollingBoundingRect.top + scrollingBoundingRect.height - window.innerHeight);
+    const overflowRight = Math.max(0, scrollingBoundingRect.left + scrollingBoundingRect.width - window.innerWidth);
+
+    const availableTop = Math.min(top, top + scrollingBoundingRect.top);
+    const availableBottom = Math.min(bottom, bottom - overflowBottom);
+    const availableLeft = Math.min(left, left + scrollingBoundingRect.left);
+    const availableRight = Math.min(right, right - overflowRight);
+
+    const availableHeight = availableTop + availableBottom + boundingRect.height;
+    const availableWidth = availableLeft + availableRight + boundingRect.width;
+
+    let position = this.type;
     if (position === TooltipPosition.AUTO) {
       /**
        * The `AUTO` position tries to place the tooltip in the "safest" area,
        * where there's more space available.
        */
       const positions: TooltipPosition[] = [];
-      if ((boundingRect.top + boundingRect.height) / window.innerHeight > 0.9) {
+      if (availableTop / availableHeight > 0.9) {
         positions.unshift(TooltipPosition.TOP);
-      } else if ((boundingRect.top + boundingRect.height) / window.innerHeight > 0.6) {
+      } else if (availableTop / availableHeight > 0.6) {
         positions.push(TooltipPosition.TOP);
-      } else if ((boundingRect.top + boundingRect.height) / window.innerHeight < 0.1) {
+      } else if (availableTop / availableHeight < 0.1) {
         positions.unshift(TooltipPosition.BOTTOM);
       } else {
         positions.push(TooltipPosition.BOTTOM);
       }
 
-      if ((boundingRect.left + boundingRect.width) / window.innerWidth > 0.6) {
+      if (availableLeft / availableWidth > 0.6) {
         positions.push(TooltipPosition.LEFT);
-      } else if ((boundingRect.left + boundingRect.width) / window.innerWidth < 0.4) {
+      } else if (availableLeft / availableWidth < 0.4) {
         positions.push(TooltipPosition.RIGHT);
       }
 
@@ -190,64 +249,58 @@ export class ZTooltip {
       style.position = "absolute";
     }
 
-    if (
-      position === TooltipPosition.TOP ||
-      position === TooltipPosition.TOP_RIGHT ||
-      position === TooltipPosition.TOP_LEFT
-    ) {
-      style.top = "auto";
-      style.bottom = `${boundingRect.bottom}px`;
-    }
-    if (
-      position === TooltipPosition.BOTTOM ||
-      position === TooltipPosition.BOTTOM_RIGHT ||
-      position === TooltipPosition.BOTTOM_LEFT
-    ) {
-      style.top = `${boundingRect.top + boundingRect.height}px`;
-      style.bottom = "auto";
-    }
-    if (
-      position === TooltipPosition.TOP ||
-      position === TooltipPosition.BOTTOM
-    ) {
-      style.left = `${
-        boundingRect.left +
-        (boundingRect.width / 2) -
-        (this.host.clientWidth / 2)
-      }px`;
-    }
-    if (
-      position === TooltipPosition.TOP_RIGHT ||
-      position === TooltipPosition.BOTTOM_RIGHT
-    ) {
-      style.right = "auto";
-      style.left = `${boundingRect.left + boundingRect.width - 16}px`;
-    }
-    if (
-      position === TooltipPosition.TOP_LEFT ||
-      position === TooltipPosition.BOTTOM_LEFT
-    ) {
-      style.left = "auto";
-      style.right = `${boundingRect.right - 16}px`;
-    }
-    if (
-      position === TooltipPosition.RIGHT ||
-      position === TooltipPosition.LEFT
-    ) {
-      style.top = `${
-        boundingRect.top +
-        (boundingRect.height / 2) -
-        (this.host.clientHeight / 2)
-      }px`;
-      style.bottom = "auto";
-    }
-    if (position === TooltipPosition.RIGHT) {
-      style.right = "auto";
-      style.left = `${boundingRect.left + boundingRect.width}px`;
-    }
-    if (position === TooltipPosition.LEFT) {
-      style.left = "auto";
-      style.right = `${boundingRect.right}px`;
+    const margin = 16;
+    const offsetTop = boundingRect.top - relativeBoundingRect.top;
+    const offsetRight = boundingRect.right - relativeBoundingRect.right;
+    const offsetBottom = boundingRect.bottom - relativeBoundingRect.bottom;
+    const offsetLeft = boundingRect.left - relativeBoundingRect.left;
+
+    if (position === TooltipPosition.TOP || position === TooltipPosition.TOP_RIGHT) {
+      style.top = 'auto';
+      style.right = 'auto';
+      style.bottom = `${offsetBottom + boundingRect.height}px`;
+      style.left = `${offsetLeft}px`;
+      style.maxHeight = `${availableTop - margin}px`;
+      if (position === TooltipPosition.TOP_RIGHT) {
+        style.maxWidth = `${availableRight - margin}px`;
+      }
+    } else if (position === TooltipPosition.TOP_LEFT) {
+      style.top = 'auto';
+      style.right = `${offsetRight}px`;
+      style.bottom = `${offsetBottom + boundingRect.height}px`;
+      style.left = 'auto';
+      style.maxWidth = `${availableLeft - margin}px`;
+      style.maxHeight = `${availableTop - margin}px`;
+    } else if (position === TooltipPosition.BOTTOM || position === TooltipPosition.BOTTOM_RIGHT) {
+      style.top = `${offsetTop + boundingRect.height}px`;
+      style.right = 'auto';
+      style.bottom = 'auto';
+      style.left = `${offsetLeft}px`;
+      style.maxHeight = `${availableBottom - margin}px`;
+      if (position === TooltipPosition.BOTTOM_RIGHT) {
+        style.maxWidth = `${availableRight - margin}px`;
+      }
+    } else if (position === TooltipPosition.BOTTOM_LEFT) {
+      style.top = `${offsetTop + boundingRect.height}px`;
+      style.right = `${offsetRight}px`;
+      style.bottom = 'auto';
+      style.left = 'auto';
+      style.maxWidth = `${availableLeft - margin}px`;
+      style.maxHeight = `${availableBottom - margin}px`;
+    } else if (position === TooltipPosition.RIGHT) {
+      style.top = `${offsetTop}px`;
+      style.right = 'auto';
+      style.bottom = 'auto';
+      style.left = `${offsetLeft + boundingRect.width}px`;
+      style.maxWidth = `${availableRight - margin}px`;
+      style.maxHeight = `${availableBottom - margin}px`;
+    } else if (position === TooltipPosition.LEFT) {
+      style.top = `${offsetTop}px`;
+      style.right = `${offsetRight + boundingRect.width}px`;
+      style.bottom = 'auto';
+      style.left = 'auto';
+      style.maxWidth = `${availableLeft - margin}px`;
+      style.maxHeight = `${availableBottom - margin}px`;
     }
 
     this.position = position;
@@ -265,10 +318,10 @@ export class ZTooltip {
 
   render() {
     if (this.content) {
-        return (
-          <Host class="legacy" position={this.type}>
-            {this.content}
-          </Host>
+      return (
+        <Host class="legacy" position={this.type}>
+          {this.content}
+        </Host>
       );
     }
 
