@@ -66,13 +66,15 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
       top += offsetParent.offsetTop;
     }
 
-    const style = window.getComputedStyle(offsetParent);
-    const transform = style.transform || style.webkitTransform;
-    const domMatrix = new DOMMatrix(transform);
-    if (domMatrix) {
-      left += domMatrix.m41;
-      if (offsetParent !== document.body) {
-        top += domMatrix.m42;
+    if (window.DOMMatrix) {
+      const style = window.getComputedStyle(offsetParent);
+      const transform = style.transform || style.webkitTransform;
+      const domMatrix = new DOMMatrix(transform);
+      if (domMatrix) {
+        left += domMatrix.m41;
+        if (offsetParent !== document.body) {
+          top += domMatrix.m42;
+        }
       }
     }
 
