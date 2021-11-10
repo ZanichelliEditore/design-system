@@ -7,7 +7,7 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 @Component({
   tag: "z-modal",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZModal {
   /** unique id */
@@ -17,7 +17,7 @@ export class ZModal {
   /** subtitle (optional) */
   @Prop() modalsubtitle?: string;
   /** aria-label for close button (optional) */
-  @Prop() closeButtonLabel?: string = 'close modal';
+  @Prop() closeButtonLabel?: string = "close modal";
 
   /** emitted on close button click, returns modalid */
   @Event() modalClose: EventEmitter;
@@ -39,23 +39,27 @@ export class ZModal {
 
   render() {
     return [
-      <div class="modal-container" id={this.modalid}>
+      <div class="modal-container" id={this.modalid} role="dialog">
         <header onClick={this.emitModalHeaderActive.bind(this)}>
           <div>
             {this.modaltitle && <h1>{this.modaltitle}</h1>}
             {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
           </div>
           <slot name="modalCloseButton">
-            <button aria-label={this.closeButtonLabel} onClick={this.emitModalClose.bind(this)}>
+            <button
+              aria-label={this.closeButtonLabel}
+              onClick={this.emitModalClose.bind(this)}
+            >
               <z-icon name="multiply-circle-filled"></z-icon>
             </button>
           </slot>
         </header>
-        <main>
+        <div class="modal-content">
           <slot name="modalContent"></slot>
-        </main>
+        </div>
       </div>,
-      <div class="modal-background"
+      <div
+        class="modal-background"
         data-action="modalBackground"
         data-modal={this.modalid}
         onClick={this.emitBackgroundClick.bind(this)}

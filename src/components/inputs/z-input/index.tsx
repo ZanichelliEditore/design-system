@@ -382,7 +382,7 @@ export class ZInput {
         >
           <z-icon
             name={this.checked ? "checkbox-checked" : "checkbox"}
-            aria-hidden={true}
+            aria-hidden="true"
           />
           {this.label && <span innerHTML={this.label}></span>}
         </label>
@@ -417,7 +417,7 @@ export class ZInput {
         >
           <z-icon
             name={this.checked ? "radio-button-checked" : "radio-button"}
-            aria-hidden={true}
+            aria-hidden="true"
           />
           {this.label && <span innerHTML={this.label} />}
         </label>

@@ -15,7 +15,7 @@
 
 | Property           | Attribute            | Description                            | Type     | Default         |
 | ------------------ | -------------------- | -------------------------------------- | -------- | --------------- |
-| `closeButtonLabel` | `close-button-label` | aria-label for close button (optional) | `string` | `'close modal'` |
+| `closeButtonLabel` | `close-button-label` | aria-label for close button (optional) | `string` | `"close modal"` |
 | `modalid`          | `modalid`            | unique id                              | `string` | `undefined`     |
 | `modalsubtitle`    | `modalsubtitle`      | subtitle (optional)                    | `string` | `undefined`     |
 | `modaltitle`       | `modaltitle`         | title text (optional)                  | `string` | `undefined`     |
