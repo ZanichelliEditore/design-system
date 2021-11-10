@@ -39,6 +39,8 @@ export class ZSelect {
   @Prop() name?: string;
   /** the input label */
   @Prop() label?: string;
+  /** the input aria-label */
+  @Prop() ariaLabel?: string;
   /** the input is disabled */
   @Prop() disabled?: boolean = false;
   /** the input is readonly */
@@ -326,6 +328,7 @@ export class ZSelect {
             ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
             : null
         }
+        aria-label={this.ariaLabel}
         icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={this.hasAutcomplete()}
         hasmessage={false}

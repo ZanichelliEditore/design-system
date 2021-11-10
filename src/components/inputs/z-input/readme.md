@@ -124,6 +124,7 @@
 
 | Property        | Attribute       | Description                                                                                         | Type                                                                                             | Default              |
 | --------------- | --------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------- |
+| `ariaLabel`     | `aria-label`    | the input aria-label                                                                                | `string`                                                                                         | `undefined`          |
 | `autocomplete`  | `autocomplete`  | the input has autocomplete option (optional): available for select, input                           | `boolean \| string`                                                                              | `undefined`          |
 | `checked`       | `checked`       | checked: available for checkbox, radio                                                              | `boolean`                                                                                        | `false`              |
 | `disabled`      | `disabled`      | the input is disabled                                                                               | `boolean`                                                                                        | `false`              |

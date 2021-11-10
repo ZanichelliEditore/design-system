@@ -9,6 +9,7 @@
 
 | Property         | Attribute        | Description                                                                                         | Type                                               | Default              |
 | ---------------- | ---------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------- | -------------------- |
+| `ariaLabel`      | `aria-label`     | the input aria-label                                                                                | `string`                                           | `undefined`          |
 | `autocomplete`   | `autocomplete`   | the input has autocomplete option                                                                   | `boolean \| string`                                | `false`              |
 | `disabled`       | `disabled`       | the input is disabled                                                                               | `boolean`                                          | `false`              |
 | `hasmessage`     | `hasmessage`     | show input helper message (optional): available for text, password, number, email, textarea, select | `boolean`                                          | `true`               |

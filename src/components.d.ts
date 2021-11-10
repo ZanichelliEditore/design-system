@@ -383,6 +383,10 @@ export namespace Components {
     }
     interface ZInput {
         /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
+        /**
           * the input has autocomplete option (optional): available for select, input
          */
         "autocomplete"?: boolean | string;
@@ -1258,6 +1262,10 @@ export namespace Components {
     interface ZRegistroTableStickyFooter {
     }
     interface ZSelect {
+        /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
         /**
           * the input has autocomplete option
          */
@@ -2507,6 +2515,10 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
+        /**
           * the input has autocomplete option (optional): available for select, input
          */
         "autocomplete"?: boolean | string;
@@ -3505,6 +3517,10 @@ declare namespace LocalJSX {
     interface ZRegistroTableStickyFooter {
     }
     interface ZSelect {
+        /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
         /**
           * the input has autocomplete option
          */
