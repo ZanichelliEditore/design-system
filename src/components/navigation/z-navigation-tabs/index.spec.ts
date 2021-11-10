@@ -8,7 +8,7 @@ describe("Suite test ZNavigationTabs", () => {
     const page = await newSpecPage({
       components: [ZNavigationTabs],
       html: `
-        <z-navigation-tabs role="tablist" orientation="horizontal" size="big">
+        <z-navigation-tabs orientation="horizontal" size="big">
           <z-navigation-tab size="big">
             <z-icon name="house" slot="icon"></z-icon>
             <span slot="label">Home</span>
@@ -18,9 +18,9 @@ describe("Suite test ZNavigationTabs", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tabs class="interactive-1" role="tablist" orientation="horizontal" size="big">
+      <z-navigation-tabs class="interactive-1" orientation="horizontal" size="big">
         <mock:shadow-root>
-          <nav>
+          <nav role="tablist">
             <slot></slot>
           </nav>
         </mock:shadow-root>
@@ -36,7 +36,7 @@ describe("Suite test ZNavigationTabs", () => {
     const page = await newSpecPage({
       components: [ZNavigationTabs],
       html: `
-        <z-navigation-tabs role="tablist" orientation="horizontal" size="small">
+        <z-navigation-tabs orientation="horizontal" size="small">
           <z-navigation-tab size="small">
             <z-icon name="house" slot="icon"></z-icon>
             <span slot="label">Home</span>
@@ -46,9 +46,9 @@ describe("Suite test ZNavigationTabs", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tabs class="interactive-2" role="tablist" orientation="horizontal" size="small">
+      <z-navigation-tabs class="interactive-2" orientation="horizontal" size="small">
         <mock:shadow-root>
-          <nav>
+          <nav role="tablist">
             <slot></slot>
           </nav>
         </mock:shadow-root>
@@ -64,7 +64,7 @@ describe("Suite test ZNavigationTabs", () => {
     const page = await newSpecPage({
       components: [ZNavigationTabs],
       html: `
-        <z-navigation-tabs role="tablist" size="big" orientation="vertical">
+        <z-navigation-tabs size="big" orientation="vertical">
           <z-navigation-tab size="big">
             <z-icon name="house" slot="icon"></z-icon>
             <span slot="label">Home</span>
@@ -74,9 +74,9 @@ describe("Suite test ZNavigationTabs", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tabs class="interactive-1" role="tablist" size="big" orientation="vertical">
+      <z-navigation-tabs class="interactive-1" size="big" orientation="vertical">
         <mock:shadow-root>
-          <nav>
+          <nav role="tablist">
             <slot></slot>
           </nav>
         </mock:shadow-root>
