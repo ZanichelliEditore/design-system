@@ -239,7 +239,7 @@ export class ZInput {
                 : type
             }
             {...attr}
-            aria-label={this.ariaLabel || `${this.htmlid}_label`}
+            aria-label={this.ariaLabel || this.label}
           />
           {this.renderIcons()}
         </div>
@@ -343,7 +343,7 @@ export class ZInput {
             onBlur={() => (this.textareaWrapperFocus = "")}
             onMouseOver={() => (this.textareaWrapperHover = "hover")}
             onMouseOut={() => (this.textareaWrapperHover = "")}
-            aria-label={this.ariaLabel || `${this.htmlid}_label`}
+            aria-label={this.ariaLabel || this.label}
           ></textarea>
         </div>
         {this.renderMessage()}
