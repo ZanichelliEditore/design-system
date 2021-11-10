@@ -14,7 +14,7 @@ describe("Suite test ZInput - checkbox", () => {
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" />
             <label htmlFor="checkid" class="checkboxLabel after">
-              <z-icon name="checkbox" aria-hidden></z-icon>
+              <z-icon name="checkbox" aria-hidden="true"></z-icon>
             </label>
           </div>
 
@@ -33,7 +33,7 @@ describe("Suite test ZInput - checkbox", () => {
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" name="name" value="value" />
             <label htmlFor="checkid" class="checkboxLabel after">
-              <z-icon name="checkbox" aria-hidden></z-icon>
+              <z-icon name="checkbox" aria-hidden="true"></z-icon>
               <span>checkbox label</span>
             </label>
           </div>
@@ -53,7 +53,7 @@ describe("Suite test ZInput - checkbox", () => {
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" checked />
             <label htmlFor="checkid" class="checkboxLabel after">
-              <z-icon name="checkbox-checked" aria-hidden></z-icon>
+              <z-icon name="checkbox-checked" aria-hidden="true"></z-icon>
             </label>
           </div>
 
@@ -72,7 +72,7 @@ describe("Suite test ZInput - checkbox", () => {
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" />
             <label htmlFor="checkid" class="checkboxLabel before">
-              <z-icon name="checkbox" aria-hidden></z-icon>
+              <z-icon name="checkbox" aria-hidden="true"></z-icon>
             </label>
           </div>
 
@@ -91,7 +91,7 @@ describe("Suite test ZInput - checkbox", () => {
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" disabled />
             <label htmlFor="checkid" class="checkboxLabel after">
-              <z-icon name="checkbox" aria-hidden></z-icon>
+              <z-icon name="checkbox" aria-hidden="true"></z-icon>
             </label>
           </div>
 
@@ -110,7 +110,7 @@ describe("Suite test ZInput - checkbox", () => {
             <div class="checkboxWrapper">
               <input id="checkid" type="checkbox" readonly />
               <label htmlFor="checkid" class="checkboxLabel after">
-                <z-icon name="checkbox" aria-hidden></z-icon>
+                <z-icon name="checkbox" aria-hidden="true"></z-icon>
               </label>
             </div>
 

@@ -11,7 +11,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-          <div class="modal-container">
+          <div class="modal-container" role="dialog">
             <header>
               <div></div>
               <slot name="modalCloseButton">
@@ -20,9 +20,9 @@ describe("Suite test ZModal", () => {
                 </button>
               </slot>
             </header>
-            <main>
+            <div class="modal-content">
               <slot name="modalContent"></slot>
-            </main>
+            </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>
         </mock:shadow-root>
@@ -38,7 +38,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale">
         <mock:shadow-root>
-          <div class="modal-container" id="modal">
+          <div class="modal-container" id="modal" role="dialog">
             <header>
               <div>
                 <h1>title</h1>
@@ -50,9 +50,9 @@ describe("Suite test ZModal", () => {
                 </button>
               </slot>
             </header>
-            <main>
+            <div class="modal-content">
               <slot name="modalContent"></slot>
-            </main>
+            </div>
           </div>
           <div class="modal-background" data-action="modalBackground" data-modal="modal"></div>
         </mock:shadow-root>
@@ -69,7 +69,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-          <div class="modal-container">
+          <div class="modal-container" role="dialog">
             <header>
               <div></div>
               <slot name="modalCloseButton">
@@ -78,9 +78,9 @@ describe("Suite test ZModal", () => {
                 </button>
               </slot>
             </header>
-            <main>
+            <div class="modal-content">
               <slot name="modalContent"></slot>
-            </main>
+            </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>
         </mock:shadow-root>
@@ -97,7 +97,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-          <div class="modal-container">
+          <div class="modal-container" role="dialog">
             <header>
               <div></div>
               <slot name="modalCloseButton">
@@ -106,9 +106,9 @@ describe("Suite test ZModal", () => {
                 </button>
               </slot>
             </header>
-            <main>
+            <div class="modal-content">
               <slot name="modalContent"></slot>
-            </main>
+            </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>
         </mock:shadow-root>

@@ -14,7 +14,7 @@ describe("Suite test ZInput - radio", () => {
           <div class="radioWrapper">
             <input id="radioid" type="radio" />
             <label htmlFor="radioid" class="radioLabel after">
-              <z-icon name="radio-button" aria-hidden></z-icon>
+              <z-icon name="radio-button" aria-hidden="true"></z-icon>
             </label>
           </div>
 
@@ -33,7 +33,7 @@ describe("Suite test ZInput - radio", () => {
           <div class="radioWrapper">
             <input id="radioid" type="radio" name="name" value="value" />
             <label htmlFor="radioid" class="radioLabel after">
-              <z-icon name="radio-button" aria-hidden></z-icon>
+              <z-icon name="radio-button" aria-hidden="true"></z-icon>
               <span>radio label</span>
             </label>
           </div>
@@ -53,7 +53,7 @@ describe("Suite test ZInput - radio", () => {
           <div class="radioWrapper">
             <input id="radioid" type="radio" checked />
             <label htmlFor="radioid" class="radioLabel after">
-              <z-icon name="radio-button-checked" aria-hidden></z-icon>
+              <z-icon name="radio-button-checked" aria-hidden="true"></z-icon>
             </label>
           </div>
 
@@ -72,7 +72,7 @@ describe("Suite test ZInput - radio", () => {
           <div class="radioWrapper">
             <input id="radioid" type="radio" />
             <label htmlFor="radioid" class="radioLabel before">
-              <z-icon name="radio-button" aria-hidden></z-icon>
+              <z-icon name="radio-button" aria-hidden="true"></z-icon>
             </label>
           </div>
 
@@ -91,7 +91,7 @@ describe("Suite test ZInput - radio", () => {
           <div class="radioWrapper">
             <input id="radioid" type="radio" disabled />
             <label htmlFor="radioid" class="radioLabel after">
-              <z-icon name="radio-button" aria-hidden></z-icon>
+              <z-icon name="radio-button" aria-hidden="true"></z-icon>
             </label>
           </div>
 
@@ -110,7 +110,7 @@ describe("Suite test ZInput - radio", () => {
             <div class="radioWrapper">
               <input id="radioid" type="radio" readonly />
               <label htmlFor="radioid" class="radioLabel after">
-                <z-icon name="radio-button" aria-hidden></z-icon>
+                <z-icon name="radio-button" aria-hidden="true"></z-icon>
               </label>
             </div>
 
