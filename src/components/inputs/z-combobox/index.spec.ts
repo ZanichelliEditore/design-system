@@ -13,7 +13,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div data-action="combo-undefined">
             <div class="header" role="button" tabindex="0">
-              <h2><span></span></h2>
+            <z-body component="p" level="3"><span></span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
           </div>
@@ -32,10 +32,10 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="fixed" id="combobox" data-action="combo-combobox">
             <div class="header" role="button" tabindex="0">
-              <h2>
+            <z-body component="p" level="3">
                 label
                 <span></span>
-              </h2>
+                </z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
           </div>
@@ -54,10 +54,10 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div data-action="combo-combobox" id="combobox">
             <div class="header" role="button" tabindex="0">
-              <h2>
+              <z-body component="p" level="3">
                 label
                 <span>(1)</span>
-              </h2>
+              </z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
           </div>
@@ -78,7 +78,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-undefined">
             <div class="header" role="button" tabindex="0">
-              <h2><span></span></h2>
+            <z-body component="p" level="3"><span></span></z-body>
               <z-icon name="caret-down" width="18" height="18"></z-icon>
             </div>
             <div class="openComboData">
@@ -104,7 +104,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
-              <h2>combo<span>(1)</span></h2>
+            <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
@@ -137,7 +137,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
-              <h2>combo<span>(1)</span></h2>
+            <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
@@ -172,7 +172,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
-              <h2>combo<span>(1)</span></h2>
+            <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
@@ -207,7 +207,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
-              <h2>combo<span>(1)</span></h2>
+            <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
@@ -242,7 +242,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
-              <h2>combo<span>(1)</span></h2>
+              <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
@@ -274,7 +274,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
-              <h2>combo<span>(1)</span></h2>
+              <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
@@ -310,7 +310,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
-              <h2>combo<span>(2)</span></h2>
+              <z-body component="p" level="3">combo<span>(2)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
@@ -346,7 +346,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
-              <h2>combo<span>(1)</span></h2>
+              <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
@@ -379,7 +379,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
-              <h2>combo<span>(1)</span></h2>
+              <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
@@ -415,7 +415,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combo" id="combo">
             <div class="header" role="button" tabindex="0">
-              <h2>combo<span>(1)</span></h2>
+              <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
             <div class="openComboData">
