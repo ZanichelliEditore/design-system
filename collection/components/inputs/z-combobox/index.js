@@ -104,7 +104,7 @@ export class ZCombobox {
         if (ev.keyCode === keybordKeyCodeEnum.SPACE)
           ev.preventDefault();
       }, onKeyUp: (ev) => handleKeyboardSubmit(ev, this.toggleComboBox), role: "button", tabindex: 0 },
-      h("h2", null,
+      h("z-body", { level: 3, component: "p" },
         this.label,
         h("span", null, this.selectedCounter > 0 && ` (${this.selectedCounter})`)),
       h("z-icon", { name: "caret-down", width: 18, height: 18 })));
