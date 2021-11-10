@@ -3,7 +3,7 @@ z-body {
   letter-spacing: 0.3px;
 }
 
-ul {
+/* ul {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -28,4 +28,4 @@ ul > li > span {
   display: inline-block;
   border: 1px solid var(--gray400);
   border-radius: 4px;
-}
+} */

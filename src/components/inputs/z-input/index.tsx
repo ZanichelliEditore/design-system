@@ -27,7 +27,7 @@ export class ZInput {
   @Element() hostElement: HTMLElement;
 
   /** the id of the input element */
-  @Prop() htmlid: string = randomId();
+  @Prop() htmlid: string = `id-${randomId()}`;
   /** input types */
   @Prop() type: InputTypeBean;
   /** the input name */

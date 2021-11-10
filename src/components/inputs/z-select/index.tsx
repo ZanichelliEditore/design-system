@@ -32,7 +32,7 @@ export class ZSelect {
   @Element() element: HTMLElement;
 
   /** the id of the input element */
-  @Prop() htmlid: string = randomId();
+  @Prop() htmlid: string = `id-${randomId()}`;
   /** the input select options */
   @Prop() items: SelectItemBean[] | string;
   /** the input name */
@@ -228,7 +228,7 @@ export class ZSelect {
 
   focusSelectItem(index: number) {
     const focusElem: HTMLLIElement = this.element.querySelector(
-      `${this.htmlid}_${index}`
+      `#${this.htmlid}_${index}`
     );
     if (focusElem) focusElem.focus();
   }
@@ -339,13 +339,14 @@ export class ZSelect {
           if (e.keyCode !== 13) e.preventDefault();
           handleKeyboardSubmit(e, this.toggleSelectUl);
         }}
-        onKeyDown={(e: KeyboardEvent) =>
-          this.arrowsSelectNav(
+        onKeyDown={(e: KeyboardEvent) =>  {
+          return this.arrowsSelectNav(
             e,
             this.selectedItems.length
-              ? this.itemsList.indexOf(this.selectedItems[0])
-              : -1
-          )
+            ? this.itemsList.indexOf(this.selectedItems[0])
+            : -1
+            )
+          }
         }
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);
