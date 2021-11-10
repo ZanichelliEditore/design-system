@@ -25,10 +25,11 @@ import {
 @Component({
   tag: "z-select",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true
 })
 export class ZSelect {
-  @Element() hostElement: HTMLElement;
+  @Element() element: HTMLElement;
 
   /** the id of the input element */
   @Prop() htmlid: string = randomId();
@@ -226,7 +227,7 @@ export class ZSelect {
   }
 
   focusSelectItem(index: number) {
-    const focusElem = this.hostElement.shadowRoot.getElementById(
+    const focusElem: HTMLLIElement = this.element.querySelector(
       `${this.htmlid}_${index}`
     );
     if (focusElem) focusElem.focus();
@@ -242,8 +243,8 @@ export class ZSelect {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        this.hostElement.shadowRoot
-          .getElementById(`${this.htmlid}_input`)
+        (this.element
+          .querySelector(`#${this.htmlid}_input`) as HTMLInputElement)
           .focus();
       }
     }
