@@ -137,6 +137,8 @@ export class ZTooltip {
 
   @Element() host: HTMLElement;
 
+  private animationFrameRequestId?: number;
+
   @Watch("type")
   validateType(newValue) {
     if (
@@ -154,11 +156,16 @@ export class ZTooltip {
     this.positionChange.emit({ position: this.position });
   }
 
+  disconnectedCallback() {
+    cancelAnimationFrame(this.animationFrameRequestId);
+  }
+
   /**
    * Setup tooltip behaviors on opening.
    */
   @Watch("open")
   onOpen() {
+    cancelAnimationFrame(this.animationFrameRequestId);
     if (this.content) {
       return;
     }
@@ -167,7 +174,7 @@ export class ZTooltip {
       const setPosition = () => {
         if (this.open) {
           this.setPosition();
-          requestAnimationFrame(setPosition);
+          this.animationFrameRequestId = requestAnimationFrame(setPosition);
         }
       };
 
@@ -204,10 +211,10 @@ export class ZTooltip {
     const relativeBoundingRect = offsetContainer ? computeOffset(offsetContainer, scrollContainer) : { top: 0, right: 0, bottom: 0, left: 0 };
     const boundingRect = computeOffset(element, scrollContainer);
 
-    const top = boundingRect.top;
-    const bottom = scrollingBoundingRect.height - (boundingRect.top + boundingRect.height);
-    const left = boundingRect.left;
-    const right = scrollingBoundingRect.width - (boundingRect.left + boundingRect.width);
+    const top = boundingRect.top - scrollContainer.scrollTop;
+    const bottom = scrollingBoundingRect.height - (boundingRect.top + boundingRect.height) + scrollContainer.scrollTop;
+    const left = boundingRect.left - scrollContainer.scrollLeft;
+    const right = scrollingBoundingRect.width - (boundingRect.left + boundingRect.width) + scrollContainer.scrollLeft;
 
     const overflowBottom = Math.max(0, scrollingBoundingRect.top + scrollingBoundingRect.height - window.innerHeight);
     const overflowRight = Math.max(0, scrollingBoundingRect.left + scrollingBoundingRect.width - window.innerWidth);
@@ -287,14 +294,14 @@ export class ZTooltip {
       position === TooltipPosition.BOTTOM_RIGHT
     ) {
       style.right = "auto";
-      style.left = `${offsetLeft + boundingRect.width - 16}px`;
+      style.left = `${offsetLeft + boundingRect.width}px`;
     }
     if (
       position === TooltipPosition.TOP_LEFT ||
       position === TooltipPosition.BOTTOM_LEFT
     ) {
       style.left = "auto";
-      style.right = `${offsetRight + boundingRect.width - 16}px`;
+      style.right = `${offsetRight + boundingRect.width}px`;
     }
     if (
       position === TooltipPosition.RIGHT ||
