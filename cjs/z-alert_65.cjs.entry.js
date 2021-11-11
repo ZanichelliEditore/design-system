@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-2e494cc2.js');
+const index = require('./index-dee3e21d.js');
 const index$1 = require('./index-8f4b351d.js');
 const breakpoints = require('./breakpoints-88c4fd6c.js');
 const hammer = require('./hammer-6e321f0b.js');
@@ -1412,7 +1412,7 @@ const ZInput = class {
         checkboxLabel: true,
         after: this.labelafter,
         before: !this.labelafter,
-      } }, index.h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": true }), this.label && index.h("span", { innerHTML: this.label }))));
+      } }, index.h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": "true" }), this.label && index.h("span", { innerHTML: this.label }))));
   }
   /* END checkbox */
   /* START radio */
@@ -1421,7 +1421,7 @@ const ZInput = class {
         radioLabel: true,
         after: this.labelafter,
         before: !this.labelafter,
-      } }, index.h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": true }), this.label && index.h("span", { innerHTML: this.label }))));
+      } }, index.h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": "true" }), this.label && index.h("span", { innerHTML: this.label }))));
   }
   /* END radio */
   /* START select */
@@ -3197,8 +3197,31 @@ const ZToggleButton = class {
 };
 ZToggleButton.style = stylesCss$3;
 
-const stylesCss$2 = ":host{--z-tooltip-theme--surface:var(--color-surface01);--z-tooltip-theme--text:var(--color-text01);--arrow-size:6px;position:relative;display:none;align-items:center;justify-content:center;padding:var(--space-unit);min-width:calc(var(--space-unit) * 8);min-height:calc(var(--space-unit) * 4);color:var(--z-tooltip-theme--text);fill:currentColor;font-family:var(--font-family-sans);text-align:center;border-radius:var(--border-radius-small);background:var(--z-tooltip-theme--surface);filter:drop-shadow(0 4px 8px var(--shadow-color-base));will-change:filter}:host(.legacy){display:inline-flex;padding:calc(var(--space-unit) * 2);min-width:auto;min-height:auto;max-width:200px;font-style:italic;line-height:16px;letter-spacing:0.32px;font-size:12px;border:var(--border-size-small) solid var(--gray200);border-radius:var(--border-radius);filter:drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.08))}:host(.legacy)::before{--arrow-size:14px}:host([position])::before{--arrow-edge-offset:calc(100% - calc(var(--arrow-size) / 2));--arrow-center-offset:calc(50% - calc(var(--arrow-size) / 2));content:'';position:absolute;width:var(--arrow-size);height:var(--arrow-size);background:inherit;transform:rotate(45deg)}:host([open][style*='top:']),:host([open][style*='inset:']){display:inline-flex}:host([position^='top']){margin-bottom:var(--space-unit)}:host([position='right']){margin-left:var(--space-unit)}:host([position$='_right']){margin-left:calc(var(--space-unit) * -1)}:host([position^='bottom']){margin-top:var(--space-unit)}:host([position='left']){margin-right:var(--space-unit)}:host([position$='_left']){margin-right:calc(var(--space-unit) * -1)}:host([position^='top'])::before{top:var(--arrow-edge-offset)}:host([position^='bottom'])::before{bottom:var(--arrow-edge-offset)}:host([position='top'])::before,:host([position='bottom'])::before{left:var(--arrow-center-offset)}:host([position='right'])::before,:host([position='left'])::before{top:var(--arrow-center-offset)}:host([position='right'])::before{right:var(--arrow-edge-offset)}:host([position$='_right'])::before{right:calc(100% - calc(var(--arrow-size) / 2) - calc(var(--space-unit) * 2))}:host([position='left'])::before{left:var(--arrow-edge-offset)}:host([position$='_left'])::before{left:calc(100% - calc(var(--arrow-size) / 2) - calc(var(--space-unit) * 2))}::slotted(*){flex:1 auto;overflow:auto}";
+const stylesCss$2 = ":host{--z-tooltip-theme--surface:var(--color-surface01);--z-tooltip-theme--text:var(--color-text01);--arrow-size:6px;--edge-offset:calc(-1 * (var(--arrow-size) + calc(var(--space-unit) * 2)));position:relative;display:none;align-items:center;justify-content:center;padding:var(--space-unit);min-width:calc(var(--space-unit) * 8);min-height:calc(var(--space-unit) * 4);color:var(--z-tooltip-theme--text);fill:currentColor;font-family:var(--font-family-sans);text-align:center;border-radius:var(--border-radius-small);background:var(--z-tooltip-theme--surface);filter:drop-shadow(0 4px 8px var(--shadow-color-base));will-change:filter}:host(.legacy){display:inline-flex;padding:calc(var(--space-unit) * 2);min-width:auto;min-height:auto;max-width:200px;font-style:italic;line-height:16px;letter-spacing:0.32px;font-size:12px;border:var(--border-size-small) solid var(--gray200);border-radius:var(--border-radius);filter:drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.08))}:host(.legacy)::before{--arrow-size:14px}:host([position])::before{--arrow-edge-offset:calc(100% - var(--arrow-size) - var(--space-unit));--arrow-center-x-offset:calc(50% - calc(var(--arrow-size) / 2));--arrow-center-y-offset:calc(100% - calc(var(--arrow-size) / 2));content:'';position:absolute;width:var(--arrow-size);height:var(--arrow-size);background:inherit;transform:rotate(45deg)}:host([open][style*='top:']),:host([open][style*='inset:']){display:inline-flex}:host([position^='top']){margin-bottom:var(--space-unit)}:host([position='right']){margin-left:var(--space-unit)}:host([position='top_right']),:host([position='bottom_right']){margin-left:var(--edge-offset)}:host([position^='bottom']){margin-top:var(--space-unit)}:host([position='left']){margin-right:var(--space-unit)}:host([position='top_left']),:host([position='bottom_left']){margin-right:var(--edge-offset)}:host([position^='top'])::before{top:var(--arrow-center-y-offset)}:host([position^='bottom'])::before{bottom:var(--arrow-center-y-offset)}:host([position='top'])::before,:host([position='bottom'])::before{left:var(--arrow-center-x-offset)}:host([position='right'])::before,:host([position='left'])::before{top:var(--arrow-center-x-offset)}:host([position='right'])::before{right:var(--arrow-center-y-offset)}:host([position='top_right'])::before,:host([position='bottom_right'])::before{right:var(--arrow-edge-offset)}:host([position='left'])::before{left:var(--arrow-center-y-offset)}:host([position='top_left'])::before,:host([position='bottom_left'])::before{left:var(--arrow-edge-offset)}::slotted(*){flex:1 auto;overflow:auto}";
 
+const documentElement = document.documentElement;
+/**
+ * Find the closest scrollable parent of a node.
+ *
+ * @param {Element} element The node
+ */
+function findScrollableParent(element) {
+  let parent = element.parentNode;
+  while (parent && parent !== documentElement) {
+    const { overflow, overflowX, overflowY } = window.getComputedStyle(parent);
+    if (overflow === 'hidden' ||
+      overflowY === 'hidden' ||
+      overflowX === 'hidden') {
+      return parent;
+    }
+    if ((parent.scrollHeight > parent.clientHeight && overflow !== 'visible' && overflowY !== 'visible') ||
+      (parent.scrollWidth > parent.clientWidth && overflow !== 'visible' && overflowX !== 'visible')) {
+      return parent;
+    }
+    parent = parent.parentNode;
+  }
+  return documentElement;
+}
 /**
  * Calculate computed offset.
  * It includes matrix transformations.
@@ -3223,6 +3246,17 @@ function computeOffset(element, targetParentOffset) {
     else {
       top += offsetParent.offsetTop;
     }
+    if (window.DOMMatrix) {
+      const style = window.getComputedStyle(offsetParent);
+      const transform = style.transform || style.webkitTransform;
+      const domMatrix = new DOMMatrix(transform);
+      if (domMatrix) {
+        left += domMatrix.m41;
+        if (offsetParent !== document.body) {
+          top += domMatrix.m42;
+        }
+      }
+    }
     if (!offsetParent.offsetParent) {
       break;
     }
@@ -3238,8 +3272,8 @@ function computeOffset(element, targetParentOffset) {
     parentWidth = offsetParent.offsetWidth;
     parentHeight = offsetParent.offsetHeight;
   }
-  const right = parentWidth - left;
-  const bottom = parentHeight - top;
+  const right = parentWidth - left - rect.width;
+  const bottom = parentHeight - top - rect.height;
   return { top, right, bottom, left, width, height };
 }
 const ZTooltip = class {
@@ -3264,10 +3298,14 @@ const ZTooltip = class {
   onPositionChange() {
     this.positionChange.emit({ position: this.position });
   }
+  disconnectedCallback() {
+    cancelAnimationFrame(this.animationFrameRequestId);
+  }
   /**
    * Setup tooltip behaviors on opening.
    */
   onOpen() {
+    cancelAnimationFrame(this.animationFrameRequestId);
     if (this.content) {
       return;
     }
@@ -3275,7 +3313,7 @@ const ZTooltip = class {
       const setPosition = () => {
         if (this.open) {
           this.setPosition();
-          requestAnimationFrame(setPosition);
+          this.animationFrameRequestId = requestAnimationFrame(setPosition);
         }
       };
       setPosition();
@@ -3305,30 +3343,46 @@ const ZTooltip = class {
     if (!element) {
       return;
     }
+    const scrollContainer = findScrollableParent(element);
+    const scrollingBoundingRect = scrollContainer.getBoundingClientRect();
+    const offsetContainer = this.host.offsetParent;
+    const relativeBoundingRect = offsetContainer ? computeOffset(offsetContainer, scrollContainer) : { top: 0, right: 0, bottom: 0, left: 0 };
+    const boundingRect = computeOffset(element, scrollContainer);
+    const top = boundingRect.top - scrollContainer.scrollTop;
+    const bottom = scrollingBoundingRect.height - (boundingRect.top + boundingRect.height) + scrollContainer.scrollTop;
+    const left = boundingRect.left - scrollContainer.scrollLeft;
+    const right = scrollingBoundingRect.width - (boundingRect.left + boundingRect.width) + scrollContainer.scrollLeft;
+    const overflowBottom = Math.max(0, scrollingBoundingRect.top + scrollingBoundingRect.height - window.innerHeight);
+    const overflowRight = Math.max(0, scrollingBoundingRect.left + scrollingBoundingRect.width - window.innerWidth);
+    const availableTop = Math.min(top, top + scrollingBoundingRect.top);
+    const availableBottom = Math.min(bottom, bottom - overflowBottom);
+    const availableLeft = Math.min(left, left + scrollingBoundingRect.left);
+    const availableRight = Math.min(right, right - overflowRight);
+    const availableHeight = availableTop + availableBottom + boundingRect.height;
+    const availableWidth = availableLeft + availableRight + boundingRect.width;
     let position = this.type;
-    const boundingRect = computeOffset(element, this.host.offsetParent);
     if (position === index$1.TooltipPosition.AUTO) {
       /**
        * The `AUTO` position tries to place the tooltip in the "safest" area,
        * where there's more space available.
        */
       const positions = [];
-      if ((boundingRect.top + boundingRect.height) / window.innerHeight > 0.9) {
+      if (availableTop / availableHeight > 0.9) {
         positions.unshift(index$1.TooltipPosition.TOP);
       }
-      else if ((boundingRect.top + boundingRect.height) / window.innerHeight > 0.6) {
+      else if (availableTop / availableHeight > 0.6) {
         positions.push(index$1.TooltipPosition.TOP);
       }
-      else if ((boundingRect.top + boundingRect.height) / window.innerHeight < 0.1) {
+      else if (availableTop / availableHeight < 0.1) {
         positions.unshift(index$1.TooltipPosition.BOTTOM);
       }
       else {
         positions.push(index$1.TooltipPosition.BOTTOM);
       }
-      if ((boundingRect.left + boundingRect.width) / window.innerWidth > 0.6) {
+      if (availableLeft / availableWidth > 0.6) {
         positions.push(index$1.TooltipPosition.LEFT);
       }
-      else if ((boundingRect.left + boundingRect.width) / window.innerWidth < 0.4) {
+      else if (availableLeft / availableWidth < 0.4) {
         positions.push(index$1.TooltipPosition.RIGHT);
       }
       position = positions.join("_");
@@ -3337,48 +3391,52 @@ const ZTooltip = class {
     if (!this.content) {
       style.position = "absolute";
     }
+    const offsetTop = boundingRect.top - relativeBoundingRect.top;
+    const offsetRight = boundingRect.right - relativeBoundingRect.right;
+    const offsetBottom = boundingRect.bottom - relativeBoundingRect.bottom;
+    const offsetLeft = boundingRect.left - relativeBoundingRect.left;
     if (position === index$1.TooltipPosition.TOP ||
       position === index$1.TooltipPosition.TOP_RIGHT ||
       position === index$1.TooltipPosition.TOP_LEFT) {
       style.top = "auto";
-      style.bottom = `${boundingRect.bottom}px`;
+      style.bottom = `${offsetBottom + boundingRect.height}px`;
     }
     if (position === index$1.TooltipPosition.BOTTOM ||
       position === index$1.TooltipPosition.BOTTOM_RIGHT ||
       position === index$1.TooltipPosition.BOTTOM_LEFT) {
-      style.top = `${boundingRect.top + boundingRect.height}px`;
+      style.top = `${offsetTop + boundingRect.height}px`;
       style.bottom = "auto";
     }
     if (position === index$1.TooltipPosition.TOP ||
       position === index$1.TooltipPosition.BOTTOM) {
-      style.left = `${boundingRect.left +
+      style.left = `${offsetLeft +
         (boundingRect.width / 2) -
         (this.host.clientWidth / 2)}px`;
     }
     if (position === index$1.TooltipPosition.TOP_RIGHT ||
       position === index$1.TooltipPosition.BOTTOM_RIGHT) {
       style.right = "auto";
-      style.left = `${boundingRect.left + boundingRect.width - 16}px`;
+      style.left = `${offsetLeft + boundingRect.width}px`;
     }
     if (position === index$1.TooltipPosition.TOP_LEFT ||
       position === index$1.TooltipPosition.BOTTOM_LEFT) {
       style.left = "auto";
-      style.right = `${boundingRect.right - 16}px`;
+      style.right = `${offsetRight + boundingRect.width}px`;
     }
     if (position === index$1.TooltipPosition.RIGHT ||
       position === index$1.TooltipPosition.LEFT) {
-      style.top = `${boundingRect.top +
+      style.top = `${offsetTop +
         (boundingRect.height / 2) -
         (this.host.clientHeight / 2)}px`;
       style.bottom = "auto";
     }
     if (position === index$1.TooltipPosition.RIGHT) {
       style.right = "auto";
-      style.left = `${boundingRect.left + boundingRect.width}px`;
+      style.left = `${offsetLeft + boundingRect.width}px`;
     }
     if (position === index$1.TooltipPosition.LEFT) {
       style.left = "auto";
-      style.right = `${boundingRect.right}px`;
+      style.right = `${offsetRight + boundingRect.width}px`;
     }
     this.position = position;
   }

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-2e494cc2.js');
+const index = require('./index-dee3e21d.js');
 
 const ZHeading = class {
   constructor(hostRef) {

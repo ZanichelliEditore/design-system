@@ -36,7 +36,8 @@ export class ZNavigationTabs {
     if (!this.tabsNav) {
       return;
     }
-    this.canNavigateNext = this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] < this.tabsNav[`scroll${this.dimension}`];
+    this.canNavigateNext = this.tabsNav[`scroll${this.direction}`] +
+      this.tabsNav[`client${this.dimension}`] < this.tabsNav[`scroll${this.dimension}`];
     this.canNavigatePrev = this.tabsNav[`scroll${this.direction}`] > 0;
   }
   selectedTabHandler(event) {
@@ -74,12 +75,15 @@ export class ZNavigationTabs {
     this.checkScrollVisible();
   }
   render() {
-    return h(Host, { class: this.size === 'small' ? 'interactive-2' : 'interactive-1', scrollable: this.canNavigate, role: "tablist" },
-      this.canNavigate && h("button", { role: "tab", class: "navigation", onClick: () => this.navigatePrevious(), tabindex: "-1", disabled: !this.canNavigatePrev },
+    return h(Host, { class: {
+        'interactive-2': this.size === 'small',
+        'interactive-1': this.size !== 'small'
+      }, scrollable: this.canNavigate },
+      this.canNavigate && h("button", { class: "navigation", onClick: () => this.navigatePrevious(), tabindex: "-1", disabled: !this.canNavigatePrev },
         h("z-icon", { name: this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up', width: 16, height: 16 })),
-      h("nav", { ref: (el) => this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav, onScroll: this.checkScrollEnabled.bind(this) },
+      h("nav", { role: "tablist", ref: (el) => this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav, onScroll: this.checkScrollEnabled.bind(this) },
         h("slot", null)),
-      this.canNavigate && h("button", { role: "tab", class: "navigation", onClick: () => { this.navigateNext(); }, tabindex: "-1", disabled: !this.canNavigateNext },
+      this.canNavigate && h("button", { class: "navigation", onClick: () => { this.navigateNext(); }, tabindex: "-1", disabled: !this.canNavigateNext },
         h("z-icon", { name: this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down', width: 16, height: 16 })));
   }
   static get is() { return "z-navigation-tabs"; }

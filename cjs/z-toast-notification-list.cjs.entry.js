@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-2e494cc2.js');
+const index = require('./index-dee3e21d.js');
 const index$1 = require('./index-8f4b351d.js');
 
 const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);position:fixed;display:flex;flex-direction:column;flex-wrap:nowrap;z-index:10000;margin-bottom:calc(var(--space-unit) * 2);margin-top:calc(var(--space-unit) * 2)}::slotted(z-toast-notification){width:100vw}::slotted(:not(:last-child)){margin-bottom:calc(var(--space-unit) * 1)}:host(.bottom-centre),:host(.bottom-right),:host(.bottom-left){justify-content:flex-end;align-items:flex-end;bottom:0}:host(.top-left),:host(.top-right),:host(.top-centre){justify-content:flex-start;align-items:flex-start;top:0}@media only screen and (min-width: 768px){:host{margin:calc(var(--space-unit) * 3)}:host(.top-centre){justify-content:flex-start;align-items:center;top:0;left:50%;transform:translateX(-50%)}:host(.top-left){justify-content:flex-start;align-items:flex-start;top:0;left:0}:host(.top-right){justify-content:flex-start;align-items:flex-end;top:0;right:0}:host(.bottom-centre){justify-content:flex-end;align-items:center;bottom:0;left:50%;transform:translateX(-50%)}:host(.bottom-right){justify-content:flex-end;align-items:flex-end;bottom:0;right:0}:host(.bottom-left){justify-content:flex-end;align-items:flex-start;bottom:0;left:0}::slotted(z-toast-notification){width:50vw}}@media only screen and (min-width: 1366px){:host{margin:calc(var(--space-unit) * 4)}::slotted(z-toast-notification){width:33vw}}";

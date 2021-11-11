@@ -1,0 +1,1 @@
+import{r,h as o,g as t}from"./p-904a85e4.js";const e=class{constructor(o){r(this,o)}componentWillRender(){this.host.setAttribute("role","rowgroup")}render(){return o("slot",null)}get host(){return t(this)}};e.style=".sc-z-registro-table-footer-h{display:table-footer-group;font-family:var(--dashboard-font);font-weight:var(--font-rg)}";export{e as z_registro_table_footer}

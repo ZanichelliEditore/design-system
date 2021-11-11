@@ -24,8 +24,10 @@ export declare class ZTooltip {
    */
   positionChange: EventEmitter;
   host: HTMLElement;
+  private animationFrameRequestId?;
   validateType(newValue: any): void;
   onPositionChange(): void;
+  disconnectedCallback(): void;
   /**
    * Setup tooltip behaviors on opening.
    */

@@ -225,7 +225,7 @@ export class ZInput {
           after: this.labelafter,
           before: !this.labelafter,
         } },
-        h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": true }),
+        h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": "true" }),
         this.label && h("span", { innerHTML: this.label }))));
   }
   /* END checkbox */
@@ -238,7 +238,7 @@ export class ZInput {
           after: this.labelafter,
           before: !this.labelafter,
         } },
-        h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": true }),
+        h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": "true" }),
         this.label && h("span", { innerHTML: this.label }))));
   }
   /* END radio */
