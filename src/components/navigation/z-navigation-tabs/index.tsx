@@ -65,7 +65,8 @@ export class ZNavigationTabs {
     if (!this.tabsNav) {
       return;
     }
-    this.canNavigateNext = this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] < this.tabsNav[`scroll${this.dimension}`];
+    this.canNavigateNext = this.tabsNav[`scroll${this.direction}`] +
+      this.tabsNav[`client${this.dimension}`] < this.tabsNav[`scroll${this.dimension}`];
     this.canNavigatePrev = this.tabsNav[`scroll${this.direction}`] > 0;
   }
 
@@ -110,14 +111,20 @@ export class ZNavigationTabs {
   }
 
   render() {
-    return <Host class={this.size === 'small' ? 'interactive-2' : 'interactive-1'} scrollable={this.canNavigate} role="tablist">
-        {this.canNavigate && <button role="tab" class="navigation" onClick={() => this.navigatePrevious()} tabindex="-1" disabled={!this.canNavigatePrev}>
+    return <Host
+      class={{
+        'interactive-2': this.size === 'small',
+        'interactive-1': this.size !== 'small'
+      }}
+      scrollable={this.canNavigate}
+      >
+        {this.canNavigate && <button class="navigation" onClick={() => this.navigatePrevious()} tabindex="-1" disabled={!this.canNavigatePrev}>
           <z-icon name={this.orientation == 'horizontal' ? 'chevron-left' : 'chevron-up'} width={16} height={16} />
         </button>}
-        <nav ref={(el) => this.tabsNav = el ?? this.tabsNav } onScroll={this.checkScrollEnabled.bind(this)}>
+        <nav role="tablist" ref={(el) => this.tabsNav = el ?? this.tabsNav } onScroll={this.checkScrollEnabled.bind(this)}>
           <slot></slot>
         </nav>
-        {this.canNavigate && <button role="tab" class="navigation" onClick={() => {this.navigateNext()}} tabindex="-1" disabled={!this.canNavigateNext}>
+        {this.canNavigate && <button class="navigation" onClick={() => {this.navigateNext()}} tabindex="-1" disabled={!this.canNavigateNext}>
           <z-icon name={this.orientation == 'horizontal' ? 'chevron-right' : 'chevron-down'} width={16} height={16} />
         </button>}
     </Host>;

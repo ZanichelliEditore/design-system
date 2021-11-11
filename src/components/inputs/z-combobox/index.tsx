@@ -174,12 +174,12 @@ export class ZCombobox {
         role="button"
         tabindex={0}
       >
-        <h2>
+        <z-body level={3} component="p">
           {this.label}
           <span>
             {this.selectedCounter > 0 && ` (${this.selectedCounter})`}
           </span>
-        </h2>
+        </z-body>
         <z-icon name="caret-down" width={18} height={18} />
       </div>
     );

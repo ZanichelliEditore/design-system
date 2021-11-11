@@ -96,14 +96,14 @@
   margin-top: calc(var(--space-unit) * 0.5);
 }
 
-.modal-container > main {
+.modal-container > .modal-content {
   flex: 1 auto;
   background: var(--color-surface01);
   overflow: auto;
   overflow-x: hidden;
 }
 
-.modal-container main::-webkit-scrollbar {
+.modal-container .modal-content::-webkit-scrollbar {
   background: linear-gradient(
     to right,
     transparent 0 3px,
@@ -114,22 +114,22 @@
   border-radius: var(--border-radius);
 }
 
-.modal-container main::-webkit-scrollbar-track {
+.modal-container .modal-content::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
-.modal-container main::-webkit-scrollbar-thumb {
+.modal-container .modal-content::-webkit-scrollbar-thumb {
   background-color: var(--color-primary01);
   border-radius: var(--border-radius);
   width: 10px;
 }
 
-.modal-container main::-webkit-scrollbar-thumb:hover {
+.modal-container .modal-content::-webkit-scrollbar-thumb:hover {
   background-color: var(--color-hover-primary);
 }
 
 /* Firefox */
-.modal-container main {
+.modal-container .modal-content {
   scrollbar-color: var(--color-primary01) transparent;
 }
 
