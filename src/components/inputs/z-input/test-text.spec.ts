@@ -16,7 +16,7 @@ describe("Suite test ZInput - text", () => {
 
           <div class="textWrapper">
             <div>
-              <input id="id" class="input_default hasClearIcon" type="text" aria-labelledby="id_label" />
+              <input id="id" class="input_default hasClearIcon" type="text" />
               <span class="iconsWrapper"></span>
             </div>
           </div>
@@ -34,9 +34,9 @@ describe("Suite test ZInput - text", () => {
       <z-input hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label'>
 
           <div class="textWrapper">
-            <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
+            <z-input-label id="test_label" aria-label="label" value="label"></z-input-label>
             <div>
-              <input class="input_default filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <input aria-label="label" class="input_default filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="iconsWrapper">
                 <z-icon name="multiply" class="resetIcon"></z-icon>
               </span>
@@ -58,7 +58,7 @@ describe("Suite test ZInput - text", () => {
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label" disabled=""></z-input-label>
             <div>
-              <input disabled class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <input disabled class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper disabled"></span>
             </div>
           </div>
@@ -78,7 +78,7 @@ describe("Suite test ZInput - text", () => {
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input readonly class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <input readonly class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper"></span>
             </div>
           </div>
@@ -98,7 +98,7 @@ describe("Suite test ZInput - text", () => {
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <input class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper">
                 <z-icon name="multiply" class="resetIcon"></z-icon>
               </span>
@@ -121,7 +121,7 @@ describe("Suite test ZInput - text", () => {
           <div class="textWrapper">
             <z-input-label aria-label="label" id="test_label" value="label"></z-input-label>
             <div>
-              <input class="filled input_success hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-labelledby="test_label" />
+              <input class="filled input_success hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper">
                 <z-icon name="multiply" class="resetIcon"></z-icon>
               </span>
@@ -155,7 +155,7 @@ describe("Suite test ZInput - text", () => {
 
           <div class="textWrapper">
             <div>
-              <input id="id" class="input_default hasClearIcon hasIcon" type="password" aria-labelledby="id_label" />
+              <input id="id" class="input_default hasClearIcon hasIcon" type="password" />
               <span class="iconsWrapper">
                 <z-icon name="view-filled" class="showHidePasswordIcon"></z-icon>
               </span>
@@ -178,7 +178,7 @@ describe("Suite test ZInput - text", () => {
 
           <div class="textWrapper">
             <div>
-              <input id="id" class="input_default hasClearIcon hasIcon" type="text" aria-labelledby="id_label" />
+              <input id="id" class="input_default hasClearIcon hasIcon" type="text" />
               <span class="iconsWrapper">
                 <z-icon name="view-off-filled" class="showHidePasswordIcon"></z-icon>
               </span>
