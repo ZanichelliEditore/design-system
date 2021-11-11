@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.24.10](https://github.com/ZanichelliEditore/design-system/compare/v2.24.9...v2.24.10) (2021-11-11)
+
+
+### Bug Fixes
+
+* a11y issues on some component ([7529c16](https://github.com/ZanichelliEditore/design-system/commit/7529c1634200b83d72f33b7e7104f3d7a84e8541))
+* offset in scrollable container ([5e41226](https://github.com/ZanichelliEditore/design-system/commit/5e412265f748c1c25e9422f02a9ab3b76f7390d2))
+* sanity check for tests ([47e50de](https://github.com/ZanichelliEditore/design-system/commit/47e50dede173a38aae7259959b1d7f1b42bf2989))
+* tooltip auto positioning algorithm when its container is scrollable ([5d25de5](https://github.com/ZanichelliEditore/design-system/commit/5d25de56d82d7152c4b8fa29fd24053e21141f05))
+* tooltip positioning ([151ef29](https://github.com/ZanichelliEditore/design-system/commit/151ef2958d80f72eef5a68ae59604c48dedd3e97))
+
 ### [2.24.9](https://github.com/ZanichelliEditore/design-system/compare/v2.24.8...v2.24.9) (2021-11-10)
 
 
