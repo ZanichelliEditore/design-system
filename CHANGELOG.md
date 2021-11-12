@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.24.11](https://github.com/ZanichelliEditore/design-system/compare/v2.24.10...v2.24.11) (2021-11-12)
+
+
+### Bug Fixes
+
+* fix topbar style ([bffdbb9](https://github.com/ZanichelliEditore/design-system/commit/bffdbb9b90a3f70c17fbd3cc3c50b299546d8cfb))
+* fixed space unit var ([cbd503c](https://github.com/ZanichelliEditore/design-system/commit/cbd503c67e88af4a1438bf2cc6fbc419f4344895))
+* fixed style ([a98e02c](https://github.com/ZanichelliEditore/design-system/commit/a98e02cac83529692224af6ef53933a8d26f1beb))
+
 ### [2.24.10](https://github.com/ZanichelliEditore/design-system/compare/v2.24.9...v2.24.10) (2021-11-11)
 
 
