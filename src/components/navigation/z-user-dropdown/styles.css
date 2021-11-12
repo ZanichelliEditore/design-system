@@ -109,7 +109,7 @@ ul > li:last-child {
     justify-content: flex-end;
     align-items: end;
     align-content: center;
-    padding: 6px var(--space-unit);
+    padding: calc(var(--space-unit) - 2px) 0;
     max-width: 200px;
   }
 
