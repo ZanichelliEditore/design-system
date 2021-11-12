@@ -160,7 +160,7 @@ export class ZInput {
   renderLabel() {
     if (!this.label)
       return;
-    return (h("z-input-label", { value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_label` }));
+    return (h("z-input-label", { htmlfor: this.htmlid, value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_label` }));
   }
   renderIcons() {
     return (h("span", { class: {

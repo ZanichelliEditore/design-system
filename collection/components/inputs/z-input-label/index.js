@@ -5,7 +5,7 @@ export class ZInputLabel {
     this.disabled = false;
   }
   render() {
-    return h("label", { class: { disabled: this.disabled } }, this.value);
+    return h("label", { htmlFor: this.htmlfor, class: { disabled: this.disabled } }, this.value);
   }
   static get is() { return "z-input-label"; }
   static get encapsulation() { return "shadow"; }
@@ -50,6 +50,23 @@ export class ZInputLabel {
       "attribute": "disabled",
       "reflect": false,
       "defaultValue": "false"
+    },
+    "htmlfor": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "the label is attached to"
+      },
+      "attribute": "htmlfor",
+      "reflect": false
     }
   }; }
 }
