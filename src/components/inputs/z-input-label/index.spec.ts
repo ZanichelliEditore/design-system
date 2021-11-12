@@ -21,13 +21,13 @@ describe("Suite test ZInputLabel", () => {
   it("Test render ZInputLabel - with props", async () => {
     const page = await newSpecPage({
       components: [ZInputLabel],
-      html: `<z-input-label value="label"></z-input-label>`
+      html: `<z-input-label htmlfor="idtest" value="label"></z-input-label>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-label value="label">
+      <z-input-label htmlfor="idtest" value="label">
         <mock:shadow-root>
-          <label class="">label</label>
+          <label htmlfor="idtest" class="">label</label>
         </mock:shadow-root>
       </z-input-label>
     `);
