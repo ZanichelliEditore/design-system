@@ -15,7 +15,7 @@
 }
 
 .modal-background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -133,18 +133,10 @@
   scrollbar-color: var(--color-primary01) transparent;
 }
 
-.modal-background.fixed {
-  position: fixed;
-}
-
-.modal-container.fixed {
-  position: absolute;
-}
-
 /* Tablet / Desktop */
 @media only screen and (min-width: 768px) {
   .modal-container {
-    position: absolute;
+    position: fixed;
     top: calc(var(--space-unit) * 6);
     left: 50%;
     transform: translateX(-50%);
@@ -159,14 +151,6 @@
   .modal-container > header z-icon {
     --z-icon-width: calc(var(--space-unit) * 3);
     --z-icon-height: calc(var(--space-unit) * 3);
-  }
-
-  .modal-background.fixed {
-    position: fixed;
-  }
-
-  .modal-container.fixed {
-    position: absolute;
   }
 }
 

@@ -40,8 +40,8 @@ export class ZModal {
   }
 
   render() {
-    const modalBackgroundClass = `modal-background ${!!this.fixed && "fixed"}`;
-    const modalContainerClass = `modal-container ${!!this.fixed && "fixed"}`;
+    const modalBackgroundClass = `modal-background let1`;
+    const modalContainerClass = `modal-container let1`;
 
     return [
       <div class={modalContainerClass} id={this.modalid} role="dialog">
