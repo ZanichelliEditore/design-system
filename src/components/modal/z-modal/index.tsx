@@ -18,6 +18,8 @@ export class ZModal {
   @Prop() modalsubtitle?: string;
   /** aria-label for close button (optional) */
   @Prop() closeButtonLabel?: string = "close modal";
+  /** set if the positioning of modal is fixed or not */
+  @Prop({ reflect: true }) fixed?: boolean = false;
 
   /** emitted on close button click, returns modalid */
   @Event() modalClose: EventEmitter;
@@ -38,8 +40,11 @@ export class ZModal {
   }
 
   render() {
+    const modalBackgroundClass = `modal-background ${!!this.fixed && "fixed"}`;
+    const modalContainerClass = `modal-container ${!!this.fixed && "fixed"}`;
+
     return [
-      <div class="modal-container" id={this.modalid} role="dialog">
+      <div class={modalContainerClass} id={this.modalid} role="dialog">
         <header onClick={this.emitModalHeaderActive.bind(this)}>
           <div>
             {this.modaltitle && <h1>{this.modaltitle}</h1>}
@@ -59,11 +64,11 @@ export class ZModal {
         </div>
       </div>,
       <div
-        class="modal-background"
+        class={modalBackgroundClass}
         data-action="modalBackground"
         data-modal={this.modalid}
         onClick={this.emitBackgroundClick.bind(this)}
-      ></div>
+      ></div>,
     ];
   }
 }

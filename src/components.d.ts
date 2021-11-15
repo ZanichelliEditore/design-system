@@ -695,6 +695,10 @@ export namespace Components {
          */
         "closeButtonLabel"?: string;
         /**
+          * set if the positioning of modal is fixed or not
+         */
+        "fixed"?: boolean;
+        /**
           * unique id
          */
         "modalid": string;
@@ -2854,6 +2858,10 @@ declare namespace LocalJSX {
           * aria-label for close button (optional)
          */
         "closeButtonLabel"?: string;
+        /**
+          * set if the positioning of modal is fixed or not
+         */
+        "fixed"?: boolean;
         /**
           * unique id
          */
