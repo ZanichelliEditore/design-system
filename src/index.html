@@ -424,9 +424,6 @@
     cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
     hide="false">
   </z-cookiebar> -->
-  <z-modal fixed="true" onclick="closeModalFix(this)" modaltitle="Fixed" modalsubtitle="sottotitolo" style="display: none" id="mymodal-fix">
-    <div slot="modalContent">Sunt officia excepteur fugiat velit enim ut duis magna qui voluptate nulla id pariatur veniam. Sunt nisi ad duis deserunt non minim. Do nulla id ea cupidatat laborum incididunt aliqua sint. Ea amet aliqua aliqua non duis quis magna eu incididunt nisi deserunt non aliqua elit. Ipsum officia elit in officia tempor aliquip est velit proident quis commodo. Aliqua proident id laboris exercitation dolore. Amet reprehenderit anim exercitation occaecat.</div>
-  </z-modal>
   <z-modal   onclick="closeModal(this)" modaltitle="NOT FIXED" modalsubtitle="sottotitolo" style="display: none" id="mymodal">
   <div slot="modalContent">Sunt officia excepteur fugiat velit enim ut duis magna qui voluptate nulla id pariatur veniam. Sunt nisi ad duis deserunt non minim. Do nulla id ea cupidatat laborum incididunt aliqua sint. Ea amet aliqua aliqua non duis quis magna eu incididunt nisi deserunt non aliqua elit. Ipsum officia elit in officia tempor aliquip est velit proident quis commodo. Aliqua proident id laboris exercitation dolore. Amet reprehenderit anim exercitation occaecat.</div>
 </z-modal>
@@ -1624,7 +1621,6 @@
   <p id="bottom">bottom</p>
   <br /><br /><br /><br /><br /><br />
   <z-link  onclick="openModal(this)" slot="actions" >Apri Modale</z-link>
-  <z-link  onclick="openModalFix(this, 21375)" slot="actions"  id="omm">Apri Modale 2</z-link>
   <z-link  slot="actions"  id="xxx">Link di test</z-link>
   
 
@@ -1797,25 +1793,13 @@
 
   <script>
       function openModal(e) {
-        console.log("gaf - e", e.top);
         const m = document.getElementById("mymodal");
-        m.style = "display: block";
-        console.log(e);
-      }
-      function openModalFix(e, top) {
-        console.log("gaf - e", e.top);
-        const m = document.getElementById("mymodal-fix");
         m.style = "display: block";
         console.log(e);
       }
       
       function closeModal(e) {
         const m = document.getElementById("mymodal");
-        m.style = "display: none";
-        console.log(e);
-      }
-      function closeModalFix(e) {
-        const m = document.getElementById("mymodal-fix");
         m.style = "display: none";
         console.log(e);
       }
