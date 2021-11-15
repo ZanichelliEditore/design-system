@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.24.12](https://github.com/ZanichelliEditore/design-system/compare/v2.24.11...v2.24.12) (2021-11-15)
+
+
+### Bug Fixes
+
+* fixed padding and margin ([c5a48cf](https://github.com/ZanichelliEditore/design-system/commit/c5a48cf36b91a4f7992d8dd9fb1d5e7c4a9d690f))
+
 ### [2.24.11](https://github.com/ZanichelliEditore/design-system/compare/v2.24.10...v2.24.11) (2021-11-12)
 
 
