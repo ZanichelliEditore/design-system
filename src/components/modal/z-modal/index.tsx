@@ -38,11 +38,8 @@ export class ZModal {
   }
 
   render() {
-    const modalBackgroundClass = `modal-background`;
-    const modalContainerClass = `modal-container`;
-
     return [
-      <div class={modalContainerClass} id={this.modalid} role="dialog">
+      <div class="modal-container" id={this.modalid} role="dialog">
         <header onClick={this.emitModalHeaderActive.bind(this)}>
           <div>
             {this.modaltitle && <h1>{this.modaltitle}</h1>}
@@ -62,7 +59,7 @@ export class ZModal {
         </div>
       </div>,
       <div
-        class={modalBackgroundClass}
+        class="modal-background"
         data-action="modalBackground"
         data-modal={this.modalid}
         onClick={this.emitBackgroundClick.bind(this)}
