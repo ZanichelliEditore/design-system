@@ -63,7 +63,7 @@ export class ZModal {
         data-action="modalBackground"
         data-modal={this.modalid}
         onClick={this.emitBackgroundClick.bind(this)}
-      ></div>,
+      ></div>
     ];
   }
 }
