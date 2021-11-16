@@ -48,18 +48,17 @@
   /* width: max-content; */
   align-items: center;
   justify-content: flex-end;
+  padding-right: var(--space-unit);
 }
+
+
 
 .right.hide-actions > slot[name="actions"] {
   display: none;
 }
 
-.right > ::slotted(z-link) {
+.right > ::slotted(*) {
   padding: calc(var(--space-unit) * .5);
-}
-
-.right > ::slotted(z-app-switcher) {
-  padding: 6px;
 }
 
 /* Tablet breakpoint */
@@ -80,10 +79,7 @@
 
   .right {
     grid-column-gap: var(--space-unit);
-  }
-
-  .right > ::slotted(z-app-switcher) {
-    padding: 6px calc(var(--space-unit) * 2) 6px var(--space-unit);
+    padding-right: calc(var(--space-unit) * 1.5);
   }
 }
 
