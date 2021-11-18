@@ -50,7 +50,7 @@ export class ZRegistroTableHeader {
   /** [Optional] callback for sorting */
   @Event() sort: EventEmitter;
   emitOnSort() {
-    this.sort.emit({ 
+    this.sort.emit({
       columnId: this.columnId,
       sortDirection: this.sortDirection
     });
@@ -93,14 +93,17 @@ export class ZRegistroTableHeader {
     if (!this.sortable) {
       return;
     }
+
     const tree = getElementTree(e.target);
     const parent = tree.find(
       (elem: any) => elem.nodeName.toLowerCase() === "z-registro-table-header"
     );
+    const parentColumnId = parent.attributes.getNamedItem("column-id").value;
 
     if (
       parent &&
-      parent.attributes.getNamedItem("column-id").value !== this.columnId
+      parentColumnId !== this.columnId &&
+      (e.target.parentNode.sortable || e.target.sortable)
     ) {
       this.sortDirection = SortDirectionEnum.none;
     }
