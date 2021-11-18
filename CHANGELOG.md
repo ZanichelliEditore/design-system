@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.25.0](https://github.com/ZanichelliEditore/design-system/compare/v2.24.13...v2.25.0) (2021-11-18)
+
+
+### Features
+
+* **CLAV-208:** fix for pr ([6eaadd5](https://github.com/ZanichelliEditore/design-system/commit/6eaadd5f946797383f9d7f005d657e1f61f1fcdd))
+* **CLAV-208:** fix sorting clicking on non-sortable header ([e8726bd](https://github.com/ZanichelliEditore/design-system/commit/e8726bda81f461d58d9b8cb8a8fedfc000447498))
+
 ### [2.24.13](https://github.com/ZanichelliEditore/design-system/compare/v2.24.11...v2.24.13) (2021-11-15)
 
 
