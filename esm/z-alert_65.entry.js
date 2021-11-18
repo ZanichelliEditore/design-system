@@ -2760,13 +2760,14 @@ const ZRegistroTableHeader = class {
     }
   }
   handleClickHeaders(e) {
-    if (!this.sortable) {
+    const { target } = e;
+    const parent = getElementTree(target).find((elem) => elem.nodeName.toLowerCase() === "z-registro-table-header");
+    if (!this.sortable || !parent) {
       return;
     }
-    const tree = getElementTree(e.target);
-    const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-registro-table-header");
-    if (parent &&
-      parent.attributes.getNamedItem("column-id").value !== this.columnId) {
+    const parentColumnId = parent.attributes.getNamedItem("column-id").value;
+    const isSortable = target.parentNode.sortable || target.sortable;
+    if (parentColumnId !== this.columnId && isSortable) {
       this.sortDirection = SortDirectionEnum.none;
     }
   }
