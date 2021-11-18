@@ -90,21 +90,19 @@ export class ZRegistroTableHeader {
 
   @Listen("click", { target: "body", capture: true })
   handleClickHeaders(e: any) {
-    if (!this.sortable) {
+    const { target } = e;
+    const parent = getElementTree(target).find(
+      (elem: any) => elem.nodeName.toLowerCase() === "z-registro-table-header"
+    );
+
+    if (!this.sortable || !parent) {
       return;
     }
 
-    const tree = getElementTree(e.target);
-    const parent = tree.find(
-      (elem: any) => elem.nodeName.toLowerCase() === "z-registro-table-header"
-    );
     const parentColumnId = parent.attributes.getNamedItem("column-id").value;
+    const isSortable = target.parentNode.sortable || target.sortable;
 
-    if (
-      parent &&
-      parentColumnId !== this.columnId &&
-      (e.target.parentNode.sortable || e.target.sortable)
-    ) {
+    if (parentColumnId !== this.columnId && isSortable) {
       this.sortDirection = SortDirectionEnum.none;
     }
   }
