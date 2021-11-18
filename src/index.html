@@ -16,44 +16,49 @@
     <script nomodule src="/build/web-components-library.js"></script>
   </head>
   <body style="width: 100%; margin: 0; background-color: #f9f9f9">
-    <div>
-      <h1>Table</h1>
-  <h2>Empty table</h2>
-  <z-registro-table
-    bordered="true"
-    call-to-action-label="Action 1"
-    call-to-action-two-label="Action 2"
-    empty="true"
-    id='empty-table'
-    message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!""
-    subtitle="Eventuale testo">
+    <a href="#bottom">bottom</a>
+    
+    <h1>Table</h1>
+    <h2>Empty table</h2>
+    <z-registro-table
+      bordered="true"
+      call-to-action-label="Action 1"
+      call-to-action-two-label="Action 2"
+      empty="true"
+      id='empty-table'
+      message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
+      subtitle="Eventuale testo">
     <z-registro-table-head slot="table-header">
       <z-registro-table-header-row>
         <z-registro-table-header>
           <span>Titolo 1</span>
         </z-registro-table-header>
+      </z-registro-table-header-row>
     </z-registro-table-head>
     <z-registro-table-body slot="table-body">
       <z-registro-table-row>
         <z-registro-table-cell>
-          <z-avatar text="AS" size="medium" background-color="avatar-C11" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C11);"></z-avatar>
+          <z-avatar text="AS" size="medium" background-color="avatar-C11"
+            style="color: var(--text-white); background-color: var(--avatar-C11);"></z-avatar>
           <span>Contenuto 1-1</span>
         </z-registro-table-cell>
       </z-registro-table-row>
       <z-registro-table-row>
         <z-registro-table-cell>
-          <z-avatar text="FF" size="medium" background-color="avatar-C12" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C12);"></z-avatar>
+          <z-avatar text="FF" size="medium" background-color="avatar-C12" 
+            style="color: var(--text-white); background-color: var(--avatar-C12);"></z-avatar>
           <span>Contenuto 1-2</span>
         </z-registro-table-cell>
       </z-registro-table-row>
       <z-registro-table-row>
         <z-registro-table-cell>
-          <z-avatar text="AS" size="medium" background-color="avatar-C13" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C13);"></z-avatar>
+          <z-avatar text="AS" size="medium" background-color="avatar-C13" 
+            style="color: var(--text-white); background-color: var(--avatar-C13);"></z-avatar>
           <span>Contenuto 1-3</span>
         </z-registro-table-cell>
       </z-registro-table-row>
       <z-registro-table-row>
-        <z-registro-table-cell >
+        <z-registro-table-cell>
           <z-avatar text="AS" size="medium" background-color="avatar-C14" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C14);"></z-avatar>
           <span>Contenuto 1-4</span>
         </z-registro-table-cell>
@@ -292,20 +297,15 @@
         </z-registro-table-header>
       </z-registro-table-header-row>
     </z-registro-table-head>
-
   </z-registro-table>
   <h2>Empty table one cta</h2>
   <z-registro-table empty="true" call-to-action-label="Action 1" id='empty-table-two'>
   </z-registro-table>
   <h2>Empty table no column</h2>
   <z-registro-table empty="true">
-
     <z-registro-table-head>
-
     </z-registro-table-head>
-
   </z-registro-table>
-
   <h2>Simple table</h2>
   <z-registro-table bordered="true" header-sticky="false" column-sticky="false">
     <z-registro-table-head>
@@ -424,10 +424,9 @@
     cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
     hide="false">
   </z-cookiebar> -->
-  <!-- <z-modal modaltitle="titolotitolo" modalsubtitle="sottotitolo">
-    <div slot="modalContent">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-  </z-modal> -->
-
+  <z-modal   onclick="closeModal(this)" modaltitle="NOT FIXED" modalsubtitle="sottotitolo" style="display: none" id="mymodal">
+  <div slot="modalContent">Sunt officia excepteur fugiat velit enim ut duis magna qui voluptate nulla id pariatur veniam. Sunt nisi ad duis deserunt non minim. Do nulla id ea cupidatat laborum incididunt aliqua sint. Ea amet aliqua aliqua non duis quis magna eu incididunt nisi deserunt non aliqua elit. Ipsum officia elit in officia tempor aliquip est velit proident quis commodo. Aliqua proident id laboris exercitation dolore. Amet reprehenderit anim exercitation occaecat.</div>
+</z-modal>
   <!-- <z-modal-login></z-modal-login> -->
   <!-- <z-modal-login>
     <z-input
@@ -463,7 +462,6 @@
     <z-link slot="provider">Cos'è Zaino Digitale?</z-link>
   </z-modal-login> -->
   <p>Not Logged</p>
-
   <z-app-topbar hashtag="via crucis">
     <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
     </z-logo>
@@ -1016,7 +1014,6 @@
             slot="list" />
         </z-myz-card-footer>
       </z-myz-card>
-
       <z-myz-card cardtype="saggio">
         <z-myz-card-header cardtype="saggio" titolo="Card con lista risorse completa">
           <z-myz-card-icon icon="book-minus" slot="icon" />
@@ -1621,9 +1618,11 @@
   <div style="margin-left: 200px; padding: 50px; width: 300px; height: 50px;">
     <z-ghost-loading></z-ghost-loading>
   </div>
-
-
+  <p id="bottom">bottom</p>
   <br /><br /><br /><br /><br /><br />
+  <z-link  onclick="openModal(this)" slot="actions" >Apri Modale</z-link>
+  <z-link  slot="actions"  id="xxx">Link di test</z-link>
+  
 
   <z-footer copyrightuser='Zanichelli' data='{
       "zanichelliLinks": [{
@@ -1794,6 +1793,14 @@
 
   <script>
       function openModal(e) {
+        const m = document.getElementById("mymodal");
+        m.style = "display: block";
+        console.log(e);
+      }
+      
+      function closeModal(e) {
+        const m = document.getElementById("mymodal");
+        m.style = "display: none";
         console.log(e);
       }
       const appMenu = document.getElementById("app-switcher");
