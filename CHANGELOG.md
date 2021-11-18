@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.26.0](https://github.com/ZanichelliEditore/design-system/compare/v2.25.0...v2.26.0) (2021-11-18)
+
+### [2.24.12-rc3](https://github.com/ZanichelliEditore/design-system/compare/v2.24.12-rc2...v2.24.12-rc3) (2021-11-15)
+
+
+### Features
+
+* **clav-158:** fixed background opt for zmodal ([c4b27eb](https://github.com/ZanichelliEditore/design-system/commit/c4b27eb6f61850c06fc8aa0fa92e642f6477af3c))
+
+### [2.24.12-rc2](https://github.com/ZanichelliEditore/design-system/compare/v2.24.12...v2.24.12-rc2) (2021-11-13)
+
+### [2.24.12](https://github.com/ZanichelliEditore/design-system/compare/v2.24.11...v2.24.12) (2021-11-13)
+
 ## [2.25.0](https://github.com/ZanichelliEditore/design-system/compare/v2.24.13...v2.25.0) (2021-11-18)
 
 
