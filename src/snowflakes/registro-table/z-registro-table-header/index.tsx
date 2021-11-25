@@ -39,6 +39,9 @@ export class ZRegistroTableHeader {
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
+  /** [Optional] Default sort order */
+  @Prop() defaultSortDirection?: SortDirection = SortDirectionEnum.asc;
+
   @Prop({ mutable: true }) sortDirection: SortDirection = SortDirectionEnum.none;
 
   @State() isMenuOpened: boolean = false;
@@ -56,17 +59,28 @@ export class ZRegistroTableHeader {
     });
   }
 
+  invertSortDirection(direction: SortDirection) : SortDirection {
+    switch (direction) {
+      case SortDirectionEnum.asc:
+        return SortDirectionEnum.desc;
+      case SortDirectionEnum.desc:
+        return SortDirectionEnum.asc;
+      default:
+        return SortDirectionEnum.none;
+    }
+  }
+
   handleSort() {
     if (!this.sortable) {
       return;
     }
     if (
       this.sortDirection === SortDirectionEnum.none ||
-      this.sortDirection === SortDirectionEnum.desc
+      this.sortDirection === this.invertSortDirection(this.defaultSortDirection)
     ) {
-      this.sortDirection = SortDirectionEnum.asc;
-    } else if (this.sortDirection === SortDirectionEnum.asc) {
-      this.sortDirection = SortDirectionEnum.desc;
+      this.sortDirection = this.defaultSortDirection;
+    } else if (this.sortDirection === this.defaultSortDirection) {
+      this.sortDirection = this.invertSortDirection(this.defaultSortDirection);
     }
 
     this.emitOnSort();
