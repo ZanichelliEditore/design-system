@@ -4,6 +4,7 @@ z-registro-table {
   width: 100%;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+  min-height: 288px;
 }
 
 z-registro-table > div.table {
@@ -114,6 +115,7 @@ z-registro-table-empty-box.bordered {
 
 z-registro-table-body {
   width: auto;
+  min-height: 288px;
 }
 
 z-registro-table-empty-box {
