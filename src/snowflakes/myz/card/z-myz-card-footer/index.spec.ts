@@ -101,7 +101,6 @@ describe("Suite test ZMyzCardFooter", () => {
               <span class=\"toggle\">
                 <slot name=\"toggle\"></slot>
               </span>
-              <p></p>
               <div class="content">
                 <div>
                   <p class="authors">

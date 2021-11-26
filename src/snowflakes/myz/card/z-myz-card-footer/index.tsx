@@ -77,7 +77,7 @@ export class ZMyzCardFooter {
           <span class="toggle">
             <slot name="toggle" />
           </span>
-          <p>{this.titolo}</p>
+          {this.titolo && <p>{this.titolo}</p>}
           <div class="content">
             <div>
               <p
