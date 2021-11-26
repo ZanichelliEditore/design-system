@@ -59,29 +59,18 @@ export class ZRegistroTableHeader {
     });
   }
 
-  invertSortDirection(direction: SortDirection) : SortDirection {
-    switch (direction) {
-      case SortDirectionEnum.asc:
-        return SortDirectionEnum.desc;
-      case SortDirectionEnum.desc:
-        return SortDirectionEnum.asc;
-      default:
-        return SortDirectionEnum.none;
-    }
-  }
-
   handleSort() {
     if (!this.sortable) {
       return;
     }
-    if (
-      this.sortDirection === SortDirectionEnum.none ||
-      this.sortDirection === this.invertSortDirection(this.defaultSortDirection)
-    ) {
-      this.sortDirection = this.defaultSortDirection;
-    } else if (this.sortDirection === this.defaultSortDirection) {
-      this.sortDirection = this.invertSortDirection(this.defaultSortDirection);
-    }
+
+    this.sortDirection = (() => {
+      switch(this.sortDirection) {
+        case (SortDirectionEnum.asc): return  SortDirectionEnum.desc;        
+        case (SortDirectionEnum.desc): return SortDirectionEnum.asc;
+        case  (SortDirectionEnum.none): return this.defaultSortDirection
+        default: return SortDirectionEnum.none;
+    }})();
 
     this.emitOnSort();
   }
