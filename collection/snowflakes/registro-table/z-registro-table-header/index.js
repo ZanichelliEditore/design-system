@@ -6,6 +6,8 @@ export class ZRegistroTableHeader {
   constructor() {
     /** [Optional] Padding of the header */
     this.size = TableHeaderSize["medium"];
+    /** [Optional] Default sort order */
+    this.defaultSortDirection = SortDirectionEnum.asc;
     this.sortDirection = SortDirectionEnum.none;
     this.isMenuOpened = false;
     this.emitOnSort = this.emitOnSort.bind(this);
@@ -20,13 +22,14 @@ export class ZRegistroTableHeader {
     if (!this.sortable) {
       return;
     }
-    if (this.sortDirection === SortDirectionEnum.none ||
-      this.sortDirection === SortDirectionEnum.desc) {
-      this.sortDirection = SortDirectionEnum.asc;
-    }
-    else if (this.sortDirection === SortDirectionEnum.asc) {
-      this.sortDirection = SortDirectionEnum.desc;
-    }
+    this.sortDirection = (() => {
+      switch (this.sortDirection) {
+        case (SortDirectionEnum.asc): return SortDirectionEnum.desc;
+        case (SortDirectionEnum.desc): return SortDirectionEnum.asc;
+        case (SortDirectionEnum.none): return this.defaultSortDirection;
+        default: return SortDirectionEnum.none;
+      }
+    })();
     this.emitOnSort();
   }
   handleMenuClick() {
@@ -153,6 +156,29 @@ export class ZRegistroTableHeader {
       },
       "attribute": "show-button",
       "reflect": false
+    },
+    "defaultSortDirection": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "SortDirection",
+        "resolved": "SortDirectionEnum.asc | SortDirectionEnum.desc | SortDirectionEnum.none",
+        "references": {
+          "SortDirection": {
+            "location": "import",
+            "path": "../../../beans"
+          }
+        }
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "[Optional] Default sort order"
+      },
+      "attribute": "default-sort-direction",
+      "reflect": false,
+      "defaultValue": "SortDirectionEnum.asc"
     },
     "sortDirection": {
       "type": "string",

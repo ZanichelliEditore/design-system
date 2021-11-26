@@ -2759,6 +2759,8 @@ const ZRegistroTableHeader = class {
     this.sort = index.createEvent(this, "sort", 7);
     /** [Optional] Padding of the header */
     this.size = index$1.TableHeaderSize["medium"];
+    /** [Optional] Default sort order */
+    this.defaultSortDirection = index$1.SortDirectionEnum.asc;
     this.sortDirection = index$1.SortDirectionEnum.none;
     this.isMenuOpened = false;
     this.emitOnSort = this.emitOnSort.bind(this);
@@ -2773,13 +2775,14 @@ const ZRegistroTableHeader = class {
     if (!this.sortable) {
       return;
     }
-    if (this.sortDirection === index$1.SortDirectionEnum.none ||
-      this.sortDirection === index$1.SortDirectionEnum.desc) {
-      this.sortDirection = index$1.SortDirectionEnum.asc;
-    }
-    else if (this.sortDirection === index$1.SortDirectionEnum.asc) {
-      this.sortDirection = index$1.SortDirectionEnum.desc;
-    }
+    this.sortDirection = (() => {
+      switch (this.sortDirection) {
+        case (index$1.SortDirectionEnum.asc): return index$1.SortDirectionEnum.desc;
+        case (index$1.SortDirectionEnum.desc): return index$1.SortDirectionEnum.asc;
+        case (index$1.SortDirectionEnum.none): return this.defaultSortDirection;
+        default: return index$1.SortDirectionEnum.none;
+      }
+    })();
     this.emitOnSort();
   }
   handleMenuClick() {

@@ -10,6 +10,8 @@ export declare class ZRegistroTableHeader {
   sortable?: boolean;
   /** [Optional] Show contextual menu button */
   showButton?: boolean;
+  /** [Optional] Default sort order */
+  defaultSortDirection?: SortDirection;
   sortDirection: SortDirection;
   isMenuOpened: boolean;
   constructor();
