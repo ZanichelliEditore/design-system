@@ -1240,6 +1240,10 @@ export namespace Components {
          */
         "columnId": string;
         /**
+          * [Optional] Default sort order
+         */
+        "defaultSortDirection"?: SortDirection;
+        /**
           * [Optional] Show contextual menu button
          */
         "showButton"?: boolean;
@@ -3485,6 +3489,10 @@ declare namespace LocalJSX {
           * Column ID
          */
         "columnId"?: string;
+        /**
+          * [Optional] Default sort order
+         */
+        "defaultSortDirection"?: SortDirection;
         /**
           * [Optional] callback for sorting
          */
