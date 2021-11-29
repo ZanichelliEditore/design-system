@@ -9,11 +9,12 @@ import { text, boolean } from '@storybook/addon-knobs';
   # ZMyzCardIcon
 
 <Preview>
-  <Story name="z-myz-card-alert">
+  <Story name="z-myz-card-icon">
     {html`
       <z-myz-card-icon
         icon="${text('icon', 'book-minus')}"
         isdisabled="${boolean('isdisabled', true)}"
+        aria-label="${text('ariaLabel', 'test label')}"
       />`}
   </Story>
 </Preview>
