@@ -25,7 +25,7 @@ footer .bold {
   font-weight: var(--font-sb);
 }
 
-footer > h2 {
+footer > p {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   font-size: 16px;
@@ -39,7 +39,7 @@ footer > h2 {
   transition: all 200ms linear;
 }
 
-footer.isopen > h2 {
+footer.isopen > p {
   font-size: 14px;
   font-weight: var(--font-sb);
   transition: all 200ms linear;
@@ -47,8 +47,8 @@ footer.isopen > h2 {
   background-color: var(--bg-neutral-200);
 }
 
-footer.isopen.real > h2,
-footer.isopen.trial > h2 {
+footer.isopen.real > p,
+footer.isopen.trial > p {
   background-color: var(--accent);
 }
 

@@ -5,7 +5,7 @@ export class ZMyzCardIcon {
     this.isdisabled = false;
   }
   render() {
-    return (h("button", { disabled: this.isdisabled },
+    return (h("button", { disabled: this.isdisabled, "aria-label": this.ariaLabel },
       h("span", null,
         h("z-icon", { name: this.icon, width: 16, height: 16 }))));
   }
@@ -52,6 +52,23 @@ export class ZMyzCardIcon {
       "attribute": "isdisabled",
       "reflect": false,
       "defaultValue": "false"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "description of the icon"
+      },
+      "attribute": "aria-label",
+      "reflect": false
     }
   }; }
 }

@@ -859,6 +859,10 @@ export namespace Components {
     }
     interface ZMyzCardIcon {
         /**
+          * description of the icon
+         */
+        "ariaLabel"?: string;
+        /**
           * icon name
          */
         "icon": string;
@@ -3062,6 +3066,10 @@ declare namespace LocalJSX {
         "titolo"?: string;
     }
     interface ZMyzCardIcon {
+        /**
+          * description of the icon
+         */
+        "ariaLabel"?: string;
         /**
           * icon name
          */

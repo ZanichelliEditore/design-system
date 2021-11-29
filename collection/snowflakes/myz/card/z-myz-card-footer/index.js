@@ -31,7 +31,7 @@ export class ZMyzCardFooter {
     return {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial
+      trial: this.cardtype === LicenseTypeEnum.trial,
     };
   }
   footerTransitionHandler(e) {
@@ -44,10 +44,10 @@ export class ZMyzCardFooter {
       h("footer", { class: this.retrieveClass(), onTransitionEnd: (e) => this.footerTransitionHandler(e) },
         h("span", { class: "toggle" },
           h("slot", { name: "toggle" })),
-        h("h2", null, this.titolo),
+        this.titolo && h("p", null, this.titolo),
         h("div", { class: "content" },
           h("div", null,
-            h("p", { class: "authors", ref: el => (this.ellipsisAuthors = el) },
+            h("p", { class: "authors", ref: (el) => (this.ellipsisAuthors = el) },
               h("span", { title: this.getTitleAuthors() },
                 h("span", { class: "bold" }, this.autori))),
             h("p", { class: "year_isbn" },
