@@ -11,10 +11,11 @@
 
 ## Properties
 
-| Property     | Attribute    | Description          | Type      | Default     |
-| ------------ | ------------ | -------------------- | --------- | ----------- |
-| `icon`       | `icon`       | icon name            | `string`  | `undefined` |
-| `isdisabled` | `isdisabled` | disabled status flag | `boolean` | `false`     |
+| Property     | Attribute    | Description             | Type      | Default     |
+| ------------ | ------------ | ----------------------- | --------- | ----------- |
+| `ariaLabel`  | `aria-label` | description of the icon | `string`  | `undefined` |
+| `icon`       | `icon`       | icon name               | `string`  | `undefined` |
+| `isdisabled` | `isdisabled` | disabled status flag    | `boolean` | `false`     |
 
 
 ## Dependencies

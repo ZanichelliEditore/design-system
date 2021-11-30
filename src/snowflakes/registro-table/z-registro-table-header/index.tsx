@@ -39,6 +39,9 @@ export class ZRegistroTableHeader {
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
 
+  /** [Optional] Default sort order */
+  @Prop() defaultSortDirection?: SortDirection = SortDirectionEnum.asc;
+
   @Prop({ mutable: true }) sortDirection: SortDirection = SortDirectionEnum.none;
 
   @State() isMenuOpened: boolean = false;
@@ -50,7 +53,7 @@ export class ZRegistroTableHeader {
   /** [Optional] callback for sorting */
   @Event() sort: EventEmitter;
   emitOnSort() {
-    this.sort.emit({ 
+    this.sort.emit({
       columnId: this.columnId,
       sortDirection: this.sortDirection
     });
@@ -60,14 +63,14 @@ export class ZRegistroTableHeader {
     if (!this.sortable) {
       return;
     }
-    if (
-      this.sortDirection === SortDirectionEnum.none ||
-      this.sortDirection === SortDirectionEnum.desc
-    ) {
-      this.sortDirection = SortDirectionEnum.asc;
-    } else if (this.sortDirection === SortDirectionEnum.asc) {
-      this.sortDirection = SortDirectionEnum.desc;
-    }
+
+    this.sortDirection = (() => {
+      switch(this.sortDirection) {
+        case (SortDirectionEnum.asc): return  SortDirectionEnum.desc;        
+        case (SortDirectionEnum.desc): return SortDirectionEnum.asc;
+        case  (SortDirectionEnum.none): return this.defaultSortDirection
+        default: return SortDirectionEnum.none;
+    }})();
 
     this.emitOnSort();
   }
@@ -90,18 +93,19 @@ export class ZRegistroTableHeader {
 
   @Listen("click", { target: "body", capture: true })
   handleClickHeaders(e: any) {
-    if (!this.sortable) {
-      return;
-    }
-    const tree = getElementTree(e.target);
-    const parent = tree.find(
+    const { target } = e;
+    const parent = getElementTree(target).find(
       (elem: any) => elem.nodeName.toLowerCase() === "z-registro-table-header"
     );
 
-    if (
-      parent &&
-      parent.attributes.getNamedItem("column-id").value !== this.columnId
-    ) {
+    if (!this.sortable || !parent) {
+      return;
+    }
+
+    const parentColumnId = parent.attributes.getNamedItem("column-id").value;
+    const isSortable = target.parentNode.sortable || target.sortable;
+
+    if (parentColumnId !== this.columnId && isSortable) {
       this.sortDirection = SortDirectionEnum.none;
     }
   }

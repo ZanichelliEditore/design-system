@@ -10,8 +10,10 @@ export class ZInputLabel {
   @Prop() value: string;
   /** the label is disabled */
   @Prop() disabled?: boolean = false;
+  /** the label is attached to */
+  @Prop() htmlfor?: string;
 
   render() {
-    return <label class={{ disabled: this.disabled }}>{this.value}</label> 
+    return <label htmlFor={this.htmlfor} class={{ disabled: this.disabled }}>{this.value}</label>;
   }
 }

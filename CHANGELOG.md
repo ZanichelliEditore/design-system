@@ -2,7 +2,71 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [2.24.10-rc1](https://github.com/ZanichelliEditore/design-system/compare/v2.24.9...v2.24.10-rc1) (2021-11-10)
+### [2.26.2](https://github.com/ZanichelliEditore/design-system/compare/v2.26.1...v2.26.2) (2021-11-29)
+
+
+### Bug Fixes
+
+* change tag h2 ([67f4130](https://github.com/ZanichelliEditore/design-system/commit/67f4130132163da4203defa75cec240e6c1f8672))
+* fix empty title ([ca77ec0](https://github.com/ZanichelliEditore/design-system/commit/ca77ec08c76f30ee5fcb3b8d4a1d6c487ac4db43))
+* fix test ([f27b6b8](https://github.com/ZanichelliEditore/design-system/commit/f27b6b88e70c7f0583519b47070a4b523da5bb5d))
+
+### [2.26.1](https://github.com/ZanichelliEditore/design-system/compare/v2.26.0...v2.26.1) (2021-11-26)
+
+## [2.26.0](https://github.com/ZanichelliEditore/design-system/compare/v2.25.0...v2.26.0) (2021-11-18)
+
+### [2.24.12-rc3](https://github.com/ZanichelliEditore/design-system/compare/v2.24.12-rc2...v2.24.12-rc3) (2021-11-15)
+
+
+### Features
+
+* **clav-158:** fixed background opt for zmodal ([c4b27eb](https://github.com/ZanichelliEditore/design-system/commit/c4b27eb6f61850c06fc8aa0fa92e642f6477af3c))
+
+### [2.24.12-rc2](https://github.com/ZanichelliEditore/design-system/compare/v2.24.12...v2.24.12-rc2) (2021-11-13)
+
+### [2.24.12](https://github.com/ZanichelliEditore/design-system/compare/v2.24.11...v2.24.12) (2021-11-13)
+
+## [2.25.0](https://github.com/ZanichelliEditore/design-system/compare/v2.24.13...v2.25.0) (2021-11-18)
+
+
+### Features
+
+* **CLAV-208:** fix for pr ([6eaadd5](https://github.com/ZanichelliEditore/design-system/commit/6eaadd5f946797383f9d7f005d657e1f61f1fcdd))
+* **CLAV-208:** fix sorting clicking on non-sortable header ([e8726bd](https://github.com/ZanichelliEditore/design-system/commit/e8726bda81f461d58d9b8cb8a8fedfc000447498))
+
+### [2.24.13](https://github.com/ZanichelliEditore/design-system/compare/v2.24.11...v2.24.13) (2021-11-15)
+
+
+### Bug Fixes
+
+* fixed padding and margin ([c5a48cf](https://github.com/ZanichelliEditore/design-system/commit/c5a48cf36b91a4f7992d8dd9fb1d5e7c4a9d690f))
+
+### [2.24.12](https://github.com/ZanichelliEditore/design-system/compare/v2.24.11...v2.24.12) (2021-11-15)
+
+
+### Bug Fixes
+
+* fixed padding and margin ([c5a48cf](https://github.com/ZanichelliEditore/design-system/commit/c5a48cf36b91a4f7992d8dd9fb1d5e7c4a9d690f))
+
+### [2.24.11](https://github.com/ZanichelliEditore/design-system/compare/v2.24.10...v2.24.11) (2021-11-12)
+
+
+### Bug Fixes
+
+* fix topbar style ([bffdbb9](https://github.com/ZanichelliEditore/design-system/commit/bffdbb9b90a3f70c17fbd3cc3c50b299546d8cfb))
+* fixed space unit var ([cbd503c](https://github.com/ZanichelliEditore/design-system/commit/cbd503c67e88af4a1438bf2cc6fbc419f4344895))
+* fixed style ([a98e02c](https://github.com/ZanichelliEditore/design-system/commit/a98e02cac83529692224af6ef53933a8d26f1beb))
+
+### [2.24.10](https://github.com/ZanichelliEditore/design-system/compare/v2.24.9...v2.24.10) (2021-11-11)
+
+
+### Bug Fixes
+
+* a11y issues on some component ([7529c16](https://github.com/ZanichelliEditore/design-system/commit/7529c1634200b83d72f33b7e7104f3d7a84e8541))
+* offset in scrollable container ([5e41226](https://github.com/ZanichelliEditore/design-system/commit/5e412265f748c1c25e9422f02a9ab3b76f7390d2))
+* sanity check for tests ([47e50de](https://github.com/ZanichelliEditore/design-system/commit/47e50dede173a38aae7259959b1d7f1b42bf2989))
+* tooltip auto positioning algorithm when its container is scrollable ([5d25de5](https://github.com/ZanichelliEditore/design-system/commit/5d25de56d82d7152c4b8fa29fd24053e21141f05))
+* tooltip positioning ([151ef29](https://github.com/ZanichelliEditore/design-system/commit/151ef2958d80f72eef5a68ae59604c48dedd3e97))
 
 ### [2.24.9](https://github.com/ZanichelliEditore/design-system/compare/v2.24.8...v2.24.9) (2021-11-10)
 

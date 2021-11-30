@@ -489,6 +489,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * the label is attached to
+         */
+        "htmlfor"?: string;
+        /**
           * the label value
          */
         "value": string;
@@ -858,6 +862,10 @@ export namespace Components {
         "titolo": string;
     }
     interface ZMyzCardIcon {
+        /**
+          * description of the icon
+         */
+        "ariaLabel"?: string;
         /**
           * icon name
          */
@@ -1239,6 +1247,10 @@ export namespace Components {
           * Column ID
          */
         "columnId": string;
+        /**
+          * [Optional] Default sort order
+         */
+        "defaultSortDirection"?: SortDirection;
         /**
           * [Optional] Show contextual menu button
          */
@@ -2629,6 +2641,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * the label is attached to
+         */
+        "htmlfor"?: string;
+        /**
           * the label value
          */
         "value"?: string;
@@ -3063,6 +3079,10 @@ declare namespace LocalJSX {
     }
     interface ZMyzCardIcon {
         /**
+          * description of the icon
+         */
+        "ariaLabel"?: string;
+        /**
           * icon name
          */
         "icon"?: string;
@@ -3489,6 +3509,10 @@ declare namespace LocalJSX {
           * Column ID
          */
         "columnId"?: string;
+        /**
+          * [Optional] Default sort order
+         */
+        "defaultSortDirection"?: SortDirection;
         /**
           * [Optional] callback for sorting
          */
