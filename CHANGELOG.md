@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.26.3](https://github.com/ZanichelliEditore/design-system/compare/v2.26.2...v2.26.3) (2021-12-01)
+
+
+### Bug Fixes
+
+* **clav-214:** default background color ([9ead4bb](https://github.com/ZanichelliEditore/design-system/commit/9ead4bb77f6538b531809d6def84c9f86c39bd84))
+* **clav-214:** min-height ([aae26ad](https://github.com/ZanichelliEditore/design-system/commit/aae26ad50fe36431a7afa9ff273d4fce1fe55fc6))
+
 ### [2.26.2](https://github.com/ZanichelliEditore/design-system/compare/v2.26.1...v2.26.2) (2021-11-29)
 
 
