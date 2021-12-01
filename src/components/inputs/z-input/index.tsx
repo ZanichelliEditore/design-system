@@ -257,7 +257,7 @@ export class ZInput {
         value={this.label}
         disabled={this.disabled}
         aria-label={this.label}
-        id={this.ariaLabel || `${this.htmlid}_label`}
+        id={`${this.htmlid}_label`}
       />
     );
   }
