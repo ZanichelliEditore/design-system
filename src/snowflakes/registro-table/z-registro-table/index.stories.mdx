@@ -214,7 +214,9 @@ import { text, boolean } from "@storybook/addon-knobs";
     </z-registro-table>`}
   </Story>
   <Story name="ZRegistroTable-empty-with-header-column">
-    {html`<z-registro-table
+    {html`
+      <style>body{background-color: lightgray;}</style>
+      <z-registro-table
       bordered="${boolean("bordered", true)}"
       call-to-action-label="${text("call-to-action-label", "Call to action")}"
       call-to-action-two-label="${text(
@@ -235,18 +237,6 @@ import { text, boolean } from "@storybook/addon-knobs";
           </z-registro-table-header>
       </z-registro-table-head>
       <z-registro-table-body slot="table-body">
-        <z-registro-table-row>
-          <z-registro-table-cell>
-            <z-avatar text="AS" size="medium" background-color="avatar-C11" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C11);"></z-avatar>
-            <span>Contenuto 1-1</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-        <z-registro-table-row>
-          <z-registro-table-cell>
-            <z-avatar text="FF" size="medium" background-color="avatar-C12" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C12);"></z-avatar>
-            <span>Contenuto 1-2</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
         <z-registro-table-row>
           <z-registro-table-cell>
             <z-avatar text="AS" size="medium" background-color="avatar-C13" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C13);"></z-avatar>
