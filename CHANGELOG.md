@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.26.2](https://github.com/ZanichelliEditore/design-system/compare/v2.26.1...v2.26.2) (2021-11-29)
+
+
+### Bug Fixes
+
+* change tag h2 ([67f4130](https://github.com/ZanichelliEditore/design-system/commit/67f4130132163da4203defa75cec240e6c1f8672))
+* fix empty title ([ca77ec0](https://github.com/ZanichelliEditore/design-system/commit/ca77ec08c76f30ee5fcb3b8d4a1d6c487ac4db43))
+* fix test ([f27b6b8](https://github.com/ZanichelliEditore/design-system/commit/f27b6b88e70c7f0583519b47070a4b523da5bb5d))
+
+### [2.26.1](https://github.com/ZanichelliEditore/design-system/compare/v2.26.0...v2.26.1) (2021-11-26)
+
 ## [2.26.0](https://github.com/ZanichelliEditore/design-system/compare/v2.25.0...v2.26.0) (2021-11-18)
 
 ### [2.24.12-rc3](https://github.com/ZanichelliEditore/design-system/compare/v2.24.12-rc2...v2.24.12-rc3) (2021-11-15)

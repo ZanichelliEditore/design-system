@@ -8,7 +8,7 @@ import { LicenseTypeEnum } from "../../../../beans/index";
 @Component({
   tag: "z-myz-card-footer",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardFooter {
   /** volume title */
@@ -55,7 +55,7 @@ export class ZMyzCardFooter {
     return {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial
+      trial: this.cardtype === LicenseTypeEnum.trial,
     };
   }
 
@@ -77,12 +77,12 @@ export class ZMyzCardFooter {
           <span class="toggle">
             <slot name="toggle" />
           </span>
-          <h2>{this.titolo}</h2>
+          {this.titolo && <p>{this.titolo}</p>}
           <div class="content">
             <div>
               <p
                 class="authors"
-                ref={el => (this.ellipsisAuthors = el as HTMLElement)}
+                ref={(el) => (this.ellipsisAuthors = el as HTMLElement)}
               >
                 <span title={this.getTitleAuthors()}>
                   <span class="bold">{this.autori}</span>

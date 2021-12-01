@@ -859,6 +859,10 @@ export namespace Components {
     }
     interface ZMyzCardIcon {
         /**
+          * description of the icon
+         */
+        "ariaLabel"?: string;
+        /**
           * icon name
          */
         "icon": string;
@@ -1239,6 +1243,10 @@ export namespace Components {
           * Column ID
          */
         "columnId": string;
+        /**
+          * [Optional] Default sort order
+         */
+        "defaultSortDirection"?: SortDirection;
         /**
           * [Optional] Show contextual menu button
          */
@@ -3059,6 +3067,10 @@ declare namespace LocalJSX {
     }
     interface ZMyzCardIcon {
         /**
+          * description of the icon
+         */
+        "ariaLabel"?: string;
+        /**
           * icon name
          */
         "icon"?: string;
@@ -3485,6 +3497,10 @@ declare namespace LocalJSX {
           * Column ID
          */
         "columnId"?: string;
+        /**
+          * [Optional] Default sort order
+         */
+        "defaultSortDirection"?: SortDirection;
         /**
           * [Optional] callback for sorting
          */
