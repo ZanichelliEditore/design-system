@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.26.4](https://github.com/ZanichelliEditore/design-system/compare/v2.26.3...v2.26.4) (2021-12-06)
+
+
+### Bug Fixes
+
+* fix pr comment ([ae9938c](https://github.com/ZanichelliEditore/design-system/commit/ae9938c455855885c665ff1707eabfeda4c48672))
+* fixed tests ([645aa06](https://github.com/ZanichelliEditore/design-system/commit/645aa0623c54d40c22ca15690ef8ebf2c042c883))
+* removed slot from z-input-label ([f993751](https://github.com/ZanichelliEditore/design-system/commit/f99375191f8a494ef17204de881222391ebb16b5))
+
+### [2.24.10-rc1](https://github.com/ZanichelliEditore/design-system/compare/v2.24.9...v2.24.10-rc1) (2021-11-10)
+
 ### [2.26.3](https://github.com/ZanichelliEditore/design-system/compare/v2.26.2...v2.26.3) (2021-12-01)
 
 
