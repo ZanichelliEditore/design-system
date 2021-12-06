@@ -6,11 +6,11 @@ describe("Suite test ZInputMessage", () => {
   it("Test render ZInputMessage - empty", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message role="alert" tabindex="0" aria-label=""></z-input-message>`
+      html: `<z-input-message role="alert" aria-label=""></z-input-message>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message role="alert" tabindex="0" aria-label="">
+      <z-input-message role="alert" tabindex="-1" aria-label="">
         <mock:shadow-root>
           <span></span>
         </mock:shadow-root>

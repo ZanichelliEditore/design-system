@@ -12,7 +12,6 @@ describe("Suite test ZSelect", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
         <z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'>
-          <mock:shadow-root>
             <div class="selectWrapper">
               <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default"></z-input-label>
               <z-input
@@ -42,7 +41,6 @@ describe("Suite test ZSelect", () => {
               </div>
               <z-input-message></z-input-message>
             </div>
-          </mock:shadow-root>
         </z-select>
       `);
   });
@@ -56,7 +54,6 @@ describe("Suite test ZSelect", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
         <z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
-          <mock:shadow-root>
             <div class="selectWrapper">
               <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default"></z-input-label>
               <z-input
@@ -96,7 +93,6 @@ describe("Suite test ZSelect", () => {
               </div>
               <z-input-message></z-input-message>
             </div>
-          </mock:shadow-root>
         </z-select>
       `);
   });
@@ -110,7 +106,6 @@ describe("Suite test ZSelect", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'>
-        <mock:shadow-root>
           <div class="selectWrapper">
             <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default"></z-input-label>
             <z-input
@@ -152,7 +147,6 @@ describe("Suite test ZSelect", () => {
             </div>
             <z-input-message></z-input-message>
           </div>
-        </mock:shadow-root>
       </z-select>
     `);
   });
@@ -166,7 +160,6 @@ describe("Suite test ZSelect", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
         <z-select htmlid="checkid" placeholder="select here" disabled readonly label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
-          <mock:shadow-root>
             <div class="selectWrapper">
               <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default" disabled=""></z-input-label>
               <z-input
@@ -206,7 +199,6 @@ describe("Suite test ZSelect", () => {
               </div>
               <z-input-message></z-input-message>
             </div>
-          </mock:shadow-root>
         </z-select>
       `);
   });
@@ -220,7 +212,6 @@ describe("Suite test ZSelect", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
           <z-select htmlid="checkid" placeholder="select here" status="success" message="message message" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
-            <mock:shadow-root>
               <div class="selectWrapper">
                 <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default"></z-input-label>
                 <z-input
@@ -259,7 +250,6 @@ describe("Suite test ZSelect", () => {
                 </div>
                 <z-input-message status="success" message="message message"></z-input-message>
               </div>
-            </mock:shadow-root>
           </z-select>
         `);
   });
@@ -273,7 +263,6 @@ describe("Suite test ZSelect", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
         <z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false,"disabled":true}]'>
-          <mock:shadow-root>
             <div class="selectWrapper">
               <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default"></z-input-label>
               <z-input
@@ -313,7 +302,6 @@ describe("Suite test ZSelect", () => {
               </div>
               <z-input-message></z-input-message>
             </div>
-          </mock:shadow-root>
         </z-select>
       `);
   });
@@ -327,7 +315,6 @@ describe("Suite test ZSelect", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-select htmlid="checkid" placeholder="select here" label="default" multiple items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
-        <mock:shadow-root>
           <div class="selectWrapper">
             <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default"></z-input-label>
             <z-input
@@ -368,7 +355,6 @@ describe("Suite test ZSelect", () => {
             </div>
             <z-input-message></z-input-message>
           </div>
-        </mock:shadow-root>
       </z-select>
     `);
   });
@@ -382,7 +368,6 @@ describe("Suite test ZSelect", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-select htmlid="checkid" placeholder="select here" label="default" multiple items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'>
-        <mock:shadow-root>
           <div class="selectWrapper">
             <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default"></z-input-label>
             <div class="chipsWrapper open">
@@ -427,7 +412,6 @@ describe("Suite test ZSelect", () => {
             </div>
             <z-input-message></z-input-message>
           </div>
-        </mock:shadow-root>
       </z-select>
     `);
   });
@@ -441,7 +425,6 @@ describe("Suite test ZSelect", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-select htmlid="checkid" placeholder="select here" label="default" autocomplete="on" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
-        <mock:shadow-root>
           <div class="selectWrapper">
             <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default"></z-input-label>
             <z-input
@@ -481,7 +464,6 @@ describe("Suite test ZSelect", () => {
             </div>
             <z-input-message></z-input-message>
           </div>
-        </mock:shadow-root>
       </z-select>
     `);
   });
@@ -496,40 +478,27 @@ describe("Suite test ZSelect", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-select htmlid="checkid" placeholder="select here" label="default" autocomplete="true" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
-        <mock:shadow-root>
-          <div class="selectWrapper">
-            <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default"></z-input-label>
-            <z-input
-              id="checkid_input"
-              htmlid="checkid_input"
-              placeholder="select here"
-              icon="caret-up"
-              hasclearicon=""
-              status="selecting"
-            ></z-input>
+        <div class="selectWrapper">     
+          <z-input-label aria-label="default" htmlfor="checkid" id="checkid_input_label" value="default"></z-input-label>
+           <z-input hasclearicon="" htmlid="checkid_input" icon="caret-up" id="checkid_input" placeholder="select here" status="selecting"></z-input>
             <div class="open" tabindex="-1">
-              <div class="ulScrollWrapper" tabindex="-1">
-                <ul
-                  role="listbox"
-                  tabindex="0"
-                  id="checkid"
-                  class="input_default"
-                >
-                  <li
-                    role="option"
-                    tabindex="0"
-                    class=""
-                    id="checkid_0"
-                  >
-                    <span>SELECT HERE questa <b>opzione</b> con etichetta lunga lunghissima</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <z-input-message></z-input-message>
-          </div>
-        </mock:shadow-root>
-      </z-select>
+             <div class="ulScrollWrapper" tabindex="-1">
+               <ul class="input_default" id="checkid" role="listbox" tabindex="0">
+                 <li id="checkid_0" role="option" tabindex="0">
+                   <span>
+                     SELECT HERE questa
+                     <b>
+                       opzione
+                     </b>
+                     con etichetta lunga lunghissima
+                   </span>
+                 </li>
+               </ul>
+             </div>
+           </div>
+           <z-input-message></z-input-message>
+         </div>
+        </z-select>
     `);
   });
 });

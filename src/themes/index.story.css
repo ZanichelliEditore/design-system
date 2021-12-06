@@ -3,14 +3,14 @@ z-body {
   letter-spacing: 0.3px;
 }
 
-ul {
+.theme-list {
   display: flex;
   flex-direction: column;
   width: 400px;
   padding: 0;
 }
 
-ul > li {
+.theme-list > li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,11 +18,11 @@ ul > li {
   padding: var(--space-unit) 0;
 }
 
-ul > li > code {
+.theme-list > li > code {
   margin-right: 8px;
 }
 
-ul > li > span {
+.theme-list > li > span {
   width: 100px;
   height: 20px;
   display: inline-block;

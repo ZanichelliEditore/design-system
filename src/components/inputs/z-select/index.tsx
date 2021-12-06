@@ -25,19 +25,22 @@ import {
 @Component({
   tag: "z-select",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true
 })
 export class ZSelect {
-  @Element() hostElement: HTMLElement;
+  @Element() element: HTMLElement;
 
   /** the id of the input element */
-  @Prop() htmlid: string = randomId();
+  @Prop() htmlid: string = `id-${randomId()}`;
   /** the input select options */
   @Prop() items: SelectItemBean[] | string;
   /** the input name */
   @Prop() name?: string;
   /** the input label */
   @Prop() label?: string;
+  /** the input aria-label */
+  @Prop() ariaLabel?: string;
   /** the input is disabled */
   @Prop() disabled?: boolean = false;
   /** the input is readonly */
@@ -226,8 +229,8 @@ export class ZSelect {
   }
 
   focusSelectItem(index: number) {
-    const focusElem = this.hostElement.shadowRoot.getElementById(
-      `${this.htmlid}_${index}`
+    const focusElem: HTMLLIElement = this.element.querySelector(
+      `#${this.htmlid}_${index}`
     );
     if (focusElem) focusElem.focus();
   }
@@ -242,8 +245,8 @@ export class ZSelect {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        this.hostElement.shadowRoot
-          .getElementById(`${this.htmlid}_input`)
+        (this.element
+          .querySelector(`#${this.htmlid}_input`) as HTMLInputElement)
           .focus();
       }
     }
@@ -326,6 +329,7 @@ export class ZSelect {
             ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
             : null
         }
+        aria-label={this.ariaLabel}
         icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={this.hasAutcomplete()}
         hasmessage={false}
@@ -339,13 +343,14 @@ export class ZSelect {
           if (e.keyCode !== 13) e.preventDefault();
           handleKeyboardSubmit(e, this.toggleSelectUl);
         }}
-        onKeyDown={(e: KeyboardEvent) =>
-          this.arrowsSelectNav(
+        onKeyDown={(e: KeyboardEvent) =>  {
+          return this.arrowsSelectNav(
             e,
             this.selectedItems.length
-              ? this.itemsList.indexOf(this.selectedItems[0])
-              : -1
-          )
+            ? this.itemsList.indexOf(this.selectedItems[0])
+            : -1
+            )
+          }
         }
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);

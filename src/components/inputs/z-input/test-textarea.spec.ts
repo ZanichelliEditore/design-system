@@ -13,7 +13,7 @@ describe("Suite test ZInput - textarea", () => {
         <div class="textWrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label"></z-input-label>
           <div class="textareaWrapper filled input_default">
-            <textarea aria-labelledby="test_label" class="filled input_default" id="test" placeholder="placeholder" value="value"></textarea>
+            <textarea aria-label="label" class="filled input_default" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
         </div>
       </z-input>
@@ -30,7 +30,7 @@ describe("Suite test ZInput - textarea", () => {
         <div class="textWrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label" disabled></z-input-label>
           <div class="textareaWrapper filled input_default disabled readonly">
-            <textarea aria-labelledby="test_label" disabled readonly class="filled input_default" id="test" placeholder="placeholder" value="value"></textarea>
+            <textarea aria-label="label" disabled readonly class="filled input_default" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
         </div>
       </z-input>
@@ -47,7 +47,7 @@ describe("Suite test ZInput - textarea", () => {
         <div class="textWrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label"></z-input-label>
           <div class="textareaWrapper filled input_error">
-            <textarea aria-labelledby="test_label" class="filled input_error" id="test" placeholder="placeholder" value="value"></textarea>
+            <textarea aria-label="label" class="filled input_error" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
           <z-input-message message="error message" status="error"></z-input-message>
         </div>

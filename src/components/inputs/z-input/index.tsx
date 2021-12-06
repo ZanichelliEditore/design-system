@@ -27,13 +27,15 @@ export class ZInput {
   @Element() hostElement: HTMLElement;
 
   /** the id of the input element */
-  @Prop() htmlid: string = randomId();
+  @Prop() htmlid: string = `id-${randomId()}`;
   /** input types */
   @Prop() type: InputTypeBean;
   /** the input name */
   @Prop() name?: string;
   /** the input label */
   @Prop() label?: string;
+  /** the input aria-label */
+  @Prop() ariaLabel?: string;
   /** the input value */
   @Prop({ mutable: true }) value?: string;
   /** the input is disabled */
@@ -237,7 +239,7 @@ export class ZInput {
                 : type
             }
             {...attr}
-            aria-labelledby={`${this.htmlid}_label`}
+            aria-label={this.ariaLabel || this.label}
           />
           {this.renderIcons()}
         </div>
@@ -342,7 +344,7 @@ export class ZInput {
             onBlur={() => (this.textareaWrapperFocus = "")}
             onMouseOver={() => (this.textareaWrapperHover = "hover")}
             onMouseOut={() => (this.textareaWrapperHover = "")}
-            aria-labelledby={`${this.htmlid}_label`}
+            aria-label={this.ariaLabel || this.label}
           ></textarea>
         </div>
         {this.renderMessage()}
@@ -436,6 +438,7 @@ export class ZInput {
         items={this.items}
         name={this.name}
         label={this.label}
+        aria-label={this.ariaLabel}
         disabled={this.disabled}
         readonly={this.readonly}
         placeholder={this.placeholder}
