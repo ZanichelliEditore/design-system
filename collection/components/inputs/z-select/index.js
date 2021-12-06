@@ -4,7 +4,7 @@ import { randomId, handleKeyboardSubmit, getClickedElement, getElementTree, } fr
 export class ZSelect {
   constructor() {
     /** the id of the input element */
-    this.htmlid = randomId();
+    this.htmlid = `id-${randomId()}`;
     /** the input is disabled */
     this.disabled = false;
     /** the input is readonly */
@@ -145,7 +145,7 @@ export class ZSelect {
     this.focusSelectItem(index);
   }
   focusSelectItem(index) {
-    const focusElem = this.hostElement.shadowRoot.getElementById(`${this.htmlid}_${index}`);
+    const focusElem = this.element.querySelector(`#${this.htmlid}_${index}`);
     if (focusElem)
       focusElem.focus();
   }
@@ -160,8 +160,8 @@ export class ZSelect {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        this.hostElement.shadowRoot
-          .getElementById(`${this.htmlid}_input`)
+        this.element
+          .querySelector(`#${this.htmlid}_input`)
           .focus();
       }
     }
@@ -211,15 +211,17 @@ export class ZSelect {
   renderInput() {
     return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && !this.multiple && this.selectedItems.length
         ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
-        : null, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutcomplete(), hasmessage: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutcomplete() && this.isOpen), status: this.isOpen ? InputStatusEnum.selecting : this.status, onClick: (e) => {
+        : null, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutcomplete(), hasmessage: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutcomplete() && this.isOpen), status: this.isOpen ? InputStatusEnum.selecting : this.status, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13)
           e.preventDefault();
         handleKeyboardSubmit(e, this.toggleSelectUl);
-      }, onKeyDown: (e) => this.arrowsSelectNav(e, this.selectedItems.length
-        ? this.itemsList.indexOf(this.selectedItems[0])
-        : -1), onInputChange: (e) => {
+      }, onKeyDown: (e) => {
+        return this.arrowsSelectNav(e, this.selectedItems.length
+          ? this.itemsList.indexOf(this.selectedItems[0])
+          : -1);
+      }, onInputChange: (e) => {
         this.handleInputChange(e);
       }, onKeyPress: (e) => {
         if (!this.hasAutcomplete()) {
@@ -274,7 +276,7 @@ export class ZSelect {
       this.renderMessage()));
   }
   static get is() { return "z-select"; }
-  static get encapsulation() { return "shadow"; }
+  static get encapsulation() { return "scoped"; }
   static get originalStyleUrls() { return {
     "$": ["styles.css"]
   }; }
@@ -298,7 +300,7 @@ export class ZSelect {
       },
       "attribute": "htmlid",
       "reflect": false,
-      "defaultValue": "randomId()"
+      "defaultValue": "`id-${randomId()}`"
     },
     "items": {
       "type": "string",
@@ -354,6 +356,23 @@ export class ZSelect {
         "text": "the input label"
       },
       "attribute": "label",
+      "reflect": false
+    },
+    "ariaLabel": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "the input aria-label"
+      },
+      "attribute": "aria-label",
       "reflect": false
     },
     "disabled": {
@@ -620,7 +639,7 @@ export class ZSelect {
       }
     }
   }; }
-  static get elementRef() { return "hostElement"; }
+  static get elementRef() { return "element"; }
   static get watchers() { return [{
       "propName": "items",
       "methodName": "watchItems"

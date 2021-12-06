@@ -8,7 +8,7 @@ export class ZInputMessage {
     };
   }
   render() {
-    return (h(Host, { role: "alert", "aria-label": this.message, tabindex: "0" },
+    return (h(Host, { role: "alert", "aria-label": this.message, tabindex: this.message ? 0 : -1 },
       this.statusIcons[this.status] && this.message && (h("z-icon", { name: this.statusIcons[this.status] })),
       h("span", { innerHTML: this.message })));
   }

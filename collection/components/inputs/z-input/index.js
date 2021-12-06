@@ -4,7 +4,7 @@ import { randomId } from "../../../utils/utils";
 export class ZInput {
   constructor() {
     /** the id of the input element */
-    this.htmlid = randomId();
+    this.htmlid = `id-${randomId()}`;
     /** the input is disabled */
     this.disabled = false;
     /** the input is readonly */
@@ -153,7 +153,7 @@ export class ZInput {
       h("div", null,
         h("input", Object.assign({ type: type === InputTypeEnum.password && !this.passwordHidden
             ? InputTypeEnum.text
-            : type }, attr, { "aria-labelledby": `${this.htmlid}_label` })),
+            : type }, attr, { "aria-label": this.ariaLabel || this.label })),
         this.renderIcons()),
       this.renderMessage()));
   }
@@ -208,7 +208,7 @@ export class ZInput {
         ]
           .filter(Boolean)
           .join(" ") },
-        h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-labelledby": `${this.htmlid}_label` }))),
+        h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-label": this.ariaLabel || this.label }))),
       this.renderMessage()));
   }
   /* END textarea */
@@ -244,7 +244,7 @@ export class ZInput {
   /* END radio */
   /* START select */
   renderSelect() {
-    return (h("z-select", { htmlid: this.htmlid, items: this.items, name: this.name, label: this.label, disabled: this.disabled, readonly: this.readonly, placeholder: this.placeholder, htmltitle: this.htmltitle, status: this.status, hasmessage: this.hasmessage, message: this.message, autocomplete: this.autocomplete, multiple: this.multiple, ref: (el) => (this.selectElem = el) }));
+    return (h("z-select", { htmlid: this.htmlid, items: this.items, name: this.name, label: this.label, "aria-label": this.ariaLabel, disabled: this.disabled, readonly: this.readonly, placeholder: this.placeholder, htmltitle: this.htmltitle, status: this.status, hasmessage: this.hasmessage, message: this.message, autocomplete: this.autocomplete, multiple: this.multiple, ref: (el) => (this.selectElem = el) }));
   }
   /* END select */
   render() {
@@ -291,7 +291,7 @@ export class ZInput {
       },
       "attribute": "htmlid",
       "reflect": false,
-      "defaultValue": "randomId()"
+      "defaultValue": "`id-${randomId()}`"
     },
     "type": {
       "type": "string",
@@ -347,6 +347,23 @@ export class ZInput {
         "text": "the input label"
       },
       "attribute": "label",
+      "reflect": false
+    },
+    "ariaLabel": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "the input aria-label"
+      },
+      "attribute": "aria-label",
       "reflect": false
     },
     "value": {

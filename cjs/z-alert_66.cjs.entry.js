@@ -1205,7 +1205,7 @@ const ZInput = class {
     this.inputCheck = index.createEvent(this, "inputCheck", 7);
     this.optionSelect = index.createEvent(this, "optionSelect", 7);
     /** the id of the input element */
-    this.htmlid = utils.randomId();
+    this.htmlid = `id-${utils.randomId()}`;
     /** the input is disabled */
     this.disabled = false;
     /** the input is readonly */
@@ -1351,7 +1351,7 @@ const ZInput = class {
     }
     return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", null, index.h("input", Object.assign({ type: type === index$1.InputTypeEnum.password && !this.passwordHidden
         ? index$1.InputTypeEnum.text
-        : type }, attr, { "aria-labelledby": `${this.htmlid}_label` })), this.renderIcons()), this.renderMessage()));
+        : type }, attr, { "aria-label": this.ariaLabel || this.label })), this.renderIcons()), this.renderMessage()));
   }
   renderLabel() {
     if (!this.label)
@@ -1399,7 +1399,7 @@ const ZInput = class {
         this.textareaWrapperHover,
       ]
         .filter(Boolean)
-        .join(" ") }, index.h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-labelledby": `${this.htmlid}_label` }))), this.renderMessage()));
+        .join(" ") }, index.h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-label": this.ariaLabel || this.label }))), this.renderMessage()));
   }
   /* END textarea */
   handleCheck(ev) {
@@ -1426,7 +1426,7 @@ const ZInput = class {
   /* END radio */
   /* START select */
   renderSelect() {
-    return (index.h("z-select", { htmlid: this.htmlid, items: this.items, name: this.name, label: this.label, disabled: this.disabled, readonly: this.readonly, placeholder: this.placeholder, htmltitle: this.htmltitle, status: this.status, hasmessage: this.hasmessage, message: this.message, autocomplete: this.autocomplete, multiple: this.multiple, ref: (el) => (this.selectElem = el) }));
+    return (index.h("z-select", { htmlid: this.htmlid, items: this.items, name: this.name, label: this.label, "aria-label": this.ariaLabel, disabled: this.disabled, readonly: this.readonly, placeholder: this.placeholder, htmltitle: this.htmltitle, status: this.status, hasmessage: this.hasmessage, message: this.message, autocomplete: this.autocomplete, multiple: this.multiple, ref: (el) => (this.selectElem = el) }));
   }
   /* END select */
   render() {
@@ -1478,7 +1478,7 @@ const ZInputMessage = class {
     };
   }
   render() {
-    return (index.h(index.Host, { role: "alert", "aria-label": this.message, tabindex: "0" }, this.statusIcons[this.status] && this.message && (index.h("z-icon", { name: this.statusIcons[this.status] })), index.h("span", { innerHTML: this.message })));
+    return (index.h(index.Host, { role: "alert", "aria-label": this.message, tabindex: this.message ? 0 : -1 }, this.statusIcons[this.status] && this.message && (index.h("z-icon", { name: this.statusIcons[this.status] })), index.h("span", { innerHTML: this.message })));
   }
 };
 ZInputMessage.style = stylesCss$G;
@@ -2882,14 +2882,14 @@ const ZRegistroTableStickyFooter = class {
 };
 ZRegistroTableStickyFooter.style = stylesCss$8;
 
-const stylesCss$7 = ":host{display:inline-block;width:inherit}li[role=\"option\"]:focus:focus-visible{border-color:transparent;box-shadow:var(--shadow-focus-primary);outline:none}.selectWrapper>z-input{width:100%}.selectWrapper>div{position:relative}.selectWrapper>div.closed{height:0;overflow:hidden}.selectWrapper .ulScrollWrapper{background:var(--color-surface01);position:absolute;padding:calc(var(--space-unit) * .5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;width:100%;box-sizing:border-box;outline:none}.selectWrapper .closed .ulScrollWrapper{z-index:10}.selectWrapper .open .ulScrollWrapper{z-index:20}.selectWrapper .ulScrollWrapper>ul{position:relative;margin:0;padding:0;list-style:none;border:0;max-height:240px;overflow:auto;outline:none;scrollbar-color:var(--color-primary01) transparent}.selectWrapper .ulScrollWrapper>ul::-webkit-scrollbar{background:linear-gradient(\n    to right,\n    transparent 0 3px,\n    var(--gray200) 3px 7px,\n    transparent 7px 10px\n  );width:10px;border-radius:var(--border-radius)}.selectWrapper .ulScrollWrapper>ul::-webkit-scrollbar-track{background-color:transparent}.selectWrapper .ulScrollWrapper>ul::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.selectWrapper .ulScrollWrapper>ul::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.selectWrapper .ulScrollWrapper ul li{display:flex;align-items:center;min-height:calc(var(--space-unit) * 5.5);padding:calc(var(--space-unit) * 1.5);box-sizing:border-box;border-bottom:var(--border-size-small) solid var(--gray200);text-align:left;cursor:pointer}.selectWrapper .ulScrollWrapper ul li:hover{color:var(--color-hover-primary);background:var(--color-surface02)}.selectWrapper .ulScrollWrapper ul li:focus:focus-visible{margin:2px}.selectWrapper .ulScrollWrapper ul li[aria-selected=\"\"]{font-weight:var(--font-sb)}.selectWrapper .ulScrollWrapper ul li.disabled{color:var(--color-disabled02);cursor:default;pointer-events:none}.selectWrapper .ulScrollWrapper ul li.noResults{color:var(--color-primary01);fill:currentColor;border:none}.selectWrapper .ulScrollWrapper .noResults z-icon{margin-right:var(--space-unit)}.selectWrapper .chipsWrapper{padding-bottom:var(--space-unit)}.selectWrapper .chipsWrapper z-button-filter{display:inline-block;margin:calc(var(--space-unit) * 0.5)}";
+const stylesCss$7 = ".sc-z-select-h{display:inline-block;width:inherit}li[role=\"option\"].sc-z-select:focus:focus-visible{border-color:transparent;box-shadow:var(--shadow-focus-primary);outline:none}.selectWrapper.sc-z-select>z-input.sc-z-select{width:100%}.selectWrapper.sc-z-select>div.sc-z-select{position:relative}.selectWrapper.sc-z-select>div.closed.sc-z-select{height:0;overflow:hidden}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select{background:var(--color-surface01);position:absolute;padding:calc(var(--space-unit) * .5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;width:100%;box-sizing:border-box;outline:none}.selectWrapper.sc-z-select .closed.sc-z-select .ulScrollWrapper.sc-z-select{z-index:10}.selectWrapper.sc-z-select .open.sc-z-select .ulScrollWrapper.sc-z-select{z-index:20}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select>ul.sc-z-select{position:relative;margin:0;padding:0;list-style:none;border:0;max-height:240px;overflow:auto;outline:none;scrollbar-color:var(--color-primary01) transparent}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select>ul.sc-z-select::-webkit-scrollbar{background:linear-gradient(\n    to right,\n    transparent 0 3px,\n    var(--gray200) 3px 7px,\n    transparent 7px 10px\n  );width:10px;border-radius:var(--border-radius)}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select>ul.sc-z-select::-webkit-scrollbar-track{background-color:transparent}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select>ul.sc-z-select::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select>ul.sc-z-select::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select ul.sc-z-select li.sc-z-select{display:flex;align-items:center;min-height:calc(var(--space-unit) * 5.5);padding:calc(var(--space-unit) * 1.5);box-sizing:border-box;border-bottom:var(--border-size-small) solid var(--gray200);text-align:left;cursor:pointer}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select ul.sc-z-select li.sc-z-select:hover{color:var(--color-hover-primary);background:var(--color-surface02)}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select ul.sc-z-select li.sc-z-select:focus:focus-visible{margin:2px}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select ul.sc-z-select li[aria-selected=\"\"].sc-z-select{font-weight:var(--font-sb)}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select ul.sc-z-select li.disabled.sc-z-select{color:var(--color-disabled02);cursor:default;pointer-events:none}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select ul.sc-z-select li.noResults.sc-z-select{color:var(--color-primary01);fill:currentColor;border:none}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select .noResults.sc-z-select z-icon.sc-z-select{margin-right:var(--space-unit)}.selectWrapper.sc-z-select .chipsWrapper.sc-z-select{padding-bottom:var(--space-unit)}.selectWrapper.sc-z-select .chipsWrapper.sc-z-select z-button-filter.sc-z-select{display:inline-block;margin:calc(var(--space-unit) * 0.5)}";
 
 const ZSelect = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.optionSelect = index.createEvent(this, "optionSelect", 7);
     /** the id of the input element */
-    this.htmlid = utils.randomId();
+    this.htmlid = `id-${utils.randomId()}`;
     /** the input is disabled */
     this.disabled = false;
     /** the input is readonly */
@@ -3030,7 +3030,7 @@ const ZSelect = class {
     this.focusSelectItem(index);
   }
   focusSelectItem(index) {
-    const focusElem = this.hostElement.shadowRoot.getElementById(`${this.htmlid}_${index}`);
+    const focusElem = this.element.querySelector(`#${this.htmlid}_${index}`);
     if (focusElem)
       focusElem.focus();
   }
@@ -3045,8 +3045,8 @@ const ZSelect = class {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        this.hostElement.shadowRoot
-          .getElementById(`${this.htmlid}_input`)
+        this.element
+          .querySelector(`#${this.htmlid}_input`)
           .focus();
       }
     }
@@ -3096,15 +3096,17 @@ const ZSelect = class {
   renderInput() {
     return (index.h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && !this.multiple && this.selectedItems.length
         ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
-        : null, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutcomplete(), hasmessage: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutcomplete() && this.isOpen), status: this.isOpen ? index$1.InputStatusEnum.selecting : this.status, onClick: (e) => {
+        : null, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutcomplete(), hasmessage: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutcomplete() && this.isOpen), status: this.isOpen ? index$1.InputStatusEnum.selecting : this.status, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13)
           e.preventDefault();
         utils.handleKeyboardSubmit(e, this.toggleSelectUl);
-      }, onKeyDown: (e) => this.arrowsSelectNav(e, this.selectedItems.length
-        ? this.itemsList.indexOf(this.selectedItems[0])
-        : -1), onInputChange: (e) => {
+      }, onKeyDown: (e) => {
+        return this.arrowsSelectNav(e, this.selectedItems.length
+          ? this.itemsList.indexOf(this.selectedItems[0])
+          : -1);
+      }, onInputChange: (e) => {
         this.handleInputChange(e);
       }, onKeyPress: (e) => {
         if (!this.hasAutcomplete()) {
@@ -3148,7 +3150,7 @@ const ZSelect = class {
   render() {
     return (index.h("div", { class: "selectWrapper" }, this.renderLabel(), this.renderChips(), this.renderInput(), this.renderSelectUl(), this.renderMessage()));
   }
-  get hostElement() { return index.getElement(this); }
+  get element() { return index.getElement(this); }
   static get watchers() { return {
     "items": ["watchItems"]
   }; }

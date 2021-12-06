@@ -1,7 +1,7 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
 import { InputStatusBean, SelectItemBean } from "../../../beans";
 export declare class ZSelect {
-  hostElement: HTMLElement;
+  element: HTMLElement;
   /** the id of the input element */
   htmlid: string;
   /** the input select options */
@@ -10,6 +10,8 @@ export declare class ZSelect {
   name?: string;
   /** the input label */
   label?: string;
+  /** the input aria-label */
+  ariaLabel?: string;
   /** the input is disabled */
   disabled?: boolean;
   /** the input is readonly */
