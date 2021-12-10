@@ -308,7 +308,11 @@ export namespace Components {
     }
     interface ZFileUpload {
         /**
-          * Prop indicating the
+          * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
+         */
+        "acceptedFormat": string;
+        /**
+          * Prop indicating the button variant
          */
         "variant": ButtonVariantEnum;
     }
@@ -2474,11 +2478,15 @@ declare namespace LocalJSX {
     }
     interface ZFileUpload {
         /**
+          * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
+         */
+        "acceptedFormat"?: string;
+        /**
           * Emitted when user select one or more files
          */
         "onFileInput"?: (event: CustomEvent<any>) => void;
         /**
-          * Prop indicating the
+          * Prop indicating the button variant
          */
         "variant"?: ButtonVariantEnum;
     }

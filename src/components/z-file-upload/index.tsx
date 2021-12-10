@@ -17,8 +17,11 @@ import { ButtonVariantEnum, DividerSize } from "../../beans";
 export class ZFileUpload {
   private input: HTMLInputElement;
 
-  /** Prop indicating the */
+  /** Prop indicating the button variant*/
   @Prop() variant: ButtonVariantEnum;
+
+  /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
+  @Prop() acceptedFormat: string;
 
   /** Number of files added by the user */
   @State() files: number = 0;
@@ -82,7 +85,7 @@ export class ZFileUpload {
         type="file"
         id="fileElem"
         multiple
-        accept=".pdf, .png, .tiff, .doc, .jpg"
+        accept={this.acceptedFormat}
         ref={(val) => (this.input = val)}
       />,
       <z-button
