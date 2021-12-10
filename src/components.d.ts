@@ -307,6 +307,9 @@ export namespace Components {
     interface ZFile {
     }
     interface ZFileUpload {
+        /**
+          * Prop indicating the
+         */
         "variant": ButtonVariantEnum;
     }
     interface ZFooter {
@@ -2464,10 +2467,19 @@ declare namespace LocalJSX {
         "size"?: DividerSize;
     }
     interface ZFile {
+        /**
+          * Emitted when a z-file component is removed from the DOM
+         */
         "onRemoveFile"?: (event: CustomEvent<any>) => void;
     }
     interface ZFileUpload {
+        /**
+          * Emitted when user select one or more files
+         */
         "onFileInput"?: (event: CustomEvent<any>) => void;
+        /**
+          * Prop indicating the
+         */
         "variant"?: ButtonVariantEnum;
     }
     interface ZFooter {

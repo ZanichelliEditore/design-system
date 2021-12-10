@@ -17,15 +17,19 @@ import { ButtonVariantEnum, DividerSize } from "../../beans";
 export class ZFileUpload {
   private input: HTMLInputElement;
 
+  /** Prop indicating the */
   @Prop() variant: ButtonVariantEnum;
 
+  /** Number of files added by the user */
   @State() files: number = 0;
 
+  /** Listen removeFile event sento from z-file component */
   @Listen("removeFile")
   removeFileListener() {
     this.files--;
   }
 
+   /** Emitted when user select one or more files */
   @Event() fileInput: EventEmitter;
   fileInputHandler() {
     if (this.input.files.length) {
@@ -78,7 +82,7 @@ export class ZFileUpload {
         type="file"
         id="fileElem"
         multiple
-        accept="image/*"
+        accept=".pdf, .png, .tiff, .doc, .jpg"
         ref={(val) => (this.input = val)}
       />,
       <z-button

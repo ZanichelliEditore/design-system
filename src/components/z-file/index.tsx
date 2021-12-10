@@ -9,6 +9,7 @@ import { Component, h, EventEmitter, Event, Element } from '@stencil/core';
 export class ZFile {
   @Element() el: HTMLElement;
 
+  /** Emitted when a z-file component is removed from the DOM */
   @Event() removeFile: EventEmitter
   removeFileHandler() {
     this.removeFile.emit();
