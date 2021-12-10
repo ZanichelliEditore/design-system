@@ -17,7 +17,6 @@ import { ButtonVariantEnum, DividerSize } from "../../beans";
 export class ZFileUpload {
   private input: HTMLInputElement;
 
-  @Prop() type: string;
   @Prop() variant: ButtonVariantEnum;
 
   @State() files: number = 0;

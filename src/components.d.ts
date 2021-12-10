@@ -305,10 +305,8 @@ export namespace Components {
         "size"?: DividerSize;
     }
     interface ZFile {
-        "type": string;
     }
     interface ZFileUpload {
-        "type": string;
         "variant": ButtonVariantEnum;
     }
     interface ZFooter {
@@ -2467,11 +2465,9 @@ declare namespace LocalJSX {
     }
     interface ZFile {
         "onRemoveFile"?: (event: CustomEvent<any>) => void;
-        "type"?: string;
     }
     interface ZFileUpload {
         "onFileInput"?: (event: CustomEvent<any>) => void;
-        "type"?: string;
         "variant"?: ButtonVariantEnum;
     }
     interface ZFooter {

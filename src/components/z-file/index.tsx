@@ -1,4 +1,4 @@
-import { Component, Prop, h, EventEmitter, Event, Element } from '@stencil/core';
+import { Component, h, EventEmitter, Event, Element } from '@stencil/core';
 
 @Component({
   tag: 'z-file',
@@ -8,8 +8,6 @@ import { Component, Prop, h, EventEmitter, Event, Element } from '@stencil/core'
 
 export class ZFile {
   @Element() el: HTMLElement;
-
-  @Prop() type: string;
 
   @Event() removeFile: EventEmitter
   removeFileHandler() {
