@@ -1,0 +1,50 @@
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+}
+
+:host > .container {
+  display: flex;
+  flex-direction: column;
+}
+
+:host > .container > #fileElem {
+  display: none;
+}
+
+:host > .container > z-button {
+  width: 100%;
+}
+
+::slotted([slot="title"]) {
+  display: inline-block;
+  margin-bottom: var(--space-unit);
+}
+
+:host > .container > z-button {
+  display: inline-block;
+  margin-top: calc(var(--space-unit) * 3);
+}
+
+:host > .container > .files-container > z-heading {
+  display: inline-block;
+  margin: calc(var(--space-unit) * 3) 0;
+}
+
+:host > .container > .files-container > .files {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: calc(var(--space-unit) * 2);
+  column-gap: calc(var(--space-unit) * 2);
+  margin-bottom: calc(var(--space-unit) * 3);
+}
+
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {}

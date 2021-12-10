@@ -16,6 +16,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-file-upload](../../z-file-upload)
+
 ### Depends on
 
 - [z-typography](../z-typography)
@@ -24,6 +28,7 @@
 ```mermaid
 graph TD;
   z-heading --> z-typography
+  z-file-upload --> z-heading
   style z-heading fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

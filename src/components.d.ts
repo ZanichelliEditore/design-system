@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZRegistroTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZRegistroTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -303,6 +303,18 @@ export namespace Components {
           * [optional] Divider size
          */
         "size"?: DividerSize;
+    }
+    interface ZFile {
+    }
+    interface ZFileUpload {
+        /**
+          * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
+         */
+        "acceptedFormat": string;
+        /**
+          * Prop indicating the button variant
+         */
+        "variant": ButtonVariantEnum;
     }
     interface ZFooter {
         /**
@@ -1605,6 +1617,18 @@ declare global {
         prototype: HTMLZDividerElement;
         new (): HTMLZDividerElement;
     };
+    interface HTMLZFileElement extends Components.ZFile, HTMLStencilElement {
+    }
+    var HTMLZFileElement: {
+        prototype: HTMLZFileElement;
+        new (): HTMLZFileElement;
+    };
+    interface HTMLZFileUploadElement extends Components.ZFileUpload, HTMLStencilElement {
+    }
+    var HTMLZFileUploadElement: {
+        prototype: HTMLZFileUploadElement;
+        new (): HTMLZFileUploadElement;
+    };
     interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {
     }
     var HTMLZFooterElement: {
@@ -2048,6 +2072,8 @@ declare global {
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
         "z-divider": HTMLZDividerElement;
+        "z-file": HTMLZFileElement;
+        "z-file-upload": HTMLZFileUploadElement;
         "z-footer": HTMLZFooterElement;
         "z-footer-link": HTMLZFooterLinkElement;
         "z-footer-section": HTMLZFooterSectionElement;
@@ -2443,6 +2469,26 @@ declare namespace LocalJSX {
           * [optional] Divider size
          */
         "size"?: DividerSize;
+    }
+    interface ZFile {
+        /**
+          * Emitted when a z-file component is removed from the DOM
+         */
+        "onRemoveFile"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZFileUpload {
+        /**
+          * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
+         */
+        "acceptedFormat"?: string;
+        /**
+          * Emitted when user select one or more files
+         */
+        "onFileInput"?: (event: CustomEvent<any>) => void;
+        /**
+          * Prop indicating the button variant
+         */
+        "variant"?: ButtonVariantEnum;
     }
     interface ZFooter {
         /**
@@ -3803,6 +3849,8 @@ declare namespace LocalJSX {
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
         "z-divider": ZDivider;
+        "z-file": ZFile;
+        "z-file-upload": ZFileUpload;
         "z-footer": ZFooter;
         "z-footer-link": ZFooterLink;
         "z-footer-section": ZFooterSection;
@@ -3896,6 +3944,8 @@ declare module "@stencil/core" {
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
+            "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
+            "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
             "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;

@@ -18,12 +18,14 @@
 
 ### Used by
 
+ - [z-file-upload](../z-file-upload)
  - [z-list-element](../list/z-list-element)
  - [z-list-group](../list/z-list-group)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-file-upload --> z-divider
   z-list-element --> z-divider
   z-list-group --> z-divider
   style z-divider fill:#f9f,stroke:#333,stroke-width:4px

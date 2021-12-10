@@ -34,6 +34,7 @@
  - [z-card](../../z-card)
  - [z-combobox](../../inputs/z-combobox)
  - [z-contextual-menu](../../z-contextual-menu)
+ - [z-file](../../z-file)
  - [z-footer-section](../../footer/z-footer-section)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
@@ -75,6 +76,7 @@ graph TD;
   z-card --> z-icon
   z-combobox --> z-icon
   z-contextual-menu --> z-icon
+  z-file --> z-icon
   z-footer-section --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon

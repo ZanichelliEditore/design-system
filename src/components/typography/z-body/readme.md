@@ -17,6 +17,7 @@
 ### Used by
 
  - [z-combobox](../../inputs/z-combobox)
+ - [z-file-upload](../../z-file-upload)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-notification](../../notification/z-notification)
  - [z-registro-table](../../../snowflakes/registro-table/z-registro-table)
@@ -31,6 +32,7 @@
 graph TD;
   z-body --> z-typography
   z-combobox --> z-body
+  z-file-upload --> z-body
   z-modal-login --> z-body
   z-notification --> z-body
   z-registro-table --> z-body
