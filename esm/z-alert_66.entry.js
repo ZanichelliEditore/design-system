@@ -2719,7 +2719,7 @@ const ZRegistroTableEmptyBox = class {
 };
 ZRegistroTableEmptyBox.style = stylesCss$e;
 
-const stylesCss$d = ":host{font-family:var(--dashboard-font);background-color:var(--gray50);display:none}:host>td>div.content-container{padding:0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 6)}:host>td>div.content-container>div.inner-content{padding:calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;border-top:1px solid var(--gray200)}";
+const stylesCss$d = ":host{font-family:var(--dashboard-font);background-color:var(--gray50);display:none}:host>td>div.content-container{padding:0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 6);box-shadow:var(--shadow-2);margin-bottom:calc(var(--space-unit) / 2)}:host>td>div.content-container>div.inner-content{padding:calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;border-top:1px solid var(--gray200)}";
 
 const ZRegistroTableExpandedRow = class {
   constructor(hostRef) {

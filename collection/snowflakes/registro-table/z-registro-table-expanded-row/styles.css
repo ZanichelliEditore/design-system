@@ -6,6 +6,8 @@
 
 :host > td > div.content-container {
   padding: 0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 6);
+  box-shadow: var(--shadow-2);
+  margin-bottom: calc(var(--space-unit) / 2);
 }
 
 :host > td > div.content-container > div.inner-content {
