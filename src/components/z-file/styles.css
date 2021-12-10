@@ -1,0 +1,30 @@
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+  border: var(--border-size-small) solid var(--bg-grey-700);
+  border-radius: 14px;
+}
+
+:host .chip-content {
+  display: flex;
+  align-items: center;
+}
+
+:host .chip-content > z-icon:first-child {
+  margin-right: var(--space-unit);
+}
+
+:host .chip-content > z-icon:last-child {
+  margin-left: var(--space-unit);
+  cursor: pointer;
+  fill: var(--color-icon01);
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {}
