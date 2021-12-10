@@ -16,7 +16,7 @@
   width: 100%;
 }
 
-:host > .container > #title {
+::slotted([slot="title"]) {
   display: inline-block;
   margin-bottom: var(--space-unit);
 }
