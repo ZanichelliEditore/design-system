@@ -1,8 +1,6 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  border: var(--border-size-small) solid var(--bg-grey-700);
-  border-radius: 14px;
 }
 
 :host .chip-content {
