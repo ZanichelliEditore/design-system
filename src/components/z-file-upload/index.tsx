@@ -34,7 +34,7 @@ export class ZFileUpload {
   fileInputHandler() {
     if (this.input.files.length) {
       this.fileInput.emit(this.input.files);
-      this.files++;
+      this.files += this.input.files.length;
     }
   }
 
