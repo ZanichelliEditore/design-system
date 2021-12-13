@@ -32,12 +32,13 @@ export class ZFileUpload {
     this.files--;
   }
 
-   /** Emitted when user select one or more files */
+  /** Emitted when user select one or more files */
   @Event() fileInput: EventEmitter;
   fileInputHandler() {
     if (this.input.files.length) {
       this.fileInput.emit(this.input.files);
       this.files += this.input.files.length;
+      this.input.value = "";
     }
   }
 
@@ -52,12 +53,10 @@ export class ZFileUpload {
   renderDescriptionAndFileInfo() {
     return [
       <z-body variant="semibold" level={3}>
-        <slot name="description">
-        </slot>
+        <slot name="description"></slot>
       </z-body>,
       <z-body level={3}>
-        <slot name="file-format">
-        </slot>
+        <slot name="file-format"></slot>
       </z-body>,
     ];
   }

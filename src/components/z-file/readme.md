@@ -5,18 +5,11 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
-
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `type`   | `type`    |             | `string` | `undefined` |
-
-
 ## Events
 
-| Event        | Description | Type               |
-| ------------ | ----------- | ------------------ |
-| `removeFile` |             | `CustomEvent<any>` |
+| Event        | Description                                             | Type               |
+| ------------ | ------------------------------------------------------- | ------------------ |
+| `removeFile` | Emitted when a z-file component is removed from the DOM | `CustomEvent<any>` |
 
 
 ## Dependencies

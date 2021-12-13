@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                                                                                                                            | Default     |
-| --------- | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `type`    | `type`    |             | `string`                                                                                                                        | `undefined` |
-| `variant` | `variant` |             | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary \| typeof ButtonVariantEnum["dark-bg"]` | `undefined` |
+| Property         | Attribute         | Description                                                   | Type                                                                                                                            | Default     |
+| ---------------- | ----------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `acceptedFormat` | `accepted-format` | Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" | `string`                                                                                                                        | `undefined` |
+| `variant`        | `variant`         | Prop indicating the button variant                            | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary \| typeof ButtonVariantEnum["dark-bg"]` | `undefined` |
 
 
 ## Events
 
-| Event       | Description | Type               |
-| ----------- | ----------- | ------------------ |
-| `fileInput` |             | `CustomEvent<any>` |
+| Event       | Description                                | Type               |
+| ----------- | ------------------------------------------ | ------------------ |
+| `fileInput` | Emitted when user select one or more files | `CustomEvent<any>` |
 
 
 ## Dependencies
