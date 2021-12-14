@@ -29,20 +29,24 @@ export class ZLogo {
       style["height"] = `${this.height}px`;
       style["max-height"] = `${this.height}px`;
     }
+
+    const img = <img
+      style={style}
+      alt={this.imagealt}
+    />;
     
     return (
       <Host style={style}>
         {
           this.link ?
             <a
-              style={{...style, backgroundSize: 'contain'}}
+              style={style}
               href={this.link}
               target={this.targetblank ? "_blank" : "_self"}
-            /> :
-            <img
-              style={style}
-              alt={this.imagealt}
-            />
+            >
+              {img}
+            </a> :
+            img
         }
       </Host>
     );

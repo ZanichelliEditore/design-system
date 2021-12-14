@@ -39,7 +39,9 @@ describe("Suite test ZLogo", () => {
     expect(page.root).toEqualHtml(`
       <z-logo link="http://www.zanichelli.it/">
         <mock:shadow-root>
-          <a href="http://www.zanichelli.it/" target="_self" style="background-size: contain;"></a>
+          <a href="http://www.zanichelli.it/" target="_self">
+            <img>
+          </a>
         </mock:shadow-root>
       </z-logo>
     `);
@@ -53,7 +55,9 @@ describe("Suite test ZLogo", () => {
     expect(page.root).toEqualHtml(`
       <z-logo width="128" height="32" link="http://www.zanichelli.it/" targetblank style="width: 128px; max-width: 128px; height: 32px; max-height: 32px;">
         <mock:shadow-root>
-          <a href="http://www.zanichelli.it/" target="_blank" style="width: 128px; max-width: 128px; height: 32px; max-height: 32px; background-size: contain;"></a>
+          <a href="http://www.zanichelli.it/" target="_blank" style="width: 128px; max-width: 128px; height: 32px; max-height: 32px;">
+            <img style="width: 128px; max-width: 128px; height: 32px; max-height: 32px;">
+          </a>
         </mock:shadow-root>
       </z-logo>
     `);
