@@ -2857,9 +2857,12 @@ const ZRegistroTableRow = class {
     return (h("z-registro-table-cell", { style: { borderRight: "none" } }, h("div", { class: "z-icon-placeholder" })));
   }
   render() {
-    return (h(Host, { role: "row", expanded: this.expanded, onClick: () => {
-        this.expandedType === ZRegistroTableRowExpandedType.expandable &&
+    return (h(Host, { role: "row", expanded: this.expanded, onClick: (event) => {
+        const contextualMenuClick = event.target.nodeName === 'Z-CONTEXTUAL-MENU';
+        const isExpandable = this.expandedType === ZRegistroTableRowExpandedType.expandable;
+        if (isExpandable && !contextualMenuClick) {
           this.handleExpand();
+        }
       } }, this.expandedType !== ZRegistroTableRowExpandedType.none &&
       this.renderExpandButton(), h("slot", null)));
   }
