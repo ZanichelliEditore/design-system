@@ -52,9 +52,13 @@ export class ZRegistroTableRow {
       <Host
         role="row"
         expanded={this.expanded}
-        onClick={() => {
-          this.expandedType === ZRegistroTableRowExpandedType.expandable &&
+        onClick={(event) => {
+          const contextualMenuClick = event.target.nodeName === 'Z-CONTEXTUAL-MENU';
+          const isExpandable = this.expandedType === ZRegistroTableRowExpandedType.expandable;
+
+          if (isExpandable && !contextualMenuClick) {
             this.handleExpand();
+          }
         }}
       >
         {this.expandedType !== ZRegistroTableRowExpandedType.none &&
