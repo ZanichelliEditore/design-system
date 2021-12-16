@@ -21,13 +21,11 @@ export class ZLogo {
     const style = {};
 
     if (this.width) {
-      style["width"] = `${this.width}px`;
-      style["max-width"] = `${this.width}px`;
+      style["width"] = style["max-width"] = `${this.width}px`;
     }
 
     if (this.height) {
-      style["height"] = `${this.height}px`;
-      style["max-height"] = `${this.height}px`;
+      style["height"] = style["max-height"] = `${this.height}px`;
     }
 
     const img = <img
@@ -40,7 +38,6 @@ export class ZLogo {
         {
           this.link ?
             <a
-              style={style}
               href={this.link}
               target={this.targetblank ? "_blank" : "_self"}
             >

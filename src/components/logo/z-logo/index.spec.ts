@@ -23,9 +23,9 @@ describe("Suite test ZLogo", () => {
       html: `<z-logo imagealt="zlogo" width=128 height=32></z-logo>`
     });
     expect(page.root).toEqualHtml(`
-      <z-logo width="128" height="32" imagealt="zlogo" style="width: 128px; max-width: 128px; height: 32px; max-height: 32px;">
+      <z-logo width="128" height="32" imagealt="zlogo" style="max-width: 128px; width: 128px; max-height: 32px; height: 32px;">
         <mock:shadow-root>
-          <img alt="zlogo" style="width: 128px; max-width: 128px; height: 32px; max-height: 32px;">
+          <img alt="zlogo" style="max-width: 128px; width: 128px; max-height: 32px; height: 32px;">
         </mock:shadow-root>
       </z-logo>
     `);
@@ -53,10 +53,10 @@ describe("Suite test ZLogo", () => {
       html: `<z-logo link="http://www.zanichelli.it/" targetblank width="128" height="32"></z-logo>`
     });
     expect(page.root).toEqualHtml(`
-      <z-logo width="128" height="32" link="http://www.zanichelli.it/" targetblank style="width: 128px; max-width: 128px; height: 32px; max-height: 32px;">
+      <z-logo width="128" height="32" link="http://www.zanichelli.it/" targetblank style="max-width: 128px; width: 128px; max-height: 32px; height: 32px;">
         <mock:shadow-root>
-          <a href="http://www.zanichelli.it/" target="_blank" style="width: 128px; max-width: 128px; height: 32px; max-height: 32px;">
-            <img style="width: 128px; max-width: 128px; height: 32px; max-height: 32px;">
+          <a href="http://www.zanichelli.it/" target="_blank">
+            <img style="max-width: 128px; width: 128px; max-height: 32px; height: 32px;">
           </a>
         </mock:shadow-root>
       </z-logo>
