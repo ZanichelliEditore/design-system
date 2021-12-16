@@ -13,7 +13,6 @@ describe("z-logo test end2end", () => {
     const page = await newE2EPage();
     await page.setContent(`<z-logo></z-logo>`);
     await page.$eval("z-logo", (elm: any) => {
-      elm.imageurl = "../../assets/images/png/zanichelli-logo.png";
       elm.link = "https:\\www.zanichelli.it";
     });
     await page.waitForChanges();
@@ -25,7 +24,6 @@ describe("z-logo test end2end", () => {
     const page = await newE2EPage();
     await page.setContent(`<z-logo></z-logo>`);
     await page.$eval("z-logo", (elm: any) => {
-      elm.imageurl = "../../assets/images/png/zanichelli-logo.png";
       elm.link = "https:\\www.zanichelli.it";
       elm.targetblank = true;
     });
