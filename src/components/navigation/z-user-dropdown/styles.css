@@ -1,8 +1,3 @@
-:host {
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-sb);
-}
-
 button {
   cursor: pointer;
   display: flex;
@@ -232,10 +227,6 @@ div.userfullname {
     border-bottom: var(--border-base) solid var(--gray400);
     margin: 0 var(--space-unit);
     padding-top: calc(var(--space-unit) * 2 - 2px);
-  }
-
-  ul > li > * {
-    width: max-content;
   }
 
   ul > li:first-child {

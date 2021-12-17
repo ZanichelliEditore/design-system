@@ -136,10 +136,6 @@ export class ZUserDropdown {
     );
   }
 
-  retrieveLiTextColor(): "white" | "black" {
-    return this.ismobile ? "white" : "black";
-  }
-
   renderDropdownMenu() {
     return (
       this.ismenuopen && (
@@ -153,7 +149,7 @@ export class ZUserDropdown {
           {this.linkarray.map((link) => 
             <li id={link.id}>
               <z-link
-                textcolor={this.retrieveLiTextColor()}
+                textcolor={this.ismobile ? "white" : "black"}
                 href={link.link}
                 htmlid={link.id}
                 target={link.target}
