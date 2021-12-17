@@ -106,7 +106,7 @@ export class ZUserDropdown {
   renderGuestButton() {
     return (
       <button
-        class="guest"
+        id="guestbutton"
         onClick={() => this.emitUserButtonClick()}
       >
         ENTRA
@@ -130,7 +130,7 @@ export class ZUserDropdown {
             { !this.ismobile && <div class="userfullname">{this.userfullname}</div> }
             <z-icon name={`caret-${direction}-filled`} height={16} width={16} />
           </div>
-          { !this.ismobile && this.ismenuopen &&<div class="useremail open">{this.useremail}</div> }
+          { !this.ismobile && this.ismenuopen &&<div class="useremail">{this.useremail}</div> }
         </div>
       </button>
     );
@@ -143,7 +143,7 @@ export class ZUserDropdown {
           {this.ismobile &&
             <li>
               <div class="userfullname">{this.userfullname}</div>
-              <div class="useremail open">{this.useremail}</div>
+              <div class="useremail">{this.useremail}</div>
             </li>
           }
           {this.linkarray.map((link) => 

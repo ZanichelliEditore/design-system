@@ -21,19 +21,9 @@ button.open div.firstline {
   max-width: none;
 }
 
-button > div > div > z-icon {
+div.firstline > z-icon {
   padding: 0 2px;
   fill: var(--text-white);
-}
-
-button > div > div > div {
-  padding: 0 6px;
-  color: var(--text-white);
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-sb);
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 0px;
 }
 
 button.light {
@@ -86,7 +76,7 @@ ul > li:last-child {
   margin-bottom: 0;
 }
 
-button.guest {
+#guestbutton {
   box-sizing: border-box;
   display: inline-flex;
   flex-direction: row;
@@ -116,7 +106,8 @@ button.guest {
   color: var(--text-grey-800);
 }
 
-div.userfullname {
+.userfullname {
+  padding: 0 6px;
   white-space: nowrap;
   overflow: hidden;
   max-width: 250px;
@@ -192,7 +183,7 @@ div.userfullname {
     fill: var(--text-grey-800);
   }
 
-  div.userfullname {
+  .userfullname {
     font-family: var(--dashboard-font);
     font-weight: var(--font-sb);
     font-size: 14px;
@@ -204,6 +195,11 @@ div.userfullname {
     color: var(--text-grey-800);
     max-width: none;
     text-overflow: clip;
+  }
+
+  .useremail {
+    margin-right: calc(var(--space-unit) * 3 + 2px);
+    text-align: end;
   }
 
   button.open div.useremail {
@@ -232,11 +228,6 @@ div.userfullname {
   ul > li:first-child {
     border-top: var(--border-base) solid var(--gray400);
     padding-top: calc(var(--space-unit) * 2 - 2px);
-  }
-
-  .useremail {
-    margin-right: calc(var(--space-unit) * 3 + 2px);
-    text-align: end;
   }
 
 }
