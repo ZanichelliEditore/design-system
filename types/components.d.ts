@@ -632,7 +632,7 @@ export namespace Components {
         /**
           * image height
          */
-        "height": number;
+        "height"?: number;
         /**
           * alternative image text
          */
@@ -648,7 +648,7 @@ export namespace Components {
         /**
           * image width
          */
-        "width": number;
+        "width"?: number;
     }
     interface ZMenu {
         /**
