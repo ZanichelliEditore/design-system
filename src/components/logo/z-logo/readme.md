@@ -15,11 +15,11 @@
 
 | Property      | Attribute     | Description            | Type      | Default     |
 | ------------- | ------------- | ---------------------- | --------- | ----------- |
-| `height`      | `height`      | image height           | `number`  | `42`        |
+| `height`      | `height`      | image height           | `number`  | `undefined` |
 | `imagealt`    | `imagealt`    | alternative image text | `string`  | `undefined` |
 | `link`        | `link`        | link url (optional)    | `string`  | `undefined` |
 | `targetblank` | `targetblank` | link target (optional) | `boolean` | `undefined` |
-| `width`       | `width`       | image width            | `number`  | `163`       |
+| `width`       | `width`       | image width            | `number`  | `undefined` |
 
 
 ## Dependencies
