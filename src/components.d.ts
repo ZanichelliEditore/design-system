@@ -1503,6 +1503,10 @@ export namespace Components {
          */
         "theme"?: ThemeVariantBean;
         /**
+          * user email
+         */
+        "useremail"?: string;
+        /**
           * user full name
          */
         "userfullname"?: string;
@@ -3781,6 +3785,10 @@ declare namespace LocalJSX {
           * theme variant, default 'dark'
          */
         "theme"?: ThemeVariantBean;
+        /**
+          * user email
+         */
+        "useremail"?: string;
         /**
           * user full name
          */

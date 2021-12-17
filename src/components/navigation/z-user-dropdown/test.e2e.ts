@@ -12,24 +12,25 @@ it("Test dropdown button should open list", async () => {
   await page.setContent(`
     <z-user-dropdown
       userfullname="Sandro Studente"
+      useremail="sandro@abc.com"
       logged="true"
       menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
     ></z-user-dropdown>
   `);
 
-  const wrapperDiv = await page.find("z-user-dropdown >>> div > div:nth-child(2)");
+  const wrapperDiv = await page.find("z-user-dropdown >>> div > div");
   expect(wrapperDiv).not.toHaveClass("open");
 
-  let linkList = await page.find("z-user-dropdown >>> div > div:nth-child(2) > ul");
+  let linkList = await page.find("z-user-dropdown >>> div > div > ul");
   expect(linkList).toBeNull();
 
-  const toggleButton = await page.find("z-user-dropdown >>> div > div:nth-child(2) > button");
+  const toggleButton = await page.find("z-user-dropdown >>> div > div > button");
   toggleButton.click();
 
   await page.waitForChanges();
   expect(wrapperDiv).toHaveClass("open");
 
-  linkList = await page.find("z-user-dropdown >>> div > div:nth-child(2) > ul");
+  linkList = await page.find("z-user-dropdown >>> div > div > ul");
   expect(linkList).not.toBeNull();
 });
 
@@ -51,12 +52,13 @@ it("Test enter and user button click should emit userButtonClick event", async (
   await page.setContent(`
     <z-user-dropdown
       userfullname="Sandro Studente"
+      useremail="sandro@abc.com"
       logged="true"
       menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
     ></z-user-dropdown>
   `);
 
-  const toggleButton = await page.find("z-user-dropdown >>> div > div:nth-child(2) > button");
+  const toggleButton = await page.find("z-user-dropdown >>> div > div > button");
   toggleButton.click();
 
   await page.waitForChanges();
@@ -72,7 +74,7 @@ it("Test enter and user button click should emit userButtonClick event", async (
     elm.logged = false;
   });
 
-  const enterButton = await page.find("z-user-dropdown >>> div > div:nth-child(1) > z-link");
+  const enterButton = await page.find("z-user-dropdown >>> div > div > button");
   enterButton.click();
 
   await page.waitForChanges();
@@ -103,12 +105,13 @@ it("Test dropdown menu zLink click should emit dropdownMenuLinkClick event", asy
   await page.setContent(`
     <z-user-dropdown
       userfullname="Sandro Studente"
+      useremail="sandro@abc.com"
       logged="true"
       menucontent='[{"label":"I Tuoi Ordini", "link":"#", "id":"ordini", "icon":"exit"},{"label":"Esci", "link":"#", "id":"logout", "icon":"enter"}]'
     ></z-user-dropdown>
   `);
 
-  const toggleButton = await page.find("z-user-dropdown >>> div > div:nth-child(2) > button");
+  const toggleButton = await page.find("z-user-dropdown >>> div > div > button");
   toggleButton.click();
 
   await page.waitForChanges();

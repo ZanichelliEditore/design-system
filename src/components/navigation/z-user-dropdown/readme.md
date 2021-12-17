@@ -12,6 +12,7 @@
 | `logged`       | `logged`       | logged status flag                              | `boolean`              | `undefined`         |
 | `menucontent`  | `menucontent`  | Json stringified or array to fill menu dropdown | `MenuItem[] \| string` | `undefined`         |
 | `theme`        | `theme`        | theme variant, default 'dark'                   | `"dark" \| "light"`    | `ThemeVariant.dark` |
+| `useremail`    | `useremail`    | user email                                      | `string`               | `undefined`         |
 | `userfullname` | `userfullname` | user full name                                  | `string`               | `undefined`         |
 
 

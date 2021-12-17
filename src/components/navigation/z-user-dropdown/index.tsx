@@ -20,17 +20,19 @@ export class ZUserDropdown {
   @Prop() logged?: boolean;
   /** user full name */
   @Prop() userfullname?: string;
+  /** user email */
+  @Prop() useremail?: string;
   /** Json stringified or array to fill menu dropdown */
   @Prop() menucontent?: string | MenuItem[];
   /** theme variant, default 'dark' */
   @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
 
   @State() ismenuopen: boolean = false;
-  @State() isMobile: boolean;
+  @State() ismobile: boolean;
 
   private linkarray: MenuItem[];
-  private userButton!: HTMLButtonElement;
-  private gosthDiv!: HTMLDivElement;
+  private userbutton!: HTMLButtonElement;
+  private divtoresize!: HTMLDivElement;
 
   constructor() {
     this.handleToggle = this.handleToggle.bind(this);
@@ -38,33 +40,33 @@ export class ZUserDropdown {
   }
 
   componentWillLoad() {
-    this.setMobileAndGhostDivWidth();
+    this.setMobileAndDivToResizeWidth();
   }
 
   componentDidLoad() {
-    this.setMobileAndGhostDivWidth();
+    this.setMobileAndDivToResizeWidth();
   }
 
   componentWillUpdate() {
-    this.setMobileAndGhostDivWidth();
+    this.setMobileAndDivToResizeWidth();
   }
 
   componentWillRender() {
-    this.linkarray =
-      typeof this.menucontent === "string"
-        ? JSON.parse(this.menucontent)
-        : this.menucontent;
+    if (this.menucontent) {
+      this.linkarray = typeof this.menucontent === "string" ? JSON.parse(this.menucontent) : this.menucontent;
+    }
   }
 
-  setMobileAndGhostDivWidth() {
-    this.isMobile =
-      window.screen.width <= mobileBreakpoint ||
-      window.innerWidth <= mobileBreakpoint;
-    if (this.gosthDiv)
-      this.gosthDiv.style.width =
-        this.logged && !this.isMobile && this.ismenuopen
-          ? `${this.userButton?.offsetWidth}px`
-          : "";
+  setMobileAndDivToResizeWidth() {
+    if (this.divtoresize) {
+      this.ismobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
+
+      if (this.logged && !this.ismobile && this.ismenuopen) {
+        this.divtoresize.style.width = `${this.userbutton?.offsetWidth}px`;
+      } else {
+        this.divtoresize.removeAttribute('style');
+      }
+    }
   }
 
   /** Emitted on enter or user Button click, returns ismenuopen (bool) */
@@ -78,14 +80,15 @@ export class ZUserDropdown {
   emitDropdownMenuLinkClick(e: CustomEvent) {
     this.dropdownMenuLinkClick.emit({ e, linkId: e.detail.linkId });
   }
+
   @Listen("resize", { target: "window" })
   handleResize(): void {
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.ismobile = window.innerWidth <= mobileBreakpoint;
   }
 
   @Listen("orientationchange", { target: "window" })
   handleOrientationChange(): void {
-    this.isMobile = screen.width <= mobileBreakpoint;
+    this.ismobile = screen.width <= mobileBreakpoint;
   }
 
   @Listen("click", { target: "window" })
@@ -100,85 +103,78 @@ export class ZUserDropdown {
     this.emitUserButtonClick();
   }
 
-  renderCaretIcon() {
-    const direction = this.ismenuopen ? "up" : "down";
-    return (
-      <z-icon
-        name={`caret-${direction}-filled`}
-        height={18}
-        width={18}
-      ></z-icon>
-    );
-  }
-
   renderGuestButton() {
     return (
-      <z-link
+      <button
+        class="guest"
         onClick={() => this.emitUserButtonClick()}
-        big={true}
-        icon="enter"
-        textcolor={this.theme === ThemeVariant.light ? "black" : "white"}
       >
-        Entra
-      </z-link>
+        ENTRA
+      </button>
     );
   }
 
   renderLoggedButton() {
+    const direction = this.ismenuopen ? "up" : "down";
+
     return (
       <button
-        ref={(el) => (this.userButton = el as HTMLButtonElement)}
+        ref={(el) => (this.userbutton = el as HTMLButtonElement)}
         title={this.userfullname}
         class={`${this.ismenuopen ? "open" : ""} ${this.theme}`}
         onClick={() => this.handleToggle()}
       >
-        <z-icon name="user-avatar-filled" height={18} width={18}></z-icon>
-        <span class="userfullname">{this.userfullname}</span>
-        {this.renderCaretIcon()}
+        <div>
+          <div class="firstline">
+            <z-icon name="user-avatar-filled" height={16} width={16} />
+            { !this.ismobile && <div class="userfullname">{this.userfullname}</div> }
+            <z-icon name={`caret-${direction}-filled`} height={16} width={16} />
+          </div>
+          { !this.ismobile && this.ismenuopen &&<div class="useremail open">{this.useremail}</div> }
+        </div>
       </button>
     );
   }
 
   retrieveLiTextColor(): "white" | "black" {
-    if (this.theme === ThemeVariant.light) return "black";
-    return this.isMobile ? "white" : "black";
-  }
-
-  renderGhostDiv() {
-    return <div ref={(el) => (this.gosthDiv = el as HTMLDivElement)}></div>;
+    return this.ismobile ? "white" : "black";
   }
 
   renderDropdownMenu() {
     return (
       this.ismenuopen && (
         <ul class={this.theme}>
-          {this.linkarray.map((link) => {
-            return (
-              <li id={link.id}>
-                <z-link
-                  textcolor={this.retrieveLiTextColor()}
-                  big
-                  href={link.link}
-                  htmlid={link.id}
-                  target={link.target}
-                  icon={link.icon}
-                  onZLinkClick={this.emitDropdownMenuLinkClick}
-                >
-                  {link.label}
-                </z-link>
-              </li>
-            );
-          })}
+          {this.ismobile &&
+            <li>
+              <div class="userfullname">{this.userfullname}</div>
+              <div class="useremail open">{this.useremail}</div>
+            </li>
+          }
+          {this.linkarray.map((link) => 
+            <li id={link.id}>
+              <z-link
+                textcolor={this.retrieveLiTextColor()}
+                href={link.link}
+                htmlid={link.id}
+                target={link.target}
+                icon={link.icon}
+                onZLinkClick={this.emitDropdownMenuLinkClick}
+              >
+                {link.label}
+              </z-link>
+            </li>
+          )}
         </ul>
       )
     );
   }
 
   render() {
+    const className = `${this.logged && this.ismenuopen ? "open" : ""}`;
+
     return (
-      <div>
-        {this.logged && !this.isMobile && this.renderGhostDiv()}
-        <div class={`${this.logged && this.ismenuopen ? "open" : ""}`}>
+      <div ref={(el) => (this.divtoresize = el as HTMLDivElement)} class={className}>
+        <div class={className}>
           {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
           {this.logged && this.renderDropdownMenu()}
         </div>
