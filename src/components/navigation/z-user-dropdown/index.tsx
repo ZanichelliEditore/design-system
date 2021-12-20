@@ -1,13 +1,5 @@
-import {
-  Component,
-  Prop,
-  State,
-  Event,
-  Listen,
-  h,
-  EventEmitter,
-} from "@stencil/core";
-import { MenuItem, ThemeVariant, ThemeVariantBean } from "../../../beans";
+import { Component, Prop, State, Event, Listen, h, EventEmitter, Host } from "@stencil/core";
+import { MenuItem } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
 @Component({
@@ -24,8 +16,8 @@ export class ZUserDropdown {
   @Prop() useremail?: string;
   /** Json stringified or array to fill menu dropdown */
   @Prop() menucontent?: string | MenuItem[];
-  /** theme variant, default 'dark' */
-  @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
+  /** if inner components colors are inverted, or not, default false */
+  @Prop() useinversecolors?: boolean = false;
 
   @State() ismenuopen: boolean = false;
   @State() ismobile: boolean;
@@ -107,6 +99,7 @@ export class ZUserDropdown {
     return (
       <button
         id="guestbutton"
+        class={this.useinversecolors ? "inverse" : ""}
         onClick={() => this.emitUserButtonClick()}
       >
         ENTRA
@@ -116,40 +109,51 @@ export class ZUserDropdown {
 
   renderLoggedButton() {
     const direction = this.ismenuopen ? "up" : "down";
+    const colorClass = this.useinversecolors ? "inverse" : "";
 
     return (
       <button
         ref={(el) => (this.userbutton = el as HTMLButtonElement)}
         title={this.userfullname}
-        class={`${this.ismenuopen ? "open" : ""} ${this.theme}`}
+        class={`${colorClass} ${this.ismenuopen ? "open" : ""}`}
         onClick={() => this.handleToggle()}
       >
         <div>
           <div class="firstline">
-            <z-icon name="user-avatar-filled" height={16} width={16} />
-            { !this.ismobile && <div class="userfullname">{this.userfullname}</div> }
-            <z-icon name={`caret-${direction}-filled`} height={16} width={16} />
+            <z-icon class={colorClass} name="user-avatar-filled" height={16} width={16} />
+            {!this.ismobile && <div class={`userfullname ${colorClass}`}>{this.userfullname}</div> }
+            <z-icon class={colorClass} name={`caret-${direction}-filled`} height={16} width={16} />
           </div>
-          { !this.ismobile && this.ismenuopen &&<div class="useremail">{this.useremail}</div> }
+          {!this.ismobile && this.ismenuopen && <div class={`useremail ${colorClass}`}>{this.useremail}</div> }
         </div>
       </button>
     );
   }
 
+  getZLinkTextcolor(): "white" | "black" {
+    if (this.ismobile) {
+      return this.useinversecolors ? "black" : "white";
+    } else {
+      return this.useinversecolors ? "white" : "black";
+    }
+  }
+
   renderDropdownMenu() {
+    const colorClass = this.useinversecolors ? "inverse" : "";
+
     return (
       this.ismenuopen && (
-        <ul class={this.theme}>
+        <ul class={colorClass}>
           {this.ismobile &&
             <li>
-              <div class="userfullname">{this.userfullname}</div>
-              <div class="useremail">{this.useremail}</div>
+              <div class={`userfullname ${colorClass}`}>{this.userfullname}</div>
+              <div class={`useremail ${colorClass}`}>{this.useremail}</div>
             </li>
           }
           {this.linkarray.map((link) => 
             <li id={link.id}>
               <z-link
-                textcolor={this.ismobile ? "white" : "black"}
+                textcolor={this.getZLinkTextcolor()}
                 href={link.link}
                 htmlid={link.id}
                 target={link.target}
@@ -166,15 +170,18 @@ export class ZUserDropdown {
   }
 
   render() {
-    const className = `${this.logged && this.ismenuopen ? "open" : ""}`;
+    const openClass = `${this.logged && this.ismenuopen ? "open" : ""}`;
+    const colorClass = this.useinversecolors ? "inverse" : "";
 
     return (
-      <div ref={(el) => (this.divtoresize = el as HTMLDivElement)} class={className}>
-        <div class={className}>
-          {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
-          {this.logged && this.renderDropdownMenu()}
+      <Host class={colorClass}>
+        <div ref={(el) => (this.divtoresize = el as HTMLDivElement)} class={openClass}>
+          <div class={`${colorClass} ${openClass}`}>
+            {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
+            {this.logged && this.renderDropdownMenu()}
+          </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }

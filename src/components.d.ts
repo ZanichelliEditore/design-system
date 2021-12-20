@@ -642,7 +642,7 @@ export namespace Components {
          */
         "link"?: string;
         /**
-          * link target (optional)
+          * link target: true means _blank, false means _self
          */
         "targetblank"?: boolean;
         /**
@@ -1499,9 +1499,9 @@ export namespace Components {
          */
         "menucontent"?: string | MenuItem[];
         /**
-          * theme variant, default 'dark'
+          * if inner components colors are inverted, or not, default false
          */
-        "theme"?: ThemeVariantBean;
+        "useinversecolors"?: boolean;
         /**
           * user email
          */
@@ -2810,7 +2810,7 @@ declare namespace LocalJSX {
          */
         "link"?: string;
         /**
-          * link target (optional)
+          * link target: true means _blank, false means _self
          */
         "targetblank"?: boolean;
         /**
@@ -3782,9 +3782,9 @@ declare namespace LocalJSX {
          */
         "onUserButtonClick"?: (event: CustomEvent<any>) => void;
         /**
-          * theme variant, default 'dark'
+          * if inner components colors are inverted, or not, default false
          */
-        "theme"?: ThemeVariantBean;
+        "useinversecolors"?: boolean;
         /**
           * user email
          */

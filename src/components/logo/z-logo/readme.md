@@ -13,13 +13,13 @@
 
 ## Properties
 
-| Property      | Attribute     | Description            | Type      | Default     |
-| ------------- | ------------- | ---------------------- | --------- | ----------- |
-| `height`      | `height`      | image height           | `number`  | `undefined` |
-| `imagealt`    | `imagealt`    | alternative image text | `string`  | `undefined` |
-| `link`        | `link`        | link url (optional)    | `string`  | `undefined` |
-| `targetblank` | `targetblank` | link target (optional) | `boolean` | `undefined` |
-| `width`       | `width`       | image width            | `number`  | `undefined` |
+| Property      | Attribute     | Description                                       | Type      | Default     |
+| ------------- | ------------- | ------------------------------------------------- | --------- | ----------- |
+| `height`      | `height`      | image height                                      | `number`  | `undefined` |
+| `imagealt`    | `imagealt`    | alternative image text                            | `string`  | `undefined` |
+| `link`        | `link`        | link url (optional)                               | `string`  | `undefined` |
+| `targetblank` | `targetblank` | link target: true means _blank, false means _self | `boolean` | `undefined` |
+| `width`       | `width`       | image width                                       | `number`  | `undefined` |
 
 
 ## Dependencies
