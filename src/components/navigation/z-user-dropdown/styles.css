@@ -1,13 +1,25 @@
+:host {
+  background-color: var(--bg-grey-900);
+}
+
+:host(.inverse) {
+  background-color: var(--bg-white);
+}
+
 button {
   cursor: pointer;
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 0;
-  background: var(--bg-grey-900);
+  background-color: var(--bg-grey-900);
   border: none;
-  padding: 0 var(--space-unit) 0 0;
+  padding: 0;
   letter-spacing: 0.16px;
+}
+
+button.inverse {
+  background-color: var(--bg-white);
 }
 
 button div.firstline {
@@ -21,30 +33,22 @@ button.open div.firstline {
   max-width: none;
 }
 
-div.firstline > z-icon {
+z-icon {
   padding: 0 2px;
   fill: var(--text-white);
 }
 
-button.light {
-  background: var(--bg-white);
-}
-
-button.light > div > div > z-icon {
+z-icon.inverse {
   fill: var(--bg-grey-900);
-}
-
-button.light > div > div > div {
-  color: var(--text-grey-800);
 }
 
 ul {
   position: absolute;
   left: 0;
-  padding: var(--space-unit) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
   width: 100%;
-  margin: var(--space-unit) 0 0 0;
-  background: var(--bg-grey-900);
+  margin: calc(var(--space-unit) * 1.5) 0 0 0;
+  background-color: var(--bg-grey-900);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
@@ -52,16 +56,20 @@ ul {
   letter-spacing: 0.3px;
 }
 
-ul.light {
-  background: var(--bg-white);
+ul.inverse {
+  background-color: var(--bg-white);
 }
 
 ul > li {
   display: flex;
   justify-content: flex-end;
-  padding: var(--space-unit) 0 calc(var(--space-unit) * 2) 0;
-  margin: 0 calc(var(--space-unit) * 4) var(--space-unit) 0;
+  padding: calc(var(--space-unit) * 1.5 - 1px) 0;
+  margin: 0 calc(var(--space-unit) * 4) 0 0;
   border-bottom: var(--border-base) solid var(--bg-grey-700);
+}
+
+ul > li.inverse {
+  border-bottom-color: var(--gray400);
 }
 
 ul > li:first-child {
@@ -106,8 +114,14 @@ ul > li:last-child {
   color: var(--text-grey-800);
 }
 
+#guestbutton.inverse {
+  background-color: var(--bg-grey-800);
+  border-color: var(--bg-grey-800);
+  color: var(--text-white);
+}
+
 .userfullname {
-  padding: 0 6px;
+  padding: 0;
   white-space: nowrap;
   overflow: hidden;
   max-width: 250px;
@@ -120,6 +134,10 @@ ul > li:last-child {
   letter-spacing: 0;
 }
 
+.userfullname.inverse {
+  color: var(--text-grey-800);
+}
+
 .useremail {
   color: var(--text-white);
   font-family: var(--dashboard-font);
@@ -129,10 +147,19 @@ ul > li:last-child {
   letter-spacing: 0.32px;
 }
 
+.useremail.inverse {
+  color: var(--text-grey-800);
+}
+
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   :host {
     height: calc(var(--space-unit) * 4);
+    background-color: var(--bg-grey-900);
+  }
+
+  :host(.inverse) {
+    background-color: var(--bg-white);
   }
 
   :host > div {
@@ -154,10 +181,14 @@ ul > li:last-child {
     position: absolute;
     right: calc(var(--space-unit) * -1);
     box-shadow: 0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);
-    background: var(--bg-white);
-    border-radius: calc(var(--space-unit) * .5);
-    padding: var(--space-unit) var(--space-unit) 0 var(--space-unit);
+    background-color: var(--bg-white);
+    margin-top: calc(var(--space-unit) / 2);
+    padding: calc(var(--space-unit) / 2 + 1px) var(--space-unit) 0 var(--space-unit);
     transform: translate(0, -4px);
+  }
+
+  :host > div > div.inverse.open {
+    background-color: var(--bg-grey-800);
   }
 
   button {
@@ -176,11 +207,29 @@ ul > li:last-child {
     border-top-right-radius: calc(var(--space-unit) * .5);
     max-width: initial;
     margin-left: var(--space-unit);
+    padding-right: var(--space-unit);
     padding-bottom: calc(var(--space-unit) * 2);
   }
 
-  button.open > div > div > z-icon {
+  button.open.inverse {
+    border-top-color: var(--bg-grey-800);
+    background-color: var(--bg-grey-800);
+  }
+
+  button:not(.open) z-icon {
+    fill: var(--text-white);
+  }
+
+  button:not(.open) z-icon.inverse {
     fill: var(--text-grey-800);
+  }
+
+  button.open z-icon {
+    fill: var(--text-grey-800);
+  }
+  
+  button.open z-icon.inverse {
+    fill: var(--text-white);
   }
 
   .userfullname {
@@ -189,12 +238,21 @@ ul > li:last-child {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.16px;
+    padding: 0 calc(var(--space-unit) - 2px);
+  }
+
+  .userfullname.inverse {
+    color: var(--text-grey-800);
   }
 
   button.open div.userfullname {
     color: var(--text-grey-800);
     max-width: none;
     text-overflow: clip;
+  }
+
+  button.open div.userfullname.inverse {
+    color: var(--text-white);
   }
 
   .useremail {
@@ -204,6 +262,10 @@ ul > li:last-child {
 
   button.open div.useremail {
     color: var(--text-grey-800);
+  }
+
+  button.open div.useremail.inverse {
+    color: var(--text-white);
   }
 
   ul {
@@ -218,16 +280,24 @@ ul > li:last-child {
     border-bottom-right-radius: var(--border-radius-base);
   }
 
+  ul.inverse {
+    border-bottom-color: var(--bg-grey-800);
+    background-color: var(--bg-grey-800);
+  }
+
   ul > li {
     color: var(--text-grey-800);
     border-bottom: var(--border-base) solid var(--gray400);
     margin: 0 var(--space-unit);
-    padding-top: calc(var(--space-unit) * 2 - 2px);
   }
+
+   ul > li.inverse {
+    color: var(--text-white);
+   }
 
   ul > li:first-child {
     border-top: var(--border-base) solid var(--gray400);
-    padding-top: calc(var(--space-unit) * 2 - 2px);
+    padding-top: calc(var(--space-unit) + 3px);
   }
 
 }

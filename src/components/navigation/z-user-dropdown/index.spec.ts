@@ -14,7 +14,7 @@ describe("Suite test ZUserDropdown", () => {
         <mock:shadow-root>
           <div>
             <div>
-              <button class="guest">
+              <button id="guestbutton">
                 ENTRA
               </button>
             </div>
@@ -42,7 +42,7 @@ describe("Suite test ZUserDropdown", () => {
         <mock:shadow-root>
           <div>
             <div>
-              <button class="guest">
+              <button id="guestbutton">
                 ENTRA
               </button>
             </div>
@@ -73,7 +73,7 @@ describe("Suite test ZUserDropdown", () => {
         <mock:shadow-root>
           <div>
             <div>
-              <button class="dark" title="Sandro Studente">
+              <button title="Sandro Studente">
                 <div>
                   <div class="firstline">
                     <z-icon height="16" name="user-avatar-filled" width="16"></z-icon>
@@ -93,7 +93,7 @@ describe("Suite test ZUserDropdown", () => {
     const page = await newSpecPage({
       components: [ZUserDropdown],
       html: `<z-user-dropdown
-              theme="light"
+              useinversecolors="true"
               userfullname="Sandro Studente"
               useremail="sandro@abc.com"
               menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
@@ -102,15 +102,16 @@ describe("Suite test ZUserDropdown", () => {
 
     expect(page.root).toEqualHtml(`
       <z-user-dropdown
-        theme="light"
+        useinversecolors="true"
+        class="inverse"
         userfullname="Sandro Studente"
         useremail="sandro@abc.com"
         menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
         <mock:shadow-root>
           <div>
-            <div>
-              <button class="guest">
+            <div class="inverse">
+              <button id="guestbutton" class="inverse">
                 ENTRA
               </button>
             </div>
@@ -124,7 +125,7 @@ describe("Suite test ZUserDropdown", () => {
     const page = await newSpecPage({
       components: [ZUserDropdown],
       html: `<z-user-dropdown
-              theme="light"
+              useinversecolors="true"
               userfullname="Sandro Studente"
               useremail="sandro@abc.com"
               logged="true"
@@ -134,7 +135,8 @@ describe("Suite test ZUserDropdown", () => {
 
     expect(page.root).toEqualHtml(`
       <z-user-dropdown
-        theme="light"
+        useinversecolors="true"
+        class="inverse"
         userfullname="Sandro Studente"
         useremail="sandro@abc.com"
         logged="true"
@@ -142,13 +144,13 @@ describe("Suite test ZUserDropdown", () => {
       >
         <mock:shadow-root>
           <div>
-            <div>
-              <button class="light" title="Sandro Studente">
+            <div class="inverse">
+              <button class="inverse" title="Sandro Studente">
                 <div>
                   <div class="firstline">
-                    <z-icon height="16" name="user-avatar-filled" width="16"></z-icon>
-                    <div class="userfullname">Sandro Studente</div>
-                    <z-icon height="16" name="caret-down-filled" width="16"></z-icon>
+                    <z-icon class="inverse" height="16" name="user-avatar-filled" width="16"></z-icon>
+                    <div class="userfullname inverse">Sandro Studente</div>
+                    <z-icon class="inverse" height="16" name="caret-down-filled" width="16"></z-icon>
                   </div>
                 </div>
               </button>

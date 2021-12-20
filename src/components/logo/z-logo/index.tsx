@@ -14,7 +14,7 @@ export class ZLogo {
   @Prop() imagealt?: string;
   /** link url (optional) */
   @Prop() link?: string;
-  /** link target (optional) */
+  /** link target: true means _blank, false means _self */
   @Prop() targetblank?: boolean;
 
   render() {
