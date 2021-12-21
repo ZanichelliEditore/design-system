@@ -27,7 +27,7 @@ export class ZUserDropdown {
   private divtoresize!: HTMLDivElement;
 
   constructor() {
-    this.handleToggle = this.handleToggle.bind(this);
+    this.handleLoggedButtonClick = this.handleLoggedButtonClick.bind(this);
     this.emitDropdownMenuLinkClick = this.emitDropdownMenuLinkClick.bind(this);
   }
 
@@ -70,6 +70,7 @@ export class ZUserDropdown {
   /** Emitted on dropdown menu zlink click, returns event */
   @Event() dropdownMenuLinkClick: EventEmitter;
   emitDropdownMenuLinkClick(e: CustomEvent) {
+    this.ismenuopen = false;
     this.dropdownMenuLinkClick.emit({ e, linkId: e.detail.linkId });
   }
 
@@ -89,8 +90,8 @@ export class ZUserDropdown {
       this.ismenuopen = false;
     }
   }
-
-  handleToggle() {
+    
+  handleLoggedButtonClick() {
     this.ismenuopen = !this.ismenuopen;
     this.emitUserButtonClick();
   }
@@ -116,7 +117,7 @@ export class ZUserDropdown {
         ref={(el) => (this.userbutton = el as HTMLButtonElement)}
         title={this.userfullname}
         class={`${colorClass} ${this.ismenuopen ? "open" : ""}`}
-        onClick={() => this.handleToggle()}
+        onClick={this.handleLoggedButtonClick}
       >
         <div>
           <div class="firstline">
@@ -180,7 +181,11 @@ export class ZUserDropdown {
 
     return (
       <Host class={colorClass}>
-        <div ref={(el) => (this.divtoresize = el as HTMLDivElement)} class={openClass}>
+        <div
+          ref={(el) => (this.divtoresize = el as HTMLDivElement)}
+          class={openClass}
+          onClick={(e) => e.stopPropagation()}
+        >
           <div class={`${colorClass} ${openClass}`}>
             {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
             {this.logged && this.renderDropdownMenu()}
