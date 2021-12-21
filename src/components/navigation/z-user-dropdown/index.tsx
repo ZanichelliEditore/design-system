@@ -145,13 +145,18 @@ export class ZUserDropdown {
       this.ismenuopen && (
         <ul class={colorClass}>
           {this.ismobile &&
-            <li>
+            <li
+              class={colorClass}
+            >
               <div class={`userfullname ${colorClass}`}>{this.userfullname}</div>
               <div class={`useremail ${colorClass}`}>{this.useremail}</div>
             </li>
           }
           {this.linkarray.map((link) => 
-            <li id={link.id}>
+            <li
+              id={link.id}
+              class={colorClass}
+            >
               <z-link
                 textcolor={this.getZLinkTextcolor()}
                 href={link.link}

@@ -69,7 +69,7 @@ ul > li {
 }
 
 ul > li.inverse {
-  border-bottom-color: var(--bg-grey-400);
+  border-bottom-color: var(--gray400);
 }
 
 ul > li:first-child {
