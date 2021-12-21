@@ -47,7 +47,7 @@ ul {
   left: 0;
   padding: var(--space-unit) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
   width: 100%;
-  margin: var(--space-unit) 0 0 0;
+  margin: calc(var(--space-unit) * 1.5) 0 0 0;
   background-color: var(--bg-grey-900);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
@@ -296,7 +296,6 @@ ul > li:last-child {
 
   ul > li:first-child {
     border-top: var(--border-base) solid var(--gray400);
-    padding-top: calc(var(--space-unit) * 2 - 2px);
   }
 
 }
