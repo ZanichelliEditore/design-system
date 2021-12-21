@@ -31,10 +31,6 @@ export class ZUserDropdown {
     this.emitDropdownMenuLinkClick = this.emitDropdownMenuLinkClick.bind(this);
   }
 
-  componentWillLoad() {
-    this.setMobileAndDivToResizeWidth();
-  }
-
   componentDidLoad() {
     this.setMobileAndDivToResizeWidth();
   }
