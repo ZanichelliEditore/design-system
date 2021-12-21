@@ -14,7 +14,7 @@ button {
   margin: 0;
   background-color: var(--bg-grey-900);
   border: none;
-  padding: 0 var(--space-unit) 0 0;
+  padding: 0;
   letter-spacing: 0.16px;
 }
 
@@ -121,7 +121,7 @@ ul > li:last-child {
 }
 
 .userfullname {
-  padding: 0 6px;
+  padding: 0;
   white-space: nowrap;
   overflow: hidden;
   max-width: 250px;
@@ -207,6 +207,7 @@ ul > li:last-child {
     border-top-right-radius: calc(var(--space-unit) * .5);
     max-width: initial;
     margin-left: var(--space-unit);
+    padding-right: var(--space-unit);
     padding-bottom: calc(var(--space-unit) * 2);
   }
 
@@ -237,6 +238,7 @@ ul > li:last-child {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.16px;
+    padding: 0 calc(var(--space-unit) - 2px);
   }
 
   .userfullname.inverse {
