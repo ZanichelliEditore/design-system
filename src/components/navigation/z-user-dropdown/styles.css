@@ -14,7 +14,7 @@ button {
   margin: 0;
   background-color: var(--bg-grey-900);
   border: none;
-  padding: 0 var(--space-unit) 0 0;
+  padding: 0;
   letter-spacing: 0.16px;
 }
 
@@ -45,7 +45,7 @@ z-icon.inverse {
 ul {
   position: absolute;
   left: 0;
-  padding: var(--space-unit) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
   width: 100%;
   margin: calc(var(--space-unit) * 1.5) 0 0 0;
   background-color: var(--bg-grey-900);
@@ -63,8 +63,8 @@ ul.inverse {
 ul > li {
   display: flex;
   justify-content: flex-end;
-  padding: var(--space-unit) 0 calc(var(--space-unit) * 2) 0;
-  margin: 0 calc(var(--space-unit) * 4) var(--space-unit) 0;
+  padding: calc(var(--space-unit) * 1.5 - 1px) 0;
+  margin: 0 calc(var(--space-unit) * 4) 0 0;
   border-bottom: var(--border-base) solid var(--bg-grey-700);
 }
 
@@ -121,7 +121,7 @@ ul > li:last-child {
 }
 
 .userfullname {
-  padding: 0 6px;
+  padding: 0;
   white-space: nowrap;
   overflow: hidden;
   max-width: 250px;
@@ -182,8 +182,8 @@ ul > li:last-child {
     right: calc(var(--space-unit) * -1);
     box-shadow: 0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);
     background-color: var(--bg-white);
-    border-radius: calc(var(--space-unit) * .5);
-    padding: var(--space-unit) var(--space-unit) 0 var(--space-unit);
+    margin-top: calc(var(--space-unit) / 2);
+    padding: calc(var(--space-unit) / 2 + 1px) var(--space-unit) 0 var(--space-unit);
     transform: translate(0, -4px);
   }
 
@@ -207,6 +207,7 @@ ul > li:last-child {
     border-top-right-radius: calc(var(--space-unit) * .5);
     max-width: initial;
     margin-left: var(--space-unit);
+    padding-right: var(--space-unit);
     padding-bottom: calc(var(--space-unit) * 2);
   }
 
@@ -237,6 +238,7 @@ ul > li:last-child {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.16px;
+    padding: 0 calc(var(--space-unit) - 2px);
   }
 
   .userfullname.inverse {
@@ -287,7 +289,6 @@ ul > li:last-child {
     color: var(--text-grey-800);
     border-bottom: var(--border-base) solid var(--gray400);
     margin: 0 var(--space-unit);
-    padding-top: calc(var(--space-unit) * 2 - 2px);
   }
 
    ul > li.inverse {
@@ -296,7 +297,7 @@ ul > li:last-child {
 
   ul > li:first-child {
     border-top: var(--border-base) solid var(--gray400);
-    padding-top: calc(var(--space-unit) * 2 - 2px);
+    padding-top: calc(var(--space-unit) + 3px);
   }
 
 }
