@@ -149,7 +149,7 @@ export class ZUserDropdown {
               <div class={`useremail ${colorClass}`}>{this.useremail}</div>
             </li>
           }
-          {this.linkarray.map((link) => 
+          {this.linkarray && this.linkarray.map((link) => 
             <li
               id={link.id}
               class={colorClass}

@@ -296,6 +296,7 @@ ul > li:last-child {
 
   ul > li:first-child {
     border-top: var(--border-base) solid var(--gray400);
+    padding-top: calc(var(--space-unit) * 2 - 2px);
   }
 
 }
