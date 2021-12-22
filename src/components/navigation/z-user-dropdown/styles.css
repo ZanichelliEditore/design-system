@@ -1,83 +1,176 @@
 :host {
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
+  background-color: var(--bg-grey-900);
+}
+
+:host(.inverse) {
+  background-color: var(--bg-white);
 }
 
 button {
   cursor: pointer;
   display: flex;
+  flex-direction: column;
+  width: 100%;
   margin: 0;
-  background: var(--bg-grey-900);
+  background-color: var(--bg-grey-900);
   border: none;
-  font-size: calc(var(--space-unit) * 2);
-  padding: calc(var(--space-unit) - 2px) 0;
+  padding: 0;
+  letter-spacing: 0.16px;
 }
 
-button > z-icon {
+button.inverse {
+  background-color: var(--bg-white);
+}
+
+button div.firstline {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 200px;
+}
+
+button.open div.firstline {
+  max-width: none;
+}
+
+z-icon {
   padding: 0 2px;
-  fill: var(--bg-white);
+  fill: var(--text-white);
 }
 
-button > span {
-  padding: 0 6px;
-  color: var(--text-white);
-  font-weight: var(--font-sb);
-  line-height: 19px;
-}
-
-button.light {
-  background: var(--bg-white);
-}
-
-button.light > z-icon {
+z-icon.inverse {
   fill: var(--bg-grey-900);
-}
-
-button.light > span {
-  color: var(--bg-grey-900);
-}
-
-button > .userfullname {
-  display: none;
 }
 
 ul {
   position: absolute;
   left: 0;
-  padding: var(--space-unit)  0 0 0;
+  padding: calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
   width: 100%;
-  margin: 0;
-  background: var(--bg-grey-900);
+  margin: calc(var(--space-unit) * 1.5) 0 0 0;
+  background-color: var(--bg-grey-900);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
 }
 
-ul.light {
-  background: var(--bg-white);
+ul.inverse {
+  background-color: var(--bg-white);
 }
 
 ul > li {
   display: flex;
   justify-content: flex-end;
-  padding: var(--space-unit);
-  margin: 0 var(--space-unit);
+  padding: calc(var(--space-unit) * 1.5 - 1px) 0;
+  margin: 0 calc(var(--space-unit) * 4) 0 0;
   border-bottom: var(--border-base) solid var(--bg-grey-700);
 }
 
+ul > li.inverse {
+  border-bottom-color: var(--gray400);
+}
+
 ul > li:first-child {
-  border-top: var(--border-base) solid var(--bg-grey-700);
+  border-top: none;
+  padding-top: 0;
+  flex-direction: column;
+  align-items: end;
 }
 
 ul > li:last-child {
   border-bottom: none;
+  margin-bottom: 0;
+}
+
+#guestbutton {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.3px;
+  border-width: var(--border-size-medium);
+  border-style: solid;
+  border-radius: var(--border-radius);
+  vertical-align: middle;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  fill: currentColor;
+  height: 32px;
+  min-width: 32px;
+  padding: 0 calc(var(--space-unit) * 2);
+  background-color: var(--bg-white);
+  border-color: var(--bg-white);
+  color: var(--text-grey-800);
+}
+
+#guestbutton.inverse {
+  background-color: var(--bg-grey-800);
+  border-color: var(--bg-grey-800);
+  color: var(--text-white);
+}
+
+.userfullname {
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 250px;
+  text-overflow: ellipsis;
+  color: var(--text-white);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-sb);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.userfullname.inverse {
+  color: var(--text-grey-800);
+}
+
+.useremail {
+  color: var(--text-white);
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.32px;
+}
+
+.useremail.inverse {
+  color: var(--text-grey-800);
 }
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   :host {
     height: calc(var(--space-unit) * 4);
+    background-color: var(--bg-grey-900);
+  }
+
+  :host(.inverse) {
+    background-color: var(--bg-white);
   }
 
   :host > div {
     position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  :host > div.open {
+    top: auto;
+    transform: none;
   }
 
   :host > div > div {
@@ -85,20 +178,17 @@ ul > li:last-child {
   }
 
   :host > div > div.open {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-end;
-    align-content: stretch;
-    width: min-content;
     position: absolute;
     right: calc(var(--space-unit) * -1);
     box-shadow: 0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);
-    background: var(--bg-white);
-    border-radius: calc(var(--space-unit) * .5);
-    padding: calc(var(--space-unit) * .5) var(--space-unit);
+    background-color: var(--bg-white);
+    margin-top: calc(var(--space-unit) / 2);
+    padding: calc(var(--space-unit) / 2 + 1px) var(--space-unit) 0 var(--space-unit);
     transform: translate(0, -4px);
+  }
+
+  :host > div > div.inverse.open {
+    background-color: var(--bg-grey-800);
   }
 
   button {
@@ -108,34 +198,74 @@ ul > li:last-child {
     justify-content: flex-end;
     align-items: end;
     align-content: center;
-    max-width: 200px;
   }
 
-  button > span {
-    padding: 0 var(--space-unit);
-  }
   button.open {
     background-color: var(--bg-white);
     border-top: var(--border-size-small) solid var(--bg-white);
     border-top-left-radius: calc(var(--space-unit) * .5);
     border-top-right-radius: calc(var(--space-unit) * .5);
     max-width: initial;
+    margin-left: var(--space-unit);
+    padding-right: var(--space-unit);
+    padding-bottom: calc(var(--space-unit) * 2);
   }
 
-  button > .userfullname {
-    display: initial;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 250px;
-    text-overflow: ellipsis;
+  button.open.inverse {
+    border-top-color: var(--bg-grey-800);
+    background-color: var(--bg-grey-800);
   }
 
-  button.open > z-icon {
-    fill: var(--gray900);
+  button:not(.open) z-icon {
+    fill: var(--text-white);
   }
 
-  button.open > span {
-    color: var(--gray900);
+  button:not(.open) z-icon.inverse {
+    fill: var(--text-grey-800);
+  }
+
+  button.open z-icon {
+    fill: var(--text-grey-800);
+  }
+  
+  button.open z-icon.inverse {
+    fill: var(--text-white);
+  }
+
+  .userfullname {
+    font-family: var(--dashboard-font);
+    font-weight: var(--font-sb);
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.16px;
+    padding: 0 calc(var(--space-unit) - 2px);
+  }
+
+  .userfullname.inverse {
+    color: var(--text-grey-800);
+  }
+
+  button.open div.userfullname {
+    color: var(--text-grey-800);
+    max-width: none;
+    text-overflow: clip;
+  }
+
+  button.open div.userfullname.inverse {
+    color: var(--text-white);
+  }
+
+  .useremail {
+    margin-right: calc(var(--space-unit) * 3 + 2px);
+    text-align: end;
+  }
+
+  button.open div.useremail {
+    color: var(--text-grey-800);
+  }
+
+  button.open div.useremail.inverse {
+    color: var(--text-white);
   }
 
   ul {
@@ -150,31 +280,30 @@ ul > li:last-child {
     border-bottom-right-radius: var(--border-radius-base);
   }
 
-  ul > li {
-    color: var(--gray900);
-    border-bottom: var(--border-base) solid rgb(202, 204, 206);
-    padding: calc(var(--space-unit) * .5);
-    margin: unset;
+  ul.inverse {
+    border-bottom-color: var(--bg-grey-800);
+    background-color: var(--bg-grey-800);
   }
 
-  ul > li > * {
-    width: max-content;
+  ul > li {
+    color: var(--text-grey-800);
+    border-bottom: var(--border-base) solid var(--gray400);
+    margin: 0 var(--space-unit);
   }
+
+   ul > li.inverse {
+    color: var(--text-white);
+   }
 
   ul > li:first-child {
-    border-top: none;
+    border-top: var(--border-base) solid var(--gray400);
+    padding-top: calc(var(--space-unit) + 3px);
   }
 
-  ul > li:last-child {
-    border-bottom: none;
-  }
 }
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  button {
-    max-width: initial;
-  }
 }
 
 /* Wide breakpoint */

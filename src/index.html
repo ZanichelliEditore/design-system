@@ -473,36 +473,28 @@
   </z-modal-login> -->
   <p>Not Logged</p>
   <z-app-topbar hashtag="via crucis">
-    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
-    </z-logo>
-    <z-link textcolor="white" big icon="support-filled" slot="actions" href="./pages/notification.html">Notification
-    </z-link>
+    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank></z-logo>
+    <z-link textcolor="white" big icon="support-filled" slot="actions" href="./pages/notification.html">Notification</z-link>
     <z-link textcolor="white" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
-    <z-user-dropdown userfullname="docente di calabresi per italiani" logged="false" slot="login"></z-user-dropdown>
+    <z-user-dropdown logged="false" slot="login"></z-user-dropdown>
     <z-app-switcher slot="app-switcher"></z-app-switcher>
   </z-app-topbar>
 
   <p>Logged</p>
 
   <z-app-topbar hashtag="faresci" logged>
-    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
-    </z-logo>
-    <z-link onclick="openModal(this)" textcolor="white" big icon="support-filled" slot="actions" href="#">Supporto
-    </z-link>
+    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank></z-logo>
+    <z-link onclick="openModal(this)" textcolor="white" big icon="support-filled" slot="actions" href="#">Supporto</z-link>
     <z-link onclick="openModal(this)" iswhite big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
-    <z-user-dropdown userfullname="Von Axl Maranan Fernandez" logged="true" slot="login" menucontent='[
-        {"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"},
-        {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},
-        {"label":"Chiedi al tuo responsabile", "link":"http://www.zanichelli.it", "icon":"question-mark"},
-        {"label":"Esci", "link":"http://www.google.it", "icon":"enter"}
-        ]'>
+    <z-user-dropdown userfullname="Von Axl Maranan Fernandez" useremail="vonaxlmarananfernandez@abcemail.com" logged="true" slot="login"
+      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"}, {"label":"Chiedi al tuo responsabile", "link":"http://www.zanichelli.it", "icon":"question-mark"}, {"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'>
     </z-user-dropdown>
     <z-app-switcher slot="app-switcher"></z-app-switcher>
   </z-app-topbar>
 
   <p>User Dropdown</p>
   <div style="height: 150px; width: fit-content;">
-    <z-user-dropdown userfullname="Sandro Studente" islogged="true"
+    <z-user-dropdown userfullname="Sandro Studente" useremail="vonaxlmarananfernandez@abcemail.com" islogged="true"
       menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'>
     </z-user-dropdown>
   </div>
@@ -546,25 +538,20 @@
 
   <p>Light Variant</p>
   <z-app-topbar theme="light" hashtag="faresci">
-    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
-    </z-logo>
+    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank></z-logo>
     <z-link textcolor="black" big icon="support-filled" slot="actions" href="#">Supporto</z-link>
     <z-link textcolor="black" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
-    <z-user-dropdown theme="light" userfullname="docente di calabresi per italiani" islogged="false" slot="login">
-    </z-user-dropdown>
+    <z-user-dropdown useinversecolors="true" logged="false" slot="login"></z-user-dropdown>
     <z-app-switcher theme="light" slot="app-switcher"></z-app-switcher>
   </z-app-topbar>
 
   <p>Logged</p>
 
   <z-app-topbar theme="light" hashtag="faresci" logged>
-    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank>
-    </z-logo>
-    <z-link onclick="openModal(this)" textcolor="black" big icon="support-filled" slot="actions" href="#">Supporto
-    </z-link>
-    <z-link onclick="openModal(this)" textcolor="black" big icon="shopping-cart-filled" slot="actions" href="#">Carrello
-    </z-link>
-    <z-user-dropdown theme="light" userfullname="Dario Docente di Lingua e Letteratura" logged="true" slot="login"
+    <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank></z-logo>
+    <z-link onclick="openModal(this)" textcolor="black" big icon="support-filled" slot="actions" href="#">Supporto</z-link>
+    <z-link onclick="openModal(this)" textcolor="black" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
+    <z-user-dropdown useinversecolors="true" userfullname="Dario Docente di Lingua e Letteratura" useremail="vonaxlmarananfernandez@abcemail.com" logged="true" slot="login"
       menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'>
     </z-user-dropdown>
     <z-app-switcher theme="light" id="app-switcher-2" slot="app-switcher"></z-app-switcher>
