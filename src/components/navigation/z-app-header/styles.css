@@ -50,8 +50,14 @@
   /* Variable to customize header background color. */
   --app-header-bg: var(--color-white);
 
+  /* Variable to customize stucked header background color. */
+  --app-header-stucked-bg: var(--color-white);
+
   /* Variable to customize text and icon color. */
   --app-header-text-color: var(--gray800);
+
+  /* Variable to customize stucked header's text and icon color. */
+  --app-header-stucked-text-color: var(--gray800);
 
   display: block;
   color: var(--app-header-text-color);
@@ -62,7 +68,7 @@
   box-sizing: border-box;
 }
 
-:host(:not(:empty)) .heading-panel {
+.heading-panel {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -72,11 +78,12 @@
   flex-grow: 0;
   width: 100%;
   height: var(--app-header-height);
-  padding-top: calc(var(--space-unit) * 2);
-  padding-right: var(--grid-mobile-margin);
-  padding-bottom: calc(var(--space-unit) * 4.5);
-  padding-left: var(--grid-mobile-margin);
+  padding: calc(var(--space-unit) * 2) var(--grid-mobile-margin) calc(var(--space-unit) * 4.5);
   background: var(--app-header-bg);
+}
+
+:host(:empty) .heading-panel {
+  padding: 0;
 }
 
 .heading-title {
@@ -84,6 +91,10 @@
   flex-direction: row;
   align-items: center;
   max-width: 100%;
+}
+
+:host(:not([menu-length='0'])) .heading-subtitle {
+  padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 1.5));
 }
 
 .heading-stucked {
@@ -95,8 +106,9 @@
   flex-direction: row;
   width: 100%;
   max-width: 100%;
+  color: var(--app-header-stucked-text-color);
   padding: var(--space-unit) var(--grid-mobile-margin);
-  background: var(--app-header-bg);
+  background: var(--app-header-stucked-bg);
   box-shadow: var(--shadow-2);
   animation: slideStuckedHeadingIn 250ms ease-out;
 }
@@ -119,10 +131,6 @@
   font-size: var(--app-header-typography-3-size);
   line-height: var(--app-header-typography-3-lineheight);
   letter-spacing: var(--app-header-typography-3-tracking);
-}
-
-.heading-subtitle {
-  padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 1.5));
 }
 
 ::slotted([slot='subtitle']) {
@@ -340,7 +348,7 @@
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-  :host(:not(:empty)) .heading-panel {
+  .heading-panel {
     padding-top: calc(var(--space-unit) * 3);
   }
 
@@ -376,7 +384,7 @@
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  :host(:not(:empty)) .heading-panel {
+  .heading-panel {
     padding-top: calc(var(--space-unit) * 3.5);
   }
 
