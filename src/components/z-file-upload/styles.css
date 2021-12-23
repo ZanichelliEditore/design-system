@@ -8,12 +8,19 @@
   flex-direction: column;
 }
 
-:host > .container > #fileElem {
-  display: none;
+:host > .container .dragdrop {
+  display: flex;
+  flex-direction: column;
 }
 
-:host > .container > z-button {
-  width: 100%;
+:host > .container .dragdrop {
+  display: flex;
+  flex-direction: column;
+  border: 1px dashed black;
+}
+
+input#fileElem {
+  display: none;
 }
 
 ::slotted([slot="title"]) {
@@ -24,6 +31,7 @@
 :host > .container > z-button {
   display: inline-block;
   margin-top: calc(var(--space-unit) * 3);
+  width: 100%;
 }
 
 :host > .container > .files-container > z-heading {
@@ -39,12 +47,17 @@
   margin-bottom: calc(var(--space-unit) * 3);
 }
 
-
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+  :host > .container > z-button {
+    width: unset;
+  }
+}
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {}
+@media only screen and (min-width: 1152px) {
+}
 
 /* Wide breakpoint */
-@media only screen and (min-width: 1366px) {}
+@media only screen and (min-width: 1366px) {
+}

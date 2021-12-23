@@ -7,7 +7,11 @@ import {
   State,
   Listen,
 } from "@stencil/core";
-import { ButtonVariantEnum, DividerSize } from "../../beans";
+import {
+  ButtonVariantEnum,
+  DividerSize,
+  ZFileUploadTypeEnum,
+} from "../../beans";
 
 @Component({
   tag: "z-file-upload",
@@ -16,6 +20,9 @@ import { ButtonVariantEnum, DividerSize } from "../../beans";
 })
 export class ZFileUpload {
   private input: HTMLInputElement;
+
+  /** Prop indicating the file upload type - can be default or dragdrop */
+  @Prop() type: ZFileUploadTypeEnum = ZFileUploadTypeEnum.default;
 
   /** Prop indicating the button variant*/
   @Prop() variant: ButtonVariantEnum;
@@ -50,15 +57,20 @@ export class ZFileUpload {
     );
   }
 
-  renderDescriptionAndFileInfo() {
-    return [
+  renderDescription() {
+    return (
       <z-body variant="semibold" level={3}>
         <slot name="description"></slot>
-      </z-body>,
+      </z-body>
+    );
+  }
+
+  renderAllowedFileExtensions() {
+    return (
       <z-body level={3}>
         <slot name="file-format"></slot>
-      </z-body>,
-    ];
+      </z-body>
+    );
   }
 
   renderFileSection() {
@@ -77,7 +89,7 @@ export class ZFileUpload {
     );
   }
 
-  renderInput() {
+  renderUploadButtonOrUploadLink() {
     return [
       <input
         onChange={() => this.fileInputHandler()}
@@ -87,25 +99,58 @@ export class ZFileUpload {
         accept={this.acceptedFormat}
         ref={(val) => (this.input = val)}
       />,
-      <z-button
-        onClick={() => this.input.click()}
-        id="fileSelect"
-        variant={this.variant}
-        icon="plus"
-      >
-        Allega
-      </z-button>,
+      this.type == ZFileUploadTypeEnum.default ? (
+        <z-button
+          onClick={() => this.input.click()}
+          id="fileSelect"
+          variant={this.variant}
+          icon="plus"
+        >
+          Allega
+        </z-button>
+      ) : (
+        <z-body onClick={() => this.input.click()} variant="semibold" level={3}>
+          Trascinalo qui o <strong>caricalo</strong> dal tuo computer
+        </z-body>
+      ),
     ];
   }
 
   render() {
-    return (
-      <div class="container">
-        {this.renderTitle()}
-        {this.renderDescriptionAndFileInfo()}
-        {this.renderFileSection()}
-        {this.renderInput()}
-      </div>
-    );
+    {
+      return this.type == ZFileUploadTypeEnum.default ? (
+        <div class="container">
+          {this.renderTitle()}
+          {this.renderDescription()}
+          {this.renderAllowedFileExtensions()}
+          {this.renderFileSection()}
+          {this.renderUploadButtonOrUploadLink()}
+        </div>
+      ) : (
+        <div class="container">
+          {this.renderTitle()}
+          <div
+            class="dragdrop"
+            onDragOver={(e) => {
+              e.preventDefault();
+            }}
+            onDragLeave={() => {}}
+            onDragEnd={() => {}}
+            onDrop={(e) => {
+              e.preventDefault();
+              if (e.dataTransfer.files.length) {
+                this.input.files = e.dataTransfer.files;
+                this.fileInputHandler();
+              }
+            }}
+          >
+            {this.renderFileSection()}
+            {this.renderDescription()}
+            {this.renderUploadButtonOrUploadLink()}
+            {this.renderAllowedFileExtensions()}
+          </div>
+        </div>
+      );
+    }
   }
 }

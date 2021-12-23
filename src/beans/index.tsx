@@ -395,3 +395,8 @@ export enum ZRegistroTableRowExpandedType {
 }
 
 export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
+
+export enum ZFileUploadTypeEnum {
+  default = 'default',
+  dragdrop = 'dragdrop'
+}
