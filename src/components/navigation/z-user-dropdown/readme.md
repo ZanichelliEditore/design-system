@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property       | Attribute      | Description                                     | Type                   | Default             |
-| -------------- | -------------- | ----------------------------------------------- | ---------------------- | ------------------- |
-| `logged`       | `logged`       | logged status flag                              | `boolean`              | `undefined`         |
-| `menucontent`  | `menucontent`  | Json stringified or array to fill menu dropdown | `MenuItem[] \| string` | `undefined`         |
-| `theme`        | `theme`        | theme variant, default 'dark'                   | `"dark" \| "light"`    | `ThemeVariant.dark` |
-| `userfullname` | `userfullname` | user full name                                  | `string`               | `undefined`         |
+| Property           | Attribute          | Description                                                    | Type                   | Default     |
+| ------------------ | ------------------ | -------------------------------------------------------------- | ---------------------- | ----------- |
+| `logged`           | `logged`           | logged status flag                                             | `boolean`              | `undefined` |
+| `menucontent`      | `menucontent`      | Json stringified or array to fill menu dropdown                | `MenuItem[] \| string` | `undefined` |
+| `useinversecolors` | `useinversecolors` | if inner components colors are inverted, or not, default false | `boolean`              | `false`     |
+| `useremail`        | `useremail`        | user email                                                     | `string`               | `undefined` |
+| `userfullname`     | `userfullname`     | user full name                                                 | `string`               | `undefined` |
 
 
 ## Events

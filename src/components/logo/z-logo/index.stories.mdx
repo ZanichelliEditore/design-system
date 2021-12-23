@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, number } from "@storybook/addon-knobs";
+import { text, number, boolean } from "@storybook/addon-knobs";
 
 ## Stories
 
@@ -14,6 +14,8 @@ import { text, number } from "@storybook/addon-knobs";
       imagealt="${text("imagealt", "logo")}"
       height="${number("height", 50)}"
       width="${number("width", 200)}"
+      link="${text("link", "")}"
+      targetblank=${boolean("targetblank", false)}
     ></z-logo>`}
   </Story>
 </Preview>
