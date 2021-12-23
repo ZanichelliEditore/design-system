@@ -373,7 +373,6 @@
     margin-bottom: calc(var(--space-unit) * 3);
   }
 
-  .heading-stucked .heading-title > *,
   ::slotted([slot='title']) {
     font-size: var(--app-header-typography-6-size);
     letter-spacing: var(--app-header-typography-6-tracking);
