@@ -78,7 +78,7 @@
   flex-grow: 0;
   width: 100%;
   height: var(--app-header-height);
-  padding: calc(var(--space-unit) * 2) var(--grid-mobile-margin) calc(var(--space-unit) * 4.5);
+  padding: calc(var(--space-unit) * 2) var(--grid-mobile-margin);
   background: var(--app-header-bg);
 }
 
@@ -128,9 +128,9 @@
   margin: 0;
   font-weight: 700;
   font-family: 'IBM Plex Serif', serif;
-  font-size: var(--app-header-typography-3-size);
-  line-height: var(--app-header-typography-3-lineheight);
-  letter-spacing: var(--app-header-typography-3-tracking);
+  font-size: var(--app-header-typography-5-size);
+  letter-spacing: var(--app-header-typography-5-tracking);
+  line-height: 1;
 }
 
 ::slotted([slot='subtitle']) {
@@ -349,10 +349,9 @@
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   .heading-panel {
-    padding-top: calc(var(--space-unit) * 3);
+    padding: calc(var(--space-unit) * 3) var(--grid-tablet-margin);
   }
 
-  .heading-panel,
   .heading-stucked {
     padding-left: var(--grid-tablet-margin);
     padding-right: var(--grid-tablet-margin);
@@ -376,18 +375,17 @@
 
   .heading-stucked .heading-title > *,
   ::slotted([slot='title']) {
-    font-size: var(--app-header-typography-5-size);
-    line-height: var(--app-header-typography-5-lineheight);
-    letter-spacing: var(--app-header-typography-5-tracking);
+    font-size: var(--app-header-typography-6-size);
+    letter-spacing: var(--app-header-typography-6-tracking);
+  }
+
+  ::slotted([slot='subtitle']) {
+    margin-top: calc(var(--space-unit) * 1.5);
   }
 }
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  .heading-panel {
-    padding-top: calc(var(--space-unit) * 3.5);
-  }
-
   .heading-panel,
   .heading-stucked {
     padding-left: var(--grid-desktop-margin);
@@ -401,7 +399,6 @@
 
   ::slotted([slot='title']) {
     font-size: var(--app-header-typography-7-size);
-    line-height: var(--app-header-typography-7-lineheight);
     letter-spacing: var(--app-header-typography-7-tracking);
     margin-right: var(--grid-desktop-gutter);
   }
@@ -425,17 +422,12 @@
 
   ::slotted([slot='title']) {
     font-size: var(--app-header-typography-9-size);
-    line-height: var(--app-header-typography-9-lineheight);
     letter-spacing: var(--app-header-typography-9-tracking);
     margin-right: var(--grid-wide-gutter);
   }
 
   :host(:not([flow='offcanvas']):not([menu-length='0'])) .heading-container:not(:last-child) {
     margin-bottom: 0;
-  }
-
-  .menu-container {
-    margin-top: calc(var(--space-unit) * 3);
   }
 }
 
