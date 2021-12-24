@@ -304,6 +304,8 @@ export namespace Components {
          */
         "size"?: DividerSize;
     }
+    interface ZDragdropArea {
+    }
     interface ZFile {
     }
     interface ZFileUpload {
@@ -1625,6 +1627,12 @@ declare global {
         prototype: HTMLZDividerElement;
         new (): HTMLZDividerElement;
     };
+    interface HTMLZDragdropAreaElement extends Components.ZDragdropArea, HTMLStencilElement {
+    }
+    var HTMLZDragdropAreaElement: {
+        prototype: HTMLZDragdropAreaElement;
+        new (): HTMLZDragdropAreaElement;
+    };
     interface HTMLZFileElement extends Components.ZFile, HTMLStencilElement {
     }
     var HTMLZFileElement: {
@@ -2080,6 +2088,7 @@ declare global {
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
         "z-divider": HTMLZDividerElement;
+        "z-dragdrop-area": HTMLZDragdropAreaElement;
         "z-file": HTMLZFileElement;
         "z-file-upload": HTMLZFileUploadElement;
         "z-footer": HTMLZFooterElement;
@@ -2477,6 +2486,12 @@ declare namespace LocalJSX {
           * [optional] Divider size
          */
         "size"?: DividerSize;
+    }
+    interface ZDragdropArea {
+        /**
+          * Emitted when user drop one or more files
+         */
+        "onFileDropped"?: (event: CustomEvent<any>) => void;
     }
     interface ZFile {
         /**
@@ -3865,6 +3880,7 @@ declare namespace LocalJSX {
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
         "z-divider": ZDivider;
+        "z-dragdrop-area": ZDragdropArea;
         "z-file": ZFile;
         "z-file-upload": ZFileUpload;
         "z-footer": ZFooter;
@@ -3960,6 +3976,7 @@ declare module "@stencil/core" {
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
+            "z-dragdrop-area": LocalJSX.ZDragdropArea & JSXBase.HTMLAttributes<HTMLZDragdropAreaElement>;
             "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
             "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
