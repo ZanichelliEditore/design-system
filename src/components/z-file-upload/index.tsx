@@ -6,6 +6,7 @@ import {
   Event,
   State,
   Listen,
+  Element,
 } from "@stencil/core";
 import {
   ButtonVariantEnum,
@@ -30,8 +31,14 @@ export class ZFileUpload {
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
   @Prop() acceptedFormat: string;
 
+  /** Prop indicating that component must be used with form action submit native behaviour.
+   *  Must be used together with file-input slot */
+  @Prop() native?: boolean = false;
+
   /** Number of files added by the user */
   @State() files: number = 0;
+
+  @Element() el: HTMLElement;
 
   /** Listen removeFile event sento from z-file component */
   @Listen("removeFile")
@@ -49,9 +56,21 @@ export class ZFileUpload {
   @Event() fileInput: EventEmitter;
   fileInputHandler() {
     if (this.input.files.length) {
-      this.fileInput.emit(this.input.files);
-      this.files += this.input.files.length;
-      this.input.value = "";
+      if (this.native) {
+        this.files = 0;
+        this.files = this.input.files.length;
+      } else {
+        this.fileInput.emit(this.input.files);
+        this.files += this.input.files.length;
+        this.input.value = "";
+      }
+    }
+  }
+
+  componentDidLoad() {
+    if (this.native && !this.input) {
+      this.input = this.el.querySelector('[slot="file-input"]');
+      this.input.addEventListener("change", () => this.fileInputHandler());
     }
   }
 
@@ -87,7 +106,13 @@ export class ZFileUpload {
             File appena caricati
           </z-heading>
           <div class="files">
-            <slot name="files" />
+            {this.native ? (
+              Array.from(this.input.files).map((item) => (
+                <z-file>{item.name}</z-file>
+              ))
+            ) : (
+              <slot name="files" />
+            )}
           </div>
           <z-divider size={DividerSize.medium} />
         </section>
@@ -97,14 +122,18 @@ export class ZFileUpload {
 
   renderUploadButtonOrUploadLink() {
     return [
-      <input
-        onChange={() => this.fileInputHandler()}
-        type="file"
-        id="fileElem"
-        multiple
-        accept={this.acceptedFormat}
-        ref={(val) => (this.input = val)}
-      />,
+      <slot name="file-input">
+        {!this.native && (
+          <input
+            onChange={() => this.fileInputHandler()}
+            type="file"
+            id="fileElem"
+            multiple
+            accept={this.acceptedFormat}
+            ref={(val) => (this.input = val)}
+          />
+        )}
+      </slot>,
       this.type == ZFileUploadTypeEnum.default ? (
         <z-button
           onClick={() => this.input.click()}

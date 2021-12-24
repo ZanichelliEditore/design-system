@@ -29,12 +29,15 @@
     </z-app-topbar>
     <div class="main-container">
         <div style="margin: 10px">
-            <z-file-upload type="dragdrop" accepted-format=".pdf, .doc, .tiff, .png, .jpg" variant="primary">
-                <span slot="title">Allega un file</span>
-                <span slot="description">Vuoi allegare un file per chiarire meglio la tua richiesta?</span>
-                <span slot="file-format">Puoi allegare file nei formati PDF, PNG, JPG, TIFF, DOC, per un
-                    massimo di 50Mb di peso.</span>
-            </z-file-upload>
+            <!-- <form action="https://api-catalogo.zanichelli.local/v3/file-upload" enctype="multipart/form-data" method="POST"> -->
+                <z-file-upload type="default" accepted-format=".pdf, .doc, .tiff, .png, .jpg" variant="primary">
+                    <span slot="title">Allega un file</span>
+                    <span slot="description">Vuoi allegare un file per chiarire meglio la tua richiesta?</span>
+                    <span slot="file-format">Puoi allegare file nei formati PDF, PNG, JPG, TIFF, DOC, per un
+                        massimo di 50Mb di peso.</span>
+                </z-file-upload>
+                <!-- <input type="submit" value="INVIA"> -->
+           <!--  </form> -->
         </div>
     </div>
     <z-footer copyrightuser='Zanichelli' data='{

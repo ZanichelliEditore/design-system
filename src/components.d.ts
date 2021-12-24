@@ -314,6 +314,10 @@ export namespace Components {
          */
         "acceptedFormat": string;
         /**
+          * Prop indicating that component must be used with form action submit native behaviour. Must be used together with file-input slot
+         */
+        "native"?: boolean;
+        /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type": ZFileUploadTypeEnum;
@@ -2504,6 +2508,10 @@ declare namespace LocalJSX {
           * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
          */
         "acceptedFormat"?: string;
+        /**
+          * Prop indicating that component must be used with form action submit native behaviour. Must be used together with file-input slot
+         */
+        "native"?: boolean;
         /**
           * Emitted when user select one or more files
          */

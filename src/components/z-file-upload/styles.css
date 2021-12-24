@@ -35,7 +35,6 @@ input#fileElem {
 :host > .container > z-button {
   display: inline-block;
   margin-top: calc(var(--space-unit) * 3);
-  width: 100%;
 }
 
 :host > .container > .files-container > z-heading {
@@ -55,8 +54,8 @@ input#fileElem {
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-  :host > .container > z-button {
-    width: unset;
+  :host > .container {
+    align-items: flex-start;
   }
 }
 
