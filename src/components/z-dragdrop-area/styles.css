@@ -33,7 +33,8 @@
 
 :host > .dragdrop.dragover .dragover-message {
   display: flex;
-  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Tablet breakpoint */
