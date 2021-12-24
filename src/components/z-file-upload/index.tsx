@@ -39,6 +39,12 @@ export class ZFileUpload {
     this.files--;
   }
 
+  @Listen("fileDropped")
+  fileDroppedListener(e: CustomEvent) {
+    this.input.files = e.detail;
+    this.fileInputHandler();
+  }
+
   /** Emitted when user select one or more files */
   @Event() fileInput: EventEmitter;
   fileInputHandler() {
@@ -51,15 +57,15 @@ export class ZFileUpload {
 
   renderTitle() {
     return (
-      <z-heading id="title" variant="semibold" level={1}>
+      <z-heading id="title" variant="semibold" level={2}>
         <slot name="title"></slot>
       </z-heading>
     );
   }
 
-  renderDescription() {
+  renderDescription(variant, level) {
     return (
-      <z-body variant="semibold" level={3}>
+      <z-body variant={variant} level={level}>
         <slot name="description"></slot>
       </z-body>
     );
@@ -109,8 +115,17 @@ export class ZFileUpload {
           Allega
         </z-button>
       ) : (
-        <z-body onClick={() => this.input.click()} variant="semibold" level={3}>
-          Trascinalo qui o <strong>caricalo</strong> dal tuo computer
+        <z-body variant="regular" level={1}>
+          Trascinalo qui o{" "}
+          <z-body
+            class="upload-link"
+            onClick={() => this.input.click()}
+            variant="semibold"
+            level={1}
+          >
+            caricalo
+          </z-body>{" "}
+          dal tuo computer
         </z-body>
       ),
     ];
@@ -121,7 +136,7 @@ export class ZFileUpload {
       return this.type == ZFileUploadTypeEnum.default ? (
         <div class="container">
           {this.renderTitle()}
-          {this.renderDescription()}
+          {this.renderDescription("semibold", 3)}
           {this.renderAllowedFileExtensions()}
           {this.renderFileSection()}
           {this.renderUploadButtonOrUploadLink()}
@@ -129,26 +144,14 @@ export class ZFileUpload {
       ) : (
         <div class="container">
           {this.renderTitle()}
-          <div
-            class="dragdrop"
-            onDragOver={(e) => {
-              e.preventDefault();
-            }}
-            onDragLeave={() => {}}
-            onDragEnd={() => {}}
-            onDrop={(e) => {
-              e.preventDefault();
-              if (e.dataTransfer.files.length) {
-                this.input.files = e.dataTransfer.files;
-                this.fileInputHandler();
-              }
-            }}
-          >
-            {this.renderFileSection()}
-            {this.renderDescription()}
-            {this.renderUploadButtonOrUploadLink()}
-            {this.renderAllowedFileExtensions()}
-          </div>
+          {this.renderFileSection()}
+          <z-dragdrop-area>
+            <div class="text-container">
+              {this.renderDescription("regular", 1)}
+              {this.renderUploadButtonOrUploadLink()}
+              {this.renderAllowedFileExtensions()}
+            </div>
+          </z-dragdrop-area>
         </div>
       );
     }
