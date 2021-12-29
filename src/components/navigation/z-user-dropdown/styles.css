@@ -16,6 +16,7 @@ button {
   border: none;
   padding: 0;
   letter-spacing: 0.16px;
+  white-space: nowrap;
 }
 
 button.inverse {
@@ -103,7 +104,6 @@ ul > li:last-child {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  white-space: nowrap;
   outline: none;
   fill: currentColor;
   height: 32px;
@@ -122,7 +122,6 @@ ul > li:last-child {
 
 .userfullname {
   padding: 0;
-  white-space: nowrap;
   overflow: hidden;
   max-width: 250px;
   text-overflow: ellipsis;

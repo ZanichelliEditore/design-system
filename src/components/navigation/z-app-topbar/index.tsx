@@ -1,6 +1,6 @@
-import { Component, Prop, Element, h, State, Listen } from "@stencil/core";
-import { HostElement } from "@stencil/core/internal";
-import { ThemeVariant, ThemeVariantBean } from "../../../beans";
+import { Component, Prop, h, State, Listen } from "@stencil/core";
+import { Host } from "@stencil/core/internal";
+import { DividerOrientation, MenuItem, ThemeVariant } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
 @Component({
@@ -10,67 +10,73 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
 })
 export class ZAppTopbar {
   /** theme variant, default 'dark' */
-  @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
-  /** logged status flag */
-  @Prop() logged?: boolean;
-  /** optional hashtag string*/
-  @Prop() hashtag?: string;
+  @Prop() theme?: ThemeVariant = ThemeVariant.dark;
+  /** maximum width of topbar content */
+  @Prop() contentmaxwidth?: number;
+  /** Json stringified or array to fill topbar links */
+  @Prop() topbarcontent?: string | MenuItem[];
+  /** the link used by z-logo */
+  @Prop() logolink?: string;
+  /** add app-switcher */
+  @Prop() showappswitcher: boolean = true;
 
-  @Element() hostElement: HostElement;
-
-  @State() zLinksValues: string[];
-  @State() isMobile: boolean;
+  @State() ismobile: boolean;
+  
+  private topbarlinks: MenuItem[] = [];
 
   @Listen("resize", { target: "window" })
   handleResize(): void {
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
-    this.toggleLinkLabels();
+    this.ismobile = window.innerWidth <= mobileBreakpoint;
   }
 
   @Listen("orientationchange", { target: "window" })
   handleOrientationChange(): void {
-    this.isMobile = screen.width <= mobileBreakpoint;
-    this.toggleLinkLabels();
+    this.ismobile = screen.width <= mobileBreakpoint;
   }
 
   componentWillLoad() {
-    this.zLinksValues = Array.from(this.hostElement.children)
-      .filter((child) => child.nodeName === "Z-LINK")
-      .map((link) => link.childNodes[0].nodeValue);
-    this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
-    this.toggleLinkLabels();
+    this.ismobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
   }
 
-  toggleLinkLabels() {
-    if (this.hostElement) {
-      const zLinks = Array.from(this.hostElement.children).filter(
-        (child) => child.nodeName === "Z-LINK"
-      );
-      if (this.isMobile) {
-        zLinks.forEach((link) => {
-          link.childNodes[0].nodeValue = "";
-        });
-      } else {
-        zLinks.forEach((link, i) => {
-          link.childNodes[0].nodeValue = this.zLinksValues[i];
-        });
-      }
+  componentWillRender() {
+    if (this.topbarcontent) {
+      this.topbarlinks = typeof this.topbarcontent === "string" ? JSON.parse(this.topbarcontent) : this.topbarcontent;
     }
+  }
+
+  renderTopbarLinks(className: string, showIcons: boolean, showLabels: boolean) {
+    return this.topbarlinks.map((link) =>
+      <z-link
+        htmlid={link.id}
+        textcolor={this.theme === ThemeVariant.light ? "black" :"white" }
+        href={link.link}
+        target={link.target}
+        icon={showIcons ? link.icon : undefined}
+        class={className}
+      >
+        {showLabels && link.label}
+      </z-link>
+    )
   }
 
   render() {
     return (
-      <div class={this.theme}>
-        <div class="left">
-          <slot name="logo"></slot>
-          {this.hashtag && <span id="hashtag">{this.hashtag.replace(/\s/g, '')}</span>}
+      <Host class={`${this.theme} ${this.contentmaxwidth ? "limited-width" : ""}`}>
+        <div id="content-container" class={`${this.contentmaxwidth ? "limited-width" : ""}`} style={this.contentmaxwidth ? { "--mw": `${this.contentmaxwidth}px` } : {}}>
+          <div id="left-panel">
+            <z-logo width={this.ismobile ? 31 : 128} height={this.ismobile ? 40 : 32} imagealt="zanichelli-logo" link={this.logolink} targetblank />
+            {this.renderTopbarLinks("left-action", true, false)}
+          </div>
+          <div id="right-panel">
+            {this.renderTopbarLinks("right-action", false, true)}
+            {this.showappswitcher && <z-app-switcher theme={this.theme} />}
+            <div id="divider-container">
+              <z-divider orientation={DividerOrientation.vertical} color={this.theme === ThemeVariant.light ? "gray800" : "color-white"} />
+            </div>
+            <slot name="login"></slot>
+          </div>
         </div>
-        <div class={`right ${this.logged && this.isMobile && "hide-actions"}`}>
-          <slot name="actions"></slot>
-          <slot name="login"></slot>
-          <slot name="app-switcher"></slot>
-        </div>
-      </div>
+      </Host>
     );
   }
 }
