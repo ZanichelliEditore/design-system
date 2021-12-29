@@ -20,12 +20,6 @@
   font-weight: var(--font-rg);
 }
 
-:host([active]) .menu-label-content,
-:host([open]) .menu-label-content,
-.menu-label:hover .menu-label-content {
-  border-color: var(--color-secondary01);
-}
-
 .menu-label {
   margin: 0;
   padding: 0;
@@ -41,16 +35,27 @@ button.menu-label {
   cursor: pointer;
 }
 
+.menu-label:focus-within {
+  z-index: 1;
+  box-shadow: var(--shadow-focus-primary);
+  margin-right: calc(var(--space-unit) * -0.5);
+  margin-left: calc(var(--space-unit) * -0.5);
+  padding-right: calc(var(--space-unit) * 0.5);
+  padding-left: calc(var(--space-unit) * 0.5);
+}
+
 .menu-label .menu-label-content {
   display: flex;
   align-items: center;
-  padding: var(--space-unit) calc(var(--space-unit) / 2) var(--space-unit);
+  padding: var(--space-unit) 0;
   border-bottom: var(--border-size-large) solid var(--color-surface05);
 }
 
-.menu-label:focus-within {
-  box-shadow: var(--shadow-focus-primary);
-  z-index: 1;
+:host([active]) .menu-label-content,
+:host([open]) .menu-label-content,
+.menu-label:hover .menu-label-content,
+.menu-label:focus-within .menu-label-content {
+  border-color: var(--color-secondary01);
 }
 
 .menu-label ::slotted(*) {
@@ -68,7 +73,6 @@ button.menu-label {
 }
 
 .content {
-  padding: var(--space-unit) 0;
   background: var(--color-surface01);
 }
 
@@ -108,7 +112,7 @@ button.menu-label {
 
 .header ::slotted([slot='header']:not(:first-child)) {
   margin: auto 0;
-  margin-left: calc(var(--space-unit) / 2 * 3);
+  margin-left: calc(var(--space-unit) * 2.5);
   font-weight: var(--font-sb);
   font-size: var(--font-size-3);
   line-height: 1.5;
@@ -135,7 +139,7 @@ button.menu-label {
 }
 
 .items > ::slotted([slot='item']:not(z-menu-section)) {
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);
   border-bottom: var(--border-size-small) solid var(--color-surface05);
 }
 

@@ -102,7 +102,7 @@ export class ZLogo {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "link target (optional)"
+        "text": "link target: true means _blank, false means _self"
       },
       "attribute": "targetblank",
       "reflect": false

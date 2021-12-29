@@ -1784,7 +1784,7 @@ const ZLogo = class {
 };
 ZLogo.style = stylesCss$B;
 
-const stylesCss$A = ":host,::slotted(*),*{box-sizing:border-box}:host{display:inline-flex;flex-direction:column;position:relative}::slotted(a){color:var(--color-text01);text-decoration:none}::slotted(*){font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host([active]) .menu-label-content,:host([open]) .menu-label-content,.menu-label:hover .menu-label-content{border-color:var(--color-secondary01)}.menu-label{margin:0;padding:0;color:inherit;background:transparent;border:0;border-radius:0;outline:none;text-align:left}button.menu-label{cursor:pointer}.menu-label .menu-label-content{display:flex;align-items:center;padding:var(--space-unit) calc(var(--space-unit) / 2) var(--space-unit);border-bottom:var(--border-size-large) solid var(--color-surface05)}.menu-label:focus-within{box-shadow:var(--shadow-focus-primary);z-index:1}.menu-label ::slotted(*){width:100%;margin:0;appearance:none;font-size:var(--font-size-5);line-height:1.2;outline:none}.menu-label z-icon{margin-left:calc(var(--space-unit) * 4);fill:currentColor}.content{padding:var(--space-unit) 0;background:var(--color-surface01)}.content[hidden]{display:none}:host([floating]) .content{width:375px;max-width:100vw;padding:var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2)}:host(:not([floating])) .content{width:100%}:host([floating]) .content{position:absolute;top:100%;left:0;box-shadow:var(--shadow-2);min-width:100%}.header{display:flex;align-items:center;padding:var(--space-unit) 0 calc(var(--space-unit) * 2)}.header ::slotted(img[slot='header']){width:calc(var(--space-unit) * 11.25);object-fit:contain;height:auto}.header ::slotted([slot='header']:not(:first-child)){margin:auto 0;margin-left:calc(var(--space-unit) / 2 * 3);font-weight:var(--font-sb);font-size:var(--font-size-3);line-height:1.5}.items{display:flex;flex-direction:column;align-items:flex-start;background:inherit}.items>::slotted([slot='item']){display:inline-flex;width:100%;margin:0;font-size:var(--font-size-3);line-height:1.25;outline:none}.items>::slotted([slot='item']:focus:focus-visible){box-shadow:var(--shadow-focus-primary)}.items>::slotted([slot='item']:not(z-menu-section)){padding:calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);border-bottom:var(--border-size-small) solid var(--color-surface05)}.items>::slotted([slot='item']:hover),.items>::slotted([slot='item']:active){border-color:var(--color-secondary01)}";
+const stylesCss$A = ":host,::slotted(*),*{box-sizing:border-box}:host{display:inline-flex;flex-direction:column;position:relative}::slotted(a){color:var(--color-text01);text-decoration:none}::slotted(*){font-family:var(--font-family-sans);font-weight:var(--font-rg)}.menu-label{margin:0;padding:0;color:inherit;background:transparent;border:0;border-radius:0;outline:none;text-align:left}button.menu-label{cursor:pointer}.menu-label:focus-within{z-index:1;box-shadow:var(--shadow-focus-primary);margin-right:calc(var(--space-unit) * -0.5);margin-left:calc(var(--space-unit) * -0.5);padding-right:calc(var(--space-unit) * 0.5);padding-left:calc(var(--space-unit) * 0.5)}.menu-label .menu-label-content{display:flex;align-items:center;padding:var(--space-unit) 0;border-bottom:var(--border-size-large) solid var(--color-surface05)}:host([active]) .menu-label-content,:host([open]) .menu-label-content,.menu-label:hover .menu-label-content,.menu-label:focus-within .menu-label-content{border-color:var(--color-secondary01)}.menu-label ::slotted(*){width:100%;margin:0;appearance:none;font-size:var(--font-size-5);line-height:1.2;outline:none}.menu-label z-icon{margin-left:calc(var(--space-unit) * 4);fill:currentColor}.content{background:var(--color-surface01)}.content[hidden]{display:none}:host([floating]) .content{width:375px;max-width:100vw;padding:var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2)}:host(:not([floating])) .content{width:100%}:host([floating]) .content{position:absolute;top:100%;left:0;box-shadow:var(--shadow-2);min-width:100%}.header{display:flex;align-items:center;padding:var(--space-unit) 0 calc(var(--space-unit) * 2)}.header ::slotted(img[slot='header']){width:calc(var(--space-unit) * 11.25);object-fit:contain;height:auto}.header ::slotted([slot='header']:not(:first-child)){margin:auto 0;margin-left:calc(var(--space-unit) * 2.5);font-weight:var(--font-sb);font-size:var(--font-size-3);line-height:1.5}.items{display:flex;flex-direction:column;align-items:flex-start;background:inherit}.items>::slotted([slot='item']){display:inline-flex;width:100%;margin:0;font-size:var(--font-size-3);line-height:1.25;outline:none}.items>::slotted([slot='item']:focus:focus-visible){box-shadow:var(--shadow-focus-primary)}.items>::slotted([slot='item']:not(z-menu-section)){padding:calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);border-bottom:var(--border-size-small) solid var(--color-surface05)}.items>::slotted([slot='item']:hover),.items>::slotted([slot='item']:active){border-color:var(--color-secondary01)}";
 
 const ZMenu = class {
   constructor(hostRef) {
@@ -1937,7 +1937,7 @@ const ZMenuDropdown = class {
 };
 ZMenuDropdown.style = stylesCss$z;
 
-const stylesCss$y = ":host{display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0;font-family:var(--font-family-sans)}:host,::slotted(*),*{box-sizing:border-box}::slotted(a){text-decoration:none}::slotted(*){font-family:var(--font-family-sans);font-weight:var(--font-rg);color:var(--color-text01)}:host([active]) .label,:host([open]) .label,.label:hover{border-color:var(--color-secondary01)}.label{display:flex;align-items:center;width:100%;margin:0;padding:calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);text-align:left;background:transparent;border-radius:0;border:0;border-bottom:var(--border-size-small) solid var(--color-surface05);cursor:pointer}.label ::slotted(*){width:100%;margin:0;font-size:var(--font-size-3);line-height:1.25}.label:focus:focus-visible{outline:none;box-shadow:var(--shadow-focus-primary)}.label z-icon{margin-left:calc(var(--space-unit) * 4);fill:currentColor}.items{display:flex;flex-direction:column;width:100%;padding:calc(var(--space-unit) / 2) 0 calc(var(--space-unit) / 2 * 3)}.items>::slotted([slot='item']){display:inline-flex;margin:0;padding:calc(var(--space-unit) / 2) calc(var(--space-unit) / 2);font-size:var(--font-size-2);line-height:1.4;outline:none}.items>::slotted([slot='item']:focus:focus-visible){box-shadow:var(--shadow-focus-primary)}.items>::slotted([slot='item']:hover){color:var(--color-secondary01)}";
+const stylesCss$y = ":host{display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0;font-family:var(--font-family-sans)}:host,::slotted(*),*{box-sizing:border-box}::slotted(a){text-decoration:none}::slotted(*){font-family:var(--font-family-sans);font-weight:var(--font-rg);color:var(--color-text01)}:host([active]) .label,:host([open]) .label,.label:hover{border-color:var(--color-secondary01)}.label{display:flex;align-items:center;width:100%;margin:0;padding:calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);text-align:left;background:transparent;border-radius:0;border:0;border-bottom:var(--border-size-small) solid var(--color-surface05);cursor:pointer}.label ::slotted(*){width:100%;margin:0;font-size:var(--font-size-3);line-height:1.25}.label:focus:focus-visible{outline:none;box-shadow:var(--shadow-focus-primary)}.label z-icon{margin-left:calc(var(--space-unit) * 4);fill:currentColor}.items{display:flex;flex-direction:column;width:100%;padding:calc(var(--space-unit) * 0.5);padding-bottom:calc(var(--space-unit) * 2)}.items>::slotted([slot='item']){display:inline-flex;margin:0;padding:calc(var(--space-unit) * 0.5);font-size:var(--font-size-2);line-height:1.4;outline:none}.items>::slotted([slot='item']:last-child){padding-bottom:0}.items>::slotted([slot='item']:focus:focus-visible){box-shadow:var(--shadow-focus-primary);color:var(--color-secondary01)}.items>::slotted([slot='item']:hover){color:var(--color-secondary01)}";
 
 const ZMenuSection = class {
   constructor(hostRef) {
@@ -3525,91 +3525,89 @@ const ZTypography = class {
 };
 ZTypography.style = stylesCss$1;
 
-const stylesCss = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{cursor:pointer;display:flex;margin:0;background:var(--bg-grey-900);border:none;font-size:calc(var(--space-unit) * 2);padding:calc(var(--space-unit) - 2px) 0}button>z-icon{padding:0 2px;fill:var(--bg-white)}button>span{padding:0 6px;color:var(--text-white);font-weight:var(--font-sb);line-height:19px}button.light{background:var(--bg-white)}button.light>z-icon{fill:var(--bg-grey-900)}button.light>span{color:var(--bg-grey-900)}button>.userfullname{display:none}ul{position:absolute;left:0;padding:var(--space-unit)  0 0 0;width:100%;margin:0;background:var(--bg-grey-900)}ul.light{background:var(--bg-white)}ul>li{display:flex;justify-content:flex-end;padding:var(--space-unit);margin:0 var(--space-unit);border-bottom:var(--border-base) solid var(--bg-grey-700)}ul>li:first-child{border-top:var(--border-base) solid var(--bg-grey-700)}ul>li:last-child{border-bottom:none}@media only screen and (min-width: 768px){:host{height:calc(var(--space-unit) * 4)}:host>div{position:relative}:host>div>div{padding:0}:host>div>div.open{display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:flex-end;align-content:stretch;width:min-content;position:absolute;right:calc(var(--space-unit) * -1);box-shadow:0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);background:var(--bg-white);border-radius:calc(var(--space-unit) * .5);padding:calc(var(--space-unit) * .5) var(--space-unit);transform:translate(0, -4px)}button{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-end;align-items:end;align-content:center;max-width:200px}button>span{padding:0 var(--space-unit)}button.open{background-color:var(--bg-white);border-top:var(--border-size-small) solid var(--bg-white);border-top-left-radius:calc(var(--space-unit) * .5);border-top-right-radius:calc(var(--space-unit) * .5);max-width:initial}button>.userfullname{display:initial;white-space:nowrap;overflow:hidden;max-width:250px;text-overflow:ellipsis}button.open>z-icon{fill:var(--gray900)}button.open>span{color:var(--gray900)}ul{position:initial;left:initial;padding:0;margin-top:0;width:100%;background-color:var(--bg-white);border-bottom:var(--border-size-small) solid var(--bg-white);border-bottom-left-radius:var(--border-radius-base);border-bottom-right-radius:var(--border-radius-base)}ul>li{color:var(--gray900);border-bottom:var(--border-base) solid rgb(202, 204, 206);padding:calc(var(--space-unit) * .5);margin:unset}ul>li>*{width:max-content}ul>li:first-child{border-top:none}ul>li:last-child{border-bottom:none}}@media only screen and (min-width: 1152px){button{max-width:initial}}";
+const stylesCss = ":host{background-color:var(--bg-grey-900)}:host(.inverse){background-color:var(--bg-white)}button{cursor:pointer;display:flex;flex-direction:column;width:100%;margin:0;background-color:var(--bg-grey-900);border:none;padding:0;letter-spacing:0.16px}button.inverse{background-color:var(--bg-white)}button div.firstline{display:flex;justify-content:flex-end;align-items:center;max-width:200px}button.open div.firstline{max-width:none}z-icon{padding:0 2px;fill:var(--text-white)}z-icon.inverse{fill:var(--bg-grey-900)}ul{position:absolute;left:0;padding:calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);width:100%;margin:calc(var(--space-unit) * 1.5) 0 0 0;background-color:var(--bg-grey-900);font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:20px;letter-spacing:0.3px}ul.inverse{background-color:var(--bg-white)}ul>li{display:flex;justify-content:flex-end;padding:calc(var(--space-unit) * 1.5 - 1px) 0;margin:0 calc(var(--space-unit) * 4) 0 0;border-bottom:var(--border-base) solid var(--bg-grey-700)}ul>li.inverse{border-bottom-color:var(--gray400)}ul>li:first-child{border-top:none;padding-top:0;flex-direction:column;align-items:end}ul>li:last-child{border-bottom:none;margin-bottom:0}#guestbutton{box-sizing:border-box;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);vertical-align:middle;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;fill:currentColor;height:32px;min-width:32px;padding:0 calc(var(--space-unit) * 2);background-color:var(--bg-white);border-color:var(--bg-white);color:var(--text-grey-800)}#guestbutton.inverse{background-color:var(--bg-grey-800);border-color:var(--bg-grey-800);color:var(--text-white)}.userfullname{padding:0;white-space:nowrap;overflow:hidden;max-width:250px;text-overflow:ellipsis;color:var(--text-white);font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:16px;line-height:24px;letter-spacing:0}.userfullname.inverse{color:var(--text-grey-800)}.useremail{color:var(--text-white);font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:12px;line-height:16px;letter-spacing:0.32px}.useremail.inverse{color:var(--text-grey-800)}@media only screen and (min-width: 768px){:host{height:calc(var(--space-unit) * 4);background-color:var(--bg-grey-900)}:host(.inverse){background-color:var(--bg-white)}:host>div{position:relative;top:50%;transform:translateY(-50%)}:host>div.open{top:auto;transform:none}:host>div>div{padding:0}:host>div>div.open{position:absolute;right:calc(var(--space-unit) * -1);box-shadow:0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);background-color:var(--bg-white);margin-top:calc(var(--space-unit) / 2);padding:calc(var(--space-unit) / 2 + 1px) var(--space-unit) 0 var(--space-unit);transform:translate(0, -4px)}:host>div>div.inverse.open{background-color:var(--bg-grey-800)}button{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-end;align-items:end;align-content:center}button.open{background-color:var(--bg-white);border-top:var(--border-size-small) solid var(--bg-white);border-top-left-radius:calc(var(--space-unit) * .5);border-top-right-radius:calc(var(--space-unit) * .5);max-width:initial;margin-left:var(--space-unit);padding-right:var(--space-unit);padding-bottom:calc(var(--space-unit) * 2)}button.open.inverse{border-top-color:var(--bg-grey-800);background-color:var(--bg-grey-800)}button:not(.open) z-icon{fill:var(--text-white)}button:not(.open) z-icon.inverse{fill:var(--text-grey-800)}button.open z-icon{fill:var(--text-grey-800)}button.open z-icon.inverse{fill:var(--text-white)}.userfullname{font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:20px;letter-spacing:0.16px;padding:0 calc(var(--space-unit) - 2px)}.userfullname.inverse{color:var(--text-grey-800)}button.open div.userfullname{color:var(--text-grey-800);max-width:none;text-overflow:clip}button.open div.userfullname.inverse{color:var(--text-white)}.useremail{margin-right:calc(var(--space-unit) * 3 + 2px);text-align:end}button.open div.useremail{color:var(--text-grey-800)}button.open div.useremail.inverse{color:var(--text-white)}ul{position:initial;left:initial;padding:0;margin-top:0;width:100%;background-color:var(--bg-white);border-bottom:var(--border-size-small) solid var(--bg-white);border-bottom-left-radius:var(--border-radius-base);border-bottom-right-radius:var(--border-radius-base)}ul.inverse{border-bottom-color:var(--bg-grey-800);background-color:var(--bg-grey-800)}ul>li{color:var(--text-grey-800);border-bottom:var(--border-base) solid var(--gray400);margin:0 var(--space-unit)}ul>li.inverse{color:var(--text-white)}ul>li:first-child{border-top:var(--border-base) solid var(--gray400);padding-top:calc(var(--space-unit) + 3px)}}";
 
 const ZUserDropdown = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.userButtonClick = index.createEvent(this, "userButtonClick", 7);
     this.dropdownMenuLinkClick = index.createEvent(this, "dropdownMenuLinkClick", 7);
-    /** theme variant, default 'dark' */
-    this.theme = index$1.ThemeVariant.dark;
+    /** if inner components colors are inverted, or not, default false */
+    this.useinversecolors = false;
     this.ismenuopen = false;
-    this.handleToggle = this.handleToggle.bind(this);
+    this.handleLoggedButtonClick = this.handleLoggedButtonClick.bind(this);
     this.emitDropdownMenuLinkClick = this.emitDropdownMenuLinkClick.bind(this);
   }
-  componentWillLoad() {
-    this.setMobileAndGhostDivWidth();
-  }
   componentDidLoad() {
-    this.setMobileAndGhostDivWidth();
+    this.setMobileAndDivToResizeWidth();
   }
   componentWillUpdate() {
-    this.setMobileAndGhostDivWidth();
+    this.setMobileAndDivToResizeWidth();
   }
   componentWillRender() {
-    this.linkarray =
-      typeof this.menucontent === "string"
-        ? JSON.parse(this.menucontent)
-        : this.menucontent;
+    if (this.menucontent) {
+      this.linkarray = typeof this.menucontent === "string" ? JSON.parse(this.menucontent) : this.menucontent;
+    }
   }
-  setMobileAndGhostDivWidth() {
+  setMobileAndDivToResizeWidth() {
     var _a;
-    this.isMobile =
-      window.screen.width <= breakpoints.mobileBreakpoint ||
-        window.innerWidth <= breakpoints.mobileBreakpoint;
-    if (this.gosthDiv)
-      this.gosthDiv.style.width =
-        this.logged && !this.isMobile && this.ismenuopen
-          ? `${(_a = this.userButton) === null || _a === void 0 ? void 0 : _a.offsetWidth}px`
-          : "";
+    if (this.divtoresize) {
+      this.ismobile = window.screen.width <= breakpoints.mobileBreakpoint || window.innerWidth <= breakpoints.mobileBreakpoint;
+      if (this.logged && !this.ismobile && this.ismenuopen) {
+        this.divtoresize.style.width = `${(_a = this.userbutton) === null || _a === void 0 ? void 0 : _a.offsetWidth}px`;
+      }
+      else {
+        this.divtoresize.removeAttribute('style');
+      }
+    }
   }
   emitUserButtonClick() {
     this.userButtonClick.emit(this.ismenuopen);
   }
   emitDropdownMenuLinkClick(e) {
+    this.ismenuopen = false;
     this.dropdownMenuLinkClick.emit({ e, linkId: e.detail.linkId });
   }
   handleResize() {
-    this.isMobile = window.innerWidth <= breakpoints.mobileBreakpoint;
+    this.ismobile = window.innerWidth <= breakpoints.mobileBreakpoint;
   }
   handleOrientationChange() {
-    this.isMobile = screen.width <= breakpoints.mobileBreakpoint;
+    this.ismobile = screen.width <= breakpoints.mobileBreakpoint;
   }
   handleClickOutside(e) {
     if (e.target.nodeName !== "Z-USER-DROPDOWN") {
       this.ismenuopen = false;
     }
   }
-  handleToggle() {
+  handleLoggedButtonClick() {
     this.ismenuopen = !this.ismenuopen;
     this.emitUserButtonClick();
   }
-  renderCaretIcon() {
-    const direction = this.ismenuopen ? "up" : "down";
-    return (index.h("z-icon", { name: `caret-${direction}-filled`, height: 18, width: 18 }));
-  }
   renderGuestButton() {
-    return (index.h("z-link", { onClick: () => this.emitUserButtonClick(), big: true, icon: "enter", textcolor: this.theme === index$1.ThemeVariant.light ? "black" : "white" }, "Entra"));
+    return (index.h("button", { id: "guestbutton", class: this.useinversecolors ? "inverse" : "", onClick: () => this.emitUserButtonClick() }, "ENTRA"));
   }
   renderLoggedButton() {
-    return (index.h("button", { ref: (el) => (this.userButton = el), title: this.userfullname, class: `${this.ismenuopen ? "open" : ""} ${this.theme}`, onClick: () => this.handleToggle() }, index.h("z-icon", { name: "user-avatar-filled", height: 18, width: 18 }), index.h("span", { class: "userfullname" }, this.userfullname), this.renderCaretIcon()));
+    const direction = this.ismenuopen ? "up" : "down";
+    const colorClass = this.useinversecolors ? "inverse" : "";
+    return (index.h("button", { ref: (el) => (this.userbutton = el), title: this.userfullname, class: `${colorClass} ${this.ismenuopen ? "open" : ""}`, onClick: this.handleLoggedButtonClick }, index.h("div", null, index.h("div", { class: "firstline" }, index.h("z-icon", { class: colorClass, name: "user-avatar-filled", height: 16, width: 16 }), !this.ismobile && index.h("div", { class: `userfullname ${colorClass}` }, this.userfullname), index.h("z-icon", { class: colorClass, name: `caret-${direction}-filled`, height: 16, width: 16 })), !this.ismobile && this.ismenuopen && index.h("div", { class: `useremail ${colorClass}` }, this.useremail))));
   }
-  retrieveLiTextColor() {
-    if (this.theme === index$1.ThemeVariant.light)
-      return "black";
-    return this.isMobile ? "white" : "black";
-  }
-  renderGhostDiv() {
-    return index.h("div", { ref: (el) => (this.gosthDiv = el) });
+  getZLinkTextcolor() {
+    if (this.ismobile) {
+      return this.useinversecolors ? "black" : "white";
+    }
+    else {
+      return this.useinversecolors ? "white" : "black";
+    }
   }
   renderDropdownMenu() {
-    return (this.ismenuopen && (index.h("ul", { class: this.theme }, this.linkarray.map((link) => {
-      return (index.h("li", { id: link.id }, index.h("z-link", { textcolor: this.retrieveLiTextColor(), big: true, href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: this.emitDropdownMenuLinkClick }, link.label)));
-    }))));
+    const colorClass = this.useinversecolors ? "inverse" : "";
+    return (this.ismenuopen && (index.h("ul", { class: colorClass }, this.ismobile &&
+      index.h("li", { class: colorClass }, index.h("div", { class: `userfullname ${colorClass}` }, this.userfullname), index.h("div", { class: `useremail ${colorClass}` }, this.useremail)), this.linkarray && this.linkarray.map((link) => index.h("li", { id: link.id, class: colorClass }, index.h("z-link", { textcolor: this.getZLinkTextcolor(), href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: this.emitDropdownMenuLinkClick }, link.label))))));
   }
   render() {
-    return (index.h("div", null, this.logged && !this.isMobile && this.renderGhostDiv(), index.h("div", { class: `${this.logged && this.ismenuopen ? "open" : ""}` }, this.logged ? this.renderLoggedButton() : this.renderGuestButton(), this.logged && this.renderDropdownMenu())));
+    const openClass = `${this.logged && this.ismenuopen ? "open" : ""}`;
+    const colorClass = this.useinversecolors ? "inverse" : "";
+    return (index.h(index.Host, { class: colorClass }, index.h("div", { ref: (el) => (this.divtoresize = el), class: openClass, onClick: (e) => e.stopPropagation() }, index.h("div", { class: `${colorClass} ${openClass}` }, this.logged ? this.renderLoggedButton() : this.renderGuestButton(), this.logged && this.renderDropdownMenu()))));
   }
 };
 ZUserDropdown.style = stylesCss;

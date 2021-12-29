@@ -1,25 +1,26 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { MenuItem, ThemeVariantBean } from "../../../beans";
+import { MenuItem } from "../../../beans";
 export declare class ZUserDropdown {
   /** logged status flag */
   logged?: boolean;
   /** user full name */
   userfullname?: string;
+  /** user email */
+  useremail?: string;
   /** Json stringified or array to fill menu dropdown */
   menucontent?: string | MenuItem[];
-  /** theme variant, default 'dark' */
-  theme?: ThemeVariantBean;
+  /** if inner components colors are inverted, or not, default false */
+  useinversecolors?: boolean;
   ismenuopen: boolean;
-  isMobile: boolean;
+  ismobile: boolean;
   private linkarray;
-  private userButton;
-  private gosthDiv;
+  private userbutton;
+  private divtoresize;
   constructor();
-  componentWillLoad(): void;
   componentDidLoad(): void;
   componentWillUpdate(): void;
   componentWillRender(): void;
-  setMobileAndGhostDivWidth(): void;
+  setMobileAndDivToResizeWidth(): void;
   /** Emitted on enter or user Button click, returns ismenuopen (bool) */
   userButtonClick: EventEmitter;
   emitUserButtonClick(): void;
@@ -29,12 +30,10 @@ export declare class ZUserDropdown {
   handleResize(): void;
   handleOrientationChange(): void;
   handleClickOutside(e: MouseEvent): void;
-  handleToggle(): void;
-  renderCaretIcon(): any;
+  handleLoggedButtonClick(): void;
   renderGuestButton(): any;
   renderLoggedButton(): any;
-  retrieveLiTextColor(): "white" | "black";
-  renderGhostDiv(): any;
+  getZLinkTextcolor(): "white" | "black";
   renderDropdownMenu(): any;
   render(): any;
 }

@@ -7,7 +7,7 @@ export declare class ZLogo {
   imagealt?: string;
   /** link url (optional) */
   link?: string;
-  /** link target (optional) */
+  /** link target: true means _blank, false means _self */
   targetblank?: boolean;
   render(): any;
 }
