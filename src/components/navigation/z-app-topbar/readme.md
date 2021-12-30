@@ -11,7 +11,7 @@
 | ----------------- | ----------------- | ---------------------------------------------- | ----------------------------------------- | ------------------- |
 | `contentmaxwidth` | `contentmaxwidth` | maximum width of topbar content                | `number`                                  | `undefined`         |
 | `logolink`        | `logolink`        | the link used by z-logo                        | `string`                                  | `undefined`         |
-| `showappswitcher` | `showappswitcher` | add app-switcher                               | `boolean`                                 | `true`              |
+| `showappswitcher` | `showappswitcher` | add app-switcher                               | `boolean`                                 | `undefined`         |
 | `theme`           | `theme`           | theme variant, default 'dark'                  | `ThemeVariant.dark \| ThemeVariant.light` | `ThemeVariant.dark` |
 | `topbarcontent`   | `topbarcontent`   | Json stringified or array to fill topbar links | `MenuItem[] \| string`                    | `undefined`         |
 

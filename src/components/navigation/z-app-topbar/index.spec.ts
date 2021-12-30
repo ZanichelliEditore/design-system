@@ -18,7 +18,6 @@ describe("Suite test ZAppTopbar", () => {
               <z-logo height="32" imagealt="zanichelli-logo" targetblank="" width="128"></z-logo>
             </div>
             <div id="right-panel">
-              <z-app-switcher theme="dark"></z-app-switcher>
               <div id="divider-container">
                 <z-divider color="color-white" orientation="vertical"></z-divider>
               </div>
@@ -44,7 +43,6 @@ describe("Suite test ZAppTopbar", () => {
               <z-logo height="32" imagealt="zanichelli-logo" targetblank="" width="128"></z-logo>
             </div>
             <div id="right-panel">
-              <z-app-switcher theme="dark"></z-app-switcher>
               <div id="divider-container">
                 <z-divider color="color-white" orientation="vertical"></z-divider>
               </div>
@@ -56,20 +54,30 @@ describe("Suite test ZAppTopbar", () => {
     `);
   });
 
-  it("Test render light ZAppTopbar with logolink set and without app switcher", async () => {
+  it("Test render light ZAppTopbar with logolink set and with app switcher", async () => {
     const page = await newSpecPage({
       components: [ZAppTopbar],
-      html: `<z-app-topbar theme="light" logolink="https://www.zanichelli.it" showappswitcher=false></z-app-topbar>`,
+      html: `<z-app-topbar
+              theme="light"
+              logolink="https://www.zanichelli.it"
+              showappswitcher=true
+            >
+            </z-app-topbar>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-topbar class="light" logolink="https://www.zanichelli.it" showappswitcher="false" theme="light">
+      <z-app-topbar
+        class="light" logolink="https://www.zanichelli.it"
+        showappswitcher="true"
+        theme="light"
+      >
         <mock:shadow-root>
           <div id="content-container">
             <div id="left-panel">
               <z-logo height="32" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank="" width="128"></z-logo>
             </div>
             <div id="right-panel">
+              <z-app-switcher theme="light"></z-app-switcher>
               <div id="divider-container">
                 <z-divider color="gray800" orientation="vertical"></z-divider>
               </div>
@@ -85,13 +93,14 @@ describe("Suite test ZAppTopbar", () => {
     const page = await newSpecPage({
       components: [ZAppTopbar],
       html: `<z-app-topbar
-      topbarcontent='[{"id": "assistenza", "label": "Assistenza", "link": "https://assistenza.zanichelli.it", "icon": "support", "target": "_blank"}]'
-      >
-      <z-user-dropdown
-      slot="login"
-      logged=false
-      ></z-user-dropdown>
-      </z-app-topbar>`,
+              topbarcontent='[{"id": "assistenza", "label": "Assistenza", "link": "https://assistenza.zanichelli.it", "icon": "support", "target": "_blank"}]'
+            >
+              <z-user-dropdown
+                slot="login"
+                logged=false
+              >
+              </z-user-dropdown>
+            </z-app-topbar>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -110,7 +119,6 @@ describe("Suite test ZAppTopbar", () => {
               >
                 Assistenza
               </z-link>
-              <z-app-switcher theme="dark"></z-app-switcher>
               <div id="divider-container">
                 <z-divider color="color-white" orientation="vertical"></z-divider>
               </div>

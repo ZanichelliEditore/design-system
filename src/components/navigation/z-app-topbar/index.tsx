@@ -18,7 +18,7 @@ export class ZAppTopbar {
   /** the link used by z-logo */
   @Prop() logolink?: string;
   /** add app-switcher */
-  @Prop() showappswitcher: boolean = true;
+  @Prop() showappswitcher: boolean;
 
   @State() ismobile: boolean;
   
