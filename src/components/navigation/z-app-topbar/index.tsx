@@ -44,17 +44,16 @@ export class ZAppTopbar {
     }
   }
 
-  renderTopbarLinks(className: string, showIcons: boolean, showLabels: boolean) {
+  renderTopbarLinks() {
     return this.topbarlinks.map((link) =>
       <z-link
         htmlid={link.id}
         textcolor={this.theme === ThemeVariant.light ? "black" :"white" }
         href={link.link}
         target={link.target}
-        icon={showIcons ? link.icon : undefined}
-        class={className}
+        icon={this.ismobile ? link.icon : undefined}
       >
-        {showLabels && link.label}
+        {!this.ismobile && link.label}
       </z-link>
     )
   }
@@ -65,10 +64,10 @@ export class ZAppTopbar {
         <div id="content-container" class={`${this.contentmaxwidth ? "limited-width" : ""}`} style={this.contentmaxwidth ? { "--mw": `${this.contentmaxwidth}px` } : {}}>
           <div id="left-panel">
             <z-logo width={this.ismobile ? 31 : 128} height={this.ismobile ? 40 : 32} imagealt="zanichelli-logo" link={this.logolink} targetblank />
-            {this.renderTopbarLinks("left-action", true, false)}
+            {this.ismobile && this.renderTopbarLinks()}
           </div>
           <div id="right-panel">
-            {this.renderTopbarLinks("right-action", false, true)}
+            {!this.ismobile && this.renderTopbarLinks()}
             {this.showappswitcher && <z-app-switcher theme={this.theme} />}
             <div id="divider-container">
               <z-divider orientation={DividerOrientation.vertical} color={this.theme === ThemeVariant.light ? "gray800" : "color-white"} />

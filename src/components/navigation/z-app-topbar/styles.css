@@ -32,10 +32,6 @@
   align-items: center;
 }
 
-.right-action {
-  display: none;
-}
-
 #divider-container {
   display: none;
 }
@@ -56,14 +52,6 @@ z-logo {
 @media only screen and (min-width: 768px) {
   :host {
     padding: var(--space-unit) calc(var(--space-unit) * 2) var(--space-unit) var(--space-unit);
-  }
-
-  .left-action {
-    display: none;
-  }
-
-  .right-action {
-    display: block;
   }
 
   #divider-container {
