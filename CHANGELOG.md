@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.29.0](https://github.com/ZanichelliEditore/design-system/compare/v2.28.0...v2.29.0) (2021-12-29)
+
+
+### Features
+
+* support inverse coloring ([c5cba96](https://github.com/ZanichelliEditore/design-system/commit/c5cba9606ce1adc6b6992c5684311ddf0bee8ecb))
+
+
+### Bug Fixes
+
+* header, menu, menu-section spacings and sizes ([9feacb2](https://github.com/ZanichelliEditore/design-system/commit/9feacb2e0b88babb18f65fe933e875d7f8a8c449))
+* spacings and sizes ([391c20e](https://github.com/ZanichelliEditore/design-system/commit/391c20e48fed832eba06121634d404f42c132484))
+* stucked title typography ([da3f4cf](https://github.com/ZanichelliEditore/design-system/commit/da3f4cfdb040e790e725160fe04ea49a2a88c9b3))
+* subtitle padding without menu ([8224269](https://github.com/ZanichelliEditore/design-system/commit/82242697fa888fda43691c0eef769bec95041d45))
+
 ## [2.28.0](https://github.com/ZanichelliEditore/design-system/compare/v2.27.1...v2.28.0) (2021-12-17)
 
 

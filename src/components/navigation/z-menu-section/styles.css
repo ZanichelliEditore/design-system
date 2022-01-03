@@ -34,7 +34,7 @@
   align-items: center;
   width: 100%;
   margin: 0;
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);
   text-align: left;
   background: transparent;
   border-radius: 0;
@@ -64,20 +64,26 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: calc(var(--space-unit) / 2) 0 calc(var(--space-unit) / 2 * 3);
+  padding: calc(var(--space-unit) * 0.5);
+  padding-bottom: calc(var(--space-unit) * 2);
 }
 
 .items > ::slotted([slot='item']) {
   display: inline-flex;
   margin: 0;
-  padding: calc(var(--space-unit) / 2) calc(var(--space-unit) / 2);
+  padding: calc(var(--space-unit) * 0.5);
   font-size: var(--font-size-2);
   line-height: 1.4;
   outline: none;
 }
 
+.items > ::slotted([slot='item']:last-child) {
+  padding-bottom: 0;
+}
+
 .items > ::slotted([slot='item']:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
+  color: var(--color-secondary01);
 }
 
 .items > ::slotted([slot='item']:hover) {
