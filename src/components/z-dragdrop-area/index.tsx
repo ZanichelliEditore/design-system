@@ -16,8 +16,12 @@ export class ZDragdropArea {
 
   renderOnDragOverMessage() {
     return (
-      <div class="dragover-message">
-        <z-body>Rilascia il file in questa area per allegarlo</z-body>
+      <div class="dragover-container">
+        <div class="dragover-message">
+          <z-body variant="semibold" level={2}>
+            Rilascia il file in questa area per allegarlo
+          </z-body>
+        </div>
       </div>
     );
   }

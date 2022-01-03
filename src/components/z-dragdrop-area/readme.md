@@ -18,9 +18,15 @@
 
  - [z-file-upload](../z-file-upload)
 
+### Depends on
+
+- [z-body](../typography/z-body)
+
 ### Graph
 ```mermaid
 graph TD;
+  z-dragdrop-area --> z-body
+  z-body --> z-typography
   z-file-upload --> z-dragdrop-area
   style z-dragdrop-area fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -19,7 +19,7 @@
   background-color: var(--gray50);
 }
 
-:host > .dragdrop .dragover-message {
+:host > .dragdrop .dragover-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -31,7 +31,13 @@
   box-shadow: 0px 0px 2px 2px rgb(120, 181, 255);
 }
 
-:host > .dragdrop.dragover .dragover-message {
+:host > .dragdrop .dragover-container .dragover-message {
+  background-color: #1973e1;
+  color: white;
+  padding: 10px 28px;
+}
+
+:host > .dragdrop.dragover .dragover-container {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -21,6 +21,7 @@
 
 :host .text-container .upload-link {
   color: var(--blue500);
+  cursor: pointer;
 }
 
 input#fileElem {
@@ -54,8 +55,8 @@ input#fileElem {
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-  :host > .container {
-    align-items: flex-start;
+  :host > .container > z-button {
+    align-self: flex-start;
   }
 }
 

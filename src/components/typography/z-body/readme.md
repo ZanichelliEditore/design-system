@@ -17,6 +17,7 @@
 ### Used by
 
  - [z-combobox](../../inputs/z-combobox)
+ - [z-dragdrop-area](../../z-dragdrop-area)
  - [z-file-upload](../../z-file-upload)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-notification](../../notification/z-notification)
@@ -32,6 +33,7 @@
 graph TD;
   z-body --> z-typography
   z-combobox --> z-body
+  z-dragdrop-area --> z-body
   z-file-upload --> z-body
   z-modal-login --> z-body
   z-notification --> z-body

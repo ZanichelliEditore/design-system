@@ -42,6 +42,7 @@ graph TD;
   z-heading --> z-typography
   z-body --> z-typography
   z-button --> z-icon
+  z-dragdrop-area --> z-body
   style z-file-upload fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

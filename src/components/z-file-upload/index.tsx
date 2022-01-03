@@ -31,21 +31,18 @@ export class ZFileUpload {
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
   @Prop() acceptedFormat: string;
 
-  /** Prop indicating that component must be used with form action submit native behaviour.
-   *  Must be used together with file-input slot */
-  @Prop() native?: boolean = false;
-
   /** Number of files added by the user */
   @State() files: number = 0;
 
   @Element() el: HTMLElement;
 
-  /** Listen removeFile event sento from z-file component */
+  /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
   removeFileListener() {
     this.files--;
   }
 
+  /** Listen fileDropped event sent from z-dragdrop-area component */
   @Listen("fileDropped")
   fileDroppedListener(e: CustomEvent) {
     this.input.files = e.detail;
@@ -56,21 +53,9 @@ export class ZFileUpload {
   @Event() fileInput: EventEmitter;
   fileInputHandler() {
     if (this.input.files.length) {
-      if (this.native) {
-        this.files = 0;
-        this.files = this.input.files.length;
-      } else {
-        this.fileInput.emit(this.input.files);
-        this.files += this.input.files.length;
-        this.input.value = "";
-      }
-    }
-  }
-
-  componentDidLoad() {
-    if (this.native && !this.input) {
-      this.input = this.el.querySelector('[slot="file-input"]');
-      this.input.addEventListener("change", () => this.fileInputHandler());
+      this.fileInput.emit(this.input.files);
+      this.files += this.input.files.length;
+      this.input.value = "";
     }
   }
 
@@ -106,13 +91,7 @@ export class ZFileUpload {
             File appena caricati
           </z-heading>
           <div class="files">
-            {this.native ? (
-              Array.from(this.input.files).map((item) => (
-                <z-file>{item.name}</z-file>
-              ))
-            ) : (
-              <slot name="files" />
-            )}
+            <slot name="files" />
           </div>
           <z-divider size={DividerSize.medium} />
         </section>
@@ -120,69 +99,85 @@ export class ZFileUpload {
     );
   }
 
-  renderUploadButtonOrUploadLink() {
+  renderUploadButton() {
     return [
-      <slot name="file-input">
-        {!this.native && (
-          <input
-            onChange={() => this.fileInputHandler()}
-            type="file"
-            id="fileElem"
-            multiple
-            accept={this.acceptedFormat}
-            ref={(val) => (this.input = val)}
-          />
-        )}
-      </slot>,
-      this.type == ZFileUploadTypeEnum.default ? (
-        <z-button
-          onClick={() => this.input.click()}
-          id="fileSelect"
-          variant={this.variant}
-          icon="plus"
-        >
-          Allega
-        </z-button>
-      ) : (
-        <z-body variant="regular" level={1}>
-          Trascinalo qui o{" "}
-          <z-body
-            class="upload-link"
-            onClick={() => this.input.click()}
-            variant="semibold"
-            level={1}
-          >
-            caricalo
-          </z-body>{" "}
-          dal tuo computer
-        </z-body>
-      ),
+      <input
+        onChange={() => this.fileInputHandler()}
+        type="file"
+        id="fileElem"
+        multiple
+        accept={this.acceptedFormat}
+        ref={(val) => (this.input = val)}
+      />,
+      <z-button
+        onClick={() => this.input.click()}
+        id="fileSelect"
+        variant={this.variant}
+        icon="plus"
+      >
+        Allega
+      </z-button>,
     ];
+  }
+
+  renderUploadLink() {
+    return [
+      <input
+        onChange={() => this.fileInputHandler()}
+        type="file"
+        id="fileElem"
+        multiple
+        accept={this.acceptedFormat}
+        ref={(val) => (this.input = val)}
+      />,
+      <z-body variant="regular" level={1}>
+        Trascinalo qui o{" "}
+        <z-body
+          class="upload-link"
+          onClick={() => this.input.click()}
+          variant="semibold"
+          level={1}
+        >
+          caricalo
+        </z-body>{" "}
+        dal tuo computer
+      </z-body>,
+    ];
+  }
+
+  renderDefaultMode() {
+    return (
+      <div class={`container ${this.type}`}>
+        {this.renderTitle()}
+        {this.renderDescription("semibold", 3)}
+        {this.renderAllowedFileExtensions()}
+        {this.renderFileSection()}
+        {this.renderUploadButton()}
+      </div>
+    );
+  }
+
+  renderDragDropMode() {
+    return (
+      <div class={`container ${this.type}`}>
+        {this.renderTitle()}
+        {this.renderFileSection()}
+        <z-dragdrop-area>
+          <div class="text-container">
+            {this.renderDescription("regular", 1)}
+            {this.renderUploadLink()}
+            {this.renderAllowedFileExtensions()}
+          </div>
+        </z-dragdrop-area>
+      </div>
+    );
   }
 
   render() {
     {
-      return this.type == ZFileUploadTypeEnum.default ? (
-        <div class="container">
-          {this.renderTitle()}
-          {this.renderDescription("semibold", 3)}
-          {this.renderAllowedFileExtensions()}
-          {this.renderFileSection()}
-          {this.renderUploadButtonOrUploadLink()}
-        </div>
-      ) : (
-        <div class="container">
-          {this.renderTitle()}
-          {this.renderFileSection()}
-          <z-dragdrop-area>
-            <div class="text-container">
-              {this.renderDescription("regular", 1)}
-              {this.renderUploadButtonOrUploadLink()}
-              {this.renderAllowedFileExtensions()}
-            </div>
-          </z-dragdrop-area>
-        </div>
-      );
+      return this.type == ZFileUploadTypeEnum.default
+        ? this.renderDefaultMode()
+        : this.renderDragDropMode();
     }
   }
 }
