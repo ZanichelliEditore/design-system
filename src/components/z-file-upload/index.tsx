@@ -10,9 +10,11 @@ import {
 } from "@stencil/core";
 import {
   ButtonVariantEnum,
+  DeviceEnum,
   DividerSize,
   ZFileUploadTypeEnum,
 } from "../../beans";
+import { getDevice } from "../../utils/utils";
 
 @Component({
   tag: "z-file-upload",
@@ -23,7 +25,8 @@ export class ZFileUpload {
   private input: HTMLInputElement;
 
   /** Prop indicating the file upload type - can be default or dragdrop */
-  @Prop() type: ZFileUploadTypeEnum = ZFileUploadTypeEnum.default;
+  @Prop({ mutable: true, reflect: true }) type: ZFileUploadTypeEnum =
+    ZFileUploadTypeEnum.default;
 
   /** Prop indicating the button variant*/
   @Prop() variant: ButtonVariantEnum;
@@ -47,6 +50,14 @@ export class ZFileUpload {
   fileDroppedListener(e: CustomEvent) {
     this.input.files = e.detail;
     this.fileInputHandler();
+  }
+
+  componentWillLoad() {
+    if (
+      this.type === ZFileUploadTypeEnum.dragdrop &&
+      getDevice() !== DeviceEnum.desktop
+    )
+      this.type = ZFileUploadTypeEnum.default;
   }
 
   /** Emitted when user select one or more files */
