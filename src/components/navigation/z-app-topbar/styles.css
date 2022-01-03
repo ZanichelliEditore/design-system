@@ -22,14 +22,20 @@
 
 #left-panel {
   display: flex;
-  gap: calc(var(--space-unit) + 2px);
   align-items: center
+}
+
+#left-panel > :not(:last-child) {
+  margin-right: calc(var(--space-unit) * 2);
 }
 
 #right-panel {
   display: flex;
-  gap: calc(var(--space-unit) * 2);
   align-items: center;
+}
+
+#right-panel > :not(:last-child) {
+  margin-right: calc(var(--space-unit) * 2);
 }
 
 #divider-container {
@@ -42,10 +48,6 @@ z-link {
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.3px;
-}
-
-z-logo {
-  margin-right: calc(var(--space-unit) - 2px);
 }
 
 /* Tablet breakpoint */
@@ -74,5 +76,5 @@ z-logo {
     margin: auto;
     max-width: var(--mw);
   }
-  
+
 }
