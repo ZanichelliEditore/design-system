@@ -1,48 +1,56 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, boolean } from '@storybook/addon-knobs';
+import { html } from 'lit-html';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { boolean, object, text } from '@storybook/addon-knobs';
+
+export const menuContent = [
+  {
+    id: 'first-item',
+    label: 'First item',
+    link: 'https://www.example.com',
+    target: '_blank',
+  },
+  {
+    id: 'second-item',
+    label: 'Second item',
+    link: 'https://www.example.com',
+    target: '_blank',
+  },
+];
+
+export const darkBackground = 'rgb(51, 51, 51)';
+export const lightBackground = 'rgb(255, 255, 255)';
+export let useInverseColors = false;
+export const setUseInverseColors = () => useInverseColors = boolean('Use inverse color combination (useful for light themes)', false);
 
 <Meta title="Navigation/ZUserDropdown" component="z-user-dropdown" />
 
 # ZUserDropdown
 
+This component contains a button to provide user login functionality, along with an interactive panel which is shown when the user is logged.
+More specifically, this panel contains user info and a menu with actions customizable through the `menucontent` property, which receives an array of `MenuItem`.
+
+The component is suitable for both dark and light themes, allowing to modify the default dark color combination via the `useinversecolors` property.
+
 <Preview>
-  <Story name="ZUserDropdown-not-logged">
-    {html`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">
-    <z-user-dropdown
-      userfullname="${text("userfullname", "Dario Docente")}"
-      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
-    ></z-user-dropdown>
-    </div>`}
+  <Story name="ZUserDropdown, user not logged">
+    {html`
+      <div style="background-color: ${setUseInverseColors() ? lightBackground : darkBackground}; padding: 16px; height: 40px; width: fit-content; border-radius: 8px;">
+        <z-user-dropdown logged=${false} useinversecolors=${setUseInverseColors()} />
+      </div>`
+    }
   </Story>
-  <Story name="ZUserDropdown-logged">
-    {html`<div style="background-color: rgb(51, 51, 51); padding:16px; hight: 200px; width: fit-content">
-    <z-user-dropdown
-      userfullname="${text("userfullname", "Dario Docente")}"
-      logged="${boolean("islogged", true)}"
-      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
-    ></z-user-dropdown>
-    </div>`}
-  </Story>
-  <Story name="ZUserDropdown-not-logged-light">
-    {html`<div style="padding:16px; hight: 200px; width: fit-content">
-    <z-user-dropdown
-      theme="${text("theme", "light")}"
-      userfullname="${text("userfullname", "Dario Docente")}"
-      islogged="${boolean("islogged", false)}"
-      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
-    ></z-user-dropdown>
-    </div>`}
-  </Story>
-  <Story name="ZUserDropdown-logged-light">
-    {html`<div style="padding:16px; hight: 200px; width: fit-content">
-    <z-user-dropdown
-      theme="${text("theme", "light")}"
-      userfullname="${text("userfullname", "Dario Docente")}"
-      logged="${boolean("islogged", true)}"
-      menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
-    ></z-user-dropdown>
-    </div>`}
+  <Story name="ZUserDropdown, user logged">
+    {html`
+      <div style="background-color: ${setUseInverseColors() ? lightBackground : darkBackground}; padding:16px; height: 40px; width: 400px; border-radius: 8px;">
+        <z-user-dropdown
+          logged=${true}
+          useinversecolors=${setUseInverseColors()}
+          userfullname=${text('userfullname', 'Nome Cognome')}
+          useremail=${text('useremail', 'mail@example.com')}
+          menucontent=${JSON.stringify(object('User menu items', menuContent))}
+        />
+      </div>
+    `}
   </Story>
 </Preview>
 
