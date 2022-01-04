@@ -19,6 +19,7 @@
   background-color: var(--gray50);
 }
 
+/* https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element */
 :host > .dragdrop * {
   pointer-events: none;
 }

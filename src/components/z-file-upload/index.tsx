@@ -7,6 +7,7 @@ import {
   State,
   Listen,
   Element,
+  Fragment,
 } from "@stencil/core";
 import {
   ButtonVariantEnum,
@@ -158,20 +159,18 @@ export class ZFileUpload {
 
   renderDefaultMode() {
     return (
-      <div class={`container ${this.type}`}>
-        {this.renderTitle()}
+      <Fragment>
         {this.renderDescription("semibold", 3)}
         {this.renderAllowedFileExtensions()}
         {this.renderFileSection()}
         {this.renderUploadButton()}
-      </div>
+      </Fragment>
     );
   }
 
   renderDragDropMode() {
     return (
-      <div class={`container ${this.type}`}>
-        {this.renderTitle()}
+      <Fragment>
         {this.renderFileSection()}
         <z-dragdrop-area>
           <div class="text-container">
@@ -180,15 +179,20 @@ export class ZFileUpload {
             {this.renderAllowedFileExtensions()}
           </div>
         </z-dragdrop-area>
-      </div>
+      </Fragment>
     );
   }
 
   render() {
     {
-      return this.type == ZFileUploadTypeEnum.default
-        ? this.renderDefaultMode()
-        : this.renderDragDropMode();
+      return (
+        <div class={`container ${this.type}`}>
+          {this.renderTitle()}
+          {this.type == ZFileUploadTypeEnum.default
+            ? this.renderDefaultMode()
+            : this.renderDragDropMode()}
+        </div>
+      );
     }
   }
 }
