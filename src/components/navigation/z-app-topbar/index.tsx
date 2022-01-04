@@ -62,11 +62,11 @@ export class ZAppTopbar {
     return (
       <Host class={`${this.theme} ${this.contentmaxwidth ? "limited-width" : ""}`}>
         <div id="content-container" class={`${this.contentmaxwidth ? "limited-width" : ""}`} style={this.contentmaxwidth ? { "--mw": `${this.contentmaxwidth}px` } : {}}>
-          <div id="left-panel">
+          <div id="left-panel" class="content-panel">
             <z-logo width={this.ismobile ? 31 : 128} height={this.ismobile ? 40 : 32} imagealt="zanichelli-logo" link={this.logolink} targetblank />
             {this.ismobile && this.renderTopbarLinks()}
           </div>
-          <div id="right-panel">
+          <div id="right-panel" class="content-panel">
             {!this.ismobile && this.renderTopbarLinks()}
             {this.showappswitcher && <z-app-switcher theme={this.theme} />}
             <div id="divider-container">

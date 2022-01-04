@@ -14,10 +14,10 @@ describe("Suite test ZAppTopbar", () => {
       <z-app-topbar class="dark">
         <mock:shadow-root>
           <div id="content-container">
-            <div id="left-panel">
+            <div id="left-panel" class="content-panel">
               <z-logo height="32" imagealt="zanichelli-logo" targetblank="" width="128"></z-logo>
             </div>
-            <div id="right-panel">
+            <div id="right-panel" class="content-panel">
               <div id="divider-container">
                 <z-divider color="color-white" orientation="vertical"></z-divider>
               </div>
@@ -39,10 +39,10 @@ describe("Suite test ZAppTopbar", () => {
       <z-app-topbar class="dark limited-width" contentmaxwidth="600">
         <mock:shadow-root>
            <div class="limited-width" id="content-container" style="--mw: 600px;">
-            <div id="left-panel">
+            <div id="left-panel" class="content-panel">
               <z-logo height="32" imagealt="zanichelli-logo" targetblank="" width="128"></z-logo>
             </div>
-            <div id="right-panel">
+            <div id="right-panel" class="content-panel">
               <div id="divider-container">
                 <z-divider color="color-white" orientation="vertical"></z-divider>
               </div>
@@ -73,10 +73,10 @@ describe("Suite test ZAppTopbar", () => {
       >
         <mock:shadow-root>
           <div id="content-container">
-            <div id="left-panel">
+            <div id="left-panel" class="content-panel">
               <z-logo height="32" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank="" width="128"></z-logo>
             </div>
-            <div id="right-panel">
+            <div id="right-panel" class="content-panel">
               <z-app-switcher theme="light"></z-app-switcher>
               <div id="divider-container">
                 <z-divider color="gray800" orientation="vertical"></z-divider>
@@ -88,7 +88,7 @@ describe("Suite test ZAppTopbar", () => {
       </z-app-topbar>
     `);
   });
-  
+
   it("Test render ZAppTopbar with topbar links and user dropdown", async () => {
     const page = await newSpecPage({
       components: [ZAppTopbar],
@@ -107,10 +107,10 @@ describe("Suite test ZAppTopbar", () => {
       <z-app-topbar class="dark" topbarcontent='[{"id": "assistenza", "label": "Assistenza", "link": "https://assistenza.zanichelli.it", "icon": "support", "target": "_blank"}]'>
         <mock:shadow-root>
           <div id="content-container">
-            <div id="left-panel">
+            <div id="left-panel" class="content-panel">
               <z-logo height="32" imagealt="zanichelli-logo" targetblank="" width="128"></z-logo>
             </div>
-            <div id="right-panel">
+            <div id="right-panel" class="content-panel">
               <z-link
                 htmlid="assistenza"
                 textcolor="white"

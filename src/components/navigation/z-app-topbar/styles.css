@@ -20,21 +20,12 @@
   align-items: center;
 }
 
-#left-panel {
+.content-panel {
   display: flex;
   align-items: center
 }
 
-#left-panel > :not(:last-child) {
-  margin-right: calc(var(--space-unit) * 2);
-}
-
-#right-panel {
-  display: flex;
-  align-items: center;
-}
-
-#right-panel > :not(:last-child) {
+.content-panel > :not(:last-child) {
   margin-right: calc(var(--space-unit) * 2);
 }
 
