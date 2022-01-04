@@ -46,11 +46,11 @@ export namespace Components {
     }
     interface ZAppTopbar {
         /**
-          * maximum width of topbar content
+          * maximum width of topbar content, applied only on viewports wider than 1366px
          */
         "contentmaxwidth"?: number;
         /**
-          * the link used by z-logo
+          * link URL used by z-logo
          */
         "logolink"?: string;
         /**
@@ -62,7 +62,7 @@ export namespace Components {
          */
         "theme"?: ThemeVariant;
         /**
-          * Json stringified or array to fill topbar links
+          * JSON string or MenuItem array to define topbar links
          */
         "topbarcontent"?: string | MenuItem[];
     }
@@ -2174,11 +2174,11 @@ declare namespace LocalJSX {
     }
     interface ZAppTopbar {
         /**
-          * maximum width of topbar content
+          * maximum width of topbar content, applied only on viewports wider than 1366px
          */
         "contentmaxwidth"?: number;
         /**
-          * the link used by z-logo
+          * link URL used by z-logo
          */
         "logolink"?: string;
         /**
@@ -2190,7 +2190,7 @@ declare namespace LocalJSX {
          */
         "theme"?: ThemeVariant;
         /**
-          * Json stringified or array to fill topbar links
+          * JSON string or MenuItem array to define topbar links
          */
         "topbarcontent"?: string | MenuItem[];
     }
