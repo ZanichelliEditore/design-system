@@ -46,7 +46,7 @@ export namespace Components {
     }
     interface ZAppTopbar {
         /**
-          * maximum width of topbar content, applied only on viewports wider than 1366px
+          * maximum width of topbar content
          */
         "contentmaxwidth"?: number;
         /**
@@ -2174,7 +2174,7 @@ declare namespace LocalJSX {
     }
     interface ZAppTopbar {
         /**
-          * maximum width of topbar content, applied only on viewports wider than 1366px
+          * maximum width of topbar content
          */
         "contentmaxwidth"?: number;
         /**

@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property          | Attribute         | Description                                                                  | Type                                      | Default             |
-| ----------------- | ----------------- | ---------------------------------------------------------------------------- | ----------------------------------------- | ------------------- |
-| `contentmaxwidth` | `contentmaxwidth` | maximum width of topbar content, applied only on viewports wider than 1366px | `number`                                  | `undefined`         |
-| `logolink`        | `logolink`        | link URL used by z-logo                                                      | `string`                                  | `undefined`         |
-| `showappswitcher` | `showappswitcher` | add app-switcher                                                             | `boolean`                                 | `undefined`         |
-| `theme`           | `theme`           | theme variant, default 'dark'                                                | `ThemeVariant.dark \| ThemeVariant.light` | `ThemeVariant.dark` |
-| `topbarcontent`   | `topbarcontent`   | JSON string or MenuItem array to define topbar links                         | `MenuItem[] \| string`                    | `undefined`         |
+| Property          | Attribute         | Description                                          | Type                                      | Default             |
+| ----------------- | ----------------- | ---------------------------------------------------- | ----------------------------------------- | ------------------- |
+| `contentmaxwidth` | `contentmaxwidth` | maximum width of topbar content                      | `number`                                  | `undefined`         |
+| `logolink`        | `logolink`        | link URL used by z-logo                              | `string`                                  | `undefined`         |
+| `showappswitcher` | `showappswitcher` | add app-switcher                                     | `boolean`                                 | `undefined`         |
+| `theme`           | `theme`           | theme variant, default 'dark'                        | `ThemeVariant.dark \| ThemeVariant.light` | `ThemeVariant.dark` |
+| `topbarcontent`   | `topbarcontent`   | JSON string or MenuItem array to define topbar links | `MenuItem[] \| string`                    | `undefined`         |
 
 
 ## Dependencies

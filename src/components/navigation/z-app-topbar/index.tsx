@@ -11,7 +11,7 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
 export class ZAppTopbar {
   /** theme variant, default 'dark' */
   @Prop() theme?: ThemeVariant = ThemeVariant.dark;
-  /** maximum width of topbar content, applied only on viewports wider than 1366px */
+  /** maximum width of topbar content */
   @Prop() contentmaxwidth?: number;
   /** JSON string or MenuItem array to define topbar links */
   @Prop() topbarcontent?: string | MenuItem[];

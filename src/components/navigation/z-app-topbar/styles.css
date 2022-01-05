@@ -20,6 +20,11 @@
   align-items: center;
 }
 
+#content-container.limited-width {
+  margin: auto;
+  max-width: var(--mw);
+}
+
 .content-panel {
   display: flex;
   align-items: center
@@ -47,6 +52,10 @@ z-link {
     padding: var(--space-unit) calc(var(--space-unit) * 2) var(--space-unit) var(--space-unit);
   }
 
+  :host(.limited-width) {
+    padding: var(--space-unit);
+  }
+
   #divider-container {
     display: block;
     height: 24px;
@@ -59,13 +68,4 @@ z-link {
 
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {
-  :host(.limited-width) {
-    padding: var(--space-unit);
-  }
-
-  #content-container.limited-width {
-    margin: auto;
-    max-width: var(--mw);
-  }
-
 }
