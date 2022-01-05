@@ -20,7 +20,7 @@
 }
 
 /* https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element */
-:host > .dragdrop * {
+:host > .dragdrop.dragover * {
   pointer-events: none;
 }
 
