@@ -64,6 +64,7 @@ ul.inverse {
 ul > li {
   display: flex;
   justify-content: flex-end;
+  white-space: nowrap;
   padding: calc(var(--space-unit) * 1.5 - 1px) 0;
   margin: 0 calc(var(--space-unit) * 4) 0 0;
   border-bottom: var(--border-base) solid var(--bg-grey-700);
@@ -125,12 +126,14 @@ ul > li:last-child {
   overflow: hidden;
   max-width: 250px;
   text-overflow: ellipsis;
+  width: 100%;
   color: var(--text-white);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0;
+  text-align: right;
 }
 
 .userfullname.inverse {
@@ -144,6 +147,10 @@ ul > li:last-child {
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: right;
 }
 
 .useremail.inverse {
@@ -226,7 +233,7 @@ ul > li:last-child {
   button.open z-icon {
     fill: var(--text-grey-800);
   }
-  
+
   button.open z-icon.inverse {
     fill: var(--text-white);
   }
@@ -238,6 +245,7 @@ ul > li:last-child {
     line-height: 20px;
     letter-spacing: 0.16px;
     padding: 0 calc(var(--space-unit) - 2px);
+    width: auto;
   }
 
   .userfullname.inverse {
@@ -255,8 +263,8 @@ ul > li:last-child {
   }
 
   .useremail {
-    margin-right: calc(var(--space-unit) * 3 + 2px);
-    text-align: end;
+    padding-right: calc(var(--space-unit) * 3 + 2px);
+    box-sizing: border-box;
   }
 
   button.open div.useremail {
@@ -290,15 +298,14 @@ ul > li:last-child {
     margin: 0 var(--space-unit);
   }
 
-   ul > li.inverse {
+  ul > li.inverse {
     color: var(--text-white);
-   }
+  }
 
   ul > li:first-child {
     border-top: var(--border-base) solid var(--gray400);
     padding-top: calc(var(--space-unit) + 3px);
   }
-
 }
 
 /* Desktop breakpoint */
