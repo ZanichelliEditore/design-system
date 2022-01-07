@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 
 @Component({
   tag: "z-registro-table-empty-box",
@@ -7,6 +7,8 @@ import { Component, h, Host, Prop } from "@stencil/core";
   scoped: true,
 })
 export class ZRegistroTableEmptyBox {
+  @Element() hostElement: HTMLElement;
+
   /** Sets main title message*/
   @Prop() message?: string =
     "Siamo spiacenti, al momento non sono presenti dati da visualizzare.";
@@ -14,20 +16,35 @@ export class ZRegistroTableEmptyBox {
   /** Sets message */
   @Prop() subtitle?: string = "";
 
+  /** Checks if cta1 or cta2 slots exist */
+  hasCta1Slot: boolean;
+  hasCta2Slot: boolean;
+
+  componentWillLoad() {
+    this.hasCta1Slot = !!this.hostElement.querySelector('[slot="cta1"]');
+    this.hasCta2Slot = !!this.hostElement.querySelector('[slot="cta2"]');
+  }
+
   render() {
     return (
       <Host>
-        <z-body level={3} variant={"semibold"}>
-          {this.message}
-        </z-body>
+        {!!this.message && (
+          <z-body level={3} variant={"semibold"}>
+            {this.message}
+          </z-body>
+        )}
         <br />
-        <z-body level={4} variant={"regular"}>
-          {this.subtitle}
-        </z-body>
-        <div class="cta">
-          <slot name="cta1"></slot>
-          <slot name="cta2"></slot>
-        </div>
+        {!!this.subtitle && (
+          <z-body level={4} variant={"regular"}>
+            {this.subtitle}
+          </z-body>
+        )}
+        {(!!this.hasCta1Slot || this.hasCta2Slot) && (
+          <div class="cta">
+            <slot name="cta1"></slot>
+            <slot name="cta2"></slot>
+          </div>
+        )}
       </Host>
     );
   }
