@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.29.1](https://github.com/ZanichelliEditore/design-system/compare/v2.29.0...v2.29.1) (2022-01-07)
+
+
+### Bug Fixes
+
+* remove min-height / add border bottom to empty table ([d678ca8](https://github.com/ZanichelliEditore/design-system/commit/d678ca8e9d51a98e49844f85d2a644637f9df551))
+
 ## [2.29.0](https://github.com/ZanichelliEditore/design-system/compare/v2.28.0...v2.29.0) (2021-12-29)
 
 
