@@ -44,13 +44,14 @@ z-icon.inverse {
 }
 
 ul {
+  box-sizing: border-box;
   position: absolute;
   left: 0;
   padding: calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
   width: 100%;
   margin: calc(var(--space-unit) * 1.5) 0 0 0;
   background-color: var(--bg-grey-900);
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
   font-size: 14px;
   line-height: 20px;
@@ -66,7 +67,7 @@ ul > li {
   justify-content: flex-end;
   white-space: nowrap;
   padding: calc(var(--space-unit) * 1.5 - 1px) 0;
-  margin: 0 calc(var(--space-unit) * 4) 0 0;
+  margin: 0;
   border-bottom: var(--border-base) solid var(--bg-grey-700);
 }
 
@@ -77,6 +78,7 @@ ul > li.inverse {
 ul > li:first-child {
   border-top: none;
   padding-top: 0;
+  padding-bottom: calc(var(--space-unit) + 6px);
   flex-direction: column;
   align-items: end;
 }
@@ -93,7 +95,7 @@ ul > li:last-child {
   align-items: center;
   justify-content: center;
   width: 100%;
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
   font-size: 14px;
   line-height: 1;
@@ -128,7 +130,7 @@ ul > li:last-child {
   text-overflow: ellipsis;
   width: 100%;
   color: var(--text-white);
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
   font-size: 16px;
   line-height: 24px;
@@ -142,7 +144,7 @@ ul > li:last-child {
 
 .useremail {
   color: var(--text-white);
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   font-size: 12px;
   line-height: 16px;
@@ -214,7 +216,6 @@ ul > li:last-child {
     max-width: initial;
     margin-left: var(--space-unit);
     padding-right: var(--space-unit);
-    padding-bottom: calc(var(--space-unit) * 2);
   }
 
   button.open.inverse {
@@ -239,12 +240,12 @@ ul > li:last-child {
   }
 
   .userfullname {
-    font-family: var(--dashboard-font);
+    font-family: var(--font-family-sans);
     font-weight: var(--font-sb);
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.16px;
-    padding: 0 calc(var(--space-unit) - 2px);
+    padding: 0 calc(var(--space-unit) - 6px) 0 calc(var(--space-unit) - 2px);
     width: auto;
   }
 
@@ -263,7 +264,7 @@ ul > li:last-child {
   }
 
   .useremail {
-    padding-right: calc(var(--space-unit) * 3 + 2px);
+    padding-right: calc(var(--space-unit) * 3 - 2px);
     box-sizing: border-box;
   }
 
@@ -279,12 +280,8 @@ ul > li:last-child {
     position: initial;
     left: initial;
     padding: 0;
-    margin-top: 0;
     width: 100%;
     background-color: var(--bg-white);
-    border-bottom: var(--border-size-small) solid var(--bg-white);
-    border-bottom-left-radius: var(--border-radius-base);
-    border-bottom-right-radius: var(--border-radius-base);
   }
 
   ul.inverse {
@@ -305,6 +302,7 @@ ul > li:last-child {
   ul > li:first-child {
     border-top: var(--border-base) solid var(--gray400);
     padding-top: calc(var(--space-unit) + 3px);
+    padding-bottom: calc(var(--space-unit) + 5px);
   }
 }
 

@@ -1,5 +1,4 @@
-import { Component, Prop, h, State, Listen } from "@stencil/core";
-import { Host } from "@stencil/core/internal";
+import { Component, Prop, h, State, Listen, Host } from "@stencil/core";
 import { DividerOrientation, MenuItem, ThemeVariant } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 
@@ -29,11 +28,6 @@ export class ZAppTopbar {
     this.ismobile = window.innerWidth <= mobileBreakpoint;
   }
 
-  @Listen("orientationchange", { target: "window" })
-  handleOrientationChange(): void {
-    this.ismobile = screen.width <= mobileBreakpoint;
-  }
-
   componentWillLoad() {
     this.ismobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
   }
@@ -48,7 +42,7 @@ export class ZAppTopbar {
     return this.topbarlinks.map((link) =>
       <z-link
         htmlid={link.id}
-        textcolor={this.theme === ThemeVariant.light ? "black" :"white" }
+        textcolor={this.theme === ThemeVariant.light ? "black" : "white" }
         href={link.link}
         target={link.target}
         icon={this.ismobile ? link.icon : undefined}
@@ -61,7 +55,7 @@ export class ZAppTopbar {
   render() {
     return (
       <Host class={`${this.theme} ${this.contentmaxwidth ? "limited-width" : ""}`}>
-        <div id="content-container" class={`${this.contentmaxwidth ? "limited-width" : ""}`} style={this.contentmaxwidth ? { "--mw": `${this.contentmaxwidth}px` } : {}}>
+        <div id="content-container" style={this.contentmaxwidth ? { "--mw": `${this.contentmaxwidth}px` } : {}}>
           <div id="left-panel" class="content-panel">
             <z-logo width={this.ismobile ? 31 : 128} height={this.ismobile ? 40 : 32} imagealt="zanichelli-logo" link={this.logolink} targetblank />
             {this.ismobile && this.renderTopbarLinks()}

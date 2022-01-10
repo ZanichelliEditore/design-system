@@ -38,7 +38,7 @@ describe("Suite test ZAppTopbar", () => {
     expect(page.root).toEqualHtml(`
       <z-app-topbar class="dark limited-width" contentmaxwidth="600">
         <mock:shadow-root>
-           <div class="limited-width" id="content-container" style="--mw: 600px;">
+           <div id="content-container" style="--mw: 600px;">
             <div id="left-panel" class="content-panel">
               <z-logo height="32" imagealt="zanichelli-logo" targetblank="" width="128"></z-logo>
             </div>

@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-#content-container.limited-width {
+:host(.limited-width) #content-container {
   margin: auto;
   max-width: var(--mw);
 }
@@ -39,7 +39,7 @@
 }
 
 z-link {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
   font-size: 14px;
   line-height: 20px;
