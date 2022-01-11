@@ -118,9 +118,9 @@ describe("Suite test ZRegistroTable", () => {
     </z-registro-table-head></z-registro-table>`,
     });
     expect(page.root)
-      .toEqualHtml(`<z-registro-table empty=\"true\" role=\"table\" slot=\"table-header\">                                                                   
-    <z-registro-table-head hidden=\"\">                                                                                                               
-      <z-registro-table-header-row>                                                                                                                   
+      .toEqualHtml(`<z-registro-table empty=\"true\" role=\"table\" slot=\"table-header\">
+    <z-registro-table-head hidden=\"\">
+      <z-registro-table-header-row>
         <z-registro-table-header>
           <span>
             Titolo 1
@@ -172,7 +172,7 @@ describe("Suite test ZRegistroTable", () => {
     expect(page.root)
       .toEqualHtml(`<z-registro-table call-to-action-label=\"Call To Action\" call-to-action-two-label=\"Call To Action 2\" empty=\"true\" role=\"table\">
     <div class=\"table table-empty\"></div>
-    <z-registro-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">                          
+    <z-registro-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">
       <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
         Call To Action
       </z-button>
@@ -209,6 +209,71 @@ describe("Suite test ZRegistroTable", () => {
         </z-registro-table-header-row>
       </z-registro-table-head>
     </z-registro-table>`,
+    });
+
+    expect(page.root)
+      .toEqualHtml(`<z-registro-table call-to-action-label=\"Call to action\" empty=\"true\" message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare!\" role=\"table\" subtitle=\"Eventuale testo\">
+    <div class=\"table table-empty\">
+      <z-registro-table-head slot=\"table-header\">
+        <z-registro-table-header-row>
+          <z-registro-table-header>
+            <span>
+              Titolo 1
+            </span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>
+              Titolo 2
+            </span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>
+              Titolo 3
+            </span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>
+              Titolo 4
+            </span>
+          </z-registro-table-header>
+        </z-registro-table-header-row>
+      </z-registro-table-head>
+    </div>
+    <z-registro-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare!\" subtitle=\"Eventuale testo\">
+      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+        Call to action
+      </z-button>
+    </z-registro-table-empty-box>
+  </z-registro-table>`);
+  });
+
+  it("Test render ZRegistroTable with empty <z-registro-table-body> component", async () => {
+    const page = await newSpecPage({
+      components: [ZRegistroTable],
+      html: `<z-registro-table
+        empty="true"
+        message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
+        subtitle="Eventuale testo"
+        call-to-action-label="Call to action"
+      >
+        <z-registro-table-head slot="table-header">
+          <z-registro-table-header-row>
+            <z-registro-table-header>
+              <span>Titolo 1</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 3</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 4</span>
+            </z-registro-table-header>
+          </z-registro-table-header-row>
+        </z-registro-table-head>
+        <z-registro-table-body slot="table-body"></z-registro-table-body>
+      </z-registro-table>`,
     });
 
     expect(page.root)
@@ -299,7 +364,7 @@ describe("Suite test ZRegistroTable", () => {
     expect(page.root).toEqualHtml(
       `<z-registro-table bordered="true" role="table">
         <div class="table table-bordered">
-            
+
         </div>
       </z-registro-table>`
     );
@@ -314,7 +379,7 @@ describe("Suite test ZRegistroTable", () => {
     expect(page.root).toEqualHtml(
       `<z-registro-table column-sticky="true" role="table">
         <div class="table table-column-sticky">
-            
+
         </div>
       </z-registro-table>`
     );
@@ -329,7 +394,7 @@ describe("Suite test ZRegistroTable", () => {
     expect(page.root).toEqualHtml(
       `<z-registro-table header-sticky="true" role="table">
         <div class="table table-header-sticky">
-            
+
         </div>
       </z-registro-table>`
     );

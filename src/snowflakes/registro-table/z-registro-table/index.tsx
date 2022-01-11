@@ -100,7 +100,13 @@ export class ZRegistroTable {
 
   componentWillLoad() {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
-    this.hasTableBody = !!this.host.querySelector('[slot="table-body"]');
+
+    const tableBody = this.host.querySelector('[slot="table-body"]');
+    this.hasTableBody = !!tableBody?.children?.length;
+
+    if (!!tableBody && !this.hasTableBody) {
+      tableBody.remove();
+    }
   }
 
   componentWillRender() {
