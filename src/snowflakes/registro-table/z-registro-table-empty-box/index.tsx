@@ -28,18 +28,16 @@ export class ZRegistroTableEmptyBox {
   render() {
     return (
       <Host>
-        {!!this.message && (
-          <z-body level={3} variant={"semibold"}>
-            {this.message}
-          </z-body>
-        )}
+        <z-body level={3} variant={"semibold"}>
+          {this.message}
+        </z-body>
         <br />
         {!!this.subtitle && (
           <z-body level={4} variant={"regular"}>
             {this.subtitle}
           </z-body>
         )}
-        {(!!this.hasCta1Slot || this.hasCta2Slot) && (
+        {(!!this.hasCta1Slot || !!this.hasCta2Slot) && (
           <div class="cta">
             <slot name="cta1"></slot>
             <slot name="cta2"></slot>
