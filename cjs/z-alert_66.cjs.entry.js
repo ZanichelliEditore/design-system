@@ -2631,8 +2631,13 @@ const ZRegistroTable = class {
     this.isMobile = screen.width <= breakpoints.mobileBreakpoint;
   }
   componentWillLoad() {
+    var _a;
     this.isMobile = window.innerWidth <= breakpoints.mobileBreakpoint;
-    this.hasTableBody = !!this.host.querySelector('[slot="table-body"]');
+    const tableBody = this.host.querySelector('[slot="table-body"]');
+    this.hasTableBody = !!((_a = tableBody === null || tableBody === void 0 ? void 0 : tableBody.children) === null || _a === void 0 ? void 0 : _a.length);
+    if (!!tableBody && !this.hasTableBody) {
+      tableBody.remove();
+    }
   }
   componentWillRender() {
     this.host.setAttribute("role", "table");
@@ -2719,9 +2724,14 @@ const ZRegistroTableEmptyBox = class {
     /** Sets message */
     this.subtitle = "";
   }
-  render() {
-    return (index.h(index.Host, null, index.h("z-body", { level: 3, variant: "semibold" }, this.message), index.h("br", null), index.h("z-body", { level: 4, variant: "regular" }, this.subtitle), index.h("div", { class: "cta" }, index.h("slot", { name: "cta1" }), index.h("slot", { name: "cta2" }))));
+  componentWillLoad() {
+    this.hasCta1Slot = !!this.hostElement.querySelector('[slot="cta1"]');
+    this.hasCta2Slot = !!this.hostElement.querySelector('[slot="cta2"]');
   }
+  render() {
+    return (index.h(index.Host, null, index.h("z-body", { level: 3, variant: "semibold" }, this.message), index.h("br", null), !!this.subtitle && (index.h("z-body", { level: 4, variant: "regular" }, this.subtitle)), (!!this.hasCta1Slot || !!this.hasCta2Slot) && (index.h("div", { class: "cta" }, index.h("slot", { name: "cta1" }), index.h("slot", { name: "cta2" })))));
+  }
+  get hostElement() { return index.getElement(this); }
 };
 ZRegistroTableEmptyBox.style = stylesCss$e;
 

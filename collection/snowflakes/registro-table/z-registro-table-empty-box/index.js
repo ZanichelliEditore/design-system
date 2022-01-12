@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 export class ZRegistroTableEmptyBox {
   constructor() {
     /** Sets main title message*/
@@ -6,14 +6,18 @@ export class ZRegistroTableEmptyBox {
     /** Sets message */
     this.subtitle = "";
   }
+  componentWillLoad() {
+    this.hasCta1Slot = !!this.hostElement.querySelector('[slot="cta1"]');
+    this.hasCta2Slot = !!this.hostElement.querySelector('[slot="cta2"]');
+  }
   render() {
     return (h(Host, null,
       h("z-body", { level: 3, variant: "semibold" }, this.message),
       h("br", null),
-      h("z-body", { level: 4, variant: "regular" }, this.subtitle),
-      h("div", { class: "cta" },
+      !!this.subtitle && (h("z-body", { level: 4, variant: "regular" }, this.subtitle)),
+      (!!this.hasCta1Slot || !!this.hasCta2Slot) && (h("div", { class: "cta" },
         h("slot", { name: "cta1" }),
-        h("slot", { name: "cta2" }))));
+        h("slot", { name: "cta2" })))));
   }
   static get is() { return "z-registro-table-empty-box"; }
   static get encapsulation() { return "scoped"; }
@@ -61,4 +65,5 @@ export class ZRegistroTableEmptyBox {
       "defaultValue": "\"\""
     }
   }; }
+  static get elementRef() { return "hostElement"; }
 }
