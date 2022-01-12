@@ -4,33 +4,50 @@ import { boolean, number, object, select, text } from '@storybook/addon-knobs';
 
 export const topbarContent = [
   {
-    id: 'first-action',
-    label: 'Custom action 1',
-    link: 'https://www.example.com',
+    id: 'support',
+    label: 'Assistenza',
+    link: `https://assistenza.zanichelli.it`,
     icon: 'support',
-    target: '_blank',
+    target: '_blank'
   },
   {
-    id: 'second-action',
-    label: 'Custom action 2',
-    link: 'https://www.example.com',
+    id: 'contact-us',
+    label: 'Contattaci',
+    link: `https://www.zanichelli.it/contatti/supporto`,
     icon: 'question-mark-circle',
-    target: '_blank',
+    target: '_blank'
+  },
+  {
+    id: 'shop',
+    label: 'Carrello',
+    link: `https://my.zanichelli.it/carrello`,
+    icon: 'shopping-cart',
+    target: '_blank'
   },
 ];
 
 export const menuContent = [
   {
-    id: 'first-item',
-    label: 'First item',
-    link: 'https://www.example.com',
-    target: '_blank',
+    id: 'profile',
+    label: 'Profilo',
+    link: `https://my.zanichelli.it/i-tuoi-dati`,
+    target: '_blank'
   },
   {
-    id: 'second-item',
-    label: 'Second item',
-    link: 'https://www.example.com',
-    target: '_blank',
+    id: 'activate-resource',
+    label: 'Attiva opera',
+    link: `https://my.zanichelli.it`,
+    target: '_blank'
+  },
+  {
+    id: 'orders',
+    label: 'I tuoi ordini',
+    link: `https://my.zanichelli.it/ordini-in-corso`,
+    target: '_blank'
+  },
+  {
+    id: 'logout',
+    label: 'Esci',
   },
 ];
 
@@ -57,7 +74,7 @@ The width of the inner content of the topbar can be controlled to have a maximum
         contentmaxwidth=${number('Content max width', null)}
         showappswitcher=${boolean('Show app switcher', true)}
         topbarcontent=${JSON.stringify(object('Topbar actions', topbarContent))}
-        logolink="https://www.example.com"
+        logolink="https://www.zanichelli.it"
       >
         <z-user-dropdown
           slot="login"
@@ -74,7 +91,7 @@ The width of the inner content of the topbar can be controlled to have a maximum
         contentmaxwidth=${number('Content max width', null)}
         showappswitcher=${boolean('Show app switcher', true)}
         topbarcontent=${JSON.stringify(object('Topbar actions', topbarContent))}
-        logolink="https://www.example.com"
+        logolink="https://www.zanichelli.it"
       >
         <z-user-dropdown
           slot="login"
