@@ -86,7 +86,7 @@ export class ZUserDropdown {
       this.ismenuopen = false;
     }
   }
-    
+
   handleLoggedButtonClick() {
     this.ismenuopen = !this.ismenuopen;
     this.emitUserButtonClick();
@@ -149,7 +149,7 @@ export class ZUserDropdown {
               <div class={`useremail ${colorClass}`}>{this.useremail}</div>
             </li>
           }
-          {this.linkarray && this.linkarray.map((link) => 
+          {this.linkarray && this.linkarray.map((link) =>
             <li
               id={link.id}
               class={colorClass}
@@ -180,7 +180,6 @@ export class ZUserDropdown {
         <div
           ref={(el) => (this.divtoresize = el as HTMLDivElement)}
           class={openClass}
-          onClick={(e) => e.stopPropagation()}
         >
           <div class={`${colorClass} ${openClass}`}>
             {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
