@@ -1,9 +1,9 @@
 :host {
-  background-color: var(--bg-grey-900);
+  background-color: var(--gray900);
 }
 
 :host(.inverse) {
-  background-color: var(--bg-white);
+  background-color: var(--color-white);
 }
 
 button {
@@ -12,7 +12,7 @@ button {
   flex-direction: column;
   width: 100%;
   margin: 0;
-  background-color: var(--bg-grey-900);
+  background-color: var(--gray900);
   border: none;
   padding: 0;
   letter-spacing: 0.16px;
@@ -20,7 +20,7 @@ button {
 }
 
 button.inverse {
-  background-color: var(--bg-white);
+  background-color: var(--color-white);
 }
 
 button div.firstline {
@@ -36,11 +36,11 @@ button.open div.firstline {
 
 z-icon {
   padding: 0 2px;
-  fill: var(--text-white);
+  fill: var(--color-white);
 }
 
 z-icon.inverse {
-  fill: var(--bg-grey-900);
+  fill: var(--gray900);
 }
 
 ul {
@@ -50,7 +50,7 @@ ul {
   padding: calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
   width: 100%;
   margin: calc(var(--space-unit) * 1.5) 0 0 0;
-  background-color: var(--bg-grey-900);
+  background-color: var(--gray900);
   font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
   font-size: 14px;
@@ -59,7 +59,7 @@ ul {
 }
 
 ul.inverse {
-  background-color: var(--bg-white);
+  background-color: var(--color-white);
 }
 
 ul > li {
@@ -68,7 +68,7 @@ ul > li {
   white-space: nowrap;
   padding: calc(var(--space-unit) * 1.5 - 1px) 0;
   margin: 0;
-  border-bottom: var(--border-base) solid var(--bg-grey-700);
+  border-bottom: var(--border-base) solid var(--gray700);
 }
 
 ul > li.inverse {
@@ -112,15 +112,15 @@ ul > li:last-child {
   height: 32px;
   min-width: 32px;
   padding: 0 calc(var(--space-unit) * 2);
-  background-color: var(--bg-white);
-  border-color: var(--bg-white);
-  color: var(--text-grey-800);
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--gray800);
 }
 
 #guestbutton.inverse {
-  background-color: var(--bg-grey-800);
-  border-color: var(--bg-grey-800);
-  color: var(--text-white);
+  background-color: var(--gray800);
+  border-color: var(--gray800);
+  color: var(--color-white);
 }
 
 .userfullname {
@@ -129,7 +129,7 @@ ul > li:last-child {
   max-width: 250px;
   text-overflow: ellipsis;
   width: 100%;
-  color: var(--text-white);
+  color: var(--color-white);
   font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
   font-size: 16px;
@@ -139,11 +139,11 @@ ul > li:last-child {
 }
 
 .userfullname.inverse {
-  color: var(--text-grey-800);
+  color: var(--gray800);
 }
 
 .useremail {
-  color: var(--text-white);
+  color: var(--color-white);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   font-size: 12px;
@@ -156,18 +156,18 @@ ul > li:last-child {
 }
 
 .useremail.inverse {
-  color: var(--text-grey-800);
+  color: var(--gray800);
 }
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   :host {
     height: calc(var(--space-unit) * 4);
-    background-color: var(--bg-grey-900);
+    background-color: var(--gray900);
   }
 
   :host(.inverse) {
-    background-color: var(--bg-white);
+    background-color: var(--color-white);
   }
 
   :host > div {
@@ -189,14 +189,14 @@ ul > li:last-child {
     position: absolute;
     right: calc(var(--space-unit) * -1);
     box-shadow: 0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);
-    background-color: var(--bg-white);
+    background-color: var(--color-white);
     margin-top: calc(var(--space-unit) / 2);
     padding: calc(var(--space-unit) / 2 + 1px) var(--space-unit) 0 var(--space-unit);
     transform: translate(0, -4px);
   }
 
   :host > div > div.inverse.open {
-    background-color: var(--bg-grey-800);
+    background-color: var(--gray800);
   }
 
   button {
@@ -209,8 +209,8 @@ ul > li:last-child {
   }
 
   button.open {
-    background-color: var(--bg-white);
-    border-top: var(--border-size-small) solid var(--bg-white);
+    background-color: var(--color-white);
+    border-top: var(--border-size-small) solid var(--color-white);
     border-top-left-radius: calc(var(--space-unit) * .5);
     border-top-right-radius: calc(var(--space-unit) * .5);
     max-width: initial;
@@ -219,24 +219,24 @@ ul > li:last-child {
   }
 
   button.open.inverse {
-    border-top-color: var(--bg-grey-800);
-    background-color: var(--bg-grey-800);
+    border-top-color: var(--gray800);
+    background-color: var(--gray800);
   }
 
   button:not(.open) z-icon {
-    fill: var(--text-white);
+    fill: var(--color-white);
   }
 
   button:not(.open) z-icon.inverse {
-    fill: var(--text-grey-800);
+    fill: var(--gray800);
   }
 
   button.open z-icon {
-    fill: var(--text-grey-800);
+    fill: var(--gray800);
   }
 
   button.open z-icon.inverse {
-    fill: var(--text-white);
+    fill: var(--color-white);
   }
 
   .userfullname {
@@ -250,17 +250,17 @@ ul > li:last-child {
   }
 
   .userfullname.inverse {
-    color: var(--text-grey-800);
+    color: var(--gray800);
   }
 
   button.open div.userfullname {
-    color: var(--text-grey-800);
+    color: var(--gray800);
     max-width: none;
     text-overflow: clip;
   }
 
   button.open div.userfullname.inverse {
-    color: var(--text-white);
+    color: var(--color-white);
   }
 
   .useremail {
@@ -269,11 +269,11 @@ ul > li:last-child {
   }
 
   button.open div.useremail {
-    color: var(--text-grey-800);
+    color: var(--gray800);
   }
 
   button.open div.useremail.inverse {
-    color: var(--text-white);
+    color: var(--color-white);
   }
 
   ul {
@@ -281,22 +281,22 @@ ul > li:last-child {
     left: initial;
     padding: 0;
     width: 100%;
-    background-color: var(--bg-white);
+    background-color: var(--color-white);
   }
 
   ul.inverse {
-    border-bottom-color: var(--bg-grey-800);
-    background-color: var(--bg-grey-800);
+    border-bottom-color: var(--gray800);
+    background-color: var(--gray800);
   }
 
   ul > li {
-    color: var(--text-grey-800);
+    color: var(--gray800);
     border-bottom: var(--border-base) solid var(--gray400);
     margin: 0 var(--space-unit);
   }
 
   ul > li.inverse {
-    color: var(--text-white);
+    color: var(--color-white);
   }
 
   ul > li:first-child {

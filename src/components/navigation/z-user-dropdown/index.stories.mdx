@@ -37,15 +37,15 @@ export const setUseInverseColors = () => useInverseColors = boolean('Use inverse
 # ZUserDropdown
 
 This component contains a button to provide user login functionality, along with an interactive panel which is shown when the user is logged.
-More specifically, this panel contains user info and a menu with actions customizable through the `menucontent` property, which receives an array of `MenuItem`.
+More specifically, this panel contains user info and a menu with actions customizable through the `menu-content` property, which receives an array of `MenuItem`.
 
-The component is suitable for both dark and light themes, allowing to modify the default dark color combination via the `useinversecolors` property.
+The component is suitable for both dark and light themes, allowing to modify the default dark color combination via the `use-inverse-colors` property.
 
 <Preview>
   <Story name="ZUserDropdown, user not logged">
     {html`
       <div style="background-color: ${setUseInverseColors() ? lightBackground : darkBackground}; padding: 16px; height: 40px; width: fit-content; border-radius: 8px;">
-        <z-user-dropdown logged=${false} useinversecolors=${setUseInverseColors()} />
+        <z-user-dropdown logged=${false} use-inverse-colors=${setUseInverseColors()} />
       </div>`
     }
   </Story>
@@ -54,10 +54,10 @@ The component is suitable for both dark and light themes, allowing to modify the
       <div style="background-color: ${setUseInverseColors() ? lightBackground : darkBackground}; padding:16px; height: 40px; width: 400px; border-radius: 8px;">
         <z-user-dropdown
           logged=${true}
-          useinversecolors=${setUseInverseColors()}
-          userfullname=${text('userfullname', 'Nome Cognome')}
-          useremail=${text('useremail', 'mail@example.com')}
-          menucontent=${JSON.stringify(object('User menu items', menuContent))}
+          use-inverse-colors=${setUseInverseColors()}
+          user-full-name=${text('User full name', 'Nome Cognome')}
+          user-email=${text('User email', 'mail@example.com')}
+          menu-content=${JSON.stringify(object('User menu items', menuContent))}
         />
       </div>
     `}

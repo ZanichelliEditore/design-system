@@ -473,9 +473,9 @@
   </z-modal-login> -->
   <p>Not Logged</p>
   <z-app-topbar
-    showappswitcher=true
-    topbarcontent='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
-    contentmaxwidth="800"
+    show-app-switcher=true
+    topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
+    content-max-width="800"
   >
     <z-user-dropdown slot="login"></z-user-dropdown>
   </z-app-topbar>
@@ -483,13 +483,13 @@
   <p>Logged</p>
 
   <z-app-topbar
-    topbarcontent='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
+    topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
   >
-    <z-user-dropdown 
+    <z-user-dropdown
       slot="login" 
-      userfullname="Von Axl Maranan Fernandez" 
-      useremail="vonaxl-marananfernandez@abcemail.com"
-      menucontent='[{"id": "profile", "label": "Profilo", "link": "./pages/notification.html"}, {"id": "ask-to", "label": "Chiedi al tuo responsabile", "link": "./pages/notification.html"}, {"id": "activate-resource", "label": "Attiva opera", "link": "./pages/notification.html"}, {"id": "your-orders", "label": "I tuoi ordini", "link": "./pages/notification.html"}, {"id": "logout", "label": "Esci", "link": "./pages/notification.html"}]'
+      user-full-name="Von Axl Maranan Fernandez" 
+      user-email="vonaxl-marananfernandez@abcemail.com"
+      menu-content='[{"id": "profile", "label": "Profilo", "link": "./pages/notification.html"}, {"id": "ask-to", "label": "Chiedi al tuo responsabile", "link": "./pages/notification.html"}, {"id": "activate-resource", "label": "Attiva opera", "link": "./pages/notification.html"}, {"id": "your-orders", "label": "I tuoi ordini", "link": "./pages/notification.html"}, {"id": "logout", "label": "Esci", "link": "./pages/notification.html"}]'
       logged
     >
     </z-user-dropdown>
@@ -497,8 +497,11 @@
 
   <p>User Dropdown</p>
   <div style="height: 150px; width: fit-content;">
-    <z-user-dropdown userfullname="Sandro Studente" useremail="vonaxlmarananfernandez@abcemail.com" logged
-      menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit", "target":"_blank"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'>
+    <z-user-dropdown
+      user-full-name="Sandro Studente"
+      user-email="vonaxlmarananfernandez@abcemail.com"
+      logged
+      menu-content='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit", "target":"_blank"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'>
     </z-user-dropdown>
   </div>
 
@@ -541,28 +544,28 @@
 
   <p>Light Variant</p>
   <z-app-topbar
-    showappswitcher=true
+    show-app-switcher=true
     theme="light"
-    topbarcontent='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
+    topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
   >
-    <z-user-dropdown slot="login" useinversecolors></z-user-dropdown>
+    <z-user-dropdown slot="login" use-inverse-colors></z-user-dropdown>
   </z-app-topbar>
 
   <p>Logged</p>
 
   <z-app-topbar
-    showappswitcher=true
+    show-app-switcher=true
     theme="light"
     logged
-    topbarcontent='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
+    topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
   >
-    <z-user-dropdown 
+    <z-user-dropdown
       slot="login" 
-      userfullname="Von Axl Maranan Fernandez" 
-      useremail="vonaxl-marananfernandez@abcemail.com"
-      menucontent='[{"id": "profile", "label": "Profilo", "link": "./pages/notification.html"}, {"id": "ask-to", "label": "Chiedi al tuo responsabile", "link": "./pages/notification.html"}, {"id": "activate-resource", "label": "Attiva opera", "link": "./pages/notification.html"}, {"id": "your-orders", "label": "I tuoi ordini", "link": "./pages/notification.html"}, {"id": "logout", "label": "Esci", "link": "./pages/notification.html"}]'
+      user-full-name="Von Axl Maranan Fernandez" 
+      user-email="vonaxl-marananfernandez@abcemail.com"
+      menu-content='[{"id": "profile", "label": "Profilo", "link": "./pages/notification.html"}, {"id": "ask-to", "label": "Chiedi al tuo responsabile", "link": "./pages/notification.html"}, {"id": "activate-resource", "label": "Attiva opera", "link": "./pages/notification.html"}, {"id": "your-orders", "label": "I tuoi ordini", "link": "./pages/notification.html"}, {"id": "logout", "label": "Esci", "link": "./pages/notification.html"}]'
       logged
-      useinversecolors
+      use-inverse-colors
     >
     </z-user-dropdown>
   </z-app-topbar>

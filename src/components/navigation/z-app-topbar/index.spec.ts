@@ -29,14 +29,14 @@ describe("Suite test ZAppTopbar", () => {
     `);
   });
 
-  it("Test render ZAppTopbar with contentmaxwidth prop", async () => {
+  it("Test render ZAppTopbar with content-max-width prop", async () => {
     const page = await newSpecPage({
       components: [ZAppTopbar],
-      html: `<z-app-topbar contentmaxwidth=600></z-app-topbar>`,
+      html: `<z-app-topbar content-max-width=600></z-app-topbar>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-topbar class="dark limited-width" contentmaxwidth="600">
+      <z-app-topbar class="dark limited-width" content-max-width="600">
         <mock:shadow-root>
            <div id="content-container" style="--mw: 600px;">
             <div id="left-panel" class="content-panel">
@@ -54,21 +54,22 @@ describe("Suite test ZAppTopbar", () => {
     `);
   });
 
-  it("Test render light ZAppTopbar with logolink set and with app switcher", async () => {
+  it("Test render light ZAppTopbar with logo-link set and with app switcher", async () => {
     const page = await newSpecPage({
       components: [ZAppTopbar],
       html: `<z-app-topbar
               theme="light"
-              logolink="https://www.zanichelli.it"
-              showappswitcher=true
+              logo-link="https://www.zanichelli.it"
+              show-app-switcher=true
             >
             </z-app-topbar>`,
     });
 
     expect(page.root).toEqualHtml(`
       <z-app-topbar
-        class="light" logolink="https://www.zanichelli.it"
-        showappswitcher="true"
+        class="light"
+        logo-link="https://www.zanichelli.it"
+        show-app-switcher="true"
         theme="light"
       >
         <mock:shadow-root>
@@ -93,7 +94,7 @@ describe("Suite test ZAppTopbar", () => {
     const page = await newSpecPage({
       components: [ZAppTopbar],
       html: `<z-app-topbar
-              topbarcontent='[{"id": "assistenza", "label": "Assistenza", "link": "https://assistenza.zanichelli.it", "icon": "support", "target": "_blank"}]'
+              topbar-content='[{"id": "assistenza", "label": "Assistenza", "link": "https://assistenza.zanichelli.it", "icon": "support", "target": "_blank"}]'
             >
               <z-user-dropdown
                 slot="login"
@@ -104,7 +105,7 @@ describe("Suite test ZAppTopbar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-topbar class="dark" topbarcontent='[{"id": "assistenza", "label": "Assistenza", "link": "https://assistenza.zanichelli.it", "icon": "support", "target": "_blank"}]'>
+      <z-app-topbar class="dark" topbar-content='[{"id": "assistenza", "label": "Assistenza", "link": "https://assistenza.zanichelli.it", "icon": "support", "target": "_blank"}]'>
         <mock:shadow-root>
           <div id="content-container">
             <div id="left-panel" class="content-panel">

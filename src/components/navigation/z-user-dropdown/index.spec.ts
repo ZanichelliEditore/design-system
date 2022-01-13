@@ -28,16 +28,16 @@ describe("Suite test ZUserDropdown", () => {
     const page = await newSpecPage({
       components: [ZUserDropdown],
       html: `<z-user-dropdown
-              userfullname="Sandro Studente"
-              menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+              user-full-name="Sandro Studente"
+              menu-content='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
             >
             </z-user-dropdown>`,
     });
 
     expect(page.root).toEqualHtml(`
       <z-user-dropdown
-        userfullname="Sandro Studente"
-        menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+        user-full-name="Sandro Studente"
+        menu-content='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
         <mock:shadow-root>
           <div>
@@ -56,19 +56,19 @@ describe("Suite test ZUserDropdown", () => {
     const page = await newSpecPage({
       components: [ZUserDropdown],
       html: `<z-user-dropdown
-              userfullname="Sandro Studente"
-              useremail="sandro@abc.com"
+              user-full-name="Sandro Studente"
+              user-email="sandro@abc.com"
               logged="true"
-              menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+              menu-content='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
             ></z-user-dropdown>`,
     });
 
     expect(page.root).toEqualHtml(`
       <z-user-dropdown
-        userfullname="Sandro Studente"
-        useremail="sandro@abc.com"
+        user-full-name="Sandro Studente"
+        user-email="sandro@abc.com"
         logged="true"
-        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+        menu-content='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
         <mock:shadow-root>
           <div>
@@ -93,20 +93,20 @@ describe("Suite test ZUserDropdown", () => {
     const page = await newSpecPage({
       components: [ZUserDropdown],
       html: `<z-user-dropdown
-              useinversecolors="true"
-              userfullname="Sandro Studente"
-              useremail="sandro@abc.com"
-              menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+              use-inverse-colors="true"
+              user-full-name="Sandro Studente"
+              user-email="sandro@abc.com"
+              menu-content='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
             ></z-user-dropdown>`,
     });
 
     expect(page.root).toEqualHtml(`
       <z-user-dropdown
-        useinversecolors="true"
+        use-inverse-colors="true"
         class="inverse"
-        userfullname="Sandro Studente"
-        useremail="sandro@abc.com"
-        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+        user-full-name="Sandro Studente"
+        user-email="sandro@abc.com"
+        menu-content='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
         <mock:shadow-root>
           <div>
@@ -125,22 +125,22 @@ describe("Suite test ZUserDropdown", () => {
     const page = await newSpecPage({
       components: [ZUserDropdown],
       html: `<z-user-dropdown
-              useinversecolors="true"
-              userfullname="Sandro Studente"
-              useremail="sandro@abc.com"
+              use-inverse-colors="true"
+              user-full-name="Sandro Studente"
+              user-email="sandro@abc.com"
               logged="true"
-              menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+              menu-content='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
             ></z-user-dropdown>`,
     });
 
     expect(page.root).toEqualHtml(`
       <z-user-dropdown
-        useinversecolors="true"
+        use-inverse-colors="true"
         class="inverse"
-        userfullname="Sandro Studente"
-        useremail="sandro@abc.com"
+        user-full-name="Sandro Studente"
+        user-email="sandro@abc.com"
         logged="true"
-        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+        menu-content='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
       >
         <mock:shadow-root>
           <div>

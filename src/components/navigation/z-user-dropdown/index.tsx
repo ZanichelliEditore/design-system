@@ -11,20 +11,20 @@ export class ZUserDropdown {
   /** logged status flag */
   @Prop() logged?: boolean;
   /** user full name */
-  @Prop() userfullname?: string;
+  @Prop() userFullName?: string;
   /** user email */
-  @Prop() useremail?: string;
+  @Prop() userEmail?: string;
   /** Json stringified or array to fill menu dropdown */
-  @Prop() menucontent?: string | MenuItem[];
+  @Prop() menuContent?: string | MenuItem[];
   /** if inner components colors are inverted, or not, default false */
-  @Prop() useinversecolors?: boolean = false;
+  @Prop() useInverseColors?: boolean = false;
 
-  @State() ismenuopen: boolean = false;
-  @State() ismobile: boolean;
+  @State() isMenuOpen: boolean = false;
+  @State() isMobile: boolean;
 
-  private linkarray: MenuItem[];
-  private userbutton!: HTMLButtonElement;
-  private divtoresize!: HTMLDivElement;
+  private linkArray: MenuItem[];
+  private userButton!: HTMLButtonElement;
+  private divToResize!: HTMLDivElement;
 
   constructor() {
     this.handleLoggedButtonClick = this.handleLoggedButtonClick.bind(this);
@@ -40,55 +40,55 @@ export class ZUserDropdown {
   }
 
   componentWillRender() {
-    if (this.menucontent) {
-      this.linkarray = typeof this.menucontent === "string" ? JSON.parse(this.menucontent) : this.menucontent;
+    if (this.menuContent) {
+      this.linkArray = typeof this.menuContent === "string" ? JSON.parse(this.menuContent) : this.menuContent;
     }
   }
 
   setMobileAndDivToResizeWidth() {
-    if (this.divtoresize) {
-      this.ismobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
+    if (this.divToResize) {
+      this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
 
-      if (this.logged && !this.ismobile && this.ismenuopen) {
-        this.divtoresize.style.width = `${this.userbutton?.offsetWidth}px`;
+      if (this.logged && !this.isMobile && this.isMenuOpen) {
+        this.divToResize.style.width = `${this.userButton?.offsetWidth}px`;
       } else {
-        this.divtoresize.removeAttribute('style');
+        this.divToResize.removeAttribute('style');
       }
     }
   }
 
-  /** Emitted on enter or user Button click, returns ismenuopen (bool) */
+  /** Emitted on enter or user Button click, returns isMenuOpen (bool) */
   @Event() userButtonClick: EventEmitter;
   emitUserButtonClick() {
-    this.userButtonClick.emit(this.ismenuopen);
+    this.userButtonClick.emit(this.isMenuOpen);
   }
 
   /** Emitted on dropdown menu zlink click, returns event */
   @Event() dropdownMenuLinkClick: EventEmitter;
   emitDropdownMenuLinkClick(e: CustomEvent) {
-    this.ismenuopen = false;
+    this.isMenuOpen = false;
     this.dropdownMenuLinkClick.emit({ e, linkId: e.detail.linkId });
   }
 
   @Listen("resize", { target: "window" })
   handleResize(): void {
-    this.ismobile = window.innerWidth <= mobileBreakpoint;
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
   @Listen("orientationchange", { target: "window" })
   handleOrientationChange(): void {
-    this.ismobile = screen.width <= mobileBreakpoint;
+    this.isMobile = screen.width <= mobileBreakpoint;
   }
 
   @Listen("click", { target: "window" })
   handleClickOutside(e: MouseEvent) {
     if ((e.target as HTMLElement).nodeName !== "Z-USER-DROPDOWN") {
-      this.ismenuopen = false;
+      this.isMenuOpen = false;
     }
   }
 
   handleLoggedButtonClick() {
-    this.ismenuopen = !this.ismenuopen;
+    this.isMenuOpen = !this.isMenuOpen;
     this.emitUserButtonClick();
   }
 
@@ -96,7 +96,7 @@ export class ZUserDropdown {
     return (
       <button
         id="guestbutton"
-        class={this.useinversecolors ? "inverse" : ""}
+        class={this.useInverseColors ? "inverse" : ""}
         onClick={() => this.emitUserButtonClick()}
       >
         ENTRA
@@ -105,51 +105,51 @@ export class ZUserDropdown {
   }
 
   renderLoggedButton() {
-    const direction = this.ismenuopen ? "up" : "down";
-    const colorClass = this.useinversecolors ? "inverse" : "";
+    const direction = this.isMenuOpen ? "up" : "down";
+    const colorClass = this.useInverseColors ? "inverse" : "";
 
     return (
       <button
-        ref={(el) => (this.userbutton = el as HTMLButtonElement)}
-        title={this.userfullname}
-        class={`${colorClass} ${this.ismenuopen ? "open" : ""}`}
+        ref={(el) => (this.userButton = el as HTMLButtonElement)}
+        title={this.userFullName}
+        class={`${colorClass} ${this.isMenuOpen ? "open" : ""}`}
         onClick={this.handleLoggedButtonClick}
       >
         <div>
           <div class="firstline">
             <z-icon class={colorClass} name="user-avatar-filled" height={16} width={16} />
-            {!this.ismobile && <div class={`userfullname ${colorClass}`}>{this.userfullname}</div> }
+            {!this.isMobile && <div class={`userfullname ${colorClass}`}>{this.userFullName}</div> }
             <z-icon class={colorClass} name={`caret-${direction}-filled`} height={16} width={16} />
           </div>
-          {!this.ismobile && this.ismenuopen && <div class={`useremail ${colorClass}`}>{this.useremail}</div> }
+          {!this.isMobile && this.isMenuOpen && <div class={`useremail ${colorClass}`}>{this.userEmail}</div> }
         </div>
       </button>
     );
   }
 
   getZLinkTextcolor(): "white" | "black" {
-    if (this.ismobile) {
-      return this.useinversecolors ? "black" : "white";
+    if (this.isMobile) {
+      return this.useInverseColors ? "black" : "white";
     } else {
-      return this.useinversecolors ? "white" : "black";
+      return this.useInverseColors ? "white" : "black";
     }
   }
 
   renderDropdownMenu() {
-    const colorClass = this.useinversecolors ? "inverse" : "";
+    const colorClass = this.useInverseColors ? "inverse" : "";
 
     return (
-      this.ismenuopen && (
+      this.isMenuOpen && (
         <ul class={colorClass}>
-          {this.ismobile &&
+          {this.isMobile &&
             <li
               class={colorClass}
             >
-              <div class={`userfullname ${colorClass}`}>{this.userfullname}</div>
-              <div class={`useremail ${colorClass}`}>{this.useremail}</div>
+              <div class={`userfullname ${colorClass}`}>{this.userFullName}</div>
+              <div class={`useremail ${colorClass}`}>{this.userEmail}</div>
             </li>
           }
-          {this.linkarray && this.linkarray.map((link) =>
+          {this.linkArray && this.linkArray.map((link) =>
             <li
               id={link.id}
               class={colorClass}
@@ -172,13 +172,13 @@ export class ZUserDropdown {
   }
 
   render() {
-    const openClass = `${this.logged && this.ismenuopen ? "open" : ""}`;
-    const colorClass = this.useinversecolors ? "inverse" : "";
+    const openClass = `${this.logged && this.isMenuOpen ? "open" : ""}`;
+    const colorClass = this.useInverseColors ? "inverse" : "";
 
     return (
       <Host class={colorClass}>
         <div
-          ref={(el) => (this.divtoresize = el as HTMLDivElement)}
+          ref={(el) => (this.divToResize = el as HTMLDivElement)}
           class={openClass}
         >
           <div class={`${colorClass} ${openClass}`}>

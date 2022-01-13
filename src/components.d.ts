@@ -48,15 +48,15 @@ export namespace Components {
         /**
           * maximum width of topbar content
          */
-        "contentmaxwidth"?: number;
+        "contentMaxWidth"?: number;
         /**
           * link URL used by z-logo
          */
-        "logolink"?: string;
+        "logoLink"?: string;
         /**
           * add app-switcher
          */
-        "showappswitcher": boolean;
+        "showAppSwitcher": boolean;
         /**
           * theme variant, default 'dark'
          */
@@ -64,7 +64,7 @@ export namespace Components {
         /**
           * JSON string or MenuItem array to define topbar links
          */
-        "topbarcontent"?: string | MenuItem[];
+        "topbarContent"?: string | MenuItem[];
     }
     interface ZAvatar {
         /**
@@ -1505,19 +1505,19 @@ export namespace Components {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem[];
+        "menuContent"?: string | MenuItem[];
         /**
           * if inner components colors are inverted, or not, default false
          */
-        "useinversecolors"?: boolean;
+        "useInverseColors"?: boolean;
         /**
           * user email
          */
-        "useremail"?: string;
+        "userEmail"?: string;
         /**
           * user full name
          */
-        "userfullname"?: string;
+        "userFullName"?: string;
     }
 }
 declare global {
@@ -2176,15 +2176,15 @@ declare namespace LocalJSX {
         /**
           * maximum width of topbar content
          */
-        "contentmaxwidth"?: number;
+        "contentMaxWidth"?: number;
         /**
           * link URL used by z-logo
          */
-        "logolink"?: string;
+        "logoLink"?: string;
         /**
           * add app-switcher
          */
-        "showappswitcher"?: boolean;
+        "showAppSwitcher"?: boolean;
         /**
           * theme variant, default 'dark'
          */
@@ -2192,7 +2192,7 @@ declare namespace LocalJSX {
         /**
           * JSON string or MenuItem array to define topbar links
          */
-        "topbarcontent"?: string | MenuItem[];
+        "topbarContent"?: string | MenuItem[];
     }
     interface ZAvatar {
         /**
@@ -3788,27 +3788,27 @@ declare namespace LocalJSX {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem[];
+        "menuContent"?: string | MenuItem[];
         /**
           * Emitted on dropdown menu zlink click, returns event
          */
         "onDropdownMenuLinkClick"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted on enter or user Button click, returns ismenuopen (bool)
+          * Emitted on enter or user Button click, returns isMenuOpen (bool)
          */
         "onUserButtonClick"?: (event: CustomEvent<any>) => void;
         /**
           * if inner components colors are inverted, or not, default false
          */
-        "useinversecolors"?: boolean;
+        "useInverseColors"?: boolean;
         /**
           * user email
          */
-        "useremail"?: string;
+        "userEmail"?: string;
         /**
           * user full name
          */
-        "userfullname"?: string;
+        "userFullName"?: string;
     }
     interface IntrinsicElements {
         "z-alert": ZAlert;

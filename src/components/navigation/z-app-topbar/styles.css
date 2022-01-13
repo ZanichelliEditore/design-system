@@ -5,13 +5,13 @@
   top: 0;
   height: calc(var(--space-unit) * 6);
   padding: calc(var(--space-unit) / 2) calc(var(--space-unit) * 2);
-  border-radius: var(--border-radius-min);
-  background-color: var(--bg-grey-900);
+  border-radius: var(--border-no-radius);
+  background-color: var(--gray900);
   z-index: 99;
 }
 
 :host(.light) {
-  background-color: var(--bg-white);
+  background-color: var(--color-white);
 }
 
 :host > div {
@@ -58,7 +58,7 @@ z-link {
 
   #divider-container {
     display: block;
-    height: 24px;
+    height: calc(var(--space-unit) * 3);
   }
 }
 
