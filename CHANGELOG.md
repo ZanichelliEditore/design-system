@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.29.3](https://github.com/ZanichelliEditore/design-system/compare/v2.29.2...v2.29.3) (2022-01-12)
+
+
+### Features
+
+* handle missing props/slots inside empty table ([222d0c5](https://github.com/ZanichelliEditore/design-system/commit/222d0c58cfb4671b5862024f8edc88567bb860b5))
+
+
+### Bug Fixes
+
+* remove message conditional logic ([c858c4e](https://github.com/ZanichelliEditore/design-system/commit/c858c4e556a2c576b78e988b66f8c36edeb4c2cd))
+* remove table-body slotted content if empty ([2d4a498](https://github.com/ZanichelliEditore/design-system/commit/2d4a498e31dd4b7cd9dc183ba2cfb24b8566f13e))
+
 ### [2.29.2](https://github.com/ZanichelliEditore/design-system/compare/v2.29.1...v2.29.2) (2022-01-07)
 
 ### [2.29.1](https://github.com/ZanichelliEditore/design-system/compare/v2.29.0...v2.29.1) (2022-01-07)
