@@ -306,13 +306,13 @@ export namespace Components {
     }
     interface ZFooter {
         /**
-          * deprecated - set copyright user
-         */
-        "copyrightuser"?: string;
-        /**
           * deprecated - JSON stringified data to fill the footer
          */
         "data"?: string;
+        "productCreditsLink"?: string;
+        "productName"?: string;
+        "productVersion"?: string;
+        "showReportAProblemButton"?: boolean;
     }
     interface ZFooterLink {
         /**
@@ -2450,13 +2450,14 @@ declare namespace LocalJSX {
     }
     interface ZFooter {
         /**
-          * deprecated - set copyright user
-         */
-        "copyrightuser"?: string;
-        /**
           * deprecated - JSON stringified data to fill the footer
          */
         "data"?: string;
+        "onReportAProblemButtonClick"?: (event: CustomEvent<any>) => void;
+        "productCreditsLink"?: string;
+        "productName"?: string;
+        "productVersion"?: string;
+        "showReportAProblemButton"?: boolean;
     }
     interface ZFooterLink {
         /**

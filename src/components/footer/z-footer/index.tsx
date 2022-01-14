@@ -1,4 +1,5 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, h, Prop, Event, EventEmitter } from "@stencil/core";
+import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 
 /**
  * @slot - main navigation
@@ -13,19 +14,27 @@ import { Component, h, Prop } from "@stencil/core";
 export class ZFooter {
   /** deprecated - JSON stringified data to fill the footer */
   @Prop() data?: string;
-  /** deprecated - set copyright user */
-  @Prop() copyrightuser?: string;
+  @Prop() productName?: string;
+  @Prop() productVersion?: string;
+  @Prop() productCreditsLink?: string;
+  @Prop() showReportAProblemButton?: boolean;
 
   private jsonData;
+
+  constructor() {
+    this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
+  }
 
   componentWillLoad() {
     if (this.data) {
       console.warn("z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead.");
       this.jsonData = JSON.parse(this.data);
     }
-    if (this.copyrightuser) {
-      console.warn("z-footer: `copyrightuser` prop is deprecated and will be removed in a future version.");
-    }
+  }
+
+  @Event() reportAProblemButtonClick: EventEmitter;
+  emitReportAProblemButtonClick() {
+    this.reportAProblemButtonClick.emit();
   }
 
   renderZLogo(): HTMLZLogoElement {
@@ -116,6 +125,40 @@ export class ZFooter {
     );
   }
 
+  renderFooterProductInfo(): HTMLElement {
+    if (this.productName || this.productVersion || this.productCreditsLink || this.showReportAProblemButton) {
+      const versionString = `${this.productName ? ' versione' : 'Versione'} ${this.productVersion}`;
+
+      const creditsObject = <z-body level={5}>
+        {(this.productName || this.productVersion) && ' - '}
+        <z-link href={this.productCreditsLink} target="_blank" textcolor="white">Credits</z-link>
+      </z-body>;
+
+      return (
+        <div class="extension">
+          <span>
+            {this.productName && <z-body level={5} variant="semibold">{this.productName}</z-body>}
+            {this.productVersion && <z-body level={5}>{versionString}</z-body>}
+            {this.productCreditsLink && creditsObject}
+          </span>
+          {this.showReportAProblemButton &&
+            <div>
+              <z-body level={5}>Hai bisogno di aiuto?</z-body>
+              <z-button
+                variant={ButtonVariantEnum["dark-bg"]}
+                size={ButtonSizeEnum.small}
+                onClick={this.emitReportAProblemButtonClick}
+              >
+                SEGNALA UN PROBLEMA
+              </z-button>
+            </div>
+          }
+          <z-divider color="gray500" />
+        </div>
+      );
+    }
+  }
+
   // INFO: backward compatibility
   renderFooterTopJsonData(): null | HTMLElement {
     if (!this.jsonData || !this.jsonData.zanichelliLinks) return null;
@@ -171,6 +214,7 @@ export class ZFooter {
   render(): HTMLElement {
     return (
       <footer>
+        {this.renderFooterProductInfo()}
         {this.renderFooterTop()}
         {this.renderFooterBottom()}
       </footer>

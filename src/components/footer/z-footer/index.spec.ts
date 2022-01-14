@@ -280,6 +280,228 @@ describe("Suite test ZFooter", () => {
       `
     );
   });
+
+  it("Test render ZFooter with product name only", async () => {
+    const page = await newSpecPage({
+      components: [ZFooter],
+      html: `<z-footer product-name="Prodotto bello"></z-footer>`,
+    });
+    expect(page.root).toEqualHtml(
+      `
+        <z-footer product-name="Prodotto bello">
+          <mock:shadow-root>
+            <footer>
+              <div class="extension">
+                <span>
+                  <z-body level="5" variant="semibold">Prodotto bello</z-body>
+                </span>
+                <z-divider color="gray500"></z-divider>
+              </div>
+              <section class="top">
+                <slot></slot>
+              </section>
+              <section class="bottom">
+                <div class="item logo">
+                  ${expectedLogo()}
+                  <p>${expectedCopyright()}</p>
+                  <p>${expectedCertifications()}</p>
+                </div>
+                <div class="item">
+                  <p>${expectedAddress()}</p>
+                  <div class="social">
+                    <slot name="social"></slot>
+                  </div>
+                </div>
+                <div class="item bottom-links">
+                  <slot name="links"></slot>
+                </div>
+              </section>
+            </footer>
+          </mock:shadow-root>
+        </z-footer>
+      `
+    );
+  });
+
+  it("Test render ZFooter with product version only", async () => {
+    const page = await newSpecPage({
+      components: [ZFooter],
+      html: `<z-footer product-version="666"></z-footer>`,
+    });
+    expect(page.root).toEqualHtml(
+      `
+        <z-footer product-version="666">
+          <mock:shadow-root>
+            <footer>
+              <div class="extension">
+                <span>
+                  <z-body level="5">Versione 666</z-body>
+                </span>
+                <z-divider color="gray500"></z-divider>
+              </div>
+              <section class="top">
+                <slot></slot>
+              </section>
+              <section class="bottom">
+                <div class="item logo">
+                  ${expectedLogo()}
+                  <p>${expectedCopyright()}</p>
+                  <p>${expectedCertifications()}</p>
+                </div>
+                <div class="item">
+                  <p>${expectedAddress()}</p>
+                  <div class="social">
+                    <slot name="social"></slot>
+                  </div>
+                </div>
+                <div class="item bottom-links">
+                  <slot name="links"></slot>
+                </div>
+              </section>
+            </footer>
+          </mock:shadow-root>
+        </z-footer>
+      `
+    );
+  });
+
+  it("Test render ZFooter with credits only", async () => {
+    const page = await newSpecPage({
+      components: [ZFooter],
+      html: `<z-footer product-credits-link="https://www.google.com"></z-footer>`,
+    });
+    expect(page.root).toEqualHtml(
+      `
+        <z-footer product-credits-link="https://www.google.com">
+          <mock:shadow-root>
+            <footer>
+              <div class="extension">
+                <span>
+                  <z-body level="5">
+                    <z-link href="https://www.google.com" target="_blank" textcolor="white">Credits</z-link>
+                  </z-body>
+                </span>
+                <z-divider color="gray500"></z-divider>
+              </div>
+              <section class="top">
+                <slot></slot>
+              </section>
+              <section class="bottom">
+                <div class="item logo">
+                  ${expectedLogo()}
+                  <p>${expectedCopyright()}</p>
+                  <p>${expectedCertifications()}</p>
+                </div>
+                <div class="item">
+                  <p>${expectedAddress()}</p>
+                  <div class="social">
+                    <slot name="social"></slot>
+                  </div>
+                </div>
+                <div class="item bottom-links">
+                  <slot name="links"></slot>
+                </div>
+              </section>
+            </footer>
+          </mock:shadow-root>
+        </z-footer>
+      `
+    );
+  });
+
+  it("Test render ZFooter with show-report-a-problem-button only", async () => {
+    const page = await newSpecPage({
+      components: [ZFooter],
+      html: `<z-footer show-report-a-problem-button></z-footer>`,
+    });
+    expect(page.root).toEqualHtml(
+      `
+        <z-footer show-report-a-problem-button>
+          <mock:shadow-root>
+            <footer>
+              <div class="extension">
+                <span></span>
+                <div>
+                  <z-body level="5">Hai bisogno di aiuto?</z-body>
+                  <z-button variant="dark-bg" size="small">SEGNALA UN PROBLEMA</z-button>
+                </div>
+                <z-divider color="gray500"></z-divider>
+              </div>
+              <section class="top">
+                <slot></slot>
+              </section>
+              <section class="bottom">
+                <div class="item logo">
+                  ${expectedLogo()}
+                  <p>${expectedCopyright()}</p>
+                  <p>${expectedCertifications()}</p>
+                </div>
+                <div class="item">
+                  <p>${expectedAddress()}</p>
+                  <div class="social">
+                    <slot name="social"></slot>
+                  </div>
+                </div>
+                <div class="item bottom-links">
+                  <slot name="links"></slot>
+                </div>
+              </section>
+            </footer>
+          </mock:shadow-root>
+        </z-footer>
+      `
+    );
+  });
+
+  it("Test render ZFooter with full extension data filled", async () => {
+    const page = await newSpecPage({
+      components: [ZFooter],
+      html: `<z-footer product-name="Prodotto bello" product-version="666" product-credits-link="https://www.google.com" show-report-a-problem-button></z-footer>`,
+    });
+    expect(page.root).toEqualHtml(
+      `
+        <z-footer product-name="Prodotto bello" product-version="666" product-credits-link="https://www.google.com" show-report-a-problem-button>
+          <mock:shadow-root>
+            <footer>
+              <div class="extension">
+                <span>
+                  <z-body level="5" variant="semibold">Prodotto bello</z-body>
+                  <z-body level="5"> versione 666</z-body>
+                  <z-body level="5"> - 
+                    <z-link href="https://www.google.com" target="_blank" textcolor="white">Credits</z-link>
+                  </z-body>
+                </span>
+                <div>
+                  <z-body level="5">Hai bisogno di aiuto?</z-body>
+                  <z-button variant="dark-bg" size="small">SEGNALA UN PROBLEMA</z-button>
+                </div>
+                <z-divider color="gray500"></z-divider>
+              </div>
+              <section class="top">
+                <slot></slot>
+              </section>
+              <section class="bottom">
+                <div class="item logo">
+                  ${expectedLogo()}
+                  <p>${expectedCopyright()}</p>
+                  <p>${expectedCertifications()}</p>
+                </div>
+                <div class="item">
+                  <p>${expectedAddress()}</p>
+                  <div class="social">
+                    <slot name="social"></slot>
+                  </div>
+                </div>
+                <div class="item bottom-links">
+                  <slot name="links"></slot>
+                </div>
+              </section>
+            </footer>
+          </mock:shadow-root>
+        </z-footer>
+      `
+    );
+  });
 });
 
 const expectedLogo = () => `
