@@ -6,8 +6,16 @@ import {
   Event,
   State,
   Listen,
+  Element,
+  Fragment,
 } from "@stencil/core";
-import { ButtonVariantEnum, DividerSize } from "../../beans";
+import {
+  ButtonVariantEnum,
+  DeviceEnum,
+  DividerSize,
+  ZFileUploadTypeEnum,
+} from "../../beans";
+import { getDevice } from "../../utils/utils";
 
 @Component({
   tag: "z-file-upload",
@@ -16,6 +24,10 @@ import { ButtonVariantEnum, DividerSize } from "../../beans";
 })
 export class ZFileUpload {
   private input: HTMLInputElement;
+
+  /** Prop indicating the file upload type - can be default or dragdrop */
+  @Prop({ mutable: true, reflect: true }) type: ZFileUploadTypeEnum =
+    ZFileUploadTypeEnum.default;
 
   /** Prop indicating the button variant*/
   @Prop() variant: ButtonVariantEnum;
@@ -26,10 +38,27 @@ export class ZFileUpload {
   /** Number of files added by the user */
   @State() files: number = 0;
 
-  /** Listen removeFile event sento from z-file component */
+  @Element() el: HTMLElement;
+
+  /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
   removeFileListener() {
     this.files--;
+  }
+
+  /** Listen fileDropped event sent from z-dragdrop-area component */
+  @Listen("fileDropped")
+  fileDroppedListener(e: CustomEvent) {
+    this.input.files = e.detail;
+    this.fileInputHandler();
+  }
+
+  componentWillLoad() {
+    if (
+      this.type === ZFileUploadTypeEnum.dragdrop &&
+      getDevice() !== DeviceEnum.desktop
+    )
+      this.type = ZFileUploadTypeEnum.default;
   }
 
   /** Emitted when user select one or more files */
@@ -44,21 +73,26 @@ export class ZFileUpload {
 
   renderTitle() {
     return (
-      <z-heading id="title" variant="semibold" level={1}>
+      <z-heading id="title" variant="semibold" level={2}>
         <slot name="title"></slot>
       </z-heading>
     );
   }
 
-  renderDescriptionAndFileInfo() {
-    return [
-      <z-body variant="semibold" level={3}>
+  renderDescription(variant, level) {
+    return (
+      <z-body variant={variant} level={level}>
         <slot name="description"></slot>
-      </z-body>,
+      </z-body>
+    );
+  }
+
+  renderAllowedFileExtensions() {
+    return (
       <z-body level={3}>
         <slot name="file-format"></slot>
-      </z-body>,
-    ];
+      </z-body>
+    );
   }
 
   renderFileSection() {
@@ -77,7 +111,7 @@ export class ZFileUpload {
     );
   }
 
-  renderInput() {
+  renderUploadButton() {
     return [
       <input
         onChange={() => this.fileInputHandler()}
@@ -98,14 +132,67 @@ export class ZFileUpload {
     ];
   }
 
-  render() {
+  renderUploadLink() {
+    return [
+      <input
+        onChange={() => this.fileInputHandler()}
+        type="file"
+        id="fileElem"
+        multiple
+        accept={this.acceptedFormat}
+        ref={(val) => (this.input = val)}
+      />,
+      <z-body variant="regular" level={1}>
+        Trascinalo qui o{" "}
+        <z-body
+          class="upload-link"
+          onClick={() => this.input.click()}
+          variant="semibold"
+          level={1}
+        >
+          caricalo
+        </z-body>{" "}
+        dal tuo computer
+      </z-body>,
+    ];
+  }
+
+  renderDefaultMode() {
     return (
-      <div class="container">
-        {this.renderTitle()}
-        {this.renderDescriptionAndFileInfo()}
+      <Fragment>
+        {this.renderDescription("semibold", 3)}
+        {this.renderAllowedFileExtensions()}
         {this.renderFileSection()}
-        {this.renderInput()}
-      </div>
+        {this.renderUploadButton()}
+      </Fragment>
     );
+  }
+
+  renderDragDropMode() {
+    return (
+      <Fragment>
+        {this.renderFileSection()}
+        <z-dragdrop-area>
+          <div class="text-container">
+            {this.renderDescription("regular", 1)}
+            {this.renderUploadLink()}
+            {this.renderAllowedFileExtensions()}
+          </div>
+        </z-dragdrop-area>
+      </Fragment>
+    );
+  }
+
+  render() {
+    {
+      return (
+        <div class={`container ${this.type}`}>
+          {this.renderTitle()}
+          {this.type == ZFileUploadTypeEnum.default
+            ? this.renderDefaultMode()
+            : this.renderDragDropMode()}
+        </div>
+      );
+    }
   }
 }

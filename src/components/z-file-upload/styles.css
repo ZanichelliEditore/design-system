@@ -4,16 +4,28 @@
 }
 
 :host > .container {
+  color: var(--gray800);
   display: flex;
   flex-direction: column;
 }
 
-:host > .container > #fileElem {
-  display: none;
+:host .text-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
-:host > .container > z-button {
-  width: 100%;
+:host .text-container z-body {
+  text-align: center;
+}
+
+:host .text-container .upload-link {
+  color: var(--blue500);
+  cursor: pointer;
+}
+
+input#fileElem {
+  display: none;
 }
 
 ::slotted([slot="title"]) {
@@ -36,15 +48,22 @@
   flex-wrap: wrap;
   row-gap: calc(var(--space-unit) * 2);
   column-gap: calc(var(--space-unit) * 2);
-  margin-bottom: calc(var(--space-unit) * 3);
+}
+:host > .container > .files-container > z-divider {
+  margin: calc(var(--space-unit) * 3) 0;
 }
 
-
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+  :host > .container > z-button {
+    align-self: flex-start;
+  }
+}
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {}
+@media only screen and (min-width: 1152px) {
+}
 
 /* Wide breakpoint */
-@media only screen and (min-width: 1366px) {}
+@media only screen and (min-width: 1366px) {
+}

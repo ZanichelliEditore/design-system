@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZRegistroTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZFileUploadTypeEnum, ZRegistroTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -304,6 +304,8 @@ export namespace Components {
          */
         "size"?: DividerSize;
     }
+    interface ZDragdropArea {
+    }
     interface ZFile {
     }
     interface ZFileUpload {
@@ -311,6 +313,10 @@ export namespace Components {
           * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
          */
         "acceptedFormat": string;
+        /**
+          * Prop indicating the file upload type - can be default or dragdrop
+         */
+        "type": ZFileUploadTypeEnum;
         /**
           * Prop indicating the button variant
          */
@@ -1621,6 +1627,12 @@ declare global {
         prototype: HTMLZDividerElement;
         new (): HTMLZDividerElement;
     };
+    interface HTMLZDragdropAreaElement extends Components.ZDragdropArea, HTMLStencilElement {
+    }
+    var HTMLZDragdropAreaElement: {
+        prototype: HTMLZDragdropAreaElement;
+        new (): HTMLZDragdropAreaElement;
+    };
     interface HTMLZFileElement extends Components.ZFile, HTMLStencilElement {
     }
     var HTMLZFileElement: {
@@ -2076,6 +2088,7 @@ declare global {
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
         "z-divider": HTMLZDividerElement;
+        "z-dragdrop-area": HTMLZDragdropAreaElement;
         "z-file": HTMLZFileElement;
         "z-file-upload": HTMLZFileUploadElement;
         "z-footer": HTMLZFooterElement;
@@ -2474,6 +2487,12 @@ declare namespace LocalJSX {
          */
         "size"?: DividerSize;
     }
+    interface ZDragdropArea {
+        /**
+          * Emitted when user drop one or more files
+         */
+        "onFileDropped"?: (event: CustomEvent<any>) => void;
+    }
     interface ZFile {
         /**
           * Emitted when a z-file component is removed from the DOM
@@ -2489,6 +2508,10 @@ declare namespace LocalJSX {
           * Emitted when user select one or more files
          */
         "onFileInput"?: (event: CustomEvent<any>) => void;
+        /**
+          * Prop indicating the file upload type - can be default or dragdrop
+         */
+        "type"?: ZFileUploadTypeEnum;
         /**
           * Prop indicating the button variant
          */
@@ -3857,6 +3880,7 @@ declare namespace LocalJSX {
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
         "z-divider": ZDivider;
+        "z-dragdrop-area": ZDragdropArea;
         "z-file": ZFile;
         "z-file-upload": ZFileUpload;
         "z-footer": ZFooter;
@@ -3952,6 +3976,7 @@ declare module "@stencil/core" {
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
+            "z-dragdrop-area": LocalJSX.ZDragdropArea & JSXBase.HTMLAttributes<HTMLZDragdropAreaElement>;
             "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
             "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
