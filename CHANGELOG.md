@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.30.0](https://github.com/ZanichelliEditore/design-system/compare/v2.29.3...v2.30.0) (2022-01-17)
+
+
+### Features
+
+* support inverse coloring ([3d8736e](https://github.com/ZanichelliEditore/design-system/commit/3d8736ee63f3b18a1843551f4d569cc7b46aac9a))
+* unset showappswitcher default value ([f3d6698](https://github.com/ZanichelliEditore/design-system/commit/f3d6698b2b453f71982ab0b844705774073a3368))
+
+
+### Bug Fixes
+
+* apply contentmaxwidth property at any breakpoint ([504261f](https://github.com/ZanichelliEditore/design-system/commit/504261f84640f79519093c53cce4546ac4c5cecc))
+* fix coloring li tags ([eee3b27](https://github.com/ZanichelliEditore/design-system/commit/eee3b277c030b1206731fd400f815cb46e6c49b4))
+* fix css ([0432f8f](https://github.com/ZanichelliEditore/design-system/commit/0432f8f3279f6e7a8c80c45d5ea550ac75dbe348))
+* fix css ([422244b](https://github.com/ZanichelliEditore/design-system/commit/422244b72982d91c0ec9bcba3f09ea0e8531900f))
+* fix css ([d9b060f](https://github.com/ZanichelliEditore/design-system/commit/d9b060fdfde420c56fbe3940c1c1640bef81713c))
+* fix css bug when screen is wide and contentmaxwidth is defined ([0c65288](https://github.com/ZanichelliEditore/design-system/commit/0c65288d5b1f7c3cebe005e4efb6f916eda4034b))
+* fix css style ([3e3d77f](https://github.com/ZanichelliEditore/design-system/commit/3e3d77f5bea89ca30489ec24067c82be5e8940e5))
+* fix events handling ([f43e4a2](https://github.com/ZanichelliEditore/design-system/commit/f43e4a29b9983580cde7d87754bc79825ff11ccc))
+* remove useless click handling ([f493637](https://github.com/ZanichelliEditore/design-system/commit/f493637ba3d99391abda17bd2460c16a7e810066))
+* remove useless lifecycle function ([e3d3db8](https://github.com/ZanichelliEditore/design-system/commit/e3d3db8431e89680eaae776c14b53b0a1d688c81))
+* truncate long name and email with ellipsis in mobile view and avoid text new line for long menu voice ([8f71792](https://github.com/ZanichelliEditore/design-system/commit/8f71792f6f87cfef510873b5357eeb90273cfce8))
+
 ### [2.29.3](https://github.com/ZanichelliEditore/design-system/compare/v2.29.2...v2.29.3) (2022-01-12)
 
 
