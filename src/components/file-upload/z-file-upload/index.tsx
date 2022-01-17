@@ -14,8 +14,8 @@ import {
   DeviceEnum,
   DividerSize,
   ZFileUploadTypeEnum,
-} from "../../beans";
-import { getDevice } from "../../utils/utils";
+} from "../../../beans";
+import { getDevice } from "../../../utils/utils";
 
 @Component({
   tag: "z-file-upload",
@@ -34,6 +34,9 @@ export class ZFileUpload {
 
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
   @Prop() acceptedFormat: string;
+
+  /** Prop indicating if the user can pick more than one file at once*/
+  @Prop() multiple: boolean;
 
   /** Number of files added by the user */
   @State() files: number = 0;
@@ -112,6 +115,14 @@ export class ZFileUpload {
   }
 
   renderUploadButton() {
+    /*    const attributes = {
+      className: "form-input form-input--email",
+      id: "user-email",
+      type: "email",
+      name: "user-email",
+      placeholder: this.props.placeholder,
+      required: this.state.required,
+    }; */
     return [
       <input
         onChange={() => this.fileInputHandler()}

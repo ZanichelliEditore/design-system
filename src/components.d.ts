@@ -314,6 +314,10 @@ export namespace Components {
          */
         "acceptedFormat": string;
         /**
+          * Prop indicating if the user can pick more than one file at once
+         */
+        "multiple": boolean;
+        /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type": ZFileUploadTypeEnum;
@@ -2504,6 +2508,10 @@ declare namespace LocalJSX {
           * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
          */
         "acceptedFormat"?: string;
+        /**
+          * Prop indicating if the user can pick more than one file at once
+         */
+        "multiple"?: boolean;
         /**
           * Emitted when user select one or more files
          */
