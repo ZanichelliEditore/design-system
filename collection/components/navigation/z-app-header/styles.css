@@ -120,6 +120,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  line-height: 1.2;
 }
 
 .heading-stucked .heading-title > *,
@@ -128,8 +129,11 @@
   margin: 0;
   font-weight: 700;
   font-family: 'IBM Plex Serif', serif;
-  font-size: var(--app-header-typography-5-size);
-  letter-spacing: var(--app-header-typography-5-tracking);
+  font-size: var(--app-header-typography-3-size);
+  letter-spacing: var(--app-header-typography-3-tracking);
+}
+
+::slotted([slot='title']) {
   line-height: 1;
 }
 
