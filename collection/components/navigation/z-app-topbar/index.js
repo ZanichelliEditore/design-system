@@ -1,50 +1,41 @@
-import { Component, Prop, Element, h, State, Listen } from "@stencil/core";
-import { ThemeVariant } from "../../../beans";
+import { Component, Prop, h, State, Listen, Host } from "@stencil/core";
+import { DividerOrientation, ThemeVariant } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 export class ZAppTopbar {
   constructor() {
     /** theme variant, default 'dark' */
     this.theme = ThemeVariant.dark;
+    this.topbarLinks = [];
   }
   handleResize() {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
-    this.toggleLinkLabels();
-  }
-  handleOrientationChange() {
-    this.isMobile = screen.width <= mobileBreakpoint;
-    this.toggleLinkLabels();
   }
   componentWillLoad() {
-    this.zLinksValues = Array.from(this.hostElement.children)
-      .filter((child) => child.nodeName === "Z-LINK")
-      .map((link) => link.childNodes[0].nodeValue);
     this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
-    this.toggleLinkLabels();
   }
-  toggleLinkLabels() {
-    if (this.hostElement) {
-      const zLinks = Array.from(this.hostElement.children).filter((child) => child.nodeName === "Z-LINK");
-      if (this.isMobile) {
-        zLinks.forEach((link) => {
-          link.childNodes[0].nodeValue = "";
-        });
-      }
-      else {
-        zLinks.forEach((link, i) => {
-          link.childNodes[0].nodeValue = this.zLinksValues[i];
-        });
-      }
+  componentWillRender() {
+    if (this.topbarContent) {
+      this.topbarLinks = typeof this.topbarContent === "string" ? JSON.parse(this.topbarContent) : this.topbarContent;
     }
   }
+  renderTopbarLinks() {
+    return this.topbarLinks.map((link) => h("z-link", { htmlid: link.id, textcolor: this.theme === ThemeVariant.light ? "black" : "white", href: link.link, target: link.target, icon: this.isMobile ? link.icon : undefined }, !this.isMobile && link.label));
+  }
   render() {
-    return (h("div", { class: this.theme },
-      h("div", { class: "left" },
-        h("slot", { name: "logo" }),
-        this.hashtag && h("span", { id: "hashtag" }, this.hashtag.replace(/\s/g, ''))),
-      h("div", { class: `right ${this.logged && this.isMobile && "hide-actions"}` },
-        h("slot", { name: "actions" }),
-        h("slot", { name: "login" }),
-        h("slot", { name: "app-switcher" }))));
+    return (h(Host, { class: {
+        [this.theme]: true,
+        "limited-width": !!this.contentMaxWidth
+      } },
+      h("div", { id: "content-container", style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} },
+        h("div", { id: "left-panel", class: "content-panel" },
+          h("z-logo", { width: this.isMobile ? 32 : 128, height: this.isMobile ? 40 : 32, imagealt: "zanichelli-logo", link: this.logoLink, targetblank: true }),
+          this.isMobile && this.renderTopbarLinks()),
+        h("div", { id: "right-panel", class: "content-panel" },
+          !this.isMobile && this.renderTopbarLinks(),
+          this.showAppSwitcher && h("z-app-switcher", { theme: this.theme }),
+          h("div", { id: "divider-container" },
+            h("z-divider", { orientation: DividerOrientation.vertical, color: this.theme === ThemeVariant.light ? "gray800" : "color-white" })),
+          h("slot", { name: "login" })))));
   }
   static get is() { return "z-app-topbar"; }
   static get encapsulation() { return "shadow"; }
@@ -59,10 +50,10 @@ export class ZAppTopbar {
       "type": "string",
       "mutable": false,
       "complexType": {
-        "original": "ThemeVariantBean",
-        "resolved": "\"dark\" | \"light\"",
+        "original": "ThemeVariant",
+        "resolved": "ThemeVariant.dark | ThemeVariant.light",
         "references": {
-          "ThemeVariantBean": {
+          "ThemeVariant": {
             "location": "import",
             "path": "../../../beans"
           }
@@ -78,24 +69,46 @@ export class ZAppTopbar {
       "reflect": false,
       "defaultValue": "ThemeVariant.dark"
     },
-    "logged": {
-      "type": "boolean",
+    "contentMaxWidth": {
+      "type": "number",
       "mutable": false,
       "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
+        "original": "number",
+        "resolved": "number",
         "references": {}
       },
       "required": false,
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "logged status flag"
+        "text": "maximum width of topbar content"
       },
-      "attribute": "logged",
+      "attribute": "content-max-width",
       "reflect": false
     },
-    "hashtag": {
+    "topbarContent": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string | MenuItem[]",
+        "resolved": "MenuItem[] | string",
+        "references": {
+          "MenuItem": {
+            "location": "import",
+            "path": "../../../beans"
+          }
+        }
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "JSON string or MenuItem array to define topbar links"
+      },
+      "attribute": "topbar-content",
+      "reflect": false
+    },
+    "logoLink": {
       "type": "string",
       "mutable": false,
       "complexType": {
@@ -107,28 +120,37 @@ export class ZAppTopbar {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "optional hashtag string"
+        "text": "link URL used by z-logo"
       },
-      "attribute": "hashtag",
+      "attribute": "logo-link",
+      "reflect": false
+    },
+    "showAppSwitcher": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "add app-switcher"
+      },
+      "attribute": "show-app-switcher",
       "reflect": false
     }
   }; }
   static get states() { return {
-    "zLinksValues": {},
     "isMobile": {}
   }; }
-  static get elementRef() { return "hostElement"; }
   static get listeners() { return [{
       "name": "resize",
       "method": "handleResize",
       "target": "window",
       "capture": false,
       "passive": true
-    }, {
-      "name": "orientationchange",
-      "method": "handleOrientationChange",
-      "target": "window",
-      "capture": false,
-      "passive": false
     }]; }
 }

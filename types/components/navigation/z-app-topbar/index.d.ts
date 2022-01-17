@@ -1,18 +1,20 @@
-import { HostElement } from "../../../stencil-public-runtime";
-import { ThemeVariantBean } from "../../../beans";
+import { MenuItem, ThemeVariant } from "../../../beans";
 export declare class ZAppTopbar {
   /** theme variant, default 'dark' */
-  theme?: ThemeVariantBean;
-  /** logged status flag */
-  logged?: boolean;
-  /** optional hashtag string*/
-  hashtag?: string;
-  hostElement: HostElement;
-  zLinksValues: string[];
+  theme?: ThemeVariant;
+  /** maximum width of topbar content */
+  contentMaxWidth?: number;
+  /** JSON string or MenuItem array to define topbar links */
+  topbarContent?: string | MenuItem[];
+  /** link URL used by z-logo */
+  logoLink?: string;
+  /** add app-switcher */
+  showAppSwitcher: boolean;
   isMobile: boolean;
+  private topbarLinks;
   handleResize(): void;
-  handleOrientationChange(): void;
   componentWillLoad(): void;
-  toggleLinkLabels(): void;
+  componentWillRender(): void;
+  renderTopbarLinks(): any[];
   render(): any;
 }

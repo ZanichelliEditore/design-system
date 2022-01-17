@@ -1,8 +1,8 @@
-import { r as registerInstance, h, c as createEvent, g as getElement, H as Host } from './index-fa9e549c.js';
-import { T as ThemeVariant, A as AvatarSize, B as ButtonTypeEnum, a as ButtonVariantEnum, b as ButtonSizeEnum, C as CardVariants, I as InputTypeEnum, k as keybordKeyCodeEnum, P as PopoverPosition, c as DividerSize, d as DividerOrientation, L as ListSize, E as ExpandableListButtonAlign, e as ListDividerType, f as ExpandableListStyle, K as KeyboardKeys, g as LicenseTypeEnum, h as AlertTypesEnum, N as NotificationType, i as PopoverBorderRadius, j as PopoverShadow, l as TableHeaderSize, S as SortDirectionEnum, Z as ZRegistroTableRowExpandedType, m as InputStatusEnum, n as StatusTagStatus, o as TooltipPosition } from './index-ac6e10aa.js';
+import { r as registerInstance, h, c as createEvent, H as Host, g as getElement } from './index-fa9e549c.js';
+import { T as ThemeVariant, a as DividerOrientation, A as AvatarSize, B as ButtonTypeEnum, b as ButtonVariantEnum, c as ButtonSizeEnum, C as CardVariants, I as InputTypeEnum, k as keybordKeyCodeEnum, P as PopoverPosition, d as DividerSize, L as ListSize, E as ExpandableListButtonAlign, e as ListDividerType, f as ExpandableListStyle, K as KeyboardKeys, g as LicenseTypeEnum, h as AlertTypesEnum, N as NotificationType, i as PopoverBorderRadius, j as PopoverShadow, l as TableHeaderSize, S as SortDirectionEnum, Z as ZRegistroTableRowExpandedType, m as InputStatusEnum, n as StatusTagStatus, o as TooltipPosition } from './index-0258069c.js';
 import { m as mobileBreakpoint, t as tabletBreakpoint } from './breakpoints-c386984e.js';
 import { c as createCommonjsModule, h as hammer } from './hammer-c807d0b5.js';
-import { h as handleKeyboardSubmit, r as randomId, g as getElementTree, a as getClickedElement } from './utils-4da869b8.js';
+import { h as handleKeyboardSubmit, r as randomId, g as getElementTree, a as getClickedElement } from './utils-0345e333.js';
 
 const stylesCss$10 = ":host{display:block;font-family:var(--font-family-sans);font-weight:var(--font-rg);font-size:14px;line-height:calc(var(--space-unit) * 2);color:var(--color-surface05);box-sizing:border-box}:host>div{padding:calc(var(--space-unit) * 2)}:host>.success{fill:var(--color-success01);background:var(--color-success-inverse)}:host>.warning{fill:var(--color-warning01);background:var(--color-warning-inverse)}:host>.error{fill:var(--color-error01);background:var(--color-error-inverse)}";
 
@@ -37,48 +37,35 @@ const ZAppSwitcher = class {
 };
 ZAppSwitcher.style = stylesCss$$;
 
-const stylesCss$_ = ":host{display:block;position:sticky;top:0;z-index:99;font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>div{background:var(--bg-grey-900);border-radius:var(--border-radius-min);display:grid;grid-template-columns:repeat(2, 1fr);justify-content:space-between;align-items:center;padding:calc(var(--space-unit) * .5);}:host>div.light{background:var(--bg-white)}:host>div.light #hashtag{color:var(--bg-grey-900)}.left{grid-column-start:1;grid-column-end:2;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-items:center;align-content:center}.left>#hashtag{display:none}.right{grid-column-start:2;grid-column-end:3;display:flex;align-items:center;justify-content:flex-end;padding-right:var(--space-unit)}.right.hide-actions>slot[name=\"actions\"]{display:none}.right>::slotted(*){padding:calc(var(--space-unit) * .5)}@media only screen and (min-width: 768px){:host>div{grid-template-columns:repeat(2, auto)}.left>#hashtag{display:initial;color:var(--bg-white);text-transform:uppercase;padding:var(--space-unit) calc(var(--space-unit) * 2)}.left>#hashtag::before{content:\"#\"}.right{grid-column-gap:var(--space-unit);padding-right:calc(var(--space-unit) * 1.5)}}";
+const stylesCss$_ = ":host{display:block;position:sticky;box-sizing:border-box;top:0;height:calc(var(--space-unit) * 6);padding:calc(var(--space-unit) / 2) calc(var(--space-unit) * 2);border-radius:var(--border-no-radius);background-color:var(--gray900);z-index:99}:host(.light){background-color:var(--color-white)}:host>div{display:flex;justify-content:space-between;align-items:center}:host(.limited-width) #content-container{margin:auto;max-width:var(--mw)}.content-panel{display:flex;align-items:center}.content-panel>:not(:last-child){margin-right:calc(var(--space-unit) * 2)}#divider-container{display:none}z-link{font-family:var(--font-family-sans);font-weight:var(--font-sb);font-size:14px;line-height:20px;letter-spacing:0.3px}@media only screen and (min-width: 768px){:host{padding:var(--space-unit) calc(var(--space-unit) * 2) var(--space-unit) var(--space-unit)}:host(.limited-width){padding:var(--space-unit)}#divider-container{display:block;height:calc(var(--space-unit) * 3)}}";
 
 const ZAppTopbar = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     /** theme variant, default 'dark' */
     this.theme = ThemeVariant.dark;
+    this.topbarLinks = [];
   }
   handleResize() {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
-    this.toggleLinkLabels();
-  }
-  handleOrientationChange() {
-    this.isMobile = screen.width <= mobileBreakpoint;
-    this.toggleLinkLabels();
   }
   componentWillLoad() {
-    this.zLinksValues = Array.from(this.hostElement.children)
-      .filter((child) => child.nodeName === "Z-LINK")
-      .map((link) => link.childNodes[0].nodeValue);
     this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
-    this.toggleLinkLabels();
   }
-  toggleLinkLabels() {
-    if (this.hostElement) {
-      const zLinks = Array.from(this.hostElement.children).filter((child) => child.nodeName === "Z-LINK");
-      if (this.isMobile) {
-        zLinks.forEach((link) => {
-          link.childNodes[0].nodeValue = "";
-        });
-      }
-      else {
-        zLinks.forEach((link, i) => {
-          link.childNodes[0].nodeValue = this.zLinksValues[i];
-        });
-      }
+  componentWillRender() {
+    if (this.topbarContent) {
+      this.topbarLinks = typeof this.topbarContent === "string" ? JSON.parse(this.topbarContent) : this.topbarContent;
     }
   }
-  render() {
-    return (h("div", { class: this.theme }, h("div", { class: "left" }, h("slot", { name: "logo" }), this.hashtag && h("span", { id: "hashtag" }, this.hashtag.replace(/\s/g, ''))), h("div", { class: `right ${this.logged && this.isMobile && "hide-actions"}` }, h("slot", { name: "actions" }), h("slot", { name: "login" }), h("slot", { name: "app-switcher" }))));
+  renderTopbarLinks() {
+    return this.topbarLinks.map((link) => h("z-link", { htmlid: link.id, textcolor: this.theme === ThemeVariant.light ? "black" : "white", href: link.link, target: link.target, icon: this.isMobile ? link.icon : undefined }, !this.isMobile && link.label));
   }
-  get hostElement() { return getElement(this); }
+  render() {
+    return (h(Host, { class: {
+        [this.theme]: true,
+        "limited-width": !!this.contentMaxWidth
+      } }, h("div", { id: "content-container", style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} }, h("div", { id: "left-panel", class: "content-panel" }, h("z-logo", { width: this.isMobile ? 32 : 128, height: this.isMobile ? 40 : 32, imagealt: "zanichelli-logo", link: this.logoLink, targetblank: true }), this.isMobile && this.renderTopbarLinks()), h("div", { id: "right-panel", class: "content-panel" }, !this.isMobile && this.renderTopbarLinks(), this.showAppSwitcher && h("z-app-switcher", { theme: this.theme }), h("div", { id: "divider-container" }, h("z-divider", { orientation: DividerOrientation.vertical, color: this.theme === ThemeVariant.light ? "gray800" : "color-white" })), h("slot", { name: "login" })))));
+  }
 };
 ZAppTopbar.style = stylesCss$_;
 
@@ -3531,7 +3518,7 @@ const ZTypography = class {
 };
 ZTypography.style = stylesCss$1;
 
-const stylesCss = ":host{background-color:var(--bg-grey-900)}:host(.inverse){background-color:var(--bg-white)}button{cursor:pointer;display:flex;flex-direction:column;width:100%;margin:0;background-color:var(--bg-grey-900);border:none;padding:0;letter-spacing:0.16px}button.inverse{background-color:var(--bg-white)}button div.firstline{display:flex;justify-content:flex-end;align-items:center;max-width:200px}button.open div.firstline{max-width:none}z-icon{padding:0 2px;fill:var(--text-white)}z-icon.inverse{fill:var(--bg-grey-900)}ul{position:absolute;left:0;padding:calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);width:100%;margin:calc(var(--space-unit) * 1.5) 0 0 0;background-color:var(--bg-grey-900);font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:20px;letter-spacing:0.3px}ul.inverse{background-color:var(--bg-white)}ul>li{display:flex;justify-content:flex-end;padding:calc(var(--space-unit) * 1.5 - 1px) 0;margin:0 calc(var(--space-unit) * 4) 0 0;border-bottom:var(--border-base) solid var(--bg-grey-700)}ul>li.inverse{border-bottom-color:var(--gray400)}ul>li:first-child{border-top:none;padding-top:0;flex-direction:column;align-items:end}ul>li:last-child{border-bottom:none;margin-bottom:0}#guestbutton{box-sizing:border-box;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);vertical-align:middle;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;fill:currentColor;height:32px;min-width:32px;padding:0 calc(var(--space-unit) * 2);background-color:var(--bg-white);border-color:var(--bg-white);color:var(--text-grey-800)}#guestbutton.inverse{background-color:var(--bg-grey-800);border-color:var(--bg-grey-800);color:var(--text-white)}.userfullname{padding:0;white-space:nowrap;overflow:hidden;max-width:250px;text-overflow:ellipsis;color:var(--text-white);font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:16px;line-height:24px;letter-spacing:0}.userfullname.inverse{color:var(--text-grey-800)}.useremail{color:var(--text-white);font-family:var(--dashboard-font);font-weight:var(--font-rg);font-size:12px;line-height:16px;letter-spacing:0.32px}.useremail.inverse{color:var(--text-grey-800)}@media only screen and (min-width: 768px){:host{height:calc(var(--space-unit) * 4);background-color:var(--bg-grey-900)}:host(.inverse){background-color:var(--bg-white)}:host>div{position:relative;top:50%;transform:translateY(-50%)}:host>div.open{top:auto;transform:none}:host>div>div{padding:0}:host>div>div.open{position:absolute;right:calc(var(--space-unit) * -1);box-shadow:0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);background-color:var(--bg-white);margin-top:calc(var(--space-unit) / 2);padding:calc(var(--space-unit) / 2 + 1px) var(--space-unit) 0 var(--space-unit);transform:translate(0, -4px)}:host>div>div.inverse.open{background-color:var(--bg-grey-800)}button{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-end;align-items:end;align-content:center}button.open{background-color:var(--bg-white);border-top:var(--border-size-small) solid var(--bg-white);border-top-left-radius:calc(var(--space-unit) * .5);border-top-right-radius:calc(var(--space-unit) * .5);max-width:initial;margin-left:var(--space-unit);padding-right:var(--space-unit);padding-bottom:calc(var(--space-unit) * 2)}button.open.inverse{border-top-color:var(--bg-grey-800);background-color:var(--bg-grey-800)}button:not(.open) z-icon{fill:var(--text-white)}button:not(.open) z-icon.inverse{fill:var(--text-grey-800)}button.open z-icon{fill:var(--text-grey-800)}button.open z-icon.inverse{fill:var(--text-white)}.userfullname{font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:20px;letter-spacing:0.16px;padding:0 calc(var(--space-unit) - 2px)}.userfullname.inverse{color:var(--text-grey-800)}button.open div.userfullname{color:var(--text-grey-800);max-width:none;text-overflow:clip}button.open div.userfullname.inverse{color:var(--text-white)}.useremail{margin-right:calc(var(--space-unit) * 3 + 2px);text-align:end}button.open div.useremail{color:var(--text-grey-800)}button.open div.useremail.inverse{color:var(--text-white)}ul{position:initial;left:initial;padding:0;margin-top:0;width:100%;background-color:var(--bg-white);border-bottom:var(--border-size-small) solid var(--bg-white);border-bottom-left-radius:var(--border-radius-base);border-bottom-right-radius:var(--border-radius-base)}ul.inverse{border-bottom-color:var(--bg-grey-800);background-color:var(--bg-grey-800)}ul>li{color:var(--text-grey-800);border-bottom:var(--border-base) solid var(--gray400);margin:0 var(--space-unit)}ul>li.inverse{color:var(--text-white)}ul>li:first-child{border-top:var(--border-base) solid var(--gray400);padding-top:calc(var(--space-unit) + 3px)}}";
+const stylesCss = ":host{background-color:var(--gray900)}:host(.inverse){background-color:var(--color-white)}button{cursor:pointer;display:flex;flex-direction:column;width:100%;margin:0;background-color:var(--gray900);border:none;padding:0;letter-spacing:0.16px;white-space:nowrap}button.inverse{background-color:var(--color-white)}button div.firstline{display:flex;justify-content:flex-end;align-items:center;max-width:200px}button.open div.firstline{max-width:none}z-icon{padding:0 2px;fill:var(--color-white)}z-icon.inverse{fill:var(--gray900)}ul{box-sizing:border-box;position:absolute;left:0;padding:calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);width:100%;margin:calc(var(--space-unit) * 1.5) 0 0 0;background-color:var(--gray900);font-family:var(--font-family-sans);font-weight:var(--font-sb);font-size:14px;line-height:20px;letter-spacing:0.3px}ul.inverse{background-color:var(--color-white)}ul>li{display:flex;justify-content:flex-end;white-space:nowrap;padding:calc(var(--space-unit) * 1.5 - 1px) 0;margin:0;border-bottom:var(--border-base) solid var(--gray700)}ul>li.inverse{border-bottom-color:var(--gray400)}ul>li:first-child{border-top:none;padding-top:0;padding-bottom:calc(var(--space-unit) + 6px);flex-direction:column;align-items:end}ul>li:last-child{border-bottom:none;margin-bottom:0}#guestbutton{box-sizing:border-box;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;width:100%;font-family:var(--font-family-sans);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);vertical-align:middle;text-transform:uppercase;text-decoration:none;cursor:pointer;outline:none;fill:currentColor;height:32px;min-width:32px;padding:0 calc(var(--space-unit) * 2);background-color:var(--color-white);border-color:var(--color-white);color:var(--gray800)}#guestbutton.inverse{background-color:var(--gray800);border-color:var(--gray800);color:var(--color-white)}.userfullname{padding:0;overflow:hidden;max-width:250px;text-overflow:ellipsis;width:100%;color:var(--color-white);font-family:var(--font-family-sans);font-weight:var(--font-sb);font-size:16px;line-height:24px;letter-spacing:0;text-align:right}.userfullname.inverse{color:var(--gray800)}.useremail{color:var(--color-white);font-family:var(--font-family-sans);font-weight:var(--font-rg);font-size:12px;line-height:16px;letter-spacing:0.32px;overflow:hidden;text-overflow:ellipsis;width:100%;text-align:right}.useremail.inverse{color:var(--gray800)}@media only screen and (min-width: 768px){:host{height:calc(var(--space-unit) * 4);background-color:var(--gray900)}:host(.inverse){background-color:var(--color-white)}:host>div{position:relative;top:50%;transform:translateY(-50%)}:host>div.open{top:auto;transform:none}:host>div>div{padding:0}:host>div>div.open{position:absolute;right:calc(var(--space-unit) * -1);box-shadow:0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);background-color:var(--color-white);margin-top:calc(var(--space-unit) / 2);padding:calc(var(--space-unit) / 2 + 1px) var(--space-unit) 0 var(--space-unit);transform:translate(0, -4px)}:host>div>div.inverse.open{background-color:var(--gray800)}button{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-end;align-items:end;align-content:center}button.open{background-color:var(--color-white);border-top:var(--border-size-small) solid var(--color-white);border-top-left-radius:calc(var(--space-unit) * .5);border-top-right-radius:calc(var(--space-unit) * .5);max-width:initial;margin-left:var(--space-unit);padding-right:var(--space-unit)}button.open.inverse{border-top-color:var(--gray800);background-color:var(--gray800)}button:not(.open) z-icon{fill:var(--color-white)}button:not(.open) z-icon.inverse{fill:var(--gray800)}button.open z-icon{fill:var(--gray800)}button.open z-icon.inverse{fill:var(--color-white)}.userfullname{font-family:var(--font-family-sans);font-weight:var(--font-sb);font-size:14px;line-height:20px;letter-spacing:0.16px;padding:0 calc(var(--space-unit) - 6px) 0 calc(var(--space-unit) - 2px);width:auto}.userfullname.inverse{color:var(--gray800)}button.open div.userfullname{color:var(--gray800);max-width:none;text-overflow:clip}button.open div.userfullname.inverse{color:var(--color-white)}.useremail{padding-right:calc(var(--space-unit) * 3 - 2px);box-sizing:border-box}button.open div.useremail{color:var(--gray800)}button.open div.useremail.inverse{color:var(--color-white)}ul{position:initial;left:initial;padding:0;width:100%;background-color:var(--color-white)}ul.inverse{border-bottom-color:var(--gray800);background-color:var(--gray800)}ul>li{color:var(--gray800);border-bottom:var(--border-base) solid var(--gray400);margin:0 var(--space-unit)}ul>li.inverse{color:var(--color-white)}ul>li:first-child{border-top:var(--border-base) solid var(--gray400);padding-top:calc(var(--space-unit) + 3px);padding-bottom:calc(var(--space-unit) + 5px)}}";
 
 const ZUserDropdown = class {
   constructor(hostRef) {
@@ -3539,8 +3526,8 @@ const ZUserDropdown = class {
     this.userButtonClick = createEvent(this, "userButtonClick", 7);
     this.dropdownMenuLinkClick = createEvent(this, "dropdownMenuLinkClick", 7);
     /** if inner components colors are inverted, or not, default false */
-    this.useinversecolors = false;
-    this.ismenuopen = false;
+    this.useInverseColors = false;
+    this.isMenuOpen = false;
     this.handleLoggedButtonClick = this.handleLoggedButtonClick.bind(this);
     this.emitDropdownMenuLinkClick = this.emitDropdownMenuLinkClick.bind(this);
   }
@@ -3551,69 +3538,69 @@ const ZUserDropdown = class {
     this.setMobileAndDivToResizeWidth();
   }
   componentWillRender() {
-    if (this.menucontent) {
-      this.linkarray = typeof this.menucontent === "string" ? JSON.parse(this.menucontent) : this.menucontent;
+    if (this.menuContent) {
+      this.linkArray = typeof this.menuContent === "string" ? JSON.parse(this.menuContent) : this.menuContent;
     }
   }
   setMobileAndDivToResizeWidth() {
     var _a;
-    if (this.divtoresize) {
-      this.ismobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
-      if (this.logged && !this.ismobile && this.ismenuopen) {
-        this.divtoresize.style.width = `${(_a = this.userbutton) === null || _a === void 0 ? void 0 : _a.offsetWidth}px`;
+    if (this.divToResize) {
+      this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
+      if (this.logged && !this.isMobile && this.isMenuOpen) {
+        this.divToResize.style.width = `${(_a = this.userButton) === null || _a === void 0 ? void 0 : _a.offsetWidth}px`;
       }
       else {
-        this.divtoresize.removeAttribute('style');
+        this.divToResize.removeAttribute('style');
       }
     }
   }
   emitUserButtonClick() {
-    this.userButtonClick.emit(this.ismenuopen);
+    this.userButtonClick.emit(this.isMenuOpen);
   }
   emitDropdownMenuLinkClick(e) {
-    this.ismenuopen = false;
+    this.isMenuOpen = false;
     this.dropdownMenuLinkClick.emit({ e, linkId: e.detail.linkId });
   }
   handleResize() {
-    this.ismobile = window.innerWidth <= mobileBreakpoint;
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
   handleOrientationChange() {
-    this.ismobile = screen.width <= mobileBreakpoint;
+    this.isMobile = screen.width <= mobileBreakpoint;
   }
   handleClickOutside(e) {
     if (e.target.nodeName !== "Z-USER-DROPDOWN") {
-      this.ismenuopen = false;
+      this.isMenuOpen = false;
     }
   }
   handleLoggedButtonClick() {
-    this.ismenuopen = !this.ismenuopen;
+    this.isMenuOpen = !this.isMenuOpen;
     this.emitUserButtonClick();
   }
   renderGuestButton() {
-    return (h("button", { id: "guestbutton", class: this.useinversecolors ? "inverse" : "", onClick: () => this.emitUserButtonClick() }, "ENTRA"));
+    return (h("button", { id: "guestbutton", class: this.useInverseColors ? "inverse" : "", onClick: () => this.emitUserButtonClick() }, "ENTRA"));
   }
   renderLoggedButton() {
-    const direction = this.ismenuopen ? "up" : "down";
-    const colorClass = this.useinversecolors ? "inverse" : "";
-    return (h("button", { ref: (el) => (this.userbutton = el), title: this.userfullname, class: `${colorClass} ${this.ismenuopen ? "open" : ""}`, onClick: this.handleLoggedButtonClick }, h("div", null, h("div", { class: "firstline" }, h("z-icon", { class: colorClass, name: "user-avatar-filled", height: 16, width: 16 }), !this.ismobile && h("div", { class: `userfullname ${colorClass}` }, this.userfullname), h("z-icon", { class: colorClass, name: `caret-${direction}-filled`, height: 16, width: 16 })), !this.ismobile && this.ismenuopen && h("div", { class: `useremail ${colorClass}` }, this.useremail))));
+    const direction = this.isMenuOpen ? "up" : "down";
+    const colorClass = this.useInverseColors ? "inverse" : "";
+    return (h("button", { ref: (el) => (this.userButton = el), title: this.userFullName, class: `${colorClass} ${this.isMenuOpen ? "open" : ""}`, onClick: this.handleLoggedButtonClick }, h("div", null, h("div", { class: "firstline" }, h("z-icon", { class: colorClass, name: "user-avatar-filled", height: 16, width: 16 }), !this.isMobile && h("div", { class: `userfullname ${colorClass}` }, this.userFullName), h("z-icon", { class: colorClass, name: `caret-${direction}-filled`, height: 16, width: 16 })), !this.isMobile && this.isMenuOpen && h("div", { class: `useremail ${colorClass}` }, this.userEmail))));
   }
   getZLinkTextcolor() {
-    if (this.ismobile) {
-      return this.useinversecolors ? "black" : "white";
+    if (this.isMobile) {
+      return this.useInverseColors ? "black" : "white";
     }
     else {
-      return this.useinversecolors ? "white" : "black";
+      return this.useInverseColors ? "white" : "black";
     }
   }
   renderDropdownMenu() {
-    const colorClass = this.useinversecolors ? "inverse" : "";
-    return (this.ismenuopen && (h("ul", { class: colorClass }, this.ismobile &&
-      h("li", { class: colorClass }, h("div", { class: `userfullname ${colorClass}` }, this.userfullname), h("div", { class: `useremail ${colorClass}` }, this.useremail)), this.linkarray && this.linkarray.map((link) => h("li", { id: link.id, class: colorClass }, h("z-link", { textcolor: this.getZLinkTextcolor(), href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: this.emitDropdownMenuLinkClick }, link.label))))));
+    const colorClass = this.useInverseColors ? "inverse" : "";
+    return (this.isMenuOpen && (h("ul", { class: colorClass }, this.isMobile &&
+      h("li", { class: colorClass }, h("div", { class: `userfullname ${colorClass}` }, this.userFullName), h("div", { class: `useremail ${colorClass}` }, this.userEmail)), this.linkArray && this.linkArray.map((link) => h("li", { id: link.id, class: colorClass }, h("z-link", { textcolor: this.getZLinkTextcolor(), href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: this.emitDropdownMenuLinkClick }, link.label))))));
   }
   render() {
-    const openClass = `${this.logged && this.ismenuopen ? "open" : ""}`;
-    const colorClass = this.useinversecolors ? "inverse" : "";
-    return (h(Host, { class: colorClass }, h("div", { ref: (el) => (this.divtoresize = el), class: openClass, onClick: (e) => e.stopPropagation() }, h("div", { class: `${colorClass} ${openClass}` }, this.logged ? this.renderLoggedButton() : this.renderGuestButton(), this.logged && this.renderDropdownMenu()))));
+    const openClass = `${this.logged && this.isMenuOpen ? "open" : ""}`;
+    const colorClass = this.useInverseColors ? "inverse" : "";
+    return (h(Host, { class: colorClass }, h("div", { ref: (el) => (this.divToResize = el), class: openClass }, h("div", { class: `${colorClass} ${openClass}` }, this.logged ? this.renderLoggedButton() : this.renderGuestButton(), this.logged && this.renderDropdownMenu()))));
   }
 };
 ZUserDropdown.style = stylesCss;

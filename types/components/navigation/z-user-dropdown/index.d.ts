@@ -4,24 +4,24 @@ export declare class ZUserDropdown {
   /** logged status flag */
   logged?: boolean;
   /** user full name */
-  userfullname?: string;
+  userFullName?: string;
   /** user email */
-  useremail?: string;
+  userEmail?: string;
   /** Json stringified or array to fill menu dropdown */
-  menucontent?: string | MenuItem[];
+  menuContent?: string | MenuItem[];
   /** if inner components colors are inverted, or not, default false */
-  useinversecolors?: boolean;
-  ismenuopen: boolean;
-  ismobile: boolean;
-  private linkarray;
-  private userbutton;
-  private divtoresize;
+  useInverseColors?: boolean;
+  isMenuOpen: boolean;
+  isMobile: boolean;
+  private linkArray;
+  private userButton;
+  private divToResize;
   constructor();
   componentDidLoad(): void;
   componentWillUpdate(): void;
   componentWillRender(): void;
   setMobileAndDivToResizeWidth(): void;
-  /** Emitted on enter or user Button click, returns ismenuopen (bool) */
+  /** Emitted on enter or user Button click, returns isMenuOpen (bool) */
   userButtonClick: EventEmitter;
   emitUserButtonClick(): void;
   /** Emitted on dropdown menu zlink click, returns event */
