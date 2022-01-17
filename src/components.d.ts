@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertTypes, LicenseTypeEnum, MenuItem, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem as MenuItem1, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZRegistroTableRowExpandedType } from "./beans";
+import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZRegistroTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -46,17 +46,25 @@ export namespace Components {
     }
     interface ZAppTopbar {
         /**
-          * optional hashtag string
+          * maximum width of topbar content
          */
-        "hashtag"?: string;
+        "contentMaxWidth"?: number;
         /**
-          * logged status flag
+          * link URL used by z-logo
          */
-        "logged"?: boolean;
+        "logoLink"?: string;
+        /**
+          * add app-switcher
+         */
+        "showAppSwitcher": boolean;
         /**
           * theme variant, default 'dark'
          */
-        "theme"?: ThemeVariantBean;
+        "theme"?: ThemeVariant;
+        /**
+          * JSON string or MenuItem array to define topbar links
+         */
+        "topbarContent"?: string | MenuItem[];
     }
     interface ZAvatar {
         /**
@@ -1497,19 +1505,19 @@ export namespace Components {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem[];
+        "menuContent"?: string | MenuItem[];
         /**
           * if inner components colors are inverted, or not, default false
          */
-        "useinversecolors"?: boolean;
+        "useInverseColors"?: boolean;
         /**
           * user email
          */
-        "useremail"?: string;
+        "userEmail"?: string;
         /**
           * user full name
          */
-        "userfullname"?: string;
+        "userFullName"?: string;
     }
 }
 declare global {
@@ -2166,17 +2174,25 @@ declare namespace LocalJSX {
     }
     interface ZAppTopbar {
         /**
-          * optional hashtag string
+          * maximum width of topbar content
          */
-        "hashtag"?: string;
+        "contentMaxWidth"?: number;
         /**
-          * logged status flag
+          * link URL used by z-logo
          */
-        "logged"?: boolean;
+        "logoLink"?: string;
+        /**
+          * add app-switcher
+         */
+        "showAppSwitcher"?: boolean;
         /**
           * theme variant, default 'dark'
          */
-        "theme"?: ThemeVariantBean;
+        "theme"?: ThemeVariant;
+        /**
+          * JSON string or MenuItem array to define topbar links
+         */
+        "topbarContent"?: string | MenuItem[];
     }
     interface ZAvatar {
         /**
@@ -3773,27 +3789,27 @@ declare namespace LocalJSX {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem[];
+        "menuContent"?: string | MenuItem[];
         /**
           * Emitted on dropdown menu zlink click, returns event
          */
         "onDropdownMenuLinkClick"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted on enter or user Button click, returns ismenuopen (bool)
+          * Emitted on enter or user Button click, returns isMenuOpen (bool)
          */
         "onUserButtonClick"?: (event: CustomEvent<any>) => void;
         /**
           * if inner components colors are inverted, or not, default false
          */
-        "useinversecolors"?: boolean;
+        "useInverseColors"?: boolean;
         /**
           * user email
          */
-        "useremail"?: string;
+        "userEmail"?: string;
         /**
           * user full name
          */
-        "userfullname"?: string;
+        "userFullName"?: string;
     }
     interface IntrinsicElements {
         "z-alert": ZAlert;
