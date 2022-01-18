@@ -7,13 +7,14 @@
 
 ## Properties
 
-| Property                   | Attribute                      | Description                                           | Type      | Default     |
-| -------------------------- | ------------------------------ | ----------------------------------------------------- | --------- | ----------- |
-| `data`                     | `data`                         | deprecated - JSON stringified data to fill the footer | `string`  | `undefined` |
-| `productCreditsLink`       | `product-credits-link`         |                                                       | `string`  | `undefined` |
-| `productName`              | `product-name`                 |                                                       | `string`  | `undefined` |
-| `productVersion`           | `product-version`              |                                                       | `string`  | `undefined` |
-| `showReportAProblemButton` | `show-report-a-problem-button` |                                                       | `boolean` | `undefined` |
+| Property                   | Attribute                      | Description                                                                                 | Type      | Default     |
+| -------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `contentMaxWidth`          | `content-max-width`            | Maximum width of footer content                                                             | `number`  | `undefined` |
+| `data`                     | `data`                         | deprecated - JSON stringified data to fill the footer                                       | `string`  | `undefined` |
+| `productCreditsLink`       | `product-credits-link`         | The URL of the product credits to be displayed on the top panel of the footer               | `string`  | `undefined` |
+| `productName`              | `product-name`                 | The product name to be displayed on the top panel of the footer                             | `string`  | `undefined` |
+| `productVersion`           | `product-version`              | The product version to be displayed on the top panel of the footer                          | `string`  | `undefined` |
+| `showReportAProblemButton` | `show-report-a-problem-button` | True if the product must display a "Report a problem" button on the top panel of the footer | `boolean` | `undefined` |
 
 
 ## Events

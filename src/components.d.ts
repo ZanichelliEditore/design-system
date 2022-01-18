@@ -314,12 +314,28 @@ export namespace Components {
     }
     interface ZFooter {
         /**
+          * Maximum width of footer content
+         */
+        "contentMaxWidth"?: number;
+        /**
           * deprecated - JSON stringified data to fill the footer
          */
         "data"?: string;
+        /**
+          * The URL of the product credits to be displayed on the top panel of the footer
+         */
         "productCreditsLink"?: string;
+        /**
+          * The product name to be displayed on the top panel of the footer
+         */
         "productName"?: string;
+        /**
+          * The product version to be displayed on the top panel of the footer
+         */
         "productVersion"?: string;
+        /**
+          * True if the product must display a "Report a problem" button on the top panel of the footer
+         */
         "showReportAProblemButton"?: boolean;
     }
     interface ZFooterLink {
@@ -2466,13 +2482,29 @@ declare namespace LocalJSX {
     }
     interface ZFooter {
         /**
+          * Maximum width of footer content
+         */
+        "contentMaxWidth"?: number;
+        /**
           * deprecated - JSON stringified data to fill the footer
          */
         "data"?: string;
         "onReportAProblemButtonClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * The URL of the product credits to be displayed on the top panel of the footer
+         */
         "productCreditsLink"?: string;
+        /**
+          * The product name to be displayed on the top panel of the footer
+         */
         "productName"?: string;
+        /**
+          * The product version to be displayed on the top panel of the footer
+         */
         "productVersion"?: string;
+        /**
+          * True if the product must display a "Report a problem" button on the top panel of the footer
+         */
         "showReportAProblemButton"?: boolean;
     }
     interface ZFooterLink {

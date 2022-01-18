@@ -14,10 +14,16 @@ import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 export class ZFooter {
   /** deprecated - JSON stringified data to fill the footer */
   @Prop() data?: string;
+  /** The product name to be displayed on the top panel of the footer */
   @Prop() productName?: string;
+  /** The product version to be displayed on the top panel of the footer */
   @Prop() productVersion?: string;
+  /** The URL of the product credits to be displayed on the top panel of the footer */
   @Prop() productCreditsLink?: string;
+  /** True if the product must display a "Report a problem" button on the top panel of the footer */
   @Prop() showReportAProblemButton?: boolean;
+  /** Maximum width of footer content */
+  @Prop() contentMaxWidth?: number;
 
   private jsonData;
 
@@ -101,26 +107,30 @@ export class ZFooter {
 
   renderFooterBottom(): HTMLElement {
     return (
-      <section class="bottom">
-        <div class="item logo">
-          {this.renderZLogo()}
-          {this.renderCopyright()}
-          {this.renderCertification()}
+      <section id="bottom">
+        <div class={{ "limited-width": !!this.contentMaxWidth }} style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
+          <div class="item logo">
+            {this.renderZLogo()}
+            {this.renderCopyright()}
+            {this.renderCertification()}
+          </div>
+          <div class="item">
+            {this.renderAddress()}
+            {this.renderSocial()}
+          </div>
+          {this.renderBottomLinks()}
         </div>
-        <div class="item">
-          {this.renderAddress()}
-          {this.renderSocial()}
-        </div>
-        {this.renderBottomLinks()}
       </section>
     );
   }
 
   renderFooterTop(): HTMLElement {
     return (
-      <section class="top">
-        <slot />
-        {this.renderFooterTopJsonData()}
+      <section id="top">
+        <div class={{ "limited-width": !!this.contentMaxWidth }} style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
+          <slot />
+          {this.renderFooterTopJsonData()}
+        </div>
       </section>
     );
   }
@@ -135,25 +145,27 @@ export class ZFooter {
       </z-body>;
 
       return (
-        <div class="extension">
-          <span>
-            {this.productName && <z-body level={5} variant="semibold">{this.productName}</z-body>}
-            {this.productVersion && <z-body level={5}>{versionString}</z-body>}
-            {this.productCreditsLink && creditsObject}
-          </span>
-          {this.showReportAProblemButton &&
-            <div>
-              <z-body level={5}>Hai bisogno di aiuto?</z-body>
-              <z-button
-                variant={ButtonVariantEnum["dark-bg"]}
-                size={ButtonSizeEnum.small}
-                onClick={this.emitReportAProblemButtonClick}
-              >
-                SEGNALA UN PROBLEMA
-              </z-button>
-            </div>
-          }
-          <z-divider color="gray500" />
+        <div id="extension">
+          <div class={{ "limited-width": !!this.contentMaxWidth }} style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
+            <span>
+              {this.productName && <z-body level={5} variant="semibold">{this.productName}</z-body>}
+              {this.productVersion && <z-body level={5}>{versionString}</z-body>}
+              {this.productCreditsLink && creditsObject}
+            </span>
+            {this.showReportAProblemButton &&
+              <div>
+                <z-body level={5}>Hai bisogno di aiuto?</z-body>
+                <z-button
+                  variant={ButtonVariantEnum["dark-bg"]}
+                  size={ButtonSizeEnum.small}
+                  onClick={this.emitReportAProblemButtonClick}
+                >
+                  SEGNALA UN PROBLEMA
+                </z-button>
+              </div>
+            }
+            <z-divider color="gray500" />
+           </div>
         </div>
       );
     }
