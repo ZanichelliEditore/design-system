@@ -45,7 +45,7 @@ export class ZFileUpload {
   @State() error: boolean = false;
 
   /** List of files not allowed to be uploaded */
-  @State() wrongFiles: Array<File> = [];
+  @State() wrongFiles: any;
 
   @Element() el: HTMLElement;
 
@@ -74,24 +74,38 @@ export class ZFileUpload {
   @Event() fileInput: EventEmitter;
   fileInputHandler() {
     if (this.input.files.length) {
-      console.log(Array.from(this.input.files));
       this.wrongFiles = this.checkFiles(Array.from(this.input.files));
-      this.files += this.input.files.length;
-      this.input.value = "";
+      if (this.wrongFiles["sizeErrors"] || this.wrongFiles["formatErrors"]) {
+        this.error = true;
+      }
     }
   }
 
-  checkFiles(files: Array<File>): Array<File> {
-    const filteredFiles: Array<File> = files.filter((file: File) => {
+  checkFiles(files: Array<File>): any {
+    let sizeErrors: Array<File> = [];
+    let formatErrors: Array<File> = [];
+    files.forEach((file: File) => {
       const fileSize = file.size / 1024 / 1024;
       const fileExtension = file.type.split("/").pop();
       if (fileSize <= 50 && this.acceptedFormat.includes(fileExtension)) {
+        console.log(file);
         this.fileInput.emit(file);
+        this.files += this.input.files.length;
+        this.input.value = "";
+        return;
       }
-      return fileSize > 50 || !this.acceptedFormat.includes(fileExtension);
+      if (fileSize > 50) {
+        sizeErrors.push(file);
+      }
+      if (!this.acceptedFormat.includes(fileExtension)) {
+        formatErrors.push(file);
+      }
     });
 
-    return filteredFiles;
+    return {
+      sizeErrors,
+      formatErrors,
+    };
   }
 
   renderTitle() {
@@ -210,7 +224,21 @@ export class ZFileUpload {
     );
   }
 
+  handleErrorModalContent() {
+    return (
+      <div slot="modalContent">
+        {this.wrongFiles["sizeErrors"].map((file: File) => (
+          <p>{file.name}</p>
+        ))}
+        {this.wrongFiles["formatErrors"].map((file: File) => (
+          <p>{file.name}</p>
+        ))}
+      </div>
+    );
+  }
+
   render() {
+    console.log(this.error, this.wrongFiles);
     {
       return (
         <div class={`container ${this.type}`}>
@@ -219,7 +247,9 @@ export class ZFileUpload {
             ? this.renderDefaultMode()
             : this.renderDragDropMode()}
           {this.error && (
-            <z-modal onModalClose={() => (this.error = !this.error)}></z-modal>
+            <z-modal onModalClose={() => (this.error = !this.error)}>
+              {this.handleErrorModalContent()}
+            </z-modal>
           )}
         </div>
       );
