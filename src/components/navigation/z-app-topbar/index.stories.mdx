@@ -1,233 +1,109 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, number, boolean } from "@storybook/addon-knobs";
+import { html } from 'lit-html';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { boolean, number, object, select, text } from '@storybook/addon-knobs';
+
+export const topbarContent = [
+  {
+    id: 'support',
+    label: 'Assistenza',
+    link: `https://assistenza.zanichelli.it`,
+    icon: 'support',
+    target: '_blank'
+  },
+  {
+    id: 'contact-us',
+    label: 'Contattaci',
+    link: `https://www.zanichelli.it/contatti/supporto`,
+    icon: 'question-mark-circle',
+    target: '_blank'
+  },
+  {
+    id: 'shop',
+    label: 'Carrello',
+    link: `https://my.zanichelli.it/carrello`,
+    icon: 'shopping-cart',
+    target: '_blank'
+  },
+];
+
+export const menuContent = [
+  {
+    id: 'profile',
+    label: 'Profilo',
+    link: `https://my.zanichelli.it/i-tuoi-dati`,
+    target: '_blank'
+  },
+  {
+    id: 'activate-resource',
+    label: 'Attiva opera',
+    link: `https://my.zanichelli.it`,
+    target: '_blank'
+  },
+  {
+    id: 'orders',
+    label: 'I tuoi ordini',
+    link: `https://my.zanichelli.it/ordini-in-corso`,
+    target: '_blank'
+  },
+  {
+    id: 'logout',
+    label: 'Esci',
+  },
+];
+
+export let theme = 'dark';
+export const setTheme = () => theme = select('Theme', ['dark', 'light'], 'dark');
 
 <Meta title="Navigation/ZAppTopbar" component="z-app-topbar" />
 
-# ZTopbar
+# ZAppTopbar
+
+Here, the component is shown with a `ZUserDropdown` as the container for login actions and user menu.
+So, the `use-inverse-colors` property of the latter is set according to the value of the topbar `theme` property.
+
+The set of links shown inside the topbar are defined through the `topbar-content` property, as an array of `MenuItem`.
+Note that the icon of each item is shown only in the mobile version of the component.
+
+The width of the inner content of the topbar can be controlled to have a maximum value through the `content-max-width` property.
 
 <Preview>
-  <Story name="ZAppTopbar dark not logged">
-    {html`<z-app-topbar hashtag="via crucis">
-      <z-logo
-        slot="${text("slot", "logo")}"
-        width="${number("width", 138)}"
-        height="${number("height", 36)}"
-        imagealt="${text("imagealt", "zanichelli-logo")}"
-        link="${text("link", "https://www.zanichelli.it")}"
-        targetblank
-      ></z-logo>
-      <z-link
-        textcolor="${text("textcolor", "white")}"
-        big
-        icon="${text("icon", "support-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Supporto</z-link
+  <Story name="ZAppTopbar with user dropdown, user not logged">
+    {html`
+      <z-app-topbar
+        theme=${setTheme()}
+        content-max-width=${number('Content max width', null)}
+        show-app-switcher=${boolean('Show app switcher', true)}
+        topbar-content=${JSON.stringify(object('Topbar actions', topbarContent))}
+        logo-link="https://www.zanichelli.it"
       >
-      <z-link
-        textcolor="${text("textcolor", "white")}"
-        big
-        icon="${text("icon", "shopping-cart-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        userfullname="${text('userfullname', 'docente di calabresi per italiani')}"
-        logged="${text('logged','false')}"
-        slot="login"
-      ></z-user-dropdown>
-      <z-app-switcher slot="app-switcher"></z-app-switcher>
-    </z-app-topbar>`}
+        <z-user-dropdown
+          slot="login"
+          use-inverse-colors=${theme === 'light'}
+          logged=${false}
+        />
+      </z-app-topbar>
+    `}
   </Story>
-  <Story name="ZAppTopbar dark logged">
-    {html`<z-app-topbar hashtag="faresci" logged>
-      <z-logo
-        slot="${text("slot", "logo")}"
-        width="${number("width", 138)}"
-        height="${number("height", 36)}"
-        imagealt="${text("imagealt", "zanichelli-logo")}"
-        link="${text("link", "https://www.zanichelli.it")}"
-        targetblank
-      ></z-logo>
-      <z-link
-        textcolor="${text("textcolor", "white")}"
-        big
-        icon="${text("icon", "support-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Supporto</z-link
+  <Story name="ZAppTopbar with user dropdown, user logged">
+    {html`
+      <z-app-topbar
+        theme=${setTheme()}
+        content-max-width=${number('Content max width', null)}
+        show-app-switcher=${boolean('Show app switcher', true)}
+        topbar-content=${JSON.stringify(object('Topbar actions', topbarContent))}
+        logo-link="https://www.zanichelli.it"
       >
-      <z-link
-        iswhite
-        big
-        icon="${text("icon", "shopping-cart-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        userfullname="${text('userfullname', 'Fabio Funzionario')}"
-        logged="${boolean('logged',true)}"
-        slot="login"
-        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
-      >
-      </z-user-dropdown>
-      <z-app-switcher slot="app-switcher"></z-app-switcher>
-    </z-app-topbar>`}
-  </Story>
-  <Story name="ZAppTopbar light not logged">
-    {html`<z-app-topbar theme="${text("theme", "light")}" hashtag="faresci">
-      <z-logo
-        slot="${text("slot", "logo")}"
-        width="${number("width", 138)}"
-        height="${number("height", 36)}"
-        imagealt="${text("imagealt", "zanichelli-logo")}"
-        link="${text("link", "https://www.zanichelli.it")}"
-        targetblank
-      ></z-logo>
-      <z-link
-        textcolor="${text("textcolor", "black")}"
-        big
-        icon="${text("icon", "support-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Supporto</z-link
-      >
-      <z-link
-        textcolor="${text("textcolor", "black")}"
-        big
-        icon="${text("icon", "shopping-cart-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        theme="${text("theme", "light")}"
-        userfullname="${text('userfullname', 'docente di calabresi per italiani')}"
-        logged="${boolean('logged',false)}"
-        slot="login"
-      ></z-user-dropdown>
-      <z-app-switcher
-        theme="${text("theme", "light")}"
-        slot="app-switcher"
-      ></z-app-switcher>
-    </z-app-topbar>`}
-  </Story>
-  <Story name="ZAppTopbar light logged">
-    {html`<z-app-topbar
-      theme="${text("theme", "light")}"
-      hashtag="faresci"
-      logged
-    >
-      <z-logo
-        slot="${text("slot", "logo")}"
-        width="${number("width", 138)}"
-        height="${number("height", 36)}"
-        imagealt="${text("imagealt", "zanichelli-logo")}"
-        link="${text("link", "https://www.zanichelli.it")}"
-        targetblank
-      ></z-logo>
-      <z-link
-        textcolor="${text("textcolor", "black")}"
-        big
-        icon="${text("icon", "support-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Supporto</z-link
-      >
-      <z-link
-        textcolor="${text("textcolor", "black")}"
-        big
-        icon="${text("icon", "shopping-cart-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        theme="${text("theme", "light")}"
-        userfullname="${text('userfullname', 'Dario Docente')}"
-        logged="${text('logged', 'true')}"
-        slot="login"
-        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
-      >
-      </z-user-dropdown>
-      <z-app-switcher
-        theme="${text("theme", "light")}"
-        id="app-switcher-2"
-        slot="app-switcher"
-      ></z-app-switcher>
-    </z-app-topbar>`}
-  </Story>
-    <Story name="ZAppTopbar without app-switcher">
-    {html`<z-app-topbar hashtag="via crucis">
-      <z-logo
-        slot="${text("slot", "logo")}"
-        width="${number("width", 138)}"
-        height="${number("height", 36)}"
-        imagealt="${text("imagealt", "zanichelli-logo")}"
-        link="${text("link", "https://www.zanichelli.it")}"
-        targetblank
-      ></z-logo>
-      <z-link
-        textcolor="${text("textcolor", "white")}"
-        big
-        icon="${text("icon", "support-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Supporto</z-link
-      >
-      <z-link
-        textcolor="${text("textcolor", "white")}"
-        big
-        icon="${text("icon", "shopping-cart-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        userfullname="${text('userfullname', 'docente di calabresi per italiani')}"
-        logged="${text('logged','false')}"
-        slot="login"
-      ></z-user-dropdown>
-    </z-app-topbar>`}
-  </Story>
-  <Story name="ZAppTopbar dark logged without app-switcher">
-    {html`<z-app-topbar hashtag="faresci" logged>
-      <z-logo
-        slot="${text("slot", "logo")}"
-        width="${number("width", 138)}"
-        height="${number("height", 36)}"
-        imagealt="${text("imagealt", "zanichelli-logo")}"
-        link="${text("link", "https://www.zanichelli.it")}"
-        targetblank
-      ></z-logo>
-      <z-link
-        textcolor="${text("textcolor", "white")}"
-        big
-        icon="${text("icon", "support-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Supporto</z-link
-      >
-      <z-link
-        iswhite
-        big
-        icon="${text("icon", "shopping-cart-filled")}"
-        slot="actions"
-        href="${text("href", "#")}"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        userfullname="${text('userfullname', 'Fabio Funzionario')}"
-        logged="${boolean('logged',true)}"
-        slot="login"
-        menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it", "icon":"arrow-quad-north-east"}, {"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
-      >
-      </z-user-dropdown>
-    </z-app-topbar>`}
+        <z-user-dropdown
+          slot="login"
+          use-inverse-colors=${theme === 'light'}
+          logged=${true}
+          user-full-name=${text('User full name', 'Nome Cognome')}
+          user-email=${text('User email', 'mail@example.com')}
+          menu-content=${JSON.stringify(object('User dropdown actions', menuContent))}
+        />
+      </z-app-topbar>
+    `}
   </Story>
 </Preview>
 
-<Props of="z-topbar" />
+<Props of="z-app-topbar" />
