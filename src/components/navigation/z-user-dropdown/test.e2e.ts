@@ -11,10 +11,10 @@ it("Test dropdown button should open list", async () => {
 
   await page.setContent(`
     <z-user-dropdown
-      userfullname="Sandro Studente"
-      useremail="sandro@abc.com"
+      user-full-name="Sandro Studente"
+      user-email="sandro@abc.com"
       logged="true"
-      menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      menu-content='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
     ></z-user-dropdown>
   `);
 
@@ -51,10 +51,10 @@ it("Test enter and user button click should emit userButtonClick event", async (
 
   await page.setContent(`
     <z-user-dropdown
-      userfullname="Sandro Studente"
-      useremail="sandro@abc.com"
+      user-full-name="Sandro Studente"
+      user-email="sandro@abc.com"
       logged="true"
-      menucontent='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
+      menu-content='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'
     ></z-user-dropdown>
   `);
 
@@ -104,10 +104,10 @@ it("Test dropdown menu zLink click should emit dropdownMenuLinkClick event", asy
 
   await page.setContent(`
     <z-user-dropdown
-      userfullname="Sandro Studente"
-      useremail="sandro@abc.com"
+      user-full-name="Sandro Studente"
+      user-email="sandro@abc.com"
       logged="true"
-      menucontent='[{"label":"I Tuoi Ordini", "link":"#", "id":"ordini", "icon":"exit"},{"label":"Esci", "link":"#", "id":"logout", "icon":"enter"}]'
+      menu-content='[{"label":"I Tuoi Ordini", "link":"#", "id":"ordini", "icon":"exit"},{"label":"Esci", "link":"#", "id":"logout", "icon":"enter"}]'
     ></z-user-dropdown>
   `);
 
