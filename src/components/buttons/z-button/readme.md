@@ -55,7 +55,7 @@
 ### Used by
 
  - [z-cookiebar](../../notification/z-cookiebar)
- - [z-file-upload](../../z-file-upload)
+ - [z-file-upload](../../file-upload/z-file-upload)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
  - [z-myz-topbar](../../../snowflakes/myz/topbar)

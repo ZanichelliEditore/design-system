@@ -16,8 +16,8 @@
 
 ### Depends on
 
-- [z-chip](../buttons/z-chip)
-- [z-icon](../icons/z-icon)
+- [z-chip](../../buttons/z-chip)
+- [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid

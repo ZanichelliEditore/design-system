@@ -17,8 +17,8 @@
 ### Used by
 
  - [z-combobox](../../inputs/z-combobox)
- - [z-dragdrop-area](../../z-dragdrop-area)
- - [z-file-upload](../../z-file-upload)
+ - [z-dragdrop-area](../../file-upload/z-dragdrop-area)
+ - [z-file-upload](../../file-upload/z-file-upload)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-notification](../../notification/z-notification)
  - [z-registro-table](../../../snowflakes/registro-table/z-registro-table)

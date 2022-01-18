@@ -33,13 +33,19 @@ export class ZFileUpload {
   @Prop() variant: ButtonVariantEnum;
 
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
-  @Prop() acceptedFormat: string;
+  @Prop() acceptedFormat: string = ".pdf, .doc, .tiff, .png, .jpg";
 
   /** Prop indicating if the user can pick more than one file at once*/
-  @Prop() multiple: boolean;
+  @Prop() multiple: boolean = true;
 
   /** Number of files added by the user */
   @State() files: number = 0;
+
+  /** State indicating if the user picked a file not allowed (by format or size) */
+  @State() error: boolean = false;
+
+  /** List of files not allowed to be uploaded */
+  @State() wrongFiles: Array<File> = [];
 
   @Element() el: HTMLElement;
 
@@ -68,10 +74,24 @@ export class ZFileUpload {
   @Event() fileInput: EventEmitter;
   fileInputHandler() {
     if (this.input.files.length) {
-      this.fileInput.emit(this.input.files);
+      console.log(Array.from(this.input.files));
+      this.wrongFiles = this.checkFiles(Array.from(this.input.files));
       this.files += this.input.files.length;
       this.input.value = "";
     }
+  }
+
+  checkFiles(files: Array<File>): Array<File> {
+    const filteredFiles: Array<File> = files.filter((file: File) => {
+      const fileSize = file.size / 1024 / 1024;
+      const fileExtension = file.type.split("/").pop();
+      if (fileSize <= 50 && this.acceptedFormat.includes(fileExtension)) {
+        this.fileInput.emit(file);
+      }
+      return fileSize > 50 || !this.acceptedFormat.includes(fileExtension);
+    });
+
+    return filteredFiles;
   }
 
   renderTitle() {
@@ -115,20 +135,16 @@ export class ZFileUpload {
   }
 
   renderUploadButton() {
-    /*    const attributes = {
-      className: "form-input form-input--email",
-      id: "user-email",
-      type: "email",
-      name: "user-email",
-      placeholder: this.props.placeholder,
-      required: this.state.required,
-    }; */
+    const attributes = {
+      type: "file",
+      id: "fileElem",
+      multiple: this.multiple,
+    };
+
     return [
       <input
+        {...attributes}
         onChange={() => this.fileInputHandler()}
-        type="file"
-        id="fileElem"
-        multiple
         accept={this.acceptedFormat}
         ref={(val) => (this.input = val)}
       />,
@@ -202,6 +218,9 @@ export class ZFileUpload {
           {this.type == ZFileUploadTypeEnum.default
             ? this.renderDefaultMode()
             : this.renderDragDropMode()}
+          {this.error && (
+            <z-modal onModalClose={() => (this.error = !this.error)}></z-modal>
+          )}
         </div>
       );
     }

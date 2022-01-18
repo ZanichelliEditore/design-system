@@ -17,7 +17,7 @@
 
 ### Used by
 
- - [z-file](../../z-file)
+ - [z-file](../../file-upload/z-file)
 
 ### Graph
 ```mermaid
