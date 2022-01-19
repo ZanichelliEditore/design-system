@@ -49,8 +49,8 @@ export class ZFooter {
         link="https://www.zanichelli.it"
         width={144}
         height={38}
-        imagealt="Home Zanichelli"
-        targetblank={true}
+        imageAlt="Home Zanichelli"
+        targetBlank={true}
       />
     );
   }
@@ -141,7 +141,7 @@ export class ZFooter {
 
       const creditsObject = <z-body level={5}>
         {(this.productName || this.productVersion) && ' - '}
-        <z-link href={this.productCreditsLink} target="_blank" textcolor="white">Credits</z-link>
+        <z-link htmlid="creditsLink" href={this.productCreditsLink} target="_blank" textcolor="white">Credits</z-link>
       </z-body>;
 
       return (

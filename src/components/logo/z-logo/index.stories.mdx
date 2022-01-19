@@ -11,11 +11,12 @@ import { text, number, boolean } from "@storybook/addon-knobs";
 <Preview>
   <Story name="z-logo">
     {html` <z-logo
-      imagealt="${text("imagealt", "logo")}"
+      image-alt="${text("image alt", "logo")}"
       height="${number("height", 50)}"
       width="${number("width", 200)}"
       link="${text("link", "")}"
-      targetblank=${boolean("targetblank", false)}
+      target-blank=${boolean("target blank", false)}
+      mobile-logo=${boolean("mobile logo", false)}
     ></z-logo>`}
   </Story>
 </Preview>

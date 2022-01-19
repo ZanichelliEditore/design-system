@@ -11,11 +11,13 @@ export class ZLogo {
   /** image height */
   @Prop() height?: number;
   /** alternative image text */
-  @Prop() imagealt?: string;
+  @Prop() imageAlt?: string;
   /** link url (optional) */
   @Prop() link?: string;
   /** link target: true means _blank, false means _self */
-  @Prop() targetblank?: boolean;
+  @Prop() targetBlank?: boolean;
+  /** if true, the mobile logo is displayed, otherwise the desktop one */
+  @Prop() mobileLogo?: boolean;
 
   render() {
     const style = {};
@@ -29,16 +31,19 @@ export class ZLogo {
     }
 
     return (
-      <Host style={style}>
+      <Host
+        style={style}
+        class={{ "mobile": !!this.mobileLogo }}
+      >
         {
           this.link ?
             <a
               href={this.link}
-              target={this.targetblank ? "_blank" : "_self"}
+              target={this.targetBlank ? "_blank" : "_self"}
             >
-              <img alt={this.imagealt} />
+              <img alt={this.imageAlt} />
             </a> :
-            <img alt={this.imagealt} />
+            <img alt={this.imageAlt} />
         }
       </Host>
     );

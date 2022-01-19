@@ -110,10 +110,10 @@ export class ZMyzTopbar {
       <div class="logo">
         <z-logo
           link={this.logolink ? this.logolink : null}
-          targetblank={true}
+          target-blank={true}
           width={144}
           height={36}
-          imagealt={this.imagealt}
+          image-alt={this.imagealt}
         />
       </div>
     );
