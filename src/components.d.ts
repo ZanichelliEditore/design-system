@@ -660,15 +660,19 @@ export namespace Components {
         /**
           * alternative image text
          */
-        "imagealt"?: string;
+        "imageAlt"?: string;
         /**
           * link url (optional)
          */
         "link"?: string;
         /**
+          * if true, mobile logo is displayed
+         */
+        "mobileLogo"?: boolean;
+        /**
           * link target: true means _blank, false means _self
          */
-        "targetblank"?: boolean;
+        "targetBlank"?: boolean;
         /**
           * image width
          */
@@ -2853,15 +2857,19 @@ declare namespace LocalJSX {
         /**
           * alternative image text
          */
-        "imagealt"?: string;
+        "imageAlt"?: string;
         /**
           * link url (optional)
          */
         "link"?: string;
         /**
+          * if true, mobile logo is displayed
+         */
+        "mobileLogo"?: boolean;
+        /**
           * link target: true means _blank, false means _self
          */
-        "targetblank"?: boolean;
+        "targetBlank"?: boolean;
         /**
           * image width
          */

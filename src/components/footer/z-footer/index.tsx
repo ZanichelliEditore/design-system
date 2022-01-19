@@ -30,7 +30,7 @@ export class ZFooter {
   constructor() {
     this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
   }
-
+  
   componentWillLoad() {
     if (this.data) {
       console.warn("z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead.");
@@ -49,8 +49,8 @@ export class ZFooter {
         link="https://www.zanichelli.it"
         width={144}
         height={38}
-        imagealt="Home Zanichelli"
-        targetblank={true}
+        imageAlt="Home Zanichelli"
+        targetBlank={true}
       />
     );
   }

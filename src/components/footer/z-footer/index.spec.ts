@@ -8,6 +8,7 @@ describe("Suite test ZFooter", () => {
       components: [ZFooter],
       html: `<z-footer></z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer>
@@ -50,6 +51,7 @@ describe("Suite test ZFooter", () => {
           <div>main section content</div>
         </z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer>
@@ -93,6 +95,7 @@ describe("Suite test ZFooter", () => {
           <div slot="links">links section content</div>
         </z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer>
@@ -136,6 +139,7 @@ describe("Suite test ZFooter", () => {
           <div slot="social">social section content</div>
         </z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer>
@@ -212,6 +216,7 @@ describe("Suite test ZFooter", () => {
         ]
       }'></z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer data='{
@@ -306,6 +311,7 @@ describe("Suite test ZFooter", () => {
       components: [ZFooter],
       html: `<z-footer product-name="Prodotto bello"></z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer product-name="Prodotto bello">
@@ -354,6 +360,7 @@ describe("Suite test ZFooter", () => {
       components: [ZFooter],
       html: `<z-footer product-version="666"></z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer product-version="666">
@@ -402,6 +409,7 @@ describe("Suite test ZFooter", () => {
       components: [ZFooter],
       html: `<z-footer product-credits-link="https://www.google.com"></z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer product-credits-link="https://www.google.com">
@@ -452,6 +460,7 @@ describe("Suite test ZFooter", () => {
       components: [ZFooter],
       html: `<z-footer show-report-a-problem-button></z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer show-report-a-problem-button>
@@ -505,9 +514,10 @@ describe("Suite test ZFooter", () => {
         product-version="666"
         product-credits-link="https://www.google.com"
         show-report-a-problem-button
-        content-max-width=600>
-      </z-footer>`,
+        content-max-width=600
+      ></z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer
@@ -567,7 +577,7 @@ describe("Suite test ZFooter", () => {
 });
 
 const expectedLogo = () => `
-  <z-logo link="https://www.zanichelli.it" imagealt="Home Zanichelli" targetblank height="38" width="144"></z-logo>
+  <z-logo link="https://www.zanichelli.it" imageAlt="Home Zanichelli" targetBlank height="38" width="144"></z-logo>
 `;
 
 const expectedCopyright = () => `
