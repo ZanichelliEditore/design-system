@@ -13,14 +13,14 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                       | Type      | Default     |
-| ------------- | -------------- | ------------------------------------------------- | --------- | ----------- |
-| `height`      | `height`       | image height                                      | `number`  | `undefined` |
-| `imageAlt`    | `image-alt`    | alternative image text                            | `string`  | `undefined` |
-| `link`        | `link`         | link url (optional)                               | `string`  | `undefined` |
-| `mobileLogo`  | `mobile-logo`  | if true, mobile logo is displayed                 | `boolean` | `undefined` |
-| `targetBlank` | `target-blank` | link target: true means _blank, false means _self | `boolean` | `undefined` |
-| `width`       | `width`        | image width                                       | `number`  | `undefined` |
+| Property      | Attribute      | Description                                                      | Type      | Default     |
+| ------------- | -------------- | ---------------------------------------------------------------- | --------- | ----------- |
+| `height`      | `height`       | image height                                                     | `number`  | `undefined` |
+| `imageAlt`    | `image-alt`    | alternative image text                                           | `string`  | `undefined` |
+| `link`        | `link`         | link url (optional)                                              | `string`  | `undefined` |
+| `mobileLogo`  | `mobile-logo`  | if true, the mobile logo is displayed, otherwise the desktop one | `boolean` | `undefined` |
+| `targetBlank` | `target-blank` | link target: true means _blank, false means _self                | `boolean` | `undefined` |
+| `width`       | `width`        | image width                                                      | `number`  | `undefined` |
 
 
 ## Dependencies

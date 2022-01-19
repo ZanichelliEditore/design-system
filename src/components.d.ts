@@ -650,7 +650,7 @@ export namespace Components {
          */
         "link"?: string;
         /**
-          * if true, mobile logo is displayed
+          * if true, the mobile logo is displayed, otherwise the desktop one
          */
         "mobileLogo"?: boolean;
         /**
@@ -2830,7 +2830,7 @@ declare namespace LocalJSX {
          */
         "link"?: string;
         /**
-          * if true, mobile logo is displayed
+          * if true, the mobile logo is displayed, otherwise the desktop one
          */
         "mobileLogo"?: boolean;
         /**

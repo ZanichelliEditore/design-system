@@ -16,7 +16,7 @@ export class ZLogo {
   @Prop() link?: string;
   /** link target: true means _blank, false means _self */
   @Prop() targetBlank?: boolean;
-  /** if true, mobile logo is displayed */
+  /** if true, the mobile logo is displayed, otherwise the desktop one */
   @Prop() mobileLogo?: boolean;
 
   render() {
@@ -41,9 +41,9 @@ export class ZLogo {
               href={this.link}
               target={this.targetBlank ? "_blank" : "_self"}
             >
-              <img class={{ "mobile": !!this.mobileLogo }} alt={this.imageAlt} />
+              <img alt={this.imageAlt} />
             </a> :
-            <img class={{ "mobile": !!this.mobileLogo }} alt={this.imageAlt} />
+            <img alt={this.imageAlt} />
         }
       </Host>
     );

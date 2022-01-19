@@ -71,7 +71,7 @@ describe("Suite test ZLogo", () => {
     expect(page.root).toEqualHtml(`
       <z-logo mobile-logo class="mobile">
         <mock:shadow-root>
-            <img class="mobile"></img>
+            <img></img>
         </mock:shadow-root>
       </z-logo>
     `);
