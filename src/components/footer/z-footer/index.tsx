@@ -34,8 +34,8 @@ export class ZFooter {
         link="https://www.zanichelli.it"
         width={144}
         height={38}
-        imagealt="Home Zanichelli"
-        targetblank={true}
+        imageAlt="Home Zanichelli"
+        targetBlank={true}
       />
     );
   }

@@ -8,6 +8,7 @@ describe("Suite test ZFooter", () => {
       components: [ZFooter],
       html: `<z-footer></z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer>
@@ -46,6 +47,7 @@ describe("Suite test ZFooter", () => {
           <div>main section content</div>
         </z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer>
@@ -85,6 +87,7 @@ describe("Suite test ZFooter", () => {
           <div slot="links">links section content</div>
         </z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer>
@@ -124,6 +127,7 @@ describe("Suite test ZFooter", () => {
           <div slot="social">social section content</div>
         </z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer>
@@ -196,6 +200,7 @@ describe("Suite test ZFooter", () => {
         ]
       }'></z-footer>`,
     });
+
     expect(page.root).toEqualHtml(
       `
         <z-footer data='{
@@ -283,7 +288,7 @@ describe("Suite test ZFooter", () => {
 });
 
 const expectedLogo = () => `
-  <z-logo link="https://www.zanichelli.it" imagealt="Home Zanichelli" targetblank height="38" width="144"></z-logo>
+  <z-logo link="https://www.zanichelli.it" imageAlt="Home Zanichelli" targetBlank height="38" width="144"></z-logo>
 `;
 
 const expectedCopyright = () => `

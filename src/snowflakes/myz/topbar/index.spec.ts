@@ -24,7 +24,7 @@ describe("Suite test ZMyzTopbar", () => {
         <header>
           <div class="mobile-header" id="mobile-header">
             <div class="logo">
-              <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank=""></z-logo>
+              <z-logo image-alt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" target-blank=""></z-logo>
             </div>
             <z-button htmlid="login-button" variant="secondary" icon="login" issmall="">entra</z-button>
           </div>
@@ -50,11 +50,11 @@ describe("Suite test ZMyzTopbar", () => {
       <header>
         <div class="mobile-header myz-out" id="mobile-header">
           <div class="logo">
-            <z-logo imagealt="logo zanichelli"
+            <z-logo image-alt="logo zanichelli"
             height="36"
             width="144"
             link="https://www.zanichelli.it"
-            targetblank=""></z-logo>
+            target-blank=""></z-logo>
           </div>
           <z-button htmlid="login-button" variant="tertiary" icon="login" issmall="">entra</z-button>
         </div>
@@ -80,7 +80,7 @@ describe("Suite test ZMyzTopbar", () => {
       <header>
         <div class="mobile-header" id="mobile-header">
           <div class="logo">
-            <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank=""></z-logo>
+            <z-logo image-alt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" target-blank=""></z-logo>
           </div>
           <div class="menu-mobile" id="mobile-menu-wrapper">
             <div class="menu-toggle" id="mobile-menu">
@@ -143,7 +143,7 @@ describe("Suite test ZMyzTopbar", () => {
         <header>
           <div class="mobile-header" id="mobile-header">
             <div class="logo">
-              <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank=""></z-logo>
+              <z-logo image-alt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" target-blank=""></z-logo>
             </div>
             <div class="menu-mobile" id="mobile-menu-wrapper">
               <div class="menu-toggle is-active" id="mobile-menu">
@@ -259,7 +259,7 @@ describe("Suite test ZMyzTopbar", () => {
         <header>
           <div class="main-header" id="main-header">
             <div class="logo">
-              <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank></z-logo>
+              <z-logo image-alt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" target-blank></z-logo>
             </div>
             <div></div>
             <div class="login">
@@ -297,8 +297,8 @@ describe("Suite test ZMyzTopbar", () => {
                 height="36"
                 width="144"
                 link="https://www.zanichelli.it"
-                targetblank
-                imagealt="logo zanichelli"
+                target-blank
+                image-alt="logo zanichelli"
               />
             </div>
             <div id="link-int" class="link-int">
@@ -366,8 +366,8 @@ describe("Suite test ZMyzTopbar", () => {
                 height="36"
                 width="144"
                 link="https://www.zanichelli.it"
-                targetblank
-                imagealt="logo zanichelli"
+                target-blank
+                image-alt="logo zanichelli"
               />
             </div>
             <div></div>
@@ -408,8 +408,8 @@ describe("Suite test ZMyzTopbar", () => {
                 height="36"
                 width="144"
                 link="https://www.zanichelli.it"
-                targetblank
-                imagealt="logo zanichelli"
+                target-blank
+                image-alt="logo zanichelli"
               />
             </div>
             <div id="link-ext" class="link-ext">
@@ -461,8 +461,8 @@ describe("Suite test ZMyzTopbar", () => {
                 height="36"
                 width="144"
                 link="https://www.zanichelli.it"
-                targetblank
-                imagealt="logo zanichelli"
+                target-blank
+                image-alt="logo zanichelli"
               />
             </div>
             <div id="link-int" class="link-int">
@@ -519,7 +519,7 @@ describe("Suite test ZMyzTopbar", () => {
         <header>
           <div class="main-header" id="main-header">
             <div class="logo">
-              <z-logo imagealt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" targetblank></z-logo>
+              <z-logo image-alt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" target-blank></z-logo>
             </div>
             <div></div>
             <div class="login">
