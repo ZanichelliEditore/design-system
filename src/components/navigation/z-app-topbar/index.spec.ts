@@ -15,7 +15,7 @@ describe("Suite test ZAppTopbar", () => {
         <mock:shadow-root>
           <div id="content-container">
             <div id="left-panel" class="content-panel">
-              <z-logo height="32" imagealt="zanichelli-logo" targetblank="" width="128"></z-logo>
+              <z-logo height="32" imageAlt="zanichelli-logo" targetBlank="" width="128"></z-logo>
             </div>
             <div id="right-panel" class="content-panel">
               <div id="divider-container">
@@ -40,7 +40,7 @@ describe("Suite test ZAppTopbar", () => {
         <mock:shadow-root>
            <div id="content-container" style="--mw: 600px;">
             <div id="left-panel" class="content-panel">
-              <z-logo height="32" imagealt="zanichelli-logo" targetblank="" width="128"></z-logo>
+              <z-logo height="32" imageAlt="zanichelli-logo" targetBlank="" width="128"></z-logo>
             </div>
             <div id="right-panel" class="content-panel">
               <div id="divider-container">
@@ -61,8 +61,7 @@ describe("Suite test ZAppTopbar", () => {
               theme="light"
               logo-link="https://www.zanichelli.it"
               show-app-switcher=true
-            >
-            </z-app-topbar>`,
+            ></z-app-topbar>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -75,7 +74,7 @@ describe("Suite test ZAppTopbar", () => {
         <mock:shadow-root>
           <div id="content-container">
             <div id="left-panel" class="content-panel">
-              <z-logo height="32" imagealt="zanichelli-logo" link="https://www.zanichelli.it" targetblank="" width="128"></z-logo>
+              <z-logo height="32" imageAlt="zanichelli-logo" link="https://www.zanichelli.it" targetBlank="" width="128"></z-logo>
             </div>
             <div id="right-panel" class="content-panel">
               <z-app-switcher theme="light"></z-app-switcher>
@@ -109,7 +108,7 @@ describe("Suite test ZAppTopbar", () => {
         <mock:shadow-root>
           <div id="content-container">
             <div id="left-panel" class="content-panel">
-              <z-logo height="32" imagealt="zanichelli-logo" targetblank="" width="128"></z-logo>
+              <z-logo height="32" imageAlt="zanichelli-logo" targetBlank="" width="128"></z-logo>
             </div>
             <div id="right-panel" class="content-panel">
               <z-link
