@@ -7,7 +7,6 @@ import {
   State,
   Listen,
   Element,
-  Fragment,
 } from "@stencil/core";
 import {
   ButtonVariantEnum,
@@ -23,8 +22,6 @@ import { getDevice } from "../../../utils/utils";
   shadow: true,
 })
 export class ZFileUpload {
-  private input: HTMLInputElement;
-
   /** Prop indicating the file upload type - can be default or dragdrop */
   @Prop({ mutable: true, reflect: true }) type: ZFileUploadTypeEnum =
     ZFileUploadTypeEnum.default;
@@ -48,6 +45,14 @@ export class ZFileUpload {
   @State() wrongFiles: any;
 
   @Element() el: HTMLElement;
+
+  private input: HTMLInputElement;
+
+  private inputAttributes = {
+    type: "file",
+    id: "fileElem",
+    multiple: this.type === ZFileUploadTypeEnum.default ? this.multiple : true,
+  };
 
   /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
@@ -75,15 +80,14 @@ export class ZFileUpload {
   fileInputHandler() {
     if (this.input.files.length) {
       this.wrongFiles = this.checkFiles(Array.from(this.input.files));
-      if (this.wrongFiles["sizeErrors"] || this.wrongFiles["formatErrors"]) {
+      if (this.wrongFiles) {
         this.error = true;
       }
     }
   }
 
   checkFiles(files: Array<File>): any {
-    let sizeErrors: Array<File> = [];
-    let formatErrors: Array<File> = [];
+    let errors = {};
     files.forEach((file: File) => {
       const fileSize = file.size / 1024 / 1024;
       const fileExtension = file.type.split("/").pop();
@@ -94,18 +98,16 @@ export class ZFileUpload {
         this.input.value = "";
         return;
       }
+      errors[file.name] = [];
       if (fileSize > 50) {
-        sizeErrors.push(file);
+        errors[file.name].push("size");
       }
       if (!this.acceptedFormat.includes(fileExtension)) {
-        formatErrors.push(file);
+        errors[file.name].push("format");
       }
     });
 
-    return {
-      sizeErrors,
-      formatErrors,
-    };
+    return errors;
   }
 
   renderTitle() {
@@ -148,20 +150,20 @@ export class ZFileUpload {
     );
   }
 
-  renderUploadButton() {
-    const attributes = {
-      type: "file",
-      id: "fileElem",
-      multiple: this.multiple,
-    };
-
-    return [
+  renderInput() {
+    return (
       <input
-        {...attributes}
+        {...this.inputAttributes}
         onChange={() => this.fileInputHandler()}
         accept={this.acceptedFormat}
         ref={(val) => (this.input = val)}
-      />,
+      />
+    );
+  }
+
+  renderUploadButton() {
+    return [
+      this.renderInput(),
       <z-button
         onClick={() => this.input.click()}
         id="fileSelect"
@@ -175,14 +177,7 @@ export class ZFileUpload {
 
   renderUploadLink() {
     return [
-      <input
-        onChange={() => this.fileInputHandler()}
-        type="file"
-        id="fileElem"
-        multiple
-        accept={this.acceptedFormat}
-        ref={(val) => (this.input = val)}
-      />,
+      this.renderInput(),
       <z-body variant="regular" level={1}>
         Trascinalo qui o{" "}
         <z-body
@@ -199,40 +194,40 @@ export class ZFileUpload {
   }
 
   renderDefaultMode() {
-    return (
-      <Fragment>
-        {this.renderDescription("semibold", 3)}
-        {this.renderAllowedFileExtensions()}
-        {this.renderFileSection()}
-        {this.renderUploadButton()}
-      </Fragment>
-    );
+    return [
+      this.renderDescription("semibold", 3),
+      this.renderAllowedFileExtensions(),
+      this.renderFileSection(),
+      this.renderUploadButton(),
+    ];
   }
 
   renderDragDropMode() {
-    return (
-      <Fragment>
-        {this.renderFileSection()}
-        <z-dragdrop-area>
-          <div class="text-container">
-            {this.renderDescription("regular", 1)}
-            {this.renderUploadLink()}
-            {this.renderAllowedFileExtensions()}
-          </div>
-        </z-dragdrop-area>
-      </Fragment>
-    );
+    return [
+      this.renderFileSection(),
+      <z-dragdrop-area>
+        <div class="text-container">
+          {this.renderDescription("regular", 1)}
+          {this.renderUploadLink()}
+          {this.renderAllowedFileExtensions()}
+        </div>
+      </z-dragdrop-area>,
+    ];
   }
 
   handleErrorModalContent() {
+    const sizeError = "supera i 50Mb";
+    const formatError = " ha un'estensione non prevista";
     return (
       <div slot="modalContent">
-        {this.wrongFiles["sizeErrors"].map((file: File) => (
-          <p>{file.name}</p>
-        ))}
-        {this.wrongFiles["formatErrors"].map((file: File) => (
-          <p>{file.name}</p>
-        ))}
+        <ul>
+          {Object.entries(this.wrongFiles).map(([key, value]) => {
+            const string = `Il file ${key} ${value["size"] && sizeError} ${
+              value["format"] && formatError
+            } e non può quindi essere caricato.`;
+            return <li>{string}</li>;
+          })}
+        </ul>
       </div>
     );
   }
