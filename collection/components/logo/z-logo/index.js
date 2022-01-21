@@ -8,10 +8,10 @@ export class ZLogo {
     if (this.height) {
       style["height"] = style["max-height"] = `${this.height}px`;
     }
-    return (h(Host, { style: style }, this.link ?
-      h("a", { href: this.link, target: this.targetblank ? "_blank" : "_self" },
-        h("img", { alt: this.imagealt })) :
-      h("img", { alt: this.imagealt })));
+    return (h(Host, { style: style, class: { "mobile": !!this.mobileLogo } }, this.link ?
+      h("a", { href: this.link, target: this.targetBlank ? "_blank" : "_self" },
+        h("img", { alt: this.imageAlt })) :
+      h("img", { alt: this.imageAlt })));
   }
   static get is() { return "z-logo"; }
   static get encapsulation() { return "shadow"; }
@@ -56,7 +56,7 @@ export class ZLogo {
       "attribute": "height",
       "reflect": false
     },
-    "imagealt": {
+    "imageAlt": {
       "type": "string",
       "mutable": false,
       "complexType": {
@@ -70,7 +70,7 @@ export class ZLogo {
         "tags": [],
         "text": "alternative image text"
       },
-      "attribute": "imagealt",
+      "attribute": "image-alt",
       "reflect": false
     },
     "link": {
@@ -90,7 +90,7 @@ export class ZLogo {
       "attribute": "link",
       "reflect": false
     },
-    "targetblank": {
+    "targetBlank": {
       "type": "boolean",
       "mutable": false,
       "complexType": {
@@ -104,7 +104,24 @@ export class ZLogo {
         "tags": [],
         "text": "link target: true means _blank, false means _self"
       },
-      "attribute": "targetblank",
+      "attribute": "target-blank",
+      "reflect": false
+    },
+    "mobileLogo": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "if true, the mobile logo is displayed, otherwise the desktop one"
+      },
+      "attribute": "mobile-logo",
       "reflect": false
     }
   }; }

@@ -1,21 +1,34 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, h, Prop, Event, Listen } from "@stencil/core";
+import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 /**
  * @slot - main navigation
  * @slot links - bottom navigation
  * @slot social - social links
  */
 export class ZFooter {
+  constructor() {
+    this.creditsLinkId = "creditsLinkId";
+    this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
+  }
   componentWillLoad() {
     if (this.data) {
       console.warn("z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead.");
       this.jsonData = JSON.parse(this.data);
     }
-    if (this.copyrightuser) {
-      console.warn("z-footer: `copyrightuser` prop is deprecated and will be removed in a future version.");
+  }
+  zLinkClickListener(e) {
+    if (e.detail.linkId === this.creditsLinkId) {
+      this.emitCreditsLinkClick();
     }
   }
+  emitCreditsLinkClick() {
+    this.creditsLinkClick.emit();
+  }
+  emitReportAProblemButtonClick() {
+    this.reportAProblemButtonClick.emit();
+  }
   renderZLogo() {
-    return (h("z-logo", { link: "https://www.zanichelli.it", width: 144, height: 38, imagealt: "Home Zanichelli", targetblank: true }));
+    return (h("z-logo", { link: "https://www.zanichelli.it", width: 144, height: 38, imageAlt: "Home Zanichelli", targetBlank: true }));
   }
   renderAddress() {
     return (h("p", null,
@@ -49,20 +62,42 @@ export class ZFooter {
       this.renderFooterBottomJsonData()));
   }
   renderFooterBottom() {
-    return (h("section", { class: "bottom" },
-      h("div", { class: "item logo" },
-        this.renderZLogo(),
-        this.renderCopyright(),
-        this.renderCertification()),
-      h("div", { class: "item" },
-        this.renderAddress(),
-        this.renderSocial()),
-      this.renderBottomLinks()));
+    return (h("section", { id: "bottom" },
+      h("div", { class: { "limited-width": !!this.contentMaxWidth }, style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} },
+        h("div", { class: "item logo" },
+          this.renderZLogo(),
+          this.renderCopyright(),
+          this.renderCertification()),
+        h("div", { class: "item" },
+          this.renderAddress(),
+          this.renderSocial()),
+        this.renderBottomLinks())));
   }
   renderFooterTop() {
-    return (h("section", { class: "top" },
-      h("slot", null),
-      this.renderFooterTopJsonData()));
+    return (h("section", { id: "top" },
+      h("div", { class: { "limited-width": !!this.contentMaxWidth }, style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} },
+        h("slot", null),
+        this.renderFooterTopJsonData())));
+  }
+  renderFooterProductInfo() {
+    var _a;
+    if (this.productName || this.productVersion || this.productCreditsLink != null || this.showReportAProblemButton) {
+      const versionString = `${this.productName ? ' versione' : 'Versione'} ${this.productVersion}`;
+      const creditsObject = h("z-body", { level: 5 },
+        (this.productName || this.productVersion) && ' - ',
+        h("z-link", { htmlid: this.creditsLinkId, href: (_a = this.productCreditsLink) === null || _a === void 0 ? void 0 : _a.trim(), target: "_blank", textcolor: "white" }, "Credits"));
+      return (h("div", { id: "extension" },
+        h("div", { class: { "limited-width": !!this.contentMaxWidth }, style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} },
+          h("span", null,
+            this.productName && h("z-body", { level: 5, variant: "semibold" }, this.productName),
+            this.productVersion && h("z-body", { level: 5 }, versionString),
+            this.productCreditsLink != null && creditsObject),
+          this.showReportAProblemButton &&
+            h("div", null,
+              h("z-body", { level: 5 }, "Hai bisogno di aiuto?"),
+              h("z-button", { variant: ButtonVariantEnum["dark-bg"], size: ButtonSizeEnum.small, onClick: this.emitReportAProblemButtonClick }, "SEGNALA UN PROBLEMA")),
+          h("z-divider", { color: "gray500" }))));
+    }
   }
   // INFO: backward compatibility
   renderFooterTopJsonData() {
@@ -94,6 +129,7 @@ export class ZFooter {
   }
   render() {
     return (h("footer", null,
+      this.renderFooterProductInfo(),
       this.renderFooterTop(),
       this.renderFooterBottom()));
   }
@@ -123,7 +159,7 @@ export class ZFooter {
       "attribute": "data",
       "reflect": false
     },
-    "copyrightuser": {
+    "productName": {
       "type": "string",
       "mutable": false,
       "complexType": {
@@ -135,10 +171,116 @@ export class ZFooter {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "deprecated - set copyright user"
+        "text": "The product name to be displayed on the top panel of the footer"
       },
-      "attribute": "copyrightuser",
+      "attribute": "product-name",
+      "reflect": false
+    },
+    "productVersion": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "The product version to be displayed on the top panel of the footer"
+      },
+      "attribute": "product-version",
+      "reflect": false
+    },
+    "productCreditsLink": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "'undefined' or 'null' means 'don't show Credits',\nempty string means 'emit creditsLinkClick event', \nnot empty string means 'open the url and emit creditsLinkClick event'"
+      },
+      "attribute": "product-credits-link",
+      "reflect": false
+    },
+    "showReportAProblemButton": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "True if the product must display a \"Report a problem\" button on the top panel of the footer"
+      },
+      "attribute": "show-report-a-problem-button",
+      "reflect": false
+    },
+    "contentMaxWidth": {
+      "type": "number",
+      "mutable": false,
+      "complexType": {
+        "original": "number",
+        "resolved": "number",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Maximum width of footer content"
+      },
+      "attribute": "content-max-width",
       "reflect": false
     }
   }; }
+  static get events() { return [{
+      "method": "creditsLinkClick",
+      "name": "creditsLinkClick",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": {
+        "tags": [],
+        "text": "Emitted on credits link click"
+      },
+      "complexType": {
+        "original": "any",
+        "resolved": "any",
+        "references": {}
+      }
+    }, {
+      "method": "reportAProblemButtonClick",
+      "name": "reportAProblemButtonClick",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": {
+        "tags": [],
+        "text": "Emitted on report a problem button click"
+      },
+      "complexType": {
+        "original": "any",
+        "resolved": "any",
+        "references": {}
+      }
+    }]; }
+  static get listeners() { return [{
+      "name": "zLinkClick",
+      "method": "zLinkClickListener",
+      "target": undefined,
+      "capture": false,
+      "passive": false
+    }]; }
 }

@@ -4,10 +4,12 @@ export declare class ZLogo {
   /** image height */
   height?: number;
   /** alternative image text */
-  imagealt?: string;
+  imageAlt?: string;
   /** link url (optional) */
   link?: string;
   /** link target: true means _blank, false means _self */
-  targetblank?: boolean;
+  targetBlank?: boolean;
+  /** if true, the mobile logo is displayed, otherwise the desktop one */
+  mobileLogo?: boolean;
   render(): any;
 }

@@ -49,7 +49,7 @@ export class ZMyzTopbar {
   }
   renderLogoDiv() {
     return (h("div", { class: "logo" },
-      h("z-logo", { link: this.logolink ? this.logolink : null, targetblank: true, width: 144, height: 36, imagealt: this.imagealt })));
+      h("z-logo", { link: this.logolink ? this.logolink : null, "target-blank": true, width: 144, height: 36, "image-alt": this.imagealt })));
   }
   renderIntMenu(menuItems) {
     if (!this.isLogged || !this.ismyz)

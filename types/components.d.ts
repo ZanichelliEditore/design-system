@@ -314,13 +314,29 @@ export namespace Components {
     }
     interface ZFooter {
         /**
-          * deprecated - set copyright user
+          * Maximum width of footer content
          */
-        "copyrightuser"?: string;
+        "contentMaxWidth"?: number;
         /**
           * deprecated - JSON stringified data to fill the footer
          */
         "data"?: string;
+        /**
+          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event'
+         */
+        "productCreditsLink"?: string;
+        /**
+          * The product name to be displayed on the top panel of the footer
+         */
+        "productName"?: string;
+        /**
+          * The product version to be displayed on the top panel of the footer
+         */
+        "productVersion"?: string;
+        /**
+          * True if the product must display a "Report a problem" button on the top panel of the footer
+         */
+        "showReportAProblemButton"?: boolean;
     }
     interface ZFooterLink {
         /**
@@ -644,15 +660,19 @@ export namespace Components {
         /**
           * alternative image text
          */
-        "imagealt"?: string;
+        "imageAlt"?: string;
         /**
           * link url (optional)
          */
         "link"?: string;
         /**
+          * if true, the mobile logo is displayed, otherwise the desktop one
+         */
+        "mobileLogo"?: boolean;
+        /**
           * link target: true means _blank, false means _self
          */
-        "targetblank"?: boolean;
+        "targetBlank"?: boolean;
         /**
           * image width
          */
@@ -2466,13 +2486,37 @@ declare namespace LocalJSX {
     }
     interface ZFooter {
         /**
-          * deprecated - set copyright user
+          * Maximum width of footer content
          */
-        "copyrightuser"?: string;
+        "contentMaxWidth"?: number;
         /**
           * deprecated - JSON stringified data to fill the footer
          */
         "data"?: string;
+        /**
+          * Emitted on credits link click
+         */
+        "onCreditsLinkClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on report a problem button click
+         */
+        "onReportAProblemButtonClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event'
+         */
+        "productCreditsLink"?: string;
+        /**
+          * The product name to be displayed on the top panel of the footer
+         */
+        "productName"?: string;
+        /**
+          * The product version to be displayed on the top panel of the footer
+         */
+        "productVersion"?: string;
+        /**
+          * True if the product must display a "Report a problem" button on the top panel of the footer
+         */
+        "showReportAProblemButton"?: boolean;
     }
     interface ZFooterLink {
         /**
@@ -2820,15 +2864,19 @@ declare namespace LocalJSX {
         /**
           * alternative image text
          */
-        "imagealt"?: string;
+        "imageAlt"?: string;
         /**
           * link url (optional)
          */
         "link"?: string;
         /**
+          * if true, the mobile logo is displayed, otherwise the desktop one
+         */
+        "mobileLogo"?: boolean;
+        /**
           * link target: true means _blank, false means _self
          */
-        "targetblank"?: boolean;
+        "targetBlank"?: boolean;
         /**
           * image width
          */

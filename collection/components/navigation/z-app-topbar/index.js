@@ -28,7 +28,7 @@ export class ZAppTopbar {
       } },
       h("div", { id: "content-container", style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} },
         h("div", { id: "left-panel", class: "content-panel" },
-          h("z-logo", { width: this.isMobile ? 32 : 128, height: this.isMobile ? 40 : 32, imagealt: "zanichelli-logo", link: this.logoLink, targetblank: true }),
+          h("z-logo", { mobileLogo: this.isMobile, width: this.isMobile ? 32 : 128, height: this.isMobile ? 40 : 32, imageAlt: "zanichelli-logo", link: this.logoLink, targetBlank: true }),
           this.isMobile && this.renderTopbarLinks()),
         h("div", { id: "right-panel", class: "content-panel" },
           !this.isMobile && this.renderTopbarLinks(),
