@@ -1,4 +1,4 @@
-import { Component, h, Prop, Event, EventEmitter } from "@stencil/core";
+import { Component, h, Prop, Event, EventEmitter, Listen } from "@stencil/core";
 import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 
 /**
@@ -18,16 +18,18 @@ export class ZFooter {
   @Prop() productName?: string;
   /** The product version to be displayed on the top panel of the footer */
   @Prop() productVersion?: string;
-  /** The URL of the product credits to be displayed on the top panel of the footer */
+  /** 'undefined' or 'null' means 'don't show Credits',
+   * empty string means 'emit creditsLinkClick event', 
+   * not empty string means 'open the url and emit creditsLinkClick event' */
   @Prop() productCreditsLink?: string;
-  /** True if the product must display "Credits" even if a href is not provided */
-  @Prop() showProductCreditsLink?: boolean;
   /** True if the product must display a "Report a problem" button on the top panel of the footer */
   @Prop() showReportAProblemButton?: boolean;
   /** Maximum width of footer content */
   @Prop() contentMaxWidth?: number;
 
   private jsonData;
+
+  creditsLinkId = "creditsLinkId";
 
   constructor() {
     this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
@@ -40,6 +42,20 @@ export class ZFooter {
     }
   }
 
+  @Listen("zLinkClick")
+  zLinkClickListener(e: CustomEvent) {
+    if (e.detail.linkId === this.creditsLinkId) {
+      this.emitCreditsLinkClick();
+    }
+  }
+
+  /** Emitted on credits link click */
+  @Event() creditsLinkClick: EventEmitter;
+  emitCreditsLinkClick() {
+    this.creditsLinkClick.emit();
+  }
+
+  /** Emitted on report a problem button click */
   @Event() reportAProblemButtonClick: EventEmitter;
   emitReportAProblemButtonClick() {
     this.reportAProblemButtonClick.emit();
@@ -138,12 +154,12 @@ export class ZFooter {
   }
 
   renderFooterProductInfo(): HTMLElement {
-    if (this.productName || this.productVersion || this.showProductCreditsLink || this.showReportAProblemButton) {
+    if (this.productName || this.productVersion || this.productCreditsLink != null || this.showReportAProblemButton) {
       const versionString = `${this.productName ? ' versione' : 'Versione'} ${this.productVersion}`;
 
       const creditsObject = <z-body level={5}>
         {(this.productName || this.productVersion) && ' - '}
-        <z-link htmlid="creditsLink" href={this.productCreditsLink} target="_blank" textcolor="white">Credits</z-link>
+        <z-link htmlid={this.creditsLinkId} href={this.productCreditsLink?.trim()} target="_blank" textcolor="white">Credits</z-link>
       </z-body>;
 
       return (
@@ -152,7 +168,7 @@ export class ZFooter {
             <span>
               {this.productName && <z-body level={5} variant="semibold">{this.productName}</z-body>}
               {this.productVersion && <z-body level={5}>{versionString}</z-body>}
-              {this.showProductCreditsLink && creditsObject}
+              {this.productCreditsLink != null && creditsObject}
             </span>
             {this.showReportAProblemButton &&
               <div>

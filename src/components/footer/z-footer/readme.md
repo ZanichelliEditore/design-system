@@ -7,22 +7,22 @@
 
 ## Properties
 
-| Property                   | Attribute                      | Description                                                                                 | Type      | Default     |
-| -------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `contentMaxWidth`          | `content-max-width`            | Maximum width of footer content                                                             | `number`  | `undefined` |
-| `data`                     | `data`                         | deprecated - JSON stringified data to fill the footer                                       | `string`  | `undefined` |
-| `productCreditsLink`       | `product-credits-link`         | The URL of the product credits to be displayed on the top panel of the footer               | `string`  | `undefined` |
-| `productName`              | `product-name`                 | The product name to be displayed on the top panel of the footer                             | `string`  | `undefined` |
-| `productVersion`           | `product-version`              | The product version to be displayed on the top panel of the footer                          | `string`  | `undefined` |
-| `showProductCreditsLink`   | `show-product-credits-link`    | True if the product must display "Credits" even if a href is not provided                   | `boolean` | `undefined` |
-| `showReportAProblemButton` | `show-report-a-problem-button` | True if the product must display a "Report a problem" button on the top panel of the footer | `boolean` | `undefined` |
+| Property                   | Attribute                      | Description                                                                                                                                                                | Type      | Default     |
+| -------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `contentMaxWidth`          | `content-max-width`            | Maximum width of footer content                                                                                                                                            | `number`  | `undefined` |
+| `data`                     | `data`                         | deprecated - JSON stringified data to fill the footer                                                                                                                      | `string`  | `undefined` |
+| `productCreditsLink`       | `product-credits-link`         | 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event' | `string`  | `undefined` |
+| `productName`              | `product-name`                 | The product name to be displayed on the top panel of the footer                                                                                                            | `string`  | `undefined` |
+| `productVersion`           | `product-version`              | The product version to be displayed on the top panel of the footer                                                                                                         | `string`  | `undefined` |
+| `showReportAProblemButton` | `show-report-a-problem-button` | True if the product must display a "Report a problem" button on the top panel of the footer                                                                                | `boolean` | `undefined` |
 
 
 ## Events
 
-| Event                       | Description | Type               |
-| --------------------------- | ----------- | ------------------ |
-| `reportAProblemButtonClick` |             | `CustomEvent<any>` |
+| Event                       | Description                              | Type               |
+| --------------------------- | ---------------------------------------- | ------------------ |
+| `creditsLinkClick`          | Emitted on credits link click            | `CustomEvent<any>` |
+| `reportAProblemButtonClick` | Emitted on report a problem button click | `CustomEvent<any>` |
 
 
 ## Slots
