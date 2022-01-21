@@ -1,12 +1,25 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+  color: var(--gray800);
 }
 
 :host > .container {
-  color: var(--gray800);
   display: flex;
   flex-direction: column;
+}
+
+:host .modalWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host .modalWrapper > .files {
+  margin: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 :host .text-container {

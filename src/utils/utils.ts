@@ -93,16 +93,20 @@ export function convertJson(data: string): any {
   }
 }
 
-const prefix = 'avatar-C'    // prefix for color vars name
-const colorsCount = 19        // available colors
+const prefix = "avatar-C"; // prefix for color vars name
+const colorsCount = 19; // available colors
 
 export function colorFromId(id) {
-    const seed = Math.ceil(2**31 - 1) * parseFloat(`0.${id}`);
-    let color = Math.ceil( colorsCount * (seed%1));
+  const seed = Math.ceil(2 ** 31 - 1) * parseFloat(`0.${id}`);
+  let color = Math.ceil(colorsCount * (seed % 1));
 
-    // if result of mc is 0
-    // es.: 3895229
-    if(color === 0) color = 1;
+  // if result of mc is 0
+  // es.: 3895229
+  if (color === 0) color = 1;
 
-    return `${prefix}${color.toString().padStart(2, '0')}`;
+  return `${prefix}${color.toString().padStart(2, "0")}`;
+}
+
+export function checkEmptyObject(object) {
+  return Object.keys(object).length === 0 && object.constructor === Object;
 }

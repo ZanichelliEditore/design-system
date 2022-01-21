@@ -208,11 +208,9 @@
 }'></z-footer>
 <script>
 
-     async function postData(payload){
+     async function postData(item){
         const form = new FormData();
-        for (const item of payload) {
-            form.append("attachments[]", item, item.name);
-        }
+        form.append("attachments[]", item, item.name);
         await fetch('https://api-catalogo.zanichelli.local/v3/file-upload', {
             method: 'POST',
             body: form
@@ -223,14 +221,12 @@
         const uploader = document.querySelector("z-file-upload");
         document.addEventListener("fileInput", (e) => {
             const items = postData(e.detail);  
-            for (const item of e.detail) {
+            const item = e.detail
                 const chip = document.createElement('Z-FILE')
                 chip.setAttribute('slot', 'files')
                 chip.innerText = item.name
                 uploader.appendChild(chip); 
                 console.log(item)
-            }
-            
         })
 </script>
 </body>
