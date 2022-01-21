@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.31.0](https://github.com/ZanichelliEditore/design-system/compare/v2.30.1...v2.31.0) (2022-01-21)
+
+
+### Features
+
+* add footer content max-width ([b3a1be4](https://github.com/ZanichelliEditore/design-system/commit/b3a1be47640137f06ea083472cfabe8317e58ad2))
+* extend footer with a product info panel ([e81e3d1](https://github.com/ZanichelliEditore/design-system/commit/e81e3d1410a71652b57dd638d916a139701498e3))
+
+
+### Bug Fixes
+
+* display credits even if a href is not provided ([4a5467e](https://github.com/ZanichelliEditore/design-system/commit/4a5467e2ffe60093809ffdfcd5847d89d4981d22))
+* mobile logo is not displayed by css, but using a prop in z-logo componen ([b271b77](https://github.com/ZanichelliEditore/design-system/commit/b271b77c8cba0db987320bf5ae7bcd4dd2dfc3f3))
+
 ### [2.30.1](https://github.com/ZanichelliEditore/design-system/compare/v2.30.0...v2.30.1) (2022-01-17)
 
 
