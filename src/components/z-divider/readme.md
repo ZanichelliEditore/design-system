@@ -19,6 +19,7 @@
 ### Used by
 
  - [z-app-topbar](../navigation/z-app-topbar)
+ - [z-footer](../footer/z-footer)
  - [z-list-element](../list/z-list-element)
  - [z-list-group](../list/z-list-group)
 
@@ -26,6 +27,7 @@
 ```mermaid
 graph TD;
   z-app-topbar --> z-divider
+  z-footer --> z-divider
   z-list-element --> z-divider
   z-list-group --> z-divider
   style z-divider fill:#f9f,stroke:#333,stroke-width:4px

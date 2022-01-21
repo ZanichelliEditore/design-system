@@ -1,4 +1,5 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, h, Prop, Event, EventEmitter, Listen } from "@stencil/core";
+import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 
 /**
  * @slot - main navigation
@@ -13,19 +14,51 @@ import { Component, h, Prop } from "@stencil/core";
 export class ZFooter {
   /** deprecated - JSON stringified data to fill the footer */
   @Prop() data?: string;
-  /** deprecated - set copyright user */
-  @Prop() copyrightuser?: string;
+  /** The product name to be displayed on the top panel of the footer */
+  @Prop() productName?: string;
+  /** The product version to be displayed on the top panel of the footer */
+  @Prop() productVersion?: string;
+  /** 'undefined' or 'null' means 'don't show Credits',
+   * empty string means 'emit creditsLinkClick event', 
+   * not empty string means 'open the url and emit creditsLinkClick event' */
+  @Prop() productCreditsLink?: string;
+  /** True if the product must display a "Report a problem" button on the top panel of the footer */
+  @Prop() showReportAProblemButton?: boolean;
+  /** Maximum width of footer content */
+  @Prop() contentMaxWidth?: number;
 
   private jsonData;
+
+  creditsLinkId = "creditsLinkId";
+
+  constructor() {
+    this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
+  }
 
   componentWillLoad() {
     if (this.data) {
       console.warn("z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead.");
       this.jsonData = JSON.parse(this.data);
     }
-    if (this.copyrightuser) {
-      console.warn("z-footer: `copyrightuser` prop is deprecated and will be removed in a future version.");
+  }
+
+  @Listen("zLinkClick")
+  zLinkClickListener(e: CustomEvent) {
+    if (e.detail.linkId === this.creditsLinkId) {
+      this.emitCreditsLinkClick();
     }
+  }
+
+  /** Emitted on credits link click */
+  @Event() creditsLinkClick: EventEmitter;
+  emitCreditsLinkClick() {
+    this.creditsLinkClick.emit();
+  }
+
+  /** Emitted on report a problem button click */
+  @Event() reportAProblemButtonClick: EventEmitter;
+  emitReportAProblemButtonClick() {
+    this.reportAProblemButtonClick.emit();
   }
 
   renderZLogo(): HTMLZLogoElement {
@@ -92,28 +125,68 @@ export class ZFooter {
 
   renderFooterBottom(): HTMLElement {
     return (
-      <section class="bottom">
-        <div class="item logo">
-          {this.renderZLogo()}
-          {this.renderCopyright()}
-          {this.renderCertification()}
+      <section id="bottom">
+        <div class={{ "limited-width": !!this.contentMaxWidth }} style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
+          <div class="item logo">
+            {this.renderZLogo()}
+            {this.renderCopyright()}
+            {this.renderCertification()}
+          </div>
+          <div class="item">
+            {this.renderAddress()}
+            {this.renderSocial()}
+          </div>
+          {this.renderBottomLinks()}
         </div>
-        <div class="item">
-          {this.renderAddress()}
-          {this.renderSocial()}
-        </div>
-        {this.renderBottomLinks()}
       </section>
     );
   }
 
   renderFooterTop(): HTMLElement {
     return (
-      <section class="top">
-        <slot />
-        {this.renderFooterTopJsonData()}
+      <section id="top">
+        <div class={{ "limited-width": !!this.contentMaxWidth }} style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
+          <slot />
+          {this.renderFooterTopJsonData()}
+        </div>
       </section>
     );
+  }
+
+  renderFooterProductInfo(): HTMLElement {
+    if (this.productName || this.productVersion || this.productCreditsLink != null || this.showReportAProblemButton) {
+      const versionString = `${this.productName ? ' versione' : 'Versione'} ${this.productVersion}`;
+
+      const creditsObject = <z-body level={5}>
+        {(this.productName || this.productVersion) && ' - '}
+        <z-link htmlid={this.creditsLinkId} href={this.productCreditsLink?.trim()} target="_blank" textcolor="white">Credits</z-link>
+      </z-body>;
+
+      return (
+        <div id="extension">
+          <div class={{ "limited-width": !!this.contentMaxWidth }} style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
+            <span>
+              {this.productName && <z-body level={5} variant="semibold">{this.productName}</z-body>}
+              {this.productVersion && <z-body level={5}>{versionString}</z-body>}
+              {this.productCreditsLink != null && creditsObject}
+            </span>
+            {this.showReportAProblemButton &&
+              <div>
+                <z-body level={5}>Hai bisogno di aiuto?</z-body>
+                <z-button
+                  variant={ButtonVariantEnum["dark-bg"]}
+                  size={ButtonSizeEnum.small}
+                  onClick={this.emitReportAProblemButtonClick}
+                >
+                  SEGNALA UN PROBLEMA
+                </z-button>
+              </div>
+            }
+            <z-divider color="gray500" />
+           </div>
+        </div>
+      );
+    }
   }
 
   // INFO: backward compatibility
@@ -171,6 +244,7 @@ export class ZFooter {
   render(): HTMLElement {
     return (
       <footer>
+        {this.renderFooterProductInfo()}
         {this.renderFooterTop()}
         {this.renderFooterBottom()}
       </footer>
