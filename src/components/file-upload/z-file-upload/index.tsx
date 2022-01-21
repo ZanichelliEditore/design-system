@@ -14,7 +14,7 @@ import {
   DividerSize,
   ZFileUploadTypeEnum,
 } from "../../../beans";
-import { getDevice } from "../../../utils/utils";
+import { checkEmptyObject, getDevice } from "../../../utils/utils";
 
 @Component({
   tag: "z-file-upload",
@@ -80,7 +80,7 @@ export class ZFileUpload {
   fileInputHandler() {
     if (this.input.files.length) {
       this.wrongFiles = this.checkFiles(Array.from(this.input.files));
-      if (this.wrongFiles) {
+      if (!checkEmptyObject(this.wrongFiles)) {
         this.error = true;
       }
     }
@@ -90,11 +90,10 @@ export class ZFileUpload {
     let errors = {};
     files.forEach((file: File) => {
       const fileSize = file.size / 1024 / 1024;
-      const fileExtension = file.type.split("/").pop();
+      const fileExtension = file.name.split(".").pop();
       if (fileSize <= 50 && this.acceptedFormat.includes(fileExtension)) {
-        console.log(file);
         this.fileInput.emit(file);
-        this.files += this.input.files.length;
+        this.files++;
         this.input.value = "";
         return;
       }
@@ -215,39 +214,51 @@ export class ZFileUpload {
     ];
   }
 
+  formatErrorString(key, value) {
+    const sizeErrorString = "supera i 50Mb";
+    const formatErrorString = " ha un'estensione non prevista";
+    const sizeError = (value as Array<string>).includes("size")
+      ? sizeErrorString
+      : "";
+    const formatError = (value as Array<string>).includes("format")
+      ? formatErrorString
+      : "";
+    const bothErrors = sizeError && formatError ? ", " : "";
+    return `Il file ${key} ${sizeError}${bothErrors} ${formatError} e non può quindi essere caricato.`;
+  }
+
   handleErrorModalContent() {
-    const sizeError = "supera i 50Mb";
-    const formatError = " ha un'estensione non prevista";
     return (
-      <div slot="modalContent">
-        <ul>
+      <div class="modalWrapper" slot="modalContent">
+        <div class="files">
           {Object.entries(this.wrongFiles).map(([key, value]) => {
-            const string = `Il file ${key} ${value["size"] && sizeError} ${
-              value["format"] && formatError
-            } e non può quindi essere caricato.`;
-            return <li>{string}</li>;
+            return (
+              <z-body variant="regular" level={3}>
+                {this.formatErrorString(key, value)}
+              </z-body>
+            );
           })}
-        </ul>
+        </div>
       </div>
     );
   }
 
   render() {
-    console.log(this.error, this.wrongFiles);
-    {
-      return (
-        <div class={`container ${this.type}`}>
-          {this.renderTitle()}
-          {this.type == ZFileUploadTypeEnum.default
-            ? this.renderDefaultMode()
-            : this.renderDragDropMode()}
-          {this.error && (
-            <z-modal onModalClose={() => (this.error = !this.error)}>
-              {this.handleErrorModalContent()}
-            </z-modal>
-          )}
-        </div>
-      );
-    }
+    return [
+      <div class={`container ${this.type}`}>
+        {this.renderTitle()}
+        {this.type == ZFileUploadTypeEnum.default
+          ? this.renderDefaultMode()
+          : this.renderDragDropMode()}
+      </div>,
+      this.error && (
+        <z-modal
+          modaltitle="Attenzione"
+          onModalClose={() => (this.error = !this.error)}
+        >
+          {this.handleErrorModalContent()}
+        </z-modal>
+      ),
+    ];
   }
 }
