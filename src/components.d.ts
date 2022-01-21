@@ -334,6 +334,10 @@ export namespace Components {
          */
         "productVersion"?: string;
         /**
+          * True if the product must display "Credits" even if a href is not provided
+         */
+        "showProductCreditsLink"?: boolean;
+        /**
           * True if the product must display a "Report a problem" button on the top panel of the footer
          */
         "showReportAProblemButton"?: boolean;
@@ -2506,6 +2510,10 @@ declare namespace LocalJSX {
           * The product version to be displayed on the top panel of the footer
          */
         "productVersion"?: string;
+        /**
+          * True if the product must display "Credits" even if a href is not provided
+         */
+        "showProductCreditsLink"?: boolean;
         /**
           * True if the product must display a "Report a problem" button on the top panel of the footer
          */

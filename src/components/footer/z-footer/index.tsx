@@ -20,6 +20,8 @@ export class ZFooter {
   @Prop() productVersion?: string;
   /** The URL of the product credits to be displayed on the top panel of the footer */
   @Prop() productCreditsLink?: string;
+  /** True if the product must display "Credits" even if a href is not provided */
+  @Prop() showProductCreditsLink?: boolean;
   /** True if the product must display a "Report a problem" button on the top panel of the footer */
   @Prop() showReportAProblemButton?: boolean;
   /** Maximum width of footer content */
@@ -136,7 +138,7 @@ export class ZFooter {
   }
 
   renderFooterProductInfo(): HTMLElement {
-    if (this.productName || this.productVersion || this.productCreditsLink || this.showReportAProblemButton) {
+    if (this.productName || this.productVersion || this.showProductCreditsLink || this.showReportAProblemButton) {
       const versionString = `${this.productName ? ' versione' : 'Versione'} ${this.productVersion}`;
 
       const creditsObject = <z-body level={5}>
@@ -150,7 +152,7 @@ export class ZFooter {
             <span>
               {this.productName && <z-body level={5} variant="semibold">{this.productName}</z-body>}
               {this.productVersion && <z-body level={5}>{versionString}</z-body>}
-              {this.productCreditsLink && creditsObject}
+              {this.showProductCreditsLink && creditsObject}
             </span>
             {this.showReportAProblemButton &&
               <div>

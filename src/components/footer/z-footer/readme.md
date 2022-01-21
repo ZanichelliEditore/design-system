@@ -14,6 +14,7 @@
 | `productCreditsLink`       | `product-credits-link`         | The URL of the product credits to be displayed on the top panel of the footer               | `string`  | `undefined` |
 | `productName`              | `product-name`                 | The product name to be displayed on the top panel of the footer                             | `string`  | `undefined` |
 | `productVersion`           | `product-version`              | The product version to be displayed on the top panel of the footer                          | `string`  | `undefined` |
+| `showProductCreditsLink`   | `show-product-credits-link`    | True if the product must display "Credits" even if a href is not provided                   | `boolean` | `undefined` |
 | `showReportAProblemButton` | `show-report-a-problem-button` | True if the product must display a "Report a problem" button on the top panel of the footer | `boolean` | `undefined` |
 
 

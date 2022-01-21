@@ -402,21 +402,71 @@ describe("Suite test ZFooter", () => {
     );
   });
 
-  it("Test render ZFooter with credits only", async () => {
+  it("Test render ZFooter with credits only, with a href", async () => {
     const page = await newSpecPage({
       components: [ZFooter],
-      html: `<z-footer product-credits-link="https://www.google.com"></z-footer>`,
+      html: `<z-footer product-credits-link="https://www.google.com" show-product-credits-link></z-footer>`,
     });
     expect(page.root).toEqualHtml(
       `
-        <z-footer product-credits-link="https://www.google.com">
+        <z-footer product-credits-link="https://www.google.com" show-product-credits-link>
           <mock:shadow-root>
             <footer>
               <div id="extension">
                 <div>
                   <span>
                     <z-body level="5">
-                      <z-link href="https://www.google.com" target="_blank" textcolor="white">Credits</z-link>
+                      <z-link htmlid="creditsLink" href="https://www.google.com" target="_blank" textcolor="white">Credits</z-link>
+                    </z-body>
+                  </span>
+                  <z-divider color="gray500"></z-divider>
+                </div>
+              </div>
+              <section id="top">
+                <div>
+                  <slot></slot>
+                </div>
+              </section>
+              <section id="bottom">
+                <div>
+                  <div class="item logo">
+                    ${expectedLogo()}
+                    <p>${expectedCopyright()}</p>
+                    <p>${expectedCertifications()}</p>
+                  </div>
+                  <div class="item">
+                    <p>${expectedAddress()}</p>
+                    <div class="social">
+                      <slot name="social"></slot>
+                    </div>
+                  </div>
+                  <div class="item bottom-links">
+                    <slot name="links"></slot>
+                  </div>
+                </div>
+              </section>
+            </footer>
+          </mock:shadow-root>
+        </z-footer>
+      `
+    );
+  });
+
+  it("Test render ZFooter with credits only, without a href", async () => {
+    const page = await newSpecPage({
+      components: [ZFooter],
+      html: `<z-footer show-product-credits-link></z-footer>`,
+    });
+    expect(page.root).toEqualHtml(
+      `
+        <z-footer show-product-credits-link>
+          <mock:shadow-root>
+            <footer>
+              <div id="extension">
+                <div>
+                  <span>
+                    <z-body level="5">
+                      <z-link htmlid="creditsLink" target="_blank" textcolor="white">Credits</z-link>
                     </z-body>
                   </span>
                   <z-divider color="gray500"></z-divider>
@@ -509,6 +559,7 @@ describe("Suite test ZFooter", () => {
         product-name="Prodotto bello"
         product-version="666"
         product-credits-link="https://www.google.com"
+        show-product-credits-link
         show-report-a-problem-button
         content-max-width=600>
       </z-footer>`,
@@ -519,6 +570,7 @@ describe("Suite test ZFooter", () => {
           product-name="Prodotto bello"
           product-version="666"
           product-credits-link="https://www.google.com"
+          show-product-credits-link
           show-report-a-problem-button
           content-max-width=600
         >
@@ -530,7 +582,7 @@ describe("Suite test ZFooter", () => {
                     <z-body level="5" variant="semibold">Prodotto bello</z-body>
                     <z-body level="5"> versione 666</z-body>
                     <z-body level="5"> - 
-                      <z-link href="https://www.google.com" target="_blank" textcolor="white">Credits</z-link>
+                      <z-link htmlid="creditsLink" href="https://www.google.com" target="_blank" textcolor="white">Credits</z-link>
                     </z-body>
                   </span>
                   <div>
