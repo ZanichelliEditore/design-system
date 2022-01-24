@@ -322,6 +322,10 @@ export namespace Components {
          */
         "acceptedFormat": string;
         /**
+          * Max file dimension in Megabyte
+         */
+        "fileMaxSize": number;
+        /**
           * Prop indicating if the user can pick more than one file at once
          */
         "multiple": boolean;
@@ -2524,6 +2528,10 @@ declare namespace LocalJSX {
           * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
          */
         "acceptedFormat"?: string;
+        /**
+          * Max file dimension in Megabyte
+         */
+        "fileMaxSize"?: number;
         /**
           * Prop indicating if the user can pick more than one file at once
          */

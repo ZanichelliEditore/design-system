@@ -32,6 +32,9 @@ export class ZFileUpload {
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
   @Prop() acceptedFormat: string = ".pdf, .doc, .tiff, .png, .jpg";
 
+  /** Max file dimension in Megabyte */
+  @Prop() fileMaxSize: number = 50;
+
   /** Prop indicating if the user can pick more than one file at once*/
   @Prop() multiple: boolean = true;
 
@@ -42,7 +45,7 @@ export class ZFileUpload {
   @State() error: boolean = false;
 
   /** List of files not allowed to be uploaded */
-  @State() wrongFiles: any;
+  @State() invalidFiles: any;
 
   @Element() el: HTMLElement;
 
@@ -79,8 +82,8 @@ export class ZFileUpload {
   @Event() fileInput: EventEmitter;
   fileInputHandler() {
     if (this.input.files.length) {
-      this.wrongFiles = this.checkFiles(Array.from(this.input.files));
-      if (!checkEmptyObject(this.wrongFiles)) {
+      this.invalidFiles = this.checkFiles(Array.from(this.input.files));
+      if (!checkEmptyObject(this.invalidFiles)) {
         this.error = true;
       }
     }
@@ -88,21 +91,26 @@ export class ZFileUpload {
 
   checkFiles(files: Array<File>): any {
     let errors = {};
+    const sizeErrorString = `supera i ${this.fileMaxSize}Mb`;
+    const formatErrorString = " ha un'estensione non prevista";
     files.forEach((file: File) => {
       const fileSize = file.size / 1024 / 1024;
-      const fileExtension = file.name.split(".").pop();
-      if (fileSize <= 50 && this.acceptedFormat.includes(fileExtension)) {
+      const fileFormatOk = !!this.acceptedFormat
+        .split(",")
+        .find((ext: string) => file.name.endsWith(ext.trim()));
+      const fileSizeOk = fileSize <= this.fileMaxSize;
+      if (fileSizeOk && fileFormatOk) {
         this.fileInput.emit(file);
         this.files++;
         this.input.value = "";
         return;
       }
       errors[file.name] = [];
-      if (fileSize > 50) {
-        errors[file.name].push("size");
+      if (!fileSizeOk) {
+        errors[file.name].push(sizeErrorString);
       }
-      if (!this.acceptedFormat.includes(fileExtension)) {
-        errors[file.name].push("format");
+      if (!fileFormatOk) {
+        errors[file.name].push(formatErrorString);
       }
     });
 
@@ -215,29 +223,25 @@ export class ZFileUpload {
   }
 
   formatErrorString(key, value) {
-    const sizeErrorString = "supera i 50Mb";
-    const formatErrorString = " ha un'estensione non prevista";
-    const sizeError = (value as Array<string>).includes("size")
-      ? sizeErrorString
-      : "";
-    const formatError = (value as Array<string>).includes("format")
-      ? formatErrorString
-      : "";
-    const bothErrors = sizeError && formatError ? ", " : "";
-    return `Il file ${key} ${sizeError}${bothErrors} ${formatError} e non può quindi essere caricato.`;
+    const bothErrors = value[0] && value[1] ? ", " : "";
+    return `Il file ${key} ${value[0] ?? ""}${bothErrors} ${
+      value[1] ?? ""
+    } e non può quindi essere caricato.`;
   }
 
   handleErrorModalContent() {
     return (
-      <div class="modalWrapper" slot="modalContent">
-        <div class="files">
-          {Object.entries(this.wrongFiles).map(([key, value]) => {
-            return (
-              <z-body variant="regular" level={3}>
-                {this.formatErrorString(key, value)}
-              </z-body>
-            );
-          })}
+      <div slot="modalContent">
+        <div class="modalWrapper">
+          <div class="files">
+            {Object.entries(this.invalidFiles).map(([key, value]) => {
+              return (
+                <z-body variant="regular" level={3}>
+                  {this.formatErrorString(key, value)}
+                </z-body>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

@@ -1,7 +1,7 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  color: var(--gray800);
+  color: var(--color-text01);
 }
 
 :host > .container {
@@ -16,10 +16,10 @@
 }
 
 :host .modalWrapper > .files {
-  margin: 32px;
+  margin: calc(var(--space-unit) * 4);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-unit);
 }
 
 :host .text-container {
@@ -33,7 +33,7 @@
 }
 
 :host .text-container .upload-link {
-  color: var(--blue500);
+  color: var(--color-link-primary);
   cursor: pointer;
 }
 
