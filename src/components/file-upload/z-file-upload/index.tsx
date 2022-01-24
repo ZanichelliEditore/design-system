@@ -259,6 +259,7 @@ export class ZFileUpload {
         <z-modal
           modaltitle="Attenzione"
           onModalClose={() => (this.error = !this.error)}
+          onModalBackgroundClick={() => (this.error = !this.error)}
         >
           {this.handleErrorModalContent()}
         </z-modal>
