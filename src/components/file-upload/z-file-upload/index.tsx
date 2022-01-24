@@ -97,7 +97,7 @@ export class ZFileUpload {
       const fileSize = file.size / 1024 / 1024;
       const fileFormatOk = !!this.acceptedFormat
         .split(",")
-        .find((ext: string) => file.name.endsWith(ext.trim()));
+        .find((ext: string) => file.name.toLowerCase().endsWith(ext.trim()));
       const fileSizeOk = fileSize <= this.fileMaxSize;
       if (fileSizeOk && fileFormatOk) {
         this.fileInput.emit(file);
