@@ -18,7 +18,7 @@
 
 ### Used by
 
- - [z-file-upload](../../z-file-upload)
+ - [z-file-upload](../../file-upload/z-file-upload)
 
 ### Depends on
 

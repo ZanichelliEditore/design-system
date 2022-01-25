@@ -10,6 +10,7 @@
 | Property         | Attribute         | Description                                                       | Type                                                                                                                            | Default                       |
 | ---------------- | ----------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | `acceptedFormat` | `accepted-format` | Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"     | `string`                                                                                                                        | `undefined`                   |
+| `multiple`       | `multiple`        | Prop indicating if the user can pick more than one file at once   | `boolean`                                                                                                                       | `undefined`                   |
 | `type`           | `type`            | Prop indicating the file upload type - can be default or dragdrop | `ZFileUploadTypeEnum.default \| ZFileUploadTypeEnum.dragdrop`                                                                   | `ZFileUploadTypeEnum.default` |
 | `variant`        | `variant`         | Prop indicating the button variant                                | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary \| typeof ButtonVariantEnum["dark-bg"]` | `undefined`                   |
 
@@ -25,10 +26,10 @@
 
 ### Depends on
 
-- [z-heading](../typography/z-heading)
-- [z-body](../typography/z-body)
-- [z-divider](../z-divider)
-- [z-button](../buttons/z-button)
+- [z-heading](../../typography/z-heading)
+- [z-body](../../typography/z-body)
+- [z-divider](../../z-divider)
+- [z-button](../../buttons/z-button)
 - [z-dragdrop-area](../z-dragdrop-area)
 
 ### Graph

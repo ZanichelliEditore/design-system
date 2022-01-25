@@ -30,7 +30,7 @@
     <div class="main-container">
         <div style="margin: 10px">
             <!-- <form action="https://api-catalogo.zanichelli.local/v3/file-upload" enctype="multipart/form-data" method="POST"> -->
-                <z-file-upload type="dragdrop" accepted-format=".pdf, .doc, .tiff, .png, .jpg" variant="primary">
+                <z-file-upload type="dragdrop" variant="primary">
                     <span slot="title">Allega un file</span>
                     <span slot="description">Vuoi allegare un file per chiarire meglio la tua richiesta?</span>
                     <span slot="file-format">Puoi allegare file nei formati PDF, PNG, JPG, TIFF, DOC, per un
@@ -208,11 +208,9 @@
 }'></z-footer>
 <script>
 
-     async function postData(payload){
+     async function postData(item){
         const form = new FormData();
-        for (const item of payload) {
-            form.append("attachments[]", item, item.name);
-        }
+        form.append("attachments[]", item, item.name);
         await fetch('https://api-catalogo.zanichelli.local/v3/file-upload', {
             method: 'POST',
             body: form
@@ -223,14 +221,12 @@
         const uploader = document.querySelector("z-file-upload");
         document.addEventListener("fileInput", (e) => {
             const items = postData(e.detail);  
-            for (const item of e.detail) {
+            const item = e.detail
                 const chip = document.createElement('Z-FILE')
                 chip.setAttribute('slot', 'files')
                 chip.innerText = item.name
                 uploader.appendChild(chip); 
                 console.log(item)
-            }
-            
         })
 </script>
 </body>

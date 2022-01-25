@@ -20,7 +20,7 @@
 
 ### Depends on
 
-- [z-body](../typography/z-body)
+- [z-body](../../typography/z-body)
 
 ### Graph
 ```mermaid
