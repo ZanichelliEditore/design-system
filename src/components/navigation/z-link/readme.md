@@ -50,6 +50,7 @@
 ### Used by
 
  - [z-app-topbar](../z-app-topbar)
+ - [z-footer](../../footer/z-footer)
  - [z-menu-dropdown](../z-menu-dropdown)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-myz-topbar](../../../snowflakes/myz/topbar)
@@ -65,6 +66,7 @@
 graph TD;
   z-link --> z-icon
   z-app-topbar --> z-link
+  z-footer --> z-link
   z-menu-dropdown --> z-link
   z-modal-login --> z-link
   z-myz-topbar --> z-link

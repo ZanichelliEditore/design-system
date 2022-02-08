@@ -19,6 +19,7 @@
  - [z-combobox](../../inputs/z-combobox)
  - [z-dragdrop-area](../../file-upload/z-dragdrop-area)
  - [z-file-upload](../../file-upload/z-file-upload)
+ - [z-footer](../../footer/z-footer)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-notification](../../notification/z-notification)
  - [z-registro-table](../../../snowflakes/registro-table/z-registro-table)
@@ -35,6 +36,7 @@ graph TD;
   z-combobox --> z-body
   z-dragdrop-area --> z-body
   z-file-upload --> z-body
+  z-footer --> z-body
   z-modal-login --> z-body
   z-notification --> z-body
   z-registro-table --> z-body

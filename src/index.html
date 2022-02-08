@@ -17,15 +17,15 @@
   </head>
   <body style="width: 100%; margin: 0; background-color: #f9f9f9">
     <z-logo></z-logo>
-    <z-logo imagealt="Ciaoooo!" link="https://www.google.com" targetblank></z-logo>
-    <z-logo width=128 height=32 imagealt="Ciaoooo!"></z-logo>
-    <z-logo width=128 height=32 imagealt="Ciaoooo!" link="https://www.google.com" targetblank></z-logo>
-    <z-logo width=128 imagealt="Ciaoooo!"></z-logo>
-    <z-logo height=32 imagealt="Ciaoooo!" link="https://www.google.com" targetblank></z-logo>
-    <z-logo width=31 height=40 imagealt="Ciaoooo!"></z-logo>
-    <z-logo width=31 height=40 imagealt="Ciaoooo!" link="https://www.google.com" targetblank></z-logo>
-    <z-logo width=300 height=100 imagealt="Ciaoooo!"></z-logo>
-    <z-logo width=300 height=100 imagealt="Ciaoooo!" link="https://www.google.com" targetblank></z-logo>
+    <z-logo image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
+    <z-logo width=128 height=32 image-alt="Ciaoooo!"></z-logo>
+    <z-logo width=128 height=32 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
+    <z-logo width=128 image-alt="Ciaoooo!"></z-logo>
+    <z-logo height=32 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
+    <z-logo width=31 height=40 image-alt="Ciaoooo!"></z-logo>
+    <z-logo width=31 height=40 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
+    <z-logo width=300 height=100 image-alt="Ciaoooo!"></z-logo>
+    <z-logo width=300 height=100 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
     <a href="#bottom">bottom</a>
     
     <h1>Table</h1>
@@ -1152,9 +1152,9 @@
       <br />
       <hr>
       <z-logo></z-logo>
-      <z-logo imagealt="logo"></z-logo>
-      <z-logo imagealt="logo" height="50" width="200"></z-logo>
-      <z-logo imagealt="logo" height="25" width="100"></z-logo>
+      <z-logo image-alt="logo"></z-logo>
+      <z-logo image-alt="logo" height="50" width="200"></z-logo>
+      <z-logo image-alt="logo" height="25" width="100"></z-logo>
       <br />
 
       <div style="
@@ -1632,9 +1632,13 @@
   <br /><br /><br /><br /><br /><br />
   <z-link  onclick="openModal(this)" slot="actions" >Apri Modale</z-link>
   <z-link  slot="actions"  id="xxx">Link di test</z-link>
-  
 
-  <z-footer copyrightuser='Zanichelli' data='{
+  <z-footer
+    product-name="Prodotto bello"
+    product-version="6.6.6"
+    product-credits-link="https://www.google.com"
+    show-report-a-problem-button
+    data='{
       "zanichelliLinks": [{
           "title": "Zanichelli.it",
           "items": [{

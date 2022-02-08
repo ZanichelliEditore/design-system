@@ -60,7 +60,7 @@ export class ZAppTopbar {
       }}>
         <div id="content-container" style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
           <div id="left-panel" class="content-panel">
-            <z-logo width={this.isMobile ? 32 : 128} height={this.isMobile ? 40 : 32} imagealt="zanichelli-logo" link={this.logoLink} targetblank />
+            <z-logo mobileLogo={this.isMobile} width={this.isMobile ? 32 : 128} height={this.isMobile ? 40 : 32} imageAlt="zanichelli-logo" link={this.logoLink} targetBlank />
             {this.isMobile && this.renderTopbarLinks()}
           </div>
           <div id="right-panel" class="content-panel">
