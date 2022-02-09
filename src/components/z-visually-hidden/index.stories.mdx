@@ -1,0 +1,80 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="ZVisuallyHidden" component="z-visually-hidden" />
+
+# ZVisuallyHidden
+
+<Preview>
+  <Story name="ZVisuallyHidden-sample">
+    {html`<z-visually-hidden><div>{'Ciao'}</div></z-visually-hidden>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="ZVisuallyHidden-table">
+    {html`<div><z-visually-hidden>
+      <z-registro-table
+        bordered="true"
+        column-sticky="false"
+        header-sticky="false"
+      >
+        <z-registro-table-head>
+          <z-registro-table-header-row>
+            <z-registro-table-header>
+              <span>Titolo 1</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 3</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 4</span>
+            </z-registro-table-header>
+          </z-registro-table-header-row>
+        </z-registro-table-head>
+        <z-registro-table-body>
+          <z-registro-table-row>
+            <z-registro-table-cell>
+              <z-tooltip
+                type="top"
+                open="true"
+                bind-to="#sample-element"
+                type="{Too.RIGHT}"
+              >
+                Tooltip di esempio
+              </z-tooltip>
+              <span id="sample-element">Contenuto 1-1</span>
+            </z-registro-table-cell>
+            <z-registro-table-cell>
+              <span>Contenuto 1-2</span>
+            </z-registro-table-cell>
+            <z-registro-table-cell>
+              <span>Contenuto 1-3</span>
+            </z-registro-table-cell>
+            <z-registro-table-cell>
+              <span>Contenuto 1-4</span>
+            </z-registro-table-cell>
+          </z-registro-table-row>
+        </z-registro-table-body>
+        <z-registro-table-sticky-footer slot="sticky-footer">
+          <span>This is a sticky footer</span>
+        </z-registro-table-sticky-footer>
+      </z-registro-table>
+    </z-visually-hidden>
+          <z-card>
+        <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card title</h3>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
+        <z-icon name="share" slot="action"></z-icon>
+        <z-icon name="delete" slot="action"></z-icon>
+      </z-card></div>`}
+  </Story>
+</Preview>
+
+<Props of="z-visually-hidden" />
+
+

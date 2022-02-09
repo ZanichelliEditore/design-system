@@ -1539,6 +1539,8 @@ export namespace Components {
          */
         "userFullName"?: string;
     }
+    interface ZVisuallyHidden {
+    }
 }
 declare global {
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
@@ -2063,6 +2065,12 @@ declare global {
         prototype: HTMLZUserDropdownElement;
         new (): HTMLZUserDropdownElement;
     };
+    interface HTMLZVisuallyHiddenElement extends Components.ZVisuallyHidden, HTMLStencilElement {
+    }
+    var HTMLZVisuallyHiddenElement: {
+        prototype: HTMLZVisuallyHiddenElement;
+        new (): HTMLZVisuallyHiddenElement;
+    };
     interface HTMLElementTagNameMap {
         "z-alert": HTMLZAlertElement;
         "z-app-header": HTMLZAppHeaderElement;
@@ -2151,6 +2159,7 @@ declare global {
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
+        "z-visually-hidden": HTMLZVisuallyHiddenElement;
     }
 }
 declare namespace LocalJSX {
@@ -3858,6 +3867,8 @@ declare namespace LocalJSX {
          */
         "userFullName"?: string;
     }
+    interface ZVisuallyHidden {
+    }
     interface IntrinsicElements {
         "z-alert": ZAlert;
         "z-app-header": ZAppHeader;
@@ -3946,6 +3957,7 @@ declare namespace LocalJSX {
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
+        "z-visually-hidden": ZVisuallyHidden;
     }
 }
 export { LocalJSX as JSX };
@@ -4039,6 +4051,7 @@ declare module "@stencil/core" {
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
+            "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
         }
     }
 }
