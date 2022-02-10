@@ -135,8 +135,8 @@ a.white.active {
 }
 
 a.white:visited {
-  color: var(--gray300);
-  fill: var(--gray300);
+  color: var(--bg-white);
+  fill: var(--bg-white);
 }
 
 a.white:hover,
