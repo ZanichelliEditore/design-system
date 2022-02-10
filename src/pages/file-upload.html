@@ -215,17 +215,18 @@
             method: 'POST',
             body: form
         })
-    } 
+    }
 
-    
+
         const uploader = document.querySelector("z-file-upload");
         document.addEventListener("fileInput", (e) => {
-            const items = postData(e.detail);  
+            const items = postData(e.detail);
             const item = e.detail
                 const chip = document.createElement('Z-FILE')
                 chip.setAttribute('slot', 'files')
+                chip.setAttribute('filetype', item.type)
                 chip.innerText = item.name
-                uploader.appendChild(chip); 
+                uploader.appendChild(chip);
                 console.log(item)
         })
 </script>
