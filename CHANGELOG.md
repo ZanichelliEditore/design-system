@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.31.2](https://github.com/ZanichelliEditore/design-system/compare/v2.31.1...v2.31.2) (2022-02-10)
+
+
+### Bug Fixes
+
+* **CLAV-272:** fix z-app-header z-index ([b7a2fd6](https://github.com/ZanichelliEditore/design-system/commit/b7a2fd6591347bd6fdbaf6fbeced7beffc1f83a1))
+* **ZTE-4472:** change color to white link after click ([dc7f7d5](https://github.com/ZanichelliEditore/design-system/commit/dc7f7d5b72869eeac01a8ab6b81ede7de621275b))
+
+### [2.31.1](https://github.com/ZanichelliEditore/design-system/compare/v2.31.0...v2.31.1) (2022-02-10)
+
 ## [2.31.0](https://github.com/ZanichelliEditore/design-system/compare/v2.30.1...v2.31.0) (2022-01-21)
 
 

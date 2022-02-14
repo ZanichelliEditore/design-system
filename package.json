@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "2.31.0",
+  "version": "2.31.2",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
