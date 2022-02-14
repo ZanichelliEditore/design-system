@@ -13,10 +13,7 @@ describe("Suite test ZVisuallyHidden", () => {
     expect(page.root).toEqualHtml(`
       <z-visually-hidden>
         <mock:shadow-root>
-          <div>
-            This is your z-visually-hidden component
-            This is your default prop:
-          </div>
+          <slot></slot>
         </mock:shadow-root>
       </z-visually-hidden>
     `)

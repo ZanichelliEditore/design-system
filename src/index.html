@@ -27,6 +27,9 @@
     <z-logo width=300 height=100 image-alt="Ciaoooo!"></z-logo>
     <z-logo width=300 height=100 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
     <a href="#bottom">bottom</a>
+
+    <z-button>Button123</z-button>
+    <z-aria-alert text=""></z-aria-alert>
     
     <h1>Table</h1>
     <h2>Empty table</h2>
@@ -1806,6 +1809,10 @@
   }'></z-footer>
 
   <script>
+      function buttonClick() {
+        const element = document.getElementById("aria-button");
+      }
+
       function openModal(e) {
         const m = document.getElementById("mymodal");
         m.style = "display: block";

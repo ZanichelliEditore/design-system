@@ -12,12 +12,6 @@ describe("Suite test ZAriaAlert", () => {
 
     expect(page.root).toEqualHtml(`
       <z-aria-alert>
-        <mock:shadow-root>
-          <div>
-            This is your z-aria-alert component
-            This is your default prop:
-          </div>
-        </mock:shadow-root>
       </z-aria-alert>
     `)
   });

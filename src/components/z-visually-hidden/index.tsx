@@ -3,7 +3,7 @@ import { Component, h , Host} from '@stencil/core';
 @Component({
   tag: 'z-visually-hidden',
   styleUrl: 'styles.css',
-  shadow: true
+  shadow: false
 })
 
 export class ZVisuallyHidden {

@@ -3,8 +3,8 @@ import { ZVisuallyHidden } from '../z-visually-hidden';
 import { ZAriaAlertMode } from '../../beans';
 
 @Component({
-  tag: 'z-screen-reader-alert',
-  shadow: true
+  tag: 'z-aria-alert',
+  shadow: false
 })
 
 export class ZAriaAlert {

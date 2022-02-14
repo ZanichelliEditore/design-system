@@ -66,6 +66,10 @@ export namespace Components {
          */
         "topbarContent"?: string | MenuItem[];
     }
+    interface ZAriaAlert {
+        "mode": string;
+        "text": string;
+    }
     interface ZAvatar {
         /**
           * [optional] Avatar background color
@@ -1567,6 +1571,12 @@ declare global {
         prototype: HTMLZAppTopbarElement;
         new (): HTMLZAppTopbarElement;
     };
+    interface HTMLZAriaAlertElement extends Components.ZAriaAlert, HTMLStencilElement {
+    }
+    var HTMLZAriaAlertElement: {
+        prototype: HTMLZAriaAlertElement;
+        new (): HTMLZAriaAlertElement;
+    };
     interface HTMLZAvatarElement extends Components.ZAvatar, HTMLStencilElement {
     }
     var HTMLZAvatarElement: {
@@ -2076,6 +2086,7 @@ declare global {
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
         "z-app-topbar": HTMLZAppTopbarElement;
+        "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
@@ -2222,6 +2233,10 @@ declare namespace LocalJSX {
           * JSON string or MenuItem array to define topbar links
          */
         "topbarContent"?: string | MenuItem[];
+    }
+    interface ZAriaAlert {
+        "mode"?: string;
+        "text"?: string;
     }
     interface ZAvatar {
         /**
@@ -3874,6 +3889,7 @@ declare namespace LocalJSX {
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
         "z-app-topbar": ZAppTopbar;
+        "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
@@ -3968,6 +3984,7 @@ declare module "@stencil/core" {
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
             "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
+            "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
