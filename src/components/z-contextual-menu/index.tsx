@@ -56,7 +56,7 @@ export class ZContextualMenu {
             aria-label="apri-menu-contestuale"
             slot="trigger"
             name="contextual-menu"
-            fill="color-primary01"
+            fill={this.color}
             style={{ cursor: "pointer" }}
           />
           <div class="popover-content-container" slot="popover">
