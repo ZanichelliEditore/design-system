@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.32.0](https://github.com/ZanichelliEditore/design-system/compare/v2.31.2...v2.32.0) (2022-02-14)
+
+
+### Features
+
+* add optional color to contextual menu ([d1798ad](https://github.com/ZanichelliEditore/design-system/commit/d1798adf4d5be2fa6102955e821d3c9cd6977fa4))
+
 ### [2.31.2](https://github.com/ZanichelliEditore/design-system/compare/v2.31.1...v2.31.2) (2022-02-10)
 
 
