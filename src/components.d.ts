@@ -68,7 +68,6 @@ export namespace Components {
     }
     interface ZAriaAlert {
         "mode": string;
-        "text": string;
     }
     interface ZAvatar {
         /**
@@ -2236,7 +2235,6 @@ declare namespace LocalJSX {
     }
     interface ZAriaAlert {
         "mode"?: string;
-        "text"?: string;
     }
     interface ZAvatar {
         /**
