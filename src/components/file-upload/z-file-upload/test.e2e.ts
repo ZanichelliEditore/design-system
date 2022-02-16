@@ -86,7 +86,4 @@ describe("z-file-upload test end2end", () => {
 
     expect(zfCheck).toBeNull();
   });
-
-  // EMIT EVENT OF ADDING FILE
-  // CHECK IF FILE PROP CHANGED
 });
