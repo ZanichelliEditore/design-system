@@ -1,33 +1,6 @@
 import { newE2EPage } from "@stencil/core/testing";
 
 describe("z-file-upload test end2end", () => {
-  it("Test z-file-upload(dragdrop) -> select file", async () => {
-    const page = await newE2EPage();
-
-    await page.setContent(`
-    <z-file-upload type="default" variant="primary" class="hydrated">
-      <span slot="title">Allega un file</span>
-      <span slot="description">Vuoi allegare un file per chiarire meglio la tua richiesta?</span>
-      <span slot="file-format">Puoi allegare file nei formati PDF, PNG, JPG, TIFF, DOC, per un
-          massimo di 50Mb di peso.</span>
-    </z-file-upload>
-  `);
-
-    const zfu = await page.find("z-file-upload");
-    await zfu.setProperty("type", "dragdrop");
-
-    // page.evaluate(() => (document.querySelector('z-file-upload').shadowRoot.querySelector("div z-dragdrop-area div input") as HTMLElement).click())
-
-    const input = await page.$('z-file-upload');
-    // const input = await page.find("z-file-upload >>> div");
-    // input.uploadFile
-    // await page.$
-
-    await page.waitForChanges();
-
-    expect(input).toEqualHtml(`
-    `);
-  });
 
   it("Test z-file-upload -> add z-file by click", async () => {
     const page = await newE2EPage();

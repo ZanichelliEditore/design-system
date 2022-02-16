@@ -47,20 +47,5 @@ describe("Suite test ZFile", () => {
     `)
   });
 
-  /**
-   * test 5 types of possibile zfile
-   *
-      case "application/pdf":
-        return "pdf";
-      case "application/doc":
-        return "document-with-text";
-      case "image/tiff":
-        return "image-tiff";
-      case "image/png":
-        return "image-png";
-      case "image/jpeg":
-      case "image/jpg":
-        return "image-jpg";
-   */
 });
 
