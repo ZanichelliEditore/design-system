@@ -21,7 +21,6 @@ export class ZFile {
   /** Emitted when a z-file component is removed from the DOM */
   @Event() removeFile: EventEmitter;
   removeFileHandler() {
-    console.log("PEDRO")
     this.removeFile.emit();
     this.el.remove();
   }
