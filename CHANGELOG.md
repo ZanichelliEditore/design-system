@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.33.0](https://github.com/ZanichelliEditore/design-system/compare/v2.32.0...v2.33.0) (2022-02-17)
+
+
+### Features
+
+* **ZTE-4456:** workin aria alert, and visually hidden ([e548ed0](https://github.com/ZanichelliEditore/design-system/commit/e548ed0c91660796632612c4b9a79c7db1e13e20))
+
+
+### Bug Fixes
+
+* **CLAV-4456:** add components for accessibility ([219d05d](https://github.com/ZanichelliEditore/design-system/commit/219d05d0aaca9589d02e767ae7efa7f1a5388509))
+* **ZTE-4456:** clean code, remove unsed code ([6062e24](https://github.com/ZanichelliEditore/design-system/commit/6062e2497feea531b4245cbb73e83c37573ecce6))
+* **ZTE-4456:** fix ([7b40d9b](https://github.com/ZanichelliEditore/design-system/commit/7b40d9b21bdb29cf9df3104577ea8f5f7c8382f2))
+
 ## [2.32.0](https://github.com/ZanichelliEditore/design-system/compare/v2.31.2...v2.32.0) (2022-02-14)
 
 
