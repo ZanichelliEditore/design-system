@@ -1,5 +1,4 @@
 import { Component, Prop, h, Host } from "@stencil/core";
-
 import { ZAriaAlertMode } from "../../beans";
 
 @Component({
