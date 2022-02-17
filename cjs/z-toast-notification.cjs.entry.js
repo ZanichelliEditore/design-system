@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-dee3e21d.js');
-const index$1 = require('./index-8f4b351d.js');
+const index$1 = require('./index-11a8a536.js');
 const breakpoints = require('./breakpoints-88c4fd6c.js');
 const hammer = require('./hammer-6e321f0b.js');
 

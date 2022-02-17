@@ -247,3 +247,8 @@ export var ZRegistroTableRowExpandedType;
   ZRegistroTableRowExpandedType["padding"] = "padding";
   ZRegistroTableRowExpandedType["none"] = "none";
 })(ZRegistroTableRowExpandedType || (ZRegistroTableRowExpandedType = {}));
+export var ZAriaAlertMode;
+(function (ZAriaAlertMode) {
+  ZAriaAlertMode["polite"] = "polite";
+  ZAriaAlertMode["assertive"] = "assertive";
+})(ZAriaAlertMode || (ZAriaAlertMode = {}));

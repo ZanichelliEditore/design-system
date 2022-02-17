@@ -66,6 +66,9 @@ export namespace Components {
          */
         "topbarContent"?: string | MenuItem[];
     }
+    interface ZAriaAlert {
+        "mode": string;
+    }
     interface ZAvatar {
         /**
           * [optional] Avatar background color
@@ -1539,6 +1542,8 @@ export namespace Components {
          */
         "userFullName"?: string;
     }
+    interface ZVisuallyHidden {
+    }
 }
 declare global {
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
@@ -1564,6 +1569,12 @@ declare global {
     var HTMLZAppTopbarElement: {
         prototype: HTMLZAppTopbarElement;
         new (): HTMLZAppTopbarElement;
+    };
+    interface HTMLZAriaAlertElement extends Components.ZAriaAlert, HTMLStencilElement {
+    }
+    var HTMLZAriaAlertElement: {
+        prototype: HTMLZAriaAlertElement;
+        new (): HTMLZAriaAlertElement;
     };
     interface HTMLZAvatarElement extends Components.ZAvatar, HTMLStencilElement {
     }
@@ -2063,11 +2074,18 @@ declare global {
         prototype: HTMLZUserDropdownElement;
         new (): HTMLZUserDropdownElement;
     };
+    interface HTMLZVisuallyHiddenElement extends Components.ZVisuallyHidden, HTMLStencilElement {
+    }
+    var HTMLZVisuallyHiddenElement: {
+        prototype: HTMLZVisuallyHiddenElement;
+        new (): HTMLZVisuallyHiddenElement;
+    };
     interface HTMLElementTagNameMap {
         "z-alert": HTMLZAlertElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
         "z-app-topbar": HTMLZAppTopbarElement;
+        "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
@@ -2151,6 +2169,7 @@ declare global {
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
+        "z-visually-hidden": HTMLZVisuallyHiddenElement;
     }
 }
 declare namespace LocalJSX {
@@ -2213,6 +2232,9 @@ declare namespace LocalJSX {
           * JSON string or MenuItem array to define topbar links
          */
         "topbarContent"?: string | MenuItem[];
+    }
+    interface ZAriaAlert {
+        "mode"?: string;
     }
     interface ZAvatar {
         /**
@@ -3858,11 +3880,14 @@ declare namespace LocalJSX {
          */
         "userFullName"?: string;
     }
+    interface ZVisuallyHidden {
+    }
     interface IntrinsicElements {
         "z-alert": ZAlert;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
         "z-app-topbar": ZAppTopbar;
+        "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
@@ -3946,6 +3971,7 @@ declare namespace LocalJSX {
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
+        "z-visually-hidden": ZVisuallyHidden;
     }
 }
 export { LocalJSX as JSX };
@@ -3956,6 +3982,7 @@ declare module "@stencil/core" {
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
             "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
+            "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
@@ -4039,6 +4066,7 @@ declare module "@stencil/core" {
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
+            "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
         }
     }
 }

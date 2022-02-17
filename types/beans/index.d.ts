@@ -331,4 +331,8 @@ export declare enum ZRegistroTableRowExpandedType {
   padding = "padding",
   none = "none"
 }
+export declare enum ZAriaAlertMode {
+  polite = "polite",
+  assertive = "assertive"
+}
 export declare type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
