@@ -11,13 +11,7 @@ export class ZAriaAlert {
 
   render() {
     return (
-      <Host
-        aria-live={
-          this.mode === ZAriaAlertMode.assertive ? "assertive" : "polite"
-        }
-        aria-atomic="true"
-        aria-relevant="additions"
-      >
+      <Host aria-live={this.mode} aria-atomic="true" aria-relevant="additions">
         <slot></slot>
       </Host>
     );

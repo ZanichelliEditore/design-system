@@ -1,46 +1,33 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
-    <title>Stencil Component Starter</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/build/web-components-library.css"
-    />
-    <script type="module" src="/build/web-components-library.esm.js"></script>
-    <script nomodule src="/build/web-components-library.js"></script>
-  </head>
-  <body style="width: 100%; margin: 0; background-color: #f9f9f9">
-    <z-logo></z-logo>
-    <z-logo image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
-    <z-logo width=128 height=32 image-alt="Ciaoooo!"></z-logo>
-    <z-logo width=128 height=32 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
-    <z-logo width=128 image-alt="Ciaoooo!"></z-logo>
-    <z-logo height=32 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
-    <z-logo width=31 height=40 image-alt="Ciaoooo!"></z-logo>
-    <z-logo width=31 height=40 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
-    <z-logo width=300 height=100 image-alt="Ciaoooo!"></z-logo>
-    <z-logo width=300 height=100 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
-    <a href="#bottom">bottom</a>
 
-    <z-button>Button123</z-button>
-    <z-aria-alert text=""></z-aria-alert>
-    
-    <h1>Table</h1>
-    <h2>Empty table</h2>
-    <z-registro-table
-      bordered="true"
-      call-to-action-label="Action 1"
-      call-to-action-two-label="Action 2"
-      empty="true"
-      id='empty-table'
-      message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
-      subtitle="Eventuale testo">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+  <link rel="stylesheet" type="text/css" href="/build/web-components-library.css" />
+  <script type="module" src="/build/web-components-library.esm.js"></script>
+  <script nomodule src="/build/web-components-library.js"></script>
+</head>
+
+<body style="width: 100%; margin: 0; background-color: #f9f9f9">
+  <z-logo></z-logo>
+  <z-logo image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
+  <z-logo width=128 height=32 image-alt="Ciaoooo!"></z-logo>
+  <z-logo width=128 height=32 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
+  <z-logo width=128 image-alt="Ciaoooo!"></z-logo>
+  <z-logo height=32 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
+  <z-logo width=31 height=40 image-alt="Ciaoooo!"></z-logo>
+  <z-logo width=31 height=40 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
+  <z-logo width=300 height=100 image-alt="Ciaoooo!"></z-logo>
+  <z-logo width=300 height=100 image-alt="Ciaoooo!" link="https://www.google.com" target-blank></z-logo>
+  <a href="#bottom">bottom</a>
+
+  <h1>Table</h1>
+  <h2>Empty table</h2>
+  <z-registro-table bordered="true" call-to-action-label="Action 1" call-to-action-two-label="Action 2" empty="true"
+    id='empty-table' message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
+    subtitle="Eventuale testo">
     <z-registro-table-head slot="table-header">
       <z-registro-table-header-row>
         <z-registro-table-header>
@@ -58,21 +45,23 @@
       </z-registro-table-row>
       <z-registro-table-row>
         <z-registro-table-cell>
-          <z-avatar text="FF" size="medium" background-color="avatar-C12" 
+          <z-avatar text="FF" size="medium" background-color="avatar-C12"
             style="color: var(--text-white); background-color: var(--avatar-C12);"></z-avatar>
           <span>Contenuto 1-2</span>
         </z-registro-table-cell>
       </z-registro-table-row>
       <z-registro-table-row>
         <z-registro-table-cell>
-          <z-avatar text="AS" size="medium" background-color="avatar-C13" 
+          <z-avatar text="AS" size="medium" background-color="avatar-C13"
             style="color: var(--text-white); background-color: var(--avatar-C13);"></z-avatar>
           <span>Contenuto 1-3</span>
         </z-registro-table-cell>
       </z-registro-table-row>
       <z-registro-table-row>
         <z-registro-table-cell>
-          <z-avatar text="AS" size="medium" background-color="avatar-C14" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C14);"></z-avatar>
+          <z-avatar text="AS" size="medium" background-color="avatar-C14"
+            class="sc-fbkiRW ccsChj medium body-4-sb hydrated"
+            style="color: var(--text-white); background-color: var(--avatar-C14);"></z-avatar>
           <span>Contenuto 1-4</span>
         </z-registro-table-cell>
       </z-registro-table-row>
@@ -167,52 +156,52 @@
       <span>This is a sticky footer</span>
     </z-registro-table-sticky-footer>
   </z-registro-table>
-      <h2>Error table</h2>
-      <z-registro-table error="true" lines="8" >
-        <img src="./assets/images/png/zanichelli-error-image.png" slot="error-image" />
-      </z-registro-table>
-      <hr />
-      <h2>Error table header</h2>
-      <z-registro-table error="true" id="error-table">
-        <z-registro-table-head slot="table-header">
-          <z-registro-table-header-row>
-            <z-registro-table-header>
-              <span>Titolo 1</span>
-            </z-registro-table-header>
-            <z-registro-table-header>
-              <span>Titolo 2</span>
-            </z-registro-table-header>
-            <z-registro-table-header>
-              <span>Titolo 2</span>
-            </z-registro-table-header>
-            <z-registro-table-header>
-              <span>Titolo 2</span>
-            </z-registro-table-header>
-            <z-registro-table-header>
-              <span>Titolo 2</span>
-            </z-registro-table-header>
-            <z-registro-table-header>
-              <span>Titolo 2</span>
-            </z-registro-table-header>
-            <z-registro-table-header>
-              <span>Titolo 2</span>
-            </z-registro-table-header>
-            <z-registro-table-header>
-              <span>Titolo 2</span>
-            </z-registro-table-header>
-            <z-registro-table-header>
-              <span>Titolo last</span>
-            </z-registro-table-header>
-          </z-registro-table-header-row>
-        </z-registro-table-head>
-        <div slot="error-action">
-          <z-body level="{4}">
-            <a href="#" target="_blank">Clicca qui</a> per ricaricare la pagina
-          </z-body>
-        </div>
-      </z-registro-table>
+  <h2>Error table</h2>
+  <z-registro-table error="true" lines="8">
+    <img src="./assets/images/png/zanichelli-error-image.png" slot="error-image" />
+  </z-registro-table>
+  <hr />
+  <h2>Error table header</h2>
+  <z-registro-table error="true" id="error-table">
+    <z-registro-table-head slot="table-header">
+      <z-registro-table-header-row>
+        <z-registro-table-header>
+          <span>Titolo 1</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo 2</span>
+        </z-registro-table-header>
+        <z-registro-table-header>
+          <span>Titolo last</span>
+        </z-registro-table-header>
+      </z-registro-table-header-row>
+    </z-registro-table-head>
+    <div slot="error-action">
+      <z-body level="{4}">
+        <a href="#" target="_blank">Clicca qui</a> per ricaricare la pagina
+      </z-body>
     </div>
-    <!--    -->
+  </z-registro-table>
+  </div>
+  <!--    -->
 
   <!-- Contextual menu -->
   <h2>ZContextualMenu</h2>
@@ -437,9 +426,14 @@
     cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
     hide="false">
   </z-cookiebar> -->
-  <z-modal   onclick="closeModal(this)" modaltitle="NOT FIXED" modalsubtitle="sottotitolo" style="display: none" id="mymodal">
-  <div slot="modalContent">Sunt officia excepteur fugiat velit enim ut duis magna qui voluptate nulla id pariatur veniam. Sunt nisi ad duis deserunt non minim. Do nulla id ea cupidatat laborum incididunt aliqua sint. Ea amet aliqua aliqua non duis quis magna eu incididunt nisi deserunt non aliqua elit. Ipsum officia elit in officia tempor aliquip est velit proident quis commodo. Aliqua proident id laboris exercitation dolore. Amet reprehenderit anim exercitation occaecat.</div>
-</z-modal>
+  <z-modal onclick="closeModal(this)" modaltitle="NOT FIXED" modalsubtitle="sottotitolo" style="display: none"
+    id="mymodal">
+    <div slot="modalContent">Sunt officia excepteur fugiat velit enim ut duis magna qui voluptate nulla id pariatur
+      veniam. Sunt nisi ad duis deserunt non minim. Do nulla id ea cupidatat laborum incididunt aliqua sint. Ea amet
+      aliqua aliqua non duis quis magna eu incididunt nisi deserunt non aliqua elit. Ipsum officia elit in officia
+      tempor aliquip est velit proident quis commodo. Aliqua proident id laboris exercitation dolore. Amet reprehenderit
+      anim exercitation occaecat.</div>
+  </z-modal>
   <!-- <z-modal-login></z-modal-login> -->
   <!-- <z-modal-login>
     <z-input
@@ -475,35 +469,26 @@
     <z-link slot="provider">Cos'è Zaino Digitale?</z-link>
   </z-modal-login> -->
   <p>Not Logged</p>
-  <z-app-topbar
-    show-app-switcher=true
+  <z-app-topbar show-app-switcher=true
     topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
-    content-max-width="800"
-  >
+    content-max-width="800">
     <z-user-dropdown slot="login"></z-user-dropdown>
   </z-app-topbar>
 
   <p>Logged</p>
 
   <z-app-topbar
-    topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
-  >
-    <z-user-dropdown
-      slot="login" 
-      user-full-name="Von Axl Maranan Fernandez" 
+    topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'>
+    <z-user-dropdown slot="login" user-full-name="Von Axl Maranan Fernandez"
       user-email="vonaxl-marananfernandez@abcemail.com"
       menu-content='[{"id": "profile", "label": "Profilo", "link": "./pages/notification.html"}, {"id": "ask-to", "label": "Chiedi al tuo responsabile", "link": "./pages/notification.html"}, {"id": "activate-resource", "label": "Attiva opera", "link": "./pages/notification.html"}, {"id": "your-orders", "label": "I tuoi ordini", "link": "./pages/notification.html"}, {"id": "logout", "label": "Esci", "link": "./pages/notification.html"}]'
-      logged
-    >
+      logged>
     </z-user-dropdown>
   </z-app-topbar>
 
   <p>User Dropdown</p>
   <div style="height: 150px; width: fit-content;">
-    <z-user-dropdown
-      user-full-name="Sandro Studente"
-      user-email="vonaxlmarananfernandez@abcemail.com"
-      logged
+    <z-user-dropdown user-full-name="Sandro Studente" user-email="vonaxlmarananfernandez@abcemail.com" logged
       menu-content='[{"label":"I Tuoi Ordini", "link":"http://www.zanichelli.it", "icon":"exit", "target":"_blank"},{"label":"Esci", "link":"http://www.google.it", "icon":"enter"}]'>
     </z-user-dropdown>
   </div>
@@ -546,30 +531,19 @@
   </div>
 
   <p>Light Variant</p>
-  <z-app-topbar
-    show-app-switcher=true
-    theme="light"
-    topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
-  >
+  <z-app-topbar show-app-switcher=true theme="light"
+    topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'>
     <z-user-dropdown slot="login" use-inverse-colors></z-user-dropdown>
   </z-app-topbar>
 
   <p>Logged</p>
 
-  <z-app-topbar
-    show-app-switcher=true
-    theme="light"
-    logged
-    topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
-  >
-    <z-user-dropdown
-      slot="login" 
-      user-full-name="Von Axl Maranan Fernandez" 
+  <z-app-topbar show-app-switcher=true theme="light" logged
+    topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'>
+    <z-user-dropdown slot="login" user-full-name="Von Axl Maranan Fernandez"
       user-email="vonaxl-marananfernandez@abcemail.com"
       menu-content='[{"id": "profile", "label": "Profilo", "link": "./pages/notification.html"}, {"id": "ask-to", "label": "Chiedi al tuo responsabile", "link": "./pages/notification.html"}, {"id": "activate-resource", "label": "Attiva opera", "link": "./pages/notification.html"}, {"id": "your-orders", "label": "I tuoi ordini", "link": "./pages/notification.html"}, {"id": "logout", "label": "Esci", "link": "./pages/notification.html"}]'
-      logged
-      use-inverse-colors
-    >
+      logged use-inverse-colors>
     </z-user-dropdown>
   </z-app-topbar>
 
@@ -1039,14 +1013,14 @@
           isbn="97-88-80-8620-710">
           <z-toggle-button label="risorse" slot="toggle"></z-toggle-button>
           <z-myz-card-list
-          listdata='[{"isLink":true,"value":"Leggi il libro online","url":"https://booktab.it/"},
+            listdata='[{"isLink":true,"value":"Leggi il libro online","url":"https://booktab.it/"},
           {"isLink":true,"value":"Leggi il libro su Interactive Ebook","url":"https://zte.zanichelli.it/"},
             {"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"},
           {"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},
           {"isLink":false,"value":"Programmazione"},
           {"isLink":false,"value":"Prove di verifica"},
           {"isLink":true,"value":"Vai alla scheda catalogo","url":"https://dev.zanichelli.it/ricerca/prodotti/biologia-come-funziona-la-vita?hl=biologia"}]'
-          slot="list" />
+            slot="list" />
         </z-myz-card-footer>
       </z-myz-card>
 
@@ -1633,15 +1607,11 @@
   </div>
   <p id="bottom">bottom</p>
   <br /><br /><br /><br /><br /><br />
-  <z-link  onclick="openModal(this)" slot="actions" >Apri Modale</z-link>
-  <z-link  slot="actions"  id="xxx">Link di test</z-link>
+  <z-link onclick="openModal(this)" slot="actions">Apri Modale</z-link>
+  <z-link slot="actions" id="xxx">Link di test</z-link>
 
-  <z-footer
-    product-name="Prodotto bello"
-    product-version="6.6.6"
-    product-credits-link="https://www.google.com"
-    show-report-a-problem-button
-    data='{
+  <z-footer product-name="Prodotto bello" product-version="6.6.6" product-credits-link="https://www.google.com"
+    show-report-a-problem-button data='{
       "zanichelliLinks": [{
           "title": "Zanichelli.it",
           "items": [{
@@ -1809,39 +1779,36 @@
   }'></z-footer>
 
   <script>
-      function buttonClick() {
-        const element = document.getElementById("aria-button");
-      }
+    function openModal(e) {
+      const m = document.getElementById("mymodal");
+      m.style = "display: block";
+      console.log(e);
+    }
 
-      function openModal(e) {
-        const m = document.getElementById("mymodal");
-        m.style = "display: block";
-        console.log(e);
-      }
-      
-      function closeModal(e) {
-        const m = document.getElementById("mymodal");
-        m.style = "display: none";
-        console.log(e);
-      }
-      const appMenu = document.getElementById("app-switcher");
-      appMenu.addEventListener("appButtonClick", (e) => openModal(e));
+    function closeModal(e) {
+      const m = document.getElementById("mymodal");
+      m.style = "display: none";
+      console.log(e);
+    }
+    const appMenu = document.getElementById("app-switcher");
+    appMenu.addEventListener("appButtonClick", (e) => openModal(e));
 
-      const contextualMenu = document.getElementById("contextual-menu-1");
-      contextualMenu.addEventListener("clickContextualMenu", (e) =>
-        console.log("LOG id ", e.detail)
-      );
-      const emptytable = document.getElementById("empty-table");
-      emptytable.addEventListener("callToAction", () =>
-        console.log("call to action 1")
-      );
-      emptytable.addEventListener("callToActionTwo", () =>
-        console.log("call to action 2")
-      );
-      const emptytable_due = document.getElementById("empty-table-two");
-      emptytable_due.addEventListener("callToAction", () =>
-        console.log("call to action per seconda tabella")
-      );
-    </script>
-  </body>
+    const contextualMenu = document.getElementById("contextual-menu-1");
+    contextualMenu.addEventListener("clickContextualMenu", (e) =>
+      console.log("LOG id ", e.detail)
+    );
+    const emptytable = document.getElementById("empty-table");
+    emptytable.addEventListener("callToAction", () =>
+      console.log("call to action 1")
+    );
+    emptytable.addEventListener("callToActionTwo", () =>
+      console.log("call to action 2")
+    );
+    const emptytable_due = document.getElementById("empty-table-two");
+    emptytable_due.addEventListener("callToAction", () =>
+      console.log("call to action per seconda tabella")
+    );
+  </script>
+</body>
+
 </html>

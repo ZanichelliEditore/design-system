@@ -1,4 +1,4 @@
-import { Component, h, Host } from "@stencil/core";
+import { Component, h } from "@stencil/core";
 
 @Component({
   tag: "z-visually-hidden",
@@ -7,10 +7,6 @@ import { Component, h, Host } from "@stencil/core";
 })
 export class ZVisuallyHidden {
   render() {
-    return (
-      <Host>
-        <slot />
-      </Host>
-    );
+    return <slot />;
   }
 }
