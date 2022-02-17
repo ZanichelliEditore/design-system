@@ -6,6 +6,7 @@ import {
   Element,
   Prop,
 } from "@stencil/core";
+import { FiletypeEnum } from "../../../beans";
 
 @Component({
   tag: "z-file",
@@ -28,14 +29,14 @@ export class ZFile {
   /**  */
   handleChipIcon() {
     switch (this.filetype) {
-      case "application/pdf":
+      case FiletypeEnum.pdf:
         return "pdf";
-      case "image/tiff":
+      case FiletypeEnum.tiff:
         return "image-tiff";
-      case "image/png":
+      case FiletypeEnum.png:
         return "image-png";
-      case "image/jpeg":
-      case "image/jpg":
+      case FiletypeEnum.jpeg:
+      case FiletypeEnum.jpg:
         return "image-jpg";
       default:
         return "document-with-text";
