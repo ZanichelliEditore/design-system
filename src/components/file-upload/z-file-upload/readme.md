@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                                                       | Type                                                                                                                            | Default                       |
-| ---------------- | ----------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| `acceptedFormat` | `accepted-format` | Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"     | `string`                                                                                                                        | `undefined`                   |
-| `multiple`       | `multiple`        | Prop indicating if the user can pick more than one file at once   | `boolean`                                                                                                                       | `undefined`                   |
-| `type`           | `type`            | Prop indicating the file upload type - can be default or dragdrop | `ZFileUploadTypeEnum.default \| ZFileUploadTypeEnum.dragdrop`                                                                   | `ZFileUploadTypeEnum.default` |
-| `variant`        | `variant`         | Prop indicating the button variant                                | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary \| typeof ButtonVariantEnum["dark-bg"]` | `undefined`                   |
+| Property         | Attribute         | Description                                                       | Type                                                                                                                            | Default                           |
+| ---------------- | ----------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `acceptedFormat` | `accepted-format` | Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"     | `string`                                                                                                                        | `".pdf, .doc, .tiff, .png, .jpg"` |
+| `fileMaxSize`    | `file-max-size`   | Max file dimension in Megabyte                                    | `number`                                                                                                                        | `50`                              |
+| `multiple`       | `multiple`        | Prop indicating if the user can pick more than one file at once   | `boolean`                                                                                                                       | `true`                            |
+| `type`           | `type`            | Prop indicating the file upload type - can be default or dragdrop | `ZFileUploadTypeEnum.default \| ZFileUploadTypeEnum.dragdrop`                                                                   | `ZFileUploadTypeEnum.default`     |
+| `variant`        | `variant`         | Prop indicating the button variant                                | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary \| typeof ButtonVariantEnum["dark-bg"]` | `undefined`                       |
 
 
 ## Events
@@ -31,6 +32,7 @@
 - [z-divider](../../z-divider)
 - [z-button](../../buttons/z-button)
 - [z-dragdrop-area](../z-dragdrop-area)
+- [z-modal](../../modal/z-modal)
 
 ### Graph
 ```mermaid
@@ -40,10 +42,12 @@ graph TD;
   z-file-upload --> z-divider
   z-file-upload --> z-button
   z-file-upload --> z-dragdrop-area
+  z-file-upload --> z-modal
   z-heading --> z-typography
   z-body --> z-typography
   z-button --> z-icon
   z-dragdrop-area --> z-body
+  z-modal --> z-icon
   style z-file-upload fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

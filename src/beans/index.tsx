@@ -400,3 +400,11 @@ export enum ZFileUploadTypeEnum {
   default = 'default',
   dragdrop = 'dragdrop'
 }
+
+export enum FiletypeEnum {
+  pdf = "application/pdf",
+  tiff = "image/tiff",
+  png = "image/png",
+  jpeg = "image/jpeg",
+  jpg = "image/jpg",
+}
