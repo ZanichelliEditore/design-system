@@ -13,9 +13,7 @@ export class ZRegistroTableExpandedRow {
     return (
       <td colSpan={this.colSpan}>
         <div class="content-container">
-          <div class="inner-content">
-            <slot />
-          </div>
+          <slot />
         </div>
       </td>
     );
