@@ -38,6 +38,15 @@ export class ZFileUpload {
   /** Prop indicating if the user can pick more than one file at once*/
   @Prop() multiple: boolean = true;
 
+  /** Title */
+  @Prop() mainTitle?: string;
+
+  /** Description */
+  @Prop() description?: string;
+  
+  /** Accepted file formats */
+  @Prop() fileFormat?: string;
+  
   /** Number of files added by the user */
   @State() files: number = 0;
 
@@ -51,6 +60,10 @@ export class ZFileUpload {
 
   private input: HTMLInputElement;
 
+  private button: HTMLZButtonElement;
+
+  private uploadLink: HTMLZBodyElement;
+
   private inputAttributes = {
     type: "file",
     id: "fileElem",
@@ -60,7 +73,8 @@ export class ZFileUpload {
   /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
   removeFileListener() {
-    this.files--;
+    this.files--; 
+    console.log(this.files)
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
@@ -68,6 +82,10 @@ export class ZFileUpload {
   fileDroppedListener(e: CustomEvent) {
     this.input.files = e.detail;
     this.fileInputHandler();
+  }
+
+  componentDidUpdate(){
+    this.handleAccessibility()
   }
 
   componentWillLoad() {
@@ -86,6 +104,14 @@ export class ZFileUpload {
       if (!checkEmptyObject(this.invalidFiles)) {
         this.error = true;
       }
+    }
+  }
+
+  handleAccessibility(){
+    if(this.files > 0) {
+      (this.el.querySelector('z-file:last-child').shadowRoot.querySelector('z-chip z-icon:last-child') as HTMLElement).focus();
+    }else {
+      this.type === ZFileUploadTypeEnum.default ? this.button.focus() : this.uploadLink.focus();
     }
   }
 
@@ -120,7 +146,7 @@ export class ZFileUpload {
   renderTitle() {
     return (
       <z-heading id="title" variant="semibold" level={2}>
-        <slot name="title"></slot>
+        {this.mainTitle}
       </z-heading>
     );
   }
@@ -128,7 +154,7 @@ export class ZFileUpload {
   renderDescription(variant, level) {
     return (
       <z-body variant={variant} level={level}>
-        <slot name="description"></slot>
+        {this.description}
       </z-body>
     );
   }
@@ -136,7 +162,7 @@ export class ZFileUpload {
   renderAllowedFileExtensions() {
     return (
       <z-body level={3}>
-        <slot name="file-format"></slot>
+        {this.fileFormat}
       </z-body>
     );
   }
@@ -172,10 +198,18 @@ export class ZFileUpload {
     return [
       this.renderInput(),
       <z-button
+        tabIndex={0}
         onClick={() => this.input.click()}
+        onKeyPress={(e) => {
+          if (e.keyCode == 32 || e.keyCode == 13) {
+            e.preventDefault();
+            this.input.click();
+          }
+        }}
         id="fileSelect"
         variant={this.variant}
         icon="plus"
+        ref={(val) => this.button = val}
       >
         Allega
       </z-button>,
@@ -188,10 +222,18 @@ export class ZFileUpload {
       <z-body variant="regular" level={1}>
         Trascinalo qui o{" "}
         <z-body
+          tabIndex={0}
           class="upload-link"
           onClick={() => this.input.click()}
+          onKeyPress={(e) => {
+            if (e.keyCode == 32 || e.keyCode == 13) {
+              e.preventDefault();
+              this.input.click();
+            }
+          }}
           variant="semibold"
           level={1}
+          ref={(val) => this.uploadLink = val}
         >
           caricalo
         </z-body>{" "}
@@ -249,7 +291,7 @@ export class ZFileUpload {
 
   render() {
     return [
-      <div class={`container ${this.type}`}>
+      <div tabIndex={0} class={`container ${this.type}`}>
         {this.renderTitle()}
         {this.type == ZFileUploadTypeEnum.default
           ? this.renderDefaultMode()

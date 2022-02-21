@@ -41,7 +41,7 @@ input#fileElem {
   display: none;
 }
 
-::slotted([slot="title"]) {
+#title {
   display: inline-block;
   margin-bottom: var(--space-unit);
 }

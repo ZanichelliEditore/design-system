@@ -29,6 +29,7 @@ export class ZDragdropArea {
   render() {
     return (
       <div
+        tabIndex={0}
         ref={(val) => (this.dragDropContainer = val)}
         class="dragdrop"
         onDragOver={(e) => {

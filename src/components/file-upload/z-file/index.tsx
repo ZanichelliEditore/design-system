@@ -5,6 +5,7 @@ import {
   Event,
   Element,
   Prop,
+  Host,
 } from "@stencil/core";
 import { FiletypeEnum } from "../../../beans";
 
@@ -14,6 +15,8 @@ import { FiletypeEnum } from "../../../beans";
   shadow: true,
 })
 export class ZFile {
+  private icon: HTMLElement
+
   @Element() el: HTMLElement;
 
   /** Prop which indicates the type of the file */
@@ -25,6 +28,10 @@ export class ZFile {
     this.removeFile.emit();
     this.el.remove();
   }
+
+  componentDidLoad(){
+    this.icon.focus();
+  } 
 
   /**  */
   handleChipIcon() {
@@ -45,18 +52,28 @@ export class ZFile {
 
   render() {
     return (
-      <z-chip>
-        <div class="chip-content">
-          <z-icon name={this.handleChipIcon()} />
-          <slot />
-          <z-icon
-            onClick={() => this.removeFileHandler()}
-            name="multiply-circled"
-            height={15}
-            width={15}
-          />
-        </div>
-      </z-chip>
+      <Host tabIndex={0}>
+        <z-chip>
+          <div class="chip-content">
+            <z-icon name={this.handleChipIcon()} />
+            <slot />
+            <z-icon
+              tabIndex={0}
+              onClick={() => this.removeFileHandler()}
+              onKeyPress={(e) => {
+                if (e.keyCode == 32 || e.keyCode == 13) {
+                  e.preventDefault();
+                  this.removeFileHandler();
+                }
+              }}
+              name="multiply-circled"
+              height={15}
+              width={15}
+              ref={(val) => this.icon = val}
+            />
+          </div>
+        </z-chip>
+      </Host>
     );
   }
 }
