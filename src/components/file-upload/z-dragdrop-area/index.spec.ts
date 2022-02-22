@@ -12,7 +12,7 @@ describe("Suite test ZDragdropArea", () => {
     expect(page.root).toEqualHtml(`
     <z-dragdrop-area>
     <mock:shadow-root>
-     <div class="dragdrop">
+     <div class="dragdrop" tabindex="0">
        <div class="dragover-container">
          <div class="dragover-message">
            <z-body level="2" variant="semibold">
@@ -40,7 +40,7 @@ describe("Suite test ZDragdropArea", () => {
     expect(page.root).toEqualHtml(`
     <z-dragdrop-area>
     <mock:shadow-root>
-     <div class="dragdrop">
+     <div class="dragdrop" tabindex="0">
        <div class="dragover-container">
          <div class="dragover-message">
            <z-body level="2" variant="semibold">

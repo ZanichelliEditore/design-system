@@ -5,6 +5,9 @@ import { ZFile } from "./index";
 describe("Suite test ZFile", () => {
   it("Test render ZFile vuoto", async () => {
 
+    // mock HTMLInputElement focus function
+    HTMLInputElement.prototype.focus = jest.fn();
+
     const page = await newSpecPage({
       components: [ZFile],
       html: `<z-file></z-file>`
@@ -26,6 +29,9 @@ describe("Suite test ZFile", () => {
   });
 
   it("Test render ZFile with filetype prop", async () => {
+
+    // mock HTMLInputElement focus function
+    HTMLInputElement.prototype.focus = jest.fn();
 
     const page = await newSpecPage({
       components: [ZFile],
