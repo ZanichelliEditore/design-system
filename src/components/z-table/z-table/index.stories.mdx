@@ -1,0 +1,257 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from "@storybook/addon-knobs";
+
+<Meta title="RegistroTable/ZRegistroTable" component="z-table" />
+
+# ZRegistroTable
+
+<Preview>
+  <Story name="ZRegistroTable-sample">
+    {html`<z-registro-table
+      bordered="${boolean("bordered", true)}"
+      column-sticky="${boolean("column-sticky", false)}"
+      header-sticky="${boolean("header-sticky", false)}"
+    >
+      <z-table-head>
+        <z-table-header-row>
+          <z-table-header>
+            <span>Titolo 1</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 2</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 3</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 4</span>
+          </z-table-header>
+        </z-table-header-row>
+      </z-table-head>
+      <z-table-body>
+        <z-table-row>
+          <z-table-cell>
+            <z-tooltip
+              type="top"
+              open="true"
+              bind-to="#sample-element"
+              type="{Too.RIGHT}"
+            >
+              Tooltip di esempio
+            </z-tooltip>
+            <span id="sample-element">Contenuto 1-1</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 1-2</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 1-3</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 1-4</span>
+          </z-table-cell>
+        </z-table-row>
+        <z-table-row>
+          <z-table-cell>
+            <span>Contenuto 2-1</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 2-2</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 2-3</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 2-4</span>
+          </z-table-cell>
+        </z-table-row>
+        <z-table-row>
+          <z-table-cell>
+            <span>Contenuto 3-1</span>
+          </z-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-4</span>
+          </z-registro-table-cell>
+        </z-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell>
+            <span>Contenuto 4-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 4-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 4-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 4-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+      </z-table-body>
+      <z-registro-table-sticky-footer slot="sticky-footer">
+        <span>This is a sticky footer</span>
+      </z-registro-table-sticky-footer>
+    </z-registro-table>`}
+  </Story>
+  <Story name="ZRegistroTable-error-no-header">
+    {html`<z-registro-table
+        error="true"
+        lines="${text("Lines", "6")}"
+        error-message="${text(
+          "Error Message",
+          "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto"
+        )}"
+      >
+      </z-registro-table>
+      <p>Altro contenuto</p>`}
+  </Story>
+  <Story name="ZRegistroTable-error">
+    {html`<z-registro-table
+        bordered="true"
+        error="true"
+        lines="${text("Lines", "6")}"
+        error-message="${text(
+          "Error Message",
+          "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto"
+        )}"
+      >
+        <z-registro-table-head slot="table-header">
+          <z-registro-table-header-row>
+            <z-registro-table-header>
+              <span>Titolo 1</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo 2</span>
+            </z-registro-table-header>
+            <z-registro-table-header>
+              <span>Titolo last</span>
+            </z-registro-table-header>
+          </z-registro-table-header-row>
+        </z-registro-table-head>
+        <img
+          src="./images/png/zanichelli-error-image.png"
+          slot="error-image"
+          alt="Error"
+        />
+        <div slot="error-action">
+          <z-body level="{4}">
+            <a href="#" target="_blank">Clicca qui</a> per ricaricare la pagina
+          </z-body>
+        </div>
+      </z-registro-table>
+      <p>Altro contenuto</p>`}
+  </Story>
+  <Story name="ZRegistroTable-empty-no-header">
+    {html`<z-registro-table
+      bordered="${boolean("bordered", false)}"
+      call-to-action-label="${text("call-to-action-label", "Action 1")}"
+      call-to-action-two-label="${text("call-to-action-two-label", "Action 2")}"
+      empty="true"
+      message="${text(
+        "message",
+        "Siamo spiacenti, al momento non sono presenti dati da visualizzare"
+      )}"
+      subtitle="${text("subtitle", "Eventuale testo")}"
+    >
+    </z-registro-table>`}
+  </Story>
+  <Story name="ZRegistroTable-empty">
+    {html`<z-registro-table
+      bordered="${boolean("bordered", true)}"
+      call-to-action-label="${text("call-to-action-label", "Call to action")}"
+      call-to-action-two-label="${text(
+        "call-to-action-two-label",
+        "Call to action"
+      )}"
+      empty="true"
+      message="${text(
+        "message",
+        "Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
+      )}"
+      subtitle="${text("subtitle", "Eventuale testo")}"
+    >
+      <z-registro-table-head slot="table-header">
+        <z-registro-table-header-row>
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 2</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 3</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 4</span>
+          </z-registro-table-header>
+        </z-registro-table-header-row>
+      </z-registro-table-head>
+    </z-registro-table>`}
+  </Story>
+  <Story name="ZRegistroTable-empty-with-header-column">
+    {html`
+      <style>body{background-color: lightgray;}</style>
+      <z-registro-table
+      bordered="${boolean("bordered", true)}"
+      call-to-action-label="${text("call-to-action-label", "Call to action")}"
+      call-to-action-two-label="${text(
+        "call-to-action-two-label",
+        "Call to action"
+      )}"
+      empty="true"
+      message="${text(
+        "message",
+        "Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
+      )}"
+      subtitle="${text("subtitle", "Eventuale testo")}"
+    >
+      <z-registro-table-head slot="table-header">
+        <z-registro-table-header-row>
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+      </z-registro-table-head>
+      <z-registro-table-body slot="table-body">
+        <z-registro-table-row>
+          <z-registro-table-cell>
+            <z-avatar text="AS" size="medium" background-color="avatar-C13" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C13);"></z-avatar>
+            <span>Contenuto 1-3</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-row>
+          <z-registro-table-cell >
+            <z-avatar text="AS" size="medium" background-color="avatar-C14" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C14);"></z-avatar>
+            <span>Contenuto 1-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+      </z-registro-table-body>
+    </z-registro-table>`}
+  </Story>
+</Preview>
+
+<Props of="z-registro-table" />
