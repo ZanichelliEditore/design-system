@@ -27,7 +27,7 @@ export class ZFileUpload {
     ZFileUploadTypeEnum.default;
 
   /** Prop indicating the button variant*/
-  @Prop() variant: ButtonVariantEnum;
+  @Prop() variant?: ButtonVariantEnum;
 
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
   @Prop() acceptedFormat: string = ".pdf, .doc, .tiff, .png, .jpg";
@@ -43,9 +43,6 @@ export class ZFileUpload {
 
   /** Description */
   @Prop() description?: string;
-  
-  /** Accepted file formats */
-  @Prop() fileFormat?: string;
   
   /** Number of files added by the user */
   @State() files: number = 0;
@@ -160,9 +157,16 @@ export class ZFileUpload {
   }
 
   renderAllowedFileExtensions() {
+    
+    const fileFormat = this.acceptedFormat.split(', ')
+                                          .map((string) => string.substring(1).toUpperCase())
+                                          .join(', ');
+
+    const fileFormatString = `Puoi allegare file nei formati ${fileFormat} per un massimo di ${this.fileMaxSize}Mb di peso.`
+
     return (
       <z-body level={3}>
-        {this.fileFormat}
+        {fileFormatString}
       </z-body>
     );
   }

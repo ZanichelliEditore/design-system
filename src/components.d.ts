@@ -330,10 +330,6 @@ export namespace Components {
          */
         "description"?: string;
         /**
-          * Accepted file formats
-         */
-        "fileFormat"?: string;
-        /**
           * Max file dimension in Megabyte
          */
         "fileMaxSize": number;
@@ -352,7 +348,7 @@ export namespace Components {
         /**
           * Prop indicating the button variant
          */
-        "variant": ButtonVariantEnum;
+        "variant"?: ButtonVariantEnum;
     }
     interface ZFooter {
         /**
@@ -2572,10 +2568,6 @@ declare namespace LocalJSX {
           * Description
          */
         "description"?: string;
-        /**
-          * Accepted file formats
-         */
-        "fileFormat"?: string;
         /**
           * Max file dimension in Megabyte
          */
