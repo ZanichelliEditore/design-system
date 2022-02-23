@@ -3,8 +3,7 @@ export class ZRegistroTableExpandedRow {
   render() {
     return (h("td", { colSpan: this.colSpan },
       h("div", { class: "content-container" },
-        h("div", { class: "inner-content" },
-          h("slot", null)))));
+        h("slot", null))));
   }
   static get is() { return "z-registro-table-expanded-row"; }
   static get encapsulation() { return "shadow"; }

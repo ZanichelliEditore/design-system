@@ -4420,7 +4420,14 @@
     <z-slideshow
       data='["https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098_960_720.jpg","https://cdn.pixabay.com/photo/2013/02/21/19/06/drink-84533_960_720.jpg","https://cdn.pixabay.com/photo/2016/04/18/22/05/seashells-1337565_960_720.jpg"]'
     ></z-slideshow>
-  </div>`;zSlideshowSample.storyName="ZSlideshow-sample",zSlideshowSample.parameters={storySource:{source:'html`<div style="width:500px;">\n    <z-slideshow\n      data=\'["https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098_960_720.jpg","https://cdn.pixabay.com/photo/2013/02/21/19/06/drink-84533_960_720.jpg","https://cdn.pixabay.com/photo/2016/04/18/22/05/seashells-1337565_960_720.jpg"]\'\n    ></z-slideshow>\n  </div>`'}};const componentMeta={title:"Myz/ZSlideshow",includeStories:["zSlideshowSample"]},mdxStoryNameToKey={"ZSlideshow-sample":"zSlideshowSample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},1090:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zRegistroTableExpandedRowAllExpanded",(function(){return zRegistroTableExpandedRowAllExpanded})),__webpack_require__.d(__webpack_exports__,"zRegistroTableExpandedRowMix",(function(){return zRegistroTableExpandedRowMix}));__webpack_require__(2);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(0),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"RegistroTable/ZRegistroTableExpandedRow",component:"z-registro-table-expanded-row",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zregistrotableexpandedrow"},"ZRegistroTableExpandedRow"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZRegistroTableExpandedRow-all-expanded",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table bordered="true">
+  </div>`;zSlideshowSample.storyName="ZSlideshow-sample",zSlideshowSample.parameters={storySource:{source:'html`<div style="width:500px;">\n    <z-slideshow\n      data=\'["https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098_960_720.jpg","https://cdn.pixabay.com/photo/2013/02/21/19/06/drink-84533_960_720.jpg","https://cdn.pixabay.com/photo/2016/04/18/22/05/seashells-1337565_960_720.jpg"]\'\n    ></z-slideshow>\n  </div>`'}};const componentMeta={title:"Myz/ZSlideshow",includeStories:["zSlideshowSample"]},mdxStoryNameToKey={"ZSlideshow-sample":"zSlideshowSample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},1090:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zRegistroTableExpandedRowAllExpanded",(function(){return zRegistroTableExpandedRowAllExpanded})),__webpack_require__.d(__webpack_exports__,"zRegistroTableExpandedRowMix",(function(){return zRegistroTableExpandedRowMix}));__webpack_require__(2);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(0),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"RegistroTable/ZRegistroTableExpandedRow",component:"z-registro-table-expanded-row",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zregistrotableexpandedrow"},"ZRegistroTableExpandedRow"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZRegistroTableExpandedRow-all-expanded",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<style>
+      .expanded-row-content {
+        margin: 0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
+        padding: calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;
+        border-top: 1px solid var(--gray200);
+      }
+    </style>
+    <z-registro-table bordered="true">
       <z-registro-table-head>
         <z-registro-table-header-row expandable="true">
           <z-registro-table-header>
@@ -4453,7 +4460,7 @@
           </z-registro-table-cell>
         </z-registro-table-row>
         <z-registro-table-expanded-row col-span="5">
-          <div>Contenuto aggiuntivo 1</div>
+          <div class="expanded-row-content">Contenuto aggiuntivo 1</div>
         </z-registro-table-expanded-row>
         <z-registro-table-row expanded-type="expandable">
           <z-registro-table-cell>
@@ -4470,7 +4477,7 @@
           </z-registro-table-cell>
         </z-registro-table-row>
         <z-registro-table-expanded-row col-span="5">
-          <div>Contenuto aggiuntivo 2</div>
+          <div class="expanded-row-content">Contenuto aggiuntivo 2</div>
         </z-registro-table-expanded-row>
         <z-registro-table-row expanded-type="expandable">
           <z-registro-table-cell>
@@ -4487,159 +4494,20 @@
           </z-registro-table-cell>
         </z-registro-table-row>
         <z-registro-table-expanded-row col-span="5">
-          <div>Contenuto aggiuntivo 3</div>
+          <div class="expanded-row-content">Contenuto aggiuntivo 3</div>
         </z-registro-table-expanded-row>
       </z-registro-table-body>
       <z-registro-table-sticky-footer slot="sticky-footer">
         <span>This is a sticky footer</span>
       </z-registro-table-sticky-footer>
-    </z-registro-table>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZRegistroTableExpandedRow-mix",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table bordered="true">
-      <z-registro-table-head>
-        <z-registro-table-header-row expandable="true">
-          <z-registro-table-header>
-            <span>Titolo 1</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 2</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 3</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 4</span>
-          </z-registro-table-header>
-        </z-registro-table-header-row>
-      </z-registro-table-head>
-      <z-registro-table-body>
-        <z-registro-table-row expanded-type="padding">
-          <z-registro-table-cell>
-            <span>Contenuto 1-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 1-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 1-3</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 1-4</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-        <z-registro-table-expanded-row col-span="5">
-          <div>Contenuto aggiuntivo 1</div>
-        </z-registro-table-expanded-row>
-        <z-registro-table-row expanded-type="expandable">
-          <z-registro-table-cell>
-            <span>Contenuto 2-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 2-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 2-3</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 2-4</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-        <z-registro-table-expanded-row col-span="5">
-          <div>Contenuto aggiuntivo 2</div>
-        </z-registro-table-expanded-row>
-        <z-registro-table-row expanded-type="padding">
-          <z-registro-table-cell>
-            <span>Contenuto 3-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 3-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 3-3</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 3-4</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-        <z-registro-table-expanded-row col-span="5">
-          <div>Contenuto aggiuntivo 3</div>
-        </z-registro-table-expanded-row>
-      </z-registro-table-body>
-      <z-registro-table-sticky-footer slot="sticky-footer">
-        <span>This is a sticky footer</span>
-      </z-registro-table-sticky-footer>
-    </z-registro-table>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-registro-table-expanded-row",mdxType:"Props"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"how-to-use"},"How to use"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"To make a row expandable you need to set ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"expandType"),' prop to "',Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"expandable"),'"" in the ',Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"z-registro-table-row component"),", then\nyou have to add a ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"z-registro-table-extended-row")," after each z-registro-table-row.\nThe extended row has a mandatory prop ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"col-span"),", set the number of the total column of the table (consider the additional column for the\nexpand button)"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h3",{id:"nb"},"N.B."),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"If you insert both expandable and non-expandable rows, for the non-expandable ones you must set the ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"expandType"),' prop to "',Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"padding"),'"\nto respect the correct alignment.'),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"When you insert a clickable element in the row (for example z-button or z-icon) remember to add ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"stopPropagation()"),"\nto the onClick function to prevent unwanted row expansion."))}MDXContent.isMDXComponent=!0;const zRegistroTableExpandedRowAllExpanded=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table bordered="true">
-      <z-registro-table-head>
-        <z-registro-table-header-row expandable="true">
-          <z-registro-table-header>
-            <span>Titolo 1</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 2</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 3</span>
-          </z-registro-table-header>
-          <z-registro-table-header>
-            <span>Titolo 4</span>
-          </z-registro-table-header>
-        </z-registro-table-header-row>
-      </z-registro-table-head>
-      <z-registro-table-body>
-        <z-registro-table-row expanded-type="expandable">
-          <z-registro-table-cell>
-            <span>Contenuto 1-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 1-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 1-3</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 1-4</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-        <z-registro-table-expanded-row col-span="5">
-          <div>Contenuto aggiuntivo 1</div>
-        </z-registro-table-expanded-row>
-        <z-registro-table-row expanded-type="expandable">
-          <z-registro-table-cell>
-            <span>Contenuto 2-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 2-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 2-3</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 2-4</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-        <z-registro-table-expanded-row col-span="5">
-          <div>Contenuto aggiuntivo 2</div>
-        </z-registro-table-expanded-row>
-        <z-registro-table-row expanded-type="expandable">
-          <z-registro-table-cell>
-            <span>Contenuto 3-1</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 3-2</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 3-3</span>
-          </z-registro-table-cell>
-          <z-registro-table-cell>
-            <span>Contenuto 3-4</span>
-          </z-registro-table-cell>
-        </z-registro-table-row>
-        <z-registro-table-expanded-row col-span="5">
-          <div>Contenuto aggiuntivo 3</div>
-        </z-registro-table-expanded-row>
-      </z-registro-table-body>
-      <z-registro-table-sticky-footer slot="sticky-footer">
-        <span>This is a sticky footer</span>
-      </z-registro-table-sticky-footer>
-    </z-registro-table>`;zRegistroTableExpandedRowAllExpanded.storyName="ZRegistroTableExpandedRow-all-expanded",zRegistroTableExpandedRowAllExpanded.parameters={storySource:{source:'html`<z-registro-table bordered="true">\n      <z-registro-table-head>\n        <z-registro-table-header-row expandable="true">\n          <z-registro-table-header>\n            <span>Titolo 1</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 2</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 3</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 4</span>\n          </z-registro-table-header>\n        </z-registro-table-header-row>\n      </z-registro-table-head>\n      <z-registro-table-body>\n        <z-registro-table-row expanded-type="expandable">\n          <z-registro-table-cell>\n            <span>Contenuto 1-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div>Contenuto aggiuntivo 1</div>\n        </z-registro-table-expanded-row>\n        <z-registro-table-row expanded-type="expandable">\n          <z-registro-table-cell>\n            <span>Contenuto 2-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div>Contenuto aggiuntivo 2</div>\n        </z-registro-table-expanded-row>\n        <z-registro-table-row expanded-type="expandable">\n          <z-registro-table-cell>\n            <span>Contenuto 3-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div>Contenuto aggiuntivo 3</div>\n        </z-registro-table-expanded-row>\n      </z-registro-table-body>\n      <z-registro-table-sticky-footer slot="sticky-footer">\n        <span>This is a sticky footer</span>\n      </z-registro-table-sticky-footer>\n    </z-registro-table>`'}};const zRegistroTableExpandedRowMix=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table bordered="true">
+    </z-registro-table>`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZRegistroTableExpandedRow-mix",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<style>
+      .expanded-row-content {
+        margin: 0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
+        padding: calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;
+        border-top: 1px solid var(--gray200);
+      }
+    </style>
+    <z-registro-table bordered="true">
       <z-registro-table-head>
         <z-registro-table-header-row expandable="true">
           <z-registro-table-header>
@@ -4689,7 +4557,7 @@
           </z-registro-table-cell>
         </z-registro-table-row>
         <z-registro-table-expanded-row col-span="5">
-          <div>Contenuto aggiuntivo 2</div>
+          <div class="expanded-row-content">Contenuto aggiuntivo 2</div>
         </z-registro-table-expanded-row>
         <z-registro-table-row expanded-type="padding">
           <z-registro-table-cell>
@@ -4712,7 +4580,167 @@
       <z-registro-table-sticky-footer slot="sticky-footer">
         <span>This is a sticky footer</span>
       </z-registro-table-sticky-footer>
-    </z-registro-table>`;zRegistroTableExpandedRowMix.storyName="ZRegistroTableExpandedRow-mix",zRegistroTableExpandedRowMix.parameters={storySource:{source:'html`<z-registro-table bordered="true">\n      <z-registro-table-head>\n        <z-registro-table-header-row expandable="true">\n          <z-registro-table-header>\n            <span>Titolo 1</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 2</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 3</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 4</span>\n          </z-registro-table-header>\n        </z-registro-table-header-row>\n      </z-registro-table-head>\n      <z-registro-table-body>\n        <z-registro-table-row expanded-type="padding">\n          <z-registro-table-cell>\n            <span>Contenuto 1-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div>Contenuto aggiuntivo 1</div>\n        </z-registro-table-expanded-row>\n        <z-registro-table-row expanded-type="expandable">\n          <z-registro-table-cell>\n            <span>Contenuto 2-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div>Contenuto aggiuntivo 2</div>\n        </z-registro-table-expanded-row>\n        <z-registro-table-row expanded-type="padding">\n          <z-registro-table-cell>\n            <span>Contenuto 3-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div>Contenuto aggiuntivo 3</div>\n        </z-registro-table-expanded-row>\n      </z-registro-table-body>\n      <z-registro-table-sticky-footer slot="sticky-footer">\n        <span>This is a sticky footer</span>\n      </z-registro-table-sticky-footer>\n    </z-registro-table>`'}};const componentMeta={title:"RegistroTable/ZRegistroTableExpandedRow",includeStories:["zRegistroTableExpandedRowAllExpanded","zRegistroTableExpandedRowMix"]},mdxStoryNameToKey={"ZRegistroTableExpandedRow-all-expanded":"zRegistroTableExpandedRowAllExpanded","ZRegistroTableExpandedRow-mix":"zRegistroTableExpandedRowMix"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},1091:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zRegistroTableHeaderRowSample",(function(){return zRegistroTableHeaderRowSample}));__webpack_require__(2);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(0),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"RegistroTable/ZRegistroTableHeaderRow",component:"z-registro-table-header-row",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zregistrotableheaderrow"},"ZRegistroTableHeaderRow"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZRegistroTableHeaderRow-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table-header-row></z-registro-table-header-row>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-registro-table-header-row",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zRegistroTableHeaderRowSample=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table-header-row></z-registro-table-header-row>`;zRegistroTableHeaderRowSample.storyName="ZRegistroTableHeaderRow-sample",zRegistroTableHeaderRowSample.parameters={storySource:{source:"html`<z-registro-table-header-row></z-registro-table-header-row>`"}};const componentMeta={title:"RegistroTable/ZRegistroTableHeaderRow",includeStories:["zRegistroTableHeaderRowSample"]},mdxStoryNameToKey={"ZRegistroTableHeaderRow-sample":"zRegistroTableHeaderRowSample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},1092:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zRegistroTableHeaderSample",(function(){return zRegistroTableHeaderSample}));__webpack_require__(2);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(0),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"RegistroTable/ZRegistroTableHeader",component:"z-registro-table-header",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zregistrotableheader"},"ZRegistroTableHeader"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZRegistroTableHeader-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table bordered="true">
+    </z-registro-table>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-registro-table-expanded-row",mdxType:"Props"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"how-to-use"},"How to use"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"To make a row expandable you need to set ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"expandType"),' prop to "',Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"expandable"),'"" in the ',Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"z-registro-table-row component"),", then\nyou have to add a ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"z-registro-table-extended-row")," after each z-registro-table-row.\nThe extended row has a mandatory prop ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"col-span"),", set the number of the total column of the table (consider the additional column for the\nexpand button)"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h3",{id:"nb"},"N.B."),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"If you insert both expandable and non-expandable rows, for the non-expandable ones you must set the ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"expandType"),' prop to "',Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"padding"),'"\nto respect the correct alignment.'),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"When you insert a clickable element in the row (for example z-button or z-icon) remember to add ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("strong",{parentName:"p"},"stopPropagation()"),"\nto the onClick function to prevent unwanted row expansion."),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h3",{id:"spacing-and-borders"},"Spacing and borders"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"In order to improve modularity and component flexibility, spacing related rules must be handled inside the content component."))}MDXContent.isMDXComponent=!0;const zRegistroTableExpandedRowAllExpanded=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<style>
+      .expanded-row-content {
+        margin: 0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
+        padding: calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;
+        border-top: 1px solid var(--gray200);
+      }
+    </style>
+    <z-registro-table bordered="true">
+      <z-registro-table-head>
+        <z-registro-table-header-row expandable="true">
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 2</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 3</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 4</span>
+          </z-registro-table-header>
+        </z-registro-table-header-row>
+      </z-registro-table-head>
+      <z-registro-table-body>
+        <z-registro-table-row expanded-type="expandable">
+          <z-registro-table-cell>
+            <span>Contenuto 1-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 1-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 1-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 1-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-expanded-row col-span="5">
+          <div class="expanded-row-content">Contenuto aggiuntivo 1</div>
+        </z-registro-table-expanded-row>
+        <z-registro-table-row expanded-type="expandable">
+          <z-registro-table-cell>
+            <span>Contenuto 2-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 2-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 2-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 2-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-expanded-row col-span="5">
+          <div class="expanded-row-content">Contenuto aggiuntivo 2</div>
+        </z-registro-table-expanded-row>
+        <z-registro-table-row expanded-type="expandable">
+          <z-registro-table-cell>
+            <span>Contenuto 3-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-expanded-row col-span="5">
+          <div class="expanded-row-content">Contenuto aggiuntivo 3</div>
+        </z-registro-table-expanded-row>
+      </z-registro-table-body>
+      <z-registro-table-sticky-footer slot="sticky-footer">
+        <span>This is a sticky footer</span>
+      </z-registro-table-sticky-footer>
+    </z-registro-table>`;zRegistroTableExpandedRowAllExpanded.storyName="ZRegistroTableExpandedRow-all-expanded",zRegistroTableExpandedRowAllExpanded.parameters={storySource:{source:'html`<style>\n      .expanded-row-content {\n        margin: 0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);\n        padding: calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;\n        border-top: 1px solid var(--gray200);\n      }\n    </style>\n    <z-registro-table bordered="true">\n      <z-registro-table-head>\n        <z-registro-table-header-row expandable="true">\n          <z-registro-table-header>\n            <span>Titolo 1</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 2</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 3</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 4</span>\n          </z-registro-table-header>\n        </z-registro-table-header-row>\n      </z-registro-table-head>\n      <z-registro-table-body>\n        <z-registro-table-row expanded-type="expandable">\n          <z-registro-table-cell>\n            <span>Contenuto 1-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div class="expanded-row-content">Contenuto aggiuntivo 1</div>\n        </z-registro-table-expanded-row>\n        <z-registro-table-row expanded-type="expandable">\n          <z-registro-table-cell>\n            <span>Contenuto 2-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div class="expanded-row-content">Contenuto aggiuntivo 2</div>\n        </z-registro-table-expanded-row>\n        <z-registro-table-row expanded-type="expandable">\n          <z-registro-table-cell>\n            <span>Contenuto 3-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div class="expanded-row-content">Contenuto aggiuntivo 3</div>\n        </z-registro-table-expanded-row>\n      </z-registro-table-body>\n      <z-registro-table-sticky-footer slot="sticky-footer">\n        <span>This is a sticky footer</span>\n      </z-registro-table-sticky-footer>\n    </z-registro-table>`'}};const zRegistroTableExpandedRowMix=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<style>
+      .expanded-row-content {
+        margin: 0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
+        padding: calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;
+        border-top: 1px solid var(--gray200);
+      }
+    </style>
+    <z-registro-table bordered="true">
+      <z-registro-table-head>
+        <z-registro-table-header-row expandable="true">
+          <z-registro-table-header>
+            <span>Titolo 1</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 2</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 3</span>
+          </z-registro-table-header>
+          <z-registro-table-header>
+            <span>Titolo 4</span>
+          </z-registro-table-header>
+        </z-registro-table-header-row>
+      </z-registro-table-head>
+      <z-registro-table-body>
+        <z-registro-table-row expanded-type="padding">
+          <z-registro-table-cell>
+            <span>Contenuto 1-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 1-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 1-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 1-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-expanded-row col-span="5">
+          <div>Contenuto aggiuntivo 1</div>
+        </z-registro-table-expanded-row>
+        <z-registro-table-row expanded-type="expandable">
+          <z-registro-table-cell>
+            <span>Contenuto 2-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 2-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 2-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 2-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-expanded-row col-span="5">
+          <div class="expanded-row-content">Contenuto aggiuntivo 2</div>
+        </z-registro-table-expanded-row>
+        <z-registro-table-row expanded-type="padding">
+          <z-registro-table-cell>
+            <span>Contenuto 3-1</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-2</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-3</span>
+          </z-registro-table-cell>
+          <z-registro-table-cell>
+            <span>Contenuto 3-4</span>
+          </z-registro-table-cell>
+        </z-registro-table-row>
+        <z-registro-table-expanded-row col-span="5">
+          <div>Contenuto aggiuntivo 3</div>
+        </z-registro-table-expanded-row>
+      </z-registro-table-body>
+      <z-registro-table-sticky-footer slot="sticky-footer">
+        <span>This is a sticky footer</span>
+      </z-registro-table-sticky-footer>
+    </z-registro-table>`;zRegistroTableExpandedRowMix.storyName="ZRegistroTableExpandedRow-mix",zRegistroTableExpandedRowMix.parameters={storySource:{source:'html`<style>\n      .expanded-row-content {\n        margin: 0 calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);\n        padding: calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2) 0;\n        border-top: 1px solid var(--gray200);\n      }\n    </style>\n    <z-registro-table bordered="true">\n      <z-registro-table-head>\n        <z-registro-table-header-row expandable="true">\n          <z-registro-table-header>\n            <span>Titolo 1</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 2</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 3</span>\n          </z-registro-table-header>\n          <z-registro-table-header>\n            <span>Titolo 4</span>\n          </z-registro-table-header>\n        </z-registro-table-header-row>\n      </z-registro-table-head>\n      <z-registro-table-body>\n        <z-registro-table-row expanded-type="padding">\n          <z-registro-table-cell>\n            <span>Contenuto 1-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 1-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div>Contenuto aggiuntivo 1</div>\n        </z-registro-table-expanded-row>\n        <z-registro-table-row expanded-type="expandable">\n          <z-registro-table-cell>\n            <span>Contenuto 2-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 2-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div class="expanded-row-content">Contenuto aggiuntivo 2</div>\n        </z-registro-table-expanded-row>\n        <z-registro-table-row expanded-type="padding">\n          <z-registro-table-cell>\n            <span>Contenuto 3-1</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-2</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-3</span>\n          </z-registro-table-cell>\n          <z-registro-table-cell>\n            <span>Contenuto 3-4</span>\n          </z-registro-table-cell>\n        </z-registro-table-row>\n        <z-registro-table-expanded-row col-span="5">\n          <div>Contenuto aggiuntivo 3</div>\n        </z-registro-table-expanded-row>\n      </z-registro-table-body>\n      <z-registro-table-sticky-footer slot="sticky-footer">\n        <span>This is a sticky footer</span>\n      </z-registro-table-sticky-footer>\n    </z-registro-table>`'}};const componentMeta={title:"RegistroTable/ZRegistroTableExpandedRow",includeStories:["zRegistroTableExpandedRowAllExpanded","zRegistroTableExpandedRowMix"]},mdxStoryNameToKey={"ZRegistroTableExpandedRow-all-expanded":"zRegistroTableExpandedRowAllExpanded","ZRegistroTableExpandedRow-mix":"zRegistroTableExpandedRowMix"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},1091:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zRegistroTableHeaderRowSample",(function(){return zRegistroTableHeaderRowSample}));__webpack_require__(2);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(0),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"RegistroTable/ZRegistroTableHeaderRow",component:"z-registro-table-header-row",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zregistrotableheaderrow"},"ZRegistroTableHeaderRow"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZRegistroTableHeaderRow-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table-header-row></z-registro-table-header-row>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-registro-table-header-row",mdxType:"Props"}))}MDXContent.isMDXComponent=!0;const zRegistroTableHeaderRowSample=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table-header-row></z-registro-table-header-row>`;zRegistroTableHeaderRowSample.storyName="ZRegistroTableHeaderRow-sample",zRegistroTableHeaderRowSample.parameters={storySource:{source:"html`<z-registro-table-header-row></z-registro-table-header-row>`"}};const componentMeta={title:"RegistroTable/ZRegistroTableHeaderRow",includeStories:["zRegistroTableHeaderRowSample"]},mdxStoryNameToKey={"ZRegistroTableHeaderRow-sample":"zRegistroTableHeaderRowSample"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},1092:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zRegistroTableHeaderSample",(function(){return zRegistroTableHeaderSample}));__webpack_require__(2);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(0),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"RegistroTable/ZRegistroTableHeader",component:"z-registro-table-header",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zregistrotableheader"},"ZRegistroTableHeader"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZRegistroTableHeader-sample",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-registro-table bordered="true">
       <z-registro-table-head>
         <z-registro-table-row>
           <z-registro-table-header
