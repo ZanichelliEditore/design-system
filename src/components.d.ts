@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZRegistroTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, SortDirection, StatusTagStatus, TableHeaderSize, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1195,115 +1195,6 @@ export namespace Components {
          */
         "showArrow"?: boolean;
     }
-    interface ZRegistroTable {
-        /**
-          * Sets table with border
-         */
-        "bordered"?: boolean;
-        /**
-          * Sets call to action label
-         */
-        "callToActionLabel"?: string;
-        /**
-          * Sets call to action label
-         */
-        "callToActionTwoLabel"?: string;
-        /**
-          * Sets first column sticky
-         */
-        "columnSticky"?: boolean;
-        /**
-          * Sets empty table
-         */
-        "empty"?: boolean;
-        /**
-          * Set error status
-         */
-        "error"?: boolean;
-        /**
-          * Set error status
-         */
-        "errorLink"?: string;
-        /**
-          * Error message
-         */
-        "errorMessage"?: string;
-        /**
-          * Sets header sticky
-         */
-        "headerSticky"?: boolean;
-        /**
-          * Number of lines of element
-         */
-        "lines"?: number;
-        /**
-          * Set message
-         */
-        "message"?: string;
-        /**
-          * Set subtitle
-         */
-        "subtitle"?: string;
-    }
-    interface ZRegistroTableBody {
-    }
-    interface ZRegistroTableCell {
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-    }
-    interface ZRegistroTableEmptyBox {
-        /**
-          * Sets main title message
-         */
-        "message"?: string;
-        /**
-          * Sets message
-         */
-        "subtitle"?: string;
-    }
-    interface ZRegistroTableExpandedRow {
-        /**
-          * Number table column plus 1 for the expand button
-         */
-        "colSpan": number;
-    }
-    interface ZRegistroTableFooter {
-    }
-    interface ZRegistroTableHead {
-    }
-    interface ZRegistroTableHeader {
-        /**
-          * Column ID
-         */
-        "columnId": string;
-        /**
-          * [Optional] Default sort order
-         */
-        "defaultSortDirection"?: SortDirection;
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-        /**
-          * [Optional] Padding of the header
-         */
-        "size"?: TableHeaderSize;
-        "sortDirection": SortDirection;
-        /**
-          * [Optional] Make the header sortable
-         */
-        "sortable"?: boolean;
-    }
-    interface ZRegistroTableHeaderRow {
-        "expandable"?: boolean;
-    }
-    interface ZRegistroTableRow {
-        "expandedType": ZRegistroTableRowExpandedType;
-    }
-    interface ZRegistroTableStickyFooter {
-    }
     interface ZSelect {
         /**
           * the input aria-label
@@ -1429,6 +1320,115 @@ export namespace Components {
           * The pressed state of the item.
          */
         "pressed": boolean;
+    }
+    interface ZTable {
+        /**
+          * Sets table with border
+         */
+        "bordered"?: boolean;
+        /**
+          * Sets call to action label
+         */
+        "callToActionLabel"?: string;
+        /**
+          * Sets call to action label
+         */
+        "callToActionTwoLabel"?: string;
+        /**
+          * Sets first column sticky
+         */
+        "columnSticky"?: boolean;
+        /**
+          * Sets empty table
+         */
+        "empty"?: boolean;
+        /**
+          * Set error status
+         */
+        "error"?: boolean;
+        /**
+          * Set error status
+         */
+        "errorLink"?: string;
+        /**
+          * Error message
+         */
+        "errorMessage"?: string;
+        /**
+          * Sets header sticky
+         */
+        "headerSticky"?: boolean;
+        /**
+          * Number of lines of element
+         */
+        "lines"?: number;
+        /**
+          * Set message
+         */
+        "message"?: string;
+        /**
+          * Set subtitle
+         */
+        "subtitle"?: string;
+    }
+    interface ZTableBody {
+    }
+    interface ZTableCell {
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+    }
+    interface ZTableEmptyBox {
+        /**
+          * Sets main title message
+         */
+        "message"?: string;
+        /**
+          * Sets message
+         */
+        "subtitle"?: string;
+    }
+    interface ZTableExpandedRow {
+        /**
+          * Number table column plus 1 for the expand button
+         */
+        "colSpan": number;
+    }
+    interface ZTableFooter {
+    }
+    interface ZTableHead {
+    }
+    interface ZTableHeader {
+        /**
+          * Column ID
+         */
+        "columnId": string;
+        /**
+          * [Optional] Default sort order
+         */
+        "defaultSortDirection"?: SortDirection;
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+        /**
+          * [Optional] Padding of the header
+         */
+        "size"?: TableHeaderSize;
+        "sortDirection": SortDirection;
+        /**
+          * [Optional] Make the header sortable
+         */
+        "sortable"?: boolean;
+    }
+    interface ZTableHeaderRow {
+        "expandable"?: boolean;
+    }
+    interface ZTableRow {
+        "expandedType": ZTableRowExpandedType;
+    }
+    interface ZTableStickyFooter {
     }
     interface ZToastNotification {
         /**
@@ -1942,72 +1942,6 @@ declare global {
         prototype: HTMLZPopoverElement;
         new (): HTMLZPopoverElement;
     };
-    interface HTMLZRegistroTableElement extends Components.ZRegistroTable, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableElement: {
-        prototype: HTMLZRegistroTableElement;
-        new (): HTMLZRegistroTableElement;
-    };
-    interface HTMLZRegistroTableBodyElement extends Components.ZRegistroTableBody, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableBodyElement: {
-        prototype: HTMLZRegistroTableBodyElement;
-        new (): HTMLZRegistroTableBodyElement;
-    };
-    interface HTMLZRegistroTableCellElement extends Components.ZRegistroTableCell, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableCellElement: {
-        prototype: HTMLZRegistroTableCellElement;
-        new (): HTMLZRegistroTableCellElement;
-    };
-    interface HTMLZRegistroTableEmptyBoxElement extends Components.ZRegistroTableEmptyBox, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableEmptyBoxElement: {
-        prototype: HTMLZRegistroTableEmptyBoxElement;
-        new (): HTMLZRegistroTableEmptyBoxElement;
-    };
-    interface HTMLZRegistroTableExpandedRowElement extends Components.ZRegistroTableExpandedRow, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableExpandedRowElement: {
-        prototype: HTMLZRegistroTableExpandedRowElement;
-        new (): HTMLZRegistroTableExpandedRowElement;
-    };
-    interface HTMLZRegistroTableFooterElement extends Components.ZRegistroTableFooter, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableFooterElement: {
-        prototype: HTMLZRegistroTableFooterElement;
-        new (): HTMLZRegistroTableFooterElement;
-    };
-    interface HTMLZRegistroTableHeadElement extends Components.ZRegistroTableHead, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableHeadElement: {
-        prototype: HTMLZRegistroTableHeadElement;
-        new (): HTMLZRegistroTableHeadElement;
-    };
-    interface HTMLZRegistroTableHeaderElement extends Components.ZRegistroTableHeader, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableHeaderElement: {
-        prototype: HTMLZRegistroTableHeaderElement;
-        new (): HTMLZRegistroTableHeaderElement;
-    };
-    interface HTMLZRegistroTableHeaderRowElement extends Components.ZRegistroTableHeaderRow, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableHeaderRowElement: {
-        prototype: HTMLZRegistroTableHeaderRowElement;
-        new (): HTMLZRegistroTableHeaderRowElement;
-    };
-    interface HTMLZRegistroTableRowElement extends Components.ZRegistroTableRow, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableRowElement: {
-        prototype: HTMLZRegistroTableRowElement;
-        new (): HTMLZRegistroTableRowElement;
-    };
-    interface HTMLZRegistroTableStickyFooterElement extends Components.ZRegistroTableStickyFooter, HTMLStencilElement {
-    }
-    var HTMLZRegistroTableStickyFooterElement: {
-        prototype: HTMLZRegistroTableStickyFooterElement;
-        new (): HTMLZRegistroTableStickyFooterElement;
-    };
     interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
     }
     var HTMLZSelectElement: {
@@ -2037,6 +1971,72 @@ declare global {
     var HTMLZStepperItemElement: {
         prototype: HTMLZStepperItemElement;
         new (): HTMLZStepperItemElement;
+    };
+    interface HTMLZTableElement extends Components.ZTable, HTMLStencilElement {
+    }
+    var HTMLZTableElement: {
+        prototype: HTMLZTableElement;
+        new (): HTMLZTableElement;
+    };
+    interface HTMLZTableBodyElement extends Components.ZTableBody, HTMLStencilElement {
+    }
+    var HTMLZTableBodyElement: {
+        prototype: HTMLZTableBodyElement;
+        new (): HTMLZTableBodyElement;
+    };
+    interface HTMLZTableCellElement extends Components.ZTableCell, HTMLStencilElement {
+    }
+    var HTMLZTableCellElement: {
+        prototype: HTMLZTableCellElement;
+        new (): HTMLZTableCellElement;
+    };
+    interface HTMLZTableEmptyBoxElement extends Components.ZTableEmptyBox, HTMLStencilElement {
+    }
+    var HTMLZTableEmptyBoxElement: {
+        prototype: HTMLZTableEmptyBoxElement;
+        new (): HTMLZTableEmptyBoxElement;
+    };
+    interface HTMLZTableExpandedRowElement extends Components.ZTableExpandedRow, HTMLStencilElement {
+    }
+    var HTMLZTableExpandedRowElement: {
+        prototype: HTMLZTableExpandedRowElement;
+        new (): HTMLZTableExpandedRowElement;
+    };
+    interface HTMLZTableFooterElement extends Components.ZTableFooter, HTMLStencilElement {
+    }
+    var HTMLZTableFooterElement: {
+        prototype: HTMLZTableFooterElement;
+        new (): HTMLZTableFooterElement;
+    };
+    interface HTMLZTableHeadElement extends Components.ZTableHead, HTMLStencilElement {
+    }
+    var HTMLZTableHeadElement: {
+        prototype: HTMLZTableHeadElement;
+        new (): HTMLZTableHeadElement;
+    };
+    interface HTMLZTableHeaderElement extends Components.ZTableHeader, HTMLStencilElement {
+    }
+    var HTMLZTableHeaderElement: {
+        prototype: HTMLZTableHeaderElement;
+        new (): HTMLZTableHeaderElement;
+    };
+    interface HTMLZTableHeaderRowElement extends Components.ZTableHeaderRow, HTMLStencilElement {
+    }
+    var HTMLZTableHeaderRowElement: {
+        prototype: HTMLZTableHeaderRowElement;
+        new (): HTMLZTableHeaderRowElement;
+    };
+    interface HTMLZTableRowElement extends Components.ZTableRow, HTMLStencilElement {
+    }
+    var HTMLZTableRowElement: {
+        prototype: HTMLZTableRowElement;
+        new (): HTMLZTableRowElement;
+    };
+    interface HTMLZTableStickyFooterElement extends Components.ZTableStickyFooter, HTMLStencilElement {
+    }
+    var HTMLZTableStickyFooterElement: {
+        prototype: HTMLZTableStickyFooterElement;
+        new (): HTMLZTableStickyFooterElement;
     };
     interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
     }
@@ -2147,22 +2147,22 @@ declare global {
         "z-pocket-header": HTMLZPocketHeaderElement;
         "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
-        "z-registro-table": HTMLZRegistroTableElement;
-        "z-registro-table-body": HTMLZRegistroTableBodyElement;
-        "z-registro-table-cell": HTMLZRegistroTableCellElement;
-        "z-registro-table-empty-box": HTMLZRegistroTableEmptyBoxElement;
-        "z-registro-table-expanded-row": HTMLZRegistroTableExpandedRowElement;
-        "z-registro-table-footer": HTMLZRegistroTableFooterElement;
-        "z-registro-table-head": HTMLZRegistroTableHeadElement;
-        "z-registro-table-header": HTMLZRegistroTableHeaderElement;
-        "z-registro-table-header-row": HTMLZRegistroTableHeaderRowElement;
-        "z-registro-table-row": HTMLZRegistroTableRowElement;
-        "z-registro-table-sticky-footer": HTMLZRegistroTableStickyFooterElement;
         "z-select": HTMLZSelectElement;
         "z-slideshow": HTMLZSlideshowElement;
         "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
+        "z-table": HTMLZTableElement;
+        "z-table-body": HTMLZTableBodyElement;
+        "z-table-cell": HTMLZTableCellElement;
+        "z-table-empty-box": HTMLZTableEmptyBoxElement;
+        "z-table-expanded-row": HTMLZTableExpandedRowElement;
+        "z-table-footer": HTMLZTableFooterElement;
+        "z-table-head": HTMLZTableHeadElement;
+        "z-table-header": HTMLZTableHeaderElement;
+        "z-table-header-row": HTMLZTableHeaderRowElement;
+        "z-table-row": HTMLZTableRowElement;
+        "z-table-sticky-footer": HTMLZTableStickyFooterElement;
         "z-toast-notification": HTMLZToastNotificationElement;
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
@@ -3508,128 +3508,6 @@ declare namespace LocalJSX {
          */
         "showArrow"?: boolean;
     }
-    interface ZRegistroTable {
-        /**
-          * Sets table with border
-         */
-        "bordered"?: boolean;
-        /**
-          * Sets call to action label
-         */
-        "callToActionLabel"?: string;
-        /**
-          * Sets call to action label
-         */
-        "callToActionTwoLabel"?: string;
-        /**
-          * Sets first column sticky
-         */
-        "columnSticky"?: boolean;
-        /**
-          * Sets empty table
-         */
-        "empty"?: boolean;
-        /**
-          * Set error status
-         */
-        "error"?: boolean;
-        /**
-          * Set error status
-         */
-        "errorLink"?: string;
-        /**
-          * Error message
-         */
-        "errorMessage"?: string;
-        /**
-          * Sets header sticky
-         */
-        "headerSticky"?: boolean;
-        /**
-          * Number of lines of element
-         */
-        "lines"?: number;
-        /**
-          * Set message
-         */
-        "message"?: string;
-        /**
-          * remove call to action event
-         */
-        "onCallToAction"?: (event: CustomEvent<any>) => void;
-        /**
-          * remove call to action event
-         */
-        "onCallToActionTwo"?: (event: CustomEvent<any>) => void;
-        /**
-          * Set subtitle
-         */
-        "subtitle"?: string;
-    }
-    interface ZRegistroTableBody {
-    }
-    interface ZRegistroTableCell {
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-    }
-    interface ZRegistroTableEmptyBox {
-        /**
-          * Sets main title message
-         */
-        "message"?: string;
-        /**
-          * Sets message
-         */
-        "subtitle"?: string;
-    }
-    interface ZRegistroTableExpandedRow {
-        /**
-          * Number table column plus 1 for the expand button
-         */
-        "colSpan"?: number;
-    }
-    interface ZRegistroTableFooter {
-    }
-    interface ZRegistroTableHead {
-    }
-    interface ZRegistroTableHeader {
-        /**
-          * Column ID
-         */
-        "columnId"?: string;
-        /**
-          * [Optional] Default sort order
-         */
-        "defaultSortDirection"?: SortDirection;
-        /**
-          * [Optional] callback for sorting
-         */
-        "onSort"?: (event: CustomEvent<any>) => void;
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-        /**
-          * [Optional] Padding of the header
-         */
-        "size"?: TableHeaderSize;
-        "sortDirection"?: SortDirection;
-        /**
-          * [Optional] Make the header sortable
-         */
-        "sortable"?: boolean;
-    }
-    interface ZRegistroTableHeaderRow {
-        "expandable"?: boolean;
-    }
-    interface ZRegistroTableRow {
-        "expandedType"?: ZRegistroTableRowExpandedType;
-        "onExpand"?: (event: CustomEvent<any>) => void;
-    }
-    interface ZRegistroTableStickyFooter {
-    }
     interface ZSelect {
         /**
           * the input aria-label
@@ -3747,6 +3625,128 @@ declare namespace LocalJSX {
           * The pressed state of the item.
          */
         "pressed"?: boolean;
+    }
+    interface ZTable {
+        /**
+          * Sets table with border
+         */
+        "bordered"?: boolean;
+        /**
+          * Sets call to action label
+         */
+        "callToActionLabel"?: string;
+        /**
+          * Sets call to action label
+         */
+        "callToActionTwoLabel"?: string;
+        /**
+          * Sets first column sticky
+         */
+        "columnSticky"?: boolean;
+        /**
+          * Sets empty table
+         */
+        "empty"?: boolean;
+        /**
+          * Set error status
+         */
+        "error"?: boolean;
+        /**
+          * Set error status
+         */
+        "errorLink"?: string;
+        /**
+          * Error message
+         */
+        "errorMessage"?: string;
+        /**
+          * Sets header sticky
+         */
+        "headerSticky"?: boolean;
+        /**
+          * Number of lines of element
+         */
+        "lines"?: number;
+        /**
+          * Set message
+         */
+        "message"?: string;
+        /**
+          * remove call to action event
+         */
+        "onCallToAction"?: (event: CustomEvent<any>) => void;
+        /**
+          * remove call to action event
+         */
+        "onCallToActionTwo"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set subtitle
+         */
+        "subtitle"?: string;
+    }
+    interface ZTableBody {
+    }
+    interface ZTableCell {
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+    }
+    interface ZTableEmptyBox {
+        /**
+          * Sets main title message
+         */
+        "message"?: string;
+        /**
+          * Sets message
+         */
+        "subtitle"?: string;
+    }
+    interface ZTableExpandedRow {
+        /**
+          * Number table column plus 1 for the expand button
+         */
+        "colSpan"?: number;
+    }
+    interface ZTableFooter {
+    }
+    interface ZTableHead {
+    }
+    interface ZTableHeader {
+        /**
+          * Column ID
+         */
+        "columnId"?: string;
+        /**
+          * [Optional] Default sort order
+         */
+        "defaultSortDirection"?: SortDirection;
+        /**
+          * [Optional] callback for sorting
+         */
+        "onSort"?: (event: CustomEvent<any>) => void;
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+        /**
+          * [Optional] Padding of the header
+         */
+        "size"?: TableHeaderSize;
+        "sortDirection"?: SortDirection;
+        /**
+          * [Optional] Make the header sortable
+         */
+        "sortable"?: boolean;
+    }
+    interface ZTableHeaderRow {
+        "expandable"?: boolean;
+    }
+    interface ZTableRow {
+        "expandedType"?: ZTableRowExpandedType;
+        "onExpand"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZTableStickyFooter {
     }
     interface ZToastNotification {
         /**
@@ -3949,22 +3949,22 @@ declare namespace LocalJSX {
         "z-pocket-header": ZPocketHeader;
         "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
-        "z-registro-table": ZRegistroTable;
-        "z-registro-table-body": ZRegistroTableBody;
-        "z-registro-table-cell": ZRegistroTableCell;
-        "z-registro-table-empty-box": ZRegistroTableEmptyBox;
-        "z-registro-table-expanded-row": ZRegistroTableExpandedRow;
-        "z-registro-table-footer": ZRegistroTableFooter;
-        "z-registro-table-head": ZRegistroTableHead;
-        "z-registro-table-header": ZRegistroTableHeader;
-        "z-registro-table-header-row": ZRegistroTableHeaderRow;
-        "z-registro-table-row": ZRegistroTableRow;
-        "z-registro-table-sticky-footer": ZRegistroTableStickyFooter;
         "z-select": ZSelect;
         "z-slideshow": ZSlideshow;
         "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
+        "z-table": ZTable;
+        "z-table-body": ZTableBody;
+        "z-table-cell": ZTableCell;
+        "z-table-empty-box": ZTableEmptyBox;
+        "z-table-expanded-row": ZTableExpandedRow;
+        "z-table-footer": ZTableFooter;
+        "z-table-head": ZTableHead;
+        "z-table-header": ZTableHeader;
+        "z-table-header-row": ZTableHeaderRow;
+        "z-table-row": ZTableRow;
+        "z-table-sticky-footer": ZTableStickyFooter;
         "z-toast-notification": ZToastNotification;
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
@@ -4044,22 +4044,22 @@ declare module "@stencil/core" {
             "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
-            "z-registro-table": LocalJSX.ZRegistroTable & JSXBase.HTMLAttributes<HTMLZRegistroTableElement>;
-            "z-registro-table-body": LocalJSX.ZRegistroTableBody & JSXBase.HTMLAttributes<HTMLZRegistroTableBodyElement>;
-            "z-registro-table-cell": LocalJSX.ZRegistroTableCell & JSXBase.HTMLAttributes<HTMLZRegistroTableCellElement>;
-            "z-registro-table-empty-box": LocalJSX.ZRegistroTableEmptyBox & JSXBase.HTMLAttributes<HTMLZRegistroTableEmptyBoxElement>;
-            "z-registro-table-expanded-row": LocalJSX.ZRegistroTableExpandedRow & JSXBase.HTMLAttributes<HTMLZRegistroTableExpandedRowElement>;
-            "z-registro-table-footer": LocalJSX.ZRegistroTableFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableFooterElement>;
-            "z-registro-table-head": LocalJSX.ZRegistroTableHead & JSXBase.HTMLAttributes<HTMLZRegistroTableHeadElement>;
-            "z-registro-table-header": LocalJSX.ZRegistroTableHeader & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderElement>;
-            "z-registro-table-header-row": LocalJSX.ZRegistroTableHeaderRow & JSXBase.HTMLAttributes<HTMLZRegistroTableHeaderRowElement>;
-            "z-registro-table-row": LocalJSX.ZRegistroTableRow & JSXBase.HTMLAttributes<HTMLZRegistroTableRowElement>;
-            "z-registro-table-sticky-footer": LocalJSX.ZRegistroTableStickyFooter & JSXBase.HTMLAttributes<HTMLZRegistroTableStickyFooterElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
             "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
+            "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
+            "z-table-body": LocalJSX.ZTableBody & JSXBase.HTMLAttributes<HTMLZTableBodyElement>;
+            "z-table-cell": LocalJSX.ZTableCell & JSXBase.HTMLAttributes<HTMLZTableCellElement>;
+            "z-table-empty-box": LocalJSX.ZTableEmptyBox & JSXBase.HTMLAttributes<HTMLZTableEmptyBoxElement>;
+            "z-table-expanded-row": LocalJSX.ZTableExpandedRow & JSXBase.HTMLAttributes<HTMLZTableExpandedRowElement>;
+            "z-table-footer": LocalJSX.ZTableFooter & JSXBase.HTMLAttributes<HTMLZTableFooterElement>;
+            "z-table-head": LocalJSX.ZTableHead & JSXBase.HTMLAttributes<HTMLZTableHeadElement>;
+            "z-table-header": LocalJSX.ZTableHeader & JSXBase.HTMLAttributes<HTMLZTableHeaderElement>;
+            "z-table-header-row": LocalJSX.ZTableHeaderRow & JSXBase.HTMLAttributes<HTMLZTableHeaderRowElement>;
+            "z-table-row": LocalJSX.ZTableRow & JSXBase.HTMLAttributes<HTMLZTableRowElement>;
+            "z-table-sticky-footer": LocalJSX.ZTableStickyFooter & JSXBase.HTMLAttributes<HTMLZTableStickyFooterElement>;
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;

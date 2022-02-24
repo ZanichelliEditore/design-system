@@ -13,21 +13,16 @@
 
 ## Dependencies
 
-### Used by
-
- - [z-registro-table](../z-registro-table)
-
 ### Depends on
 
-- [z-body](../../../components/typography/z-body)
+- [z-body](../../typography/z-body)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-registro-table-empty-box --> z-body
+  z-table-empty-box --> z-body
   z-body --> z-typography
-  z-registro-table --> z-registro-table-empty-box
-  style z-registro-table-empty-box fill:#f9f,stroke:#333,stroke-width:4px
+  style z-table-empty-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

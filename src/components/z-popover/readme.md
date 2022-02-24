@@ -22,13 +22,13 @@
 ### Used by
 
  - [z-contextual-menu](../z-contextual-menu)
- - [z-registro-table-header](../../snowflakes/registro-table/z-registro-table-header)
+ - [z-table-header](../z-table/z-table-header)
 
 ### Graph
 ```mermaid
 graph TD;
   z-contextual-menu --> z-popover
-  z-registro-table-header --> z-popover
+  z-table-header --> z-popover
   style z-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

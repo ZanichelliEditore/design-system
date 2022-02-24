@@ -47,20 +47,17 @@
 
 ### Depends on
 
-- [z-body](../../../components/typography/z-body)
-- [z-registro-table-empty-box](../z-registro-table-empty-box)
-- [z-button](../../../components/buttons/z-button)
+- [z-body](../../typography/z-body)
+- [z-button](../../buttons/z-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-registro-table --> z-body
-  z-registro-table --> z-registro-table-empty-box
-  z-registro-table --> z-button
+  z-table --> z-body
+  z-table --> z-button
   z-body --> z-typography
-  z-registro-table-empty-box --> z-body
   z-button --> z-icon
-  style z-registro-table fill:#f9f,stroke:#333,stroke-width:4px
+  style z-table fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

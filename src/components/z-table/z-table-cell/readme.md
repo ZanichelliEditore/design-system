@@ -20,19 +20,19 @@
 
 ### Used by
 
- - [z-registro-table-row](../z-registro-table-row)
+ - [z-table-row](../z-table-row)
 
 ### Depends on
 
-- [z-button](../../../components/buttons/z-button)
+- [z-button](../../buttons/z-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-registro-table-cell --> z-button
+  z-table-cell --> z-button
   z-button --> z-icon
-  z-registro-table-row --> z-registro-table-cell
-  style z-registro-table-cell fill:#f9f,stroke:#333,stroke-width:4px
+  z-table-row --> z-table-cell
+  style z-table-cell fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

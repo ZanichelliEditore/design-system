@@ -16,17 +16,17 @@
 
 ### Depends on
 
-- [z-registro-table-header](../z-registro-table-header)
+- [z-table-header](../z-table-header)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-registro-table-header-row --> z-registro-table-header
-  z-registro-table-header --> z-icon
-  z-registro-table-header --> z-popover
-  z-registro-table-header --> z-button
+  z-table-header-row --> z-table-header
+  z-table-header --> z-icon
+  z-table-header --> z-popover
+  z-table-header --> z-button
   z-button --> z-icon
-  style z-registro-table-header-row fill:#f9f,stroke:#333,stroke-width:4px
+  style z-table-header-row fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
