@@ -18,7 +18,7 @@ a {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  padding: calc(var(--space-unit) * .5) 0;
+  padding: calc(var(--space-unit) * 0.5) 0;
   border-top: var(--border-size-medium) solid transparent;
   border-bottom: var(--border-size-medium) solid transparent;
 }
@@ -108,10 +108,14 @@ a.black {
 }
 
 a.black:hover,
-a.black.active,
-a.black:visited {
+a.black.active {
   color: var(--color-black);
   fill: var(--color-black);
+}
+
+a.black:visited {
+  color: var(--gray800);
+  fill: var(--gray800);
 }
 
 a.black:hover,
