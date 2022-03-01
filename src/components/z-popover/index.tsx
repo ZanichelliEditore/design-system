@@ -32,13 +32,16 @@ export class ZPopover {
   @State() isVisible: boolean = false;
 
   private popoverElem: HTMLElement;
-  private defaultPosition: PopoverPosition = this.position;
 
   /**
    * Constructor.
    */
   constructor() {
     this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+
+  componentDidLoad() {
+    this.checkSpaceAvailable();
   }
 
   @Listen("closePopover")
@@ -79,18 +82,15 @@ export class ZPopover {
   }
 
   checkSpaceAvailable() {
-    if (!this.isVisible) {
-      this.position = this.defaultPosition;
-      return;
-    }
 
     const width = document.body.clientWidth;
     const height = window.innerHeight;
+    const rect = this.popoverElem.getBoundingClientRect();
 
-    const l = this.popoverElem.getBoundingClientRect().left;
-    const r = this.popoverElem.getBoundingClientRect().right;
-    const t = this.popoverElem.getBoundingClientRect().top;
-    const b = this.popoverElem.getBoundingClientRect().bottom;
+    const l = rect.left;
+    const r = rect.right;
+    const t = rect.top;
+    const b = rect.bottom;
 
     let firstSide = this.position.split("-")[0];
     let secondSide = this.position.split("-")[1];
