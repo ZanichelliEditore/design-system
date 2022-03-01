@@ -14,11 +14,11 @@ export declare class ZPopover {
   padding?: string;
   isVisible: boolean;
   private popoverElem;
-  private defaultPosition;
   /**
    * Constructor.
    */
   constructor();
+  componentDidLoad(): void;
   closePopover(): void;
   closePopoverWithKeyboard(e: any): void;
   handleClick(event: any): void;
