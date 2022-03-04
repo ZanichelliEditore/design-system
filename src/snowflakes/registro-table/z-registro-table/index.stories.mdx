@@ -1,12 +1,78 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, boolean } from "@storybook/addon-knobs";
+import { boolean, select, text } from "@storybook/addon-knobs";
 
 <Meta title="RegistroTable/ZRegistroTable" component="z-registro-table" />
 
 # ZRegistroTable
 
 <Preview>
+  <Story name="ZRegistroTable-padding">
+    {html`
+      <z-registro-table bordered="true">
+        <z-registro-table-body>
+          <z-registro-table-head>
+            <z-registro-table-header-row>
+              <z-registro-table-header padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}">
+                <span>Titolo 1</span>
+              </z-registro-table-header>
+              <z-registro-table-header padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}">
+                <span>Titolo 2</span>
+              </z-registro-table-header>
+            </z-registro-table-header-row>
+          </z-registro=table-head>
+          <z-registro-table-row>
+            <z-registro-table-cell
+              padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}"
+            >
+              <span>1-1</span>
+            </z-registro-table-cell>
+            <z-registro-table-cell
+              padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}"
+            >
+              <span>1-2</span>
+            </z-registro-table-cell>
+          </z-registro-table-row>
+          <z-registro-table-row>
+            <z-registro-table-cell
+              padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}"
+            >
+              <span>2-1</span>
+            </z-registro-table-cell>
+            <z-registro-table-cell
+              padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}"
+            >
+              <span>2-2</span>
+            </z-registro-table-cell>
+          </z-registro-table-row>
+        </z-registro-table-body>
+      </z-registro-table>
+    `}
+  </Story>
   <Story name="ZRegistroTable-sample">
     {html`<z-registro-table
       bordered="${boolean("bordered", true)}"
