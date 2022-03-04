@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, State } from "@stencil/core";
-import { ButtonVariantEnum, ButtonSizeEnum } from "../../../beans";
+import { ButtonVariantEnum, ButtonSizeEnum, Size } from "../../../beans";
 import classNames from "classnames";
 
 @Component({
@@ -12,6 +12,9 @@ export class ZRegistroTableCell {
 
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
+
+  /** Set padding size of cell, if special 0px padding will be set */
+  @Prop({ reflect: true }) padding: Size = Size.medium;
 
   @State() isMenuOpened: boolean = false;
 
