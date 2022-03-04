@@ -34,7 +34,7 @@ export class ZRegistroTableHeader {
   @Prop({ reflect: true }) padding: Size = Size.medium;
 
   /** [Optional] Make the header sortable */
-  @Prop({ reflect: true }) sortable?: boolean;
+  @Prop() sortable?: boolean;
 
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
