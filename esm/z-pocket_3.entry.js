@@ -1,8 +1,9 @@
 import { r as registerInstance, c as createEvent, h, g as getElement } from './index-fa9e549c.js';
-import { q as PocketStatusEnum } from './index-4952bfe3.js';
-import { h as handleKeyboardSubmit } from './utils-889efe17.js';
-import { h as hammer } from './hammer-c807d0b5.js';
+import { h as PocketStatusEnum } from './index-09b57d95.js';
+import { h as handleKeyboardSubmit } from './utils-f0067254.js';
+import { h as hammer } from './hammer-501342a9.js';
 import './breakpoints-c386984e.js';
+import './_commonjsHelpers-8b28c6fa.js';
 
 const stylesCss$2 = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);width:inherit;height:100%;margin:inherit}:host>div{width:inherit;height:100%;margin:inherit}:host>div>div.background{position:fixed;left:0;right:0;top:0;bottom:0;z-index:998;width:0;height:0}:host>div>div.background.open{height:100%;width:100%}:host>div>div.contentWrapper{position:fixed;z-index:999;bottom:0;left:0;width:inherit;margin:inherit}:host>div>div.contentWrapper>div{border-radius:var(--space-unit) var(--space-unit) 0px 0px;box-shadow:0px -2px calc(var(--space-unit) * 0.5) 0px rgba(66, 69, 72, 0.4);margin:calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 0.5) 0 calc(var(--space-unit) * 0.5)}";
 

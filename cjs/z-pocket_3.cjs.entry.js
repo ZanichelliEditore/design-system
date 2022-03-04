@@ -3,10 +3,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-dee3e21d.js');
-const index$1 = require('./index-11a8a536.js');
-const utils = require('./utils-00e14fba.js');
-const hammer = require('./hammer-6e321f0b.js');
+const index$1 = require('./index-de6c491e.js');
+const utils = require('./utils-12053886.js');
+const hammer = require('./hammer-54230951.js');
 require('./breakpoints-88c4fd6c.js');
+require('./_commonjsHelpers-119ffc74.js');
 
 const stylesCss$2 = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);width:inherit;height:100%;margin:inherit}:host>div{width:inherit;height:100%;margin:inherit}:host>div>div.background{position:fixed;left:0;right:0;top:0;bottom:0;z-index:998;width:0;height:0}:host>div>div.background.open{height:100%;width:100%}:host>div>div.contentWrapper{position:fixed;z-index:999;bottom:0;left:0;width:inherit;margin:inherit}:host>div>div.contentWrapper>div{border-radius:var(--space-unit) var(--space-unit) 0px 0px;box-shadow:0px -2px calc(var(--space-unit) * 0.5) 0px rgba(66, 69, 72, 0.4);margin:calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 0.5) 0 calc(var(--space-unit) * 0.5)}";
 

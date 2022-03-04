@@ -137,14 +137,6 @@ export var DividerOrientation;
   DividerOrientation["horizontal"] = "horizontal";
   DividerOrientation["vertical"] = "vertical";
 })(DividerOrientation || (DividerOrientation = {}));
-export var TableHeaderSize;
-(function (TableHeaderSize) {
-  TableHeaderSize["x-small"] = "x-small";
-  TableHeaderSize["small"] = "small";
-  TableHeaderSize["medium"] = "medium";
-  TableHeaderSize["large"] = "large";
-  TableHeaderSize["special"] = "special";
-})(TableHeaderSize || (TableHeaderSize = {}));
 export var SortDirectionEnum;
 (function (SortDirectionEnum) {
   SortDirectionEnum["asc"] = "asc";
@@ -172,6 +164,14 @@ export var ListSize;
   ListSize["large"] = "large";
   ListSize["x-large"] = "x-large";
 })(ListSize || (ListSize = {}));
+export var Size;
+(function (Size) {
+  Size["x-small"] = "x-small";
+  Size["small"] = "small";
+  Size["medium"] = "medium";
+  Size["large"] = "large";
+  Size["special"] = "special";
+})(Size || (Size = {}));
 export var ExpandableListStyle;
 (function (ExpandableListStyle) {
   ExpandableListStyle["accordion"] = "accordion";

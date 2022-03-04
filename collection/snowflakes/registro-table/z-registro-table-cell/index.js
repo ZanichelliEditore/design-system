@@ -1,8 +1,10 @@
 import { Component, Element, h, Host, Prop, State } from "@stencil/core";
-import { ButtonVariantEnum, ButtonSizeEnum } from "../../../beans";
+import { ButtonVariantEnum, ButtonSizeEnum, Size } from "../../../beans";
 import classNames from "classnames";
 export class ZRegistroTableCell {
   constructor() {
+    /** Set padding size of cell, if special 0px padding will be set */
+    this.padding = Size.medium;
     this.isMenuOpened = false;
   }
   handleMenu() {
@@ -49,6 +51,29 @@ export class ZRegistroTableCell {
       },
       "attribute": "show-button",
       "reflect": false
+    },
+    "padding": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "Size",
+        "resolved": "Size.large | Size.medium | Size.small | Size.special | typeof Size[\"x-small\"]",
+        "references": {
+          "Size": {
+            "location": "import",
+            "path": "../../../beans"
+          }
+        }
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Set padding size of cell, if special 0px padding will be set"
+      },
+      "attribute": "padding",
+      "reflect": true,
+      "defaultValue": "Size.medium"
     }
   }; }
   static get states() { return {

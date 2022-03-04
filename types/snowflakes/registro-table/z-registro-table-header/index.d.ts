@@ -1,11 +1,11 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { SortDirection, TableHeaderSize } from "../../../beans";
+import { Size, SortDirection } from "../../../beans";
 export declare class ZRegistroTableHeader {
   host: HTMLElement;
   /** Column ID */
   columnId: string;
-  /** [Optional] Padding of the header */
-  size?: TableHeaderSize;
+  /** Set padding size of cell, if special 0px padding will be set */
+  padding: Size;
   /** [Optional] Make the header sortable */
   sortable?: boolean;
   /** [Optional] Show contextual menu button */

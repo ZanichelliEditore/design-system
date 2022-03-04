@@ -17,27 +17,23 @@
   cursor: pointer;
 }
 
-/*
-Padding
-*/
-:host(.size-x-small) {
-  padding: calc(var(--space-unit) / 2);
+:host([padding="x-small"]) {
+  padding: calc(var(--space-unit) * 0.5);
+}
+:host([padding="small"]) {
+  padding: calc(var(--space-unit));
 }
 
-:host(.size-small) {
-  padding: var(--space-unit);
-}
-
-:host(.size-medium) {
+:host([padding="medium"]) {
   padding: calc(var(--space-unit) * 2);
 }
 
-:host(.size-large) {
-  padding: calc(var(--space-unit) * 3);
+:host([padding="large"]) {
+  padding: calc(var(--space-unit) * 2.5);
 }
 
-:host(.size-special) {
-  padding: 20px 40px;
+:host([padding="special"]) {
+  padding: 0;
 }
 
 /*

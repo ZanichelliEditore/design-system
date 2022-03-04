@@ -217,13 +217,6 @@ export declare enum DividerOrientation {
   horizontal = "horizontal",
   vertical = "vertical"
 }
-export declare enum TableHeaderSize {
-  "x-small" = "x-small",
-  small = "small",
-  medium = "medium",
-  large = "large",
-  special = "special"
-}
 export declare enum SortDirectionEnum {
   asc = "asc",
   desc = "desc",
@@ -247,6 +240,13 @@ export declare enum ListSize {
   medium = "medium",
   large = "large",
   "x-large" = "x-large"
+}
+export declare enum Size {
+  "x-small" = "x-small",
+  small = "small",
+  medium = "medium",
+  large = "large",
+  special = "special"
 }
 export declare enum ExpandableListStyle {
   accordion = "accordion",

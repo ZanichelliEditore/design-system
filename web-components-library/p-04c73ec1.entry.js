@@ -1,1 +1,0 @@
-import{r,h as a,H as t}from"./p-904a85e4.js";import{p as s}from"./p-65c08b33.js";const i=class{constructor(a){r(this,a),this.mode=s.polite}render(){return a(t,{"aria-live":this.mode,"aria-atomic":"true","aria-relevant":"additions"},a("slot",null))}};export{i as z_aria_alert}

@@ -1,11 +1,11 @@
 import { Component, Element, Event, h, Host, Listen, Prop, State, } from "@stencil/core";
 import classNames from "classnames";
-import { ButtonSizeEnum, ButtonVariantEnum, PopoverPosition, SortDirectionEnum, TableHeaderSize, } from "../../../beans";
+import { ButtonSizeEnum, ButtonVariantEnum, PopoverPosition, Size, SortDirectionEnum, } from "../../../beans";
 import { getElementTree } from "../../../utils/utils";
 export class ZRegistroTableHeader {
   constructor() {
-    /** [Optional] Padding of the header */
-    this.size = TableHeaderSize["medium"];
+    /** Set padding size of cell, if special 0px padding will be set */
+    this.padding = Size.medium;
     /** [Optional] Default sort order */
     this.defaultSortDirection = SortDirectionEnum.asc;
     this.sortDirection = SortDirectionEnum.none;
@@ -15,7 +15,7 @@ export class ZRegistroTableHeader {
   emitOnSort() {
     this.sort.emit({
       columnId: this.columnId,
-      sortDirection: this.sortDirection
+      sortDirection: this.sortDirection,
     });
   }
   handleSort() {
@@ -24,10 +24,14 @@ export class ZRegistroTableHeader {
     }
     this.sortDirection = (() => {
       switch (this.sortDirection) {
-        case (SortDirectionEnum.asc): return SortDirectionEnum.desc;
-        case (SortDirectionEnum.desc): return SortDirectionEnum.asc;
-        case (SortDirectionEnum.none): return this.defaultSortDirection;
-        default: return SortDirectionEnum.none;
+        case SortDirectionEnum.asc:
+          return SortDirectionEnum.desc;
+        case SortDirectionEnum.desc:
+          return SortDirectionEnum.asc;
+        case SortDirectionEnum.none:
+          return this.defaultSortDirection;
+        default:
+          return SortDirectionEnum.none;
       }
     })();
     this.emitOnSort();
@@ -58,7 +62,7 @@ export class ZRegistroTableHeader {
     this.host.setAttribute("role", "columnheader");
   }
   render() {
-    return (h(Host, { class: classNames(`size-${this.size}`, {
+    return (h(Host, { class: classNames({
         sortable: this.sortable,
       }), onClick: () => this.handleSort() },
       h("div", { class: classNames("container") },
@@ -100,28 +104,28 @@ export class ZRegistroTableHeader {
       "attribute": "column-id",
       "reflect": false
     },
-    "size": {
+    "padding": {
       "type": "string",
       "mutable": false,
       "complexType": {
-        "original": "TableHeaderSize",
-        "resolved": "TableHeaderSize.large | TableHeaderSize.medium | TableHeaderSize.small | TableHeaderSize.special | typeof TableHeaderSize[\"x-small\"]",
+        "original": "Size",
+        "resolved": "Size.large | Size.medium | Size.small | Size.special | typeof Size[\"x-small\"]",
         "references": {
-          "TableHeaderSize": {
+          "Size": {
             "location": "import",
             "path": "../../../beans"
           }
         }
       },
       "required": false,
-      "optional": true,
+      "optional": false,
       "docs": {
         "tags": [],
-        "text": "[Optional] Padding of the header"
+        "text": "Set padding size of cell, if special 0px padding will be set"
       },
-      "attribute": "size",
-      "reflect": false,
-      "defaultValue": "TableHeaderSize[\"medium\"]"
+      "attribute": "padding",
+      "reflect": true,
+      "defaultValue": "Size.medium"
     },
     "sortable": {
       "type": "boolean",
