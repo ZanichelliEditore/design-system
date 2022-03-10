@@ -101,7 +101,7 @@ export class ZTableHeader {
   handleClickHeaders(e: any) {
     const { target } = e;
     const parent = getElementTree(target).find(
-      (elem: any) => elem.nodeName.toLowerCase() === "z-registro-table-header"
+      (elem: any) => elem.nodeName.toLowerCase() === "z-table-header"
     );
 
     if (!this.sortable || !parent) {

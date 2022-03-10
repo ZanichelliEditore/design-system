@@ -10,7 +10,7 @@ describe("Suite test ZTableHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header padding="size-medium" role="columnheader">
+      <z-table-header padding="medium" role="columnheader">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -94,11 +94,11 @@ describe("Suite test ZTableHeader", () => {
   it("Test render ZTableHeader with correct size when size is small", async () => {
     const page = await newSpecPage({
       components: [ZTableHeader],
-      html: `<z-registro-table-header padding="small"></z-registro-table-header>`,
+      html: `<z-table-header padding="small"></z-table-header>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-registro-table-header padding="small" role="columnheader">
+      <z-table-header padding="small" role="columnheader">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -132,7 +132,7 @@ describe("Suite test ZTableHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-registro-table-header padding="large" role="columnheader">
+      <z-table-header padding="large" role="columnheader">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -149,7 +149,7 @@ describe("Suite test ZTableHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-registro-table-header padding="special" role="columnheader">
+      <z-table-header padding="special" role="columnheader">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>

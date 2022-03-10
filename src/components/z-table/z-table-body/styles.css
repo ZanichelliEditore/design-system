@@ -4,6 +4,6 @@
   font-weight: var(--font-rg);
 }
 
-:host > z-registro-table-row[expanded] + z-registro-table-expanded-row {
+:host > z-table-row[expanded] + z-table-expanded-row {
   display: table-row;
 }

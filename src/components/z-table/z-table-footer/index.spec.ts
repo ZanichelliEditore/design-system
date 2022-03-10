@@ -6,12 +6,12 @@ describe("Suite test ZRegistroTableFooter", () => {
   it("Test render ZRegistroTableFooter con slot", async () => {
     const page = await newSpecPage({
       components: [ZTableFooter],
-      html: `<z-table-footer><z-registro-table-row></z-registro-table-row></z-table-footer>`,
+      html: `<z-table-footer><z-table-row></z-table-row></z-table-footer>`,
     });
 
     expect(page.root).toEqualHtml(`
       <z-table-footer role="rowgroup">
-        <z-registro-table-row></z-registro-table-row>
+        <z-table-row></z-table-row>
       </z-table-footer>
     `);
   });

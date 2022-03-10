@@ -1,4 +1,4 @@
-z-registro-table {
+z-table {
   overflow-x: auto;
   display: block;
   width: 100%;
@@ -7,76 +7,76 @@ z-registro-table {
   background-color: var(--color-white);
 }
 
-z-registro-table > div.table {
+z-table > div.table {
   display: table;
   width: 100%;
   border-collapse: separate;
 }
 
-z-registro-table
+z-table
   > div.table-bordered
-  > z-registro-table-body
-  > z-registro-table-row
-  > z-registro-table-cell:not(:last-child),
-z-registro-table
+  > z-table-body
+  > z-table-row
+  > z-table-cell:not(:last-child),
+z-table
   > div.table-bordered
-  > z-registro-table-head
-  > z-registro-table-header-row
-  > z-registro-table-header:not(:last-child) {
+  > z-table-head
+  > z-table-header-row
+  > z-table-header:not(:last-child) {
   border-right: var(--border-size-small) solid var(--bg-grey-200);
 }
 
 /** Remove border right to first cell if row is expandable */
-z-registro-table
+z-table
   > div
-  > z-registro-table-body
-  > z-registro-table-row[expandable]
-  > z-registro-table-cell:first-child,
-z-registro-table
+  > z-table-body
+  > z-table-row[expandable]
+  > z-table-cell:first-child,
+z-table
   > div
-  > z-registro-table-head
-  > z-registro-table-header-row[expandable]
-  > z-registro-table-header:first-child {
+  > z-table-head
+  > z-table-header-row[expandable]
+  > z-table-header:first-child {
   border-right: none;
 }
 
-z-registro-table
+z-table
   > div
-  > z-registro-table-body
-  > z-registro-table-row[expanded]
-  > z-registro-table-cell {
+  > z-table-body
+  > z-table-row[expanded]
+  > z-table-cell {
   background-color: var(--gray50);
 }
 
-z-registro-table
+z-table
   > div
-  > z-registro-table-body
-  > z-registro-table-row[expanded]
-  + z-registro-table-expanded-row {
+  > z-table-body
+  > z-table-row[expanded]
+  + z-table-expanded-row {
   border-bottom: 1px solid var(--gray200);
 }
 
-z-registro-table
+z-table
   > div.table-column-sticky
-  > z-registro-table-body
-  > z-registro-table-row
-  > z-registro-table-cell:first-child,
-z-registro-table
+  > z-table-body
+  > z-table-row
+  > z-table-cell:first-child,
+z-table
   > div.table-column-sticky
-  > z-registro-table-head
-  > z-registro-table-header-row
-  > z-registro-table-header:first-child {
+  > z-table-head
+  > z-table-header-row
+  > z-table-header:first-child {
   position: sticky;
   left: 0;
   box-shadow: 1px 0 4px -1px rgba(66, 69, 72, 0.4);
   z-index: 1;
 }
 
-z-registro-table
+z-table
   > div.table-header-sticky
-  > z-registro-table-head
-  > z-registro-table-header-row
-  > z-registro-table-header {
+  > z-table-head
+  > z-table-header-row
+  > z-table-header {
   position: sticky;
   top: 0;
   box-shadow: 0 2px 3px -3px rgba(66, 69, 72, 0.4);
@@ -85,43 +85,43 @@ z-registro-table
 /**
  * L'ombra delle celle sticky non va sopra all'header fisso.
  */
-z-registro-table
+z-table
   > div.table-header-sticky
-  > z-registro-table-head
-  > z-registro-table-header-row
-  > z-registro-table-header {
+  > z-table-head
+  > z-table-header-row
+  > z-table-header {
   z-index: 2;
 }
 
 /**
  * La cella in alto a sinistra rimane sempre sopra alle cell durante lo scroll.
  */
-z-registro-table
+z-table
   > div.table-header-sticky
-  > z-registro-table-head
-  > z-registro-table-header-row
-  > z-registro-table-header:first-child,
-z-registro-table
+  > z-table-head
+  > z-table-header-row
+  > z-table-header:first-child,
+z-table
   > div.table-column-sticky
-  > z-registro-table-head
-  > z-registro-table-header-row
-  > z-registro-table-header:first-child {
+  > z-table-head
+  > z-table-header-row
+  > z-table-header:first-child {
   z-index: 5;
 }
 
-z-registro-table-body {
+z-table-body {
   width: auto;
   background-color: var(--color-white);
 }
 
-z-registro-table-empty-box {
+z-table-empty-box {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   border-bottom: var(--border-size-small) solid var(--bg-grey-200);
 }
 
-z-registro-table-empty-box.bordered {
+z-table-empty-box.bordered {
   border-left: var(--border-size-small) solid var(--bg-grey-200);
 }
 
@@ -149,7 +149,7 @@ z-registro-table-empty-box.bordered {
 
 /* Mobile */
 @media only screen and (max-width: 768px) {
-  z-registro-table > div.table-empty {
+  z-table > div.table-empty {
     display: none;
   }
   .error-content {

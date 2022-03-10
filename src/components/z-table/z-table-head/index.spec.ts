@@ -6,12 +6,12 @@ describe("Suite test ZRegistroTableHead", () => {
   it("Test render ZRegistroTableHead con slot", async () => {
     const page = await newSpecPage({
       components: [ZTableHead],
-      html: `<z-table-head><z-registro-table-row></z-registro-table-row></z-table-head>`,
+      html: `<z-table-head><z-table-row></z-table-row></z-table-head>`,
     });
 
     expect(page.root).toEqualHtml(`
       <z-table-head role="rowgroup">
-        <z-registro-table-row></z-registro-table-row>
+        <z-table-row></z-table-row>
       </z-table-head>
     `);
   });

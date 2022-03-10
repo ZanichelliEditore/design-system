@@ -6,27 +6,27 @@ describe("Suite test ZTableCell", () => {
   it("Test render ZTableCell con slot", async () => {
     const page = await newSpecPage({
       components: [ZTableCell],
-      html: `<z-registro-table-cell><span>Test</span></z-registro-table-cell>`,
+      html: `<z-table-cell><span>Test</span></z-table-cell>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-registro-table-cell padding="medium" role="cell">
+      <z-table-cell padding="medium" role="cell">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
         <span>Test</span>
-      </z-registro-table-cell>
+      </z-table-cell>
     `);
   });
 
   it("Test render ZTableCell con button", async () => {
     const page = await newSpecPage({
       components: [ZTableCell],
-      html: `<z-registro-table-cell show-button="true"><span>Test</span></z-registro-table-cell>`,
+      html: `<z-table-cell show-button="true"><span>Test</span></z-table-cell>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-registro-table-cell  padding="medium" role="cell" show-button="true">
+      <z-table-cell  padding="medium" role="cell" show-button="true">
         <mock:shadow-root>
           <div class="button-container">
             <div class="button-content">
@@ -41,14 +41,14 @@ describe("Suite test ZTableCell", () => {
         <span>
           Test
         </span>
-      </z-registro-table-cell>
+      </z-table-cell>
     `);
   });
 
   it("Test render ZTableCell con role cell", async () => {
     const page = await newSpecPage({
       components: [ZTableCell],
-      html: `<z-registro-table-cell></z-registro-table-cell>`,
+      html: `<z-table-cell></z-table-cell>`,
     });
 
     expect(page.root.getAttribute("role")).toEqual("cell");

@@ -6,20 +6,20 @@ describe("Suite test ZTableRow", () => {
   it("Test render ZTableRow vuoto", async () => {
     const page = await newSpecPage({
       components: [ZTableRow],
-      html: `<z-registro-table-row><z-registro-table-cell></z-registro-table-cell></z-registro-table-row>`,
+      html: `<z-table-row><z-table-cell></z-table-cell></z-table-row>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-registro-table-row expanded-type="none" role="row">
-        <z-registro-table-cell></z-registro-table-cell>
-      </z-registro-table-row>
+      <z-table-row expanded-type="none" role="row">
+        <z-table-cell></z-table-cell>
+      </z-table-row>
     `);
   });
 
   it("Test render ZTableRow con role row", async () => {
     const page = await newSpecPage({
       components: [ZTableRow],
-      html: `<z-registro-table-row></z-registro-table-row>`,
+      html: `<z-table-row></z-table-row>`,
     });
 
     expect(page.root.getAttribute("role")).toEqual("row");

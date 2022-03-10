@@ -6,12 +6,12 @@ describe("Suite test ZRegistroTableBody", () => {
   it("Test render ZRegistroTableBody con slot", async () => {
     const page = await newSpecPage({
       components: [ZTableBody],
-      html: `<z-table-body><z-registro-table-row></z-registro-table-row></z-table-body>`,
+      html: `<z-table-body><z-table-row></z-table-row></z-table-body>`,
     });
 
     expect(page.root).toEqualHtml(
       `<z-table-body role="rowgroup">
-        <z-registro-table-row aria-rowindex="0"></z-registro-table-row>
+        <z-table-row aria-rowindex="0"></z-table-row>
       </z-table-body>`
     );
   });

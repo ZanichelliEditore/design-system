@@ -120,7 +120,7 @@ export class ZTable {
         <div class={tableClass}>
           <slot name="table-header" />
         </div>
-        <z-registro-table-error>
+        <z-table-error>
           <div class="error-content" style={{ minHeight }}>
             <slot name="error-image" />
             <div class="text">
@@ -130,7 +130,7 @@ export class ZTable {
               <slot name="error-action" />
             </div>
           </div>
-        </z-registro-table-error>
+        </z-table-error>
       </Host>
     );
   }
@@ -147,7 +147,7 @@ export class ZTable {
             <slot name="table-header" />
             <div class={tableContentClass}>
               <slot name="table-body" />
-              <z-registro-table-empty-box
+              <z-table-empty-box
                 class={this.bordered && "bordered"}
                 message={this.message}
                 subtitle={this.subtitle}
@@ -172,7 +172,7 @@ export class ZTable {
                     {this.callToActionTwoLabel}
                   </z-button>
                 )}
-              </z-registro-table-empty-box>
+              </z-table-empty-box>
             </div>
           </div>
         </Host>
@@ -184,7 +184,7 @@ export class ZTable {
         <div class={tableClass}>
           <slot name="table-header" />
         </div>
-        <z-registro-table-empty-box
+        <z-table-empty-box
           class={this.bordered && "bordered"}
           message={this.message}
           subtitle={this.subtitle}
@@ -209,7 +209,7 @@ export class ZTable {
               {this.callToActionTwoLabel}
             </z-button>
           )}
-        </z-registro-table-empty-box>
+        </z-table-empty-box>
       </Host>
     );
   }
