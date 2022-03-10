@@ -14,9 +14,9 @@ import {
   ButtonSizeEnum,
   ButtonVariantEnum,
   PopoverPosition,
+  Size,
   SortDirection,
   SortDirectionEnum,
-  TableHeaderSize,
 } from "../../../beans";
 import { getElementTree } from "../../../utils/utils";
 @Component({
@@ -30,8 +30,8 @@ export class ZTableHeader {
   /** Column ID */
   @Prop() columnId: string;
 
-  /** [Optional] Padding of the header */
-  @Prop() size?: TableHeaderSize = TableHeaderSize["medium"];
+  /** Set padding size of cell, if special 0px padding will be set */
+  @Prop({ reflect: true }) padding: Size = Size.medium;
 
   /** [Optional] Make the header sortable */
   @Prop() sortable?: boolean;
@@ -42,7 +42,8 @@ export class ZTableHeader {
   /** [Optional] Default sort order */
   @Prop() defaultSortDirection?: SortDirection = SortDirectionEnum.asc;
 
-  @Prop({ mutable: true }) sortDirection: SortDirection = SortDirectionEnum.none;
+  @Prop({ mutable: true }) sortDirection: SortDirection =
+    SortDirectionEnum.none;
 
   @State() isMenuOpened: boolean = false;
 
@@ -55,7 +56,7 @@ export class ZTableHeader {
   emitOnSort() {
     this.sort.emit({
       columnId: this.columnId,
-      sortDirection: this.sortDirection
+      sortDirection: this.sortDirection,
     });
   }
 
@@ -65,12 +66,17 @@ export class ZTableHeader {
     }
 
     this.sortDirection = (() => {
-      switch(this.sortDirection) {
-        case (SortDirectionEnum.asc): return  SortDirectionEnum.desc;        
-        case (SortDirectionEnum.desc): return SortDirectionEnum.asc;
-        case  (SortDirectionEnum.none): return this.defaultSortDirection
-        default: return SortDirectionEnum.none;
-    }})();
+      switch (this.sortDirection) {
+        case SortDirectionEnum.asc:
+          return SortDirectionEnum.desc;
+        case SortDirectionEnum.desc:
+          return SortDirectionEnum.asc;
+        case SortDirectionEnum.none:
+          return this.defaultSortDirection;
+        default:
+          return SortDirectionEnum.none;
+      }
+    })();
 
     this.emitOnSort();
   }
@@ -117,7 +123,7 @@ export class ZTableHeader {
   render() {
     return (
       <Host
-        class={classNames(`size-${this.size}`, {
+        class={classNames({
           sortable: this.sortable,
         })}
         onClick={() => this.handleSort()}

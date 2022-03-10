@@ -1,6 +1,5 @@
 :host {
   display: table-cell;
-  padding: calc(var(--space-unit) * 2);
   background-color: var(--color-white);
   border-bottom: var(--border-size-small) solid var(--bg-grey-200);
   font-family: var(--dashboard-font);
@@ -36,4 +35,23 @@
 .button-container.visible,
 .contextual-menu-container.visible {
   display: initial;
+}
+
+:host([padding="x-small"]) {
+  padding: calc(var(--space-unit) * 0.5);
+}
+:host([padding="small"]) {
+  padding: calc(var(--space-unit));
+}
+
+:host([padding="medium"]) {
+  padding: calc(var(--space-unit) * 2);
+}
+
+:host([padding="large"]) {
+  padding: calc(var(--space-unit) * 2.5);
+}
+
+:host([padding="special"]) {
+  padding: 0;
 }

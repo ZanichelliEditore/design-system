@@ -1195,6 +1195,120 @@ export namespace Components {
          */
         "showArrow"?: boolean;
     }
+    interface ZRegistroTable {
+        /**
+          * Sets table with border
+         */
+        "bordered"?: boolean;
+        /**
+          * Sets call to action label
+         */
+        "callToActionLabel"?: string;
+        /**
+          * Sets call to action label
+         */
+        "callToActionTwoLabel"?: string;
+        /**
+          * Sets first column sticky
+         */
+        "columnSticky"?: boolean;
+        /**
+          * Sets empty table
+         */
+        "empty"?: boolean;
+        /**
+          * Set error status
+         */
+        "error"?: boolean;
+        /**
+          * Set error status
+         */
+        "errorLink"?: string;
+        /**
+          * Error message
+         */
+        "errorMessage"?: string;
+        /**
+          * Sets header sticky
+         */
+        "headerSticky"?: boolean;
+        /**
+          * Number of lines of element
+         */
+        "lines"?: number;
+        /**
+          * Set message
+         */
+        "message"?: string;
+        /**
+          * Set subtitle
+         */
+        "subtitle"?: string;
+    }
+    interface ZRegistroTableBody {
+    }
+    interface ZRegistroTableCell {
+        /**
+          * Set padding size of cell, if special 0px padding will be set
+         */
+        "padding": Size;
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+    }
+    interface ZRegistroTableEmptyBox {
+        /**
+          * Sets main title message
+         */
+        "message"?: string;
+        /**
+          * Sets message
+         */
+        "subtitle"?: string;
+    }
+    interface ZRegistroTableExpandedRow {
+        /**
+          * Number table column plus 1 for the expand button
+         */
+        "colSpan": number;
+        "size": "tall" | "medium" | "small" | "none";
+    }
+    interface ZRegistroTableFooter {
+    }
+    interface ZRegistroTableHead {
+    }
+    interface ZRegistroTableHeader {
+        /**
+          * Column ID
+         */
+        "columnId": string;
+        /**
+          * [Optional] Default sort order
+         */
+        "defaultSortDirection"?: SortDirection;
+        /**
+          * Set padding size of cell, if special 0px padding will be set
+         */
+        "padding": Size;
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+        "sortDirection": SortDirection;
+        /**
+          * [Optional] Make the header sortable
+         */
+        "sortable"?: boolean;
+    }
+    interface ZRegistroTableHeaderRow {
+        "expandable"?: boolean;
+    }
+    interface ZRegistroTableRow {
+        "expandedType": ZRegistroTableRowExpandedType;
+    }
+    interface ZRegistroTableStickyFooter {
+    }
     interface ZSelect {
         /**
           * the input aria-label
@@ -3507,6 +3621,133 @@ declare namespace LocalJSX {
           * [optional] Show or hide arrow
          */
         "showArrow"?: boolean;
+    }
+    interface ZRegistroTable {
+        /**
+          * Sets table with border
+         */
+        "bordered"?: boolean;
+        /**
+          * Sets call to action label
+         */
+        "callToActionLabel"?: string;
+        /**
+          * Sets call to action label
+         */
+        "callToActionTwoLabel"?: string;
+        /**
+          * Sets first column sticky
+         */
+        "columnSticky"?: boolean;
+        /**
+          * Sets empty table
+         */
+        "empty"?: boolean;
+        /**
+          * Set error status
+         */
+        "error"?: boolean;
+        /**
+          * Set error status
+         */
+        "errorLink"?: string;
+        /**
+          * Error message
+         */
+        "errorMessage"?: string;
+        /**
+          * Sets header sticky
+         */
+        "headerSticky"?: boolean;
+        /**
+          * Number of lines of element
+         */
+        "lines"?: number;
+        /**
+          * Set message
+         */
+        "message"?: string;
+        /**
+          * remove call to action event
+         */
+        "onCallToAction"?: (event: CustomEvent<any>) => void;
+        /**
+          * remove call to action event
+         */
+        "onCallToActionTwo"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set subtitle
+         */
+        "subtitle"?: string;
+    }
+    interface ZRegistroTableBody {
+    }
+    interface ZRegistroTableCell {
+        /**
+          * Set padding size of cell, if special 0px padding will be set
+         */
+        "padding"?: Size;
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+    }
+    interface ZRegistroTableEmptyBox {
+        /**
+          * Sets main title message
+         */
+        "message"?: string;
+        /**
+          * Sets message
+         */
+        "subtitle"?: string;
+    }
+    interface ZRegistroTableExpandedRow {
+        /**
+          * Number table column plus 1 for the expand button
+         */
+        "colSpan"?: number;
+        "size"?: "tall" | "medium" | "small" | "none";
+    }
+    interface ZRegistroTableFooter {
+    }
+    interface ZRegistroTableHead {
+    }
+    interface ZRegistroTableHeader {
+        /**
+          * Column ID
+         */
+        "columnId"?: string;
+        /**
+          * [Optional] Default sort order
+         */
+        "defaultSortDirection"?: SortDirection;
+        /**
+          * [Optional] callback for sorting
+         */
+        "onSort"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set padding size of cell, if special 0px padding will be set
+         */
+        "padding"?: Size;
+        /**
+          * [Optional] Show contextual menu button
+         */
+        "showButton"?: boolean;
+        "sortDirection"?: SortDirection;
+        /**
+          * [Optional] Make the header sortable
+         */
+        "sortable"?: boolean;
+    }
+    interface ZRegistroTableHeaderRow {
+        "expandable"?: boolean;
+    }
+    interface ZRegistroTableRow {
+        "expandedType"?: ZRegistroTableRowExpandedType;
+        "onExpand"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZRegistroTableStickyFooter {
     }
     interface ZSelect {
         /**

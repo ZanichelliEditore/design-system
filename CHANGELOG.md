@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.34.0](https://github.com/ZanichelliEditore/design-system/compare/v2.33.4...v2.34.0) (2022-03-04)
+
+
+### Features
+
+* **clav-277:** padding on table cell, header cell ([26ee9ed](https://github.com/ZanichelliEditore/design-system/commit/26ee9ed1c2680cb1d5f46217f8019a5279908561))
+* **clav-277:** padding on table cell, header cell ([62596f8](https://github.com/ZanichelliEditore/design-system/commit/62596f8e3d282f5e741513f127f2a6447089e1b1))
+
+### [2.33.4](https://github.com/ZanichelliEditore/design-system/compare/v2.33.3...v2.33.4) (2022-03-01)
+
+
+### Bug Fixes
+
+* fixed z-popover initial positioning ([#214](https://github.com/ZanichelliEditore/design-system/issues/214)) ([2e74716](https://github.com/ZanichelliEditore/design-system/commit/2e7471631e5677654b94955699ae3217a42515c3))
+
+### [2.33.3](https://github.com/ZanichelliEditore/design-system/compare/v2.33.2...v2.33.3) (2022-02-25)
+
+### [2.33.2](https://github.com/ZanichelliEditore/design-system/compare/v2.33.1...v2.33.2) (2022-02-24)
+
+### [2.33.1](https://github.com/ZanichelliEditore/design-system/compare/v2.33.0...v2.33.1) (2022-02-23)
+
 ## [2.33.0](https://github.com/ZanichelliEditore/design-system/compare/v2.32.0...v2.33.0) (2022-02-17)
 
 

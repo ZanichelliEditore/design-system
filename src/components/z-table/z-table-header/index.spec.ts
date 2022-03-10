@@ -10,7 +10,7 @@ describe("Suite test ZTableHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-medium" role="columnheader">
+      <z-table-header padding="size-medium" role="columnheader">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -39,7 +39,7 @@ describe("Suite test ZTableHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-medium sortable" role="columnheader" sortable="true">
+      <z-table-header class="sortable" padding="medium" role="columnheader" sortable="true">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -56,7 +56,7 @@ describe("Suite test ZTableHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-medium" role="columnheader" show-button="true">
+      <z-table-header padding="medium" role="columnheader" show-button="true">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -77,11 +77,11 @@ describe("Suite test ZTableHeader", () => {
   it("Test render ZTableHeader with correct size when size is x-small", async () => {
     const page = await newSpecPage({
       components: [ZTableHeader],
-      html: `<z-table-header size="x-small"></z-table-header>`,
+      html: `<z-table-header padding="x-small"></z-table-header>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-x-small" role="columnheader" size="x-small">
+      <z-table-header padding="x-small" role="columnheader">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -94,11 +94,11 @@ describe("Suite test ZTableHeader", () => {
   it("Test render ZTableHeader with correct size when size is small", async () => {
     const page = await newSpecPage({
       components: [ZTableHeader],
-      html: `<z-table-header size="small"></z-table-header>`,
+      html: `<z-registro-table-header padding="small"></z-registro-table-header>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-small" role="columnheader" size="small">
+      <z-registro-table-header padding="small" role="columnheader">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -115,7 +115,7 @@ describe("Suite test ZTableHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-medium" role="columnheader" size="medium">
+      <z-table-header padding="medium" role="columnheader" size="medium">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -128,11 +128,11 @@ describe("Suite test ZTableHeader", () => {
   it("Test render ZTableHeader with correct size when size is large", async () => {
     const page = await newSpecPage({
       components: [ZTableHeader],
-      html: `<z-table-header size="large"></z-table-header>`,
+      html: `<z-table-header padding="large"></z-table-header>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-large" role="columnheader" size="large">
+      <z-registro-table-header padding="large" role="columnheader">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -145,11 +145,11 @@ describe("Suite test ZTableHeader", () => {
   it("Test render ZTableHeader with correct size when size is special", async () => {
     const page = await newSpecPage({
       components: [ZTableHeader],
-      html: `<z-table-header size="special"></z-table-header>`,
+      html: `<z-table-header padding="special"></z-table-header>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-special" role="columnheader" size="special">
+      <z-registro-table-header padding="special" role="columnheader">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -169,7 +169,7 @@ describe("Suite test ZTableHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-medium sortable" role="columnheader" sortable="true"  column-id="col-1">
+      <z-table-header class="sortable" padding="medium" role="columnheader" sortable="true"  column-id="col-1">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -192,7 +192,7 @@ describe("Suite test ZTableHeader", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-medium sortable" role="columnheader" sortable="true" column-id="col-1">
+      <z-table-header class="sortable" padding="medium" role="columnheader" sortable="true" column-id="col-1">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -210,7 +210,7 @@ describe("Suite test ZTableHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-medium sortable" role="columnheader" sortable="true" sort-direction="none"  column-id="col-1">
+      <z-table-header class="sortable" padding="medium" role="columnheader" sortable="true" sort-direction="none"  column-id="col-1">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -227,7 +227,7 @@ describe("Suite test ZTableHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-medium sortable" role="columnheader" sortable="true" sort-direction="asc" column-id="col-1">
+      <z-table-header class="sortable" padding="medium" role="columnheader" sortable="true" sort-direction="asc" column-id="col-1">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
@@ -245,7 +245,7 @@ describe("Suite test ZTableHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-header class="size-medium sortable" role="columnheader" sortable="true" sort-direction="desc" column-id="col-1">
+      <z-table-header class="sortable" padding="medium" role="columnheader" sortable="true" sort-direction="desc" column-id="col-1">
         <mock:shadow-root>
           <div class="container">
             <slot></slot>
