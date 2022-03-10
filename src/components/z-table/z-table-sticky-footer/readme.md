@@ -1,4 +1,4 @@
-# z-registro-table-sticky-footer
+# z-table-sticky-footer
 
 
 

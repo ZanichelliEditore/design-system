@@ -1,4 +1,4 @@
-# z-registro-table-expanded-row
+# z-table-expanded-row
 
 
 

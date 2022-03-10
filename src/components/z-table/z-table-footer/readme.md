@@ -1,10 +1,6 @@
-# z-registro-table-footer
+# z-table-footer
 
-<!-- readme-group="registro-table" -->
 
-```html
-<z-registro-table-footer></z-registro-table-footer>
-```
 
 <!-- Auto Generated Below -->
 

@@ -1,10 +1,6 @@
-# z-registro-table-head
+# z-table-head
 
-<!-- readme-group="registro-table" -->
 
-```html
-<z-registro-table-head></z-registro-table-head>
-```
 
 <!-- Auto Generated Below -->
 

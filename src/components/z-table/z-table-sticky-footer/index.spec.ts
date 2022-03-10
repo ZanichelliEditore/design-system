@@ -2,8 +2,8 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { ZTableStickyFooter } from "./index";
 
-describe("Suite test ZRegistroTableStickyFooter", () => {
-  it("Test render ZRegistroTableStickyFooter con slot", async () => {
+describe("Suite test ZTableStickyFooter", () => {
+  it("Test render ZTableStickyFooter con slot", async () => {
 
     const page = await newSpecPage({
       components: [ZTableStickyFooter],

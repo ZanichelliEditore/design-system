@@ -1,4 +1,4 @@
-# z-registro-table-header-row
+# z-table-header-row
 
 
 

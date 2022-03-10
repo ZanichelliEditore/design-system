@@ -2,8 +2,8 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { ZTableBody } from "./index";
 
-describe("Suite test ZRegistroTableBody", () => {
-  it("Test render ZRegistroTableBody con slot", async () => {
+describe("Suite test ZTableBody", () => {
+  it("Test render ZTableBody con slot", async () => {
     const page = await newSpecPage({
       components: [ZTableBody],
       html: `<z-table-body><z-table-row></z-table-row></z-table-body>`,
@@ -16,7 +16,7 @@ describe("Suite test ZRegistroTableBody", () => {
     );
   });
 
-  it("Test render ZRegistroTableBody con role rowgroup", async () => {
+  it("Test render ZTableBody con role rowgroup", async () => {
     const page = await newSpecPage({
       components: [ZTableBody],
       html: `<z-table-body></z-table-body>`,
