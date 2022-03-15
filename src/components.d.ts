@@ -1272,7 +1272,6 @@ export namespace Components {
           * Number table column plus 1 for the expand button
          */
         "colSpan": number;
-        "size": "tall" | "medium" | "small" | "none";
     }
     interface ZRegistroTableFooter {
     }
@@ -3598,7 +3597,6 @@ declare namespace LocalJSX {
           * Number table column plus 1 for the expand button
          */
         "colSpan"?: number;
-        "size"?: "tall" | "medium" | "small" | "none";
     }
     interface ZRegistroTableFooter {
     }
