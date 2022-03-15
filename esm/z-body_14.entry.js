@@ -1,7 +1,7 @@
 import { r as registerInstance, h, g as getElement, H as Host, c as createEvent } from './index-fa9e549c.js';
 import { c as classnames } from './index-aa3a4feb.js';
 import { B as ButtonTypeEnum, a as ButtonVariantEnum, b as ButtonSizeEnum, P as PopoverPosition, c as PopoverBorderRadius, d as PopoverShadow, K as KeyboardKeys, S as Size, e as SortDirectionEnum, Z as ZRegistroTableRowExpandedType } from './index-09b57d95.js';
-import { i as icons } from './icons-9a191d79.js';
+import { i as icons } from './icons-bceeb196.js';
 import { g as getElementTree } from './utils-f0067254.js';
 import { m as mobileBreakpoint } from './breakpoints-c386984e.js';
 import './_commonjsHelpers-8b28c6fa.js';

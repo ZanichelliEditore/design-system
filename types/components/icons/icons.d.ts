@@ -440,4 +440,5 @@ export declare const icons: {
   "powerpoint-button": string;
   "show-video-button": string;
   "word-button": string;
+  upload: string;
 };

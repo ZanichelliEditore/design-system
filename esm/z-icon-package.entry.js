@@ -1,5 +1,5 @@
 import { r as registerInstance, h } from './index-fa9e549c.js';
-import { i as icons } from './icons-9a191d79.js';
+import { i as icons } from './icons-bceeb196.js';
 
 const stylesCss = ":host>div{display:flex;flex-flow:row wrap;justify-content:flex-start;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px}:host>div>div{width:300px;margin:5px}:host>div>div>label{margin:0 10px}";
 
