@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-dee3e21d.js');
-const index$1 = require('./index-de6c491e.js');
+const index$1 = require('./index-3735f277.js');
 
 const stylesCss = ":host{width:100%;color:var(--color-text01)}.notification-container{display:flex;padding:0 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);outline:none;border-bottom:var(--border-size-medium) solid var(--color-surface03)}.shadow{box-shadow:var(--shadow-3)}.content-container{display:flex;justify-content:space-between;flex:1 1 auto;flex-wrap:wrap}.content-text{max-width:800px;margin-top:calc(var(--space-unit) * 2);margin-right:calc(var(--space-unit) * 2)}.action-text{margin-top:calc(var(--space-unit) * 2);margin-right:calc(var(--space-unit) * 2);height:fit-content;color:var(--color-primary01);cursor:pointer;white-space:nowrap}:host div>z-icon{justify-self:center;margin-top:calc(var(--space-unit) * 2);margin-right:calc(var(--space-unit))}:host div.success-notification{background:var(--color-success-inverse)}:host div.warning-notification{background:var(--color-warning-inverse)}:host div.error-notification{background:var(--color-error-inverse)}:host div.success-notification>z-icon{fill:var(--color-success01)}:host div.warning-notification>z-icon{fill:var(--color-warning02)}:host div.error-notification>z-icon{fill:var(--color-error01)}:host div>z-icon.close-icon{cursor:pointer;fill:var(--color-primary01);margin-right:calc(var(--space-unit) * 2)}@media only screen and (min-width: 768px){.content-container{flex-wrap:nowrap}.content-text{margin-right:calc(var(--space-unit) * 5)}}";
 

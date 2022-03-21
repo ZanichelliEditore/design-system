@@ -241,12 +241,12 @@ export var ToastNotificationPositionsEnum;
   ToastNotificationPositionsEnum["bottomLeft"] = "bottom-left";
   ToastNotificationPositionsEnum["bottomCentre"] = "bottom-centre";
 })(ToastNotificationPositionsEnum || (ToastNotificationPositionsEnum = {}));
-export var ZRegistroTableRowExpandedType;
-(function (ZRegistroTableRowExpandedType) {
-  ZRegistroTableRowExpandedType["expandable"] = "expandable";
-  ZRegistroTableRowExpandedType["padding"] = "padding";
-  ZRegistroTableRowExpandedType["none"] = "none";
-})(ZRegistroTableRowExpandedType || (ZRegistroTableRowExpandedType = {}));
+export var ZTableRowExpandedType;
+(function (ZTableRowExpandedType) {
+  ZTableRowExpandedType["expandable"] = "expandable";
+  ZTableRowExpandedType["padding"] = "padding";
+  ZTableRowExpandedType["none"] = "none";
+})(ZTableRowExpandedType || (ZTableRowExpandedType = {}));
 export var ZAriaAlertMode;
 (function (ZAriaAlertMode) {
   ZAriaAlertMode["polite"] = "polite";

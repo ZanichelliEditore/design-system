@@ -1,5 +1,5 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-fa9e549c.js';
-import { p as ToastNotificationTransitionsEnum } from './index-09b57d95.js';
+import { p as ToastNotificationTransitionsEnum } from './index-f928c852.js';
 import { m as mobileBreakpoint } from './breakpoints-c386984e.js';
 import { h as hammer } from './hammer-501342a9.js';
 import './_commonjsHelpers-8b28c6fa.js';

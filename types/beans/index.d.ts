@@ -326,7 +326,7 @@ export declare enum ToastNotificationPositionsEnum {
   bottomLeft = "bottom-left",
   bottomCentre = "bottom-centre"
 }
-export declare enum ZRegistroTableRowExpandedType {
+export declare enum ZTableRowExpandedType {
   expandable = "expandable",
   padding = "padding",
   none = "none"
