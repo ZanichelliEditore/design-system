@@ -1,9 +1,0 @@
-:host {
-  display: table-row-group;
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-}
-
-:host > z-registro-table-row[expanded] + z-registro-table-expanded-row {
-  display: table-row;
-}

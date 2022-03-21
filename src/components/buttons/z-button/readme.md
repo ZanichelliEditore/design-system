@@ -59,9 +59,9 @@
  - [z-modal-login](../../modal/z-modal-login)
  - [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
  - [z-myz-topbar](../../../snowflakes/myz/topbar)
- - [z-registro-table](../../../snowflakes/registro-table/z-registro-table)
- - [z-registro-table-cell](../../../snowflakes/registro-table/z-registro-table-cell)
- - [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
+ - [z-table](../../z-table/z-table)
+ - [z-table-cell](../../z-table/z-table-cell)
+ - [z-table-header](../../z-table/z-table-header)
 
 ### Depends on
 
@@ -76,9 +76,9 @@ graph TD;
   z-modal-login --> z-button
   z-myz-card-dictionary --> z-button
   z-myz-topbar --> z-button
-  z-registro-table --> z-button
-  z-registro-table-cell --> z-button
-  z-registro-table-header --> z-button
+  z-table --> z-button
+  z-table-cell --> z-button
+  z-table-header --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
