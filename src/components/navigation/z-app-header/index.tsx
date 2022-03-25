@@ -1,4 +1,4 @@
-import { Component, h, Element, Prop, State, Watch, Host } from '@stencil/core';
+import { Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter } from '@stencil/core';
 import { ZMenu } from '../z-menu';
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== 'undefined';
@@ -61,6 +61,12 @@ export class ZAppHeader {
    * Current count of menu items.
    */
   @State() menuLength: Number;
+
+  /** Emitted when header is stuck state change */
+  @Event() sticking: EventEmitter;
+  emitStickingEvent(stuck: boolean) {
+    this.sticking.emit(stuck);
+  }
 
   private container?: HTMLDivElement;
   private menuElements?: NodeListOf<HTMLElement>;
@@ -143,6 +149,7 @@ export class ZAppHeader {
     if (!scrollParent) {
       return;
     }
+    this.emitStickingEvent(this.stucked);
     if (this.stucked) {
       this.setStuckPosition();
       scrollParent.addEventListener('scroll', this.setStuckPosition);
