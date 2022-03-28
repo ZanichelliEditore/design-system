@@ -187,7 +187,7 @@ applyPolyfills().then(() => {
 or via a script tag:
 
 ```html
-<script src="https://unpkg.com/@zanichelli/albe-web-components/dist/web-components-library/web-components-library.esm.js"></script> 
+<script src="https://unpkg.com/@zanichelli/albe-web-components/dist/web-components-library/web-components-library.esm.js"></script>
 ```
 
 Then use the relative tag as a usual component in your markup.
@@ -224,13 +224,8 @@ Each component is structured as follows:
 
 | File name       | Description                    |
 | --------------- | ------------------------------ |
-| `index-ts`      | Component markup and UI logics |
+| `index.tsx`      | Component markup and UI logics |
 | `styles.css`    | Component styles               |
 | `index.spec.ts` | Component tests                |
 | `index.stories.mdx` | Component storybook file                |
-| `README.md`     | Stencil documentation          |
-
-## Roadmap
-
-- 12 6 2020: Publishing repo v 1.0.0
-
+| `README.md`     | Component documentation          |

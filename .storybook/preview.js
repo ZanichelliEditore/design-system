@@ -1,4 +1,4 @@
-import { addParameters, addDecorator, setCustomElements } from '@storybook/web-components';
+import { addDecorator, setCustomElements } from '@storybook/web-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from "@storybook/addon-knobs";
 
@@ -7,16 +7,9 @@ import customElements from '../custom-elements.json';
 // bound generated Stencil documentation with Props table (https://github.com/storybookjs/storybook/blob/next/addons/docs/web-components/README.md)
 setCustomElements(customElements);
 
-addParameters({
+export const parameters = {
   viewport: {
-    viewports: [{
-        type: 'desktop',
-        name: 'responsive',
-        styles: {
-          width: '100%',
-          height: '100%',
-        },
-      },
+    viewports: [
       {
         type: 'mobile',
         name: 'mobile',
@@ -52,7 +45,7 @@ addParameters({
     ],
     defaultViewport: 'responsive',
   },
-});
+};
 
 addDecorator(withA11y);
 addDecorator(withKnobs);
