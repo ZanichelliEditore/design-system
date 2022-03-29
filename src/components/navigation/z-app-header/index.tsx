@@ -62,7 +62,9 @@ export class ZAppHeader {
    */
   @State() menuLength: Number;
 
-  /** Emitted when header is stuck state change */
+  /**
+   * Emitted when the `stucked` state of the header changes
+   */
   @Event() sticking: EventEmitter;
   emitStickingEvent(stuck: boolean) {
     this.sticking.emit(stuck);
