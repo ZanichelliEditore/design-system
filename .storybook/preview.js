@@ -8,7 +8,6 @@ import customElements from '../custom-elements.json';
 setCustomElementsManifest(customElements);
 
 export const parameters = {
-  customElements,
   viewport: {
     viewports: [
       {
