@@ -26,16 +26,18 @@
     "test.watch": "stencil test --spec --watch",
     "test.e2e": "stencil test --e2e",
     "release": "standard-version",
-    "start-storybook": "start-storybook -p 3003 --ci",
-    "build-storybook": "build-storybook -c .storybook . -o storybook"
+    "start-storybook": "yarn build && start-storybook -p 3003 --ci --no-manager-cache",
+    "build-storybook": "yarn build && build-storybook -c .storybook . -o storybook"
+
   },
   "devDependencies": {
-    "@babel/core": "^7.13.1",
+    "@babel/core": "^7.17.8",
     "@commitlint/cli": "^12.0.0",
     "@commitlint/config-conventional": "^12.0.0",
     "@stencil/core": "^2.4.0",
     "@stencil/react-output-target": "^0.0.9",
     "@storybook/addon-a11y": "^6.4.19",
+    "@storybook/addon-controls": "^6.4.19",
     "@storybook/addon-docs": "^6.4.19",
     "@storybook/addon-knobs": "^6.1.20",
     "@storybook/addon-viewport": "^6.4.19",
@@ -47,7 +49,7 @@
     "@types/jest": "26.0.20",
     "@types/puppeteer": "5.4.3",
     "@types/react-dom": "^17.0.0",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.2.4",
     "husky": "^5.1.1",
     "jest": "26.6.3",
     "jest-cli": "26.6.3",
@@ -60,7 +62,8 @@
     "rimraf": "^3.0.2",
     "standard-version": "^9.1.1",
     "storybook-addons-abstract": "^6.2.1",
-    "typescript": "^4.2.3"
+    "typescript": "~4.3.5",
+    "webpack": "5"
   },
   "pre-commit": {
     "colors": true,
@@ -88,5 +91,8 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "resolutions": {
+    "@storybook/web-components/webpack": "^5"
   }
 }
