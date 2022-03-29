@@ -66,8 +66,8 @@ export class ZAppHeader {
    * Emitted when the `stucked` state of the header changes
    */
   @Event() sticking: EventEmitter;
-  emitStickingEvent(stuck: boolean) {
-    this.sticking.emit(stuck);
+  emitStickingEvent() {
+    this.sticking.emit(this.stucked);
   }
 
   private container?: HTMLDivElement;
@@ -151,7 +151,7 @@ export class ZAppHeader {
     if (!scrollParent) {
       return;
     }
-    this.emitStickingEvent(this.stucked);
+    this.emitStickingEvent();
     if (this.stucked) {
       this.setStuckPosition();
       scrollParent.addEventListener('scroll', this.setStuckPosition);
