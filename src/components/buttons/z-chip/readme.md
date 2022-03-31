@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type     | Default     |
-| ------------- | ------------- | ----------- | -------- | ----------- |
-| `boldtext`    | `boldtext`    |             | `number` | `undefined` |
-| `regulartext` | `regulartext` |             | `string` | `undefined` |
+| Property      | Attribute     | Description | Type                                  | Default             |
+| ------------- | ------------- | ----------- | ------------------------------------- | ------------------- |
+| `boldtext`    | `boldtext`    |             | `number`                              | `undefined`         |
+| `regulartext` | `regulartext` |             | `string`                              | `undefined`         |
+| `type`        | `type`        |             | `ZChipType.default \| ZChipType.mini` | `ZChipType.default` |
 
 
 ----------------------------------------------

@@ -1,24 +1,32 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h } from "@stencil/core";
+import { ZChipType } from "../../../beans";
 
 @Component({
-  tag: 'z-chip',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-chip",
+  styleUrl: "styles.css",
+  shadow: true,
 })
-
 export class ZChip {
   @Prop() regulartext?: string;
   @Prop() boldtext?: number;
+  @Prop({ reflect: true })
+  type?: ZChipType = ZChipType.default;
 
   private renderLegacyChip() {
-    return <div>
-      <span class="boldtext">{this.boldtext}</span> {this.regulartext}
-    </div>;
+    return (
+      <div class={this.type}>
+        <span class="boldtext">{this.boldtext}</span> {this.regulartext}
+      </div>
+    );
   }
 
   render() {
-    return this.boldtext != null || this.regulartext != null ?
-      this.renderLegacyChip() :
-      <div><slot /></div>;
+    return this.boldtext != null || this.regulartext != null ? (
+      this.renderLegacyChip()
+    ) : (
+      <div class={this.type}>
+        <slot />
+      </div>
+    );
   }
 }
