@@ -4,10 +4,8 @@ import {
   EventEmitter,
   Event,
   Element,
-  Prop,
   Host,
 } from "@stencil/core";
-import { FiletypeEnum } from "../../../beans";
 
 @Component({
   tag: "z-file",
@@ -15,12 +13,9 @@ import { FiletypeEnum } from "../../../beans";
   shadow: true,
 })
 export class ZFile {
-  private icon: HTMLElement
+  private icon: HTMLElement;
 
   @Element() el: HTMLElement;
-
-  /** Prop which indicates the type of the file */
-  @Prop() filetype: string = "";
 
   /** Emitted when a z-file component is removed from the DOM */
   @Event() removeFile: EventEmitter;
@@ -29,25 +24,8 @@ export class ZFile {
     this.el.remove();
   }
 
-  componentDidLoad(){
-    this.icon.focus();
-  } 
-
-  /**  */
-  handleChipIcon() {
-    switch (this.filetype) {
-      case FiletypeEnum.pdf:
-        return "pdf";
-      case FiletypeEnum.tiff:
-        return "image-tiff";
-      case FiletypeEnum.png:
-        return "image-png";
-      case FiletypeEnum.jpeg:
-      case FiletypeEnum.jpg:
-        return "image-jpg";
-      default:
-        return "document-with-text";
-    }
+  componentDidLoad() {
+    this.icon?.focus?.();
   }
 
   render() {
@@ -55,7 +33,6 @@ export class ZFile {
       <Host tabIndex={0}>
         <z-chip>
           <div class="chip-content">
-            <z-icon name={this.handleChipIcon()} />
             <slot />
             <z-icon
               tabIndex={0}
@@ -69,7 +46,7 @@ export class ZFile {
               name="multiply-circled"
               height={15}
               width={15}
-              ref={(val) => this.icon = val}
+              ref={(val) => (this.icon = val as HTMLElement)}
             />
           </div>
         </z-chip>

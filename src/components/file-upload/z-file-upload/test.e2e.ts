@@ -72,7 +72,7 @@ describe("z-file-upload test end2end", () => {
         <span slot="description">Vuoi allegare un file per chiarire meglio la tua richiesta?</span>
         <span slot="file-format">Puoi allegare file nei formati PDF, PNG, JPG, TIFF, DOC, per un
             massimo di 50Mb di peso.</span>
-        <z-file slot="files" filetype="application/pdf" class="hydrated">Spike - Condivisione pagine Kitaboo-OK.pdf</z-file>
+        <z-file slot="files" class="hydrated">Spike - Condivisione pagine Kitaboo-OK.pdf</z-file>
       </z-file-upload>
     `);
 
