@@ -25,7 +25,6 @@ export class ZFile {
   }
 
   componentDidLoad() {
-    console.log(this)
     this.icon?.focus?.();
   }
 
