@@ -5,13 +5,6 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
-
-| Property   | Attribute  | Description                               | Type     | Default |
-| ---------- | ---------- | ----------------------------------------- | -------- | ------- |
-| `filetype` | `filetype` | Prop which indicates the type of the file | `string` | `""`    |
-
-
 ## Events
 
 | Event        | Description                                             | Type               |

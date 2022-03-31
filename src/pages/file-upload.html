@@ -30,9 +30,9 @@
     <div class="main-container">
         <div style="margin: 10px">
             <!-- <form action="https://api-catalogo.zanichelli.local/v3/file-upload" enctype="multipart/form-data" method="POST"> -->
-                <z-file-upload type="default" 
-                               variant="primary" 
-                               main-title="Allega un file" 
+                <z-file-upload type="default"
+                               variant="primary"
+                               main-title="Allega un file"
                                description="Vuoi allegare un file per chiarire meglio la tua richiesta?">
                 </z-file-upload>
                 <!-- <input type="submit" value="INVIA"> -->
@@ -223,7 +223,6 @@
             const item = e.detail
                 const chip = document.createElement('Z-FILE')
                 chip.setAttribute('slot', 'files')
-                chip.setAttribute('filetype', item.type)
                 chip.innerText = item.name
                 uploader.appendChild(chip);
                 console.log(item)
