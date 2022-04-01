@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, select } from "@storybook/addon-knobs";
+import { text, select, boolean } from "@storybook/addon-knobs";
 
 ## Stories
 
@@ -14,6 +14,7 @@ import { text, select } from "@storybook/addon-knobs";
       boldtext="${text("boldtext", "1234")}"
       regulartext="${text("regulartext", "libri trovati")}"
       type="${select("type", ["default", "mini"], "default")}"
+      disabled="${boolean("Disabled", false)}"
     ></z-chip>`}
   </Story>
 </Preview>
@@ -22,12 +23,10 @@ import { text, select } from "@storybook/addon-knobs";
 
 <Preview>
   <Story name="z-chip with children">
-    {html` <z-chip>
+    {html` <z-chip type="${select("type", ["default", "mini"], "default")}">
       <z-body level="4">My custom element</z-body>
     </z-chip>`}
   </Story>
 </Preview>
-
-{" "}
 
 <Props of="z-chip" />

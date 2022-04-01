@@ -209,6 +209,7 @@ export namespace Components {
     }
     interface ZChip {
         "boldtext"?: number;
+        "disabled"?: boolean;
         "regulartext"?: string;
         "type"?: ZChipType;
     }
@@ -2393,6 +2394,7 @@ declare namespace LocalJSX {
     }
     interface ZChip {
         "boldtext"?: number;
+        "disabled"?: boolean;
         "regulartext"?: string;
         "type"?: ZChipType;
     }

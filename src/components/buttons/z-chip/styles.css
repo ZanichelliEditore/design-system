@@ -2,15 +2,25 @@
   display: inline-block;
   padding: 0 calc(var(--space-unit) * 1.5);
   background-color: var(--bg-white);
-  border: var(--border-size-small) solid var(--bg-grey-200);
+  border: var(--border-size-medium) solid var(--bg-grey-200);
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-size: 12px;
+  box-shadow: var(--shadow-2);
 }
 
 .boldtext {
   font-weight: bold;
+}
+
+:host > div:hover {
+  color: var(--myz-blue-dark);
+}
+
+:host > div.disabled {
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  color: rgb(149, 153, 157);
 }
 
 :host > div.default {
