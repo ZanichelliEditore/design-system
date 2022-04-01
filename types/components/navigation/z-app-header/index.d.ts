@@ -1,3 +1,4 @@
+import { EventEmitter } from '../../../stencil-public-runtime';
 /**
  * @slot title
  * @slot subtitle
@@ -44,6 +45,11 @@ export declare class ZAppHeader {
    * Current count of menu items.
    */
   menuLength: Number;
+  /**
+   * Emitted when the `stucked` state of the header changes
+   */
+  sticking: EventEmitter;
+  emitStickingEvent(): void;
   private container?;
   private menuElements?;
   private observer?;

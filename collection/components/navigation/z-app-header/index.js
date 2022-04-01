@@ -1,4 +1,4 @@
-import { Component, h, Element, Prop, State, Watch, Host } from '@stencil/core';
+import { Component, h, Element, Prop, State, Watch, Host, Event } from '@stencil/core';
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== 'undefined';
 /**
  * @slot title
@@ -44,6 +44,9 @@ export class ZAppHeader {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
     this.setStuckPosition = this.setStuckPosition.bind(this);
+  }
+  emitStickingEvent() {
+    this.sticking.emit(this.stucked);
   }
   componentDidLoad() {
     this.collectMenuElements();
@@ -101,6 +104,7 @@ export class ZAppHeader {
     if (!scrollParent) {
       return;
     }
+    this.emitStickingEvent();
     if (this.stucked) {
       this.setStuckPosition();
       scrollParent.addEventListener('scroll', this.setStuckPosition);
@@ -253,6 +257,22 @@ export class ZAppHeader {
     "stucked": {},
     "menuLength": {}
   }; }
+  static get events() { return [{
+      "method": "sticking",
+      "name": "sticking",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": {
+        "tags": [],
+        "text": "Emitted when the `stucked` state of the header changes"
+      },
+      "complexType": {
+        "original": "any",
+        "resolved": "any",
+        "references": {}
+      }
+    }]; }
   static get elementRef() { return "hostElement"; }
   static get watchers() { return [{
       "propName": "stuck",

@@ -41,7 +41,7 @@ z-table-row[expanded-type]:hover > z-table-cell:first-child {
   fill: var(--myz-blue-dark);
 }
 
-z-table-row[expanded] > z-tale-cell {
+z-table-row[expanded] > z-table-cell {
   background-color: var(--gray50);
 }
 

@@ -10,6 +10,7 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== 'undefined
 const ZAppHeader = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
+    this.sticking = index.createEvent(this, "sticking", 7);
     /**
      * Stuck mode for the header.
      * You can programmatically set it using an IntersectionObserver.
@@ -47,6 +48,9 @@ const ZAppHeader = class {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
     this.setStuckPosition = this.setStuckPosition.bind(this);
+  }
+  emitStickingEvent() {
+    this.sticking.emit(this.stucked);
   }
   componentDidLoad() {
     this.collectMenuElements();
@@ -104,6 +108,7 @@ const ZAppHeader = class {
     if (!scrollParent) {
       return;
     }
+    this.emitStickingEvent();
     if (this.stucked) {
       this.setStuckPosition();
       scrollParent.addEventListener('scroll', this.setStuckPosition);
