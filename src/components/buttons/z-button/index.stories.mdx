@@ -1,5 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import "./index";
 import {
   ButtonVariantEnum,
   ButtonTypeEnum,
@@ -22,8 +23,6 @@ import {
 />
 
 # ZButton
-
-<ArgsTable of="z-button" />
 
 <Canvas>
   <Story name="Default button"
@@ -61,7 +60,7 @@ import {
     }}
   >
     {(args) => html`
-      <div style="background: var(--gray800); padding: 8px">
+      <div style="background: var(--gray800); padding: 8px;">
         <z-button
           variant=${ButtonVariantEnum["dark-bg"]}
           size=${args.size}
@@ -199,3 +198,5 @@ For further customization and DOM handling is possible to pass the content of a 
 ## Deprecation
 
 Props `issmall` is deprecated, use `size` instead.
+
+<ArgsTable of="z-button" />

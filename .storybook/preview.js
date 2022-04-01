@@ -1,11 +1,8 @@
-import { addDecorator, setCustomElementsManifest } from '@storybook/web-components';
+import { addDecorator } from '@storybook/web-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from "@storybook/addon-knobs";
-
-import customElements from '../custom-elements.json';
-
-// bound generated Stencil documentation with Props table (https://github.com/storybookjs/storybook/blob/next/addons/docs/web-components/README.md)
-setCustomElementsManifest(customElements);
+import "../src/global.css";
+import dedent from 'ts-dedent';
 
 export const parameters = {
   viewport: {
@@ -44,6 +41,10 @@ export const parameters = {
       },
     ],
     defaultViewport: 'responsive',
+  },
+  docs: {
+    // fix wrong indentation due to the story template string (html`...`)
+    transformSource: (input) => dedent(input),
   },
 };
 

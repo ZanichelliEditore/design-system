@@ -1,4 +1,5 @@
 module.exports = {
+  framework: "@storybook/web-components",
   core: {
     builder: "webpack5"
   },
@@ -9,14 +10,8 @@ module.exports = {
   ],
   stories: ["../src/**/*.stories.mdx"],
   addons: [
-    {
-      name: "@storybook/addon-docs",
-      options: {
-        configureJSX: true,
-        babelOptions: {},
-        sourceLoaderOptions: null,
-      },
-    },
+    "storybook-addon-stencil",
+    "@storybook/addon-docs",
     "@storybook/addon-controls",
     "@storybook/addon-viewport",
     "@storybook/addon-knobs",
