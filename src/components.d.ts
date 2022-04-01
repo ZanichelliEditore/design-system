@@ -2197,7 +2197,7 @@ declare namespace LocalJSX {
          */
         "hero"?: string;
         /**
-          * Emitted when header is stuck state change
+          * Emitted when the `stucked` state of the header changes
          */
         "onSticking"?: (event: CustomEvent<any>) => void;
         /**

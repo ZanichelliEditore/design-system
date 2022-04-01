@@ -18,9 +18,9 @@
 
 ## Events
 
-| Event      | Description                               | Type               |
-| ---------- | ----------------------------------------- | ------------------ |
-| `sticking` | Emitted when header is stuck state change | `CustomEvent<any>` |
+| Event      | Description                                            | Type               |
+| ---------- | ------------------------------------------------------ | ------------------ |
+| `sticking` | Emitted when the `stucked` state of the header changes | `CustomEvent<any>` |
 
 
 ## Slots
