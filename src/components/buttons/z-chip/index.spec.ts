@@ -74,4 +74,24 @@ describe("Suite test ZChip", () => {
         </z-chip>
     `);
   });
+
+  it("Test render ZChip with attributes and children and type mini", async () => {
+    const page = await newSpecPage({
+      components: [ZChip],
+      html: `<z-chip type="mini" boldtext="20" regulartext="libri trovati">
+               <z-body>ciao 1</z-body>
+             </z-chip>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+        <z-chip type="mini" boldtext="20" regulartext="libri trovati">
+          <mock:shadow-root>
+            <div class="mini">
+              <span class="boldtext">20</span>&nbsp;libri trovati
+            </div>
+          </mock:shadow-root>
+          <z-body>ciao 1</z-body>
+        </z-chip>
+    `);
+  });
 });
