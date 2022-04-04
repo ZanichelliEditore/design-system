@@ -12,7 +12,7 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
         <z-chip type="default">
           <mock:shadow-root>
-          <div class="default">
+          <div class="default" tabindex="0">
           <slot></slot>&nbsp;
           </div>
         </mock:shadow-root>
@@ -29,7 +29,7 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
         <z-chip type="default" boldtext="20" regulartext="libri trovati">
           <mock:shadow-root>
-            <div class="default">
+            <div class="default" tabindex="0">
               <span class="boldtext">20</span>&nbsp;libri trovati
             </div>
           </mock:shadow-root>
@@ -46,7 +46,7 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
         <z-chip type="default">
           <mock:shadow-root>
-            <div class="default">
+            <div class="default" tabindex="0">
               <slot />
             </div>
           </mock:shadow-root>
@@ -66,7 +66,7 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
         <z-chip type="default" boldtext="20" regulartext="libri trovati">
           <mock:shadow-root>
-            <div class="default">
+            <div class="default" tabindex="0">
               <span class="boldtext">20</span>&nbsp;libri trovati
             </div>
           </mock:shadow-root>
@@ -86,7 +86,7 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
         <z-chip type="mini" boldtext="20" regulartext="libri trovati">
           <mock:shadow-root>
-            <div class="mini">
+            <div class="mini" tabindex="0">
               <span class="boldtext">20</span>&nbsp;libri trovati
             </div>
           </mock:shadow-root>
