@@ -1,4 +1,4 @@
-:host > div {
+:host > button {
   display: inline-block;
   padding: 0 calc(var(--space-unit) * 1.5);
   background-color: var(--bg-white);
@@ -14,33 +14,33 @@
   font-weight: bold;
 }
 
-:host > div:hover {
+:host > button:hover {
   color: var(--myz-blue-dark);
 }
 
-:host > div.disabled {
+:host > button.disabled {
   border: var(--border-size-medium) solid var(--bg-grey-200);
   color: rgb(149, 153, 157);
   box-shadow: none;
 }
 
-:host > div.default:focus:focus-visible,
-:host > div.mini:focus:focus-visible {
+:host > button.default:focus:focus-visible,
+:host > button.mini:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
 
-:host > div.pressed {
+:host > button:not(.disabled):active {
   background-color: var(--gray50);
 }
 
-:host > div.default {
+:host > button.default {
   min-height: 44px;
   border-radius: 22px;
   line-height: 44px;
 }
 
-:host > div.mini {
+:host > button.mini {
   min-height: 36px;
   border-radius: 22px;
   line-height: 36px;
@@ -48,13 +48,13 @@
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  :host > div.default {
+  :host > button.default {
     min-height: 32px;
     border-radius: 16px;
     line-height: 32px;
   }
 
-  :host > div.mini {
+  :host > button.mini {
     min-height: 24px;
     border-radius: 16px;
     line-height: 24px;

@@ -12,18 +12,15 @@ export class ZChip {
   @Prop() boldtext?: number;
   @Prop({ reflect: true }) type?: ZChipType = ZChipType.default;
   @Prop({ reflect: true }) disabled?: boolean = false;
-  @Prop({ reflect: true }) pressed?: boolean = false;
 
   private renderLegacyChip() {
     return (
-      <div
-        class={`${this.type} ${this.disabled ? "disabled" : ""} ${
-          this.pressed ? "pressed" : ""
-        }`}
+      <button
+        class={`${this.type} ${this.disabled ? "disabled" : ""}`}
         tabindex="0"
       >
         <span class="boldtext">{this.boldtext}</span> {this.regulartext}
-      </div>
+      </button>
     );
   }
 
@@ -31,14 +28,12 @@ export class ZChip {
     return this.boldtext != null || this.regulartext != null ? (
       this.renderLegacyChip()
     ) : (
-      <div
-        class={`${this.type} ${this.disabled ? "disabled" : ""} ${
-          this.pressed ? "pressed" : ""
-        }`}
+      <button
+        class={`${this.type} ${this.disabled ? "disabled" : ""}`}
         tabindex="0"
       >
         <slot />
-      </div>
+      </button>
     );
   }
 }
