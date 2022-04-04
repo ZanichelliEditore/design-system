@@ -94,4 +94,44 @@ describe("Suite test ZChip", () => {
         </z-chip>
     `);
   });
+
+  it("Test render ZChip with attributes disabled", async () => {
+    const page = await newSpecPage({
+      components: [ZChip],
+      html: `<z-chip type="mini" disabled="true" boldtext="20" regulartext="libri trovati">
+               <z-body>ciao 1</z-body>
+             </z-chip>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+        <z-chip type="mini" disabled="" boldtext="20" regulartext="libri trovati">
+          <mock:shadow-root>
+            <div class="disabled mini" tabindex="0">
+              <span class="boldtext">20</span>&nbsp;libri trovati
+            </div>
+          </mock:shadow-root>
+          <z-body>ciao 1</z-body>
+        </z-chip>
+    `);
+  });
+
+  it("Test render ZChip with attributes pressed", async () => {
+    const page = await newSpecPage({
+      components: [ZChip],
+      html: `<z-chip type="mini" pressed="true" boldtext="20" regulartext="libri trovati">
+               <z-body>ciao 1</z-body>
+             </z-chip>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+        <z-chip type="mini" pressed="" boldtext="20" regulartext="libri trovati">
+          <mock:shadow-root>
+            <div class="pressed mini" tabindex="0">
+              <span class="boldtext">20</span>&nbsp;libri trovati
+            </div>
+          </mock:shadow-root>
+          <z-body>ciao 1</z-body>
+        </z-chip>
+    `);
+  });
 });

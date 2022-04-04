@@ -19,8 +19,9 @@
 }
 
 :host > div.disabled {
-  border: var(--border-size-small) solid var(--bg-grey-200);
+  border: var(--border-size-medium) solid var(--bg-grey-200);
   color: rgb(149, 153, 157);
+  box-shadow: none;
 }
 
 :host > div.default:focus:focus-visible,

@@ -210,6 +210,7 @@ export namespace Components {
     interface ZChip {
         "boldtext"?: number;
         "disabled"?: boolean;
+        "pressed"?: boolean;
         "regulartext"?: string;
         "type"?: ZChipType;
     }
@@ -2395,7 +2396,7 @@ declare namespace LocalJSX {
     interface ZChip {
         "boldtext"?: number;
         "disabled"?: boolean;
-        "onPressed"?: (event: CustomEvent<any>) => void;
+        "pressed"?: boolean;
         "regulartext"?: string;
         "type"?: ZChipType;
     }

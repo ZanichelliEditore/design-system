@@ -1,13 +1,5 @@
-import {
-  Component,
-  Prop,
-  h,
-  Element,
-  EventEmitter,
-  Event,
-} from "@stencil/core";
-import { keybordKeyCodeEnum, ZChipType } from "../../../beans";
-
+import { Component, Prop, h, Element } from "@stencil/core";
+import { ZChipType } from "../../../beans";
 @Component({
   tag: "z-chip",
   styleUrl: "styles.css",
@@ -20,34 +12,14 @@ export class ZChip {
   @Prop() boldtext?: number;
   @Prop({ reflect: true }) type?: ZChipType = ZChipType.default;
   @Prop({ reflect: true }) disabled?: boolean = false;
-
-  @Event({ eventName: "pressed" }) pressed: EventEmitter;
-
-  isPressed(e) {
-    console.log("is pressed");
-    if (!this.disabled) {
-      this.hostElement.shadowRoot
-        .querySelector("div")
-        .classList.toggle("pressed");
-      this.pressed.emit(e);
-    }
-  }
-
-  handleKeyboardEvent(e) {
-    if (
-      e.keyCode === keybordKeyCodeEnum.ENTER ||
-      e.keyCode === keybordKeyCodeEnum.SPACE
-    ) {
-      this.isPressed(e);
-    }
-  }
+  @Prop({ reflect: true }) pressed?: boolean = false;
 
   private renderLegacyChip() {
     return (
       <div
-        class={`${this.type} ${this.disabled ? "disabled" : ""}`}
-        onClick={(e) => this.isPressed(e)}
-        onKeyDown={(e: KeyboardEvent) => this.handleKeyboardEvent(e)}
+        class={`${this.type} ${this.disabled ? "disabled" : ""} ${
+          this.pressed ? "pressed" : ""
+        }`}
         tabindex="0"
       >
         <span class="boldtext">{this.boldtext}</span> {this.regulartext}
@@ -60,9 +32,9 @@ export class ZChip {
       this.renderLegacyChip()
     ) : (
       <div
-        class={`${this.type} ${this.disabled ? "disabled" : ""}`}
-        onClick={(e) => this.isPressed(e)}
-        onKeyDown={(e: KeyboardEvent) => this.handleKeyboardEvent(e)}
+        class={`${this.type} ${this.disabled ? "disabled" : ""} ${
+          this.pressed ? "pressed" : ""
+        }`}
         tabindex="0"
       >
         <slot />

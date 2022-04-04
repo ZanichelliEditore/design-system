@@ -11,15 +11,9 @@
 | ------------- | ------------- | ----------- | ------------------------------------- | ------------------- |
 | `boldtext`    | `boldtext`    |             | `number`                              | `undefined`         |
 | `disabled`    | `disabled`    |             | `boolean`                             | `false`             |
+| `pressed`     | `pressed`     |             | `boolean`                             | `false`             |
 | `regulartext` | `regulartext` |             | `string`                              | `undefined`         |
 | `type`        | `type`        |             | `ZChipType.default \| ZChipType.mini` | `ZChipType.default` |
-
-
-## Events
-
-| Event     | Description | Type               |
-| --------- | ----------- | ------------------ |
-| `pressed` |             | `CustomEvent<any>` |
 
 
 ----------------------------------------------
