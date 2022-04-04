@@ -23,6 +23,16 @@
   color: rgb(149, 153, 157);
 }
 
+:host > div.default:focus:focus-visible,
+:host > div.mini:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
+:host > div.pressed {
+  background-color: var(--gray50);
+}
+
 :host > div.default {
   min-height: 44px;
   border-radius: 22px;
