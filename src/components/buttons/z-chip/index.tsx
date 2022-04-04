@@ -33,7 +33,7 @@ export class ZChip {
     }
   }
 
-  handleKeybordEvent(e) {
+  handleKeyboardEvent(e) {
     if (
       e.keyCode === keybordKeyCodeEnum.ENTER ||
       e.keyCode === keybordKeyCodeEnum.SPACE
@@ -47,7 +47,7 @@ export class ZChip {
       <div
         class={`${this.type} ${this.disabled ? "disabled" : ""}`}
         onClick={(e) => this.isPressed(e)}
-        onKeyDown={(e: KeyboardEvent) => this.handleKeybordEvent(e)}
+        onKeyDown={(e: KeyboardEvent) => this.handleKeyboardEvent(e)}
         tabindex="0"
       >
         <span class="boldtext">{this.boldtext}</span> {this.regulartext}
@@ -62,7 +62,7 @@ export class ZChip {
       <div
         class={`${this.type} ${this.disabled ? "disabled" : ""}`}
         onClick={(e) => this.isPressed(e)}
-        onKeyDown={(e: KeyboardEvent) => this.handleKeybordEvent(e)}
+        onKeyDown={(e: KeyboardEvent) => this.handleKeyboardEvent(e)}
         tabindex="0"
       >
         <slot />
