@@ -6,7 +6,7 @@
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
-  font-size: 12px;
+  font-size: 14px;
   box-shadow: var(--shadow-2);
 }
 
@@ -48,6 +48,10 @@
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
+  :host > button {
+    font-size: 12px;
+  }
+
   :host > button.default {
     min-height: 32px;
     border-radius: 16px;
