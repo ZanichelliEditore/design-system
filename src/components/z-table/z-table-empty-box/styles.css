@@ -18,7 +18,16 @@ div.cta {
 
 /* Mobile */
 @media only screen and (max-width: 768px) {
+  :host {
+    padding: calc(var(--space-unit)) calc(var(--space-unit) * 3)
+      calc(var(--space-unit) * 3) calc(var(--space-unit) * 3);
+  }
+
   div.cta {
+    margin-top: calc(var(--space-unit) / 2);
+  }
+
+  div.cta.has2Cta {
     flex-direction: column;
   }
 }
