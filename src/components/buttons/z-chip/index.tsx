@@ -12,12 +12,13 @@ export class ZChip {
   @Prop() boldtext?: number;
   @Prop({ reflect: true }) type?: ZChipType = ZChipType.default;
   @Prop({ reflect: true }) disabled?: boolean = false;
+  @Prop() filter?: boolean = false;
 
   private renderLegacyChip() {
     return (
-      <button class={this.type} disabled={this.disabled} tabindex="0">
+      <div>
         <span class="boldtext">{this.boldtext}</span> {this.regulartext}
-      </button>
+      </div>
     );
   }
 
