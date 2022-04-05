@@ -6,32 +6,34 @@
 }
 
 ::slotted(*) {
-  margin-right: calc(var(--space-unit) * 2);
   margin-top: var(--space-unit);
 }
 
-div.cta {
+.cta {
   display: flex;
   flex-direction: row;
   margin-top: calc(var(--space-unit) / 2);
 }
 
-div.cta.has2Cta {
+.cta.has2Cta {
   flex-direction: column;
 }
 
-/* Mobile */
 @media only screen and (min-width: 768px) {
   :host {
     padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 7)
       calc(var(--space-unit) * 3) calc(var(--space-unit) * 7);
   }
 
-  div.cta {
+  ::slotted(*) {
+    margin-right: calc(var(--space-unit) * 2);
+  }
+
+  .cta {
     margin-top: var(--space-unit);
   }
 
-  div.cta.has2Cta {
+  .cta.has2Cta {
     flex-direction: row;
   }
 }
