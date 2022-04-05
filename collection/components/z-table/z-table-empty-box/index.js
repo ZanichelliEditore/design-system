@@ -1,4 +1,5 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
+import classNames from "classnames";
 export class ZTableEmptyBox {
   constructor() {
     /** Sets main title message*/
@@ -15,7 +16,9 @@ export class ZTableEmptyBox {
       h("z-body", { level: 3, variant: "semibold" }, this.message),
       h("br", null),
       !!this.subtitle && (h("z-body", { level: 4, variant: "regular" }, this.subtitle)),
-      (!!this.hasCta1Slot || !!this.hasCta2Slot) && (h("div", { class: "cta" },
+      (!!this.hasCta1Slot || !!this.hasCta2Slot) && (h("div", { class: classNames("cta", {
+          has2Cta: !!this.hasCta1Slot && !!this.hasCta2Slot
+        }) },
         h("slot", { name: "cta1" }),
         h("slot", { name: "cta2" })))));
   }
