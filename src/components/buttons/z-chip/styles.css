@@ -18,7 +18,7 @@
   color: var(--myz-blue-dark);
 }
 
-:host > button.disabled {
+:host > button:disabled {
   border: var(--border-size-medium) solid var(--bg-grey-200);
   color: rgb(149, 153, 157);
   box-shadow: none;
@@ -30,7 +30,7 @@
   outline: none;
 }
 
-:host > button:not(.disabled):active {
+:host > button:not(:disabled):active {
   background-color: var(--gray50);
 }
 

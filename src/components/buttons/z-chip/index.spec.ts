@@ -98,15 +98,15 @@ describe("Suite test ZChip", () => {
   it("Test render ZChip with attributes disabled", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip type="mini" disabled="true" boldtext="20" regulartext="libri trovati">
+      html: `<z-chip type="mini" disabled boldtext="20" regulartext="libri trovati">
                <z-body>ciao 1</z-body>
              </z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
-        <z-chip type="mini" disabled="" boldtext="20" regulartext="libri trovati">
+        <z-chip type="mini" disabled boldtext="20" regulartext="libri trovati">
           <mock:shadow-root>
-            <button class="disabled mini" tabindex="0">
+            <button class="mini" disabled tabindex="0">
               <span class="boldtext">20</span>&nbsp;libri trovati
             </button>
           </mock:shadow-root>

@@ -15,10 +15,7 @@ export class ZChip {
 
   private renderLegacyChip() {
     return (
-      <button
-        class={`${this.type} ${this.disabled ? "disabled" : ""}`}
-        tabindex="0"
-      >
+      <button class={this.type} disabled={this.disabled} tabindex="0">
         <span class="boldtext">{this.boldtext}</span> {this.regulartext}
       </button>
     );
@@ -28,10 +25,7 @@ export class ZChip {
     return this.boldtext != null || this.regulartext != null ? (
       this.renderLegacyChip()
     ) : (
-      <button
-        class={`${this.type} ${this.disabled ? "disabled" : ""}`}
-        tabindex="0"
-      >
+      <button class={this.type} disabled={this.disabled} tabindex="0">
         <slot />
       </button>
     );
