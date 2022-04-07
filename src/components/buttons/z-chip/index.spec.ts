@@ -12,9 +12,9 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
         <z-chip type="default">
           <mock:shadow-root>
-          <button class="default" tabindex="0">
+          <div class="default">
           <slot></slot>&nbsp;
-          </button>
+          </div>
         </mock:shadow-root>
       </z-chip>
     `);
@@ -29,9 +29,9 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
         <z-chip type="default" boldtext="20" regulartext="libri trovati">
           <mock:shadow-root>
-            <button class="default" tabindex="0">
+            <div>
               <span class="boldtext">20</span>&nbsp;libri trovati
-            </button>
+            </div>
           </mock:shadow-root>
         </z-chip>
     `);
@@ -46,9 +46,9 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
         <z-chip type="default">
           <mock:shadow-root>
-            <button class="default" tabindex="0">
+            <div class="default">
               <slot />
-            </button>
+            </div>
           </mock:shadow-root>
           <z-body>ciao 1</z-body>
         </z-chip>
@@ -66,9 +66,9 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
         <z-chip type="default" boldtext="20" regulartext="libri trovati">
           <mock:shadow-root>
-            <button class="default" tabindex="0">
+            <div>
               <span class="boldtext">20</span>&nbsp;libri trovati
-            </button>
+            </div>
           </mock:shadow-root>
           <z-body>ciao 1</z-body>
         </z-chip>
@@ -86,8 +86,26 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
         <z-chip type="mini" boldtext="20" regulartext="libri trovati">
           <mock:shadow-root>
-            <button class="mini" tabindex="0">
+            <div>
               <span class="boldtext">20</span>&nbsp;libri trovati
+            </div>
+          </mock:shadow-root>
+          <z-body>ciao 1</z-body>
+        </z-chip>
+    `);
+  });
+
+  it("Test render ZChip FilterChip with children", async () => {
+    const page = await newSpecPage({
+      components: [ZChip],
+      html: `<z-chip type="default" filter ><z-body>ciao 1</z-body></z-chip>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+        <z-chip type="default" filter>
+          <mock:shadow-root>
+            <button class="default" tabindex="0">
+              <slot />
             </button>
           </mock:shadow-root>
           <z-body>ciao 1</z-body>
@@ -95,19 +113,17 @@ describe("Suite test ZChip", () => {
     `);
   });
 
-  it("Test render ZChip with attributes disabled", async () => {
+  it("Test render ZChip FilterChip with children disabled", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip type="mini" disabled boldtext="20" regulartext="libri trovati">
-               <z-body>ciao 1</z-body>
-             </z-chip>`,
+      html: `<z-chip type="default" filter disabled><z-body>ciao 1</z-body></z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
-        <z-chip type="mini" disabled boldtext="20" regulartext="libri trovati">
+        <z-chip type="default" filter disabled>
           <mock:shadow-root>
-            <button class="mini" disabled tabindex="0">
-              <span class="boldtext">20</span>&nbsp;libri trovati
+            <button class="default" disabled="" tabindex="0">
+              <slot />
             </button>
           </mock:shadow-root>
           <z-body>ciao 1</z-body>

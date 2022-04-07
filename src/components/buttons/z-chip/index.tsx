@@ -10,9 +10,9 @@ export class ZChip {
 
   @Prop() regulartext?: string;
   @Prop() boldtext?: number;
-  @Prop({ reflect: true }) type?: ZChipType = ZChipType.default;
+  @Prop({ reflect: true }) type?: ZChipType;
   @Prop({ reflect: true }) disabled?: boolean = false;
-  @Prop() filter?: boolean = false;
+  @Prop({ reflect: true }) filter?: boolean = false;
 
   private renderLegacyChip() {
     return (
@@ -22,13 +22,29 @@ export class ZChip {
     );
   }
 
-  render() {
-    return this.boldtext != null || this.regulartext != null ? (
-      this.renderLegacyChip()
-    ) : (
-      <button class={this.type} disabled={this.disabled} tabindex="0">
+  private renderFilterChip() {
+    if (this.filter) {
+      return (
+        <button
+          class={this.type ? this.type : ZChipType.default}
+          disabled={this.disabled}
+          tabindex="0"
+        >
+          <slot />
+        </button>
+      );
+    }
+
+    return (
+      <div class={this.type ? this.type : ""}>
         <slot />
-      </button>
+      </div>
     );
+  }
+
+  render() {
+    return this.boldtext != null || this.regulartext != null
+      ? this.renderLegacyChip()
+      : this.renderFilterChip();
   }
 }

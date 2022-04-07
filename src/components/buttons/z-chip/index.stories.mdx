@@ -22,8 +22,9 @@ import { text, select, boolean } from "@storybook/addon-knobs";
 <Preview>
   <Story name="z-chip with children">
     {html` <z-chip
-      type="${select("type", ["default", "mini"], "default")}"
+      type="${select("type", ["", "default", "mini"], "")}"
       disabled="${boolean("Disabled", false)}"
+      filter="${boolean("Filter", false)}"
     >
       <z-body level="4">My custom element</z-body>
     </z-chip>`}
