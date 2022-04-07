@@ -16,8 +16,7 @@ import { getElementTree } from "../../utils/utils";
 })
 export class ZPopover {
   /** [optional] Popover position */
-  @Prop({ mutable: true }) position?: PopoverPosition =
-    PopoverPosition["after-up"];
+  @Prop() position?: PopoverPosition = PopoverPosition["after-up"];
   /** [optional] Background color token for popover */
   @Prop() backgroundColor?: string = "color-white";
   /** [optional] Border radius token for popover */
@@ -30,6 +29,7 @@ export class ZPopover {
   @Prop() padding?: string = "8px";
 
   @State() isVisible: boolean = false;
+  @State() popoverPosition: PopoverPosition = this.position;
 
   private popoverElem: HTMLElement;
 
@@ -137,7 +137,7 @@ export class ZPopover {
       }
     }
 
-    this.position = PopoverPosition[`${firstSide}-${secondSide}`];
+    this.popoverPosition = PopoverPosition[`${firstSide}-${secondSide}`];
   }
 
   render() {
@@ -158,7 +158,7 @@ export class ZPopover {
           ref={(e) => (this.popoverElem = e)}
           class={classNames(
             "popover-content-container",
-            this.position,
+            this.popoverPosition,
             `border-radius-${this.borderRadius}`,
             this.boxShadow,
             { "show-arrow": this.showArrow },
