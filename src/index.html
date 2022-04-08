@@ -209,15 +209,43 @@
       </section>
 
       <section>
-        <h4>text</h4>
+        <h4>Text</h4>
+        
         <div class="z-cards">
-          <z-card clickable id="mycard" variant="text" showshadow style="background-color: #e2001a; color: white; " >
+          <z-card id="mycard" variant="text" showshadow style="background-color: var(--color-secondary02); color: white; " >
             <h2 class="body-5" slot="metadata">metadata</h2>
             <h3 slot="title">Card title</h3>
             <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo. </p>
 
             <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
             <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
+          </z-card>
+
+          <z-card clickable id="mycard" variant="text" style="background-color: var(--color-primary01); color: white; border-radius: 4px;" >
+            <h2 class="body-5" slot="metadata">metadata</h2>
+            <h3 slot="title">Card title</h3>
+            <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo. </p>
+
+            <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
+            <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
+          </z-card>
+
+          <z-card clickable id="mycard" variant="text" style="border: 2px solid black; border-radius: 4px;" >
+            <h2 class="body-5" slot="metadata">metadata</h2>
+            <h3 slot="title">Card title</h3>
+            <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo. </p>
+
+            <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
+            <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
+          </z-card>
+
+          <z-card clickable id="mycard" variant="text" showshadow style="border: 1px solid black;" >
+            <h2 class="body-5" slot="metadata">metadata</h2>
+            <h3 slot="title">Card title</h3>
+            <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo. </p>
+
+            <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
+            <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
           </z-card>
         </div>
       </section>

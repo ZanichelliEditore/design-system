@@ -50,17 +50,51 @@ import { CardVariants } from "../../beans";
   <Story name="ZCard color cover">
     {html`
       <z-card
-        .variant="${radios("Variant", { default: '', ...CardVariants }, '')}"
+        .variant="${radios("Variant", { default: '', ...CardVariants }, '')}" 
         .clickable="${boolean("Clickable", false)}"
-        style="--z-card--color-cover-background: orange; width: 356px;"
+        style="--z-card--color-cover-background: orange; width: 356px;" 
       >
-        <h2 class="body-5" slot="metadata">metadata</h2>
-        <h3 slot="title">Card title</h3>
-        <p class="body-3" slot="text">Some description for the content of the card.</p>
-        <z-icon name="share" slot="action"></z-icon>
-        <z-icon name="delete" slot="action"></z-icon>
+        <h2 class="body-5" slot="metadata">metadata</h2> 
+        <h3 slot="title">Card title</h3> 
+        <p class="body-3" slot="text">Some description for the content of the card.</p> 
+        <z-icon name="share" slot="action"></z-icon> 
+        <z-icon name="delete" slot="action"></z-icon> 
       </z-card>
     `}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="ZCard text">
+    {html`
+    <div style="display: flex">
+      <z-card
+        variant="text"
+        .clickable="${boolean("Clickable", false)}"
+        .showshadow="${boolean("Show shadow", false)}"
+        style="background-color: var(--color-primary01); color: white; border-radius: 4px; width: 263px; margin-right: 20px"
+      >
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card Title</h3>
+        <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo.</p>
+        <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
+        <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
+      </z-card>
+      <z-card
+        variant="text"
+        .clickable="${boolean("Clickable", false)}"
+        .showshadow="${boolean("Show shadow", false)}"
+        style="background-color: white; border: 2px solid black; width: 263px;"
+      >
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <h3 slot="title">Card Title</h3>
+        <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo.</p>
+        <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
+        <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
+      </z-card>
+    </div>
+    `}
+    
   </Story>
 </Preview>
 
