@@ -134,6 +134,10 @@ Unfortunately the `aspect-ratio` property is still experimental */
   padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
 }
 
+:host([variant='text']) > .content {
+  padding: var(--basex2) var(--basex1)
+}
+
 :host([variant='border']) .actions,
 :host([variant='shadow']) .actions {
   margin-top: auto;
@@ -157,19 +161,27 @@ Unfortunately the `aspect-ratio` property is still experimental */
 }
 
 /* Shadow */
-:host([variant='shadow']) {
+:host([variant='shadow']),
+:host([variant='text'][showshadow])
+{
   box-shadow: var(--shadow-2);
 }
 
-:host([variant='shadow'][clickable]:hover) {
+:host([variant='shadow'][clickable]:hover),
+:host([variant='text'][clickable][showshadow]:hover)
+{
   box-shadow: var(--shadow-4);
 }
 
-:host([variant='shadow'][clickable]:focus:focus-visible) {
+:host([variant='shadow'][clickable]:focus:focus-visible),
+:host([variant='text'][clickable][showshadow]:focus:focus-visible)
+{
   box-shadow: var(--shadow-4);
 }
 
-:host([variant='shadow'][clickable]:active) {
+:host([variant='shadow'][clickable]:active),
+:host([variant='text'][clickable][showshadow]:active)
+{
   box-shadow: none;
 }
 

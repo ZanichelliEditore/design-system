@@ -21,6 +21,9 @@ export class ZCard {
   /** Enable click interactions on the card. Default: false */
   @Prop({ reflect: true }) clickable = false;
 
+  /** Enable shadow in text variant. Default: false. */
+  @Prop({ reflect: true }) showshadow = false;
+
   @Element() host: HTMLElement;
 
   @State() hasCoverImage: boolean;
@@ -74,7 +77,28 @@ export class ZCard {
     ];
   }
 
+   /**
+   * Template for a card without with only text.
+   */
+  private renderTextCard() {
+    return [
+      <div class="content">
+        <slot name="metadata"></slot>
+        <slot name="title"></slot>
+        <slot name="text"></slot>
+        <div class="actions">
+          <slot name="action"></slot>
+        </div>
+      </div>
+    ]
+  }
+
   render() {
+    
+    if (this.variant === CardVariants.text) {
+      return this.renderTextCard()
+    }
+
     if (this.variant === CardVariants.overlay || this.hasCoverImage) {
       return [
         <div class="cover-container">
