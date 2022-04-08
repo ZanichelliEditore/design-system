@@ -40,10 +40,6 @@ export class ZPopover {
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
-  componentDidLoad() {
-    this.checkSpaceAvailable();
-  }
-
   @Listen("closePopover")
   closePopover() {
     this.isVisible = false;
@@ -82,7 +78,6 @@ export class ZPopover {
   }
 
   checkSpaceAvailable() {
-
     const width = document.body.clientWidth;
     const height = window.innerHeight;
     const rect = this.popoverElem.getBoundingClientRect();
