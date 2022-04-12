@@ -42,6 +42,7 @@ export class ZPopover {
 
   @Listen("closePopover")
   closePopover() {
+    this.popoverPosition = this.position;
     this.isVisible = false;
   }
 
@@ -53,15 +54,13 @@ export class ZPopover {
   }
 
   handleClick(event) {
-    this.isVisible = !this.isVisible;
-    this.checkSpaceAvailable();
+    this.isVisible ? this.closePopover() : this.openPopover();
     event.stopPropagation();
   }
 
   handleKeyDown(event) {
     if (event.code === KeyboardKeys.ENTER) {
-      this.isVisible = !this.isVisible;
-      this.checkSpaceAvailable();
+      this.isVisible ? this.closePopover() : this.openPopover();
     }
   }
 
@@ -69,15 +68,15 @@ export class ZPopover {
   handleOutsideClick(e: any) {
     const tree = getElementTree(e.target);
     const parent = tree.find(
-      (elem: any) => elem.nodeName.toLowerCase() === "z-popover"
+      (elem: Element) => elem.nodeName.toLowerCase() === "z-popover"
     );
 
     if (!parent) {
-      this.isVisible = false;
+      this.closePopover();
     }
   }
 
-  checkSpaceAvailable() {
+  openPopover() {
     const width = document.body.clientWidth;
     const height = window.innerHeight;
     const rect = this.popoverElem.getBoundingClientRect();
@@ -133,6 +132,7 @@ export class ZPopover {
     }
 
     this.popoverPosition = PopoverPosition[`${firstSide}-${secondSide}`];
+    this.isVisible = true;
   }
 
   render() {
