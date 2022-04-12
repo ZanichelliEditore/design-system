@@ -40,42 +40,6 @@ export class ZPopover {
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
-  @Listen("closePopover")
-  closePopover() {
-    this.popoverPosition = this.position;
-    this.isVisible = false;
-  }
-
-  @Listen("keyup", { target: "window" })
-  closePopoverWithKeyboard(e: any) {
-    if (e.key === KeyboardKeys.ESC) {
-      this.closePopover();
-    }
-  }
-
-  handleClick(event) {
-    this.isVisible ? this.closePopover() : this.openPopover();
-    event.stopPropagation();
-  }
-
-  handleKeyDown(event) {
-    if (event.code === KeyboardKeys.ENTER) {
-      this.isVisible ? this.closePopover() : this.openPopover();
-    }
-  }
-
-  @Listen("click", { target: "body", capture: true })
-  handleOutsideClick(e: any) {
-    const tree = getElementTree(e.target);
-    const parent = tree.find(
-      (elem: Element) => elem.nodeName.toLowerCase() === "z-popover"
-    );
-
-    if (!parent) {
-      this.closePopover();
-    }
-  }
-
   openPopover() {
     const width = document.body.clientWidth;
     const height = window.innerHeight;
@@ -133,6 +97,42 @@ export class ZPopover {
 
     this.popoverPosition = PopoverPosition[`${firstSide}-${secondSide}`];
     this.isVisible = true;
+  }
+
+  @Listen("closePopover")
+  closePopover() {
+    this.popoverPosition = this.position;
+    this.isVisible = false;
+  }
+
+  @Listen("keyup", { target: "window" })
+  closePopoverWithKeyboard(e: any) {
+    if (e.key === KeyboardKeys.ESC) {
+      this.closePopover();
+    }
+  }
+
+  handleClick(event) {
+    this.isVisible ? this.closePopover() : this.openPopover();
+    event.stopPropagation();
+  }
+
+  handleKeyDown(event) {
+    if (event.code === KeyboardKeys.ENTER) {
+      this.isVisible ? this.closePopover() : this.openPopover();
+    }
+  }
+
+  @Listen("click", { target: "body", capture: true })
+  handleOutsideClick(e: any) {
+    const tree = getElementTree(e.target);
+    const parent = tree.find(
+      (elem: Element) => elem.nodeName.toLowerCase() === "z-popover"
+    );
+
+    if (!parent) {
+      this.closePopover();
+    }
   }
 
   render() {
