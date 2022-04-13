@@ -128,16 +128,19 @@ Unfortunately the `aspect-ratio` property is still experimental */
   box-shadow: var(--shadow-focus-primary);
 }
 
+:host([showshadow]) > .content,
 :host([variant='border']) > .content,
 :host([variant='shadow']) > .content {
   height: 100%;
   padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
 }
 
+:host([showshadow]) > .content,
 :host([variant='text']) > .content {
   padding: var(--basex2) var(--basex1)
 }
 
+:host([showshadow]) .actions,
 :host([variant='border']) .actions,
 :host([variant='shadow']) .actions {
   margin-top: auto;
@@ -162,25 +165,25 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 /* Shadow */
 :host([variant='shadow']),
-:host([variant='text'][showshadow])
+:host([showshadow])
 {
   box-shadow: var(--shadow-2);
 }
 
 :host([variant='shadow'][clickable]:hover),
-:host([variant='text'][clickable][showshadow]:hover)
+:host([clickable][showshadow]:hover)
 {
   box-shadow: var(--shadow-4);
 }
 
 :host([variant='shadow'][clickable]:focus:focus-visible),
-:host([variant='text'][clickable][showshadow]:focus:focus-visible)
+:host([clickable][showshadow]:focus:focus-visible)
 {
   box-shadow: var(--shadow-4);
 }
 
 :host([variant='shadow'][clickable]:active),
-:host([variant='text'][clickable][showshadow]:active)
+:host([clickable][showshadow]:active)
 {
   box-shadow: none;
 }
