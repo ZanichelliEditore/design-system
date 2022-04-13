@@ -1,0 +1,323 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { boolean, select, text } from "@storybook/addon-knobs";
+
+<Meta title="Table/ZTable" component="z-table" />
+
+# ZTable
+
+<Preview>
+  <Story name="ZTable-padding">
+    {html`
+      <z-table bordered="true">
+        <z-table-body>
+          <z-table-head>
+            <z-table-header-row>
+              <z-table-header padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}">
+                <span>Titolo 1</span>
+              </z-table-header>
+              <z-table-header padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}">
+                <span>Titolo 2</span>
+              </z-table-header>
+            </z-table-header-row>
+          </z=table-head>
+          <z-table-row>
+            <z-table-cell
+              padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}"
+            >
+              <span>1-1</span>
+            </z-table-cell>
+            <z-table-cell
+              padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}"
+            >
+              <span>1-2</span>
+            </z-table-cell>
+          </z-table-row>
+          <z-table-row>
+            <z-table-cell
+              padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}"
+            >
+              <span>2-1</span>
+            </z-table-cell>
+            <z-table-cell
+              padding="${select(
+                "padding",
+                ["x-small", "small", "medium", "large", "special"],
+                "medium"
+              )}"
+            >
+              <span>2-2</span>
+            </z-table-cell>
+          </z-table-row>
+        </z-table-body>
+      </z-table>
+    `}
+  </Story>
+  <Story name="ZTable-sample">
+    {html`<z-table
+      bordered="${boolean("bordered", true)}"
+      column-sticky="${boolean("column-sticky", false)}"
+      header-sticky="${boolean("header-sticky", false)}"
+    >
+      <z-table-head>
+        <z-table-header-row>
+          <z-table-header>
+            <span>Titolo 1</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 2</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 3</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 4</span>
+          </z-table-header>
+        </z-table-header-row>
+      </z-table-head>
+      <z-table-body>
+        <z-table-row>
+          <z-table-cell>
+            <z-tooltip
+              type="top"
+              open="true"
+              bind-to="#sample-element"
+              type="{Too.RIGHT}"
+            >
+              Tooltip di esempio
+            </z-tooltip>
+            <span id="sample-element">Contenuto 1-1</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 1-2</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 1-3</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 1-4</span>
+          </z-table-cell>
+        </z-table-row>
+        <z-table-row>
+          <z-table-cell>
+            <span>Contenuto 2-1</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 2-2</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 2-3</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 2-4</span>
+          </z-table-cell>
+        </z-table-row>
+        <z-table-row>
+          <z-table-cell>
+            <span>Contenuto 3-1</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 3-2</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 3-3</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 3-4</span>
+          </z-table-cell>
+        </z-table-row>
+        <z-table-row>
+          <z-table-cell>
+            <span>Contenuto 4-1</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 4-2</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 4-3</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 4-4</span>
+          </z-table-cell>
+        </z-table-row>
+      </z-table-body>
+      <z-table-sticky-footer slot="sticky-footer">
+        <span>This is a sticky footer</span>
+      </z-table-sticky-footer>
+    </z-table>`}
+  </Story>
+  <Story name="ZTable-error-no-header">
+    {html`<z-table
+        error="true"
+        lines="${text("Lines", "6")}"
+        error-message="${text(
+          "Error Message",
+          "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto"
+        )}"
+      >
+      </z-table>
+      <p>Altro contenuto</p>`}
+  </Story>
+  <Story name="ZTable-error">
+    {html`<z-table
+        bordered="true"
+        error="true"
+        lines="${text("Lines", "6")}"
+        error-message="${text(
+          "Error Message",
+          "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto"
+        )}"
+      >
+        <z-table-head slot="table-header">
+          <z-table-header-row>
+            <z-table-header>
+              <span>Titolo 1</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo last</span>
+            </z-table-header>
+          </z-table-header-row>
+        </z-table-head>
+        <img
+          src="./images/png/zanichelli-error-image.png"
+          slot="error-image"
+          alt="Error"
+        />
+        <div slot="error-action">
+          <z-body level="{4}">
+            <a href="#" target="_blank">Clicca qui</a> per ricaricare la pagina
+          </z-body>
+        </div>
+      </z-table>
+      <p>Altro contenuto</p>`}
+  </Story>
+  <Story name="ZTable-empty-no-header">
+    {html`<z-table
+      bordered="${boolean("bordered", false)}"
+      call-to-action-label="${text("call-to-action-label", "Action 1")}"
+      call-to-action-two-label="${text("call-to-action-two-label", "Action 2")}"
+      empty="true"
+      message="${text(
+        "message",
+        "Siamo spiacenti, al momento non sono presenti dati da visualizzare"
+      )}"
+      subtitle="${text("subtitle", "Eventuale testo")}"
+    >
+    </z-table>`}
+  </Story>
+  <Story name="ZTable-empty">
+    {html`<z-table
+      bordered="${boolean("bordered", true)}"
+      call-to-action-label="${text("call-to-action-label", "Call to action")}"
+      call-to-action-two-label="${text(
+        "call-to-action-two-label",
+        "Call to action"
+      )}"
+      empty="true"
+      message="${text(
+        "message",
+        "Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
+      )}"
+      subtitle="${text("subtitle", "Eventuale testo")}"
+    >
+      <z-table-head slot="table-header">
+        <z-table-header-row>
+          <z-table-header>
+            <span>Titolo 1</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 2</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 3</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 4</span>
+          </z-table-header>
+        </z-table-header-row>
+      </z-table-head>
+    </z-table>`}
+  </Story>
+  <Story name="ZTable-empty-with-header-column">
+    {html`
+      <style>body{background-color: lightgray;}</style>
+      <z-table
+      bordered="${boolean("bordered", true)}"
+      call-to-action-label="${text("call-to-action-label", "Call to action")}"
+      call-to-action-two-label="${text(
+        "call-to-action-two-label",
+        "Call to action"
+      )}"
+      empty="true"
+      message="${text(
+        "message",
+        "Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
+      )}"
+      subtitle="${text("subtitle", "Eventuale testo")}"
+    >
+      <z-table-head slot="table-header">
+        <z-table-header-row>
+          <z-table-header>
+            <span>Titolo 1</span>
+          </z-table-header>
+      </z-table-head>
+      <z-table-body slot="table-body">
+        <z-table-row>
+          <z-table-cell>
+            <z-avatar text="AS" size="medium" background-color="avatar-C13" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C13);"></z-avatar>
+            <span>Contenuto 1-3</span>
+          </z-table-cell>
+        </z-table-row>
+        <z-table-row>
+          <z-table-cell >
+            <z-avatar text="AS" size="medium" background-color="avatar-C14" class="sc-fbkiRW ccsChj medium body-4-sb hydrated" style="color: var(--text-white); background-color: var(--avatar-C14);"></z-avatar>
+            <span>Contenuto 1-4</span>
+          </z-table-cell>
+        </z-table-row>
+      </z-table-body>
+    </z-table>`}
+  </Story>
+</Preview>
+
+<Props of="z-table" />

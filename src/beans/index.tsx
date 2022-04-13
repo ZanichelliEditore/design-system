@@ -258,14 +258,6 @@ export enum DividerOrientation {
   vertical = "vertical",
 }
 
-export enum TableHeaderSize {
-  "x-small" = "x-small",
-  small = "small",
-  medium = "medium",
-  large = "large",
-  special = "special",
-}
-
 export enum SortDirectionEnum {
   asc = "asc",
   desc = "desc",
@@ -293,6 +285,14 @@ export enum ListSize {
   medium = "medium",
   large = "large",
   "x-large" = "x-large",
+}
+
+export enum Size {
+  "x-small" = "x-small",
+  small = "small",
+  medium = "medium",
+  large = "large",
+  special = "special",
 }
 
 export enum ExpandableListStyle {
@@ -388,10 +388,15 @@ export enum ToastNotificationPositionsEnum {
   bottomCentre = "bottom-centre",
 }
 
-export enum ZRegistroTableRowExpandedType {
+export enum ZTableRowExpandedType {
   expandable = "expandable",
   padding = "padding",
   none = "none",
+}
+
+export enum ZAriaAlertMode {
+  polite = "polite",
+  assertive = "assertive",
 }
 
 export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;

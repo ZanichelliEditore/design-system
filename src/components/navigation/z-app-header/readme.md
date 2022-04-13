@@ -16,6 +16,13 @@
 | `stuck`      | `stuck`       | Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**                                                                                                                                                       | `boolean`                          | `false`     |
 
 
+## Events
+
+| Event      | Description                                            | Type               |
+| ---------- | ------------------------------------------------------ | ------------------ |
+| `sticking` | Emitted when the `stucked` state of the header changes | `CustomEvent<any>` |
+
+
 ## Slots
 
 | Slot              | Description                                                                      |

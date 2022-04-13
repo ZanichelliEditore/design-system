@@ -56,11 +56,11 @@
  - [z-notification](../../notification/z-notification)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
- - [z-registro-table-header](../../../snowflakes/registro-table/z-registro-table-header)
- - [z-registro-table-row](../../../snowflakes/registro-table/z-registro-table-row)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
  - [z-status-tag](../../z-status-tag)
+ - [z-table-header](../../z-table/z-table-header)
+ - [z-table-row](../../z-table/z-table-row)
  - [z-toast-notification](../../notification/z-toast-notification)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-user-dropdown](../../navigation/z-user-dropdown)
@@ -98,11 +98,11 @@ graph TD;
   z-notification --> z-icon
   z-pagination-bar --> z-icon
   z-pocket-message --> z-icon
-  z-registro-table-header --> z-icon
-  z-registro-table-row --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon
   z-status-tag --> z-icon
+  z-table-header --> z-icon
+  z-table-row --> z-icon
   z-toast-notification --> z-icon
   z-toggle-button --> z-icon
   z-user-dropdown --> z-icon

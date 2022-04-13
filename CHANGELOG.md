@@ -2,6 +2,86 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.36.0](https://github.com/ZanichelliEditore/design-system/compare/v2.35.0...v2.36.0) (2022-04-07)
+
+
+### Features
+
+* **CLAV-263:** fix test ([babcc50](https://github.com/ZanichelliEditore/design-system/commit/babcc504e6394912131287d5815e6564fd13d528))
+
+## [2.35.0](https://github.com/ZanichelliEditore/design-system/compare/v2.34.4...v2.35.0) (2022-04-05)
+
+
+### Features
+
+* **CLAV-263:** fix empty table style ([006692f](https://github.com/ZanichelliEditore/design-system/commit/006692fb093b02013e3e248f2701fb0bf9aea601))
+* **feature/CLAV-263-z-table-empty-box:** fix for pr ([a6ebf07](https://github.com/ZanichelliEditore/design-system/commit/a6ebf07e8a77756811ef7ad0427fb1fad40a7b89))
+
+### [2.34.4](https://github.com/ZanichelliEditore/design-system/compare/v2.34.3...v2.34.4) (2022-04-01)
+
+### [2.34.3](https://github.com/ZanichelliEditore/design-system/compare/v2.34.2...v2.34.3) (2022-03-21)
+
+### [2.34.2](https://github.com/ZanichelliEditore/design-system/compare/v2.34.1...v2.34.2) (2022-03-15)
+
+
+### Bug Fixes
+
+* tests ([d7a37c8](https://github.com/ZanichelliEditore/design-system/commit/d7a37c82b5fefcf52db18324123e3f0a87dc02b3))
+
+### [2.34.1](https://github.com/ZanichelliEditore/design-system/compare/v2.34.0...v2.34.1) (2022-03-15)
+
+## [2.34.0](https://github.com/ZanichelliEditore/design-system/compare/v2.33.4...v2.34.0) (2022-03-04)
+
+
+### Features
+
+* **clav-277:** padding on table cell, header cell ([26ee9ed](https://github.com/ZanichelliEditore/design-system/commit/26ee9ed1c2680cb1d5f46217f8019a5279908561))
+* **clav-277:** padding on table cell, header cell ([62596f8](https://github.com/ZanichelliEditore/design-system/commit/62596f8e3d282f5e741513f127f2a6447089e1b1))
+
+### [2.33.4](https://github.com/ZanichelliEditore/design-system/compare/v2.33.3...v2.33.4) (2022-03-01)
+
+
+### Bug Fixes
+
+* fixed z-popover initial positioning ([#214](https://github.com/ZanichelliEditore/design-system/issues/214)) ([2e74716](https://github.com/ZanichelliEditore/design-system/commit/2e7471631e5677654b94955699ae3217a42515c3))
+
+### [2.33.3](https://github.com/ZanichelliEditore/design-system/compare/v2.33.2...v2.33.3) (2022-02-25)
+
+### [2.33.2](https://github.com/ZanichelliEditore/design-system/compare/v2.33.1...v2.33.2) (2022-02-24)
+
+### [2.33.1](https://github.com/ZanichelliEditore/design-system/compare/v2.33.0...v2.33.1) (2022-02-23)
+
+## [2.33.0](https://github.com/ZanichelliEditore/design-system/compare/v2.32.0...v2.33.0) (2022-02-17)
+
+
+### Features
+
+* **ZTE-4456:** workin aria alert, and visually hidden ([e548ed0](https://github.com/ZanichelliEditore/design-system/commit/e548ed0c91660796632612c4b9a79c7db1e13e20))
+
+
+### Bug Fixes
+
+* **CLAV-4456:** add components for accessibility ([219d05d](https://github.com/ZanichelliEditore/design-system/commit/219d05d0aaca9589d02e767ae7efa7f1a5388509))
+* **ZTE-4456:** clean code, remove unsed code ([6062e24](https://github.com/ZanichelliEditore/design-system/commit/6062e2497feea531b4245cbb73e83c37573ecce6))
+* **ZTE-4456:** fix ([7b40d9b](https://github.com/ZanichelliEditore/design-system/commit/7b40d9b21bdb29cf9df3104577ea8f5f7c8382f2))
+
+## [2.32.0](https://github.com/ZanichelliEditore/design-system/compare/v2.31.2...v2.32.0) (2022-02-14)
+
+
+### Features
+
+* add optional color to contextual menu ([d1798ad](https://github.com/ZanichelliEditore/design-system/commit/d1798adf4d5be2fa6102955e821d3c9cd6977fa4))
+
+### [2.31.2](https://github.com/ZanichelliEditore/design-system/compare/v2.31.1...v2.31.2) (2022-02-10)
+
+
+### Bug Fixes
+
+* **CLAV-272:** fix z-app-header z-index ([b7a2fd6](https://github.com/ZanichelliEditore/design-system/commit/b7a2fd6591347bd6fdbaf6fbeced7beffc1f83a1))
+* **ZTE-4472:** change color to white link after click ([dc7f7d5](https://github.com/ZanichelliEditore/design-system/commit/dc7f7d5b72869eeac01a8ab6b81ede7de621275b))
+
+### [2.31.1](https://github.com/ZanichelliEditore/design-system/compare/v2.31.0...v2.31.1) (2022-02-10)
+
 ## [2.31.0](https://github.com/ZanichelliEditore/design-system/compare/v2.30.1...v2.31.0) (2022-01-21)
 
 
