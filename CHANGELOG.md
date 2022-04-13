@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.36.0](https://github.com/ZanichelliEditore/design-system/compare/v2.35.0...v2.36.0) (2022-04-07)
+
+
+### Features
+
+* **CLAV-263:** fix test ([babcc50](https://github.com/ZanichelliEditore/design-system/commit/babcc504e6394912131287d5815e6564fd13d528))
+
 ## [2.35.0](https://github.com/ZanichelliEditore/design-system/compare/v2.34.4...v2.35.0) (2022-04-05)
 
 
