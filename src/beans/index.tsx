@@ -413,3 +413,8 @@ export enum FiletypeEnum {
   jpeg = "image/jpeg",
   jpg = "image/jpg",
 }
+
+export enum ZChipType {
+  default = "default",
+  mini = "mini",
+}
