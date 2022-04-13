@@ -2200,6 +2200,10 @@ declare namespace LocalJSX {
          */
         "hero"?: string;
         /**
+          * Emitted when the `stucked` state of the header changes
+         */
+        "onSticking"?: (event: CustomEvent<any>) => void;
+        /**
           * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
          */
         "overlay"?: boolean;

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.35.0](https://github.com/ZanichelliEditore/design-system/compare/v2.34.4...v2.35.0) (2022-04-05)
+
+
+### Features
+
+* **CLAV-263:** fix empty table style ([006692f](https://github.com/ZanichelliEditore/design-system/commit/006692fb093b02013e3e248f2701fb0bf9aea601))
+* **feature/CLAV-263-z-table-empty-box:** fix for pr ([a6ebf07](https://github.com/ZanichelliEditore/design-system/commit/a6ebf07e8a77756811ef7ad0427fb1fad40a7b89))
+
+### [2.34.4](https://github.com/ZanichelliEditore/design-system/compare/v2.34.3...v2.34.4) (2022-04-01)
+
 ### [2.34.3](https://github.com/ZanichelliEditore/design-system/compare/v2.34.2...v2.34.3) (2022-03-21)
 
 ### [2.34.2](https://github.com/ZanichelliEditore/design-system/compare/v2.34.1...v2.34.2) (2022-03-15)
