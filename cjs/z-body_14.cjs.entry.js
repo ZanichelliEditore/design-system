@@ -16,7 +16,7 @@ const ZBody = class {
     this.variant = "regular";
   }
   render() {
-    return (index.h("z-typography", { component: this.component || "span", level: `b${this.level}`, variant: this.variant }, index.h("slot", null)));
+    return (index.h("z-typography", { tabIndex: 0, component: this.component || "span", level: `b${this.level}`, variant: this.variant }, index.h("slot", null)));
   }
 };
 

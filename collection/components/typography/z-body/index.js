@@ -4,7 +4,7 @@ export class ZBody {
     this.variant = "regular";
   }
   render() {
-    return (h("z-typography", { component: this.component || "span", level: `b${this.level}`, variant: this.variant },
+    return (h("z-typography", { tabIndex: 0, component: this.component || "span", level: `b${this.level}`, variant: this.variant },
       h("slot", null)));
   }
   static get is() { return "z-body"; }

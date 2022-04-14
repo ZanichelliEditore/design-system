@@ -6,7 +6,7 @@ const ZHeading = class {
     this.variant = "regular";
   }
   render() {
-    return (h("z-typography", { component: this.component || `h${this.level}`, level: `h${this.level}`, variant: this.variant }, h("slot", null)));
+    return (h("z-typography", { tabIndex: 0, component: this.component || `h${this.level}`, level: `h${this.level}`, variant: this.variant }, h("slot", null)));
   }
 };
 
