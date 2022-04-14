@@ -122,7 +122,7 @@ describe("Suite test ZCard", () => {
         <z-card clickable variant="text" showshadow style="border: 1px solid black;">
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo. </p>
+          <p class="body-3" slot="text">Some description for the content of the card. </p>
 
           <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
@@ -144,7 +144,7 @@ describe("Suite test ZCard", () => {
         </mock:shadow-root>
         <h2 class="body-5" slot="metadata">metadata</h2>
         <h3 slot="title">Card title</h3>
-        <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo. </p>
+        <p class="body-3" slot="text">Some description for the content of the card. </p>
         <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
         <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
       </z-card>
