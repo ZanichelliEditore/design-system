@@ -16,8 +16,7 @@ import { getElementTree } from "../../utils/utils";
 })
 export class ZPopover {
   /** [optional] Popover position */
-  @Prop({ mutable: true }) position?: PopoverPosition =
-    PopoverPosition["after-up"];
+  @Prop() position?: PopoverPosition = PopoverPosition["after-up"];
   /** [optional] Background color token for popover */
   @Prop() backgroundColor?: string = "color-white";
   /** [optional] Border radius token for popover */
@@ -30,6 +29,7 @@ export class ZPopover {
   @Prop() padding?: string = "8px";
 
   @State() isVisible: boolean = false;
+  @State() popoverPosition: PopoverPosition = this.position;
 
   private popoverElem: HTMLElement;
 
@@ -40,49 +40,7 @@ export class ZPopover {
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
-  componentDidLoad() {
-    this.checkSpaceAvailable();
-  }
-
-  @Listen("closePopover")
-  closePopover() {
-    this.isVisible = false;
-  }
-
-  @Listen("keyup", { target: "window" })
-  closePopoverWithKeyboard(e: any) {
-    if (e.key === KeyboardKeys.ESC) {
-      this.closePopover();
-    }
-  }
-
-  handleClick(event) {
-    this.isVisible = !this.isVisible;
-    this.checkSpaceAvailable();
-    event.stopPropagation();
-  }
-
-  handleKeyDown(event) {
-    if (event.code === KeyboardKeys.ENTER) {
-      this.isVisible = !this.isVisible;
-      this.checkSpaceAvailable();
-    }
-  }
-
-  @Listen("click", { target: "body", capture: true })
-  handleOutsideClick(e: any) {
-    const tree = getElementTree(e.target);
-    const parent = tree.find(
-      (elem: any) => elem.nodeName.toLowerCase() === "z-popover"
-    );
-
-    if (!parent) {
-      this.isVisible = false;
-    }
-  }
-
-  checkSpaceAvailable() {
-
+  openPopover() {
     const width = document.body.clientWidth;
     const height = window.innerHeight;
     const rect = this.popoverElem.getBoundingClientRect();
@@ -137,7 +95,44 @@ export class ZPopover {
       }
     }
 
-    this.position = PopoverPosition[`${firstSide}-${secondSide}`];
+    this.popoverPosition = PopoverPosition[`${firstSide}-${secondSide}`];
+    this.isVisible = true;
+  }
+
+  @Listen("closePopover")
+  closePopover() {
+    this.popoverPosition = this.position;
+    this.isVisible = false;
+  }
+
+  @Listen("keyup", { target: "window" })
+  closePopoverWithKeyboard(e: any) {
+    if (e.key === KeyboardKeys.ESC) {
+      this.closePopover();
+    }
+  }
+
+  handleClick(event) {
+    this.isVisible ? this.closePopover() : this.openPopover();
+    event.stopPropagation();
+  }
+
+  handleKeyDown(event) {
+    if (event.code === KeyboardKeys.ENTER) {
+      this.isVisible ? this.closePopover() : this.openPopover();
+    }
+  }
+
+  @Listen("click", { target: "body", capture: true })
+  handleOutsideClick(e: any) {
+    const tree = getElementTree(e.target);
+    const parent = tree.find(
+      (elem: Element) => elem.nodeName.toLowerCase() === "z-popover"
+    );
+
+    if (!parent) {
+      this.closePopover();
+    }
   }
 
   render() {
@@ -158,7 +153,7 @@ export class ZPopover {
           ref={(e) => (this.popoverElem = e)}
           class={classNames(
             "popover-content-container",
-            this.position,
+            this.popoverPosition,
             `border-radius-${this.borderRadius}`,
             this.boxShadow,
             { "show-arrow": this.showArrow },
