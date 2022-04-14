@@ -78,7 +78,7 @@ export class ZCard {
   }
 
    /**
-   * Template for a card without with only text.
+   * Template for a card with text and actions only.
    */
   private renderTextCard() {
     return [
@@ -94,7 +94,7 @@ export class ZCard {
   }
 
   render() {
-    
+
     if (this.variant === CardVariants.text) {
       return this.renderTextCard()
     }
