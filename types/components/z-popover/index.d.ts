@@ -13,17 +13,17 @@ export declare class ZPopover {
   /** [optional] Sets padding for Popover container */
   padding?: string;
   isVisible: boolean;
+  popoverPosition: PopoverPosition;
   private popoverElem;
   /**
    * Constructor.
    */
   constructor();
-  componentDidLoad(): void;
+  openPopover(): void;
   closePopover(): void;
   closePopoverWithKeyboard(e: any): void;
   handleClick(event: any): void;
   handleKeyDown(event: any): void;
   handleOutsideClick(e: any): void;
-  checkSpaceAvailable(): void;
   render(): any;
 }

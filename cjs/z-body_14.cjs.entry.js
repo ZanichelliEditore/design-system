@@ -90,38 +90,10 @@ const ZPopover = class {
     /** [optional] Sets padding for Popover container */
     this.padding = "8px";
     this.isVisible = false;
+    this.popoverPosition = this.position;
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
-  componentDidLoad() {
-    this.checkSpaceAvailable();
-  }
-  closePopover() {
-    this.isVisible = false;
-  }
-  closePopoverWithKeyboard(e) {
-    if (e.key === index$1.KeyboardKeys.ESC) {
-      this.closePopover();
-    }
-  }
-  handleClick(event) {
-    this.isVisible = !this.isVisible;
-    this.checkSpaceAvailable();
-    event.stopPropagation();
-  }
-  handleKeyDown(event) {
-    if (event.code === index$1.KeyboardKeys.ENTER) {
-      this.isVisible = !this.isVisible;
-      this.checkSpaceAvailable();
-    }
-  }
-  handleOutsideClick(e) {
-    const tree = utils.getElementTree(e.target);
-    const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-popover");
-    if (!parent) {
-      this.isVisible = false;
-    }
-  }
-  checkSpaceAvailable() {
+  openPopover() {
     const width = document.body.clientWidth;
     const height = window.innerHeight;
     const rect = this.popoverElem.getBoundingClientRect();
@@ -169,14 +141,40 @@ const ZPopover = class {
         firstSide = "after";
       }
     }
-    this.position = index$1.PopoverPosition[`${firstSide}-${secondSide}`];
+    this.popoverPosition = index$1.PopoverPosition[`${firstSide}-${secondSide}`];
+    this.isVisible = true;
+  }
+  closePopover() {
+    this.popoverPosition = this.position;
+    this.isVisible = false;
+  }
+  closePopoverWithKeyboard(e) {
+    if (e.key === index$1.KeyboardKeys.ESC) {
+      this.closePopover();
+    }
+  }
+  handleClick(event) {
+    this.isVisible ? this.closePopover() : this.openPopover();
+    event.stopPropagation();
+  }
+  handleKeyDown(event) {
+    if (event.code === index$1.KeyboardKeys.ENTER) {
+      this.isVisible ? this.closePopover() : this.openPopover();
+    }
+  }
+  handleOutsideClick(e) {
+    const tree = utils.getElementTree(e.target);
+    const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-popover");
+    if (!parent) {
+      this.closePopover();
+    }
   }
   render() {
     return (index.h(index.Host, { onKeyDown: this.handleKeyDown }, index.h("div", { tabindex: "0", onClick: (event) => this.handleClick(event), onKeyDown: (event) => {
         if (event.key === index$1.KeyboardKeys.ENTER) {
           this.handleClick(event);
         }
-      } }, index.h("slot", { name: "trigger" })), index.h("div", { ref: (e) => (this.popoverElem = e), class: index$2.classnames("popover-content-container", this.position, `border-radius-${this.borderRadius}`, this.boxShadow, { "show-arrow": this.showArrow }, { visible: this.isVisible }), style: {
+      } }, index.h("slot", { name: "trigger" })), index.h("div", { ref: (e) => (this.popoverElem = e), class: index$2.classnames("popover-content-container", this.popoverPosition, `border-radius-${this.borderRadius}`, this.boxShadow, { "show-arrow": this.showArrow }, { visible: this.isVisible }), style: {
         backgroundColor: `var(--${this.backgroundColor})`,
         padding: this.padding,
       } }, index.h("slot", { name: "popover" }))));
