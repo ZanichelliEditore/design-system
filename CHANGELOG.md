@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.36.3](https://github.com/ZanichelliEditore/design-system/compare/v2.36.2...v2.36.3) (2022-04-14)
+
+
+### Bug Fixes
+
+* add popover position state ([0d608c5](https://github.com/ZanichelliEditore/design-system/commit/0d608c5900355fb234b33a895647ff481c9d5a2e))
+* change functions order ([d78512c](https://github.com/ZanichelliEditore/design-system/commit/d78512c375d745d418b2f2a519e441fc856e6e8d))
+* remove position being calculated at first load ([1ab4daa](https://github.com/ZanichelliEditore/design-system/commit/1ab4daa2eafe6c146ef2b9b312a224d6745225cf))
+
 ### [2.36.2](https://github.com/ZanichelliEditore/design-system/compare/v2.36.1...v2.36.2) (2022-04-14)
 
 
