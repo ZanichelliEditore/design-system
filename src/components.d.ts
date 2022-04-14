@@ -203,7 +203,7 @@ export namespace Components {
          */
         "coverIcon": string;
         /**
-          * Enable shadow in text variant. Default: false.
+          * Enable shadow. Default: false.
          */
         "showshadow": boolean;
         /**
@@ -2394,7 +2394,7 @@ declare namespace LocalJSX {
          */
         "onCardClicked"?: (event: CustomEvent<any>) => void;
         /**
-          * Enable shadow in text variant. Default: false.
+          * Enable shadow. Default: false.
          */
         "showshadow"?: boolean;
         /**

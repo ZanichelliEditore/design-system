@@ -21,7 +21,7 @@ export class ZCard {
   /** Enable click interactions on the card. Default: false */
   @Prop({ reflect: true }) clickable = false;
 
-  /** Enable shadow in text variant. Default: false. */
+  /** Enable shadow. Default: false. */
   @Prop({ reflect: true }) showshadow = false;
 
   @Element() host: HTMLElement;
