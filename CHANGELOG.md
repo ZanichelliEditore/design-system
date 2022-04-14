@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.36.1](https://github.com/ZanichelliEditore/design-system/compare/v2.36.0...v2.36.1) (2022-04-14)
+
+
+### Bug Fixes
+
+* added tabindex into z-body and z-heading components, fix tests ([0570c3e](https://github.com/ZanichelliEditore/design-system/commit/0570c3e973e41bae1c7b3a92707bdff5a4dc5d7c))
+
 ## [2.36.0](https://github.com/ZanichelliEditore/design-system/compare/v2.35.0...v2.36.0) (2022-04-07)
 
 
