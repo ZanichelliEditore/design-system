@@ -135,12 +135,10 @@ Unfortunately the `aspect-ratio` property is still experimental */
   padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
 }
 
-:host([showshadow]) > .content,
 :host([variant='text']) > .content {
   padding: var(--basex2) var(--basex1)
 }
 
-:host([showshadow]) .actions,
 :host([variant='border']) .actions,
 :host([variant='shadow']) .actions {
   margin-top: auto;

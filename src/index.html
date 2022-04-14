@@ -117,7 +117,7 @@
             <z-icon name="share" slot="action"></z-icon>
             <z-icon name="delete" slot="action"></z-icon>
           </z-card>
-          <z-card clickable style="--z-card--color-cover-background: orange;">
+          <z-card clickable style="--z-card--color-cover-background: orange;" showshadow>
             <h2 class="body-5" slot="metadata" >metadata</h2>
             <h3 slot="title">Card title</h3>
             <p class="body-3" slot="text">Some description for the content of the card.</p>
@@ -140,7 +140,7 @@
             <z-icon name="share" slot="action"></z-icon>
             <z-icon name="delete" slot="action"></z-icon>
           </z-card>
-          <z-card clickable variant="border" cover-icon="play-filled">
+          <z-card clickable variant="border" cover-icon="play-filled" showshadow>
             <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
             <h2 class="body-5" slot="metadata">metadata</h2>
             <h3 slot="title">Card title</h3>
@@ -212,7 +212,7 @@
         <h4>Text</h4>
 
         <div class="z-cards">
-          <z-card id="mycard" variant="text" showshadow style="background-color: var(--color-secondary02); color: white; " >
+          <z-card variant="text" showshadow style="background-color: var(--color-secondary02); color: white; " >
             <h2 class="body-5" slot="metadata">metadata</h2>
             <h3 slot="title">Card title</h3>
             <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo. </p>
@@ -230,7 +230,7 @@
             <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
           </z-card>
 
-          <z-card clickable id="mycard" variant="text" style="border: 2px solid black; border-radius: 4px;" >
+          <z-card clickable variant="text" style="border: 2px solid black; border-radius: 4px;" >
             <h2 class="body-5" slot="metadata">metadata</h2>
             <h3 slot="title">Card title</h3>
             <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo. </p>
@@ -239,7 +239,7 @@
             <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
           </z-card>
 
-          <z-card clickable id="mycard" variant="text" showshadow style="border: 1px solid black;" >
+          <z-card clickable variant="text" showshadow style="border: 1px solid black;" >
             <h2 class="body-5" slot="metadata">metadata</h2>
             <h3 slot="title">Card title</h3>
             <p class="body-3" slot="text">Sottotitolo mediamente lungo, opzionale e descrittivo. </p>
@@ -249,7 +249,7 @@
           </z-card>
         </div>
         <div class="z-cards">
-          <z-card clickable id="mycard" variant="text" style="border: 1px solid var(--z-card--border-color); border-radius: 4px;" >
+          <z-card clickable variant="text" style="border: 1px solid var(--z-card--border-color); border-radius: 4px;" >
             <h3 slot="title">Aula di lettere</h3>
             <p class="body-3" slot="text">Descrizione breve dell'applicazione </p>
             <z-icon name="chevron-right-filled" slot="action" fill="color-primary01"></z-icon>
@@ -274,7 +274,7 @@
     const mycard = document.getElementById("mycard");
     console.log(mycard)
     mycard.addEventListener("cardClicked", () =>
-      console.log("card was clicked ")
+      console.log("mycard was clicked ")
     );
   </script>
 </body>
