@@ -12,7 +12,7 @@ describe("Suite test ZBody", () => {
     expect(page.root).toEqualHtml(`
       <z-body level="1" variant="regular">
         <mock:shadow-root>
-        <z-typography component="span" level="b1" variant="regular"><slot></slot></z-typography>
+        <z-typography component="span" level="b1" tabindex="0" variant="regular"><slot></slot></z-typography>
         </mock:shadow-root>
         This is a test
       </z-body>

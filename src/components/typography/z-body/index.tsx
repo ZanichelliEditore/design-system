@@ -13,6 +13,7 @@ export class ZBody {
   render() {
     return (
       <z-typography
+        tabIndex={0}
         component={this.component || "span"}
         level={`b${this.level}` as ZTypographyLevels}
         variant={this.variant}

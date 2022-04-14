@@ -12,7 +12,7 @@ describe("Suite test ZHeading", () => {
     expect(page.root).toEqualHtml(`
     <z-heading level="1" variant="light">
         <mock:shadow-root>
-        <z-typography component="h1" level="h1" variant="light"><slot></slot></z-typography>
+        <z-typography component="h1" level="h1" tabindex="0" variant="light"><slot></slot></z-typography>
         </mock:shadow-root>
         Lorem ipsum dolor sit amet
       </z-heading>
