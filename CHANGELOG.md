@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.36.2](https://github.com/ZanichelliEditore/design-system/compare/v2.36.1...v2.36.2) (2022-04-14)
+
+
+### Bug Fixes
+
+* fixed focus element ([f358913](https://github.com/ZanichelliEditore/design-system/commit/f358913f4826bbc7768ea294d8f50c94d17c801a))
+
 ### [2.36.1](https://github.com/ZanichelliEditore/design-system/compare/v2.36.0...v2.36.1) (2022-04-14)
 
 
