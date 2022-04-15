@@ -33,6 +33,9 @@ Cover variants:
 - `--z-card--color-cover-background`: used to set the background color of the color cover.
 - `--z-card--border-color`: used to set the border color of the card.
 - `--aspect-ratio`: used to set the ratio of the cover (respecting the indications of the design). Default is `1.62`.
+- `--z-card--text-background`: used to set the background color of the text variant
+- `--z-card--text-border-radius`: used to set the border radius for the text variant
+- `--z-card--text-border`: used to set the border for the text variant
 
 ---
 ## Notes

@@ -6,6 +6,9 @@ respecting the grid indications of the design. */
   --aspect-ratio: 1.62;
   --z-card--border-color: var(--gray200);
   --z-card--color-cover-background: var(--color-surface01);
+  --z-card--text-background: var(--color-surface01);
+  --z-card--text-border-radius: none;
+  --z-card--text-border: none;
 
   position: relative;
   display: flex;
@@ -126,6 +129,12 @@ Unfortunately the `aspect-ratio` property is still experimental */
 :host(:not([variant])[clickable]:focus:focus-visible) {
   padding: calc(var(--space-unit) * 0.5);
   box-shadow: var(--shadow-focus-primary);
+}
+
+:host([variant='text']) {
+  background-color: var(--z-card--text-background);
+  border: var(--z-card--text-border);
+  border-radius: var(--z-card--text-border-radius);
 }
 
 :host([showshadow]) > .content,

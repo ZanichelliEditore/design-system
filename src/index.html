@@ -216,7 +216,7 @@
       <h4>Text</h4>
 
       <div class="z-cards">
-        <z-card variant="text" showshadow style="background-color: var(--color-secondary02); color: white; ">
+        <z-card variant="text" showshadow style="--z-card--text-background: var(--color-secondary02); color: white; ">
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card title</h3>
           <p class="body-3" slot="text">Some description for the content of the card. </p>
@@ -226,7 +226,7 @@
         </z-card>
 
         <z-card clickable id="mycard" variant="text"
-          style="background-color: var(--color-primary01); color: white; border-radius: 4px;">
+          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px;">
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card title</h3>
           <p class="body-3" slot="text">Some description for the content of the card. </p>
@@ -235,7 +235,7 @@
           <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
         </z-card>
 
-        <z-card clickable variant="text" style="border: 2px solid black; border-radius: 4px;">
+        <z-card clickable variant="text" style="--z-card--text-border: 2px solid black; --z-card--text-border-radius: 4px;">
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card title</h3>
           <p class="body-3" slot="text">Some description for the content of the card. </p>
@@ -244,7 +244,7 @@
           <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
         </z-card>
 
-        <z-card clickable variant="text" showshadow style="border: 1px solid black;">
+        <z-card clickable variant="text" showshadow style="--z-card--text-border: 1px solid black;">
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card title</h3>
           <p class="body-3" slot="text">Some description for the content of the card. </p>
@@ -254,7 +254,7 @@
         </z-card>
       </div>
       <div class="z-cards">
-        <z-card clickable variant="text" style="border: 1px solid var(--z-card--border-color); border-radius: 4px;">
+        <z-card clickable variant="text" style="--z-card--text-border: 1px solid var(--z-card--border-color); --z-card--text-border-radius: 4px;">
           <h3 slot="title">Aula di lettere</h3>
           <p class="body-3" slot="text">Descrizione breve dell'applicazione </p>
           <z-icon name="chevron-right-filled" slot="action" fill="color-primary01"></z-icon>
