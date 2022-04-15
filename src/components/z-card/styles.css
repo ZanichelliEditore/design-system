@@ -145,7 +145,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
 }
 
 :host([variant='text']) > .content {
-  padding: var(--basex2) var(--basex1)
+  padding: calc(var(--space-unit) * 2) var(--space-unit)
 }
 
 :host([variant='border']) .actions,
