@@ -78,10 +78,10 @@ export class ZCard {
   }
 
    /**
-   * Template for a card with text and actions only.
+   * Template for the content div.
    */
-  private renderTextCard() {
-    return [
+  private renderContentDiv() {
+    return (
       <div class="content">
         <slot name="metadata"></slot>
         <slot name="title"></slot>
@@ -90,13 +90,13 @@ export class ZCard {
           <slot name="action"></slot>
         </div>
       </div>
-    ]
+    )
   }
 
   render() {
 
     if (this.variant === CardVariants.text) {
-      return this.renderTextCard()
+      return this.renderContentDiv()
     }
 
     if (this.variant === CardVariants.overlay || this.hasCoverImage) {
@@ -108,14 +108,7 @@ export class ZCard {
           ]}
           {!this.hasCoverImage && <div class="color-cover"></div>}
         </div>,
-        <div class="content">
-          <slot name="metadata"></slot>
-          <slot name="title"></slot>
-          <slot name="text"></slot>
-          <div class="actions">
-            <slot name="action"></slot>
-          </div>
-        </div>
+        this.renderContentDiv()
       ];
     }
 
