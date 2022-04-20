@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.37.0](https://github.com/ZanichelliEditore/design-system/compare/v2.36.3...v2.37.0) (2022-04-20)
+
+
+### Features
+
+* **feature/z-card-text:**  adds css variables for text variant backgroung color and border ([eb7a861](https://github.com/ZanichelliEditore/design-system/commit/eb7a8619b3f5799dc2bbd8d3f5bd0e6e0f07c4f6))
+* **feature/z-card-text:** add text variant to storybook ([05f386d](https://github.com/ZanichelliEditore/design-system/commit/05f386df24685f9a62946ffd60cbbaebf62ce105))
+* **feature/z-card-text:** added appswitcher example implementation ([a736b64](https://github.com/ZanichelliEditore/design-system/commit/a736b649c9a96a6781e0099807c01dcedab1ac3a))
+* **feature/z-card-text:** added automated test for zcard text variant ([e12d18b](https://github.com/ZanichelliEditore/design-system/commit/e12d18b07c1e1fd00d2aa16bbafb8d940b6a607d))
+* **feature/z-card-text:** adds new text z-card variant ([ace08a0](https://github.com/ZanichelliEditore/design-system/commit/ace08a0fe19cc515797246b197b7a016578cbd72))
+* **feature/z-card-text:** adds showshadow knob in storyboard ([6ddb248](https://github.com/ZanichelliEditore/design-system/commit/6ddb2487bc489ba54a75786dbed291af44e46873))
+
+
+### Bug Fixes
+
+* **feature/z-card-text:** fixed showshadow prop description ([642dc6e](https://github.com/ZanichelliEditore/design-system/commit/642dc6ee3ff114a4cd7bed5c6e7ebf5894762566))
+
 ### [2.36.3](https://github.com/ZanichelliEditore/design-system/compare/v2.36.2...v2.36.3) (2022-04-14)
 
 
