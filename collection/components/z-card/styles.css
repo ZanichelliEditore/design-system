@@ -6,6 +6,9 @@ respecting the grid indications of the design. */
   --aspect-ratio: 1.62;
   --z-card--border-color: var(--gray200);
   --z-card--color-cover-background: var(--color-surface01);
+  --z-card--text-background: var(--color-surface01);
+  --z-card--text-border-radius: none;
+  --z-card--text-border: none;
 
   position: relative;
   display: flex;
@@ -128,10 +131,21 @@ Unfortunately the `aspect-ratio` property is still experimental */
   box-shadow: var(--shadow-focus-primary);
 }
 
+:host([variant='text']) {
+  background-color: var(--z-card--text-background);
+  border: var(--z-card--text-border);
+  border-radius: var(--z-card--text-border-radius);
+}
+
+:host([showshadow]) > .content,
 :host([variant='border']) > .content,
 :host([variant='shadow']) > .content {
   height: 100%;
   padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
+}
+
+:host([variant='text']) > .content {
+  padding: calc(var(--space-unit) * 2) var(--space-unit)
 }
 
 :host([variant='border']) .actions,
@@ -157,19 +171,27 @@ Unfortunately the `aspect-ratio` property is still experimental */
 }
 
 /* Shadow */
-:host([variant='shadow']) {
+:host([variant='shadow']),
+:host([showshadow])
+{
   box-shadow: var(--shadow-2);
 }
 
-:host([variant='shadow'][clickable]:hover) {
+:host([variant='shadow'][clickable]:hover),
+:host([clickable][showshadow]:hover)
+{
   box-shadow: var(--shadow-4);
 }
 
-:host([variant='shadow'][clickable]:focus:focus-visible) {
+:host([variant='shadow'][clickable]:focus:focus-visible),
+:host([clickable][showshadow]:focus:focus-visible)
+{
   box-shadow: var(--shadow-4);
 }
 
-:host([variant='shadow'][clickable]:active) {
+:host([variant='shadow'][clickable]:active),
+:host([clickable][showshadow]:active)
+{
   box-shadow: none;
 }
 

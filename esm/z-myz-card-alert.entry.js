@@ -1,5 +1,5 @@
 import { r as registerInstance, c as createEvent, h } from './index-fa9e549c.js';
-import { j as AlertTypesEnum } from './index-f928c852.js';
+import { j as AlertTypesEnum } from './index-a4f73ed9.js';
 
 const stylesCss = ":host{position:absolute;font-family:var(--font-family-sans);font-weight:var(--font-rg);width:100%;top:0px;left:0px;z-index:2}:host>z-alert{height:calc(var(--space-unit) * 6)}.relativeContainer{position:relative;display:grid;grid-template-columns:18px auto 46px;grid-template-rows:1fr;grid-column-gap:var(--space-unit);align-items:center;padding:0;outline:none}.relativeContainer::-moz-focus-inner{border:0}.alert-external-wrapper.removeAlert{border:var(--border-size-medium) solid var(--color-surface02);border-top:none}:host div.addAlert{background:var(--color-success-inverse)}:host div.removeAlert{background:var(--color-warning-inverse)}:host div>.contentText{color:var(--color-surface05);font-size:14px;letter-spacing:0.16px;line-height:20px}:host div>.contentAction{color:var(--color-primary01);font-size:12px;font-weight:var(--font-sb);height:20px;letter-spacing:0.32px;line-height:20px;cursor:pointer}:host div>z-icon{justify-self:center}";
 

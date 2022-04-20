@@ -1,5 +1,5 @@
 import { r as registerInstance, c as createEvent, h } from './index-fa9e549c.js';
-import { T as ThemeVariant } from './index-f928c852.js';
+import { T as ThemeVariant } from './index-a4f73ed9.js';
 
 const stylesCss = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
 

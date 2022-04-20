@@ -4,6 +4,8 @@ export class ZCard {
   constructor() {
     /** Enable click interactions on the card. Default: false */
     this.clickable = false;
+    /** Enable shadow. Default: false. */
+    this.showshadow = false;
   }
   onClick(ev) {
     // Do nothing for clicks on actions.
@@ -37,7 +39,21 @@ export class ZCard {
           h("slot", { name: "action" })))
     ];
   }
+  /**
+  * Template for the content div.
+  */
+  renderContentDiv() {
+    return (h("div", { class: "content" },
+      h("slot", { name: "metadata" }),
+      h("slot", { name: "title" }),
+      h("slot", { name: "text" }),
+      h("div", { class: "actions" },
+        h("slot", { name: "action" }))));
+  }
   render() {
+    if (this.variant === CardVariants.text) {
+      return this.renderContentDiv();
+    }
     if (this.variant === CardVariants.overlay || this.hasCoverImage) {
       return [
         h("div", { class: "cover-container" },
@@ -46,12 +62,7 @@ export class ZCard {
             (this.variant !== CardVariants.overlay) && this.coverIcon && h("z-icon", { name: this.coverIcon })
           ],
           !this.hasCoverImage && h("div", { class: "color-cover" })),
-        h("div", { class: "content" },
-          h("slot", { name: "metadata" }),
-          h("slot", { name: "title" }),
-          h("slot", { name: "text" }),
-          h("div", { class: "actions" },
-            h("slot", { name: "action" })))
+        this.renderContentDiv()
       ];
     }
     return this.renderColorCoverCard();
@@ -70,7 +81,7 @@ export class ZCard {
       "mutable": false,
       "complexType": {
         "original": "CardVariants",
-        "resolved": "CardVariants.border | CardVariants.overlay | CardVariants.shadow",
+        "resolved": "CardVariants.border | CardVariants.overlay | CardVariants.shadow | CardVariants.text",
         "references": {
           "CardVariants": {
             "location": "import",
@@ -119,6 +130,24 @@ export class ZCard {
         "text": "Enable click interactions on the card. Default: false"
       },
       "attribute": "clickable",
+      "reflect": true,
+      "defaultValue": "false"
+    },
+    "showshadow": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Enable shadow. Default: false."
+      },
+      "attribute": "showshadow",
       "reflect": true,
       "defaultValue": "false"
     }

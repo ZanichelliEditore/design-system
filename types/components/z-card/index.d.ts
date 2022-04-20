@@ -11,6 +11,8 @@ export declare class ZCard {
   coverIcon: string;
   /** Enable click interactions on the card. Default: false */
   clickable: boolean;
+  /** Enable shadow. Default: false. */
+  showshadow: boolean;
   host: HTMLElement;
   hasCoverImage: boolean;
   /**
@@ -25,5 +27,9 @@ export declare class ZCard {
    * A colored background replaces the image and some data is moved over it.
    */
   private renderColorCoverCard;
-  render(): any[];
+  /**
+  * Template for the content div.
+  */
+  private renderContentDiv;
+  render(): any;
 }

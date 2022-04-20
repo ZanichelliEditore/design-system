@@ -9,6 +9,7 @@ export var CardVariants;
   CardVariants["border"] = "border";
   CardVariants["shadow"] = "shadow";
   CardVariants["overlay"] = "overlay";
+  CardVariants["text"] = "text";
 })(CardVariants || (CardVariants = {}));
 export var TabOrientationEnum;
 (function (TabOrientationEnum) {
