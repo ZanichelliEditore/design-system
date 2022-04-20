@@ -6,7 +6,6 @@ import {
   ButtonTypeEnum,
   ButtonSizeEnum,
 } from "../../../beans";
-import "../../icons/z-icon/index";
 
 /**
  * @slot - button label

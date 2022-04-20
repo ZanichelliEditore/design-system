@@ -1,7 +1,6 @@
-import { addDecorator } from '@storybook/web-components';
 import { withA11y } from '@storybook/addon-a11y';
-import { withKnobs } from "@storybook/addon-knobs";
-import "../src/global.css";
+import { withKnobs } from '@storybook/addon-knobs';
+import '../src/global.css';
 import dedent from 'ts-dedent';
 
 export const parameters = {
@@ -48,5 +47,7 @@ export const parameters = {
   },
 };
 
-addDecorator(withA11y);
-addDecorator(withKnobs);
+export const decorators = [
+  withA11y,
+  withKnobs,
+];
