@@ -1,0 +1,19 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, boolean } from "@storybook/addon-knobs";
+
+<Meta title="Buttons/ZToggleSwitch" component="z-toggle-switch" />
+
+# ZToggleSwitch
+
+<Preview>
+  <Story name="ZToggleSwitch">
+    {html`<z-toggle-switch
+      disabled="${boolean("disabled", false)}"
+      labelposition="${boolean("labelposition", false)}"
+      >Toggle</z-toggle-switch
+    >`}
+  </Story>
+</Preview>
+
+<Props of="z-toggle-switch" />

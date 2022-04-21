@@ -1,0 +1,90 @@
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+  display: flex;
+}
+
+:host > label {
+  font-size: 16px;
+  letter-spacing: 0;
+  color: rgb(66, 69, 72);
+}
+:host > label.left {
+  margin: 0 8px 0 0;
+}
+
+label.right {
+  margin: 0 0 0 8px;
+  order: 3;
+}
+
+div {
+  display: flex;
+  align-items: center;
+}
+
+div.container {
+  min-height: 18px;
+  width: 32px;
+  border-radius: 8px;
+  color: var(--text-grey-500);
+  background-color: rgb(149, 153, 157);
+}
+
+div.container.disabled,
+div.container input:disabled {
+  background-color: rgb(230, 230, 230);
+}
+
+div.container:not(.disabled):hover {
+  background-color: rgb(0, 52, 118);
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: 16px;
+  width: 16px;
+  border-radius: 7px;
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow-2);
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: red;
+}
+
+/* div > div.circle {
+  display: flex;
+  align-items: center;
+  height: 16px;
+  width: 16px;
+  border-radius: 7px;
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow-2);
+} */
+
+/* div > div.circle input[type="checkbox"] {
+  visibility: hidden;
+} */
+
+/* button > div.circle z-icon {
+  color: rgb(0, 52, 118);
+  width: 8px;
+  height: 8px;
+} */
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+}

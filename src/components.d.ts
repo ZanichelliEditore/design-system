@@ -1504,6 +1504,12 @@ export namespace Components {
          */
         "opened"?: boolean;
     }
+    interface ZToggleSwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "htmlid": string;
+        "labelposition"?: boolean;
+    }
     interface ZTooltip {
         /**
           * The selector or the element bound with the tooltip.
@@ -2064,6 +2070,12 @@ declare global {
         prototype: HTMLZToggleButtonElement;
         new (): HTMLZToggleButtonElement;
     };
+    interface HTMLZToggleSwitchElement extends Components.ZToggleSwitch, HTMLStencilElement {
+    }
+    var HTMLZToggleSwitchElement: {
+        prototype: HTMLZToggleSwitchElement;
+        new (): HTMLZToggleSwitchElement;
+    };
     interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
     }
     var HTMLZTooltipElement: {
@@ -2174,6 +2186,7 @@ declare global {
         "z-toast-notification": HTMLZToastNotificationElement;
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
+        "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
@@ -3842,6 +3855,13 @@ declare namespace LocalJSX {
          */
         "opened"?: boolean;
     }
+    interface ZToggleSwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "htmlid"?: string;
+        "labelposition"?: boolean;
+        "onToggleClick"?: (event: CustomEvent<any>) => void;
+    }
     interface ZTooltip {
         /**
           * The selector or the element bound with the tooltip.
@@ -3988,6 +4008,7 @@ declare namespace LocalJSX {
         "z-toast-notification": ZToastNotification;
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
+        "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
@@ -4083,6 +4104,7 @@ declare module "@stencil/core" {
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
+            "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
