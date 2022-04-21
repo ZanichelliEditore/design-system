@@ -35,7 +35,11 @@ export class ZToggleSwitch {
       >
         <slot />
       </label>,
-      <div class={`container ${this.disabled && "disabled"}`}>
+      <div
+        class={`container ${this.disabled && "disabled"} ${
+          this.checked && "active"
+        }`}
+      >
         <input
           id={this.htmlid}
           type="checkbox"

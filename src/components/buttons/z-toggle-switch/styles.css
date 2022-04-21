@@ -29,11 +29,17 @@ div.container {
   border-radius: 8px;
   color: var(--text-grey-500);
   background-color: rgb(149, 153, 157);
+  position: relative;
 }
 
 div.container.disabled,
-div.container input:disabled {
+div.container input:disabled,
+div.container.active.disabled {
   background-color: rgb(230, 230, 230);
+}
+
+div.container.active {
+  background-color: rgb(0, 86, 193);
 }
 
 div.container:not(.disabled):hover {
@@ -41,6 +47,7 @@ div.container:not(.disabled):hover {
 }
 
 input[type="checkbox"] {
+  position: absolute;
   appearance: none;
   display: flex;
   align-items: center;
@@ -51,31 +58,17 @@ input[type="checkbox"] {
   background-color: var(--bg-white);
   box-shadow: var(--shadow-2);
   cursor: pointer;
+  transition: all 0.5s ease;
 }
 
 input[type="checkbox"]:checked {
-  background-color: red;
+  transform: translateX(100%);
 }
 
-/* div > div.circle {
-  display: flex;
-  align-items: center;
-  height: 16px;
-  width: 16px;
-  border-radius: 7px;
-  background-color: var(--bg-white);
-  box-shadow: var(--shadow-2);
-} */
-
-/* div > div.circle input[type="checkbox"] {
-  visibility: hidden;
-} */
-
-/* button > div.circle z-icon {
-  color: rgb(0, 52, 118);
-  width: 8px;
-  height: 8px;
-} */
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: var(--shadow-focus-primary);
+}
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
