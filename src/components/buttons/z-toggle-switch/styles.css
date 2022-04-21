@@ -7,6 +7,7 @@
 
 :host > label {
   display: flex;
+  align-items: center;
 }
 
 :host > label > span {
@@ -80,7 +81,7 @@
   background-color: var(--bg-white);
   box-shadow: var(--shadow-2);
   cursor: pointer;
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 :host > label > div.container > div.circle.checked {
