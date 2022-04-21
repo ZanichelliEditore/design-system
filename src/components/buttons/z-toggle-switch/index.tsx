@@ -36,6 +36,7 @@ export class ZToggleSwitch {
           <slot />
         </span>
         <div
+          tabIndex={0}
           class={`container ${this.disabled && "disabled"} ${
             this.checked && "active"
           }`}
@@ -46,7 +47,7 @@ export class ZToggleSwitch {
             }`}
           >
             {this.checked && (
-              <z-icon width={8} height={8} name="checkmark"></z-icon>
+              <z-icon width={12} height={12} name="checkmark"></z-icon>
             )}
           </div>
         </div>

@@ -29,7 +29,7 @@
 }
 
 :host > label > div.container {
-  min-height: 18px;
+  height: 18px;
   width: 32px;
   border-radius: 8px;
   color: var(--text-grey-500);
@@ -52,6 +52,11 @@
 :host > label > div.container.active {
   background-color: rgb(0, 86, 193);
   fill: rgb(0, 86, 193);
+}
+
+:host > label > div.container:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus-primary);
 }
 
 :host > label > div.container:not(.disabled):hover {
@@ -83,11 +88,6 @@
   opacity: 0;
   z-index: -1;
   pointer-events: none;
-}
-
-:host > input:focus:focus-visible {
-  outline: none;
-  box-shadow: var(--shadow-focus-primary);
 }
 
 /* Tablet breakpoint */
