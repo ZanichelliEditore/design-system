@@ -54,9 +54,13 @@
   fill: rgb(0, 86, 193);
 }
 
-:host > label > div.container:focus-visible {
+:host > label > div.container:not(.disabled):focus-visible {
   outline: none;
   box-shadow: var(--shadow-focus-primary);
+}
+
+:host > label > div.container.disabled:focus-visible {
+  outline: none;
 }
 
 :host > label > div.container:not(.disabled):hover {
