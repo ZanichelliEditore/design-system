@@ -57,6 +57,7 @@ export class ZToggleSwitch {
       <input
         id={this.htmlid}
         type="checkbox"
+        checked={this.checked}
         disabled={this.disabled}
         onChange={this.handleClick.bind(this)}
       />,
