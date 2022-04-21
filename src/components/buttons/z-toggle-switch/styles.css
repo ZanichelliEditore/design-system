@@ -10,17 +10,17 @@
   align-items: center;
 }
 
-:host > label > span {
-  font-size: 16px;
+:host > label > z-body {
   letter-spacing: 0;
-  color: rgb(66, 69, 72);
-}
-:host > label > span.left {
-  margin: 0 8px 0 0;
+  color: var(--text-grey-800);
 }
 
-:host > label > span.right {
-  margin: 0 0 0 8px;
+:host > label > z-body.left {
+  margin: 0 var(--space-unit) 0 0;
+}
+
+:host > label > z-body.right {
+  margin: 0 0 0 var(--space-unit);
   order: 3;
 }
 
@@ -31,16 +31,16 @@
 
 :host > label > div.container {
   height: 18px;
-  width: 32px;
-  border-radius: 8px;
-  color: var(--text-grey-500);
-  background-color: rgb(149, 153, 157);
+  width: calc(var(--space-unit) * 4);
+  border-radius: var(--space-unit);
+  color: var(--bg-grey-500);
+  background-color: var(--bg-grey-200);
   position: relative;
 }
 
 :host > label > div.container.disabled,
 :host > label > div.container.active.disabled {
-  background-color: rgb(230, 230, 230);
+  background-color: var(--bg-grey-200);
 }
 
 :host
@@ -48,11 +48,11 @@
   > div.container.active.disabled
   > div.circle.checked.disabled
   > z-icon {
-  fill: rgb(230, 230, 230);
+  fill: var(--bg-grey-200);
 }
 :host > label > div.container.active {
-  background-color: rgb(0, 86, 193);
-  fill: rgb(0, 86, 193);
+  background-color: var(--color-primary01);
+  fill: var(--color-primary01);
 }
 
 :host > label > div.container:not(.disabled):focus-visible {
@@ -65,8 +65,8 @@
 }
 
 :host > label > div.container:not(.disabled):hover {
-  background-color: rgb(0, 52, 118);
-  fill: rgb(0, 52, 118);
+  background-color: var(--color-hover-primary);
+  fill: var(--color-hover-primary);
 }
 
 :host > label > div.container > div.circle {
@@ -75,13 +75,13 @@
   align-items: center;
   justify-content: center;
   margin: 0;
-  height: 16px;
-  width: 16px;
+  height: calc(var(--space-unit) * 2);
+  width: calc(var(--space-unit) * 2);
   border-radius: 7px;
   background-color: var(--bg-white);
   box-shadow: var(--shadow-2);
   cursor: pointer;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
 :host > label > div.container > div.circle.checked {

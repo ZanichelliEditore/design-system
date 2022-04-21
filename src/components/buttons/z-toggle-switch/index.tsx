@@ -27,14 +27,15 @@ export class ZToggleSwitch {
   render() {
     return [
       <label htmlFor={this.htmlid}>
-        <span
+        <z-body
+          level={3}
           class={{
             left: !this.labelposition,
             right: this.labelposition,
           }}
         >
           <slot />
-        </span>
+        </z-body>
         <div
           tabIndex={0}
           class={`container ${this.disabled && "disabled"} ${

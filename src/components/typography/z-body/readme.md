@@ -22,6 +22,7 @@
  - [z-notification](../../notification/z-notification)
  - [z-table](../../z-table/z-table)
  - [z-table-empty-box](../../z-table/z-table-empty-box)
+ - [z-toggle-switch](../../buttons/z-toggle-switch)
 
 ### Depends on
 
@@ -37,6 +38,7 @@ graph TD;
   z-notification --> z-body
   z-table --> z-body
   z-table-empty-box --> z-body
+  z-toggle-switch --> z-body
   style z-body fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
