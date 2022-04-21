@@ -1,29 +1,34 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  display: flex;
+  display: inline-flex;
+  position: relative;
 }
 
 :host > label {
+  display: flex;
+}
+
+:host > label > span {
   font-size: 16px;
   letter-spacing: 0;
   color: rgb(66, 69, 72);
 }
-:host > label.left {
+:host > label > span.left {
   margin: 0 8px 0 0;
 }
 
-label.right {
+:host > label > span.right {
   margin: 0 0 0 8px;
   order: 3;
 }
 
-div {
+:host > label > div {
   display: flex;
   align-items: center;
 }
 
-div.container {
+:host > label > div.container {
   min-height: 18px;
   width: 32px;
   border-radius: 8px;
@@ -32,25 +37,33 @@ div.container {
   position: relative;
 }
 
-div.container.disabled,
-div.container input:disabled,
-div.container.active.disabled {
+:host > label > div.container.disabled,
+:host > label > div.container.active.disabled {
   background-color: rgb(230, 230, 230);
 }
 
-div.container.active {
+:host
+  > label
+  > div.container.active.disabled
+  > div.circle.checked.disabled
+  > z-icon {
+  fill: rgb(230, 230, 230);
+}
+:host > label > div.container.active {
   background-color: rgb(0, 86, 193);
+  fill: rgb(0, 86, 193);
 }
 
-div.container:not(.disabled):hover {
+:host > label > div.container:not(.disabled):hover {
   background-color: rgb(0, 52, 118);
+  fill: rgb(0, 52, 118);
 }
 
-input[type="checkbox"] {
+:host > label > div.container > div.circle {
   position: absolute;
-  appearance: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 0;
   height: 16px;
   width: 16px;
@@ -61,11 +74,18 @@ input[type="checkbox"] {
   transition: all 0.5s ease;
 }
 
-input[type="checkbox"]:checked {
+:host > label > div.container > div.circle.checked {
   transform: translateX(100%);
 }
 
-input[type="checkbox"]:focus {
+:host > input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+:host > input:focus:focus-visible {
   outline: none;
   box-shadow: var(--shadow-focus-primary);
 }

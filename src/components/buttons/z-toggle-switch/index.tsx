@@ -26,27 +26,38 @@ export class ZToggleSwitch {
 
   render() {
     return [
-      <label
-        htmlFor={this.htmlid}
-        class={{
-          left: !this.labelposition,
-          right: this.labelposition,
-        }}
-      >
-        <slot />
+      <label htmlFor={this.htmlid}>
+        <span
+          class={{
+            left: !this.labelposition,
+            right: this.labelposition,
+          }}
+        >
+          <slot />
+        </span>
+        <div
+          class={`container ${this.disabled && "disabled"} ${
+            this.checked && "active"
+          }`}
+        >
+          <div
+            class={`circle ${this.disabled && "disabled"} ${
+              this.checked && "checked"
+            }`}
+          >
+            {this.checked && (
+              <z-icon width={8} height={8} name="checkmark"></z-icon>
+            )}
+          </div>
+        </div>
       </label>,
-      <div
-        class={`container ${this.disabled && "disabled"} ${
-          this.checked && "active"
-        }`}
-      >
-        <input
-          id={this.htmlid}
-          type="checkbox"
-          disabled={this.disabled}
-          onChange={this.handleClick.bind(this)}
-        />
-      </div>,
+
+      <input
+        id={this.htmlid}
+        type="checkbox"
+        disabled={this.disabled}
+        onChange={this.handleClick.bind(this)}
+      />,
     ];
   }
 }
