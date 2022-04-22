@@ -8,7 +8,7 @@ import { randomId } from "../../../utils/utils";
 })
 export class ZToggleSwitch {
   @Prop({ reflect: true }) disabled?: boolean = false;
-  @Prop({ reflect: true }) labelposition?: boolean = false;
+  @Prop({ reflect: true }) reverselabel?: boolean = false;
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() htmlid: string = `id-${randomId()}`;
 
@@ -30,15 +30,15 @@ export class ZToggleSwitch {
       <label
         htmlFor={this.htmlid}
         class={{
-          left: !this.labelposition,
-          right: this.labelposition,
+          left: !this.reverselabel,
+          right: this.reverselabel,
         }}
       >
         <z-body
           level={3}
           class={{
-            left: !this.labelposition,
-            right: this.labelposition,
+            left: !this.reverselabel,
+            right: this.reverselabel,
           }}
         >
           <slot />

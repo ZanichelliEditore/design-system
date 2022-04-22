@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property        | Attribute       | Description | Type      | Default              |
-| --------------- | --------------- | ----------- | --------- | -------------------- |
-| `checked`       | `checked`       |             | `boolean` | `false`              |
-| `disabled`      | `disabled`      |             | `boolean` | `false`              |
-| `htmlid`        | `htmlid`        |             | `string`  | ``id-${randomId()}`` |
-| `labelposition` | `labelposition` |             | `boolean` | `false`              |
+| Property       | Attribute      | Description | Type      | Default              |
+| -------------- | -------------- | ----------- | --------- | -------------------- |
+| `checked`      | `checked`      |             | `boolean` | `false`              |
+| `disabled`     | `disabled`     |             | `boolean` | `false`              |
+| `htmlid`       | `htmlid`       |             | `string`  | ``id-${randomId()}`` |
+| `reverselabel` | `reverselabel` |             | `boolean` | `false`              |
 
 
 ## Events
