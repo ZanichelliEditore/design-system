@@ -107,7 +107,6 @@ In order to correctly import Stencil Components into the Storybook, we need to b
 * [@storybook/addon-docs](https://www.npmjs.com/package/@storybook/addon-docs)
 * [@storybook/addon-knobs](https://www.npmjs.com/package/@storybook/addon-knobs)
 * [@storybook/addon-viewport](https://www.npmjs.com/package/@storybook/addon-viewport)
-* [storybook-addons-abstract](https://www.npmjs.com/package/storybook-addons-abstract)
 
 #### Start Storybook:
 
@@ -194,7 +193,7 @@ Then use the relative tag as a usual component in your markup.
 
 ```html
 <section>
-  <z-button label="button" type="primary">Click me!</z-button>
+  <z-button variant="primary">Click me!</z-button>
 </section>
 ```
 
