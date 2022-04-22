@@ -12,7 +12,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id">
         <mock:shadow-root>
-          <label htmlfor="toggle-id">
+          <label class="left" htmlfor="toggle-id">
             <z-body class="left" level="3">
               <slot></slot>
             </z-body>
@@ -29,13 +29,13 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position right", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" labelposition></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" reverselabel></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" labelposition="">
+      <z-toggle-switch htmlid="toggle-id" reverselabel="">
         <mock:shadow-root>
-          <label htmlfor="toggle-id">
+          <label class="right" htmlfor="toggle-id">
             <z-body class="right" level="3">
               <slot></slot>
             </z-body>
@@ -58,7 +58,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" disabled="">
         <mock:shadow-root>
-          <label htmlfor="toggle-id">
+          <label class="left" htmlfor="toggle-id">
             <z-body class="left" level="3">
               <slot></slot>
             </z-body>
@@ -75,13 +75,13 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position right disabled", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" labelposition disabled></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" reverselabel disabled></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" labelposition="" disabled="">
+      <z-toggle-switch htmlid="toggle-id" reverselabel="" disabled="">
         <mock:shadow-root>
-          <label htmlfor="toggle-id">
+          <label class="right" htmlfor="toggle-id">
             <z-body class="right" level="3">
               <slot></slot>
             </z-body>
@@ -104,7 +104,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" checked="">
         <mock:shadow-root>
-          <label htmlfor="toggle-id">
+          <label class="left" htmlfor="toggle-id">
             <z-body class="left" level="3">
               <slot></slot>
             </z-body>
@@ -123,13 +123,13 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position right active", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" labelposition checked></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" reverselabel checked></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" checked="" labelposition="">
+      <z-toggle-switch htmlid="toggle-id" checked="" reverselabel="">
         <mock:shadow-root>
-          <label htmlfor="toggle-id">
+          <label class="right" htmlfor="toggle-id">
             <z-body class="right" level="3">
               <slot></slot>
             </z-body>
@@ -154,7 +154,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" disabled="" checked="">
         <mock:shadow-root>
-          <label htmlfor="toggle-id">
+          <label class="left" htmlfor="toggle-id">
             <z-body class="left" level="3">
               <slot></slot>
             </z-body>
@@ -173,13 +173,13 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position right active disabled", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" labelposition disabled checked></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" reverselabel disabled checked></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" disabled="" checked="" labelposition="">
+      <z-toggle-switch htmlid="toggle-id" disabled="" checked="" reverselabel="">
         <mock:shadow-root>
-          <label htmlfor="toggle-id">
+          <label class="right" htmlfor="toggle-id">
             <z-body class="right" level="3">
               <slot></slot>
             </z-body>
