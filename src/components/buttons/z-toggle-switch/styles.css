@@ -8,6 +8,16 @@
 :host > label {
   display: flex;
   align-items: center;
+  flex-direction: row;
+}
+
+:host > label.left {
+  margin: 0 var(--space-unit) 0 0;
+}
+
+:host > label.right {
+  margin: 0 var(--space-unit) 0 0;
+  flex-direction: row-reverse;
 }
 
 :host > label > z-body {
@@ -21,7 +31,6 @@
 
 :host > label > z-body.right {
   margin: 0 0 0 var(--space-unit);
-  order: 3;
 }
 
 :host > label > div {
@@ -33,14 +42,16 @@
   height: 18px;
   width: calc(var(--space-unit) * 4);
   border-radius: var(--space-unit);
-  color: var(--bg-grey-500);
-  background-color: var(--bg-grey-200);
+  color: var(--gray500);
+  background-color: var(--gray500);
   position: relative;
+  cursor: pointer;
 }
 
 :host > label > div.container.disabled,
 :host > label > div.container.active.disabled {
   background-color: var(--bg-grey-200);
+  cursor: default;
 }
 
 :host
@@ -48,7 +59,7 @@
   > div.container.active.disabled
   > div.circle.checked.disabled
   > z-icon {
-  fill: var(--bg-grey-200);
+  fill: var(--gray200);
 }
 :host > label > div.container.active {
   background-color: var(--color-primary01);
@@ -80,7 +91,6 @@
   border-radius: 7px;
   background-color: var(--bg-white);
   box-shadow: var(--shadow-2);
-  cursor: pointer;
   transition: transform 0.3s ease;
 }
 

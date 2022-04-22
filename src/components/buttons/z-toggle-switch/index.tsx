@@ -15,6 +15,7 @@ export class ZToggleSwitch {
   @Event() toggleClick: EventEmitter;
   emitToggleClick(checked: boolean) {
     this.toggleClick.emit({
+      id: this.htmlid,
       checked: checked,
     });
   }
@@ -26,7 +27,13 @@ export class ZToggleSwitch {
 
   render() {
     return [
-      <label htmlFor={this.htmlid}>
+      <label
+        htmlFor={this.htmlid}
+        class={{
+          left: !this.labelposition,
+          right: this.labelposition,
+        }}
+      >
         <z-body
           level={3}
           class={{
