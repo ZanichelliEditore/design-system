@@ -6295,6 +6295,11 @@ flatpickr@4.6.1:
   resolved "https://registry.npmjs.org/flatpickr/-/flatpickr-4.6.1.tgz#9eb498ab805dd27f5ae02e1ac6ac6c099ce45e94"
   integrity sha512-3ULSxbXmcMIRzer/2jLNweoqHpwDvsjEawO2FUd9UFR8uPwLM+LruZcPDpuZStcEgbQKhuFOfXo4nYdGladSNw==
 
+flatpickr@^4.6.13:
+  version "4.6.13"
+  resolved "https://registry.npmjs.org/flatpickr/-/flatpickr-4.6.13.tgz#8a029548187fd6e0d670908471e43abe9ad18d94"
+  integrity sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==
+
 flush-write-stream@^1.0.0:
   version "1.1.1"
   resolved "https://registry.npmjs.org/flush-write-stream/-/flush-write-stream-1.1.1.tgz#8dd7d873a1babc207d94ead0c2e0e44276ebf2e8"
@@ -12616,6 +12621,11 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+vanillajs-datepicker@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/vanillajs-datepicker/-/vanillajs-datepicker-1.2.0.tgz#05fb002edbdfebb68cbb2326555b182d023e0f04"
+  integrity sha512-bfGdPYMf/lPwx0bJaXKKeyr3J7TnSBzB8xRWxMq6rtLxyAyyAjdCQ1h0WRGpRmE0qXIKdDy3yzRMDLHEGOub3A==
 
 vary@~1.1.2:
   version "1.1.2"

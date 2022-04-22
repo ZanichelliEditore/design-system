@@ -3,6 +3,9 @@ import { reactOutputTarget } from "@stencil/react-output-target";
 
 export const config: Config = {
   namespace: "web-components-library",
+  nodeResolve: {
+    module: true,
+  },
   outputTargets: [
     {
       type: "dist",

@@ -73,7 +73,9 @@
     "@zanichelli/albe-design-tokens": "^0.2.11",
     "carbon-web-components": "^1.21.0",
     "classnames": "^2.3.1",
-    "hammerjs": "^2.0.8"
+    "flatpickr": "^4.6.13",
+    "hammerjs": "^2.0.8",
+    "vanillajs-datepicker": "^1.2.0"
   },
   "standard-version": {
     "scripts": {

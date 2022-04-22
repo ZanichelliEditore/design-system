@@ -1,7 +1,5 @@
-:host {
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
-}
+@import "~flatpickr/dist/flatpickr.min.css";
+@import '~vanillajs-datepicker/dist/css/datepicker.css';
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {}
@@ -11,3 +9,12 @@
 
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {}
+
+
+.datepicker {
+  font-family: var(--font-family-sans);
+}
+
+.datepicker-cell.prev:not(.disabled), .datepicker-cell.next:not(.disabled) {
+  color: var(--gray800);
+}
