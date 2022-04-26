@@ -16,3 +16,14 @@
 .numInputWrapper {
   width: 30%;
 }
+
+.flatpickr-weekday {
+  font-weight: 400!important;
+}
+
+.flatpickr-weekday:nth-child(6),
+.flatpickr-weekday:nth-child(7),
+.flatpickr-day:nth-child(7n+6),
+.flatpickr-day:nth-child(7n+7) {
+  font-weight: 600!important;
+}

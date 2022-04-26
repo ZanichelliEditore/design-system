@@ -14,23 +14,33 @@ export class ZDatepickerFlatpickr {
   @Prop() myProp: string;
 
   componentDidRender() {
-    const fp = flatpickr(".myflatpickr", {
-      enableTime: true,
+    flatpickr(".flatpickr", {
+      enableTime: false,
       locale: Italian,
       dateFormat: "d-m-Y - H:i",
+      ariaDateFormat: "d F Y",
       time_24hr: true,
       prevArrow: "<z-icon name='chevron-left'></z-icon>",
       nextArrow: "<z-icon name='chevron-right'></z-icon>",
-      plugins: [rangePlugin({ input: "#flatpickr-range" })],
     });
-    console.log("flatpickr", fp);
+
+    flatpickr(".flatpickr-range", {
+      enableTime: true,
+      locale: Italian,
+      dateFormat: "d-m-Y - H:i",
+      ariaDateFormat: "d F Y",
+      time_24hr: true,
+      prevArrow: "<z-icon name='chevron-left'></z-icon>",
+      nextArrow: "<z-icon name='chevron-right'></z-icon>",
+      plugins: [rangePlugin({ input: ".second-input" })],
+    });
   }
 
   render() {
     return (
       <div>
         <z-input
-          class="myflatpickr"
+          class="flatpickr"
           type="text"
           name="datepicker"
           icon="event"
@@ -38,19 +48,18 @@ export class ZDatepickerFlatpickr {
         ></z-input>
         <div>
           <z-input
-            class="myflatpickr"
+            class="flatpickr-range"
             type="text"
             name="datepicker"
             icon="event"
             label="Da data"
-            data-id="rangePlugin"
           ></z-input>
           <z-input
+            class="flatpickr-range second-input"
             type="text"
             name="datepicker"
             icon="event"
             label="A data"
-            id="flatpickr-range"
           ></z-input>
         </div>
       </div>
