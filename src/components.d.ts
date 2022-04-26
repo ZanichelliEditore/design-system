@@ -1044,6 +1044,10 @@ export namespace Components {
     }
     interface ZOffcanvas {
         /**
+          * move the component on the left side of the viewport. Default: false
+         */
+        "alignleft": boolean;
+        /**
           * aria-label for close button (optional)
          */
         "closeButtonLabel"?: string;
@@ -3365,6 +3369,10 @@ declare namespace LocalJSX {
     }
     interface ZOffcanvas {
         /**
+          * move the component on the left side of the viewport. Default: false
+         */
+        "alignleft"?: boolean;
+        /**
           * aria-label for close button (optional)
          */
         "closeButtonLabel"?: string;
@@ -3376,10 +3384,6 @@ declare namespace LocalJSX {
           * emitted on close button click
          */
         "onCanvasClose"?: (event: CustomEvent<any>) => void;
-        /**
-          * emitted on canvas header click
-         */
-        "onCanvasHeaderActive"?: (event: CustomEvent<any>) => void;
     }
     interface ZOtp {
         "inputNum"?: number;
