@@ -1,0 +1,9 @@
+@import '~vanillajs-datepicker/dist/css/datepicker.css';
+
+.datepicker {
+  font-family: var(--font-family-sans);
+}
+
+.datepicker-cell.prev:not(.disabled), .datepicker-cell.next:not(.disabled) {
+  color: var(--gray800);
+}

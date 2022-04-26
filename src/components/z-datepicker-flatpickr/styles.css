@@ -1,0 +1,18 @@
+@import "~flatpickr/dist/flatpickr.min.css";
+
+.flatpickr-time {
+  display: block;
+  height: 90px!important;
+  max-height: 90px!important;
+  text-align: left;
+}
+
+.flatpickr-time::before {
+  content: "Orario";
+  width: 100%;
+  display: block;
+}
+
+.numInputWrapper {
+  width: 30%;
+}
