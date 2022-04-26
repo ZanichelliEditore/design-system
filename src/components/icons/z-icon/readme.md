@@ -53,6 +53,7 @@
  - [z-myz-topbar](../../../snowflakes/myz/topbar)
  - [z-navigation-tabs](../../navigation/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
+ - [z-offcanvas](../../z-offcanvas)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
  - [z-select](../../inputs/z-select)
@@ -94,6 +95,7 @@ graph TD;
   z-myz-topbar --> z-icon
   z-navigation-tabs --> z-icon
   z-notification --> z-icon
+  z-offcanvas --> z-icon
   z-pagination-bar --> z-icon
   z-pocket-message --> z-icon
   z-select --> z-icon

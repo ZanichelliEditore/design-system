@@ -1042,6 +1042,12 @@ export namespace Components {
          */
         "type": NotificationType;
     }
+    interface ZOffcanvas {
+        /**
+          * aria-label for close button (optional)
+         */
+        "closeButtonLabel"?: string;
+    }
     interface ZOtp {
         "inputNum"?: number;
         "message"?: string;
@@ -1896,6 +1902,12 @@ declare global {
         prototype: HTMLZNotificationElement;
         new (): HTMLZNotificationElement;
     };
+    interface HTMLZOffcanvasElement extends Components.ZOffcanvas, HTMLStencilElement {
+    }
+    var HTMLZOffcanvasElement: {
+        prototype: HTMLZOffcanvasElement;
+        new (): HTMLZOffcanvasElement;
+    };
     interface HTMLZOtpElement extends Components.ZOtp, HTMLStencilElement {
     }
     var HTMLZOtpElement: {
@@ -2146,6 +2158,7 @@ declare global {
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
+        "z-offcanvas": HTMLZOffcanvasElement;
         "z-otp": HTMLZOtpElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
@@ -3350,6 +3363,24 @@ declare namespace LocalJSX {
          */
         "type"?: NotificationType;
     }
+    interface ZOffcanvas {
+        /**
+          * aria-label for close button (optional)
+         */
+        "closeButtonLabel"?: string;
+        /**
+          * emitted on background click
+         */
+        "onCanvasBackgroundClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * emitted on close button click
+         */
+        "onCanvasClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * emitted on canvas header click
+         */
+        "onCanvasHeaderActive"?: (event: CustomEvent<any>) => void;
+    }
     interface ZOtp {
         "inputNum"?: number;
         "message"?: string;
@@ -3960,6 +3991,7 @@ declare namespace LocalJSX {
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
         "z-notification": ZNotification;
+        "z-offcanvas": ZOffcanvas;
         "z-otp": ZOtp;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
@@ -4055,6 +4087,7 @@ declare module "@stencil/core" {
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
+            "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
