@@ -26,15 +26,12 @@
 
 ### Depends on
 
-- [z-body](../../typography/z-body)
 - [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-toggle-switch --> z-body
   z-toggle-switch --> z-icon
-  z-body --> z-typography
   style z-toggle-switch fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

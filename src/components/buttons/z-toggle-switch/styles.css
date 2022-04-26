@@ -20,16 +20,16 @@
   flex-direction: row-reverse;
 }
 
-:host > label > z-body {
+:host > label > span {
   letter-spacing: 0;
   color: var(--text-grey-800);
 }
 
-:host > label > z-body.left {
+:host > label > span.left {
   margin: 0 var(--space-unit) 0 0;
 }
 
-:host > label > z-body.right {
+:host > label > span.right {
   margin: 0 0 0 var(--space-unit);
 }
 

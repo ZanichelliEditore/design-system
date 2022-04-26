@@ -1,10 +1,12 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 import { randomId } from "../../../utils/utils";
+import { keybordKeyCodeEnum } from "../../../beans";
 
 @Component({
   tag: "z-toggle-switch",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZToggleSwitch {
   @Prop({ reflect: true }) disabled?: boolean = false;
@@ -25,6 +27,16 @@ export class ZToggleSwitch {
     this.emitToggleClick(this.checked);
   }
 
+  handleKeyboardEvent(ev) {
+    if (
+      ev.keyCode === keybordKeyCodeEnum.ENTER ||
+      ev.keyCode === keybordKeyCodeEnum.SPACE
+    ) {
+      this.checked = !this.checked;
+      this.emitToggleClick(this.checked);
+    }
+  }
+
   render() {
     return [
       <label
@@ -34,20 +46,20 @@ export class ZToggleSwitch {
           right: this.reverselabel,
         }}
       >
-        <z-body
-          level={3}
+        <span
           class={{
             left: !this.reverselabel,
             right: this.reverselabel,
           }}
         >
           <slot />
-        </z-body>
+        </span>
         <div
           tabIndex={0}
           class={`container ${this.disabled && "disabled"} ${
             this.checked && "active"
           }`}
+          onKeyDown={(e: KeyboardEvent) => this.handleKeyboardEvent(e)}
         >
           <div
             class={`circle ${this.disabled && "disabled"} ${
@@ -62,6 +74,7 @@ export class ZToggleSwitch {
       </label>,
 
       <input
+        tabIndex={-1}
         id={this.htmlid}
         type="checkbox"
         checked={this.checked}

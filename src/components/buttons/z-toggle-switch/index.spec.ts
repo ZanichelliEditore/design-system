@@ -11,17 +11,13 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id">
-        <mock:shadow-root>
-          <label class="left" htmlfor="toggle-id">
-            <z-body class="left" level="3">
-              <slot></slot>
-            </z-body>
-            <div class="container false" tabindex="0">
-              <div class="circle false"></div>
-            </div>
-          </label>
-          <input id="toggle-id" type="checkbox">
-        </mock:shadow-root>
+        <label class="left" htmlfor="toggle-id">
+          <span class="left"></span>
+          <div class="container false" tabindex="0">
+            <div class="circle false"></div>
+          </div>
+        </label>
+        <input id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -34,17 +30,13 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" reverselabel="">
-        <mock:shadow-root>
-          <label class="right" htmlfor="toggle-id">
-            <z-body class="right" level="3">
-              <slot></slot>
-            </z-body>
-            <div class="container false" tabindex="0">
-              <div class="circle false"></div>
-            </div>
-          </label>
-          <input id="toggle-id" type="checkbox">
-        </mock:shadow-root>
+        <label class="right" htmlfor="toggle-id">
+          <span class="right"></span>
+          <div class="container false" tabindex="0">
+            <div class="circle false"></div>
+          </div>
+        </label>
+        <input id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -57,17 +49,13 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" disabled="">
-        <mock:shadow-root>
-          <label class="left" htmlfor="toggle-id">
-            <z-body class="left" level="3">
-              <slot></slot>
-            </z-body>
-            <div class="container disabled false" tabindex="0">
-              <div class="circle disabled false"></div>
-            </div>
-          </label>
-          <input disabled id="toggle-id" type="checkbox">
-        </mock:shadow-root>
+        <label class="left" htmlfor="toggle-id">
+          <span class="left"></span>
+          <div class="container disabled false" tabindex="0">
+            <div class="circle disabled false"></div>
+          </div>
+        </label>
+        <input disabled id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -80,17 +68,13 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" reverselabel="" disabled="">
-        <mock:shadow-root>
-          <label class="right" htmlfor="toggle-id">
-            <z-body class="right" level="3">
-              <slot></slot>
-            </z-body>
-            <div class="container disabled false" tabindex="0">
-              <div class="circle disabled false"></div>
-            </div>
-          </label>
-          <input disabled id="toggle-id" type="checkbox">
-        </mock:shadow-root>
+        <label class="right" htmlfor="toggle-id">
+          <span class="right"></span>
+          <div class="container disabled false" tabindex="0">
+            <div class="circle disabled false"></div>
+          </div>
+        </label>
+        <input disabled id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -103,19 +87,15 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" checked="">
-        <mock:shadow-root>
-          <label class="left" htmlfor="toggle-id">
-            <z-body class="left" level="3">
-              <slot></slot>
-            </z-body>
-            <div class="container false active" tabindex="0">
-              <div class="circle false checked">
-                <z-icon height="12" name="checkmark" width="12"></z-icon>
-              </div>
+        <label class="left" htmlfor="toggle-id">
+          <span class="left"></span>
+          <div class="container false active" tabindex="0">
+            <div class="circle false checked">
+              <z-icon height="12" name="checkmark" width="12"></z-icon>
             </div>
-          </label>
-          <input checked="" id="toggle-id" type="checkbox">
-        </mock:shadow-root>
+          </div>
+        </label>
+        <input checked="" id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -128,19 +108,15 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" checked="" reverselabel="">
-        <mock:shadow-root>
-          <label class="right" htmlfor="toggle-id">
-            <z-body class="right" level="3">
-              <slot></slot>
-            </z-body>
-            <div class="container false active" tabindex="0">
-              <div class="circle false checked">
-                <z-icon height="12" name="checkmark" width="12"></z-icon>
-              </div>
+        <label class="right" htmlfor="toggle-id">
+          <span class="right"></span>
+          <div class="container false active" tabindex="0">
+            <div class="circle false checked">
+              <z-icon height="12" name="checkmark" width="12"></z-icon>
             </div>
-          </label>
-          <input checked="" id="toggle-id" type="checkbox">
-        </mock:shadow-root>
+          </div>
+        </label>
+        <input checked="" id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -153,19 +129,15 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" disabled="" checked="">
-        <mock:shadow-root>
-          <label class="left" htmlfor="toggle-id">
-            <z-body class="left" level="3">
-              <slot></slot>
-            </z-body>
-            <div class="container active disabled" tabindex="0">
-              <div class="circle disabled checked">
-                <z-icon height="12" name="checkmark" width="12"></z-icon>
-              </div>
+        <label class="left" htmlfor="toggle-id">
+          <span class="left"></span>
+          <div class="container active disabled" tabindex="0">
+            <div class="circle disabled checked">
+              <z-icon height="12" name="checkmark" width="12"></z-icon>
             </div>
-          </label>
-          <input disabled="" checked="" id="toggle-id" type="checkbox">
-        </mock:shadow-root>
+          </div>
+        </label>
+        <input disabled="" checked="" id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -178,19 +150,15 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" disabled="" checked="" reverselabel="">
-        <mock:shadow-root>
-          <label class="right" htmlfor="toggle-id">
-            <z-body class="right" level="3">
-              <slot></slot>
-            </z-body>
-            <div class="container active disabled" tabindex="0">
-              <div class="circle disabled checked">
-                <z-icon height="12" name="checkmark" width="12"></z-icon>
-              </div>
+        <label class="right" htmlfor="toggle-id">
+          <span class="right"></span>
+          <div class="container active disabled" tabindex="0">
+            <div class="circle disabled checked">
+              <z-icon height="12" name="checkmark" width="12"></z-icon>
             </div>
-          </label>
-          <input disabled="" checked="" id="toggle-id" type="checkbox">
-        </mock:shadow-root>
+          </div>
+        </label>
+        <input disabled="" checked="" id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
