@@ -13,9 +13,26 @@
   font-weight: var(--font-rg);
 }
 
+@keyframes enterRight {
+    from {transform: translateX(100%);}
+    to {transform: translateX(0);}
+}
+
+:host > .canvas-container {
+    transform: translateX(100%);
+}
+
 :host([open]) {
   display: flex;
 }
+
+:host([open]) > .canvas-container {
+    animation-name: enterRight;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+    transform: translateX(0);
+}
+
 
 .canvas-background {
   position: fixed;
@@ -46,13 +63,13 @@
   transform: translateX(-100%);
 }
 
-@keyframes enter {
+@keyframes enterLeft {
   from {transform: translateX(-100%);}
   to {transform: translateX(0);}
 }
 
 :host([alignleft][open]) > .canvas-container {
-  animation-name: enter;
+  animation-name: enterLeft;
   animation-duration: 0.4s;
   animation-timing-function: ease-out;
   transform: translateX(0);
