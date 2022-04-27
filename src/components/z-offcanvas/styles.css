@@ -1,4 +1,7 @@
 :host {
+  --z-offcanvas--min-container-width: 375px;
+  --z-offcanvas--max-container-width: 600px;
+
   z-index: 1000;
   display: none;
   justify-content: end;
@@ -76,13 +79,12 @@
   transform: translateX(0);
 }
 
-
 .canvas-container > .canvas-content {
   flex: 1 auto;
   overflow: auto;
   overflow-x: hidden;
-  padding: 0 16px ;
-  margin: 16px 4px 16px 0;
+  padding: 0 calc(var(--space-unit) * 2) ;
+  margin: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0;
 }
 
 .canvas-container .canvas-content::-webkit-scrollbar {
@@ -120,9 +122,9 @@
   .canvas-container {
     width: auto;
     height: auto;
-    min-width: max(var(--space-unit) * 40, 375px);
+    min-width: max(var(--z-offcanvas--min-container-width), 375px);
     min-height: calc(var(--space-unit) * 40);
-    max-width: 600px;
+    max-width: var(--z-offcanvas--max-container-width);
   }
 
 }
