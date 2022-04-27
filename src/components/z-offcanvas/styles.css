@@ -5,7 +5,7 @@
   right: 0;
   bottom: 0;
   z-index: 1000;
-  display: flex;
+  display: none;
   justify-content: end;
   width: 100%;
   height: 100%;
@@ -13,8 +13,8 @@
   font-weight: var(--font-rg);
 }
 
-:host([alignleft]) {
-  justify-content: start;
+:host([open]) {
+  display: block;
 }
 
 .canvas-background {
@@ -31,10 +31,21 @@
   display: flex;
   flex-direction: column;
   z-index: 1010;
-  min-width: max(var(--space-unit) * 40, 375px);
+  min-width: 100vw;
   height: 100vh;
   overflow: -moz-scrollbars-none;
   overflow: hidden;
+  background: var(--color-surface01);
+  position: absolute;
+  top:0;
+}
+
+:host([alignleft]) {
+  justify-content: start;
+}
+
+:host([alignleft]) > .canvas-container {
+  transform: translateX(-100%);
 }
 
 .canvas-container > header {
@@ -44,7 +55,6 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 2);
-  background: var(--color-surface01);
 }
 
 .canvas-container > header button {
@@ -105,9 +115,10 @@
 
 .canvas-container > .canvas-content {
   flex: 1 auto;
-  background: var(--color-surface01);
   overflow: auto;
   overflow-x: hidden;
+  padding: 0 16px ;
+  margin: 16px 4px 16px 0;
 }
 
 .canvas-container .canvas-content::-webkit-scrollbar {
@@ -147,9 +158,7 @@
     height: auto;
     min-width: max(var(--space-unit) * 40, 375px);
     min-height: calc(var(--space-unit) * 40);
-    max-height: calc(100vh - calc(var(--space-unit) * 6 * 2));
     max-width: 600px;
-    border-radius: var(--border-radius);
   }
 
   .canvas-container > header z-icon {

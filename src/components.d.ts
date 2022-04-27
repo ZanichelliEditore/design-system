@@ -1051,6 +1051,10 @@ export namespace Components {
           * aria-label for close button (optional)
          */
         "closeButtonLabel"?: string;
+        /**
+          * open component. Default: false
+         */
+        "open": boolean;
     }
     interface ZOtp {
         "inputNum"?: number;
@@ -3384,6 +3388,10 @@ declare namespace LocalJSX {
           * emitted on close button click
          */
         "onCanvasClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * open component. Default: false
+         */
+        "open"?: boolean;
     }
     interface ZOtp {
         "inputNum"?: number;

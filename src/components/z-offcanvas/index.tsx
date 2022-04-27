@@ -14,6 +14,9 @@ export class ZOffcanvas
   /** aria-label for close button (optional) */
   @Prop() closeButtonLabel?: string = "close canvas";
 
+  /** open component. Default: false */
+  @Prop({ reflect: true }) open = false;
+
   /** move the component on the left side of the viewport. Default: false */
   @Prop({ reflect: true }) alignleft = false;
 
@@ -26,22 +29,13 @@ export class ZOffcanvas
   /** emitted on background click */
   @Event() canvasBackgroundClick: EventEmitter;
   emitBackgroundClick() {
+    this.open = false;
     this.canvasBackgroundClick.emit();
   }
 
   render() {
     return [
       <div class="canvas-container" role="dialog">
-        <header>
-          <slot name="canvasCloseButton">
-            <button
-              aria-label={this.closeButtonLabel}
-              onClick={this.emitcanvasClose.bind(this)}
-            >
-              <z-icon name="multiply-circle-filled"></z-icon>
-            </button>
-          </slot>
-        </header>
         <div class="canvas-content">
           <slot name="canvasContent"></slot>
         </div>
