@@ -1,5 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { randomId, handleKeyboardSubmit } from "../../../utils/utils";
+import { randomId } from "../../../utils/utils";
 
 @Component({
   tag: "z-toggle-switch",
@@ -21,15 +21,23 @@ export class ZToggleSwitch {
     });
   }
 
-  handleClick() {
-    if (!this.disabled) {
-      this.checked = !this.checked;
-      this.emitToggleClick(this.checked);
-    }
+  handleClick(ev) {
+    if (this.disabled) return;
+
+    this.checked = ev.target.checked;
+    this.emitToggleClick(this.checked);
   }
 
   render() {
     return [
+      <input
+        id={this.htmlid}
+        type="checkbox"
+        checked={this.checked}
+        disabled={this.disabled}
+        onChange={this.handleClick.bind(this)}
+      />,
+
       <label
         htmlFor={this.htmlid}
         class={{
@@ -46,13 +54,9 @@ export class ZToggleSwitch {
           <slot />
         </span>
         <div
-          tabIndex={0}
           class={`container ${this.disabled && "disabled"} ${
             this.checked && "active"
           }`}
-          onKeyUp={(e: KeyboardEvent) =>
-            handleKeyboardSubmit(e, this.handleClick.bind(this), e)
-          }
         >
           <div
             class={`circle ${this.disabled && "disabled"} ${
@@ -65,15 +69,6 @@ export class ZToggleSwitch {
           </div>
         </div>
       </label>,
-
-      <input
-        tabIndex={-1}
-        id={this.htmlid}
-        type="checkbox"
-        checked={this.checked}
-        disabled={this.disabled}
-        onChange={this.handleClick.bind(this)}
-      />,
     ];
   }
 }

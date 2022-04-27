@@ -66,12 +66,12 @@
   fill: var(--color-primary01);
 }
 
-:host > label > div.container:not(.disabled):focus-visible {
+:host > input:focus:focus-visible + label > div.container:not(.disabled) {
   outline: none;
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host > label > div.container.disabled:focus-visible {
+:host > input:focus:focus-visible + label > div.container.disabled {
   outline: none;
 }
 
