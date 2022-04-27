@@ -23,7 +23,7 @@ yarn start
 yarn generate component my-component
 ```
 
-##### NB: component name must have a dash (`-`)
+> NB: component name must have a dash (`-`)
 
 ----
 
@@ -97,46 +97,30 @@ You need to [manually create the GitHub release](https://github.com/ZanichelliEd
 
 ----
 
-## Documentation
-
-In order to correctly import Stencil Components into the Storybook, we need to build the library first. Stencil will generate properties documentation and it will store them in the `custom-elements.json` which is loaded by Storybook. At the moment, everytime you edit the library sources, you need to rebuild them to get the Storybook updated.
-
 #### Plugins
 
+* [storybook-addon-stencil](https://github.com/ZanichelliEditore/storybook-addon-stencil) - custom Storybook plugin for Stencil
 * [@storybook/addon-a11y](https://www.npmjs.com/package/@storybook/addon-a11y)
 * [@storybook/addon-docs](https://www.npmjs.com/package/@storybook/addon-docs)
 * [@storybook/addon-knobs](https://www.npmjs.com/package/@storybook/addon-knobs)
 * [@storybook/addon-viewport](https://www.npmjs.com/package/@storybook/addon-viewport)
 
-#### Start Storybook:
+### Start Storybook:
 
 ```sh
-# Build the library
-yarn build
-# Start the Storybook
+# Start Storybook
 yarn start-storybook
 ```
 
-#### Build Storybook:
+local development with Storybook comes with live reloading.
+
+### Build Storybook:
 
 ```sh
 # Build the library
 yarn build
-# Build the Storybook
+# Build Storybook
 yarn build-storybook
-```
-
-#### Developing with Storybook:
-
-Start the Stencil dev server:
-```sh
-yarn start
-```
-
-and, in a separate terminal window, run the Storybook:
-
-```sh
-yarn start-storybook
 ```
 
 ----
