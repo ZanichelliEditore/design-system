@@ -1055,6 +1055,10 @@ export namespace Components {
           * open component. Default: false
          */
         "open": boolean;
+        /**
+          * display component as overlay. Default: false
+         */
+        "overlay": boolean;
     }
     interface ZOtp {
         "inputNum"?: number;
@@ -3385,13 +3389,13 @@ declare namespace LocalJSX {
          */
         "onCanvasBackgroundClick"?: (event: CustomEvent<any>) => void;
         /**
-          * emitted on close button click
-         */
-        "onCanvasClose"?: (event: CustomEvent<any>) => void;
-        /**
           * open component. Default: false
          */
         "open"?: boolean;
+        /**
+          * display component as overlay. Default: false
+         */
+        "overlay"?: boolean;
     }
     interface ZOtp {
         "inputNum"?: number;

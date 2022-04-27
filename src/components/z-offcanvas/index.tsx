@@ -14,17 +14,14 @@ export class ZOffcanvas
   /** aria-label for close button (optional) */
   @Prop() closeButtonLabel?: string = "close canvas";
 
+  /** display component as overlay. Default: false */
+  @Prop({ reflect: true }) overlay = false;
+
   /** open component. Default: false */
   @Prop({ reflect: true }) open = false;
 
   /** move the component on the left side of the viewport. Default: false */
   @Prop({ reflect: true }) alignleft = false;
-
-  /** emitted on close button click */
-  @Event() canvasClose: EventEmitter;
-  emitcanvasClose() {
-    this.canvasClose.emit();
-  }
 
   /** emitted on background click */
   @Event() canvasBackgroundClick: EventEmitter;
