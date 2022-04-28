@@ -305,7 +305,6 @@ export namespace Components {
         "myProp": string;
     }
     interface ZDatepickerFlatpickr {
-        "myProp": string;
     }
     interface ZDatepickerVanilla {
         "myProp": string;
@@ -2534,7 +2533,7 @@ declare namespace LocalJSX {
         "myProp"?: string;
     }
     interface ZDatepickerFlatpickr {
-        "myProp"?: string;
+        "onDateSelect"?: (event: CustomEvent<any>) => void;
     }
     interface ZDatepickerVanilla {
         "myProp"?: string;

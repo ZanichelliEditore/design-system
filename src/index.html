@@ -16,15 +16,8 @@
     <script nomodule src="/build/web-components-library.js"></script>
   </head>
   <body style="width: 100%; margin: 0; background-color: #f9f9f9">
-    <h1>Vanilla JS Datepicker</h1>
-    <z-datepicker-vanilla></z-datepicker-vanilla>
-    <h2>Considerazioni</h2>
-    <ul>
-      <li>Z-input: attivando l'icona, questa non è cliccabile</li>
-      <li>Non gestisce l'ora</li>
-    </ul>
     <h1>Flatpickr</h1>
-    <z-datepicker-flatpickr></z-datepicker-flatpickr>
+    <div style="margin-left: 100px"><z-datepicker-flatpickr id="pickerID"><z-button slot="trigger"></z-button></z-datepicker-flatpickr></div>
     <h2>Considerazioni</h2>
     <ul>
       <li>Z-input: attivando l'icona, questa non è cliccabile</li>
@@ -37,5 +30,12 @@
         personalizzabile
       </li>
     </ul>
+  <script>
+    function dateselect(e) {
+      console.log(e.detail);
+    }
+    const picker = document.getElementById("pickerID");
+    picker.addEventListener("dateSelect", (e) => dateselect(e));
+  </script>
   </body>
 </html>
