@@ -11,13 +11,13 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id">
+        <input id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
           <span class="left"></span>
-          <div class="container false" tabindex="0">
+          <div class="container false">
             <div class="circle false"></div>
           </div>
         </label>
-        <input id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -30,13 +30,13 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" reverselabel="">
+        <input id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span class="right"></span>
-          <div class="container false" tabindex="0">
+          <div class="container false">
             <div class="circle false"></div>
           </div>
         </label>
-        <input id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -49,13 +49,13 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" disabled="">
+        <input disabled id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
           <span class="left"></span>
-          <div class="container disabled false" tabindex="0">
+          <div class="container disabled false">
             <div class="circle disabled false"></div>
           </div>
         </label>
-        <input disabled id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -68,13 +68,13 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" reverselabel="" disabled="">
+      <input disabled id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span class="right"></span>
-          <div class="container disabled false" tabindex="0">
+          <div class="container disabled false">
             <div class="circle disabled false"></div>
           </div>
         </label>
-        <input disabled id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -87,15 +87,15 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" checked="">
+        <input checked="" id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
           <span class="left"></span>
-          <div class="container false active" tabindex="0">
+          <div class="container false active">
             <div class="circle false checked">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
             </div>
           </div>
         </label>
-        <input checked="" id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -108,15 +108,15 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" checked="" reverselabel="">
+        <input checked="" id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span class="right"></span>
-          <div class="container false active" tabindex="0">
+          <div class="container false active">
             <div class="circle false checked">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
             </div>
           </div>
         </label>
-        <input checked="" id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -129,15 +129,15 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" disabled="" checked="">
+        <input disabled="" checked="" id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
           <span class="left"></span>
-          <div class="container active disabled" tabindex="0">
+          <div class="container active disabled">
             <div class="circle disabled checked">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
             </div>
           </div>
         </label>
-        <input disabled="" checked="" id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
@@ -150,15 +150,15 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" disabled="" checked="" reverselabel="">
+        <input disabled="" checked="" id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span class="right"></span>
-          <div class="container active disabled" tabindex="0">
+          <div class="container active disabled">
             <div class="circle disabled checked">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
             </div>
           </div>
         </label>
-        <input disabled="" checked="" id="toggle-id" tabindex="-1" type="checkbox">
       </z-toggle-switch>
     `);
   });
