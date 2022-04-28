@@ -9,7 +9,7 @@ import { randomId } from "../../../utils/utils";
 })
 export class ZToggleSwitch {
   @Prop({ reflect: true }) disabled?: boolean = false;
-  @Prop({ reflect: true }) labelPosition?: string = "left";
+  @Prop({ reflect: true }) labelPosition?: "left" | "right" = "left";
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() htmlid: string = `id-${randomId()}`;
 

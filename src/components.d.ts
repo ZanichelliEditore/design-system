@@ -1508,7 +1508,7 @@ export namespace Components {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid": string;
-        "labelPosition"?: string;
+        "labelPosition"?: "left" | "right";
     }
     interface ZTooltip {
         /**
@@ -3859,7 +3859,7 @@ declare namespace LocalJSX {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid"?: string;
-        "labelPosition"?: string;
+        "labelPosition"?: "left" | "right";
         "onToggleClick"?: (event: CustomEvent<any>) => void;
     }
     interface ZTooltip {
