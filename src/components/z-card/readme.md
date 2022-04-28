@@ -9,7 +9,7 @@ Variants:
 - [x] Border
 - [x] Shadow
 - [x] Overlay
-- [ ] Text
+- [x] Text
 
 Orientation:
 - [x] Vertical
@@ -33,6 +33,9 @@ Cover variants:
 - `--z-card--color-cover-background`: used to set the background color of the color cover.
 - `--z-card--border-color`: used to set the border color of the card.
 - `--aspect-ratio`: used to set the ratio of the cover (respecting the indications of the design). Default is `1.62`.
+- `--z-card--text-background`: used to set the background color of the text variant
+- `--z-card--text-border-radius`: used to set the border radius for the text variant
+- `--z-card--text-border`: used to set the border for the text variant
 
 ---
 ## Notes
@@ -45,11 +48,12 @@ The width of the card must be set externally, respecting the grid indication of 
 
 ## Properties
 
-| Property    | Attribute    | Description                                                                                                 | Type                                                                 | Default     |
-| ----------- | ------------ | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------- |
-| `clickable` | `clickable`  | Enable click interactions on the card. Default: false                                                       | `boolean`                                                            | `false`     |
-| `coverIcon` | `cover-icon` | Name of the icon to place over the image cover                                                              | `string`                                                             | `undefined` |
-| `variant`   | `variant`    | Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card. | `CardVariants.border \| CardVariants.overlay \| CardVariants.shadow` | `undefined` |
+| Property     | Attribute    | Description                                                                                                 | Type                                                                                      | Default     |
+| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| `clickable`  | `clickable`  | Enable click interactions on the card. Default: false                                                       | `boolean`                                                                                 | `false`     |
+| `coverIcon`  | `cover-icon` | Name of the icon to place over the image cover                                                              | `string`                                                                                  | `undefined` |
+| `showshadow` | `showshadow` | Enable shadow. Default: false.                                                                              | `boolean`                                                                                 | `false`     |
+| `variant`    | `variant`    | Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card. | `CardVariants.border \| CardVariants.overlay \| CardVariants.shadow \| CardVariants.text` | `undefined` |
 
 
 ## Events
