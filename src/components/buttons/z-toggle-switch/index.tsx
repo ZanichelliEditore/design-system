@@ -9,7 +9,7 @@ import { randomId } from "../../../utils/utils";
 })
 export class ZToggleSwitch {
   @Prop({ reflect: true }) disabled?: boolean = false;
-  @Prop({ reflect: true }) reverselabel?: boolean = false;
+  @Prop({ reflect: true }) labelPosition?: string = "left";
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() htmlid: string = `id-${randomId()}`;
 
@@ -38,27 +38,16 @@ export class ZToggleSwitch {
         onChange={this.handleClick.bind(this)}
       />,
 
-      <label
-        htmlFor={this.htmlid}
-        class={{
-          left: !this.reverselabel,
-          right: this.reverselabel,
-        }}
-      >
-        <span
-          class={{
-            left: !this.reverselabel,
-            right: this.reverselabel,
-          }}
-        >
+      <label htmlFor={this.htmlid} class={this.labelPosition}>
+        <span class={this.labelPosition}>
           <slot />
         </span>
-        <div
+        <span
           class={`container ${this.disabled && "disabled"} ${
             this.checked && "active"
           }`}
         >
-          <div
+          <span
             class={`circle ${this.disabled && "disabled"} ${
               this.checked && "checked"
             }`}
@@ -66,8 +55,8 @@ export class ZToggleSwitch {
             {this.checked && (
               <z-icon width={12} height={12} name="checkmark"></z-icon>
             )}
-          </div>
-        </div>
+          </span>
+        </span>
       </label>,
     ];
   }

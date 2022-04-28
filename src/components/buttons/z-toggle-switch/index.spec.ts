@@ -6,17 +6,17 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position left", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id"></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" label-position="left"></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id">
+      <z-toggle-switch htmlid="toggle-id" label-position="left">
         <input id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
           <span class="left"></span>
-          <div class="container false">
-            <div class="circle false"></div>
-          </div>
+          <span class="container false">
+            <span class="circle false"></span>
+          </span>
         </label>
       </z-toggle-switch>
     `);
@@ -25,17 +25,17 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position right", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" reverselabel></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" label-position="right"></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" reverselabel="">
+      <z-toggle-switch htmlid="toggle-id" label-position="right">
         <input id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span class="right"></span>
-          <div class="container false">
-            <div class="circle false"></div>
-          </div>
+          <span class="container false">
+            <span class="circle false"></span>
+          </span>
         </label>
       </z-toggle-switch>
     `);
@@ -44,17 +44,17 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position left disabled", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" disabled></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" label-position="left" disabled></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" disabled="">
+      <z-toggle-switch htmlid="toggle-id" label-position="left" disabled="">
         <input disabled id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
           <span class="left"></span>
-          <div class="container disabled false">
-            <div class="circle disabled false"></div>
-          </div>
+          <span class="container disabled false">
+            <span class="circle disabled false"></span>
+          </span>
         </label>
       </z-toggle-switch>
     `);
@@ -63,17 +63,17 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position right disabled", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" reverselabel disabled></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" label-position="right" disabled></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" reverselabel="" disabled="">
+      <z-toggle-switch htmlid="toggle-id" label-position="right" disabled="">
       <input disabled id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span class="right"></span>
-          <div class="container disabled false">
-            <div class="circle disabled false"></div>
-          </div>
+          <span class="container disabled false">
+            <span class="circle disabled false"></span>
+          </span>
         </label>
       </z-toggle-switch>
     `);
@@ -82,19 +82,19 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position left active", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" checked></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" label-position="left" checked></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" checked="">
+      <z-toggle-switch htmlid="toggle-id" label-position="left" checked="">
         <input checked="" id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
           <span class="left"></span>
-          <div class="container false active">
-            <div class="circle false checked">
+          <span class="container false active">
+            <span class="circle false checked">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
-            </div>
-          </div>
+            </span>
+          </span>
         </label>
       </z-toggle-switch>
     `);
@@ -103,19 +103,19 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position right active", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" reverselabel checked></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" label-position="right" checked></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" checked="" reverselabel="">
+      <z-toggle-switch htmlid="toggle-id" label-position="right" checked="">
         <input checked="" id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span class="right"></span>
-          <div class="container false active">
-            <div class="circle false checked">
+          <span class="container false active">
+            <span class="circle false checked">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
-            </div>
-          </div>
+            </span>
+          </span>
         </label>
       </z-toggle-switch>
     `);
@@ -124,19 +124,19 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position left active disabled", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" disabled checked></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" label-position="left" disabled checked></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" disabled="" checked="">
+      <z-toggle-switch htmlid="toggle-id" label-position="left" disabled="" checked="">
         <input disabled="" checked="" id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
           <span class="left"></span>
-          <div class="container active disabled">
-            <div class="circle disabled checked">
+          <span class="container active disabled">
+            <span class="circle disabled checked">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
-            </div>
-          </div>
+            </span>
+          </span>
         </label>
       </z-toggle-switch>
     `);
@@ -145,19 +145,19 @@ describe("Suite test ZToggleSwitch", () => {
   it("Test render ZToggleSwitch label position right active disabled", async () => {
     const page = await newSpecPage({
       components: [ZToggleSwitch],
-      html: `<z-toggle-switch htmlid="toggle-id" reverselabel disabled checked></z-toggle-switch>`,
+      html: `<z-toggle-switch htmlid="toggle-id" label-position="right" disabled checked></z-toggle-switch>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-switch htmlid="toggle-id" disabled="" checked="" reverselabel="">
+      <z-toggle-switch htmlid="toggle-id" disabled="" label-position="right" checked="">
         <input disabled="" checked="" id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span class="right"></span>
-          <div class="container active disabled">
-            <div class="circle disabled checked">
+          <span class="container active disabled">
+            <span class="circle disabled checked">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
-            </div>
-          </div>
+            </span>
+          </span>
         </label>
       </z-toggle-switch>
     `);
