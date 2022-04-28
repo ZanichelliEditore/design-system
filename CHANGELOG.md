@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.37.0](https://github.com/ZanichelliEditore/design-system/compare/v2.36.3...v2.37.0) (2022-04-20)
+
+
+### Features
+
+* **feature/z-card-text:**  adds css variables for text variant backgroung color and border ([eb7a861](https://github.com/ZanichelliEditore/design-system/commit/eb7a8619b3f5799dc2bbd8d3f5bd0e6e0f07c4f6))
+* **feature/z-card-text:** add text variant to storybook ([05f386d](https://github.com/ZanichelliEditore/design-system/commit/05f386df24685f9a62946ffd60cbbaebf62ce105))
+* **feature/z-card-text:** added appswitcher example implementation ([a736b64](https://github.com/ZanichelliEditore/design-system/commit/a736b649c9a96a6781e0099807c01dcedab1ac3a))
+* **feature/z-card-text:** added automated test for zcard text variant ([e12d18b](https://github.com/ZanichelliEditore/design-system/commit/e12d18b07c1e1fd00d2aa16bbafb8d940b6a607d))
+* **feature/z-card-text:** adds new text z-card variant ([ace08a0](https://github.com/ZanichelliEditore/design-system/commit/ace08a0fe19cc515797246b197b7a016578cbd72))
+* **feature/z-card-text:** adds showshadow knob in storyboard ([6ddb248](https://github.com/ZanichelliEditore/design-system/commit/6ddb2487bc489ba54a75786dbed291af44e46873))
+
+
+### Bug Fixes
+
+* **feature/z-card-text:** fixed showshadow prop description ([642dc6e](https://github.com/ZanichelliEditore/design-system/commit/642dc6ee3ff114a4cd7bed5c6e7ebf5894762566))
+
+### [2.36.3](https://github.com/ZanichelliEditore/design-system/compare/v2.36.2...v2.36.3) (2022-04-14)
+
+
+### Bug Fixes
+
+* add popover position state ([0d608c5](https://github.com/ZanichelliEditore/design-system/commit/0d608c5900355fb234b33a895647ff481c9d5a2e))
+* change functions order ([d78512c](https://github.com/ZanichelliEditore/design-system/commit/d78512c375d745d418b2f2a519e441fc856e6e8d))
+* remove position being calculated at first load ([1ab4daa](https://github.com/ZanichelliEditore/design-system/commit/1ab4daa2eafe6c146ef2b9b312a224d6745225cf))
+
+### [2.36.2](https://github.com/ZanichelliEditore/design-system/compare/v2.36.1...v2.36.2) (2022-04-14)
+
+
+### Bug Fixes
+
+* fixed focus element ([f358913](https://github.com/ZanichelliEditore/design-system/commit/f358913f4826bbc7768ea294d8f50c94d17c801a))
+
+### [2.36.1](https://github.com/ZanichelliEditore/design-system/compare/v2.36.0...v2.36.1) (2022-04-14)
+
+
+### Bug Fixes
+
+* added tabindex into z-body and z-heading components, fix tests ([0570c3e](https://github.com/ZanichelliEditore/design-system/commit/0570c3e973e41bae1c7b3a92707bdff5a4dc5d7c))
+
 ## [2.36.0](https://github.com/ZanichelliEditore/design-system/compare/v2.35.0...v2.36.0) (2022-04-07)
 
 

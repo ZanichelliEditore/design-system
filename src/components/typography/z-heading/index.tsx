@@ -13,6 +13,7 @@ export class ZHeading {
   render() {
     return (
       <z-typography
+        tabIndex={0}
         component={this.component || `h${this.level}`}
         level={`h${this.level}` as ZTypographyLevels}
         variant={this.variant}

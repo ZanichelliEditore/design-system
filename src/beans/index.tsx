@@ -53,6 +53,7 @@ export enum CardVariants {
   border = "border",
   shadow = "shadow",
   overlay = "overlay",
+  text = "text",
 }
 
 export declare type ActionBean = {

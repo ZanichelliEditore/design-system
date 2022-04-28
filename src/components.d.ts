@@ -203,6 +203,10 @@ export namespace Components {
          */
         "coverIcon": string;
         /**
+          * Enable shadow. Default: false.
+         */
+        "showshadow": boolean;
+        /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
         "variant": CardVariants;
@@ -2392,6 +2396,10 @@ declare namespace LocalJSX {
           * Card click event. Fired only if `clickable` is true.
          */
         "onCardClicked"?: (event: CustomEvent<any>) => void;
+        /**
+          * Enable shadow. Default: false.
+         */
+        "showshadow"?: boolean;
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
