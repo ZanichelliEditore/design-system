@@ -37,7 +37,7 @@
 
 :host([open]) > .canvas-container {
   animation-name: enterRight;
-  animation-duration: 0.4s;
+  animation-duration:0.4s;
   animation-timing-function: ease-out;
   transform: translateX(0);
 }
@@ -131,5 +131,15 @@
     max-width: var(--z-offcanvas--max-container-width);
   }
 
+  @keyframes grow {
+    from {width: 0;}
+    to {width: max(var(--z-offcanvas--min-container-width), 375px)}
+  }
+  :host(:not([overlay])[alignleft][open]) {
+    animation-name: grow;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+    width: auto;
+  }
 }
 
