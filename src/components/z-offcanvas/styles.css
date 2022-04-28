@@ -1,6 +1,5 @@
 :host {
-  --z-offcanvas--min-container-width: 375px;
-  --z-offcanvas--max-container-width: 600px;
+  --z-offcanvas--container-width: 375px;
 
   z-index: 1000;
   display: none;
@@ -126,16 +125,16 @@
   .canvas-container {
     width: auto;
     height: auto;
-    min-width: max(var(--z-offcanvas--min-container-width), 375px);
+    min-width: max(var(--z-offcanvas--container-width), 375px);
     min-height: calc(var(--space-unit) * 40);
-    max-width: var(--z-offcanvas--max-container-width);
+    max-width: max(var(--z-offcanvas--container-width), 375px);
   }
 
   @keyframes grow {
     from {width: 0;}
-    to {width: max(var(--z-offcanvas--min-container-width), 375px)}
+    to {width: max(var(--z-offcanvas--container-width), 375px)}
   }
-  :host(:not([overlay])[alignleft][open]) {
+  :host(:not([overlay])[open]) {
     animation-name: grow;
     animation-duration: 0.4s;
     animation-timing-function: ease-out;

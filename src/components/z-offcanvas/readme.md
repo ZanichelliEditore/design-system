@@ -4,8 +4,7 @@
 
 ## CSS Variables
 
-- `--z-offcanvas--min-container-width`: set the minimum width of the canvas
-- `--z-offcanvas--max-container-width`: set the maximum width of the canvas
+- `--z-offcanvas--container-width`: set the minimum width of the canvas
 
 <!-- Auto Generated Below -->
 
