@@ -141,17 +141,17 @@
 /*
   Stile necessario co la z-select, da rimuovere con il componente nativo
 */
-.flatpickr-month {
+/* .flatpickr-month {
     overflow: visible!important;
     z-index: 50!important;
-}
+} */
 
 /*
   Stile necessario co la z-select, da rimuovere con il componente nativo
 */
-.flatpickr-current-month {
+/* .flatpickr-current-month {
     display: flex!important;
-}
+} */
 
 /* .flatpickr-weekdaycontainer:nth-child(1) {
   visibility: hidden;

@@ -11,31 +11,39 @@ import { Italian } from "flatpickr/dist/l10n/it.js";
   scoped: false,
 })
 export class ZDatepickerFlatpickr {
-    private flatpickrInstance;
+    private sampleFlatpickrInstance;
 
     @Element() element: HTMLElement;
 
     @Event() dateSelect: EventEmitter;
       emitDateSelect() {
-      this.dateSelect.emit(this.flatpickrInstance.selectedDates);
+      this.dateSelect.emit(this.sampleFlatpickrInstance.selectedDates);
     }
 
 
   componentDidRender() {
-    this.flatpickrInstance = flatpickr(".flatpickr", {
+    this.sampleFlatpickrInstance = flatpickr(".flatpickr", {
       appendTo: this.element,
       enableTime: false,
+      locale: Italian,
+      dateFormat: "d-m-Y",
+      ariaDateFormat: "d F Y",
+      time_24hr: true,
+      onChange: this.emitDateSelect.bind(this)
+    });
+
+    flatpickr(".flatpickr-hour", {
+      appendTo: this.element,
+      enableTime: true,
       locale: Italian,
       dateFormat: "d-m-Y - H:i",
       ariaDateFormat: "d F Y",
       time_24hr: true,
-      prevArrow: "<z-icon name='chevron-left'></z-icon>",
-      nextArrow: "<z-icon name='chevron-right'></z-icon>",
-      wrap: true,
       onChange: this.emitDateSelect.bind(this)
     });
 
-    flatpickr(".flatpickr-range", {
+    flatpickr(".flatpickr-range-time", {
+      appendTo: this.element,
       enableTime: true,
       locale: Italian,
       dateFormat: "d-m-Y - H:i",
@@ -43,24 +51,43 @@ export class ZDatepickerFlatpickr {
       time_24hr: true,
       plugins: [rangePlugin({ input: ".second-input" })],
     });
+
+    flatpickr(".flatpickr-trigger", {
+      appendTo: this.element,
+      enableTime: false,
+      locale: Italian,
+      dateFormat: "d-m-Y - H:i",
+      ariaDateFormat: "d F Y",
+      time_24hr: true,
+      wrap: true,
+      onChange: this.emitDateSelect.bind(this)
+    });
   }
 
     componentDidLoad() {
         this.getDays();
-        this.parseMonths();
+        //this.parseMonths();
     }
 
+    componentWillLoad() {
+          let element = this.element.querySelector('[slot="trigger"]');
+          element.setAttribute("data-toggle", "data-toggle");
+    };
+
     getDays() {
-        const days = this.element.querySelectorAll('.flatpickr-weekday');
+      const days = this.element.querySelectorAll('.flatpickr-weekday');
+      console.log('days', days);
         const realdays = ["L", "M", "M", "G", "V", "S", "D"];
 
-        for (let i = 0; i < days.length; i++) {
-            days[i].innerHTML = realdays[i];
+      for (let j = 0; j < days.length/8; j++) {
+        for (let i = 0; i < 7; i++) {
+            days[i+(7*j)].innerHTML = realdays[i];
         }
+      }
     }
 
     parseMonths() {
-        let currentMonth = this.flatpickrInstance.currentMonth;
+        let currentMonth = this.sampleFlatpickrInstance.currentMonth;
 
         const monthBox = this.element.querySelector('.flatpickr-monthDropdown-months');
 
@@ -86,8 +113,8 @@ export class ZDatepickerFlatpickr {
         ]`);
         ZSelectElement.addEventListener("optionSelect", (e: any) => {
             console.log('currentMonth', currentMonth);
-            this.flatpickrInstance.changeMonth(e.detail.selected - currentMonth);
-            currentMonth = this.flatpickrInstance.currentMonth;
+            this.sampleFlatpickrInstance.changeMonth(e.detail.selected - currentMonth);
+            currentMonth = this.sampleFlatpickrInstance.currentMonth;
         });
 
         DivContainer.appendChild(ZSelectElement);
@@ -128,32 +155,52 @@ export class ZDatepickerFlatpickr {
   render() {
     return (
       <div>
-        <div class="flatpickr">
+        <div style={{ "margin": "40px 0px" }}><z-heading level={2}>Sample DatePicker</z-heading></div>
           <z-input
+            class="flatpickr"
             type="text"
             name="datepicker"
-            data-input
+            icon="event"
           ></z-input>
-          <slot
-            name="trigger"
-            data-toggle
-            ></slot>
-        </div>
+        <z-divider></z-divider>
+        <div style={{ "margin": "40px 0px" }}><z-heading level={2}>DatePicker with time</z-heading></div>
+          <z-input
+            class="flatpickr-hour"
+            type="text"
+            name="datepicker"
+            icon="event"
+          ></z-input>
+        <z-divider></z-divider>
+        <div style={{ "margin": "40px 0px" }}><z-heading level={2}>Range DatePicker</z-heading></div>
         <div>
           <z-input
-            class="flatpickr-range"
+            class="flatpickr-range-time"
             type="text"
             name="datepicker"
             icon="event"
             label="Da data"
           ></z-input>
           <z-input
-            class="flatpickr-range second-input"
+            class="flatpickr-range-time second-input"
             type="text"
             name="datepicker"
             icon="event"
             label="A data"
           ></z-input>
+        </div>
+        <z-divider></z-divider>
+        <div style={{ "margin": "40px 0px"  }}><z-heading level={2}>DatePicker with custom trigger</z-heading></div>
+        <div class="flatpickr-trigger">
+          <div style={{visibility: 'hidden', width: "0px", height: "0px"}}>
+            <z-input
+              type="text"
+              name="datepicker"
+              data-input
+            ></z-input>
+          </div>
+            <slot
+              name="trigger"
+            ></slot>
         </div>
       </div>
     );

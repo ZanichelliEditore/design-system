@@ -17,19 +17,27 @@
   </head>
   <body style="width: 100%; margin: 0; background-color: #f9f9f9">
     <h1>Flatpickr</h1>
-    <div style="margin-left: 100px"><z-datepicker-flatpickr id="pickerID"><z-button slot="trigger"></z-button></z-datepicker-flatpickr></div>
+    <div style="margin-left: 100px"><z-datepicker-flatpickr id="pickerID"><z-button slot="trigger">TRIGGER</z-button></z-datepicker-flatpickr></div>
+    <br /><br /><br /><z-divider><br /><br /><br />
     <h2>Considerazioni</h2>
     <ul>
-      <li>Z-input: attivando l'icona, questa non è cliccabile</li>
       <li>
-        La selezione del mese e dell'anno è diversa da quella di layout e non
-        personalizzabile
+        La selezione del mese e dell'anno è diversa da quella di layout ed è solo
+        personalizzabile utilizzando elementi già esistenti del design-system
       </li>
       <li>
-        La selezione dell'ora è diversa da quella di layout e non è
-        personalizzabile
+        La selezione dell'ora è diversa da quella di layout ed è solo
+        personalizzabile utilizzando elementi già esistenti del design-system
+      </li>
+      <li>
+        Le frecce per la selezione dal mese corrente non possono essere personalizzate
+        utilizzando elementi del ds
+      </li>
+      <li>
+        In caso di range con data e ora ci sono problemi nella selezione delle due ore
       </li>
     </ul>
+    <br /><br /><br />
   <script>
     function dateselect(e) {
       console.log(e.detail);
