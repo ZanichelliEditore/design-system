@@ -16,6 +16,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-datepicker-flatpickr](../../z-datepicker-flatpickr)
+
 ### Depends on
 
 - [z-typography](../z-typography)
@@ -24,6 +28,7 @@
 ```mermaid
 graph TD;
   z-heading --> z-typography
+  z-datepicker-flatpickr --> z-heading
   style z-heading fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -19,6 +19,7 @@
 ### Used by
 
  - [z-app-topbar](../navigation/z-app-topbar)
+ - [z-datepicker-flatpickr](../z-datepicker-flatpickr)
  - [z-footer](../footer/z-footer)
  - [z-list-element](../list/z-list-element)
  - [z-list-group](../list/z-list-group)
@@ -27,6 +28,7 @@
 ```mermaid
 graph TD;
   z-app-topbar --> z-divider
+  z-datepicker-flatpickr --> z-divider
   z-footer --> z-divider
   z-list-element --> z-divider
   z-list-group --> z-divider

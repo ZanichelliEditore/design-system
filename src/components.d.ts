@@ -301,13 +301,7 @@ export namespace Components {
          */
         "hide"?: boolean;
     }
-    interface ZDatepicker {
-        "myProp": string;
-    }
     interface ZDatepickerFlatpickr {
-    }
-    interface ZDatepickerVanilla {
-        "myProp": string;
     }
     interface ZDivider {
         /**
@@ -1654,23 +1648,11 @@ declare global {
         prototype: HTMLZCookiebarElement;
         new (): HTMLZCookiebarElement;
     };
-    interface HTMLZDatepickerElement extends Components.ZDatepicker, HTMLStencilElement {
-    }
-    var HTMLZDatepickerElement: {
-        prototype: HTMLZDatepickerElement;
-        new (): HTMLZDatepickerElement;
-    };
     interface HTMLZDatepickerFlatpickrElement extends Components.ZDatepickerFlatpickr, HTMLStencilElement {
     }
     var HTMLZDatepickerFlatpickrElement: {
         prototype: HTMLZDatepickerFlatpickrElement;
         new (): HTMLZDatepickerFlatpickrElement;
-    };
-    interface HTMLZDatepickerVanillaElement extends Components.ZDatepickerVanilla, HTMLStencilElement {
-    }
-    var HTMLZDatepickerVanillaElement: {
-        prototype: HTMLZDatepickerVanillaElement;
-        new (): HTMLZDatepickerVanillaElement;
     };
     interface HTMLZDividerElement extends Components.ZDivider, HTMLStencilElement {
     }
@@ -2127,9 +2109,7 @@ declare global {
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
-        "z-datepicker": HTMLZDatepickerElement;
         "z-datepicker-flatpickr": HTMLZDatepickerFlatpickrElement;
-        "z-datepicker-vanilla": HTMLZDatepickerVanillaElement;
         "z-divider": HTMLZDividerElement;
         "z-footer": HTMLZFooterElement;
         "z-footer-link": HTMLZFooterLinkElement;
@@ -2529,14 +2509,8 @@ declare namespace LocalJSX {
          */
         "onAccept"?: (event: CustomEvent<any>) => void;
     }
-    interface ZDatepicker {
-        "myProp"?: string;
-    }
     interface ZDatepickerFlatpickr {
         "onDateSelect"?: (event: CustomEvent<any>) => void;
-    }
-    interface ZDatepickerVanilla {
-        "myProp"?: string;
     }
     interface ZDivider {
         /**
@@ -3949,9 +3923,7 @@ declare namespace LocalJSX {
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
-        "z-datepicker": ZDatepicker;
         "z-datepicker-flatpickr": ZDatepickerFlatpickr;
-        "z-datepicker-vanilla": ZDatepickerVanilla;
         "z-divider": ZDivider;
         "z-footer": ZFooter;
         "z-footer-link": ZFooterLink;
@@ -4047,9 +4019,7 @@ declare module "@stencil/core" {
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
-            "z-datepicker": LocalJSX.ZDatepicker & JSXBase.HTMLAttributes<HTMLZDatepickerElement>;
             "z-datepicker-flatpickr": LocalJSX.ZDatepickerFlatpickr & JSXBase.HTMLAttributes<HTMLZDatepickerFlatpickrElement>;
-            "z-datepicker-vanilla": LocalJSX.ZDatepickerVanilla & JSXBase.HTMLAttributes<HTMLZDatepickerVanillaElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;

@@ -70,6 +70,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [z-datepicker-flatpickr](../../z-datepicker-flatpickr)
  - [z-input](../z-input)
 
 ### Depends on
@@ -91,6 +92,7 @@ graph TD;
   z-input --> z-select
   z-input-message --> z-icon
   z-button-filter --> z-icon
+  z-datepicker-flatpickr --> z-select
   style z-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
