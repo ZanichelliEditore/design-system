@@ -56,7 +56,7 @@
 }
 
 :host > button.mini,
-:host > button.mini {
+:host > div.mini {
   min-height: 36px;
   border-radius: 22px;
   line-height: 36px;
@@ -69,14 +69,14 @@
   }
 
   :host > button.default,
-  :host > button.default {
+  :host > div.default {
     min-height: 32px;
     border-radius: 16px;
     line-height: 32px;
   }
 
   :host > button.mini,
-  :host > button.mini {
+  :host > div.mini {
     min-height: 24px;
     border-radius: 16px;
     line-height: 24px;
