@@ -6,6 +6,8 @@ import {
   Element,
   Host,
 } from "@stencil/core";
+import { DeviceEnum, ZChipType } from "../../../beans";
+import { getDevice } from "../../../utils/utils";
 
 @Component({
   tag: "z-file",
@@ -31,9 +33,16 @@ export class ZFile {
   render() {
     return (
       <Host tabIndex={0}>
-        <z-chip>
+        <z-chip type={ZChipType.default}>
           <div class="chip-content">
-            <slot />
+            <z-body
+              level={getDevice() !== DeviceEnum.desktop ? 4 : 5}
+              variant={
+                getDevice() !== DeviceEnum.desktop ? "semibold" : "regular"
+              }
+            >
+              <slot />
+            </z-body>
             <z-icon
               tabIndex={0}
               onClick={() => this.removeFileHandler()}
@@ -44,8 +53,8 @@ export class ZFile {
                 }
               }}
               name="multiply-circled"
-              height={15}
-              width={15}
+              height={getDevice() !== DeviceEnum.desktop ? 20 : 15}
+              width={getDevice() !== DeviceEnum.desktop ? 20 : 15}
               ref={(val) => (this.icon = val as HTMLElement)}
             />
           </div>

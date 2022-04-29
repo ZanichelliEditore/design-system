@@ -69,9 +69,8 @@ export class ZFileUpload {
 
   /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
-  removeFileListener() {
+  removeFileListener(){
     this.files--; 
-    console.log(this.files)
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */

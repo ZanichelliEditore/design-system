@@ -17,13 +17,16 @@
 ### Depends on
 
 - [z-chip](../../buttons/z-chip)
+- [z-body](../../typography/z-body)
 - [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
   z-file --> z-chip
+  z-file --> z-body
   z-file --> z-icon
+  z-body --> z-typography
   style z-file fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

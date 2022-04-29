@@ -8,6 +8,13 @@
   align-items: center;
 }
 
+z-body {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 :host .chip-content > z-icon:first-child {
   margin-right: var(--space-unit);
 }
@@ -23,6 +30,7 @@
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {}
+
 
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {}
