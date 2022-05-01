@@ -15,7 +15,7 @@ describe("Suite test ZOffcanvas", () => {
     expect(page.root).toEqualHtml(`
       <z-offcanvas>
         <mock:shadow-root>
-          <div class="canvas-container" role="dialog">
+          <div class="canvas-container">
             <div class="canvas-content">
               <slot name="canvasContent"></slot>
             </div>
