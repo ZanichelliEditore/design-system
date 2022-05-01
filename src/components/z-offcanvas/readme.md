@@ -11,12 +11,11 @@
 
 ## Properties
 
-| Property           | Attribute            | Description                                                         | Type      | Default          |
-| ------------------ | -------------------- | ------------------------------------------------------------------- | --------- | ---------------- |
-| `alignleft`        | `alignleft`          | move the component on the left side of the viewport. Default: false | `boolean` | `false`          |
-| `closeButtonLabel` | `close-button-label` | aria-label for close button (optional)                              | `string`  | `"close canvas"` |
-| `open`             | `open`               | open component. Default: false                                      | `boolean` | `false`          |
-| `overlay`          | `overlay`            | display component as overlay. Default: false                        | `boolean` | `false`          |
+| Property    | Attribute   | Description                                                         | Type      | Default |
+| ----------- | ----------- | ------------------------------------------------------------------- | --------- | ------- |
+| `alignleft` | `alignleft` | move the component on the left side of the viewport. Default: false | `boolean` | `false` |
+| `open`      | `open`      | open component. Default: false                                      | `boolean` | `false` |
+| `overlay`   | `overlay`   | display component as overlay. Default: false                        | `boolean` | `false` |
 
 
 ## Events
@@ -28,10 +27,9 @@
 
 ## Slots
 
-| Slot                  | Description                   |
-| --------------------- | ----------------------------- |
-| `"canvasCloseButton"` | accept custom close button    |
-| `"canvasContent"`     | set the content of the canvas |
+| Slot              | Description                   |
+| ----------------- | ----------------------------- |
+| `"canvasContent"` | set the content of the canvas |
 
 
 ----------------------------------------------

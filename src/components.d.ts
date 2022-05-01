@@ -1044,13 +1044,9 @@ export namespace Components {
     }
     interface ZOffcanvas {
         /**
-          * move the component on the left side of the viewport. Default: false
+          * open content transitioning from the left. Default: false
          */
         "alignleft": boolean;
-        /**
-          * aria-label for close button (optional)
-         */
-        "closeButtonLabel"?: string;
         /**
           * open component. Default: false
          */
@@ -3377,13 +3373,9 @@ declare namespace LocalJSX {
     }
     interface ZOffcanvas {
         /**
-          * move the component on the left side of the viewport. Default: false
+          * open content transitioning from the left. Default: false
          */
         "alignleft"?: boolean;
-        /**
-          * aria-label for close button (optional)
-         */
-        "closeButtonLabel"?: string;
         /**
           * emitted on background click
          */

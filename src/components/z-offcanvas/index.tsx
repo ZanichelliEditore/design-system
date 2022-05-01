@@ -2,29 +2,27 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 /**
  * @slot canvasContent - set the content of the canvas
- * @slot canvasCloseButton - accept custom close button
  */
 @Component({
   tag: "z-offcanvas",
   styleUrl: "styles.css",
   shadow: true,
 })
+
 export class ZOffcanvas
 {
-  /** aria-label for close button (optional) */
-  @Prop() closeButtonLabel?: string = "close canvas";
-
   /** display component as overlay. Default: false */
   @Prop({ reflect: true }) overlay = false;
 
   /** open component. Default: false */
   @Prop({ reflect: true }) open = false;
 
-  /** move the component on the left side of the viewport. Default: false */
+  /** open content transitioning from the left. Default: false */
   @Prop({ reflect: true }) alignleft = false;
 
   /** emitted on background click */
   @Event() canvasBackgroundClick: EventEmitter;
+
   emitBackgroundClick() {
     this.open = false;
     this.canvasBackgroundClick.emit();
@@ -32,7 +30,7 @@ export class ZOffcanvas
 
   render() {
     return [
-      <div class="canvas-container" role="dialog">
+      <div class="canvas-container">
         <div class="canvas-content">
           <slot name="canvasContent"></slot>
         </div>
