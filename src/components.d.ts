@@ -212,8 +212,10 @@ export namespace Components {
         "variant": CardVariants;
     }
     interface ZCarousel {
-        "itemList": Array<any>;
         "itemsDistance": number;
+    }
+    interface ZCarouselItem {
+        "myProp": string;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -1639,6 +1641,12 @@ declare global {
         prototype: HTMLZCarouselElement;
         new (): HTMLZCarouselElement;
     };
+    interface HTMLZCarouselItemElement extends Components.ZCarouselItem, HTMLStencilElement {
+    }
+    var HTMLZCarouselItemElement: {
+        prototype: HTMLZCarouselItemElement;
+        new (): HTMLZCarouselItemElement;
+    };
     interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
     }
     var HTMLZChipElement: {
@@ -2115,6 +2123,7 @@ declare global {
         "z-candybar": HTMLZCandybarElement;
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
+        "z-carousel-item": HTMLZCarouselItemElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
@@ -2417,8 +2426,10 @@ declare namespace LocalJSX {
         "variant"?: CardVariants;
     }
     interface ZCarousel {
-        "itemList"?: Array<any>;
         "itemsDistance"?: number;
+    }
+    interface ZCarouselItem {
+        "myProp"?: string;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -3937,6 +3948,7 @@ declare namespace LocalJSX {
         "z-candybar": ZCandybar;
         "z-card": ZCard;
         "z-carousel": ZCarousel;
+        "z-carousel-item": ZCarouselItem;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
@@ -4033,6 +4045,7 @@ declare module "@stencil/core" {
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
+            "z-carousel-item": LocalJSX.ZCarouselItem & JSXBase.HTMLAttributes<HTMLZCarouselItemElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;

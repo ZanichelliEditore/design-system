@@ -3,11 +3,12 @@
   font-weight: var(--font-rg);
 }
 
-/* Tablet breakpoint */
-@media only screen and (min-width: 768px) {}
+.carousel-item {
+  float: left;
+}
 
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {}
+.carousel-item-container {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+}
