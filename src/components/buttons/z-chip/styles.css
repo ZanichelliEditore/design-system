@@ -7,7 +7,6 @@
   fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-size: 14px;
-  box-shadow: var(--shadow-2);
 }
 
 :host > div {
