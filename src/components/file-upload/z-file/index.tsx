@@ -32,10 +32,11 @@ export class ZFile {
 
   render() {
     return (
-      <Host tabIndex={0}>
-        <z-chip type={ZChipType.default}>
+      <Host>
+        <z-chip filter type={ZChipType.default}>
           <div class="chip-content">
             <z-body
+            tabIndex={-1}
               level={getDevice() !== DeviceEnum.desktop ? 4 : 5}
               variant={
                 getDevice() !== DeviceEnum.desktop ? "semibold" : "regular"

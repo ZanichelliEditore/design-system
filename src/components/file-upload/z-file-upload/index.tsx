@@ -107,7 +107,7 @@ export class ZFileUpload {
     if(this.files > 0) {
       (this.el.querySelector('z-file:last-child').shadowRoot.querySelector('z-chip z-icon:last-child') as HTMLElement).focus();
     }else {
-      this.type === ZFileUploadTypeEnum.default ? this.button.focus() : this.uploadLink.focus();
+      this.type === ZFileUploadTypeEnum.default ? this.button.shadowRoot.querySelector('button').focus() : this.uploadLink.focus();
     }
   }
 
@@ -201,7 +201,6 @@ export class ZFileUpload {
     return [
       this.renderInput(),
       <z-button
-        tabIndex={0}
         onClick={() => this.input.click()}
         onKeyPress={(e) => {
           if (e.keyCode == 32 || e.keyCode == 13) {
