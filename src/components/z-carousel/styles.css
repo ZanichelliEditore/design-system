@@ -9,6 +9,6 @@
 
 .carousel-item-container {
   display: flex;
-  width: 100%;
+  width: 900px;
   overflow-x: scroll;
 }
