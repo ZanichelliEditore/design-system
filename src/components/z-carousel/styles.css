@@ -3,12 +3,9 @@
   font-weight: var(--font-rg);
 }
 
-.carousel-item {
-  float: left;
-}
-
 .carousel-item-container {
   display: flex;
-  width: 900px;
   overflow-x: scroll;
+  list-style: none;
+  padding-inline-start: 0;
 }
