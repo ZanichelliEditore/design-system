@@ -11114,10 +11114,10 @@ store2@^2.12.0:
   resolved "https://registry.npmjs.org/store2/-/store2-2.13.2.tgz#01ad8802ca5b445b9c316b55e72645c13a3cd7e3"
   integrity sha512-CMtO2Uneg3SAz/d6fZ/6qbqqQHi2ynq6/KzMD/26gTkiEShCcpqFfTHgOxsE0egAq6SX3FmN4CeSqn8BzXQkJg==
 
-storybook-addon-stencil@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.npmjs.org/storybook-addon-stencil/-/storybook-addon-stencil-0.1.5.tgz#29ac89cc6fc08cc5606d0ba378479ea63b03a5fe"
-  integrity sha512-utePuuPrh2P1DUvwgtX77vT5aVOAmunF0WD9BQznOMeTLnB8xShzc1i9ImA4dQT10ODxzEOKpeO4Ob/6bXLIhw==
+storybook-addon-stencil@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.npmjs.org/storybook-addon-stencil/-/storybook-addon-stencil-0.1.6.tgz#d81e0e525f6bf826ae8341c4eab28644a13c2381"
+  integrity sha512-6cOCV/o6/WOcTqCwEX77/KKuou/A0iHl6YSlZwGBSwMNyYe8gMs37apGCavWRjv5julaxYjMSObB2jPLmLl9qw==
   dependencies:
     "@types/loader-utils" "^2.0.3"
     custom-elements-manifest "^1.0.0"
