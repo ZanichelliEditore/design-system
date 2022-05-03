@@ -1,19 +1,18 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h } from "@stencil/core";
 
 @Component({
-  tag: 'z-carousel-item',
-  styleUrl: 'styles.css',
+  tag: "z-carousel-item",
+  styleUrl: "styles.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
-
 export class ZCarouselItem {
-  /** [optional] gap between the slide items */
-  @Prop() gap?: number = 0;
+  /** [optional] gutter between the slide items */
+  @Prop() gutter?: number = 0;
 
   render() {
     return (
-      <li class="carousel-item" style={{ paddingRight: `${this.gap}px` }}>
+      <li class="carousel-item" style={{ paddingRight: `${this.gutter}px` }}>
         <slot />
       </li>
     );

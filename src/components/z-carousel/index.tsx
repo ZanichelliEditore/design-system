@@ -6,15 +6,15 @@ import { Component, Element, Host, Prop, h } from "@stencil/core";
   scoped: true,
 })
 export class ZCarousel {
-  /** [optional] gap between the slide items */
-  @Prop() gap?: number = 0;
+  /** [optional] gutter between the slide items */
+  @Prop() gutter?: number = 0;
 
   @Element() host: HTMLElement;
 
   componentDidRender() {
     const children = this.host.children[0].children;
-    for (let i = 0; i < children.length -1; i++) {
-      children[i].setAttribute("gap", `${this.gap}`);
+    for (let i = 0; i < children.length - 1; i++) {
+      children[i].setAttribute("gutter", `${this.gutter}`);
     }
   }
 
