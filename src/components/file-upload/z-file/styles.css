@@ -13,11 +13,22 @@
   align-items: center;
 }
 
-z-body {
+:host > z-chip > .chip-content > span {
   max-width: 250px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 14px;
+  line-height: 1.33;
+  letter-spacing: 0.32px;
+}
+
+:host > z-chip > .chip-content > span.regular {
+  font-weight: var(--font-rg);
+}
+
+:host > z-chip > .chip-content > span.bold {
+  font-weight: var(--font-sb);
 }
 
 :host .chip-content > z-icon:first-child {
@@ -38,6 +49,10 @@ z-body {
 @media only screen and (min-width: 1152px) {
   :host {
     border-radius: 16px;
+  }
+
+  :host > z-chip > .chip-content > span {
+    font-size: 12px;
   }
 }
 

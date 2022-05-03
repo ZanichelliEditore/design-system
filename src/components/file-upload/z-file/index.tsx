@@ -41,15 +41,15 @@ export class ZFile {
           type={ZChipType.default}
         >
           <div class="chip-content">
-            <z-body
+            <span
               tabIndex={-1}
-              level={getDevice() !== DeviceEnum.desktop ? 4 : 5}
-              variant={
-                getDevice() !== DeviceEnum.desktop ? "semibold" : "regular"
-              }
+              class={{
+                "regular": getDevice() == DeviceEnum.desktop,
+                "bold": getDevice() !== DeviceEnum.desktop,
+              }}
             >
               <slot />
-            </z-body>
+            </span>
             <z-icon
               tabIndex={0}
               onClick={() => this.removeFileHandler()}
