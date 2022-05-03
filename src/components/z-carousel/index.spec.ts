@@ -4,22 +4,27 @@ import { ZCarousel } from "./index";
 
 describe("Suite test ZCarousel", () => {
   it("Test render ZCarousel vuoto", async () => {
-
     const page = await newSpecPage({
       components: [ZCarousel],
-      html: `<z-carousel></z-carousel>`
+      html: `<z-carousel></z-carousel>`,
     });
 
     expect(page.root).toEqualHtml(`
       <z-carousel>
-        <mock:shadow-root>
-          <div>
-            This is your z-carousel component
-            This is your default prop:
-          </div>
-        </mock:shadow-root>
+      <ul class="carousel-item-container"></ul>
       </z-carousel>
-    `)
+    `);
+  });
+
+  it("Test render ZCarousel elements prop", async () => {
+    const page = await newSpecPage({
+      components: [ZCarousel],
+      html: `<z-carousel gap=30></z-carousel>`,
+    });
+    expect(page.root).toEqualHtml(`
+    <z-carousel gap=30>
+    <ul class="carousel-item-container"></ul>
+  </z-carousel>
+    `);
   });
 });
-
