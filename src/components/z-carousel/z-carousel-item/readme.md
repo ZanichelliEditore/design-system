@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `myProp` | `my-prop` |             | `string` | `undefined` |
+| Property | Attribute | Description                            | Type     | Default |
+| -------- | --------- | -------------------------------------- | -------- | ------- |
+| `gap`    | `gap`     | [optional] gap between the slide items | `number` | `0`     |
 
 
 ----------------------------------------------

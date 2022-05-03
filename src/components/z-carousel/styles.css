@@ -1,6 +1,8 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+
+  --spacing: var(--spacing);
 }
 
 .carousel-item-container {
@@ -8,15 +10,13 @@
   overflow-x: scroll;
   list-style: none;
   padding-inline-start: 0;
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .carousel-item-container::-webkit-scrollbar {
   display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.carousel-item-container {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }

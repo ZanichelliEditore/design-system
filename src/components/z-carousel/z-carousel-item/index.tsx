@@ -8,11 +8,12 @@ import { Component, Prop, h } from '@stencil/core';
 })
 
 export class ZCarouselItem {
-  @Prop() myProp: string;
+  /** [optional] gap between the slide items */
+  @Prop() gap?: number = 0;
 
   render() {
     return (
-      <li class="carousel-item">
+      <li class="carousel-item" style={{ paddingRight: `${this.gap}px` }}>
         <slot />
       </li>
     );

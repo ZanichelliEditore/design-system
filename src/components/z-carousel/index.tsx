@@ -6,18 +6,17 @@ import { Component, Element, Host, Prop, h } from "@stencil/core";
   scoped: true,
 })
 export class ZCarousel {
-  @Prop() itemsGap: number;
-  @Prop() nItems: number;
+  /** [optional] gap between the slide items */
+  @Prop() gap?: number = 0;
+
   @Element() host: HTMLElement;
 
-  // componentWillRender() {
-  //   let newHtml = "";
-  //   console.log('aaAaAA', this.host.children);
-  //   Array.from(this.host.children).forEach((child) => {
-  //     newHtml = newHtml + `<li class="carousel-item">` + child.outerHTML + "</li>";
-  //   });
-  //   this.host.innerHTML = newHtml;
-  // }
+  componentDidRender() {
+    const children = this.host.children[0].children;
+    for (let i = 0; i < children.length -1; i++) {
+      children[i].setAttribute("gap", `${this.gap}`);
+    }
+  }
 
   render() {
     return (

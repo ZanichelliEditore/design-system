@@ -212,10 +212,16 @@ export namespace Components {
         "variant": CardVariants;
     }
     interface ZCarousel {
-        "itemsDistance": number;
+        /**
+          * [optional] gap between the slide items
+         */
+        "gap"?: number;
     }
     interface ZCarouselItem {
-        "myProp": string;
+        /**
+          * [optional] gap between the slide items
+         */
+        "gap"?: number;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -2426,10 +2432,16 @@ declare namespace LocalJSX {
         "variant"?: CardVariants;
     }
     interface ZCarousel {
-        "itemsDistance"?: number;
+        /**
+          * [optional] gap between the slide items
+         */
+        "gap"?: number;
     }
     interface ZCarouselItem {
-        "myProp"?: string;
+        /**
+          * [optional] gap between the slide items
+         */
+        "gap"?: number;
     }
     interface ZChip {
         "boldtext"?: number;

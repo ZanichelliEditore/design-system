@@ -1,5 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { number } from '@storybook/addon-knobs';
 
 <Meta title="ZCarousel" component="z-carousel" />
 
@@ -7,7 +8,7 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
 <Preview>
   <Story name="ZCarousel-sample">
-    {html`<z-carousel>
+    {html`<z-carousel gap="${number("gap", 24)}">
       <z-carousel-item>
         <div style="width: 300px; height: 300px; background-color: red"></div>
       </z-carousel-item>
