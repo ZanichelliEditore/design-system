@@ -16,6 +16,7 @@ import { getDevice } from "../../../utils/utils";
 })
 export class ZFile {
   private icon: HTMLElement;
+  private chip: HTMLElement;
 
   @Element() el: HTMLElement;
 
@@ -28,15 +29,20 @@ export class ZFile {
 
   componentDidLoad() {
     this.icon?.focus?.();
+    this.chip.shadowRoot.querySelector("button").style.border = "none";
   }
 
   render() {
     return (
       <Host>
-        <z-chip filter type={ZChipType.default}>
+        <z-chip
+          ref={(val) => (this.chip = val)}
+          filter
+          type={ZChipType.default}
+        >
           <div class="chip-content">
             <z-body
-            tabIndex={-1}
+              tabIndex={-1}
               level={getDevice() !== DeviceEnum.desktop ? 4 : 5}
               variant={
                 getDevice() !== DeviceEnum.desktop ? "semibold" : "regular"
