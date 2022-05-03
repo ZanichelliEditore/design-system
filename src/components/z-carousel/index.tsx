@@ -3,10 +3,11 @@ import { Component, Element, Host, Prop, h } from "@stencil/core";
   tag: "z-carousel",
   styleUrl: "styles.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class ZCarousel {
-  @Prop() itemsDistance: number;
+  @Prop() itemsGap: number;
+  @Prop() nItems: number;
   @Element() host: HTMLElement;
 
   // componentWillRender() {

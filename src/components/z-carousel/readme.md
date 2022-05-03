@@ -9,7 +9,6 @@
 
 | Property        | Attribute        | Description | Type     | Default     |
 | --------------- | ---------------- | ----------- | -------- | ----------- |
-| `itemList`      | --               |             | `any[]`  | `[]`        |
 | `itemsDistance` | `items-distance` |             | `number` | `undefined` |
 
 
