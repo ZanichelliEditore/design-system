@@ -1,5 +1,8 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 import { randomId } from "../../../utils/utils";
+import {
+ZtoggleSwitchPositionEnum,
+} from "../../../beans";
 
 @Component({
   tag: "z-toggle-switch",
@@ -9,7 +12,7 @@ import { randomId } from "../../../utils/utils";
 })
 export class ZToggleSwitch {
   @Prop({ reflect: true }) disabled?: boolean = false;
-  @Prop({ reflect: true }) labelPosition?: "left" | "right" = "left";
+  @Prop({ reflect: true }) labelPosition?: ZtoggleSwitchPositionEnum = ZtoggleSwitchPositionEnum.left;
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() htmlid: string = `id-${randomId()}`;
 

@@ -26,11 +26,11 @@ label > span {
 }
 
 label > span.left {
-  margin: 0 var(--space-unit) 0 0;
+  margin-right: var(--space-unit);
 }
 
 label > span.right {
-  margin: 0 0 0 var(--space-unit);
+  margin-left: var(--space-unit);
 }
 
 label > span.container {

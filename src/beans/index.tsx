@@ -306,6 +306,10 @@ export enum ExpandableListButtonAlign {
   left = "left",
 }
 
+export enum ZtoggleSwitchPositionEnum {
+  right = "right",
+  left = "left",
+}
 export enum ListDividerType {
   none = "none",
   header = "header",

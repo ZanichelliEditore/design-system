@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property        | Attribute        | Description | Type                | Default              |
-| --------------- | ---------------- | ----------- | ------------------- | -------------------- |
-| `checked`       | `checked`        |             | `boolean`           | `false`              |
-| `disabled`      | `disabled`       |             | `boolean`           | `false`              |
-| `htmlid`        | `htmlid`         |             | `string`            | ``id-${randomId()}`` |
-| `labelPosition` | `label-position` |             | `"left" \| "right"` | `"left"`             |
+| Property        | Attribute        | Description | Type                                                                | Default                          |
+| --------------- | ---------------- | ----------- | ------------------------------------------------------------------- | -------------------------------- |
+| `checked`       | `checked`        |             | `boolean`                                                           | `false`                          |
+| `disabled`      | `disabled`       |             | `boolean`                                                           | `false`                          |
+| `htmlid`        | `htmlid`         |             | `string`                                                            | ``id-${randomId()}``             |
+| `labelPosition` | `label-position` |             | `ZtoggleSwitchPositionEnum.left \| ZtoggleSwitchPositionEnum.right` | `ZtoggleSwitchPositionEnum.left` |
 
 
 ## Events
