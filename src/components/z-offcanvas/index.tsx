@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import { Component, Prop, h, Event, EventEmitter, Watch, Element } from "@stencil/core";
 
 /**
  * @slot canvasContent - set the content of the canvas
@@ -11,6 +11,8 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 export class ZOffcanvas
 {
+  @Element() hostElement: HTMLElement;
+
   /** display component as overlay. Default: false */
   @Prop({ reflect: true }) overlay = false;
 
@@ -26,6 +28,21 @@ export class ZOffcanvas
   emitBackgroundClick() {
     this.open = false;
     this.canvasBackgroundClick.emit();
+  }
+
+  @Watch('open')
+  onOpenChanged() {
+
+    if (this.open) {
+      this.hostElement.style.display = "flex"
+    } else {
+      let me = this
+      if (this.overlay) {
+        setTimeout(() => { me.hostElement.style.display = "none" }, 400);
+      } else {
+        me.hostElement.style.display = "none"
+      }
+    }
   }
 
   render() {

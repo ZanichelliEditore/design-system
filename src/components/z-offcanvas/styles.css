@@ -25,10 +25,6 @@
   transform: translateX(100%);
 }
 
-:host([open]) {
-  display: flex;
-}
-
 @keyframes enterRight {
   from {transform: translateX(100%);}
   to {transform: translateX(0);}
@@ -39,6 +35,18 @@
   animation-duration:0.4s;
   animation-timing-function: ease-out;
   transform: translateX(0);
+}
+
+@keyframes exitRight {
+  from {transform: translateX(0);}
+  to {transform: translateX(100%);}
+}
+
+:host(:not([open])[overlay]) > .canvas-container {
+  animation-name: exitRight;
+  animation-duration:0.4s;
+  animation-timing-function: ease-out;
+  transform: translateX(100%);
 }
 
 :host([overlay]) {
@@ -77,6 +85,18 @@
   animation-duration: 0.4s;
   animation-timing-function: ease-out;
   transform: translateX(0);
+}
+
+@keyframes exitLeft {
+  from {transform: translateX(0);}
+  to {transform: translateX(-100%);}
+}
+
+:host(:not([open])[overlay][alignleft]) > .canvas-container {
+  animation-name: exitLeft;
+  animation-duration:0.4s;
+  animation-timing-function: ease-out;
+  transform: translateX(-100%);
 }
 
 .canvas-container > .canvas-content {
@@ -134,6 +154,7 @@
     from {width: 0;}
     to {width: max(var(--z-offcanvas--container-width), 375px)}
   }
+
   :host(:not([overlay])[open]) {
     animation-name: grow;
     animation-duration: 0.4s;
