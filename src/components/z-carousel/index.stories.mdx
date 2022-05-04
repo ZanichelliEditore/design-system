@@ -7,7 +7,7 @@ import { number } from "@storybook/addon-knobs";
 # ZCarousel
 
 <Preview>
-  <Story name="ZCarousel-sample">
+  <Story name="ZCarousel-with-div">
     {html`<z-carousel gutter="${number("gutter", 24)}">
       <z-carousel-item>
         <div style="width: 200px; height: 200px; background-color: red"></div>
@@ -40,13 +40,91 @@ import { number } from "@storybook/addon-knobs";
         <div style="width: 200px; height: 200px; background-color: black"></div>
       </z-carousel-item>
       <z-carousel-item>
+        <div
+          style="width: 200px; height: 200px; background-color: pink"
+        ></div> </z-carousel-item
+    ></z-carousel>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="ZCarousel-with-img">
+    {html`<z-carousel gutter="${number("gutter", 8)}">
+      <z-carousel-item>
+        <img
+          src="https://www.clipartmax.com/png/middle/430-4304170_cartooons-mr-bean-cartoon-wallpaper-hd.png"
+          width="100"
+          height="100"
+        />
+      </z-carousel-item>
+      <z-carousel-item>
+        <img
+          src="https://tbivision.com/files/2019/02/Mr-Bean_STILL01.jpg"
+          width="100"
+          height="100"
+        />
+      </z-carousel-item>
+      <z-carousel-item>
+        <img
+          src="https://cdn.comedy.co.uk/images/library/comedies/900x450/m/mr_bean_animated_b.jpg"
+          width="100"
+          height="100"
+        />
+      </z-carousel-item>
+      <z-carousel-item>
         <img
           src="https://www.pngall.com/wp-content/uploads/5/Cartoon-Mr.-Bean-PNG-Clipart.png"
-          width="200"
-          height="200"
+          width="100"
+          height="100"
+        />
+      </z-carousel-item>
+      <z-carousel-item>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG-TvWxr_NPIAwMZRWRS9gnGGrDf_r9Q3zP19JAMMgjTndL34oPUnaJrzoTGuc-ZjN-Xw&usqp=CAU"
+          width="100"
+          height="100"
+        />
+      </z-carousel-item>
+      <z-carousel-item>
+        <img
+          src="https://i0.wp.com/thefreegenie.com/wp-content/uploads/thumbs/gamemonetize/M/mr-bean-car-hidden-keys.jpg?fit=512%2C384&ssl=1"
+          width="100"
+          height="100"
+        />
+      </z-carousel-item>
+      <z-carousel-item>
+        <img
+          src="https://static.onecms.io/wp-content/uploads/sites/6/2015/06/mr-bean-the-animated-series.jpg"
+          width="100"
+          height="100"
+        />
+      </z-carousel-item>
+      <z-carousel-item>
+        <img
+          src="https://i.pinimg.com/originals/d9/95/54/d99554d840ae9221f54af8ea04646cfb.jpg"
+          width="100"
+          height="100"
+        />
+      </z-carousel-item>
+      <z-carousel-item>
+        <img
+          src="https://www.pngall.com/wp-content/uploads/5/Cartoon-Mr.-Bean-PNG-Clipart.png"
+          width="100"
+          height="100"
         /> </z-carousel-item
     ></z-carousel>`}
   </Story>
 </Preview>
 
 <Props of="z-carousel" />
+
+## Description
+
+This component wraps `li`children of the ZCarousel.
+It was conceived as a list of elements to respect the rules of accessibility. (https://www.w3.org/WAI/tutorials/carousels/working-example/)
+
+## Usage
+
+One `z-carousel`component wraps `N` `z-carousel-item`.
+Any type of element can be passed to the `z-carousel-item`.
+The size of the `z-carousel-item` fits to the size of the children
