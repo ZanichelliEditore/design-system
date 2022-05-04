@@ -8,7 +8,6 @@
 .carousel-item-container {
   display: flex;
   overflow-x: scroll;
-  list-style: none;
   padding-inline-start: 0;
 
   /* Hide scrollbar for IE, Edge and Firefox */
