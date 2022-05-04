@@ -213,15 +213,15 @@ export namespace Components {
     }
     interface ZCarousel {
         /**
-          * [optional] gap between the slide items
+          * [optional] gutter between the slide items
          */
-        "gap"?: number;
+        "gutter"?: number;
     }
     interface ZCarouselItem {
         /**
-          * [optional] gap between the slide items
+          * [optional] gutter between the slide items
          */
-        "gap"?: number;
+        "gutter"?: number;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -2433,15 +2433,15 @@ declare namespace LocalJSX {
     }
     interface ZCarousel {
         /**
-          * [optional] gap between the slide items
+          * [optional] gutter between the slide items
          */
-        "gap"?: number;
+        "gutter"?: number;
     }
     interface ZCarouselItem {
         /**
-          * [optional] gap between the slide items
+          * [optional] gutter between the slide items
          */
-        "gap"?: number;
+        "gutter"?: number;
     }
     interface ZChip {
         "boldtext"?: number;

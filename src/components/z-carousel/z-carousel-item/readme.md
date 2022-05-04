@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                            | Type     | Default |
-| -------- | --------- | -------------------------------------- | -------- | ------- |
-| `gap`    | `gap`     | [optional] gap between the slide items | `number` | `0`     |
+| Property | Attribute | Description                               | Type     | Default |
+| -------- | --------- | ----------------------------------------- | -------- | ------- |
+| `gutter` | `gutter`  | [optional] gutter between the slide items | `number` | `0`     |
 
 
 ----------------------------------------------
