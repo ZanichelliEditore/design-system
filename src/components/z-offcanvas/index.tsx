@@ -30,19 +30,23 @@ export class ZOffcanvas
     this.canvasBackgroundClick.emit();
   }
 
+  componentWillLoad() {
+    this.handleOpenStatus()
+  }
+
   @Watch('open')
   onOpenChanged() {
+    this.handleOpenStatus()
+  }
 
-    if (this.open) {
-      this.hostElement.style.display = "flex"
-    } else {
+  handleOpenStatus() {
+
+    if ( !this.open && this.overlay ) {
       let me = this
-      if (this.overlay) {
-        setTimeout(() => { me.hostElement.style.display = "none" }, 400);
-      } else {
-        me.hostElement.style.display = "none"
-      }
+      setTimeout(() => { me.hostElement.style.display = "none" }, 400);
+      return;
     }
+    this.hostElement.style.display = this.open ? "flex" : "none"
   }
 
   render() {

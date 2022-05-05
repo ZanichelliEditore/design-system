@@ -12,7 +12,7 @@ import { boolean } from "@storybook/addon-knobs";
         <div style="background-color: lightblue">
           <z-offcanvas
               transitionleft
-              .open="${boolean("Open canvas", false)}"
+              .open="${boolean("Open canvas", true)}"
               .overlay="${boolean("Show overlay", false)}"
               style="height:100vh"
           >
@@ -35,7 +35,7 @@ import { boolean } from "@storybook/addon-knobs";
     {html`
         <div style="display:flex; justify-content:end; background-color: lightblue">
           <z-offcanvas
-              .open="${boolean("Open canvas", false)}"
+              .open="${boolean("Open canvas", true)}"
               .overlay="${boolean("Show overlay", false)}"
               style="height:100vh; flex:1"
           >
