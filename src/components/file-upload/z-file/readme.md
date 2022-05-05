@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property     | Attribute     | Description | Type  | Default     |
+| ------------ | ------------- | ----------- | ----- | ----------- |
+| `fileNumber` | `file-number` |             | `any` | `undefined` |
+
+
 ## Events
 
 | Event        | Description                                             | Type               |
@@ -16,12 +23,14 @@
 
 ### Depends on
 
+- [z-tooltip](../../notification/z-tooltip)
 - [z-chip](../../buttons/z-chip)
 - [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-file --> z-tooltip
   z-file --> z-chip
   z-file --> z-icon
   style z-file fill:#f9f,stroke:#333,stroke-width:4px

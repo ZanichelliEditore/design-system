@@ -19,7 +19,8 @@ import { checkEmptyObject, getDevice } from "../../../utils/utils";
 @Component({
   tag: "z-file-upload",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
@@ -30,10 +31,10 @@ export class ZFileUpload {
   @Prop() variant?: ButtonVariantEnum;
 
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
-  @Prop() acceptedFormat: string = ".pdf, .doc, .tiff, .png, .jpg";
+  @Prop() acceptedFormat: string = ".pdf, .doc, .tiff, .png, .jpg, .jpeg";
 
   /** Max file dimension in Megabyte */
-  @Prop() fileMaxSize: number = 50;
+  @Prop() fileMaxSize: number = 1;
 
   /** Prop indicating if the user can pick more than one file at once*/
   @Prop() multiple: boolean = true;
@@ -58,6 +59,8 @@ export class ZFileUpload {
   private input: HTMLInputElement;
 
   private button: HTMLZButtonElement;
+  
+  private errorModal: HTMLZModalElement;
 
   private uploadLink: HTMLZBodyElement;
 
@@ -82,6 +85,7 @@ export class ZFileUpload {
 
   componentDidUpdate(){
     this.handleAccessibility()
+    this.error && this.errorModal.focus()
   }
 
   componentWillLoad() {
@@ -105,7 +109,7 @@ export class ZFileUpload {
 
   handleAccessibility(){
     if(this.files > 0) {
-      (this.el.querySelector('z-file:last-child').shadowRoot.querySelector('z-chip z-icon:last-child') as HTMLElement).focus();
+      (this.el.querySelector('z-file:last-child > z-chip') as HTMLElement).focus();
     }else {
       this.type === ZFileUploadTypeEnum.default ? this.button.shadowRoot.querySelector('button').focus() : this.uploadLink.focus();
     }
@@ -113,7 +117,7 @@ export class ZFileUpload {
 
   checkFiles(files: Array<File>): any {
     let errors = {};
-    const sizeErrorString = `supera i ${this.fileMaxSize}Mb`;
+    const sizeErrorString = `supera i ${this.fileMaxSize}MB`;
     const formatErrorString = " ha un'estensione non prevista";
     files.forEach((file: File) => {
       const fileSize = file.size / 1024 / 1024;
@@ -161,7 +165,7 @@ export class ZFileUpload {
                                           .map((string) => string.substring(1).toUpperCase())
                                           .join(', ');
 
-    const fileFormatString = `Puoi allegare file nei formati ${fileFormat} per un massimo di ${this.fileMaxSize}Mb di peso.`
+    const fileFormatString = `Puoi allegare file nei formati ${fileFormat} per un massimo di ${this.fileMaxSize}MB di peso.`
 
     return (
       <z-body level={3}>
@@ -203,7 +207,7 @@ export class ZFileUpload {
       <z-button
         onClick={() => this.input.click()}
         onKeyPress={(e) => {
-          if (e.keyCode == 32 || e.keyCode == 13) {
+          if (e.code == 'Space' || e.code == 'Enter') {
             e.preventDefault();
             this.input.click();
           }
@@ -228,7 +232,7 @@ export class ZFileUpload {
           class="upload-link"
           onClick={() => this.input.click()}
           onKeyPress={(e) => {
-            if (e.keyCode == 32 || e.keyCode == 13) {
+            if (e.code == 'Space' || e.code == 'Enter') {
               e.preventDefault();
               this.input.click();
             }
@@ -301,6 +305,8 @@ export class ZFileUpload {
       </div>,
       this.error && (
         <z-modal
+          tabIndex={0}
+          ref={(val) => this.errorModal = val}
           modaltitle="Attenzione"
           onModalClose={() => (this.error = !this.error)}
           onModalBackgroundClick={() => (this.error = !this.error)}

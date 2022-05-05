@@ -1,16 +1,21 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-}
-
-:host {
-  border: 1px solid var(--gray700);
-  border-radius: 22px;
+  position: relative;
 }
 
 :host .chip-content {
   display: flex;
   align-items: center;
+}
+
+:host > z-tooltip {
+  z-index: 10;
+}
+
+:host > z-tooltip > .tootip-content {
+  white-space: nowrap;
+  font-size: var(--font-size-1);
 }
 
 :host > z-chip > .chip-content > span {

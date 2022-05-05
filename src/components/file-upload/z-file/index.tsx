@@ -5,18 +5,30 @@ import {
   Event,
   Element,
   Host,
+  State,
+  Listen,
+  Prop,
 } from "@stencil/core";
-import { DeviceEnum, ZChipType } from "../../../beans";
+import { DeviceEnum, TooltipPosition, ZChipType } from "../../../beans";
+import { tabletBreakpoint } from "../../../constants/breakpoints";
 import { getDevice } from "../../../utils/utils";
 
 @Component({
   tag: "z-file",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZFile {
   private icon: HTMLElement;
-  private chip: HTMLElement;
+
+  private ellipsis?: HTMLSpanElement;
+  
+  @Prop() fileNumber;
+
+  @State() allowTooltip: boolean = false;
+
+  @State() tooltipVisible: boolean = false
 
   @Element() el: HTMLElement;
 
@@ -27,34 +39,57 @@ export class ZFile {
     this.el.remove();
   }
 
+  @Listen('mouseover')
+  onMouseOver() {
+    this.tooltipVisible = true;
+  }
+
+  @Listen('mouseleave')
+  onMouseLeave() {
+    this.tooltipVisible = false;
+  }
+
   componentDidLoad() {
+    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
+      this.allowTooltip = true;
+
     this.icon?.focus?.();
-    this.chip.shadowRoot.querySelector("button").style.border = "none";
+  }
+
+  elementHasEllipsis(): boolean {
+    return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 
   render() {
     return (
       <Host>
-        <z-chip
-          ref={(val) => (this.chip = val)}
-          filter
-          type={ZChipType.default}
-        >
+        {this.allowTooltip && (
+          <z-tooltip
+            open={this.tooltipVisible}
+            type={TooltipPosition.AUTO}
+            bind-to={`#chip-${this.fileNumber}`}
+          >
+            <p class="tootip-content">{this.ellipsis.innerText}</p>
+          </z-tooltip>
+        )}
+        <z-chip id={`chip-${this.fileNumber}`} filter type={ZChipType.default}>
           <div class="chip-content">
             <span
+              ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
               tabIndex={-1}
               class={{
-                "regular": getDevice() == DeviceEnum.desktop,
-                "bold": getDevice() !== DeviceEnum.desktop,
+                "body-3-sb": getDevice() == DeviceEnum.desktop,
+                "body-2-sb": getDevice() !== DeviceEnum.desktop,
               }}
             >
               <slot />
             </span>
             <z-icon
+              aria-label="Elimina file"
               tabIndex={0}
               onClick={() => this.removeFileHandler()}
               onKeyPress={(e) => {
-                if (e.keyCode == 32 || e.keyCode == 13) {
+                if (e.code == "Space" || e.code == "Enter") {
                   e.preventDefault();
                   this.removeFileHandler();
                 }

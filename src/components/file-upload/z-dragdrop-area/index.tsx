@@ -3,7 +3,8 @@ import { Component, h, Event, EventEmitter } from "@stencil/core";
 @Component({
   tag: "z-dragdrop-area",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZDragdropArea {
   /** Emitted when user drop one or more files */

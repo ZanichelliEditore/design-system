@@ -325,6 +325,7 @@ export namespace Components {
     interface ZDragdropArea {
     }
     interface ZFile {
+        "fileNumber": any;
     }
     interface ZFileUpload {
         /**
@@ -2590,6 +2591,7 @@ declare namespace LocalJSX {
         "onFileDropped"?: (event: CustomEvent<any>) => void;
     }
     interface ZFile {
+        "fileNumber"?: any;
         /**
           * Emitted when a z-file component is removed from the DOM
          */
