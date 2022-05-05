@@ -48,7 +48,7 @@ export class ZOffcanvas
   render() {
     return [
       <div class="canvas-container">
-        <div class="canvas-content">
+        <div class="canvas-content" tabindex="0">
           <slot name="canvasContent"></slot>
         </div>
       </div>,
