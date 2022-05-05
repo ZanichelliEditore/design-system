@@ -67,11 +67,11 @@
   opacity: 0.7;
 }
 
-:host([alignleft]) {
+:host([transitionleft]) {
   justify-content: start;
 }
 
-:host([alignleft]) > .canvas-container {
+:host([transitionleft]) > .canvas-container {
   transform: translateX(-100%);
 }
 
@@ -80,7 +80,7 @@
   to {transform: translateX(0);}
 }
 
-:host([alignleft][open]) > .canvas-container {
+:host([transitionleft][open]) > .canvas-container {
   animation-name: enterLeft;
   animation-duration: 0.4s;
   animation-timing-function: ease-out;
@@ -92,7 +92,7 @@
   to {transform: translateX(-100%);}
 }
 
-:host(:not([open])[overlay][alignleft]) > .canvas-container {
+:host(:not([open])[overlay][transitionleft]) > .canvas-container {
   animation-name: exitLeft;
   animation-duration:0.4s;
   animation-timing-function: ease-out;

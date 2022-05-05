@@ -1044,10 +1044,6 @@ export namespace Components {
     }
     interface ZOffcanvas {
         /**
-          * open content transitioning from the left. Default: false
-         */
-        "alignleft": boolean;
-        /**
           * open component. Default: false
          */
         "open": boolean;
@@ -1055,6 +1051,10 @@ export namespace Components {
           * display component as overlay. Default: false
          */
         "overlay": boolean;
+        /**
+          * open content transitioning from the left. Default: false
+         */
+        "transitionleft": boolean;
     }
     interface ZOtp {
         "inputNum"?: number;
@@ -3373,10 +3373,6 @@ declare namespace LocalJSX {
     }
     interface ZOffcanvas {
         /**
-          * open content transitioning from the left. Default: false
-         */
-        "alignleft"?: boolean;
-        /**
           * emitted on background click
          */
         "onCanvasBackgroundClick"?: (event: CustomEvent<any>) => void;
@@ -3388,6 +3384,10 @@ declare namespace LocalJSX {
           * display component as overlay. Default: false
          */
         "overlay"?: boolean;
+        /**
+          * open content transitioning from the left. Default: false
+         */
+        "transitionleft"?: boolean;
     }
     interface ZOtp {
         "inputNum"?: number;
