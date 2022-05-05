@@ -16,7 +16,7 @@ describe("Suite test ZOffcanvas", () => {
       <z-offcanvas>
         <mock:shadow-root>
           <div class="canvas-container">
-            <div class="canvas-content">
+            <div class="canvas-content" tabindex="0">
               <slot name="canvasContent"></slot>
             </div>
             </div>
