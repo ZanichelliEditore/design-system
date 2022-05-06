@@ -17,7 +17,7 @@ label.right {
 
 label > span {
   letter-spacing: 0;
-  color: var(--text-grey-800);
+  color: var(--color-text01);
 }
 
 label > span.left {
@@ -34,6 +34,8 @@ label > span.container {
 }
 
 label > span.container {
+  top: 1px;
+  left: 1px;
   height: 18px;
   width: calc(var(--space-unit) * 4);
   border-radius: var(--space-unit);
@@ -44,16 +46,16 @@ label > span.container {
 }
 
 label > span.container.disabled,
-label > span.container.active.disabled {
-  background-color: var(--bg-grey-200);
+label > span.container.checked.disabled {
+  background-color: var(--color-disabled01);
   cursor: default;
 }
 
-label > span.container.active.disabled > span.circle.checked.disabled > z-icon {
-  fill: var(--gray200);
+label > span.container.checked.disabled > span.circle > z-icon {
+  fill: var(--color-disabled01);
 }
 
-label > span.container.active {
+label > span.container.checked {
   background-color: var(--color-primary01);
   fill: var(--color-primary01);
 }
@@ -81,13 +83,13 @@ label > span.container > span.circle {
   height: calc(var(--space-unit) * 2);
   width: calc(var(--space-unit) * 2);
   border-radius: 7px;
-  background-color: var(--bg-white);
+  background-color: var(--color-white);
   box-shadow: var(--shadow-2);
   transition: transform 0.3s ease;
 }
 
-label > span.container > span.circle.checked {
-  transform: translateX(100%);
+label > span.container.checked > span.circle {
+  transform: translateX(calc(100% - 2px));
 }
 
 input[type="checkbox"] {
@@ -95,16 +97,4 @@ input[type="checkbox"] {
   opacity: 0;
   z-index: -1;
   pointer-events: none;
-}
-
-/* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

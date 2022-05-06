@@ -45,18 +45,18 @@ export class ZToggleSwitch {
           <slot />
         </span>
         <span
-          class={`container ${this.disabled && "disabled"} ${
-            this.checked && "active"
-          }`}
+          class={{
+            container: true,
+            disabled: this.disabled,
+            checked: this.checked,
+          }}
         >
           <span
-            class={`circle ${this.disabled && "disabled"} ${
-              this.checked && "checked"
-            }`}
+            class="circle"
           >
-            {this.checked && (
+            {this.checked &&
               <z-icon width={12} height={12} name="checkmark"></z-icon>
-            )}
+            }
           </span>
         </span>
       </label>,
