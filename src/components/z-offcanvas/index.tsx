@@ -17,7 +17,7 @@ export class ZOffcanvas
   @Prop({ reflect: true }) overlay = false;
 
   /** open component. Default: false */
-  @Prop({ reflect: true }) open = false;
+  @Prop({ reflect: true, mutable: true }) open = false;
 
   /** open content transitioning from the left. Default: false */
   @Prop({ reflect: true }) transitionfromleft = false;
