@@ -11,12 +11,7 @@ label {
   flex-direction: row;
 }
 
-label.left {
-  margin: 0 var(--space-unit) 0 0;
-}
-
 label.right {
-  margin: 0 var(--space-unit) 0 0;
   flex-direction: row-reverse;
 }
 
