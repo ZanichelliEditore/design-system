@@ -3373,9 +3373,9 @@ declare namespace LocalJSX {
     }
     interface ZOffcanvas {
         /**
-          * emitted on background click
+          * emitted when open prop changes
          */
-        "onCanvasBackgroundClick"?: (event: CustomEvent<any>) => void;
+        "onCanvasOpenStatusChanged"?: (event: CustomEvent<any>) => void;
         /**
           * open component. Default: false
          */

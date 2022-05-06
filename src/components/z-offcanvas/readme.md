@@ -20,9 +20,9 @@
 
 ## Events
 
-| Event                   | Description                 | Type               |
-| ----------------------- | --------------------------- | ------------------ |
-| `canvasBackgroundClick` | emitted on background click | `CustomEvent<any>` |
+| Event                     | Description                    | Type               |
+| ------------------------- | ------------------------------ | ------------------ |
+| `canvasOpenStatusChanged` | emitted when open prop changes | `CustomEvent<any>` |
 
 
 ## Slots

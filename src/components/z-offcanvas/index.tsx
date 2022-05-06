@@ -22,13 +22,8 @@ export class ZOffcanvas
   /** open content transitioning from the left. Default: false */
   @Prop({ reflect: true }) transitionfromleft = false;
 
-  /** emitted on background click */
-  @Event() canvasBackgroundClick: EventEmitter;
-
-  emitBackgroundClick() {
-    this.open = false;
-    this.canvasBackgroundClick.emit();
-  }
+  /** emitted when open prop changes */
+  @Event() canvasOpenStatusChanged: EventEmitter;
 
   componentWillLoad() {
     this.handleOpenStatus()
@@ -37,6 +32,7 @@ export class ZOffcanvas
   @Watch('open')
   onOpenChanged() {
     this.handleOpenStatus()
+    this.canvasOpenStatusChanged.emit(this.open);
   }
 
   handleOpenStatus() {
@@ -59,7 +55,7 @@ export class ZOffcanvas
       <div
         class="canvas-background"
         data-action="canvasBackground"
-        onClick={this.emitBackgroundClick.bind(this)}
+        onClick={() => this.open = false}
       ></div>
     ];
   }

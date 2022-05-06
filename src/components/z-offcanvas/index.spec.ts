@@ -7,13 +7,13 @@ describe("Suite test ZOffcanvas", () => {
 
     const page = await newSpecPage({
       components: [ZOffcanvas],
-      html: `<z-offcanvas>
+      html: `<z-offcanvas open>
               <div slot="canvasContent"></div>
             </z-offcanvas>`
     });
 
     expect(page.root).toEqualHtml(`
-      <z-offcanvas>
+      <z-offcanvas open="" style="display: flex;">
         <mock:shadow-root>
           <div class="canvas-container">
             <div class="canvas-content" tabindex="0">
