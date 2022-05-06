@@ -67,11 +67,11 @@
   opacity: 0.7;
 }
 
-:host([transitionleft]) {
+:host([transitionfromleft]) {
   justify-content: start;
 }
 
-:host([transitionleft]) > .canvas-container {
+:host([transitionfromleft]) > .canvas-container {
   transform: translateX(-100%);
 }
 
@@ -80,7 +80,7 @@
   to {transform: translateX(0);}
 }
 
-:host([transitionleft][open]) > .canvas-container {
+:host([transitionfromleft][open]) > .canvas-container {
   animation-name: enterLeft;
   animation-duration: 0.4s;
   animation-timing-function: ease-out;
@@ -92,7 +92,7 @@
   to {transform: translateX(-100%);}
 }
 
-:host(:not([open])[overlay][transitionleft]) > .canvas-container {
+:host(:not([open])[overlay][transitionfromleft]) > .canvas-container {
   animation-name: exitLeft;
   animation-duration:0.4s;
   animation-timing-function: ease-out;

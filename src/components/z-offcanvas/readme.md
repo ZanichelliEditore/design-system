@@ -11,11 +11,11 @@
 
 ## Properties
 
-| Property         | Attribute        | Description                                              | Type      | Default |
-| ---------------- | ---------------- | -------------------------------------------------------- | --------- | ------- |
-| `open`           | `open`           | open component. Default: false                           | `boolean` | `false` |
-| `overlay`        | `overlay`        | display component as overlay. Default: false             | `boolean` | `false` |
-| `transitionleft` | `transitionleft` | open content transitioning from the left. Default: false | `boolean` | `false` |
+| Property             | Attribute            | Description                                              | Type      | Default |
+| -------------------- | -------------------- | -------------------------------------------------------- | --------- | ------- |
+| `open`               | `open`               | open component. Default: false                           | `boolean` | `false` |
+| `overlay`            | `overlay`            | display component as overlay. Default: false             | `boolean` | `false` |
+| `transitionfromleft` | `transitionfromleft` | open content transitioning from the left. Default: false | `boolean` | `false` |
 
 
 ## Events

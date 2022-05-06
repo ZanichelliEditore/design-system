@@ -20,7 +20,7 @@ export class ZOffcanvas
   @Prop({ reflect: true }) open = false;
 
   /** open content transitioning from the left. Default: false */
-  @Prop({ reflect: true }) transitionleft = false;
+  @Prop({ reflect: true }) transitionfromleft = false;
 
   /** emitted on background click */
   @Event() canvasBackgroundClick: EventEmitter;

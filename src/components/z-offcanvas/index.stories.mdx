@@ -7,11 +7,11 @@ import { boolean } from "@storybook/addon-knobs";
 # ZOffcanvas
 
 <Preview>
-  <Story name="ZOffcanvas align left">
+  <Story name="ZOffcanvas (enters left)">
     {html`
         <div style="background-color: lightblue">
           <z-offcanvas
-              transitionleft
+              transitionfromleft
               .open="${boolean("Open canvas", true)}"
               .overlay="${boolean("Show overlay", false)}"
               style="height:100vh"
@@ -31,7 +31,7 @@ import { boolean } from "@storybook/addon-knobs";
 </Preview>
 
 <Preview>
-  <Story name="ZOffcanvas Align Right">
+  <Story name="ZOffcanvas (enters right)">
     {html`
         <div style="display:flex; justify-content:end; background-color: lightblue">
           <z-offcanvas

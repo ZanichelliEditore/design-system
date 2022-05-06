@@ -1054,7 +1054,7 @@ export namespace Components {
         /**
           * open content transitioning from the left. Default: false
          */
-        "transitionleft": boolean;
+        "transitionfromleft": boolean;
     }
     interface ZOtp {
         "inputNum"?: number;
@@ -3387,7 +3387,7 @@ declare namespace LocalJSX {
         /**
           * open content transitioning from the left. Default: false
          */
-        "transitionleft"?: boolean;
+        "transitionfromleft"?: boolean;
     }
     interface ZOtp {
         "inputNum"?: number;
