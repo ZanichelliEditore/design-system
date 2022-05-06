@@ -106,7 +106,3 @@ export function colorFromId(id) {
 
   return `${prefix}${color.toString().padStart(2, "0")}`;
 }
-
-export function checkEmptyObject(object) {
-  return Object.keys(object).length === 0 && object.constructor === Object;
-}

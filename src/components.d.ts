@@ -333,6 +333,10 @@ export namespace Components {
          */
         "acceptedFormat": string;
         /**
+          * Prop indicating the button variant
+         */
+        "buttonVariant"?: ButtonVariantEnum;
+        /**
           * Description
          */
         "description"?: string;
@@ -352,10 +356,6 @@ export namespace Components {
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type": ZFileUploadTypeEnum;
-        /**
-          * Prop indicating the button variant
-         */
-        "variant"?: ButtonVariantEnum;
     }
     interface ZFooter {
         /**
@@ -2603,6 +2603,10 @@ declare namespace LocalJSX {
          */
         "acceptedFormat"?: string;
         /**
+          * Prop indicating the button variant
+         */
+        "buttonVariant"?: ButtonVariantEnum;
+        /**
           * Description
          */
         "description"?: string;
@@ -2626,10 +2630,6 @@ declare namespace LocalJSX {
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type"?: ZFileUploadTypeEnum;
-        /**
-          * Prop indicating the button variant
-         */
-        "variant"?: ButtonVariantEnum;
     }
     interface ZFooter {
         /**

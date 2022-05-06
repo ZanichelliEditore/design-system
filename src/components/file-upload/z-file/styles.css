@@ -15,7 +15,6 @@
 
 :host > z-tooltip > .tootip-content {
   white-space: nowrap;
-  font-size: var(--font-size-1);
 }
 
 :host > z-chip > .chip-content > span {
@@ -34,10 +33,6 @@
 
 :host > z-chip > .chip-content > span.bold {
   font-weight: var(--font-sb);
-}
-
-:host .chip-content > z-icon:first-child {
-  margin-right: var(--space-unit);
 }
 
 :host .chip-content > z-icon:last-child {

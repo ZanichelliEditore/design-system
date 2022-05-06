@@ -37,6 +37,10 @@
   cursor: pointer;
 }
 
+:host .text-container .upload-link-text {
+  margin-bottom: var(--space-unit);
+}
+
 input#fileElem {
   display: none;
 }

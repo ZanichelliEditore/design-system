@@ -69,7 +69,7 @@ export class ZFile {
             type={TooltipPosition.AUTO}
             bind-to={`#chip-${this.fileNumber}`}
           >
-            <p class="tootip-content">{this.ellipsis.innerText}</p>
+            <span class="body-5 tootip-content">{this.ellipsis.innerText}</span>
           </z-tooltip>
         )}
         <z-chip id={`chip-${this.fileNumber}`} filter type={ZChipType.default}>
