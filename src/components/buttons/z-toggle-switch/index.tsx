@@ -41,7 +41,7 @@ export class ZToggleSwitch {
       />,
 
       <label htmlFor={this.htmlid} class={this.labelPosition}>
-        <span class={this.labelPosition}>
+        <span>
           <slot />
         </span>
         <span

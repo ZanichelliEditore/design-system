@@ -15,16 +15,16 @@ label.right {
   flex-direction: row-reverse;
 }
 
-label > span {
+label > span:first-child {
   letter-spacing: 0;
   color: var(--color-text01);
 }
 
-label > span.left {
+label.left > span:first-child {
   margin-right: var(--space-unit);
 }
 
-label > span.right {
+label.right > span:first-child {
   margin-left: var(--space-unit);
 }
 
@@ -86,7 +86,7 @@ label > span.container > span.circle {
   width: calc(var(--space-unit) * 2);
   border-radius: 7px;
   background-color: var(--color-white);
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-1);
   transition: transform 0.3s ease;
 }
 
