@@ -75,6 +75,8 @@ label > span.container:not(.disabled):hover {
 }
 
 label > span.container > span.circle {
+  top: 1px;
+  left: 1px;
   position: absolute;
   display: flex;
   align-items: center;
