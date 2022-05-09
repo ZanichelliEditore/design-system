@@ -13,9 +13,9 @@ describe("Suite test ZToggleSwitch", () => {
       <z-toggle-switch htmlid="toggle-id" label-position="left">
         <input id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
-          <span class="left"></span>
-          <span class="container false">
-            <span class="circle false"></span>
+          <span></span>
+          <span class="container">
+            <span class="circle"></span>
           </span>
         </label>
       </z-toggle-switch>
@@ -32,9 +32,9 @@ describe("Suite test ZToggleSwitch", () => {
       <z-toggle-switch htmlid="toggle-id" label-position="right">
         <input id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
-          <span class="right"></span>
-          <span class="container false">
-            <span class="circle false"></span>
+          <span></span>
+          <span class="container">
+            <span class="circle"></span>
           </span>
         </label>
       </z-toggle-switch>
@@ -51,9 +51,9 @@ describe("Suite test ZToggleSwitch", () => {
       <z-toggle-switch htmlid="toggle-id" label-position="left" disabled="">
         <input disabled id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
-          <span class="left"></span>
-          <span class="container disabled false">
-            <span class="circle disabled false"></span>
+          <span></span>
+          <span class="container disabled">
+            <span class="circle"></span>
           </span>
         </label>
       </z-toggle-switch>
@@ -70,9 +70,9 @@ describe("Suite test ZToggleSwitch", () => {
       <z-toggle-switch htmlid="toggle-id" label-position="right" disabled="">
       <input disabled id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
-          <span class="right"></span>
-          <span class="container disabled false">
-            <span class="circle disabled false"></span>
+          <span></span>
+          <span class="container disabled">
+            <span class="circle"></span>
           </span>
         </label>
       </z-toggle-switch>
@@ -89,9 +89,9 @@ describe("Suite test ZToggleSwitch", () => {
       <z-toggle-switch htmlid="toggle-id" label-position="left" checked="">
         <input checked="" id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
-          <span class="left"></span>
-          <span class="container false active">
-            <span class="circle false checked">
+          <span></span>
+          <span class="container checked">
+            <span class="circle">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
             </span>
           </span>
@@ -110,9 +110,9 @@ describe("Suite test ZToggleSwitch", () => {
       <z-toggle-switch htmlid="toggle-id" label-position="right" checked="">
         <input checked="" id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
-          <span class="right"></span>
-          <span class="container false active">
-            <span class="circle false checked">
+          <span></span>
+          <span class="container checked">
+            <span class="circle">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
             </span>
           </span>
@@ -131,9 +131,9 @@ describe("Suite test ZToggleSwitch", () => {
       <z-toggle-switch htmlid="toggle-id" label-position="left" disabled="" checked="">
         <input disabled="" checked="" id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
-          <span class="left"></span>
-          <span class="container active disabled">
-            <span class="circle disabled checked">
+          <span></span>
+          <span class="container disabled checked">
+            <span class="circle">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
             </span>
           </span>
@@ -152,9 +152,9 @@ describe("Suite test ZToggleSwitch", () => {
       <z-toggle-switch htmlid="toggle-id" disabled="" label-position="right" checked="">
         <input disabled="" checked="" id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
-          <span class="right"></span>
-          <span class="container active disabled">
-            <span class="circle disabled checked">
+          <span></span>
+          <span class="container checked disabled">
+            <span class="circle">
               <z-icon height="12" name="checkmark" width="12"></z-icon>
             </span>
           </span>
