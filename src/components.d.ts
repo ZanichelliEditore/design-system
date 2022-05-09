@@ -331,7 +331,7 @@ export namespace Components {
         /**
           * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
          */
-        "acceptedFormat": string;
+        "acceptedFormat"?: string;
         /**
           * Prop indicating the button variant
          */
@@ -343,15 +343,11 @@ export namespace Components {
         /**
           * Max file dimension in Megabyte
          */
-        "fileMaxSize": number;
+        "fileMaxSize"?: number;
         /**
           * Title
          */
         "mainTitle"?: string;
-        /**
-          * Prop indicating if the user can pick more than one file at once
-         */
-        "multiple": boolean;
         /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
@@ -2618,10 +2614,6 @@ declare namespace LocalJSX {
           * Title
          */
         "mainTitle"?: string;
-        /**
-          * Prop indicating if the user can pick more than one file at once
-         */
-        "multiple"?: boolean;
         /**
           * Emitted when user select one or more files
          */

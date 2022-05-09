@@ -20,7 +20,7 @@ export class ZDragdropArea {
       <div class="dragover-container">
         <div class="dragover-message">
           <z-body variant="semibold" level={2}>
-            Rilascia il file in questa area per allegarlo
+            Rilascia i file in questa area per allegarli.
           </z-body>
         </div>
       </div>
@@ -34,6 +34,7 @@ export class ZDragdropArea {
         ref={(val) => (this.dragDropContainer = val)}
         class="dragdrop"
         onDragOver={(e) => {
+          console.log(e)
           e.preventDefault();
           this.dragDropContainer.classList.add("dragover");
         }}

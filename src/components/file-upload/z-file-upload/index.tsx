@@ -31,13 +31,10 @@ export class ZFileUpload {
   @Prop() buttonVariant?: ButtonVariantEnum;
 
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
-  @Prop() acceptedFormat: string = ".pdf, .doc, .tiff, .png, .jpg, .jpeg";
+  @Prop() acceptedFormat?: string;
 
   /** Max file dimension in Megabyte */
-  @Prop() fileMaxSize: number = 50;
-
-  /** Prop indicating if the user can pick more than one file at once*/
-  @Prop() multiple: boolean = true;
+  @Prop() fileMaxSize?: number;
 
   /** Title */
   @Prop() mainTitle?: string;
@@ -64,7 +61,7 @@ export class ZFileUpload {
   private inputAttributes = {
     type: "file",
     id: "fileElem",
-    multiple: this.type === ZFileUploadTypeEnum.default ? this.multiple : true,
+    multiple: true,
   };
 
   /** Listen removeFile event sent from z-file component */
@@ -155,16 +152,25 @@ export class ZFileUpload {
   }
 
   renderAllowedFileExtensions() {
-    
-    const fileFormat = this.acceptedFormat.split(', ')
-                                          .map((string) => string.substring(1).toUpperCase())
-                                          .join(', ');
+    let fileFormatString = ""
+    let fileWeightString = ""
 
-    const fileFormatString = `Puoi allegare file nei formati ${fileFormat} per un massimo di ${this.fileMaxSize}MB di peso.`
+    if(this.acceptedFormat){
+      const fileFormat = this.acceptedFormat.split(', ')
+      .map((string) => string.substring(1).toUpperCase())
+      .join(', ');
+      fileFormatString = ` nei formati ${fileFormat}`
+    }
+
+    if(this.fileMaxSize){
+      fileWeightString = ` per un massimo di ${this.fileMaxSize}MB di peso`
+    }
+
+    const finalString = `Puoi allegare file${fileFormatString}${fileWeightString}.`
 
     return (
       <z-body level={3}>
-        {fileFormatString}
+        {fileFormatString || fileWeightString ? finalString : null}
       </z-body>
     );
   }
