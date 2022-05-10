@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZTableRowExpandedType, ZTransitionDirectionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1048,13 +1048,13 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * display component as overlay. Default: false
+          * open content transitioning in a specified direction left | right. Default: left
          */
-        "overlay": boolean;
+        "transitiondirection": TransitionDirectionEnum;
         /**
-          * open content transitioning in a specified direction left|right. Default: left
+          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default: pushcontent
          */
-        "transitiondirection": ZTransitionDirectionEnum;
+        "variant": OffCanvasVariantsEnum;
     }
     interface ZOtp {
         "inputNum"?: number;
@@ -3381,13 +3381,13 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * display component as overlay. Default: false
+          * open content transitioning in a specified direction left | right. Default: left
          */
-        "overlay"?: boolean;
+        "transitiondirection"?: TransitionDirectionEnum;
         /**
-          * open content transitioning in a specified direction left|right. Default: left
+          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default: pushcontent
          */
-        "transitiondirection"?: ZTransitionDirectionEnum;
+        "variant"?: OffCanvasVariantsEnum;
     }
     interface ZOtp {
         "inputNum"?: number;

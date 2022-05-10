@@ -42,14 +42,14 @@
   to {transform: translateX(100%);}
 }
 
-:host(:not([open])[overlay]) > .canvas-container {
+:host(:not([open])[variant="overlay"]) > .canvas-container {
   animation-name: exitRight;
   animation-duration:0.4s;
   animation-timing-function: ease-out;
   transform: translateX(100%);
 }
 
-:host([overlay]) {
+:host([variant="overlay"]) {
   position: fixed;
   top: 0;
   left: 0;
@@ -57,7 +57,7 @@
   bottom: 0;
 }
 
-:host([overlay]) .canvas-background {
+:host([variant="overlay"]) .canvas-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -92,7 +92,7 @@
   to {transform: translateX(-100%);}
 }
 
-:host(:not([open])[overlay][transitiondirection="right"]) > .canvas-container {
+:host(:not([open])[variant="overlay"][transitiondirection="right"]) > .canvas-container {
   animation-name: exitLeft;
   animation-duration:0.4s;
   animation-timing-function: ease-out;
@@ -155,7 +155,7 @@
     to {width: max(var(--z-offcanvas--container-width), 375px)}
   }
 
-  :host(:not([overlay])[open]) {
+  :host(:not([variant="overlay"])[open]) {
     animation-name: grow;
     animation-duration: 0.4s;
     animation-timing-function: ease-out;

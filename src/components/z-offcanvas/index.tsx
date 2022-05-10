@@ -1,5 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter, Watch, Element } from "@stencil/core";
-import { ZTransitionDirectionEnum } from "../../beans"
+import { TransitionDirectionEnum, OffCanvasVariantsEnum } from "../../beans"
 /**
  * @slot canvasContent - set the content of the canvas
  */
@@ -13,14 +13,18 @@ export class ZOffcanvas
 {
   @Element() hostElement: HTMLElement;
 
-  /** display component as overlay. Default: false */
-  @Prop({ reflect: true }) overlay = false;
+   /**
+   * Offcanvas variant.
+   * Can be one of "overlay", "pushcontent"
+   * Default: pushcontent
+   */
+  @Prop({ reflect: true }) variant: OffCanvasVariantsEnum;
 
   /** open component. Default: false */
   @Prop({ reflect: true, mutable: true }) open = false;
 
-  /** open content transitioning in a specified direction left|right. Default: left */
-  @Prop({ reflect: true }) transitiondirection: ZTransitionDirectionEnum;
+  /** open content transitioning in a specified direction left | right. Default: left */
+  @Prop({ reflect: true }) transitiondirection: TransitionDirectionEnum;
 
   /** emitted when open prop changes */
   @Event() canvasOpenStatusChanged: EventEmitter;
@@ -36,7 +40,7 @@ export class ZOffcanvas
   }
 
   handleOpenStatus() {
-    if (!this.open && this.overlay) {
+    if (!this.open && this.variant === OffCanvasVariantsEnum.overlay) {
 
       const container = this.hostElement.shadowRoot.querySelector(".canvas-container") as HTMLElement
       if (!container) return;

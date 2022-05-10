@@ -11,11 +11,11 @@
 
 ## Properties
 
-| Property              | Attribute             | Description                                                                    | Type                                                              | Default     |
-| --------------------- | --------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- | ----------- |
-| `open`                | `open`                | open component. Default: false                                                 | `boolean`                                                         | `false`     |
-| `overlay`             | `overlay`             | display component as overlay. Default: false                                   | `boolean`                                                         | `false`     |
-| `transitiondirection` | `transitiondirection` | open content transitioning in a specified direction left\|right. Default: left | `ZTransitionDirectionEnum.left \| ZTransitionDirectionEnum.right` | `undefined` |
+| Property              | Attribute             | Description                                                                      | Type                                                                 | Default     |
+| --------------------- | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------- |
+| `open`                | `open`                | open component. Default: false                                                   | `boolean`                                                            | `false`     |
+| `transitiondirection` | `transitiondirection` | open content transitioning in a specified direction left \| right. Default: left | `TransitionDirectionEnum.left \| TransitionDirectionEnum.right`      | `undefined` |
+| `variant`             | `variant`             | Offcanvas variant. Can be one of "overlay", "pushcontent" Default: pushcontent   | `OffCanvasVariantsEnum.overlay \| OffCanvasVariantsEnum.pushcontent` | `undefined` |
 
 
 ## Events

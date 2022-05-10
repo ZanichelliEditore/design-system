@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { boolean } from "@storybook/addon-knobs";
+import { boolean, radios } from "@storybook/addon-knobs";
+import { OffCanvasVariantsEnum } from "../../beans";
 
 <Meta title="ZOffcanvas" component="z-offcanvas" />
 
@@ -13,7 +14,7 @@ import { boolean } from "@storybook/addon-knobs";
           <z-offcanvas
               transitiondirection="right"
               .open="${boolean("Open canvas", true)}"
-              .overlay="${boolean("Show overlay", false)}"
+              .variant="${radios("Variant", { default: '', ...OffCanvasVariantsEnum }, '')}"
               style="height:100vh"
           >
           <div slot="canvasContent">
@@ -36,7 +37,7 @@ import { boolean } from "@storybook/addon-knobs";
         <div style="display:flex; justify-content:end; background-color: lightblue">
           <z-offcanvas
               .open="${boolean("Open canvas", true)}"
-              .overlay="${boolean("Show overlay", false)}"
+              .variant="${radios("Variant", { default: '', ...OffCanvasVariantsEnum }, '')}"
               style="height:100vh; flex:1"
           >
           <div slot="canvasContent">
