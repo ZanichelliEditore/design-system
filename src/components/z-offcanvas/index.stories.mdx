@@ -11,7 +11,7 @@ import { boolean } from "@storybook/addon-knobs";
     {html`
         <div style="background-color: lightblue">
           <z-offcanvas
-              transitionfromleft
+              transitiondirection="right"
               .open="${boolean("Open canvas", true)}"
               .overlay="${boolean("Show overlay", false)}"
               style="height:100vh"

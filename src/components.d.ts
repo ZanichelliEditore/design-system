@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZTableRowExpandedType, ZTransitionDirectionEnum } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1052,9 +1052,9 @@ export namespace Components {
          */
         "overlay": boolean;
         /**
-          * open content transitioning from the left. Default: false
+          * open content transitioning in a specified direction left|right. Default: left
          */
-        "transitionfromleft": boolean;
+        "transitiondirection": ZTransitionDirectionEnum;
     }
     interface ZOtp {
         "inputNum"?: number;
@@ -3385,9 +3385,9 @@ declare namespace LocalJSX {
          */
         "overlay"?: boolean;
         /**
-          * open content transitioning from the left. Default: false
+          * open content transitioning in a specified direction left|right. Default: left
          */
-        "transitionfromleft"?: boolean;
+        "transitiondirection"?: ZTransitionDirectionEnum;
     }
     interface ZOtp {
         "inputNum"?: number;

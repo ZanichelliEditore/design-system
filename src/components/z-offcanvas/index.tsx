@@ -1,5 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter, Watch, Element } from "@stencil/core";
-
+import { ZTransitionDirectionEnum } from "../../beans"
 /**
  * @slot canvasContent - set the content of the canvas
  */
@@ -19,8 +19,8 @@ export class ZOffcanvas
   /** open component. Default: false */
   @Prop({ reflect: true, mutable: true }) open = false;
 
-  /** open content transitioning from the left. Default: false */
-  @Prop({ reflect: true }) transitionfromleft = false;
+  /** open content transitioning in a specified direction left|right. Default: left */
+  @Prop({ reflect: true }) transitiondirection: ZTransitionDirectionEnum;
 
   /** emitted when open prop changes */
   @Event() canvasOpenStatusChanged: EventEmitter;

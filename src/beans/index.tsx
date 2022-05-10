@@ -400,4 +400,9 @@ export enum ZAriaAlertMode {
   assertive = "assertive",
 }
 
+export enum ZTransitionDirectionEnum {
+  left = "left",
+  right = "right",
+}
+
 export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
