@@ -36,10 +36,15 @@ export class ZOffcanvas
   }
 
   handleOpenStatus() {
+    if (!this.open && this.overlay) {
 
-    if ( !this.open && this.overlay ) {
-      let me = this
-      setTimeout(() => { me.hostElement.style.display = "none" }, 400);
+      const container = this.hostElement.shadowRoot.querySelector(".canvas-container") as HTMLElement
+      if (!container) return;
+      container.addEventListener(
+        'animationend',
+        () => this.hostElement.style.display = "none",
+        { once: true })
+
       return;
     }
     this.hostElement.style.display = this.open ? "flex" : "none"
