@@ -5,6 +5,7 @@
 ## CSS Variables
 
 - `--z-offcanvas--container-width`: set the minimum width of the canvas
+- `--z-offcanvas--top-space`: set the top space left on top of the canvas in overlay variant
 
 <!-- Auto Generated Below -->
 
