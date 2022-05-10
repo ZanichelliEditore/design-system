@@ -6,11 +6,12 @@ describe("z-file-upload test end2end", () => {
     const page = await newE2EPage();
 
     await page.setContent(`
-    <z-file-upload type="default" variant="primary" class="hydrated">
-      <span slot="title">Allega un file</span>
-      <span slot="description">Vuoi allegare un file per chiarire meglio la tua richiesta?</span>
-      <span slot="file-format">Puoi allegare file nei formati PDF, PNG, JPG, TIFF, DOC, per un
-          massimo di 50Mb di peso.</span>
+    <z-file-upload type="default"
+      button-variant="primary"
+      main-title="Allega un file"
+      description="Vuoi allegare un file per chiarire meglio la tua richiesta?"
+      accepted-format= ".pdf, .doc, .tiff, .png, .jpg, .jpeg"
+      file-max-size="50">
     </z-file-upload>
   `);
     const zfu = await page.find("z-file-upload");
@@ -21,7 +22,7 @@ describe("z-file-upload test end2end", () => {
     // simulate upload of file
     const [fileChooser] = await Promise.all([
       page.waitForFileChooser(),
-      page.evaluate(() => (document.querySelector('z-file-upload').shadowRoot.querySelector("div z-button") as HTMLElement).click())
+      page.evaluate(() => (document.querySelector('z-file-upload div z-button') as HTMLElement).click())
       ]);
 
     const fileInputEvent = await zfu.spyOnEvent('fileInput');
@@ -36,11 +37,12 @@ describe("z-file-upload test end2end", () => {
     const page = await newE2EPage();
 
     await page.setContent(`
-    <z-file-upload type="default" variant="primary" class="hydrated">
-      <span slot="title">Allega un file</span>
-      <span slot="description">Vuoi allegare un file per chiarire meglio la tua richiesta?</span>
-      <span slot="file-format">Puoi allegare file nei formati PDF, PNG, JPG, TIFF, DOC, per un
-          massimo di 50Mb di peso.</span>
+    <z-file-upload type="default"
+      button-variant="primary"
+      main-title="Allega un file"
+      description="Vuoi allegare un file per chiarire meglio la tua richiesta?"
+      accepted-format= ".pdf, .doc, .tiff, .png, .jpg, .jpeg"
+      file-max-size="50">
     </z-file-upload>
   `);
     const zfu = await page.find("z-file-upload");
@@ -48,7 +50,7 @@ describe("z-file-upload test end2end", () => {
     // simulate upload of file
     const [fileChooser] = await Promise.all([
       page.waitForFileChooser(),
-      page.evaluate(() => (document.querySelector('z-file-upload').shadowRoot.querySelector("div z-button") as HTMLElement).click())
+      page.evaluate(() => (document.querySelector('z-file-upload div z-button') as HTMLElement).click())
       ]);
 
     const fileInputEvent = await zfu.spyOnEvent('fileInput');
@@ -58,7 +60,7 @@ describe("z-file-upload test end2end", () => {
 
     expect(fileInputEvent).not.toHaveReceivedEvent()
 
-    const errorModal = await page.find("z-file-upload >>> z-modal");
+    const errorModal = await page.find("z-file-upload z-modal");
     expect(errorModal).not.toBeNull();
   });
 
@@ -67,20 +69,21 @@ describe("z-file-upload test end2end", () => {
     const page = await newE2EPage();
 
     await page.setContent(`
-      <z-file-upload type="default" variant="primary" class="hydrated">
-        <span slot="title">Allega un file</span>
-        <span slot="description">Vuoi allegare un file per chiarire meglio la tua richiesta?</span>
-        <span slot="file-format">Puoi allegare file nei formati PDF, PNG, JPG, TIFF, DOC, per un
-            massimo di 50Mb di peso.</span>
+    <z-file-upload type="default"
+      button-variant="primary"
+      main-title="Allega un file"
+      description="Vuoi allegare un file per chiarire meglio la tua richiesta?"
+      accepted-format= ".pdf, .doc, .tiff, .png, .jpg, .jpeg"
+      file-max-size="50">
         <z-file slot="files" class="hydrated">Spike - Condivisione pagine Kitaboo-OK.pdf</z-file>
-      </z-file-upload>
+    </z-file-upload>
     `);
 
     const zf = await page.find("z-file-upload z-file");
 
     expect(zf).not.toBeNull();
 
-    page.evaluate(() => (document.querySelector('z-file-upload z-file').shadowRoot.querySelector(" z-chip div z-icon:last-child") as HTMLElement).click())
+    page.evaluate(() => (document.querySelector('z-file-upload z-file z-chip div z-icon:last-child') as HTMLElement).click())
     await page.waitForChanges();
     const zfCheck = await page.find("z-file-upload z-file");
 

@@ -13,15 +13,13 @@ describe("Suite test ZFile", () => {
     HTMLInputElement.prototype.focus = jest.fn();
 
     expect(page.root).toEqualHtml(`
-      <z-file tabindex="0" >
-        <mock:shadow-root>
-        <z-chip>
-          <div class="chip-content">
-            <slot></slot>
-            <z-icon height="15" name="multiply-circled" width="15" tabindex="0" ></z-icon>
-          </div>
-        </z-chip>
-        </mock:shadow-root>
+    <z-file>
+       <z-chip filter="" id="chip-undefined" type="default">
+         <div class="chip-content">
+          <span class="body-3-sb" tabindex="-1"></span>
+           <z-icon aria-label="Elimina file" height="15" name="multiply-circled" tabindex="0" width="15"></z-icon>
+         </div>
+       </z-chip>
       </z-file>
     `)
 
