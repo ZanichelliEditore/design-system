@@ -11,252 +11,44 @@
 </head>
 
 <body style="width: 100%; margin: 0; background-color: #f9f9f9">
-
-  <h1>Table</h1>
-  <h2>Simple table</h2>
-  <z-table bordered="true" header-sticky="false" column-sticky="false">
-    <z-table-head>
-      <z-table-header-row>
-        <z-table-header style="width: 1000px">
-          <span>T300 </span>
-        </z-table-header>
-        <z-table-header>
-          <span>Titolo 2</span>
-        </z-table-header>
-        <z-table-header>
-          <span>Titolo 3</span>
-        </z-table-header>
-        <z-table-header>
-          <span>Titolo 4</span>
-        </z-table-header>
-      </z-table-header-row>
-    </z-table-head>
-    <z-table-body>
-      <z-table-row>
-        <z-table-cell padding="small">
-          <span>Contenuto 1-1</span>
-        </z-table-cell>
-        <z-table-cell padding="small">
-          <span>Contenuto 1-2</span>
-        </z-table-cell>
-        <z-table-cell padding="small">
-          <span>Contenuto 1-3</span>
-        </z-table-cell>
-        <z-table-cell padding="small">
-          <span>Contenuto 1-4</span>
-        </z-table-cell>
-      </z-table-row>
-      <z-table-row>
-        <z-table-cell>
-          <span>Contenuto 2-1</span>
-        </z-table-cell>
-        <z-table-cell>
-          <span>Contenuto 2-2</span>
-        </z-table-cell>
-        <z-table-cell>
-          <span>Contenuto 2-3</span>
-        </z-table-cell>
-        <z-table-cell>
-          <span>Contenuto 2-4</span>
-        </z-table-cell>
-      </z-table-row>
-      <z-table-row>
-        <z-table-cell>
-          <span>Contenuto 3-1</span>
-        </z-table-cell>
-        <z-table-cell>
-          <span>Contenuto 3-2</span>
-        </z-table-cell>
-        <z-table-cell>
-          <span>Contenuto 3-3</span>
-        </z-table-cell>
-        <z-table-cell>
-          <span>Contenuto 3-4</span>
-        </z-table-cell>
-      </z-table-row>
-      <z-table-row>
-        <z-table-cell show-button="${boolean(" show-button", false)}">
-          <span>Contenuto 4-1</span>
-        </z-table-cell>
-        <z-table-cell show-button="${boolean(" show-button", false)}">
-          <span>Contenuto 4-2</span>
-        </z-table-cell>
-        <z-table-cell show-button="${boolean(" show-button", false)}">
-          <span>Contenuto 4-3</span>
-        </z-table-cell>
-        <z-table-cell show-button="${boolean(" show-button", false)}">
-          <span>Contenuto 4-4</span>
-        </z-table-cell>
-      </z-table-row>
-    </z-table-body>
-    <z-table-sticky-footer slot="sticky-footer">
-      <span>This is a sticky footer</span>
-    </z-table-sticky-footer>
-
-    <section>
-      <h4>z-card default variant</h4>
-      <div class="z-cards">
-        <z-card clickable>
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable cover-icon="play-filled">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable style="--z-card--color-cover-background: orange;" showshadow>
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-      </div>
-
-
-    </section>
-
-    <section>
-      <h4>z-card border variant</h4>
-      <div class="z-cards">
-        <z-card clickable variant="border">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable variant="border" cover-icon="play-filled" showshadow>
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable variant="border" style="--z-card--color-cover-background: orange;">
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action" fill="color-text-inverse"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-      </div>
-    </section>
-
-    <section>
-      <h4>z-card shadow variant</h4>
-      <div class="z-cards">
-        <z-card clickable variant="shadow">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable variant="shadow" cover-icon="play-filled">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable variant="shadow" style="--z-card--color-cover-background: orange;">
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-      </div>
-    </section>
-
-    <section>
-      <h4>z-card overlay variant</h4>
-      <div class="z-cards">
-        <z-card clickable variant="overlay">
-          <img slot="cover" src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg" />
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-        <z-card clickable variant="overlay" style="--z-card--color-cover-background: orange;" showshadow>
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.Some description for the content of
-            the card.Some description for the content of the card.Some description for the content of the card.Some
-            description for the content of the card.Some description for the content of the card.</p>
-          <z-icon name="share" slot="action"></z-icon>
-          <z-icon name="delete" slot="action"></z-icon>
-        </z-card>
-      </div>
-    </section>
-
-    <section>
-      <h4>Text</h4>
-
-      <div class="z-cards">
-        <z-card variant="text" showshadow style="--z-card--text-background: var(--color-secondary02); color: white; ">
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card. </p>
-
-          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
-          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
-        </z-card>
-
-        <z-card clickable id="mycard" variant="text"
-          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px;">
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card. </p>
-
-          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
-          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
-        </z-card>
-
-        <z-card clickable variant="text"
-          style="--z-card--text-border: 2px solid black; --z-card--text-border-radius: 4px;">
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card. </p>
-
-          <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
-          <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
-        </z-card>
-
-        <z-card clickable variant="text" showshadow style="--z-card--text-border: 1px solid black;">
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card. </p>
-
-          <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
-          <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
-        </z-card>
-      </div>
-      <div class="z-cards">
-        <z-card clickable variant="text"
-          style="--z-card--text-border: 1px solid var(--z-card--border-color); --z-card--text-border-radius: 4px;">
-          <h3 slot="title">Aula di lettere</h3>
-          <p class="body-3" slot="text">Descrizione breve dell'applicazione </p>
-          <z-icon name="chevron-right-filled" slot="action" fill="color-primary01"></z-icon>
-        </z-card>
-      </div>
-
-    </section>
+  <div style="width: 800px; border: 2px solid black; padding: 20px; margin: 50px">
+    <z-carousel style="--z-carousel-gutter: 24px">
+      <li>
+        <div style="width: 200px; height: 200px; background-color: red"></div>
+      </li>
+      <li>
+        <div
+          style="width: 200px; height: 200px; background-color: yellow"
+        ></div>
+      </li>
+      <li>
+        <div style="width: 200px; height: 200px; background-color: blue"></div>
+      </li>
+      <li>
+        <div style="width: 200px; height: 200px; background-color: green"></div>
+      </li>
+      <li>
+        <div
+          style="width: 200px; height: 200px; background-color: purple"
+        ></div>
+      </li>
+      <li>
+        <div
+          style="width: 200px; height: 200px; background-color: orange"
+        ></div>
+      </li>
+      <li>
+        <div style="width: 200px; height: 200px; background-color: grey"></div>
+      </li>
+      <li>
+        <div style="width: 200px; height: 200px; background-color: black"></div>
+      </li>
+      <li>
+        <div
+          style="width: 200px; height: 200px; background-color: pink"
+        ></div> </li
+    ></z-carousel>
+    </div>
     <script>
 
       const mycard = document.getElementById("mycard");

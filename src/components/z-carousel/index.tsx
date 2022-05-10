@@ -1,30 +1,24 @@
-import { Component, Element, Host, Prop, h } from "@stencil/core";
+import { Component, h } from "@stencil/core";
+
+/**
+ * ZCarousel component.
+ * @cssprop --z-carousel-gutter - The gutter between items.
+ * @slot - carousel items. use `<li>` elements inside this slot as it is wrapped inside an `<ul>`
+ */
+
 @Component({
   tag: "z-carousel",
   styleUrl: "styles.css",
-  shadow: false,
-  scoped: true,
+  shadow: false
 })
 export class ZCarousel {
-  /** [optional] gutter between the slide items */
-  @Prop() gutter?: number = 0;
-
-  @Element() host: HTMLElement;
-
-  componentDidRender() {
-    const children = this.host.children[0].children;
-    for (let i = 0; i < children.length - 1; i++) {
-      children[i].setAttribute("gutter", `${this.gutter}`);
-    }
-  }
-
   render() {
     return (
-      <Host>
-        <ul class="carousel-item-container">
+      <div>
+        <ul class="z-carousel-items-container">
           <slot />
         </ul>
-      </Host>
+      </div>
     );
   }
 }

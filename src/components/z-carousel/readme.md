@@ -5,11 +5,11 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
+## Slots
 
-| Property | Attribute | Description                               | Type     | Default |
-| -------- | --------- | ----------------------------------------- | -------- | ------- |
-| `gutter` | `gutter`  | [optional] gutter between the slide items | `number` | `0`     |
+| Slot | Description                                                                            |
+| ---- | -------------------------------------------------------------------------------------- |
+|      | carousel items. use `<li>` elements inside this slot as it is wrapped inside an `<ul>` |
 
 
 ----------------------------------------------
