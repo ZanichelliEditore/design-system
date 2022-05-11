@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.38.0](https://github.com/ZanichelliEditore/design-system/compare/v2.37.1-CLAV-275...v2.38.0) (2022-05-11)
+
+
+### Features
+
+* **CLAV-275/Zcarousel:** fix for pr ([19c73a5](https://github.com/ZanichelliEditore/design-system/commit/19c73a56b5d28ac25df5a333cf86507cc3ebf4ce))
+
 ### [2.37.1-CLAV-275](https://github.com/ZanichelliEditore/design-system/compare/v2.37.0...v2.37.1-CLAV-275) (2022-05-04)
 
 
