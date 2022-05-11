@@ -337,3 +337,7 @@ export declare enum ZAriaAlertMode {
   assertive = "assertive"
 }
 export declare type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
+export declare enum ZChipType {
+  default = "default",
+  mini = "mini"
+}

@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZChipType, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -211,9 +211,14 @@ export namespace Components {
          */
         "variant": CardVariants;
     }
+    interface ZCarousel {
+    }
     interface ZChip {
         "boldtext"?: number;
+        "disabled"?: boolean;
+        "filter"?: boolean;
         "regulartext"?: string;
+        "type"?: ZChipType;
     }
     interface ZCombobox {
         /**
@@ -1626,6 +1631,12 @@ declare global {
         prototype: HTMLZCardElement;
         new (): HTMLZCardElement;
     };
+    interface HTMLZCarouselElement extends Components.ZCarousel, HTMLStencilElement {
+    }
+    var HTMLZCarouselElement: {
+        prototype: HTMLZCarouselElement;
+        new (): HTMLZCarouselElement;
+    };
     interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
     }
     var HTMLZChipElement: {
@@ -2101,6 +2112,7 @@ declare global {
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
         "z-card": HTMLZCardElement;
+        "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
@@ -2402,9 +2414,14 @@ declare namespace LocalJSX {
          */
         "variant"?: CardVariants;
     }
+    interface ZCarousel {
+    }
     interface ZChip {
         "boldtext"?: number;
+        "disabled"?: boolean;
+        "filter"?: boolean;
         "regulartext"?: string;
+        "type"?: ZChipType;
     }
     interface ZCombobox {
         /**
@@ -3915,6 +3932,7 @@ declare namespace LocalJSX {
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
         "z-card": ZCard;
+        "z-carousel": ZCarousel;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
@@ -4010,6 +4028,7 @@ declare module "@stencil/core" {
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
+            "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;

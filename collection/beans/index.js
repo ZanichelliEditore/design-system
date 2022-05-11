@@ -253,3 +253,8 @@ export var ZAriaAlertMode;
   ZAriaAlertMode["polite"] = "polite";
   ZAriaAlertMode["assertive"] = "assertive";
 })(ZAriaAlertMode || (ZAriaAlertMode = {}));
+export var ZChipType;
+(function (ZChipType) {
+  ZChipType["default"] = "default";
+  ZChipType["mini"] = "mini";
+})(ZChipType || (ZChipType = {}));
