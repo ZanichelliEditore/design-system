@@ -59,8 +59,7 @@
 }
 
 :host([variant="overlay"]) .canvas-background {
-  position: fixed;
-  top: var(--z-offcanvas--top-space);
+  position: absolute;
   left: 0;
   width: 100%;
   height: calc(100% - var(--z-offcanvas--top-space));
