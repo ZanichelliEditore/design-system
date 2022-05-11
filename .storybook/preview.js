@@ -1,4 +1,3 @@
-import { withA11y } from "@storybook/addon-a11y";
 import { withKnobs } from "@storybook/addon-knobs";
 import "../src/global.css";
 import dedent from "ts-dedent";
@@ -39,7 +38,6 @@ export const parameters = {
         },
       },
     ],
-    defaultViewport: "responsive",
   },
   docs: {
     // fix wrong indentation due to the story template string (html`...`)
@@ -48,6 +46,5 @@ export const parameters = {
 };
 
 export const decorators = [
-  withA11y,
   withKnobs,
 ];
