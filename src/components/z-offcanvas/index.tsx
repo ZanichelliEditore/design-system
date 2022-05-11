@@ -50,7 +50,9 @@ export class ZOffcanvas
   }
 
   handleAnimationEnd() {
-    if (!this.hostElement.hasAttribute("open") && this.variant === OffCanvasVariantsEnum.overlay) {
+    if (this.hostElement.hasAttribute("open")) {
+      (this.hostElement.querySelector(`.canvas-content`) as HTMLElement).focus();
+    } else if (this.variant === OffCanvasVariantsEnum.overlay) {
       this.hostElement.style.display = "none";
       document.body.style.overflowX = "initial";
     }
