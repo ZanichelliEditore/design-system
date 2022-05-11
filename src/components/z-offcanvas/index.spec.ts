@@ -13,17 +13,14 @@ describe("Suite test ZOffcanvas", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-offcanvas open="" style="display: flex;">
-        <mock:shadow-root>
-          <div class="canvas-container">
-            <div class="canvas-content" tabindex="0">
-              <slot name="canvasContent"></slot>
-            </div>
-            </div>
-          <div class="canvas-background" data-action="canvasBackground"></div>
-        </mock:shadow-root>
+			<z-offcanvas open="" transitiondirection="left" variant="pushcontent" style="display: flex;">
 
-        <div slot="canvasContent"></div>
+				<div class="canvas-container">
+					<div class="canvas-content" tabindex="0">
+						<div slot="canvasContent"></div>
+					</div>
+					</div>
+				<div class="canvas-background" data-action="canvasBackground"></div>
       </z-offcanvas>
     `)
   });

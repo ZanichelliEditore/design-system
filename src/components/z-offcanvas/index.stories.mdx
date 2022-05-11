@@ -14,7 +14,7 @@ import { OffCanvasVariantsEnum } from "../../beans";
           <z-offcanvas
               transitiondirection="right"
               .open="${boolean("Open canvas", true)}"
-              .variant="${radios("Variant", { default: '', ...OffCanvasVariantsEnum }, '')}"
+              .variant="${radios("Variant", { ...OffCanvasVariantsEnum }, OffCanvasVariantsEnum.pushcontent)}"
               style="height:100vh"
           >
           <div slot="canvasContent">
@@ -37,7 +37,7 @@ import { OffCanvasVariantsEnum } from "../../beans";
         <div style="display:flex; justify-content:end; background-color: lightblue">
           <z-offcanvas
               .open="${boolean("Open canvas", true)}"
-              .variant="${radios("Variant", { default: '', ...OffCanvasVariantsEnum }, '')}"
+              .variant="${radios("Variant", { ...OffCanvasVariantsEnum }, OffCanvasVariantsEnum.pushcontent)}"
               style="height:100vh; flex:1"
           >
           <div slot="canvasContent">

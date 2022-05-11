@@ -12,11 +12,11 @@
 
 ## Properties
 
-| Property              | Attribute             | Description                                                                      | Type                                                                 | Default     |
-| --------------------- | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------- |
-| `open`                | `open`                | open component. Default: false                                                   | `boolean`                                                            | `false`     |
-| `transitiondirection` | `transitiondirection` | open content transitioning in a specified direction left \| right. Default: left | `TransitionDirectionEnum.left \| TransitionDirectionEnum.right`      | `undefined` |
-| `variant`             | `variant`             | Offcanvas variant. Can be one of "overlay", "pushcontent" Default: pushcontent   | `OffCanvasVariantsEnum.overlay \| OffCanvasVariantsEnum.pushcontent` | `undefined` |
+| Property              | Attribute             | Description                                                                            | Type                                                                 | Default                             |
+| --------------------- | --------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------- |
+| `open`                | `open`                | open component. Default: false                                                         | `boolean`                                                            | `false`                             |
+| `transitiondirection` | `transitiondirection` | open content transitioning in a specified direction left \| right. Default: left       | `TransitionDirectionEnum.left \| TransitionDirectionEnum.right`      | `TransitionDirectionEnum.left`      |
+| `variant`             | `variant`             | Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent | `OffCanvasVariantsEnum.overlay \| OffCanvasVariantsEnum.pushcontent` | `OffCanvasVariantsEnum.pushcontent` |
 
 
 ## Events

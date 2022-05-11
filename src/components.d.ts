@@ -1050,11 +1050,11 @@ export namespace Components {
         /**
           * open content transitioning in a specified direction left | right. Default: left
          */
-        "transitiondirection": TransitionDirectionEnum;
+        "transitiondirection"?: TransitionDirectionEnum;
         /**
-          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default: pushcontent
+          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
          */
-        "variant": OffCanvasVariantsEnum;
+        "variant"?: OffCanvasVariantsEnum;
     }
     interface ZOtp {
         "inputNum"?: number;
@@ -3385,7 +3385,7 @@ declare namespace LocalJSX {
          */
         "transitiondirection"?: TransitionDirectionEnum;
         /**
-          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default: pushcontent
+          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
          */
         "variant"?: OffCanvasVariantsEnum;
     }
