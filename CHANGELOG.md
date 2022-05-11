@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.37.1-CLAV-275](https://github.com/ZanichelliEditore/design-system/compare/v2.37.0...v2.37.1-CLAV-275) (2022-05-04)
+
+
+### Features
+
+* **clav-275:** add carousel-item component ([6281ad3](https://github.com/ZanichelliEditore/design-system/commit/6281ad3f9e1d63d2f63547cf4c83da7108e9a7a2))
+* **clav-275:** add padding and fix storybook ([2fa16dc](https://github.com/ZanichelliEditore/design-system/commit/2fa16dcd1eb72c078840492f53bf820403f557e7))
+* **clav-275:** fix ([b271e44](https://github.com/ZanichelliEditore/design-system/commit/b271e44125b22f862a00fdd39043fc48c903a1a6))
+* **CLAV-275/Zcarousel:** feat init carousel ([7d2f8e0](https://github.com/ZanichelliEditore/design-system/commit/7d2f8e0b9604524113e55d49bf797b68ccc50b4f))
+
+
+### Bug Fixes
+
+* remove box-shadows ([7c15296](https://github.com/ZanichelliEditore/design-system/commit/7c152969d02f5e93be72d70ce1f3c8b820fa90f5))
+
 ## [2.37.0](https://github.com/ZanichelliEditore/design-system/compare/v2.36.3...v2.37.0) (2022-04-20)
 
 
