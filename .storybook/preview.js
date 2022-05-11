@@ -1,45 +1,45 @@
-import { withA11y } from '@storybook/addon-a11y';
-import { withKnobs } from '@storybook/addon-knobs';
-import '../src/global.css';
-import dedent from 'ts-dedent';
+import { withA11y } from "@storybook/addon-a11y";
+import { withKnobs } from "@storybook/addon-knobs";
+import "../src/global.css";
+import dedent from "ts-dedent";
 
 export const parameters = {
   viewport: {
     viewports: [
       {
-        type: 'mobile',
-        name: 'mobile',
+        type: "mobile",
+        name: "mobile",
         styles: {
-          width: '320px',
-          height: '480px',
+          width: "320px",
+          height: "480px",
         },
       },
       {
-        type: 'tablet',
-        name: 'tablet',
+        type: "tablet",
+        name: "tablet",
         styles: {
-          width: '768px',
-          height: '1024px',
+          width: "768px",
+          height: "1024px",
         },
       },
       {
-        type: 'desktop',
-        name: 'desktop',
+        type: "desktop",
+        name: "desktop",
         styles: {
-          width: '1152px',
-          height: '100%',
+          width: "1152px",
+          height: "100%",
         },
       },
       {
-        type: 'desktop',
-        name: 'wide',
+        type: "desktop",
+        name: "wide",
         styles: {
-          width: '1366px',
-          height: '100%',
+          width: "1366px",
+          height: "100%",
         },
       },
     ],
-    defaultViewport: 'responsive',
+    defaultViewport: "responsive",
   },
   docs: {
     // fix wrong indentation due to the story template string (html`...`)
