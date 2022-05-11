@@ -45,12 +45,14 @@ export class ZOffcanvas
       this.hostElement.style.display = "flex";
     } else if (this.variant === OffCanvasVariantsEnum.pushcontent) {
       this.hostElement.style.display = "none";
+      document.body.style.overflowX = "hidden";
     }
   }
 
   handleAnimationEnd() {
     if (!this.hostElement.hasAttribute("open") && this.variant === OffCanvasVariantsEnum.overlay) {
       this.hostElement.style.display = "none";
+      document.body.style.overflowX = "initial";
     }
   }
 
