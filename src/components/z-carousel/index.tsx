@@ -14,11 +14,9 @@ import { Component, h } from "@stencil/core";
 export class ZCarousel {
   render() {
     return (
-      <div>
-        <ul class="z-carousel-items-container">
-          <slot />
-        </ul>
-      </div>
+      <ul class="z-carousel-items-container">
+        <slot />
+      </ul>
     );
   }
 }
