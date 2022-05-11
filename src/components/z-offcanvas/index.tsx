@@ -1,5 +1,5 @@
-import { Component, Prop, h, Event, EventEmitter, Watch, Element } from "@stencil/core";
-import { TransitionDirectionEnum, OffCanvasVariantsEnum } from "../../beans"
+import { Component, Element, Event, EventEmitter, h, Prop, Watch } from "@stencil/core";
+import { OffCanvasVariantsEnum, TransitionDirectionEnum } from "../../beans"
 /**
  * @slot canvasContent - set the content of the canvas
  */
@@ -40,23 +40,22 @@ export class ZOffcanvas
   }
 
   handleOpenStatus() {
-    if (!this.open && this.variant === OffCanvasVariantsEnum.overlay) {
-
-      const container = this.hostElement.shadowRoot.querySelector(".canvas-container") as HTMLElement
-      if (!container) return;
-      container.addEventListener(
-        'animationend',
-        () => this.hostElement.style.display = "none",
-        { once: true })
-
-      return;
+    if (this.open) {
+      this.hostElement.style.display = "flex";
+    } else if (this.variant === OffCanvasVariantsEnum.pushcontent) {
+      this.hostElement.style.display = "none";
     }
-    this.hostElement.style.display = this.open ? "flex" : "none"
+  }
+
+  handleAnimationEnd() {
+    if (!this.hostElement.hasAttribute("open") && this.variant === OffCanvasVariantsEnum.overlay) {
+      this.hostElement.style.display = "none";
+    }
   }
 
   render() {
     return [
-      <div class="canvas-container">
+      <div class="canvas-container" onAnimationEnd={() => this.handleAnimationEnd()}>
         <div class="canvas-content" tabindex="0">
           <slot name="canvasContent"></slot>
         </div>
