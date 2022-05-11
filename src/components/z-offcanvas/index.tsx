@@ -6,7 +6,8 @@ import { OffCanvasVariantsEnum, TransitionDirectionEnum } from "../../beans"
 @Component({
   tag: "z-offcanvas",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 
 export class ZOffcanvas
