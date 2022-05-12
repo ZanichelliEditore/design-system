@@ -3752,71 +3752,56 @@
         <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
       </z-card>
     </div>
-    `;zCardText.storyName="ZCard text",zCardText.parameters={storySource:{source:'html`\n    <div style="display: flex">\n      <z-card\n        variant="text"\n        .clickable="${boolean("Clickable", false)}"\n        .showshadow="${boolean("Show shadow", false)}"\n        style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"\n      >\n        <h2 class="body-5" slot="metadata">metadata</h2>\n        <h3 slot="title">Card Title</h3>\n        <p class="body-3" slot="text">Some description for the content of the card.</p>\n        <z-icon name="share" slot="action" fill="color-surface01"></z-icon>\n        <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>\n      </z-card>\n      <z-card\n        variant="text"\n        .clickable="${boolean("Clickable", false)}"\n        .showshadow="${boolean("Show shadow", false)}"\n        style="--z-card--text-background: white; --z-card--text-border: 2px solid black; width: 263px;"\n      >\n        <h2 class="body-5" slot="metadata">metadata</h2>\n        <h3 slot="title">Card Title</h3>\n        <p class="body-3" slot="text">Some description for the content of the card.</p>\n        <z-icon name="share" slot="action" fill="color-primary01"></z-icon>\n        <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>\n      </z-card>\n    </div>\n    `'}};const componentMeta={title:"ZCard",includeStories:["zCardWithImage","zCardWithImageAndIcon","zCardColorCover","zCardText"]},mdxStoryNameToKey={"ZCard with image":"zCardWithImage","ZCard with image and icon":"zCardWithImageAndIcon","ZCard color cover":"zCardColorCover","ZCard text":"zCardText"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},1060:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zCarouselWithDiv",(function(){return zCarouselWithDiv})),__webpack_require__.d(__webpack_exports__,"zCarouselWithImg",(function(){return zCarouselWithImg})),__webpack_require__.d(__webpack_exports__,"zCarouselWithComponent",(function(){return zCarouselWithComponent}));__webpack_require__(2);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(0),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"ZCarousel",component:"z-carousel",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zcarousel"},"ZCarousel"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZCarousel-with-div",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-carousel style="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.f)("gutter","--z-carousel-gutter: 8px")}">
+    `;zCardText.storyName="ZCard text",zCardText.parameters={storySource:{source:'html`\n    <div style="display: flex">\n      <z-card\n        variant="text"\n        .clickable="${boolean("Clickable", false)}"\n        .showshadow="${boolean("Show shadow", false)}"\n        style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"\n      >\n        <h2 class="body-5" slot="metadata">metadata</h2>\n        <h3 slot="title">Card Title</h3>\n        <p class="body-3" slot="text">Some description for the content of the card.</p>\n        <z-icon name="share" slot="action" fill="color-surface01"></z-icon>\n        <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>\n      </z-card>\n      <z-card\n        variant="text"\n        .clickable="${boolean("Clickable", false)}"\n        .showshadow="${boolean("Show shadow", false)}"\n        style="--z-card--text-background: white; --z-card--text-border: 2px solid black; width: 263px;"\n      >\n        <h2 class="body-5" slot="metadata">metadata</h2>\n        <h3 slot="title">Card Title</h3>\n        <p class="body-3" slot="text">Some description for the content of the card.</p>\n        <z-icon name="share" slot="action" fill="color-primary01"></z-icon>\n        <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>\n      </z-card>\n    </div>\n    `'}};const componentMeta={title:"ZCard",includeStories:["zCardWithImage","zCardWithImageAndIcon","zCardColorCover","zCardText"]},mdxStoryNameToKey={"ZCard with image":"zCardWithImage","ZCard with image and icon":"zCardWithImageAndIcon","ZCard color cover":"zCardColorCover","ZCard text":"zCardText"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},1060:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zCarouselWithDiv",(function(){return zCarouselWithDiv})),__webpack_require__.d(__webpack_exports__,"zCarouselWithComponent",(function(){return zCarouselWithComponent}));__webpack_require__(2);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(0),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"ZCarousel",component:"z-carousel",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zcarousel"},"ZCarousel"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZCarousel-with-div",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-carousel style="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.f)("gutter","--z-carousel-gutter: 8px")}">
       <li>
-        <div style="width: 200px; height: 200px; background-color: red; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: red; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: yellow; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: yellow; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: blue; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: blue; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: green; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: green; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: purple; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: purple; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: orange; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: orange; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: grey; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: grey; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: black; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: black; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: pink; border-radius: 4px"></div></li
-    ></z-carousel>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZCarousel-with-img",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-carousel style="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.f)("gutter","--z-carousel-gutter: 8px")}">
-      <li>
-        <img src="https://www.clipartmax.com/png/middle/430-4304170_cartooons-mr-bean-cartoon-wallpaper-hd.png" width="100" height="100" />
-      </li>
-      <li>
-        <img src="https://tbivision.com/files/2019/02/Mr-Bean_STILL01.jpg" width="100" height="100" />
-      </li>
-      <li>
-        <img src="https://cdn.comedy.co.uk/images/library/comedies/900x450/m/mr_bean_animated_b.jpg" width="100" height="100" />
-      </li>
-      <li>
-        <img src="https://www.pngall.com/wp-content/uploads/5/Cartoon-Mr.-Bean-PNG-Clipart.png" width="100" height="100" />
-      </li>
-      <li>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG-TvWxr_NPIAwMZRWRS9gnGGrDf_r9Q3zP19JAMMgjTndL34oPUnaJrzoTGuc-ZjN-Xw&usqp=CAU"
-          width="100"
-          height="100"
-        />
-      </li>
-      <li>
-        <img
-          src="https://i0.wp.com/thefreegenie.com/wp-content/uploads/thumbs/gamemonetize/M/mr-bean-car-hidden-keys.jpg?fit=512%2C384&ssl=1"
-          width="100"
-          height="100"
-        />
-      </li>
-      <li>
-        <img src="https://static.onecms.io/wp-content/uploads/sites/6/2015/06/mr-bean-the-animated-series.jpg" width="100" height="100" />
-      </li>
-      <li>
-        <img src="https://i.pinimg.com/originals/d9/95/54/d99554d840ae9221f54af8ea04646cfb.jpg" width="100" height="100" />
-      </li>
-      <li>
-        <img src="https://www.pngall.com/wp-content/uploads/5/Cartoon-Mr.-Bean-PNG-Clipart.png" width="100" height="100" /></li
+        <div
+          style="width: 200px; height: 200px; background-color: pink; border-radius: 4px"
+        ></div></li
     ></z-carousel>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZCarousel-with-component",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-carousel style="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.f)("gutter","--z-carousel-gutter: 8px")}">
       <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
       </li>
       <li>
         <z-card
@@ -3827,7 +3812,9 @@
         >
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
           <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
         </z-card>
@@ -3841,13 +3828,17 @@
         >
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
           <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
         </z-card>
       </li>
       <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
       </li>
       <li>
         <z-card
@@ -3858,13 +3849,17 @@
         >
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
           <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
         </z-card>
       </li>
       <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
       </li>
       <li>
         <z-card
@@ -3875,13 +3870,17 @@
         >
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
           <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
         </z-card>
       </li>
       <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
       </li>
       <li>
         <z-card
@@ -3892,75 +3891,62 @@
         >
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
           <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
         </z-card></li
     ></z-carousel>`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.d,{of:"z-carousel",mdxType:"Props"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"description"},"Description"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"This component wraps ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"li"),"children of the ZCarousel.\nIt was conceived as a list of elements to respect the rules of accessibility. (",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("a",{parentName:"p",href:"https://www.w3.org/WAI/tutorials/carousels/working-example/",target:"_blank",rel:"nofollow noopener noreferrer"},"https://www.w3.org/WAI/tutorials/carousels/working-example/"),")"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h2",{id:"usage"},"Usage"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"One ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"z-carousel"),"component wraps ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"N")," ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"li"),"."),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("p",null,"Any type of element must be passed into a ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("inlineCode",{parentName:"p"},"li")," element."))}MDXContent.isMDXComponent=!0;const zCarouselWithDiv=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-carousel style="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.f)("gutter","--z-carousel-gutter: 8px")}">
       <li>
-        <div style="width: 200px; height: 200px; background-color: red; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: red; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: yellow; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: yellow; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: blue; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: blue; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: green; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: green; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: purple; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: purple; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: orange; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: orange; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: grey; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: grey; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: black; border-radius: 4px"></div>
+        <div
+          style="width: 200px; height: 200px; background-color: black; border-radius: 4px"
+        ></div>
       </li>
       <li>
-        <div style="width: 200px; height: 200px; background-color: pink; border-radius: 4px"></div></li
-    ></z-carousel>`;zCarouselWithDiv.storyName="ZCarousel-with-div",zCarouselWithDiv.parameters={storySource:{source:'html`<z-carousel style="${text("gutter", "--z-carousel-gutter: 8px")}">\n      <li>\n        <div style="width: 200px; height: 200px; background-color: red; border-radius: 4px"></div>\n      </li>\n      <li>\n        <div style="width: 200px; height: 200px; background-color: yellow; border-radius: 4px"></div>\n      </li>\n      <li>\n        <div style="width: 200px; height: 200px; background-color: blue; border-radius: 4px"></div>\n      </li>\n      <li>\n        <div style="width: 200px; height: 200px; background-color: green; border-radius: 4px"></div>\n      </li>\n      <li>\n        <div style="width: 200px; height: 200px; background-color: purple; border-radius: 4px"></div>\n      </li>\n      <li>\n        <div style="width: 200px; height: 200px; background-color: orange; border-radius: 4px"></div>\n      </li>\n      <li>\n        <div style="width: 200px; height: 200px; background-color: grey; border-radius: 4px"></div>\n      </li>\n      <li>\n        <div style="width: 200px; height: 200px; background-color: black; border-radius: 4px"></div>\n      </li>\n      <li>\n        <div style="width: 200px; height: 200px; background-color: pink; border-radius: 4px"></div></li\n    ></z-carousel>`'}};const zCarouselWithImg=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-carousel style="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.f)("gutter","--z-carousel-gutter: 8px")}">
+        <div
+          style="width: 200px; height: 200px; background-color: pink; border-radius: 4px"
+        ></div></li
+    ></z-carousel>`;zCarouselWithDiv.storyName="ZCarousel-with-div",zCarouselWithDiv.parameters={storySource:{source:'html`<z-carousel style="${text("gutter", "--z-carousel-gutter: 8px")}">\n      <li>\n        <div\n          style="width: 200px; height: 200px; background-color: red; border-radius: 4px"\n        ></div>\n      </li>\n      <li>\n        <div\n          style="width: 200px; height: 200px; background-color: yellow; border-radius: 4px"\n        ></div>\n      </li>\n      <li>\n        <div\n          style="width: 200px; height: 200px; background-color: blue; border-radius: 4px"\n        ></div>\n      </li>\n      <li>\n        <div\n          style="width: 200px; height: 200px; background-color: green; border-radius: 4px"\n        ></div>\n      </li>\n      <li>\n        <div\n          style="width: 200px; height: 200px; background-color: purple; border-radius: 4px"\n        ></div>\n      </li>\n      <li>\n        <div\n          style="width: 200px; height: 200px; background-color: orange; border-radius: 4px"\n        ></div>\n      </li>\n      <li>\n        <div\n          style="width: 200px; height: 200px; background-color: grey; border-radius: 4px"\n        ></div>\n      </li>\n      <li>\n        <div\n          style="width: 200px; height: 200px; background-color: black; border-radius: 4px"\n        ></div>\n      </li>\n      <li>\n        <div\n          style="width: 200px; height: 200px; background-color: pink; border-radius: 4px"\n        ></div></li\n    ></z-carousel>`'}};const zCarouselWithComponent=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-carousel style="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.f)("gutter","--z-carousel-gutter: 8px")}">
       <li>
-        <img src="https://www.clipartmax.com/png/middle/430-4304170_cartooons-mr-bean-cartoon-wallpaper-hd.png" width="100" height="100" />
-      </li>
-      <li>
-        <img src="https://tbivision.com/files/2019/02/Mr-Bean_STILL01.jpg" width="100" height="100" />
-      </li>
-      <li>
-        <img src="https://cdn.comedy.co.uk/images/library/comedies/900x450/m/mr_bean_animated_b.jpg" width="100" height="100" />
-      </li>
-      <li>
-        <img src="https://www.pngall.com/wp-content/uploads/5/Cartoon-Mr.-Bean-PNG-Clipart.png" width="100" height="100" />
-      </li>
-      <li>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG-TvWxr_NPIAwMZRWRS9gnGGrDf_r9Q3zP19JAMMgjTndL34oPUnaJrzoTGuc-ZjN-Xw&usqp=CAU"
-          width="100"
-          height="100"
-        />
-      </li>
-      <li>
-        <img
-          src="https://i0.wp.com/thefreegenie.com/wp-content/uploads/thumbs/gamemonetize/M/mr-bean-car-hidden-keys.jpg?fit=512%2C384&ssl=1"
-          width="100"
-          height="100"
-        />
-      </li>
-      <li>
-        <img src="https://static.onecms.io/wp-content/uploads/sites/6/2015/06/mr-bean-the-animated-series.jpg" width="100" height="100" />
-      </li>
-      <li>
-        <img src="https://i.pinimg.com/originals/d9/95/54/d99554d840ae9221f54af8ea04646cfb.jpg" width="100" height="100" />
-      </li>
-      <li>
-        <img src="https://www.pngall.com/wp-content/uploads/5/Cartoon-Mr.-Bean-PNG-Clipart.png" width="100" height="100" /></li
-    ></z-carousel>`;zCarouselWithImg.storyName="ZCarousel-with-img",zCarouselWithImg.parameters={storySource:{source:'html`<z-carousel style="${text("gutter", "--z-carousel-gutter: 8px")}">\n      <li>\n        <img src="https://www.clipartmax.com/png/middle/430-4304170_cartooons-mr-bean-cartoon-wallpaper-hd.png" width="100" height="100" />\n      </li>\n      <li>\n        <img src="https://tbivision.com/files/2019/02/Mr-Bean_STILL01.jpg" width="100" height="100" />\n      </li>\n      <li>\n        <img src="https://cdn.comedy.co.uk/images/library/comedies/900x450/m/mr_bean_animated_b.jpg" width="100" height="100" />\n      </li>\n      <li>\n        <img src="https://www.pngall.com/wp-content/uploads/5/Cartoon-Mr.-Bean-PNG-Clipart.png" width="100" height="100" />\n      </li>\n      <li>\n        <img\n          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG-TvWxr_NPIAwMZRWRS9gnGGrDf_r9Q3zP19JAMMgjTndL34oPUnaJrzoTGuc-ZjN-Xw&usqp=CAU"\n          width="100"\n          height="100"\n        />\n      </li>\n      <li>\n        <img\n          src="https://i0.wp.com/thefreegenie.com/wp-content/uploads/thumbs/gamemonetize/M/mr-bean-car-hidden-keys.jpg?fit=512%2C384&ssl=1"\n          width="100"\n          height="100"\n        />\n      </li>\n      <li>\n        <img src="https://static.onecms.io/wp-content/uploads/sites/6/2015/06/mr-bean-the-animated-series.jpg" width="100" height="100" />\n      </li>\n      <li>\n        <img src="https://i.pinimg.com/originals/d9/95/54/d99554d840ae9221f54af8ea04646cfb.jpg" width="100" height="100" />\n      </li>\n      <li>\n        <img src="https://www.pngall.com/wp-content/uploads/5/Cartoon-Mr.-Bean-PNG-Clipart.png" width="100" height="100" /></li\n    ></z-carousel>`'}};const zCarouselWithComponent=()=>lit_html__WEBPACK_IMPORTED_MODULE_3__.b`<z-carousel style="${Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__.f)("gutter","--z-carousel-gutter: 8px")}">
-      <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
       </li>
       <li>
         <z-card
@@ -3971,7 +3957,9 @@
         >
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
           <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
         </z-card>
@@ -3985,13 +3973,17 @@
         >
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
           <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
         </z-card>
       </li>
       <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
       </li>
       <li>
         <z-card
@@ -4002,13 +3994,17 @@
         >
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
           <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
         </z-card>
       </li>
       <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
       </li>
       <li>
         <z-card
@@ -4019,13 +4015,17 @@
         >
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
           <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
         </z-card>
       </li>
       <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
       </li>
       <li>
         <z-card
@@ -4036,11 +4036,13 @@
         >
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card.</p>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
           <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
         </z-card></li
-    ></z-carousel>`;zCarouselWithComponent.storyName="ZCarousel-with-component",zCarouselWithComponent.parameters={storySource:{source:'html`<z-carousel style="${text("gutter", "--z-carousel-gutter: 8px")}">\n      <li>\n        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>\n      </li>\n      <li>\n        <z-card\n          variant="text"\n          .clickable="false"\n          .showshadow="false"\n          style="--z-card--text-background: white; --z-card--text-border: 2px solid black; width: 263px;"\n        >\n          <h2 class="body-5" slot="metadata">metadata</h2>\n          <h3 slot="title">Card Title</h3>\n          <p class="body-3" slot="text">Some description for the content of the card.</p>\n          <z-icon name="share" slot="action" fill="color-primary01"></z-icon>\n          <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>\n        </z-card>\n      </li>\n      <li>\n        <z-card\n          variant="text"\n          .clickable="false"\n          .showshadow="false"\n          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"\n        >\n          <h2 class="body-5" slot="metadata">metadata</h2>\n          <h3 slot="title">Card Title</h3>\n          <p class="body-3" slot="text">Some description for the content of the card.</p>\n          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>\n          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>\n        </z-card>\n      </li>\n      <li>\n        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>\n      </li>\n      <li>\n        <z-card\n          variant="text"\n          .clickable="false"\n          .showshadow="false"\n          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"\n        >\n          <h2 class="body-5" slot="metadata">metadata</h2>\n          <h3 slot="title">Card Title</h3>\n          <p class="body-3" slot="text">Some description for the content of the card.</p>\n          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>\n          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>\n        </z-card>\n      </li>\n      <li>\n        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>\n      </li>\n      <li>\n        <z-card\n          variant="text"\n          .clickable="false"\n          .showshadow="false"\n          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"\n        >\n          <h2 class="body-5" slot="metadata">metadata</h2>\n          <h3 slot="title">Card Title</h3>\n          <p class="body-3" slot="text">Some description for the content of the card.</p>\n          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>\n          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>\n        </z-card>\n      </li>\n      <li>\n        <z-button variant="primary" size="big" disabled="false" icon="download"> Click Me </z-button>\n      </li>\n      <li>\n        <z-card\n          variant="text"\n          .clickable="false"\n          .showshadow="false"\n          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"\n        >\n          <h2 class="body-5" slot="metadata">metadata</h2>\n          <h3 slot="title">Card Title</h3>\n          <p class="body-3" slot="text">Some description for the content of the card.</p>\n          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>\n          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>\n        </z-card></li\n    ></z-carousel>`'}};const componentMeta={title:"ZCarousel",includeStories:["zCarouselWithDiv","zCarouselWithImg","zCarouselWithComponent"]},mdxStoryNameToKey={"ZCarousel-with-div":"zCarouselWithDiv","ZCarousel-with-img":"zCarouselWithImg","ZCarousel-with-component":"zCarouselWithComponent"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},1061:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zContextualMenuWithIcons",(function(){return zContextualMenuWithIcons})),__webpack_require__.d(__webpack_exports__,"zContextualMenuWithoutIcons",(function(){return zContextualMenuWithoutIcons})),__webpack_require__.d(__webpack_exports__,"zContextualMenuWithIconsAndLongText",(function(){return zContextualMenuWithIconsAndLongText}));__webpack_require__(2);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(0),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"ZContextualMenu",component:"contextual-menu",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zcontextualmenu"},"ZContextualMenu"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZContextualMenu with icons",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <div
+    ></z-carousel>`;zCarouselWithComponent.storyName="ZCarousel-with-component",zCarouselWithComponent.parameters={storySource:{source:'html`<z-carousel style="${text("gutter", "--z-carousel-gutter: 8px")}">\n      <li>\n        <z-button variant="primary" size="big" disabled="false" icon="download">\n          Click Me\n        </z-button>\n      </li>\n      <li>\n        <z-card\n          variant="text"\n          .clickable="false"\n          .showshadow="false"\n          style="--z-card--text-background: white; --z-card--text-border: 2px solid black; width: 263px;"\n        >\n          <h2 class="body-5" slot="metadata">metadata</h2>\n          <h3 slot="title">Card Title</h3>\n          <p class="body-3" slot="text">\n            Some description for the content of the card.\n          </p>\n          <z-icon name="share" slot="action" fill="color-primary01"></z-icon>\n          <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>\n        </z-card>\n      </li>\n      <li>\n        <z-card\n          variant="text"\n          .clickable="false"\n          .showshadow="false"\n          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"\n        >\n          <h2 class="body-5" slot="metadata">metadata</h2>\n          <h3 slot="title">Card Title</h3>\n          <p class="body-3" slot="text">\n            Some description for the content of the card.\n          </p>\n          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>\n          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>\n        </z-card>\n      </li>\n      <li>\n        <z-button variant="primary" size="big" disabled="false" icon="download">\n          Click Me\n        </z-button>\n      </li>\n      <li>\n        <z-card\n          variant="text"\n          .clickable="false"\n          .showshadow="false"\n          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"\n        >\n          <h2 class="body-5" slot="metadata">metadata</h2>\n          <h3 slot="title">Card Title</h3>\n          <p class="body-3" slot="text">\n            Some description for the content of the card.\n          </p>\n          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>\n          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>\n        </z-card>\n      </li>\n      <li>\n        <z-button variant="primary" size="big" disabled="false" icon="download">\n          Click Me\n        </z-button>\n      </li>\n      <li>\n        <z-card\n          variant="text"\n          .clickable="false"\n          .showshadow="false"\n          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"\n        >\n          <h2 class="body-5" slot="metadata">metadata</h2>\n          <h3 slot="title">Card Title</h3>\n          <p class="body-3" slot="text">\n            Some description for the content of the card.\n          </p>\n          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>\n          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>\n        </z-card>\n      </li>\n      <li>\n        <z-button variant="primary" size="big" disabled="false" icon="download">\n          Click Me\n        </z-button>\n      </li>\n      <li>\n        <z-card\n          variant="text"\n          .clickable="false"\n          .showshadow="false"\n          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"\n        >\n          <h2 class="body-5" slot="metadata">metadata</h2>\n          <h3 slot="title">Card Title</h3>\n          <p class="body-3" slot="text">\n            Some description for the content of the card.\n          </p>\n          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>\n          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>\n        </z-card></li\n    ></z-carousel>`'}};const componentMeta={title:"ZCarousel",includeStories:["zCarouselWithDiv","zCarouselWithComponent"]},mdxStoryNameToKey={"ZCarousel-with-div":"zCarouselWithDiv","ZCarousel-with-component":"zCarouselWithComponent"};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:()=>Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.a,{mdxStoryNameToKey:mdxStoryNameToKey,mdxComponentMeta:componentMeta},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(MDXContent,null))},__webpack_exports__.default=componentMeta},1061:function(module,__webpack_exports__,__webpack_require__){"use strict";__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,"zContextualMenuWithIcons",(function(){return zContextualMenuWithIcons})),__webpack_require__.d(__webpack_exports__,"zContextualMenuWithoutIcons",(function(){return zContextualMenuWithoutIcons})),__webpack_require__.d(__webpack_exports__,"zContextualMenuWithIconsAndLongText",(function(){return zContextualMenuWithIconsAndLongText}));__webpack_require__(2);var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(0),_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(3),lit_html__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(4),_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(1);function _extends(){return(_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source)Object.prototype.hasOwnProperty.call(source,key)&&(target[key]=source[key])}return target}).apply(this,arguments)}const layoutProps={};function MDXContent({components:components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("wrapper",_extends({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.b,{title:"ZContextualMenu",component:"contextual-menu",mdxType:"Meta"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)("h1",{id:"zcontextualmenu"},"ZContextualMenu"),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.c,{mdxType:"Preview"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__.b)(_storybook_addon_docs_blocks__WEBPACK_IMPORTED_MODULE_2__.e,{name:"ZContextualMenu with icons",mdxType:"Story"},lit_html__WEBPACK_IMPORTED_MODULE_3__.b` <div
       style="height: 300px; display: flex; align-items: center; justify-content: center; padding-top: 50px;"
     >
       <z-contextual-menu
