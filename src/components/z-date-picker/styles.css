@@ -1,0 +1,133 @@
+@import "~flatpickr/dist/flatpickr.min.css";
+
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+}
+
+.flatpickr-calendar::before,
+.flatpickr-calendar::after {
+  display: none;
+}
+
+/* Weekdays selector */
+
+.flatpickr-weekdays {
+  height: 48px;
+  margin-top: 24px;
+  border-bottom: 1px solid var(--gray200);
+}
+
+.flatpickr-weekday {
+  font-weight: 400 !important;
+}
+
+/* Calendar selectors */
+
+.flatpickr-calendar {
+  border-radius: 2px;
+  box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.4);
+}
+
+.flatpickr-weekday:nth-child(6),
+.flatpickr-weekday:nth-child(7),
+.flatpickr-day:nth-child(7n + 6),
+.flatpickr-day:nth-child(7n + 7) {
+  font-weight: 600 !important;
+}
+
+.flatpickr-calendar.animate {
+  font-family: var(--font-family-sans) !important;
+}
+
+.flatpickr-calendar.animate,
+.flatpickr-innerContainer,
+.flatpickr-days,
+.dayContainer {
+  width: 336px !important;
+  max-width: 336px !important;
+}
+
+.flatpickr-day {
+  height: 48px !important;
+  width: 48px !important;
+  max-width: 100% !important;
+
+  font-size: 16px !important;
+  line-height: 46px !important;
+
+  margin: 0px !important;
+  border: none;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+}
+
+.flatpickr-day:hover,
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.selected:hover {
+  background-color: var(--myz-blue-dark) !important;
+  border-color: var(--myz-blue-dark) !important;
+  color: var(--color-white) !important;
+}
+
+.flatpickr-day.today {
+  border: 2px solid var(--myz-blue-dark) !important;
+}
+
+.flatpickr-day.selected {
+  background-color: var(--myz-blue) !important;
+  border-color: var(--myz-blue) !important;
+}
+
+/* Time selectors */
+
+.flatpickr-time {
+  display: block;
+  height: 90px !important;
+  max-height: 90px !important;
+  text-align: left;
+}
+
+.flatpickr-time::before {
+  content: "Orario";
+  width: 100%;
+  display: block;
+}
+
+.flatpickr-time.time24hr {
+  margin: 18px 14px !important;
+  /*   overflow: visible !important;*/
+}
+
+.flatpickr-time::before {
+  padding-left: 12px;
+  content: "ORARIO DI INIZIO";
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.flatpickr-time.time24hr > div {
+  border-radius: 2px !important;
+  border: 1px solid rgb(103, 107, 111) !important;
+  height: 44px !important;
+  width: 87px !important;
+  margin-left: 12px !important;
+  margin-right: 12px !important;
+}
+
+/* Months dropdown */
+.flatpickr-monthDropdown-months {
+  background: white !important;
+  border: 1px solid black !important;
+  font-size: var(--font-size-3) !important;
+  font-weight: var(--font-rg) !important;
+  padding-right: 5px !important;
+}
+
+.flatpickr-month {
+  overflow: visible !important;
+  z-index: 50 !important;
+}
+.flatpickr-current-month {
+  display: flex !important;
+}

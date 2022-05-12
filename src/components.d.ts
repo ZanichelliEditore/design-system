@@ -310,6 +310,9 @@ export namespace Components {
          */
         "hide"?: boolean;
     }
+    interface ZDatePicker {
+        "myProp": string;
+    }
     interface ZDivider {
         /**
           * [optional] Divider color
@@ -1661,6 +1664,12 @@ declare global {
         prototype: HTMLZCookiebarElement;
         new (): HTMLZCookiebarElement;
     };
+    interface HTMLZDatePickerElement extends Components.ZDatePicker, HTMLStencilElement {
+    }
+    var HTMLZDatePickerElement: {
+        prototype: HTMLZDatePickerElement;
+        new (): HTMLZDatePickerElement;
+    };
     interface HTMLZDividerElement extends Components.ZDivider, HTMLStencilElement {
     }
     var HTMLZDividerElement: {
@@ -2117,6 +2126,7 @@ declare global {
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
+        "z-date-picker": HTMLZDatePickerElement;
         "z-divider": HTMLZDividerElement;
         "z-footer": HTMLZFooterElement;
         "z-footer-link": HTMLZFooterLinkElement;
@@ -2524,6 +2534,10 @@ declare namespace LocalJSX {
           * emitted on ACCETTA button click, returns event
          */
         "onAccept"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZDatePicker {
+        "myProp"?: string;
+        "onDateSelect"?: (event: CustomEvent<any>) => void;
     }
     interface ZDivider {
         /**
@@ -3937,6 +3951,7 @@ declare namespace LocalJSX {
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
+        "z-date-picker": ZDatePicker;
         "z-divider": ZDivider;
         "z-footer": ZFooter;
         "z-footer-link": ZFooterLink;
@@ -4033,6 +4048,7 @@ declare module "@stencil/core" {
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
+            "z-date-picker": LocalJSX.ZDatePicker & JSXBase.HTMLAttributes<HTMLZDatePickerElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
