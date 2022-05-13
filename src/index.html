@@ -17,20 +17,13 @@
   </head>
 
   <body style="width: 100%; margin: 0; background-color: #f9f9f9">
-    <div
-      style="width: 800px; border: 2px solid black; padding: 20px; margin: 50px"
-    >
-      <div>
-        <z-date-picker></z-date-picker>
-      </div>
+    <div>
+      <z-date-picker show-time="false" name="dp1">
+        <z-button slot="toggle">Apri z-date-picker</z-button>
+      </z-date-picker>
+      <z-date-picker name="dp2" show-time="true"> </z-date-picker>
     </div>
-    <script>
-      const mycard = document.getElementById("mycard");
-      console.log(mycard);
-      mycard.addEventListener("cardClicked", () =>
-        console.log("mycard was clicked ")
-      );
-    </script>
+    <script></script>
   </body>
 </html>
 

@@ -5,10 +5,12 @@ import {
   h,
   EventEmitter,
   Event,
+  State,
 } from "@stencil/core";
 
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
+import classNames from "classnames";
 
 @Component({
   tag: "z-date-picker",
@@ -20,35 +22,56 @@ export class ZDatePicker {
 
   @Element() element: HTMLElement;
 
-  @Prop() myProp: string;
+  @Prop() showTime: boolean;
+  @Prop() name: string;
+
+  @State() hasSlot: boolean;
 
   @Event() dateSelect: EventEmitter;
   emitDateSelect() {
     this.dateSelect.emit(this.flatpickrInstance.selectedDates);
   }
 
+  componentWillLoad() {
+    let element = this.element.querySelector("[slot=toggle]");
+
+    this.hasSlot = !!element;
+    this.hasSlot && element.setAttribute("data-toggle", "data-toggle");
+  }
+
   componentDidRender() {
-    this.flatpickrInstance = flatpickr(".flatpickr", {
+    this.flatpickrInstance = flatpickr(`.${this.name}`, {
       appendTo: this.element,
-      enableTime: true,
+      enableTime: this.showTime,
       locale: Italian,
       dateFormat: "d-m-Y",
       ariaDateFormat: "d F Y",
       time_24hr: true,
       onChange: this.emitDateSelect.bind(this),
-      //wrap: true,
+      wrap: this.hasSlot,
     });
   }
 
   render() {
-    return (
-      <z-input
-        class="flatpickr"
-        type="text"
-        name="datepicker"
-        icon="event"
-        hasmessage={false}
-      ></z-input>
-    );
+    if (this.hasSlot) {
+      return (
+        <div class={this.name}>
+          <div style={{ visibility: "hidden", width: "0px", height: "0px" }}>
+            <z-input type="text" name="datepicker" data-input></z-input>
+          </div>
+          <slot name="toggle" />
+        </div>
+      );
+    } else {
+      return (
+        <z-input
+          class={classNames(this.name, { hasTime: this.showTime })}
+          type="text"
+          name="datepicker"
+          icon="event"
+          hasmessage={false}
+        ></z-input>
+      );
+    }
   }
 }

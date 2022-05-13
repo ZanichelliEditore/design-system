@@ -10,11 +10,84 @@
   display: none;
 }
 
-/* Weekdays selector */
+/* Months and year row containers selectors */
+.flatpickr-months {
+  margin-bottom: var(--space-unit) 0 !important;
+  height: 48px !important;
+  position: relative;
+}
 
+.flatpickr-month {
+  overflow: visible !important;
+  height: 48px !important;
+}
+
+.flatpickr-current-month {
+  display: flex !important;
+  justify-content: space-between;
+  left: 0px !important;
+  width: -webkit-fill-available;
+}
+
+/* Months dropdown selectors */
+.flatpickr-monthDropdown-months {
+  background: white !important;
+  font-size: var(--font-size-3) !important;
+  font-weight: var(--font-rg) !important;
+  padding: 0 !important;
+  color: var(--text-grey-800) !important;
+  text-align: center;
+}
+
+.flatpickr-monthDropdown-months:hover {
+  outline: 2px solid var(--myz-blue) !important;
+}
+
+/* Months arrows selectors */
+.flatpickr-next-month,
+.flatpickr-prev-month {
+  height: 48px !important;
+  width: 48px !important;
+  position: static !important;
+  padding: 0 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flatpickr-next-month > svg,
+.flatpickr-prev-month > svg {
+  height: 16px !important;
+  width: 16px !important;
+  fill: var(--text-grey-700);
+}
+
+/* Year toggle selectors */
+.flatpickr-current-month > .numInputWrapper {
+  background: white !important;
+  padding-right: 5px !important;
+  display: flex;
+  align-items: center;
+  color: var(--text-grey-800);
+  text-align: center;
+  width: 96px;
+  padding: 0px !important;
+}
+
+.flatpickr-current-month > .numInputWrapper:hover {
+  outline: 2px solid var(--myz-blue) !important;
+}
+
+.flatpickr-current-month > .numInputWrapper > input {
+  font-size: var(--font-size-3) !important;
+  font-weight: var(--font-rg) !important;
+  text-align: center;
+}
+
+/* Weekdays selectors */
 .flatpickr-weekdays {
   height: 48px;
-  margin-top: 24px;
   border-bottom: 1px solid var(--gray200);
 }
 
@@ -22,11 +95,14 @@
   font-weight: 400 !important;
 }
 
-/* Calendar selectors */
-
+/* Calendar days selectors */
 .flatpickr-calendar {
   border-radius: 2px;
   box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.4);
+  padding-top: var(--space-unit);
+}
+.flatpickr-calendar.hasTime {
+  min-height: 516px !important;
 }
 
 .flatpickr-weekday:nth-child(6),
@@ -79,8 +155,7 @@
   border-color: var(--myz-blue) !important;
 }
 
-/* Time selectors */
-
+/* Date and time selectors */
 .flatpickr-time {
   display: block;
   height: 90px !important;
@@ -92,18 +167,24 @@
   content: "Orario";
   width: 100%;
   display: block;
+  padding-left: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-grey-800) !important;
 }
 
 .flatpickr-time.time24hr {
   margin: 18px 14px !important;
-  /*   overflow: visible !important;*/
 }
 
-.flatpickr-time::before {
-  padding-left: 12px;
-  content: "ORARIO DI INIZIO";
-  font-size: 12px;
-  font-weight: 600;
+.flatpickr-time.time24hr > .numInputWrapper > input:hover {
+  background-color: white !important;
+  border: 0;
+}
+
+.flatpickr-time.time24hr > .numInputWrapper:hover {
+  background-color: white !important;
 }
 
 .flatpickr-time.time24hr > div {
@@ -115,19 +196,38 @@
   margin-right: 12px !important;
 }
 
-/* Months dropdown */
-.flatpickr-monthDropdown-months {
-  background: white !important;
-  border: 1px solid black !important;
-  font-size: var(--font-size-3) !important;
-  font-weight: var(--font-rg) !important;
-  padding-right: 5px !important;
+.flatpickr-time-separator {
+  height: 44px !important;
+  font-weight: unset !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.flatpickr-month {
-  overflow: visible !important;
-  z-index: 50 !important;
+/* toggle arrows selectors */
+.arrowUp,
+.arrowDown {
+  opacity: 1 !important;
+  border: none !important;
 }
-.flatpickr-current-month {
-  display: flex !important;
+
+.arrowUp:hover,
+.arrowDown:hover {
+  background-color: white !important;
+}
+
+.arrowUp::after,
+.arrowDown::after {
+  border: solid black !important;
+  border-width: 0 1px 1px 0 !important;
+  padding: 2.5px !important;
+}
+
+.arrowUp::after {
+  transform: rotate(-135deg);
+}
+
+.arrowDown::after {
+  transform: rotate(45deg);
 }
