@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.39.0](https://github.com/ZanichelliEditore/design-system/compare/v2.38.1...v2.39.0) (2022-05-13)
+
+
+### Features
+
+* add storybook-addon-stencil for docs argsTable ([7aa1548](https://github.com/ZanichelliEditore/design-system/commit/7aa154821a6de9e4703fad1652d13df3d72647b6))
+
+
+### Bug Fixes
+
+* addon-knobs bug when changing stories ([5a25f8d](https://github.com/ZanichelliEditore/design-system/commit/5a25f8dcc313e192808e1f3b078039d6fb7d833f))
+* import the component into the stories file ([c19396c](https://github.com/ZanichelliEditore/design-system/commit/c19396cefce80e8711cd23521da1db318a581d9f))
+* some dependencies and config; use controls for zbutton stories; PROPS/ARGSTABLE NOT WORKING ([bf5befa](https://github.com/ZanichelliEditore/design-system/commit/bf5befafbe79a97678a30aa75a297ce909178240))
+
 ### [2.38.1](https://github.com/ZanichelliEditore/design-system/compare/v2.38.0...v2.38.1) (2022-05-12)
 
 ## [2.38.0](https://github.com/ZanichelliEditore/design-system/compare/v2.37.1-CLAV-275...v2.38.0) (2022-05-11)
