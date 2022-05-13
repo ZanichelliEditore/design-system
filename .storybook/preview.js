@@ -1,58 +1,50 @@
-import { addParameters, addDecorator, setCustomElements } from '@storybook/web-components';
-import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from "@storybook/addon-knobs";
+import "../src/global.css";
+import dedent from "ts-dedent";
 
-import customElements from '../custom-elements.json';
-
-// bound generated Stencil documentation with Props table (https://github.com/storybookjs/storybook/blob/next/addons/docs/web-components/README.md)
-setCustomElements(customElements);
-
-addParameters({
+export const parameters = {
   viewport: {
-    viewports: [{
-        type: 'desktop',
-        name: 'responsive',
+    viewports: [
+      {
+        type: "mobile",
+        name: "mobile",
         styles: {
-          width: '100%',
-          height: '100%',
+          width: "320px",
+          height: "480px",
         },
       },
       {
-        type: 'mobile',
-        name: 'mobile',
+        type: "tablet",
+        name: "tablet",
         styles: {
-          width: '320px',
-          height: '480px',
+          width: "768px",
+          height: "1024px",
         },
       },
       {
-        type: 'tablet',
-        name: 'tablet',
+        type: "desktop",
+        name: "desktop",
         styles: {
-          width: '768px',
-          height: '1024px',
+          width: "1152px",
+          height: "100%",
         },
       },
       {
-        type: 'desktop',
-        name: 'desktop',
+        type: "desktop",
+        name: "wide",
         styles: {
-          width: '1152px',
-          height: '100%',
-        },
-      },
-      {
-        type: 'desktop',
-        name: 'wide',
-        styles: {
-          width: '1366px',
-          height: '100%',
+          width: "1366px",
+          height: "100%",
         },
       },
     ],
-    defaultViewport: 'responsive',
   },
-});
+  docs: {
+    // fix wrong indentation due to the story template string (html`...`)
+    transformSource: (input) => dedent(input),
+  },
+};
 
-addDecorator(withA11y);
-addDecorator(withKnobs);
+export const decorators = [
+  withKnobs,
+];

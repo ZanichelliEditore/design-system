@@ -1,6 +1,8 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
 import { number, text } from "@storybook/addon-knobs";
+import "./index.stories.css";
+import "./index";
 
 <Meta title="ZCarousel" component="z-carousel" />
 
@@ -8,58 +10,41 @@ import { number, text } from "@storybook/addon-knobs";
 
 <Preview>
   <Story name="ZCarousel-with-div">
-    {html`<z-carousel style="${text("gutter", "--z-carousel-gutter: 8px")}">
+    {html`<z-carousel style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, { min: 0 })}px">
       <li>
-        <div
-          style="width: 200px; height: 200px; background-color: red; border-radius: 4px"
-        ></div>
+        <div class="carousel-box"></div>
       </li>
       <li>
-        <div
-          style="width: 200px; height: 200px; background-color: yellow; border-radius: 4px"
-        ></div>
+        <div class="carousel-box"></div>
       </li>
       <li>
-        <div
-          style="width: 200px; height: 200px; background-color: blue; border-radius: 4px"
-        ></div>
+        <div class="carousel-box"></div>
       </li>
       <li>
-        <div
-          style="width: 200px; height: 200px; background-color: green; border-radius: 4px"
-        ></div>
+        <div class="carousel-box"></div>
       </li>
       <li>
-        <div
-          style="width: 200px; height: 200px; background-color: purple; border-radius: 4px"
-        ></div>
+        <div class="carousel-box"></div>
       </li>
       <li>
-        <div
-          style="width: 200px; height: 200px; background-color: orange; border-radius: 4px"
-        ></div>
+        <div class="carousel-box"></div>
       </li>
       <li>
-        <div
-          style="width: 200px; height: 200px; background-color: grey; border-radius: 4px"
-        ></div>
+        <div class="carousel-box"></div>
       </li>
       <li>
-        <div
-          style="width: 200px; height: 200px; background-color: black; border-radius: 4px"
-        ></div>
+        <div class="carousel-box"></div>
       </li>
       <li>
-        <div
-          style="width: 200px; height: 200px; background-color: pink; border-radius: 4px"
-        ></div></li
-    ></z-carousel>`}
+        <div class="carousel-box"></div>
+      </li>
+    </z-carousel>`}
   </Story>
 </Preview>
 
 <Preview>
   <Story name="ZCarousel-with-component">
-    {html`<z-carousel style="${text("gutter", "--z-carousel-gutter: 8px")}">
+    {html`<z-carousel style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, { min: 0 })}px">
       <li>
         <z-button variant="primary" size="big" disabled="false" icon="download">
           Click Me
@@ -158,20 +143,34 @@ import { number, text } from "@storybook/addon-knobs";
           </p>
           <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
-        </z-card></li
-    ></z-carousel>`}
+        </z-card>
+      </li>
+    </z-carousel>`}
   </Story>
 </Preview>
 
 <Props of="z-carousel" />
 
 ## Description
-
-This component wraps `li`children of the ZCarousel.
-It was conceived as a list of elements to respect the rules of accessibility. (https://www.w3.org/WAI/tutorials/carousels/working-example/)
+This component was conceived as a list of elements to respect the rules of accessibility (https://www.w3.org/WAI/tutorials/carousels/working-example/).
 
 ## Usage
+Pass any number of elements inside its main `slot`.
 
-One `z-carousel`component wraps `N` `li`.
+```html
+<z-carousel>
+  <li>element</li>
+  <li>element</li>
+  <li>element</li>
+<z-carousel>
+```
 
-Any type of element must be passed into a `li` element.
+> Note: always use `li` elements as direct children of `z-carousel`, as it wraps them into an `ul` element.
+
+You can set the gutter between the elements by using the `--z-carousel-gutter` custom property.
+From css:
+```css
+z-carousel {
+  --z-carousel-gutter: 16px;
+}
+```
