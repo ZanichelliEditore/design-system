@@ -400,6 +400,16 @@ export enum ZAriaAlertMode {
   assertive = "assertive",
 }
 
+export enum TransitionDirectionEnum {
+  left = "left",
+  right = "right",
+}
+
+export enum OffCanvasVariantsEnum {
+  overlay = "overlay",
+  pushcontent = "pushcontent",
+}
+
 export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
 
 export enum ZChipType {

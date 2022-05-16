@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZChipType, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1047,6 +1047,20 @@ export namespace Components {
          */
         "type": NotificationType;
     }
+    interface ZOffcanvas {
+        /**
+          * open component. Default: false
+         */
+        "open": boolean;
+        /**
+          * open content transitioning in a specified direction left | right. Default: left
+         */
+        "transitiondirection"?: TransitionDirectionEnum;
+        /**
+          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
+         */
+        "variant"?: OffCanvasVariantsEnum;
+    }
     interface ZOtp {
         "inputNum"?: number;
         "message"?: string;
@@ -1907,6 +1921,12 @@ declare global {
         prototype: HTMLZNotificationElement;
         new (): HTMLZNotificationElement;
     };
+    interface HTMLZOffcanvasElement extends Components.ZOffcanvas, HTMLStencilElement {
+    }
+    var HTMLZOffcanvasElement: {
+        prototype: HTMLZOffcanvasElement;
+        new (): HTMLZOffcanvasElement;
+    };
     interface HTMLZOtpElement extends Components.ZOtp, HTMLStencilElement {
     }
     var HTMLZOtpElement: {
@@ -2158,6 +2178,7 @@ declare global {
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
+        "z-offcanvas": HTMLZOffcanvasElement;
         "z-otp": HTMLZOtpElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
@@ -3367,6 +3388,24 @@ declare namespace LocalJSX {
          */
         "type"?: NotificationType;
     }
+    interface ZOffcanvas {
+        /**
+          * emitted when open prop changes
+         */
+        "onCanvasOpenStatusChanged"?: (event: CustomEvent<any>) => void;
+        /**
+          * open component. Default: false
+         */
+        "open"?: boolean;
+        /**
+          * open content transitioning in a specified direction left | right. Default: left
+         */
+        "transitiondirection"?: TransitionDirectionEnum;
+        /**
+          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
+         */
+        "variant"?: OffCanvasVariantsEnum;
+    }
     interface ZOtp {
         "inputNum"?: number;
         "message"?: string;
@@ -3978,6 +4017,7 @@ declare namespace LocalJSX {
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
         "z-notification": ZNotification;
+        "z-offcanvas": ZOffcanvas;
         "z-otp": ZOtp;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
@@ -4074,6 +4114,7 @@ declare module "@stencil/core" {
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
+            "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
