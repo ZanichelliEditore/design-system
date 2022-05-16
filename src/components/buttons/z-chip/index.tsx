@@ -44,7 +44,7 @@ export class ZChip {
           )}
           <slot />
           <z-icon
-            tabIndex={0}
+            tabIndex={this.disabled ? -1 : 0}
             onClick={() => this.emitinteractiveIconClick()}
             onKeyPress={(e) =>
               handleKeyboardSubmit(e, this.emitinteractiveIconClick)
