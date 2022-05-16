@@ -39,8 +39,8 @@ export class ZChip {
           {this.icon && (
             <z-icon
               name={this.icon}
-              width={getDevice() !== DeviceEnum.desktop ? 18 : 14}
-              height={getDevice() !== DeviceEnum.desktop ? 18 : 14}
+              width={getDevice() !== DeviceEnum.desktop ? 22 : 14}
+              height={getDevice() !== DeviceEnum.desktop ? 22 : 14}
             />
           )}
           <slot />
@@ -66,8 +66,8 @@ export class ZChip {
         {this.icon && (
           <z-icon
             name={this.icon}
-            width={getDevice() !== DeviceEnum.desktop ? 18 : 14}
-            height={getDevice() !== DeviceEnum.desktop ? 18 : 14}
+            width={getDevice() !== DeviceEnum.desktop ? 22 : 14}
+            height={getDevice() !== DeviceEnum.desktop ? 22 : 14}
           />
         )}
         <span class="bold label">{this.label}</span>
