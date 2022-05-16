@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.40.0](https://github.com/ZanichelliEditore/design-system/compare/v2.39.0...v2.40.0) (2022-05-16)
+
+
+### Features
+
+* **feat/z-offcancas:** creates new offcanvas component ([f9b9296](https://github.com/ZanichelliEditore/design-system/commit/f9b9296766111982efcb3832a101ac4d19c727a5))
+* **feat/z-offcancas:** enable choosing a side for the modal ([4b501e5](https://github.com/ZanichelliEditore/design-system/commit/4b501e5f7ed28dd181a14013a4c1d129522067e0))
+* **feat/z-offcancas:** removes header and ads open prop ([38133af](https://github.com/ZanichelliEditore/design-system/commit/38133af8763d7bf36cfcc298e0da2c5e20d80699))
+* **feat/z-offcanvas:**  add animation to show offcanvas on right side ([6fc6b02](https://github.com/ZanichelliEditore/design-system/commit/6fc6b02eaf26a197ed4652c532c6b4931b25408d))
+* **feat/z-offcanvas:**  handle exit animation for overlay ([d58ac99](https://github.com/ZanichelliEditore/design-system/commit/d58ac99286d1312517a642809e6ae92965db5340))
+* **feat/z-offcanvas:** add block-style variation ([3f33a34](https://github.com/ZanichelliEditore/design-system/commit/3f33a349cacececeacf548815b06469700dea497))
+* **feat/z-offcanvas:** adds css variable to set top space left above canvas on overlay ([b4d6c51](https://github.com/ZanichelliEditore/design-system/commit/b4d6c5107dd8b7bf0d63104832f03237e8f92993))
+* **feat/z-offcanvas:** adds tabindex to content for accessibility ([5fa10b8](https://github.com/ZanichelliEditore/design-system/commit/5fa10b86849b96299334c9369274afe30c288d3f))
+* **feat/z-offcanvas:** change overlay prop to variant with enum values overlay | pushcontent ([63acb3c](https://github.com/ZanichelliEditore/design-system/commit/63acb3c7cd650677d25e9d59c6b11ccf54de2d50))
+* **feat/z-offcanvas:** change prop name to transitionfromleft ([0fbd1de](https://github.com/ZanichelliEditore/design-system/commit/0fbd1dec14803e316c1bf1466f3ca521d89a119f))
+* **feat/z-offcanvas:** change transitionToleft prop to transitiondirection with enum values left | right ([2e6fc84](https://github.com/ZanichelliEditore/design-system/commit/2e6fc842d4c11a7a7753728fbaf027dc625d51ce))
+* **feat/z-offcanvas:** emit event on open status change ([a5a8a6d](https://github.com/ZanichelliEditore/design-system/commit/a5a8a6dff51ad8b48465b87a1b687004c935fbbe))
+* **feat/z-offcanvas:** fix animation on leftside and removes header css style ([8801633](https://github.com/ZanichelliEditore/design-system/commit/8801633a8d69bacdf345c07abd764054b22ee9b7))
+* **feat/z-offcanvas:** fix test ([fe657e9](https://github.com/ZanichelliEditore/design-system/commit/fe657e9d4295a5d1519060bf08bc3f7869d62033))
+* **feat/z-offcanvas:** open prop mutable ([12170ad](https://github.com/ZanichelliEditore/design-system/commit/12170ad1f4b28c3efce1bd9a37032b9fda7bdf55))
+* **feat/z-offcanvas:** renamed alignleft prop to transitionleft ([8dfa558](https://github.com/ZanichelliEditore/design-system/commit/8dfa5583ebdf2c11c821b0fe0d6d5a4343e39a15))
+* **feat/z-offcanvas:** slight css refactoring ([d60d7b8](https://github.com/ZanichelliEditore/design-system/commit/d60d7b8edd3a0d345e6101fac10651f4ce7b6e26))
+* **feat/z-offcanvas:** use animationend event to hadle exit transition ([fad350b](https://github.com/ZanichelliEditore/design-system/commit/fad350bdc85e8fee8e925f2574e84f2cec8db9e9))
+
+
+### Bug Fixes
+
+* **feat/z-offcanvas:**  fixed test ([b33ee56](https://github.com/ZanichelliEditore/design-system/commit/b33ee5672fb86855dff2193cce636dfc0163391b))
+* **feat/z-offcanvas:** fix issue with open attribute ([d458515](https://github.com/ZanichelliEditore/design-system/commit/d4585152127ef20e200fdb5d39464102e0f0cd8e))
+* **feat/z-offcanvas:** fixed css dimensions ([edde851](https://github.com/ZanichelliEditore/design-system/commit/edde851034530b0fb5f8dce45bd36d3257a25922))
+* **feat/z-offcanvas:** fixes slide animation ([3361b86](https://github.com/ZanichelliEditore/design-system/commit/3361b863c79aa42fd655024998ab3b929a769e06))
+* **feat/z-offcanvas:** remove flex 1 from canvas in index ([41cc08e](https://github.com/ZanichelliEditore/design-system/commit/41cc08e2571a936ae0687afa48136de2ced34598))
+
 ## [2.39.0](https://github.com/ZanichelliEditore/design-system/compare/v2.38.1...v2.39.0) (2022-05-13)
 
 
