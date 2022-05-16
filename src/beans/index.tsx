@@ -411,3 +411,8 @@ export enum OffCanvasVariantsEnum {
 }
 
 export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
+
+export enum ZChipType {
+  default = "default",
+  mini = "mini",
+}

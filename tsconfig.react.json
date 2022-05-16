@@ -19,6 +19,7 @@
     "jsx": "react",
     "target": "es2015",
     "baseUrl": ".",
+    "skipLibCheck": true,
     "paths": {
       "@zanichelli/albe-web-components": [
         "./"

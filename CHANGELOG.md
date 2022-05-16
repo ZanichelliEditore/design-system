@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.39.0](https://github.com/ZanichelliEditore/design-system/compare/v2.38.1...v2.39.0) (2022-05-13)
+
+
+### Features
+
+* add storybook-addon-stencil for docs argsTable ([7aa1548](https://github.com/ZanichelliEditore/design-system/commit/7aa154821a6de9e4703fad1652d13df3d72647b6))
+
+
+### Bug Fixes
+
+* addon-knobs bug when changing stories ([5a25f8d](https://github.com/ZanichelliEditore/design-system/commit/5a25f8dcc313e192808e1f3b078039d6fb7d833f))
+* import the component into the stories file ([c19396c](https://github.com/ZanichelliEditore/design-system/commit/c19396cefce80e8711cd23521da1db318a581d9f))
+* some dependencies and config; use controls for zbutton stories; PROPS/ARGSTABLE NOT WORKING ([bf5befa](https://github.com/ZanichelliEditore/design-system/commit/bf5befafbe79a97678a30aa75a297ce909178240))
+
+### [2.38.1](https://github.com/ZanichelliEditore/design-system/compare/v2.38.0...v2.38.1) (2022-05-12)
+
+## [2.38.0](https://github.com/ZanichelliEditore/design-system/compare/v2.37.1-CLAV-275...v2.38.0) (2022-05-11)
+
+
+### Features
+
+* **CLAV-275/Zcarousel:** fix for pr ([19c73a5](https://github.com/ZanichelliEditore/design-system/commit/19c73a56b5d28ac25df5a333cf86507cc3ebf4ce))
+
+### [2.37.1-CLAV-275](https://github.com/ZanichelliEditore/design-system/compare/v2.37.0...v2.37.1-CLAV-275) (2022-05-04)
+
+
+### Features
+
+* **clav-275:** add carousel-item component ([6281ad3](https://github.com/ZanichelliEditore/design-system/commit/6281ad3f9e1d63d2f63547cf4c83da7108e9a7a2))
+* **clav-275:** add padding and fix storybook ([2fa16dc](https://github.com/ZanichelliEditore/design-system/commit/2fa16dcd1eb72c078840492f53bf820403f557e7))
+* **clav-275:** fix ([b271e44](https://github.com/ZanichelliEditore/design-system/commit/b271e44125b22f862a00fdd39043fc48c903a1a6))
+* **CLAV-275/Zcarousel:** feat init carousel ([7d2f8e0](https://github.com/ZanichelliEditore/design-system/commit/7d2f8e0b9604524113e55d49bf797b68ccc50b4f))
+
+
+### Bug Fixes
+
+* remove box-shadows ([7c15296](https://github.com/ZanichelliEditore/design-system/commit/7c152969d02f5e93be72d70ce1f3c8b820fa90f5))
+
 ## [2.37.0](https://github.com/ZanichelliEditore/design-system/compare/v2.36.3...v2.37.0) (2022-04-20)
 
 

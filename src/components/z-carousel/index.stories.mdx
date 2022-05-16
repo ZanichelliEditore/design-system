@@ -1,0 +1,176 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
+import { number, text } from "@storybook/addon-knobs";
+import "./index.stories.css";
+import "./index";
+
+<Meta title="ZCarousel" component="z-carousel" />
+
+# ZCarousel
+
+<Preview>
+  <Story name="ZCarousel-with-div">
+    {html`<z-carousel style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, { min: 0 })}px">
+      <li>
+        <div class="carousel-box"></div>
+      </li>
+      <li>
+        <div class="carousel-box"></div>
+      </li>
+      <li>
+        <div class="carousel-box"></div>
+      </li>
+      <li>
+        <div class="carousel-box"></div>
+      </li>
+      <li>
+        <div class="carousel-box"></div>
+      </li>
+      <li>
+        <div class="carousel-box"></div>
+      </li>
+      <li>
+        <div class="carousel-box"></div>
+      </li>
+      <li>
+        <div class="carousel-box"></div>
+      </li>
+      <li>
+        <div class="carousel-box"></div>
+      </li>
+    </z-carousel>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="ZCarousel-with-component">
+    {html`<z-carousel style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, { min: 0 })}px">
+      <li>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
+      </li>
+      <li>
+        <z-card
+          variant="text"
+          .clickable="false"
+          .showshadow="false"
+          style="--z-card--text-background: white; --z-card--text-border: 2px solid black; width: 263px;"
+        >
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card Title</h3>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
+          <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
+          <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
+        </z-card>
+      </li>
+      <li>
+        <z-card
+          variant="text"
+          .clickable="false"
+          .showshadow="false"
+          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"
+        >
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card Title</h3>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
+          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
+          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
+        </z-card>
+      </li>
+      <li>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
+      </li>
+      <li>
+        <z-card
+          variant="text"
+          .clickable="false"
+          .showshadow="false"
+          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"
+        >
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card Title</h3>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
+          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
+          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
+        </z-card>
+      </li>
+      <li>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
+      </li>
+      <li>
+        <z-card
+          variant="text"
+          .clickable="false"
+          .showshadow="false"
+          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"
+        >
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card Title</h3>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
+          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
+          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
+        </z-card>
+      </li>
+      <li>
+        <z-button variant="primary" size="big" disabled="false" icon="download">
+          Click Me
+        </z-button>
+      </li>
+      <li>
+        <z-card
+          variant="text"
+          .clickable="false"
+          .showshadow="false"
+          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"
+        >
+          <h2 class="body-5" slot="metadata">metadata</h2>
+          <h3 slot="title">Card Title</h3>
+          <p class="body-3" slot="text">
+            Some description for the content of the card.
+          </p>
+          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
+          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
+        </z-card>
+      </li>
+    </z-carousel>`}
+  </Story>
+</Preview>
+
+<Props of="z-carousel" />
+
+## Description
+This component was conceived as a list of elements to respect the rules of accessibility (https://www.w3.org/WAI/tutorials/carousels/working-example/).
+
+## Usage
+Pass any number of elements inside its main `slot`.
+
+```html
+<z-carousel>
+  <li>element</li>
+  <li>element</li>
+  <li>element</li>
+<z-carousel>
+```
+
+> Note: always use `li` elements as direct children of `z-carousel`, as it wraps them into an `ul` element.
+
+You can set the gutter between the elements by using the `--z-carousel-gutter` custom property.
+From css:
+```css
+z-carousel {
+  --z-carousel-gutter: 16px;
+}
+```
