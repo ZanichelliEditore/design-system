@@ -12,9 +12,7 @@ import { text, select, boolean } from "@storybook/addon-knobs";
   <Story name="z-chip">
     {html` <z-chip
       type="${select("type", ["default", "medium", "small"], "default")}"
-      icon-position="${select("Icon position", ["left", "right"], "left")}"
       icon="${text("Icon name", "pdf")}"
-      disabled="${boolean("disabled", false)}"
     >
       ${text("text", "my custom element")}
     </z-chip>`}

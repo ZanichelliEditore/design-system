@@ -216,7 +216,6 @@ export namespace Components {
     interface ZChip {
         "disabled"?: boolean;
         "icon"?: string;
-        "iconPosition"?: "left" | "right";
         "interactiveIcon"?: string;
         "type"?: ZChipType;
     }
@@ -2419,7 +2418,6 @@ declare namespace LocalJSX {
     interface ZChip {
         "disabled"?: boolean;
         "icon"?: string;
-        "iconPosition"?: "left" | "right";
         "interactiveIcon"?: string;
         "onInteractiveIconClick"?: (event: CustomEvent<any>) => void;
         "type"?: ZChipType;

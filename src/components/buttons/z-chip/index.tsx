@@ -11,13 +11,13 @@ import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 @Component({
   tag: "z-chip",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZChip {
   @Element() el: HTMLElement;
 
   @Prop() icon?: string;
-  @Prop({ reflect: true }) iconPosition?: "left" | "right" = "left";
   @Prop({ reflect: true }) type?: ZChipType = ZChipType.default;
   @Prop({ reflect: true }) interactiveIcon?: string;
   @Prop({ reflect: true }) disabled?: boolean = false;
@@ -54,11 +54,7 @@ export class ZChip {
     }
 
     return (
-      <div
-        class={`${this.type} ${this.iconPosition} ${
-          this.disabled && "disabled"
-        }`}
-      >
+      <div class={`${this.type}`}>
         {this.icon && (
           <z-icon
             name={this.icon}

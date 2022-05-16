@@ -11,7 +11,6 @@
 | ----------------- | ------------------ | ----------- | ---------------------------------------------------------- | ------------------- |
 | `disabled`        | `disabled`         |             | `boolean`                                                  | `false`             |
 | `icon`            | `icon`             |             | `string`                                                   | `undefined`         |
-| `iconPosition`    | `icon-position`    |             | `"left" \| "right"`                                        | `"left"`            |
 | `interactiveIcon` | `interactive-icon` |             | `string`                                                   | `undefined`         |
 | `type`            | `type`             |             | `ZChipType.default \| ZChipType.medium \| ZChipType.small` | `ZChipType.default` |
 

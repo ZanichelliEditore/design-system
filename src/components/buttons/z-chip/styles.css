@@ -29,20 +29,14 @@
   fill: var(--color-primary01);
 }
 
-:host > button > z-icon:last-child:focus-visible {
-  box-shadow: var(--shadow-focus-primary);
-  border-radius: 50%;
-  outline: none;
-}
-
 :host > button:disabled,
 :host > button:disabled > z-icon {
   color: var(--color-disabled01);
   fill: var(--color-disabled01);
 }
 
-:host > button.default:focus:focus-visible,
-:host > button.mini:focus:focus-visible {
+:host > button:focus:focus-visible,
+:host > div:focus {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
@@ -69,21 +63,6 @@
 
 :host > div > z-icon {
   margin-right: calc(var(--space-unit) / 2);
-}
-
-:host > div.right {
-  flex-direction: row-reverse;
-}
-
-:host > div.right > z-icon {
-  margin-left: calc(var(--space-unit) / 2);
-  margin-right: 0;
-}
-
-:host > div.disabled,
-:host > div.disabled > z-icon {
-  color: var(--color-disabled01);
-  fill: var(--color-disabled01);
 }
 
 /* z-chip type */
