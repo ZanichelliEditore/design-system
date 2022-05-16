@@ -32,6 +32,7 @@
  - [z-button-filter](../../buttons/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
  - [z-card](../../z-card)
+ - [z-chip](../../buttons/z-chip)
  - [z-combobox](../../inputs/z-combobox)
  - [z-contextual-menu](../../z-contextual-menu)
  - [z-footer-section](../../footer/z-footer-section)
@@ -73,6 +74,7 @@ graph TD;
   z-button-filter --> z-icon
   z-button-sort --> z-icon
   z-card --> z-icon
+  z-chip --> z-icon
   z-combobox --> z-icon
   z-contextual-menu --> z-icon
   z-footer-section --> z-icon

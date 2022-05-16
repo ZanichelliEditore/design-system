@@ -404,5 +404,6 @@ export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
 
 export enum ZChipType {
   default = "default",
-  mini = "mini",
+  medium = "medium",
+  small = "small",
 }

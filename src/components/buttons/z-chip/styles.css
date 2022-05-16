@@ -1,40 +1,34 @@
 :host > button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 0 calc(var(--space-unit) * 1.5);
   background-color: var(--bg-white);
-  border: var(--border-size-medium) solid var(--bg-grey-200);
-  color: var(--text-grey-800);
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  color: var(--color-primary01);
   fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-size: 14px;
 }
 
-:host > div {
-  display: inline-block;
-  min-height: 28px;
-  line-height: 28px;
-  padding: 0 calc(var(--space-unit) * 1.5);
-  background-color: var(--bg-white);
-  border: var(--border-size-small) solid var(--bg-grey-200);
-  border-radius: 14px;
-  color: var(--text-grey-800);
-  fill: var(--text-grey-800);
-  font-family: var(--dashboard-font);
-  font-size: 12px;
+:host > button:hover,
+:host > button:hover > z-icon {
+  color: var(--color-hover-primary);
+  fill: var(--color-hover-primary);
 }
 
-.boldtext {
-  font-weight: bold;
+:host > button > z-icon:first-child {
+  margin-right: 4px;
 }
 
-:host > button:hover {
-  color: var(--myz-blue-dark);
+:host > button > z-icon:last-child {
+  margin-left: 4px;
+  fill: var(--color-primary01);
 }
 
-:host > button:disabled {
-  border: var(--border-size-medium) solid var(--bg-grey-200);
-  color: rgb(149, 153, 157);
-  box-shadow: none;
+:host > button:disabled,
+:host > button:disabled > z-icon {
+  color: var(--color-disabled01);
+  fill: var(--color-disabled01);
 }
 
 :host > button.default:focus:focus-visible,
@@ -45,20 +39,66 @@
 
 :host > button:not(:disabled):active {
   background-color: var(--gray50);
+  text-decoration: underline;
 }
 
+:host > div {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  line-height: 28px;
+  padding: 0 calc(var(--space-unit) * 1.5);
+  background-color: var(--bg-white);
+  border: var(--border-size-small) solid var(--bg-grey-200);
+  border-radius: 14px;
+  color: var(--text-grey-800);
+  fill: var(--text-grey-800);
+  font-family: var(--dashboard-font);
+  font-size: 14px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+:host > div > z-icon,
+:host > div > span.bold {
+  margin-right: 4px;
+}
+
+:host > div.right {
+  flex-direction: row-reverse;
+}
+
+:host > div.right > span.label {
+  order: 3;
+}
+
+:host > div.right > z-icon {
+  margin-left: 4px;
+  margin-right: 0;
+}
+
+/* z-chip type */
 :host > button.default,
 :host > div.default {
   min-height: 44px;
-  border-radius: 22px;
   line-height: 44px;
+  border-radius: 22px;
 }
 
-:host > button.mini,
-:host > div.mini {
-  min-height: 36px;
+:host > button.medium,
+:host > div.medium {
+  min-height: 40px;
+  line-height: 40px;
   border-radius: 22px;
+}
+
+:host > button.small,
+:host > div.small {
+  min-height: 36px;
   line-height: 36px;
+  border-radius: 22px;
 }
 
 /* Desktop breakpoint */
@@ -67,17 +107,29 @@
     font-size: 12px;
   }
 
+  :host > div {
+    font-size: 12px;
+  }
+
+  /* z-chip type */
   :host > button.default,
   :host > div.default {
     min-height: 32px;
-    border-radius: 16px;
     line-height: 32px;
+    border-radius: 16px;
   }
 
-  :host > button.mini,
-  :host > div.mini {
-    min-height: 24px;
+  :host > button.medium,
+  :host > div.medium {
+    min-height: 28px;
+    line-height: 28px;
     border-radius: 16px;
+  }
+
+  :host > button.small,
+  :host > div.small {
+    min-height: 24px;
     line-height: 24px;
+    border-radius: 16px;
   }
 }

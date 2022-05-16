@@ -9,24 +9,16 @@ import { text, select, boolean } from "@storybook/addon-knobs";
 # ZChip with attributes
 
 <Preview>
-  <Story name="z-chip with attributes">
+  <Story name="z-chip without interaction">
     {html` <z-chip
-      boldtext="${text("boldtext", "1234")}"
-      regulartext="${text("regulartext", "libri trovati")}"
-    ></z-chip>`}
-  </Story>
-</Preview>
-
-# ZChip with children
-
-<Preview>
-  <Story name="z-chip with children">
-    {html` <z-chip
-      type="${select("type", ["", "default", "mini"], "")}"
-      disabled="${boolean("Disabled", false)}"
-      filter="${boolean("Filter", false)}"
+      type="${select("type", ["default", "medium", "small"], "default")}"
+      icon-position="${select("Icon position", ["left", "right"], "left")}"
+      label="${text("label", "label")}"
+      icon="${text("Icon name", "pdf")}"
+      bold="${boolean("bold", false)}"
+      interaction="${boolean("Interaction", false)}"
     >
-      <z-body level="4">My custom element</z-body>
+      ${text("text", "my custom element")}
     </z-chip>`}
   </Story>
 </Preview>
