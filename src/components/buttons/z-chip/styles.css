@@ -17,7 +17,7 @@
 }
 
 :host > button:hover:not(:disabled) > z-icon:first-child {
-  fill: var(--text-grey-800);
+  fill: var(--color-icon02);
 }
 
 :host > button > z-icon:first-child {
@@ -25,8 +25,14 @@
 }
 
 :host > button > z-icon:last-child {
-  margin-left: 4px;
+  margin-left: 8px;
   fill: var(--color-primary01);
+}
+
+:host > button > z-icon:last-child:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  border-radius: 50%;
+  outline: none;
 }
 
 :host > button:disabled,
