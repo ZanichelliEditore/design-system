@@ -54,7 +54,7 @@ export class ZChip {
     }
 
     return (
-      <div class={`${this.type}`}>
+      <div class={`${this.type}`} tabindex="0">
         {this.icon && (
           <z-icon
             name={this.icon}

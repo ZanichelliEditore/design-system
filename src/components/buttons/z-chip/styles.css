@@ -8,6 +8,7 @@
   fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-size: 14px;
+  font-weight: var(--font-sb);
 }
 
 :host > button:hover:not(:disabled),
@@ -36,7 +37,7 @@
 }
 
 :host > button:focus:focus-visible,
-:host > div:focus {
+:host > div:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
