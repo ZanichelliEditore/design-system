@@ -27,6 +27,10 @@ export class ZChip {
     this.interactiveIconClick.emit();
   }
 
+  getIconSize() {
+    return getDevice() !== DeviceEnum.desktop ? 22 : 14;
+  }
+
   render() {
     if (this.interactiveIcon) {
       return (
@@ -34,8 +38,8 @@ export class ZChip {
           {this.icon && (
             <z-icon
               name={this.icon}
-              width={getDevice() !== DeviceEnum.desktop ? 22 : 14}
-              height={getDevice() !== DeviceEnum.desktop ? 22 : 14}
+              width={this.getIconSize()}
+              height={this.getIconSize()}
             />
           )}
           <slot />
@@ -46,8 +50,8 @@ export class ZChip {
               handleKeyboardSubmit(e, this.emitinteractiveIconClick)
             }
             name={this.interactiveIcon}
-            height={getDevice() !== DeviceEnum.desktop ? 22 : 14}
-            width={getDevice() !== DeviceEnum.desktop ? 22 : 14}
+            width={this.getIconSize()}
+            height={this.getIconSize()}
           />
         </button>
       );
@@ -58,8 +62,8 @@ export class ZChip {
         {this.icon && (
           <z-icon
             name={this.icon}
-            width={getDevice() !== DeviceEnum.desktop ? 22 : 14}
-            height={getDevice() !== DeviceEnum.desktop ? 22 : 14}
+            width={this.getIconSize()}
+            height={this.getIconSize()}
           />
         )}
         <slot />
