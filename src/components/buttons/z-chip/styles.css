@@ -21,11 +21,11 @@
 }
 
 :host > button > z-icon:first-child {
-  margin-right: 4px;
+  margin-right: calc(var(--space-unit) / 2);
 }
 
 :host > button > z-icon:last-child {
-  margin-left: 8px;
+  margin-left: var(--space-unit);
   fill: var(--color-primary01);
 }
 
@@ -68,12 +68,12 @@
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: var(--font-sb);
 }
 
 :host > div > z-icon,
 :host > div > span.bold {
-  margin-right: 4px;
+  margin-right: calc(var(--space-unit) / 2);
 }
 
 :host > div.right {
@@ -85,7 +85,7 @@
 }
 
 :host > div.right > z-icon {
-  margin-left: 4px;
+  margin-left: calc(var(--space-unit) / 2);
   margin-right: 0;
 }
 
