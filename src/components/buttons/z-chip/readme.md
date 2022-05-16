@@ -18,6 +18,13 @@
 | `type`         | `type`          |                          | `ZChipType.default \| ZChipType.medium \| ZChipType.small` | `ZChipType.default` |
 
 
+## Events
+
+| Event        | Description | Type               |
+| ------------ | ----------- | ------------------ |
+| `removeChip` |             | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Depends on

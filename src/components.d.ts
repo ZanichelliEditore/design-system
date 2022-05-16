@@ -2431,6 +2431,7 @@ declare namespace LocalJSX {
          */
         "interaction"?: boolean;
         "label"?: string;
+        "onRemoveChip"?: (event: CustomEvent<any>) => void;
         "type"?: ZChipType;
     }
     interface ZCombobox {

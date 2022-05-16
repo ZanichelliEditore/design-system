@@ -1,4 +1,11 @@
-import { Component, Prop, h, Element } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Element,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 import { DeviceEnum, ZChipType } from "../../../beans";
 import { getDevice } from "../../../utils/utils";
 @Component({
@@ -7,7 +14,7 @@ import { getDevice } from "../../../utils/utils";
   shadow: true,
 })
 export class ZChip {
-  @Element() hostElement: HTMLElement;
+  @Element() el: HTMLElement;
 
   @Prop() label?: string;
   @Prop() icon?: string;
@@ -18,6 +25,12 @@ export class ZChip {
   /** z-chip interaction props */
   @Prop({ reflect: true }) interaction?: boolean = false;
   @Prop({ reflect: true }) disabled?: boolean = false;
+
+  @Event() removeChip: EventEmitter;
+  removeChips() {
+    this.removeChip.emit();
+    this.el.remove();
+  }
 
   render() {
     if (this.interaction) {
@@ -33,9 +46,16 @@ export class ZChip {
           <slot />
           <z-icon
             tabIndex={0}
+            onClick={() => this.removeChips()}
+            onKeyPress={(e) => {
+              if (e.code == "Space" || e.code == "Enter") {
+                e.preventDefault();
+                this.removeChips();
+              }
+            }}
             name="multiply-circled"
-            height={getDevice() !== DeviceEnum.desktop ? 18 : 14}
-            width={getDevice() !== DeviceEnum.desktop ? 18 : 14}
+            height={getDevice() !== DeviceEnum.desktop ? 22 : 14}
+            width={getDevice() !== DeviceEnum.desktop ? 22 : 14}
           />
         </button>
       );
