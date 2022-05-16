@@ -10,10 +10,14 @@
   font-size: 14px;
 }
 
-:host > button:hover,
-:host > button:hover > z-icon {
+:host > button:hover:not(:disabled),
+:host > button:hover:not(:disabled) > z-icon:last-child {
   color: var(--color-hover-primary);
   fill: var(--color-hover-primary);
+}
+
+:host > button:hover:not(:disabled) > z-icon:first-child {
+  fill: var(--text-grey-800);
 }
 
 :host > button > z-icon:first-child {
