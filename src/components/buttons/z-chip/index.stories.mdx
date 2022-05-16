@@ -6,18 +6,30 @@ import { text, select, boolean } from "@storybook/addon-knobs";
 
 <Meta title="Buttons/ZChip" component="z-chip" />
 
-# ZChip with attributes
+# ZChip
 
 <Preview>
   <Story name="z-chip">
     {html` <z-chip
       type="${select("type", ["default", "medium", "small"], "default")}"
       icon-position="${select("Icon position", ["left", "right"], "left")}"
-      label="${text("label", "label")}"
       icon="${text("Icon name", "pdf")}"
-      bold="${boolean("bold", false)}"
       disabled="${boolean("disabled", false)}"
-      interaction="${boolean("Interaction", false)}"
+    >
+      ${text("text", "my custom element")}
+    </z-chip>`}
+  </Story>
+</Preview>
+
+# ZChip with interactiveIcon
+
+<Preview>
+  <Story name="z-chip with interactiveIcon">
+    {html` <z-chip
+      type="${select("type", ["default", "medium", "small"], "default")}"
+      interactive-icon="${text("Interactive icon", "multiply-circled")}"
+      icon="${text("Icon name", "pdf")}"
+      disabled="${boolean("disabled", false)}"
     >
       ${text("text", "my custom element")}
     </z-chip>`}

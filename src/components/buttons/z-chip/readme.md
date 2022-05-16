@@ -7,22 +7,20 @@
 
 ## Properties
 
-| Property       | Attribute       | Description              | Type                                                       | Default             |
-| -------------- | --------------- | ------------------------ | ---------------------------------------------------------- | ------------------- |
-| `bold`         | `bold`          |                          | `boolean`                                                  | `false`             |
-| `disabled`     | `disabled`      |                          | `boolean`                                                  | `false`             |
-| `icon`         | `icon`          |                          | `string`                                                   | `undefined`         |
-| `iconPosition` | `icon-position` |                          | `"left" \| "right"`                                        | `"left"`            |
-| `interaction`  | `interaction`   | z-chip interaction props | `boolean`                                                  | `false`             |
-| `label`        | `label`         |                          | `string`                                                   | `undefined`         |
-| `type`         | `type`          |                          | `ZChipType.default \| ZChipType.medium \| ZChipType.small` | `ZChipType.default` |
+| Property          | Attribute          | Description | Type                                                       | Default             |
+| ----------------- | ------------------ | ----------- | ---------------------------------------------------------- | ------------------- |
+| `disabled`        | `disabled`         |             | `boolean`                                                  | `false`             |
+| `icon`            | `icon`             |             | `string`                                                   | `undefined`         |
+| `iconPosition`    | `icon-position`    |             | `"left" \| "right"`                                        | `"left"`            |
+| `interactiveIcon` | `interactive-icon` |             | `string`                                                   | `undefined`         |
+| `type`            | `type`             |             | `ZChipType.default \| ZChipType.medium \| ZChipType.small` | `ZChipType.default` |
 
 
 ## Events
 
-| Event        | Description | Type               |
-| ------------ | ----------- | ------------------ |
-| `removeChip` |             | `CustomEvent<any>` |
+| Event                  | Description | Type               |
+| ---------------------- | ----------- | ------------------ |
+| `interactiveIconClick` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

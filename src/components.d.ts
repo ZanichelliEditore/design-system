@@ -214,15 +214,10 @@ export namespace Components {
     interface ZCarousel {
     }
     interface ZChip {
-        "bold"?: boolean;
         "disabled"?: boolean;
         "icon"?: string;
         "iconPosition"?: "left" | "right";
-        /**
-          * z-chip interaction props
-         */
-        "interaction"?: boolean;
-        "label"?: string;
+        "interactiveIcon"?: string;
         "type"?: ZChipType;
     }
     interface ZCombobox {
@@ -2422,16 +2417,11 @@ declare namespace LocalJSX {
     interface ZCarousel {
     }
     interface ZChip {
-        "bold"?: boolean;
         "disabled"?: boolean;
         "icon"?: string;
         "iconPosition"?: "left" | "right";
-        /**
-          * z-chip interaction props
-         */
-        "interaction"?: boolean;
-        "label"?: string;
-        "onRemoveChip"?: (event: CustomEvent<any>) => void;
+        "interactiveIcon"?: string;
+        "onInteractiveIconClick"?: (event: CustomEvent<any>) => void;
         "type"?: ZChipType;
     }
     interface ZCombobox {

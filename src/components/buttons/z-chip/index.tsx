@@ -7,7 +7,7 @@ import {
   EventEmitter,
 } from "@stencil/core";
 import { DeviceEnum, ZChipType } from "../../../beans";
-import { getDevice } from "../../../utils/utils";
+import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 @Component({
   tag: "z-chip",
   styleUrl: "styles.css",
@@ -16,24 +16,19 @@ import { getDevice } from "../../../utils/utils";
 export class ZChip {
   @Element() el: HTMLElement;
 
-  @Prop() label?: string;
   @Prop() icon?: string;
   @Prop({ reflect: true }) iconPosition?: "left" | "right" = "left";
-  @Prop({ reflect: true }) bold?: boolean = false;
   @Prop({ reflect: true }) type?: ZChipType = ZChipType.default;
-
-  /** z-chip interaction props */
-  @Prop({ reflect: true }) interaction?: boolean = false;
+  @Prop({ reflect: true }) interactiveIcon?: string;
   @Prop({ reflect: true }) disabled?: boolean = false;
 
-  @Event() removeChip: EventEmitter;
-  removeChips() {
-    this.removeChip.emit();
-    this.el.remove();
+  @Event() interactiveIconClick: EventEmitter;
+  emitinteractiveIconClick() {
+    this.interactiveIconClick.emit();
   }
 
   render() {
-    if (this.interaction) {
+    if (this.interactiveIcon) {
       return (
         <button class={this.type} disabled={this.disabled} tabindex="0">
           {this.icon && (
@@ -46,14 +41,11 @@ export class ZChip {
           <slot />
           <z-icon
             tabIndex={0}
-            onClick={() => this.removeChips()}
-            onKeyPress={(e) => {
-              if (e.code == "Space" || e.code == "Enter") {
-                e.preventDefault();
-                this.removeChips();
-              }
-            }}
-            name="multiply-circled"
+            onClick={() => this.emitinteractiveIconClick()}
+            onKeyPress={(e) =>
+              handleKeyboardSubmit(e, this.emitinteractiveIconClick)
+            }
+            name={this.interactiveIcon}
             height={getDevice() !== DeviceEnum.desktop ? 22 : 14}
             width={getDevice() !== DeviceEnum.desktop ? 22 : 14}
           />
@@ -62,7 +54,11 @@ export class ZChip {
     }
 
     return (
-      <div class={`${this.type} ${this.iconPosition}`}>
+      <div
+        class={`${this.type} ${this.iconPosition} ${
+          this.disabled && "disabled"
+        }`}
+      >
         {this.icon && (
           <z-icon
             name={this.icon}
@@ -70,10 +66,7 @@ export class ZChip {
             height={getDevice() !== DeviceEnum.desktop ? 22 : 14}
           />
         )}
-        <span class="bold label">{this.label}</span>
-        <span class={{ bold: this.bold }}>
-          <slot />
-        </span>
+        <slot />
       </div>
     );
   }

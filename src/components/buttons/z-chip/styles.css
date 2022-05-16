@@ -67,12 +67,7 @@
   font-size: 14px;
 }
 
-.bold {
-  font-weight: var(--font-sb);
-}
-
-:host > div > z-icon,
-:host > div > span.bold {
+:host > div > z-icon {
   margin-right: calc(var(--space-unit) / 2);
 }
 
@@ -80,13 +75,15 @@
   flex-direction: row-reverse;
 }
 
-:host > div.right > span.label {
-  order: 3;
-}
-
 :host > div.right > z-icon {
   margin-left: calc(var(--space-unit) / 2);
   margin-right: 0;
+}
+
+:host > div.disabled,
+:host > div.disabled > z-icon {
+  color: var(--color-disabled01);
+  fill: var(--color-disabled01);
 }
 
 /* z-chip type */
