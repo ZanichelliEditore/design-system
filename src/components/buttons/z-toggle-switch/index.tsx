@@ -31,35 +31,35 @@ export class ZToggleSwitch {
   }
 
   render() {
-    return [
-      <input
-        id={this.htmlid}
-        type="checkbox"
-        checked={this.checked}
-        disabled={this.disabled}
-        onChange={this.handleClick.bind(this)}
-      />,
+    return (
+      <div class={"wrapper"}>
+        <input
+          id={this.htmlid}
+          type="checkbox"
+          checked={this.checked}
+          disabled={this.disabled}
+          onChange={this.handleClick.bind(this)}
+        />
 
-      <label htmlFor={this.htmlid} class={this.labelPosition}>
-        <span>
-          <slot />
-        </span>
-        <span
-          class={{
-            container: true,
-            disabled: this.disabled,
-            checked: this.checked,
-          }}
-        >
-          <span
-            class="circle"
-          >
-            {this.checked &&
-              <z-icon width={12} height={12} name="checkmark"></z-icon>
-            }
+        <label htmlFor={this.htmlid} class={this.labelPosition}>
+          <span>
+            <slot />
           </span>
-        </span>
-      </label>,
-    ];
+          <span
+            class={{
+              container: true,
+              disabled: this.disabled,
+              checked: this.checked,
+            }}
+          >
+            <span class="circle">
+              {this.checked && (
+                <z-icon width={12} height={12} name="checkmark"></z-icon>
+              )}
+            </span>
+          </span>
+        </label>
+      </div>
+    );
   }
 }
