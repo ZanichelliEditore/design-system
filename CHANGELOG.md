@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.41.0](https://github.com/ZanichelliEditore/design-system/compare/v2.40.1...v2.41.0) (2022-05-17)
+
+
+### Features
+
+* accessibility ([f562643](https://github.com/ZanichelliEditore/design-system/commit/f5626437e2da6e1926dd3da6cb7cda2b1ef0d3bd))
+* add active class ([bec3a0b](https://github.com/ZanichelliEditore/design-system/commit/bec3a0bc9a65f06267465723d3670582c7a4e818))
+* add focus and fix css ([507f89b](https://github.com/ZanichelliEditore/design-system/commit/507f89b56a7e50e3adfb4c66bf2b9fb33fbabb2f))
+* add new component z-toggle-switch ([a997af6](https://github.com/ZanichelliEditore/design-system/commit/a997af6606bc34ce258b8ecf1f694d0fa0e03016))
+* added tests z-toggle-switch ([b17639c](https://github.com/ZanichelliEditore/design-system/commit/b17639c5f103050e14b016bc3df77a2318dc4d2d))
+* changed span with the z-body and refactoring css ([7c68d14](https://github.com/ZanichelliEditore/design-system/commit/7c68d14eed6c5ed00b8eb68e9d458d0a304a9a07))
+* fix class and css ([9014733](https://github.com/ZanichelliEditore/design-system/commit/9014733fb07e3573e0288d6d1b4130565a4a7887))
+* fix css ([daa56da](https://github.com/ZanichelliEditore/design-system/commit/daa56da081f9c4bfdca47a88882780c4bc8f21aa))
+* fix css added bean ZtoggleSwitch ([8308de9](https://github.com/ZanichelliEditore/design-system/commit/8308de94fc82b740f1e3349908a526f73baa6cd0))
+* fix html-id and event toggle click ([c387554](https://github.com/ZanichelliEditore/design-system/commit/c387554762544a052d52b4bfc84384790311a370))
+* fix keyboard event ([eaa044f](https://github.com/ZanichelliEditore/design-system/commit/eaa044f143e3702eb9cdd4ae7ee6fd15b9dfbfe2))
+* fix label position prop ([7c80337](https://github.com/ZanichelliEditore/design-system/commit/7c80337986842077cdb436d166b21bbb503404b4))
+* fix order element ([4a44844](https://github.com/ZanichelliEditore/design-system/commit/4a44844b1aae34be6b9d535a429a6dc7dc663323))
+* fix tests ([01e5573](https://github.com/ZanichelliEditore/design-system/commit/01e5573bf9917aa0e4a0abd4459b13d0a5c8e941))
+* fix tests ([5946e22](https://github.com/ZanichelliEditore/design-system/commit/5946e2237ae6426fec7eadf9b827d9dda230cff6))
+* fix tests, fix css, fix html tag ([125cf2b](https://github.com/ZanichelliEditore/design-system/commit/125cf2b36a0f5bf147426fbe0acea8353506f836))
+* fix vars css, refactoring class ([9e80cd4](https://github.com/ZanichelliEditore/design-system/commit/9e80cd477f25e4d6ae8879291c5e06fc945c378b))
+* fixed focus ([516016f](https://github.com/ZanichelliEditore/design-system/commit/516016fbf375ec0a91cc767c73293724bb794f07))
+* fixed focus element and added keyCode event ([40f230f](https://github.com/ZanichelliEditore/design-system/commit/40f230fff5e49ecf8107c1592efd24574c0e33ba))
+* fixed reverse label prop ([b7001d5](https://github.com/ZanichelliEditore/design-system/commit/b7001d5b05261f1f66aa141ce477c4cf490802f0))
+* fixed tests ([b115ca2](https://github.com/ZanichelliEditore/design-system/commit/b115ca25027506879fd56693afc151a2cb5bfe10))
+* fixed transition and align-items ([27a080a](https://github.com/ZanichelliEditore/design-system/commit/27a080ad1a4674b62009f57737dec3f332febb35))
+* refactoring and fix css ([7d7cf92](https://github.com/ZanichelliEditore/design-system/commit/7d7cf928f29b002f4d2e8e3ca682453a4128f2c4))
+
 ### [2.40.1](https://github.com/ZanichelliEditore/design-system/compare/v2.40.0...v2.40.1) (2022-05-16)
 
 ## [2.40.0](https://github.com/ZanichelliEditore/design-system/compare/v2.39.0...v2.40.0) (2022-05-16)
