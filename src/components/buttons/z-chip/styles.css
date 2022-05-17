@@ -3,7 +3,8 @@ z-chip > button {
   align-items: center;
   padding: 0 calc(var(--space-unit) * 1.5);
   background-color: var(--bg-white);
-  border: var(--border-size-small) solid var(--bg-grey-200);
+  border: var(--border-size-small) solid var(--gray400);
+  border-radius: 14px;
   color: var(--color-primary01);
   fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
@@ -38,6 +39,10 @@ z-chip > button:disabled,
 z-chip > button:disabled > z-icon {
   color: var(--color-disabled01);
   fill: var(--color-disabled01);
+}
+
+z-chip > button:disabled {
+  border: var(--border-size-small) solid var(--color-disabled01);
 }
 
 z-chip > button:focus:focus-visible,
