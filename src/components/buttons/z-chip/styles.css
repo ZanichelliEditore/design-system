@@ -1,4 +1,4 @@
-:host > button {
+z-chip > button {
   display: inline-flex;
   align-items: center;
   padding: 0 calc(var(--space-unit) * 1.5);
@@ -11,47 +11,53 @@
   font-weight: var(--font-sb);
 }
 
-:host > button:hover:not(:disabled),
-:host > button:hover:not(:disabled) > z-icon:last-child {
+z-chip > button:hover:not(:disabled),
+z-chip > button:hover:not(:disabled) > z-icon:last-child {
   color: var(--color-hover-primary);
   fill: var(--color-hover-primary);
 }
 
-:host > button:hover:not(:disabled) > z-icon:first-child {
+z-chip > button:hover:not(:disabled) > z-icon:first-child {
   fill: var(--color-icon02);
 }
 
-:host > button > z-icon:last-child {
+z-chip > button > z-icon:last-child {
   cursor: pointer;
 }
 
-:host > button > z-icon.iconSx {
+z-chip > button > z-icon.iconSx {
   margin-right: calc(var(--space-unit) / 2);
 }
 
-:host > button > z-icon:last-child {
+z-chip > button > z-icon:last-child {
   margin-left: var(--space-unit);
   fill: var(--color-primary01);
 }
 
-:host > button:disabled,
-:host > button:disabled > z-icon {
+z-chip > button:disabled,
+z-chip > button:disabled > z-icon {
   color: var(--color-disabled01);
   fill: var(--color-disabled01);
 }
 
-:host > button:focus:focus-visible,
-:host > div:focus:focus-visible {
+z-chip > button:focus:focus-visible,
+z-chip > div:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
 
-:host > button:not(:disabled):active {
+z-chip > button:not(:disabled):active {
   background-color: var(--gray50);
   text-decoration: underline;
 }
 
-:host > div {
+z-chip > button:not(:disabled):active:hover,
+z-chip > button:hover:not(:disabled):active:hover > z-icon:last-child {
+  color: var(--color-primary01);
+  fill: var(--color-primary01);
+}
+
+z-chip > div {
   display: inline-flex;
   align-items: center;
   min-height: 28px;
@@ -66,27 +72,27 @@
   font-size: 14px;
 }
 
-:host > div > z-icon {
+z-chip > div > z-icon {
   margin-right: calc(var(--space-unit) / 2);
 }
 
 /* z-chip type */
-:host > button.default,
-:host > div.default {
+z-chip > button.default,
+z-chip > div.default {
   min-height: 44px;
   line-height: 44px;
   border-radius: 22px;
 }
 
-:host > button.medium,
-:host > div.medium {
+z-chip > button.medium,
+z-chip > div.medium {
   min-height: 40px;
   line-height: 40px;
   border-radius: 22px;
 }
 
-:host > button.small,
-:host > div.small {
+z-chip > button.small,
+z-chip > div.small {
   min-height: 36px;
   line-height: 36px;
   border-radius: 22px;
@@ -94,31 +100,31 @@
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  :host > button {
+  z-chip > button {
     font-size: 12px;
   }
 
-  :host > div {
+  z-chip > div {
     font-size: 12px;
   }
 
   /* z-chip type */
-  :host > button.default,
-  :host > div.default {
+  z-chip > button.default,
+  z-chip > div.default {
     min-height: 32px;
     line-height: 32px;
     border-radius: 16px;
   }
 
-  :host > button.medium,
-  :host > div.medium {
+  z-chip > button.medium,
+  z-chip > div.medium {
     min-height: 28px;
     line-height: 28px;
     border-radius: 16px;
   }
 
-  :host > button.small,
-  :host > div.small {
+  z-chip > button.small,
+  z-chip > div.small {
     min-height: 24px;
     line-height: 24px;
     border-radius: 16px;
