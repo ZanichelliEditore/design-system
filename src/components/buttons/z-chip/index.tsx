@@ -37,6 +37,7 @@ export class ZChip {
         <button class={this.type} disabled={this.disabled} tabindex="0">
           {this.icon && (
             <z-icon
+              class={"iconSx"}
               name={this.icon}
               width={this.getIconSize()}
               height={this.getIconSize()}
