@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1523,6 +1523,12 @@ export namespace Components {
          */
         "opened"?: boolean;
     }
+    interface ZToggleSwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "htmlid": string;
+        "labelPosition"?: ZtoggleSwitchPositionEnum;
+    }
     interface ZTooltip {
         /**
           * The selector or the element bound with the tooltip.
@@ -2095,6 +2101,12 @@ declare global {
         prototype: HTMLZToggleButtonElement;
         new (): HTMLZToggleButtonElement;
     };
+    interface HTMLZToggleSwitchElement extends Components.ZToggleSwitch, HTMLStencilElement {
+    }
+    var HTMLZToggleSwitchElement: {
+        prototype: HTMLZToggleSwitchElement;
+        new (): HTMLZToggleSwitchElement;
+    };
     interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
     }
     var HTMLZTooltipElement: {
@@ -2207,6 +2219,7 @@ declare global {
         "z-toast-notification": HTMLZToastNotificationElement;
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
+        "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
@@ -3898,6 +3911,13 @@ declare namespace LocalJSX {
          */
         "opened"?: boolean;
     }
+    interface ZToggleSwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "htmlid"?: string;
+        "labelPosition"?: ZtoggleSwitchPositionEnum;
+        "onToggleClick"?: (event: CustomEvent<any>) => void;
+    }
     interface ZTooltip {
         /**
           * The selector or the element bound with the tooltip.
@@ -4046,6 +4066,7 @@ declare namespace LocalJSX {
         "z-toast-notification": ZToastNotification;
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
+        "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
@@ -4143,6 +4164,7 @@ declare module "@stencil/core" {
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
+            "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
