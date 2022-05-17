@@ -1,75 +1,108 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, boolean, select } from "@storybook/addon-knobs";
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import {
+  ButtonVariantEnum,
+  ButtonTypeEnum,
+  ButtonSizeEnum,
+} from "../../../beans";
+import "./index";
 
-<Meta title="Buttons/ZButton" component="z-button" />
+<Meta
+  title="Buttons/ZButton"
+  component="z-button"
+  argTypes={{
+    variant: {
+      options: Object.values(ButtonVariantEnum),
+      control: { type: "radio" }
+    },
+    size: {
+      options: Object.values(ButtonSizeEnum),
+      control: { type: "radio" }
+    },
+  }}
+/>
 
 # ZButton
 
-<Props of="z-button" />
-
-<Preview>
-  <Story name="Default button">
-    {(args) => html` <z-button
-      variant="${select(
-        "Variant",
-        ["primary", "secondary", "tertiary", "dark-bg"],
-        "primary"
-      )}"
-      size="${select("Size", ["x-small", "small", "big"], "big")}"
-      disabled="${boolean("Disabled", false)}"
-      icon="${text("Icon name", "download")}"
-    >
-      ${text("Label", "click me")}
-    </z-button>`}
+<Canvas>
+  <Story name="Default button"
+    args={{
+      variant: ButtonVariantEnum.primary,
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "download",
+    }}
+  >
+    {(args) => html`
+      <z-button
+        variant=${args.variant}
+        size=${args.size}
+        disabled=${args.disabled}
+        icon=${args.icon}
+      >Click me</z-button>
+    `}
   </Story>
-</Preview>
+</Canvas>
 
 ## Dark Background
 
-<Preview>
-  <Story name="Dark Background">
+<Canvas>
+  <Story name="Dark Background"
+    args={{
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "download",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["variant"]
+      }
+    }}
+  >
     {(args) => html`
-    <div style="background: rgb(66, 69, 72); width: auto; padding:8px">
-      <z-button
-        variant="${select(
-          "Variant",
-          ["primary", "secondary", "tertiary", "dark-bg"],
-          "dark-bg"
-        )}"
-        size="${select("Size", ["x-small", "small", "big"], "big")}"
-        disabled="${boolean("Disabled", false)}"
-        icon="${text("Icon name", "download")}"
-      >
-      ${text("Label", "click me")}
-      </z-button>
-    </div>`}
+      <div style="background: var(--gray800); padding: 8px;">
+        <z-button
+          variant=${ButtonVariantEnum["dark-bg"]}
+          size=${args.size}
+          disabled=${args.disabled}
+          icon=${args.icon}
+        >Click me</z-button>
+      </div>
+    `}
   </Story>
-</Preview>
+</Canvas>
 
 ## Ocher Background, slotted label span
 
-<Preview>
-  <Story name="Ocher Background">
+<Canvas>
+  <Story name="Ocher Background"
+    args={{
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "download",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["variant", "icon"]
+      }
+    }}
+  >
     {(args) => html`
-    <div style="background: rgb(246, 187, 59); width: auto; padding:8px">
-      <z-button
-        variant="${select(
-          "Variant",
-          ["primary", "secondary", "tertiary", "dark-bg"],
-          "dark-bg"
-        )}"
-        size="${select("Size", ["x-small", "small", "big"], "big")}"
-        disabled="${boolean("Disabled", false)}"
-      >
-        <span style="color:rgb(66, 69, 72);">
-          <z-icon style="color: rgb(66, 69, 72);" name="download"></z-icon>
-          button
-        </span>
-      </z-button>
-    </div>`}
+      <div style="background: var(--yellow500); padding: 8px">
+        <z-button
+          variant=${ButtonVariantEnum["dark-bg"]}
+          size=${args.size}
+          disabled=${args.disabled}
+        >
+          <span style="color: var(--gray800);">
+            <z-icon name="${args.icon}"></z-icon>
+            button
+          </span>
+        </z-button>
+      </div>
+    `}
   </Story>
-</Preview>
+</Canvas>
 
 ## Icon only
 
@@ -80,21 +113,31 @@ In this special case we need to override `min-width` (achieved with additional `
 | icon      | Any `z-icon` name                                         |
 | square    | Attribute should be set without value (`true` not needed) |
 
-<Preview>
-  <Story name="Icon only">
-    {(args) => html` <z-button
-      variant="${select(
-        "Variant",
-        ["primary", "secondary", "tertiary", "dark-bg"],
-        "primary"
-      )}"
-      size="${select("Size", ["x-small", "small", "big"], "big")}"
-      disabled="${boolean("Disabled", false)}"
-      icon="${text("Icon name", "download")}"
-      square
-    ></z-button>`}
+<Canvas>
+  <Story name="Icon only"
+    args={{
+      variant: ButtonVariantEnum.primary,
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "download",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["square"]
+      }
+    }}
+  >
+    {(args) => html`
+      <z-button
+        variant="${args.variant}"
+        size="${args.size}"
+        disabled="${args.disabled}"
+        icon="${args.icon}"
+        square
+      ></z-button>
+    `}
   </Story>
-</Preview>
+</Canvas>
 
 ## Named slotted elements
 
@@ -104,46 +147,56 @@ For further customization and DOM handling is possible to pass the content of a 
 
 **Note:** for backwards compatibility reasons, if present in the slotted hierarchy, `z-icon` will have a right margin.
 
-<Preview>
-  <Story name="With named slot">
-    {(args) => html` <z-button
-      variant="${select(
-        "Variant",
-        ["primary", "secondary", "tertiary", "dark-bg"],
-        "primary"
-      )}"
-      size="${select("Size", ["x-small", "small", "big"], "big")}"
-      disabled="${boolean("Disabled", false)}"
-    >
-      <a slot="element" href="https://wikipedia.com" target="_blank">
-        <z-icon name="${text("Icon name", "link")}"></z-icon>${text(
-          "Label",
-          "Go to Wikipedia"
-        )}
-      </a>
-    </z-button>`}
+<Canvas>
+  <Story name="With named slot"
+    args={{
+      variant: ButtonVariantEnum.primary,
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "arrow-quad-north-east",
+    }}
+  >
+    {(args) => html`
+      <z-button
+        variant="${args.variant}"
+        size="${args.size}"
+        disabled="${args.disabled}"
+      >
+        <a slot="element" href="https://wikipedia.com" target="_blank">
+          <z-icon name="${args.icon}"></z-icon>
+          Go to Wikipedia
+        </a>
+      </z-button>
+    `}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="With named slot icon only">
-    {(args) => html` <z-button
-      variant="${select(
-        "Variant",
-        ["primary", "secondary", "tertiary", "dark-bg"],
-        "primary"
-      )}"
-      size="${select("Size", ["x-small", "small", "big"], "big")}"
-      disabled="${boolean("Disabled", false)}"
-      square
-    >
-      <button slot="element">
-        <z-icon name="${text("Icon name", "link")}"></z-icon>
-      </button>
-    </z-button>`}
+<Canvas>
+  <Story name="With named slot icon only"
+    args={{
+      variant: ButtonVariantEnum.primary,
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "link",
+    }}
+  >
+    {(args) => html`
+      <z-button
+        variant="${args.variant}"
+        size="${args.size}"
+        disabled="${args.disabled}"
+        square
+      >
+        <button slot="element">
+          <z-icon name="${args.icon}"></z-icon>
+        </button>
+      </z-button>
+    `}
   </Story>
-</Preview>
+</Canvas>
 
 ## Deprecation
 
 Props `issmall` is deprecated, use `size` instead.
+
+<ArgsTable of="z-button" />

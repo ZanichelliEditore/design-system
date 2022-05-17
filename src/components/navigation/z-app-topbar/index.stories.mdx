@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
 import { boolean, number, object, select, text } from '@storybook/addon-knobs';
 
 export const topbarContent = [
@@ -53,6 +53,7 @@ export const menuContent = [
 
 export let theme = 'dark';
 export const setTheme = () => theme = select('Theme', ['dark', 'light'], 'dark');
+import "./index";
 
 <Meta title="Navigation/ZAppTopbar" component="z-app-topbar" />
 

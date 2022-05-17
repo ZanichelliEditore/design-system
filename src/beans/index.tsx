@@ -306,6 +306,10 @@ export enum ExpandableListButtonAlign {
   left = "left",
 }
 
+export enum ZtoggleSwitchPositionEnum {
+  right = "right",
+  left = "left",
+}
 export enum ListDividerType {
   none = "none",
   header = "header",
@@ -398,6 +402,16 @@ export enum ZTableRowExpandedType {
 export enum ZAriaAlertMode {
   polite = "polite",
   assertive = "assertive",
+}
+
+export enum TransitionDirectionEnum {
+  left = "left",
+  right = "right",
+}
+
+export enum OffCanvasVariantsEnum {
+  overlay = "overlay",
+  pushcontent = "pushcontent",
 }
 
 export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
