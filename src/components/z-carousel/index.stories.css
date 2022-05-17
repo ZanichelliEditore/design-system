@@ -1,0 +1,38 @@
+z-carousel li .carousel-box {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--border-radius-small);
+  background: red;
+}
+
+z-carousel li:nth-child(2) .carousel-box {
+  background: yellow;
+}
+
+z-carousel li:nth-child(3) .carousel-box {
+  background: blue;
+}
+
+z-carousel li:nth-child(3) .carousel-box {
+  background: green;
+}
+
+z-carousel li:nth-child(4) .carousel-box {
+  background: purple;
+}
+
+z-carousel li:nth-child(5) .carousel-box {
+  background: orange;
+}
+
+z-carousel li:nth-child(6) .carousel-box {
+  background: gray;
+}
+
+z-carousel li:nth-child(7) .carousel-box {
+  background: black;
+}
+
+z-carousel li:nth-child(8) .carousel-box {
+  background: pink;
+}

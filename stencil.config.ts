@@ -3,6 +3,7 @@ import { reactOutputTarget } from "@stencil/react-output-target";
 
 export const config: Config = {
   namespace: "web-components-library",
+  globalStyle: "src/global.css",
   outputTargets: [
     {
       type: "dist",
@@ -27,5 +28,4 @@ export const config: Config = {
       ],
     },
   ],
-  globalStyle: "src/global.css"
 };

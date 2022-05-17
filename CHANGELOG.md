@@ -2,6 +2,96 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.40.1](https://github.com/ZanichelliEditore/design-system/compare/v2.40.0...v2.40.1) (2022-05-16)
+
+## [2.40.0](https://github.com/ZanichelliEditore/design-system/compare/v2.39.0...v2.40.0) (2022-05-16)
+
+
+### Features
+
+* **feat/z-offcancas:** creates new offcanvas component ([f9b9296](https://github.com/ZanichelliEditore/design-system/commit/f9b9296766111982efcb3832a101ac4d19c727a5))
+* **feat/z-offcancas:** enable choosing a side for the modal ([4b501e5](https://github.com/ZanichelliEditore/design-system/commit/4b501e5f7ed28dd181a14013a4c1d129522067e0))
+* **feat/z-offcancas:** removes header and ads open prop ([38133af](https://github.com/ZanichelliEditore/design-system/commit/38133af8763d7bf36cfcc298e0da2c5e20d80699))
+* **feat/z-offcanvas:**  add animation to show offcanvas on right side ([6fc6b02](https://github.com/ZanichelliEditore/design-system/commit/6fc6b02eaf26a197ed4652c532c6b4931b25408d))
+* **feat/z-offcanvas:**  handle exit animation for overlay ([d58ac99](https://github.com/ZanichelliEditore/design-system/commit/d58ac99286d1312517a642809e6ae92965db5340))
+* **feat/z-offcanvas:** add block-style variation ([3f33a34](https://github.com/ZanichelliEditore/design-system/commit/3f33a349cacececeacf548815b06469700dea497))
+* **feat/z-offcanvas:** adds css variable to set top space left above canvas on overlay ([b4d6c51](https://github.com/ZanichelliEditore/design-system/commit/b4d6c5107dd8b7bf0d63104832f03237e8f92993))
+* **feat/z-offcanvas:** adds tabindex to content for accessibility ([5fa10b8](https://github.com/ZanichelliEditore/design-system/commit/5fa10b86849b96299334c9369274afe30c288d3f))
+* **feat/z-offcanvas:** change overlay prop to variant with enum values overlay | pushcontent ([63acb3c](https://github.com/ZanichelliEditore/design-system/commit/63acb3c7cd650677d25e9d59c6b11ccf54de2d50))
+* **feat/z-offcanvas:** change prop name to transitionfromleft ([0fbd1de](https://github.com/ZanichelliEditore/design-system/commit/0fbd1dec14803e316c1bf1466f3ca521d89a119f))
+* **feat/z-offcanvas:** change transitionToleft prop to transitiondirection with enum values left | right ([2e6fc84](https://github.com/ZanichelliEditore/design-system/commit/2e6fc842d4c11a7a7753728fbaf027dc625d51ce))
+* **feat/z-offcanvas:** emit event on open status change ([a5a8a6d](https://github.com/ZanichelliEditore/design-system/commit/a5a8a6dff51ad8b48465b87a1b687004c935fbbe))
+* **feat/z-offcanvas:** fix animation on leftside and removes header css style ([8801633](https://github.com/ZanichelliEditore/design-system/commit/8801633a8d69bacdf345c07abd764054b22ee9b7))
+* **feat/z-offcanvas:** fix test ([fe657e9](https://github.com/ZanichelliEditore/design-system/commit/fe657e9d4295a5d1519060bf08bc3f7869d62033))
+* **feat/z-offcanvas:** open prop mutable ([12170ad](https://github.com/ZanichelliEditore/design-system/commit/12170ad1f4b28c3efce1bd9a37032b9fda7bdf55))
+* **feat/z-offcanvas:** renamed alignleft prop to transitionleft ([8dfa558](https://github.com/ZanichelliEditore/design-system/commit/8dfa5583ebdf2c11c821b0fe0d6d5a4343e39a15))
+* **feat/z-offcanvas:** slight css refactoring ([d60d7b8](https://github.com/ZanichelliEditore/design-system/commit/d60d7b8edd3a0d345e6101fac10651f4ce7b6e26))
+* **feat/z-offcanvas:** use animationend event to hadle exit transition ([fad350b](https://github.com/ZanichelliEditore/design-system/commit/fad350bdc85e8fee8e925f2574e84f2cec8db9e9))
+
+
+### Bug Fixes
+
+* **feat/z-offcanvas:**  fixed test ([b33ee56](https://github.com/ZanichelliEditore/design-system/commit/b33ee5672fb86855dff2193cce636dfc0163391b))
+* **feat/z-offcanvas:** fix issue with open attribute ([d458515](https://github.com/ZanichelliEditore/design-system/commit/d4585152127ef20e200fdb5d39464102e0f0cd8e))
+* **feat/z-offcanvas:** fixed css dimensions ([edde851](https://github.com/ZanichelliEditore/design-system/commit/edde851034530b0fb5f8dce45bd36d3257a25922))
+* **feat/z-offcanvas:** fixes slide animation ([3361b86](https://github.com/ZanichelliEditore/design-system/commit/3361b863c79aa42fd655024998ab3b929a769e06))
+* **feat/z-offcanvas:** remove flex 1 from canvas in index ([41cc08e](https://github.com/ZanichelliEditore/design-system/commit/41cc08e2571a936ae0687afa48136de2ced34598))
+
+## [2.39.0](https://github.com/ZanichelliEditore/design-system/compare/v2.38.1...v2.39.0) (2022-05-13)
+
+
+### Features
+
+* add storybook-addon-stencil for docs argsTable ([7aa1548](https://github.com/ZanichelliEditore/design-system/commit/7aa154821a6de9e4703fad1652d13df3d72647b6))
+
+
+### Bug Fixes
+
+* addon-knobs bug when changing stories ([5a25f8d](https://github.com/ZanichelliEditore/design-system/commit/5a25f8dcc313e192808e1f3b078039d6fb7d833f))
+* import the component into the stories file ([c19396c](https://github.com/ZanichelliEditore/design-system/commit/c19396cefce80e8711cd23521da1db318a581d9f))
+* some dependencies and config; use controls for zbutton stories; PROPS/ARGSTABLE NOT WORKING ([bf5befa](https://github.com/ZanichelliEditore/design-system/commit/bf5befafbe79a97678a30aa75a297ce909178240))
+
+### [2.38.1](https://github.com/ZanichelliEditore/design-system/compare/v2.38.0...v2.38.1) (2022-05-12)
+
+## [2.38.0](https://github.com/ZanichelliEditore/design-system/compare/v2.37.1-CLAV-275...v2.38.0) (2022-05-11)
+
+
+### Features
+
+* **CLAV-275/Zcarousel:** fix for pr ([19c73a5](https://github.com/ZanichelliEditore/design-system/commit/19c73a56b5d28ac25df5a333cf86507cc3ebf4ce))
+
+### [2.37.1-CLAV-275](https://github.com/ZanichelliEditore/design-system/compare/v2.37.0...v2.37.1-CLAV-275) (2022-05-04)
+
+
+### Features
+
+* **clav-275:** add carousel-item component ([6281ad3](https://github.com/ZanichelliEditore/design-system/commit/6281ad3f9e1d63d2f63547cf4c83da7108e9a7a2))
+* **clav-275:** add padding and fix storybook ([2fa16dc](https://github.com/ZanichelliEditore/design-system/commit/2fa16dcd1eb72c078840492f53bf820403f557e7))
+* **clav-275:** fix ([b271e44](https://github.com/ZanichelliEditore/design-system/commit/b271e44125b22f862a00fdd39043fc48c903a1a6))
+* **CLAV-275/Zcarousel:** feat init carousel ([7d2f8e0](https://github.com/ZanichelliEditore/design-system/commit/7d2f8e0b9604524113e55d49bf797b68ccc50b4f))
+
+
+### Bug Fixes
+
+* remove box-shadows ([7c15296](https://github.com/ZanichelliEditore/design-system/commit/7c152969d02f5e93be72d70ce1f3c8b820fa90f5))
+
+## [2.37.0](https://github.com/ZanichelliEditore/design-system/compare/v2.36.3...v2.37.0) (2022-04-20)
+
+
+### Features
+
+* **feature/z-card-text:**  adds css variables for text variant backgroung color and border ([eb7a861](https://github.com/ZanichelliEditore/design-system/commit/eb7a8619b3f5799dc2bbd8d3f5bd0e6e0f07c4f6))
+* **feature/z-card-text:** add text variant to storybook ([05f386d](https://github.com/ZanichelliEditore/design-system/commit/05f386df24685f9a62946ffd60cbbaebf62ce105))
+* **feature/z-card-text:** added appswitcher example implementation ([a736b64](https://github.com/ZanichelliEditore/design-system/commit/a736b649c9a96a6781e0099807c01dcedab1ac3a))
+* **feature/z-card-text:** added automated test for zcard text variant ([e12d18b](https://github.com/ZanichelliEditore/design-system/commit/e12d18b07c1e1fd00d2aa16bbafb8d940b6a607d))
+* **feature/z-card-text:** adds new text z-card variant ([ace08a0](https://github.com/ZanichelliEditore/design-system/commit/ace08a0fe19cc515797246b197b7a016578cbd72))
+* **feature/z-card-text:** adds showshadow knob in storyboard ([6ddb248](https://github.com/ZanichelliEditore/design-system/commit/6ddb2487bc489ba54a75786dbed291af44e46873))
+
+
+### Bug Fixes
+
+* **feature/z-card-text:** fixed showshadow prop description ([642dc6e](https://github.com/ZanichelliEditore/design-system/commit/642dc6ee3ff114a4cd7bed5c6e7ebf5894762566))
+
 ### [2.36.3](https://github.com/ZanichelliEditore/design-system/compare/v2.36.2...v2.36.3) (2022-04-14)
 
 

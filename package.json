@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "2.36.3",
+  "version": "2.40.1",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -26,30 +26,32 @@
     "test.watch": "stencil test --spec --watch",
     "test.e2e": "stencil test --e2e",
     "release": "standard-version",
-    "start-storybook": "yarn build && start-storybook -p 3003 -s ./dist,./src/assets --ci",
-    "build-storybook": "yarn build && build-storybook -c .storybook -s ./dist,./src/assets . -o storybook"
+    "start-storybook": "start-storybook --port 3003 --ci --no-manager-cache",
+    "build-storybook": "build-storybook --config-dir .storybook . --output-dir storybook"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.1",
+    "@babel/core": "^7.17.8",
     "@commitlint/cli": "^12.0.0",
     "@commitlint/config-conventional": "^12.0.0",
     "@stencil/core": "^2.4.0",
-    "@stencil/react-output-target": "^0.0.9",
-    "@storybook/addon-a11y": "^6.2.9",
-    "@storybook/addon-docs": "^6.1.20",
-    "@storybook/addon-knobs": "^6.1.20",
-    "@storybook/addon-viewport": "^6.1.20",
-    "@storybook/preset-typescript": "^3.0.0",
-    "@storybook/web-components": "^6.1.20",
+    "@stencil/react-output-target": "^0.3.0",
+    "@storybook/addon-a11y": "^6.4.22",
+    "@storybook/addon-controls": "^6.4.22",
+    "@storybook/addon-docs": "^6.4.22",
+    "@storybook/addon-knobs": "^6.4.0",
+    "@storybook/addon-viewport": "^6.4.22",
+    "@storybook/builder-webpack5": "^6.4.22",
+    "@storybook/manager-webpack5": "^6.4.22",
+    "@storybook/web-components": "^6.4.22",
     "@types/hammerjs": "^2.0.39",
     "@types/jest": "26.0.20",
     "@types/puppeteer": "5.4.3",
     "@types/react-dom": "^17.0.0",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.2.4",
     "husky": "^5.1.1",
     "jest": "26.6.3",
     "jest-cli": "26.6.3",
-    "lit-html": "^1.3.0",
+    "lit-html": "^1.4.0",
     "mkdirp": "^1.0.4",
     "plop": "^2.1.0",
     "puppeteer": "8.0.0",
@@ -57,8 +59,9 @@
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
     "standard-version": "^9.1.1",
-    "storybook-addons-abstract": "^6.0.3",
-    "typescript": "^4.2.3"
+    "storybook-addon-stencil": "^0.1.6",
+    "typescript": "~4.3.5",
+    "webpack": "5"
   },
   "pre-commit": {
     "colors": true,
@@ -69,7 +72,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@zanichelli/albe-design-tokens": "^0.2.11",
+    "@zanichelli/albe-design-tokens": "^0.2.14",
     "classnames": "^2.3.1",
     "hammerjs": "^2.0.8"
   },
@@ -86,5 +89,10 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "resolutions": {
+    "@storybook/web-components/webpack": "^5",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0"
   }
 }
