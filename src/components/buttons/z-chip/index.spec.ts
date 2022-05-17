@@ -11,7 +11,11 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip type="default">
-          <div class="default" tabindex="0"></div>
+      <mock:shadow-root>
+        <div class="default" tabindex="0">
+          <slot></slot>
+        </div>
+      </mock:shadow-root>
       </z-chip>
     `);
   });
@@ -24,7 +28,12 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip type="medium">
-          <div class="medium" tabindex="0">text</div>
+        <mock:shadow-root>
+          <div class="medium" tabindex="0">
+            <slot></slot>
+          </div>
+        </mock:shadow-root>
+        text
       </z-chip>
     `);
   });
@@ -37,10 +46,13 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" type="default">
-          <div class="default" tabindex="0">
-            <z-icon height="14" name="pdf" width="14"></z-icon>
-            text
-          </div>
+      <mock:shadow-root>
+        <div class="default" tabindex="0">
+          <z-icon height="14" name="pdf" width="14"></z-icon>
+          <slot></slot>
+        </div>
+      </mock:shadow-root>
+      text
       </z-chip>
     `);
   });
@@ -53,10 +65,13 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="" interactive-icon="multiply-circled" type="default">
-          <button class="default" tabindex="0">
-            text
-            <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
-          </button>
+        <mock:shadow-root>
+            <button class="default" tabindex="0">
+              <slot></slot>
+              <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
+            </button>
+        </mock:shadow-root>
+        text
       </z-chip>
     `);
   });
@@ -69,11 +84,14 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" interactive-icon="multiply-circled" type="default">
+        <mock:shadow-root>
           <button class="default" tabindex="0">
             <z-icon class="iconSx" height="14" name="pdf" width="14"></z-icon>
-            text
+            <slot></slot>
             <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
           </button>
+        </mock:shadow-root>
+        text
       </z-chip>
     `);
   });
@@ -86,11 +104,14 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip disabled="" icon="pdf" interactive-icon="multiply-circled" type="default">
+        <mock:shadow-root>
           <button class="default" tabindex="0" disabled>
             <z-icon class="iconSx" height="14" name="pdf" width="14"></z-icon>
-            text
+            <slot></slot>
             <z-icon height="14" name="multiply-circled" tabindex="-1" width="14"></z-icon>
           </button>
+        </mock:shadow-root>
+        text
       </z-chip>
     `);
   });
@@ -103,11 +124,14 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" interactive-icon="multiply-circled" type="small">
+        <mock:shadow-root>
           <button class="small" tabindex="0">
             <z-icon class="iconSx" height="14" name="pdf" width="14"></z-icon>
-            text
+            <slot></slot>
             <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
           </button>
+        </mock:shadow-root>
+        text
       </z-chip>
     `);
   });

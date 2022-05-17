@@ -1,4 +1,4 @@
-z-chip > button {
+:host > button {
   display: inline-flex;
   align-items: center;
   padding: 0 calc(var(--space-unit) * 1.5);
@@ -12,57 +12,57 @@ z-chip > button {
   font-weight: var(--font-sb);
 }
 
-z-chip > button:hover:not(:disabled),
-z-chip > button:hover:not(:disabled) > z-icon:last-child {
+:host > button:hover:not(:disabled),
+:host > button:hover:not(:disabled) > z-icon:last-child {
   color: var(--color-hover-primary);
   fill: var(--color-hover-primary);
 }
 
-z-chip > button:hover:not(:disabled) > z-icon:first-child {
+:host > button:hover:not(:disabled) > z-icon:first-child {
   fill: var(--color-icon02);
 }
 
-z-chip > button > z-icon:last-child {
+:host > button > z-icon:last-child {
   cursor: pointer;
 }
 
-z-chip > button > z-icon.iconSx {
+:host > button > z-icon.iconSx {
   margin-right: calc(var(--space-unit) / 2);
 }
 
-z-chip > button > z-icon:last-child {
+:host > button > z-icon:last-child {
   margin-left: var(--space-unit);
   fill: var(--color-primary01);
 }
 
-z-chip > button:disabled,
-z-chip > button:disabled > z-icon {
+:host > button:disabled,
+:host > button:disabled > z-icon {
   color: var(--color-disabled01);
   fill: var(--color-disabled01);
 }
 
-z-chip > button:disabled {
+:host > button:disabled {
   border: var(--border-size-small) solid var(--color-disabled01);
 }
 
-z-chip > button:focus:focus-visible,
-z-chip > div:focus:focus-visible {
+:host > button:focus:focus-visible,
+:host > div:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
 
-z-chip > button:not(:disabled):active {
+:host > button:not(:disabled):active {
   background-color: var(--gray50);
   text-decoration: underline;
 }
 
-z-chip > button:not(:disabled):active:hover,
-z-chip > button:hover:not(:disabled):active:hover > z-icon:last-child {
+:host > button:not(:disabled):active:hover,
+:host > button:hover:not(:disabled):active:hover > z-icon:last-child {
   color: var(--color-primary01);
   fill: var(--color-primary01);
 }
 
-z-chip > div {
+:host > div {
   display: inline-flex;
   align-items: center;
   min-height: 28px;
@@ -77,27 +77,27 @@ z-chip > div {
   font-size: 14px;
 }
 
-z-chip > div > z-icon {
+:host > div > z-icon {
   margin-right: calc(var(--space-unit) / 2);
 }
 
-/* z-chip type */
-z-chip > button.default,
-z-chip > div.default {
+/* :host type */
+:host > button.default,
+:host > div.default {
   min-height: 44px;
   line-height: 44px;
   border-radius: 22px;
 }
 
-z-chip > button.medium,
-z-chip > div.medium {
+:host > button.medium,
+:host > div.medium {
   min-height: 40px;
   line-height: 40px;
   border-radius: 22px;
 }
 
-z-chip > button.small,
-z-chip > div.small {
+:host > button.small,
+:host > div.small {
   min-height: 36px;
   line-height: 36px;
   border-radius: 22px;
@@ -105,31 +105,31 @@ z-chip > div.small {
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  z-chip > button {
+  :host > button {
     font-size: 12px;
   }
 
-  z-chip > div {
+  :host > div {
     font-size: 12px;
   }
 
-  /* z-chip type */
-  z-chip > button.default,
-  z-chip > div.default {
+  /* :host type */
+  :host > button.default,
+  :host > div.default {
     min-height: 32px;
     line-height: 32px;
     border-radius: 16px;
   }
 
-  z-chip > button.medium,
-  z-chip > div.medium {
+  :host > button.medium,
+  :host > div.medium {
     min-height: 28px;
     line-height: 28px;
     border-radius: 16px;
   }
 
-  z-chip > button.small,
-  z-chip > div.small {
+  :host > button.small,
+  :host > div.small {
     min-height: 24px;
     line-height: 24px;
     border-radius: 16px;

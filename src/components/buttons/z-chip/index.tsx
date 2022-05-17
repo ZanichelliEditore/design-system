@@ -11,8 +11,7 @@ import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 @Component({
   tag: "z-chip",
   styleUrl: "styles.css",
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class ZChip {
   @Element() el: HTMLElement;
