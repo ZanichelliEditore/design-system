@@ -37,8 +37,8 @@
 
 :host > button:disabled,
 :host > button:disabled > z-icon {
-  color: var(--color-disabled01);
-  fill: var(--color-disabled01);
+  color: var(--color-disabled03);
+  fill: var(--color-disabled03);
 }
 
 :host > button:disabled {
