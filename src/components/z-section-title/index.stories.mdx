@@ -1,0 +1,62 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import { html } from "lit-html";
+import { ZSectionTitleDividerPositions } from "../../beans";
+import "./index";
+import "../z-divider/styles.css";
+
+<Meta
+  title="ZSectionTitle"
+  component="z-section-title"
+  argTypes={{
+    dividerPosition: {
+      options: Object.values(ZSectionTitleDividerPositions),
+      control: { type: "inline-radio" }
+    },
+    uppercase: {
+      control: { type: "boolean" }
+    }
+  }}
+/>
+
+# ZSectionTitle
+
+<Canvas>
+  <Story name="Primary title only" args={{
+    dividerPosition: ZSectionTitleDividerPositions.before,
+    uppercase: true,
+  }}>
+    {(args) => html`
+      <z-section-title
+        .dividerPosition=${args.dividerPosition}
+        .uppercase=${args.uppercase}
+      >
+        <h4 slot="primary-title">Primary title</h4>
+      </z-section-title>
+    `}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With secondary title"
+    args={{
+      uppercase: true,
+    }}
+    parameters={{
+      controls: {
+        exclude: ["dividerPosition"]
+      }
+    }}
+  >
+    {(args) => html`
+      <z-section-title
+        .dividerPosition=${args.dividerPosition}
+        .uppercase=${args.uppercase}
+      >
+        <h5 slot="secondary-title">Secondary title</h5>
+        <h4 slot="primary-title">Primary title</h4>
+      </z-section-title>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-section-title" />
