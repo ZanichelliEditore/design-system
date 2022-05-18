@@ -1,4 +1,4 @@
-.wrapper {
+:host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   display: inline-flex;
@@ -9,6 +9,10 @@ label {
   align-items: center;
   flex-direction: row;
   cursor: pointer;
+}
+
+label.disabled {
+  cursor: default;
 }
 
 label.right {
