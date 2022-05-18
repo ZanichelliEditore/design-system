@@ -13,6 +13,8 @@ import { DeviceEnum, TooltipPosition, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
 import { getDevice } from "../../../utils/utils";
 
+import './index';
+
 @Component({
   tag: "z-file",
   styleUrl: "styles.css",
@@ -24,7 +26,7 @@ export class ZFile {
 
   private ellipsis?: HTMLSpanElement;
   
-  @Prop() fileNumber;
+  @Prop() fileNumber: number;
 
   @State() allowTooltip: boolean = false;
 

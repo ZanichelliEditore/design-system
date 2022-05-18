@@ -215,7 +215,7 @@ export class ZFileUpload {
         }}
         id="fileSelect"
         variant={this.buttonVariant}
-        icon="plus"
+        icon="upload"
         ref={(val) => this.button = val}
       >
         Allega

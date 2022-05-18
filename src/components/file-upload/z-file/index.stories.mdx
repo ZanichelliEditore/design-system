@@ -1,16 +1,23 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 
-<Meta title="Buttons/ZFile" component="z-file" />
+import './index';
+
+<Meta
+  title="Buttons/ZFile"
+  component="z-file"
+/>
 
 # ZFile
 
-<Preview>
-  <Story name="ZFile">
-    {html`<z-file filetype="image/jpeg">File abcdefghilmnopqrst.jpg</z-file>`}
+<Canvas>
+  <Story
+    name="ZFile"
+  >
+    {(args) => html`<z-file file-number="1">File abcdefghilmnopqrst.jpg</z-file>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-file" />
+<ArgsTable of="z-file" />
 
 

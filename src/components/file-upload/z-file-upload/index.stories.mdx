@@ -1,50 +1,93 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { text, boolean, select } from "@storybook/addon-knobs";
+import { Meta, Story, ArgsTable, Canvas } from "@storybook/addon-docs";
+import { ButtonVariantEnum } from "../../../beans";
 
-<Meta title="Inputs/ZFileUpload" component="z-file-upload" />
+import "./index";
+
+<Meta
+  title="Inputs/ZFileUpload"
+  component="z-file-upload"
+  argTypes={{
+    buttonVariant: {
+      options: ['primary', 'secondary'],
+      control: { type: "radio" },
+    },
+    fileMaxSize: {
+      control: { type: "text" },
+    },
+    acceptedFormat: {
+      control: { type: "text" },
+    },
+    mainTitle: {
+      control: { type: "text" },
+    },
+    description: {
+      control: { type: "text" },
+    },
+  }}
+/>
 
 # ZFileUpload
 
-<Preview>
-  <Story name="ZFileUpload default version">
-    {html`<z-heading level="4">This story embeds a piece of js script to allow the component to work properly. Please refresh the page before using it!</z-heading><br>
-    <z-file-upload type="default" 
-                         button-variant="${select(
-                            "ButtonVariant",
-                            ["primary", "secondary"],
-                            "primary"
-                          )}"
-                         file-max-size="${text("fileMaxSize", "50")}"
-                         accepted-format="${text("acceptedFormat", ".pdf, .doc, .tiff, .png, .jpg")}"
-                         main-title="${text("mainTitle", "Allega un file")}"  
-                         description="${text("description", "Vuoi allegare un file per chiarire meglio la tua richiesta?")}">
+<Canvas>
+  <Story
+    name="ZFileUpload default version"
+    args={{
+      buttonVariant: ButtonVariantEnum.primary,
+      fileMaxSize: "50",
+      acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
+      mainTitle: "Allega un file",
+      description:
+        "Vuoi allegare un file per chiarire meglio la tua richiesta?",
+    }}
+  >
+    {(args) => html`<z-heading level="4"
+        >This story embeds a piece of js script to allow the component to work
+        properly. Please refresh the page before using it!</z-heading
+      ><br />
+      <z-file-upload
+        type="default"
+        description="${args.description}"
+        button-variant="${args.buttonVariant}"
+        file-max-size="${args.fileMaxSize}"
+        accepted-format="${args.acceptedFormat}"
+        main-title="${args.mainTitle}"
+      >
       </z-file-upload>
       <script>
         const uploader = document.querySelector("z-file-upload");
         let fileNumber = 0;
-          document.addEventListener("fileInput", (e) => {
-            fileNumber++;
-              const item = e.detail
-                  const chip = document.createElement('Z-FILE')
-                  chip.setAttribute('slot', 'files')
-                  chip.setAttribute('file-number', fileNumber)
-                  chip.innerText = item.name
-                  uploader.appendChild(chip);
-          })
-        </script>`}
+        document.addEventListener("fileInput", (e) => {
+          fileNumber++;
+          const item = e.detail;
+          const chip = document.createElement("Z-FILE");
+          chip.setAttribute("slot", "files");
+          chip.setAttribute("file-number", fileNumber);
+          chip.innerText = item.name;
+          uploader.appendChild(chip);
+        });
+      </script>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZFileUpload dragdrop version">
-    {html`
+<Canvas>
+  <Story
+    name="ZFileUpload dragdrop version"
+    args={{
+      fileMaxSize: "50",
+      acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
+      mainTitle: "Allega un file",
+      description:
+        "Vuoi allegare un file per chiarire meglio la tua richiesta?",
+    }}
+  >
+    {(args) => html`
     <z-heading level="4">This story embeds a piece of js script to allow the component to work properly. Please refresh the page before using it!</z-heading><br>
     <z-file-upload type="dragdrop" 
-                         file-max-size="${text("fileMaxSize", "50")}"
-                         accepted-format="${text("acceptedFormat", ".pdf, .doc, .tiff, .png, .jpg")}" 
-                         main-title="${text("mainTitle", "Allega un file")}"  
-                         description="${text("description", "Vuoi allegare un file per chiarire meglio la tua richiesta?")}">
+                         file-max-size="${args.fileMaxSize}"
+                         description="${args.description}"
+                         accepted-format="${args.acceptedFormat}"}" 
+                         main-title="${args.mainTitle}">
       </z-file-upload>
       <script>
         const uploader = document.querySelector("z-file-upload");
@@ -58,8 +101,6 @@ import { text, boolean, select } from "@storybook/addon-knobs";
           })
         </script>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-file-upload" />
-
-
+<ArgsTable of="z-file-upload" />
