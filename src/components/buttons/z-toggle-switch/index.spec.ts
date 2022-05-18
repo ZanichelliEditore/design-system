@@ -11,7 +11,6 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="left">
-      <div class="wrapper">
         <input id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
           <span></span>
@@ -19,7 +18,6 @@ describe("Suite test ZToggleSwitch", () => {
             <span class="circle"></span>
           </span>
         </label>
-       </div>
       </z-toggle-switch>
     `);
   });
@@ -32,7 +30,6 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="right">
-        <div class="wrapper">
           <input id="toggle-id" type="checkbox">
           <label class="right" htmlfor="toggle-id">
             <span></span>
@@ -40,7 +37,6 @@ describe("Suite test ZToggleSwitch", () => {
               <span class="circle"></span>
             </span>
           </label>
-        </div>
       </z-toggle-switch>
     `);
   });
@@ -53,7 +49,6 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="left" disabled="">
-        <div class="wrapper">
           <input disabled id="toggle-id" type="checkbox">
           <label class="left" htmlfor="toggle-id">
             <span></span>
@@ -61,7 +56,6 @@ describe("Suite test ZToggleSwitch", () => {
               <span class="circle"></span>
             </span>
           </label>
-        </div>
       </z-toggle-switch>
     `);
   });
@@ -74,7 +68,6 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="right" disabled="">
-      <div class="wrapper">
         <input disabled id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span></span>
@@ -82,7 +75,6 @@ describe("Suite test ZToggleSwitch", () => {
             <span class="circle"></span>
           </span>
         </label>
-      </div>
       </z-toggle-switch>
     `);
   });
@@ -95,7 +87,6 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="left" checked="">
-        <div class="wrapper">
           <input checked="" id="toggle-id" type="checkbox">
           <label class="left" htmlfor="toggle-id">
             <span></span>
@@ -105,7 +96,6 @@ describe("Suite test ZToggleSwitch", () => {
               </span>
             </span>
           </label>
-        </div>
       </z-toggle-switch>
     `);
   });
@@ -118,7 +108,6 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="right" checked="">
-      <div class="wrapper">
         <input checked="" id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span></span>
@@ -128,7 +117,6 @@ describe("Suite test ZToggleSwitch", () => {
             </span>
           </span>
         </label>
-      </div>
       </z-toggle-switch>
     `);
   });
@@ -141,7 +129,6 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="left" disabled="" checked="">
-      <div class="wrapper">
         <input disabled="" checked="" id="toggle-id" type="checkbox">
         <label class="left" htmlfor="toggle-id">
           <span></span>
@@ -151,7 +138,6 @@ describe("Suite test ZToggleSwitch", () => {
             </span>
           </span>
         </label>
-      </div>
       </z-toggle-switch>
     `);
   });
@@ -164,7 +150,6 @@ describe("Suite test ZToggleSwitch", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" disabled="" label-position="right" checked="">
-      <div class="wrapper">
         <input disabled="" checked="" id="toggle-id" type="checkbox">
         <label class="right" htmlfor="toggle-id">
           <span></span>
@@ -174,7 +159,6 @@ describe("Suite test ZToggleSwitch", () => {
             </span>
           </span>
         </label>
-      </div>
       </z-toggle-switch>
     `);
   });
