@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type  | Default     |
-| ------------ | ------------- | ----------- | ----- | ----------- |
-| `fileNumber` | `file-number` |             | `any` | `undefined` |
+| Property     | Attribute     | Description | Type     | Default     |
+| ------------ | ------------- | ----------- | -------- | ----------- |
+| `fileNumber` | `file-number` |             | `number` | `undefined` |
 
 
 ## Events

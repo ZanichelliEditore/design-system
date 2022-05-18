@@ -29,7 +29,7 @@ describe("Suite test ZFileUpload", () => {
            Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.
          </z-body>
          <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="fileElem" multiple="" type="file">
-         <z-button icon="plus" id="fileSelect">
+         <z-button icon="upload" id="fileSelect">
            Allega
          </z-button>
        </div>
