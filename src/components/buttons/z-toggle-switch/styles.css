@@ -11,6 +11,10 @@ label {
   cursor: pointer;
 }
 
+label.disabled {
+  cursor: default;
+}
+
 label.right {
   flex-direction: row-reverse;
 }

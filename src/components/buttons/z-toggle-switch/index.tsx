@@ -39,8 +39,10 @@ export class ZToggleSwitch {
         disabled={this.disabled}
         onChange={this.handleClick.bind(this)}
       />,
-
-      <label htmlFor={this.htmlid} class={this.labelPosition}>
+      <label htmlFor={this.htmlid} class={{
+        [this.labelPosition]: true,
+        disabled: this.disabled,
+      }}>
         <span>
           <slot />
         </span>
