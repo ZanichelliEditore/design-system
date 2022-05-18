@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
 import { boolean, object, text } from '@storybook/addon-knobs';
 
 export const menuContent = [
@@ -31,6 +31,7 @@ export const darkBackground = 'rgb(41, 41, 41)';
 export const lightBackground = 'rgb(255, 255, 255)';
 export let useInverseColors = false;
 export const setUseInverseColors = () => useInverseColors = boolean('Use inverse color combination (useful for light themes)', false);
+import "./index";
 
 <Meta title="Navigation/ZUserDropdown" component="z-user-dropdown" />
 

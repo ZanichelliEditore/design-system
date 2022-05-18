@@ -1,5 +1,5 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
 import { text, boolean, select } from "@storybook/addon-knobs";
 import { getCssColorVars } from './index.story.js'
 
@@ -11,7 +11,7 @@ import "./index.story.css";
 
 <Preview>
   <Story name="Colors">
-    {(args) => { 
+    {(args) => {
       const cssColorVars = getCssColorVars();
       return html`<div
       class="${select("theme", ["default", "theme-black-yellow"], "default")}"

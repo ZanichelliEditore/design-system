@@ -211,6 +211,8 @@ export namespace Components {
          */
         "variant": CardVariants;
     }
+    interface ZCarousel {
+    }
     interface ZChip {
         "boldtext"?: number;
         "disabled"?: boolean;
@@ -1076,6 +1078,20 @@ export namespace Components {
          */
         "type": NotificationType;
     }
+    interface ZOffcanvas {
+        /**
+          * open component. Default: false
+         */
+        "open": boolean;
+        /**
+          * open content transitioning in a specified direction left | right. Default: left
+         */
+        "transitiondirection"?: TransitionDirectionEnum;
+        /**
+          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
+         */
+        "variant"?: OffCanvasVariantsEnum;
+    }
     interface ZOtp {
         "inputNum"?: number;
         "message"?: string;
@@ -1538,6 +1554,12 @@ export namespace Components {
          */
         "opened"?: boolean;
     }
+    interface ZToggleSwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "htmlid": string;
+        "labelPosition"?: ZtoggleSwitchPositionEnum;
+    }
     interface ZTooltip {
         /**
           * The selector or the element bound with the tooltip.
@@ -1659,6 +1681,12 @@ declare global {
     var HTMLZCardElement: {
         prototype: HTMLZCardElement;
         new (): HTMLZCardElement;
+    };
+    interface HTMLZCarouselElement extends Components.ZCarousel, HTMLStencilElement {
+    }
+    var HTMLZCarouselElement: {
+        prototype: HTMLZCarouselElement;
+        new (): HTMLZCarouselElement;
     };
     interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
     }
@@ -1948,6 +1976,12 @@ declare global {
         prototype: HTMLZNotificationElement;
         new (): HTMLZNotificationElement;
     };
+    interface HTMLZOffcanvasElement extends Components.ZOffcanvas, HTMLStencilElement {
+    }
+    var HTMLZOffcanvasElement: {
+        prototype: HTMLZOffcanvasElement;
+        new (): HTMLZOffcanvasElement;
+    };
     interface HTMLZOtpElement extends Components.ZOtp, HTMLStencilElement {
     }
     var HTMLZOtpElement: {
@@ -2116,6 +2150,12 @@ declare global {
         prototype: HTMLZToggleButtonElement;
         new (): HTMLZToggleButtonElement;
     };
+    interface HTMLZToggleSwitchElement extends Components.ZToggleSwitch, HTMLStencilElement {
+    }
+    var HTMLZToggleSwitchElement: {
+        prototype: HTMLZToggleSwitchElement;
+        new (): HTMLZToggleSwitchElement;
+    };
     interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
     }
     var HTMLZTooltipElement: {
@@ -2153,6 +2193,7 @@ declare global {
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
         "z-card": HTMLZCardElement;
+        "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
@@ -2201,6 +2242,7 @@ declare global {
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
+        "z-offcanvas": HTMLZOffcanvasElement;
         "z-otp": HTMLZOtpElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
@@ -2229,6 +2271,7 @@ declare global {
         "z-toast-notification": HTMLZToastNotificationElement;
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
+        "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
@@ -2456,6 +2499,8 @@ declare namespace LocalJSX {
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
         "variant"?: CardVariants;
+    }
+    interface ZCarousel {
     }
     interface ZChip {
         "boldtext"?: number;
@@ -3451,6 +3496,24 @@ declare namespace LocalJSX {
          */
         "type"?: NotificationType;
     }
+    interface ZOffcanvas {
+        /**
+          * emitted when open prop changes
+         */
+        "onCanvasOpenStatusChanged"?: (event: CustomEvent<any>) => void;
+        /**
+          * open component. Default: false
+         */
+        "open"?: boolean;
+        /**
+          * open content transitioning in a specified direction left | right. Default: left
+         */
+        "transitiondirection"?: TransitionDirectionEnum;
+        /**
+          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
+         */
+        "variant"?: OffCanvasVariantsEnum;
+    }
     interface ZOtp {
         "inputNum"?: number;
         "message"?: string;
@@ -3943,6 +4006,13 @@ declare namespace LocalJSX {
          */
         "opened"?: boolean;
     }
+    interface ZToggleSwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "htmlid"?: string;
+        "labelPosition"?: ZtoggleSwitchPositionEnum;
+        "onToggleClick"?: (event: CustomEvent<any>) => void;
+    }
     interface ZTooltip {
         /**
           * The selector or the element bound with the tooltip.
@@ -4016,6 +4086,7 @@ declare namespace LocalJSX {
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
         "z-card": ZCard;
+        "z-carousel": ZCarousel;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
@@ -4064,6 +4135,7 @@ declare namespace LocalJSX {
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
         "z-notification": ZNotification;
+        "z-offcanvas": ZOffcanvas;
         "z-otp": ZOtp;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
@@ -4092,6 +4164,7 @@ declare namespace LocalJSX {
         "z-toast-notification": ZToastNotification;
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
+        "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
@@ -4114,6 +4187,7 @@ declare module "@stencil/core" {
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
+            "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
@@ -4162,6 +4236,7 @@ declare module "@stencil/core" {
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
+            "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
@@ -4190,6 +4265,7 @@ declare module "@stencil/core" {
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
+            "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
