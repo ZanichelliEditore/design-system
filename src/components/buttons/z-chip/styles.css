@@ -41,6 +41,10 @@
   fill: var(--color-disabled03);
 }
 
+:host > button:disabled > z-icon {
+  cursor: auto;
+}
+
 :host > button:disabled {
   border: var(--border-size-small) solid var(--color-disabled01);
 }
