@@ -1,7 +1,5 @@
 # z-divider
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -19,6 +17,7 @@
 ### Used by
 
  - [z-app-topbar](../navigation/z-app-topbar)
+ - [z-file-upload](../file-upload/z-file-upload)
  - [z-footer](../footer/z-footer)
  - [z-list-element](../list/z-list-element)
  - [z-list-group](../list/z-list-group)
@@ -27,6 +26,7 @@
 ```mermaid
 graph TD;
   z-app-topbar --> z-divider
+  z-file-upload --> z-divider
   z-footer --> z-divider
   z-list-element --> z-divider
   z-list-group --> z-divider

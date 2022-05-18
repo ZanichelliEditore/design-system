@@ -42,6 +42,7 @@
 
 ### Used by
 
+ - [z-file-upload](../../file-upload/z-file-upload)
  - [z-modal-login](../z-modal-login)
 
 ### Depends on
@@ -52,6 +53,7 @@
 ```mermaid
 graph TD;
   z-modal --> z-icon
+  z-file-upload --> z-modal
   z-modal-login --> z-modal
   style z-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```

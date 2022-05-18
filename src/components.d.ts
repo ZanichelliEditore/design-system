@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, ZChipType, ZFileUploadTypeEnum, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -323,6 +323,37 @@ export namespace Components {
           * [optional] Divider size
          */
         "size"?: DividerSize;
+    }
+    interface ZDragdropArea {
+    }
+    interface ZFile {
+        "fileNumber": any;
+    }
+    interface ZFileUpload {
+        /**
+          * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
+         */
+        "acceptedFormat"?: string;
+        /**
+          * Prop indicating the button variant
+         */
+        "buttonVariant"?: ButtonVariantEnum;
+        /**
+          * Description
+         */
+        "description"?: string;
+        /**
+          * Max file dimension in Megabyte
+         */
+        "fileMaxSize"?: number;
+        /**
+          * Title
+         */
+        "mainTitle"?: string;
+        /**
+          * Prop indicating the file upload type - can be default or dragdrop
+         */
+        "type": ZFileUploadTypeEnum;
     }
     interface ZFooter {
         /**
@@ -1687,6 +1718,24 @@ declare global {
         prototype: HTMLZDividerElement;
         new (): HTMLZDividerElement;
     };
+    interface HTMLZDragdropAreaElement extends Components.ZDragdropArea, HTMLStencilElement {
+    }
+    var HTMLZDragdropAreaElement: {
+        prototype: HTMLZDragdropAreaElement;
+        new (): HTMLZDragdropAreaElement;
+    };
+    interface HTMLZFileElement extends Components.ZFile, HTMLStencilElement {
+    }
+    var HTMLZFileElement: {
+        prototype: HTMLZFileElement;
+        new (): HTMLZFileElement;
+    };
+    interface HTMLZFileUploadElement extends Components.ZFileUpload, HTMLStencilElement {
+    }
+    var HTMLZFileUploadElement: {
+        prototype: HTMLZFileUploadElement;
+        new (): HTMLZFileUploadElement;
+    };
     interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {
     }
     var HTMLZFooterElement: {
@@ -2150,6 +2199,9 @@ declare global {
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
         "z-divider": HTMLZDividerElement;
+        "z-dragdrop-area": HTMLZDragdropAreaElement;
+        "z-file": HTMLZFileElement;
+        "z-file-upload": HTMLZFileUploadElement;
         "z-footer": HTMLZFooterElement;
         "z-footer-link": HTMLZFooterLinkElement;
         "z-footer-section": HTMLZFooterSectionElement;
@@ -2572,6 +2624,49 @@ declare namespace LocalJSX {
           * [optional] Divider size
          */
         "size"?: DividerSize;
+    }
+    interface ZDragdropArea {
+        /**
+          * Emitted when user drop one or more files
+         */
+        "onFileDropped"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZFile {
+        "fileNumber"?: any;
+        /**
+          * Emitted when a z-file component is removed from the DOM
+         */
+        "onRemoveFile"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZFileUpload {
+        /**
+          * Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"
+         */
+        "acceptedFormat"?: string;
+        /**
+          * Prop indicating the button variant
+         */
+        "buttonVariant"?: ButtonVariantEnum;
+        /**
+          * Description
+         */
+        "description"?: string;
+        /**
+          * Max file dimension in Megabyte
+         */
+        "fileMaxSize"?: number;
+        /**
+          * Title
+         */
+        "mainTitle"?: string;
+        /**
+          * Emitted when user select one or more files
+         */
+        "onFileInput"?: (event: CustomEvent<any>) => void;
+        /**
+          * Prop indicating the file upload type - can be default or dragdrop
+         */
+        "type"?: ZFileUploadTypeEnum;
     }
     interface ZFooter {
         /**
@@ -3997,6 +4092,9 @@ declare namespace LocalJSX {
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
         "z-divider": ZDivider;
+        "z-dragdrop-area": ZDragdropArea;
+        "z-file": ZFile;
+        "z-file-upload": ZFileUpload;
         "z-footer": ZFooter;
         "z-footer-link": ZFooterLink;
         "z-footer-section": ZFooterSection;
@@ -4095,6 +4193,9 @@ declare module "@stencil/core" {
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
+            "z-dragdrop-area": LocalJSX.ZDragdropArea & JSXBase.HTMLAttributes<HTMLZDragdropAreaElement>;
+            "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
+            "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
             "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
             "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
