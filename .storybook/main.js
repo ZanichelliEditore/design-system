@@ -8,7 +8,7 @@ module.exports = {
     "../src/assets",
     { from: "../src/assets/favicon.png", to: "/images/favicon.png" }
   ],
-  stories: ["../src/**/*.stories.mdx"],
+  stories: ["../**/*.stories.mdx"],
   addons: [
     "storybook-addon-stencil",
     "@storybook/addon-docs",

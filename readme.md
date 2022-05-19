@@ -74,6 +74,7 @@ Standard-version automatically detects the type of the update (patch, minor or m
 **Publish a new version on NPM registry**
 
 * Make sure you are logged in NPM
+* Make sure you built the components with `yarn build`
 * Run standard-version:
 
 ```
