@@ -5,6 +5,7 @@ on:
     branches:
       - master
     types: [published]
+  workflow_dispatch:
 
 jobs:
   # BUILD THE STORYBOOK AND DEPLOY STORYBOOK TO GITHUB PAGES
