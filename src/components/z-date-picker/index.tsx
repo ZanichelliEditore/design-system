@@ -23,7 +23,7 @@ export class ZDatePicker {
   @Element() element: HTMLElement;
 
   @Prop() showTime: boolean;
-  @Prop() name: string;
+  @Prop() id: string;
 
   @State() hasSlot: boolean;
 
@@ -33,14 +33,14 @@ export class ZDatePicker {
   }
 
   componentWillLoad() {
-    let element = this.element.querySelector("[slot=toggle]");
+    let slotElement = this.element.querySelector("[slot=toggle]");
+    this.hasSlot = !!slotElement;
 
-    this.hasSlot = !!element;
-    this.hasSlot && element.setAttribute("data-toggle", "data-toggle");
+    this.hasSlot && slotElement.setAttribute("data-toggle", "data-toggle");
   }
 
   componentDidRender() {
-    this.flatpickrInstance = flatpickr(`.${this.name}`, {
+    this.flatpickrInstance = flatpickr(`.${this.id}`, {
       appendTo: this.element,
       enableTime: this.showTime,
       locale: Italian,
@@ -52,10 +52,21 @@ export class ZDatePicker {
     });
   }
 
+  componentDidLoad() {
+    const days = this.element.querySelectorAll(".flatpickr-weekday");
+    const realdays = ["L", "M", "M", "G", "V", "S", "D"];
+
+    for (let j = 0; j < days.length / 8; j++) {
+      for (let i = 0; i < 7; i++) {
+        days[i + 7 * j].innerHTML = realdays[i];
+      }
+    }
+  }
+
   render() {
     if (this.hasSlot) {
       return (
-        <div class={this.name}>
+        <div class={this.id}>
           <div style={{ visibility: "hidden", width: "0px", height: "0px" }}>
             <z-input type="text" name="datepicker" data-input></z-input>
           </div>
@@ -65,7 +76,7 @@ export class ZDatePicker {
     } else {
       return (
         <z-input
-          class={classNames(this.name, { hasTime: this.showTime })}
+          class={classNames(this.id, { hasTime: this.showTime })}
           type="text"
           name="datepicker"
           icon="event"

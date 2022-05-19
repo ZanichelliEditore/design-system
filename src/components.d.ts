@@ -311,7 +311,7 @@ export namespace Components {
         "hide"?: boolean;
     }
     interface ZDatePicker {
-        "name": string;
+        "id": string;
         "showTime": boolean;
     }
     interface ZDivider {
@@ -2537,7 +2537,7 @@ declare namespace LocalJSX {
         "onAccept"?: (event: CustomEvent<any>) => void;
     }
     interface ZDatePicker {
-        "name"?: string;
+        "id"?: string;
         "onDateSelect"?: (event: CustomEvent<any>) => void;
         "showTime"?: boolean;
     }

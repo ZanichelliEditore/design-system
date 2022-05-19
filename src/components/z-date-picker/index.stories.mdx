@@ -1,16 +1,32 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { boolean } from "@storybook/addon-knobs";
 
 <Meta title="ZDatePicker" component="z-date-picker" />
 
 # ZDatePicker
 
 <Preview>
-  <Story name="ZDatePicker-sample">
-    {html`<z-date-picker></z-date-picker>`}
+  <Story name="ZDatePicker simple">
+    {html`<z-date-picker
+      show-time="${boolean("show-time", false)}"
+      id="abclol"
+    ></z-date-picker>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="ZDatePicker with custom toggle">
+    {html`<z-date-picker id="defdef"
+      ><z-button slot="toggle">Open ZDatePicker</z-button></z-date-picker
+    >`}
   </Story>
 </Preview>
 
 <Props of="z-date-picker" />
 
+## Usage
 
+In order to avoid conflits between datepickers, pass a unique id as `id` prop.
+
+This component has a callback function `dateSelect` that returns the selected date.

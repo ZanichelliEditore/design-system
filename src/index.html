@@ -17,13 +17,19 @@
   </head>
 
   <body style="width: 100%; margin: 0; background-color: #f9f9f9">
-    <div>
-      <z-date-picker show-time="false" name="dp1">
+    <div style="margin: 200px">
+      <z-date-picker show-time="false" id="dp1">
         <z-button slot="toggle">Apri z-date-picker</z-button>
       </z-date-picker>
-      <z-date-picker name="dp2" show-time="true"> </z-date-picker>
+      <z-date-picker id="dp2" show-time="true"> </z-date-picker>
     </div>
-    <script></script>
+    <script>
+      function dateselect(e) {
+        console.log(e.detail);
+      }
+      const picker = document.getElementById("dp2");
+      picker.addEventListener("dateSelect", (e) => dateselect(e));
+    </script>
   </body>
 </html>
 
