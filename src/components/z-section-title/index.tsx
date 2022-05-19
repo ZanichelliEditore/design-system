@@ -12,6 +12,7 @@ import {
  * @slot secondary-title - Slot for the secondary title. When present, the divider is always displayed under it,
  * following its width and removing the one for the primary title.
  * @slot primary-title - Slot for the primary title.
+ * @cssprop --z-section-title--divider-color - Color of the divider.
  */
 @Component({
   tag: "z-section-title",
@@ -21,10 +22,9 @@ import {
 export class ZSectionTitle {
   /**
    * Divider position for the primary title.
-   * This prop becomes useless when the secondary title is present,
-   * because the divider is always displayed under it.
+   * This prop only works if the secondary title is not set.
    */
-  @Prop({ reflect: true }) dividerPosition: ZSectionTitleDividerPosition =
+  @Prop() dividerPosition: ZSectionTitleDividerPosition =
     ZSectionTitleDividerPositions.before;
 
   /**

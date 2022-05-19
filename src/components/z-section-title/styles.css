@@ -10,7 +10,7 @@
 }
 
 :host,
-:host * {
+:host :::slotted(*) {
   box-sizing: border-box;
 }
 
@@ -31,14 +31,6 @@
 
 :host([uppercase]) ::slotted([slot="primary-title"]) {
   text-transform: uppercase;
-}
-
-:host([divider-position="before"]) {
-
-}
-
-:host([divider-position="before"]) {
-
 }
 
 /* Desktop breakpoint */

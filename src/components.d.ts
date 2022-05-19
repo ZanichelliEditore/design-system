@@ -1251,7 +1251,7 @@ export namespace Components {
     }
     interface ZSectionTitle {
         /**
-          * Divider position for the primary title. This prop becomes useless when the secondary title is present, because the divider is always displayed under it.
+          * Divider position for the primary title. This prop only works if the secondary title is not set.
          */
         "dividerPosition": ZSectionTitleDividerPosition;
         /**
@@ -3707,7 +3707,7 @@ declare namespace LocalJSX {
     }
     interface ZSectionTitle {
         /**
-          * Divider position for the primary title. This prop becomes useless when the secondary title is present, because the divider is always displayed under it.
+          * Divider position for the primary title. This prop only works if the secondary title is not set.
          */
         "dividerPosition"?: ZSectionTitleDividerPosition;
         /**
