@@ -27,7 +27,7 @@
     "test.e2e": "stencil test --e2e",
     "release": "standard-version",
     "start-storybook": "start-storybook --port 3003 --ci --no-manager-cache",
-    "build-storybook": "build-storybook --config-dir .storybook . --output-dir storybook"
+    "build-storybook": "yarn build && build-storybook --config-dir .storybook . --output-dir storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
