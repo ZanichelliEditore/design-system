@@ -1,0 +1,11 @@
+img {
+  display: block;
+  margin: auto auto;
+  height: 340px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+img.faded {
+  opacity: 0.3;
+}

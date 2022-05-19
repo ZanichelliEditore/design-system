@@ -1,0 +1,445 @@
+:host {
+  --app-header-height: auto;
+
+  --app-header-typography-1-size: 24px;
+  --app-header-typography-2-size: 28px;
+  --app-header-typography-3-size: 32px;
+  --app-header-typography-4-size: 36px;
+  --app-header-typography-5-size: 42px;
+  --app-header-typography-6-size: 48px;
+  --app-header-typography-7-size: 54px;
+  --app-header-typography-8-size: 60px;
+  --app-header-typography-9-size: 68px;
+  --app-header-typography-10-size: 76px;
+  --app-header-typography-11-size: 84px;
+  --app-header-typography-12-size: 92px;
+
+  --app-header-typography-1-lineheight: 1.33;
+  --app-header-typography-2-lineheight: 1.29;
+  --app-header-typography-3-lineheight: 1.25;
+  --app-header-typography-4-lineheight: 1.24;
+  --app-header-typography-5-lineheight: 1.24;
+  --app-header-typography-6-lineheight: 1.25;
+  --app-header-typography-7-lineheight: 1.2;
+  --app-header-typography-8-lineheight: 1.26;
+  --app-header-typography-9-lineheight: 1.24;
+  --app-header-typography-10-lineheight: 1.26;
+  --app-header-typography-11-lineheight: 1.2;
+  --app-header-typography-12-lineheight: 1.2;
+
+  --app-header-typography-1-tracking: calc(-0.2 / 1em);
+  --app-header-typography-2-tracking: calc(-0.4 / 1em);
+  --app-header-typography-3-tracking: calc(-0.6 / 1em);
+  --app-header-typography-4-tracking: calc(-0.8 / 1em);
+  --app-header-typography-5-tracking: calc(-1 / 1em);
+  --app-header-typography-6-tracking: calc(-1.2 / 1em);
+  --app-header-typography-7-tracking: calc(-1.4 / 1em);
+  --app-header-typography-8-tracking: calc(-1.6 / 1em);
+  --app-header-typography-9-tracking: calc(-1.8 / 1em);
+  --app-header-typography-10-tracking: calc(-2 / 1em);
+  --app-header-typography-11-tracking: calc(-2.2 / 1em);
+  --app-header-typography-12-tracking: calc(-2.4 / 1em);
+
+  /**
+   * Variable to set stucked header and drawer's top offset. Useful when something is absolutely positioned above the header.
+   */
+  --app-header-top-offset: var(var(--app-header-top-offset), 0);
+
+  --app-header-drawer-trigger-size: calc(var(--space-unit) * 4);
+
+  /* Variable to customize header background color. */
+  --app-header-bg: var(--color-white);
+
+  /* Variable to customize stucked header background color. */
+  --app-header-stucked-bg: var(--color-white);
+
+  /* Variable to customize text and icon color. */
+  --app-header-text-color: var(--gray800);
+
+  /* Variable to customize stucked header's text and icon color. */
+  --app-header-stucked-text-color: var(--gray800);
+
+  display: block;
+  color: var(--app-header-text-color);
+}
+
+:host,
+* {
+  box-sizing: border-box;
+}
+
+.heading-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 100%;
+  height: var(--app-header-height);
+  padding: calc(var(--space-unit) * 2) var(--grid-mobile-margin);
+  background: var(--app-header-bg);
+}
+
+:host(:empty) .heading-panel {
+  padding: 0;
+}
+
+.heading-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 100%;
+}
+
+:host(:not([menu-length='0'])) .heading-subtitle {
+  padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 1.5));
+}
+
+.heading-stucked {
+  position: fixed;
+  top: var(--app-header-top-offset);
+  left: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  color: var(--app-header-stucked-text-color);
+  padding: var(--space-unit) var(--grid-mobile-margin);
+  background: var(--app-header-stucked-bg);
+  box-shadow: var(--shadow-2);
+  animation: slideStuckedHeadingIn 250ms ease-out;
+}
+
+.heading-stucked .heading-title,
+.heading-stucked .heading-title > *,
+.heading-stucked .heading-title ::slotted([slot='stucked-title']) {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.heading-stucked .heading-title > *,
+::slotted([slot='title']),
+::slotted([slot='stucked-title']) {
+  margin: 0;
+  font-weight: 700;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: var(--app-header-typography-3-size);
+  letter-spacing: var(--app-header-typography-3-tracking);
+}
+
+::slotted([slot='title']) {
+  line-height: 1;
+}
+
+::slotted([slot='subtitle']) {
+  margin: var(--space-unit) 0 0;
+  font-family: var(--font-family-sans);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.heading-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 100%;
+  margin-right: auto;
+}
+
+.menu-container {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.menu-container ::slotted([open]) {
+  position: relative;
+  z-index: 3;
+}
+
+.menu-container ::slotted(*:not(:last-of-type)) {
+  margin-right: calc(var(--space-unit) * 4.5);
+}
+
+.drawer-trigger {
+  margin: 0 calc(var(--space-unit) * 1.5) 0 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  appearance: none;
+  cursor: pointer;
+}
+
+.drawer-trigger z-icon {
+  --z-icon-width: var(--app-header-drawer-trigger-size);
+  --z-icon-height: var(--app-header-drawer-trigger-size);
+  fill: currentColor;
+}
+
+.drawer-container {
+  position: fixed;
+  top: var(--app-header-top-offset);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.drawer-container .drawer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+  background: var(--gray900);
+  opacity: 0;
+  transition: opacity 400ms ease-out;
+  pointer-events: none;
+}
+
+.drawer-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 375px;
+  max-width: 100%;
+  height: 100%;
+  padding: calc(var(--space-unit) * 2) var(--space-unit);
+  background: var(--color-white);
+  color: var(--gray800);
+  transform: translate3d(-100%, 0, 0);
+  transition: transform 400ms ease-out;
+  pointer-events: none;
+}
+
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 auto;
+  width: 100%;
+  padding: calc(var(--space-unit) * 0.5) var(--space-unit);
+  overflow: auto;
+}
+
+.drawer-content::-webkit-scrollbar {
+  background: linear-gradient(
+    to right,
+    transparent 0 3px,
+    var(--gray200) 3px 7px,
+    transparent 7px 10px
+  );
+  width: 10px;
+  border-radius: var(--border-radius);
+}
+
+.drawer-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.drawer-content::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: var(--color-primary01);
+  border-radius: var(--border-radius);
+}
+
+.drawer-content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-hover-primary);
+}
+
+.drawer-content ::slotted(z-menu) {
+  width: 100%;
+}
+
+.drawer-content ::slotted(z-menu:not(:last-of-type)) {
+  margin-bottom: calc(var(--space-unit) * 2.5);
+}
+
+.drawer-close {
+  --z-icon-width: var(--app-header-drawer-trigger-size);
+  --z-icon-height: var(--app-header-drawer-trigger-size);
+
+  margin: 0 0 calc(var(--space-unit) * 2.5) var(--space-unit);
+  padding: 0;
+  font-size: inherit;
+  background: transparent;
+  color: inherit;
+  fill: currentColor;
+  border: 0;
+  border-radius: 0;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.drawer-close:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+}
+
+:host([drawer-open]) .drawer-container .drawer-overlay {
+  opacity: 0.7;
+  pointer-events: all;
+}
+
+:host([drawer-open]) .drawer-container .drawer-panel {
+  transform: none;
+  pointer-events: all;
+}
+
+.hero-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+:host([overlay]) .heading-panel .drawer-trigger z-icon,
+:host([overlay]) .heading-panel .heading-container,
+:host([overlay]) .heading-panel .menu-container {
+  color: var(--color-white);
+  fill: var(--color-white);
+}
+
+:host([overlay]) .heading-panel .menu-container ::slotted(z-menu:not([open])) {
+  --color-surface05: var(--color-white);
+}
+
+:host([overlay]) .hero-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-black);
+  opacity: 0.5;
+}
+
+.hero-container img,
+.hero-container ::slotted(*) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  -webkit-user-drag: none;
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  .heading-panel {
+    padding: calc(var(--space-unit) * 3) var(--grid-tablet-margin);
+  }
+
+  .heading-stucked {
+    padding-left: var(--grid-tablet-margin);
+    padding-right: var(--grid-tablet-margin);
+  }
+
+  :host(:not([flow='offcanvas'])) .heading-subtitle {
+    padding-left: 0;
+  }
+
+  :host(:not([flow='offcanvas'])) .menu-container {
+    display: flex;
+  }
+
+  :host(:not([flow='offcanvas'])) .heading-container .drawer-trigger {
+    display: none;
+  }
+
+  :host(:not([flow='offcanvas']):not([menu-length='0'])) .heading-container:not(:last-child) {
+    margin-bottom: calc(var(--space-unit) * 3);
+  }
+
+  ::slotted([slot='title']) {
+    font-size: var(--app-header-typography-6-size);
+    letter-spacing: var(--app-header-typography-6-tracking);
+  }
+
+  ::slotted([slot='subtitle']) {
+    margin-top: calc(var(--space-unit) * 1.5);
+  }
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+  .heading-panel,
+  .heading-stucked {
+    padding-left: var(--grid-desktop-margin);
+    padding-right: var(--grid-desktop-margin);
+  }
+
+  :host(:not([flow='stack'])) .heading-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  ::slotted([slot='title']) {
+    font-size: var(--app-header-typography-7-size);
+    letter-spacing: var(--app-header-typography-7-tracking);
+    margin-right: var(--grid-desktop-gutter);
+  }
+
+  :host(:not([flow='offcanvas']):not([menu-length='0'])) .heading-container:not(:last-child) {
+    margin-bottom: calc(var(--space-unit) * 2);
+  }
+
+  .menu-container {
+    margin-top: var(--space-unit);
+  }
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+  .heading-panel,
+  .heading-stucked {
+    padding-left: var(--grid-wide-margin);
+    padding-right: var(--grid-wide-margin);
+  }
+
+  ::slotted([slot='title']) {
+    font-size: var(--app-header-typography-9-size);
+    letter-spacing: var(--app-header-typography-9-tracking);
+    margin-right: var(--grid-wide-gutter);
+  }
+
+  :host(:not([flow='offcanvas']):not([menu-length='0'])) .heading-container:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+@keyframes slideStuckedHeadingIn {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}

@@ -1,0 +1,1 @@
+const s=767,t=1023;export{s as m,t}
