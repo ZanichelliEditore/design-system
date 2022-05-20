@@ -1,93 +1,104 @@
 :host {
-  width: 100%;
-  color: var(--color-text01);
-}
-
-.notification-container {
   display: flex;
-  padding:  0 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
-  outline: none;
+  align-items: flex-start;
+  width: 100%;
+  padding: calc(var(--space-unit) * 2);
+  font-family: var(--font-family-sans);
   border-bottom: var(--border-size-medium) solid var(--color-surface03);
+  outline: none;
+  box-sizing: border-box;
 }
 
-.shadow {
+:host[sticky] {
+  position: sticky;
+  top: 0;
+}
+
+:host[sticky],
+:host([showshadow]) {
   box-shadow: var(--shadow-3);
 }
 
-.content-container {
-  display: flex;
-  justify-content: space-between;
-
-  flex: 1 1 auto;
-  flex-wrap: wrap;
-}
-
-.content-text {
-  max-width: 800px;
-  margin-top: calc(var(--space-unit) * 2);
-  margin-right: calc(var(--space-unit) * 2);
-}
-
-.action-text {
-  margin-top: calc(var(--space-unit) * 2);
-  margin-right: calc(var(--space-unit) * 2);
-  height: fit-content;
-  color: var(--color-primary01);
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-:host div > z-icon {
-  justify-self: center;
-  margin-top: calc(var(--space-unit) * 2);
-  margin-right: calc(var(--space-unit));
-}
-
-:host div.success-notification {
+:host([type="success"]) {
   background: var(--color-success-inverse);
 }
 
-:host div.warning-notification {
+:host([type="warning"]) {
   background: var(--color-warning-inverse);
 }
 
-:host div.error-notification {
+:host([type="error"]) {
   background: var(--color-error-inverse);
 }
 
-:host div.success-notification > z-icon {
+:host .status-icon,
+:host .close-button {
+  /* simulate the line-height of the text
+  to make the icon look correctly aligned with it. */
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+:host([type="success"]) .status-icon {
   fill: var(--color-success01);
 }
 
-:host div.warning-notification > z-icon {
+:host([type="warning"]) .status-icon {
   fill: var(--color-warning02);
 }
 
-:host div.error-notification > z-icon {
+:host([type="error"]) .status-icon {
   fill: var(--color-error01);
 }
 
-:host div > z-icon.close-icon {
+:host > button,
+:host .content-container > button {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-family: inherit;
   cursor: pointer;
-  fill: var(--color-primary01);
-  margin-right: calc(var(--space-unit) * 2);
 }
 
+:host .status-icon + .content-container {
+  margin-left: var(--space-unit);
+}
 
+:host .content-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  row-gap: calc(var(--space-unit) * 2);
+  flex-wrap: wrap;
+  flex: 1 auto;
+}
+
+:host .content-text {
+  max-width: 800px;
+  color: var(--color-text01);
+}
+
+:host .action-button {
+  color: var(--color-primary01);
+}
+
+:host .content-container + .close-button {
+  margin-left: calc(var(--space-unit) * 2);
+}
+
+:host .close-button z-icon {
+  fill: var(--color-primary01);
+}
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-  .content-container {
+  :host .content-container {
     flex-wrap: nowrap;
   }
 
-  .content-text {
-    margin-right: calc(var(--space-unit) * 5);
+  :host .content-text + .action-button {
+    margin-left: calc(var(--space-unit) * 5);
   }
 }
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {}
