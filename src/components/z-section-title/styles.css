@@ -10,7 +10,7 @@
 }
 
 :host,
-:host :::slotted(*) {
+:host ::slotted(*) {
   box-sizing: border-box;
 }
 
@@ -26,7 +26,7 @@
 
 ::slotted([slot="primary-title"]) {
   font-size: var(--font-size-6);
-  line-height: 2.25rem;
+  line-height: 2rem;
 }
 
 :host([uppercase]) ::slotted([slot="primary-title"]) {
@@ -37,6 +37,6 @@
 @media (min-width: 1152px) {
   ::slotted([slot="primary-title"]) {
     font-size: var(--font-size-7);
-    line-height: 2rem;
+    line-height: 2.25rem;
   }
 }
