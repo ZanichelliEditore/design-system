@@ -27,9 +27,9 @@
 
 ## Slots
 
-| Slot | Description                  |
-| ---- | ---------------------------- |
-|      | the text of the notification |
+| Slot | Description                   |
+| ---- | ----------------------------- |
+|      | The text of the notification. |
 
 
 ## Dependencies
