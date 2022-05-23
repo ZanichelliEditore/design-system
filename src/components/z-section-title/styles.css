@@ -22,6 +22,8 @@
   padding-bottom: calc(var(--space-unit) / 2);
   border-bottom: var(--border-size-large) solid var(--z-section-title--divider-color);
   text-transform: uppercase;
+  font-size: var(--font-size-3);
+  line-height: 1.5rem;
 }
 
 ::slotted([slot="primary-title"]) {
