@@ -21,6 +21,7 @@
  - [z-footer](../footer/z-footer)
  - [z-list-element](../list/z-list-element)
  - [z-list-group](../list/z-list-group)
+ - [z-section-title](../z-section-title)
 
 ### Graph
 ```mermaid
@@ -30,6 +31,7 @@ graph TD;
   z-footer --> z-divider
   z-list-element --> z-divider
   z-list-group --> z-divider
+  z-section-title --> z-divider
   style z-divider fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
