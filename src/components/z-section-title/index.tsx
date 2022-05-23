@@ -30,7 +30,7 @@ export class ZSectionTitle {
   /**
    * Whether the primary title text is uppercase.
    */
-  @Prop({ reflect: true }) uppercase: Boolean = true;
+  @Prop({ reflect: true }) uppercase: boolean = true;
 
   @Element() host: HTMLElement;
 
