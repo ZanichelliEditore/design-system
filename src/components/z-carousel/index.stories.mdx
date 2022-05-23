@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { number, text } from "@storybook/addon-knobs";
+import { number, text, boolean } from "@storybook/addon-knobs";
 import "./index.stories.css";
 import "./index";
 
@@ -203,6 +203,16 @@ import "./index";
   </Story>
 </Preview>
 
+<Preview>
+  <Story name="ZCarousel-ghost-loading">
+    {html`<z-carousel
+      isLoading="${boolean("isloading", true)}"
+      ghostLoadingHeight="${text("ghostloadingheight", "200")}"
+    >
+    </z-carousel>`}
+  </Story>
+</Preview>
+
 <Props of="z-carousel" />
 
 ## Description
@@ -218,8 +228,7 @@ Pass any number of elements inside its main `slot`.
   <li>element</li>
   <li>element</li>
   <li>element</li>
-  <z-carousel></z-carousel
-></z-carousel>
+</z-carousel>
 ```
 
 > Note: always use `li` elements as direct children of `z-carousel`, as it wraps them into an `ul` element.
