@@ -36,3 +36,8 @@ z-carousel li:nth-child(7) .carousel-box {
 z-carousel li:nth-child(8) .carousel-box {
   background: pink;
 }
+
+z-carousel .ghost-element {
+  width: 200px;
+  height: 200px;
+}

@@ -10,7 +10,11 @@ import "./index";
 
 <Preview>
   <Story name="ZCarousel-with-div">
-    {html`<z-carousel style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, { min: 0 })}px">
+    {html`<z-carousel
+      style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, {
+        min: 0,
+      })}px"
+    >
       <li>
         <div class="carousel-box"></div>
       </li>
@@ -44,7 +48,11 @@ import "./index";
 
 <Preview>
   <Story name="ZCarousel-with-component">
-    {html`<z-carousel style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, { min: 0 })}px">
+    {html`<z-carousel
+      style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, {
+        min: 0,
+      })}px"
+    >
       <li>
         <z-button variant="primary" size="big" disabled="false" icon="download">
           Click Me
@@ -149,12 +157,46 @@ import "./index";
   </Story>
 </Preview>
 
+<Preview>
+  <Story name="ZCarousel-with-elements-loading">
+    {html`<z-carousel
+      style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, {
+        min: 0,
+      })}px"
+    >
+      <li>
+        <div class="ghost-element"><z-ghost-loading></z-ghost-loading></div>
+      </li>
+      <li>
+        <div class="ghost-element"><z-ghost-loading></z-ghost-loading></div>
+      </li>
+      <li>
+        <div class="ghost-element"><z-ghost-loading></z-ghost-loading></div>
+      </li>
+      <li>
+        <div class="ghost-element"><z-ghost-loading></z-ghost-loading></div>
+      </li>
+      <li>
+        <div class="ghost-element"><z-ghost-loading></z-ghost-loading></div>
+      </li>
+      <li>
+        <div class="ghost-element"><z-ghost-loading></z-ghost-loading></div>
+      </li>
+      <li>
+        <div class="ghost-element"><z-ghost-loading></z-ghost-loading></div>
+      </li>
+    </z-carousel>`}
+  </Story>
+</Preview>
+
 <Props of="z-carousel" />
 
 ## Description
+
 This component was conceived as a list of elements to respect the rules of accessibility (https://www.w3.org/WAI/tutorials/carousels/working-example/).
 
 ## Usage
+
 Pass any number of elements inside its main `slot`.
 
 ```html
@@ -162,13 +204,15 @@ Pass any number of elements inside its main `slot`.
   <li>element</li>
   <li>element</li>
   <li>element</li>
-<z-carousel>
+  <z-carousel></z-carousel
+></z-carousel>
 ```
 
 > Note: always use `li` elements as direct children of `z-carousel`, as it wraps them into an `ul` element.
 
 You can set the gutter between the elements by using the `--z-carousel-gutter` custom property.
 From css:
+
 ```css
 z-carousel {
   --z-carousel-gutter: 16px;
