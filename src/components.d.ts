@@ -1257,7 +1257,7 @@ export namespace Components {
         /**
           * Whether the primary title text is uppercase.
          */
-        "uppercase": Boolean;
+        "uppercase": boolean;
     }
     interface ZSelect {
         /**
@@ -3713,7 +3713,7 @@ declare namespace LocalJSX {
         /**
           * Whether the primary title text is uppercase.
          */
-        "uppercase"?: Boolean;
+        "uppercase"?: boolean;
     }
     interface ZSelect {
         /**
