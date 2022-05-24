@@ -3,19 +3,25 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-84b7063a.js');
-const index$1 = require('./index-0438eac5.js');
 
-const stylesCss = ":host{width:100%;color:var(--color-text01)}.notification-container{display:flex;padding:0 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);outline:none;border-bottom:var(--border-size-medium) solid var(--color-surface03)}.shadow{box-shadow:var(--shadow-3)}.content-container{display:flex;justify-content:space-between;flex:1 1 auto;flex-wrap:wrap}.content-text{max-width:800px;margin-top:calc(var(--space-unit) * 2);margin-right:calc(var(--space-unit) * 2)}.action-text{margin-top:calc(var(--space-unit) * 2);margin-right:calc(var(--space-unit) * 2);height:fit-content;color:var(--color-primary01);cursor:pointer;white-space:nowrap}:host div>z-icon{justify-self:center;margin-top:calc(var(--space-unit) * 2);margin-right:calc(var(--space-unit))}:host div.success-notification{background:var(--color-success-inverse)}:host div.warning-notification{background:var(--color-warning-inverse)}:host div.error-notification{background:var(--color-error-inverse)}:host div.success-notification>z-icon{fill:var(--color-success01)}:host div.warning-notification>z-icon{fill:var(--color-warning02)}:host div.error-notification>z-icon{fill:var(--color-error01)}:host div>z-icon.close-icon{cursor:pointer;fill:var(--color-primary01);margin-right:calc(var(--space-unit) * 2)}@media only screen and (min-width: 768px){.content-container{flex-wrap:nowrap}.content-text{margin-right:calc(var(--space-unit) * 5)}}";
+const stylesCss = ":host{--z-notification--top-offset:0;display:flex;align-items:flex-start;width:100%;padding:calc(var(--space-unit) * 2);font-family:var(--font-family-sans);border-bottom:var(--border-size-medium) solid var(--color-surface03);outline:none;box-sizing:border-box}:host[sticky]{position:sticky;top:var(--z-notification--top-offset)}:host[sticky],:host([showshadow]){box-shadow:var(--shadow-3)}:host([type=\"success\"]){background:var(--color-success-inverse)}:host([type=\"warning\"]){background:var(--color-warning-inverse)}:host([type=\"error\"]){background:var(--color-error-inverse)}.status-icon,.close-button{display:flex;align-items:center;height:20px}:host([type=\"success\"]) .status-icon{fill:var(--color-success01)}:host([type=\"warning\"]) .status-icon{fill:var(--color-warning02)}:host([type=\"error\"]) .status-icon{fill:var(--color-error01)}:host>button,.content-container>button{margin:0;padding:0;background:transparent;border:none;font-family:inherit;cursor:pointer}.status-icon+.content-container{margin-left:var(--space-unit)}.content-container{display:flex;align-items:baseline;justify-content:space-between;row-gap:calc(var(--space-unit) * 2);flex-wrap:wrap;flex:1 auto}.content-text{max-width:800px;color:var(--color-text01);font-size:var(--font-size-2);font-weight:var(--font-rg);line-height:20px;letter-spacing:0.16px}.action-button{color:var(--color-primary01);font-size:var(--font-size-1);font-weight:var(--font-sb);line-height:16px;letter-spacing:0.32px}.content-container+.close-button{margin-left:calc(var(--space-unit) * 2)}.close-button z-icon{fill:var(--color-primary01)}@media and (min-width: 768px){.content-container{flex-wrap:nowrap}.content-text+.action-button{margin-left:calc(var(--space-unit) * 5)}}";
 
 const ZNotification = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.notificationAction = index.createEvent(this, "notificationAction", 7);
     this.notificationClose = index.createEvent(this, "notificationClose", 7);
-    /** enable close icon */
+    /** Enable close icon */
     this.showclose = false;
-    /** enable shadow */
+    /**
+     * Enable shadow.
+     * @deprecated shadow is available only for the `sticky` version of the notification.
+     */
     this.showshadow = false;
+    /** Enable sticky notification bar. */
+    this.sticky = false;
+    this.handleActionButtonClick = this.handleActionButtonClick.bind(this);
+    this.handleCloseButtonClick = this.handleCloseButtonClick.bind(this);
   }
   handleActionButtonClick(e) {
     e.preventDefault();
@@ -26,15 +32,13 @@ const ZNotification = class {
     this.notificationClose.emit();
   }
   render() {
-    return (index.h("div", { class: {
-        "notification-container": true,
-        "success-notification": this.type === index$1.NotificationType.success,
-        "warning-notification": this.type === index$1.NotificationType.warning,
-        "error-notification": this.type === index$1.NotificationType.error,
-        "shadow": this.showshadow
-      } }, this.contenticonname && (index.h("z-icon", { name: this.contenticonname, width: 16, height: 16 })), index.h("div", { class: "content-container" }, index.h("z-body", { class: "content-text", level: 4 }, index.h("slot", null)), this.actiontext && !!this.actiontext.trim().length && (index.h("z-body", { class: "action-text", role: "button", tabindex: "0", onClick: (e) => {
-        this.handleActionButtonClick(e);
-      }, level: 5, variant: "semibold" }, this.actiontext))), this.showclose && (index.h("z-icon", { class: "close-icon", name: "multiply-circle", width: 16, height: 16, onClick: (e) => this.handleCloseButtonClick(e) }))));
+    var _a;
+    return [
+      this.contenticonname && index.h("z-icon", { class: "status-icon", name: this.contenticonname, width: 16, height: 16 }),
+      index.h("div", { class: "content-container" }, index.h("div", { class: "content-text" }, index.h("slot", null)), !!((_a = this.actiontext) === null || _a === void 0 ? void 0 : _a.trim()) &&
+        index.h("button", { class: "action-button", type: "button", onClick: this.handleActionButtonClick }, this.actiontext)),
+      this.showclose && index.h("button", { class: "close-button", type: "button", onClick: this.handleCloseButtonClick }, index.h("z-icon", { name: "multiply-circle", width: 16, height: 16 }))
+    ];
   }
 };
 ZNotification.style = stylesCss;

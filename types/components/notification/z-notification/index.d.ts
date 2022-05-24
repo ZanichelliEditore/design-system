@@ -1,24 +1,32 @@
 import { EventEmitter } from '../../../stencil-public-runtime';
 import { NotificationType } from '../../../beans';
 /**
- * @slot - the content of the notification
+ * Notification bar component.
+ * @slot - The text of the notification.
+ * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
  */
 export declare class ZNotification {
-  /** icon on the left of the content  */
+  /** Name of the icon on the left of the content */
   contenticonname?: string;
-  /** action button text */
+  /** Action button text */
   actiontext?: string;
-  /** alert variant type */
+  /** Alert variant type */
   type: NotificationType;
-  /** enable close icon */
+  /** Enable close icon */
   showclose?: boolean;
-  /** enable shadow */
+  /**
+   * Enable shadow.
+   * @deprecated shadow is available only for the `sticky` version of the notification.
+   */
   showshadow?: boolean;
-  /** notification action event */
+  /** Enable sticky notification bar. */
+  sticky?: boolean;
+  /** Call to action clicked */
   notificationAction: EventEmitter;
   handleActionButtonClick(e: MouseEvent): void;
-  /** notification close event */
+  /** Close button clicked */
   notificationClose: EventEmitter;
   handleCloseButtonClick(e: MouseEvent): void;
-  render(): any;
+  constructor();
+  render(): any[];
 }
