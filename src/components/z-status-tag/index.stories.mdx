@@ -14,7 +14,7 @@ import "./index";
     expandable="${boolean("expandable", false)}"
     status="${select(
       "status",
-      ["warning", "error", "success", "default", "neutral"],
+      ["warning", "error", "success", "default", "neutral", "----"],
       "warning"
     )}"
     variant="${select(
@@ -22,6 +22,7 @@ import "./index";
       ["default-theme", "light", "dark"],
       "default-theme"
     )}"
+    token-color="${text("token-color", "c12")}"
   ></z-status-tag>`}</Story>
 </Preview>
 

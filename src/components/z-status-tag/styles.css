@@ -128,6 +128,184 @@
 
 :host([status="neutral"].dark) {
   background-color: var(--bg-grey-800);
+}
+
+:host([class*="c"].light){
+  background-color: transparent;
+}
+
+:host([class*="c"].dark){
   color: var(--text-white);
   fill: var(--text-white);
+}
+
+:host(.c01.light) {
+  color: var(--avatar-C01);
+  fill: var(--avatar-C01);
+}
+
+:host(.c01.dark) {
+  background-color: var(--avatar-C01);
+}
+
+:host(.c02.light) {
+  color: var(--avatar-C02);
+  fill: var(--avatar-C02);
+}
+
+:host(.c02.dark) {
+  background-color: var(--avatar-C02);
+}
+
+:host(.c03.light) {
+  color: var(--avatar-C03);
+  fill: var(--avatar-C03);
+}
+
+:host(.c03.dark) {
+  background-color: var(--avatar-C03);
+}
+
+:host(.c04.light) {
+  color: var(--avatar-C04);
+  fill: var(--avatar-C04);
+}
+
+:host(.c04.dark) {
+  background-color: var(--avatar-C04);
+}
+
+:host(.c05.light) {
+  color: var(--avatar-C05);
+  fill: var(--avatar-C05);
+}
+
+:host(.c05.dark) {
+  background-color: var(--avatar-C05);
+}
+
+:host(.c06.light) {
+  color: var(--avatar-C06);
+  fill: var(--avatar-C06);
+}
+
+:host(.c06.dark) {
+  background-color: var(--avatar-C06);
+}
+
+:host(.c07.light) {
+  color: var(--avatar-C07);
+  fill: var(--avatar-C07);
+}
+
+:host(.c07.dark) {
+  background-color: var(--avatar-C07);
+}
+
+:host(.c08.light) {
+  color: var(--avatar-C08);
+  fill: var(--avatar-C08);
+}
+
+:host(.c08.dark) {
+  background-color: var(--avatar-C08);
+}
+
+:host(.c09.light) {
+  color: var(--avatar-C09);
+  fill: var(--avatar-C09);
+}
+
+:host(.c09.dark) {
+  background-color: var(--avatar-C09);
+}
+
+:host(.c10.light) {
+  color: var(--avatar-C10);
+  fill: var(--avatar-C10);
+}
+
+:host(.c10.dark) {
+  background-color: var(--avatar-C10);
+}
+
+:host(.c11.light) {
+  color: var(--avatar-C11);
+  fill: var(--avatar-C11);
+}
+
+:host(.c11.dark) {
+  background-color: var(--avatar-C11);
+}
+
+:host(.c12.light) {
+  color: var(--avatar-C12);
+  fill: var(--avatar-C12);
+}
+
+:host(.c12.dark) {
+  background-color: var(--avatar-C12);
+}
+
+:host(.c13.light) {
+  color: var(--avatar-C13);
+  fill: var(--avatar-C13);
+}
+
+:host(.c13.dark) {
+  background-color: var(--avatar-C13);
+}
+
+:host(.c14.light) {
+  color: var(--avatar-C14);
+  fill: var(--avatar-C14);
+}
+
+:host(.c14.dark) {
+  background-color: var(--avatar-C14);
+}
+
+:host(.c15.light) {
+  color: var(--avatar-C15);
+  fill: var(--avatar-C15);
+}
+
+:host(.c15.dark) {
+  background-color: var(--avatar-C15);
+}
+
+:host(.c16.light) {
+  color: var(--avatar-C16);
+  fill: var(--avatar-C16);
+}
+
+:host(.c17.dark) {
+  background-color: var(--avatar-C16);
+}
+
+:host(.c17.light) {
+  color: var(--avatar-C17);
+  fill: var(--avatar-C17);
+}
+
+:host(.c18.dark) {
+  background-color: var(--avatar-C17);
+}
+
+:host(.c18.light) {
+  color: var(--avatar-C18);
+  fill: var(--avatar-C18);
+}
+
+:host(.c18.dark) {
+  background-color: var(--avatar-C18);
+}
+
+:host(.c19.light) {
+  color: var(--avatar-C19);
+  fill: var(--avatar-C19);
+}
+
+:host(.c19.dark) {
+  background-color: var(--avatar-C19);
 }

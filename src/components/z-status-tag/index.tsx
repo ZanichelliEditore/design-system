@@ -18,6 +18,8 @@ export class ZStatusTag {
   @Prop({ reflect: true }) status?: StatusTagStatus = StatusTagStatus.default;
   /** [optional] Status tag style */
   @Prop() variant?: ThemeVariant;
+  /** [optional] Avatar tokenColor color */
+  @Prop() tokenColor?: string;
 
   constructor() {
     if (!this.icon && !this.text) {
@@ -25,12 +27,17 @@ export class ZStatusTag {
         "z-status-tag must contain at least one prop between icon and text"
       );
     }
+    if (this.status && this.tokenColor) {
+      console.warn(
+        "z-status-tag must not contain status and tokenColor in the same time"
+      );
+    }
   }
 
   render() {
     return (
       <Host
-        class={classNames(this.variant, "body-5-sb", {
+        class={classNames(this.variant, "body-5-sb", this.tokenColor, {
           expandable: this.expandable && this.icon && this.text,
         })}
       >
