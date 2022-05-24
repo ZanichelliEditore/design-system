@@ -60,6 +60,7 @@
     "./components/z-ghost-loading/index.js",
     "./components/z-offcanvas/index.js",
     "./components/z-popover/index.js",
+    "./components/z-section-title/index.js",
     "./components/z-status-tag/index.js",
     "./components/z-table/z-table/index.js",
     "./components/z-table/z-table-body/index.js",

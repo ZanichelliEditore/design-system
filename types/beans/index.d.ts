@@ -357,3 +357,8 @@ export declare enum ZChipType {
   default = "default",
   mini = "mini"
 }
+export declare enum ZSectionTitleDividerPositions {
+  before = "before",
+  after = "after"
+}
+export declare type ZSectionTitleDividerPosition = keyof typeof ZSectionTitleDividerPositions;

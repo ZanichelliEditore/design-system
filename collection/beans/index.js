@@ -278,3 +278,8 @@ export var ZChipType;
   ZChipType["default"] = "default";
   ZChipType["mini"] = "mini";
 })(ZChipType || (ZChipType = {}));
+export var ZSectionTitleDividerPositions;
+(function (ZSectionTitleDividerPositions) {
+  ZSectionTitleDividerPositions["before"] = "before";
+  ZSectionTitleDividerPositions["after"] = "after";
+})(ZSectionTitleDividerPositions || (ZSectionTitleDividerPositions = {}));

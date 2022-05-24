@@ -3,9 +3,9 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-84b7063a.js');
-const index$1 = require('./index-ef6dc2ee.js');
+const index$1 = require('./index-0438eac5.js');
 const breakpoints = require('./breakpoints-88c4fd6c.js');
-const utils = require('./utils-d3a23e75.js');
+const utils = require('./utils-13b55bf9.js');
 
 const stylesCss = ".sc-z-file-h{font-family:var(--font-family-sans);font-weight:var(--font-rg);position:relative}.sc-z-file-h .chip-content.sc-z-file{display:flex;align-items:center}.sc-z-file-h>z-tooltip.sc-z-file{z-index:10}.sc-z-file-h>z-tooltip.sc-z-file>.tootip-content.sc-z-file{white-space:nowrap}.sc-z-file-h>z-chip.sc-z-file>.chip-content.sc-z-file>span.sc-z-file{max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;line-height:1.33;letter-spacing:0.32px}.sc-z-file-h>z-chip.sc-z-file>.chip-content.sc-z-file>span.regular.sc-z-file{font-weight:var(--font-rg)}.sc-z-file-h>z-chip.sc-z-file>.chip-content.sc-z-file>span.bold.sc-z-file{font-weight:var(--font-sb)}.sc-z-file-h .chip-content.sc-z-file>z-icon.sc-z-file:last-child{margin-left:var(--space-unit);cursor:pointer;fill:var(--color-icon01)}@media only screen and (min-width: 1152px){.sc-z-file-h{border-radius:16px}.sc-z-file-h>z-chip.sc-z-file>.chip-content.sc-z-file>span.sc-z-file{font-size:12px}}";
 
