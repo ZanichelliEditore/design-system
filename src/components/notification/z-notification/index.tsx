@@ -9,8 +9,7 @@ import { NotificationType } from '../../../beans';
 @Component({
   tag: 'z-notification',
   styleUrl: 'styles.css',
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class ZNotification {
   /** Name of the icon on the left of the content */
@@ -71,13 +70,13 @@ export class ZNotification {
       />,
 
       <div class="content-container">
-        <div class="content-text body-4">
+        <div class="content-text">
           <slot></slot>
         </div>
 
         {!!this.actiontext?.trim() &&
           <button
-            class="action-button interactive-3-sb"
+            class="action-button"
             type="button"
             onClick={this.handleActionButtonClick}
           >

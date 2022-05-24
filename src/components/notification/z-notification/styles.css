@@ -33,8 +33,8 @@
   background: var(--color-error-inverse);
 }
 
-:host .status-icon,
-:host .close-button {
+.status-icon,
+.close-button {
   /* simulate the line-height of the text
   to make the icon look correctly aligned with it. */
   display: flex;
@@ -55,7 +55,7 @@
 }
 
 :host > button,
-:host .content-container > button {
+.content-container > button {
   margin: 0;
   padding: 0;
   background: transparent;
@@ -64,11 +64,11 @@
   cursor: pointer;
 }
 
-:host .status-icon + .content-container {
+.status-icon + .content-container {
   margin-left: var(--space-unit);
 }
 
-:host .content-container {
+.content-container {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -77,30 +77,38 @@
   flex: 1 auto;
 }
 
-:host .content-text {
+.content-text {
   max-width: 800px;
   color: var(--color-text01);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-rg);
+  line-height: 20px;
+  letter-spacing: 0.16px;
 }
 
-:host .action-button {
+.action-button {
   color: var(--color-primary01);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-sb);
+  line-height: 16px;
+  letter-spacing: 0.32px;
 }
 
-:host .content-container + .close-button {
+.content-container + .close-button {
   margin-left: calc(var(--space-unit) * 2);
 }
 
-:host .close-button z-icon {
+.close-button z-icon {
   fill: var(--color-primary01);
 }
 
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
-  :host .content-container {
+@media and (min-width: 768px) {
+  .content-container {
     flex-wrap: nowrap;
   }
 
-  :host .content-text + .action-button {
+  .content-text + .action-button {
     margin-left: calc(var(--space-unit) * 5);
   }
 }

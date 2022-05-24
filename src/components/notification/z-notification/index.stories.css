@@ -1,3 +1,8 @@
+.notification-container {
+  display: flex;
+  align-items: center;
+}
+
 .banner-notification-demo z-notification {
   --z-notification--top-offset: calc(var(--space-unit) * 6);
 }
