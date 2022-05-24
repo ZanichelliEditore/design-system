@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.44.0](https://github.com/ZanichelliEditore/design-system/compare/v2.43.0...v2.44.0) (2022-05-24)
+
+
+### Features
+
+* add top-offset css prop; fix stories and tests ([3b86ff4](https://github.com/ZanichelliEditore/design-system/commit/3b86ff4e5ed6ac2a3017ec05f954d84d653dd0cb))
+
 ## [2.43.0](https://github.com/ZanichelliEditore/design-system/compare/v2.42.1...v2.43.0) (2022-05-24)
 
 
