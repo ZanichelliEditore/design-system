@@ -21,7 +21,6 @@
  - [z-file-upload](../../file-upload/z-file-upload)
  - [z-footer](../../footer/z-footer)
  - [z-modal-login](../../modal/z-modal-login)
- - [z-notification](../../notification/z-notification)
  - [z-table](../../z-table/z-table)
  - [z-table-empty-box](../../z-table/z-table-empty-box)
 
@@ -38,7 +37,6 @@ graph TD;
   z-file-upload --> z-body
   z-footer --> z-body
   z-modal-login --> z-body
-  z-notification --> z-body
   z-table --> z-body
   z-table-empty-box --> z-body
   style z-body fill:#f9f,stroke:#333,stroke-width:4px

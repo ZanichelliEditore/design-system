@@ -1058,23 +1058,28 @@ export namespace Components {
     }
     interface ZNotification {
         /**
-          * action button text
+          * Action button text
          */
         "actiontext"?: string;
         /**
-          * icon on the left of the content
+          * Name of the icon on the left of the content
          */
         "contenticonname"?: string;
         /**
-          * enable close icon
+          * Enable close icon
          */
         "showclose"?: boolean;
         /**
-          * enable shadow
+          * Enable shadow.
+          * @deprecated shadow is available only for the `sticky` version of the notification.
          */
         "showshadow"?: boolean;
         /**
-          * alert variant type
+          * Enable sticky notification bar.
+         */
+        "sticky"?: boolean;
+        /**
+          * Alert variant type
          */
         "type": NotificationType;
     }
@@ -3485,31 +3490,36 @@ declare namespace LocalJSX {
     }
     interface ZNotification {
         /**
-          * action button text
+          * Action button text
          */
         "actiontext"?: string;
         /**
-          * icon on the left of the content
+          * Name of the icon on the left of the content
          */
         "contenticonname"?: string;
         /**
-          * notification action event
+          * Call to action clicked
          */
         "onNotificationAction"?: (event: CustomEvent<any>) => void;
         /**
-          * notification close event
+          * Close button clicked
          */
         "onNotificationClose"?: (event: CustomEvent<any>) => void;
         /**
-          * enable close icon
+          * Enable close icon
          */
         "showclose"?: boolean;
         /**
-          * enable shadow
+          * Enable shadow.
+          * @deprecated shadow is available only for the `sticky` version of the notification.
          */
         "showshadow"?: boolean;
         /**
-          * alert variant type
+          * Enable sticky notification bar.
+         */
+        "sticky"?: boolean;
+        /**
+          * Alert variant type
          */
         "type"?: NotificationType;
     }

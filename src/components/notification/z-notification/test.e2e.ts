@@ -15,7 +15,7 @@ it('emits a notificationAction event when the component has an action element an
   await page.setContent('<z-notification actiontext="Azione">Testo della notifica</z-notification>');
   const notificationActionSpy = await page.spyOnEvent('notificationAction');
 
-  const actionElement = await page.find('z-notification >>> .action-text');
+  const actionElement = await page.find('z-notification .action-button');
   await actionElement.click();
 
   expect(notificationActionSpy).toHaveReceivedEvent();
@@ -26,7 +26,7 @@ it('emits a notificationClose event when the component has a close button and th
   await page.setContent('<z-notification showclose="true">Testo della notifica</z-notification>');
   const notificationActionSpy = await page.spyOnEvent('notificationClose');
 
-  const closeButton = await page.find('z-notification >>> .close-icon');
+  const closeButton = await page.find('z-notification .close-button');
   await closeButton.click();
 
   expect(notificationActionSpy).toHaveReceivedEvent();
