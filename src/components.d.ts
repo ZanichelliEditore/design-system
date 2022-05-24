@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZFileUploadTypeEnum, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1066,23 +1066,28 @@ export namespace Components {
     }
     interface ZNotification {
         /**
-          * action button text
+          * Action button text
          */
         "actiontext"?: string;
         /**
-          * icon on the left of the content
+          * Name of the icon on the left of the content
          */
         "contenticonname"?: string;
         /**
-          * enable close icon
+          * Enable close icon
          */
         "showclose"?: boolean;
         /**
-          * enable shadow
+          * Enable shadow.
+          * @deprecated shadow is available only for the `sticky` version of the notification.
          */
         "showshadow"?: boolean;
         /**
-          * alert variant type
+          * Enable sticky notification bar.
+         */
+        "sticky"?: boolean;
+        /**
+          * Alert variant type
          */
         "type": NotificationType;
     }
@@ -1256,6 +1261,16 @@ export namespace Components {
           * [optional] Show or hide arrow
          */
         "showArrow"?: boolean;
+    }
+    interface ZSectionTitle {
+        /**
+          * Divider position for the primary title. This prop only works if the secondary title is not set.
+         */
+        "dividerPosition": ZSectionTitleDividerPosition;
+        /**
+          * Whether the primary title text is uppercase.
+         */
+        "uppercase": boolean;
     }
     interface ZSelect {
         /**
@@ -2044,6 +2059,12 @@ declare global {
         prototype: HTMLZPopoverElement;
         new (): HTMLZPopoverElement;
     };
+    interface HTMLZSectionTitleElement extends Components.ZSectionTitle, HTMLStencilElement {
+    }
+    var HTMLZSectionTitleElement: {
+        prototype: HTMLZSectionTitleElement;
+        new (): HTMLZSectionTitleElement;
+    };
     interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
     }
     var HTMLZSelectElement: {
@@ -2260,6 +2281,7 @@ declare global {
         "z-pocket-header": HTMLZPocketHeaderElement;
         "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
+        "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
         "z-slideshow": HTMLZSlideshowElement;
         "z-status-tag": HTMLZStatusTagElement;
@@ -3484,31 +3506,36 @@ declare namespace LocalJSX {
     }
     interface ZNotification {
         /**
-          * action button text
+          * Action button text
          */
         "actiontext"?: string;
         /**
-          * icon on the left of the content
+          * Name of the icon on the left of the content
          */
         "contenticonname"?: string;
         /**
-          * notification action event
+          * Call to action clicked
          */
         "onNotificationAction"?: (event: CustomEvent<any>) => void;
         /**
-          * notification close event
+          * Close button clicked
          */
         "onNotificationClose"?: (event: CustomEvent<any>) => void;
         /**
-          * enable close icon
+          * Enable close icon
          */
         "showclose"?: boolean;
         /**
-          * enable shadow
+          * Enable shadow.
+          * @deprecated shadow is available only for the `sticky` version of the notification.
          */
         "showshadow"?: boolean;
         /**
-          * alert variant type
+          * Enable sticky notification bar.
+         */
+        "sticky"?: boolean;
+        /**
+          * Alert variant type
          */
         "type"?: NotificationType;
     }
@@ -3703,6 +3730,16 @@ declare namespace LocalJSX {
           * [optional] Show or hide arrow
          */
         "showArrow"?: boolean;
+    }
+    interface ZSectionTitle {
+        /**
+          * Divider position for the primary title. This prop only works if the secondary title is not set.
+         */
+        "dividerPosition"?: ZSectionTitleDividerPosition;
+        /**
+          * Whether the primary title text is uppercase.
+         */
+        "uppercase"?: boolean;
     }
     interface ZSelect {
         /**
@@ -4161,6 +4198,7 @@ declare namespace LocalJSX {
         "z-pocket-header": ZPocketHeader;
         "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
+        "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
         "z-slideshow": ZSlideshow;
         "z-status-tag": ZStatusTag;
@@ -4262,6 +4300,7 @@ declare module "@stencil/core" {
             "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
+            "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
             "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;

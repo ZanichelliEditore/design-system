@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "2.42.1",
+  "version": "2.44.0",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -59,7 +59,7 @@
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
     "standard-version": "^9.1.1",
-    "storybook-addon-stencil": "^0.1.7",
+    "storybook-addon-stencil": "^0.1.8",
     "typescript": "~4.3.5",
     "webpack": "5"
   },

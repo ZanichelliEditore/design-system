@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.44.0](https://github.com/ZanichelliEditore/design-system/compare/v2.43.0...v2.44.0) (2022-05-24)
+
+
+### Features
+
+* add top-offset css prop; fix stories and tests ([3b86ff4](https://github.com/ZanichelliEditore/design-system/commit/3b86ff4e5ed6ac2a3017ec05f954d84d653dd0cb))
+
+## [2.43.0](https://github.com/ZanichelliEditore/design-system/compare/v2.42.1...v2.43.0) (2022-05-24)
+
+
+### Features
+
+* add new section-title component ([10ad160](https://github.com/ZanichelliEditore/design-system/commit/10ad16088133d45e71c11976ac12b49a42bcfd66))
+
+
+### Bug Fixes
+
+* build-storybook script for gh action ([d3170c0](https://github.com/ZanichelliEditore/design-system/commit/d3170c0cb5c300e306b211ba265dd95c87b9b3ce))
+* font-size and line-height of secondary title ([75e9a60](https://github.com/ZanichelliEditore/design-system/commit/75e9a6082f55014d309238f219fd3e57da3f91d1))
+* line-height ([0438e8a](https://github.com/ZanichelliEditore/design-system/commit/0438e8aaf84e8865a42c618275d33026ef98faf9))
+
 ### [2.42.1](https://github.com/ZanichelliEditore/design-system/compare/v2.42.0...v2.42.1) (2022-05-19)
 
 
