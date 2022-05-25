@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type      | Default     |
-| ---------- | ----------- | ----------- | --------- | ----------- |
-| `id`       | `id`        |             | `string`  | `undefined` |
-| `showTime` | `show-time` |             | `boolean` | `undefined` |
+| Property       | Attribute      | Description                                                   | Type      | Default     |
+| -------------- | -------------- | ------------------------------------------------------------- | --------- | ----------- |
+| `datepickerid` | `datepickerid` | unique id                                                     | `string`  | `undefined` |
+| `showTime`     | `show-time`    | [Optional] if true, the datepicker is displayed with time box | `boolean` | `false`     |
 
 
 ## Events

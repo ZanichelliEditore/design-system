@@ -18,14 +18,16 @@ import classNames from "classnames";
   shadow: false,
 })
 export class ZDatePicker {
-  private flatpickrInstance;
-
   @Element() element: HTMLElement;
 
-  @Prop() showTime: boolean;
-  @Prop() name: string;
+  /** unique id */
+  @Prop() datepickerid: string;
+  /** [Optional] if true, the datepicker is displayed with time box */
+  @Prop() showTime: boolean = false;
 
   @State() hasSlot: boolean;
+
+  private flatpickrInstance;
 
   @Event() dateSelect: EventEmitter;
   emitDateSelect() {
@@ -40,7 +42,7 @@ export class ZDatePicker {
   }
 
   componentDidRender() {
-    this.flatpickrInstance = flatpickr(`.${this.name}`, {
+    this.flatpickrInstance = flatpickr(`.${this.datepickerid}`, {
       appendTo: this.element,
       enableTime: this.showTime,
       locale: Italian,
@@ -54,20 +56,18 @@ export class ZDatePicker {
   }
 
   componentDidLoad() {
-    const days = this.element.querySelectorAll(".flatpickr-weekday");
-    const realdays = ["L", "M", "M", "G", "V", "S", "D"];
+    const weekdaysElement = this.element.querySelectorAll(".flatpickr-weekday");
+    const weekdays = ["L", "M", "M", "G", "V", "S", "D"];
 
-    for (let j = 0; j < days.length / 8; j++) {
-      for (let i = 0; i < 7; i++) {
-        days[i + 7 * j].innerHTML = realdays[i];
-      }
-    }
+    weekdaysElement.forEach((element, index) => {
+      element.innerHTML = weekdays[index + 1];
+    });
   }
 
   render() {
     if (this.hasSlot) {
       return (
-        <div class={classNames(this.name, "hidden-input-container")}>
+        <div class={classNames(this.datepickerid, "hidden-input-container")}>
           <input class="hidden-input" data-input></input>
           <slot name="toggle"></slot>
         </div>
@@ -75,7 +75,7 @@ export class ZDatePicker {
     } else {
       return (
         <z-input
-          class={classNames(this.name, { hasTime: this.showTime })}
+          class={classNames(this.datepickerid, { hasTime: this.showTime })}
           type="text"
           name="datepicker"
           icon="event"

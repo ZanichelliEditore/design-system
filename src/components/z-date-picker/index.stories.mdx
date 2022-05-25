@@ -10,14 +10,14 @@ import { boolean } from "@storybook/addon-knobs";
   <Story name="ZDatePicker simple">
     {html`<z-date-picker
       show-time="${boolean("show-time", false)}"
-      name="abc"
+      datepickerid="abc"
     ></z-date-picker>`}
   </Story>
 </Preview>
 
 <Preview>
   <Story name="ZDatePicker with custom toggle">
-    {html`<z-date-picker name="def"
+    {html`<z-date-picker datepickerid="def"
       ><z-button slot="toggle">Open ZDatePicker</z-button></z-date-picker
     >`}
   </Story>
