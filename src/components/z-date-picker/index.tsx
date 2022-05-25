@@ -23,7 +23,7 @@ export class ZDatePicker {
   @Element() element: HTMLElement;
 
   @Prop() showTime: boolean;
-  @Prop() id: string;
+  @Prop() name: string;
 
   @State() hasSlot: boolean;
 
@@ -40,12 +40,13 @@ export class ZDatePicker {
   }
 
   componentDidRender() {
-    this.flatpickrInstance = flatpickr(`.${this.id}`, {
+    this.flatpickrInstance = flatpickr(`.${this.name}`, {
       appendTo: this.element,
       enableTime: this.showTime,
       locale: Italian,
-      dateFormat: "d-m-Y",
+      dateFormat: this.showTime ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: "d F Y",
+      minuteIncrement: 1,
       time_24hr: true,
       onChange: this.emitDateSelect.bind(this),
       wrap: this.hasSlot,
@@ -66,17 +67,15 @@ export class ZDatePicker {
   render() {
     if (this.hasSlot) {
       return (
-        <div class={this.id}>
-          <div style={{ visibility: "hidden", width: "0px", height: "0px" }}>
-            <z-input type="text" name="datepicker" data-input></z-input>
-          </div>
-          <slot name="toggle" />
+        <div class={classNames(this.name, "hidden-input-container")}>
+          <input class="hidden-input" data-input></input>
+          <slot name="toggle"></slot>
         </div>
       );
     } else {
       return (
         <z-input
-          class={classNames(this.id, { hasTime: this.showTime })}
+          class={classNames(this.name, { hasTime: this.showTime })}
           type="text"
           name="datepicker"
           icon="event"

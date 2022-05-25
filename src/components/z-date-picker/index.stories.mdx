@@ -10,14 +10,14 @@ import { boolean } from "@storybook/addon-knobs";
   <Story name="ZDatePicker simple">
     {html`<z-date-picker
       show-time="${boolean("show-time", false)}"
-      id="abclol"
+      name="abc"
     ></z-date-picker>`}
   </Story>
 </Preview>
 
 <Preview>
   <Story name="ZDatePicker with custom toggle">
-    {html`<z-date-picker id="defdef"
+    {html`<z-date-picker name="def"
       ><z-button slot="toggle">Open ZDatePicker</z-button></z-date-picker
     >`}
   </Story>
@@ -27,6 +27,6 @@ import { boolean } from "@storybook/addon-knobs";
 
 ## Usage
 
-In order to avoid conflits between datepickers, pass a unique id as `id` prop.
+In order to avoid conflits between datepickers, pass a unique id as `name` prop.
 
 This component has a callback function `dateSelect` that returns the selected date.
