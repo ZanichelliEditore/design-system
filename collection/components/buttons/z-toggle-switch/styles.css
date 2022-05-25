@@ -2,6 +2,7 @@
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   display: inline-flex;
+  position: relative;
 }
 
 label {
