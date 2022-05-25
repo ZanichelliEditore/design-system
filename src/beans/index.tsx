@@ -273,14 +273,6 @@ export enum AvatarSize {
   large = "large",
 }
 
-export enum StatusTagStatus {
-  warning = "warning",
-  error = "error",
-  success = "success",
-  neutral = "neutral",
-  default = "default",
-}
-
 export enum ListSize {
   small = "small",
   medium = "medium",

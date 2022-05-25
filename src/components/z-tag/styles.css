@@ -1,0 +1,45 @@
+:host {
+  --z-icon-width: 14px;
+  --z-icon-height: 14px;
+
+  --iconTextToken: var(--color-primary03);
+  --bgToken: var(--color-hover-primary);
+
+  font-family: var(--font-family-sans);
+
+  height: 22px;
+  border-radius: var(--border-radius);
+  padding-right: 4px;
+  padding-left: 4px;
+  text-transform: uppercase;
+
+  display: inline-flex;
+  align-items: center;
+
+  color: var(--iconTextToken);
+  fill: var(--iconTextToken);
+  background-color: var(--bgToken);
+}
+
+:host(.expandable) > z-icon {
+  margin-right: 0;
+  transition: margin-right 0.3s ease-out 0.2s;
+}
+
+:host(:not(.expandable)) > z-icon:not(:last-child),
+:host(.expandable:hover) > z-icon:not(:last-child) {
+  margin-right: var(--space-unit);
+  transition: margin-right 0.3s ease-out 0s;
+}
+
+:host(.expandable) > span {
+  max-width: 0;
+  transition: max-width 0.3s ease-out 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+:host(.expandable:hover) > span {
+  max-width: 20rem;
+  transition: max-width 0.3s ease-out 0s;
+}

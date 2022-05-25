@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1348,28 +1348,6 @@ export namespace Components {
          */
         "slideshowid": string;
     }
-    interface ZStatusTag {
-        /**
-          * [optional] Hide the text and show it on hover
-         */
-        "expandable"?: boolean;
-        /**
-          * [optional] Status tag icon
-         */
-        "icon"?: string;
-        /**
-          * [optional] Status tag color
-         */
-        "status"?: StatusTagStatus;
-        /**
-          * [optional] Status tag text
-         */
-        "text"?: string;
-        /**
-          * [optional] Status tag style
-         */
-        "variant"?: ThemeVariant;
-    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -1502,6 +1480,20 @@ export namespace Components {
         "expandedType": ZTableRowExpandedType;
     }
     interface ZTableStickyFooter {
+    }
+    interface ZTag {
+        /**
+          * [optional] Hide the text and show it on hover
+         */
+        "expandable"?: boolean;
+        /**
+          * [optional] Tag icon
+         */
+        "icon"?: string;
+        /**
+          * [optional] Tag text
+         */
+        "text"?: string;
     }
     interface ZToastNotification {
         /**
@@ -2069,12 +2061,6 @@ declare global {
         prototype: HTMLZSlideshowElement;
         new (): HTMLZSlideshowElement;
     };
-    interface HTMLZStatusTagElement extends Components.ZStatusTag, HTMLStencilElement {
-    }
-    var HTMLZStatusTagElement: {
-        prototype: HTMLZStatusTagElement;
-        new (): HTMLZStatusTagElement;
-    };
     interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
     }
     var HTMLZStepperElement: {
@@ -2152,6 +2138,12 @@ declare global {
     var HTMLZTableStickyFooterElement: {
         prototype: HTMLZTableStickyFooterElement;
         new (): HTMLZTableStickyFooterElement;
+    };
+    interface HTMLZTagElement extends Components.ZTag, HTMLStencilElement {
+    }
+    var HTMLZTagElement: {
+        prototype: HTMLZTagElement;
+        new (): HTMLZTagElement;
     };
     interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
     }
@@ -2276,7 +2268,6 @@ declare global {
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
         "z-slideshow": HTMLZSlideshowElement;
-        "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-table": HTMLZTableElement;
@@ -2290,6 +2281,7 @@ declare global {
         "z-table-header-row": HTMLZTableHeaderRowElement;
         "z-table-row": HTMLZTableRowElement;
         "z-table-sticky-footer": HTMLZTableStickyFooterElement;
+        "z-tag": HTMLZTagElement;
         "z-toast-notification": HTMLZToastNotificationElement;
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
@@ -3801,28 +3793,6 @@ declare namespace LocalJSX {
          */
         "slideshowid"?: string;
     }
-    interface ZStatusTag {
-        /**
-          * [optional] Hide the text and show it on hover
-         */
-        "expandable"?: boolean;
-        /**
-          * [optional] Status tag icon
-         */
-        "icon"?: string;
-        /**
-          * [optional] Status tag color
-         */
-        "status"?: StatusTagStatus;
-        /**
-          * [optional] Status tag text
-         */
-        "text"?: string;
-        /**
-          * [optional] Status tag style
-         */
-        "variant"?: ThemeVariant;
-    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -3968,6 +3938,20 @@ declare namespace LocalJSX {
         "onExpand"?: (event: CustomEvent<any>) => void;
     }
     interface ZTableStickyFooter {
+    }
+    interface ZTag {
+        /**
+          * [optional] Hide the text and show it on hover
+         */
+        "expandable"?: boolean;
+        /**
+          * [optional] Tag icon
+         */
+        "icon"?: string;
+        /**
+          * [optional] Tag text
+         */
+        "text"?: string;
     }
     interface ZToastNotification {
         /**
@@ -4185,7 +4169,6 @@ declare namespace LocalJSX {
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
         "z-slideshow": ZSlideshow;
-        "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-table": ZTable;
@@ -4199,6 +4182,7 @@ declare namespace LocalJSX {
         "z-table-header-row": ZTableHeaderRow;
         "z-table-row": ZTableRow;
         "z-table-sticky-footer": ZTableStickyFooter;
+        "z-tag": ZTag;
         "z-toast-notification": ZToastNotification;
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
@@ -4287,7 +4271,6 @@ declare module "@stencil/core" {
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
-            "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
@@ -4301,6 +4284,7 @@ declare module "@stencil/core" {
             "z-table-header-row": LocalJSX.ZTableHeaderRow & JSXBase.HTMLAttributes<HTMLZTableHeaderRowElement>;
             "z-table-row": LocalJSX.ZTableRow & JSXBase.HTMLAttributes<HTMLZTableRowElement>;
             "z-table-sticky-footer": LocalJSX.ZTableStickyFooter & JSXBase.HTMLAttributes<HTMLZTableStickyFooterElement>;
+            "z-tag": LocalJSX.ZTag & JSXBase.HTMLAttributes<HTMLZTagElement>;
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
