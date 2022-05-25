@@ -34,6 +34,7 @@
  - [z-card](../../z-card)
  - [z-combobox](../../inputs/z-combobox)
  - [z-contextual-menu](../../z-contextual-menu)
+ - [z-file](../../file-upload/z-file)
  - [z-footer-section](../../footer/z-footer-section)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
@@ -62,6 +63,7 @@
  - [z-table-row](../../z-table/z-table-row)
  - [z-toast-notification](../../notification/z-toast-notification)
  - [z-toggle-button](../../buttons/z-toggle-button)
+ - [z-toggle-switch](../../buttons/z-toggle-switch)
  - [z-user-dropdown](../../navigation/z-user-dropdown)
 
 ### Graph
@@ -75,6 +77,7 @@ graph TD;
   z-card --> z-icon
   z-combobox --> z-icon
   z-contextual-menu --> z-icon
+  z-file --> z-icon
   z-footer-section --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon
@@ -103,6 +106,7 @@ graph TD;
   z-table-row --> z-icon
   z-toast-notification --> z-icon
   z-toggle-button --> z-icon
+  z-toggle-switch --> z-icon
   z-user-dropdown --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

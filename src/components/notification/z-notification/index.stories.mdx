@@ -1,91 +1,175 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import { text, boolean, select } from "@storybook/addon-knobs";
+import { NotificationType } from "../../../beans";
+import "./index";
+import "./index.stories.css";
 
-<Meta title="Notification/ZNotification" component="z-notification" />
+<Meta
+  title="Notification/ZNotification"
+  component="z-notification"
+  argTypes={{
+    contenticonname: { control: { type: "text" } },
+    actiontext: { control: { type: "text" } },
+    showclose: { control: { type: "boolean" } },
+    sticky: { control: { type: "boolean" } },
+    type: {
+      control: { type: "inline-radio" },
+      options: Object.values(NotificationType)
+    }
+  }}
+/>
 
 # ZNotification
 
-<Preview>
-  <Story name="ZNotification">
-    {html`<z-notification
-      contenticonname="${text("Icon name", "checkmark-circle-filled")}"
-      actiontext="${text("Action text", "Annulla")}"
-      type=${select("Type", ["success", "warning", "error"], "success")}
-      showclose="${boolean("Show close button", false)}"
-      showshadow="${boolean("Show shadow", false)}"
-    >${text("Content text", "Questo è il testo della notifica")}</z-notification>`}
-  </Story>
-</Preview>
-
-## ZNotification - Variante banner
-
-<Preview>
-  <Story name="Banner ZNotification">
-    {html`<z-app-topbar>
-      <z-logo
-        slot="logo"
-        width="138"
-        height="36"
-        image-alt="zanichelli-logo"
-        link="https://www.zanichelli.it"
-        target-blank
-      ></z-logo>
-      <z-app-switcher slot="app-switcher"></z-app-switcher>
-    </z-app-topbar>
-    <z-notification
-      contenticonname="${text("Icon name", "checkmark-circle-filled")}"
-      actiontext="${text("Action text", "Annulla")}"
-      type=${select("Type", ["success", "warning", "error"], "success")}
-      showclose="${boolean("Show close button", false)}"
-      showshadow="true"
-      style="display: block; position: sticky; top: 44px;"
-    >${text("Content text", "Questo è il testo della notifica")}</z-notification>
-    <z-heading level="1" variant="bold" style="display: block; margin-top: 20px;">Titolo della pagina</z-heading>
-    <z-body level="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus magna imperdiet malesuada interdum. Curabitur volutpat mi purus, in maximus nisl volutpat quis.
-    Suspendisse sed vestibulum magna. Quisque molestie, justo non pretium egestas, lorem elit malesuada turpis, et malesuada sapien nunc a urna. Curabitur sagittis augue turpis, eu consectetur purus consectetur vitae.
-    Sed bibendum nisl diam, eget egestas enim elementum eget. Donec quis magna lobortis, tristique nunc in, fringilla lacus. Duis ac porta turpis. Aenean aliquam tortor sed felis interdum aliquet dignissim vel ligula.
-    Donec auctor risus vitae nisi finibus, sed suscipit tellus fringilla. Sed malesuada gravida tincidunt. Duis tincidunt orci at magna egestas fermentum. Nulla laoreet ante felis, non molestie mi venenatis sit amet.
-    Nullam sollicitudin tempus lacus ac maximus.
-    Suspendisse erat magna, pellentesque ut lectus sit amet, aliquet scelerisque augue. In at felis facilisis, sodales tortor euismod, tincidunt tellus. Quisque vulputate dolor vitae nibh pharetra, a auctor turpis mattis.
-    Nulla facilisi. Vivamus a facilisis ex. Vestibulum ultricies scelerisque sapien eu pharetra. Etiam ut porttitor lorem, id ullamcorper risus. Donec sed sollicitudin metus.
-    Sed sapien lectus, bibendum quis lorem efficitur, pellentesque maximus lectus. Quisque quis lectus quis dolor ultrices facilisis placerat finibus nulla.
-    Donec laoreet urna id varius facilisis. Nulla facilisi. Pellentesque dignissim aliquam interdum.
-    Fusce ante mauris, blandit nec imperdiet mattis, dictum non sapien. Donec aliquet feugiat quam quis cursus. Curabitur et rutrum nunc. Phasellus ut lorem posuere, eleifend felis sed, lobortis arcu.
-    Nam efficitur purus non dolor tincidunt, nec euismod lectus hendrerit. Sed eget rutrum odio, ac maximus lacus. Etiam rutrum purus diam, eu pellentesque elit vulputate eget.
-    Donec nulla augue, euismod non mollis congue, laoreet vel orci. Cras eget suscipit felis. Phasellus eget erat eu nisl suscipit pulvinar. Nunc ullamcorper orci sit amet dui placerat, at vulputate libero finibus.
-    Quisque dignissim risus dolor, a porta erat cursus vel. Sed cursus pellentesque magna fringilla varius. Proin sit amet posuere massa. Proin nisl massa, hendrerit non congue mattis, tincidunt in turpis.
-    Etiam pharetra posuere est, non mollis sapien malesuada non. Quisque metus lectus, hendrerit vel accumsan et, ornare a eros.
-    Donec tempor, elit ut pulvinar auctor, sapien velit consectetur justo, interdum lobortis risus ligula vitae nunc. Praesent quam felis, posuere et consequat consectetur, tempus non sem.
-    Phasellus in ligula enim. Donec gravida, felis vitae elementum mattis, velit ipsum aliquam ipsum, a cursus nisi nisl nec sapien.
-    Ut et orci nulla. Donec fringilla magna non risus imperdiet euismod. Sed viverra eget turpis et faucibus. Sed ante orci, interdum in ligula in, tincidunt feugiat arcu.
-    In viverra efficitur urna laoreet tristique. Phasellus hendrerit, urna et condimentum aliquet, ex urna condimentum dui, vitae vestibulum mauris risus sit amet nunc.
-    Quisque egestas est vel lorem commodo, eget vestibulum enim cursus. Cras lectus velit, fermentum eget mauris id, interdum cursus massa. Maecenas quis dui vehicula mauris condimentum finibus.
-    Sed et magna velit. Duis eleifend dolor at sagittis ornare. Aenean commodo massa enim, ac varius augue varius quis.</z-body>`}
-  </Story>
-</Preview>
-
-## ZNotification - Variante inline
-
-<Preview>
-  <Story name="Inline ZNotification">
-    {html`
-    <div style="position: relative; width: 400px; height: 400px; border: 1px solid black;">
+<Canvas>
+  <Story name="ZNotification"
+    args={{
+      contenticonname: "checkmark-circle-filled",
+      actiontext: "Annulla",
+      showclose: false,
+      sticky: false,
+      type: NotificationType.success,
+    }}
+  >
+    {(args) => html`
       <z-notification
-        contenticonname="${text("Icon name", "checkmark-circle-filled")}"
-        actiontext="${text("Action text", "Annulla")}"
-        type=${select("Type", ["success", "warning", "error"], "success")}
-        showclose="${boolean("Show close button", false)}"
-        showshadow="false"
-        style="position: absolute; top: 0px; left: 0px;"
-      >${text("Content text", "Questo è il testo della notifica")}</z-notification>
-      <z-heading level="1">Titolo della scheda</z-heading>
-      <z-body level="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus magna imperdiet malesuada interdum. Curabitur volutpat mi purus, in maximus nisl volutpat quis.
-      Suspendisse sed vestibulum magna.</z-body>
-    </div>`}
+        .contenticonname=${args.contenticonname}
+        .actiontext=${args.actiontext}
+        .type=${args.type}
+        .showclose=${args.showclose}
+        .sticky=${args.sticky}
+      >
+        <div class="notification-container">
+          <strong>NOVITÀ</strong>: Testo che descrive le novità.
+        </div>
+      </z-notification>
+    `}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-notification" />
+## ZNotification - Long text
 
+<Canvas>
+  <Story name="ZNotification with long text"
+    args={{
+      contenticonname: "checkmark-circle-filled",
+      actiontext: "Annulla",
+      showclose: false,
+      sticky: false,
+      type: NotificationType.success,
+    }}
+  >
+    {(args) => html`
+      <z-notification
+        .contenticonname=${args.contenticonname}
+        .actiontext=${args.actiontext}
+        .type=${args.type}
+        .showclose=${args.showclose}
+        .sticky=${args.sticky}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus magna imperdiet malesuada interdum. Curabitur volutpat mi purus, in maximus nisl volutpat quis.
+      Suspendisse sed vestibulum magna. Quisque molestie, justo non pretium egestas, lorem elit malesuada turpis, et malesuada sapien nunc a urna. Curabitur sagittis augue turpis, eu consectetur purus consectetur vitae.
+      </z-notification>
+    `}
+  </Story>
+</Canvas>
 
+## ZNotification - Banner variant
+To use the banner variant, you need to set the `sticky` property to `true`.
+
+<Canvas>
+  <Story name="Banner ZNotification"
+    args={{
+      contenticonname: "checkmark-circle-filled",
+      actiontext: "Annulla",
+      showclose: false,
+      type: NotificationType.success,
+      notificationText: "Questo è il testo della notifica"
+    }}
+    parameters={{
+      controls: {
+        exclude: ["sticky"]
+      }
+    }}
+  >
+    {(args) => html`
+      <div class="banner-notification-demo">
+        <z-app-topbar>
+          <z-logo slot="logo" width="138" height="36"></z-logo>
+        </z-app-topbar>
+        <z-notification
+          .contenticonname=${args.contenticonname}
+          .actiontext=${args.actiontext}
+          .type=${args.type}
+          .showclose=${args.showclose}
+          sticky="true"
+        >
+          ${args.notificationText}
+        </z-notification>
+        <h2 class="heading-1-sb">Titolo della pagina</h2>
+        <div class="body-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus magna imperdiet malesuada interdum. Curabitur volutpat mi purus, in maximus nisl volutpat quis.
+        Suspendisse sed vestibulum magna. Quisque molestie, justo non pretium egestas, lorem elit malesuada turpis, et malesuada sapien nunc a urna. Curabitur sagittis augue turpis, eu consectetur purus consectetur vitae.
+        Sed bibendum nisl diam, eget egestas enim elementum eget. Donec quis magna lobortis, tristique nunc in, fringilla lacus. Duis ac porta turpis. Aenean aliquam tortor sed felis interdum aliquet dignissim vel ligula.
+        Donec auctor risus vitae nisi finibus, sed suscipit tellus fringilla. Sed malesuada gravida tincidunt. Duis tincidunt orci at magna egestas fermentum. Nulla laoreet ante felis, non molestie mi venenatis sit amet.
+        Nullam sollicitudin tempus lacus ac maximus.
+        Suspendisse erat magna, pellentesque ut lectus sit amet, aliquet scelerisque augue. In at felis facilisis, sodales tortor euismod, tincidunt tellus. Quisque vulputate dolor vitae nibh pharetra, a auctor turpis mattis.
+        Nulla facilisi. Vivamus a facilisis ex. Vestibulum ultricies scelerisque sapien eu pharetra. Etiam ut porttitor lorem, id ullamcorper risus. Donec sed sollicitudin metus.
+        Sed sapien lectus, bibendum quis lorem efficitur, pellentesque maximus lectus. Quisque quis lectus quis dolor ultrices facilisis placerat finibus nulla.
+        Donec laoreet urna id varius facilisis. Nulla facilisi. Pellentesque dignissim aliquam interdum.
+        Fusce ante mauris, blandit nec imperdiet mattis, dictum non sapien. Donec aliquet feugiat quam quis cursus. Curabitur et rutrum nunc. Phasellus ut lorem posuere, eleifend felis sed, lobortis arcu.
+        Nam efficitur purus non dolor tincidunt, nec euismod lectus hendrerit. Sed eget rutrum odio, ac maximus lacus. Etiam rutrum purus diam, eu pellentesque elit vulputate eget.
+        Donec nulla augue, euismod non mollis congue, laoreet vel orci. Cras eget suscipit felis. Phasellus eget erat eu nisl suscipit pulvinar. Nunc ullamcorper orci sit amet dui placerat, at vulputate libero finibus.
+        Quisque dignissim risus dolor, a porta erat cursus vel. Sed cursus pellentesque magna fringilla varius. Proin sit amet posuere massa. Proin nisl massa, hendrerit non congue mattis, tincidunt in turpis.
+        Etiam pharetra posuere est, non mollis sapien malesuada non. Quisque metus lectus, hendrerit vel accumsan et, ornare a eros.
+        Donec tempor, elit ut pulvinar auctor, sapien velit consectetur justo, interdum lobortis risus ligula vitae nunc. Praesent quam felis, posuere et consequat consectetur, tempus non sem.
+        Phasellus in ligula enim. Donec gravida, felis vitae elementum mattis, velit ipsum aliquam ipsum, a cursus nisi nisl nec sapien.
+        Ut et orci nulla. Donec fringilla magna non risus imperdiet euismod. Sed viverra eget turpis et faucibus. Sed ante orci, interdum in ligula in, tincidunt feugiat arcu.
+        In viverra efficitur urna laoreet tristique. Phasellus hendrerit, urna et condimentum aliquet, ex urna condimentum dui, vitae vestibulum mauris risus sit amet nunc.
+        Quisque egestas est vel lorem commodo, eget vestibulum enim cursus. Cras lectus velit, fermentum eget mauris id, interdum cursus massa. Maecenas quis dui vehicula mauris condimentum finibus.
+        Sed et magna velit. Duis eleifend dolor at sagittis ornare. Aenean commodo massa enim, ac varius augue varius quis.</div>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+## ZNotification - Inline variant
+To use the banner variant, you need to set the `sticky` property to `false`.
+
+<Canvas>
+  <Story name="Inline ZNotification"
+    args={{
+      contenticonname: "checkmark-circle-filled",
+      actiontext: "Annulla",
+      showclose: false,
+      type: NotificationType.success,
+      notificationText: "Questo è il testo della notifica",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["sticky"]
+      }
+    }}
+  >
+    {(args) => html`
+      <div class="inline-notification-demo">
+        <z-notification
+          contenticonname=${args.contenticonname}
+          actiontext=${args.actiontext}
+          type=${args.type}
+          showclose=${args.showclose}
+          sticky="false"
+        >
+          ${args.notificationText}
+        </z-notification>
+        <div class="content">
+          <h2 class="heading-1">Titolo della scheda</h2>
+          <div class="body-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus magna imperdiet malesuada interdum. Curabitur volutpat mi purus, in maximus nisl volutpat quis.
+          Suspendisse sed vestibulum magna.</div>
+        </div>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-notification" />

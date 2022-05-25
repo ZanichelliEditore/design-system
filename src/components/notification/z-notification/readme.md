@@ -7,28 +7,29 @@
 
 ## Properties
 
-| Property          | Attribute         | Description                     | Type                                                                             | Default     |
-| ----------------- | ----------------- | ------------------------------- | -------------------------------------------------------------------------------- | ----------- |
-| `actiontext`      | `actiontext`      | action button text              | `string`                                                                         | `undefined` |
-| `contenticonname` | `contenticonname` | icon on the left of the content | `string`                                                                         | `undefined` |
-| `showclose`       | `showclose`       | enable close icon               | `boolean`                                                                        | `false`     |
-| `showshadow`      | `showshadow`      | enable shadow                   | `boolean`                                                                        | `false`     |
-| `type`            | `type`            | alert variant type              | `NotificationType.error \| NotificationType.success \| NotificationType.warning` | `undefined` |
+| Property          | Attribute         | Description                                                                                                                                    | Type                                                                             | Default     |
+| ----------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------- |
+| `actiontext`      | `actiontext`      | Action button text                                                                                                                             | `string`                                                                         | `undefined` |
+| `contenticonname` | `contenticonname` | Name of the icon on the left of the content                                                                                                    | `string`                                                                         | `undefined` |
+| `showclose`       | `showclose`       | Enable close icon                                                                                                                              | `boolean`                                                                        | `false`     |
+| `showshadow`      | `showshadow`      | <span style="color:red">**[DEPRECATED]**</span> shadow is available only for the `sticky` version of the notification.<br/><br/>Enable shadow. | `boolean`                                                                        | `false`     |
+| `sticky`          | `sticky`          | Enable sticky notification bar.                                                                                                                | `boolean`                                                                        | `false`     |
+| `type`            | `type`            | Alert variant type                                                                                                                             | `NotificationType.error \| NotificationType.success \| NotificationType.warning` | `undefined` |
 
 
 ## Events
 
-| Event                | Description               | Type               |
-| -------------------- | ------------------------- | ------------------ |
-| `notificationAction` | notification action event | `CustomEvent<any>` |
-| `notificationClose`  | notification close event  | `CustomEvent<any>` |
+| Event                | Description            | Type               |
+| -------------------- | ---------------------- | ------------------ |
+| `notificationAction` | Call to action clicked | `CustomEvent<any>` |
+| `notificationClose`  | Close button clicked   | `CustomEvent<any>` |
 
 
 ## Slots
 
-| Slot | Description                     |
-| ---- | ------------------------------- |
-|      | the content of the notification |
+| Slot | Description                   |
+| ---- | ----------------------------- |
+|      | The text of the notification. |
 
 
 ## Dependencies
@@ -36,14 +37,11 @@
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
-- [z-body](../../typography/z-body)
 
 ### Graph
 ```mermaid
 graph TD;
   z-notification --> z-icon
-  z-notification --> z-body
-  z-body --> z-typography
   style z-notification fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

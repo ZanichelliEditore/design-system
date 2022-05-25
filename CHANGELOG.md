@@ -2,6 +2,171 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.44.1](https://github.com/ZanichelliEditore/design-system/compare/v2.44.0...v2.44.1) (2022-05-25)
+
+
+### Bug Fixes
+
+* fix position ([6516df6](https://github.com/ZanichelliEditore/design-system/commit/6516df6b95aa4381b38eda49807f6fcf37c72f44))
+* z-notification e2e tests ([fa5684a](https://github.com/ZanichelliEditore/design-system/commit/fa5684a93a7f3a9482ea49c3bd5d2296f6f3b57b))
+* z-notification tests ([36a08e8](https://github.com/ZanichelliEditore/design-system/commit/36a08e8af0f39f5a8733442f28078bfb7ab044f8))
+
+## [2.44.0](https://github.com/ZanichelliEditore/design-system/compare/v2.43.0...v2.44.0) (2022-05-24)
+
+
+### Features
+
+* add top-offset css prop; fix stories and tests ([3b86ff4](https://github.com/ZanichelliEditore/design-system/commit/3b86ff4e5ed6ac2a3017ec05f954d84d653dd0cb))
+
+## [2.43.0](https://github.com/ZanichelliEditore/design-system/compare/v2.42.1...v2.43.0) (2022-05-24)
+
+
+### Features
+
+* add new section-title component ([10ad160](https://github.com/ZanichelliEditore/design-system/commit/10ad16088133d45e71c11976ac12b49a42bcfd66))
+
+
+### Bug Fixes
+
+* build-storybook script for gh action ([d3170c0](https://github.com/ZanichelliEditore/design-system/commit/d3170c0cb5c300e306b211ba265dd95c87b9b3ce))
+* font-size and line-height of secondary title ([75e9a60](https://github.com/ZanichelliEditore/design-system/commit/75e9a6082f55014d309238f219fd3e57da3f91d1))
+* line-height ([0438e8a](https://github.com/ZanichelliEditore/design-system/commit/0438e8aaf84e8865a42c618275d33026ef98faf9))
+
+### [2.42.1](https://github.com/ZanichelliEditore/design-system/compare/v2.42.0...v2.42.1) (2022-05-19)
+
+
+### Bug Fixes
+
+* themes story; update storybook ([28f91f1](https://github.com/ZanichelliEditore/design-system/commit/28f91f1441f41107089abccd7947dc14c6c0abd6))
+
+## [2.42.0](https://github.com/ZanichelliEditore/design-system/compare/v2.41.1...v2.42.0) (2022-05-18)
+
+
+### Features
+
+* added control on type prop ([60f1200](https://github.com/ZanichelliEditore/design-system/commit/60f12006c4899bda01bea15452e65203706a0ef0))
+* added listener for fileDropped event ([a55c9f2](https://github.com/ZanichelliEditore/design-system/commit/a55c9f245750984fde0229f687cf21a55f723553))
+* added new file upload  component ([6ed138d](https://github.com/ZanichelliEditore/design-system/commit/6ed138d49becd9d3dd231f56c13e5cab8645fa92))
+* added new z-file component ([6bc0be8](https://github.com/ZanichelliEditore/design-system/commit/6bc0be800b083e11e2860ff7a130570b3c8775ee))
+* check object function and style ([35ea8f0](https://github.com/ZanichelliEditore/design-system/commit/35ea8f08b33e166983f476817923ef5e595f20ef))
+* drag message ([3351f44](https://github.com/ZanichelliEditore/design-system/commit/3351f44cd6967b8a584bb0533455b94847d7a821))
+* file-upload components.d ([02a43f8](https://github.com/ZanichelliEditore/design-system/commit/02a43f8c9eba8a394dd03991b77905c53b3577c6))
+* fixeed style and removed native behaviour ([42b04de](https://github.com/ZanichelliEditore/design-system/commit/42b04de0d7a75386ca065c5f76ac8a0396a939f6))
+* implemented native z-input type file behaviour ([d066fdd](https://github.com/ZanichelliEditore/design-system/commit/d066fdded2ef1df81ed4e0f532d44f3219f5fb5d))
+* improved style ([affe56e](https://github.com/ZanichelliEditore/design-system/commit/affe56e1b447d1e939ece9a5a8741af83db4b489))
+* new drag drop area component ([c0e8a92](https://github.com/ZanichelliEditore/design-system/commit/c0e8a92fde56b997c21f45ddcbcf21cebc715755))
+
+
+### Bug Fixes
+
+* file extension check ([f16931d](https://github.com/ZanichelliEditore/design-system/commit/f16931d7156114e541f5d68ae4bf0202e5cf2ef4))
+* fix border and border-radius ([c634d12](https://github.com/ZanichelliEditore/design-system/commit/c634d122b63d30a1045a6079dd3e1a0e2839e188))
+* fix borders ([c12226b](https://github.com/ZanichelliEditore/design-system/commit/c12226be1bdb40b527544541dbbcc5949e1c0b76))
+* fix pr comments ([38bdaa1](https://github.com/ZanichelliEditore/design-system/commit/38bdaa11081a352ca65c3851531aa1a081ac86d1))
+* fix pr comments ([c10820c](https://github.com/ZanichelliEditore/design-system/commit/c10820c22fb0078f189af31b06977d9d23e600e3))
+* fix pr comments ([2adcbd6](https://github.com/ZanichelliEditore/design-system/commit/2adcbd6a80de5bc1e380150889562bbb1e6a04b1))
+* fix tests ([1a88bb2](https://github.com/ZanichelliEditore/design-system/commit/1a88bb276338ffc2e8c56d22b2a865052533ef44))
+* fix title margin ([c24333a](https://github.com/ZanichelliEditore/design-system/commit/c24333aa3b78f035394bb9793787168055067623))
+* fixed cursor pointer ([4388ce0](https://github.com/ZanichelliEditore/design-system/commit/4388ce0f007dfae02dda6f848d1f82ba78a10824))
+* fixed dragdrop ([fdf9442](https://github.com/ZanichelliEditore/design-system/commit/fdf9442e08fb6a403aea2e604c8b37e1954a2fed))
+* fixed dragdrop on chrome ([f57ac2c](https://github.com/ZanichelliEditore/design-system/commit/f57ac2cd7146531a0ec8921687bb95f12c768de9))
+* fixed tests ([0b48f44](https://github.com/ZanichelliEditore/design-system/commit/0b48f448af752174121a4458bde7101515f2043e))
+* modal close on backgorund click ([75d6d9e](https://github.com/ZanichelliEditore/design-system/commit/75d6d9ec45dee39800b9d8473bb6f54d96331e79))
+* pr comments ([14d9a5b](https://github.com/ZanichelliEditore/design-system/commit/14d9a5b568fac0ac039559f78f21e96438f229a3))
+* pr comments ([9edf093](https://github.com/ZanichelliEditore/design-system/commit/9edf09328fbbc05c70ad9fa13db1c5999e88eeee))
+* pr comments ([7ad81ac](https://github.com/ZanichelliEditore/design-system/commit/7ad81ac7f052c1cd7d7a584f2567efeb0879cd8c))
+* remove z-body, fix css ([810251e](https://github.com/ZanichelliEditore/design-system/commit/810251e45c22ed51c3cce4eb33d5d625563cd1d2))
+* removed  wrapper for storybook update and fix css ([b222803](https://github.com/ZanichelliEditore/design-system/commit/b2228032f9a622da97ace25c051aff695ce22360))
+* removed knobs add contol storybook ([735b12c](https://github.com/ZanichelliEditore/design-system/commit/735b12c904a1f189030236df1b4f751663943b32))
+* removed unused props ([86d53fc](https://github.com/ZanichelliEditore/design-system/commit/86d53fcc84ca272fdb7454765d4fe6244130f705))
+* stories generator; adapt some stories to storybook update ([a8b1010](https://github.com/ZanichelliEditore/design-system/commit/a8b101026649ee5cf224229c04c331111558f715))
+* tests ([ce133d4](https://github.com/ZanichelliEditore/design-system/commit/ce133d4bf4fd113f41706b4e5bbd81da018daece))
+
+### [2.41.1](https://github.com/ZanichelliEditore/design-system/compare/v2.41.0...v2.41.1) (2022-05-17)
+
+
+### Bug Fixes
+
+* fix storybook ([631db0a](https://github.com/ZanichelliEditore/design-system/commit/631db0a69ce5bb43a37918b2455919bb88d7c905))
+
+## [2.41.0](https://github.com/ZanichelliEditore/design-system/compare/v2.40.1...v2.41.0) (2022-05-17)
+
+
+### Features
+
+* accessibility ([f562643](https://github.com/ZanichelliEditore/design-system/commit/f5626437e2da6e1926dd3da6cb7cda2b1ef0d3bd))
+* add active class ([bec3a0b](https://github.com/ZanichelliEditore/design-system/commit/bec3a0bc9a65f06267465723d3670582c7a4e818))
+* add focus and fix css ([507f89b](https://github.com/ZanichelliEditore/design-system/commit/507f89b56a7e50e3adfb4c66bf2b9fb33fbabb2f))
+* add new component z-toggle-switch ([a997af6](https://github.com/ZanichelliEditore/design-system/commit/a997af6606bc34ce258b8ecf1f694d0fa0e03016))
+* added tests z-toggle-switch ([b17639c](https://github.com/ZanichelliEditore/design-system/commit/b17639c5f103050e14b016bc3df77a2318dc4d2d))
+* changed span with the z-body and refactoring css ([7c68d14](https://github.com/ZanichelliEditore/design-system/commit/7c68d14eed6c5ed00b8eb68e9d458d0a304a9a07))
+* fix class and css ([9014733](https://github.com/ZanichelliEditore/design-system/commit/9014733fb07e3573e0288d6d1b4130565a4a7887))
+* fix css ([daa56da](https://github.com/ZanichelliEditore/design-system/commit/daa56da081f9c4bfdca47a88882780c4bc8f21aa))
+* fix css added bean ZtoggleSwitch ([8308de9](https://github.com/ZanichelliEditore/design-system/commit/8308de94fc82b740f1e3349908a526f73baa6cd0))
+* fix html-id and event toggle click ([c387554](https://github.com/ZanichelliEditore/design-system/commit/c387554762544a052d52b4bfc84384790311a370))
+* fix keyboard event ([eaa044f](https://github.com/ZanichelliEditore/design-system/commit/eaa044f143e3702eb9cdd4ae7ee6fd15b9dfbfe2))
+* fix label position prop ([7c80337](https://github.com/ZanichelliEditore/design-system/commit/7c80337986842077cdb436d166b21bbb503404b4))
+* fix order element ([4a44844](https://github.com/ZanichelliEditore/design-system/commit/4a44844b1aae34be6b9d535a429a6dc7dc663323))
+* fix tests ([01e5573](https://github.com/ZanichelliEditore/design-system/commit/01e5573bf9917aa0e4a0abd4459b13d0a5c8e941))
+* fix tests ([5946e22](https://github.com/ZanichelliEditore/design-system/commit/5946e2237ae6426fec7eadf9b827d9dda230cff6))
+* fix tests, fix css, fix html tag ([125cf2b](https://github.com/ZanichelliEditore/design-system/commit/125cf2b36a0f5bf147426fbe0acea8353506f836))
+* fix vars css, refactoring class ([9e80cd4](https://github.com/ZanichelliEditore/design-system/commit/9e80cd477f25e4d6ae8879291c5e06fc945c378b))
+* fixed focus ([516016f](https://github.com/ZanichelliEditore/design-system/commit/516016fbf375ec0a91cc767c73293724bb794f07))
+* fixed focus element and added keyCode event ([40f230f](https://github.com/ZanichelliEditore/design-system/commit/40f230fff5e49ecf8107c1592efd24574c0e33ba))
+* fixed reverse label prop ([b7001d5](https://github.com/ZanichelliEditore/design-system/commit/b7001d5b05261f1f66aa141ce477c4cf490802f0))
+* fixed tests ([b115ca2](https://github.com/ZanichelliEditore/design-system/commit/b115ca25027506879fd56693afc151a2cb5bfe10))
+* fixed transition and align-items ([27a080a](https://github.com/ZanichelliEditore/design-system/commit/27a080ad1a4674b62009f57737dec3f332febb35))
+* refactoring and fix css ([7d7cf92](https://github.com/ZanichelliEditore/design-system/commit/7d7cf928f29b002f4d2e8e3ca682453a4128f2c4))
+
+### [2.40.1](https://github.com/ZanichelliEditore/design-system/compare/v2.40.0...v2.40.1) (2022-05-16)
+
+## [2.40.0](https://github.com/ZanichelliEditore/design-system/compare/v2.39.0...v2.40.0) (2022-05-16)
+
+
+### Features
+
+* **feat/z-offcancas:** creates new offcanvas component ([f9b9296](https://github.com/ZanichelliEditore/design-system/commit/f9b9296766111982efcb3832a101ac4d19c727a5))
+* **feat/z-offcancas:** enable choosing a side for the modal ([4b501e5](https://github.com/ZanichelliEditore/design-system/commit/4b501e5f7ed28dd181a14013a4c1d129522067e0))
+* **feat/z-offcancas:** removes header and ads open prop ([38133af](https://github.com/ZanichelliEditore/design-system/commit/38133af8763d7bf36cfcc298e0da2c5e20d80699))
+* **feat/z-offcanvas:**  add animation to show offcanvas on right side ([6fc6b02](https://github.com/ZanichelliEditore/design-system/commit/6fc6b02eaf26a197ed4652c532c6b4931b25408d))
+* **feat/z-offcanvas:**  handle exit animation for overlay ([d58ac99](https://github.com/ZanichelliEditore/design-system/commit/d58ac99286d1312517a642809e6ae92965db5340))
+* **feat/z-offcanvas:** add block-style variation ([3f33a34](https://github.com/ZanichelliEditore/design-system/commit/3f33a349cacececeacf548815b06469700dea497))
+* **feat/z-offcanvas:** adds css variable to set top space left above canvas on overlay ([b4d6c51](https://github.com/ZanichelliEditore/design-system/commit/b4d6c5107dd8b7bf0d63104832f03237e8f92993))
+* **feat/z-offcanvas:** adds tabindex to content for accessibility ([5fa10b8](https://github.com/ZanichelliEditore/design-system/commit/5fa10b86849b96299334c9369274afe30c288d3f))
+* **feat/z-offcanvas:** change overlay prop to variant with enum values overlay | pushcontent ([63acb3c](https://github.com/ZanichelliEditore/design-system/commit/63acb3c7cd650677d25e9d59c6b11ccf54de2d50))
+* **feat/z-offcanvas:** change prop name to transitionfromleft ([0fbd1de](https://github.com/ZanichelliEditore/design-system/commit/0fbd1dec14803e316c1bf1466f3ca521d89a119f))
+* **feat/z-offcanvas:** change transitionToleft prop to transitiondirection with enum values left | right ([2e6fc84](https://github.com/ZanichelliEditore/design-system/commit/2e6fc842d4c11a7a7753728fbaf027dc625d51ce))
+* **feat/z-offcanvas:** emit event on open status change ([a5a8a6d](https://github.com/ZanichelliEditore/design-system/commit/a5a8a6dff51ad8b48465b87a1b687004c935fbbe))
+* **feat/z-offcanvas:** fix animation on leftside and removes header css style ([8801633](https://github.com/ZanichelliEditore/design-system/commit/8801633a8d69bacdf345c07abd764054b22ee9b7))
+* **feat/z-offcanvas:** fix test ([fe657e9](https://github.com/ZanichelliEditore/design-system/commit/fe657e9d4295a5d1519060bf08bc3f7869d62033))
+* **feat/z-offcanvas:** open prop mutable ([12170ad](https://github.com/ZanichelliEditore/design-system/commit/12170ad1f4b28c3efce1bd9a37032b9fda7bdf55))
+* **feat/z-offcanvas:** renamed alignleft prop to transitionleft ([8dfa558](https://github.com/ZanichelliEditore/design-system/commit/8dfa5583ebdf2c11c821b0fe0d6d5a4343e39a15))
+* **feat/z-offcanvas:** slight css refactoring ([d60d7b8](https://github.com/ZanichelliEditore/design-system/commit/d60d7b8edd3a0d345e6101fac10651f4ce7b6e26))
+* **feat/z-offcanvas:** use animationend event to hadle exit transition ([fad350b](https://github.com/ZanichelliEditore/design-system/commit/fad350bdc85e8fee8e925f2574e84f2cec8db9e9))
+
+
+### Bug Fixes
+
+* **feat/z-offcanvas:**  fixed test ([b33ee56](https://github.com/ZanichelliEditore/design-system/commit/b33ee5672fb86855dff2193cce636dfc0163391b))
+* **feat/z-offcanvas:** fix issue with open attribute ([d458515](https://github.com/ZanichelliEditore/design-system/commit/d4585152127ef20e200fdb5d39464102e0f0cd8e))
+* **feat/z-offcanvas:** fixed css dimensions ([edde851](https://github.com/ZanichelliEditore/design-system/commit/edde851034530b0fb5f8dce45bd36d3257a25922))
+* **feat/z-offcanvas:** fixes slide animation ([3361b86](https://github.com/ZanichelliEditore/design-system/commit/3361b863c79aa42fd655024998ab3b929a769e06))
+* **feat/z-offcanvas:** remove flex 1 from canvas in index ([41cc08e](https://github.com/ZanichelliEditore/design-system/commit/41cc08e2571a936ae0687afa48136de2ced34598))
+
+## [2.39.0](https://github.com/ZanichelliEditore/design-system/compare/v2.38.1...v2.39.0) (2022-05-13)
+
+
+### Features
+
+* add storybook-addon-stencil for docs argsTable ([7aa1548](https://github.com/ZanichelliEditore/design-system/commit/7aa154821a6de9e4703fad1652d13df3d72647b6))
+
+
+### Bug Fixes
+
+* addon-knobs bug when changing stories ([5a25f8d](https://github.com/ZanichelliEditore/design-system/commit/5a25f8dcc313e192808e1f3b078039d6fb7d833f))
+* import the component into the stories file ([c19396c](https://github.com/ZanichelliEditore/design-system/commit/c19396cefce80e8711cd23521da1db318a581d9f))
+* some dependencies and config; use controls for zbutton stories; PROPS/ARGSTABLE NOT WORKING ([bf5befa](https://github.com/ZanichelliEditore/design-system/commit/bf5befafbe79a97678a30aa75a297ce909178240))
+
 ### [2.38.1](https://github.com/ZanichelliEditore/design-system/compare/v2.38.0...v2.38.1) (2022-05-12)
 
 ## [2.38.0](https://github.com/ZanichelliEditore/design-system/compare/v2.37.1-CLAV-275...v2.38.0) (2022-05-11)

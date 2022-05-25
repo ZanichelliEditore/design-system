@@ -1,0 +1,71 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import { html } from "lit-html";
+import { ZSectionTitleDividerPositions } from "../../beans";
+import { getColorTokens } from "../../utils/storybook-utils";
+import "./index";
+
+<Meta
+  title="ZSectionTitle"
+  component="z-section-title"
+  argTypes={{
+    dividerPosition: {
+      options: Object.values(ZSectionTitleDividerPositions),
+      control: { type: "inline-radio" }
+    },
+    uppercase: {
+      control: { type: "boolean" }
+    },
+    "--z-section-title--divider-color": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
+  }}
+/>
+
+# ZSectionTitle
+
+<Canvas>
+  <Story name="Primary title only" args={{
+    dividerPosition: ZSectionTitleDividerPositions.before,
+    uppercase: true,
+    "--z-section-title--divider-color": "--red500",
+  }}>
+    {(args) => html`
+      <z-section-title
+        .dividerPosition=${args.dividerPosition}
+        .uppercase=${args.uppercase}
+        .style="--z-section-title--divider-color: var(${args["--z-section-title--divider-color"]})"
+      >
+        <h4 slot="primary-title">Primary title</h4>
+      </z-section-title>
+    `}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With secondary title"
+    args={{
+      uppercase: true,
+      "--z-section-title--divider-color": "--red500",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["dividerPosition"]
+      }
+    }}
+  >
+    {(args) => html`
+      <z-section-title
+        .uppercase=${args.uppercase}
+        .style="--z-section-title--divider-color: var(${args["--z-section-title--divider-color"]})"
+      >
+        <h5 slot="secondary-title">Secondary title</h5>
+        <h4 slot="primary-title">Primary title</h4>
+      </z-section-title>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-section-title" />

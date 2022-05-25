@@ -1,0 +1,107 @@
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+  display: inline-flex;
+  position: relative;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+label.disabled {
+  cursor: default;
+}
+
+label.right {
+  flex-direction: row-reverse;
+}
+
+label > span:first-child {
+  letter-spacing: 0;
+  color: var(--color-text01);
+}
+
+label.left > span:first-child {
+  margin-right: var(--space-unit);
+}
+
+label.right > span:first-child {
+  margin-left: var(--space-unit);
+}
+
+label > span.container {
+  display: flex;
+  align-items: center;
+}
+
+label > span.container {
+  top: 1px;
+  left: 1px;
+  height: 18px;
+  width: calc(var(--space-unit) * 4);
+  border-radius: var(--space-unit);
+  color: var(--gray500);
+  background-color: var(--gray500);
+  position: relative;
+  cursor: pointer;
+}
+
+label > span.container.disabled,
+label > span.container.checked.disabled {
+  background-color: var(--color-disabled01);
+  cursor: default;
+}
+
+label > span.container.checked.disabled > span.circle > z-icon {
+  fill: var(--color-disabled01);
+}
+
+label > span.container.checked {
+  background-color: var(--color-primary01);
+  fill: var(--color-primary01);
+}
+
+input:focus:focus-visible + label > span.container:not(.disabled) {
+  outline: none;
+  box-shadow: var(--shadow-focus-primary);
+}
+
+input:focus:focus-visible + label > span.container.disabled {
+  outline: none;
+}
+
+label > span.container:not(.disabled):hover {
+  background-color: var(--color-hover-primary);
+  fill: var(--color-hover-primary);
+}
+
+label > span.container > span.circle {
+  top: 1px;
+  left: 1px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: calc(var(--space-unit) * 2);
+  width: calc(var(--space-unit) * 2);
+  border-radius: 7px;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-1);
+  transition: transform 0.3s ease;
+}
+
+label > span.container.checked > span.circle {
+  transform: translateX(calc(100% - 2px));
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}

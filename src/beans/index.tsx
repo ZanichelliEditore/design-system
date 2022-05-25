@@ -306,6 +306,10 @@ export enum ExpandableListButtonAlign {
   left = "left",
 }
 
+export enum ZtoggleSwitchPositionEnum {
+  right = "right",
+  left = "left",
+}
 export enum ListDividerType {
   none = "none",
   header = "header",
@@ -400,9 +404,31 @@ export enum ZAriaAlertMode {
   assertive = "assertive",
 }
 
+export enum TransitionDirectionEnum {
+  left = "left",
+  right = "right",
+}
+
+export enum OffCanvasVariantsEnum {
+  overlay = "overlay",
+  pushcontent = "pushcontent",
+}
+
 export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
+
+export enum ZFileUploadTypeEnum {
+  default = 'default',
+  dragdrop = 'dragdrop'
+}
 
 export enum ZChipType {
   default = "default",
   mini = "mini",
 }
+
+export enum ZSectionTitleDividerPositions {
+  before = "before",
+  after = "after",
+}
+
+export type ZSectionTitleDividerPosition = keyof typeof ZSectionTitleDividerPositions;

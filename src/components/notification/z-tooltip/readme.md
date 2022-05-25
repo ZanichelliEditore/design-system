@@ -49,11 +49,13 @@ To be sure the algorithm finds the right container, when calculating the positio
 
 ### Used by
 
+ - [z-file](../../file-upload/z-file)
  - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-file --> z-tooltip
   z-myz-card-info --> z-tooltip
   style z-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
