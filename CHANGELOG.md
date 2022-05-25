@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.44.1](https://github.com/ZanichelliEditore/design-system/compare/v2.44.0...v2.44.1) (2022-05-25)
+
+
+### Bug Fixes
+
+* fix position ([6516df6](https://github.com/ZanichelliEditore/design-system/commit/6516df6b95aa4381b38eda49807f6fcf37c72f44))
+* z-notification e2e tests ([fa5684a](https://github.com/ZanichelliEditore/design-system/commit/fa5684a93a7f3a9482ea49c3bd5d2296f6f3b57b))
+* z-notification tests ([36a08e8](https://github.com/ZanichelliEditore/design-system/commit/36a08e8af0f39f5a8733442f28078bfb7ab044f8))
+
 ## [2.44.0](https://github.com/ZanichelliEditore/design-system/compare/v2.43.0...v2.44.0) (2022-05-24)
 
 
