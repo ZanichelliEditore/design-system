@@ -57,10 +57,9 @@ export class ZDatePicker {
 
   componentDidLoad() {
     const weekdaysElement = this.element.querySelectorAll(".flatpickr-weekday");
-    const weekdays = ["L", "M", "M", "G", "V", "S", "D"];
 
-    weekdaysElement.forEach((element, index) => {
-      element.innerHTML = weekdays[index + 1];
+    weekdaysElement.forEach((element) => {
+      element.innerHTML = element.innerHTML.trim().charAt(0);
     });
   }
 
