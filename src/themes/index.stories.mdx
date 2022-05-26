@@ -1,0 +1,55 @@
+import { html } from "lit-html";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { getThemesColorTokens } from "../utils/storybook-utils";
+import "./index.stories.css";
+
+<Meta
+  title="Themes/Colors"
+  argTypes={{
+    theme: {
+      control: { type: "inline-radio" },
+      options: ["default", "theme-black-yellow"],
+    },
+  }}
+/>
+
+<Canvas>
+  <Story name="Colors" args={{ theme: "default" }}>
+    {(args) => html`
+      <div class=${args.theme}>
+        <p>
+          Zanichelli DS currently supports two color themes, the
+          <a
+            target="_blank"
+            href="https://app.abstract.com/projects/fd370780-e659-11e8-99dc-0d08537c5fde/branches/eac24e1a-798f-445d-b8c4-3812cd9adb9f/commits/latest/files/9f586aa0-bd5b-4c12-9541-aed2e98a7a9c/layers/7834C2AE-38FF-4FDD-8EAB-D3A1BFFF45CF?collectionId=1a973a75-0d81-49aa-b31f-f38f2e36879a&collectionLayerId=d55cc2c2-b660-4d0f-8c11-bfa3968b67cd"
+          >
+            default
+          </a>
+          theme and the
+          <a
+            target="_blank"
+            href="https://app.abstract.com/projects/fd370780-e659-11e8-99dc-0d08537c5fde/branches/eac24e1a-798f-445d-b8c4-3812cd9adb9f/commits/latest/files/9f586aa0-bd5b-4c12-9541-aed2e98a7a9c/layers/4EF5FE71-9450-4CBA-811C-D72CC0203A8A?collectionId=1a973a75-0d81-49aa-b31f-f38f2e36879a&collectionLayerId=98c9877b-1058-4039-8619-26db7a27e2e3"
+          >
+            black-yellow
+          </a>
+          theme.
+        </p>
+        <p>
+          On this page you can see which are the color tokens of both themes and
+          select them from the dropdown menu below.
+        </p>
+        <h3>Color Tokens</h3>
+        <ul class="theme-list">
+          ${getThemesColorTokens().map(
+            (color) => html`
+              <li>
+                <code>${color}</code>
+                <span style="background-color: var(${color})"></span>
+              </li>
+            `
+          )}
+        </ul>
+      </div>
+    `}
+  </Story>
+</Canvas>

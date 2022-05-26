@@ -1,0 +1,106 @@
+import { html } from "lit-html";
+import { Meta, Story, ArgsTable, Canvas } from "@storybook/addon-docs";
+import { ButtonVariantEnum } from "../../../beans";
+
+import "./index";
+
+<Meta
+  title="Inputs/ZFileUpload"
+  component="z-file-upload"
+  argTypes={{
+    buttonVariant: {
+      options: ['primary', 'secondary'],
+      control: { type: "radio" },
+    },
+    fileMaxSize: {
+      control: { type: "text" },
+    },
+    acceptedFormat: {
+      control: { type: "text" },
+    },
+    mainTitle: {
+      control: { type: "text" },
+    },
+    description: {
+      control: { type: "text" },
+    },
+  }}
+/>
+
+# ZFileUpload
+
+<Canvas>
+  <Story
+    name="ZFileUpload default version"
+    args={{
+      buttonVariant: ButtonVariantEnum.primary,
+      fileMaxSize: "50",
+      acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
+      mainTitle: "Allega un file",
+      description:
+        "Vuoi allegare un file per chiarire meglio la tua richiesta?",
+    }}
+  >
+    {(args) => html`<z-heading level="4"
+        >This story embeds a piece of js script to allow the component to work
+        properly. Please refresh the page before using it!</z-heading
+      ><br />
+      <z-file-upload
+        type="default"
+        description="${args.description}"
+        button-variant="${args.buttonVariant}"
+        file-max-size="${args.fileMaxSize}"
+        accepted-format="${args.acceptedFormat}"
+        main-title="${args.mainTitle}"
+      >
+      </z-file-upload>
+      <script>
+        const uploader = document.querySelector("z-file-upload");
+        let fileNumber = 0;
+        document.addEventListener("fileInput", (e) => {
+          fileNumber++;
+          const item = e.detail;
+          const chip = document.createElement("Z-FILE");
+          chip.setAttribute("slot", "files");
+          chip.setAttribute("file-number", fileNumber);
+          chip.innerText = item.name;
+          uploader.appendChild(chip);
+        });
+      </script>`}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="ZFileUpload dragdrop version"
+    args={{
+      fileMaxSize: "50",
+      acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
+      mainTitle: "Allega un file",
+      description:
+        "Vuoi allegare un file per chiarire meglio la tua richiesta?",
+    }}
+  >
+    {(args) => html`
+    <z-heading level="4">This story embeds a piece of js script to allow the component to work properly. Please refresh the page before using it!</z-heading><br>
+    <z-file-upload type="dragdrop" 
+                         file-max-size="${args.fileMaxSize}"
+                         description="${args.description}"
+                         accepted-format="${args.acceptedFormat}"}" 
+                         main-title="${args.mainTitle}">
+      </z-file-upload>
+      <script>
+        const uploader = document.querySelector("z-file-upload");
+          document.addEventListener("fileInput", (e) => {
+              const item = e.detail
+                  const chip = document.createElement('Z-FILE')
+                  chip.setAttribute('slot', 'files')
+                  chip.setAttribute('filetype', item.type)
+                  chip.innerText = item.name
+                  uploader.appendChild(chip);
+          })
+        </script>`}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-file-upload" />

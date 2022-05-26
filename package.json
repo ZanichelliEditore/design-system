@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "2.41.1",
+  "version": "2.44.1",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -27,7 +27,7 @@
     "test.e2e": "stencil test --e2e",
     "release": "standard-version",
     "start-storybook": "start-storybook --port 3003 --ci --no-manager-cache",
-    "build-storybook": "build-storybook --config-dir .storybook . --output-dir storybook"
+    "build-storybook": "yarn build && build-storybook --config-dir .storybook . --output-dir storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
@@ -35,14 +35,14 @@
     "@commitlint/config-conventional": "^12.0.0",
     "@stencil/core": "^2.4.0",
     "@stencil/react-output-target": "^0.3.0",
-    "@storybook/addon-a11y": "^6.4.22",
-    "@storybook/addon-controls": "^6.4.22",
-    "@storybook/addon-docs": "^6.4.22",
+    "@storybook/addon-a11y": "^6.5.0",
+    "@storybook/addon-controls": "^6.5.0",
+    "@storybook/addon-docs": "^6.5.0",
     "@storybook/addon-knobs": "^6.4.0",
-    "@storybook/addon-viewport": "^6.4.22",
-    "@storybook/builder-webpack5": "^6.4.22",
-    "@storybook/manager-webpack5": "^6.4.22",
-    "@storybook/web-components": "^6.4.22",
+    "@storybook/addon-viewport": "^6.5.0",
+    "@storybook/builder-webpack5": "^6.5.0",
+    "@storybook/manager-webpack5": "^6.5.0",
+    "@storybook/web-components": "^6.5.0",
     "@types/hammerjs": "^2.0.39",
     "@types/jest": "26.0.20",
     "@types/puppeteer": "5.4.3",
@@ -59,7 +59,7 @@
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
     "standard-version": "^9.1.1",
-    "storybook-addon-stencil": "^0.1.6",
+    "storybook-addon-stencil": "^0.1.8",
     "typescript": "~4.3.5",
     "webpack": "5"
   },

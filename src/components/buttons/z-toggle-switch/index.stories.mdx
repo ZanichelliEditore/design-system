@@ -1,20 +1,39 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { select, boolean } from "@storybook/addon-knobs";
+import { Meta, Canvas, Story, Preview, Props } from "@storybook/addon-docs";
+import { ZtoggleSwitchPositionEnum } from "../../../beans";
 import "./index";
 
-<Meta title="Buttons/ZToggleSwitch" component="z-toggle-switch" />
+<Meta
+  title="Buttons/ZToggleSwitch"
+  component="z-toggle-switch"
+  argTypes={{
+    labelPosition: {
+      options: Object.values(ZtoggleSwitchPositionEnum),
+      control: { type: "radio" },
+    },
+  }}
+/>
 
 # ZToggleSwitch
 
-<Preview>
-  <Story name="ZToggleSwitch">
-    {html` <z-toggle-switch
-      disabled="${boolean("disabled", false)}"
-      label-position="${select("labelPosition", ["left", "right"], "left")}"
-      >Toggle
-    </z-toggle-switch>`}
+<Canvas>
+  <Story
+    name="z-toggle-switch"
+    args={{
+      labelPosition: ZtoggleSwitchPositionEnum.left,
+      disabled: false,
+    }}
+  >
+    {(args) =>
+      html`
+        <z-toggle-switch
+          label-position=${args.labelPosition}
+          disabled=${args.disabled}
+          >Toggle
+        </z-toggle-switch>
+      `
+    }
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-toggle-switch" />
+<ArgsTable of="z-toggle-switch" />
