@@ -7,6 +7,7 @@ import {
   State,
   Listen,
   Element,
+  Method,
 } from "@stencil/core";
 import {
   ButtonVariantEnum,
@@ -41,9 +42,9 @@ export class ZFileUpload {
 
   /** Description */
   @Prop() description?: string;
-  
-  /** Number of files added by the user */
-  @State() filesNumber: number = 0;
+
+  /** Files added by the user */
+  @State() files: File[] = [];
 
   /** List of files not allowed to be uploaded */
   @State() invalidFiles: Map<string, Array<string>>;
@@ -53,7 +54,7 @@ export class ZFileUpload {
   private input: HTMLInputElement;
 
   private button: HTMLZButtonElement;
-  
+
   private errorModal: HTMLZModalElement;
 
   private uploadLink: HTMLZBodyElement;
@@ -66,8 +67,16 @@ export class ZFileUpload {
 
   /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
-  removeFileListener(){
-    this.filesNumber--; 
+  removeFileListener(e: CustomEvent) {
+    const files = this.files;
+    const file = files.find((file) => file.name === e.detail.fileName);
+    if (file) {
+      const index = files.indexOf(file);
+      if (index >= 0) {
+        files.splice(index, 1);
+        this.files = [...files];
+      }
+    }
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
@@ -77,9 +86,9 @@ export class ZFileUpload {
     this.fileInputHandler();
   }
 
-  componentDidUpdate(){
-    this.handleAccessibility()
-    this.invalidFiles.size && this.errorModal.focus()
+  componentDidUpdate() {
+    this.handleAccessibility();
+    this.invalidFiles.size && this.errorModal.focus();
   }
 
   componentWillLoad() {
@@ -99,11 +108,21 @@ export class ZFileUpload {
     }
   }
 
-  handleAccessibility(){
-    if(this.filesNumber > 0) {
-      (this.el.querySelector('z-file:last-child > z-chip').shadowRoot.querySelector('button') as HTMLElement).focus();
-    }else {
-      this.type === ZFileUploadTypeEnum.default ? this.button.shadowRoot.querySelector('button').focus() : this.uploadLink.focus();
+  /** get array of uploaded files */
+  @Method()
+  async getFiles(): Promise<File[]> {
+    return this.files;
+  }
+
+  handleAccessibility() {
+    if (this.files.length > 0) {
+      (this.el
+        .querySelector("z-file:last-child > z-chip")
+        .shadowRoot.querySelector("button") as HTMLElement).focus();
+    } else {
+      this.type === ZFileUploadTypeEnum.default
+        ? this.button.shadowRoot.querySelector("button").focus()
+        : this.uploadLink.focus();
     }
   }
 
@@ -118,9 +137,11 @@ export class ZFileUpload {
         .some((ext: string) => file.name.toLowerCase().endsWith(ext.trim()));
       const fileSizeOk = fileSize <= this.fileMaxSize;
       if (fileSizeOk && fileFormatOk) {
-        this.fileInput.emit(file);
-        this.filesNumber++;
-        this.input.value = "";
+        if (!this.files.find((f) => f.name === file.name)) {
+          this.files.push(file);
+          this.fileInput.emit(file);
+          this.input.value = "";
+        }
         return;
       }
       errors.set(file.name, []);
@@ -152,21 +173,22 @@ export class ZFileUpload {
   }
 
   renderAllowedFileExtensions() {
-    let fileFormatString = ""
-    let fileWeightString = ""
+    let fileFormatString = "";
+    let fileWeightString = "";
 
-    if(this.acceptedFormat){
-      const fileFormat = this.acceptedFormat.split(', ')
-      .map((string) => string.substring(1).toUpperCase())
-      .join(', ');
-      fileFormatString = ` nei formati ${fileFormat}`
+    if (this.acceptedFormat) {
+      const fileFormat = this.acceptedFormat
+        .split(", ")
+        .map((string) => string.substring(1).toUpperCase())
+        .join(", ");
+      fileFormatString = ` nei formati ${fileFormat}`;
     }
 
-    if(this.fileMaxSize){
-      fileWeightString = ` per un massimo di ${this.fileMaxSize}MB di peso`
+    if (this.fileMaxSize) {
+      fileWeightString = ` per un massimo di ${this.fileMaxSize}MB di peso`;
     }
 
-    const finalString = `Puoi allegare file${fileFormatString}${fileWeightString}.`
+    const finalString = `Puoi allegare file${fileFormatString}${fileWeightString}.`;
 
     return (
       <z-body level={3}>
@@ -177,7 +199,7 @@ export class ZFileUpload {
 
   renderFileSection() {
     return (
-      this.filesNumber > 0 && (
+      this.files.length > 0 && (
         <section class="files-container">
           <z-heading variant="semibold" level={4}>
             File appena caricati
@@ -208,7 +230,7 @@ export class ZFileUpload {
       <z-button
         onClick={() => this.input.click()}
         onKeyPress={(e) => {
-          if (e.code == 'Space' || e.code == 'Enter') {
+          if (e.code == "Space" || e.code == "Enter") {
             e.preventDefault();
             this.input.click();
           }
@@ -216,7 +238,7 @@ export class ZFileUpload {
         id="fileSelect"
         variant={this.buttonVariant}
         icon="upload"
-        ref={(val) => this.button = val}
+        ref={(val) => (this.button = val)}
       >
         Allega
       </z-button>,
@@ -233,14 +255,14 @@ export class ZFileUpload {
           class="upload-link"
           onClick={() => this.input.click()}
           onKeyPress={(e) => {
-            if (e.code == 'Space' || e.code == 'Enter') {
+            if (e.code == "Space" || e.code == "Enter") {
               e.preventDefault();
               this.input.click();
             }
           }}
           variant="semibold"
           level={1}
-          ref={(val) => this.uploadLink = val}
+          ref={(val) => (this.uploadLink = val)}
         >
           caricalo
         </z-body>{" "}
@@ -307,14 +329,18 @@ export class ZFileUpload {
       !!this.invalidFiles.size && (
         <z-modal
           tabIndex={0}
-          ref={(val) => this.errorModal = val}
+          ref={(val) => (this.errorModal = val)}
           modaltitle="Attenzione"
-          onModalClose={() => this.invalidFiles = new Map<string, Array<string>>()}
-          onModalBackgroundClick={() => this.invalidFiles = new Map<string, Array<string>>()}
+          onModalClose={() =>
+            (this.invalidFiles = new Map<string, Array<string>>())
+          }
+          onModalBackgroundClick={() =>
+            (this.invalidFiles = new Map<string, Array<string>>())
+          }
         >
           {this.handleErrorModalContent()}
         </z-modal>
-      )
+      ),
     ];
   }
 }

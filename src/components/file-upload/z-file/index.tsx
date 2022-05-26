@@ -13,8 +13,6 @@ import { DeviceEnum, TooltipPosition, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
 import { getDevice } from "../../../utils/utils";
 
-import './index';
-
 @Component({
   tag: "z-file",
   styleUrl: "styles.css",
@@ -25,28 +23,32 @@ export class ZFile {
   private icon: HTMLElement;
 
   private ellipsis?: HTMLSpanElement;
-  
+
+  /** File identifier */
   @Prop() fileNumber: number;
+
+  /** File name */
+  @Prop() fileName: any;
 
   @State() allowTooltip: boolean = false;
 
-  @State() tooltipVisible: boolean = false
+  @State() tooltipVisible: boolean = false;
 
   @Element() el: HTMLElement;
 
   /** Emitted when a z-file component is removed from the DOM */
   @Event() removeFile: EventEmitter;
   removeFileHandler() {
-    this.removeFile.emit();
+    this.removeFile.emit({ fileName: this.fileName });
     this.el.remove();
   }
 
-  @Listen('mouseover')
+  @Listen("mouseover")
   onMouseOver() {
     this.tooltipVisible = true;
   }
 
-  @Listen('mouseleave')
+  @Listen("mouseleave")
   onMouseLeave() {
     this.tooltipVisible = false;
   }
@@ -84,7 +86,7 @@ export class ZFile {
                 "body-2-sb": getDevice() !== DeviceEnum.desktop,
               }}
             >
-              <slot />
+              {this.fileName}
             </span>
             <z-icon
               aria-label="Elimina file"
