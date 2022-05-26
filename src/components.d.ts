@@ -311,14 +311,6 @@ export namespace Components {
         "hide"?: boolean;
     }
     interface ZDatePicker {
-        /**
-          * unique id
-         */
-        "datepickerid": string;
-        /**
-          * [Optional] if true, the datepicker is displayed with time box
-         */
-        "showTime": boolean;
     }
     interface ZDivider {
         /**
@@ -2651,15 +2643,6 @@ declare namespace LocalJSX {
         "onAccept"?: (event: CustomEvent<any>) => void;
     }
     interface ZDatePicker {
-        /**
-          * unique id
-         */
-        "datepickerid"?: string;
-        "onDateSelect"?: (event: CustomEvent<any>) => void;
-        /**
-          * [Optional] if true, the datepicker is displayed with time box
-         */
-        "showTime"?: boolean;
     }
     interface ZDivider {
         /**
