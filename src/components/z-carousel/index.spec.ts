@@ -40,6 +40,7 @@ describe("Suite test ZCarousel", () => {
       .toEqualHtml(`<z-carousel isloading="true"  ghostloadingheight="200">
       <div style="height: 200px;">
         <z-ghost-loading></z-ghost-loading>
+        <div style="display: none;"></div>
       </div>
   </z-carousel>
     `);

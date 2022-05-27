@@ -217,7 +217,7 @@ export namespace Components {
          */
         "ghostloadingheight": string;
         /**
-          * used for handle z-carousel ghost loading
+          * sets whether the z-carousel is on loading state
          */
         "isloading": boolean;
     }
@@ -2536,7 +2536,7 @@ declare namespace LocalJSX {
          */
         "ghostloadingheight"?: string;
         /**
-          * used for handle z-carousel ghost loading
+          * sets whether the z-carousel is on loading state
          */
         "isloading"?: boolean;
     }
