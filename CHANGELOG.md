@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.45.0](https://github.com/ZanichelliEditore/design-system/compare/v2.44.1...v2.45.0) (2022-05-27)
+
+
+### Features
+
+* add carousel loading element story ([528c13a](https://github.com/ZanichelliEditore/design-system/commit/528c13ad02425f4751202ce1f78aa9c89392e0a0))
+* add isloading and ghostloadingheight props ([67eae67](https://github.com/ZanichelliEditore/design-system/commit/67eae678079f0e75db5aa485a77df0f2f628304d))
+
 ### [2.44.1](https://github.com/ZanichelliEditore/design-system/compare/v2.44.0...v2.44.1) (2022-05-25)
 
 
