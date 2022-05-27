@@ -5,33 +5,25 @@ import classNames from "classnames";
   tag: "z-tag",
   styleUrl: "styles.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class ZTag {
   /** [optional] Tag icon */
   @Prop() icon?: string;
-  /** [optional] Tag text */
-  @Prop() text?: string;
   /** [optional] Hide the text and show it on hover*/
   @Prop() expandable?: boolean;
-
-  constructor() {
-    if (!this.icon && !this.text) {
-      console.warn(
-        "z-tag must contain at least one prop between icon and text"
-      );
-    }
-  }
 
   render() {
     return (
       <Host
         class={classNames("body-5-sb", {
-          expandable: this.expandable && this.icon && this.text,
+          expandable: this.expandable && this.icon,
         })}
       >
-        {this.icon && <z-icon name={this.icon} />}
-        {this.text && <span>{this.text}</span>}
+        {this.icon && <z-icon name={this.icon} width={15} height={15} />}
+        <div>
+          <slot />
+        </div>
       </Host>
     );
   }

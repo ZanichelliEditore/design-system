@@ -25,11 +25,8 @@ import "./index";
       expandable: false,
     }}
   >
-    {(args) => html`<z-tag
-      .icon=${args.icon}
-      .expandable=${args.expandable}
-      .text=${args.text}
-    >
+    {(args) => html`<z-tag .icon=${args.icon} .expandable=${args.expandable}
+      >${args.text}
     </z-tag>`}
   </Story>
 </Canvas>
@@ -44,15 +41,36 @@ import "./index";
       text: "In progress",
       expandable: false,
       iconTextToken: "--color-white",
-      bgToken: "--avatar-C19"
+      bgToken: "--avatar-C19",
     }}
   >
     {(args) => html`<z-tag
       style="--iconTextToken: var(${args.token}); --bgToken: var(${args.bgToken})"
       .icon=${args.icon}
       .expandable=${args.expandable}
-      .text=${args.text}
-    >
+      >${args.text}
+    </z-tag>`}
+  </Story>
+</Canvas>
+
+# ZTag token
+
+<Canvas>
+  <Story
+    name="ZTag-test"
+    args={{
+      icon: "gear",
+      text: "In progress testo lungo molto lungo lungo lungo lungo lungolungo lungolungo",
+      expandable: false,
+      iconTextToken: "--color-white",
+      bgToken: "--avatar-C19",
+    }}
+  >
+    {(args) => html`<z-tag
+      style="--iconTextToken: var(${args.token}); --bgToken: var(${args.bgToken}); width: 500px;"
+      .icon=${args.icon}
+      .expandable=${args.expandable}
+      >${args.text}
     </z-tag>`}
   </Story>
 </Canvas>

@@ -9,16 +9,20 @@
 
   height: 22px;
   border-radius: var(--border-radius);
-  padding-right: 4px;
-  padding-left: 4px;
+  padding: 4px;
   text-transform: uppercase;
 
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  width: fit-content;
+  height: fit-content;
 
   color: var(--iconTextToken);
   fill: var(--iconTextToken);
   background-color: var(--bgToken);
+}
+
+:host > z-icon {
+  margin-right: var(--space-unit);
 }
 
 :host(.expandable) > z-icon {
@@ -32,14 +36,14 @@
   transition: margin-right 0.3s ease-out 0s;
 }
 
-:host(.expandable) > span {
+:host(.expandable) > div {
   max-width: 0;
   transition: max-width 0.3s ease-out 0.2s;
   white-space: nowrap;
   overflow: hidden;
 }
 
-:host(.expandable:hover) > span {
+:host(.expandable:hover) > div {
   max-width: 20rem;
   transition: max-width 0.3s ease-out 0s;
 }
