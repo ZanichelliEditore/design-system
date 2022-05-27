@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property             | Attribute            | Description                                 | Type      | Default     |
-| -------------------- | -------------------- | ------------------------------------------- | --------- | ----------- |
-| `ghostloadingheight` | `ghostloadingheight` | sets the height of z-carousel ghost loading | `string`  | `undefined` |
-| `isloading`          | `isloading`          | used for handle z-carousel ghost loading    | `boolean` | `undefined` |
+| Property             | Attribute            | Description                                     | Type      | Default     |
+| -------------------- | -------------------- | ----------------------------------------------- | --------- | ----------- |
+| `ghostloadingheight` | `ghostloadingheight` | sets the height of z-carousel ghost loading     | `string`  | `undefined` |
+| `isloading`          | `isloading`          | sets whether the z-carousel is on loading state | `boolean` | `undefined` |
 
 
 ## Slots
