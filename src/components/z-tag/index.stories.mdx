@@ -57,7 +57,7 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZTag-test"
+    name="ZTag-with-long-text"
     args={{
       icon: "gear",
       text: "In progress testo lungo molto lungo lungo lungo lungo lungolungo lungolungo",
@@ -67,7 +67,7 @@ import "./index";
     }}
   >
     {(args) => html`<z-tag
-      style="--iconTextToken: var(${args.token}); --bgToken: var(${args.bgToken}); width: 500px;"
+      style="--iconTextToken: var(${args.token}); --bgToken: var(${args.bgToken}); max-width: 500px;"
       .icon=${args.icon}
       .expandable=${args.expandable}
       >${args.text}

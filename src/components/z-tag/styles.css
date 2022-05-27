@@ -16,6 +16,9 @@
   width: fit-content;
   height: fit-content;
 
+  max-width: inherit;
+  max-height: inherit;
+
   color: var(--iconTextToken);
   fill: var(--iconTextToken);
   background-color: var(--bgToken);
@@ -27,23 +30,24 @@
 
 :host(.expandable) > z-icon {
   margin-right: 0;
-  transition: margin-right 0.3s ease-out 0.2s;
+  transition: margin-right 0.3s all 0.2s;
 }
 
 :host(:not(.expandable)) > z-icon:not(:last-child),
 :host(.expandable:hover) > z-icon:not(:last-child) {
   margin-right: var(--space-unit);
-  transition: margin-right 0.3s ease-out 0s;
+  transition: margin-right 0.3s all 0s;
 }
 
 :host(.expandable) > div {
   max-width: 0;
-  transition: max-width 0.3s ease-out 0.2s;
-  white-space: nowrap;
+  max-height: 0;
+  transition: max-width 0.3s ease-out, max-height 0.3s all;
   overflow: hidden;
 }
 
 :host(.expandable:hover) > div {
-  max-width: 20rem;
-  transition: max-width 0.3s ease-out 0s;
+  max-width: 100%;
+  max-height: 100%;
+  transition: max-width 0.3s ease-out 0s, max-height 0.3s all;
 }
