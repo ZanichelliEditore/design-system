@@ -16,23 +16,26 @@ describe("Suite test ZNotification", () => {
 
     expect(page.root).toEqualHtml(`
       <z-notification actiontext="Annulla" contenticonname="gear" showclose="true" type="success">
-        <z-icon
-          class="status-icon"
-          name="gear"
-          width="16"
-          height="16"
-        ></z-icon>
-        <div class="content-container">
-          <div class="content-text body-4">Testo della notifica</div>
-          <button class="action-button interactive-3-sb" type="button">Annulla</button>
-        </div>
-        <button class="close-button" type="button">
+        <mock:shadow-root>
           <z-icon
-            name="multiply-circle"
+            class="status-icon"
+            name="gear"
             width="16"
             height="16"
-          />
-        </button>
+          ></z-icon>
+          <div class="content-container">
+            <div class="content-text"><slot></slot></div>
+            <button class="action-button" type="button">Annulla</button>
+          </div>
+          <button class="close-button" type="button">
+            <z-icon
+              name="multiply-circle"
+              width="16"
+              height="16"
+            />
+          </button>
+        </mock:shadow-root>
+        Testo della notifica
       </z-notification>
     `);
   });
@@ -45,9 +48,12 @@ describe("Suite test ZNotification", () => {
 
     expect(page.root).toEqualHtml(`
       <z-notification type="success">
-        <div class="content-container">
-          <div class="content-text body-4">Testo della notifica</div>
-        </div>
+        <mock:shadow-root>
+          <div class="content-container">
+            <div class="content-text"><slot></slot></div>
+          </div>
+        </mock:shadow-root>
+        Testo della notifica
       </z-notification>
     `);
   });
@@ -65,16 +71,19 @@ describe("Suite test ZNotification", () => {
 
     expect(page.root).toEqualHtml(`
       <z-notification actiontext="Annulla" contenticonname="gear" showclose="false" type="success">
-        <z-icon
-          class="status-icon"
-          name="gear"
-          width="16"
-          height="16"
-        ></z-icon>
-        <div class="content-container">
-          <div class="content-text body-4">Testo della notifica</div>
-          <button class="action-button interactive-3-sb" type="button">Annulla</button>
-        </div>
+        <mock:shadow-root>
+          <z-icon
+            class="status-icon"
+            name="gear"
+            width="16"
+            height="16"
+          ></z-icon>
+          <div class="content-container">
+            <div class="content-text"><slot></slot></div>
+            <button class="action-button" type="button">Annulla</button>
+          </div>
+        </mock:shadow-root>
+        Testo della notifica
       </z-notification>
     `);
   });
