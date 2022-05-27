@@ -459,11 +459,15 @@
       ></z-carousel>
     </div>
     <div style="margin: 200px">
-      <z-date-picker show-time="false" datepickerid="dp1">
+      <z-date-picker mode="date" datepickerid="dp1">
         <z-button slot="toggle">Open z-date-picker</z-button>
       </z-date-picker>
-      <z-date-picker id="dp2" datepickerid="dp2" show-time="true">
-      </z-date-picker>
+      <z-date-picker
+        id="dp2"
+        datepickerid="dp2"
+        mode="date-time"
+      ></z-date-picker>
+      <z-date-picker datepickerid="dp3" mode="months"></z-date-picker>
     </div>
   </body>
 </html>

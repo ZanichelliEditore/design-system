@@ -1,4 +1,5 @@
 @import "~flatpickr/dist/flatpickr.min.css";
+@import "~flatpickr/dist/plugins/monthSelect/style.css";
 
 :host {
   font-family: var(--font-family-sans);
@@ -31,10 +32,6 @@
   padding-top: calc(var(--space-unit) * 2);
 }
 
-.flatpickr-calendar.hasTime {
-  min-height: 516px !important;
-}
-
 .flatpickr-calendar.animate {
   font-family: var(--font-family-sans) !important;
 }
@@ -42,9 +39,17 @@
 .flatpickr-calendar.animate,
 .flatpickr-innerContainer,
 .flatpickr-days,
-.dayContainer {
+.dayContainer,
+.flatpickr-rContainer,
+.flatpickr-monthSelect-months {
   width: calc(var(--space-unit) * 42) !important;
   max-width: calc(var(--space-unit) * 42) !important;
+}
+
+.flatpickr-monthSelect-months {
+  box-sizing: border-box;
+  padding: 0 !important;
+  margin: calc(var(--space-unit) * 2) 0 !important;
 }
 
 /* Months and year row containers selectors */
@@ -176,8 +181,9 @@
   font-size: var(--font-size-3) !important;
 }
 
-/* Calendar days selectors */
-.flatpickr-day {
+/* Calendar days and months selectors */
+.flatpickr-day,
+.flatpickr-monthSelect-month {
   height: calc(var(--space-unit) * 6) !important;
   width: calc(var(--space-unit) * 6) !important;
   max-width: 100% !important;
@@ -191,19 +197,37 @@
   box-shadow: none !important;
 }
 
+.flatpickr-day {
+  width: calc(var(--space-unit) * 6) !important;
+
+  line-height: calc(var(--space-unit) * 6) !important;
+  border: none;
+}
+
+.flatpickr-monthSelect-month {
+  width: calc(var(--space-unit) * 14) !important;
+  padding: 0 !important;
+
+  line-height: calc(var(--space-unit) * 5) !important;
+  border: 2px solid white !important;
+}
+
 .flatpickr-day:hover,
 .flatpickr-day.prevMonthDay:hover,
-.flatpickr-day.selected:hover {
+.flatpickr-day.selected:hover,
+.flatpickr-monthSelect-month:hover {
   background-color: var(--myz-blue-dark) !important;
   border-color: var(--myz-blue-dark) !important;
   color: var(--color-white) !important;
 }
 
-.flatpickr-day.today {
+.flatpickr-day.today,
+.flatpickr-monthSelect-month.today {
   border: 2px solid var(--myz-blue-dark) !important;
 }
 
-.flatpickr-day.selected {
+.flatpickr-day.selected,
+.flatpickr-monthSelect-month.selected {
   background-color: var(--color-primary01) !important;
   border-color: var(--color-primary01) !important;
 }

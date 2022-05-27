@@ -417,8 +417,8 @@ export enum OffCanvasVariantsEnum {
 export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
 
 export enum ZFileUploadTypeEnum {
-  default = 'default',
-  dragdrop = 'dragdrop'
+  default = "default",
+  dragdrop = "dragdrop",
 }
 
 export enum ZChipType {
@@ -430,5 +430,11 @@ export enum ZSectionTitleDividerPositions {
   before = "before",
   after = "after",
 }
+export enum ZDatePickerMode {
+  date = "date",
+  dateTime = "date-time",
+  months = "months",
+}
 
-export type ZSectionTitleDividerPosition = keyof typeof ZSectionTitleDividerPositions;
+export type ZSectionTitleDividerPosition =
+  keyof typeof ZSectionTitleDividerPositions;

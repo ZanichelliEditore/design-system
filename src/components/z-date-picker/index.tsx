@@ -10,7 +10,10 @@ import {
 
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
+import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
 import classNames from "classnames";
+
+import { ZDatePickerMode } from "../../beans";
 
 @Component({
   tag: "z-date-picker",
@@ -22,13 +25,14 @@ export class ZDatePicker {
 
   /** unique id */
   @Prop() datepickerid: string;
-  /** [Optional] if true, the datepicker is displayed with time box */
-  @Prop() showTime: boolean = false;
+  /** [Optional] datepicker mode: date, datetime, only months */
+  @Prop() mode: ZDatePickerMode = ZDatePickerMode.date;
 
   @State() hasSlot: boolean;
 
   private flatpickrInstance;
 
+  /** emitted when date changes, returns selected date */
   @Event() dateSelect: EventEmitter;
   emitDateSelect() {
     this.dateSelect.emit(this.flatpickrInstance.selectedDates);
@@ -44,14 +48,21 @@ export class ZDatePicker {
   componentDidRender() {
     this.flatpickrInstance = flatpickr(`.${this.datepickerid}`, {
       appendTo: this.element,
-      enableTime: this.showTime,
+      enableTime: this.mode === ZDatePickerMode.dateTime,
       locale: Italian,
-      dateFormat: this.showTime ? "d-m-Y - H:i" : "d-m-Y",
+      dateFormat:
+        this.mode === ZDatePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: "d F Y",
       minuteIncrement: 1,
       time_24hr: true,
       onChange: this.emitDateSelect.bind(this),
       wrap: this.hasSlot,
+      plugins: this.mode === ZDatePickerMode.months && [
+        monthSelectPlugin({
+          dateFormat: "m-Y",
+          altFormat: "m-Y",
+        }),
+      ],
     });
   }
 
@@ -74,7 +85,7 @@ export class ZDatePicker {
     } else {
       return (
         <z-input
-          class={classNames(this.datepickerid, { hasTime: this.showTime })}
+          class={classNames(this.datepickerid)}
           type="text"
           name="datepicker"
           icon="event"

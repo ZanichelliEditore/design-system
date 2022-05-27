@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -311,6 +311,14 @@ export namespace Components {
         "hide"?: boolean;
     }
     interface ZDatePicker {
+        /**
+          * unique id
+         */
+        "datepickerid": string;
+        /**
+          * [Optional] datepicker mode: date, datetime, only months
+         */
+        "mode": ZDatePickerMode;
     }
     interface ZDivider {
         /**
@@ -747,7 +755,7 @@ export namespace Components {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent": string | MenuItem[];
+        "menucontent": string | MenuItem1[];
         /**
           * user name text
          */
@@ -2643,6 +2651,18 @@ declare namespace LocalJSX {
         "onAccept"?: (event: CustomEvent<any>) => void;
     }
     interface ZDatePicker {
+        /**
+          * unique id
+         */
+        "datepickerid"?: string;
+        /**
+          * [Optional] datepicker mode: date, datetime, only months
+         */
+        "mode"?: ZDatePickerMode;
+        /**
+          * emitted when date changes, returns selected date
+         */
+        "onDateSelect"?: (event: CustomEvent<any>) => void;
     }
     interface ZDivider {
         /**
@@ -3131,7 +3151,7 @@ declare namespace LocalJSX {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem[];
+        "menucontent"?: string | MenuItem1[];
         /**
           * user name text
          */
