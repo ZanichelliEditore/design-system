@@ -213,7 +213,7 @@ export namespace Components {
     }
     interface ZCarousel {
         /**
-          * sets the height of z-carousel ghost loading
+          * sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
         "ghostloadingheight": string;
         /**
@@ -2532,7 +2532,7 @@ declare namespace LocalJSX {
     }
     interface ZCarousel {
         /**
-          * sets the height of z-carousel ghost loading
+          * sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
         "ghostloadingheight"?: string;
         /**

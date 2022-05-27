@@ -14,8 +14,8 @@ import { Component, h, Prop } from "@stencil/core";
 export class ZCarousel {
   /** sets whether the z-carousel is on loading state */
   @Prop() isloading: boolean;
-  /** sets the height of z-carousel ghost loading */
-  @Prop() ghostloadingheight: string;
+  /** sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
+  @Prop() ghostloadingheight: string = "100";
   render() {
     if (this.isloading) {
       return (
