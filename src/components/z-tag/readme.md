@@ -11,7 +11,6 @@
 | ------------ | ------------ | --------------------------------------------- | --------- | ----------- |
 | `expandable` | `expandable` | [optional] Hide the text and show it on hover | `boolean` | `undefined` |
 | `icon`       | `icon`       | [optional] Tag icon                           | `string`  | `undefined` |
-| `text`       | `text`       | [optional] Tag text                           | `string`  | `undefined` |
 
 
 ## Dependencies

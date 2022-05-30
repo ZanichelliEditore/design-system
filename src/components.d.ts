@@ -1490,10 +1490,6 @@ export namespace Components {
           * [optional] Tag icon
          */
         "icon"?: string;
-        /**
-          * [optional] Tag text
-         */
-        "text"?: string;
     }
     interface ZToastNotification {
         /**
@@ -3948,10 +3944,6 @@ declare namespace LocalJSX {
           * [optional] Tag icon
          */
         "icon"?: string;
-        /**
-          * [optional] Tag text
-         */
-        "text"?: string;
     }
     interface ZToastNotification {
         /**
