@@ -20,7 +20,7 @@ export class ZTag {
           expandable: this.expandable && this.icon,
         })}
       >
-        {this.icon && <z-icon name={this.icon} width={15} height={15} />}
+        {this.icon && <z-icon name={this.icon} />}
         <div>
           <slot />
         </div>

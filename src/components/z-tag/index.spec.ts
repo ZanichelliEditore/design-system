@@ -22,7 +22,7 @@ describe("Suite test ZTag", () => {
 
     expect(page.root).toEqualHtml(`
       <z-tag class="body-5-sb" icon="gear">
-        <z-icon name="gear" height="15" width="15"></z-icon>
+        <z-icon name="gear"></z-icon>
         <div></div>
       </z-tag>`);
   });
@@ -48,7 +48,7 @@ describe("Suite test ZTag", () => {
 
     expect(page.root).toEqualHtml(`
       <z-tag class="body-5-sb" icon="gear" >
-        <z-icon name="gear" height="15" width="15"></z-icon>
+        <z-icon name="gear"></z-icon>
         <div>my custom element</div>
       </z-tag>
     `);
@@ -62,7 +62,7 @@ describe("Suite test ZTag", () => {
 
     expect(page.root).toEqualHtml(`
       <z-tag class="body-5-sb" icon="gear" style="--iconTextToken: var(--color-white); --bgToken: var(--avatar-C19);">
-        <z-icon name="gear" height="15" width="15"></z-icon>
+        <z-icon name="gear"></z-icon>
         <div>my custom element</div>
       </z-tag>
     `);

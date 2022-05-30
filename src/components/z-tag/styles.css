@@ -1,6 +1,6 @@
 :host {
-  --z-icon-width: 14px;
-  --z-icon-height: 14px;
+  --z-icon-width: 15px;
+  --z-icon-height: 15px;
 
   --iconTextToken: var(--color-primary03);
   --bgToken: var(--color-hover-primary);
