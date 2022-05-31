@@ -123,11 +123,7 @@ export class ZDatePicker {
         )}
       >
         <z-input
-          class={classNames(
-            this.datepickerid,
-            this.flatpickrPosition,
-            this.mode
-          )}
+          class={classNames(this.datepickerid)}
           type="text"
           name="datepicker"
           icon="event"
