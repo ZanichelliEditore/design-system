@@ -34,23 +34,22 @@ export class ZDatePicker {
 
   @State() flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
 
-  private flatpickrInstance;
-  private hasSlot: boolean;
+  private hasChildren: boolean;
 
   /** emitted when date changes, returns selected date */
   @Event() dateSelect: EventEmitter;
-  emitDateSelect() {
-    this.dateSelect.emit(this.flatpickrInstance.selectedDates);
+  emitDateSelect(date) {
+    this.dateSelect.emit(date);
   }
 
   componentWillLoad() {
-    let slotElement = this.element.querySelector("[slot=toggle]");
-    this.hasSlot = !!slotElement;
-    this.hasSlot && slotElement.setAttribute("data-toggle", "data-toggle");
+    let customToggle = this.element.querySelector("[slot=toggle]");
+    this.hasChildren = !!customToggle;
+    this.hasChildren && customToggle.setAttribute("data-toggle", "data-toggle");
   }
 
   componentDidLoad() {
-    this.flatpickrInstance = flatpickr(`.${this.datepickerid}`, {
+    flatpickr(`.${this.datepickerid}`, {
       appendTo: this.element.children[0] as HTMLElement,
       enableTime: this.mode === ZDatePickerMode.dateTime,
       locale: Italian,
@@ -59,8 +58,10 @@ export class ZDatePicker {
       ariaDateFormat: this.mode === ZDatePickerMode.months ? "F Y" : "d F Y",
       minuteIncrement: 1,
       time_24hr: true,
-      onChange: this.emitDateSelect.bind(this),
-      wrap: this.hasSlot,
+      onChange: (selectedDates, dateStr) => {
+        this.emitDateSelect(dateStr);
+      },
+      wrap: this.hasChildren,
       plugins: this.mode === ZDatePickerMode.months && [
         monthSelectPlugin({
           dateFormat: "m-Y",
@@ -98,15 +99,7 @@ export class ZDatePicker {
 
   renderSlottedContent() {
     return (
-      <div
-        class={classNames(
-          "flatpickr-toggle-container",
-          this.datepickerid,
-          this.flatpickrPosition,
-          this.mode
-        )}
-        onClick={() => this.setFlatpickrPosition()}
-      >
+      <div>
         <input class="hidden-input" data-input></input>
         <slot name="toggle"></slot>
       </div>
@@ -115,26 +108,29 @@ export class ZDatePicker {
 
   renderZInput() {
     return (
-      <div
-        class={classNames(
-          "flatpickr-toggle-container",
-          this.flatpickrPosition,
-          this.mode
-        )}
-      >
-        <z-input
-          class={classNames(this.datepickerid)}
-          type="text"
-          name="datepicker"
-          icon="event"
-          hasmessage={false}
-          onClick={() => this.setFlatpickrPosition()}
-        ></z-input>
-      </div>
+      <z-input
+        class={classNames(this.datepickerid)}
+        type="text"
+        name="datepicker"
+        icon="event"
+        hasmessage={false}
+      ></z-input>
     );
   }
 
   render() {
-    return this.hasSlot ? this.renderSlottedContent() : this.renderZInput();
+    return (
+      <div
+        class={classNames(
+          "flatpickr-toggle-container",
+          this.hasChildren && this.datepickerid,
+          this.flatpickrPosition,
+          this.mode
+        )}
+        onClick={() => this.setFlatpickrPosition()}
+      >
+        {this.hasChildren ? this.renderSlottedContent() : this.renderZInput()}
+      </div>
+    );
   }
 }
