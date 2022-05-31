@@ -458,16 +458,22 @@
           ></div></li
       ></z-carousel>
     </div>
-    <div style="margin: 200px">
-      <z-date-picker mode="date" datepickerid="dp1">
-        <z-button slot="toggle">Open z-date-picker</z-button>
+    <div style="margin: 200px; border: 1px solid black; height: 900px">
+      <z-date-picker mode="months" datepickerid="dp2" id="dp2">
+        <z-chip slot="toggle">Open z-date-picker</z-chip>
       </z-date-picker>
-      <z-date-picker
-        id="dp2"
-        datepickerid="dp2"
-        mode="date-time"
-      ></z-date-picker>
-      <z-date-picker datepickerid="dp3" mode="months"></z-date-picker>
+      <br />
+      <br />
+      <br />
+      <br />
+      <z-date-picker mode="date-time" datepickerid="dp1" id="dp1">
+      </z-date-picker>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <z-logo width="50"></z-logo>
     </div>
   </body>
 </html>
@@ -494,7 +500,7 @@
   function dateselect(e) {
     console.log(e.detail);
   }
-  const picker = document.getElementById("dp2");
+  const picker = document.getElementById("dp1");
   picker.addEventListener("dateSelect", (e) => dateselect(e));
 </script>
 <style>

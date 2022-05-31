@@ -430,10 +430,22 @@ export enum ZSectionTitleDividerPositions {
   before = "before",
   after = "after",
 }
+
 export enum ZDatePickerMode {
   date = "date",
   dateTime = "date-time",
   months = "months",
+}
+
+export enum ZDatePickerModeValues {
+  DATE = 401,
+  DATETIME = 523,
+  MONTHS = 288,
+}
+
+export enum ZDatePickerPosition {
+  top = "top",
+  bottom = "bottom",
 }
 
 export type ZSectionTitleDividerPosition =

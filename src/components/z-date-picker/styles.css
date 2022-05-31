@@ -4,9 +4,11 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+
+  --toggle-height: 0;
 }
 
-.hidden-input-container {
+z-date-picker {
   position: relative;
 }
 
@@ -26,17 +28,31 @@
 }
 
 .flatpickr-calendar {
+  font-family: var(--font-family-sans) !important;
+  position: absolute !important;
+
   border-radius: 2px;
   box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.4);
 
   padding-top: calc(var(--space-unit) * 2);
+
+  left: 0px !important;
+  top: var(--toggle-height) !important;
 }
 
-.flatpickr-calendar.animate {
-  font-family: var(--font-family-sans) !important;
+.months.top > .flatpickr-calendar {
+  top: -288px !important;
 }
 
-.flatpickr-calendar.animate,
+.date.top > .flatpickr-calendar {
+  top: -401px !important;
+}
+
+.date-time.top > .flatpickr-calendar {
+  top: -523px !important;
+}
+
+.flatpickr-calendar,
 .flatpickr-innerContainer,
 .flatpickr-days,
 .dayContainer,
