@@ -12,6 +12,14 @@ z-date-picker {
   position: relative;
 }
 
+z-date-picker > div > * {
+  cursor: pointer !important;
+}
+
+.flatpickr-toggle-container {
+  width: fit-content;
+}
+
 .hidden-input {
   visibility: hidden !important;
   position: absolute;
@@ -21,7 +29,7 @@ z-date-picker {
   bottom: 0;
 }
 
-/* Calentar container selectors */
+/* Calendar container selectors */
 .flatpickr-calendar::before,
 .flatpickr-calendar::after {
   display: none;
@@ -36,7 +44,7 @@ z-date-picker {
 
   padding-top: calc(var(--space-unit) * 2);
 
-  left: 0px !important;
+  left: 0 !important;
   top: var(--toggle-height) !important;
 }
 

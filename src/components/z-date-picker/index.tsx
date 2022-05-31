@@ -99,22 +99,35 @@ export class ZDatePicker {
   renderSlottedContent() {
     return (
       <div
-        class={classNames(this.datepickerid, this.flatpickrPosition, this.mode)}
+        class={classNames(
+          "flatpickr-toggle-container",
+          this.datepickerid,
+          this.flatpickrPosition,
+          this.mode
+        )}
         onClick={() => this.setFlatpickrPosition()}
       >
-        <div>
-          <input class="hidden-input" data-input></input>
-          <slot name="toggle"></slot>
-        </div>
+        <input class="hidden-input" data-input></input>
+        <slot name="toggle"></slot>
       </div>
     );
   }
 
   renderZInput() {
     return (
-      <div class={classNames(this.flatpickrPosition, this.mode)}>
+      <div
+        class={classNames(
+          "flatpickr-toggle-container",
+          this.flatpickrPosition,
+          this.mode
+        )}
+      >
         <z-input
-          class={classNames(this.datepickerid)}
+          class={classNames(
+            this.datepickerid,
+            this.flatpickrPosition,
+            this.mode
+          )}
           type="text"
           name="datepicker"
           icon="event"
