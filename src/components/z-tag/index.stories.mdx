@@ -45,7 +45,7 @@ import "./index";
     }}
   >
     {(args) => html`<z-tag
-      style="--iconTextToken: var(${args.token}); --bgToken: var(${args.bgToken})"
+      style="--iconTextToken: var(${args.iconTextToken}); --bgToken: var(${args.bgToken})"
       .icon=${args.icon}
       .expandable=${args.expandable}
       >${args.text}
@@ -67,7 +67,7 @@ import "./index";
     }}
   >
     {(args) => html`<z-tag
-      style="--iconTextToken: var(${args.token}); --bgToken: var(${args.bgToken}); max-width: 500px;"
+      style="--iconTextToken: var(${args.iconTextToken}); --bgToken: var(${args.bgToken}); max-width: 500px;"
       .icon=${args.icon}
       .expandable=${args.expandable}
       >${args.text}
