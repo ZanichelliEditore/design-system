@@ -28,10 +28,12 @@ describe("Suite test ZDatePicker", () => {
 
     expect(page.root).toEqualHtml(`<z-date-picker datepickerid="picker-02">
       <div class="bottom date flatpickr-toggle-container picker-02">
-        <input class="hidden-input" data-input>
-        <z-button data-toggle="data-toggle" slot="toggle">
-          Open z-date-picker
-        </z-button>
+        <div>
+          <input class="hidden-input" data-input>
+          <z-button data-toggle="data-toggle" slot="toggle">
+            Open z-date-picker
+          </z-button>
+        </div>
       </div>
     </z-date-picker>`);
   });

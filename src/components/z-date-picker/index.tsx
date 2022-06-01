@@ -58,7 +58,7 @@ export class ZDatePicker {
       ariaDateFormat: this.mode === ZDatePickerMode.months ? "F Y" : "d F Y",
       minuteIncrement: 1,
       time_24hr: true,
-      onChange: (selectedDates, dateStr) => {
+      onChange: (_selectedDates, dateStr) => {
         this.emitDateSelect(dateStr);
       },
       wrap: this.hasChildren,
