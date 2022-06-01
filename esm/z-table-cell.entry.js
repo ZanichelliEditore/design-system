@@ -1,7 +1,7 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './index-90e18641.js';
-import { w as Size, b as ButtonVariantEnum, c as ButtonSizeEnum } from './index-023c206a.js';
-import { c as classnames } from './index-aa3a4feb.js';
-import './_commonjsHelpers-8b28c6fa.js';
+import { z as Size, b as ButtonVariantEnum, c as ButtonSizeEnum } from './index-5fef5bc0.js';
+import { c as classnames } from './index-abb47b30.js';
+import './_commonjsHelpers-9943807e.js';
 
 const stylesCss = ":host{display:table-cell;background-color:var(--color-white);border-bottom:var(--border-size-small) solid var(--bg-grey-200);font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>.button-container{display:none}:host:hover>.button-container{display:initial}.button-container{position:absolute;right:8px;top:8px;z-index:5}.button-content{position:relative}.contextual-menu-container{display:none;position:absolute;top:calc(100% - var(--space-unit));right:0}.button-container.visible,.contextual-menu-container.visible{display:initial}:host([padding=\"x-small\"]){padding:calc(var(--space-unit) * 0.5)}:host([padding=\"small\"]){padding:calc(var(--space-unit))}:host([padding=\"medium\"]){padding:calc(var(--space-unit) * 2)}:host([padding=\"large\"]){padding:calc(var(--space-unit) * 2.5)}:host([padding=\"special\"]){padding:0}";
 

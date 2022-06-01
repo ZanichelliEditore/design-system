@@ -283,3 +283,20 @@ export var ZSectionTitleDividerPositions;
   ZSectionTitleDividerPositions["before"] = "before";
   ZSectionTitleDividerPositions["after"] = "after";
 })(ZSectionTitleDividerPositions || (ZSectionTitleDividerPositions = {}));
+export var ZDatePickerMode;
+(function (ZDatePickerMode) {
+  ZDatePickerMode["date"] = "date";
+  ZDatePickerMode["dateTime"] = "date-time";
+  ZDatePickerMode["months"] = "months";
+})(ZDatePickerMode || (ZDatePickerMode = {}));
+export var ZDatePickerModeValues;
+(function (ZDatePickerModeValues) {
+  ZDatePickerModeValues[ZDatePickerModeValues["DATE"] = 401] = "DATE";
+  ZDatePickerModeValues[ZDatePickerModeValues["DATETIME"] = 523] = "DATETIME";
+  ZDatePickerModeValues[ZDatePickerModeValues["MONTHS"] = 288] = "MONTHS";
+})(ZDatePickerModeValues || (ZDatePickerModeValues = {}));
+export var ZDatePickerPosition;
+(function (ZDatePickerPosition) {
+  ZDatePickerPosition["top"] = "top";
+  ZDatePickerPosition["bottom"] = "bottom";
+})(ZDatePickerPosition || (ZDatePickerPosition = {}));

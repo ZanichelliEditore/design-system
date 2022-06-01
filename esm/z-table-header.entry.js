@@ -1,8 +1,8 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-90e18641.js';
-import { c as classnames } from './index-aa3a4feb.js';
-import { w as Size, x as SortDirectionEnum, P as PopoverPosition, b as ButtonVariantEnum, c as ButtonSizeEnum } from './index-023c206a.js';
-import { b as getElementTree } from './utils-05b6c600.js';
-import './_commonjsHelpers-8b28c6fa.js';
+import { c as classnames } from './index-abb47b30.js';
+import { z as Size, F as SortDirectionEnum, P as PopoverPosition, b as ButtonVariantEnum, c as ButtonSizeEnum } from './index-5fef5bc0.js';
+import { b as getElementTree } from './utils-9d3aa32a.js';
+import './_commonjsHelpers-9943807e.js';
 import './breakpoints-c386984e.js';
 
 const stylesCss = ":host{display:table-cell;background-color:var(--gray50);border-bottom:var(--border-size-medium) solid var(--gray200);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start;position:relative}.container{display:flex;align-items:flex-end}:host(.sortable){cursor:pointer}:host([padding=\"x-small\"]){padding:calc(var(--space-unit) * 0.5)}:host([padding=\"small\"]){padding:calc(var(--space-unit))}:host([padding=\"medium\"]){padding:calc(var(--space-unit) * 2)}:host([padding=\"large\"]){padding:calc(var(--space-unit) * 2.5)}:host([padding=\"special\"]){padding:0}.arrow{opacity:1;padding-left:var(--space-unit)}.popover-container{position:absolute;top:var(--space-unit);right:var(--space-unit);display:none}.popover-container.visible{display:block}:host(:hover) .popover-container{display:block}";

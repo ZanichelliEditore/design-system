@@ -1,7 +1,7 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-90e18641.js';
-import { f as ZChipType, D as DeviceEnum, g as TooltipPosition } from './index-023c206a.js';
+import { i as ZChipType, D as DeviceEnum, j as TooltipPosition } from './index-5fef5bc0.js';
 import { t as tabletBreakpoint } from './breakpoints-c386984e.js';
-import { g as getDevice } from './utils-05b6c600.js';
+import { g as getDevice } from './utils-9d3aa32a.js';
 
 const stylesCss = ".sc-z-file-h{font-family:var(--font-family-sans);font-weight:var(--font-rg);position:relative}.sc-z-file-h .chip-content.sc-z-file{display:flex;align-items:center}.sc-z-file-h>z-tooltip.sc-z-file{z-index:10}.sc-z-file-h>z-tooltip.sc-z-file>.tootip-content.sc-z-file{white-space:nowrap}.sc-z-file-h>z-chip.sc-z-file>.chip-content.sc-z-file>span.sc-z-file{max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;line-height:1.33;letter-spacing:0.32px}.sc-z-file-h>z-chip.sc-z-file>.chip-content.sc-z-file>span.regular.sc-z-file{font-weight:var(--font-rg)}.sc-z-file-h>z-chip.sc-z-file>.chip-content.sc-z-file>span.bold.sc-z-file{font-weight:var(--font-sb)}.sc-z-file-h .chip-content.sc-z-file>z-icon.sc-z-file:last-child{margin-left:var(--space-unit);cursor:pointer;fill:var(--color-icon01)}@media only screen and (min-width: 1152px){.sc-z-file-h{border-radius:16px}.sc-z-file-h>z-chip.sc-z-file>.chip-content.sc-z-file>span.sc-z-file{font-size:12px}}";
 

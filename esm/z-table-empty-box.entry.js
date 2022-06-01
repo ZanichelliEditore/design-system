@@ -1,6 +1,6 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './index-90e18641.js';
-import { c as classnames } from './index-aa3a4feb.js';
-import './_commonjsHelpers-8b28c6fa.js';
+import { c as classnames } from './index-abb47b30.js';
+import './_commonjsHelpers-9943807e.js';
 
 const stylesCss = ".sc-z-table-empty-box-h{display:block;padding:calc(var(--space-unit)) calc(var(--space-unit) * 3)\n    calc(var(--space-unit) * 3) calc(var(--space-unit) * 3);background-color:var(--bg-white)}.sc-z-table-empty-box-s>*{margin-top:var(--space-unit)}.cta.sc-z-table-empty-box{display:flex;flex-direction:row;margin-top:calc(var(--space-unit) / 2)}.cta.has2Cta.sc-z-table-empty-box{flex-direction:column}@media only screen and (min-width: 768px){.sc-z-table-empty-box-h{padding:calc(var(--space-unit) * 3) calc(var(--space-unit) * 7)\n      calc(var(--space-unit) * 3) calc(var(--space-unit) * 7)}.sc-z-table-empty-box-s>*{margin-right:calc(var(--space-unit) * 2)}.cta.sc-z-table-empty-box{margin-top:var(--space-unit)}.cta.has2Cta.sc-z-table-empty-box{flex-direction:row}}";
 

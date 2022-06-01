@@ -48,6 +48,12 @@ button {
   height: var(--border-size-large);
 }
 
+::slotted(z-icon) {
+  --z-icon-width: calc(var(--space-unit) * 2);
+  --z-icon-height: calc(var(--space-unit) * 2);
+  margin: 0;
+}
+
 :host([orientation='horizontal']) ::slotted(z-icon) {
   margin-right: var(--space-unit);
 }
@@ -104,10 +110,3 @@ button:focus:focus-visible {
 :host([orientation='vertical']) ::slotted([slot='label']) {
   display: none;
 }
-
-::slotted(z-icon) {
-  --z-icon-width: calc(var(--space-unit) * 2);
-  --z-icon-height: calc(var(--space-unit) * 2);
-  margin: 0;
-}
-

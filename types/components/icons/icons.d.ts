@@ -441,4 +441,8 @@ export declare const icons: {
   "show-video-button": string;
   "word-button": string;
   upload: string;
+  people: string;
+  "people-filled": string;
+  grades: string;
+  "grades-filled": string;
 };

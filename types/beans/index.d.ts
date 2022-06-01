@@ -361,4 +361,18 @@ export declare enum ZSectionTitleDividerPositions {
   before = "before",
   after = "after"
 }
+export declare enum ZDatePickerMode {
+  date = "date",
+  dateTime = "date-time",
+  months = "months"
+}
+export declare enum ZDatePickerModeValues {
+  DATE = 401,
+  DATETIME = 523,
+  MONTHS = 288
+}
+export declare enum ZDatePickerPosition {
+  top = "top",
+  bottom = "bottom"
+}
 export declare type ZSectionTitleDividerPosition = keyof typeof ZSectionTitleDividerPositions;
