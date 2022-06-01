@@ -1,9 +1,7 @@
 z-navigation-tabs[orientation="horizontal"] {
-  max-width: 640px;
+  max-width: 400px;
 }
 
-.vertical-wrapper {
-  overflow: hidden;
-  max-height: 300px;
-  border: 1px solid var(--gray300);
+z-navigation-tabs[orientation="vertical"] {
+  max-height: 260px;
 }

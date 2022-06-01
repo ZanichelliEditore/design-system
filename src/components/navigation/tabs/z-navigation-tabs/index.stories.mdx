@@ -29,7 +29,7 @@ import "./index.stories.css";
 
 <Canvas>
   <Story
-    name="z-navigation-tabs"
+    name="z-navigation-tabs horizontal"
     args={{
       orientation: NavigationTabsOrientations.horizontal,
       size: NavigationTabsSizes.big,
@@ -85,39 +85,37 @@ import "./index.stories.css";
     }}
     parameters={{
       controls: {
-        exclude: ["orientation"],
+        exclude: ["orientation", "size"],
       },
     }}
   >
     {(args) => html`
-      <div class="vertical-wrapper">
-        <z-navigation-tabs orientation=${args.orientation}>
-          <z-navigation-tab>
-            <z-icon name="house" slot="icon"></z-icon>
-            <span slot="label">Home</span>
-          </z-navigation-tab>
-          <z-navigation-tab disabled>
-            <z-icon name="app-switcher" slot="icon"></z-icon>
-            <span slot="label">App</span>
-          </z-navigation-tab>
-          <z-navigation-tab>
-            <z-icon name="map" slot="icon"></z-icon>
-            <span slot="label">Maps</span>
-          </z-navigation-tab>
-          <z-navigation-tab>
-            <z-icon name="download" slot="icon"></z-icon>
-            <span slot="label">Download</span>
-          </z-navigation-tab>
-          <z-navigation-tab>
-            <z-icon name="user" slot="icon"></z-icon>
-            <span slot="label">Users</span>
-          </z-navigation-tab>
-          <z-navigation-tab>
-            <z-icon name="artist" slot="icon"></z-icon>
-            <span slot="label">Artisti</span>
-          </z-navigation-tab>
-        </z-navigation-tabs>
-      </div>
+      <z-navigation-tabs orientation=${args.orientation}>
+        <z-navigation-tab>
+          <z-icon name="house" slot="icon"></z-icon>
+          <span slot="label">Home</span>
+        </z-navigation-tab>
+        <z-navigation-tab disabled>
+          <z-icon name="app-switcher" slot="icon"></z-icon>
+          <span slot="label">App</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="map" slot="icon"></z-icon>
+          <span slot="label">Maps</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="download" slot="icon"></z-icon>
+          <span slot="label">Download</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="user" slot="icon"></z-icon>
+          <span slot="label">Users</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="artist" slot="icon"></z-icon>
+          <span slot="label">Artisti</span>
+        </z-navigation-tab>
+      </z-navigation-tabs>
     `}
   </Story>
 </Canvas>
