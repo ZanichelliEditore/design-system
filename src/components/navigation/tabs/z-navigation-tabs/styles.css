@@ -86,6 +86,7 @@ nav {
 /* Orientation vertical */
 :host([orientation='vertical']) {
   flex-direction: column;
+  width: fit-content;
 }
 
 :host([orientation='vertical']) nav {

@@ -1,0 +1,65 @@
+import { html } from "lit-html";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { NavigationTabsSizes, NavigationTabsOrientations } from "../../../../beans/index";
+import "./index";
+
+# ZNavigationTabLink
+
+<Meta
+  title="Navigation/ZNavigationTabLink"
+  component="z-navigation-tab-link"
+  argTypes={{
+    selected: {
+      control: "boolean",
+    },
+    disabled: {
+      control: "boolean",
+    },
+    size: {
+      options: Object.values(NavigationTabsSizes),
+      control: { type: "inline-radio" },
+    },
+    orientation: {
+      options: Object.values(NavigationTabsOrientations),
+      control: { type: "inline-radio" },
+    },
+    href: {
+      control: { type: "text" },
+    },
+    title: {
+      control: { type: "text" },
+    },
+    target: {
+      control: { type: "text" },
+    }
+  }}
+/>
+
+<Canvas>
+  <Story name="z-navigation-tab-link" args={{
+    selected: false,
+    disabled: false,
+    size: NavigationTabsSizes.big,
+    orientation: NavigationTabsOrientations.horizontal,
+    href: 'https://www.google.com',
+    target: "_blank",
+    title: "Go to Google"
+  }}>
+    {(args) => html`
+      <z-navigation-tab-link
+        .selected=${args.selected}
+        .disabled=${args.disabled}
+        .size=${args.size}
+        .orientation=${args.orientation}
+        .href=${args.href}
+        .title=${args.title}
+        .target=${args.target}
+      >
+        <z-icon name="arrow-quad-north-east" slot="icon"></z-icon>
+        <span slot="label">Go to Google</span>
+      </z-navigation-tab-link>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-navigation-tab-link" />

@@ -1,0 +1,125 @@
+import { html } from "lit-html";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { NavigationTabsSizes, NavigationTabsOrientations } from "../../../../beans/index";
+import "./index";
+import "./index.stories.css";
+
+# ZNavigationTabs
+
+<Meta
+  title="Navigation/ZNavigationTabs"
+  component="z-navigation-tabs"
+  argTypes={{
+    size: {
+      control: {
+        type: "inline-radio",
+        options: NavigationTabsSizes,
+      },
+    },
+    orientation: {
+      control: {
+        type: "inline-radio",
+        options: Object.values(NavigationTabsOrientations),
+      },
+    },
+  }}
+/>
+
+## Horizontal
+
+<Canvas>
+  <Story
+    name="z-navigation-tabs"
+    args={{
+      orientation: NavigationTabsOrientations.horizontal,
+      size: NavigationTabsSizes.big,
+    }}
+    parameters={{
+      controls: {
+        exclude: ["orientation"]
+      }
+    }}
+  >
+    {(args) => html`
+      <z-navigation-tabs
+        orientation=${args.orientation}
+        size=${args.size}
+      >
+        <z-navigation-tab>
+          <z-icon name="house" slot="icon"></z-icon>
+          <span slot="label">Home</span>
+        </z-navigation-tab>
+        <z-navigation-tab disabled>
+          <z-icon name="app-switcher" slot="icon"></z-icon>
+          <span slot="label">App</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="map" slot="icon"></z-icon>
+          <span slot="label">Maps</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="download" slot="icon"></z-icon>
+          <span slot="label">Download</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="user" slot="icon"></z-icon>
+          <span slot="label">Users</span>
+        </z-navigation-tab>
+        <z-navigation-tab>
+          <z-icon name="artist" slot="icon"></z-icon>
+          <span slot="label">Artisti</span>
+        </z-navigation-tab>
+      </z-navigation-tabs>
+    `}
+  </Story>
+</Canvas>
+
+## Vertical
+
+<Canvas>
+  <Story
+    name="z-navigation-tabs vertical"
+    args={{
+      orientation: NavigationTabsOrientations.vertical,
+      size: NavigationTabsSizes.big,
+    }}
+    parameters={{
+      controls: {
+        exclude: ["orientation"],
+      },
+    }}
+  >
+    {(args) => html`
+      <div class="vertical-wrapper">
+        <z-navigation-tabs orientation=${args.orientation}>
+          <z-navigation-tab>
+            <z-icon name="house" slot="icon"></z-icon>
+            <span slot="label">Home</span>
+          </z-navigation-tab>
+          <z-navigation-tab disabled>
+            <z-icon name="app-switcher" slot="icon"></z-icon>
+            <span slot="label">App</span>
+          </z-navigation-tab>
+          <z-navigation-tab>
+            <z-icon name="map" slot="icon"></z-icon>
+            <span slot="label">Maps</span>
+          </z-navigation-tab>
+          <z-navigation-tab>
+            <z-icon name="download" slot="icon"></z-icon>
+            <span slot="label">Download</span>
+          </z-navigation-tab>
+          <z-navigation-tab>
+            <z-icon name="user" slot="icon"></z-icon>
+            <span slot="label">Users</span>
+          </z-navigation-tab>
+          <z-navigation-tab>
+            <z-icon name="artist" slot="icon"></z-icon>
+            <span slot="label">Artisti</span>
+          </z-navigation-tab>
+        </z-navigation-tabs>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-navigation-tabs" />

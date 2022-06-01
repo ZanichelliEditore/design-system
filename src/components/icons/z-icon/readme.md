@@ -52,7 +52,7 @@
  - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
  - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
  - [z-myz-topbar](../../../snowflakes/myz/topbar)
- - [z-navigation-tabs](../../navigation/z-navigation-tabs)
+ - [z-navigation-tabs](../../navigation/tabs/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
  - [z-pagination-bar](../../pagination/z-pagination-bar)
  - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
