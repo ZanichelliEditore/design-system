@@ -212,6 +212,14 @@ export namespace Components {
         "variant": CardVariants;
     }
     interface ZCarousel {
+        /**
+          * sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+         */
+        "ghostloadingheight": string;
+        /**
+          * sets whether the z-carousel is on loading state
+         */
+        "isloading": boolean;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -755,7 +763,7 @@ export namespace Components {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent": string | MenuItem1[];
+        "menucontent": string | MenuItem[];
         /**
           * user name text
          */
@@ -2540,6 +2548,14 @@ declare namespace LocalJSX {
         "variant"?: CardVariants;
     }
     interface ZCarousel {
+        /**
+          * sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+         */
+        "ghostloadingheight"?: string;
+        /**
+          * sets whether the z-carousel is on loading state
+         */
+        "isloading"?: boolean;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -3151,7 +3167,7 @@ declare namespace LocalJSX {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem1[];
+        "menucontent"?: string | MenuItem[];
         /**
           * user name text
          */
