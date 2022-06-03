@@ -34,6 +34,7 @@ export enum LicenseTypeEnum {
   real = "reale",
   virtual = "virtuale",
   trial = "saggio",
+  temp = "reale_temp",
 }
 export type LicenseType = keyof typeof LicenseTypeEnum;
 

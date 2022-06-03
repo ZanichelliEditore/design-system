@@ -763,7 +763,7 @@ export namespace Components {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent": string | MenuItem[];
+        "menucontent": string | MenuItem1[];
         /**
           * user name text
          */
@@ -917,6 +917,10 @@ export namespace Components {
           * card graphic variant (optional)
          */
         "cardtype"?: LicenseTypeEnum;
+        /**
+          * display footer custom slotted content
+         */
+        "customContent": boolean;
         /**
           * faded status
          */
@@ -3167,7 +3171,7 @@ declare namespace LocalJSX {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem[];
+        "menucontent"?: string | MenuItem1[];
         /**
           * user name text
          */
@@ -3365,6 +3369,10 @@ declare namespace LocalJSX {
           * card graphic variant (optional)
          */
         "cardtype"?: LicenseTypeEnum;
+        /**
+          * display footer custom slotted content
+         */
+        "customContent"?: boolean;
         /**
           * faded status
          */

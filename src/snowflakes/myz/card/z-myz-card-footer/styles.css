@@ -118,10 +118,17 @@ footer.isopen {
   top: -212px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
+footer.isopen.customContent {
+  height: 415px;
+  top: -292px;
+}
 
 footer.isopen > div.content {
   height: 280px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
+}
+footer.isopen.customContent > div.content {
+  height: 230px;
 }
 
 .toggle {
@@ -134,4 +141,19 @@ footer.isopen > div.content {
 .faded {
   opacity: 0.3;
   pointer-events: none;
+}
+
+footer > p.customContent,
+footer .content.customContent {
+  display: none;
+}
+
+footer ::slotted([slot="content"]) {
+  display: block;
+  height: 124px;
+}
+
+footer.isopen > p.customContent,
+footer.isopen .content.customContent {
+  display: block;
 }

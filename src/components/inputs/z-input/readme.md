@@ -197,6 +197,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [z-combobox](../z-combobox)
+ - [z-date-picker](../../z-date-picker)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-select](../z-select)
 
@@ -218,6 +219,7 @@ graph TD;
   z-select --> z-input
   z-button-filter --> z-icon
   z-combobox --> z-input
+  z-date-picker --> z-input
   z-modal-login --> z-input
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
