@@ -1,0 +1,44 @@
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+  position: absolute;
+  background-color: #24f4ff;
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  left: -100%;
+}
+
+:host.visible {
+  position: static;
+  display: block;
+}
+
+:host::slotted(*).test {
+  display: none;
+}
+
+:host::slotted(*):last-child {
+  margin-right: 0;
+}
+
+:host:focus {
+  position: static;
+  display: block;
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1152px) {
+  :host.visible {
+    position: static;
+    display: block;
+  }
+}
+
+/* Wide breakpoint */
+@media (min-width: 1366px) {
+}

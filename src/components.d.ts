@@ -753,7 +753,7 @@ export namespace Components {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent": string | MenuItem1[];
+        "menucontent": string | MenuItem[];
         /**
           * user name text
          */
@@ -1345,6 +1345,8 @@ export namespace Components {
           * the input status (optional): available for text, password, number, email, textarea, select
          */
         "status"?: InputStatusBean;
+    }
+    interface ZSkipToContent {
     }
     interface ZSlideshow {
         /**
@@ -2071,6 +2073,12 @@ declare global {
         prototype: HTMLZSelectElement;
         new (): HTMLZSelectElement;
     };
+    interface HTMLZSkipToContentElement extends Components.ZSkipToContent, HTMLStencilElement {
+    }
+    var HTMLZSkipToContentElement: {
+        prototype: HTMLZSkipToContentElement;
+        new (): HTMLZSkipToContentElement;
+    };
     interface HTMLZSlideshowElement extends Components.ZSlideshow, HTMLStencilElement {
     }
     var HTMLZSlideshowElement: {
@@ -2283,6 +2291,7 @@ declare global {
         "z-popover": HTMLZPopoverElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
+        "z-skip-to-content": HTMLZSkipToContentElement;
         "z-slideshow": HTMLZSlideshowElement;
         "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
@@ -3136,7 +3145,7 @@ declare namespace LocalJSX {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem1[];
+        "menucontent"?: string | MenuItem[];
         /**
           * user name text
          */
@@ -3807,6 +3816,8 @@ declare namespace LocalJSX {
          */
         "status"?: InputStatusBean;
     }
+    interface ZSkipToContent {
+    }
     interface ZSlideshow {
         /**
           * array or JSON stringified images urls
@@ -4200,6 +4211,7 @@ declare namespace LocalJSX {
         "z-popover": ZPopover;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
+        "z-skip-to-content": ZSkipToContent;
         "z-slideshow": ZSlideshow;
         "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
@@ -4302,6 +4314,7 @@ declare module "@stencil/core" {
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
+            "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
             "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
