@@ -1,12 +1,4 @@
-import {
-  Component,
-  Prop,
-  h,
-  Host,
-  Element,
-  State,
-  Listen,
-} from "@stencil/core";
+import { Component, h, Host, Element, State, Listen } from "@stencil/core";
 import { getElementTree } from "../../utils/utils";
 import { DeviceEnum } from "../../beans";
 import { getDevice } from "../../utils/utils";
@@ -31,23 +23,49 @@ export class ZSkipToContent {
 
   @Listen("focusin", { target: "document" })
   handleFocusSkipToContent(e) {
-    // console.log(getElementTree(e.target));
     const tree = getElementTree(e.target);
-    console.log;
     const menuParent = tree.find(
       (elem: any) => elem.nodeName.toLowerCase() === "z-skip-to-content"
     );
-    // console.log(this.hostElement);
+
     if (menuParent !== this.hostElement) {
-      this.hostElement.classList.remove("visible");
+      this.hostElement.classList.remove("skip-to-content-visible");
     } else {
-      this.hostElement.classList.add("visible");
+      this.hostElement.classList.add("skip-to-content-visible");
     }
 
-    // console.log(this.hostElement.children);
+    this.handleSlottedElementFocus(e);
+  }
+
+  componentDidLoad() {
     if (getDevice() == DeviceEnum.mobile) {
+      const children = this.hostElement.children;
+      for (let i = 0; i < children.length; i++) {
+        if (i == 0) {
+          children[i].classList.toggle("link-visible");
+        } else {
+          children[i].classList.toggle("link-invisible");
+        }
+      }
     }
-    console.log(getDevice());
+  }
+
+  @Listen("keyup")
+  handleSlottedElementFocus(e) {
+    if (getDevice() == DeviceEnum.mobile && e.code == "Tab") {
+      e.preventDefault();
+
+      let prevElem = e.target.previousElementSibling;
+      let elem = e.target;
+
+      if (prevElem) {
+        prevElem.classList.toggle("link-visible");
+        prevElem.classList.toggle("link-invisible");
+        elem.classList.toggle("link-visible");
+        elem.classList.toggle("link-invisible");
+        elem.focus();
+      }
+    }
   }
 
   render() {

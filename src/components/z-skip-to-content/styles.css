@@ -9,22 +9,19 @@
   left: -100%;
 }
 
-:host.visible {
-  position: static;
-  display: block;
-}
-
-:host::slotted(*).test {
-  display: none;
-}
-
-:host::slotted(*):last-child {
-  margin-right: 0;
-}
-
+:host.skip-to-content-visible,
 :host:focus {
   position: static;
   display: block;
+}
+
+:host::slotted(*).link-invisible {
+  opacity: 0;
+}
+
+:host::slotted(*).link-visible {
+  position: absolute;
+  left: 24px;
 }
 
 /* Tablet breakpoint */
@@ -33,10 +30,6 @@
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
-  :host.visible {
-    position: static;
-    display: block;
-  }
 }
 
 /* Wide breakpoint */
