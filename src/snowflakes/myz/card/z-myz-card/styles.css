@@ -12,7 +12,8 @@ div {
 }
 
 div.real,
-div.trial {
+div.trial,
+div.temp {
   border-color: var(--accent);
 }
 

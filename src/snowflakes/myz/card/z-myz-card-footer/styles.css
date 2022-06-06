@@ -16,7 +16,8 @@ footer {
 }
 
 footer.real,
-footer.trial {
+footer.trial,
+footer.temp {
   border-top: var(--border-size-medium) solid var(--accent);
 }
 
@@ -48,7 +49,8 @@ footer.isopen > p {
 }
 
 footer.isopen.real > p,
-footer.isopen.trial > p {
+footer.isopen.trial > p,
+footer.isopen.temp > p {
   background-color: var(--accent);
 }
 
@@ -150,7 +152,11 @@ footer .content.customContent {
 
 footer ::slotted([slot="content"]) {
   display: block;
-  height: 124px;
+  height: 92px;
+  padding: calc(var(--space-unit) * 2);
+}
+footer.isopen ::slotted([slot="content"]) {
+  border-top: var(--border-size-medium) solid var(--accent);
 }
 
 footer.isopen > p.customContent,

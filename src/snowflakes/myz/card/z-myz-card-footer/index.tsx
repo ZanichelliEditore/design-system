@@ -58,6 +58,7 @@ export class ZMyzCardFooter {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
       trial: this.cardtype === LicenseTypeEnum.trial,
+      temp: this.cardtype === LicenseTypeEnum.temp,
       customContent: this.customContent,
     };
   }
