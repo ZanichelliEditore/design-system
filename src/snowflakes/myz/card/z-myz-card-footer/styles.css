@@ -121,7 +121,6 @@ footer.isopen {
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
 footer.isopen.customContent {
-  height: 415px;
   top: -292px;
 }
 
@@ -150,16 +149,32 @@ footer .content.customContent {
   display: none;
 }
 
-footer ::slotted([slot="content"]) {
-  display: block;
-  height: 92px;
-  padding: calc(var(--space-unit) * 2);
-}
-footer.isopen ::slotted([slot="content"]) {
-  border-top: var(--border-size-medium) solid var(--accent);
-}
-
 footer.isopen > p.customContent,
 footer.isopen .content.customContent {
   display: block;
+}
+
+div.wrapper {
+  position: relative;
+  height: 100%;
+}
+
+div.wrapper ::slotted([slot="content"]) {
+  display: block;
+  height: 112px;
+  width: 100%;
+  padding: 0 calc(var(--space-unit) * 2);
+  box-sizing: border-box;
+  border-top: var(--border-size-medium) solid transparent;
+  position: absolute;
+  top: calc(var(--space-unit) * 2);
+  z-index: 10;
+  background: var(--color-white);
+}
+div.wrapper.isopen ::slotted([slot="content"]) {
+  height: 128px;
+  padding: calc(var(--space-unit) * 2);
+  border-color: var(--accent);
+  top: 0;
+  bottom: 0;
 }

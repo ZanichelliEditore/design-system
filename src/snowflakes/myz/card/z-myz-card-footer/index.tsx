@@ -71,7 +71,7 @@ export class ZMyzCardFooter {
 
   render() {
     return (
-      <div class={this.faded && "faded"}>
+      <div class={{ ...this.retrieveClass(), wrapper: true }}>
         <footer
           class={this.retrieveClass()}
           onTransitionEnd={(e: TransitionEvent) =>
@@ -106,8 +106,8 @@ export class ZMyzCardFooter {
               <slot name="list" />
             </div>
           </div>
-          {this.customContent && <slot name="content" />}
         </footer>
+        {this.customContent && <slot name="content" />}
       </div>
     );
   }
