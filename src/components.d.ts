@@ -1054,7 +1054,15 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Tab orientation.
+          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+         */
+        "icon": string;
+        /**
+          * Label to show in the tab.
+         */
+        "label": string;
+        /**
+          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
         "orientation": NavigationTabsOrientation;
         /**
@@ -1062,7 +1070,7 @@ export namespace Components {
          */
         "selected"?: boolean;
         /**
-          * Tab size.
+          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
         "size": NavigationTabsSize;
         /**
@@ -1080,7 +1088,15 @@ export namespace Components {
          */
         "href": string;
         /**
-          * Tab orientation.
+          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+         */
+        "icon": string;
+        /**
+          * Label to show in the tab.
+         */
+        "label": string;
+        /**
+          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
         "orientation": NavigationTabsOrientation;
         /**
@@ -1088,7 +1104,7 @@ export namespace Components {
          */
         "selected"?: boolean;
         /**
-          * Tab size.
+          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
         "size": NavigationTabsSize;
         /**
@@ -1102,11 +1118,11 @@ export namespace Components {
     }
     interface ZNavigationTabs {
         /**
-          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+          * Navigation tabs orientation.
          */
         "orientation"?: NavigationTabsOrientation;
         /**
-          * Available sizes: `big` and `small`. Defaults to `big`.
+          * Navigation tabs size.
          */
         "size"?: NavigationTabsSize;
     }
@@ -3545,9 +3561,17 @@ declare namespace LocalJSX {
           * Whether the tab is disabled.
          */
         "disabled"?: boolean;
+        /**
+          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+         */
+        "icon"?: string;
+        /**
+          * Label to show in the tab.
+         */
+        "label"?: string;
         "onSelected"?: (event: CustomEvent<any>) => void;
         /**
-          * Tab orientation.
+          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
         "orientation"?: NavigationTabsOrientation;
         /**
@@ -3555,7 +3579,7 @@ declare namespace LocalJSX {
          */
         "selected"?: boolean;
         /**
-          * Tab size.
+          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
         "size"?: NavigationTabsSize;
         /**
@@ -3572,9 +3596,17 @@ declare namespace LocalJSX {
           * Url to set to the anchor element.
          */
         "href"?: string;
+        /**
+          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+         */
+        "icon"?: string;
+        /**
+          * Label to show in the tab.
+         */
+        "label"?: string;
         "onSelected"?: (event: CustomEvent<any>) => void;
         /**
-          * Tab orientation.
+          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
         "orientation"?: NavigationTabsOrientation;
         /**
@@ -3582,7 +3614,7 @@ declare namespace LocalJSX {
          */
         "selected"?: boolean;
         /**
-          * Tab size.
+          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
         "size"?: NavigationTabsSize;
         /**
@@ -3596,11 +3628,11 @@ declare namespace LocalJSX {
     }
     interface ZNavigationTabs {
         /**
-          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+          * Navigation tabs orientation.
          */
         "orientation"?: NavigationTabsOrientation;
         /**
-          * Available sizes: `big` and `small`. Defaults to `big`.
+          * Navigation tabs size.
          */
         "size"?: NavigationTabsSize;
     }

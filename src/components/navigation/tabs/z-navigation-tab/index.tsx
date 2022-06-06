@@ -10,7 +10,6 @@ import { icons } from "../../../icons/icons";
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders a button.
  * @slot icon - Tab icon. If no extra customization is needed, use the `icon` prop passing the icon's name.
- * @slot label - Tab label
  */
 @Component({
   tag: "z-navigation-tab",

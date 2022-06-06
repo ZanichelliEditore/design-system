@@ -7,10 +7,17 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                                                                   | Type                         | Default                                 |
-| ------------- | ------------- | ----------------------------------------------------------------------------- | ---------------------------- | --------------------------------------- |
-| `orientation` | `orientation` | Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`. | `"horizontal" \| "vertical"` | `NavigationTabsOrientations.horizontal` |
-| `size`        | `size`        | Available sizes: `big` and `small`. Defaults to `big`.                        | `"big" \| "small"`           | `NavigationTabsSizes.big`               |
+| Property      | Attribute     | Description                  | Type                         | Default                                 |
+| ------------- | ------------- | ---------------------------- | ---------------------------- | --------------------------------------- |
+| `orientation` | `orientation` | Navigation tabs orientation. | `"horizontal" \| "vertical"` | `NavigationTabsOrientations.horizontal` |
+| `size`        | `size`        | Navigation tabs size.        | `"big" \| "small"`           | `NavigationTabsSizes.big`               |
+
+
+## Slots
+
+| Slot | Description                                                                          |
+| ---- | ------------------------------------------------------------------------------------ |
+|      | Main slot. Use `z-navigation-tab` or `z-navigation-tab-link` components as children. |
 
 
 ## Dependencies
