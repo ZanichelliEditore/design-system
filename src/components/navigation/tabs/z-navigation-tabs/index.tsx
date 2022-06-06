@@ -117,7 +117,7 @@ export class ZNavigationTabs {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
       if (child !== tab) {
-        child.setAttribute('selected', 'false');
+        child.removeAttribute('selected');
       }
     });
   }

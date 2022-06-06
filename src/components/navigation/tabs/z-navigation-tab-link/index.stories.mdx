@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import { NavigationTabsSizes, NavigationTabsOrientations } from "../../../../beans/index";
+import { icons } from "../../../icons/icons";
 import "./index";
 
 # ZNavigationTabLink
@@ -31,7 +32,11 @@ import "./index";
     },
     target: {
       control: { type: "text" },
-    }
+    },
+    icon: {
+      control: { type: "select" },
+      options: Object.keys(icons),
+    },
   }}
 />
 
@@ -43,7 +48,8 @@ import "./index";
     orientation: NavigationTabsOrientations.horizontal,
     href: 'https://www.google.com',
     target: "_blank",
-    title: "Go to Google"
+    title: "Go to Google",
+    icon: "arrow-quad-north-east",
   }}>
     {(args) => html`
       <z-navigation-tab-link
@@ -54,9 +60,47 @@ import "./index";
         .href=${args.href}
         .title=${args.title}
         .target=${args.target}
+        .icon=${args.icon}
       >
-        <z-icon name="arrow-quad-north-east" slot="icon"></z-icon>
         <span slot="label">Go to Google</span>
+      </z-navigation-tab-link>
+    `}
+  </Story>
+</Canvas>
+
+## Slotted icon
+You can use the slot named `icon` if you need extra customization (such as a product specific icon).
+
+<Canvas>
+  <Story name="z-navigation-tab-link with slotted icon"
+    args={{
+      selected: false,
+      disabled: false,
+      size: NavigationTabsSizes.big,
+      orientation: NavigationTabsOrientations.horizontal,
+      href: 'https://www.google.com',
+      target: "_blank",
+      title: "Go to Google",
+      label: "Google",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["icon"],
+      }
+    }}
+  >
+    {(args) => html`
+      <z-navigation-tab-link
+        .selected=${args.selected}
+        .disabled=${args.disabled}
+        .size=${args.size}
+        .orientation=${args.orientation}
+        .href=${args.href}
+        .title=${args.title}
+        .target=${args.target}
+        .label=${args.label}
+      >
+        <span slot="icon">🧩</span>
       </z-navigation-tab-link>
     `}
   </Story>

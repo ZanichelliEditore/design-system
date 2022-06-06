@@ -45,30 +45,19 @@ import "./index.stories.css";
         orientation=${args.orientation}
         size=${args.size}
       >
-        <z-navigation-tab>
-          <z-icon name="house" slot="icon"></z-icon>
-          <span slot="label">Home</span>
-        </z-navigation-tab>
-        <z-navigation-tab disabled>
-          <z-icon name="app-switcher" slot="icon"></z-icon>
-          <span slot="label">App</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="map" slot="icon"></z-icon>
-          <span slot="label">Maps</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="download" slot="icon"></z-icon>
-          <span slot="label">Download</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="user" slot="icon"></z-icon>
-          <span slot="label">Users</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="artist" slot="icon"></z-icon>
-          <span slot="label">Artisti</span>
-        </z-navigation-tab>
+        <z-navigation-tab icon="house" label="Home"></z-navigation-tab>
+        <z-navigation-tab disabled icon="app" label="App"></z-navigation-tab>
+        <z-navigation-tab icon="map" label="Maps"></z-navigation-tab>
+        <z-navigation-tab icon="download" label="Download"></z-navigation-tab>
+        <z-navigation-tab icon="user-avatar" label="Users"></z-navigation-tab>
+        <z-navigation-tab icon="artist" label="Artisti"></z-navigation-tab>
+        <z-navigation-tab-link
+          href="https://www.google.com"
+          icon="arrow-quad-north-east"
+          label="External link"
+          target="_blank"
+          title="Go to Google"
+        ></z-navigation-tab-link>
       </z-navigation-tabs>
     `}
   </Story>
@@ -91,30 +80,19 @@ import "./index.stories.css";
   >
     {(args) => html`
       <z-navigation-tabs orientation=${args.orientation}>
-        <z-navigation-tab>
-          <z-icon name="house" slot="icon"></z-icon>
-          <span slot="label">Home</span>
-        </z-navigation-tab>
-        <z-navigation-tab disabled>
-          <z-icon name="app-switcher" slot="icon"></z-icon>
-          <span slot="label">App</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="map" slot="icon"></z-icon>
-          <span slot="label">Maps</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="download" slot="icon"></z-icon>
-          <span slot="label">Download</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="user" slot="icon"></z-icon>
-          <span slot="label">Users</span>
-        </z-navigation-tab>
-        <z-navigation-tab>
-          <z-icon name="artist" slot="icon"></z-icon>
-          <span slot="label">Artisti</span>
-        </z-navigation-tab>
+        <z-navigation-tab icon="house" label="Home"></z-navigation-tab>
+        <z-navigation-tab disabled icon="app" label="App"></z-navigation-tab>
+        <z-navigation-tab icon="map" label="Maps"></z-navigation-tab>
+        <z-navigation-tab icon="download" label="Download"></z-navigation-tab>
+        <z-navigation-tab icon="user-avatar" label="Users"></z-navigation-tab>
+        <z-navigation-tab icon="artist" label="Artisti"></z-navigation-tab>
+        <z-navigation-tab-link
+          href="https://www.google.com"
+          icon="arrow-quad-north-east"
+          label="External link"
+          target="_blank"
+          title="Go to Google"
+        ></z-navigation-tab-link>
       </z-navigation-tabs>
     `}
   </Story>

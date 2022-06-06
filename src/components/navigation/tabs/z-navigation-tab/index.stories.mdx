@@ -1,6 +1,10 @@
 import { html } from "lit-html";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import { NavigationTabsSizes, NavigationTabsOrientations } from "../../../../beans/index";
+import {
+  NavigationTabsSizes,
+  NavigationTabsOrientations,
+} from "../../../../beans/index";
+import { icons } from "../../../icons/icons";
 import "./index";
 
 # ZNavigationTab
@@ -16,27 +20,39 @@ import "./index";
       control: "boolean",
     },
     size: {
-      options: Object.values(NavigationTabsSizes),
       control: { type: "inline-radio" },
+      options: Object.values(NavigationTabsSizes),
     },
     orientation: {
-      options: Object.values(NavigationTabsOrientations),
       control: { type: "inline-radio" },
+      options: Object.values(NavigationTabsOrientations),
     },
     title: {
       control: { type: "text" },
     },
+    icon: {
+      control: { type: "select" },
+      options: Object.keys(icons),
+    },
+    label: {
+      control: { type: "text" },
+    }
   }}
 />
 
 <Canvas>
-  <Story name="z-navigation-tab" args={{
-    selected: false,
-    disabled: false,
-    size: NavigationTabsSizes.big,
-    orientation: NavigationTabsOrientations.horizontal,
-    title: 'Download stuff',
-  }}>
+  <Story
+    name="z-navigation-tab"
+    args={{
+      selected: false,
+      disabled: false,
+      size: NavigationTabsSizes.big,
+      orientation: NavigationTabsOrientations.horizontal,
+      title: "Download stuff",
+      icon: "download",
+      label: "Download",
+    }}
+  >
     {(args) => html`
       <z-navigation-tab
         .selected=${args.selected}
@@ -44,9 +60,42 @@ import "./index";
         .size=${args.size}
         .orientation=${args.orientation}
         .title=${args.title}
+        .icon=${args.icon}
+        .label=${args.label}
+      ></z-navigation-tab>
+    `}
+  </Story>
+</Canvas>
+
+## Slotted icon
+You can use the slot named `icon` if you need extra customization (such as a product specific icon).
+<Canvas>
+  <Story
+    name="z-navigation-tab with slotted icon"
+    args={{
+      selected: false,
+      disabled: false,
+      size: NavigationTabsSizes.big,
+      orientation: NavigationTabsOrientations.horizontal,
+      title: "Download stuff",
+      label: "Download",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["icon"],
+      }
+    }}
+  >
+    {(args) => html`
+      <z-navigation-tab
+        .selected=${args.selected}
+        .disabled=${args.disabled}
+        .size=${args.size}
+        .orientation=${args.orientation}
+        .title=${args.title}
+        .label=${args.label}
       >
-        <z-icon name="download" slot="icon"></z-icon>
-        <span slot="label">Download</span>
+        <span slot="icon">🧩</span>
       </z-navigation-tab>
     `}
   </Story>
