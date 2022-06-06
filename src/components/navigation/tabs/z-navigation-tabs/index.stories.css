@@ -1,0 +1,7 @@
+z-navigation-tabs[orientation="horizontal"] {
+  max-width: 400px;
+}
+
+z-navigation-tabs[orientation="vertical"] {
+  max-height: 260px;
+}

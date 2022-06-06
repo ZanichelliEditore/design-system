@@ -11,7 +11,7 @@ describe("Suite test ZNavigationTabs", () => {
         <z-navigation-tabs orientation="horizontal" size="big">
           <z-navigation-tab size="big">
             <z-icon name="house" slot="icon"></z-icon>
-            <span slot="label">Home</span>
+            Home
           </z-navigation-tab>
         </z-navigation-tabs>
       `
@@ -26,7 +26,7 @@ describe("Suite test ZNavigationTabs", () => {
         </mock:shadow-root>
         <z-navigation-tab orientation="horizontal" size="big">
           <z-icon name="house" slot="icon"></z-icon>
-          <span slot="label">Home</span>
+          Home
         </z-navigation-tab>
       </z-navigation-tabs>
     `);
@@ -39,7 +39,7 @@ describe("Suite test ZNavigationTabs", () => {
         <z-navigation-tabs orientation="horizontal" size="small">
           <z-navigation-tab size="small">
             <z-icon name="house" slot="icon"></z-icon>
-            <span slot="label">Home</span>
+            Home
           </z-navigation-tab>
         </z-navigation-tabs>
       `
@@ -54,7 +54,7 @@ describe("Suite test ZNavigationTabs", () => {
         </mock:shadow-root>
         <z-navigation-tab orientation="horizontal" size="small">
           <z-icon name="house" slot="icon"></z-icon>
-          <span slot="label">Home</span>
+          Home
         </z-navigation-tab>
       </z-navigation-tabs>
     `);
@@ -67,7 +67,7 @@ describe("Suite test ZNavigationTabs", () => {
         <z-navigation-tabs size="big" orientation="vertical">
           <z-navigation-tab size="big">
             <z-icon name="house" slot="icon"></z-icon>
-            <span slot="label">Home</span>
+            Home
           </z-navigation-tab>
         </z-navigation-tabs>
       `
@@ -82,7 +82,7 @@ describe("Suite test ZNavigationTabs", () => {
         </mock:shadow-root>
         <z-navigation-tab orientation="vertical" size="big">
           <z-icon name="house" slot="icon"></z-icon>
-          <span slot="label">Home</span>
+          Home
         </z-navigation-tab>
       </z-navigation-tabs>
     `);

@@ -95,16 +95,16 @@ export type TabItem = {
   disabled?: boolean;
 };
 
-export type TabOrientationBean = TabOrientationEnum;
+export type NavigationTabsOrientation = keyof typeof NavigationTabsOrientations;
 
-export enum TabOrientationEnum {
+export enum NavigationTabsOrientations {
   horizontal = "horizontal",
   vertical = "vertical",
 }
 
-export type TabSizeBean = TabSizeEnum;
+export type NavigationTabsSize = keyof typeof NavigationTabsSizes;
 
-export enum TabSizeEnum {
+export enum NavigationTabsSizes {
   big = "big",
   small = "small",
 }

@@ -1,10 +1,15 @@
-button {
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:host > * {
   position: relative;
   z-index: 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: auto;
   margin: 0;
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
   background-color: unset;
@@ -22,51 +27,54 @@ button {
   cursor: pointer;
 }
 
-*::before,
-*::after {
-  box-sizing: border-box;
+:host > a {
+  text-decoration: none;
 }
 
-:host(:hover:not([disabled])) button,
-:host([selected]) button {
+:host(:not([disabled]):hover) > *,
+:host([selected]) > * {
   color: var(--color-hover-secondary);
   fill: currentColor;
 }
 
-:host(:hover:not([disabled])) button::after,
-:host([selected]) button::after {
+:host(:not([disabled]):hover) > *::after,
+:host([selected]) > *::after {
   content: '';
   position: absolute;
   background-color: var(--color-hover-secondary);
 }
 
-:host([orientation='horizontal']:not([disabled]):hover) button::after,
-:host([orientation='horizontal'][selected]) button::after {
+:host([orientation='horizontal']:not([disabled]):hover) > *::after,
+:host([orientation='horizontal'][selected]) > *::after {
   bottom: 0;
   left: 0;
   width: 100%;
   height: var(--border-size-large);
 }
 
-::slotted(z-icon) {
+slot[name="icon"] z-icon,
+::slotted([slot="icon"]) {
   --z-icon-width: calc(var(--space-unit) * 2);
   --z-icon-height: calc(var(--space-unit) * 2);
+
+  display: flex;
   margin: 0;
 }
 
-:host([orientation='horizontal']) ::slotted(z-icon) {
+:host([orientation='horizontal']) slot[name="icon"] z-icon,
+:host([orientation='horizontal']) ::slotted([slot="icon"]) {
   margin-right: var(--space-unit);
 }
 
-:host(:hover:not([disabled])) button {
+:host(:not([disabled]):hover) > * {
   background-color: var(--color-background);
 }
 
-button:focus:focus-visible {
+> *:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([disabled]) button {
+:host([disabled]) > * {
   pointer-events: all;
   cursor: not-allowed;
   color: var(--gray500);
@@ -74,39 +82,36 @@ button:focus:focus-visible {
 }
 
 /* Size small (only available for horizontal) */
-:host([size='small']) button {
+:host([size='small']) > * {
   font-size: var(--font-size-2);
   line-height: 1.4;
   letter-spacing: 0.16px;
 }
 
-:host([size='small'][orientation='horizontal']) button {
+:host([size='small'][orientation='horizontal']) > * {
   padding: var(--space-unit) calc(var(--space-unit) * 2);
 }
 
-:host([size='small'][orientation='horizontal']:not([disabled]):hover) button::after,
-:host([size='small'][orientation='horizontal'][selected]) button::after {
+:host([size='small'][orientation='horizontal']:not([disabled]):hover) > *::after,
+:host([size='small'][orientation='horizontal'][selected]) > *::after {
   height: var(--border-size-medium);
 }
 
-:host([size='small']:not([orientation='vertical'])) ::slotted(z-icon) {
+:host([size='small']:not([orientation='vertical'])) slot[name="icon"] z-icon,
+:host([size='small']:not([orientation='vertical'])) ::slotted([slot="icon"]) {
   --z-icon-width: 14px;
   --z-icon-height: 14px;
 }
 
 /* Orientation Vertical */
-:host([orientation='vertical']) button {
+:host([orientation='vertical']) > * {
   padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
 }
 
-:host([orientation='vertical']:hover:not([disabled])) button::after,
-:host([orientation='vertical'][selected]) button::after {
+:host([orientation='vertical']:hover:not([disabled])) > *::after,
+:host([orientation='vertical'][selected]) > *::after {
   width: var(--border-size-large);
   height: 100%;
   top: 0;
   right: 0;
-}
-
-:host([orientation='vertical']) ::slotted([slot='label']) {
-  display: none;
 }
