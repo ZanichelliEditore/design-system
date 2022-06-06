@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.46.1](https://github.com/ZanichelliEditore/design-system/compare/v2.46.0...v2.46.1) (2022-06-06)
+
+
+### Bug Fixes
+
+* filled icon regex ([70e0deb](https://github.com/ZanichelliEditore/design-system/commit/70e0debbdd8d96d624d223037ae01a287ac291b1))
+* title prop warning; enhance filled icons handling ([7c4d334](https://github.com/ZanichelliEditore/design-system/commit/7c4d3348e9e9ba729cbe95caa6d29c32b0e6a148))
+
 ## [2.46.0](https://github.com/ZanichelliEditore/design-system/compare/v2.45.0...v2.46.0) (2022-06-01)
 
 
