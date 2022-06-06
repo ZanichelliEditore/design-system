@@ -82,13 +82,13 @@ export declare type TabItem = {
   selected?: boolean;
   disabled?: boolean;
 };
-export declare type TabOrientationBean = TabOrientationEnum;
-export declare enum TabOrientationEnum {
+export declare type NavigationTabsOrientation = keyof typeof NavigationTabsOrientations;
+export declare enum NavigationTabsOrientations {
   horizontal = "horizontal",
   vertical = "vertical"
 }
-export declare type TabSizeBean = TabSizeEnum;
-export declare enum TabSizeEnum {
+export declare type NavigationTabsSize = keyof typeof NavigationTabsSizes;
+export declare enum NavigationTabsSizes {
   big = "big",
   small = "small"
 }

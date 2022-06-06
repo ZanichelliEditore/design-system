@@ -11,16 +11,16 @@ export var CardVariants;
   CardVariants["overlay"] = "overlay";
   CardVariants["text"] = "text";
 })(CardVariants || (CardVariants = {}));
-export var TabOrientationEnum;
-(function (TabOrientationEnum) {
-  TabOrientationEnum["horizontal"] = "horizontal";
-  TabOrientationEnum["vertical"] = "vertical";
-})(TabOrientationEnum || (TabOrientationEnum = {}));
-export var TabSizeEnum;
-(function (TabSizeEnum) {
-  TabSizeEnum["big"] = "big";
-  TabSizeEnum["small"] = "small";
-})(TabSizeEnum || (TabSizeEnum = {}));
+export var NavigationTabsOrientations;
+(function (NavigationTabsOrientations) {
+  NavigationTabsOrientations["horizontal"] = "horizontal";
+  NavigationTabsOrientations["vertical"] = "vertical";
+})(NavigationTabsOrientations || (NavigationTabsOrientations = {}));
+export var NavigationTabsSizes;
+(function (NavigationTabsSizes) {
+  NavigationTabsSizes["big"] = "big";
+  NavigationTabsSizes["small"] = "small";
+})(NavigationTabsSizes || (NavigationTabsSizes = {}));
 export var ButtonVariantEnum;
 (function (ButtonVariantEnum) {
   ButtonVariantEnum["primary"] = "primary";
