@@ -106,7 +106,7 @@ export class ZNavigationTabLink {
    */
   renderIcon() {
     let icon = this.icon;
-    const iconFilled = `${icon.replace(/-filled^/, '')}-filled`;
+    const iconFilled = `${icon.replace(/-filled$/, '')}-filled`;
 
     if (this.selected && Object.keys(icons).includes(iconFilled)) {
       icon = iconFilled;
