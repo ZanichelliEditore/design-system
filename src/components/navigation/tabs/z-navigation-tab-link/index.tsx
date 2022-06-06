@@ -50,9 +50,9 @@ export class ZNavigationTabLink {
   @Prop({ reflect: true }) size: NavigationTabsSize = NavigationTabsSizes.big;
 
   /**
-   * Html `title` attribute for the anchor element.
+   * Html title attribute for the anchor element.
    */
-  @Prop() title: string;
+  @Prop() htmlTitle: string;
 
   /**
    * Html `target` attribute for the anchor element.
@@ -106,7 +106,7 @@ export class ZNavigationTabLink {
    */
   renderIcon() {
     let icon = this.icon;
-    const iconFilled = `${this.icon}-filled`;
+    const iconFilled = `${icon.replace(/-filled^/, '')}-filled`;
 
     if (this.selected && Object.keys(icons).includes(iconFilled)) {
       icon = iconFilled;
@@ -120,7 +120,7 @@ export class ZNavigationTabLink {
       <a
         role="tab"
         href={!this.disabled && this.href}
-        title={this.title}
+        title={this.htmlTitle}
         target={this.target}
       >
         <slot name="icon">{this.icon && this.renderIcon()}</slot>

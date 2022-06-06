@@ -27,12 +27,12 @@ import "./index";
       control: { type: "inline-radio" },
       options: Object.values(NavigationTabsOrientations),
     },
-    title: {
+    htmlTitle: {
       control: { type: "text" },
     },
     icon: {
       control: { type: "select" },
-      options: Object.keys(icons),
+      options: Object.keys(icons).sort(),
     },
     label: {
       control: { type: "text" },
@@ -48,7 +48,7 @@ import "./index";
       disabled: false,
       size: NavigationTabsSizes.big,
       orientation: NavigationTabsOrientations.horizontal,
-      title: "Download stuff",
+      htmlTitle: "Download stuff",
       icon: "download",
       label: "Download",
     }}
@@ -59,7 +59,7 @@ import "./index";
         .disabled=${args.disabled}
         .size=${args.size}
         .orientation=${args.orientation}
-        .title=${args.title}
+        .htmlTitle=${args.htmlTitle}
         .icon=${args.icon}
         .label=${args.label}
       ></z-navigation-tab>
@@ -77,7 +77,7 @@ You can use the slot named `icon` if you need extra customization (such as a pro
       disabled: false,
       size: NavigationTabsSizes.big,
       orientation: NavigationTabsOrientations.horizontal,
-      title: "Download stuff",
+      htmlTitle: "Download stuff",
       label: "Download",
     }}
     parameters={{
@@ -92,7 +92,7 @@ You can use the slot named `icon` if you need extra customization (such as a pro
         .disabled=${args.disabled}
         .size=${args.size}
         .orientation=${args.orientation}
-        .title=${args.title}
+        .htmlTitle=${args.htmlTitle}
         .label=${args.label}
       >
         <span slot="icon">🧩</span>

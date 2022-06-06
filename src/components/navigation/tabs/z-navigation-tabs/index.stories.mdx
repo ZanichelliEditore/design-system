@@ -46,9 +46,8 @@ import "./index.stories.css";
         size=${args.size}
       >
         <z-navigation-tab icon="house" label="Home"></z-navigation-tab>
-        <z-navigation-tab disabled icon="app" label="App"></z-navigation-tab>
         <z-navigation-tab icon="map" label="Maps"></z-navigation-tab>
-        <z-navigation-tab icon="download" label="Download"></z-navigation-tab>
+        <z-navigation-tab icon="download" label="Download" disabled></z-navigation-tab>
         <z-navigation-tab icon="user-avatar" label="Users"></z-navigation-tab>
         <z-navigation-tab icon="artist" label="Artisti"></z-navigation-tab>
         <z-navigation-tab-link
@@ -56,7 +55,7 @@ import "./index.stories.css";
           icon="arrow-quad-north-east"
           label="External link"
           target="_blank"
-          title="Go to Google"
+          htmlTitle="Go to Google"
         ></z-navigation-tab-link>
       </z-navigation-tabs>
     `}
@@ -81,9 +80,8 @@ import "./index.stories.css";
     {(args) => html`
       <z-navigation-tabs orientation=${args.orientation}>
         <z-navigation-tab icon="house" label="Home"></z-navigation-tab>
-        <z-navigation-tab disabled icon="app" label="App"></z-navigation-tab>
         <z-navigation-tab icon="map" label="Maps"></z-navigation-tab>
-        <z-navigation-tab icon="download" label="Download"></z-navigation-tab>
+        <z-navigation-tab icon="download" label="Download" disabled></z-navigation-tab>
         <z-navigation-tab icon="user-avatar" label="Users"></z-navigation-tab>
         <z-navigation-tab icon="artist" label="Artisti"></z-navigation-tab>
         <z-navigation-tab-link
@@ -91,7 +89,7 @@ import "./index.stories.css";
           icon="arrow-quad-north-east"
           label="External link"
           target="_blank"
-          title="Go to Google"
+          htmlTitle="Go to Google"
         ></z-navigation-tab-link>
       </z-navigation-tabs>
     `}

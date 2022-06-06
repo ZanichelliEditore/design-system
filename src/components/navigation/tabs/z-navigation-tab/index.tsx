@@ -51,9 +51,9 @@ export class ZNavigationTab {
   @Prop() label: string;
 
   /**
-   * Html title attribute for the button.
+   * Html `title` attribute for the button.
    */
-  @Prop() title: string;
+  @Prop() htmlTitle: string;
 
   @Event({ eventName: "selected" })
   private emitSelected: EventEmitter;
@@ -88,7 +88,7 @@ export class ZNavigationTab {
    */
   renderIcon() {
     let icon = this.icon;
-    const iconFilled = `${this.icon}-filled`;
+    const iconFilled = `${icon.replace(/-filled^/, '')}-filled`;
 
     if (this.selected && Object.keys(icons).includes(iconFilled)) {
       icon = iconFilled;
@@ -99,7 +99,7 @@ export class ZNavigationTab {
 
   render() {
     return (
-      <button role="tab" disabled={this.disabled} title={this.title}>
+      <button role="tab" disabled={this.disabled} title={this.htmlTitle}>
         <slot name="icon">{this.icon && this.renderIcon()}</slot>
         {this.orientation === "horizontal" && this.label}
       </button>

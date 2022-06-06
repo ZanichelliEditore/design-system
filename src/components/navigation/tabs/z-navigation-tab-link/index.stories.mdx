@@ -27,7 +27,7 @@ import "./index";
     href: {
       control: { type: "text" },
     },
-    title: {
+    htmlTitle: {
       control: { type: "text" },
     },
     target: {
@@ -35,7 +35,10 @@ import "./index";
     },
     icon: {
       control: { type: "select" },
-      options: Object.keys(icons),
+      options: Object.keys(icons).sort(),
+    },
+    label: {
+      control: { type: "text" },
     },
   }}
 />
@@ -48,8 +51,9 @@ import "./index";
     orientation: NavigationTabsOrientations.horizontal,
     href: 'https://www.google.com',
     target: "_blank",
-    title: "Go to Google",
+    htmlTitle: "Go to Google",
     icon: "arrow-quad-north-east",
+    label: "Go to Google",
   }}>
     {(args) => html`
       <z-navigation-tab-link
@@ -58,12 +62,11 @@ import "./index";
         .size=${args.size}
         .orientation=${args.orientation}
         .href=${args.href}
-        .title=${args.title}
+        .htmlTitle=${args.htmlTitle}
         .target=${args.target}
         .icon=${args.icon}
-      >
-        <span slot="label">Go to Google</span>
-      </z-navigation-tab-link>
+        .label=${args.label}
+      ></z-navigation-tab-link>
     `}
   </Story>
 </Canvas>
@@ -80,7 +83,7 @@ You can use the slot named `icon` if you need extra customization (such as a pro
       orientation: NavigationTabsOrientations.horizontal,
       href: 'https://www.google.com',
       target: "_blank",
-      title: "Go to Google",
+      htmlTitle: "Go to Google",
       label: "Google",
     }}
     parameters={{
@@ -96,7 +99,7 @@ You can use the slot named `icon` if you need extra customization (such as a pro
         .size=${args.size}
         .orientation=${args.orientation}
         .href=${args.href}
-        .title=${args.title}
+        .htmlTitle=${args.htmlTitle}
         .target=${args.target}
         .label=${args.label}
       >
