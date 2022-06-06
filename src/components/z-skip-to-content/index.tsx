@@ -50,11 +50,12 @@ export class ZSkipToContent {
 
   @Listen("keyup")
   handleSlottedElementFocus(e) {
+    let prevElem = e.target.previousElementSibling;
+    let elem = e.target;
+    let nextElem = e.target.nextElementSibling;
+
     if (getDevice() == DeviceEnum.mobile && e.code == "Tab") {
       e.preventDefault();
-
-      let prevElem = e.target.previousElementSibling;
-      let elem = e.target;
 
       if (prevElem) {
         console.log(e.target);
@@ -62,6 +63,16 @@ export class ZSkipToContent {
         prevElem.classList.add("link-invisible");
         elem.classList.remove("link-invisible");
         elem.classList.add("link-visible");
+        elem.focus();
+      }
+    }
+
+    if (getDevice() == DeviceEnum.mobile && e.shiftKey && e.code == "Tab") {
+      if (nextElem) {
+        nextElem.classList.toggle("link-visible");
+        nextElem.classList.toggle("link-invisible");
+        elem.classList.toggle("link-visible");
+        elem.classList.toggle("link-invisible");
         elem.focus();
       }
     }
