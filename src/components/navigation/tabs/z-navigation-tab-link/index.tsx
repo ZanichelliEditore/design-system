@@ -22,7 +22,7 @@ import { icons } from "../../../icons/icons";
  */
 @Component({
   tag: "z-navigation-tab-link",
-  styleUrls: ["../navigation-tab.css", "styles.css"],
+  styleUrl: "../navigation-tab.css",
   shadow: true,
 })
 export class ZNavigationTabLink {
