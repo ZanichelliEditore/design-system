@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description           | Type     | Default     |
-| -------- | --------- | --------------------- | -------- | ----------- |
-| `myProp` | `my-prop` | Property description. | `string` | `undefined` |
+| Property  | Attribute | Description                         | Type                                      | Default     |
+| --------- | --------- | ----------------------------------- | ----------------------------------------- | ----------- |
+| `variant` | `variant` | Graphical variant: `dark`, `light`. | `ThemeVariant.dark \| ThemeVariant.light` | `undefined` |
 
 
 ----------------------------------------------

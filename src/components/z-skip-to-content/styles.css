@@ -9,10 +9,28 @@
   left: -100%;
 }
 
+:host.dark {
+  background-color: var(--bg-grey-800);
+  color: var(--color-white);
+}
+
+:host.light {
+  background-color: var(--bg-white);
+  color: var(--text-grey-800);
+}
+
 :host.skip-to-content-visible,
 :host:focus {
   position: static;
   display: block;
+}
+
+:host::slotted(*) {
+  margin-right: var(--space-unit);
+}
+
+:host::slotted(*):last-child {
+  margin-right: 0;
 }
 
 :host::slotted(*).link-invisible {

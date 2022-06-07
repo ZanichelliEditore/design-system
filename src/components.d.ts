@@ -1347,6 +1347,10 @@ export namespace Components {
         "status"?: InputStatusBean;
     }
     interface ZSkipToContent {
+        /**
+          * Graphical variant: `dark`, `light`.
+         */
+        "variant"?: ThemeVariant;
     }
     interface ZSlideshow {
         /**
@@ -3817,6 +3821,10 @@ declare namespace LocalJSX {
         "status"?: InputStatusBean;
     }
     interface ZSkipToContent {
+        /**
+          * Graphical variant: `dark`, `light`.
+         */
+        "variant"?: ThemeVariant;
     }
     interface ZSlideshow {
         /**

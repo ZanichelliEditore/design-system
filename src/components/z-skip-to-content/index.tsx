@@ -1,6 +1,6 @@
-import { Component, h, Host, Element, State, Listen } from "@stencil/core";
+import { Component, h, Host, Element, Listen, Prop } from "@stencil/core";
 import { getElementTree } from "../../utils/utils";
-import { DeviceEnum } from "../../beans";
+import { DeviceEnum, ThemeVariant } from "../../beans";
 import { getDevice } from "../../utils/utils";
 
 /**
@@ -13,11 +13,10 @@ import { getDevice } from "../../utils/utils";
   scoped: true,
 })
 export class ZSkipToContent {
-  /**
-   * Property description.
-   */
+  /** Graphical variant: `dark`, `light`. */
+  @Prop({ reflect: true }) variant?: ThemeVariant;
+
   @Element() hostElement: HTMLElement;
-  @State() counter: number = 0;
 
   @Listen("focusin", { target: "document" })
   handleFocusSkipToContent(e) {
@@ -80,6 +79,7 @@ export class ZSkipToContent {
   render() {
     return (
       <Host
+        class={this.variant}
         ref={(el) => el as HTMLElement}
         onFocus={(e: KeyboardEvent) => this.handleFocusSkipToContent(e)}
         tabindex="0"
