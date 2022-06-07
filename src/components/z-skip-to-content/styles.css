@@ -36,6 +36,7 @@
 :host.light {
   background-color: var(--bg-white);
   color: var(--text-grey-800);
+  border: 2px solid var(--text-grey-800);
 }
 
 /* Tablet breakpoint */
