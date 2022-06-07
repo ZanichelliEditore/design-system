@@ -95,6 +95,10 @@ export class ZSkipToContent {
     }
   }
 
+  handleClickLink() {
+    this.hostElement.classList.remove("skip-to-content-visible");
+  }
+
   render() {
     return (
       <Host
@@ -104,7 +108,17 @@ export class ZSkipToContent {
         tabindex="0"
       >
         {(this.links as linkItem[]).map((link) => {
-          return <z-link href={link.href}>{link.label}</z-link>;
+          return (
+            <z-link
+              underline={true}
+              class={"t-weight-sb"}
+              href={link.href}
+              textcolor={"black"}
+              onClick={() => this.handleClickLink()}
+            >
+              {link.label}
+            </z-link>
+          );
         })}
       </Host>
     );

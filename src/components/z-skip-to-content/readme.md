@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description                         | Type                                      | Default     |
-| --------- | --------- | ----------------------------------- | ----------------------------------------- | ----------- |
-| `links`   | `links`   | Array to fill link to skip-content  | `linkItem[] \| string`                    | `[]`        |
-| `variant` | `variant` | Graphical variant: `dark`, `light`. | `ThemeVariant.dark \| ThemeVariant.light` | `undefined` |
+| Property  | Attribute | Description                          | Type                                      | Default     |
+| --------- | --------- | ------------------------------------ | ----------------------------------------- | ----------- |
+| `links`   | `links`   | Array to fill link into skip-content | `linkItem[] \| string`                    | `[]`        |
+| `variant` | `variant` | Graphical variant: `dark`, `light`.  | `ThemeVariant.dark \| ThemeVariant.light` | `undefined` |
 
 
 ## Dependencies
