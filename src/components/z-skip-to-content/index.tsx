@@ -1,6 +1,6 @@
 import { Component, h, Host, Element, Listen, Prop } from "@stencil/core";
 import { getElementTree } from "../../utils/utils";
-import { DeviceEnum, ThemeVariant } from "../../beans";
+import { DeviceEnum, ThemeVariant, keybordCodeEnum } from "../../beans";
 import { getDevice } from "../../utils/utils";
 
 /**
@@ -52,8 +52,10 @@ export class ZSkipToContent {
     let prevElem = e.target.previousElementSibling;
     let elem = e.target;
     let nextElem = e.target.nextElementSibling;
+    console.log(e.code);
+    console.log(e.tab);
 
-    if (getDevice() == DeviceEnum.mobile && e.code == "Tab") {
+    if (getDevice() == DeviceEnum.mobile && e.code == keybordCodeEnum.TAB) {
       e.preventDefault();
 
       if (prevElem) {
@@ -65,7 +67,11 @@ export class ZSkipToContent {
       }
     }
 
-    if (getDevice() == DeviceEnum.mobile && e.shiftKey && e.code == "Tab") {
+    if (
+      getDevice() == DeviceEnum.mobile &&
+      e.shiftKey &&
+      e.code == keybordCodeEnum.TAB
+    ) {
       if (nextElem) {
         nextElem.classList.toggle("link-visible");
         nextElem.classList.toggle("link-invisible");

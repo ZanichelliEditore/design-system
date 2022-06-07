@@ -15,18 +15,8 @@
   display: block;
 }
 
-:host::slotted(*):first-child {
-  padding-left: 0;
-}
-
-:host::slotted(*) {
-  padding: 0 calc(var(--space-unit) * 3);
-  border-right: 1px solid var(--bg-grey-800);
-}
-
 :host::slotted(*):last-child {
   margin-right: 0;
-  border-right: none;
 }
 
 :host::slotted(*).link-invisible {
@@ -43,10 +33,6 @@
   color: var(--color-white);
 }
 
-:host.dark::slotted(*) {
-  border-right: 1px solid var(--bg-white);
-}
-
 :host.light {
   background-color: var(--bg-white);
   color: var(--text-grey-800);
@@ -58,6 +44,23 @@
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
+  :host::slotted(*) {
+    padding: 0 calc(var(--space-unit) * 3);
+    border-right: 1px solid var(--bg-grey-800);
+  }
+
+  :host::slotted(*):first-child {
+    padding-left: 0;
+  }
+
+  :host::slotted(*):last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  :host.dark::slotted(*) {
+    border-right: 1px solid var(--bg-white);
+  }
 }
 
 /* Wide breakpoint */

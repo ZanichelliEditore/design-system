@@ -190,6 +190,17 @@ export enum keybordKeyCodeEnum {
   DELETE = 46,
 }
 
+export enum keybordCodeEnum {
+  TAB = "Tab",
+  SPACE = "Space",
+  ESC = "Escape",
+  ENTER = "Enter",
+  ARROW_UP = "ArrowUp",
+  ARROW_DOWN = "ArrowDown",
+  BACKSPACE = "Backspace",
+  DELETE = "Delete",
+}
+
 export enum KeyboardKeys {
   ARROW_DOWN = "ArrowDown",
   ARROW_UP = "ArrowUp",
@@ -417,8 +428,8 @@ export enum OffCanvasVariantsEnum {
 export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
 
 export enum ZFileUploadTypeEnum {
-  default = 'default',
-  dragdrop = 'dragdrop'
+  default = "default",
+  dragdrop = "dragdrop",
 }
 
 export enum ZChipType {
@@ -431,4 +442,5 @@ export enum ZSectionTitleDividerPositions {
   after = "after",
 }
 
-export type ZSectionTitleDividerPosition = keyof typeof ZSectionTitleDividerPositions;
+export type ZSectionTitleDividerPosition =
+  keyof typeof ZSectionTitleDividerPositions;
