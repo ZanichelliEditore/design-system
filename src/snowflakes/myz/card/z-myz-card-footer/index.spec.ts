@@ -12,7 +12,7 @@ describe("Suite test ZMyzCardFooter", () => {
     expect(page.root).toEqualHtml(`
       <z-myz-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" isbn=\"123456\" titolo=\"titolo\">
         <mock:shadow-root>
-          <div>
+          <div class="wrapper">
             <footer>
               <span class=\"toggle\">
                 <slot name=\"toggle\"></slot>
@@ -55,7 +55,7 @@ describe("Suite test ZMyzCardFooter", () => {
     expect(page.root).toEqualHtml(`
       <z-myz-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" titolo=\"titolo\">
         <mock:shadow-root>
-          <div>
+          <div class="wrapper">
             <footer>
               <span class=\"toggle\">
                 <slot name=\"toggle\"></slot>
@@ -96,7 +96,7 @@ describe("Suite test ZMyzCardFooter", () => {
     expect(page.root).toEqualHtml(`
       <z-myz-card-footer>
         <mock:shadow-root>
-          <div>
+          <div class="wrapper">
             <footer>
               <span class=\"toggle\">
                 <slot name=\"toggle\"></slot>
@@ -133,7 +133,7 @@ describe("Suite test ZMyzCardFooter", () => {
     expect(page.root).toEqualHtml(`
       <z-myz-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" titolo=\"titolo\">
         <mock:shadow-root>
-          <div>
+          <div class="isopen wrapper">
             <footer class="isopen">
               <span class=\"toggle\">
                 <slot name=\"toggle\"></slot>
@@ -173,7 +173,7 @@ describe("Suite test ZMyzCardFooter", () => {
     expect(page.root).toEqualHtml(`
       <z-myz-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" titolo=\"titolo\" opened=true>
         <mock:shadow-root>
-          <div>
+          <div class="isopen wrapper">
             <footer class="isopen">
               <span class=\"toggle\">
                 <slot name=\"toggle\"></slot>
