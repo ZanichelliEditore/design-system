@@ -45,6 +45,13 @@
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
+  :host > z-link.link-invisible,
+  :host > z-link.link-visible {
+    opacity: initial;
+    position: initial;
+    left: initial;
+  }
+
   :host > z-link {
     padding: 0 calc(var(--space-unit) * 3);
     border-right: 1px solid var(--bg-grey-800);

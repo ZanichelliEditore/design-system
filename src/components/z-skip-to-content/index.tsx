@@ -1,12 +1,14 @@
-import { Component, h, Host, Element, Listen, Prop } from "@stencil/core";
-import { getElementTree } from "../../utils/utils";
 import {
-  DeviceEnum,
-  ThemeVariant,
-  keybordCodeEnum,
-  linkItem,
-} from "../../beans";
-import { getDevice } from "../../utils/utils";
+  Component,
+  h,
+  Host,
+  Element,
+  Listen,
+  Prop,
+  State,
+} from "@stencil/core";
+import { getElementTree } from "../../utils/utils";
+import { ThemeVariant, keybordCodeEnum, linkItem } from "../../beans";
 
 /**
  * Component short description.
@@ -23,6 +25,9 @@ export class ZSkipToContent {
   /** Array to fill link into skip-content */
   @Prop({ mutable: true }) links: string | linkItem[] = [];
 
+  @State() visible: boolean = false;
+  @State() visibleLink: string = "";
+
   @Element() hostElement: HTMLElement;
 
   @Listen("focusin", { target: "document" })
@@ -33,12 +38,16 @@ export class ZSkipToContent {
     );
 
     if (menuParent !== this.hostElement) {
-      this.hostElement.classList.remove("skip-to-content-visible");
+      this.visible = false;
     } else {
-      this.hostElement.classList.add("skip-to-content-visible");
+      this.visible = true;
     }
 
     this.handleSlottedElementFocus(e);
+  }
+
+  componentDidLoad() {
+    this.showFirstChild();
   }
 
   componentWillRender() {
@@ -48,73 +57,47 @@ export class ZSkipToContent {
     }
   }
 
-  componentDidLoad() {
-    console.log(this.links);
-    if (getDevice() == DeviceEnum.mobile) {
-      const children = this.hostElement.children;
-      for (let i = 0; i < children.length; i++) {
-        if (i == 0) {
-          children[i].classList.add("link-visible");
-        } else {
-          children[i].classList.add("link-invisible");
-        }
-      }
+  showFirstChild() {
+    const children = this.hostElement.children;
+    if (children.length) {
+      this.visibleLink = children[0].id;
     }
   }
 
   @Listen("keyup")
   handleSlottedElementFocus(e) {
-    let prevElem = e.target.previousElementSibling;
+    if (e.code !== keybordCodeEnum.TAB) return;
+
+    e.preventDefault();
+
     let elem = e.target;
-    let nextElem = e.target.nextElementSibling;
-
-    if (getDevice() == DeviceEnum.mobile && e.code == keybordCodeEnum.TAB) {
-      e.preventDefault();
-
-      if (prevElem) {
-        prevElem.classList.remove("link-visible");
-        prevElem.classList.add("link-invisible");
-        elem.classList.remove("link-invisible");
-        elem.classList.add("link-visible");
-        elem.focus();
-      }
-    }
-
-    if (
-      getDevice() == DeviceEnum.mobile &&
-      e.shiftKey &&
-      e.code == keybordCodeEnum.TAB
-    ) {
-      if (nextElem) {
-        nextElem.classList.toggle("link-visible");
-        nextElem.classList.toggle("link-invisible");
-        elem.classList.toggle("link-visible");
-        elem.classList.toggle("link-invisible");
-        elem.focus();
-      }
-    }
-  }
-
-  handleClickLink() {
-    this.hostElement.classList.remove("skip-to-content-visible");
+    this.visibleLink = elem.id;
+    elem.focus();
   }
 
   render() {
     return (
       <Host
-        class={this.variant}
+        class={`${this.variant} ${this.visible && "skip-to-content-visible"} `}
         ref={(el) => el as HTMLElement}
         onFocus={(e: KeyboardEvent) => this.handleFocusSkipToContent(e)}
-        tabindex="0"
+        onBlur={(e: KeyboardEvent) => this.handleFocusSkipToContent(e)}
+        // tabindex="0"
       >
-        {(this.links as linkItem[]).map((link) => {
+        {(this.links as linkItem[]).map((link, i) => {
+          const id = `skip-to-content-${i}`;
           return (
             <z-link
+              id={id}
               underline={true}
-              class={"t-weight-sb"}
+              class={`t-weight-sb ${
+                id == this.visibleLink ? "link-visible" : "link-invisible"
+              }`}
               href={link.href}
               textcolor={"black"}
-              onClick={() => this.handleClickLink()}
+              onClick={() => (this.visible = false)}
+              // TODO: check enter
+              // onKeyDown={() => this.handleClickLink()}
             >
               {link.label}
             </z-link>
