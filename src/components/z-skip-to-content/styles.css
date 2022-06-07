@@ -15,15 +15,15 @@
   display: block;
 }
 
-:host::slotted(*):last-child {
+:host > z-link:last-child {
   margin-right: 0;
 }
 
-:host::slotted(*).link-invisible {
+:host > z-link.link-invisible {
   opacity: 0;
 }
 
-:host::slotted(*).link-visible {
+:host > z-link.link-visible {
   position: absolute;
   left: 24px;
 }
@@ -45,21 +45,21 @@
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
-  :host::slotted(*) {
+  :host > z-link {
     padding: 0 calc(var(--space-unit) * 3);
     border-right: 1px solid var(--bg-grey-800);
   }
 
-  :host::slotted(*):first-child {
+  :host > z-link:first-child {
     padding-left: 0;
   }
 
-  :host::slotted(*):last-child {
+  :host > z-link:last-child {
     border-right: none;
     padding-right: 0;
   }
 
-  :host.dark::slotted(*) {
+  :host.dark > z-link {
     border-right: 1px solid var(--bg-white);
   }
 }

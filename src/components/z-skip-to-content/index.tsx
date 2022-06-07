@@ -1,6 +1,11 @@
 import { Component, h, Host, Element, Listen, Prop } from "@stencil/core";
 import { getElementTree } from "../../utils/utils";
-import { DeviceEnum, ThemeVariant, keybordCodeEnum } from "../../beans";
+import {
+  DeviceEnum,
+  ThemeVariant,
+  keybordCodeEnum,
+  linkItem,
+} from "../../beans";
 import { getDevice } from "../../utils/utils";
 
 /**
@@ -15,6 +20,8 @@ import { getDevice } from "../../utils/utils";
 export class ZSkipToContent {
   /** Graphical variant: `dark`, `light`. */
   @Prop({ reflect: true }) variant?: ThemeVariant;
+  /** Array to fill link into skip-content */
+  @Prop({ mutable: true }) links: string | linkItem[] = [];
 
   @Element() hostElement: HTMLElement;
 
@@ -34,7 +41,15 @@ export class ZSkipToContent {
     this.handleSlottedElementFocus(e);
   }
 
+  componentWillRender() {
+    if (this.links) {
+      this.links =
+        typeof this.links === "string" ? JSON.parse(this.links) : this.links;
+    }
+  }
+
   componentDidLoad() {
+    console.log(this.links);
     if (getDevice() == DeviceEnum.mobile) {
       const children = this.hostElement.children;
       for (let i = 0; i < children.length; i++) {
@@ -52,8 +67,6 @@ export class ZSkipToContent {
     let prevElem = e.target.previousElementSibling;
     let elem = e.target;
     let nextElem = e.target.nextElementSibling;
-    console.log(e.code);
-    console.log(e.tab);
 
     if (getDevice() == DeviceEnum.mobile && e.code == keybordCodeEnum.TAB) {
       e.preventDefault();
@@ -90,7 +103,9 @@ export class ZSkipToContent {
         onFocus={(e: KeyboardEvent) => this.handleFocusSkipToContent(e)}
         tabindex="0"
       >
-        <slot />
+        {(this.links as linkItem[]).map((link) => {
+          return <z-link href={link.href}>{link.label}</z-link>;
+        })}
       </Host>
     );
   }
