@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.46.2](https://github.com/ZanichelliEditore/design-system/compare/v2.46.1...v2.46.2) (2022-06-07)
+
+
+### Bug Fixes
+
+* navigation tabs on safari and FF (because of different shadow dom implementation) ([0c7bb7c](https://github.com/ZanichelliEditore/design-system/commit/0c7bb7cab372d3ae98d16856f47255bdbca4c25e))
+
 ### [2.46.1](https://github.com/ZanichelliEditore/design-system/compare/v2.46.0...v2.46.1) (2022-06-06)
 
 
