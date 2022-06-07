@@ -60,10 +60,10 @@ export class ZNavigationTabLink {
   static get is() { return "z-navigation-tab-link"; }
   static get encapsulation() { return "shadow"; }
   static get originalStyleUrls() { return {
-    "$": ["../navigation-tab.css", "styles.css"]
+    "$": ["../navigation-tab.css"]
   }; }
   static get styleUrls() { return {
-    "$": ["../navigation-tab.css", "styles.css"]
+    "$": ["../navigation-tab.css"]
   }; }
   static get properties() { return {
     "selected": {

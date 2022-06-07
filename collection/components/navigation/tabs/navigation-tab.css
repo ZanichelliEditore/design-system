@@ -23,6 +23,10 @@
   cursor: pointer;
 }
 
+:host > a {
+  text-decoration: none;
+}
+
 :host *::before,
 :host *::after {
   box-sizing: border-box;
