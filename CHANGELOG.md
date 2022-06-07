@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.46.3](https://github.com/ZanichelliEditore/design-system/compare/v2.46.2...v2.46.3) (2022-06-07)
+
+
+### Bug Fixes
+
+* navigation-tab-link text decoration ([df1eff9](https://github.com/ZanichelliEditore/design-system/commit/df1eff91a30f3ba9cd9d5bb22658cf1050d2444f))
+
 ### [2.46.2](https://github.com/ZanichelliEditore/design-system/compare/v2.46.1...v2.46.2) (2022-06-07)
 
 
