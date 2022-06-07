@@ -9,28 +9,24 @@
   left: -100%;
 }
 
-:host.dark {
-  background-color: var(--bg-grey-800);
-  color: var(--color-white);
-}
-
-:host.light {
-  background-color: var(--bg-white);
-  color: var(--text-grey-800);
-}
-
 :host.skip-to-content-visible,
 :host:focus {
   position: static;
   display: block;
 }
 
+:host::slotted(*):first-child {
+  padding-left: 0;
+}
+
 :host::slotted(*) {
-  margin-right: var(--space-unit);
+  padding: 0 calc(var(--space-unit) * 3);
+  border-right: 1px solid var(--bg-grey-800);
 }
 
 :host::slotted(*):last-child {
   margin-right: 0;
+  border-right: none;
 }
 
 :host::slotted(*).link-invisible {
@@ -40,6 +36,20 @@
 :host::slotted(*).link-visible {
   position: absolute;
   left: 24px;
+}
+
+:host.dark {
+  background-color: var(--bg-grey-800);
+  color: var(--color-white);
+}
+
+:host.dark::slotted(*) {
+  border-right: 1px solid var(--bg-white);
+}
+
+:host.light {
+  background-color: var(--bg-white);
+  color: var(--text-grey-800);
 }
 
 /* Tablet breakpoint */
