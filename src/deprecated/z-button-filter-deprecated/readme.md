@@ -33,18 +33,18 @@
 
 ### Used by
 
- - [z-select](../../inputs/z-select)
+ - [z-select](../../components/inputs/z-select)
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../components/icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-button-filter --> z-icon
-  z-select --> z-button-filter
-  style z-button-filter fill:#f9f,stroke:#333,stroke-width:4px
+  z-button-filter-deprecated --> z-icon
+  z-select --> z-button-filter-deprecated
+  style z-button-filter-deprecated fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

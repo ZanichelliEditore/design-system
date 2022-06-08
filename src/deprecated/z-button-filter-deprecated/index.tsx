@@ -1,11 +1,11 @@
 import { Component, Prop, Event, EventEmitter, h } from "@stencil/core";
 
 @Component({
-  tag: "z-button-filter",
+  tag: "z-button-filter-deprecated",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZButtonFilter {
+export class ZButtonFilterDeprecated {
   /** filter text content */
   @Prop() filtername: string;
   /** disable action on button */

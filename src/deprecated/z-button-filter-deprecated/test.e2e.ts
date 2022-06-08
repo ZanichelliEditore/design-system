@@ -22,9 +22,9 @@ it("Test ZButtonFilter should emit removefilter event", async () => {
     });
   }, type);
 
-  await page.setContent(`<z-button-filter filtername=""></z-button-filter>`);
+  await page.setContent(`<z-button-filter-deprecated filtername=""></z-button-filter-deprecated>`);
   const removeFilterBtn = await page.find(
-    "z-button-filter >>> .close-icon-container"
+    "z-button-filter-deprecated >>> .close-icon-container"
   );
 
   expect(removefilterCounter).toEqual(0);
@@ -53,10 +53,10 @@ it("Test ZButtonFilter fixed button should not emit removefilter event", async (
   }, type);
 
   await page.setContent(
-    `<z-button-filter filtername="" isfixed></z-button-filter>`
+    `<z-button-filter-deprecated filtername="" isfixed></z-button-filter-deprecated>`
   );
   const removeFilterBtn = await page.find(
-    "z-button-filter >>> .close-icon-container"
+    "z-button-filter-deprecated >>> .close-icon-container"
   );
 
   expect(removefilterCounter).toEqual(0);
