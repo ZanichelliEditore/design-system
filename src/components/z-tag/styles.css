@@ -1,15 +1,15 @@
 :host {
-  --z-icon-width: 15px;
-  --z-icon-height: 15px;
+  --z-icon-width: 14px;
+  --z-icon-height: 14px;
 
-  --iconTextToken: var(--color-primary03);
-  --bgToken: var(--color-hover-primary);
+  --z-tag-text-color: var(--color-primary03);
+  --z-tag-bg: var(--color-hover-primary);
 
   font-family: var(--font-family-sans);
 
   height: 22px;
   border-radius: var(--border-radius);
-  padding: 4px;
+  padding: calc(var(--space-unit) / 2);
   text-transform: uppercase;
 
   display: flex;
@@ -19,9 +19,9 @@
   max-width: inherit;
   max-height: inherit;
 
-  color: var(--iconTextToken);
-  fill: var(--iconTextToken);
-  background-color: var(--bgToken);
+  color: var(--z-tag-text-color);
+  fill: var(--z-tag-text-color);
+  background-color: var(--z-tag-bg);
 }
 
 :host > z-icon {

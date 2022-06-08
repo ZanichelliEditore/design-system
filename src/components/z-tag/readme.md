@@ -13,6 +13,13 @@
 | `icon`       | `icon`       | [optional] Tag icon                           | `string`  | `undefined` |
 
 
+## Slots
+
+| Slot | Description            |
+| ---- | ---------------------- |
+|      | The text of the z-tag. |
+
+
 ## Dependencies
 
 ### Depends on

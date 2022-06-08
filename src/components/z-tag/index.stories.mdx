@@ -1,16 +1,28 @@
 import { html } from "lit-html";
-import { Meta, Canvas, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean } from "@storybook/addon-knobs";
-
+import { Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
+import { getColorTokens } from "../../utils/storybook-utils";
+import { icons } from "../../components/icons/icons.tsx";
 import "./index";
 
 <Meta
   title="ZTag"
   component="z-tag"
   argTypes={{
-    icon: { control: { type: "text" } },
+    icon: { control: { type: "select" }, options: Object.keys(icons).sort(), },
     text: { control: { type: "text" } },
     expandable: { control: { type: "boolean" } },
+    "--z-tag-text-color": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
+    "--z-tag-bg": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
   }}
 />
 
@@ -20,12 +32,11 @@ import "./index";
   <Story
     name="ZTag-sample"
     args={{
-      icon: "gear",
       text: "In progress",
       expandable: false,
     }}
   >
-    {(args) => html`<z-tag .icon=${args.icon} .expandable=${args.expandable}
+    {(args) => html`<z-tag icon="gear" expandable=${args.expandable}
       >${args.text}
     </z-tag>`}
   </Story>
@@ -40,12 +51,12 @@ import "./index";
       icon: "gear",
       text: "In progress",
       expandable: false,
-      iconTextToken: "--color-white",
-      bgToken: "--avatar-C19",
+      "--z-tag-text-color": "",
+      "--z-tag-bg": "",
     }}
   >
     {(args) => html`<z-tag
-      style="--iconTextToken: var(${args.iconTextToken}); --bgToken: var(${args.bgToken})"
+      style="--z-tag-text-color: var(${args["--z-tag-text-color"]}); --z-tag-bg: var(${args["--z-tag-bg"]})"
       .icon=${args.icon}
       .expandable=${args.expandable}
       >${args.text}
@@ -53,7 +64,7 @@ import "./index";
   </Story>
 </Canvas>
 
-# ZTag token
+# ZTag with long text
 
 <Canvas>
   <Story
@@ -62,12 +73,12 @@ import "./index";
       icon: "gear",
       text: "In progress testo lungo molto lungo lungo lungo lungo lungolungo lungolungo",
       expandable: false,
-      iconTextToken: "--color-white",
-      bgToken: "--avatar-C19",
+      "--z-tag-text-color": "",
+      "--z-tag-bg": "",
     }}
   >
     {(args) => html`<z-tag
-      style="--iconTextToken: var(${args.iconTextToken}); --bgToken: var(${args.bgToken}); max-width: 500px;"
+      style="--z-tag-text-color: var(${args["--z-tag-text-color"]}); --z-tag-bg: var(${args["--z-tag-bg"]}); max-width: 500px;"
       .icon=${args.icon}
       .expandable=${args.expandable}
       >${args.text}
@@ -75,4 +86,4 @@ import "./index";
   </Story>
 </Canvas>
 
-<Props of="z-tag" />
+<ArgsTable of="z-tag" />
