@@ -1,4 +1,4 @@
-import { keybordKeyCodeEnum, DeviceEnum } from "../beans/index";
+import { keybordCodeEnum, DeviceEnum } from "../beans/index";
 import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 
 export function format(first: string, middle: string, last: string): string {
@@ -20,10 +20,7 @@ export function handleKeyboardSubmit(
   callback: Function,
   ...args: any[]
 ) {
-  if (
-    ev.keyCode === keybordKeyCodeEnum.ENTER ||
-    ev.keyCode === keybordKeyCodeEnum.SPACE
-  ) {
+  if (ev.code === keybordCodeEnum.ENTER || ev.code === keybordCodeEnum.SPACE) {
     ev.preventDefault();
     callback(...args);
   }
