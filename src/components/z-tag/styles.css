@@ -7,7 +7,6 @@
 
   font-family: var(--font-family-sans);
 
-  height: 22px;
   border-radius: var(--border-radius);
   padding: calc(var(--space-unit) / 2);
   text-transform: uppercase;
@@ -42,12 +41,10 @@
 :host(.expandable) > div {
   max-width: 0;
   max-height: 0;
-  transition: max-width 0.3s ease-out, max-height 0.3s all;
   overflow: hidden;
 }
 
 :host(.expandable:hover) > div {
   max-width: 100%;
   max-height: 100%;
-  transition: max-width 0.3s ease-out, max-height 0.3s all;
 }
