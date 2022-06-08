@@ -371,7 +371,7 @@ export class ZSelect {
     return (
       <div class={`chipsWrapper ${this.isOpen ? "open" : ""}`}>
         {this.selectedItems.map((item: SelectItemBean) => (
-          <z-button-filter
+          <z-button-filter-deprecated
             filterid={item.id}
             filtername={item.name.replace(/<[^>]+>/g, "")}
             issmall={true}

@@ -135,7 +135,7 @@ export namespace Components {
          */
         "variant"?: ButtonVariantBean;
     }
-    interface ZButtonFilter {
+    interface ZButtonFilterDeprecated {
         /**
           * filter id
          */
@@ -218,6 +218,10 @@ export namespace Components {
         "icon"?: string;
         "interactiveIcon"?: string;
         "type"?: ZChipType;
+    }
+    interface ZChipDeprecated {
+        "boldtext"?: number;
+        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -744,7 +748,7 @@ export namespace Components {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent": string | MenuItem[];
+        "menucontent": string | MenuItem1[];
         /**
           * user name text
          */
@@ -1672,11 +1676,11 @@ declare global {
         prototype: HTMLZButtonElement;
         new (): HTMLZButtonElement;
     };
-    interface HTMLZButtonFilterElement extends Components.ZButtonFilter, HTMLStencilElement {
+    interface HTMLZButtonFilterDeprecatedElement extends Components.ZButtonFilterDeprecated, HTMLStencilElement {
     }
-    var HTMLZButtonFilterElement: {
-        prototype: HTMLZButtonFilterElement;
-        new (): HTMLZButtonFilterElement;
+    var HTMLZButtonFilterDeprecatedElement: {
+        prototype: HTMLZButtonFilterDeprecatedElement;
+        new (): HTMLZButtonFilterDeprecatedElement;
     };
     interface HTMLZButtonSortElement extends Components.ZButtonSort, HTMLStencilElement {
     }
@@ -1707,6 +1711,12 @@ declare global {
     var HTMLZChipElement: {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
+    };
+    interface HTMLZChipDeprecatedElement extends Components.ZChipDeprecated, HTMLStencilElement {
+    }
+    var HTMLZChipDeprecatedElement: {
+        prototype: HTMLZChipDeprecatedElement;
+        new (): HTMLZChipDeprecatedElement;
     };
     interface HTMLZComboboxElement extends Components.ZCombobox, HTMLStencilElement {
     }
@@ -2209,12 +2219,13 @@ declare global {
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
-        "z-button-filter": HTMLZButtonFilterElement;
+        "z-button-filter-deprecated": HTMLZButtonFilterDeprecatedElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
+        "z-chip-deprecated": HTMLZChipDeprecatedElement;
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
@@ -2433,7 +2444,7 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariantBean;
     }
-    interface ZButtonFilter {
+    interface ZButtonFilterDeprecated {
         /**
           * filter id
          */
@@ -2529,6 +2540,10 @@ declare namespace LocalJSX {
         "interactiveIcon"?: string;
         "onInteractiveIconClick"?: (event: CustomEvent<any>) => void;
         "type"?: ZChipType;
+    }
+    interface ZChipDeprecated {
+        "boldtext"?: number;
+        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -3119,7 +3134,7 @@ declare namespace LocalJSX {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem[];
+        "menucontent"?: string | MenuItem1[];
         /**
           * user name text
          */
@@ -4118,12 +4133,13 @@ declare namespace LocalJSX {
         "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
-        "z-button-filter": ZButtonFilter;
+        "z-button-filter-deprecated": ZButtonFilterDeprecated;
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
         "z-card": ZCard;
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
+        "z-chip-deprecated": ZChipDeprecated;
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
@@ -4220,12 +4236,13 @@ declare module "@stencil/core" {
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
-            "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
+            "z-button-filter-deprecated": LocalJSX.ZButtonFilterDeprecated & JSXBase.HTMLAttributes<HTMLZButtonFilterDeprecatedElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
+            "z-chip-deprecated": LocalJSX.ZChipDeprecated & JSXBase.HTMLAttributes<HTMLZChipDeprecatedElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;

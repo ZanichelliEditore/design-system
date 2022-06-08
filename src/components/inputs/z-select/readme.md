@@ -76,7 +76,7 @@ Type: `Promise<void>`
 
 - [z-input-label](../z-input-label)
 - [z-input](../z-input)
-- [z-button-filter](../../buttons/z-button-filter)
+- [z-button-filter-deprecated](../../../deprecated/z-button-filter-deprecated)
 - [z-icon](../../icons/z-icon)
 - [z-input-message](../z-input-message)
 
@@ -85,12 +85,12 @@ Type: `Promise<void>`
 graph TD;
   z-select --> z-input-label
   z-select --> z-input
-  z-select --> z-button-filter
+  z-select --> z-button-filter-deprecated
   z-select --> z-icon
   z-select --> z-input-message
   z-input --> z-select
   z-input-message --> z-icon
-  z-button-filter --> z-icon
+  z-button-filter-deprecated --> z-icon
   style z-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

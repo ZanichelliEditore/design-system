@@ -51,6 +51,11 @@ export class ZFile {
     this.tooltipVisible = false;
   }
 
+  @Listen('interactiveIconClick')
+  onInteractiveIconClick() {
+    this.removeFileHandler();
+  }
+
   componentDidLoad() {
     if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
       this.allowTooltip = true;
@@ -74,8 +79,7 @@ export class ZFile {
             <span class="body-5 tootip-content">{this.ellipsis.innerText}</span>
           </z-tooltip>
         )}
-        <z-chip id={`chip-${this.fileNumber}`} filter type={ZChipType.default}>
-          <div class="chip-content">
+        <z-chip id={`chip-${this.fileNumber}`} interactiveIcon="multiply-circled" type={ZChipType.default}>
             <span
               ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
               tabIndex={-1}
@@ -86,22 +90,6 @@ export class ZFile {
             >
               <slot />
             </span>
-            <z-icon
-              aria-label="Elimina file"
-              tabIndex={0}
-              onClick={() => this.removeFileHandler()}
-              onKeyPress={(e) => {
-                if (e.code == "Space" || e.code == "Enter") {
-                  e.preventDefault();
-                  this.removeFileHandler();
-                }
-              }}
-              name="multiply-circled"
-              height={getDevice() !== DeviceEnum.desktop ? 20 : 15}
-              width={getDevice() !== DeviceEnum.desktop ? 20 : 15}
-              ref={(val) => (this.icon = val as HTMLElement)}
-            />
-          </div>
         </z-chip>
       </Host>
     );
