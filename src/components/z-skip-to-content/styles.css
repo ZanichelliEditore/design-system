@@ -25,7 +25,8 @@
 
 :host > z-link.link-visible {
   position: absolute;
-  left: 24px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 :host.dark {
