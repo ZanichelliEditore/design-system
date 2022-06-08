@@ -25,7 +25,7 @@ export class ZSkipToContent {
   /** Array to fill link into skip-content */
   @Prop({ mutable: true }) links: string | linkItem[] = [];
 
-  @State() visible: boolean = false;
+  @State() visible: boolean = true;
   @State() visibleLink: string = "";
 
   @Element() hostElement: HTMLElement;
@@ -92,7 +92,7 @@ export class ZSkipToContent {
                 id == this.visibleLink ? "link-visible" : "link-invisible"
               }`}
               href={link.href}
-              textcolor={"black"}
+              textcolor={this.variant === ThemeVariant.dark ? "white" : "black"}
               onFocus={() => (this.visibleLink = id)}
               onClick={() => this.handleLinkClick()}
               onKeyUp={(e) =>

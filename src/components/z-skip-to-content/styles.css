@@ -61,7 +61,9 @@
     padding-left: 0;
   }
 
-  :host > z-link:last-child {
+  :host > z-link:last-child,
+  :host.dark > z-link:last-child,
+  :host.light > z-link:last-child {
     border-right: none;
     padding-right: 0;
   }
