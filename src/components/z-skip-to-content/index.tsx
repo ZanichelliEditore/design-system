@@ -7,8 +7,8 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { getElementTree } from "../../utils/utils";
-import { ThemeVariant, keybordCodeEnum, linkItem } from "../../beans";
+import { getElementTree, handleKeyboardSubmit } from "../../utils/utils";
+import { ThemeVariant, linkItem } from "../../beans";
 
 /**
  * Component short description.
@@ -30,20 +30,14 @@ export class ZSkipToContent {
 
   @Element() hostElement: HTMLElement;
 
+  @Listen("focusout", { target: "document" })
+  handleFocusOutSkipToContent(e) {
+    if (this.isInSkipToContent(e.target)) this.visible = false;
+  }
+
   @Listen("focusin", { target: "document" })
   handleFocusSkipToContent(e) {
-    const tree = getElementTree(e.target);
-    const menuParent = tree.find(
-      (elem: any) => elem.nodeName.toLowerCase() === "z-skip-to-content"
-    );
-
-    if (menuParent !== this.hostElement) {
-      this.visible = false;
-    } else {
-      this.visible = true;
-    }
-
-    this.handleSlottedElementFocus(e);
+    if (this.isInSkipToContent(e.target)) this.visible = true;
   }
 
   componentDidLoad() {
@@ -57,22 +51,28 @@ export class ZSkipToContent {
     }
   }
 
-  showFirstChild() {
-    const children = this.hostElement.children;
-    if (children.length) {
-      this.visibleLink = children[0].id;
-    }
+  isInSkipToContent(elem) {
+    const tree = getElementTree(elem);
+    const menuParent = tree.find(
+      (elem: any) => elem.nodeName.toLowerCase() === "z-skip-to-content"
+    );
+    if (menuParent) return true;
+    return false;
   }
 
-  @Listen("keyup")
-  handleSlottedElementFocus(e) {
-    if (e.code !== keybordCodeEnum.TAB) return;
+  getFirstChild() {
+    const children = this.hostElement.children;
+    if (children.length) return children[0];
+    return false;
+  }
 
-    e.preventDefault();
+  showFirstChild() {
+    const firstChild = this.getFirstChild();
+    if (firstChild) this.visibleLink = firstChild.id;
+  }
 
-    let elem = e.target;
-    this.visibleLink = elem.id;
-    elem.focus();
+  handleLinkClick() {
+    this.visible = false;
   }
 
   render() {
@@ -80,9 +80,6 @@ export class ZSkipToContent {
       <Host
         class={`${this.variant} ${this.visible && "skip-to-content-visible"} `}
         ref={(el) => el as HTMLElement}
-        onFocus={(e: KeyboardEvent) => this.handleFocusSkipToContent(e)}
-        onBlur={(e: KeyboardEvent) => this.handleFocusSkipToContent(e)}
-        // tabindex="0"
       >
         {(this.links as linkItem[]).map((link, i) => {
           const id = `skip-to-content-${i}`;
@@ -90,14 +87,17 @@ export class ZSkipToContent {
             <z-link
               id={id}
               underline={true}
+              aria-label={link.ariaLabel || link.label}
               class={`t-weight-sb ${
                 id == this.visibleLink ? "link-visible" : "link-invisible"
               }`}
               href={link.href}
               textcolor={"black"}
-              onClick={() => (this.visible = false)}
-              // TODO: check enter
-              // onKeyDown={() => this.handleClickLink()}
+              onFocus={() => (this.visibleLink = id)}
+              onClick={() => this.handleLinkClick()}
+              onKeyUp={(e) =>
+                handleKeyboardSubmit(e, this.handleLinkClick.bind(this))
+              }
             >
               {link.label}
             </z-link>

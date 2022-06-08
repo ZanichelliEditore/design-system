@@ -446,6 +446,7 @@ export type ZSectionTitleDividerPosition =
   keyof typeof ZSectionTitleDividerPositions;
 
 export declare type linkItem = {
-  label?: string;
-  href?: string;
+  label: string;
+  href: string;
+  ariaLabel?: string;
 };
