@@ -445,7 +445,7 @@ export enum ZSectionTitleDividerPositions {
 export type ZSectionTitleDividerPosition =
   keyof typeof ZSectionTitleDividerPositions;
 
-export declare type linkItem = {
+export declare type SkipToContentLink = {
   label: string;
   href: string;
   ariaLabel?: string;

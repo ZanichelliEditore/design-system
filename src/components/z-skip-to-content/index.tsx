@@ -8,7 +8,7 @@ import {
   State,
 } from "@stencil/core";
 import { getElementTree, handleKeyboardSubmit } from "../../utils/utils";
-import { ThemeVariant, linkItem } from "../../beans";
+import { ThemeVariant, SkipToContentLink } from "../../beans";
 
 /**
  * Component short description.
@@ -23,7 +23,7 @@ export class ZSkipToContent {
   /** Graphical variant: `dark`, `light`. */
   @Prop({ reflect: true }) variant?: ThemeVariant;
   /** Array to fill link into skip-content */
-  @Prop({ mutable: true }) links: string | linkItem[] = [];
+  @Prop({ mutable: true }) links: string | SkipToContentLink[] = [];
 
   @State() visible: boolean = true;
   @State() visibleLink: string = "";
@@ -81,7 +81,7 @@ export class ZSkipToContent {
         class={`${this.variant} ${this.visible && "skip-to-content-visible"} `}
         ref={(el) => el as HTMLElement}
       >
-        {(this.links as linkItem[]).map((link, i) => {
+        {(this.links as SkipToContentLink[]).map((link, i) => {
           const id = `skip-to-content-${i}`;
           return (
             <z-link
