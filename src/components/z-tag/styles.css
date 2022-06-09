@@ -30,7 +30,7 @@
 
 :host(.expandable) > z-icon {
   margin-right: 0;
-  transition: margin-right 0.3s ease-out 0.2s;
+  transition: margin-right 0.3s ease-out;
 }
 
 :host(:not(.expandable)) > z-icon:not(:last-child),
