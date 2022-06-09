@@ -60,9 +60,10 @@
  - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
- - [z-status-tag](../../z-status-tag)
+ - [z-status-tag](../../../deprecated/z-status-tag)
  - [z-table-header](../../z-table/z-table-header)
  - [z-table-row](../../z-table/z-table-row)
+ - [z-tag](../../z-tag)
  - [z-toast-notification](../../notification/z-toast-notification)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-toggle-switch](../../buttons/z-toggle-switch)
@@ -108,6 +109,7 @@ graph TD;
   z-status-tag --> z-icon
   z-table-header --> z-icon
   z-table-row --> z-icon
+  z-tag --> z-icon
   z-toast-notification --> z-icon
   z-toggle-button --> z-icon
   z-toggle-switch --> z-icon

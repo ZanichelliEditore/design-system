@@ -1,0 +1,89 @@
+import { html } from "lit-html";
+import { Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
+import { getColorTokens } from "../../utils/storybook-utils";
+import { icons } from "../../components/icons/icons.tsx";
+import "./index";
+
+<Meta
+  title="ZTag"
+  component="z-tag"
+  argTypes={{
+    icon: { control: { type: "select" }, options: Object.keys(icons).sort(), },
+    text: { control: { type: "text" } },
+    expandable: { control: { type: "boolean" } },
+    "--z-tag-text-color": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
+    "--z-tag-bg": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
+  }}
+/>
+
+# ZTag
+
+<Canvas>
+  <Story
+    name="ZTag-sample"
+    args={{
+      text: "In progress",
+      expandable: false,
+    }}
+  >
+    {(args) => html`<z-tag icon="gear" expandable=${args.expandable}
+      >${args.text}
+    </z-tag>`}
+  </Story>
+</Canvas>
+
+# ZTag token
+
+<Canvas>
+  <Story
+    name="ZTag-token"
+    args={{
+      icon: "gear",
+      text: "In progress",
+      expandable: false,
+      "--z-tag-text-color": "",
+      "--z-tag-bg": "",
+    }}
+  >
+    {(args) => html`<z-tag
+      style="--z-tag-text-color: var(${args["--z-tag-text-color"]}); --z-tag-bg: var(${args["--z-tag-bg"]})"
+      .icon=${args.icon}
+      .expandable=${args.expandable}
+      >${args.text}
+    </z-tag>`}
+  </Story>
+</Canvas>
+
+# ZTag with long text
+
+<Canvas>
+  <Story
+    name="ZTag-with-long-text"
+    args={{
+      icon: "gear",
+      text: "In progress testo lungo molto lungo lungo lungo lungo lungolungo lungolungo",
+      expandable: false,
+      "--z-tag-text-color": "",
+      "--z-tag-bg": "",
+    }}
+  >
+    {(args) => html`<z-tag
+      style="--z-tag-text-color: var(${args["--z-tag-text-color"]}); --z-tag-bg: var(${args["--z-tag-bg"]}); max-width: 500px;"
+      .icon=${args.icon}
+      .expandable=${args.expandable}
+      >${args.text}
+    </z-tag>`}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-tag" />

@@ -1590,6 +1590,16 @@ export namespace Components {
     }
     interface ZTableStickyFooter {
     }
+    interface ZTag {
+        /**
+          * [optional] Hide the text and show it on hover
+         */
+        "expandable"?: boolean;
+        /**
+          * [optional] Tag icon
+         */
+        "icon"?: string;
+    }
     interface ZToastNotification {
         /**
           * toast notification closing timeout (ms)
@@ -2258,6 +2268,12 @@ declare global {
         prototype: HTMLZTableStickyFooterElement;
         new (): HTMLZTableStickyFooterElement;
     };
+    interface HTMLZTagElement extends Components.ZTag, HTMLStencilElement {
+    }
+    var HTMLZTagElement: {
+        prototype: HTMLZTagElement;
+        new (): HTMLZTagElement;
+    };
     interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
     }
     var HTMLZToastNotificationElement: {
@@ -2398,6 +2414,7 @@ declare global {
         "z-table-header-row": HTMLZTableHeaderRowElement;
         "z-table-row": HTMLZTableRowElement;
         "z-table-sticky-footer": HTMLZTableStickyFooterElement;
+        "z-tag": HTMLZTagElement;
         "z-toast-notification": HTMLZToastNotificationElement;
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
@@ -4170,6 +4187,16 @@ declare namespace LocalJSX {
     }
     interface ZTableStickyFooter {
     }
+    interface ZTag {
+        /**
+          * [optional] Hide the text and show it on hover
+         */
+        "expandable"?: boolean;
+        /**
+          * [optional] Tag icon
+         */
+        "icon"?: string;
+    }
     interface ZToastNotification {
         /**
           * toast notification closing timeout (ms)
@@ -4403,6 +4430,7 @@ declare namespace LocalJSX {
         "z-table-header-row": ZTableHeaderRow;
         "z-table-row": ZTableRow;
         "z-table-sticky-footer": ZTableStickyFooter;
+        "z-tag": ZTag;
         "z-toast-notification": ZToastNotification;
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
@@ -4508,6 +4536,7 @@ declare module "@stencil/core" {
             "z-table-header-row": LocalJSX.ZTableHeaderRow & JSXBase.HTMLAttributes<HTMLZTableHeaderRowElement>;
             "z-table-row": LocalJSX.ZTableRow & JSXBase.HTMLAttributes<HTMLZTableRowElement>;
             "z-table-sticky-footer": LocalJSX.ZTableStickyFooter & JSXBase.HTMLAttributes<HTMLZTableStickyFooterElement>;
+            "z-tag": LocalJSX.ZTag & JSXBase.HTMLAttributes<HTMLZTagElement>;
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
