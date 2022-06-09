@@ -101,7 +101,7 @@ export class ZFileUpload {
 
   handleAccessibility(){
     if(this.filesNumber > 0) {
-      (this.el.querySelector('z-file:last-child > z-chip').shadowRoot.querySelector('button') as HTMLElement).focus();
+      (this.el.querySelector('z-file:last-child z-chip button') as HTMLElement).focus();
     }else {
       this.type === ZFileUploadTypeEnum.default ? this.button.shadowRoot.querySelector('button').focus() : this.uploadLink.focus();
     }
