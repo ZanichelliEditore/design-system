@@ -21,6 +21,7 @@
   color: var(--z-tag-text-color);
   fill: var(--z-tag-text-color);
   background-color: var(--z-tag-bg);
+  line-height: 14px;
 }
 
 :host > z-icon {
