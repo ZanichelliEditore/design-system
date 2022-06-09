@@ -23,6 +23,8 @@ export class ZMyzCardFooter {
   @Prop() cardtype?: LicenseTypeEnum;
   /** footer opened by default (optional) */
   @Prop() opened?: boolean = false;
+  /** display footer custom slotted content */
+  @Prop() customContent: boolean = false;
 
   @State() isOpen: boolean = false;
 
@@ -56,6 +58,8 @@ export class ZMyzCardFooter {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
       trial: this.cardtype === LicenseTypeEnum.trial,
+      temp: this.cardtype === LicenseTypeEnum.temp,
+      customContent: this.customContent,
     };
   }
 
@@ -67,7 +71,7 @@ export class ZMyzCardFooter {
 
   render() {
     return (
-      <div class={this.faded && "faded"}>
+      <div class={{ ...this.retrieveClass(), wrapper: true }}>
         <footer
           class={this.retrieveClass()}
           onTransitionEnd={(e: TransitionEvent) =>
@@ -77,8 +81,10 @@ export class ZMyzCardFooter {
           <span class="toggle">
             <slot name="toggle" />
           </span>
-          {this.titolo && <p>{this.titolo}</p>}
-          <div class="content">
+          {this.titolo && (
+            <p class={{ customContent: this.customContent }}>{this.titolo}</p>
+          )}
+          <div class={{ content: true, customContent: this.customContent }}>
             <div>
               <p
                 class="authors"
@@ -101,6 +107,7 @@ export class ZMyzCardFooter {
             </div>
           </div>
         </footer>
+        {this.customContent && <slot name="content" />}
       </div>
     );
   }

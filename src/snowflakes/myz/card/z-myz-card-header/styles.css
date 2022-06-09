@@ -13,7 +13,8 @@ header {
 }
 
 header.real,
-header.trial {
+header.trial,
+header.temp {
   background-color: var(--accent-lighter);
   border-bottom: var(--border-size-medium) solid var(--accent);
 }
@@ -39,7 +40,8 @@ h2 {
 }
 
 .faded.real,
-.faded.trial {
+.faded.trial,
+.faded.temp {
   border-top: var(--border-size-medium) solid var(--accent);
   border-right: var(--border-size-medium) solid var(--accent);
   border-left: var(--border-size-medium) solid var(--accent);

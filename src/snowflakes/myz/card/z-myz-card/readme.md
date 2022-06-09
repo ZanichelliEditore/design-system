@@ -17,12 +17,12 @@
 
 ## Properties
 
-| Property        | Attribute       | Description                | Type                                                                       | Default     |
-| --------------- | --------------- | -------------------------- | -------------------------------------------------------------------------- | ----------- |
-| `cardtype`      | `cardtype`      | graphic variant (optional) | `LicenseTypeEnum.real \| LicenseTypeEnum.trial \| LicenseTypeEnum.virtual` | `undefined` |
-| `faded`         | `faded`         | faded status               | `boolean`                                                                  | `undefined` |
-| `ishighlighted` | `ishighlighted` | highlighted status         | `boolean`                                                                  | `false`     |
-| `ispressed`     | `ispressed`     | pressed status             | `boolean`                                                                  | `false`     |
+| Property        | Attribute       | Description                | Type                                                                                               | Default     |
+| --------------- | --------------- | -------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
+| `cardtype`      | `cardtype`      | graphic variant (optional) | `LicenseTypeEnum.real \| LicenseTypeEnum.temp \| LicenseTypeEnum.trial \| LicenseTypeEnum.virtual` | `undefined` |
+| `faded`         | `faded`         | faded status               | `boolean`                                                                                          | `undefined` |
+| `ishighlighted` | `ishighlighted` | highlighted status         | `boolean`                                                                                          | `false`     |
+| `ispressed`     | `ispressed`     | pressed status             | `boolean`                                                                                          | `false`     |
 
 
 ## Slots

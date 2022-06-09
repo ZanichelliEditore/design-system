@@ -918,6 +918,10 @@ export namespace Components {
          */
         "cardtype"?: LicenseTypeEnum;
         /**
+          * display footer custom slotted content
+         */
+        "customContent": boolean;
+        /**
           * faded status
          */
         "faded": boolean;
@@ -3434,6 +3438,10 @@ declare namespace LocalJSX {
           * card graphic variant (optional)
          */
         "cardtype"?: LicenseTypeEnum;
+        /**
+          * display footer custom slotted content
+         */
+        "customContent"?: boolean;
         /**
           * faded status
          */
