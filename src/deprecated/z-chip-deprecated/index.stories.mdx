@@ -1,0 +1,35 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text } from '@storybook/addon-knobs';
+import "./index";
+
+## Stories
+
+<Meta title="Deprecated/Buttons/ZChipDeprecated" component="z-chip-deprecated" />
+
+## This component is deprecated and will be removed from the library starting 09 August 2022.
+
+# ZChipDeprecated with attributes
+
+<Preview>
+  <Story name="z-chip-deprecated with attributes">
+    {html`
+      <z-chip-deprecated
+        boldtext="${text('boldtext', '1234')}"
+        regulartext="${text('regulartext', 'libri trovati')}"
+      ></z-chip-deprecated>`}
+  </Story>
+</Preview>
+
+# ZChipDeprecated with children
+
+<Preview>
+  <Story name="z-chip-deprecated with children">
+    {html`
+      <z-chip-deprecated>
+        <z-body level="4">My custom element</z-body>
+      </z-chip-deprecated>`}
+  </Story>
+</Preview>
+
+  <Props of="z-chip-deprecated" />

@@ -1,5 +1,7 @@
 # z-button-filter
 
+# This component is deprecated and will be removed from the library as of 09 August 2022.
+
 <!-- readme-group="buttons" -->
 
 ```html
@@ -33,11 +35,11 @@
 
 ### Used by
 
- - [z-select](../../inputs/z-select)
+ - [z-select](../../components/inputs/z-select)
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../components/icons/z-icon)
 
 ### Graph
 ```mermaid

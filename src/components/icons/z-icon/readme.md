@@ -29,12 +29,12 @@
  - [z-app-header](../../navigation/z-app-header)
  - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
- - [z-button-filter](../../buttons/z-button-filter)
+ - [z-button-filter](../../../deprecated/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
  - [z-card](../../z-card)
+ - [z-chip](../../buttons/z-chip)
  - [z-combobox](../../inputs/z-combobox)
  - [z-contextual-menu](../../z-contextual-menu)
- - [z-file](../../file-upload/z-file)
  - [z-footer-section](../../footer/z-footer-section)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
@@ -77,9 +77,9 @@ graph TD;
   z-button-filter --> z-icon
   z-button-sort --> z-icon
   z-card --> z-icon
+  z-chip --> z-icon
   z-combobox --> z-icon
   z-contextual-menu --> z-icon
-  z-file --> z-icon
   z-footer-section --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon

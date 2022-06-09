@@ -222,11 +222,14 @@ export namespace Components {
         "isloading": boolean;
     }
     interface ZChip {
-        "boldtext"?: number;
         "disabled"?: boolean;
-        "filter"?: boolean;
-        "regulartext"?: string;
+        "icon"?: string;
+        "interactiveIcon"?: string;
         "type"?: ZChipType;
+    }
+    interface ZChipDeprecated {
+        "boldtext"?: number;
+        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -1793,6 +1796,12 @@ declare global {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
     };
+    interface HTMLZChipDeprecatedElement extends Components.ZChipDeprecated, HTMLStencilElement {
+    }
+    var HTMLZChipDeprecatedElement: {
+        prototype: HTMLZChipDeprecatedElement;
+        new (): HTMLZChipDeprecatedElement;
+    };
     interface HTMLZComboboxElement extends Components.ZCombobox, HTMLStencilElement {
     }
     var HTMLZComboboxElement: {
@@ -2312,6 +2321,7 @@ declare global {
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
+        "z-chip-deprecated": HTMLZChipDeprecatedElement;
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
@@ -2631,11 +2641,15 @@ declare namespace LocalJSX {
         "isloading"?: boolean;
     }
     interface ZChip {
-        "boldtext"?: number;
         "disabled"?: boolean;
-        "filter"?: boolean;
-        "regulartext"?: string;
+        "icon"?: string;
+        "interactiveIcon"?: string;
+        "onInteractiveIconClick"?: (event: CustomEvent<any>) => void;
         "type"?: ZChipType;
+    }
+    interface ZChipDeprecated {
+        "boldtext"?: number;
+        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -4312,6 +4326,7 @@ declare namespace LocalJSX {
         "z-card": ZCard;
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
+        "z-chip-deprecated": ZChipDeprecated;
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
@@ -4416,6 +4431,7 @@ declare module "@stencil/core" {
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
+            "z-chip-deprecated": LocalJSX.ZChipDeprecated & JSXBase.HTMLAttributes<HTMLZChipDeprecatedElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;

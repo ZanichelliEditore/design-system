@@ -424,7 +424,8 @@ export enum ZFileUploadTypeEnum {
 
 export enum ZChipType {
   default = "default",
-  mini = "mini",
+  medium = "medium",
+  small = "small",
 }
 
 export enum ZSectionTitleDividerPositions {
