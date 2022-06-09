@@ -215,11 +215,11 @@ export namespace Components {
         /**
           * sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
-        "ghostloadingheight": string;
+        "ghostLoadingHeight": string;
         /**
           * sets whether the z-carousel is on loading state
          */
-        "isloading": boolean;
+        "isLoading": boolean;
     }
     interface ZChip {
         "boldtext"?: number;
@@ -2624,11 +2624,11 @@ declare namespace LocalJSX {
         /**
           * sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
-        "ghostloadingheight"?: string;
+        "ghostLoadingHeight"?: string;
         /**
           * sets whether the z-carousel is on loading state
          */
-        "isloading"?: boolean;
+        "isLoading"?: boolean;
     }
     interface ZChip {
         "boldtext"?: number;

@@ -31,13 +31,13 @@ describe("Suite test ZCarousel", () => {
     `);
   });
 
-  it("renders ZCarousel ghostloading with custom height when isloading equals true ", async () => {
+  it("renders ZCarousel ghostloading with custom height when isLoading equals true ", async () => {
     const page = await newSpecPage({
       components: [ZCarousel],
-      html: `<z-carousel isloading='true' ghostloadingheight='200'></z-carousel>`,
+      html: `<z-carousel is-loading='true' ghost-loading-height='200'></z-carousel>`,
     });
     expect(page.root)
-      .toEqualHtml(`<z-carousel isloading="true"  ghostloadingheight="200">
+      .toEqualHtml(`<z-carousel is-loading="true" ghost-loading-height="200">
       <div style="height: 200px;">
         <z-ghost-loading></z-ghost-loading>
         <div style="display: none;"></div>
