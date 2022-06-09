@@ -1,5 +1,7 @@
 # z-button-filter
 
+# This component is deprecated and will be removed from the library as of 09 August 2022.
+
 <!-- readme-group="buttons" -->
 
 ```html
