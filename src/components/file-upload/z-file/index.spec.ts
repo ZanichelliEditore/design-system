@@ -14,7 +14,7 @@ describe("Suite test ZFile", () => {
     expect(page.root).toEqualHtml(`
     <z-file>
     <z-chip id="chip-undefined" interactiveicon="multiply-circled" type="default">
-       <span class="body-3-sb" tabindex="-1"></span>
+       <span tabindex="-1"></span>
     </z-chip>
   </z-file>
     `);
