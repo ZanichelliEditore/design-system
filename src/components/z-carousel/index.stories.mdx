@@ -1,19 +1,32 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { number, text, boolean } from "@storybook/addon-knobs";
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+
 import "./index.stories.css";
 import "./index";
 
-<Meta title="ZCarousel" component="z-carousel" />
+<Meta
+  title="ZCarousel"
+  component="z-carousel"
+  argTypes={{
+    isLoading: { control: { type: "boolean" } },
+    ghostLoadinghHeight: {
+      control: "text",
+    },
+    zCarouselGutter: { control: "number", min: 0 },
+  }}
+/>
 
 # ZCarousel
 
-<Preview>
-  <Story name="ZCarousel-with-div">
-    {html`<z-carousel
-      style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, {
-        min: 0,
-      })}px"
+<Canvas>
+  <Story
+    name="ZCarousel-with-div"
+    args={{
+      zCarouselGutter: 8,
+    }}
+  >
+    {(args) => html`<z-carousel
+      style="--z-carousel-gutter: ${args.zCarouselGutter}px"
     >
       <li>
         <div class="carousel-box"></div>
@@ -44,14 +57,17 @@ import "./index";
       </li>
     </z-carousel>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZCarousel-with-component">
-    {html`<z-carousel
-      style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, {
-        min: 0,
-      })}px"
+<Canvas>
+  <Story
+    name="ZCarousel-with-component"
+    args={{
+      zCarouselGutter: 8,
+    }}
+  >
+    {(args) => html`<z-carousel
+      style="--z-carousel-gutter: ${args.zCarouselGutter}px"
     >
       <li>
         <z-button variant="primary" size="big" disabled="false" icon="download">
@@ -155,14 +171,17 @@ import "./index";
       </li>
     </z-carousel>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZCarousel-with-elements-loading">
-    {html`<z-carousel
-      style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, {
-        min: 0,
-      })}px"
+<Canvas>
+  <Story
+    name="ZCarousel-with-elements-loading"
+    args={{
+      zCarouselGutter: 8,
+    }}
+  >
+    {(args) => html`<z-carousel
+      style="--z-carousel-gutter: ${args.zCarouselGutter}px"
     >
       <li>
         <div class="carousel-box-loading">
@@ -201,19 +220,25 @@ import "./index";
       </li>
     </z-carousel>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZCarousel-ghost-loading">
-    {html`<z-carousel
-      is-loading="${boolean("is-loading", true)}"
-      ghost-loading-height="${text("ghost-loading-height", "200")}"
+<Canvas>
+  <Story
+    name="ZCarousel-ghost-loading"
+    args={{
+      isLoading: true,
+      ghostLoadinghHeight: "200",
+    }}
+  >
+    {(args) => html`<z-carousel
+      is-loading=${args.isLoading}
+      ghost-loading-height=${args.ghostLoadinghHeight}
     >
     </z-carousel>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-carousel" />
+<ArgsTable of="z-carousel" />
 
 ## Description
 
