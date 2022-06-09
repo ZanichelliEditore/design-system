@@ -81,10 +81,10 @@ graph TD;
   z-input-message --> z-icon
   z-select --> z-input-label
   z-select --> z-input
-  z-select --> z-button-filter-deprecated
+  z-select --> z-button-filter
   z-select --> z-icon
   z-select --> z-input-message
-  z-button-filter-deprecated --> z-icon
+  z-button-filter --> z-icon
   style z-combobox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

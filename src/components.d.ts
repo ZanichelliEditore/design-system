@@ -135,7 +135,7 @@ export namespace Components {
          */
         "variant"?: ButtonVariantBean;
     }
-    interface ZButtonFilterDeprecated {
+    interface ZButtonFilter {
         /**
           * filter id
          */
@@ -1676,11 +1676,11 @@ declare global {
         prototype: HTMLZButtonElement;
         new (): HTMLZButtonElement;
     };
-    interface HTMLZButtonFilterDeprecatedElement extends Components.ZButtonFilterDeprecated, HTMLStencilElement {
+    interface HTMLZButtonFilterElement extends Components.ZButtonFilter, HTMLStencilElement {
     }
-    var HTMLZButtonFilterDeprecatedElement: {
-        prototype: HTMLZButtonFilterDeprecatedElement;
-        new (): HTMLZButtonFilterDeprecatedElement;
+    var HTMLZButtonFilterElement: {
+        prototype: HTMLZButtonFilterElement;
+        new (): HTMLZButtonFilterElement;
     };
     interface HTMLZButtonSortElement extends Components.ZButtonSort, HTMLStencilElement {
     }
@@ -2219,7 +2219,7 @@ declare global {
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
-        "z-button-filter-deprecated": HTMLZButtonFilterDeprecatedElement;
+        "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
         "z-card": HTMLZCardElement;
@@ -2444,7 +2444,7 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariantBean;
     }
-    interface ZButtonFilterDeprecated {
+    interface ZButtonFilter {
         /**
           * filter id
          */
@@ -4133,7 +4133,7 @@ declare namespace LocalJSX {
         "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
-        "z-button-filter-deprecated": ZButtonFilterDeprecated;
+        "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
         "z-card": ZCard;
@@ -4236,7 +4236,7 @@ declare module "@stencil/core" {
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
-            "z-button-filter-deprecated": LocalJSX.ZButtonFilterDeprecated & JSXBase.HTMLAttributes<HTMLZButtonFilterDeprecatedElement>;
+            "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;

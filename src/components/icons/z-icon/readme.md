@@ -29,7 +29,7 @@
  - [z-app-header](../../navigation/z-app-header)
  - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
- - [z-button-filter-deprecated](../../../deprecated/z-button-filter-deprecated)
+ - [z-button-filter](../../../deprecated/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
  - [z-card](../../z-card)
  - [z-chip](../../buttons/z-chip)
@@ -72,7 +72,7 @@ graph TD;
   z-app-header --> z-icon
   z-app-switcher --> z-icon
   z-button --> z-icon
-  z-button-filter-deprecated --> z-icon
+  z-button-filter --> z-icon
   z-button-sort --> z-icon
   z-card --> z-icon
   z-chip --> z-icon
