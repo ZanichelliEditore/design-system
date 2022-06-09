@@ -1,35 +1,72 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, select, boolean } from "@storybook/addon-knobs";
+import { Meta, Canvas, Story, Preview, Props } from "@storybook/addon-docs";
+import { ZChipType } from "../../../beans";
 import "./index";
 
-## Stories
+<Meta
+  title="Buttons/ZChip"
+  component="z-chip"
+  argTypes={{
+    type: {
+      options: Object.values(ZChipType),
+      control: { type: "radio"  }
+    },
+  }}
+/>
 
-<Meta title="Buttons/ZChip" component="z-chip" />
+# Zchip
 
-# ZChip with attributes
-
-<Preview>
-  <Story name="z-chip with attributes">
-    {html` <z-chip
-      boldtext="${text("boldtext", "1234")}"
-      regulartext="${text("regulartext", "libri trovati")}"
-    ></z-chip>`}
+<Canvas>
+  <Story
+    name="z-chip"
+    args={{
+      type: ZChipType.default,
+      icon: "pdf",
+    }}
+  >
+    {(args) =>
+      html` <z-chip type=${args.type} icon=${args.icon}>my custom element</z-chip> `
+    }
   </Story>
-</Preview>
+</Canvas>
 
-# ZChip with children
+# Zchip different font-weight
 
-<Preview>
-  <Story name="z-chip with children">
-    {html` <z-chip
-      type="${select("type", ["", "default", "mini"], "")}"
-      disabled="${boolean("Disabled", false)}"
-      filter="${boolean("Filter", false)}"
-    >
-      <z-body level="4">My custom element</z-body>
-    </z-chip>`}
+<Canvas>
+  <Story
+    name="z-chip different font-weight"
+    args={{
+      type: ZChipType.default,
+      icon: "pdf",
+    }}
+  >
+    {(args) =>
+      html` <z-chip type=${args.type} icon=${args.icon}>
+        <strong>my</strong>
+        <span style="margin-left: 4px"> custom element</span>
+        </z-chip> `
+    }
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-chip" />
+# Zchip interactive icon
+
+<Canvas>
+  <Story
+    name="z-chip interactive icon"
+    args={{
+      type: ZChipType.default,
+      icon: "pdf",
+      interactiveIcon: "multiply-circled",
+      disabled: false
+    }}
+  >
+    {(args) =>
+      html` <z-chip type=${args.type} icon=${args.icon} disabled=${args.disabled} interactive-icon=${args.interactiveIcon}>
+        my custom element
+        </z-chip>`
+    }
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-chip" />

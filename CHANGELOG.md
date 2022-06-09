@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.46.3](https://github.com/ZanichelliEditore/design-system/compare/v2.46.2...v2.46.3) (2022-06-07)
+
+
+### Bug Fixes
+
+* navigation-tab-link text decoration ([df1eff9](https://github.com/ZanichelliEditore/design-system/commit/df1eff91a30f3ba9cd9d5bb22658cf1050d2444f))
+
+### [2.46.2](https://github.com/ZanichelliEditore/design-system/compare/v2.46.1...v2.46.2) (2022-06-07)
+
+
+### Bug Fixes
+
+* navigation tabs on safari and FF (because of different shadow dom implementation) ([0c7bb7c](https://github.com/ZanichelliEditore/design-system/commit/0c7bb7cab372d3ae98d16856f47255bdbca4c25e))
+
+### [2.46.1](https://github.com/ZanichelliEditore/design-system/compare/v2.46.0...v2.46.1) (2022-06-06)
+
+
+### Bug Fixes
+
+* filled icon regex ([70e0deb](https://github.com/ZanichelliEditore/design-system/commit/70e0debbdd8d96d624d223037ae01a287ac291b1))
+* title prop warning; enhance filled icons handling ([7c4d334](https://github.com/ZanichelliEditore/design-system/commit/7c4d3348e9e9ba729cbe95caa6d29c32b0e6a148))
+
+## [2.46.0](https://github.com/ZanichelliEditore/design-system/compare/v2.45.0...v2.46.0) (2022-06-01)
+
+
+### Features
+
+* added people and grades icons ([f5aa7e6](https://github.com/ZanichelliEditore/design-system/commit/f5aa7e62df2120b376b530b8668efe0302ca8c01))
+* improve weekdays i18n compatibility ([fcef896](https://github.com/ZanichelliEditore/design-system/commit/fcef896c2c04df9973fc5edc09e6004f354394af))
+* **z-date-picker:** add date picker month only mode ([d73ed7e](https://github.com/ZanichelliEditore/design-system/commit/d73ed7e0ac8efbe84642d2e4682a264d0076241f))
+* **z-date-picker:** improve style of z-date-picker ([16a07cf](https://github.com/ZanichelliEditore/design-system/commit/16a07cf72fe049608fca5b64b490f983b9e1ecf8))
+* **z-date-picker:** improve style of z-date-picker ([1a47d14](https://github.com/ZanichelliEditore/design-system/commit/1a47d1491a7c25be9c505f2ba21e77d8528a39dd))
+* **z-date-picker:** improve z-date-picker style ([44042f1](https://github.com/ZanichelliEditore/design-system/commit/44042f1ec48bf8e9b19465f9827ddf4cc0dec123))
+* **z-date-picker:** minor style fixes ([c060f06](https://github.com/ZanichelliEditore/design-system/commit/c060f0625157a666a6e6efeafd0adda421fd3b5f))
+* **z-date-picker:** update datepicker position ([ab10af4](https://github.com/ZanichelliEditore/design-system/commit/ab10af42e05f25764500b3b20c170ad6f080ec51))
+* **ZDatePicker:** init z-date-picker component ([07b12aa](https://github.com/ZanichelliEditore/design-system/commit/07b12aaef3d5db48496480219a2bdac153ca07a0))
+
+
+### Bug Fixes
+
+* fix story rendering ([20b28aa](https://github.com/ZanichelliEditore/design-system/commit/20b28aa3227f94dc9b06ed12ed02fe3861cb57b1))
+* priority style fix on safari mobile ([a2c6b02](https://github.com/ZanichelliEditore/design-system/commit/a2c6b0254587cd5d2b0721883bfdd4b748426759))
+
+## [2.45.0](https://github.com/ZanichelliEditore/design-system/compare/v2.44.1...v2.45.0) (2022-05-27)
+
+
+### Features
+
+* add carousel loading element story ([528c13a](https://github.com/ZanichelliEditore/design-system/commit/528c13ad02425f4751202ce1f78aa9c89392e0a0))
+* add isloading and ghostloadingheight props ([67eae67](https://github.com/ZanichelliEditore/design-system/commit/67eae678079f0e75db5aa485a77df0f2f628304d))
+
+### [2.44.1](https://github.com/ZanichelliEditore/design-system/compare/v2.44.0...v2.44.1) (2022-05-25)
+
+
+### Bug Fixes
+
+* fix position ([6516df6](https://github.com/ZanichelliEditore/design-system/commit/6516df6b95aa4381b38eda49807f6fcf37c72f44))
+* z-notification e2e tests ([fa5684a](https://github.com/ZanichelliEditore/design-system/commit/fa5684a93a7f3a9482ea49c3bd5d2296f6f3b57b))
+* z-notification tests ([36a08e8](https://github.com/ZanichelliEditore/design-system/commit/36a08e8af0f39f5a8733442f28078bfb7ab044f8))
+
 ## [2.44.0](https://github.com/ZanichelliEditore/design-system/compare/v2.43.0...v2.44.0) (2022-05-24)
 
 

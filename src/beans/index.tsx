@@ -34,6 +34,7 @@ export enum LicenseTypeEnum {
   real = "reale",
   virtual = "virtuale",
   trial = "saggio",
+  temp = "reale_temp",
 }
 export type LicenseType = keyof typeof LicenseTypeEnum;
 
@@ -95,16 +96,16 @@ export type TabItem = {
   disabled?: boolean;
 };
 
-export type TabOrientationBean = TabOrientationEnum;
+export type NavigationTabsOrientation = keyof typeof NavigationTabsOrientations;
 
-export enum TabOrientationEnum {
+export enum NavigationTabsOrientations {
   horizontal = "horizontal",
   vertical = "vertical",
 }
 
-export type TabSizeBean = TabSizeEnum;
+export type NavigationTabsSize = keyof typeof NavigationTabsSizes;
 
-export enum TabSizeEnum {
+export enum NavigationTabsSizes {
   big = "big",
   small = "small",
 }
@@ -409,13 +410,14 @@ export enum OffCanvasVariantsEnum {
 export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
 
 export enum ZFileUploadTypeEnum {
-  default = 'default',
-  dragdrop = 'dragdrop'
+  default = "default",
+  dragdrop = "dragdrop",
 }
 
 export enum ZChipType {
   default = "default",
-  mini = "mini",
+  medium = "medium",
+  small = "small",
 }
 
 export enum ZSectionTitleDividerPositions {
@@ -431,4 +433,22 @@ export enum StatusTagStatus {
   default = "default",
 }
 
-export type ZSectionTitleDividerPosition = keyof typeof ZSectionTitleDividerPositions;
+export enum ZDatePickerMode {
+  date = "date",
+  dateTime = "date-time",
+  months = "months",
+}
+
+export enum ZDatePickerModeValues {
+  DATE = 401,
+  DATETIME = 523,
+  MONTHS = 288,
+}
+
+export enum ZDatePickerPosition {
+  top = "top",
+  bottom = "bottom",
+}
+
+export type ZSectionTitleDividerPosition =
+  keyof typeof ZSectionTitleDividerPositions;

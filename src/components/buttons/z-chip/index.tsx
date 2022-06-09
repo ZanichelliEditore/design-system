@@ -1,50 +1,74 @@
-import { Component, Prop, h, Element } from "@stencil/core";
-import { ZChipType } from "../../../beans";
+import {
+  Component,
+  Prop,
+  h,
+  Element,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
+import { DeviceEnum, ZChipType } from "../../../beans";
+import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 @Component({
   tag: "z-chip",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZChip {
-  @Element() hostElement: HTMLElement;
+  @Element() el: HTMLElement;
 
-  @Prop() regulartext?: string;
-  @Prop() boldtext?: number;
-  @Prop({ reflect: true }) type?: ZChipType;
+  @Prop() icon?: string;
+  @Prop({ reflect: true }) type?: ZChipType = ZChipType.default;
+  @Prop({ reflect: true }) interactiveIcon?: string;
   @Prop({ reflect: true }) disabled?: boolean = false;
-  @Prop({ reflect: true }) filter?: boolean = false;
 
-  private renderLegacyChip() {
-    return (
-      <div>
-        <span class="boldtext">{this.boldtext}</span> {this.regulartext}
-      </div>
-    );
+  @Event() interactiveIconClick: EventEmitter;
+  emitinteractiveIconClick() {
+    this.interactiveIconClick.emit();
   }
 
-  private renderFilterChip() {
-    if (this.filter) {
+  getIconSize() {
+    return getDevice() !== DeviceEnum.desktop ? 22 : 14;
+  }
+
+  render() {
+    if (this.interactiveIcon) {
       return (
-        <button
-          class={this.type ? this.type : ZChipType.default}
-          disabled={this.disabled}
-          tabindex="0"
-        >
+        <button class={this.type} disabled={this.disabled} tabindex="0">
+          {this.icon && (
+            <z-icon
+              class={"iconSx"}
+              name={this.icon}
+              width={this.getIconSize()}
+              height={this.getIconSize()}
+            />
+          )}
           <slot />
+          <z-icon
+            tabIndex={this.disabled ? -1 : 0}
+            onClick={() => this.emitinteractiveIconClick()}
+            onKeyPress={(e) =>
+              handleKeyboardSubmit(e, this.emitinteractiveIconClick)
+            }
+            name={this.interactiveIcon}
+            width={this.getIconSize()}
+            height={this.getIconSize()}
+          />
         </button>
       );
     }
 
     return (
-      <div class={this.type ? this.type : ""}>
+      <div class={`${this.type}`} tabindex="0">
+        {this.icon && (
+          <z-icon
+            name={this.icon}
+            width={this.getIconSize()}
+            height={this.getIconSize()}
+          />
+        )}
         <slot />
       </div>
     );
-  }
-
-  render() {
-    return this.boldtext != null || this.regulartext != null
-      ? this.renderLegacyChip()
-      : this.renderFilterChip();
   }
 }

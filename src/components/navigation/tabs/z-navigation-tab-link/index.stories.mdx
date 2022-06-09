@@ -1,0 +1,112 @@
+import { html } from "lit-html";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { NavigationTabsSizes, NavigationTabsOrientations } from "../../../../beans/index";
+import { icons } from "../../../icons/icons";
+import "./index";
+
+# ZNavigationTabLink
+
+<Meta
+  title="Navigation/ZNavigationTabLink"
+  component="z-navigation-tab-link"
+  argTypes={{
+    selected: {
+      control: "boolean",
+    },
+    disabled: {
+      control: "boolean",
+    },
+    size: {
+      options: Object.values(NavigationTabsSizes),
+      control: { type: "inline-radio" },
+    },
+    orientation: {
+      options: Object.values(NavigationTabsOrientations),
+      control: { type: "inline-radio" },
+    },
+    href: {
+      control: { type: "text" },
+    },
+    htmlTitle: {
+      control: { type: "text" },
+    },
+    target: {
+      control: { type: "text" },
+    },
+    icon: {
+      control: { type: "select" },
+      options: Object.keys(icons).sort(),
+    },
+    label: {
+      control: { type: "text" },
+    },
+  }}
+/>
+
+<Canvas>
+  <Story name="z-navigation-tab-link" args={{
+    selected: false,
+    disabled: false,
+    size: NavigationTabsSizes.big,
+    orientation: NavigationTabsOrientations.horizontal,
+    href: 'https://www.google.com',
+    target: "_blank",
+    htmlTitle: "Go to Google",
+    icon: "arrow-quad-north-east",
+    label: "Go to Google",
+  }}>
+    {(args) => html`
+      <z-navigation-tab-link
+        .selected=${args.selected}
+        .disabled=${args.disabled}
+        .size=${args.size}
+        .orientation=${args.orientation}
+        .href=${args.href}
+        .htmlTitle=${args.htmlTitle}
+        .target=${args.target}
+        .icon=${args.icon}
+        .label=${args.label}
+      ></z-navigation-tab-link>
+    `}
+  </Story>
+</Canvas>
+
+## Slotted icon
+You can use the slot named `icon` if you need extra customization (such as a product specific icon).
+
+<Canvas>
+  <Story name="z-navigation-tab-link with slotted icon"
+    args={{
+      selected: false,
+      disabled: false,
+      size: NavigationTabsSizes.big,
+      orientation: NavigationTabsOrientations.horizontal,
+      href: 'https://www.google.com',
+      target: "_blank",
+      htmlTitle: "Go to Google",
+      label: "Google",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["icon"],
+      }
+    }}
+  >
+    {(args) => html`
+      <z-navigation-tab-link
+        .selected=${args.selected}
+        .disabled=${args.disabled}
+        .size=${args.size}
+        .orientation=${args.orientation}
+        .href=${args.href}
+        .htmlTitle=${args.htmlTitle}
+        .target=${args.target}
+        .label=${args.label}
+      >
+        <span slot="icon">🧩</span>
+      </z-navigation-tab-link>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-navigation-tab-link" />

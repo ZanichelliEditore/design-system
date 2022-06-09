@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, TabOrientationBean, TabSizeBean, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -212,13 +212,24 @@ export namespace Components {
         "variant": CardVariants;
     }
     interface ZCarousel {
+        /**
+          * sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+         */
+        "ghostloadingheight": string;
+        /**
+          * sets whether the z-carousel is on loading state
+         */
+        "isloading": boolean;
     }
     interface ZChip {
-        "boldtext"?: number;
         "disabled"?: boolean;
-        "filter"?: boolean;
-        "regulartext"?: string;
+        "icon"?: string;
+        "interactiveIcon"?: string;
         "type"?: ZChipType;
+    }
+    interface ZChipDeprecated {
+        "boldtext"?: number;
+        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -309,6 +320,16 @@ export namespace Components {
           * hide cookie bar (optional)
          */
         "hide"?: boolean;
+    }
+    interface ZDatePicker {
+        /**
+          * unique id
+         */
+        "datepickerid": string;
+        /**
+          * [Optional] datepicker mode: date, datetime, only months
+         */
+        "mode": ZDatePickerMode;
     }
     interface ZDivider {
         /**
@@ -900,6 +921,10 @@ export namespace Components {
          */
         "cardtype"?: LicenseTypeEnum;
         /**
+          * display footer custom slotted content
+         */
+        "customContent": boolean;
+        /**
           * faded status
          */
         "faded": boolean;
@@ -1041,20 +1066,82 @@ export namespace Components {
         "userdata"?: string | HeaderUserData;
     }
     interface ZNavigationTab {
+        /**
+          * Whether the tab is disabled.
+         */
         "disabled"?: boolean;
-        "orientation": string;
+        /**
+          * Html `title` attribute for the button.
+         */
+        "htmlTitle": string;
+        /**
+          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+         */
+        "icon": string;
+        /**
+          * Label to show in the tab.
+         */
+        "label": string;
+        /**
+          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
+         */
+        "orientation": NavigationTabsOrientation;
+        /**
+          * Whether the tab is selected.
+         */
         "selected"?: boolean;
-        "size": string;
+        /**
+          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
+         */
+        "size": NavigationTabsSize;
+    }
+    interface ZNavigationTabLink {
+        /**
+          * Whether the tab is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Url to set to the anchor element.
+         */
+        "href": string;
+        /**
+          * Html title attribute for the anchor element.
+         */
+        "htmlTitle": string;
+        /**
+          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+         */
+        "icon": string;
+        /**
+          * Label to show in the tab.
+         */
+        "label": string;
+        /**
+          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
+         */
+        "orientation": NavigationTabsOrientation;
+        /**
+          * Whether the tab is selected.
+         */
+        "selected"?: boolean;
+        /**
+          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
+         */
+        "size": NavigationTabsSize;
+        /**
+          * Html `target` attribute for the anchor element.
+         */
+        "target": string;
     }
     interface ZNavigationTabs {
         /**
-          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+          * Navigation tabs orientation.
          */
-        "orientation"?: TabOrientationBean;
+        "orientation"?: NavigationTabsOrientation;
         /**
-          * Available sizes: `big` and `small`. Defaults to `big`.
+          * Navigation tabs size.
          */
-        "size"?: TabSizeBean;
+        "size"?: NavigationTabsSize;
     }
     interface ZNotification {
         /**
@@ -1719,6 +1806,12 @@ declare global {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
     };
+    interface HTMLZChipDeprecatedElement extends Components.ZChipDeprecated, HTMLStencilElement {
+    }
+    var HTMLZChipDeprecatedElement: {
+        prototype: HTMLZChipDeprecatedElement;
+        new (): HTMLZChipDeprecatedElement;
+    };
     interface HTMLZComboboxElement extends Components.ZCombobox, HTMLStencilElement {
     }
     var HTMLZComboboxElement: {
@@ -1736,6 +1829,12 @@ declare global {
     var HTMLZCookiebarElement: {
         prototype: HTMLZCookiebarElement;
         new (): HTMLZCookiebarElement;
+    };
+    interface HTMLZDatePickerElement extends Components.ZDatePicker, HTMLStencilElement {
+    }
+    var HTMLZDatePickerElement: {
+        prototype: HTMLZDatePickerElement;
+        new (): HTMLZDatePickerElement;
     };
     interface HTMLZDividerElement extends Components.ZDivider, HTMLStencilElement {
     }
@@ -1989,6 +2088,12 @@ declare global {
         prototype: HTMLZNavigationTabElement;
         new (): HTMLZNavigationTabElement;
     };
+    interface HTMLZNavigationTabLinkElement extends Components.ZNavigationTabLink, HTMLStencilElement {
+    }
+    var HTMLZNavigationTabLinkElement: {
+        prototype: HTMLZNavigationTabLinkElement;
+        new (): HTMLZNavigationTabLinkElement;
+    };
     interface HTMLZNavigationTabsElement extends Components.ZNavigationTabs, HTMLStencilElement {
     }
     var HTMLZNavigationTabsElement: {
@@ -2232,9 +2337,11 @@ declare global {
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
+        "z-chip-deprecated": HTMLZChipDeprecatedElement;
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
+        "z-date-picker": HTMLZDatePickerElement;
         "z-divider": HTMLZDividerElement;
         "z-dragdrop-area": HTMLZDragdropAreaElement;
         "z-file": HTMLZFileElement;
@@ -2277,6 +2384,7 @@ declare global {
         "z-myz-list-item": HTMLZMyzListItemElement;
         "z-myz-topbar": HTMLZMyzTopbarElement;
         "z-navigation-tab": HTMLZNavigationTabElement;
+        "z-navigation-tab-link": HTMLZNavigationTabLinkElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
         "z-offcanvas": HTMLZOffcanvasElement;
@@ -2540,13 +2648,25 @@ declare namespace LocalJSX {
         "variant"?: CardVariants;
     }
     interface ZCarousel {
+        /**
+          * sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+         */
+        "ghostloadingheight"?: string;
+        /**
+          * sets whether the z-carousel is on loading state
+         */
+        "isloading"?: boolean;
     }
     interface ZChip {
-        "boldtext"?: number;
         "disabled"?: boolean;
-        "filter"?: boolean;
-        "regulartext"?: string;
+        "icon"?: string;
+        "interactiveIcon"?: string;
+        "onInteractiveIconClick"?: (event: CustomEvent<any>) => void;
         "type"?: ZChipType;
+    }
+    interface ZChipDeprecated {
+        "boldtext"?: number;
+        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -2649,6 +2769,20 @@ declare namespace LocalJSX {
           * emitted on ACCETTA button click, returns event
          */
         "onAccept"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZDatePicker {
+        /**
+          * unique id
+         */
+        "datepickerid"?: string;
+        /**
+          * [Optional] datepicker mode: date, datetime, only months
+         */
+        "mode"?: ZDatePickerMode;
+        /**
+          * emitted when date changes, returns selected date
+         */
+        "onDateSelect"?: (event: CustomEvent<any>) => void;
     }
     interface ZDivider {
         /**
@@ -3336,6 +3470,10 @@ declare namespace LocalJSX {
          */
         "cardtype"?: LicenseTypeEnum;
         /**
+          * display footer custom slotted content
+         */
+        "customContent"?: boolean;
+        /**
           * faded status
          */
         "faded"?: boolean;
@@ -3489,21 +3627,84 @@ declare namespace LocalJSX {
         "userdata"?: string | HeaderUserData;
     }
     interface ZNavigationTab {
+        /**
+          * Whether the tab is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * Html `title` attribute for the button.
+         */
+        "htmlTitle"?: string;
+        /**
+          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+         */
+        "icon"?: string;
+        /**
+          * Label to show in the tab.
+         */
+        "label"?: string;
         "onSelected"?: (event: CustomEvent<any>) => void;
-        "orientation"?: string;
+        /**
+          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
+         */
+        "orientation"?: NavigationTabsOrientation;
+        /**
+          * Whether the tab is selected.
+         */
         "selected"?: boolean;
-        "size"?: string;
+        /**
+          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
+         */
+        "size"?: NavigationTabsSize;
+    }
+    interface ZNavigationTabLink {
+        /**
+          * Whether the tab is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Url to set to the anchor element.
+         */
+        "href"?: string;
+        /**
+          * Html title attribute for the anchor element.
+         */
+        "htmlTitle"?: string;
+        /**
+          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+         */
+        "icon"?: string;
+        /**
+          * Label to show in the tab.
+         */
+        "label"?: string;
+        "onSelected"?: (event: CustomEvent<any>) => void;
+        /**
+          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
+         */
+        "orientation"?: NavigationTabsOrientation;
+        /**
+          * Whether the tab is selected.
+         */
+        "selected"?: boolean;
+        /**
+          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
+         */
+        "size"?: NavigationTabsSize;
+        /**
+          * Html `target` attribute for the anchor element.
+         */
+        "target"?: string;
     }
     interface ZNavigationTabs {
         /**
-          * Available orientation: `horizontal` and `vertical`. Defaults to `horizontal`.
+          * Navigation tabs orientation.
          */
-        "orientation"?: TabOrientationBean;
+        "orientation"?: NavigationTabsOrientation;
         /**
-          * Available sizes: `big` and `small`. Defaults to `big`.
+          * Navigation tabs size.
          */
-        "size"?: TabSizeBean;
+        "size"?: NavigationTabsSize;
     }
     interface ZNotification {
         /**
@@ -4152,9 +4353,11 @@ declare namespace LocalJSX {
         "z-card": ZCard;
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
+        "z-chip-deprecated": ZChipDeprecated;
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
+        "z-date-picker": ZDatePicker;
         "z-divider": ZDivider;
         "z-dragdrop-area": ZDragdropArea;
         "z-file": ZFile;
@@ -4197,6 +4400,7 @@ declare namespace LocalJSX {
         "z-myz-list-item": ZMyzListItem;
         "z-myz-topbar": ZMyzTopbar;
         "z-navigation-tab": ZNavigationTab;
+        "z-navigation-tab-link": ZNavigationTabLink;
         "z-navigation-tabs": ZNavigationTabs;
         "z-notification": ZNotification;
         "z-offcanvas": ZOffcanvas;
@@ -4255,9 +4459,11 @@ declare module "@stencil/core" {
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
+            "z-chip-deprecated": LocalJSX.ZChipDeprecated & JSXBase.HTMLAttributes<HTMLZChipDeprecatedElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
+            "z-date-picker": LocalJSX.ZDatePicker & JSXBase.HTMLAttributes<HTMLZDatePickerElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-dragdrop-area": LocalJSX.ZDragdropArea & JSXBase.HTMLAttributes<HTMLZDragdropAreaElement>;
             "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
@@ -4300,6 +4506,7 @@ declare module "@stencil/core" {
             "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
             "z-myz-topbar": LocalJSX.ZMyzTopbar & JSXBase.HTMLAttributes<HTMLZMyzTopbarElement>;
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
+            "z-navigation-tab-link": LocalJSX.ZNavigationTabLink & JSXBase.HTMLAttributes<HTMLZNavigationTabLinkElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
