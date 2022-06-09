@@ -9,7 +9,7 @@
 
 | Property  | Attribute | Description                          | Type                                      | Default     |
 | --------- | --------- | ------------------------------------ | ----------------------------------------- | ----------- |
-| `links`   | `links`   | Array to fill link into skip-content | `linkItem[] \| string`                    | `[]`        |
+| `links`   | `links`   | Array to fill link into skip-content | `SkipToContentLink[] \| string`           | `[]`        |
 | `variant` | `variant` | Graphical variant: `dark`, `light`.  | `ThemeVariant.dark \| ThemeVariant.light` | `undefined` |
 
 

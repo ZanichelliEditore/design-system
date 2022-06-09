@@ -25,7 +25,7 @@ export class ZSkipToContent {
   /** Array to fill link into skip-content */
   @Prop({ mutable: true }) links: string | SkipToContentLink[] = [];
 
-  @State() visible: boolean = true;
+  @State() visible: boolean = false;
   @State() visibleLink: string = "";
 
   @Element() hostElement: HTMLElement;
