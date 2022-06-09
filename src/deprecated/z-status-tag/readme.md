@@ -1,6 +1,6 @@
 # z-status-tag
 
-
+# This component is deprecated and will be removed from the library starting 09 August 2022.
 
 <!-- Auto Generated Below -->
 
