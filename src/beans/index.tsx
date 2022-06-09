@@ -423,4 +423,12 @@ export enum ZSectionTitleDividerPositions {
   after = "after",
 }
 
+export enum StatusTagStatus {
+  warning = "warning",
+  error = "error",
+  success = "success",
+  neutral = "neutral",
+  default = "default",
+}
+
 export type ZSectionTitleDividerPosition = keyof typeof ZSectionTitleDividerPositions;

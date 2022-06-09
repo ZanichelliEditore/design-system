@@ -58,6 +58,7 @@
  - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
+ - [z-status-tag](../../../deprecated/z-status-tag)
  - [z-table-header](../../z-table/z-table-header)
  - [z-table-row](../../z-table/z-table-row)
  - [z-tag](../../z-tag)
@@ -101,6 +102,7 @@ graph TD;
   z-pocket-message --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon
+  z-status-tag --> z-icon
   z-table-header --> z-icon
   z-table-row --> z-icon
   z-tag --> z-icon
