@@ -9,11 +9,10 @@ import {
   Listen,
   Prop,
 } from "@stencil/core";
-import { DeviceEnum, TooltipPosition, ZChipType } from "../../../beans";
+import { TooltipPosition, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
-import { getDevice } from "../../../utils/utils";
 
-import './index';
+import "./index";
 
 @Component({
   tag: "z-file",
@@ -25,12 +24,12 @@ export class ZFile {
   private icon: HTMLElement;
 
   private ellipsis?: HTMLSpanElement;
-  
+
   @Prop() fileNumber: number;
 
   @State() allowTooltip: boolean = false;
 
-  @State() tooltipVisible: boolean = false
+  @State() tooltipVisible: boolean = false;
 
   @Element() el: HTMLElement;
 
@@ -41,17 +40,17 @@ export class ZFile {
     this.el.remove();
   }
 
-  @Listen('mouseover')
+  @Listen("mouseover")
   onMouseOver() {
     this.tooltipVisible = true;
   }
 
-  @Listen('mouseleave')
+  @Listen("mouseleave")
   onMouseLeave() {
     this.tooltipVisible = false;
   }
 
-  @Listen('interactiveIconClick')
+  @Listen("interactiveIconClick")
   onInteractiveIconClick() {
     this.removeFileHandler();
   }
@@ -64,6 +63,7 @@ export class ZFile {
   }
 
   elementHasEllipsis(): boolean {
+    console.log(this.ellipsis, this.ellipsis.offsetWidth, this.ellipsis.scrollWidth);
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 
@@ -79,14 +79,14 @@ export class ZFile {
             <span class="body-5 tootip-content">{this.ellipsis.innerText}</span>
           </z-tooltip>
         )}
-        <z-chip id={`chip-${this.fileNumber}`} interactiveIcon="multiply-circled" type={ZChipType.default}>
+        <z-chip
+          id={`chip-${this.fileNumber}`}
+          interactiveIcon="multiply-circled"
+          type={ZChipType.default}
+        >
             <span
               ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
               tabIndex={-1}
-              class={{
-                "body-3-sb": getDevice() == DeviceEnum.desktop,
-                "body-2-sb": getDevice() !== DeviceEnum.desktop,
-              }}
             >
               <slot />
             </span>
