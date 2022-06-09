@@ -39,7 +39,7 @@ export class ZFileUpload {
   }
   handleAccessibility() {
     if (this.filesNumber > 0) {
-      this.el.querySelector('z-file:last-child > z-chip').shadowRoot.querySelector('button').focus();
+      this.el.querySelector('z-file:last-child z-chip button').focus();
     }
     else {
       this.type === ZFileUploadTypeEnum.default ? this.button.shadowRoot.querySelector('button').focus() : this.uploadLink.focus();

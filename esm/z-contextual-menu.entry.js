@@ -1,5 +1,5 @@
 import { r as registerInstance, c as createEvent, h, H as Host } from './index-90e18641.js';
-import { P as PopoverPosition } from './index-22f4a844.js';
+import { P as PopoverPosition } from './index-96aade4f.js';
 
 const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host(:focus-within)>z-popover{box-shadow:var(--shadow-focus-primary)}.popover-content-container{min-width:112px;max-width:280px;white-space:nowrap;padding:calc(var(--space-unit) / 2) 0}.element-container:hover{color:var(--myz-blue-dark);fill:var(--myz-blue-dark)}.element-text{overflow:hidden;text-overflow:ellipsis;font-size:14px}.element-container,.disabled-element-container{display:flex;align-items:center;gap:var(--space-unit);fill:var(--color-disabled03);padding:calc(var(--space-unit) / 2) var(--space-unit);min-height:calc(var(--space-unit) * 4);box-sizing:border-box}.element-container{fill:var(--color-primary01)}.element-icon{display:flex}";
 

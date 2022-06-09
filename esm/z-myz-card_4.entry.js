@@ -1,7 +1,7 @@
 import { r as registerInstance, h } from './index-90e18641.js';
-import { L as LicenseTypeEnum } from './index-22f4a844.js';
+import { L as LicenseTypeEnum } from './index-96aade4f.js';
 
-const stylesCss$3 = "div{background-color:var(--color-surface01);display:flex;flex-direction:column;width:auto;box-sizing:border-box;width:256px;height:522px;border:var(--border-size-medium) solid var(--color-surface03);border-radius:var(--border-radius)}div.real,div.trial{border-color:var(--accent)}div.faded{border:var(--border-size-medium) solid var(--color-surface02)}div.highlighted{box-shadow:var(--shadow-4);outline:none}div.pressed{box-shadow:var(--shadow-8);outline:none}div:focus{box-shadow:var(--shadow-focus-primary);outline:none}";
+const stylesCss$3 = "div{background-color:var(--color-surface01);display:flex;flex-direction:column;width:auto;box-sizing:border-box;width:256px;height:522px;border:var(--border-size-medium) solid var(--color-surface03);border-radius:var(--border-radius);overflow:hidden}div.real,div.trial,div.temp{border-color:var(--accent)}div.faded{border:var(--border-size-medium) solid var(--color-surface02)}div.highlighted{box-shadow:var(--shadow-4);outline:none}div.pressed{box-shadow:var(--shadow-8);outline:none}div:focus{box-shadow:var(--shadow-focus-primary);outline:none}";
 
 const ZMyzCardComponent = class {
   constructor(hostRef) {
@@ -17,6 +17,8 @@ const ZMyzCardComponent = class {
       elemClasses += "real";
     else if (this.cardtype === LicenseTypeEnum.trial)
       elemClasses += "trial";
+    else if (this.cardtype === LicenseTypeEnum.temp)
+      elemClasses += "temp";
     if (this.faded) {
       elemClasses += " faded";
     }
@@ -61,7 +63,7 @@ const ZMyzCardCover = class {
 };
 ZMyzCardCover.style = stylesCss$1;
 
-const stylesCss = "header{display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;width:auto;height:calc(var(--space-unit) * 6);position:relative;border-bottom:var(--border-size-medium) solid var(--color-surface03);border-radius:var(--border-radius) var(--border-radius)\n    var(--border-no-radius) var(--border-no-radius);background-color:var(--color-surface01)}header.real,header.trial{background-color:var(--accent-lighter);border-bottom:var(--border-size-medium) solid var(--accent)}h2{font-family:var(--font-family-sans);font-weight:var(--font-sb);color:var(--color-surface05);height:calc(var(--space-unit) * 2);font-size:12px;text-transform:uppercase;letter-spacing:0.22px;line-height:calc(var(--space-unit) * 2);margin:0px;padding:calc(var(--space-unit) * 2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.faded{border-bottom:var(--border-size-medium) solid var(--color-surface02)}.faded.real,.faded.trial{border-top:var(--border-size-medium) solid var(--accent);border-right:var(--border-size-medium) solid var(--accent);border-left:var(--border-size-medium) solid var(--accent)}";
+const stylesCss = "header{display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;width:auto;height:calc(var(--space-unit) * 6);position:relative;border-bottom:var(--border-size-medium) solid var(--color-surface03);border-radius:var(--border-radius) var(--border-radius)\n    var(--border-no-radius) var(--border-no-radius);background-color:var(--color-surface01)}header.real,header.trial,header.temp{background-color:var(--accent-lighter);border-bottom:var(--border-size-medium) solid var(--accent)}h2{font-family:var(--font-family-sans);font-weight:var(--font-sb);color:var(--color-surface05);height:calc(var(--space-unit) * 2);font-size:12px;text-transform:uppercase;letter-spacing:0.22px;line-height:calc(var(--space-unit) * 2);margin:0px;padding:calc(var(--space-unit) * 2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.faded{border-bottom:var(--border-size-medium) solid var(--color-surface02)}.faded.real,.faded.trial,.faded.temp{border-top:var(--border-size-medium) solid var(--accent);border-right:var(--border-size-medium) solid var(--accent);border-left:var(--border-size-medium) solid var(--accent)}";
 
 const ZMyzCardHeader = class {
   constructor(hostRef) {
@@ -82,11 +84,12 @@ const ZMyzCardHeader = class {
     return {
       real: this.cardtype === LicenseTypeEnum.real,
       trial: this.cardtype === LicenseTypeEnum.trial,
-      faded: this.faded
+      temp: this.cardtype === LicenseTypeEnum.temp,
+      faded: this.faded,
     };
   }
   render() {
-    return (h("header", { class: this.retrieveClass() }, h("h2", { ref: el => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { name: "icon" })));
+    return (h("header", { class: this.retrieveClass() }, h("h2", { ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { name: "icon" })));
   }
 };
 ZMyzCardHeader.style = stylesCss;

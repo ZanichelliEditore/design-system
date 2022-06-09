@@ -17,6 +17,7 @@ export declare class ZMyzCardHeader {
   retrieveClass(): {
     real: boolean;
     trial: boolean;
+    temp: boolean;
     faded: boolean;
   };
   render(): any;

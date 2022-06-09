@@ -1,31 +1,30 @@
-import { Component, Prop, h, Element } from "@stencil/core";
-import { ZChipType } from "../../../beans";
+import { Component, Prop, h, Element, Event, } from "@stencil/core";
+import { DeviceEnum, ZChipType } from "../../../beans";
+import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 export class ZChip {
   constructor() {
+    this.type = ZChipType.default;
     this.disabled = false;
-    this.filter = false;
   }
-  renderLegacyChip() {
-    return (h("div", null,
-      h("span", { class: "boldtext" }, this.boldtext),
-      " ",
-      this.regulartext));
+  emitinteractiveIconClick() {
+    this.interactiveIconClick.emit();
   }
-  renderFilterChip() {
-    if (this.filter) {
-      return (h("button", { class: this.type ? this.type : ZChipType.default, disabled: this.disabled, tabindex: "0" },
-        h("slot", null)));
-    }
-    return (h("div", { class: this.type ? this.type : "" },
-      h("slot", null)));
+  getIconSize() {
+    return getDevice() !== DeviceEnum.desktop ? 22 : 14;
   }
   render() {
-    return this.boldtext != null || this.regulartext != null
-      ? this.renderLegacyChip()
-      : this.renderFilterChip();
+    if (this.interactiveIcon) {
+      return (h("button", { class: this.type, disabled: this.disabled, tabindex: "0" },
+        this.icon && (h("z-icon", { class: "iconSx", name: this.icon, width: this.getIconSize(), height: this.getIconSize() })),
+        h("slot", null),
+        h("z-icon", { tabIndex: this.disabled ? -1 : 0, onClick: () => this.emitinteractiveIconClick(), onKeyPress: (e) => handleKeyboardSubmit(e, this.emitinteractiveIconClick), name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() })));
+    }
+    return (h("div", { class: `${this.type}`, tabindex: "0" },
+      this.icon && (h("z-icon", { name: this.icon, width: this.getIconSize(), height: this.getIconSize() })),
+      h("slot", null)));
   }
   static get is() { return "z-chip"; }
-  static get encapsulation() { return "shadow"; }
+  static get encapsulation() { return "scoped"; }
   static get originalStyleUrls() { return {
     "$": ["styles.css"]
   }; }
@@ -33,7 +32,7 @@ export class ZChip {
     "$": ["styles.css"]
   }; }
   static get properties() { return {
-    "regulartext": {
+    "icon": {
       "type": "string",
       "mutable": false,
       "complexType": {
@@ -47,24 +46,7 @@ export class ZChip {
         "tags": [],
         "text": ""
       },
-      "attribute": "regulartext",
-      "reflect": false
-    },
-    "boldtext": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "attribute": "boldtext",
+      "attribute": "icon",
       "reflect": false
     },
     "type": {
@@ -72,7 +54,7 @@ export class ZChip {
       "mutable": false,
       "complexType": {
         "original": "ZChipType",
-        "resolved": "ZChipType.default | ZChipType.mini",
+        "resolved": "ZChipType.default | ZChipType.medium | ZChipType.small",
         "references": {
           "ZChipType": {
             "location": "import",
@@ -87,6 +69,24 @@ export class ZChip {
         "text": ""
       },
       "attribute": "type",
+      "reflect": true,
+      "defaultValue": "ZChipType.default"
+    },
+    "interactiveIcon": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": ""
+      },
+      "attribute": "interactive-icon",
       "reflect": true
     },
     "disabled": {
@@ -106,25 +106,23 @@ export class ZChip {
       "attribute": "disabled",
       "reflect": true,
       "defaultValue": "false"
-    },
-    "filter": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
+    }
+  }; }
+  static get events() { return [{
+      "method": "interactiveIconClick",
+      "name": "interactiveIconClick",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
       "docs": {
         "tags": [],
         "text": ""
       },
-      "attribute": "filter",
-      "reflect": true,
-      "defaultValue": "false"
-    }
-  }; }
-  static get elementRef() { return "hostElement"; }
+      "complexType": {
+        "original": "any",
+        "resolved": "any",
+        "references": {}
+      }
+    }]; }
+  static get elementRef() { return "el"; }
 }

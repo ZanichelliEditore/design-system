@@ -16,6 +16,8 @@ export declare class ZMyzCardFooter {
   cardtype?: LicenseTypeEnum;
   /** footer opened by default (optional) */
   opened?: boolean;
+  /** display footer custom slotted content */
+  customContent: boolean;
   isOpen: boolean;
   allowTooltipAuthors: boolean;
   private ellipsisAuthors?;
@@ -28,6 +30,8 @@ export declare class ZMyzCardFooter {
     isopen: boolean;
     real: boolean;
     trial: boolean;
+    temp: boolean;
+    customContent: boolean;
   };
   footerTransitionHandler(e: TransitionEvent): void;
   render(): any;

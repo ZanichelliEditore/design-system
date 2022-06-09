@@ -21,12 +21,13 @@ export class ZMyzCardHeader {
     return {
       real: this.cardtype === LicenseTypeEnum.real,
       trial: this.cardtype === LicenseTypeEnum.trial,
-      faded: this.faded
+      temp: this.cardtype === LicenseTypeEnum.temp,
+      faded: this.faded,
     };
   }
   render() {
     return (h("header", { class: this.retrieveClass() },
-      h("h2", { ref: el => (this.ellipsis = el), title: this.getTitle() }, this.titolo),
+      h("h2", { ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo),
       h("slot", { name: "icon" })));
   }
   static get is() { return "z-myz-card-header"; }
@@ -77,7 +78,7 @@ export class ZMyzCardHeader {
       "mutable": false,
       "complexType": {
         "original": "LicenseTypeEnum",
-        "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
+        "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.temp | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
         "references": {
           "LicenseTypeEnum": {
             "location": "import",

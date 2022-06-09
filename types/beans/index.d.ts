@@ -28,7 +28,8 @@ export declare type FooterSocialBean = {
 export declare enum LicenseTypeEnum {
   real = "reale",
   virtual = "virtuale",
-  trial = "saggio"
+  trial = "saggio",
+  temp = "reale_temp"
 }
 export declare type LicenseType = keyof typeof LicenseTypeEnum;
 export declare type CardBean = {
@@ -229,13 +230,6 @@ export declare enum AvatarSize {
   medium = "medium",
   large = "large"
 }
-export declare enum StatusTagStatus {
-  warning = "warning",
-  error = "error",
-  success = "success",
-  neutral = "neutral",
-  default = "default"
-}
 export declare enum ListSize {
   small = "small",
   medium = "medium",
@@ -355,11 +349,19 @@ export declare enum ZFileUploadTypeEnum {
 }
 export declare enum ZChipType {
   default = "default",
-  mini = "mini"
+  medium = "medium",
+  small = "small"
 }
 export declare enum ZSectionTitleDividerPositions {
   before = "before",
   after = "after"
+}
+export declare enum StatusTagStatus {
+  warning = "warning",
+  error = "error",
+  success = "success",
+  neutral = "neutral",
+  default = "default"
 }
 export declare enum ZDatePickerMode {
   date = "date",

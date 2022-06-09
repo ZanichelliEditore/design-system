@@ -8,6 +8,8 @@ export class ZMyzCardFooter {
   constructor() {
     /** footer opened by default (optional) */
     this.opened = false;
+    /** display footer custom slotted content */
+    this.customContent = false;
     this.isOpen = false;
     this.allowTooltipAuthors = false;
   }
@@ -32,6 +34,8 @@ export class ZMyzCardFooter {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
       trial: this.cardtype === LicenseTypeEnum.trial,
+      temp: this.cardtype === LicenseTypeEnum.temp,
+      customContent: this.customContent,
     };
   }
   footerTransitionHandler(e) {
@@ -40,12 +44,12 @@ export class ZMyzCardFooter {
     }
   }
   render() {
-    return (h("div", { class: this.faded && "faded" },
+    return (h("div", { class: Object.assign(Object.assign({}, this.retrieveClass()), { wrapper: true }) },
       h("footer", { class: this.retrieveClass(), onTransitionEnd: (e) => this.footerTransitionHandler(e) },
         h("span", { class: "toggle" },
           h("slot", { name: "toggle" })),
-        this.titolo && h("p", null, this.titolo),
-        h("div", { class: "content" },
+        this.titolo && (h("p", { class: { customContent: this.customContent } }, this.titolo)),
+        h("div", { class: { content: true, customContent: this.customContent } },
           h("div", null,
             h("p", { class: "authors", ref: (el) => (this.ellipsisAuthors = el) },
               h("span", { title: this.getTitleAuthors() },
@@ -56,7 +60,8 @@ export class ZMyzCardFooter {
                   h("span", { class: "bold" }, this.isbn),
                   " (ed. cartacea)")))),
           h("div", { class: `slot-handler ${this.isOpen ? "visible" : "hidden"}` },
-            h("slot", { name: "list" }))))));
+            h("slot", { name: "list" })))),
+      this.customContent && h("slot", { name: "content" })));
   }
   static get is() { return "z-myz-card-footer"; }
   static get encapsulation() { return "shadow"; }
@@ -140,7 +145,7 @@ export class ZMyzCardFooter {
       "mutable": false,
       "complexType": {
         "original": "LicenseTypeEnum",
-        "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
+        "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.temp | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
         "references": {
           "LicenseTypeEnum": {
             "location": "import",
@@ -172,6 +177,24 @@ export class ZMyzCardFooter {
         "text": "footer opened by default (optional)"
       },
       "attribute": "opened",
+      "reflect": false,
+      "defaultValue": "false"
+    },
+    "customContent": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "display footer custom slotted content"
+      },
+      "attribute": "custom-content",
       "reflect": false,
       "defaultValue": "false"
     }

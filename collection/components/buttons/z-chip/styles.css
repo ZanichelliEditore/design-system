@@ -1,16 +1,74 @@
 :host > button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 0 calc(var(--space-unit) * 1.5);
   background-color: var(--bg-white);
-  border: var(--border-size-medium) solid var(--bg-grey-200);
-  color: var(--text-grey-800);
+  border: var(--border-size-small) solid var(--gray400);
+  border-radius: 14px;
+  color: var(--color-primary01);
   fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-size: 14px;
+  font-weight: var(--font-sb);
+}
+
+:host > button:hover:not(:disabled),
+:host > button:hover:not(:disabled) > z-icon:last-child {
+  color: var(--color-hover-primary);
+  fill: var(--color-hover-primary);
+}
+
+:host > button:hover:not(:disabled) > z-icon:first-child {
+  fill: var(--color-icon02);
+}
+
+:host > button > z-icon:last-child {
+  cursor: pointer;
+}
+
+:host > button > z-icon.iconSx {
+  margin-right: calc(var(--space-unit) / 2);
+}
+
+:host > button > z-icon:last-child {
+  margin-left: var(--space-unit);
+  fill: var(--color-primary01);
+}
+
+:host > button:disabled,
+:host > button:disabled > z-icon {
+  color: var(--color-disabled03);
+  fill: var(--color-disabled03);
+}
+
+:host > button:disabled > z-icon {
+  cursor: auto;
+}
+
+:host > button:disabled {
+  border: var(--border-size-small) solid var(--color-disabled01);
+}
+
+:host > button:focus:focus-visible,
+:host > div:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
+:host > button:not(:disabled):active {
+  background-color: var(--gray50);
+  text-decoration: underline;
+}
+
+:host > button:not(:disabled):active:hover,
+:host > button:hover:not(:disabled):active:hover > z-icon:last-child {
+  color: var(--color-primary01);
+  fill: var(--color-primary01);
 }
 
 :host > div {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   min-height: 28px;
   line-height: 28px;
   padding: 0 calc(var(--space-unit) * 1.5);
@@ -20,45 +78,33 @@
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
-  font-size: 12px;
+  font-size: 14px;
 }
 
-.boldtext {
-  font-weight: bold;
+:host > div > z-icon {
+  margin-right: calc(var(--space-unit) / 2);
 }
 
-:host > button:hover {
-  color: var(--myz-blue-dark);
-}
-
-:host > button:disabled {
-  border: var(--border-size-medium) solid var(--bg-grey-200);
-  color: rgb(149, 153, 157);
-  box-shadow: none;
-}
-
-:host > button.default:focus:focus-visible,
-:host > button.mini:focus:focus-visible {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
-}
-
-:host > button:not(:disabled):active {
-  background-color: var(--gray50);
-}
-
+/* :host type */
 :host > button.default,
 :host > div.default {
   min-height: 44px;
-  border-radius: 22px;
   line-height: 44px;
+  border-radius: 22px;
 }
 
-:host > button.mini,
-:host > div.mini {
-  min-height: 36px;
+:host > button.medium,
+:host > div.medium {
+  min-height: 40px;
+  line-height: 40px;
   border-radius: 22px;
+}
+
+:host > button.small,
+:host > div.small {
+  min-height: 36px;
   line-height: 36px;
+  border-radius: 22px;
 }
 
 /* Desktop breakpoint */
@@ -67,17 +113,29 @@
     font-size: 12px;
   }
 
+  :host > div {
+    font-size: 12px;
+  }
+
+  /* :host type */
   :host > button.default,
   :host > div.default {
     min-height: 32px;
-    border-radius: 16px;
     line-height: 32px;
+    border-radius: 16px;
   }
 
-  :host > button.mini,
-  :host > div.mini {
-    min-height: 24px;
+  :host > button.medium,
+  :host > div.medium {
+    min-height: 28px;
+    line-height: 28px;
     border-radius: 16px;
+  }
+
+  :host > button.small,
+  :host > div.small {
+    min-height: 24px;
     line-height: 24px;
+    border-radius: 16px;
   }
 }

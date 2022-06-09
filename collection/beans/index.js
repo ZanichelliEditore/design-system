@@ -3,6 +3,7 @@ export var LicenseTypeEnum;
   LicenseTypeEnum["real"] = "reale";
   LicenseTypeEnum["virtual"] = "virtuale";
   LicenseTypeEnum["trial"] = "saggio";
+  LicenseTypeEnum["temp"] = "reale_temp";
 })(LicenseTypeEnum || (LicenseTypeEnum = {}));
 export var CardVariants;
 (function (CardVariants) {
@@ -150,14 +151,6 @@ export var AvatarSize;
   AvatarSize["medium"] = "medium";
   AvatarSize["large"] = "large";
 })(AvatarSize || (AvatarSize = {}));
-export var StatusTagStatus;
-(function (StatusTagStatus) {
-  StatusTagStatus["warning"] = "warning";
-  StatusTagStatus["error"] = "error";
-  StatusTagStatus["success"] = "success";
-  StatusTagStatus["neutral"] = "neutral";
-  StatusTagStatus["default"] = "default";
-})(StatusTagStatus || (StatusTagStatus = {}));
 export var ListSize;
 (function (ListSize) {
   ListSize["small"] = "small";
@@ -276,13 +269,22 @@ export var ZFileUploadTypeEnum;
 export var ZChipType;
 (function (ZChipType) {
   ZChipType["default"] = "default";
-  ZChipType["mini"] = "mini";
+  ZChipType["medium"] = "medium";
+  ZChipType["small"] = "small";
 })(ZChipType || (ZChipType = {}));
 export var ZSectionTitleDividerPositions;
 (function (ZSectionTitleDividerPositions) {
   ZSectionTitleDividerPositions["before"] = "before";
   ZSectionTitleDividerPositions["after"] = "after";
 })(ZSectionTitleDividerPositions || (ZSectionTitleDividerPositions = {}));
+export var StatusTagStatus;
+(function (StatusTagStatus) {
+  StatusTagStatus["warning"] = "warning";
+  StatusTagStatus["error"] = "error";
+  StatusTagStatus["success"] = "success";
+  StatusTagStatus["neutral"] = "neutral";
+  StatusTagStatus["default"] = "default";
+})(StatusTagStatus || (StatusTagStatus = {}));
 export var ZDatePickerMode;
 (function (ZDatePickerMode) {
   ZDatePickerMode["date"] = "date";

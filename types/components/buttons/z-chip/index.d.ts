@@ -1,12 +1,13 @@
+import { EventEmitter } from "../../../stencil-public-runtime";
 import { ZChipType } from "../../../beans";
 export declare class ZChip {
-  hostElement: HTMLElement;
-  regulartext?: string;
-  boldtext?: number;
+  el: HTMLElement;
+  icon?: string;
   type?: ZChipType;
+  interactiveIcon?: string;
   disabled?: boolean;
-  filter?: boolean;
-  private renderLegacyChip;
-  private renderFilterChip;
+  interactiveIconClick: EventEmitter;
+  emitinteractiveIconClick(): void;
+  getIconSize(): 22 | 14;
   render(): any;
 }

@@ -16,6 +16,8 @@ export class ZMyzCardComponent {
       elemClasses += "real";
     else if (this.cardtype === LicenseTypeEnum.trial)
       elemClasses += "trial";
+    else if (this.cardtype === LicenseTypeEnum.temp)
+      elemClasses += "temp";
     if (this.faded) {
       elemClasses += " faded";
     }
@@ -62,7 +64,7 @@ export class ZMyzCardComponent {
       "mutable": false,
       "complexType": {
         "original": "LicenseTypeEnum",
-        "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
+        "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.temp | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
         "references": {
           "LicenseTypeEnum": {
             "location": "import",

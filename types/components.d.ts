@@ -222,11 +222,14 @@ export namespace Components {
         "isloading": boolean;
     }
     interface ZChip {
-        "boldtext"?: number;
         "disabled"?: boolean;
-        "filter"?: boolean;
-        "regulartext"?: string;
+        "icon"?: string;
+        "interactiveIcon"?: string;
         "type"?: ZChipType;
+    }
+    interface ZChipDeprecated {
+        "boldtext"?: number;
+        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -918,6 +921,10 @@ export namespace Components {
          */
         "cardtype"?: LicenseTypeEnum;
         /**
+          * display footer custom slotted content
+         */
+        "customContent": boolean;
+        /**
           * faded status
          */
         "faded": boolean;
@@ -1583,6 +1590,16 @@ export namespace Components {
     }
     interface ZTableStickyFooter {
     }
+    interface ZTag {
+        /**
+          * [optional] Hide the text and show it on hover
+         */
+        "expandable"?: boolean;
+        /**
+          * [optional] Tag icon
+         */
+        "icon"?: string;
+    }
     interface ZToastNotification {
         /**
           * toast notification closing timeout (ms)
@@ -1788,6 +1805,12 @@ declare global {
     var HTMLZChipElement: {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
+    };
+    interface HTMLZChipDeprecatedElement extends Components.ZChipDeprecated, HTMLStencilElement {
+    }
+    var HTMLZChipDeprecatedElement: {
+        prototype: HTMLZChipDeprecatedElement;
+        new (): HTMLZChipDeprecatedElement;
     };
     interface HTMLZComboboxElement extends Components.ZCombobox, HTMLStencilElement {
     }
@@ -2245,6 +2268,12 @@ declare global {
         prototype: HTMLZTableStickyFooterElement;
         new (): HTMLZTableStickyFooterElement;
     };
+    interface HTMLZTagElement extends Components.ZTag, HTMLStencilElement {
+    }
+    var HTMLZTagElement: {
+        prototype: HTMLZTagElement;
+        new (): HTMLZTagElement;
+    };
     interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
     }
     var HTMLZToastNotificationElement: {
@@ -2308,6 +2337,7 @@ declare global {
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
+        "z-chip-deprecated": HTMLZChipDeprecatedElement;
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
@@ -2384,6 +2414,7 @@ declare global {
         "z-table-header-row": HTMLZTableHeaderRowElement;
         "z-table-row": HTMLZTableRowElement;
         "z-table-sticky-footer": HTMLZTableStickyFooterElement;
+        "z-tag": HTMLZTagElement;
         "z-toast-notification": HTMLZToastNotificationElement;
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
@@ -2627,11 +2658,15 @@ declare namespace LocalJSX {
         "isloading"?: boolean;
     }
     interface ZChip {
-        "boldtext"?: number;
         "disabled"?: boolean;
-        "filter"?: boolean;
-        "regulartext"?: string;
+        "icon"?: string;
+        "interactiveIcon"?: string;
+        "onInteractiveIconClick"?: (event: CustomEvent<any>) => void;
         "type"?: ZChipType;
+    }
+    interface ZChipDeprecated {
+        "boldtext"?: number;
+        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -3435,6 +3470,10 @@ declare namespace LocalJSX {
          */
         "cardtype"?: LicenseTypeEnum;
         /**
+          * display footer custom slotted content
+         */
+        "customContent"?: boolean;
+        /**
           * faded status
          */
         "faded"?: boolean;
@@ -4148,6 +4187,16 @@ declare namespace LocalJSX {
     }
     interface ZTableStickyFooter {
     }
+    interface ZTag {
+        /**
+          * [optional] Hide the text and show it on hover
+         */
+        "expandable"?: boolean;
+        /**
+          * [optional] Tag icon
+         */
+        "icon"?: string;
+    }
     interface ZToastNotification {
         /**
           * toast notification closing timeout (ms)
@@ -4304,6 +4353,7 @@ declare namespace LocalJSX {
         "z-card": ZCard;
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
+        "z-chip-deprecated": ZChipDeprecated;
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
@@ -4380,6 +4430,7 @@ declare namespace LocalJSX {
         "z-table-header-row": ZTableHeaderRow;
         "z-table-row": ZTableRow;
         "z-table-sticky-footer": ZTableStickyFooter;
+        "z-tag": ZTag;
         "z-toast-notification": ZToastNotification;
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
@@ -4408,6 +4459,7 @@ declare module "@stencil/core" {
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
+            "z-chip-deprecated": LocalJSX.ZChipDeprecated & JSXBase.HTMLAttributes<HTMLZChipDeprecatedElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
@@ -4484,6 +4536,7 @@ declare module "@stencil/core" {
             "z-table-header-row": LocalJSX.ZTableHeaderRow & JSXBase.HTMLAttributes<HTMLZTableHeaderRowElement>;
             "z-table-row": LocalJSX.ZTableRow & JSXBase.HTMLAttributes<HTMLZTableRowElement>;
             "z-table-sticky-footer": LocalJSX.ZTableStickyFooter & JSXBase.HTMLAttributes<HTMLZTableStickyFooterElement>;
+            "z-tag": LocalJSX.ZTag & JSXBase.HTMLAttributes<HTMLZTagElement>;
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;

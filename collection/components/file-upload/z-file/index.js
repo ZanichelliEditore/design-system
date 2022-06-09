@@ -1,8 +1,7 @@
 import { Component, h, Event, Element, Host, State, Listen, Prop, } from "@stencil/core";
-import { DeviceEnum, TooltipPosition, ZChipType } from "../../../beans";
+import { TooltipPosition, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
-import { getDevice } from "../../../utils/utils";
-import './index';
+import "./index";
 export class ZFile {
   constructor() {
     this.allowTooltip = false;
@@ -18,6 +17,9 @@ export class ZFile {
   onMouseLeave() {
     this.tooltipVisible = false;
   }
+  onInteractiveIconClick() {
+    this.removeFileHandler();
+  }
   componentDidLoad() {
     var _a, _b;
     if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
@@ -25,25 +27,16 @@ export class ZFile {
     (_b = (_a = this.icon) === null || _a === void 0 ? void 0 : _a.focus) === null || _b === void 0 ? void 0 : _b.call(_a);
   }
   elementHasEllipsis() {
+    console.log(this.ellipsis, this.ellipsis.offsetWidth, this.ellipsis.scrollWidth);
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
   render() {
     return (h(Host, null,
       this.allowTooltip && (h("z-tooltip", { open: this.tooltipVisible, type: TooltipPosition.AUTO, "bind-to": `#chip-${this.fileNumber}` },
         h("span", { class: "body-5 tootip-content" }, this.ellipsis.innerText))),
-      h("z-chip", { id: `chip-${this.fileNumber}`, filter: true, type: ZChipType.default },
-        h("div", { class: "chip-content" },
-          h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1, class: {
-              "body-3-sb": getDevice() == DeviceEnum.desktop,
-              "body-2-sb": getDevice() !== DeviceEnum.desktop,
-            } },
-            h("slot", null)),
-          h("z-icon", { "aria-label": "Elimina file", tabIndex: 0, onClick: () => this.removeFileHandler(), onKeyPress: (e) => {
-              if (e.code == "Space" || e.code == "Enter") {
-                e.preventDefault();
-                this.removeFileHandler();
-              }
-            }, name: "multiply-circled", height: getDevice() !== DeviceEnum.desktop ? 20 : 15, width: getDevice() !== DeviceEnum.desktop ? 20 : 15, ref: (val) => (this.icon = val) })))));
+      h("z-chip", { id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.default },
+        h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 },
+          h("slot", null)))));
   }
   static get is() { return "z-file"; }
   static get encapsulation() { return "scoped"; }
@@ -105,5 +98,11 @@ export class ZFile {
       "target": undefined,
       "capture": false,
       "passive": true
+    }, {
+      "name": "interactiveIconClick",
+      "method": "onInteractiveIconClick",
+      "target": undefined,
+      "capture": false,
+      "passive": false
     }]; }
 }

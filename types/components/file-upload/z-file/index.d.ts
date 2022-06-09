@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import './index';
+import "./index";
 export declare class ZFile {
   private icon;
   private ellipsis?;
@@ -12,6 +12,7 @@ export declare class ZFile {
   removeFileHandler(): void;
   onMouseOver(): void;
   onMouseLeave(): void;
+  onInteractiveIconClick(): void;
   componentDidLoad(): void;
   elementHasEllipsis(): boolean;
   render(): any;
