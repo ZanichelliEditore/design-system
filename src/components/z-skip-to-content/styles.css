@@ -2,11 +2,11 @@
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   position: absolute;
-  background-color: #24f4ff;
-  display: flex;
-  align-items: center;
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 3);
   left: -100%;
+  background-color: #24f4ff;
+  padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 3);
+  height: 60px;
+  box-sizing: border-box;
 }
 
 :host.skip-to-content-visible,
