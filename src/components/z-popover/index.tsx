@@ -27,6 +27,8 @@ export class ZPopover {
   @Prop() showArrow?: boolean = false;
   /** [optional] Sets padding for Popover container */
   @Prop() padding?: string = "8px";
+  /** [optional] Prevents event propagation on popover click */
+  @Prop() stopEventPropagation?: boolean = true;
 
   @State() isVisible: boolean = false;
   @State() popoverPosition: PopoverPosition = this.position;
@@ -114,7 +116,7 @@ export class ZPopover {
 
   handleClick(event) {
     this.isVisible ? this.closePopover() : this.openPopover();
-    event.stopPropagation();
+    this.stopEventPropagation && event.stopPropagation();
   }
 
   handleKeyDown(event) {

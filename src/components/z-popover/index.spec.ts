@@ -122,4 +122,24 @@ describe("Suite test ZPopover", () => {
       </z-popover>
     `);
   });
+
+  it("Test render ZPopover stopEventPropagation prop", async () => {
+    const page = await newSpecPage({
+      components: [ZPopover],
+      html: `<z-popover stopEventPropagation="false"><z-button slot="trigger">Trigger</z-button><div slot="popover">Content</div></z-popover>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-popover stopEventPropagation="false">
+        <div tabindex="0">
+          <z-button slot="trigger">Trigger</z-button>
+        </div>
+        <div class="after-up border-radius-small popover-content-container shadow-1" style="background-color: var(--color-white); padding: 8px;">
+          <div slot="popover">
+            Content
+          </div>
+        </div>
+      </z-popover>
+    `);
+  });
 });

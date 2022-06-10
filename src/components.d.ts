@@ -1337,6 +1337,10 @@ export namespace Components {
           * [optional] Show or hide arrow
          */
         "showArrow"?: boolean;
+        /**
+          * [optional] Prevents event propagation on popover click
+         */
+        "stopEventPropagation"?: boolean;
     }
     interface ZSectionTitle {
         /**
@@ -3901,6 +3905,10 @@ declare namespace LocalJSX {
           * [optional] Show or hide arrow
          */
         "showArrow"?: boolean;
+        /**
+          * [optional] Prevents event propagation on popover click
+         */
+        "stopEventPropagation"?: boolean;
     }
     interface ZSectionTitle {
         /**
