@@ -9,7 +9,7 @@
 
 | Property             | Attribute              | Description                                                                                                                               | Type      | Default     |
 | -------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `ghostLoadingHeight` | `ghost-loading-height` | sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. | `string`  | `"100"`     |
+| `ghostLoadingHeight` | `ghost-loading-height` | sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. | `number`  | `100`       |
 | `isLoading`          | `is-loading`           | sets whether the z-carousel is on loading state                                                                                           | `boolean` | `undefined` |
 
 

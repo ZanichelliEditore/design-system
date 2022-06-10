@@ -10,7 +10,7 @@ import "./index";
   argTypes={{
     isLoading: { control: { type: "boolean" } },
     ghostLoadinghHeight: {
-      control: "text",
+      control: "number",
     },
     zCarouselGutter: { control: "number", min: 0 },
   }}
@@ -227,7 +227,7 @@ import "./index";
     name="ZCarousel-ghost-loading"
     args={{
       isLoading: true,
-      ghostLoadinghHeight: "200",
+      ghostLoadinghHeight: 200,
     }}
   >
     {(args) => html`<z-carousel
@@ -272,7 +272,7 @@ z-carousel {
 You can handle ghost loading for the whole z-carousel passing two properties:
 
 - `isLoading` (boolean) : if `true`, it shows z-ghost-loading element.
-- `ghostLoadinghHeight` (string): sets the height of the z-carousel ghost loading component.
+- `ghostLoadinghHeight` (number): sets the height of the z-carousel ghost loading component.
 
 You can also handle ghost-loading of each single z-carousel element.
 You can see an example of use in the preview above (with story's name as ZCarousel-with-elements-loading).
