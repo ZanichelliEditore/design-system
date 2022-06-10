@@ -157,11 +157,11 @@ const ZCarousel = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     /** sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
-    this.ghostloadingheight = "100";
+    this.ghostLoadingHeight = 100;
   }
   render() {
-    if (this.isloading) {
-      return (index.h("div", { style: { height: `${this.ghostloadingheight}px` } }, index.h("z-ghost-loading", null), index.h("div", { style: { display: "none" } }, index.h("slot", null))));
+    if (this.isLoading) {
+      return (index.h("div", { style: { height: `${this.ghostLoadingHeight}px` } }, index.h("z-ghost-loading", null), index.h("div", { style: { display: "none" } }, index.h("slot", null))));
     }
     return (index.h("ul", { class: "z-carousel-items-container" }, index.h("slot", null)));
   }

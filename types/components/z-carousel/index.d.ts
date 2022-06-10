@@ -5,8 +5,8 @@
  */
 export declare class ZCarousel {
   /** sets whether the z-carousel is on loading state */
-  isloading: boolean;
+  isLoading: boolean;
   /** sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
-  ghostloadingheight: string;
+  ghostLoadingHeight: number;
   render(): any;
 }

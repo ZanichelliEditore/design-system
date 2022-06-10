@@ -7,11 +7,11 @@ import { Component, h, Prop } from "@stencil/core";
 export class ZCarousel {
   constructor() {
     /** sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
-    this.ghostloadingheight = "100";
+    this.ghostLoadingHeight = 100;
   }
   render() {
-    if (this.isloading) {
-      return (h("div", { style: { height: `${this.ghostloadingheight}px` } },
+    if (this.isLoading) {
+      return (h("div", { style: { height: `${this.ghostLoadingHeight}px` } },
         h("z-ghost-loading", null),
         h("div", { style: { display: "none" } },
           h("slot", null))));
@@ -27,7 +27,7 @@ export class ZCarousel {
     "$": ["styles.css"]
   }; }
   static get properties() { return {
-    "isloading": {
+    "isLoading": {
       "type": "boolean",
       "mutable": false,
       "complexType": {
@@ -41,15 +41,15 @@ export class ZCarousel {
         "tags": [],
         "text": "sets whether the z-carousel is on loading state"
       },
-      "attribute": "isloading",
+      "attribute": "is-loading",
       "reflect": false
     },
-    "ghostloadingheight": {
-      "type": "string",
+    "ghostLoadingHeight": {
+      "type": "number",
       "mutable": false,
       "complexType": {
-        "original": "string",
-        "resolved": "string",
+        "original": "number",
+        "resolved": "number",
         "references": {}
       },
       "required": false,
@@ -58,9 +58,9 @@ export class ZCarousel {
         "tags": [],
         "text": "sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show."
       },
-      "attribute": "ghostloadingheight",
+      "attribute": "ghost-loading-height",
       "reflect": false,
-      "defaultValue": "\"100\""
+      "defaultValue": "100"
     }
   }; }
 }
