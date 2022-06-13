@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.47.2](https://github.com/ZanichelliEditore/design-system/compare/v2.47.1...v2.47.2) (2022-06-13)
+
+
+### Bug Fixes
+
+* fix key event ([8b04a33](https://github.com/ZanichelliEditore/design-system/commit/8b04a330aab6db980ad169ac373520757e8fcae9))
+* fixed component storybook ([83cbfc5](https://github.com/ZanichelliEditore/design-system/commit/83cbfc52d0085f70957e12c5fe3252a440ae8b91))
+
 ### [2.47.1](https://github.com/ZanichelliEditore/design-system/compare/v2.47.0...v2.47.1) (2022-06-10)
 
 ## [2.47.0](https://github.com/ZanichelliEditore/design-system/compare/v2.46.3...v2.47.0) (2022-06-09)
