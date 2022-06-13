@@ -15,18 +15,20 @@
   display: block;
 }
 
-:host > z-link:last-child {
-  margin-right: 0;
+:host > z-link {
+  display: block;
+  text-align: center;
 }
 
 :host > z-link.link-invisible {
-  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }
 
 :host > z-link.link-visible {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  height: initial;
+  width: initial;
 }
 
 :host.dark {
@@ -42,20 +44,23 @@
 
 /* Tablet breakpoint */
 @media (min-width: 768px) {
+  :host > z-link {
+    text-align: left;
+  }
 }
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
-  :host > z-link.link-invisible,
-  :host > z-link.link-visible {
-    opacity: initial;
-    position: initial;
-    left: initial;
-  }
-
   :host > z-link {
+    display: inline-block;
     padding: 0 calc(var(--space-unit) * 3);
     border-right: 1px solid var(--bg-grey-800);
+  }
+
+  :host > z-link.link-invisible {
+    height: initial;
+    width: initial;
+    overflow: initial;
   }
 
   :host > z-link:first-child {
