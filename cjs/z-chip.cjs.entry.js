@@ -13,7 +13,9 @@ const ZChip = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.interactiveIconClick = index.createEvent(this, "interactiveIconClick", 7);
+    /** z-chip size type, can be default, medium or small */
     this.type = index$1.ZChipType.default;
+    /** set z-chip as disabled  */
     this.disabled = false;
   }
   emitinteractiveIconClick() {
@@ -24,7 +26,7 @@ const ZChip = class {
   }
   render() {
     if (this.interactiveIcon) {
-      return (index.h("button", { class: this.type, disabled: this.disabled, tabindex: "0" }, this.icon && (index.h("z-icon", { class: "iconSx", name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), index.h("slot", null), index.h("z-icon", { tabIndex: this.disabled ? -1 : 0, onClick: () => this.emitinteractiveIconClick(), onKeyPress: (e) => utils.handleKeyboardSubmit(e, this.emitinteractiveIconClick), name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() })));
+      return (index.h("button", { class: this.type, disabled: this.disabled, tabindex: "0" }, this.icon && (index.h("z-icon", { class: "iconSx", name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), index.h("slot", null), index.h("z-icon", { tabIndex: this.disabled ? -1 : 0, onClick: () => this.emitinteractiveIconClick(), onKeyUp: (e) => utils.handleKeyboardSubmit(e, this.emitinteractiveIconClick.bind(this)), name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() })));
     }
     return (index.h("div", { class: `${this.type}`, tabindex: "0" }, this.icon && (index.h("z-icon", { name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), index.h("slot", null)));
   }

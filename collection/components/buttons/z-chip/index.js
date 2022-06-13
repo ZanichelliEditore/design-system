@@ -3,7 +3,9 @@ import { DeviceEnum, ZChipType } from "../../../beans";
 import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 export class ZChip {
   constructor() {
+    /** z-chip size type, can be default, medium or small */
     this.type = ZChipType.default;
+    /** set z-chip as disabled  */
     this.disabled = false;
   }
   emitinteractiveIconClick() {
@@ -17,7 +19,7 @@ export class ZChip {
       return (h("button", { class: this.type, disabled: this.disabled, tabindex: "0" },
         this.icon && (h("z-icon", { class: "iconSx", name: this.icon, width: this.getIconSize(), height: this.getIconSize() })),
         h("slot", null),
-        h("z-icon", { tabIndex: this.disabled ? -1 : 0, onClick: () => this.emitinteractiveIconClick(), onKeyPress: (e) => handleKeyboardSubmit(e, this.emitinteractiveIconClick), name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() })));
+        h("z-icon", { tabIndex: this.disabled ? -1 : 0, onClick: () => this.emitinteractiveIconClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.emitinteractiveIconClick.bind(this)), name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() })));
     }
     return (h("div", { class: `${this.type}`, tabindex: "0" },
       this.icon && (h("z-icon", { name: this.icon, width: this.getIconSize(), height: this.getIconSize() })),
@@ -44,7 +46,7 @@ export class ZChip {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": ""
+        "text": "Non interactive icon"
       },
       "attribute": "icon",
       "reflect": false
@@ -66,7 +68,7 @@ export class ZChip {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": ""
+        "text": "z-chip size type, can be default, medium or small"
       },
       "attribute": "type",
       "reflect": true,
@@ -84,7 +86,7 @@ export class ZChip {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": ""
+        "text": "z-chip interactive icon"
       },
       "attribute": "interactive-icon",
       "reflect": true
@@ -101,7 +103,7 @@ export class ZChip {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": ""
+        "text": "set z-chip as disabled"
       },
       "attribute": "disabled",
       "reflect": true,
@@ -116,7 +118,7 @@ export class ZChip {
       "composed": true,
       "docs": {
         "tags": [],
-        "text": ""
+        "text": "click on interactive icon"
       },
       "complexType": {
         "original": "any",
