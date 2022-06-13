@@ -7,19 +7,19 @@
 
 ## Properties
 
-| Property          | Attribute          | Description | Type                                                       | Default             |
-| ----------------- | ------------------ | ----------- | ---------------------------------------------------------- | ------------------- |
-| `disabled`        | `disabled`         |             | `boolean`                                                  | `false`             |
-| `icon`            | `icon`             |             | `string`                                                   | `undefined`         |
-| `interactiveIcon` | `interactive-icon` |             | `string`                                                   | `undefined`         |
-| `type`            | `type`             |             | `ZChipType.default \| ZChipType.medium \| ZChipType.small` | `ZChipType.default` |
+| Property          | Attribute          | Description                                       | Type                                                       | Default             |
+| ----------------- | ------------------ | ------------------------------------------------- | ---------------------------------------------------------- | ------------------- |
+| `disabled`        | `disabled`         | set z-chip as disabled                            | `boolean`                                                  | `false`             |
+| `icon`            | `icon`             | Non interactive icon                              | `string`                                                   | `undefined`         |
+| `interactiveIcon` | `interactive-icon` | z-chip interactive icon                           | `string`                                                   | `undefined`         |
+| `type`            | `type`             | z-chip size type, can be default, medium or small | `ZChipType.default \| ZChipType.medium \| ZChipType.small` | `ZChipType.default` |
 
 
 ## Events
 
-| Event                  | Description | Type               |
-| ---------------------- | ----------- | ------------------ |
-| `interactiveIconClick` |             | `CustomEvent<any>` |
+| Event                  | Description               | Type               |
+| ---------------------- | ------------------------- | ------------------ |
+| `interactiveIconClick` | click on interactive icon | `CustomEvent<any>` |
 
 
 ## Dependencies
