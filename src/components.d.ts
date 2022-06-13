@@ -753,7 +753,7 @@ export namespace Components {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent": string | MenuItem[];
+        "menucontent": string | MenuItem1[];
         /**
           * user name text
          */
@@ -3153,7 +3153,7 @@ declare namespace LocalJSX {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem[];
+        "menucontent"?: string | MenuItem1[];
         /**
           * user name text
          */
