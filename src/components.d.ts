@@ -222,9 +222,21 @@ export namespace Components {
         "isLoading": boolean;
     }
     interface ZChip {
+        /**
+          * set z-chip as disabled
+         */
         "disabled"?: boolean;
+        /**
+          * Non interactive icon
+         */
         "icon"?: string;
+        /**
+          * z-chip interactive icon
+         */
         "interactiveIcon"?: string;
+        /**
+          * z-chip size type, can be default, medium or small
+         */
         "type"?: ZChipType;
     }
     interface ZChipDeprecated {
@@ -2658,10 +2670,25 @@ declare namespace LocalJSX {
         "isLoading"?: boolean;
     }
     interface ZChip {
+        /**
+          * set z-chip as disabled
+         */
         "disabled"?: boolean;
+        /**
+          * Non interactive icon
+         */
         "icon"?: string;
+        /**
+          * z-chip interactive icon
+         */
         "interactiveIcon"?: string;
+        /**
+          * click on interactive icon
+         */
         "onInteractiveIconClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * z-chip size type, can be default, medium or small
+         */
         "type"?: ZChipType;
     }
     interface ZChipDeprecated {
