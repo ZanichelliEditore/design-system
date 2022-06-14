@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.47.3](https://github.com/ZanichelliEditore/design-system/compare/v2.47.2...v2.47.3) (2022-06-14)
+
+
+### Bug Fixes
+
+* add stopEventPropagation prop for click event handling ([48900bb](https://github.com/ZanichelliEditore/design-system/commit/48900bbfeb66c44822d13d7989c40b151a4dbf9d))
+* add stopEventPropagation prop to storybook of zpopover ([fd1799e](https://github.com/ZanichelliEditore/design-system/commit/fd1799e0cc3f6877628bfca5691fca48afae74c3))
+
 ### [2.47.2](https://github.com/ZanichelliEditore/design-system/compare/v2.47.1...v2.47.2) (2022-06-13)
 
 
