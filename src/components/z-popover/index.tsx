@@ -1,4 +1,13 @@
-import { Component, Prop, h, Host, State, Listen } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  State,
+  Listen,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 import classNames from "classnames";
 import {
   PopoverPosition,
@@ -27,11 +36,16 @@ export class ZPopover {
   @Prop() showArrow?: boolean = false;
   /** [optional] Sets padding for Popover container */
   @Prop() padding?: string = "8px";
-  /** [optional] Prevents event propagation on popover click */
-  @Prop() stopEventPropagation?: boolean = true;
 
   @State() isVisible: boolean = false;
   @State() popoverPosition: PopoverPosition = this.position;
+
+  @Event() triggerClick: EventEmitter;
+  emitTriggerClick() {
+    this.triggerClick.emit({
+      isVisible: this.isVisible,
+    });
+  }
 
   private popoverElem: HTMLElement;
 
@@ -116,7 +130,8 @@ export class ZPopover {
 
   handleClick(event) {
     this.isVisible ? this.closePopover() : this.openPopover();
-    this.stopEventPropagation && event.stopPropagation();
+    this.emitTriggerClick();
+    event.stopPropagation();
   }
 
   handleKeyDown(event) {

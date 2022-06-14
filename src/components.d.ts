@@ -1337,10 +1337,6 @@ export namespace Components {
           * [optional] Show or hide arrow
          */
         "showArrow"?: boolean;
-        /**
-          * [optional] Prevents event propagation on popover click
-         */
-        "stopEventPropagation"?: boolean;
     }
     interface ZSectionTitle {
         /**
@@ -3893,6 +3889,7 @@ declare namespace LocalJSX {
           * [optional] Box shadow token for popover
          */
         "boxShadow"?: PopoverShadow;
+        "onTriggerClick"?: (event: CustomEvent<any>) => void;
         /**
           * [optional] Sets padding for Popover container
          */
@@ -3905,10 +3902,6 @@ declare namespace LocalJSX {
           * [optional] Show or hide arrow
          */
         "showArrow"?: boolean;
-        /**
-          * [optional] Prevents event propagation on popover click
-         */
-        "stopEventPropagation"?: boolean;
     }
     interface ZSectionTitle {
         /**
