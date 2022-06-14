@@ -40,6 +40,7 @@ export class ZPopover {
   @State() isVisible: boolean = false;
   @State() popoverPosition: PopoverPosition = this.position;
 
+  /** Emitted on popover click, returns isVisible state */
   @Event() triggerClick: EventEmitter;
   emitTriggerClick() {
     this.triggerClick.emit({
