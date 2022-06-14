@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.47.2](https://github.com/ZanichelliEditore/design-system/compare/v2.47.1...v2.47.2) (2022-06-13)
+
+
+### Bug Fixes
+
+* fix key event ([8b04a33](https://github.com/ZanichelliEditore/design-system/commit/8b04a330aab6db980ad169ac373520757e8fcae9))
+* fixed component storybook ([83cbfc5](https://github.com/ZanichelliEditore/design-system/commit/83cbfc52d0085f70957e12c5fe3252a440ae8b91))
+
+### [2.47.1](https://github.com/ZanichelliEditore/design-system/compare/v2.47.0...v2.47.1) (2022-06-10)
+
+## [2.47.0](https://github.com/ZanichelliEditore/design-system/compare/v2.46.3...v2.47.0) (2022-06-09)
+
+
+### Features
+
+* added new token color handling ([6778985](https://github.com/ZanichelliEditore/design-system/commit/67789852857ef75c8324b5315b1f5e71e0af4cac))
+* fix css ([68126dd](https://github.com/ZanichelliEditore/design-system/commit/68126ddf452b1ca46161f1a0b7de5b664a228d0c))
+* fix from PR, add docs, and fix storybook ([540ad21](https://github.com/ZanichelliEditore/design-system/commit/540ad21e9e74fc93f1adf54c70563bc51ea7dc12))
+* fix line-height ([9571d0f](https://github.com/ZanichelliEditore/design-system/commit/9571d0fd2be221292bec5025378644fc35455e2c))
+* fix transition delay ([13dd75d](https://github.com/ZanichelliEditore/design-system/commit/13dd75dd635260a883320edbedc14eebe9d36501))
+
+
+### Bug Fixes
+
+* back to shadow true and fix tests ([954fe85](https://github.com/ZanichelliEditore/design-system/commit/954fe85cd55bcb5c396a722a1a992206954e7b47))
+* file upload accessibility ([253ba69](https://github.com/ZanichelliEditore/design-system/commit/253ba694d62e87320c423ba8eff1b4ccb184bd51))
+* fix border ([58a3626](https://github.com/ZanichelliEditore/design-system/commit/58a3626d33fafa7e44e5c8a76d1f101875dbb5a0))
+* fix css style ([643f4be](https://github.com/ZanichelliEditore/design-system/commit/643f4be9895295d3d62491c516289275a18032cb))
+* fix deprecated components stories ([5e709ce](https://github.com/ZanichelliEditore/design-system/commit/5e709cea1fd4a48f5ca48407ecba08c2395e1432))
+* fix storybook ([d3d054e](https://github.com/ZanichelliEditore/design-system/commit/d3d054e5e7a285f6bc0716c51a2550987b366427))
+* fix tests ([d4f0f58](https://github.com/ZanichelliEditore/design-system/commit/d4f0f5895fa2512dde21f2c939c183011309cd45))
+* fix z-file style and z-select use deprecated z-button-filter ([b03bde6](https://github.com/ZanichelliEditore/design-system/commit/b03bde6a649b0d984c008e6d81777516d36ba09d))
+* fixed bean ([36b2d77](https://github.com/ZanichelliEditore/design-system/commit/36b2d77989a0dbe6c57de8ec73d8bd41e00a9ba2))
+* test ([30b90e8](https://github.com/ZanichelliEditore/design-system/commit/30b90e8de4d3e8681737adc49ecf09fa7d4d2105))
+* z-chip in file upload ([e6485d3](https://github.com/ZanichelliEditore/design-system/commit/e6485d33c56221f78d65074478f1ae4ea338dbd1))
+* z-file ([35bdc77](https://github.com/ZanichelliEditore/design-system/commit/35bdc77c4ae6e53b3e36277c55a4ecf992fc08bc))
+
 ### [2.46.3](https://github.com/ZanichelliEditore/design-system/compare/v2.46.2...v2.46.3) (2022-06-07)
 
 

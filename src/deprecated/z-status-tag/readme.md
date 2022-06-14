@@ -1,6 +1,6 @@
 # z-status-tag
 
-
+# This component is deprecated and will be removed from the library starting 09 August 2022.
 
 <!-- Auto Generated Below -->
 
@@ -20,7 +20,7 @@
 
 ### Depends on
 
-- [z-icon](../icons/z-icon)
+- [z-icon](../../components/icons/z-icon)
 
 ### Graph
 ```mermaid

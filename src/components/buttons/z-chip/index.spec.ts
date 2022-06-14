@@ -10,124 +10,105 @@ describe("Suite test ZChip", () => {
     });
 
     expect(page.root).toEqualHtml(`
-        <z-chip type="default">
-          <mock:shadow-root>
-          <div class="default">
-          <slot></slot>&nbsp;
-          </div>
-        </mock:shadow-root>
+      <z-chip type="default">
+          <div class="default" tabindex="0"></div>
       </z-chip>
     `);
   });
 
-  it("Test render ZChip with attributes", async () => {
+  it("Test render ZChip type medium", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip boldtext="20" regulartext="libri trovati" type="default"></z-chip>`,
+      html: `<z-chip type="medium">text</z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
-        <z-chip type="default" boldtext="20" regulartext="libri trovati">
-          <mock:shadow-root>
-            <div>
-              <span class="boldtext">20</span>&nbsp;libri trovati
-            </div>
-          </mock:shadow-root>
-        </z-chip>
+      <z-chip type="medium">
+          <div class="medium" tabindex="0">text</div>
+      </z-chip>
     `);
   });
 
-  it("Test render ZChip with children", async () => {
+  it("Test render ZChip with icon", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip type="default"><z-body>ciao 1</z-body></z-chip>`,
+      html: `<z-chip icon="pdf" type="default">text</z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
-        <z-chip type="default">
-          <mock:shadow-root>
-            <div class="default">
-              <slot />
-            </div>
-          </mock:shadow-root>
-          <z-body>ciao 1</z-body>
-        </z-chip>
+      <z-chip icon="pdf" type="default">
+          <div class="default" tabindex="0">
+            <z-icon height="14" name="pdf" width="14"></z-icon>
+            text
+          </div>
+      </z-chip>
     `);
   });
 
-  it("Test render ZChip with attributes and children", async () => {
+  it("Test render ZChip with interactive-icon", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip type="default" boldtext="20" regulartext="libri trovati">
-               <z-body>ciao 1</z-body>
-             </z-chip>`,
+      html: `<z-chip icon="" interactive-icon="multiply-circled" type="default">text</z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
-        <z-chip type="default" boldtext="20" regulartext="libri trovati">
-          <mock:shadow-root>
-            <div>
-              <span class="boldtext">20</span>&nbsp;libri trovati
-            </div>
-          </mock:shadow-root>
-          <z-body>ciao 1</z-body>
-        </z-chip>
+      <z-chip icon="" interactive-icon="multiply-circled" type="default">
+          <button class="default" tabindex="0">
+            text
+            <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
+          </button>
+      </z-chip>
     `);
   });
 
-  it("Test render ZChip with attributes and children and type mini", async () => {
+  it("Test render ZChip with interactive-icon and icon ", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip type="mini" boldtext="20" regulartext="libri trovati">
-               <z-body>ciao 1</z-body>
-             </z-chip>`,
+      html: `<z-chip icon="pdf" interactive-icon="multiply-circled" type="default">text</z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
-        <z-chip type="mini" boldtext="20" regulartext="libri trovati">
-          <mock:shadow-root>
-            <div>
-              <span class="boldtext">20</span>&nbsp;libri trovati
-            </div>
-          </mock:shadow-root>
-          <z-body>ciao 1</z-body>
-        </z-chip>
+      <z-chip icon="pdf" interactive-icon="multiply-circled" type="default">
+          <button class="default" tabindex="0">
+            <z-icon class="iconSx" height="14" name="pdf" width="14"></z-icon>
+            text
+            <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
+          </button>
+      </z-chip>
     `);
   });
 
-  it("Test render ZChip FilterChip with children", async () => {
+  it("Test render ZChip with interactive-icon and icon disabled", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip type="default" filter ><z-body>ciao 1</z-body></z-chip>`,
+      html: `<z-chip disabled icon="pdf" interactive-icon="multiply-circled" type="default">text</z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
-        <z-chip type="default" filter>
-          <mock:shadow-root>
-            <button class="default" tabindex="0">
-              <slot />
-            </button>
-          </mock:shadow-root>
-          <z-body>ciao 1</z-body>
-        </z-chip>
+      <z-chip disabled="" icon="pdf" interactive-icon="multiply-circled" type="default">
+          <button class="default" tabindex="0" disabled>
+            <z-icon class="iconSx" height="14" name="pdf" width="14"></z-icon>
+            text
+            <z-icon height="14" name="multiply-circled" tabindex="-1" width="14"></z-icon>
+          </button>
+      </z-chip>
     `);
   });
 
-  it("Test render ZChip FilterChip with children disabled", async () => {
+  it("Test render ZChip with interactive-icon and icon type small", async () => {
     const page = await newSpecPage({
       components: [ZChip],
-      html: `<z-chip type="default" filter disabled><z-body>ciao 1</z-body></z-chip>`,
+      html: `<z-chip icon="pdf" interactive-icon="multiply-circled" type="small">text</z-chip>`,
     });
 
     expect(page.root).toEqualHtml(`
-        <z-chip type="default" filter disabled>
-          <mock:shadow-root>
-            <button class="default" disabled="" tabindex="0">
-              <slot />
-            </button>
-          </mock:shadow-root>
-          <z-body>ciao 1</z-body>
-        </z-chip>
+      <z-chip icon="pdf" interactive-icon="multiply-circled" type="small">
+          <button class="small" tabindex="0">
+            <z-icon class="iconSx" height="14" name="pdf" width="14"></z-icon>
+            text
+            <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
+          </button>
+      </z-chip>
     `);
   });
 });
