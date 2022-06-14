@@ -19,9 +19,9 @@
 
 ## Events
 
-| Event          | Description | Type               |
-| -------------- | ----------- | ------------------ |
-| `triggerClick` |             | `CustomEvent<any>` |
+| Event          | Description                                       | Type               |
+| -------------- | ------------------------------------------------- | ------------------ |
+| `triggerClick` | Emitted on popover click, returns isVisible state | `CustomEvent<any>` |
 
 
 ## Dependencies

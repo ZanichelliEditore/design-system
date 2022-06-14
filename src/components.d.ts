@@ -3947,6 +3947,9 @@ declare namespace LocalJSX {
           * [optional] Box shadow token for popover
          */
         "boxShadow"?: PopoverShadow;
+        /**
+          * Emitted on popover click, returns isVisible state
+         */
         "onTriggerClick"?: (event: CustomEvent<any>) => void;
         /**
           * [optional] Sets padding for Popover container
