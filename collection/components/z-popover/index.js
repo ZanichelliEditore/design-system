@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, State, Listen } from "@stencil/core";
+import { Component, Prop, h, Host, State, Listen, Event, } from "@stencil/core";
 import classNames from "classnames";
 import { PopoverPosition, PopoverBorderRadius, PopoverShadow, KeyboardKeys, } from "../../beans";
 import { getElementTree } from "../../utils/utils";
@@ -22,6 +22,11 @@ export class ZPopover {
     this.isVisible = false;
     this.popoverPosition = this.position;
     this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+  emitTriggerClick() {
+    this.triggerClick.emit({
+      isVisible: this.isVisible,
+    });
   }
   openPopover() {
     const width = document.body.clientWidth;
@@ -85,6 +90,7 @@ export class ZPopover {
   }
   handleClick(event) {
     this.isVisible ? this.closePopover() : this.openPopover();
+    this.emitTriggerClick();
     event.stopPropagation();
   }
   handleKeyDown(event) {
@@ -250,6 +256,22 @@ export class ZPopover {
     "isVisible": {},
     "popoverPosition": {}
   }; }
+  static get events() { return [{
+      "method": "triggerClick",
+      "name": "triggerClick",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": {
+        "tags": [],
+        "text": "Emitted on popover click, returns isVisible state"
+      },
+      "complexType": {
+        "original": "any",
+        "resolved": "any",
+        "references": {}
+      }
+    }]; }
   static get listeners() { return [{
       "name": "closePopover",
       "method": "closePopover",

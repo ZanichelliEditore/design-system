@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host } from './index-90e18641.js';
+import { r as registerInstance, c as createEvent, h, H as Host } from './index-90e18641.js';
 import { c as classnames } from './index-abb47b30.js';
 import { P as PopoverPosition, F as PopoverBorderRadius, G as PopoverShadow, K as KeyboardKeys } from './index-96aade4f.js';
 import { b as getElementTree } from './utils-d06fbb4a.js';
@@ -13,6 +13,7 @@ const ZPopover = class {
    */
   constructor(hostRef) {
     registerInstance(this, hostRef);
+    this.triggerClick = createEvent(this, "triggerClick", 7);
     /** [optional] Popover position */
     this.position = PopoverPosition["after-up"];
     /** [optional] Background color token for popover */
@@ -28,6 +29,11 @@ const ZPopover = class {
     this.isVisible = false;
     this.popoverPosition = this.position;
     this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+  emitTriggerClick() {
+    this.triggerClick.emit({
+      isVisible: this.isVisible,
+    });
   }
   openPopover() {
     const width = document.body.clientWidth;
@@ -91,6 +97,7 @@ const ZPopover = class {
   }
   handleClick(event) {
     this.isVisible ? this.closePopover() : this.openPopover();
+    this.emitTriggerClick();
     event.stopPropagation();
   }
   handleKeyDown(event) {

@@ -17,6 +17,7 @@ const ZPopover = class {
    */
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
+    this.triggerClick = index.createEvent(this, "triggerClick", 7);
     /** [optional] Popover position */
     this.position = index$1.PopoverPosition["after-up"];
     /** [optional] Background color token for popover */
@@ -32,6 +33,11 @@ const ZPopover = class {
     this.isVisible = false;
     this.popoverPosition = this.position;
     this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+  emitTriggerClick() {
+    this.triggerClick.emit({
+      isVisible: this.isVisible,
+    });
   }
   openPopover() {
     const width = document.body.clientWidth;
@@ -95,6 +101,7 @@ const ZPopover = class {
   }
   handleClick(event) {
     this.isVisible ? this.closePopover() : this.openPopover();
+    this.emitTriggerClick();
     event.stopPropagation();
   }
   handleKeyDown(event) {

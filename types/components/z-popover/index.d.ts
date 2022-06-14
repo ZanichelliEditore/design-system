@@ -1,3 +1,4 @@
+import { EventEmitter } from "../../stencil-public-runtime";
 import { PopoverPosition, PopoverBorderRadius, PopoverShadow } from "../../beans";
 export declare class ZPopover {
   /** [optional] Popover position */
@@ -14,6 +15,9 @@ export declare class ZPopover {
   padding?: string;
   isVisible: boolean;
   popoverPosition: PopoverPosition;
+  /** Emitted on popover click, returns isVisible state */
+  triggerClick: EventEmitter;
+  emitTriggerClick(): void;
   private popoverElem;
   /**
    * Constructor.
