@@ -364,9 +364,6 @@ export namespace Components {
           * File name
          */
         "fileName": any;
-        /**
-          * File identifier
-         */
         "fileNumber": number;
     }
     interface ZFileUpload {
@@ -2847,9 +2844,6 @@ declare namespace LocalJSX {
           * File name
          */
         "fileName"?: any;
-        /**
-          * File identifier
-         */
         "fileNumber"?: number;
         /**
           * Emitted when a z-file component is removed from the DOM
