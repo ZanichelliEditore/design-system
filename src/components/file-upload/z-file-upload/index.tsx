@@ -114,15 +114,11 @@ export class ZFileUpload {
     return this.files;
   }
 
-  handleAccessibility() {
-    if (this.files.length > 0) {
-      (this.el
-        .querySelector("z-file:last-child > z-chip")
-        .shadowRoot.querySelector("button") as HTMLElement).focus();
-    } else {
-      this.type === ZFileUploadTypeEnum.default
-        ? this.button.shadowRoot.querySelector("button").focus()
-        : this.uploadLink.focus();
+  handleAccessibility(){
+    if(this.files.length > 0) {
+      (this.el.querySelector('z-file:last-child z-chip button') as HTMLElement).focus();
+    }else {
+      this.type === ZFileUploadTypeEnum.default ? this.button.shadowRoot.querySelector('button').focus() : this.uploadLink.focus();
     }
   }
 

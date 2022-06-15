@@ -8,10 +8,12 @@ div {
   height: 522px;
   border: var(--border-size-medium) solid var(--color-surface03);
   border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 div.real,
-div.trial {
+div.trial,
+div.temp {
   border-color: var(--accent);
 }
 

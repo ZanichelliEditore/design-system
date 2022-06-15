@@ -9,9 +9,8 @@ import {
   Listen,
   Prop,
 } from "@stencil/core";
-import { DeviceEnum, TooltipPosition, ZChipType } from "../../../beans";
+import { TooltipPosition, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
-import { getDevice } from "../../../utils/utils";
 
 @Component({
   tag: "z-file",
@@ -24,7 +23,6 @@ export class ZFile {
 
   private ellipsis?: HTMLSpanElement;
 
-  /** File identifier */
   @Prop() fileNumber: number;
 
   /** File name */
@@ -53,6 +51,11 @@ export class ZFile {
     this.tooltipVisible = false;
   }
 
+  @Listen("interactiveIconClick")
+  onInteractiveIconClick() {
+    this.removeFileHandler();
+  }
+
   componentDidLoad() {
     if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
       this.allowTooltip = true;
@@ -61,6 +64,7 @@ export class ZFile {
   }
 
   elementHasEllipsis(): boolean {
+    console.log(this.ellipsis, this.ellipsis.offsetWidth, this.ellipsis.scrollWidth);
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 
@@ -76,34 +80,17 @@ export class ZFile {
             <span class="body-5 tootip-content">{this.ellipsis.innerText}</span>
           </z-tooltip>
         )}
-        <z-chip id={`chip-${this.fileNumber}`} filter type={ZChipType.default}>
-          <div class="chip-content">
+        <z-chip
+          id={`chip-${this.fileNumber}`}
+          interactiveIcon="multiply-circled"
+          type={ZChipType.default}
+        >
             <span
               ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
               tabIndex={-1}
-              class={{
-                "body-3-sb": getDevice() == DeviceEnum.desktop,
-                "body-2-sb": getDevice() !== DeviceEnum.desktop,
-              }}
             >
               {this.fileName}
             </span>
-            <z-icon
-              aria-label="Elimina file"
-              tabIndex={0}
-              onClick={() => this.removeFileHandler()}
-              onKeyPress={(e) => {
-                if (e.code == "Space" || e.code == "Enter") {
-                  e.preventDefault();
-                  this.removeFileHandler();
-                }
-              }}
-              name="multiply-circled"
-              height={getDevice() !== DeviceEnum.desktop ? 20 : 15}
-              width={getDevice() !== DeviceEnum.desktop ? 20 : 15}
-              ref={(val) => (this.icon = val as HTMLElement)}
-            />
-          </div>
         </z-chip>
       </Host>
     );

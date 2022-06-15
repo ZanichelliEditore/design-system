@@ -7,13 +7,19 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                                  | Default     |
-| ------------- | ------------- | ----------- | ------------------------------------- | ----------- |
-| `boldtext`    | `boldtext`    |             | `number`                              | `undefined` |
-| `disabled`    | `disabled`    |             | `boolean`                             | `false`     |
-| `filter`      | `filter`      |             | `boolean`                             | `false`     |
-| `regulartext` | `regulartext` |             | `string`                              | `undefined` |
-| `type`        | `type`        |             | `ZChipType.default \| ZChipType.mini` | `undefined` |
+| Property          | Attribute          | Description                                       | Type                                                       | Default             |
+| ----------------- | ------------------ | ------------------------------------------------- | ---------------------------------------------------------- | ------------------- |
+| `disabled`        | `disabled`         | set z-chip as disabled                            | `boolean`                                                  | `false`             |
+| `icon`            | `icon`             | Non interactive icon                              | `string`                                                   | `undefined`         |
+| `interactiveIcon` | `interactive-icon` | z-chip interactive icon                           | `string`                                                   | `undefined`         |
+| `type`            | `type`             | z-chip size type, can be default, medium or small | `ZChipType.default \| ZChipType.medium \| ZChipType.small` | `ZChipType.default` |
+
+
+## Events
+
+| Event                  | Description               | Type               |
+| ---------------------- | ------------------------- | ------------------ |
+| `interactiveIconClick` | click on interactive icon | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -22,9 +28,14 @@
 
  - [z-file](../../file-upload/z-file)
 
+### Depends on
+
+- [z-icon](../../icons/z-icon)
+
 ### Graph
 ```mermaid
 graph TD;
+  z-chip --> z-icon
   z-file --> z-chip
   style z-chip fill:#f9f,stroke:#333,stroke-width:4px
 ```

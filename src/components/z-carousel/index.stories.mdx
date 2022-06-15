@@ -1,16 +1,33 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { number, text } from "@storybook/addon-knobs";
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+
 import "./index.stories.css";
 import "./index";
 
-<Meta title="ZCarousel" component="z-carousel" />
+<Meta
+  title="ZCarousel"
+  component="z-carousel"
+  argTypes={{
+    isLoading: { control: { type: "boolean" } },
+    ghostLoadinghHeight: {
+      control: "number",
+    },
+    zCarouselGutter: { control: "number", min: 0 },
+  }}
+/>
 
 # ZCarousel
 
-<Preview>
-  <Story name="ZCarousel-with-div">
-    {html`<z-carousel style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, { min: 0 })}px">
+<Canvas>
+  <Story
+    name="ZCarousel-with-div"
+    args={{
+      zCarouselGutter: 8,
+    }}
+  >
+    {(args) => html`<z-carousel
+      style="--z-carousel-gutter: ${args.zCarouselGutter}px"
+    >
       <li>
         <div class="carousel-box"></div>
       </li>
@@ -40,11 +57,18 @@ import "./index";
       </li>
     </z-carousel>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZCarousel-with-component">
-    {html`<z-carousel style="--z-carousel-gutter: ${number("--z-carousel-gutter", 8, { min: 0 })}px">
+<Canvas>
+  <Story
+    name="ZCarousel-with-component"
+    args={{
+      zCarouselGutter: 8,
+    }}
+  >
+    {(args) => html`<z-carousel
+      style="--z-carousel-gutter: ${args.zCarouselGutter}px"
+    >
       <li>
         <z-button variant="primary" size="big" disabled="false" icon="download">
           Click Me
@@ -147,14 +171,81 @@ import "./index";
       </li>
     </z-carousel>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-carousel" />
+<Canvas>
+  <Story
+    name="ZCarousel-with-elements-loading"
+    args={{
+      zCarouselGutter: 8,
+    }}
+  >
+    {(args) => html`<z-carousel
+      style="--z-carousel-gutter: ${args.zCarouselGutter}px"
+    >
+      <li>
+        <div class="carousel-box-loading">
+          <z-ghost-loading></z-ghost-loading>
+        </div>
+      </li>
+      <li>
+        <div class="carousel-box-loading">
+          <z-ghost-loading></z-ghost-loading>
+        </div>
+      </li>
+      <li>
+        <div class="carousel-box-loading">
+          <z-ghost-loading></z-ghost-loading>
+        </div>
+      </li>
+      <li>
+        <div class="carousel-box-loading">
+          <z-ghost-loading></z-ghost-loading>
+        </div>
+      </li>
+      <li>
+        <div class="carousel-box-loading">
+          <z-ghost-loading></z-ghost-loading>
+        </div>
+      </li>
+      <li>
+        <div class="carousel-box-loading">
+          <z-ghost-loading></z-ghost-loading>
+        </div>
+      </li>
+      <li>
+        <div class="carousel-box-loading">
+          <z-ghost-loading></z-ghost-loading>
+        </div>
+      </li>
+    </z-carousel>`}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="ZCarousel-ghost-loading"
+    args={{
+      isLoading: true,
+      ghostLoadinghHeight: 200,
+    }}
+  >
+    {(args) => html`<z-carousel
+      is-loading=${args.isLoading}
+      ghost-loading-height=${args.ghostLoadinghHeight}
+    >
+    </z-carousel>`}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-carousel" />
 
 ## Description
+
 This component was conceived as a list of elements to respect the rules of accessibility (https://www.w3.org/WAI/tutorials/carousels/working-example/).
 
 ## Usage
+
 Pass any number of elements inside its main `slot`.
 
 ```html
@@ -162,15 +253,26 @@ Pass any number of elements inside its main `slot`.
   <li>element</li>
   <li>element</li>
   <li>element</li>
-<z-carousel>
+</z-carousel>
 ```
 
 > Note: always use `li` elements as direct children of `z-carousel`, as it wraps them into an `ul` element.
 
 You can set the gutter between the elements by using the `--z-carousel-gutter` custom property.
 From css:
+
 ```css
 z-carousel {
   --z-carousel-gutter: 16px;
 }
 ```
+
+## Ghost loading notes
+
+You can handle ghost loading for the whole z-carousel passing two properties:
+
+- `isLoading` (boolean) : if `true`, it shows z-ghost-loading element.
+- `ghostLoadinghHeight` (number): sets the height of the z-carousel ghost loading component.
+
+You can also handle ghost-loading of each single z-carousel element.
+You can see an example of use in the preview above (with story's name as ZCarousel-with-elements-loading).
