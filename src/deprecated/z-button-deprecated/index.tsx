@@ -15,7 +15,7 @@ import {
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZButton {
+export class ZButtonDeprecated {
   @Element() hostElement: HTMLElement;
 
   /** Identifier, should be unique. */

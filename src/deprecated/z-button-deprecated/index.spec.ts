@@ -1,11 +1,11 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZButton } from "./index";
+import { ZButtonDeprecated } from "./index";
 
-describe("Suite test ZButton", () => {
+describe("Suite test ZButtonDeprecated", () => {
   it("Test render ZButton", async () => {
     const page = await newSpecPage({
-      components: [ZButton],
+      components: [ZButtonDeprecated],
       html: `<z-button-deprecated></z-button-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
@@ -21,9 +21,9 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  it("Test render ZButton con contenuto", async () => {
+  it("Test render ZButtonDeprecated con contenuto", async () => {
     const page = await newSpecPage({
-      components: [ZButton],
+      components: [ZButtonDeprecated],
       html: `<z-button-deprecated>label</z-button-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
@@ -40,9 +40,9 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  it("Test render ZButton con icon", async () => {
+  it("Test render ZButtonDeprecated con icon", async () => {
     const page = await newSpecPage({
-      components: [ZButton],
+      components: [ZButtonDeprecated],
       html: `<z-button-deprecated icon="icon"></z-button-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
@@ -59,9 +59,9 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  it("Test render ZButton variant", async () => {
+  it("Test render ZButtonDeprecated variant", async () => {
     const page = await newSpecPage({
-      components: [ZButton],
+      components: [ZButtonDeprecated],
       html: `<z-button-deprecated variant="secondary"></z-button-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
@@ -77,9 +77,9 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  it("Test render ZButton small", async () => {
+  it("Test render ZButtonDeprecated small", async () => {
     const page = await newSpecPage({
-      components: [ZButton],
+      components: [ZButtonDeprecated],
       html: `<z-button-deprecated issmall></z-button-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
@@ -95,9 +95,9 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  it("Test render ZButton disabled", async () => {
+  it("Test render ZButtonDeprecated disabled", async () => {
     const page = await newSpecPage({
-      components: [ZButton],
+      components: [ZButtonDeprecated],
       html: `<z-button-deprecated disabled></z-button-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
@@ -113,9 +113,9 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  it("Test render ZButton with slotted button", async () => {
+  it("Test render ZButtonDeprecated with slotted button", async () => {
     const page = await newSpecPage({
-      components: [ZButton],
+      components: [ZButtonDeprecated],
       html: `<z-button-deprecated>
         <button>invio</button>
       </z-button-deprecated>`,
@@ -135,9 +135,9 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  it("Test render ZButton with link and variant", async () => {
+  it("Test render ZButtonDeprecated with link and variant", async () => {
     const page = await newSpecPage({
-      components: [ZButton],
+      components: [ZButtonDeprecated],
       html: `<z-button-deprecated variant="primary">
         <a href="https://wikipedia.com">Link</button>
       </z-button-deprecated>`,
