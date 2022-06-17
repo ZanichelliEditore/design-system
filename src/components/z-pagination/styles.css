@@ -1,0 +1,106 @@
+:host {
+  --z-pagination--visible-pages: 5;
+
+  display: flex;
+  height: 48px;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+}
+
+:host,
+:host * {
+  box-sizing: border-box;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: var(--color-surface03);
+  transition: background-color .150s ease-out,
+    color .150s ease-out,
+    border-bottom-color .150s ease-out,
+    font-size .150s ease-in-out,
+    font-weight .150s ease-in-out;
+  color: var(--color-primary01);
+  border: none;
+  font-family: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-hover-surface);
+}
+
+button:focus-visible {
+  outline: none;
+  box-shadow: inset var(--shadow-focus-primary);
+  background-color: var(--color-hover-surface);
+}
+
+z-icon {
+  fill: var(--color-icon01);
+}
+
+*:disabled z-icon {
+  fill: var(--color-disabled02);
+}
+
+.navigation-button {
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 1.5);
+}
+
+.navigation-button:disabled {
+  background-color: var(--color-disabled01);
+  color: var(--color-disabled02);
+  cursor: default;
+}
+
+.pages-container {
+  --z-pagination--page-button-width: 88px;
+
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  /* hide scrollbar in Firefox */
+  scrollbar-width: none;
+}
+
+.pages-container::-webkit-scrollbar {
+  display: none;
+}
+
+.pages-chunk {
+  display: flex;
+  scroll-snap-align: center;
+}
+
+.page-button {
+  width: var(--z-pagination--page-button-width);
+  height: 100%;
+  border-bottom: var(--border-size-large) solid transparent;
+  font-size: var(--font-size-2);
+  font-weight: var(--font-sb);
+}
+
+.page-button:hover,
+.page-button:focus-visible {
+  border-bottom-color: var(--color-hover-light);
+}
+
+.page-button[data-active] {
+  font-size: var(--font-size-7);
+  border-bottom-color: var(--color-primary01);
+}
+
+@media (min-width: 768px) {
+  .pages-container {
+    max-width: calc(var(--z-pagination--page-button-width) *
+      var(--z-pagination--visible-pages));
+  }
+}

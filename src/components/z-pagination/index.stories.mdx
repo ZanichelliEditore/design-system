@@ -1,0 +1,35 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import { html } from "lit-html";
+import "./index";
+
+<Meta title="ZPagination" component="z-pagination" argTypes={{
+  navArrows: { control: { type: "boolean" } },
+  totalPages: { control: { type: "number", min: 1 } },
+  visiblePages: { control: { type: "number", min: 1 } },
+  currentPage: { control: { type: "number", min: 1 } },
+}} />
+
+# ZPagination
+
+<Canvas>
+  <Story
+    name="ZPagination-sample"
+    args={{
+      navArrows: true,
+      totalPages: 10,
+      visiblePages: 5,
+      currentPage: 1,
+    }}
+  >
+    {(args) => html`
+      <z-pagination
+        .navArrows=${args.navArrows}
+        .totalPages=${args.totalPages}
+        .visiblePages=${args.visiblePages}
+        .currentPage=${args.currentPage}
+      ></z-pagination>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-pagination" />
