@@ -40,11 +40,9 @@ export class ZPagination {
   @Prop({ mutable: true })
   currentPage: number = 1;
 
-  /** Whether to show "go to page" functionality. */
+  /** Whether to show "go to page" feature. */
   @Prop()
   goToPage: Boolean;
-
-  /** Current page. */
 
   /** Event emitted when the current page has changed. */
   @Event()
@@ -130,11 +128,10 @@ export class ZPagination {
 
   /**
    * On split changed.
-   * @emits pageChanged
    */
-    @Watch("split")
-    onSplitchanged() {
-      this.setVisiblePages();
+  @Watch("split")
+  onSplitChanged() {
+    this.setVisiblePages();
   }
 
   /**
@@ -168,31 +165,22 @@ export class ZPagination {
   }
 
   /**
-   * Event handler for go to page button.
+   * Event handler for go to page button click.
    */
   onGoToPage() {
     const newPage = Number(this.goToPageInput.value);
     if (newPage < this.totalPages) {
       this.currentPage = newPage;
-      this.scrollToPage();
     }
-  }
-
-  connectedCallback() {
-    this.setCSSVisiblePages();
-  }
-
-  componentWillRender() {
-    this.setVisiblePages();
   }
 
   renderPageButton(page) {
     return <button class="page-button"
-        type="button"
-        data-page={page}
-        data-active={this.currentPage == page}
-        onClick={() => this.selectPage(page)}
-      >
+      type="button"
+      data-page={page}
+      data-active={this.currentPage == page}
+      onClick={() => this.selectPage(page)}
+    >
       {page}
     </button>
   }
@@ -217,9 +205,9 @@ export class ZPagination {
       this.splitLeft = true;
 
       return <button class="split-button"
-          type="button"
-          onClick={() => this.currentPage = this.currentPage - 1}
-        >
+        type="button"
+        onClick={() => this.currentPage = this.currentPage - 1}
+      >
         …
       </button>
     }
@@ -229,12 +217,20 @@ export class ZPagination {
       this.splitRight = true;
 
       return <button class="split-button"
-          type="button"
-          onClick={() => this.currentPage = this.currentPage + 1}
-        >
+        type="button"
+        onClick={() => this.currentPage++}
+      >
         …
       </button>
     }
+  }
+
+  connectedCallback() {
+    this.setCSSVisiblePages();
+  }
+
+  componentWillRender() {
+    this.setVisiblePages();
   }
 
   render() {
@@ -243,39 +239,58 @@ export class ZPagination {
     this.splitLeft = false;
 
     return [
-      this.navArrows && <button class="navigation-button"
-        type="button"
-        disabled={this.currentPage == 1}
-        onClick={this.previous.bind(this)}
-      >
-        <z-icon name="chevron-left"></z-icon>
-      </button>,
+      <div class="pagination-bar">
+        {this.navArrows && (
+          <button
+            class="navigation-button"
+            type="button"
+            disabled={this.currentPage == 1}
+            onClick={this.previous.bind(this)}
+          >
+            <z-icon name="chevron-left"></z-icon>
+          </button>
+        )}
 
-      <div class="pages-container"
-        role="navigation"
-        tabIndex={-1}
-        ref={(el) => (this.pagesContainer = el as HTMLElement)}
-      >
-        {pagesChunks.length > 0 && pagesChunks.map((chunk) =>
-          <div class="pages-chunk">
-            {chunk.map((page) => this.renderPage(page))}
-          </div>
+        <div
+          class="pages-container"
+          role="navigation"
+          tabIndex={-1}
+          ref={(el) => (this.pagesContainer = el as HTMLElement)}
+        >
+          {pagesChunks.length > 0 && pagesChunks.map((chunk) =>
+            <div class="pages-chunk">
+              {chunk.map((page) => this.renderPage(page))}
+            </div>
+          )}
+        </div>
+
+        {this.navArrows && (
+          <button
+            class="navigation-button"
+            type="button"
+            disabled={this.currentPage == this.totalPages}
+            onClick={this.next.bind(this)}
+          >
+            <z-icon name="chevron-right"></z-icon>
+          </button>
         )}
       </div>,
 
-      this.navArrows && <button class="navigation-button"
-        type="button"
-        disabled={this.currentPage == this.totalPages}
-        onClick={this.next.bind(this)}
-      >
-        <z-icon name="chevron-right"></z-icon>
-      </button>,
-      this.goToPage && <div class="go-to-page">
-        <div class="inputs">
-          <z-input hasmessage={false} label="Vai a pagina:" ref={(el) => (this.goToPageInput = el as HTMLZInputElement)} type="number" placeholder={`${this.totalPages / 2}`} hasclearicon={false}></z-input>
-          <z-button onClick={this.onGoToPage.bind(this)}>vai</z-button>
+      this.goToPage && (
+        <div class="go-to-page">
+          <span class="label">Vai a pagina:</span>
+          <div class="inputs">
+            <z-input
+              ref={(el) => (this.goToPageInput = el as HTMLZInputElement)}
+              type="number"
+              hasmessage={false}
+              placeholder={`${this.totalPages / 2}`}
+              hasclearicon={false}
+            ></z-input>
+            <z-button onClick={this.onGoToPage.bind(this)}>vai</z-button>
+          </div>
         </div>
-      </div>,
+      ),
     ];
   }
 }

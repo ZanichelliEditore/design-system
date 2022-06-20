@@ -2,6 +2,7 @@
   --z-pagination--visible-pages: 5;
 
   display: flex;
+  align-items: flex-end;
   margin: 0 auto;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
@@ -12,7 +13,22 @@
   box-sizing: border-box;
 }
 
-button {
+z-icon {
+  fill: var(--color-icon01);
+}
+
+*:disabled z-icon {
+  fill: var(--color-disabled02);
+}
+
+.pagination-bar {
+  --z-pagination--page-button-width: 88px;
+
+  display: flex;
+  height: 48px;
+}
+
+.pagination-bar button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,37 +46,32 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.pagination-bar button:hover {
   background-color: var(--color-hover-surface);
 }
 
-button:focus-visible {
+.pagination-bar button:focus-visible {
   outline: none;
   box-shadow: inset var(--shadow-focus-primary);
   background-color: var(--color-hover-surface);
 }
 
-z-icon {
-  fill: var(--color-icon01);
-}
-
-*:disabled z-icon {
-  fill: var(--color-disabled02);
-}
-
-.navigation-button {
+.pagination-bar .navigation-button {
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 1.5);
 }
 
-.navigation-button:disabled {
+.pagination-bar .navigation-button:disabled {
   background-color: var(--color-disabled01);
   color: var(--color-disabled02);
   cursor: default;
 }
 
-.pages-container {
-  --z-pagination--page-button-width: 88px;
+.pagination-bar .page-button,
+.pagination-bar .split-button {
+  width: var(--z-pagination--page-button-width);
+}
 
+.pages-container {
   position: relative;
   display: inline-flex;
   max-width: 100%;
@@ -69,14 +80,6 @@ z-icon {
 
   /* hide scrollbar in Firefox */
   scrollbar-width: none;
-}
-
-.navigation-button,
-.pages-container,
-.go-to-page z-input .textWrapper > div > input,
-.go-to-page z-button {
-  height: 48px !important;
-  margin-top: auto;
 }
 
 .pages-container::-webkit-scrollbar {
@@ -88,20 +91,18 @@ z-icon {
   scroll-snap-align: center;
 }
 
-.page-button {
-  width: var(--z-pagination--page-button-width);
-  height: 100%;
+.pagination-bar .page-button {
   border-bottom: var(--border-size-large) solid transparent;
   font-size: var(--font-size-2);
   font-weight: var(--font-sb);
 }
 
-.page-button:hover,
-.page-button:focus-visible {
+.pagination-bar .page-button:hover,
+.pagination-bar .page-button:focus-visible {
   border-bottom-color: var(--color-hover-light);
 }
 
-.page-button[data-active] {
+.pagination-bar .page-button[data-active] {
   font-size: var(--font-size-7);
   border-bottom-color: var(--color-primary01);
 }
@@ -109,13 +110,26 @@ z-icon {
 .go-to-page {
   display: flex;
   flex-direction: column;
-  margin-left: var(--space-unit);
+  row-gap: var(--space-unit);
+  margin-left: calc(var(--space-unit) * 4);
+}
+
+.go-to-page .label {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-sb);
+  color: var(--color-text02);
+  line-height: 1.33;
+  letter-spacing: 0.32px;
+  text-transform: uppercase;
 }
 
 .go-to-page .inputs {
   display: flex;
-  align-items: flex-end;
-  gap: var(--space-unit);
+  column-gap: var(--space-unit);
+}
+
+.go-to-page .inputs z-input input {
+  padding: 0 calc(var(--space-unit) * 1.5) !important;
 }
 
 @media (min-width: 768px) {

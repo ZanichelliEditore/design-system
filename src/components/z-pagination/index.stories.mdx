@@ -6,7 +6,8 @@ import "./index";
   navArrows: { control: { type: "boolean" } },
   totalPages: { control: { type: "number", min: 1 } },
   visiblePages: { control: { type: "number", min: 1 } },
-  currentPage: { control: { type: "number", min: 1 } },
+  goToPage: { control: { type: "boolean" } },
+  split: { control: { type: "number", min: 1 } },
 }} />
 
 # ZPagination
@@ -18,7 +19,6 @@ import "./index";
       navArrows: true,
       totalPages: 10,
       visiblePages: 5,
-      currentPage: 1,
       split: 1,
       goToPage: false,
     }}
@@ -28,7 +28,6 @@ import "./index";
         .navArrows=${args.navArrows}
         .totalPages=${args.totalPages}
         .visiblePages=${args.visiblePages}
-        .currentPage=${args.currentPage}
         .split=${args.split}
         .goToPage=${args.goToPage}
       ></z-pagination>
