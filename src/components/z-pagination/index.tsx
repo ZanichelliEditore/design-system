@@ -171,8 +171,11 @@ export class ZPagination {
    * Event handler for go to page button.
    */
   onGoToPage() {
-    this.currentPage = Number(this.goToPageInput.value) || this.currentPage;
-    this.scrollToPage();
+    const newPage = Number(this.goToPageInput.value);
+    if (newPage < this.totalPages) {
+      this.currentPage = newPage;
+      this.scrollToPage();
+    }
   }
 
   connectedCallback() {
