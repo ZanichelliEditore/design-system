@@ -19,7 +19,6 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100%;
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   font-size: 14px;
