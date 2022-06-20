@@ -98,9 +98,21 @@ export namespace Components {
     }
     interface ZButton {
         /**
+          * defines a string value that labels an interactive element, used for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * define whether it renders a button or an a.
+         */
+        "as"?: string;
+        /**
           * HTML button disabled attribute.
          */
         "disabled"?: boolean;
+        /**
+          * HTML a href attribute.
+         */
+        "href"?: string;
         /**
           * Identifier, should be unique.
          */
@@ -111,7 +123,7 @@ export namespace Components {
         "icon"?: string;
         /**
           * Reduce button size (deprecated).
-          * @deprecated Use `size` prop.
+          * @deprecated Use `size` prop.   TODO: RIMUOVERE???
          */
         "issmall"?: boolean;
         /**
@@ -126,6 +138,10 @@ export namespace Components {
           * Spy to render square button.
          */
         "square"?: boolean;
+        /**
+          * HTML a target attribute.
+         */
+        "target"?: string;
         /**
           * HTML button type attribute.
          */
@@ -2580,9 +2596,21 @@ declare namespace LocalJSX {
     }
     interface ZButton {
         /**
+          * defines a string value that labels an interactive element, used for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * define whether it renders a button or an a.
+         */
+        "as"?: string;
+        /**
           * HTML button disabled attribute.
          */
         "disabled"?: boolean;
+        /**
+          * HTML a href attribute.
+         */
+        "href"?: string;
         /**
           * Identifier, should be unique.
          */
@@ -2593,7 +2621,7 @@ declare namespace LocalJSX {
         "icon"?: string;
         /**
           * Reduce button size (deprecated).
-          * @deprecated Use `size` prop.
+          * @deprecated Use `size` prop.   TODO: RIMUOVERE???
          */
         "issmall"?: boolean;
         /**
@@ -2608,6 +2636,10 @@ declare namespace LocalJSX {
           * Spy to render square button.
          */
         "square"?: boolean;
+        /**
+          * HTML a target attribute.
+         */
+        "target"?: string;
         /**
           * HTML button type attribute.
          */
