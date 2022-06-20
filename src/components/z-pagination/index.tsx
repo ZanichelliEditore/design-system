@@ -28,13 +28,23 @@ export class ZPagination {
   @Prop()
   totalPages: number;
 
+  /** Number of pages to show left/right of the current, before showing "load more" symbol (…). */
+  @Prop()
+  split?: number = 1;
+
   /** Number of pages to show at a time. If not set, all pages will be shown. */
   @Prop()
-  visiblePages: number;
+  visiblePages?: number;
 
   /** Current page. */
   @Prop({ mutable: true })
   currentPage: number = 1;
+
+  /** Whether to show "go to page" functionality. */
+  @Prop()
+  goToPage: Boolean;
+
+  /** Current page. */
 
   /** Event emitted when the current page has changed. */
   @Event()
@@ -42,6 +52,15 @@ export class ZPagination {
 
   /** Container element for the chunk of pages. */
   pagesContainer: HTMLElement;
+
+  /** Input element for "go to page". */
+  goToPageInput: HTMLZInputElement;
+
+  /** Right split has been added */
+  splitRight: Boolean;
+
+  /** Left split has been added */
+  splitLeft: Boolean;
 
   /**
    * Set the CSS variable `--z-pagination--visible-pages`.
@@ -91,6 +110,15 @@ export class ZPagination {
   }
 
   /**
+   * Set visible pages according also to split value.
+   */
+  setVisiblePages() {
+    if (!this.split) {
+      this.visiblePages = this.visiblePages || this.totalPages;
+    }
+  }
+
+  /**
    * On page changed.
    * @emits pageChanged
    */
@@ -98,6 +126,15 @@ export class ZPagination {
   onPageChanged() {
     this.pageChanged.emit(this.currentPage);
     this.scrollToPage();
+  }
+
+  /**
+   * On split changed.
+   * @emits pageChanged
+   */
+    @Watch("split")
+    onSplitchanged() {
+      this.setVisiblePages();
   }
 
   /**
@@ -130,16 +167,77 @@ export class ZPagination {
     this.currentPage++;
   }
 
+  /**
+   * Event handler for go to page button.
+   */
+  onGoToPage() {
+    this.currentPage = Number(this.goToPageInput.value) || this.currentPage;
+    this.scrollToPage();
+  }
+
   connectedCallback() {
     this.setCSSVisiblePages();
   }
 
   componentWillRender() {
-    this.visiblePages = this.visiblePages || this.totalPages;
+    this.setVisiblePages();
+  }
+
+  renderPageButton(page) {
+    return <button class="page-button"
+        type="button"
+        data-page={page}
+        data-active={this.currentPage == page}
+        onClick={() => this.selectPage(page)}
+      >
+      {page}
+    </button>
+  }
+
+  renderPage(page) {
+    // current, first and last pages always visible
+    if (page === 1 ||
+        page === this.totalPages ||
+        page === this.currentPage ||
+        !this.split ||
+        this.split > (this.totalPages - 3)) {
+      return this.renderPageButton(page);
+    }
+
+    // handle split
+    if (Math.abs(page - this.currentPage) <= this.split) {
+      return this.renderPageButton(page);
+    }
+
+    if (!this.splitLeft && page < this.currentPage) {
+      // left split has not been added
+      this.splitLeft = true;
+
+      return <button class="split-button"
+          type="button"
+          onClick={() => this.currentPage = this.currentPage - 1}
+        >
+        …
+      </button>
+    }
+
+    if (!this.splitRight && page > this.currentPage) {
+      // right split has not been added
+      this.splitRight = true;
+
+      return <button class="split-button"
+          type="button"
+          onClick={() => this.currentPage = this.currentPage + 1}
+        >
+        …
+      </button>
+    }
   }
 
   render() {
     const pagesChunks = this.getPagesChunks();
+    this.splitRight = false;
+    this.splitLeft = false;
 
     return [
       this.navArrows && <button class="navigation-button"
@@ -157,16 +255,7 @@ export class ZPagination {
       >
         {pagesChunks.length > 0 && pagesChunks.map((chunk) =>
           <div class="pages-chunk">
-            {chunk.map((page) =>
-              <button class="page-button"
-                type="button"
-                data-page={page}
-                data-active={this.currentPage == page}
-                onClick={() => this.selectPage(page)}
-              >
-                {page}
-              </button>
-            )}
+            {chunk.map((page) => this.renderPage(page))}
           </div>
         )}
       </div>,
@@ -178,6 +267,12 @@ export class ZPagination {
       >
         <z-icon name="chevron-right"></z-icon>
       </button>,
+      this.goToPage && <div class="go-to-page">
+        <div class="inputs">
+          <z-input hasmessage={false} label="Vai a pagina:" ref={(el) => (this.goToPageInput = el as HTMLZInputElement)} type="number" placeholder={`${this.totalPages / 2}`} hasclearicon={false}></z-input>
+          <z-button onClick={this.onGoToPage.bind(this)}>vai</z-button>
+        </div>
+      </div>,
     ];
   }
 }

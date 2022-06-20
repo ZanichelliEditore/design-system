@@ -2,7 +2,7 @@
   --z-pagination--visible-pages: 5;
 
   display: flex;
-  height: 48px;
+  margin: 0 auto;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
@@ -71,6 +71,14 @@ z-icon {
   scrollbar-width: none;
 }
 
+.navigation-button,
+.pages-container,
+.go-to-page z-input .textWrapper > div > input,
+.go-to-page z-button {
+  height: 48px !important;
+  margin-top: auto;
+}
+
 .pages-container::-webkit-scrollbar {
   display: none;
 }
@@ -96,6 +104,18 @@ z-icon {
 .page-button[data-active] {
   font-size: var(--font-size-7);
   border-bottom-color: var(--color-primary01);
+}
+
+.go-to-page {
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--space-unit);
+}
+
+.go-to-page .inputs {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-unit);
 }
 
 @media (min-width: 768px) {

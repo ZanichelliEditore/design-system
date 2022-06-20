@@ -19,6 +19,8 @@ import "./index";
       totalPages: 10,
       visiblePages: 5,
       currentPage: 1,
+      split: 1,
+      goToPage: false,
     }}
   >
     {(args) => html`
@@ -27,6 +29,8 @@ import "./index";
         .totalPages=${args.totalPages}
         .visiblePages=${args.visiblePages}
         .currentPage=${args.currentPage}
+        .split=${args.split}
+        .goToPage=${args.goToPage}
       ></z-pagination>
     `}
   </Story>
