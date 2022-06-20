@@ -145,17 +145,15 @@ In this special case we need to override `min-width` (achieved with additional `
   </Story>
 </Canvas>
 
-## Named slotted elements
+## Zbutton as a link
 
-For further customization and DOM handling is possible to pass the content of a button as named slot named `element`.
+It is possible for z-button to be an html `a` element.
 
-> **Inversion of control:** in this case any layout spacing responsibility (aka. icon spacing et similia) is delegated to app's integrators.
-
-**Note:** for backwards compatibility reasons, if present in the slotted hierarchy, `z-icon` will have a right margin.
+To do this you need to set `href` prop.
 
 <Canvas>
   <Story
-    name="With named slot"
+    name="With href prop"
     args={{
       variant: ButtonVariantEnum.primary,
       size: ButtonSizeEnum.big,
@@ -184,7 +182,7 @@ For further customization and DOM handling is possible to pass the content of a 
 
 <Canvas>
   <Story
-    name="With named slot icon only"
+    name="Without href prop (it will be a button)"
     args={{
       variant: ButtonVariantEnum.primary,
       size: ButtonSizeEnum.big,
