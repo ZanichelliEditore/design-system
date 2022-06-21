@@ -64,10 +64,10 @@ export class ZPagination {
   /** Input element for "go to page". */
   goToPageInput: HTMLZInputElement;
 
-  /** Right split has been added */
+  /** Right split has been already added */
   splitRight: Boolean;
 
-  /** Left split has been added */
+  /** Left split has been already added */
   splitLeft: Boolean;
 
   /**
@@ -76,12 +76,17 @@ export class ZPagination {
   @Watch("_visiblePages")
   setPagesContainerWidth() {
     if (!this._visiblePages) {
-      this.pagesContainer.style.setProperty("--z-pagination--pages-container-max-width", "100%");
+      this.pagesContainer.style.setProperty(
+        "--z-pagination--pages-container-max-width",
+        "100%"
+      );
       return;
     }
 
     const pagesContainerStyle = window.getComputedStyle(this.pagesContainer);
-    const pageButtonWidth = pagesContainerStyle.getPropertyValue("--z-pagination--page-button-width");
+    const pageButtonWidth = pagesContainerStyle.getPropertyValue(
+      "--z-pagination--page-button-width"
+    );
     this.pagesContainer.style.setProperty(
       "--z-pagination--pages-container-max-width",
       `calc(${pageButtonWidth} * ${this._visiblePages})`
@@ -130,7 +135,7 @@ export class ZPagination {
    * Get a list of pages chunks, each of `visiblePages` length.
    * @returns {number[][]}
    */
-    private getPagesChunks() {
+  private getPagesChunks() {
     // array of numbers from 1 to `totalPages`
     const pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
@@ -187,13 +192,18 @@ export class ZPagination {
     this.selectPage(newPage);
   }
 
-  renderPageButton(page) {
+  /**
+   * Render page number button.
+   * @param {number} page Page number to render
+   * @returns {HTMLButtonElement}
+   */
+  renderPage(page) {
     return (
       <button
         class="page-button"
         type="button"
         data-page={page}
-        data-active={this.currentPage == page}
+        data-current={this.currentPage == page}
         onClick={() => this.selectPage(page)}
       >
         {page}
@@ -201,61 +211,58 @@ export class ZPagination {
     );
   }
 
-  renderPage(page) {
-    // current, first and last pages always visible
-    if (
-      page === 1 ||
-      page === this.totalPages ||
-      page === this.currentPage ||
-      !this.split ||
-      this.split > this.totalPages - 3
-    ) {
-      return this.renderPageButton(page);
-    }
-
-    const currentPageDistance = Math.abs(page - this.currentPage);
-    const isSinglePageSplitLeft = this.currentPage - this.split - 1 == 2;
-    const isSinglePageSplitRight =
-      this.totalPages - this.currentPage - this.split == 2;
-
-    // handle split
-    if (
-      currentPageDistance <= this.split ||
-      (isSinglePageSplitLeft && page == 2) ||
-      (isSinglePageSplitRight && page == this.totalPages - 1)
-    ) {
-      return this.renderPageButton(page);
-    }
-
-    if (!this.splitLeft && page < this.currentPage) {
-      // left split has not been added
+  /**
+   * Render split button.
+   * @param {number} page Page number
+   * @returns {HTMLButtonElement}
+   */
+  renderSplitButton(page) {
+    const sign = Math.sign(page - this.currentPage);
+    const button = (
+      <button
+        class="split-button"
+        type="button"
+        onClick={() => this.selectPage(this.currentPage + (this.split * sign) + (1 * sign))}
+      >
+        …
+      </button>
+    );
+    if (!this.splitLeft && sign < 0) {
+      // left split has not been added yet
       this.splitLeft = true;
-
-      return (
-        <button
-          class="split-button"
-          type="button"
-          onClick={() => this.selectPage(this.currentPage - this.split - 1)}
-        >
-          …
-        </button>
-      );
+      return button;
     }
 
-    if (!this.splitRight && page > this.currentPage) {
-      // right split has not been added
+    if (!this.splitRight && sign > 0) {
+      // right split has not been added yet
       this.splitRight = true;
-
-      return (
-        <button
-          class="split-button"
-          type="button"
-          onClick={() => this.selectPage(this.currentPage + this.split + 1)}
-        >
-          …
-        </button>
-      );
+      return button;
     }
+  }
+
+  /**
+   * Choose whether to render page or split button.
+   * @param {number} page Page number
+   * @returns {HTMLButtonElement}
+   */
+  renderButton(page) {
+    const distanceFromCurrentPage = Math.abs(page - this.currentPage);
+
+    if (
+      !this.split ||
+      // current, first and last pages always visible
+      this.split > this.totalPages - 3 ||
+      page == 1 ||
+      page == this.totalPages ||
+      distanceFromCurrentPage <= this.split ||
+      // show page 2 and (totalPages - 1) if they're the only page between nearest edge and first page nearest to current
+      (page == 2 && this.currentPage - this.split - 1 == page) ||
+      (page == this.totalPages - 1 && this.currentPage + this.split + 1 == page)
+    ) {
+      return this.renderPage(page);
+    }
+
+    return this.renderSplitButton(page);
   }
 
   componentDidLoad() {
@@ -289,7 +296,7 @@ export class ZPagination {
           {pagesChunks.length > 0 &&
             pagesChunks.map((chunk) => (
               <div class="pages-chunk">
-                {chunk.map((page) => this.renderPage(page))}
+                {chunk.map((page) => this.renderButton(page))}
               </div>
             ))}
         </div>

@@ -22,6 +22,7 @@ z-icon {
 .pagination-bar {
   display: flex;
   height: 48px;
+  max-width: 100%;
 }
 
 .pagination-bar button {
@@ -101,7 +102,7 @@ z-icon {
   border-bottom-color: var(--color-hover-light);
 }
 
-.pagination-bar .page-button[data-active] {
+.pagination-bar .page-button[data-current] {
   font-size: var(--font-size-7);
   border-bottom-color: var(--color-primary01);
 }
