@@ -10,17 +10,19 @@ import "./index";
   split: { control: { type: "number", min: 1 } },
 }} />
 
-# ZPagination
+# ZPagination - visible pages
 
 <Canvas>
   <Story
-    name="ZPagination-sample"
+    name="ZPagination - visible pages"
     args={{
       navArrows: true,
       totalPages: 10,
       visiblePages: 5,
-      split: 1,
       goToPage: false,
+    }}
+    parameters={{
+      exclude: ["split"],
     }}
   >
     {(args) => html`
@@ -28,6 +30,33 @@ import "./index";
         .navArrows=${args.navArrows}
         .totalPages=${args.totalPages}
         .visiblePages=${args.visiblePages}
+        .goToPage=${args.goToPage}
+      ></z-pagination>
+    `}
+  </Story>
+</Canvas>
+
+# ZPagination - split
+
+> Note that `visiblePages` and `split` are mutually exclusive.
+
+<Canvas>
+  <Story
+    name="ZPagination - split"
+    args={{
+      navArrows: true,
+      totalPages: 10,
+      split: 1,
+      goToPage: false,
+    }}
+    parameters={{
+      exclude: ["visiblePages"],
+    }}
+  >
+    {(args) => html`
+      <z-pagination
+        .navArrows=${args.navArrows}
+        .totalPages=${args.totalPages}
         .split=${args.split}
         .goToPage=${args.goToPage}
       ></z-pagination>

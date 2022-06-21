@@ -1,6 +1,4 @@
 :host {
-  --z-pagination--visible-pages: 5;
-
   display: flex;
   align-items: flex-end;
   margin: 0 auto;
@@ -22,8 +20,6 @@ z-icon {
 }
 
 .pagination-bar {
-  --z-pagination--page-button-width: 88px;
-
   display: flex;
   height: 48px;
 }
@@ -72,9 +68,12 @@ z-icon {
 }
 
 .pages-container {
+  --z-pagination--page-button-width: 64px;
+  --z-pagination--pages-container-max-width: 100%;
+
   position: relative;
   display: inline-flex;
-  max-width: 100%;
+  max-width: var(--z-pagination--pages-container-max-width);
   overflow-x: auto;
   scroll-behavior: smooth;
 
@@ -134,7 +133,6 @@ z-icon {
 
 @media (min-width: 768px) {
   .pages-container {
-    max-width: calc(var(--z-pagination--page-button-width) *
-      var(--z-pagination--visible-pages));
+    --z-pagination--page-button-width: 88px;
   }
 }
