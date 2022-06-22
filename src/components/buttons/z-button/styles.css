@@ -132,12 +132,6 @@ a:focus:focus-visible {
   color: var(--color-primary01);
 }
 
-/* button.tertiary.hasContent,
-a.tertiary.hasContent {
-  padding: 0 var(--space-unit);
-  background-color: blueviolet;
-} */
-
 @media (hover: hover) {
   .tertiary:hover {
     background-color: var(--color-primary03);
@@ -170,12 +164,6 @@ a.tertiary.hasContent {
   border-color: transparent;
   color: var(--color-text04);
 }
-
-/* button.dark-bg.hasContent,
-a.dark-bg.hasContent {
-  padding: 0 var(--space-unit);
-  background-color: blueviolet;
-} */
 
 @media (hover: hover) {
   .dark-bg:hover {

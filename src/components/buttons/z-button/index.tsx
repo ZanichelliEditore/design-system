@@ -16,18 +16,14 @@ import {
   shadow: false,
 })
 export class ZButton {
-  /** define whether it renders a button or an a. */
-  @Prop({ reflect: true })
-  as?: string = "button";
-
-  /** HTML a href attribute. */
+  /** defines a string value that labels an interactive element, used for accessibility. */
+  @Prop({ reflect: true }) ariaLabel?: string;
+  /** HTML a href attribute. If it is set, it renders an HTML a tag. */
   @Prop({ reflect: true })
   href?: string = "";
   /** HTML a target attribute. */
   @Prop({ reflect: true })
   target?: string = "_blank";
-  /** defines a string value that labels an interactive element, used for accessibility. */
-  @Prop({ reflect: true }) ariaLabel?: string;
   /** Identifier, should be unique. */
   @Prop() htmlid?: string;
   /** HTML button name attribute. */
@@ -44,21 +40,16 @@ export class ZButton {
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
   @Prop({ reflect: true })
   size?: ButtonSizeEnum = ButtonSizeEnum.big;
-  /** Reduce button size (deprecated).
-   * @deprecated Use `size` prop.
-   *
-   *
-   * TODO: RIMUOVERE???
-   */
-  @Prop({ reflect: true }) issmall?: boolean = false;
+  /** set label text  */
+  @Prop({ reflect: true })
+  text?: string = "";
   /** Spy to render square button. */
   @Prop({ reflect: true })
   square?: boolean = false;
 
   render() {
-    if (this.as === "a")
+    if (this.href)
       return (
-        //usare a oppure component link del DS
         <a
           aria-label={this.ariaLabel}
           href={this.href}
@@ -67,7 +58,7 @@ export class ZButton {
           class={classNames(this.variant, this.size, { square: this.square })}
         >
           {this.icon && <z-icon name={this.icon} width={16} height={16} />}
-          <slot />
+          <span>{this.text}</span>
         </a>
       );
 
@@ -78,15 +69,10 @@ export class ZButton {
         name={this.name}
         type={this.type}
         disabled={this.disabled}
-        class={classNames(
-          this.variant,
-          this.size,
-          { issmall: this.issmall },
-          { square: this.square }
-        )}
+        class={classNames(this.variant, this.size, { square: this.square })}
       >
         {this.icon && <z-icon name={this.icon} width={16} height={16} />}
-        <slot />
+        <span>{this.text}</span>
       </button>
     );
   }

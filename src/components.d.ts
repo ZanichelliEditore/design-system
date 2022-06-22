@@ -102,15 +102,11 @@ export namespace Components {
          */
         "ariaLabel"?: string;
         /**
-          * define whether it renders a button or an a.
-         */
-        "as"?: string;
-        /**
           * HTML button disabled attribute.
          */
         "disabled"?: boolean;
         /**
-          * HTML a href attribute.
+          * HTML a href attribute. If it is set, it renders an HTML a tag.
          */
         "href"?: string;
         /**
@@ -121,11 +117,6 @@ export namespace Components {
           * `z-icon` name to use (optional).
          */
         "icon"?: string;
-        /**
-          * Reduce button size (deprecated).
-          * @deprecated Use `size` prop.   TODO: RIMUOVERE???
-         */
-        "issmall"?: boolean;
         /**
           * HTML button name attribute.
          */
@@ -142,6 +133,10 @@ export namespace Components {
           * HTML a target attribute.
          */
         "target"?: string;
+        /**
+          * set label text
+         */
+        "text"?: string;
         /**
           * HTML button type attribute.
          */
@@ -2600,15 +2595,11 @@ declare namespace LocalJSX {
          */
         "ariaLabel"?: string;
         /**
-          * define whether it renders a button or an a.
-         */
-        "as"?: string;
-        /**
           * HTML button disabled attribute.
          */
         "disabled"?: boolean;
         /**
-          * HTML a href attribute.
+          * HTML a href attribute. If it is set, it renders an HTML a tag.
          */
         "href"?: string;
         /**
@@ -2619,11 +2610,6 @@ declare namespace LocalJSX {
           * `z-icon` name to use (optional).
          */
         "icon"?: string;
-        /**
-          * Reduce button size (deprecated).
-          * @deprecated Use `size` prop.   TODO: RIMUOVERE???
-         */
-        "issmall"?: boolean;
         /**
           * HTML button name attribute.
          */
@@ -2640,6 +2626,10 @@ declare namespace LocalJSX {
           * HTML a target attribute.
          */
         "target"?: string;
+        /**
+          * set label text
+         */
+        "text"?: string;
         /**
           * HTML button type attribute.
          */
