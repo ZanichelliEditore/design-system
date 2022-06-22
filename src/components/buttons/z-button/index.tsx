@@ -55,7 +55,7 @@ export class ZButton {
           class={classNames(this.variant, this.size)}
         >
           {this.icon && <z-icon name={this.icon} width={16} height={16} />}
-          <span>{this.text}</span>
+          {this.text && <span>{this.text}</span>}
         </a>
       );
 
