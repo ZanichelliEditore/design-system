@@ -20,7 +20,7 @@ export class ZButton {
   @Prop({ reflect: true }) ariaLabel?: string;
   /** HTML a href attribute. If it is set, it renders an HTML a tag. */
   @Prop({ reflect: true })
-  href?: string = "";
+  href?: string;
   /** HTML a target attribute. */
   @Prop({ reflect: true })
   target?: string = "_blank";

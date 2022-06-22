@@ -9,7 +9,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-    <z-button href="" size="big" target="_blank" variant="primary">
+    <z-button size="big" target="_blank" variant="primary">
       <button class="big primary" type="button"></button>
       </z-button>
     `);
@@ -21,7 +21,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button text="text"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button href="" size="big" target="_blank" text="text" variant="primary">
+      <z-button size="big" target="_blank" text="text" variant="primary">
           <button type="button" class="big primary">
           <span>text</span>
           </button>
@@ -29,24 +29,19 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  // it("Test render ZButton con icon", async () => {
-  //   const page = await newSpecPage({
-  //     components: [ZButton],
-  //     html: `<z-button icon="icon"></z-button>`
-  //   });
-  //   expect(page.root).toEqualHtml(`
-  //     <z-button size="big" variant="primary" icon="icon" style="pointer-events: auto;">
-  //     <mock:shadow-root>
-  //       <slot name="element">
-  //         <button type="button" class="big primary">
-  //           <z-icon name="icon" height="16" width="16"></z-icon>
-  //           <slot></slot>
-  //         </button>
-  //       </slot>
-  //     </mock:shadow-root>
-  //     </z-button>
-  //   `);
-  // });
+  it("Test render ZButton con icon", async () => {
+    const page = await newSpecPage({
+      components: [ZButton],
+      html: `<z-button icon="icon"></z-button>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-button size="big" variant="primary" icon="icon" target="_blank"  >
+          <button type="button" class="big primary">
+            <z-icon name="icon" height="16" width="16"></z-icon>
+          </button>
+      </z-button>
+    `);
+  });
 
   // it("Test render ZButton variant", async () => {
   //   const page = await newSpecPage({
