@@ -1,7 +1,7 @@
 :host {
   display: flex;
-  align-items: flex-end;
-  margin: 0 auto;
+  flex-direction: column;
+  gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
@@ -111,7 +111,6 @@ z-icon {
   display: flex;
   flex-direction: column;
   row-gap: var(--space-unit);
-  margin-left: calc(var(--space-unit) * 4);
 }
 
 .go-to-page .label {
@@ -133,6 +132,11 @@ z-icon {
 }
 
 @media (min-width: 768px) {
+  :host {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
   .pages-container {
     --z-pagination--page-button-width: 88px;
   }

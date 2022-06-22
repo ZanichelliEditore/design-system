@@ -189,7 +189,9 @@ export class ZPagination {
    */
   onGoToPage() {
     const newPage = Number(this.goToPageInput.value);
-    this.selectPage(newPage);
+    if (newPage > 0) {
+      this.selectPage(newPage);
+    }
   }
 
   /**
@@ -323,6 +325,7 @@ export class ZPagination {
               hasmessage={false}
               placeholder={`${this.totalPages / 2}`}
               hasclearicon={false}
+              onKeyPress={(ev) => ev.key === 'Enter' && this.onGoToPage()}
             ></z-input>
             <z-button onClick={this.onGoToPage.bind(this)}>vai</z-button>
           </div>
