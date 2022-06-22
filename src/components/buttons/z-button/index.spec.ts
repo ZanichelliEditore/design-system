@@ -15,24 +15,19 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  // it("Test render ZButton con contenuto", async () => {
-  //   const page = await newSpecPage({
-  //     components: [ZButton],
-  //     html: `<z-button>label</z-button>`
-  //   });
-  //   expect(page.root).toEqualHtml(`
-  //     <z-button size="big" variant="primary" style="pointer-events: auto;">
-  //     <mock:shadow-root>
-  //       <slot name="element">
-  //         <button type="button" class="big primary">
-  //           <slot></slot>
-  //         </button>
-  //       </slot>
-  //     </mock:shadow-root>
-  //     label
-  //     </z-button>
-  //   `);
-  // });
+  it("Test render ZButton con testo", async () => {
+    const page = await newSpecPage({
+      components: [ZButton],
+      html: `<z-button text="text"></z-button>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-button href="" size="big" target="_blank" text="text" variant="primary">
+          <button type="button" class="big primary">
+          <span>text</span>
+          </button>
+     </z-button>
+    `);
+  });
 
   // it("Test render ZButton con icon", async () => {
   //   const page = await newSpecPage({
