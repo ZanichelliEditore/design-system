@@ -189,7 +189,9 @@ export class ZPagination {
    */
   onGoToPage() {
     const newPage = Number(this.goToPageInput.value);
-    this.selectPage(newPage);
+    if (newPage > 0) {
+      this.selectPage(newPage);
+    }
   }
 
   /**
@@ -202,6 +204,7 @@ export class ZPagination {
       <button
         class="page-button"
         type="button"
+        aria-current={this.currentPage === page ? "page" : "false"}
         title={`Vai alla pagina ${page}`}
         data-page={page}
         data-current={this.currentPage == page}
