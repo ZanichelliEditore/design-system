@@ -453,7 +453,7 @@ export namespace Components {
          */
         "data"?: string;
         /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event'
+          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
          */
         "productCreditsLink"?: string;
         /**
@@ -3003,7 +3003,7 @@ declare namespace LocalJSX {
          */
         "onReportAProblemButtonClick"?: (event: CustomEvent<any>) => void;
         /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event'
+          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
          */
         "productCreditsLink"?: string;
         /**

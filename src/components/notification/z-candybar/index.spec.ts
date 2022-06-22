@@ -6,7 +6,7 @@ describe("Suite test ZCandybar", () => {
   it("Test render empty ZCandybar", async () => {
     const page = await newSpecPage({
       components: [ZCandybar],
-      html: `  <z-candybar></z-candybar>`
+      html: `  <z-candybar></z-candybar>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -36,9 +36,9 @@ describe("Suite test ZCandybar", () => {
                       </p>
                     </div>
                   </div>
-                  <z-button variant="primary" style="pointer-events: auto;">OK</z-button>
+                  <z-button-deprecated variant="primary" style="pointer-events: auto;">OK</z-button-deprecated>
                 </div>
-              </z-candybar>`
+              </z-candybar>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -57,7 +57,7 @@ describe("Suite test ZCandybar", () => {
             </p>
           </div>
         </div>
-        <z-button variant="primary" style="pointer-events: auto;">OK</z-button>
+        <z-button-deprecated variant="primary" style="pointer-events: auto;">OK</z-button-deprecated>
       </div>
     </z-candybar>
     `);

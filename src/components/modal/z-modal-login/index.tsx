@@ -43,9 +43,8 @@ export class zModalLogin {
   @State() externalProviderCheck: boolean = false;
 
   componentDidLoad() {
-    this.externalProviderCheck = !!this.hostElement.querySelectorAll(
-      '[slot="provider"]'
-    ).length;
+    this.externalProviderCheck =
+      !!this.hostElement.querySelectorAll('[slot="provider"]').length;
   }
 
   /** Emitted on login submit */
@@ -102,14 +101,15 @@ export class zModalLogin {
   }
 
   handleInputChange() {
-    this.status = null
-    this.emitStatusUpdate(this.status)
+    this.status = null;
+    this.emitStatusUpdate(this.status);
   }
 
   cleanUsername(username: string): string {
     username = username.trim().toLowerCase();
 
-    const mobileRegex = /^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/g;
+    const mobileRegex =
+      /^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/g;
     if (mobileRegex.test(username)) {
       username = username.replace(/[- .)(]/g, "");
       if (/^[\d ]*$/.test(username)) username = "+39" + username;
@@ -120,7 +120,7 @@ export class zModalLogin {
 
   renderZainoDigitaleButton() {
     return (
-      <z-button
+      <z-button-deprecated
         variant={ButtonVariantEnum.secondary}
         onClick={() => this.emitZainoDigitaleClick()}
         class="zainoDigitale"
@@ -149,7 +149,7 @@ export class zModalLogin {
           </svg>
           <span>ZAINO DIGITALE</span>
         </div>
-      </z-button>
+      </z-button-deprecated>
     );
   }
 
@@ -197,12 +197,12 @@ export class zModalLogin {
 
             <div class="login">
               <slot name="login">
-                <z-button
+                <z-button-deprecated
                   variant={ButtonVariantEnum.primary}
                   onClick={() => this.emitLoginSubmit()}
                 >
                   Accedi
-                </z-button>
+                </z-button-deprecated>
               </slot>
             </div>
           </form>
@@ -215,12 +215,12 @@ export class zModalLogin {
 
           <div class="signup">
             <slot name="signup">
-              <z-button
+              <z-button-deprecated
                 variant={ButtonVariantEnum.secondary}
                 onClick={() => this.emitSignupClick()}
               >
                 Registrati
-              </z-button>
+              </z-button-deprecated>
             </slot>
           </div>
 

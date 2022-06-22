@@ -16,7 +16,6 @@ button,
 a {
   box-sizing: border-box;
   display: inline-flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-family: var(--dashboard-font);
@@ -27,7 +26,6 @@ a {
   border-width: var(--border-size-medium);
   border-style: solid;
   border-radius: var(--border-radius);
-  vertical-align: middle;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
