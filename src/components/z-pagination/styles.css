@@ -61,6 +61,7 @@ z-icon {
   background-color: var(--color-disabled01);
   color: var(--color-disabled02);
   cursor: default;
+  pointer-events: none;
 }
 
 .pagination-bar .page-button,
@@ -125,6 +126,10 @@ z-icon {
 .go-to-page .inputs {
   display: flex;
   column-gap: var(--space-unit);
+}
+
+.go-to-page .inputs z-input {
+  width: calc(var(--space-unit) * 11);
 }
 
 .go-to-page .inputs z-input input {

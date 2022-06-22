@@ -202,6 +202,7 @@ export class ZPagination {
       <button
         class="page-button"
         type="button"
+        title={`Vai alla pagina ${page}`}
         data-page={page}
         data-current={this.currentPage == page}
         onClick={() => this.selectPage(page)}
@@ -218,11 +219,13 @@ export class ZPagination {
    */
   renderSplitButton(page) {
     const sign = Math.sign(page - this.currentPage);
+    const splitPage = this.currentPage + (this.split * sign) + (1 * sign);
     const button = (
       <button
         class="split-button"
         type="button"
-        onClick={() => this.selectPage(this.currentPage + (this.split * sign) + (1 * sign))}
+        title={`Vai alla pagina ${splitPage}`}
+        onClick={() => this.selectPage(splitPage)}
       >
         …
       </button>
@@ -280,6 +283,7 @@ export class ZPagination {
           <button
             class="navigation-button"
             type="button"
+            title="Vai alla pagina precedente"
             disabled={this.currentPage == 1}
             onClick={() => this.selectPage(this.currentPage - 1)}
           >
@@ -305,6 +309,7 @@ export class ZPagination {
           <button
             class="navigation-button"
             type="button"
+            title="Vai alla prossima pagina"
             disabled={this.currentPage == this.totalPages}
             onClick={() => this.selectPage(this.currentPage + 1)}
           >
@@ -325,7 +330,7 @@ export class ZPagination {
               hasclearicon={false}
               onKeyPress={(ev) => ev.key === 'Enter' && this.onGoToPage()}
             ></z-input>
-            <z-button onClick={this.onGoToPage.bind(this)}>vai</z-button>
+            <z-button title="Vai alla pagina inserita" onClick={this.onGoToPage.bind(this)}>vai</z-button>
           </div>
         </div>
       ),
