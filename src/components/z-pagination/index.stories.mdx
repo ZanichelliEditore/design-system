@@ -22,7 +22,9 @@ import "./index";
       goToPage: false,
     }}
     parameters={{
-      exclude: ["split"],
+      controls: {
+        exclude: ["split"],
+      }
     }}
   >
     {(args) => html`
@@ -50,7 +52,9 @@ import "./index";
       goToPage: false,
     }}
     parameters={{
-      exclude: ["visiblePages"],
+      controls: {
+        exclude: ["visiblePages"],
+      }
     }}
   >
     {(args) => html`
