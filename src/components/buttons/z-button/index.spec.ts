@@ -43,41 +43,31 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  // it("Test render ZButton variant", async () => {
-  //   const page = await newSpecPage({
-  //     components: [ZButton],
-  //     html: `<z-button variant="secondary"></z-button>`
-  //   });
-  //   expect(page.root).toEqualHtml(`
-  //     <z-button size="big" variant="secondary" style="pointer-events: auto;">
-  //     <mock:shadow-root>
-  //       <slot name="element">
-  //         <button type="button" class="big secondary">
-  //           <slot></slot>
-  //         </button>
-  //       </slot>
-  //     </mock:shadow-root>
-  //     </z-button>
-  //   `);
-  // });
+  it("Test render ZButton variant", async () => {
+    const page = await newSpecPage({
+      components: [ZButton],
+      html: `<z-button variant="secondary"></z-button>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-button size="big"  target="_blank" variant="secondary">
+          <button type="button" class="big secondary">       
+          </button>
+      </z-button>
+    `);
+  });
 
-  // it("Test render ZButton small", async () => {
-  //   const page = await newSpecPage({
-  //     components: [ZButton],
-  //     html: `<z-button issmall></z-button>`
-  //   });
-  //   expect(page.root).toEqualHtml(`
-  //     <z-button issmall size="big" variant="primary" style="pointer-events: auto;">
-  //     <mock:shadow-root>
-  //       <slot name="element">
-  //         <button type="button" class="big issmall primary">
-  //           <slot></slot>
-  //         </button>
-  //       </slot>
-  //     </mock:shadow-root>
-  //     </z-button>
-  //   `);
-  // });
+  it("Test render ZButton small", async () => {
+    const page = await newSpecPage({
+      components: [ZButton],
+      html: `<z-button size="small"></z-button>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-button size="small" target="_blank" variant="primary" >
+          <button type="button" class="small  primary">
+          </button>
+      </z-button>
+    `);
+  });
 
   // it("Test render ZButton disabled", async () => {
   //   const page = await newSpecPage({
