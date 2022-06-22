@@ -23,7 +23,7 @@ export class ZButton {
   href?: string;
   /** HTML a target attribute. */
   @Prop({ reflect: true })
-  target?: string = "_blank";
+  target?: string;
   /** Identifier, should be unique. */
   @Prop() htmlid?: string;
   /** HTML button name attribute. */

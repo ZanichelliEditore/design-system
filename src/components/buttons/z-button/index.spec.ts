@@ -9,20 +9,20 @@ describe("Suite test ZButton", () => {
       html: `<z-button></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-    <z-button size="big" target="_blank" variant="primary">
+    <z-button size="big" variant="primary">
       <button class="big primary" type="button"></button>
       </z-button>
     `);
   });
 
-  it("Test render ZButton con testo", async () => {
+  it("Test render ZButton con testo e aria-label", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button text="text"></z-button>`,
+      html: `<z-button text="text" aria-label="Open"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big" target="_blank" text="text" variant="primary">
-          <button type="button" class="big primary">
+      <z-button  aria-label="Open" size="big" text="text" variant="primary">
+          <button aria-label="Open" type="button" class="big primary">
           <span>text</span>
           </button>
      </z-button>
@@ -35,7 +35,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button icon="icon"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="primary" icon="icon" target="_blank"  >
+      <z-button size="big" variant="primary" icon="icon">
           <button type="button" class="big primary">
             <z-icon name="icon" height="16" width="16"></z-icon>
           </button>
@@ -49,7 +49,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button variant="secondary"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big"  target="_blank" variant="secondary">
+      <z-button size="big" variant="secondary">
           <button type="button" class="big secondary">       
           </button>
       </z-button>
@@ -62,72 +62,39 @@ describe("Suite test ZButton", () => {
       html: `<z-button size="small"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="small" target="_blank" variant="primary" >
+      <z-button size="small" variant="primary" >
           <button type="button" class="small  primary">
           </button>
       </z-button>
     `);
   });
 
-  // it("Test render ZButton disabled", async () => {
-  //   const page = await newSpecPage({
-  //     components: [ZButton],
-  //     html: `<z-button disabled></z-button>`
-  //   });
-  //   expect(page.root).toEqualHtml(`
-  //     <z-button size="big" variant="primary" disabled style="pointer-events: none;">
-  //     <mock:shadow-root>
-  //       <slot name="element">
-  //         <button type="button" class="big primary" disabled>
-  //           <slot></slot>
-  //         </button>
-  //       </slot>
-  //     </mock:shadow-root>
-  //     </z-button>
-  //   `);
-  // });
+  it("Test render ZButton disabled", async () => {
+    const page = await newSpecPage({
+      components: [ZButton],
+      html: `<z-button disabled></z-button>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-button size="big" variant="primary" disabled>
+          <button type="button" class="big primary" disabled>
+          </button>
+      </z-button>
+    `);
+  });
 
-  // it("Test render ZButton with slotted button", async () => {
-  //   const page = await newSpecPage({
-  //     components: [ZButton],
-  //     html: `<z-button>
-  //       <button>invio</button>
-  //     </z-button>`
-  //   });
+  it("Test render ZButton with link and variant", async () => {
+    const page = await newSpecPage({
+      components: [ZButton],
+      html: `<z-button variant="primary" href="https://wikipedia.com" text="link"></z-button>`,
+    });
 
-  //   expect(page.root).toEqualHtml(`
-  //     <z-button size="big" variant="primary" style="pointer-events: auto;">
-  //       <mock:shadow-root>
-  //         <slot name="element">
-  //           <button type="button" class="big primary">
-  //             <slot></slot>
-  //           </button>
-  //         </slot>
-  //       </mock:shadow-root>
-  //       <button>invio</button>
-  //     </z-button>
-  //   `);
-  // });
-
-  // it("Test render ZButton with link and variant", async () => {
-  //   const page = await newSpecPage({
-  //     components: [ZButton],
-  //     html: `<z-button variant="primary">
-  //       <a href="https://wikipedia.com">Link</button>
-  //     </z-button>`
-  //   });
-
-  //   expect(page.root).toEqualHtml(`
-  //     <z-button size="big" variant="primary" style="pointer-events: auto;">
-  //       <mock:shadow-root>
-  //         <slot name="element">
-  //           <button type="button" class="big primary">
-  //             <slot></slot>
-  //           </button>
-  //         </slot>
-  //       </mock:shadow-root>
-  //       <a href="https://wikipedia.com">Link</button>
-  //     </z-button>
-  //   `);
-  // });
+    expect(page.root).toEqualHtml(`
+      <z-button size="big" variant="primary"  href="https://wikipedia.com" text="link">
+            <a href="https://wikipedia.com" class="big primary">     <span>
+                  link
+                 </span></a>
+            </button>
+      </z-button>
+    `);
+  });
 });
