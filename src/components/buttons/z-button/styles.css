@@ -3,7 +3,7 @@ a {
   display: inline-block;
   --z-icon-width: 16px;
   --z-icon-height: 16px;
-  --z-icon-right-margin: var(--space-unit);
+  --z-icon-right-margin: 0;
   --rgb-white: 240, 240, 240;
 }
 
@@ -34,6 +34,16 @@ a {
   fill: currentColor;
 }
 
+[text] z-icon {
+  --z-icon-right-margin: var(--space-unit);
+}
+
+[text] button,
+[text] a {
+  min-width: calc(var(--space-unit) * 8);
+  padding: 0 calc(var(--space-unit) * 2);
+}
+
 .big {
   height: 44px;
   min-width: 44px;
@@ -44,27 +54,9 @@ a {
   min-width: 36px;
 }
 
-/*TODO: RIMUOVERE*/
-button.issmall,
-:host([issmall]) ::slotted(button),
-:host([issmall]) ::slotted(a) {
-  height: 36px;
-  min-width: 36px;
-}
-
 .x-small {
   height: 32px;
   min-width: 32px;
-}
-
-button:not(.square),
-a:not(.square) {
-  min-width: calc(var(--space-unit) * 8);
-  padding: 0 calc(var(--space-unit) * 2);
-}
-
-.square {
-  --z-icon-right-margin: 0;
 }
 
 .primary {

@@ -42,10 +42,7 @@ export class ZButton {
   size?: ButtonSizeEnum = ButtonSizeEnum.big;
   /** set label text  */
   @Prop({ reflect: true })
-  text?: string = "";
-  /** Spy to render square button. */
-  @Prop({ reflect: true })
-  square?: boolean = false;
+  text?: string;
 
   render() {
     if (this.href)
@@ -55,7 +52,7 @@ export class ZButton {
           href={this.href}
           target={this.target}
           id={this.htmlid}
-          class={classNames(this.variant, this.size, { square: this.square })}
+          class={classNames(this.variant, this.size)}
         >
           {this.icon && <z-icon name={this.icon} width={16} height={16} />}
           <span>{this.text}</span>
@@ -69,10 +66,10 @@ export class ZButton {
         name={this.name}
         type={this.type}
         disabled={this.disabled}
-        class={classNames(this.variant, this.size, { square: this.square })}
+        class={classNames(this.variant, this.size)}
       >
         {this.icon && <z-icon name={this.icon} width={16} height={16} />}
-        <span>{this.text}</span>
+        {this.text && <span>{this.text}</span>}
       </button>
     );
   }

@@ -9,8 +9,8 @@ describe("Suite test ZButton", () => {
       html: `<z-button></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-    <z-button href="" size="big" target="_blank" variant="primary" text="">
-      <button class="big primary" type="button"><span></span></button>
+    <z-button href="" size="big" target="_blank" variant="primary">
+      <button class="big primary" type="button"></button>
       </z-button>
     `);
   });

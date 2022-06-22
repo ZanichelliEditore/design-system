@@ -115,12 +115,12 @@ import "./index";
 
 ## Icon only
 
-In this special case we need to override `min-width` (achieved with additional `square` prop). **Note:** `z-icon` drops its spacing accordingly.
+It is possible use a button with icon only passing an icon name to `icon` prop, without set `text` prop.
+**Note:** `z-icon` drops its spacing accordingly.
 
-| Prop name | Prop value                                                |
-| --------- | --------------------------------------------------------- |
-| icon      | Any `z-icon` name                                         |
-| square    | Attribute should be set without value (`true` not needed) |
+| Prop name | Prop value        |
+| --------- | ----------------- |
+| icon      | Any `z-icon` name |
 
 <Canvas>
   <Story
@@ -143,7 +143,6 @@ In this special case we need to override `min-width` (achieved with additional `
         size="${args.size}"
         disabled="${args.disabled}"
         icon="${args.icon}"
-        square
       ></z-button>
     `}
   </Story>
@@ -183,6 +182,8 @@ To do this you need to set `href` prop.
   </Story>
 </Canvas>
 
+Without `href` prop (it will be a button).
+
 <Canvas>
   <Story
     name="Without href prop (it will be a button)"
@@ -199,7 +200,6 @@ To do this you need to set `href` prop.
         variant="${args.variant}"
         size="${args.size}"
         disabled="${args.disabled}"
-        square
       >
       </z-button>
     `}
