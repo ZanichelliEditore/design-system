@@ -189,9 +189,7 @@ export class ZPagination {
    */
   onGoToPage() {
     const newPage = Number(this.goToPageInput.value);
-    if (newPage > 0) {
-      this.selectPage(newPage);
-    }
+    this.selectPage(newPage);
   }
 
   /**
@@ -257,7 +255,7 @@ export class ZPagination {
       page == 1 ||
       page == this.totalPages ||
       distanceFromCurrentPage <= this.split ||
-      // show page 2 and (totalPages - 1) if they're the only page between nearest edge and first page nearest to current
+      // show the page if split would hide only one page
       (page == 2 && this.currentPage - this.split - 1 == page) ||
       (page == this.totalPages - 1 && this.currentPage + this.split + 1 == page)
     ) {
