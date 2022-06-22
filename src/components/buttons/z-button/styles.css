@@ -158,24 +158,3 @@ a:focus:focus-visible {
   border-color: transparent;
   color: var(--color-disabled02);
 }
-
-.dark-bg {
-  background-color: rgba(var(--rgb-white), 0.2);
-  border-color: transparent;
-  color: var(--color-text04);
-}
-
-@media (hover: hover) {
-  .dark-bg:hover {
-    background-color: rgba(var(--rgb-white), 0.1);
-  }
-}
-
-.dark-bg:active {
-  background-color: rgba(var(--rgb-white), 0.3);
-}
-
-.dark-bg:disabled {
-  color: var(--color-disabled03);
-  background-color: rgba(var(--rgb-white), 0.05);
-}

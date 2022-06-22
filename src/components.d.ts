@@ -142,7 +142,7 @@ export namespace Components {
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
@@ -2635,7 +2635,7 @@ declare namespace LocalJSX {
          */
         "type"?: HTMLButtonElement["type"];
         /**
-          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariantBean;
     }
