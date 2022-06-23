@@ -1087,7 +1087,7 @@ export namespace Components {
          */
         "htmlTitle": string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon": string;
         /**
@@ -1121,7 +1121,7 @@ export namespace Components {
          */
         "htmlTitle": string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon": string;
         /**
@@ -3663,7 +3663,7 @@ declare namespace LocalJSX {
          */
         "htmlTitle"?: string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon"?: string;
         /**
@@ -3698,7 +3698,7 @@ declare namespace LocalJSX {
          */
         "htmlTitle"?: string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon"?: string;
         /**

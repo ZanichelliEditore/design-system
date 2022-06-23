@@ -18,12 +18,10 @@ import { icons } from "../../../icons/icons";
 
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
- * @slot icon - Tab icon. If no extra customization is needed, use the `icon` prop passing the icon's name.
  */
 @Component({
   tag: "z-navigation-tab-link",
   styleUrl: "../navigation-tab.css",
-  shadow: true,
 })
 export class ZNavigationTabLink {
   @Element() host: HTMLElement;
@@ -65,7 +63,7 @@ export class ZNavigationTabLink {
   @Prop() href: string;
 
   /**
-   * Name of the icon to use. Use the slot `icon` for extra customization.
+   * Name of the icon to use.
    * The `filled` version will be automatically used (if found) when the tab is `selected`.
    */
   @Prop() icon: string;
@@ -123,7 +121,7 @@ export class ZNavigationTabLink {
         title={this.htmlTitle}
         target={this.target}
       >
-        <slot name="icon">{this.icon && this.renderIcon()}</slot>
+        {this.icon && this.renderIcon()}
         {this.orientation === "horizontal" && this.label}
       </a>
     );

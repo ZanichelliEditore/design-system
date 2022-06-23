@@ -9,12 +9,10 @@ import { icons } from "../../../icons/icons";
 
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders a button.
- * @slot icon - Tab icon. If no extra customization is needed, use the `icon` prop passing the icon's name.
  */
 @Component({
   tag: "z-navigation-tab",
-  styleUrl: "../navigation-tab.css",
-  shadow: true
+  styleUrl: "../navigation-tab.css"
 })
 export class ZNavigationTab {
   @Element() host: HTMLElement;
@@ -40,7 +38,7 @@ export class ZNavigationTab {
   @Prop({ reflect: true }) size: NavigationTabsSize = NavigationTabsSizes.big;
 
   /**
-   * Name of the icon to use. Use the slot `icon` for extra customization.
+   * Name of the icon to use.
    * The `filled` version will be automatically used (if found) when the tab is `selected`.
    */
   @Prop() icon: string;
@@ -100,7 +98,7 @@ export class ZNavigationTab {
   render() {
     return (
       <button role="tab" disabled={this.disabled} title={this.htmlTitle}>
-        <slot name="icon">{this.icon && this.renderIcon()}</slot>
+        {this.icon && this.renderIcon()}
         {this.orientation === "horizontal" && this.label}
       </button>
     );
