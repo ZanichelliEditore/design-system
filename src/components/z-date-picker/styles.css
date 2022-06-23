@@ -128,11 +128,15 @@ z-date-picker > div > * {
 }
 
 .flatpickr-next-month:hover,
-.flatpickr-prev-month:hover {
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:focus,
+.flatpickr-prev-month:focus {
   border-radius: var(--border-radius);
   background-color: var(--color-primary03) !important;
   border-color: var(--color-primary03) !important;
   color: var(--color-hover-primary) !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .flatpickr-next-month:hover svg,
@@ -167,7 +171,8 @@ z-date-picker > div > * {
   padding-left: var(--space-unit) !important;
 }
 
-.flatpickr-monthDropdown-months:hover {
+.flatpickr-monthDropdown-months:hover,
+.flatpickr-monthDropdown-months:focus {
   outline: 1px solid var(--color-primary01) !important;
 }
 
@@ -182,7 +187,8 @@ z-date-picker > div > * {
   width: calc(var(--space-unit) * 10);
 }
 
-.flatpickr-current-month > .numInputWrapper:hover {
+.flatpickr-current-month > .numInputWrapper:hover,
+.flatpickr-current-month > .numInputWrapper:focus-within {
   outline: 1px solid var(--color-primary01) !important;
 }
 
