@@ -329,7 +329,7 @@ export class ZPagination {
               ref={(el) => (this.goToPageInput = el as HTMLZInputElement)}
               type="number"
               hasmessage={false}
-              placeholder={`${this.totalPages / 2}`}
+              placeholder={`${Math.round(this.totalPages / 2)}`}
               hasclearicon={false}
               onKeyPress={(ev) => ev.key === 'Enter' && this.onGoToPage()}
             ></z-input>
