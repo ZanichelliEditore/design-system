@@ -1201,6 +1201,32 @@ export namespace Components {
         "message"?: string;
         "status"?: InputStatusBean;
     }
+    interface ZPagination {
+        /**
+          * Current page.
+         */
+        "currentPage": number;
+        /**
+          * Whether to show "go to page" feature.
+         */
+        "goToPage": Boolean;
+        /**
+          * Enable navigation arrows.
+         */
+        "navArrows": boolean;
+        /**
+          * Number of pages to show left/right of the current, before showing "load more" symbol (…).
+         */
+        "split"?: number;
+        /**
+          * Total number of pages. Required.
+         */
+        "totalPages": number;
+        /**
+          * Number of pages to show at a time. If not set, all pages will be shown.
+         */
+        "visiblePages"?: number;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -2130,6 +2156,12 @@ declare global {
         prototype: HTMLZOtpElement;
         new (): HTMLZOtpElement;
     };
+    interface HTMLZPaginationElement extends Components.ZPagination, HTMLStencilElement {
+    }
+    var HTMLZPaginationElement: {
+        prototype: HTMLZPaginationElement;
+        new (): HTMLZPaginationElement;
+    };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
     var HTMLZPaginationBarElement: {
@@ -2401,6 +2433,7 @@ declare global {
         "z-notification": HTMLZNotificationElement;
         "z-offcanvas": HTMLZOffcanvasElement;
         "z-otp": HTMLZOtpElement;
+        "z-pagination": HTMLZPaginationElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
@@ -3792,6 +3825,36 @@ declare namespace LocalJSX {
         "onOtpChange"?: (event: CustomEvent<any>) => void;
         "status"?: InputStatusBean;
     }
+    interface ZPagination {
+        /**
+          * Current page.
+         */
+        "currentPage"?: number;
+        /**
+          * Whether to show "go to page" feature.
+         */
+        "goToPage"?: Boolean;
+        /**
+          * Enable navigation arrows.
+         */
+        "navArrows"?: boolean;
+        /**
+          * Event emitted when the current page has changed.
+         */
+        "onPageChanged"?: (event: CustomEvent<any>) => void;
+        /**
+          * Number of pages to show left/right of the current, before showing "load more" symbol (…).
+         */
+        "split"?: number;
+        /**
+          * Total number of pages. Required.
+         */
+        "totalPages": number;
+        /**
+          * Number of pages to show at a time. If not set, all pages will be shown.
+         */
+        "visiblePages"?: number;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -4436,6 +4499,7 @@ declare namespace LocalJSX {
         "z-notification": ZNotification;
         "z-offcanvas": ZOffcanvas;
         "z-otp": ZOtp;
+        "z-pagination": ZPagination;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
@@ -4542,6 +4606,7 @@ declare module "@stencil/core" {
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
+            "z-pagination": LocalJSX.ZPagination & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
