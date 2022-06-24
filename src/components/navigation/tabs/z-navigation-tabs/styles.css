@@ -35,7 +35,7 @@
   box-shadow: 0px 0px 4px 1px rgb(66, 69, 72, 0.40);
 }
 
-.navigation-button:focus {
+.navigation-button:focus:focus-visible {
   fill: var(--color-primary01);
   box-shadow: inset var(--shadow-focus-primary);
 }

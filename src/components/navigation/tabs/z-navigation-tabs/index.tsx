@@ -109,6 +109,8 @@ export class ZNavigationTabs {
 
   /**
    * Listen for child tab selection.
+   * Deselect all other previously selected tabs,
+   * then scroll to the new selected tab and center it.
    * @param {CustomEvent} event `selected` event triggered by a child tab
    */
   @Listen('selected')
@@ -119,6 +121,15 @@ export class ZNavigationTabs {
       if (child !== tab) {
         child.removeAttribute('selected');
       }
+    });
+
+    const scrollOptions = this.orientation === NavigationTabsOrientations.horizontal ?
+      { block: "nearest", inline: "center" } as ScrollIntoViewOptions :
+      { block: "center", inline: "nearest" } as ScrollIntoViewOptions;
+
+    (tab as Element).scrollIntoView({
+      behavior: "smooth",
+      ...scrollOptions,
     });
   }
 
@@ -156,39 +167,39 @@ export class ZNavigationTabs {
         'interactive-1': this.size !== NavigationTabsSizes.small
       }}
       scrollable={this.canNavigate}
+    >
+      {this.canNavigate && <button
+        class="navigation-button"
+        onClick={this.navigateBackwards.bind(this)}
+        tabindex="-1"
+        disabled={!this.canNavigatePrev}
       >
-        {this.canNavigate && <button
-          class="navigation-button"
-          onClick={this.navigateBackwards.bind(this)}
-          tabindex="-1"
-          disabled={!this.canNavigatePrev}
-        >
-          <z-icon
-            name={this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-left' : 'chevron-up'}
-            width={16}
-            height={16}
-          />
-        </button>}
+        <z-icon
+          name={this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-left' : 'chevron-up'}
+          width={16}
+          height={16}
+        />
+      </button>}
 
-        <nav
-          role="tablist"
-          ref={(el) => this.tabsNav = el ?? this.tabsNav }
-          onScroll={this.checkScrollEnabled.bind(this)}
-        >
-          <slot></slot>
-        </nav>
+      <nav
+        role="tablist"
+        ref={(el) => this.tabsNav = el ?? this.tabsNav }
+        onScroll={this.checkScrollEnabled.bind(this)}
+      >
+        <slot></slot>
+      </nav>
 
-        {this.canNavigate && <button
-          class="navigation-button"
-          onClick={this.navigateForward.bind(this)}
-          tabindex="-1"
-          disabled={!this.canNavigateNext}
-        >
-          <z-icon name={this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-right' : 'chevron-down'}
-            width={16}
-            height={16}
-          />
-        </button>}
+      {this.canNavigate && <button
+        class="navigation-button"
+        onClick={this.navigateForward.bind(this)}
+        tabindex="-1"
+        disabled={!this.canNavigateNext}
+      >
+        <z-icon name={this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-right' : 'chevron-down'}
+          width={16}
+          height={16}
+        />
+      </button>}
     </Host>;
   }
 }
