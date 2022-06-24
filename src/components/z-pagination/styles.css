@@ -43,10 +43,6 @@ z-icon {
   cursor: pointer;
 }
 
-.pagination-bar button:hover {
-  background-color: var(--color-hover-surface);
-}
-
 .pagination-bar button:focus-visible {
   outline: none;
   box-shadow: inset var(--shadow-focus-primary);
@@ -98,7 +94,6 @@ z-icon {
   font-weight: var(--font-sb);
 }
 
-.pagination-bar .page-button:hover,
 .pagination-bar .page-button:focus-visible {
   border-bottom-color: var(--color-hover-light);
 }
@@ -134,6 +129,16 @@ z-icon {
 
 .go-to-page .inputs z-input input {
   padding: 0 calc(var(--space-unit) * 1.5) !important;
+}
+
+@media (hover: hover) {
+  .pagination-bar button:hover {
+    background-color: var(--color-hover-surface);
+  }
+
+  .pagination-bar .page-button:hover {
+    border-bottom-color: var(--color-hover-light);
+  }
 }
 
 @media (min-width: 768px) {
