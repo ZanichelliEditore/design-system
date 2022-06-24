@@ -46,8 +46,6 @@ export class ZDatePicker {
 
   @Listen("keydown", { target: "body", capture: true })
   handleKeyDown(ev: KeyboardEvent) {
-    let activeElement = document.activeElement;
-
     if (ev.key === "Enter") {
       let isPrevArrowEntered = document.activeElement.classList.contains(
         "flatpickr-prev-month"
@@ -55,8 +53,6 @@ export class ZDatePicker {
       let isNextArrowEntered = document.activeElement.classList.contains(
         "flatpickr-next-month"
       );
-      let prevArrow = this.element.querySelector(`.flatpickr-prev-month`);
-      let nextArrow = this.element.querySelector(`.flatpickr-next-month`);
 
       if (this.mode === ZDatePickerMode.months) {
         isPrevArrowEntered &&
@@ -68,8 +64,19 @@ export class ZDatePicker {
           this.flatpickrInstance.changeYear(
             this.flatpickrInstance.currentYear + 1
           );
-        isPrevArrowEntered && (prevArrow as HTMLElement).focus();
-        isNextArrowEntered && (nextArrow as HTMLElement).focus();
+        if (isPrevArrowEntered || isNextArrowEntered) {
+          let calendar =
+            this.element.getElementsByClassName("flatpickr-calendar")[0];
+          let months = calendar.querySelectorAll(
+            ".flatpickr-monthSelect-month"
+          );
+          months.forEach((element) => {
+            element.setAttribute(
+              "aria-label",
+              `${element.innerHTML} ${this.flatpickrInstance.currentYear}`
+            );
+          });
+        }
       } else {
         isPrevArrowEntered && this.flatpickrInstance.changeMonth(-1);
         isNextArrowEntered && this.flatpickrInstance.changeMonth(1);
@@ -101,7 +108,7 @@ export class ZDatePicker {
         this.setAriaOptions();
         this.setFlatpickrPosition();
       },
-      onKeyDown: (_selectedDates, _dateStr, _instance, _event) => {
+      onKeyDown: () => {
         this.setAriaOptions();
       },
       wrap: this.hasChildren,
@@ -169,6 +176,19 @@ export class ZDatePicker {
 
       prevMonthArrow.setAttribute("aria-label", "Mese precedente");
       nextMonthArrow.setAttribute("aria-label", "Mese successivo");
+
+      if (this.mode === ZDatePickerMode.dateTime) {
+        Array.from(calendar.getElementsByClassName("time24hr")).forEach(
+          (element) => element.setAttribute("tabindex", "-1")
+        );
+
+        calendar
+          .getElementsByClassName("flatpickr-hour")[0]
+          .setAttribute("aria-label", "Ora");
+        calendar
+          .getElementsByClassName("flatpickr-minute")[0]
+          .setAttribute("aria-label", "Minuti");
+      }
     }
   }
 
@@ -208,7 +228,6 @@ export class ZDatePicker {
       <z-input
         class={classNames(this.datepickerid)}
         type="text"
-        name="datepicker"
         icon="event"
         hasmessage={false}
         tabindex="0"

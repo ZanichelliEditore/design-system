@@ -318,6 +318,9 @@ z-date-picker > div > * {
 
 .flatpickr-minute,
 .flatpickr-hour {
+  font-size: var(--font-size-3) !important;
+  font-weight: var(--font-rg) !important;
+
   outline: 1px solid black !important;
 }
 
