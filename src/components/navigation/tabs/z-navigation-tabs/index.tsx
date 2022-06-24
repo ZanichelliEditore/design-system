@@ -122,15 +122,6 @@ export class ZNavigationTabs {
         child.removeAttribute('selected');
       }
     });
-
-    const scrollOptions = this.orientation === NavigationTabsOrientations.horizontal ?
-      { block: "nearest", inline: "center" } as ScrollIntoViewOptions :
-      { block: "center", inline: "nearest" } as ScrollIntoViewOptions;
-
-    (tab as Element).scrollIntoView({
-      behavior: "smooth",
-      ...scrollOptions,
-    });
   }
 
   /**

@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element, Listen, Event, EventEmitter, Watch } from "@stencil/core";
+import { Component, Prop, h, Listen, Event, EventEmitter, Watch } from "@stencil/core";
 import {
   NavigationTabsOrientations,
   NavigationTabsOrientation,
@@ -15,8 +15,6 @@ import { icons } from "../../../icons/icons";
   styleUrl: "../navigation-tab.css"
 })
 export class ZNavigationTab {
-  @Element() host: HTMLElement;
-
   /**
    * Whether the tab is selected.
    */
@@ -54,14 +52,19 @@ export class ZNavigationTab {
   @Prop() htmlTitle: string;
 
   @Event({ eventName: "selected" })
-  private emitSelected: EventEmitter;
+  private selectedEvent: EventEmitter;
 
-  @Listen("focus")
-  onFocus() {
-    this.host.scrollIntoView({
+  /**
+   * Scroll into view to center the tab.
+   */
+  scrollToTab({ target: button }) {
+    const scrollOptions = this.orientation === NavigationTabsOrientations.horizontal ?
+      { block: "nearest", inline: "center" } as ScrollIntoViewOptions :
+      { block: "center", inline: "nearest" } as ScrollIntoViewOptions;
+
+    button.scrollIntoView({
       behavior: "smooth",
-      block: "nearest",
-      inline: "nearest",
+      ...scrollOptions,
     });
   }
 
@@ -75,7 +78,7 @@ export class ZNavigationTab {
   @Watch("selected")
   onSelected() {
     if (this.selected) {
-      this.emitSelected.emit();
+      this.selectedEvent.emit();
     }
   }
 
@@ -97,7 +100,11 @@ export class ZNavigationTab {
 
   render() {
     return (
-      <button role="tab" disabled={this.disabled} title={this.htmlTitle}>
+      <button role="tab"
+        disabled={this.disabled}
+        title={this.htmlTitle}
+        onFocus={this.scrollToTab.bind(this)}
+      >
         {this.icon && this.renderIcon()}
         {this.orientation === "horizontal" && this.label}
       </button>

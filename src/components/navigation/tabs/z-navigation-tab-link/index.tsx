@@ -2,7 +2,6 @@ import {
   Component,
   Prop,
   h,
-  Element,
   Listen,
   Event,
   EventEmitter,
@@ -24,8 +23,6 @@ import { icons } from "../../../icons/icons";
   styleUrl: "../navigation-tab.css",
 })
 export class ZNavigationTabLink {
-  @Element() host: HTMLElement;
-
   /**
    * Whether the tab is selected.
    */
@@ -74,14 +71,19 @@ export class ZNavigationTabLink {
   @Prop() label: string;
 
   @Event({ eventName: "selected" })
-  private emitSelected: EventEmitter;
+  private selectedEvent: EventEmitter;
 
-  @Listen("focus")
-  onFocus() {
-    this.host.scrollIntoView({
+  /**
+   * Scroll into view to center the tab.
+   */
+  scrollToTab({ target: button }) {
+    const scrollOptions = this.orientation === NavigationTabsOrientations.horizontal ?
+      { block: "nearest", inline: "center" } as ScrollIntoViewOptions :
+      { block: "center", inline: "nearest" } as ScrollIntoViewOptions;
+
+    button.scrollIntoView({
       behavior: "smooth",
-      block: "nearest",
-      inline: "nearest",
+      ...scrollOptions,
     });
   }
 
@@ -93,7 +95,7 @@ export class ZNavigationTabLink {
   @Watch("selected")
   onSelected() {
     if (this.selected) {
-      this.emitSelected.emit();
+      this.selectedEvent.emit();
     }
   }
 
@@ -120,6 +122,7 @@ export class ZNavigationTabLink {
         href={!this.disabled && this.href}
         title={this.htmlTitle}
         target={this.target}
+        onFocus={this.scrollToTab.bind(this)}
       >
         {this.icon && this.renderIcon()}
         {this.orientation === "horizontal" && this.label}

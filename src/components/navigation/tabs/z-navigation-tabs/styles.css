@@ -49,6 +49,7 @@ nav {
   align-items: center;
   justify-content: flex-start;
   overflow: auto;
+  scroll-behavior: smooth;
 
   /* hide scrollbar in Firefox */
   scrollbar-width: none;
