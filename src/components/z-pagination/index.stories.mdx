@@ -7,9 +7,44 @@ import "./index";
   totalPages: { control: { type: "number", min: 1 } },
   visiblePages: { control: { type: "number", min: 1 } },
   skip: { control: { type: "number", min: 1 } },
+  edges: { control: { type: "boolean" } },
   goToPage: { control: { type: "boolean" } },
   split: { control: { type: "number", min: 1 } },
 }} />
+
+# ZPagination
+
+<Canvas>
+  <Story
+    name="ZPagination"
+    args={{
+      navArrows: true,
+      totalPages: 50,
+      visiblePages: 5,
+      split: 1,
+      skip: 10,
+      edges: false,
+      goToPage: false,
+    }}
+    parameters={{
+      controls: {
+        exclude: [],
+      }
+    }}
+  >
+    {(args) => html`
+      <z-pagination
+        .navArrows=${args.navArrows}
+        .totalPages=${args.totalPages}
+        .visiblePages=${args.visiblePages}
+        .edges=${args.edges}
+        .split=${args.split}
+        .skip=${args.skip}
+        .goToPage=${args.goToPage}
+      ></z-pagination>
+    `}
+  </Story>
+</Canvas>
 
 # ZPagination - visible pages
 
@@ -18,14 +53,14 @@ import "./index";
     name="ZPagination - visible pages"
     args={{
       navArrows: true,
-      totalPages: 10,
+      totalPages: 50,
       visiblePages: 5,
       skip: 5,
       goToPage: false,
     }}
     parameters={{
       controls: {
-        exclude: ["split"],
+        exclude: ["skip", "edges", "split"],
       }
     }}
   >
@@ -35,7 +70,6 @@ import "./index";
         .totalPages=${args.totalPages}
         .visiblePages=${args.visiblePages}
         .goToPage=${args.goToPage}
-        .skip=${args.skip}
       ></z-pagination>
     `}
   </Story>
@@ -50,14 +84,14 @@ import "./index";
     name="ZPagination - split"
     args={{
       navArrows: true,
-      totalPages: 10,
+      totalPages: 50,
       split: 1,
       skip: 5,
       goToPage: false,
     }}
     parameters={{
       controls: {
-        exclude: ["visiblePages"],
+        exclude: ["skip", "edges", "visiblePages"],
       }
     }}
   >
@@ -67,7 +101,66 @@ import "./index";
         .totalPages=${args.totalPages}
         .split=${args.split}
         .goToPage=${args.goToPage}
+      ></z-pagination>
+    `}
+  </Story>
+</Canvas>
+
+# ZPagination - edges
+
+<Canvas>
+  <Story
+    name="ZPagination - edges"
+    args={{
+      navArrows: true,
+      totalPages: 50,
+      visiblePages: 5,
+      edges: true,
+      goToPage: false,
+    }}
+    parameters={{
+      controls: {
+        exclude: ["skip", "split"],
+      }
+    }}
+  >
+    {(args) => html`
+      <z-pagination
+        .navArrows=${args.navArrows}
+        .totalPages=${args.totalPages}
+        .visiblePages=${args.visiblePages}
+        .edges=${args.edges}
+        .goToPage=${args.goToPage}
+      ></z-pagination>
+    `}
+  </Story>
+</Canvas>
+
+# ZPagination - skip
+
+<Canvas>
+  <Story
+    name="ZPagination - skip"
+    args={{
+      navArrows: true,
+      totalPages: 50,
+      visiblePages: 5,
+      skip: 10,
+      goToPage: false,
+    }}
+    parameters={{
+      controls: {
+        exclude: ["edges", "split"],
+      }
+    }}
+  >
+    {(args) => html`
+      <z-pagination
+        .navArrows=${args.navArrows}
+        .totalPages=${args.totalPages}
+        .visiblePages=${args.visiblePages}
         .skip=${args.skip}
+        .goToPage=${args.goToPage}
       ></z-pagination>
     `}
   </Story>

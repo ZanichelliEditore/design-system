@@ -49,10 +49,17 @@ z-icon {
   background-color: var(--color-hover-surface);
 }
 
+.pagination-bar .pagination-button {
+  text-transform: uppercase;
+  font-weight: var(--font-sb);
+}
+
+.pagination-bar .pagination-button,
 .pagination-bar .navigation-button {
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 1.5);
 }
 
+.pagination-bar .pagination-button:disabled,
 .pagination-bar .navigation-button:disabled {
   background-color: var(--color-disabled01);
   color: var(--color-disabled02);

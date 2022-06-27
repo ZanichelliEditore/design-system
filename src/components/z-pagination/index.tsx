@@ -33,6 +33,9 @@ export class ZPagination {
   @Prop()
   skip: number;
 
+  /** Enable first and last page buttons with number. */
+  edges: boolean = false;
+
   /** Number of pages to show left/right of the current, before showing "load more" symbol (…). */
   @Prop()
   split?: number;
@@ -286,11 +289,23 @@ export class ZPagination {
 
     return [
       <div class="pagination-bar">
+        {this.edges && (
+          <button
+              class="pagination-button"
+              type="button"
+              title="Vai alla pagina 1"
+              disabled={this.currentPage == 1}
+              onClick={() => this.selectPage(1)}
+          >
+            Pagina 1
+          </button>
+        )}
+
         {this.skip && (
           <button
-              class="navigation-button"
+              class="pagination-button"
               type="button"
-              title="Vai alla pagina precedente"
+              title={`Vai alla pagina ${this.currentPage - this.skip}`}
               disabled={this.currentPage <= this.skip}
               onClick={() => this.selectPage(this.currentPage - this.skip)}
           >
@@ -338,13 +353,25 @@ export class ZPagination {
 
         {this.skip && (
           <button
-            class="navigation-button"
+            class="pagination-button"
             type="button"
-            title="Vai alla pagina precedente"
+            title={`Vai alla pagina ${this.currentPage + this.skip}`}
             disabled={this.currentPage > this.totalPages - this.skip}
             onClick={() => this.selectPage(this.currentPage + this.skip)}
           >
             +{this.skip}
+          </button>
+        )}
+
+        {this.edges && (
+          <button
+              class="pagination-button"
+              type="button"
+              title={`Vai alla pagina ${this.totalPages}`}
+              disabled={this.currentPage == this.totalPages}
+              onClick={() => this.selectPage(this.totalPages)}
+          >
+            Pagina {this.totalPages}
           </button>
         )}
       </div>,
