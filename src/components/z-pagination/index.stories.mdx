@@ -6,6 +6,7 @@ import "./index";
   navArrows: { control: { type: "boolean" } },
   totalPages: { control: { type: "number", min: 1 } },
   visiblePages: { control: { type: "number", min: 1 } },
+  skip: { control: { type: "number", min: 1 } },
   goToPage: { control: { type: "boolean" } },
   split: { control: { type: "number", min: 1 } },
 }} />
@@ -19,6 +20,7 @@ import "./index";
       navArrows: true,
       totalPages: 10,
       visiblePages: 5,
+      skip: 5,
       goToPage: false,
     }}
     parameters={{
@@ -33,6 +35,7 @@ import "./index";
         .totalPages=${args.totalPages}
         .visiblePages=${args.visiblePages}
         .goToPage=${args.goToPage}
+        .skip=${args.skip}
       ></z-pagination>
     `}
   </Story>
@@ -49,6 +52,7 @@ import "./index";
       navArrows: true,
       totalPages: 10,
       split: 1,
+      skip: 5,
       goToPage: false,
     }}
     parameters={{
@@ -63,6 +67,7 @@ import "./index";
         .totalPages=${args.totalPages}
         .split=${args.split}
         .goToPage=${args.goToPage}
+        .skip=${args.skip}
       ></z-pagination>
     `}
   </Story>

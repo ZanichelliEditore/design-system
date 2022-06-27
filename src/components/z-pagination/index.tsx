@@ -29,6 +29,10 @@ export class ZPagination {
   @Prop()
   totalPages!: number;
 
+  /** Number of pages to skip. */
+  @Prop()
+  skip: number;
+
   /** Number of pages to show left/right of the current, before showing "load more" symbol (…). */
   @Prop()
   split?: number;
@@ -282,6 +286,18 @@ export class ZPagination {
 
     return [
       <div class="pagination-bar">
+        {this.skip && (
+          <button
+              class="navigation-button"
+              type="button"
+              title="Vai alla pagina precedente"
+              disabled={this.currentPage <= this.skip}
+              onClick={() => this.selectPage(this.currentPage - this.skip)}
+          >
+              -{this.skip}
+          </button>
+        )}
+
         {this.navArrows && (
           <button
             class="navigation-button"
@@ -317,6 +333,18 @@ export class ZPagination {
             onClick={() => this.selectPage(this.currentPage + 1)}
           >
             <z-icon name="chevron-right"></z-icon>
+          </button>
+        )}
+
+        {this.skip && (
+          <button
+            class="navigation-button"
+            type="button"
+            title="Vai alla pagina precedente"
+            disabled={this.currentPage > this.totalPages - this.skip}
+            onClick={() => this.selectPage(this.currentPage + this.skip)}
+          >
+            +{this.skip}
           </button>
         )}
       </div>,

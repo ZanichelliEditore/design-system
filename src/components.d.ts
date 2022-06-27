@@ -1215,6 +1215,10 @@ export namespace Components {
          */
         "navArrows": boolean;
         /**
+          * Number of pages to skip.
+         */
+        "skip": number;
+        /**
           * Number of pages to show left/right of the current, before showing "load more" symbol (…).
          */
         "split"?: number;
@@ -3842,6 +3846,10 @@ declare namespace LocalJSX {
           * Event emitted when the current page has changed.
          */
         "onPageChanged"?: (event: CustomEvent<any>) => void;
+        /**
+          * Number of pages to skip.
+         */
+        "skip"?: number;
         /**
           * Number of pages to show left/right of the current, before showing "load more" symbol (…).
          */
