@@ -44,16 +44,18 @@ export class ZButton {
   @Prop({ reflect: true })
   text?: string;
 
+  getAttributes() {
+    return {
+      id: this.htmlid,
+      class: classNames(this.variant, this.size),
+      "aria-label": this.ariaLabel,
+    };
+  }
+
   render() {
     if (this.href)
       return (
-        <a
-          aria-label={this.ariaLabel}
-          href={this.href}
-          target={this.target}
-          id={this.htmlid}
-          class={classNames(this.variant, this.size)}
-        >
+        <a href={this.href} target={this.target} {...this.getAttributes()}>
           {this.icon && <z-icon name={this.icon} width={16} height={16} />}
           {this.text && <span>{this.text}</span>}
         </a>
@@ -61,12 +63,10 @@ export class ZButton {
 
     return (
       <button
-        aria-label={this.ariaLabel}
-        id={this.htmlid}
         name={this.name}
         type={this.type}
         disabled={this.disabled}
-        class={classNames(this.variant, this.size)}
+        {...this.getAttributes()}
       >
         {this.icon && <z-icon name={this.icon} width={16} height={16} />}
         {this.text && <span>{this.text}</span>}

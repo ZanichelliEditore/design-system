@@ -126,10 +126,6 @@ export namespace Components {
          */
         "size"?: ButtonSizeEnum;
         /**
-          * Spy to render square button.
-         */
-        "square"?: boolean;
-        /**
           * HTML a target attribute.
          */
         "target"?: string;
@@ -2618,10 +2614,6 @@ declare namespace LocalJSX {
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
         "size"?: ButtonSizeEnum;
-        /**
-          * Spy to render square button.
-         */
-        "square"?: boolean;
         /**
           * HTML a target attribute.
          */
