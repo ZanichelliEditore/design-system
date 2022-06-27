@@ -33,7 +33,7 @@ export class ZPagination {
   @Prop()
   skip: number;
 
-  /** Enable first and last page buttons with number. */
+  /** Enable buttons to go to the first and last pages. */
   edges: boolean = false;
 
   /** Number of pages to show left/right of the current, before showing "load more" symbol (…). */
