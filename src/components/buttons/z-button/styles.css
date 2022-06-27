@@ -1,5 +1,4 @@
-button,
-a {
+:host {
   display: inline-block;
   --z-icon-width: 16px;
   --z-icon-height: 16px;
@@ -34,12 +33,12 @@ a {
   fill: currentColor;
 }
 
-[text] z-icon {
+:host[text] z-icon {
   --z-icon-right-margin: var(--space-unit);
 }
 
-[text] button,
-[text] a {
+:host[text] button,
+:host[text] a {
   min-width: calc(var(--space-unit) * 8);
   padding: 0 calc(var(--space-unit) * 2);
 }

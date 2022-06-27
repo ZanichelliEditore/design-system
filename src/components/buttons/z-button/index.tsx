@@ -14,6 +14,7 @@ import {
   tag: "z-button",
   styleUrl: "styles.css",
   shadow: false,
+  scoped: true,
 })
 export class ZButton {
   /** defines a string value that labels an interactive element, used for accessibility. */
