@@ -139,6 +139,11 @@ z-icon {
   padding: 0 calc(var(--space-unit) * 1.5) !important;
 }
 
+.mobile .inputs {
+  display: flex;
+  align-items: center;
+}
+
 @media (hover: hover) {
   .pagination-bar button:hover {
     background-color: var(--color-hover-surface);
@@ -155,5 +160,11 @@ z-icon {
 
     flex-direction: row;
     align-items: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .go-to-page {
+    display: none;
   }
 }

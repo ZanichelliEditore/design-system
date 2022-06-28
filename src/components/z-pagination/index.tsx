@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Watch,
   State,
+  Listen,
 } from "@stencil/core";
 
 /**
@@ -31,7 +32,7 @@ export class ZPagination {
 
   /** Number of pages to skip. */
   @Prop()
-  skip: number;
+  skip: number = 0;
 
   /** Enable buttons to go to the first and last pages. */
   @Prop()
@@ -61,6 +62,16 @@ export class ZPagination {
    */
   @State()
   private _visiblePages: number = this.visiblePages;
+
+  /**
+   * Same as above for split.
+   */
+  @State()
+  private _split: number = this.split;
+
+  /** Used to hides/change some functionalities on smaller screen sizes */
+  @State()
+  isMobile: Boolean = false;
 
   /** Event emitted when the current page has changed. */
   @Event()
@@ -105,7 +116,7 @@ export class ZPagination {
    */
   @Watch("visiblePages")
   setVisiblePages() {
-    if (!this.split) {
+    if (!this._split) {
       this._visiblePages = Math.min(
         this.visiblePages || this.totalPages,
         this.totalPages
@@ -138,6 +149,14 @@ export class ZPagination {
   }
 
   /**
+   * Hide stuff if mobile.
+   */
+  @Listen('resize', { target: 'window', passive: true })
+  checkScrollVisible() {
+    this.handleMobile();
+  }
+
+  /**
    *
    * * @inheritdoc
    */
@@ -146,6 +165,27 @@ export class ZPagination {
       this._visiblePages = null;
       this.edges = false;
     }
+
+    this.handleMobile()
+  }
+
+  /**
+   * Set functionalities according to screen size.
+   */
+  handleMobile() {
+    const isMobileMediaQuery = 'screen and (max-width: 768px)';
+    this.isMobile = window.matchMedia(isMobileMediaQuery).matches;
+
+    // TODO FIX loop
+
+    // if (!this.isMobile) {
+    //   this._split = this.split;
+    //   this._visiblePages = this.visiblePages;
+    //   return;
+    // }
+
+    // this._split = 0;
+    // this._visiblePages = 0;
   }
 
   /**
@@ -156,7 +196,7 @@ export class ZPagination {
     // array of numbers from 1 to `totalPages`
     const pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
-    if (this.split) {
+    if (this._split) {
       return [pages];
     }
 
@@ -239,7 +279,7 @@ export class ZPagination {
    */
   renderSplitButton(page) {
     const sign = Math.sign(page - this.currentPage);
-    const splitPage = this.currentPage + (this.split * sign) + (1 * sign);
+    const splitPage = this.currentPage + (this._split * sign) + (1 * sign);
     const button = (
       <button
         class="split-button"
@@ -272,15 +312,15 @@ export class ZPagination {
     const distanceFromCurrentPage = Math.abs(page - this.currentPage);
 
     if (
-      !this.split ||
+      !this._split ||
       // current, first and last pages always visible
-      this.split > this.totalPages - 3 ||
+      this._split > this.totalPages - 3 ||
       page == 1 ||
       page == this.totalPages ||
-      distanceFromCurrentPage <= this.split ||
+      distanceFromCurrentPage <= this._split ||
       // show the page if split would hide only one page
-      (page == 2 && this.currentPage - this.split - 1 == page) ||
-      (page == this.totalPages - 1 && this.currentPage + this.split + 1 == page)
+      (page == 2 && this.currentPage - this._split - 1 == page) ||
+      (page == this.totalPages - 1 && this.currentPage + this._split + 1 == page)
     ) {
       return this.renderPage(page);
     }
@@ -297,9 +337,11 @@ export class ZPagination {
     this.splitRight = false;
     this.splitLeft = false;
 
+    console.log('isMobile', this.isMobile)
+
     return [
       <div class="pagination-bar">
-        {this.edges && (
+        {(!this.isMobile && this.edges) &&
           <button
               class="pagination-button"
               type="button"
@@ -309,9 +351,9 @@ export class ZPagination {
           >
             Pagina 1
           </button>
-        )}
+        }
 
-        {(this.skip < this.totalPages) && (this.skip > 1) && (
+        {(!this.isMobile && (this.skip < this.totalPages) && (this.skip > 1)) &&
           <button
               class="pagination-button"
               type="button"
@@ -321,9 +363,9 @@ export class ZPagination {
           >
             -{this.skip}
           </button>
-        )}
+        }
 
-        {this.navArrows && (
+        {(this.navArrows || this.isMobile) &&
           <button
             class="navigation-button"
             type="button"
@@ -333,9 +375,9 @@ export class ZPagination {
           >
             <z-icon name="chevron-left"></z-icon>
           </button>
-        )}
+        }
 
-        <div
+        {(!this.isMobile || !this.goToPage) && <div
           class="pages-container"
           role="navigation"
           tabIndex={-1}
@@ -346,9 +388,21 @@ export class ZPagination {
                 {chunk.map((page) => this.renderButton(page))}
               </div>
             ))}
-        </div>
+        </div>}
 
-        {this.navArrows && (
+        {this.isMobile && this.goToPage && <div class="mobile inputs">
+          <z-input
+            ref={(el) => (this.goToPageInput = el as HTMLZInputElement)}
+            type="number"
+            hasmessage={false}
+            placeholder={`${Math.round(this.totalPages / 2)}`}
+            hasclearicon={false}
+            onKeyPress={(ev) => ev.key === 'Enter' && this.onGoToPage()}
+          ></z-input>
+          <span>{`/${this.totalPages}`}</span>
+        </div>}
+
+        {(this.navArrows || this.isMobile) &&
           <button
             class="navigation-button"
             type="button"
@@ -358,9 +412,9 @@ export class ZPagination {
           >
             <z-icon name="chevron-right"></z-icon>
           </button>
-        )}
+        }
 
-        {((this.skip < this.totalPages) && (this.skip > 1)) && (
+        {!this.isMobile && (this.skip < this.totalPages) && (this.skip > 1) &&
           <button
             class="pagination-button"
             type="button"
@@ -370,9 +424,9 @@ export class ZPagination {
           >
             +{this.skip}
           </button>
-        )}
+        }
 
-        {this.edges && (
+        {(!this.isMobile && this.edges) &&
           <button
               class="pagination-button"
               type="button"
@@ -382,10 +436,10 @@ export class ZPagination {
           >
             Pagina {this.totalPages}
           </button>
-        )}
+        }
       </div>,
 
-      this.goToPage && (
+      this.goToPage && !this.isMobile &&
         <div class="go-to-page">
           <span class="label">Vai a pagina:</span>
           <div class="inputs">
@@ -399,8 +453,7 @@ export class ZPagination {
             ></z-input>
             <z-button title="Vai alla pagina inserita" onClick={this.onGoToPage.bind(this)}>vai</z-button>
           </div>
-        </div>
-      ),
+        </div>,
     ];
   }
 }
