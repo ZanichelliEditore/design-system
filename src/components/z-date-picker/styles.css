@@ -384,3 +384,35 @@ z-date-picker > div > * {
   left: 5.5px !important;
   margin-top: 4px !important;
 }
+
+/* range-date-picker selectors */
+
+.flatpickr-day.inRange,
+.flatpickr-day.today.inRange,
+.flatpickr-day.prevMonthDay.inRange {
+  background-color: var(--myz-blue-lighter) !important;
+  border-color: var(--myz-blue-lighter) !important;
+}
+
+.flatpickr-day.inRange:hover,
+.flatpickr-day.today.inRange:hover,
+.flatpickr-day.prevMonthDay.inRange:hover {
+  background-color: var(--myz-blue-dark) !important;
+  border-color: var(--myz-blue-dark) !important;
+}
+
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background-color: var(--myz-blue) !important;
+  border-color: var(--myz-blue) !important;
+}
+
+.flatpickr-day.prevMonthDay.selected.startRange,
+.flatpickr-day.prevMonthDay.selected.endRange {
+  background-color: var(--myz-blue) !important;
+  border-color: var(--myz-blue) !important;
+}
+
+.flatpickr-range.second-input {
+  cursor: pointer;
+}

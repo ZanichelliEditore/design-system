@@ -10,7 +10,8 @@ import {
 
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
-import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
+//import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
+import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 import classNames from "classnames";
 
 import {
@@ -49,7 +50,8 @@ export class ZDatePicker {
   }
 
   componentDidLoad() {
-    flatpickr(`.${this.datepickerid}`, {
+    flatpickr(".flatpickr-range-time", {
+      mode: "range",
       appendTo: this.element.children[0] as HTMLElement,
       enableTime: this.mode === ZDatePickerMode.dateTime,
       locale: Italian,
@@ -62,12 +64,13 @@ export class ZDatePicker {
         this.emitDateSelect(dateStr);
       },
       wrap: this.hasChildren,
-      plugins: this.mode === ZDatePickerMode.months && [
+      /*       plugins: this.mode === ZDatePickerMode.months && [
         monthSelectPlugin({
           dateFormat: "m-Y",
           altFormat: "m-Y",
         }),
-      ],
+      ], */
+      plugins: [rangePlugin({ input: ".second-input" })],
     });
 
     this.element.querySelectorAll(".flatpickr-weekday").forEach((element) => {
@@ -118,6 +121,15 @@ export class ZDatePicker {
     );
   }
 
+  renderZRangeInput() {
+    return (
+      <div>
+        <z-input class={this.datepickerid} type="text" name="datepicker" />
+        <z-input class="second-input" type="text" name="datepicker" />
+      </div>
+    );
+  }
+
   render() {
     return (
       <div
@@ -129,7 +141,9 @@ export class ZDatePicker {
         )}
         onClick={() => this.setFlatpickrPosition()}
       >
-        {this.hasChildren ? this.renderSlottedContent() : this.renderZInput()}
+        {this.hasChildren
+          ? this.renderSlottedContent()
+          : this.renderZRangeInput()}
       </div>
     );
   }
