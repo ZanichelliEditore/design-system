@@ -34,6 +34,7 @@ export class ZPagination {
   skip: number;
 
   /** Enable buttons to go to the first and last pages. */
+  @Prop()
   edges: boolean = false;
 
   /** Number of pages to show left/right of the current, before showing "load more" symbol (…). */
@@ -135,6 +136,18 @@ export class ZPagination {
   onSplitChanged() {
     if (this.split) {
       this._visiblePages = null;
+      this.edges = false;
+    }
+  }
+
+  /**
+   * Component did render hook.
+   * When split is enabled, disable the edges feature and set the `_visiblePages` value to null.
+   */
+  componentDidRender() {
+    if (this.split) {
+      this._visiblePages = null;
+      this.edges = false;
     }
   }
 
