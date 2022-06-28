@@ -8,7 +8,7 @@ div {
   height: 522px;
   border: var(--border-size-medium) solid var(--color-surface03);
   border-radius: var(--border-radius);
-  overflow: hidden;
+  overflow-y: clip;
 }
 
 div.real,
