@@ -66,9 +66,6 @@ export class ZPagination {
   @Event()
   pageChanged: EventEmitter;
 
-  /** Container element for the chunk of pages. */
-  pagesContainer: HTMLElement;
-
   /** Input element for "go to page". */
   goToPageInput: HTMLZInputElement;
 
@@ -84,18 +81,18 @@ export class ZPagination {
   @Watch("_visiblePages")
   setPagesContainerWidth() {
     if (!this._visiblePages) {
-      this.pagesContainer.style.setProperty(
+      this.host.style.setProperty(
         "--z-pagination--pages-container-max-width",
         "100%"
       );
       return;
     }
 
-    const pagesContainerStyle = window.getComputedStyle(this.pagesContainer);
+    const pagesContainerStyle = window.getComputedStyle(this.host);
     const pageButtonWidth = pagesContainerStyle.getPropertyValue(
       "--z-pagination--page-button-width"
     );
-    this.pagesContainer.style.setProperty(
+    this.host.style.setProperty(
       "--z-pagination--pages-container-max-width",
       `calc(${pageButtonWidth} * ${this._visiblePages})`
     );
@@ -141,8 +138,8 @@ export class ZPagination {
   }
 
   /**
-   * Component did render hook.
-   * When split is enabled, disable the edges feature and set the `_visiblePages` value to null.
+   *
+   * * @inheritdoc
    */
   componentDidRender() {
     if (this.split) {
@@ -181,7 +178,7 @@ export class ZPagination {
    * Scroll to the left the chunk of pages containing the current page.
    */
   scrollToPage() {
-    const pagesChunk = this.pagesContainer
+    const pagesChunk = this.host.shadowRoot
       .querySelector(`[data-page="${this.currentPage}"]`)
       ?.closest(".pages-chunk") as HTMLElement;
     if (!pagesChunk) {
@@ -342,7 +339,6 @@ export class ZPagination {
           class="pages-container"
           role="navigation"
           tabIndex={-1}
-          ref={(el) => (this.pagesContainer = el as HTMLElement)}
         >
           {pagesChunks.length > 0 &&
             pagesChunks.map((chunk) => (

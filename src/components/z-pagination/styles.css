@@ -1,4 +1,7 @@
 :host {
+  --z-pagination--page-button-width: 64px;
+  --z-pagination--pages-container-max-width: 100%;
+
   display: flex;
   flex-direction: column;
   gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
@@ -73,9 +76,6 @@ z-icon {
 }
 
 .pages-container {
-  --z-pagination--page-button-width: 64px;
-  --z-pagination--pages-container-max-width: 100%;
-
   position: relative;
   display: inline-flex;
   max-width: var(--z-pagination--pages-container-max-width);
@@ -150,11 +150,9 @@ z-icon {
 
 @media (min-width: 768px) {
   :host {
+    --z-pagination--page-button-width: 88px;
+
     flex-direction: row;
     align-items: flex-end;
-  }
-
-  .pages-container {
-    --z-pagination--page-button-width: 88px;
   }
 }
