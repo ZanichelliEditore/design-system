@@ -55,6 +55,7 @@ z-icon {
 .pagination-bar .pagination-button {
   text-transform: uppercase;
   font-weight: var(--font-sb);
+  white-space: nowrap;
 }
 
 .pagination-bar .pagination-button,

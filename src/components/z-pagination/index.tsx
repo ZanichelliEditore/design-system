@@ -311,7 +311,7 @@ export class ZPagination {
           </button>
         )}
 
-        {this.skip && (this.skip > 1) && (
+        {(this.skip < this.totalPages) && (this.skip > 1) && (
           <button
               class="pagination-button"
               type="button"
@@ -360,7 +360,7 @@ export class ZPagination {
           </button>
         )}
 
-        {this.skip && ((this.skip < this.totalPages) && (this.skip > 1)) && (this.skip <= this.totalPages) && (
+        {((this.skip < this.totalPages) && (this.skip > 1)) && (
           <button
             class="pagination-button"
             type="button"
