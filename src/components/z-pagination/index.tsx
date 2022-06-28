@@ -369,7 +369,7 @@ export class ZPagination {
             class="pagination-button"
             type="button"
             title={`Vai alla pagina ${this.currentPage + this.skip}`}
-            disabled={this.currentPage > this.totalPages - this.skip}
+            disabled={this.currentPage > (this.totalPages - this.skip)}
             onClick={() => this.selectPage(this.currentPage + this.skip)}
           >
             +{this.skip}

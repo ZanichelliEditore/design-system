@@ -1207,6 +1207,10 @@ export namespace Components {
          */
         "currentPage": number;
         /**
+          * Enable buttons to go to the first and last pages.
+         */
+        "edges": boolean;
+        /**
           * Whether to show "go to page" feature.
          */
         "goToPage": Boolean;
@@ -3834,6 +3838,10 @@ declare namespace LocalJSX {
           * Current page.
          */
         "currentPage"?: number;
+        /**
+          * Enable buttons to go to the first and last pages.
+         */
+        "edges"?: boolean;
         /**
           * Whether to show "go to page" feature.
          */
