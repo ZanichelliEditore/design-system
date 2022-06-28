@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Element } from "@stencil/core";
 import classNames from "classnames";
 import {
   ButtonVariantBean,
@@ -17,6 +17,7 @@ import {
   scoped: true,
 })
 export class ZButton {
+  @Element() hostElement: HTMLElement;
   /** defines a string value that labels an interactive element, used for accessibility. */
   @Prop({ reflect: true }) ariaLabel?: string;
   /** HTML a href attribute. If it is set, it renders an HTML a tag. */
@@ -41,9 +42,6 @@ export class ZButton {
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
   @Prop({ reflect: true })
   size?: ButtonSizeEnum = ButtonSizeEnum.big;
-  /** set label text  */
-  @Prop({ reflect: true })
-  text?: string;
 
   getAttributes() {
     return {
@@ -53,12 +51,18 @@ export class ZButton {
     };
   }
 
+  componentWillRender() {
+    if (this.hostElement.innerText) {
+      this.hostElement.classList.add("with-text");
+    }
+  }
+
   render() {
     if (this.href)
       return (
         <a href={this.href} target={this.target} {...this.getAttributes()}>
           {this.icon && <z-icon name={this.icon} width={16} height={16} />}
-          {this.text && <span>{this.text}</span>}
+          <slot />
         </a>
       );
 
@@ -70,7 +74,7 @@ export class ZButton {
         {...this.getAttributes()}
       >
         {this.icon && <z-icon name={this.icon} width={16} height={16} />}
-        {this.text && <span>{this.text}</span>}
+        <slot />
       </button>
     );
   }

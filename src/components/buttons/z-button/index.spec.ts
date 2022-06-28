@@ -18,12 +18,12 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton con testo e aria-label", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button text="text" aria-label="Open"></z-button>`,
+      html: `<z-button aria-label="Open">text</z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button  aria-label="Open" size="big" text="text" variant="primary">
+      <z-button  aria-label="Open" class="with-text" size="big" variant="primary">
           <button aria-label="Open" type="button" class="big primary">
-          <span>text</span>
+          text
           </button>
      </z-button>
     `);
@@ -85,14 +85,14 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton with link and variant", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button variant="primary" href="https://wikipedia.com" text="link"></z-button>`,
+      html: `<z-button variant="primary" href="https://wikipedia.com">link</z-button>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="primary"  href="https://wikipedia.com" text="link">
-            <a href="https://wikipedia.com" class="big primary">     <span>
+      <z-button class="with-text" size="big" variant="primary"  href="https://wikipedia.com">
+            <a href="https://wikipedia.com" class="big primary">
                   link
-                 </span></a>
+          </a>
             </button>
       </z-button>
     `);

@@ -28,17 +28,18 @@ a {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
+  width: 100%;
   white-space: nowrap;
   outline: none;
   fill: currentColor;
 }
 
-:host[text] z-icon {
+:host.with-text z-icon {
   --z-icon-right-margin: var(--space-unit);
 }
 
-:host[text] button,
-:host[text] a {
+:host.with-text button,
+:host.with-text a {
   min-width: calc(var(--space-unit) * 8);
   padding: 0 calc(var(--space-unit) * 2);
 }

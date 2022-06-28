@@ -130,10 +130,6 @@ export namespace Components {
          */
         "target"?: string;
         /**
-          * set label text
-         */
-        "text"?: string;
-        /**
           * HTML button type attribute.
          */
         "type"?: HTMLButtonElement["type"];
@@ -2618,10 +2614,6 @@ declare namespace LocalJSX {
           * HTML a target attribute.
          */
         "target"?: string;
-        /**
-          * set label text
-         */
-        "text"?: string;
         /**
           * HTML button type attribute.
          */

@@ -34,7 +34,6 @@ import "./index";
       size: ButtonSizeEnum.big,
       disabled: false,
       icon: "download",
-      text: "Click me",
     }}
   >
     {(args) => html`
@@ -44,8 +43,8 @@ import "./index";
           size=${args.size}
           disabled=${args.disabled}
           icon=${args.icon}
-          text=${args.text}
-        ></z-button>
+          >Click me</z-button
+        >
       </div>
     `}
   </Story>
@@ -61,7 +60,6 @@ import "./index";
       size: ButtonSizeEnum.small,
       disabled: false,
       icon: "download",
-      text: "button",
     }}
     parameters={{
       controls: {
@@ -75,8 +73,7 @@ import "./index";
         size=${args.size}
         disabled=${args.disabled}
         icon=${args.icon}
-        text=${args.text}
-      >
+        >button
       </z-button>
     `}
   </Story>
@@ -92,7 +89,6 @@ import "./index";
       size: ButtonSizeEnum["x-small"],
       disabled: false,
       icon: "download",
-      text: "button",
     }}
     parameters={{
       controls: {
@@ -106,8 +102,8 @@ import "./index";
         size=${args.size}
         disabled=${args.disabled}
         icon=${args.icon}
-        text=${args.text}
       >
+        button
       </z-button>
     `}
   </Story>
@@ -115,7 +111,7 @@ import "./index";
 
 ## Icon only
 
-It is possible use a button with icon only passing an icon name to `icon` prop, without set `text` prop.
+It is possible use a button with icon only passing an icon name to `icon` prop.
 **Note:** `z-icon` drops its spacing accordingly.
 
 | Prop name | Prop value        |
@@ -164,7 +160,6 @@ To do this you need to set `href` prop.
       icon: "arrow-quad-north-east",
       href: "https://wikipedia.com",
       target: "_blank",
-      text: "Go to Wikipedia",
     }}
   >
     {(args) => html`
@@ -175,8 +170,7 @@ To do this you need to set `href` prop.
         variant="${args.variant}"
         size="${args.size}"
         disabled="${args.disabled}"
-        text="${args.text}"
-      >
+        >Go to Wikipedia
       </z-button>
     `}
   </Story>
