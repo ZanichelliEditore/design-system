@@ -1,0 +1,30 @@
+
+
+{
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "declaration-block-single-line-max-declarations": 0,
+      "no-descending-specificity": [
+        true,
+        {
+                  "ignore": ["selectors-within-list"]
+              }
+      ],
+      "order/order": [
+        ["custom-properties", "declarations"]
+      ],
+      "order/properties-order": [
+        ["background", "background-color", "background-repeat"]
+      ],
+      "csstools/value-no-unknown-custom-properties": [
+        true,
+        {
+          "importFrom": ["./node_modules/@zanichelli/albe-design-tokens/dist/tokens.css"]
+        }
+      ]
+    },
+    "plugins": [
+      "stylelint-order",
+      "stylelint-value-no-unknown-custom-properties"
+    ]
+  }
