@@ -309,7 +309,7 @@ export class ZPagination {
               disabled={this.currentPage <= this.skip}
               onClick={() => this.selectPage(this.currentPage - this.skip)}
           >
-              -{this.skip}
+            -{this.skip}
           </button>
         )}
 
