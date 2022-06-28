@@ -1207,6 +1207,10 @@ export namespace Components {
          */
         "currentPage": number;
         /**
+          * Enable buttons to go to the first and last pages.
+         */
+        "edges": boolean;
+        /**
           * Whether to show "go to page" feature.
          */
         "goToPage": Boolean;
@@ -1214,6 +1218,10 @@ export namespace Components {
           * Enable navigation arrows.
          */
         "navArrows": boolean;
+        /**
+          * Number of pages to skip.
+         */
+        "skip": number;
         /**
           * Number of pages to show left/right of the current, before showing "load more" symbol (…).
          */
@@ -3831,6 +3839,10 @@ declare namespace LocalJSX {
          */
         "currentPage"?: number;
         /**
+          * Enable buttons to go to the first and last pages.
+         */
+        "edges"?: boolean;
+        /**
           * Whether to show "go to page" feature.
          */
         "goToPage"?: Boolean;
@@ -3842,6 +3854,10 @@ declare namespace LocalJSX {
           * Event emitted when the current page has changed.
          */
         "onPageChanged"?: (event: CustomEvent<any>) => void;
+        /**
+          * Number of pages to skip.
+         */
+        "skip"?: number;
         /**
           * Number of pages to show left/right of the current, before showing "load more" symbol (…).
          */

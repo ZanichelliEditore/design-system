@@ -29,6 +29,14 @@ export class ZPagination {
   @Prop()
   totalPages!: number;
 
+  /** Number of pages to skip. */
+  @Prop()
+  skip: number;
+
+  /** Enable buttons to go to the first and last pages. */
+  @Prop()
+  edges: boolean = false;
+
   /** Number of pages to show left/right of the current, before showing "load more" symbol (…). */
   @Prop()
   split?: number;
@@ -58,9 +66,6 @@ export class ZPagination {
   @Event()
   pageChanged: EventEmitter;
 
-  /** Container element for the chunk of pages. */
-  pagesContainer: HTMLElement;
-
   /** Input element for "go to page". */
   goToPageInput: HTMLZInputElement;
 
@@ -76,18 +81,18 @@ export class ZPagination {
   @Watch("_visiblePages")
   setPagesContainerWidth() {
     if (!this._visiblePages) {
-      this.pagesContainer.style.setProperty(
+      this.host.style.setProperty(
         "--z-pagination--pages-container-max-width",
         "100%"
       );
       return;
     }
 
-    const pagesContainerStyle = window.getComputedStyle(this.pagesContainer);
+    const pagesContainerStyle = window.getComputedStyle(this.host);
     const pageButtonWidth = pagesContainerStyle.getPropertyValue(
       "--z-pagination--page-button-width"
     );
-    this.pagesContainer.style.setProperty(
+    this.host.style.setProperty(
       "--z-pagination--pages-container-max-width",
       `calc(${pageButtonWidth} * ${this._visiblePages})`
     );
@@ -128,6 +133,18 @@ export class ZPagination {
   onSplitChanged() {
     if (this.split) {
       this._visiblePages = null;
+      this.edges = false;
+    }
+  }
+
+  /**
+   *
+   * * @inheritdoc
+   */
+  componentDidRender() {
+    if (this.split) {
+      this._visiblePages = null;
+      this.edges = false;
     }
   }
 
@@ -161,7 +178,7 @@ export class ZPagination {
    * Scroll to the left the chunk of pages containing the current page.
    */
   scrollToPage() {
-    const pagesChunk = this.pagesContainer
+    const pagesChunk = this.host.shadowRoot
       .querySelector(`[data-page="${this.currentPage}"]`)
       ?.closest(".pages-chunk") as HTMLElement;
     if (!pagesChunk) {
@@ -282,6 +299,30 @@ export class ZPagination {
 
     return [
       <div class="pagination-bar">
+        {this.edges && (
+          <button
+              class="pagination-button"
+              type="button"
+              title="Vai alla pagina 1"
+              disabled={this.currentPage == 1}
+              onClick={() => this.selectPage(1)}
+          >
+            Pagina 1
+          </button>
+        )}
+
+        {(this.skip < this.totalPages) && (this.skip > 1) && (
+          <button
+              class="pagination-button"
+              type="button"
+              title={`Vai alla pagina ${this.currentPage - this.skip}`}
+              disabled={this.currentPage <= this.skip}
+              onClick={() => this.selectPage(this.currentPage - this.skip)}
+          >
+            -{this.skip}
+          </button>
+        )}
+
         {this.navArrows && (
           <button
             class="navigation-button"
@@ -298,7 +339,6 @@ export class ZPagination {
           class="pages-container"
           role="navigation"
           tabIndex={-1}
-          ref={(el) => (this.pagesContainer = el as HTMLElement)}
         >
           {pagesChunks.length > 0 &&
             pagesChunks.map((chunk) => (
@@ -317,6 +357,30 @@ export class ZPagination {
             onClick={() => this.selectPage(this.currentPage + 1)}
           >
             <z-icon name="chevron-right"></z-icon>
+          </button>
+        )}
+
+        {((this.skip < this.totalPages) && (this.skip > 1)) && (
+          <button
+            class="pagination-button"
+            type="button"
+            title={`Vai alla pagina ${this.currentPage + this.skip}`}
+            disabled={this.currentPage > (this.totalPages - this.skip)}
+            onClick={() => this.selectPage(this.currentPage + this.skip)}
+          >
+            +{this.skip}
+          </button>
+        )}
+
+        {this.edges && (
+          <button
+              class="pagination-button"
+              type="button"
+              title={`Vai alla pagina ${this.totalPages}`}
+              disabled={this.currentPage == this.totalPages}
+              onClick={() => this.selectPage(this.totalPages)}
+          >
+            Pagina {this.totalPages}
           </button>
         )}
       </div>,
