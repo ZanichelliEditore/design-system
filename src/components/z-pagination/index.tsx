@@ -124,8 +124,6 @@ export class ZPagination {
   @Watch("currentPage")
   onPageChanged() {
     this.pageChanged.emit(this.currentPage);
-    console.debug("pageChanged", this.currentPage);
-
     this.scrollToPage();
   }
 
@@ -226,10 +224,10 @@ export class ZPagination {
 
   /**
    * Event handler for go to page button click.
-   * @param {Event} ev
    */
-  onGoToPage(ev) {
-    const newPage = Number(ev.target.value);
+  onGoToPage() {
+    const target = this.host.shadowRoot.querySelector(".gotopage-input") as HTMLZInputElement;
+    const newPage = Number(target.value);
     if (newPage > 0) {
       this.selectPage(newPage);
     }
@@ -345,11 +343,12 @@ export class ZPagination {
         {this.goToPage && (
           <div class="mobile-go-to-page">
             <z-input
+              class="gotopage-input"
               type="number"
               hasmessage={false}
               placeholder={`${Math.round(this.totalPages / 2)}`}
               hasclearicon={false}
-              onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage(ev)}
+              onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage()}
             ></z-input>
             <span>{`/${this.totalPages}`}</span>
           </div>
@@ -467,14 +466,15 @@ export class ZPagination {
           <div class="inputs">
             <z-input
               type="number"
+              class="gotopage-input"
               hasmessage={false}
               placeholder={`${Math.round(this.totalPages / 2)}`}
               hasclearicon={false}
-              onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage(ev)}
+              onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage()}
             ></z-input>
             <z-button
               title="Vai alla pagina inserita"
-              onClick={this.onGoToPage.bind(this)}
+              onClick={(ev) => this.onGoToPage()}
             >
               vai
             </z-button>
