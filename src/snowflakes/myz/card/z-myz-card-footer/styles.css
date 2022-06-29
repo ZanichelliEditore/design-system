@@ -16,7 +16,8 @@ footer {
 }
 
 footer.real,
-footer.trial {
+footer.trial,
+footer.temp {
   border-top: var(--border-size-medium) solid var(--accent);
 }
 
@@ -48,7 +49,8 @@ footer.isopen > p {
 }
 
 footer.isopen.real > p,
-footer.isopen.trial > p {
+footer.isopen.trial > p,
+footer.isopen.temp > p {
   background-color: var(--accent);
 }
 
@@ -118,10 +120,16 @@ footer.isopen {
   top: -212px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
+footer.isopen.customContent {
+  top: -292px;
+}
 
 footer.isopen > div.content {
   height: 280px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
+}
+footer.isopen.customContent > div.content {
+  height: 230px;
 }
 
 .toggle {
@@ -134,4 +142,39 @@ footer.isopen > div.content {
 .faded {
   opacity: 0.3;
   pointer-events: none;
+}
+
+footer > p.customContent,
+footer .content.customContent {
+  display: none;
+}
+
+footer.isopen > p.customContent,
+footer.isopen .content.customContent {
+  display: block;
+}
+
+div.wrapper {
+  position: relative;
+  height: 100%;
+}
+
+div.wrapper ::slotted([slot="content"]) {
+  display: block;
+  height: 112px;
+  width: 100%;
+  padding: 0 calc(var(--space-unit) * 2);
+  box-sizing: border-box;
+  border-top: var(--border-size-medium) solid transparent;
+  position: absolute;
+  top: calc(var(--space-unit) * 2);
+  z-index: 10;
+  background: var(--color-white);
+}
+div.wrapper.isopen ::slotted([slot="content"]) {
+  height: 128px;
+  padding: calc(var(--space-unit) * 2);
+  border-color: var(--accent);
+  top: 0;
+  bottom: 0;
 }

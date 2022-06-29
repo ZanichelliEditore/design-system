@@ -83,7 +83,7 @@ describe("z-file-upload test end2end", () => {
 
     expect(zf).not.toBeNull();
 
-    page.evaluate(() => (document.querySelector('z-file-upload z-file z-chip div z-icon:last-child') as HTMLElement).click())
+    page.evaluate(() => (document.querySelector('z-file-upload z-file z-chip z-icon') as HTMLElement).click())
     await page.waitForChanges();
     const zfCheck = await page.find("z-file-upload z-file");
 

@@ -12,11 +12,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                     | Type                                                                       | Default     |
-| ---------- | ---------- | ------------------------------- | -------------------------------------------------------------------------- | ----------- |
-| `cardtype` | `cardtype` | card graphic variant (optional) | `LicenseTypeEnum.real \| LicenseTypeEnum.trial \| LicenseTypeEnum.virtual` | `undefined` |
-| `faded`    | `faded`    | faded status                    | `boolean`                                                                  | `undefined` |
-| `titolo`   | `titolo`   | volume title                    | `string`                                                                   | `undefined` |
+| Property   | Attribute  | Description                     | Type                                                                                               | Default     |
+| ---------- | ---------- | ------------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
+| `cardtype` | `cardtype` | card graphic variant (optional) | `LicenseTypeEnum.real \| LicenseTypeEnum.temp \| LicenseTypeEnum.trial \| LicenseTypeEnum.virtual` | `undefined` |
+| `faded`    | `faded`    | faded status                    | `boolean`                                                                                          | `undefined` |
+| `titolo`   | `titolo`   | volume title                    | `string`                                                                                           | `undefined` |
 
 
 ## Slots

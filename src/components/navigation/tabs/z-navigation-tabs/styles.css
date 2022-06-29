@@ -23,7 +23,7 @@
   display: none;
 }
 
-button.navigation {
+.navigation-button {
   position: absolute;
   display: flex;
   align-items: center;
@@ -39,12 +39,12 @@ button.navigation {
   z-index: 1;
 }
 
-button.navigation:focus {
+.navigation-button:focus {
   fill: var(--color-primary01);
   box-shadow: var(--shadow-focus-primary);
 }
 
-button.navigation:disabled {
+.navigation-button:disabled {
   display: none;
 }
 
@@ -65,19 +65,19 @@ nav {
   width: 100%;
 }
 
-:host([orientation='horizontal']) button.navigation {
+:host([orientation='horizontal']) .navigation-button {
   top: 0;
   height: 100%;
   width: calc((var(--space-unit) * 4) + var(--safe-scroll-area));
 }
 
-:host([orientation='horizontal']) button.navigation:first-child {
+:host([orientation='horizontal']) .navigation-button:first-child {
   left: 0;
   padding-left: var(--safe-scroll-area);
   box-shadow: 5px 0px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40);
 }
 
-:host([orientation='horizontal']) button.navigation:last-child {
+:host([orientation='horizontal']) .navigation-button:last-child {
   right: 0;
   padding-right: 4px;
   box-shadow: -5px 0px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40);
@@ -86,6 +86,7 @@ nav {
 /* Orientation vertical */
 :host([orientation='vertical']) {
   flex-direction: column;
+  width: fit-content;
 }
 
 :host([orientation='vertical']) nav {
@@ -94,24 +95,24 @@ nav {
   height: 100%;
 }
 
-:host([orientation='vertical']) button.navigation {
+:host([orientation='vertical']) .navigation-button {
   left: 0;
   width: 100%;
   height: calc((var(--space-unit) * 4) + var(--safe-scroll-area));
 }
 
-:host([orientation='vertical']) button.navigation:first-child {
+:host([orientation='vertical']) .navigation-button:first-child {
   top: 0;
   padding-top: var(--safe-scroll-area);
   box-shadow: 0px 5px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40);
 }
 
-:host([orientation='vertical']) button.navigation:last-child {
+:host([orientation='vertical']) .navigation-button:last-child {
   bottom: 0;
   padding-bottom: var(--safe-scroll-area);
   box-shadow: 0px -5px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40);
 }
 
-:host([size='small'][orientation='vertical']) button.navigation {
+:host([size='small'][orientation='vertical']) .navigation-button {
   height: calc(var(--space-unit) * 4);
 }

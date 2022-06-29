@@ -17,6 +17,13 @@
 | `showArrow`       | `show-arrow`       | [optional] Show or hide arrow                 | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `false`                       |
 
 
+## Events
+
+| Event          | Description                                       | Type               |
+| -------------- | ------------------------------------------------- | ------------------ |
+| `triggerClick` | Emitted on popover click, returns isVisible state | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Used by

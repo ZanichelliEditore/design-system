@@ -1,3 +1,7 @@
+:host {
+  --card-overflow: hidden;
+}
+
 div {
   background-color: var(--color-surface01);
   display: flex;
@@ -8,10 +12,12 @@ div {
   height: 522px;
   border: var(--border-size-medium) solid var(--color-surface03);
   border-radius: var(--border-radius);
+  overflow: var(--card-overflow);
 }
 
 div.real,
-div.trial {
+div.trial,
+div.temp {
   border-color: var(--accent);
 }
 
