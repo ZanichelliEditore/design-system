@@ -63,12 +63,6 @@ export class ZPagination {
   @State()
   private _visiblePages: number = this.visiblePages;
 
-  /**
-   * Same as above for split.
-   */
-  @State()
-  private _split: number = this.split;
-
   /** Used to hides/change some functionalities on smaller screen sizes */
   @State()
   isMobile: Boolean = false;
@@ -116,7 +110,7 @@ export class ZPagination {
    */
   @Watch("visiblePages")
   setVisiblePages() {
-    if (!this._split) {
+    if (!this.split) {
       this._visiblePages = Math.min(
         this.visiblePages || this.totalPages,
         this.totalPages
@@ -153,7 +147,7 @@ export class ZPagination {
    */
   @Listen('resize', { target: 'window', passive: true })
   checkScrollVisible() {
-    this.handleMobile();
+    this.setMobile();
   }
 
   /**
@@ -166,26 +160,15 @@ export class ZPagination {
       this.edges = false;
     }
 
-    this.handleMobile()
+    this.setMobile()
   }
 
   /**
    * Set functionalities according to screen size.
    */
-  handleMobile() {
+  setMobile() {
     const isMobileMediaQuery = 'screen and (max-width: 768px)';
     this.isMobile = window.matchMedia(isMobileMediaQuery).matches;
-
-    // TODO FIX loop
-
-    // if (!this.isMobile) {
-    //   this._split = this.split;
-    //   this._visiblePages = this.visiblePages;
-    //   return;
-    // }
-
-    // this._split = 0;
-    // this._visiblePages = 0;
   }
 
   /**
@@ -196,7 +179,7 @@ export class ZPagination {
     // array of numbers from 1 to `totalPages`
     const pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
-    if (this._split) {
+    if (this.split || this.isMobile) {
       return [pages];
     }
 
@@ -279,7 +262,7 @@ export class ZPagination {
    */
   renderSplitButton(page) {
     const sign = Math.sign(page - this.currentPage);
-    const splitPage = this.currentPage + (this._split * sign) + (1 * sign);
+    const splitPage = this.currentPage + (this.split * sign) + (1 * sign);
     const button = (
       <button
         class="split-button"
@@ -312,15 +295,15 @@ export class ZPagination {
     const distanceFromCurrentPage = Math.abs(page - this.currentPage);
 
     if (
-      !this._split ||
+      !this.split ||
       // current, first and last pages always visible
-      this._split > this.totalPages - 3 ||
+      this.split > this.totalPages - 3 ||
       page == 1 ||
       page == this.totalPages ||
-      distanceFromCurrentPage <= this._split ||
+      distanceFromCurrentPage <= this.split ||
       // show the page if split would hide only one page
-      (page == 2 && this.currentPage - this._split - 1 == page) ||
-      (page == this.totalPages - 1 && this.currentPage + this._split + 1 == page)
+      (page == 2 && this.currentPage - this.split - 1 == page) ||
+      (page == this.totalPages - 1 && this.currentPage + this.split + 1 == page)
     ) {
       return this.renderPage(page);
     }
@@ -332,52 +315,22 @@ export class ZPagination {
     this.setVisiblePages();
   }
 
-  render() {
+  renderMobile() {
     const pagesChunks = this.getPagesChunks();
-    this.splitRight = false;
-    this.splitLeft = false;
-
-    console.log('isMobile', this.isMobile)
 
     return [
       <div class="pagination-bar">
-        {(!this.isMobile && this.edges) &&
-          <button
-              class="pagination-button"
-              type="button"
-              title="Vai alla pagina 1"
-              disabled={this.currentPage == 1}
-              onClick={() => this.selectPage(1)}
-          >
-            Pagina 1
-          </button>
-        }
-
-        {(!this.isMobile && (this.skip < this.totalPages) && (this.skip > 1)) &&
-          <button
-              class="pagination-button"
-              type="button"
-              title={`Vai alla pagina ${this.currentPage - this.skip}`}
-              disabled={this.currentPage <= this.skip}
-              onClick={() => this.selectPage(this.currentPage - this.skip)}
-          >
-            -{this.skip}
-          </button>
-        }
-
-        {(this.navArrows || this.isMobile) &&
-          <button
+        <button
             class="navigation-button"
             type="button"
             title="Vai alla pagina precedente"
             disabled={this.currentPage == 1}
             onClick={() => this.selectPage(this.currentPage - 1)}
           >
-            <z-icon name="chevron-left"></z-icon>
-          </button>
-        }
+          <z-icon name="chevron-left"></z-icon>
+        </button>
 
-        {(!this.isMobile || !this.goToPage) && <div
+        {!this.goToPage && <div
           class="pages-container"
           role="navigation"
           tabIndex={-1}
@@ -390,7 +343,7 @@ export class ZPagination {
             ))}
         </div>}
 
-        {this.isMobile && this.goToPage && <div class="mobile inputs">
+        {this.goToPage && <div class="mobile inputs">
           <z-input
             ref={(el) => (this.goToPageInput = el as HTMLZInputElement)}
             type="number"
@@ -402,7 +355,80 @@ export class ZPagination {
           <span>{`/${this.totalPages}`}</span>
         </div>}
 
-        {(this.navArrows || this.isMobile) &&
+        <button
+            class="navigation-button"
+            type="button"
+            title="Vai alla prossima pagina"
+            disabled={this.currentPage == this.totalPages}
+            onClick={() => this.selectPage(this.currentPage + 1)}
+          >
+          <z-icon name="chevron-right"></z-icon>
+        </button>
+      </div>,
+    ];
+  }
+
+  render() {
+    const pagesChunks = this.getPagesChunks();
+    this.splitRight = false;
+    this.splitLeft = false;
+
+    if (this.isMobile) {
+      return this.renderMobile();
+    }
+
+    return [
+      <div class="pagination-bar">
+        {this.edges &&
+          <button
+              class="pagination-button"
+              type="button"
+              title="Vai alla pagina 1"
+              disabled={this.currentPage == 1}
+              onClick={() => this.selectPage(1)}
+          >
+            Pagina 1
+          </button>
+        }
+
+        {(this.skip < this.totalPages) && this.skip > 1 &&
+          <button
+              class="pagination-button"
+              type="button"
+              title={`Vai alla pagina ${this.currentPage - this.skip}`}
+              disabled={this.currentPage <= this.skip}
+              onClick={() => this.selectPage(this.currentPage - this.skip)}
+          >
+            -{this.skip}
+          </button>
+        }
+
+        {this.navArrows &&
+          <button
+            class="navigation-button"
+            type="button"
+            title="Vai alla pagina precedente"
+            disabled={this.currentPage == 1}
+            onClick={() => this.selectPage(this.currentPage - 1)}
+          >
+            <z-icon name="chevron-left"></z-icon>
+          </button>
+        }
+
+        <div
+          class="pages-container"
+          role="navigation"
+          tabIndex={-1}
+        >
+          {pagesChunks.length > 0 &&
+            pagesChunks.map((chunk) => (
+              <div class="pages-chunk">
+                {chunk.map((page) => this.renderButton(page))}
+              </div>
+            ))}
+        </div>
+
+        {this.navArrows &&
           <button
             class="navigation-button"
             type="button"
@@ -414,7 +440,7 @@ export class ZPagination {
           </button>
         }
 
-        {!this.isMobile && (this.skip < this.totalPages) && (this.skip > 1) &&
+        {(this.skip < this.totalPages) && this.skip > 1 &&
           <button
             class="pagination-button"
             type="button"
@@ -426,7 +452,7 @@ export class ZPagination {
           </button>
         }
 
-        {(!this.isMobile && this.edges) &&
+        {this.edges &&
           <button
               class="pagination-button"
               type="button"
@@ -439,7 +465,7 @@ export class ZPagination {
         }
       </div>,
 
-      this.goToPage && !this.isMobile &&
+      this.goToPage &&
         <div class="go-to-page">
           <span class="label">Vai a pagina:</span>
           <div class="inputs">

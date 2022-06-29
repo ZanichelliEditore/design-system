@@ -79,7 +79,7 @@ z-icon {
 .pages-container {
   position: relative;
   display: inline-flex;
-  max-width: var(--z-pagination--pages-container-max-width);
+  max-width: 100%;
   overflow-x: auto;
   scroll-behavior: smooth;
 
@@ -139,9 +139,18 @@ z-icon {
   padding: 0 calc(var(--space-unit) * 1.5) !important;
 }
 
-.mobile .inputs {
+.mobile.inputs {
   display: flex;
+  justify-content: center;
   align-items: center;
+  flex: 1 auto;
+  background-color: var(--color-surface03);
+}
+
+.mobile.inputs z-input {
+  width: var(--z-pagination--page-button-width);
+  margin-right: var(--space-unit);
+  text-align: center;
 }
 
 @media (hover: hover) {
@@ -161,10 +170,8 @@ z-icon {
     flex-direction: row;
     align-items: flex-end;
   }
-}
 
-@media (max-width: 768px) {
-  .go-to-page {
-    display: none;
+  .pages-container {
+    max-width: var(--z-pagination--pages-container-max-width);
   }
 }
