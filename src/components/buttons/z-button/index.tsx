@@ -51,7 +51,7 @@ export class ZButton {
     };
   }
 
-  componentWillRender() {
+  componentDidLoad() {
     if (this.hostElement.innerText) {
       this.hostElement.classList.add("with-text");
     }
