@@ -28,20 +28,20 @@
 
 ## Events
 
-| Event          | Description                                                                                                          | Type               |
-| -------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `optionSelect` | Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) | `CustomEvent<any>` |
+| Event          | Description                                                             | Type               |
+| -------------- | ----------------------------------------------------------------------- | ------------------ |
+| `optionSelect` | Emitted on select option selection, returns select id, selected item id | `CustomEvent<any>` |
 
 
 ## Methods
 
-### `getSelectedItems() => Promise<SelectItemBean[]>`
+### `getSelectedItem() => Promise<SelectItemBean>`
 
 get the input selected options
 
 #### Returns
 
-Type: `Promise<SelectItemBean[]>`
+Type: `Promise<SelectItemBean>`
 
 
 
@@ -71,7 +71,6 @@ Type: `Promise<void>`
 ### Depends on
 
 - [z-input](../z-input)
-- [z-button-filter](../../../deprecated/z-button-filter)
 - [z-icon](../../icons/z-icon)
 - [z-input-message](../z-input-message)
 
@@ -79,13 +78,11 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   z-select --> z-input
-  z-select --> z-button-filter
   z-select --> z-icon
   z-select --> z-input-message
   z-input --> z-icon
   z-input --> z-input-message
   z-input-message --> z-icon
-  z-button-filter --> z-icon
   style z-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

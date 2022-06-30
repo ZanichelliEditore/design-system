@@ -523,10 +523,6 @@ export namespace Components {
          */
         "icon"?: string;
         /**
-          * icon is interactive (optional): available for text
-         */
-        "interactiveicon"?: boolean;
-        /**
           * get checked status
          */
         "isChecked": () => Promise<boolean>;
@@ -3023,10 +3019,6 @@ declare namespace LocalJSX {
           * render icon (optional): available for text
          */
         "icon"?: string;
-        /**
-          * icon is interactive (optional): available for text
-         */
-        "interactiveicon"?: boolean;
         /**
           * the input label
          */

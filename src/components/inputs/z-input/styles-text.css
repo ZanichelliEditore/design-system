@@ -30,6 +30,7 @@
   right: calc(var(--space-unit) * 1.5);
   display: flex;
   z-index: 2;
+  pointer-events: none;
 }
 
 .textWrapper .iconsWrapper > z-icon {
@@ -41,8 +42,8 @@
 }
 
 .textWrapper .iconsWrapper > z-icon.resetIcon,
-.textWrapper .iconsWrapper > z-icon.showHidePasswordIcon,
-.textWrapper .iconsWrapper > z-icon.interactiveIcon {
+.textWrapper .iconsWrapper > z-icon.showHidePasswordIcon {
+  pointer-events: initial;
   cursor: pointer;
 }
 

@@ -320,7 +320,6 @@ export class ZSelect {
         label={this.label}
         aria-label={this.ariaLabel}
         icon={this.isOpen ? "caret-up" : "caret-down"}
-        interactiveicon={true}
         hasclearicon={this.hasAutcomplete()}
         hasmessage={false}
         disabled={this.disabled}
