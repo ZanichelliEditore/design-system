@@ -70,23 +70,6 @@ it("Test disabled ZInput should not change / emit inputChange event", async () =
   expect(inputValue).toEqual("");
 });
 
-it("Test ZInput typing state", async () => {
-  const page = await newE2EPage();
-
-  await page.setContent(`<z-input typingtimeout="1000"></z-input>`);
-  const input = await page.find("z-input div input");
-
-  expect(input).not.toHaveClass("istyping");
-
-  await input.press("A");
-  await page.waitForChanges();
-  expect(input).toHaveClass("istyping");
-
-  await new Promise((resolve) => setTimeout(resolve, 1500));
-  await page.waitForChanges();
-  expect(input).not.toHaveClass("istyping");
-});
-
 it("Test ZInput - input password - change hide/show icon on click", async () => {
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
@@ -96,7 +79,7 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
   await icon.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated showHidePasswordIcon sc-z-input">
+    `<z-icon class="hydrated showHidePasswordIcon sc-z-input" role="button" tabindex="0" aria-label="nascondi password">
       <mock:shadow-root>
         <svg  fill="" viewBox="0 0 1000 1000">
             <path d="${icons["view-off-filled"]}"></path>
@@ -109,7 +92,7 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
   await icon.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated showHidePasswordIcon sc-z-input">
+    `<z-icon class="hydrated showHidePasswordIcon sc-z-input" role="button" tabindex="0" aria-label="mostra password">
       <mock:shadow-root>
         <svg  fill="" viewBox="0 0 1000 1000">
           <path d="${icons["view-filled"]}"></path>

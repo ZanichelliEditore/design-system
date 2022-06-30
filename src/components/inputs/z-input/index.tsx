@@ -203,11 +203,7 @@ export class ZInput {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
-      class: [
-        `input_${this.status || "default"}`,
-        this.isTyping && "istyping",
-        !this.isTyping && this.value && "filled",
-      ]
+      class: [`input_${this.status || "default"}`, this.value && "filled"]
         .filter(Boolean)
         .join(" "),
       onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode),
@@ -349,7 +345,6 @@ export class ZInput {
             attributes.class,
             attributes.disabled && "disabled",
             attributes.readonly && "readonly",
-            this.isTyping && "istyping",
             this.textareaWrapperFocus,
             this.textareaWrapperHover,
           ]

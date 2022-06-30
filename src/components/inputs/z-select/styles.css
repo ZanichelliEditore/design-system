@@ -1,6 +1,10 @@
 :host {
   display: inline-block;
   width: inherit;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+  font-size: var(--font-size-3);
+  color: var(--color-text02);
 }
 
 /* FOCUS */
@@ -26,7 +30,7 @@ li[role="option"]:focus:focus-visible {
 .selectWrapper .ulScrollWrapper {
   background: var(--color-surface01);
   position: absolute;
-  padding: calc(var(--space-unit) * .5) var(--space-unit);
+  padding: calc(var(--space-unit) * 0.5) var(--space-unit);
   border: var(--border-size-small) solid var(--gray200);
   border-top: none;
   width: 100%;
