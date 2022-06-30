@@ -35,6 +35,11 @@ input:focus:focus-visible,
 li[role="option"]:focus:focus-visible,
 .focus {
   box-shadow: var(--shadow-focus-primary);
+}
+
+input:focus:focus-visible,
+li[role="option"]:focus:focus-visible,
+.focus textarea {
   color: var(--color-primary01);
 }
 

@@ -6,7 +6,7 @@
   width: 100%;
   height: calc(var(--space-unit) * 5.5);
   margin: 0;
-  padding: 0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);
+  padding: 0 calc(var(--space-unit) * 1.5);
   box-sizing: border-box;
 }
 
