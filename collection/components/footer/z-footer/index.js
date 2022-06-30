@@ -8,7 +8,8 @@ import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 export class ZFooter {
   constructor() {
     this.creditsLinkId = "creditsLinkId";
-    this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
+    this.emitReportAProblemButtonClick =
+      this.emitReportAProblemButtonClick.bind(this);
   }
   componentWillLoad() {
     if (this.data) {
@@ -81,21 +82,25 @@ export class ZFooter {
   }
   renderFooterProductInfo() {
     var _a;
-    if (this.productName || this.productVersion || this.productCreditsLink != null || this.showReportAProblemButton) {
-      const versionString = `${this.productName ? ' versione' : 'Versione'} ${this.productVersion}`;
-      const creditsObject = h("z-body", { level: 5 },
-        (this.productName || this.productVersion) && ' - ',
-        h("z-link", { htmlid: this.creditsLinkId, href: (_a = this.productCreditsLink) === null || _a === void 0 ? void 0 : _a.trim(), target: "_blank", textcolor: "white" }, "Credits"));
+    if (this.productName ||
+      this.productVersion ||
+      this.productCreditsLink != null ||
+      this.showReportAProblemButton) {
+      const versionString = `${this.productName ? " versione" : "Versione"} ${this.productVersion}`;
+      const creditsObject = (h("z-body", { level: 5 },
+        (this.productName || this.productVersion) && " - ",
+        h("z-link", { htmlid: this.creditsLinkId, href: (_a = this.productCreditsLink) === null || _a === void 0 ? void 0 : _a.trim(), target: "_blank", textcolor: "white" }, "Credits")));
       return (h("div", { id: "extension" },
-        h("div", { class: { "limited-width": !!this.contentMaxWidth }, style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} },
+        h("div", { class: { "limited-width": !!this.contentMaxWidth }, style: this.contentMaxWidth
+            ? { "--mw": `${this.contentMaxWidth}px` }
+            : {} },
           h("span", null,
-            this.productName && h("z-body", { level: 5, variant: "semibold" }, this.productName),
-            this.productVersion && h("z-body", { level: 5 }, versionString),
+            this.productName && (h("z-body", { level: 5, variant: "semibold" }, this.productName)),
+            this.productVersion && (h("z-body", { level: 5 }, versionString)),
             this.productCreditsLink != null && creditsObject),
-          this.showReportAProblemButton &&
-            h("div", null,
-              h("z-body", { level: 5 }, "Hai bisogno di aiuto?"),
-              h("z-button", { variant: ButtonVariantEnum["dark-bg"], size: ButtonSizeEnum.small, onClick: this.emitReportAProblemButtonClick }, "SEGNALA UN PROBLEMA")),
+          this.showReportAProblemButton && (h("div", null,
+            h("z-body", { level: 5 }, "Hai bisogno di aiuto?"),
+            h("z-button-deprecated", { variant: ButtonVariantEnum["dark-bg"], size: ButtonSizeEnum.small, onClick: this.emitReportAProblemButtonClick }, "SEGNALA UN PROBLEMA"))),
           h("z-divider", { color: "gray500" }))));
     }
   }
@@ -205,7 +210,7 @@ export class ZFooter {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "'undefined' or 'null' means 'don't show Credits',\nempty string means 'emit creditsLinkClick event', \nnot empty string means 'open the url and emit creditsLinkClick event'"
+        "text": "'undefined' or 'null' means 'don't show Credits',\nempty string means 'emit creditsLinkClick event',\nnot empty string means 'open the url and emit creditsLinkClick event'"
       },
       "attribute": "product-credits-link",
       "reflect": false

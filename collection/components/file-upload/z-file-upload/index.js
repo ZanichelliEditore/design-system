@@ -39,10 +39,12 @@ export class ZFileUpload {
   }
   handleAccessibility() {
     if (this.filesNumber > 0) {
-      this.el.querySelector('z-file:last-child z-chip button').focus();
+      this.el.querySelector("z-file:last-child z-chip button").focus();
     }
     else {
-      this.type === ZFileUploadTypeEnum.default ? this.button.shadowRoot.querySelector('button').focus() : this.uploadLink.focus();
+      this.type === ZFileUploadTypeEnum.default
+        ? this.button.shadowRoot.querySelector("button").focus()
+        : this.uploadLink.focus();
     }
   }
   checkFiles(files) {
@@ -81,9 +83,10 @@ export class ZFileUpload {
     let fileFormatString = "";
     let fileWeightString = "";
     if (this.acceptedFormat) {
-      const fileFormat = this.acceptedFormat.split(', ')
+      const fileFormat = this.acceptedFormat
+        .split(", ")
         .map((string) => string.substring(1).toUpperCase())
-        .join(', ');
+        .join(", ");
       fileFormatString = ` nei formati ${fileFormat}`;
     }
     if (this.fileMaxSize) {
@@ -105,12 +108,12 @@ export class ZFileUpload {
   renderUploadButton() {
     return [
       this.renderInput(),
-      h("z-button", { onClick: () => this.input.click(), onKeyPress: (e) => {
-          if (e.code == 'Space' || e.code == 'Enter') {
+      h("z-button-deprecated", { onClick: () => this.input.click(), onKeyPress: (e) => {
+          if (e.code == "Space" || e.code == "Enter") {
             e.preventDefault();
             this.input.click();
           }
-        }, id: "fileSelect", variant: this.buttonVariant, icon: "upload", ref: (val) => this.button = val }, "Allega"),
+        }, id: "fileSelect", variant: this.buttonVariant, icon: "upload", ref: (val) => (this.button = val) }, "Allega"),
     ];
   }
   renderUploadLink() {
@@ -120,11 +123,11 @@ export class ZFileUpload {
         "Trascinalo qui o",
         " ",
         h("z-body", { tabIndex: 0, class: "upload-link", onClick: () => this.input.click(), onKeyPress: (e) => {
-            if (e.code == 'Space' || e.code == 'Enter') {
+            if (e.code == "Space" || e.code == "Enter") {
               e.preventDefault();
               this.input.click();
             }
-          }, variant: "semibold", level: 1, ref: (val) => this.uploadLink = val }, "caricalo"),
+          }, variant: "semibold", level: 1, ref: (val) => (this.uploadLink = val) }, "caricalo"),
         " ",
         "dal tuo computer"),
     ];
@@ -166,7 +169,7 @@ export class ZFileUpload {
         this.type == ZFileUploadTypeEnum.default
           ? this.renderDefaultMode()
           : this.renderDragDropMode()),
-      !!this.invalidFiles.size && (h("z-modal", { tabIndex: 0, ref: (val) => this.errorModal = val, modaltitle: "Attenzione", onModalClose: () => this.invalidFiles = new Map(), onModalBackgroundClick: () => this.invalidFiles = new Map() }, this.handleErrorModalContent()))
+      !!this.invalidFiles.size && (h("z-modal", { tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Attenzione", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent())),
     ];
   }
   static get is() { return "z-file-upload"; }

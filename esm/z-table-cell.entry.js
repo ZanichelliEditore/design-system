@@ -21,7 +21,7 @@ const ZTableCell = class {
   render() {
     return (h(Host, null, this.showButton && (h("div", { class: classnames("button-container", {
         visible: this.isMenuOpened,
-      }) }, h("div", { class: "button-content" }, h("z-button", { icon: "contextual-menu", variant: ButtonVariantEnum.tertiary, size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenu(), square: true }), h("div", { class: classnames("contextual-menu-container", {
+      }) }, h("div", { class: "button-content" }, h("z-button-deprecated", { icon: "contextual-menu", variant: ButtonVariantEnum.tertiary, size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenu(), square: true }), h("div", { class: classnames("contextual-menu-container", {
         visible: this.isMenuOpened,
       }) }, h("slot", { name: "contextual-menu" }))))), h("slot", null)));
   }

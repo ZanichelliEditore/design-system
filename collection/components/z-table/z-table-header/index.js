@@ -74,7 +74,7 @@ export class ZTableHeader {
           visible: this.isMenuOpened,
         }) },
         h("z-popover", { position: PopoverPosition["below-center"], "background-color": "gray200" },
-          h("z-button", { icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], square: true, slot: "trigger", onClick: () => this.handleMenuClick() }),
+          h("z-button-deprecated", { icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], square: true, slot: "trigger", onClick: () => this.handleMenuClick() }),
           h("div", { slot: "popover" },
             h("slot", { name: "contextual-menu" })))))));
   }

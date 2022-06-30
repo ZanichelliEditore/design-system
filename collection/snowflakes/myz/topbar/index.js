@@ -138,7 +138,7 @@ export class ZMyzTopbar {
     if (this.hideloginbutton) {
       return;
     }
-    return (h("z-button", { htmlid: "login-button", variant: this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary, icon: "login", issmall: true }, "entra"));
+    return (h("z-button-deprecated", { htmlid: "login-button", variant: this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary, icon: "login", issmall: true }, "entra"));
   }
   renderMobileLoginDiv(userData) {
     return (h("div", { id: "mobile-login", class: "mobile-login" },

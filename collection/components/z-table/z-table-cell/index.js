@@ -19,7 +19,7 @@ export class ZTableCell {
           visible: this.isMenuOpened,
         }) },
         h("div", { class: "button-content" },
-          h("z-button", { icon: "contextual-menu", variant: ButtonVariantEnum.tertiary, size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenu(), square: true }),
+          h("z-button-deprecated", { icon: "contextual-menu", variant: ButtonVariantEnum.tertiary, size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenu(), square: true }),
           h("div", { class: classNames("contextual-menu-container", {
               visible: this.isMenuOpened,
             }) },

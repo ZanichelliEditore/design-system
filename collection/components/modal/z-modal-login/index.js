@@ -15,7 +15,8 @@ export class zModalLogin {
     this.externalProviderCheck = false;
   }
   componentDidLoad() {
-    this.externalProviderCheck = !!this.hostElement.querySelectorAll('[slot="provider"]').length;
+    this.externalProviderCheck =
+      !!this.hostElement.querySelectorAll('[slot="provider"]').length;
   }
   emitLoginSubmit() {
     const usernameInput = this.hostElement.querySelector("z-input#username");
@@ -65,7 +66,7 @@ export class zModalLogin {
     return username;
   }
   renderZainoDigitaleButton() {
-    return (h("z-button", { variant: ButtonVariantEnum.secondary, onClick: () => this.emitZainoDigitaleClick(), class: "zainoDigitale" },
+    return (h("z-button-deprecated", { variant: ButtonVariantEnum.secondary, onClick: () => this.emitZainoDigitaleClick(), class: "zainoDigitale" },
       h("div", { class: "zd" },
         h("svg", { width: "18px", height: "24px", viewBox: "0 0 18 24" },
           h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd" },
@@ -91,12 +92,12 @@ export class zModalLogin {
           h("z-link", { class: "forget", href: this.forgotPasswordUrl }, "Password dimenticata?"),
           h("div", { class: "login" },
             h("slot", { name: "login" },
-              h("z-button", { variant: ButtonVariantEnum.primary, onClick: () => this.emitLoginSubmit() }, "Accedi")))),
+              h("z-button-deprecated", { variant: ButtonVariantEnum.primary, onClick: () => this.emitLoginSubmit() }, "Accedi")))),
         h("hr", null),
         h("z-body", { class: "signup", level: 4, variant: "semibold" }, "Non hai ancora un account?"),
         h("div", { class: "signup" },
           h("slot", { name: "signup" },
-            h("z-button", { variant: ButtonVariantEnum.secondary, onClick: () => this.emitSignupClick() }, "Registrati"))),
+            h("z-button-deprecated", { variant: ButtonVariantEnum.secondary, onClick: () => this.emitSignupClick() }, "Registrati"))),
         !this.externalProviderCheck && (h("div", { class: "providers" },
           h("z-body", { class: "provider", level: 5, variant: "regular" }, "OPPURE ACCEDI CON:"),
           h("slot", { name: "provider" },

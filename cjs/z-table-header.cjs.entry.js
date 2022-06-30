@@ -79,7 +79,7 @@ const ZTableHeader = class {
         ? "arrow-up"
         : "arrow-down", class: "arrow" }))), this.showButton && (index.h("div", { class: index$2.classnames("popover-container", {
         visible: this.isMenuOpened,
-      }) }, index.h("z-popover", { position: index$1.PopoverPosition["below-center"], "background-color": "gray200" }, index.h("z-button", { icon: "contextual-menu", variant: index$1.ButtonVariantEnum["tertiary"], size: index$1.ButtonSizeEnum["x-small"], square: true, slot: "trigger", onClick: () => this.handleMenuClick() }), index.h("div", { slot: "popover" }, index.h("slot", { name: "contextual-menu" })))))));
+      }) }, index.h("z-popover", { position: index$1.PopoverPosition["below-center"], "background-color": "gray200" }, index.h("z-button-deprecated", { icon: "contextual-menu", variant: index$1.ButtonVariantEnum["tertiary"], size: index$1.ButtonSizeEnum["x-small"], square: true, slot: "trigger", onClick: () => this.handleMenuClick() }), index.h("div", { slot: "popover" }, index.h("slot", { name: "contextual-menu" })))))));
   }
   get host() { return index.getElement(this); }
 };

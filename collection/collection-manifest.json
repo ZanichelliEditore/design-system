@@ -76,6 +76,7 @@
     "./components/z-table/z-table-sticky-footer/index.js",
     "./components/z-tag/index.js",
     "./components/z-visually-hidden/index.js",
+    "./deprecated/z-button-deprecated/index.js",
     "./deprecated/z-button-filter/index.js",
     "./deprecated/z-chip-deprecated/index.js",
     "./deprecated/z-status-tag/index.js",
