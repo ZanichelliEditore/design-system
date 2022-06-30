@@ -3,6 +3,10 @@
   font-weight: var(--font-rg);
 }
 
+:host z-myz-card {
+  --card-overflow: visible;
+}
+
 :host > div {
   position: relative;
   height: 522px;

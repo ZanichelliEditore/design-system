@@ -1,4 +1,4 @@
-import { keybordKeyCodeEnum, DeviceEnum } from "../beans/index";
+import { keybordCodeEnum, DeviceEnum } from "../beans/index";
 import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 export function format(first, middle, last) {
   return ((first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : ""));
@@ -10,8 +10,7 @@ export function randomId() {
   return Math.random().toString(36).replace("0.", "");
 }
 export function handleKeyboardSubmit(ev, callback, ...args) {
-  if (ev.keyCode === keybordKeyCodeEnum.ENTER ||
-    ev.keyCode === keybordKeyCodeEnum.SPACE) {
+  if (ev.code === keybordCodeEnum.ENTER || ev.code === keybordCodeEnum.SPACE) {
     ev.preventDefault();
     callback(...args);
   }

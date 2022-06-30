@@ -62,6 +62,7 @@
     "./components/z-offcanvas/index.js",
     "./components/z-popover/index.js",
     "./components/z-section-title/index.js",
+    "./components/z-skip-to-content/index.js",
     "./components/z-table/z-table/index.js",
     "./components/z-table/z-table-body/index.js",
     "./components/z-table/z-table-cell/index.js",

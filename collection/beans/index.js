@@ -82,6 +82,17 @@ export var keybordKeyCodeEnum;
   keybordKeyCodeEnum[keybordKeyCodeEnum["BACKSPACE"] = 8] = "BACKSPACE";
   keybordKeyCodeEnum[keybordKeyCodeEnum["DELETE"] = 46] = "DELETE";
 })(keybordKeyCodeEnum || (keybordKeyCodeEnum = {}));
+export var keybordCodeEnum;
+(function (keybordCodeEnum) {
+  keybordCodeEnum["TAB"] = "Tab";
+  keybordCodeEnum["SPACE"] = "Space";
+  keybordCodeEnum["ESC"] = "Escape";
+  keybordCodeEnum["ENTER"] = "Enter";
+  keybordCodeEnum["ARROW_UP"] = "ArrowUp";
+  keybordCodeEnum["ARROW_DOWN"] = "ArrowDown";
+  keybordCodeEnum["BACKSPACE"] = "Backspace";
+  keybordCodeEnum["DELETE"] = "Delete";
+})(keybordCodeEnum || (keybordCodeEnum = {}));
 export var KeyboardKeys;
 (function (KeyboardKeys) {
   KeyboardKeys["ARROW_DOWN"] = "ArrowDown";
@@ -277,14 +288,6 @@ export var ZSectionTitleDividerPositions;
   ZSectionTitleDividerPositions["before"] = "before";
   ZSectionTitleDividerPositions["after"] = "after";
 })(ZSectionTitleDividerPositions || (ZSectionTitleDividerPositions = {}));
-export var StatusTagStatus;
-(function (StatusTagStatus) {
-  StatusTagStatus["warning"] = "warning";
-  StatusTagStatus["error"] = "error";
-  StatusTagStatus["success"] = "success";
-  StatusTagStatus["neutral"] = "neutral";
-  StatusTagStatus["default"] = "default";
-})(StatusTagStatus || (StatusTagStatus = {}));
 export var ZDatePickerMode;
 (function (ZDatePickerMode) {
   ZDatePickerMode["date"] = "date";
@@ -302,3 +305,11 @@ export var ZDatePickerPosition;
   ZDatePickerPosition["top"] = "top";
   ZDatePickerPosition["bottom"] = "bottom";
 })(ZDatePickerPosition || (ZDatePickerPosition = {}));
+export var StatusTagStatus;
+(function (StatusTagStatus) {
+  StatusTagStatus["warning"] = "warning";
+  StatusTagStatus["error"] = "error";
+  StatusTagStatus["success"] = "success";
+  StatusTagStatus["neutral"] = "neutral";
+  StatusTagStatus["default"] = "default";
+})(StatusTagStatus || (StatusTagStatus = {}));
