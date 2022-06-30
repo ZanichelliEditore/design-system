@@ -115,3 +115,21 @@ textarea::placeholder {
 :-moz-placeholder {
   color: var(--color-text05);
 }
+
+/* LABEL */
+label.inputLabel {
+  display: block;
+  margin: var(--space-unit) 0;
+  color: var(--color-text02);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-sb);
+  line-height: 1.33;
+  letter-spacing: 0.32px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+label.inputLabel.disabled {
+  color: var(--color-disabled02);
+}

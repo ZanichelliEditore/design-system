@@ -30,7 +30,6 @@
 ```mermaid
 graph TD;
   z-date-picker --> z-input
-  z-input --> z-input-label
   z-input --> z-icon
   z-input --> z-input-message
   z-input --> z-select

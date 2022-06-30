@@ -74,7 +74,6 @@ graph TD;
   z-combobox --> z-input
   z-body --> z-typography
   z-myz-list-item --> z-icon
-  z-input --> z-input-label
   z-input --> z-icon
   z-input --> z-input-message
   z-input --> z-select

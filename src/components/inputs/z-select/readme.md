@@ -74,7 +74,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [z-input-label](../z-input-label)
+- [z-input-label](../../../deprecated/z-input-label)
 - [z-input](../z-input)
 - [z-button-filter](../../../deprecated/z-button-filter)
 - [z-icon](../../icons/z-icon)

@@ -55,7 +55,6 @@ graph TD;
   z-modal-login --> z-body
   z-button --> z-icon
   z-modal --> z-icon
-  z-input --> z-input-label
   z-input --> z-icon
   z-input --> z-input-message
   z-input --> z-select

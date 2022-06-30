@@ -248,13 +248,14 @@ export class ZInput {
     if (!this.label) return;
 
     return (
-      <z-input-label
-        htmlfor={this.htmlid}
-        value={this.label}
-        disabled={this.disabled}
-        aria-label={this.label}
+      <label
+        class={{ inputLabel: true, disabled: this.disabled }}
         id={`${this.htmlid}_label`}
-      />
+        htmlFor={this.htmlid}
+        aria-label={this.label}
+      >
+        {this.label}
+      </label>
     );
   }
 
