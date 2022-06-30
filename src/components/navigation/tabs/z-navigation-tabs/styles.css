@@ -1,13 +1,8 @@
 :host {
-  --safe-scroll-area: 4px;
-  --negative-safe-scroll-area: calc(-1 * var(--safe-scroll-area));
-
   position: relative;
   display: flex;
   flex-direction: row;
   z-index: 0;
-  margin: var(--negative-safe-scroll-area);
-  padding: var(--safe-scroll-area);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   overflow: hidden;
@@ -37,11 +32,12 @@
   border-radius: var(--border-no-radius);
   cursor: pointer;
   z-index: 1;
+  box-shadow: 0px 0px 4px 1px rgb(66, 69, 72, 0.40);
 }
 
-.navigation-button:focus {
+.navigation-button:focus:focus-visible {
   fill: var(--color-primary01);
-  box-shadow: var(--shadow-focus-primary);
+  box-shadow: inset var(--shadow-focus-primary);
 }
 
 .navigation-button:disabled {
@@ -53,9 +49,7 @@ nav {
   align-items: center;
   justify-content: flex-start;
   overflow: auto;
-  margin: var(--negative-safe-scroll-area);
-  padding: var(--safe-scroll-area);
-  scroll-padding: var(--safe-scroll-area);
+  scroll-behavior: smooth;
 
   /* hide scrollbar in Firefox */
   scrollbar-width: none;
@@ -68,19 +62,15 @@ nav {
 :host([orientation='horizontal']) .navigation-button {
   top: 0;
   height: 100%;
-  width: calc((var(--space-unit) * 4) + var(--safe-scroll-area));
+  width: calc(var(--space-unit) * 4);
 }
 
 :host([orientation='horizontal']) .navigation-button:first-child {
   left: 0;
-  padding-left: var(--safe-scroll-area);
-  box-shadow: 5px 0px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40);
 }
 
 :host([orientation='horizontal']) .navigation-button:last-child {
   right: 0;
-  padding-right: 4px;
-  box-shadow: -5px 0px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40);
 }
 
 /* Orientation vertical */
@@ -98,19 +88,15 @@ nav {
 :host([orientation='vertical']) .navigation-button {
   left: 0;
   width: 100%;
-  height: calc((var(--space-unit) * 4) + var(--safe-scroll-area));
+  height: calc(var(--space-unit) * 4);
 }
 
 :host([orientation='vertical']) .navigation-button:first-child {
   top: 0;
-  padding-top: var(--safe-scroll-area);
-  box-shadow: 0px 5px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40);
 }
 
 :host([orientation='vertical']) .navigation-button:last-child {
   bottom: 0;
-  padding-bottom: var(--safe-scroll-area);
-  box-shadow: 0px -5px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40);
 }
 
 :host([size='small'][orientation='vertical']) .navigation-button {

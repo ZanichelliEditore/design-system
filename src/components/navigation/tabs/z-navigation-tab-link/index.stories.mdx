@@ -71,42 +71,4 @@ import "./index";
   </Story>
 </Canvas>
 
-## Slotted icon
-You can use the slot named `icon` if you need extra customization (such as a product specific icon).
-
-<Canvas>
-  <Story name="z-navigation-tab-link with slotted icon"
-    args={{
-      selected: false,
-      disabled: false,
-      size: NavigationTabsSizes.big,
-      orientation: NavigationTabsOrientations.horizontal,
-      href: 'https://www.google.com',
-      target: "_blank",
-      htmlTitle: "Go to Google",
-      label: "Google",
-    }}
-    parameters={{
-      controls: {
-        exclude: ["icon"],
-      }
-    }}
-  >
-    {(args) => html`
-      <z-navigation-tab-link
-        .selected=${args.selected}
-        .disabled=${args.disabled}
-        .size=${args.size}
-        .orientation=${args.orientation}
-        .href=${args.href}
-        .htmlTitle=${args.htmlTitle}
-        .target=${args.target}
-        .label=${args.label}
-      >
-        <span slot="icon">🧩</span>
-      </z-navigation-tab-link>
-    `}
-  </Story>
-</Canvas>
-
 <ArgsTable of="z-navigation-tab-link" />
