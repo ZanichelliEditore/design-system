@@ -57,14 +57,7 @@ graph TD;
   z-modal --> z-icon
   z-input --> z-icon
   z-input --> z-input-message
-  z-input --> z-select
   z-input-message --> z-icon
-  z-select --> z-input-label
-  z-select --> z-input
-  z-select --> z-button-filter
-  z-select --> z-icon
-  z-select --> z-input-message
-  z-button-filter --> z-icon
   z-link --> z-icon
   z-body --> z-typography
   style z-modal-login fill:#f9f,stroke:#333,stroke-width:4px

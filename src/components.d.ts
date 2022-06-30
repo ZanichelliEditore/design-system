@@ -487,7 +487,7 @@ export namespace Components {
          */
         "ariaLabel"?: string;
         /**
-          * the input has autocomplete option (optional): available for select, input
+          * the input has autocomplete option (optional): available for input
          */
         "autocomplete"?: boolean | string;
         /**
@@ -507,7 +507,7 @@ export namespace Components {
          */
         "hasclearicon"?: boolean;
         /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
+          * show input helper message (optional): available for text, password, number, email, textarea
          */
         "hasmessage"?: boolean;
         /**
@@ -519,21 +519,17 @@ export namespace Components {
          */
         "htmltitle"?: string;
         /**
-          * render icon (optional): available for text, select
+          * render icon (optional): available for text
          */
         "icon"?: string;
         /**
-          * icon is interactive (optional): available for text, select
+          * icon is interactive (optional): available for text
          */
         "interactiveicon"?: boolean;
         /**
           * get checked status
          */
         "isChecked": () => Promise<boolean>;
-        /**
-          * items (optional): available for select
-         */
-        "items"?: SelectItemBean[] | string;
         /**
           * the input label
          */
@@ -543,13 +539,9 @@ export namespace Components {
          */
         "labelafter"?: boolean;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
+          * input helper message (optional): available for text, password, number, email, textarea
          */
         "message"?: string;
-        /**
-          * multiple options can be selected (optional): available for select
-         */
-        "multiple"?: boolean;
         /**
           * the input name
          */
@@ -571,7 +563,7 @@ export namespace Components {
          */
         "setValue": (value: string | string[]) => Promise<void>;
         /**
-          * the input status (optional): available for text, password, number, email, textarea, select
+          * the input status (optional): available for text, password, number, email, textarea
          */
         "status"?: InputStatusBean;
         /**
@@ -3000,7 +2992,7 @@ declare namespace LocalJSX {
          */
         "ariaLabel"?: string;
         /**
-          * the input has autocomplete option (optional): available for select, input
+          * the input has autocomplete option (optional): available for input
          */
         "autocomplete"?: boolean | string;
         /**
@@ -3016,7 +3008,7 @@ declare namespace LocalJSX {
          */
         "hasclearicon"?: boolean;
         /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
+          * show input helper message (optional): available for text, password, number, email, textarea
          */
         "hasmessage"?: boolean;
         /**
@@ -3028,17 +3020,13 @@ declare namespace LocalJSX {
          */
         "htmltitle"?: string;
         /**
-          * render icon (optional): available for text, select
+          * render icon (optional): available for text
          */
         "icon"?: string;
         /**
-          * icon is interactive (optional): available for text, select
+          * icon is interactive (optional): available for text
          */
         "interactiveicon"?: boolean;
-        /**
-          * items (optional): available for select
-         */
-        "items"?: SelectItemBean[] | string;
         /**
           * the input label
          */
@@ -3048,13 +3036,9 @@ declare namespace LocalJSX {
          */
         "labelafter"?: boolean;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
+          * input helper message (optional): available for text, password, number, email, textarea
          */
         "message"?: string;
-        /**
-          * multiple options can be selected (optional): available for select
-         */
-        "multiple"?: boolean;
         /**
           * the input name
          */
@@ -3067,10 +3051,6 @@ declare namespace LocalJSX {
           * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
          */
         "onInputCheck"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
-         */
-        "onOptionSelect"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when user starts typing
          */
@@ -3092,7 +3072,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * the input status (optional): available for text, password, number, email, textarea, select
+          * the input status (optional): available for text, password, number, email, textarea
          */
         "status"?: InputStatusBean;
         /**

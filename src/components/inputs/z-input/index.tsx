@@ -9,12 +9,7 @@ import {
   Element,
   Listen,
 } from "@stencil/core";
-import {
-  InputTypeBean,
-  InputTypeEnum,
-  InputStatusBean,
-  SelectItemBean,
-} from "../../../beans";
+import { InputTypeBean, InputTypeEnum, InputStatusBean } from "../../../beans";
 import { handleKeyboardSubmit, randomId } from "../../../utils/utils";
 
 @Component({
@@ -50,27 +45,23 @@ export class ZInput {
   @Prop() placeholder?: string;
   /** the input html title (optional) */
   @Prop() htmltitle?: string;
-  /** the input status (optional): available for text, password, number, email, textarea, select */
+  /** the input status (optional): available for text, password, number, email, textarea */
   @Prop() status?: InputStatusBean;
-  /** show input helper message (optional): available for text, password, number, email, textarea, select */
+  /** show input helper message (optional): available for text, password, number, email, textarea */
   @Prop() hasmessage?: boolean = true;
-  /** input helper message (optional): available for text, password, number, email, textarea, select */
+  /** input helper message (optional): available for text, password, number, email, textarea */
   @Prop() message?: string;
   /** the input label position: available for checkbox, radio */
   @Prop() labelafter?: boolean = true;
   /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
   @Prop() typingtimeout?: number = 300;
-  /** items (optional): available for select */
-  @Prop() items?: SelectItemBean[] | string;
-  /** the input has autocomplete option (optional): available for select, input */
+  /** the input has autocomplete option (optional): available for input */
   @Prop() autocomplete?: boolean | string;
-  /** multiple options can be selected (optional): available for select */
-  @Prop() multiple?: boolean = false;
   /** render clear icon when typing (optional): available for text */
   @Prop() hasclearicon?: boolean = true;
-  /** render icon (optional): available for text, select */
+  /** render icon (optional): available for text */
   @Prop() icon?: string;
-  /** icon is interactive (optional): available for text, select */
+  /** icon is interactive (optional): available for text */
   @Prop() interactiveicon?: boolean;
 
   @State() isTyping: boolean = false;
@@ -79,7 +70,6 @@ export class ZInput {
   @State() passwordHidden: boolean = true;
 
   private timer;
-  private selectElem: HTMLZSelectElement;
 
   @Listen("inputCheck", { target: "document" })
   inputCheckListener(e: CustomEvent) {
@@ -101,25 +91,13 @@ export class ZInput {
   /** get the input value */
   @Method()
   async getValue(): Promise<string | string[]> {
-    switch (this.type) {
-      case InputTypeEnum.select:
-        return this.selectElem.getValue();
-      default:
-        return this.value;
-    }
+    return this.value;
   }
 
   /** set the input value */
   @Method()
   async setValue(value: string | string[]): Promise<void> {
-    switch (this.type) {
-      case InputTypeEnum.select:
-        this.selectElem.setValue(value);
-        break;
-      default:
-        if (typeof value === "string") this.value = value;
-        break;
-    }
+    if (typeof value === "string") this.value = value;
   }
 
   /** get checked status */
@@ -184,9 +162,6 @@ export class ZInput {
       validity: this.getValidity("input"),
     });
   }
-
-  /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
-  @Event() optionSelect: EventEmitter;
 
   getValidity(type: string) {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
@@ -455,49 +430,16 @@ export class ZInput {
   }
   /* END radio */
 
-  /* START select */
-
-  renderSelect() {
-    return (
-      <z-select
-        htmlid={this.htmlid}
-        items={this.items}
-        name={this.name}
-        label={this.label}
-        aria-label={this.ariaLabel}
-        disabled={this.disabled}
-        readonly={this.readonly}
-        placeholder={this.placeholder}
-        htmltitle={this.htmltitle}
-        status={this.status}
-        hasmessage={this.hasmessage}
-        message={this.message}
-        autocomplete={this.autocomplete}
-        multiple={this.multiple}
-        ref={(el) => (this.selectElem = el as HTMLZSelectElement)}
-      />
-    );
-  }
-
-  /* END select */
-
   render() {
     switch (this.type) {
-      case InputTypeEnum.text:
-      case InputTypeEnum.password:
-      case InputTypeEnum.number:
-      case InputTypeEnum.email:
-        return this.renderInputText(this.type);
       case InputTypeEnum.textarea:
         return this.renderTextarea();
       case InputTypeEnum.checkbox:
         return this.renderCheckbox();
       case InputTypeEnum.radio:
         return this.renderRadio();
-      case InputTypeEnum.select:
-        return this.renderSelect();
       default:
-        return this.renderInputText();
+        return this.renderInputText(this.type);
     }
   }
 }

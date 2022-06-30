@@ -14,19 +14,6 @@
 | `value`    | `value`    | the label value          | `string`  | `undefined` |
 
 
-## Dependencies
-
-### Used by
-
- - [z-select](../../components/inputs/z-select)
-
-### Graph
-```mermaid
-graph TD;
-  z-select --> z-input-label
-  style z-input-label fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

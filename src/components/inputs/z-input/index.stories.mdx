@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean, number, radios, select } from '@storybook/addon-knobs';
+import { text, boolean, number, radios, select } from "@storybook/addon-knobs";
 import { InputStatusEnum } from "../../../beans";
 import "./index";
 
@@ -8,31 +8,34 @@ import "./index";
 
 <Meta title="Inputs/ZInput" component="z-input" />
 
-  # ZInput
+# ZInput
 
 <Preview>
   <Story name="z-input type:text">
-    {html`
-      <z-input
-        type="${select('type', ["text", "password", "number", "email"], 'text')}"
-        label="Label"
-        placeholder="Placeholder text"
-        disabled="${boolean('disabled', false)}"
-        value="${text('value', 'value')}"
-        status="${select('status', ['default', ...Object.keys(InputStatusEnum)], 'default')}"
-        message="${text('message', 'Helper text')}"
-        readonly="${boolean('readonly', false)}"
-      ></z-input>`}
+    {html` <z-input
+      type="${select("type", ["text", "password", "number", "email"], "text")}"
+      label="Label"
+      placeholder="Placeholder text"
+      disabled="${boolean("disabled", false)}"
+      value="${text("value", "value")}"
+      status="${select(
+        "status",
+        ["default", ...Object.keys(InputStatusEnum)],
+        "default"
+      )}"
+      message="${text("message", "Helper text")}"
+      readonly="${boolean("readonly", false)}"
+    ></z-input>`}
   </Story>
   <Story name="z-input type:checkbox">
     {html`
       <z-input
         type="checkbox"
-        label="${text('label', 'Checkbox Label')}"
-        labelafter="${boolean('labelafter', true)}"
-        disabled="${boolean('disabled', false)}"
-        value="${text('value', 'checkbox')}"
-        checked="${boolean('checked', true)}"
+        label="${text("label", "Checkbox Label")}"
+        labelafter="${boolean("labelafter", true)}"
+        disabled="${boolean("disabled", false)}"
+        value="${text("value", "checkbox")}"
+        checked="${boolean("checked", true)}"
       ></z-input>
     `}
   </Story>
@@ -42,48 +45,41 @@ import "./index";
         type="radio"
         name="test-radio"
         id="radio1"
-        label="${text('label', 'Radio Label')}"
-        labelafter="${boolean('labelafter', true)}"
-        disabled="${boolean('disabled', false)}"
-        value="${text('value', 'radio')}"
-        checked="${boolean('checked', false)}"
+        label="${text("label", "Radio Label")}"
+        labelafter="${boolean("labelafter", true)}"
+        disabled="${boolean("disabled", false)}"
+        value="${text("value", "radio")}"
+        checked="${boolean("checked", false)}"
       ></z-input>
     `}
   </Story>
-  <Story name="z-input type:select">
-    {html`
-      <z-input
-        type="select"
-        label="${text('label', 'Select Label')}"
-        placeholder="Placeholder text"
-        status="${text('status', 'success')}"
-        message="${text('message', 'Helper text')}"
-        value="${text('value', 'select')}"
-        items='[{"id":"item_1","name":"first item","selected":false},{"id":"item_2","name":"second item","selected":true}]'
-      ></z-input>`}
-  </Story>
   <Story name="z-input type:textarea">
-    {html`
-      <z-input
-        type="textarea"
-        label="${text('label', 'textarea')}"
-        placeholder="Placeholder text"
-        disabled="${boolean('disabled', false)}"
-        value="${text('value', 'text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text')}"
-        status="${select('status', ['default', ...Object.keys(InputStatusEnum)], 'default')}"
-        message="${text('message', 'Helper text')}"
-        readonly="${boolean('readonly', false)}"
-      ></z-input>`}
+    {html` <z-input
+      type="textarea"
+      label="${text("label", "textarea")}"
+      placeholder="Placeholder text"
+      disabled="${boolean("disabled", false)}"
+      value="${text(
+        "value",
+        "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text"
+      )}"
+      status="${select(
+        "status",
+        ["default", ...Object.keys(InputStatusEnum)],
+        "default"
+      )}"
+      message="${text("message", "Helper text")}"
+      readonly="${boolean("readonly", false)}"
+    ></z-input>`}
   </Story>
   <Story name="z-input type:password">
-    {html`
-      <z-input
-        type="password"
-        label="${text('label', 'Password Label')}"
-        placeholder="${text('placeholder', 'Password')}"
-      ></z-input>`}
+    {html` <z-input
+      type="password"
+      label="${text("label", "Password Label")}"
+      placeholder="${text("placeholder", "Password")}"
+    ></z-input>`}
   </Story>
 </Preview>
 
-  <Props of="z-input" />
-
+{" "}
+<Props of="z-input" />
