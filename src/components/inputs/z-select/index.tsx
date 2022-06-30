@@ -26,7 +26,7 @@ import {
   tag: "z-select",
   styleUrl: "styles.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class ZSelect {
   @Element() element: HTMLElement;
@@ -245,9 +245,11 @@ export class ZSelect {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        (this.element
-          .querySelector(`#${this.htmlid}_input`) as HTMLInputElement)
-          .focus();
+        (
+          this.element.querySelector(
+            `#${this.htmlid}_input`
+          ) as HTMLInputElement
+        ).focus();
       }
     }
 
@@ -304,20 +306,6 @@ export class ZSelect {
     if (foundItem) this.focusSelectItem(this.itemsList.indexOf(foundItem));
   }
 
-  renderLabel() {
-    if (!this.label) return;
-
-    return (
-      <z-input-label
-        htmlfor={this.htmlid}
-        value={this.label}
-        disabled={this.disabled}
-        aria-label={this.label}
-        id={`${this.htmlid}_input_label`}
-      />
-    );
-  }
-
   renderInput() {
     return (
       <z-input
@@ -329,8 +317,10 @@ export class ZSelect {
             ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
             : null
         }
+        label={this.label}
         aria-label={this.ariaLabel}
         icon={this.isOpen ? "caret-up" : "caret-down"}
+        interactiveicon={true}
         hasclearicon={this.hasAutcomplete()}
         hasmessage={false}
         disabled={this.disabled}
@@ -343,15 +333,14 @@ export class ZSelect {
           if (e.keyCode !== 13) e.preventDefault();
           handleKeyboardSubmit(e, this.toggleSelectUl);
         }}
-        onKeyDown={(e: KeyboardEvent) =>  {
+        onKeyDown={(e: KeyboardEvent) => {
           return this.arrowsSelectNav(
             e,
             this.selectedItems.length
-            ? this.itemsList.indexOf(this.selectedItems[0])
-            : -1
-            )
-          }
-        }
+              ? this.itemsList.indexOf(this.selectedItems[0])
+              : -1
+          );
+        }}
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);
         }}
@@ -455,7 +444,6 @@ export class ZSelect {
   render() {
     return (
       <div class="selectWrapper">
-        {this.renderLabel()}
         {this.renderChips()}
         {this.renderInput()}
         {this.renderSelectUl()}

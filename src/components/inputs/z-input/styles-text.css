@@ -41,7 +41,8 @@
 }
 
 .textWrapper .iconsWrapper > z-icon.resetIcon,
-.textWrapper .iconsWrapper > z-icon.showHidePasswordIcon {
+.textWrapper .iconsWrapper > z-icon.showHidePasswordIcon,
+.textWrapper .iconsWrapper > z-icon.interactiveIcon {
   cursor: pointer;
 }
 

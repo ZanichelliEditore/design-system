@@ -70,6 +70,8 @@ export class ZInput {
   @Prop() hasclearicon?: boolean = true;
   /** render icon (optional): available for text, select */
   @Prop() icon?: string;
+  /** icon is interactive (optional): available for text, select */
+  @Prop() interactiveicon?: boolean;
 
   @State() isTyping: boolean = false;
   @State() textareaWrapperHover: string = "";
@@ -280,7 +282,17 @@ export class ZInput {
 
     if (!this.icon) return;
 
-    return <z-icon class="inputIcon" name={this.icon} />;
+    const attributes = this.interactiveicon
+      ? { role: "button", tabIndex: 0 }
+      : {};
+
+    return (
+      <z-icon
+        name={this.icon}
+        class={{ inputIcon: true, interactiveIcon: this.interactiveicon }}
+        {...attributes}
+      />
+    );
   }
 
   renderResetIcon() {

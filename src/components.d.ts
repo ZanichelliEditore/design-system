@@ -523,6 +523,10 @@ export namespace Components {
          */
         "icon"?: string;
         /**
+          * icon is interactive (optional): available for text, select
+         */
+        "interactiveicon"?: boolean;
+        /**
           * get checked status
          */
         "isChecked": () => Promise<boolean>;
@@ -3027,6 +3031,10 @@ declare namespace LocalJSX {
           * render icon (optional): available for text, select
          */
         "icon"?: string;
+        /**
+          * icon is interactive (optional): available for text, select
+         */
+        "interactiveicon"?: boolean;
         /**
           * items (optional): available for select
          */
