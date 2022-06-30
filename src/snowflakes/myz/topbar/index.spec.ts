@@ -11,7 +11,7 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test render ZMyzTopbar mobile myz utente non loggato", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar],
-      html: initMyzTopbar(false, false, true, false, false, "", false)
+      html: initMyzTopbar(false, false, true, false, false, "", false),
     });
 
     //Set mobile state
@@ -26,7 +26,7 @@ describe("Suite test ZMyzTopbar", () => {
             <div class="logo">
               <z-logo image-alt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" target-blank=""></z-logo>
             </div>
-            <z-button htmlid="login-button" variant="secondary" icon="login" issmall="">entra</z-button>
+            <z-button-deprecated htmlid="login-button" variant="secondary" icon="login" issmall="">entra</z-button-deprecated>
           </div>
         </header>
       </mock:shadow-root>
@@ -37,7 +37,7 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test render ZMyzTopbar mobile non myz utente non loggato", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar],
-      html: initMyzTopbar(true, false, false, false, false, "", false)
+      html: initMyzTopbar(true, false, false, false, false, "", false),
     });
 
     //Set mobile state
@@ -56,7 +56,7 @@ describe("Suite test ZMyzTopbar", () => {
             link="https://www.zanichelli.it"
             target-blank=""></z-logo>
           </div>
-          <z-button htmlid="login-button" variant="tertiary" icon="login" issmall="">entra</z-button>
+          <z-button-deprecated htmlid="login-button" variant="tertiary" icon="login" issmall="">entra</z-button-deprecated>
         </div>
       </header>
     </mock:shadow-root>
@@ -67,7 +67,7 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test render ZMyzTopbar mobile myz loggato", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar],
-      html: initMyzTopbar(true, true, true, false, false, "", false)
+      html: initMyzTopbar(true, true, true, false, false, "", false),
     });
 
     //Set mobile state
@@ -122,7 +122,7 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test render ZMyzTopbar mobile myz loggato open", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar, ZMyzList],
-      html: initMyzTopbar(true, true, true, true, true, "", false)
+      html: initMyzTopbar(true, true, true, true, true, "", false),
     });
     page.rootInstance.isMobile = true;
     page.rootInstance.isMenuMobileOpen = true;
@@ -217,7 +217,7 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test click ZMyzTopbar mobile toggle", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar],
-      html: initMyzTopbar(true, true, true, true, true, "", false)
+      html: initMyzTopbar(true, true, true, true, true, "", false),
     });
 
     expect(page.rootInstance.isMobile).toEqual(false);
@@ -250,7 +250,7 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test render ZMyzTopbar myz vuoto", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar],
-      html: initMyzTopbar(false, false, true, false, false, "", false)
+      html: initMyzTopbar(false, false, true, false, false, "", false),
     });
     expect(page.root).toEqualHtml(`
 
@@ -263,7 +263,7 @@ describe("Suite test ZMyzTopbar", () => {
             </div>
             <div></div>
             <div class="login">
-              <z-button htmlid="login-button" variant="secondary" icon="login" issmall="">entra</z-button>
+              <z-button-deprecated htmlid="login-button" variant="secondary" icon="login" issmall="">entra</z-button-deprecated>
             </div>
           </div>
         </header>
@@ -275,7 +275,7 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test render ZMyzTopbar myz loggato", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar],
-      html: initMyzTopbar(true, true, true, true, true, "home", false)
+      html: initMyzTopbar(true, true, true, true, true, "home", false),
     });
     expect(page.root).toEqualHtml(`
     <z-myz-topbar
@@ -345,7 +345,7 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test render ZMyzTopbar myz non loggato", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar],
-      html: initMyzTopbar(false, false, true, true, true, "", false)
+      html: initMyzTopbar(false, false, true, true, true, "", false),
     });
     expect(page.root).toEqualHtml(`
     <z-myz-topbar
@@ -372,9 +372,9 @@ describe("Suite test ZMyzTopbar", () => {
             </div>
             <div></div>
             <div class="login">
-              <z-button htmlid="login-button" icon="login" issmall="" variant="secondary">
+              <z-button-deprecated htmlid="login-button" icon="login" issmall="" variant="secondary">
                 entra
-              </z-button>
+              </z-button-deprecated>
             </div>
           </div>
         </header>
@@ -386,7 +386,7 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test render ZMyzTopbar non myz loggato", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar],
-      html: initMyzTopbar(true, true, false, true, true, "", false)
+      html: initMyzTopbar(true, true, false, true, true, "", false),
     });
     expect(page.root).toEqualHtml(`
     <z-myz-topbar
@@ -433,12 +433,12 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test render ZMyzTopbar active menu item", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar],
-      html: initMyzTopbar(true, true, true, true, true, "", false)
+      html: initMyzTopbar(true, true, true, true, true, "", false),
     });
     page.rootInstance.activeMenuItem = {
       id: "Dizionari",
       label: "Dizionari",
-      url: "https://www.zanichelli.it/dizionari/in-primo-piano"
+      url: "https://www.zanichelli.it/dizionari/in-primo-piano",
     };
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
@@ -501,7 +501,7 @@ describe("Suite test ZMyzTopbar", () => {
   it("Test hide login button", async () => {
     const page = await newSpecPage({
       components: [ZMyzTopbar],
-      html: initMyzTopbar(false, false, true, false, false, "", true)
+      html: initMyzTopbar(false, false, true, false, false, "", true),
     });
     expect(page.root).toEqualHtml(`
 
@@ -544,7 +544,7 @@ function initMyzTopbar(
   intlinkdataBool: boolean,
   extlinkdataBool: boolean,
   activeintlinkid: string,
-  hideloginbutton: boolean,
+  hideloginbutton: boolean
 ) {
   const userNotLogged = { islogged: false, usergroup: 4 };
   const user = {
@@ -554,8 +554,8 @@ function initMyzTopbar(
     usergroup: 15,
     userlinks: [
       { label: "Profilo", link: "http://www.zanichelli.it" },
-      { label: "Esci", link: "#home" }
-    ]
+      { label: "Esci", link: "#home" },
+    ],
   };
   const emptyArray = "[]";
   let userTag = "";
@@ -573,23 +573,23 @@ function initMyzTopbar(
         {
           id: "libreria",
           label: "la mia libreria",
-          link: "#libreria"
-        }
-      ]
+          link: "#libreria",
+        },
+      ],
     },
     {
       id: "Dizionari",
       label: "Dizionari",
-      link: "https://www.zanichelli.it/dizionari/in-primo-piano"
-    }
+      link: "https://www.zanichelli.it/dizionari/in-primo-piano",
+    },
   ]);
   const extlinkdata = JSON.stringify([
     {
       id: "supporto",
       label: "Supporto",
       link: "https://www.zanichelli.it/contatti-e-recapiti",
-      icon: "question-mark.png"
-    }
+      icon: "question-mark.png",
+    },
   ]);
 
   const logoPath = "./assets/images/png/zanichelli-logo-2.png";

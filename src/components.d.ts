@@ -98,6 +98,48 @@ export namespace Components {
     }
     interface ZButton {
         /**
+          * defines a string value that labels an interactive element, used for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * HTML button disabled attribute.
+         */
+        "disabled"?: boolean;
+        /**
+          * HTML a href attribute. If it is set, it renders an HTML a tag.
+         */
+        "href"?: string;
+        /**
+          * Identifier, should be unique.
+         */
+        "htmlid"?: string;
+        /**
+          * `z-icon` name to use (optional).
+         */
+        "icon"?: string;
+        /**
+          * HTML button name attribute.
+         */
+        "name"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ButtonSizeEnum;
+        /**
+          * HTML a target attribute.
+         */
+        "target"?: string;
+        /**
+          * HTML button type attribute.
+         */
+        "type"?: HTMLButtonElement["type"];
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+         */
+        "variant"?: ButtonVariantBean;
+    }
+    interface ZButtonDeprecated {
+        /**
           * HTML button disabled attribute.
          */
         "disabled"?: boolean;
@@ -398,7 +440,7 @@ export namespace Components {
          */
         "data"?: string;
         /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event'
+          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
          */
         "productCreditsLink"?: string;
         /**
@@ -1792,6 +1834,12 @@ declare global {
         prototype: HTMLZButtonElement;
         new (): HTMLZButtonElement;
     };
+    interface HTMLZButtonDeprecatedElement extends Components.ZButtonDeprecated, HTMLStencilElement {
+    }
+    var HTMLZButtonDeprecatedElement: {
+        prototype: HTMLZButtonDeprecatedElement;
+        new (): HTMLZButtonDeprecatedElement;
+    };
     interface HTMLZButtonFilterElement extends Components.ZButtonFilter, HTMLStencilElement {
     }
     var HTMLZButtonFilterElement: {
@@ -2359,6 +2407,7 @@ declare global {
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
+        "z-button-deprecated": HTMLZButtonDeprecatedElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
@@ -2550,6 +2599,48 @@ declare namespace LocalJSX {
         "variant"?: "regular" | "semibold";
     }
     interface ZButton {
+        /**
+          * defines a string value that labels an interactive element, used for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * HTML button disabled attribute.
+         */
+        "disabled"?: boolean;
+        /**
+          * HTML a href attribute. If it is set, it renders an HTML a tag.
+         */
+        "href"?: string;
+        /**
+          * Identifier, should be unique.
+         */
+        "htmlid"?: string;
+        /**
+          * `z-icon` name to use (optional).
+         */
+        "icon"?: string;
+        /**
+          * HTML button name attribute.
+         */
+        "name"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ButtonSizeEnum;
+        /**
+          * HTML a target attribute.
+         */
+        "target"?: string;
+        /**
+          * HTML button type attribute.
+         */
+        "type"?: HTMLButtonElement["type"];
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+         */
+        "variant"?: ButtonVariantBean;
+    }
+    interface ZButtonDeprecated {
         /**
           * HTML button disabled attribute.
          */
@@ -2903,7 +2994,7 @@ declare namespace LocalJSX {
          */
         "onReportAProblemButtonClick"?: (event: CustomEvent<any>) => void;
         /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event'
+          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
          */
         "productCreditsLink"?: string;
         /**
@@ -4405,6 +4496,7 @@ declare namespace LocalJSX {
         "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
+        "z-button-deprecated": ZButtonDeprecated;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
@@ -4512,6 +4604,7 @@ declare module "@stencil/core" {
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
+            "z-button-deprecated": LocalJSX.ZButtonDeprecated & JSXBase.HTMLAttributes<HTMLZButtonDeprecatedElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;

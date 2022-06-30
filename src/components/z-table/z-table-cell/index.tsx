@@ -36,7 +36,7 @@ export class ZTableCell {
             })}
           >
             <div class="button-content">
-              <z-button
+              <z-button-deprecated
                 icon="contextual-menu"
                 variant={ButtonVariantEnum.tertiary}
                 size={ButtonSizeEnum["x-small"]}

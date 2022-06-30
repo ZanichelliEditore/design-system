@@ -1,6 +1,10 @@
 import { html } from "lit-html";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import { PopoverPosition, PopoverShadow , PopoverBorderRadius} from "../../beans";
+import {
+  PopoverPosition,
+  PopoverShadow,
+  PopoverBorderRadius,
+} from "../../beans";
 
 import "./index";
 
@@ -20,9 +24,9 @@ import "./index";
     },
     "border-radius": {
       control: { type: "inline-radio" },
-      options: Object.values(PopoverBorderRadius)
+      options: Object.values(PopoverBorderRadius),
     },
-}}
+  }}
 />
 
 # ZPopover
@@ -48,7 +52,9 @@ import "./index";
         box-shadow=${args["box-shadow"]}
         border-radius=${args["border-radius"]}
       >
-        <z-button slot="trigger" icon="gear">Impostazioni</z-button>
+        <z-button-deprecated slot="trigger" icon="gear"
+          >Impostazioni</z-button-deprecated
+        >
         <div slot="popover">Contenuto Popover</div>
       </z-popover>
     </div>`}
