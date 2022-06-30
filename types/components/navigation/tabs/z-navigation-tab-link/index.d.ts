@@ -1,10 +1,8 @@
 import { NavigationTabsOrientation, NavigationTabsSize } from "../../../../beans";
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
- * @slot icon - Tab icon. If no extra customization is needed, use the `icon` prop passing the icon's name.
  */
 export declare class ZNavigationTabLink {
-  host: HTMLElement;
   /**
    * Whether the tab is selected.
    */
@@ -34,7 +32,7 @@ export declare class ZNavigationTabLink {
    */
   href: string;
   /**
-   * Name of the icon to use. Use the slot `icon` for extra customization.
+   * Name of the icon to use.
    * The `filled` version will be automatically used (if found) when the tab is `selected`.
    */
   icon: string;
@@ -42,8 +40,13 @@ export declare class ZNavigationTabLink {
    * Label to show in the tab.
    */
   label: string;
-  private emitSelected;
-  onFocus(): void;
+  private selectedEvent;
+  /**
+   * Scroll into view to center the tab.
+   */
+  scrollToTab({ target: button }: {
+    target: any;
+  }): void;
   onClick(): void;
   onSelected(): void;
   /**

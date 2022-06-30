@@ -52,6 +52,8 @@ export declare class ZNavigationTabs {
   checkScrollEnabled(): void;
   /**
    * Listen for child tab selection.
+   * Deselect all other previously selected tabs,
+   * then scroll to the new selected tab and center it.
    * @param {CustomEvent} event `selected` event triggered by a child tab
    */
   onTabSelected(event: CustomEvent): void;

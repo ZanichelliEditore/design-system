@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const index = require('./index-84b7063a.js');
 const index$1 = require('./index-b1289f95.js');
 
-const stylesCss = ":host{--safe-scroll-area:4px;--negative-safe-scroll-area:calc(-1 * var(--safe-scroll-area));position:relative;display:flex;flex-direction:row;z-index:0;margin:var(--negative-safe-scroll-area);padding:var(--safe-scroll-area);font-family:var(--font-family-sans);font-weight:var(--font-rg);overflow:hidden}:host,:host *,::slotted(*){box-sizing:border-box}::-webkit-scrollbar{display:none}.navigation-button{position:absolute;display:flex;align-items:center;justify-content:center;margin:0;padding:0;background:var(--color-white);border:none;outline:none;fill:var(--color-primary01);border-radius:var(--border-no-radius);cursor:pointer;z-index:1}.navigation-button:focus{fill:var(--color-primary01);box-shadow:var(--shadow-focus-primary)}.navigation-button:disabled{display:none}nav{display:flex;align-items:center;justify-content:flex-start;overflow:auto;margin:var(--negative-safe-scroll-area);padding:var(--safe-scroll-area);scroll-padding:var(--safe-scroll-area);scrollbar-width:none}:host([orientation='horizontal']) nav{width:100%}:host([orientation='horizontal']) .navigation-button{top:0;height:100%;width:calc((var(--space-unit) * 4) + var(--safe-scroll-area))}:host([orientation='horizontal']) .navigation-button:first-child{left:0;padding-left:var(--safe-scroll-area);box-shadow:5px 0px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40)}:host([orientation='horizontal']) .navigation-button:last-child{right:0;padding-right:4px;box-shadow:-5px 0px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40)}:host([orientation='vertical']){flex-direction:column;width:fit-content}:host([orientation='vertical']) nav{flex-direction:column;align-items:stretch;height:100%}:host([orientation='vertical']) .navigation-button{left:0;width:100%;height:calc((var(--space-unit) * 4) + var(--safe-scroll-area))}:host([orientation='vertical']) .navigation-button:first-child{top:0;padding-top:var(--safe-scroll-area);box-shadow:0px 5px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40)}:host([orientation='vertical']) .navigation-button:last-child{bottom:0;padding-bottom:var(--safe-scroll-area);box-shadow:0px -5px var(--safe-scroll-area) var(--negative-safe-scroll-area) rgba(66, 69, 72, 0.40)}:host([size='small'][orientation='vertical']) .navigation-button{height:calc(var(--space-unit) * 4)}";
+const stylesCss = ":host{position:relative;display:flex;flex-direction:row;z-index:0;font-family:var(--font-family-sans);font-weight:var(--font-rg);overflow:hidden}:host,:host *,::slotted(*){box-sizing:border-box}::-webkit-scrollbar{display:none}.navigation-button{position:absolute;display:flex;align-items:center;justify-content:center;margin:0;padding:0;background:var(--color-white);border:none;outline:none;fill:var(--color-primary01);border-radius:var(--border-no-radius);cursor:pointer;z-index:1;box-shadow:0px 0px 4px 1px rgb(66, 69, 72, 0.40)}.navigation-button:focus:focus-visible{fill:var(--color-primary01);box-shadow:inset var(--shadow-focus-primary)}.navigation-button:disabled{display:none}nav{display:flex;align-items:center;justify-content:flex-start;overflow:auto;scroll-behavior:smooth;scrollbar-width:none}:host([orientation='horizontal']) nav{width:100%}:host([orientation='horizontal']) .navigation-button{top:0;height:100%;width:calc(var(--space-unit) * 4)}:host([orientation='horizontal']) .navigation-button:first-child{left:0}:host([orientation='horizontal']) .navigation-button:last-child{right:0}:host([orientation='vertical']){flex-direction:column;width:fit-content}:host([orientation='vertical']) nav{flex-direction:column;align-items:stretch;height:100%}:host([orientation='vertical']) .navigation-button{left:0;width:100%;height:calc(var(--space-unit) * 4)}:host([orientation='vertical']) .navigation-button:first-child{top:0}:host([orientation='vertical']) .navigation-button:last-child{bottom:0}:host([size='small'][orientation='vertical']) .navigation-button{height:calc(var(--space-unit) * 4)}";
 
 const ZNavigationTabs = class {
   constructor(hostRef) {
@@ -71,6 +71,8 @@ const ZNavigationTabs = class {
   }
   /**
    * Listen for child tab selection.
+   * Deselect all other previously selected tabs,
+   * then scroll to the new selected tab and center it.
    * @param {CustomEvent} event `selected` event triggered by a child tab
    */
   onTabSelected(event) {
@@ -86,11 +88,8 @@ const ZNavigationTabs = class {
    * Scroll the navigation bar half of its size backward.
    */
   navigateBackwards() {
-    const safeScrollAreaSize = parseFloat(getComputedStyle(this.host).getPropertyValue('--safe-scroll-area'));
     this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]: 0 -
-        (this.tabsNav[`client${this.dimension}`] / 2) -
-        safeScrollAreaSize,
+      [this.direction.toLowerCase()]: 0 - (this.tabsNav[`client${this.dimension}`] / 2),
       behavior: 'smooth',
     });
   }
@@ -98,11 +97,9 @@ const ZNavigationTabs = class {
    * Scroll the navigation bar half of its size forward.
    */
   navigateForward() {
-    const safeScrollAreaSize = parseFloat(getComputedStyle(this.host).getPropertyValue('--safe-scroll-area'));
     this.tabsNav.scrollBy({
       [this.direction.toLowerCase()]: this.tabsNav[`scroll${this.direction}`] +
-        (this.tabsNav[`client${this.dimension}`] / 2) +
-        safeScrollAreaSize,
+        (this.tabsNav[`client${this.dimension}`] / 2),
       behavior: 'smooth',
     });
   }

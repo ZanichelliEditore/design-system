@@ -1,9 +1,8 @@
-import { Component, Prop, h, Element, Listen, Event, Watch, } from "@stencil/core";
+import { Component, Prop, h, Listen, Event, Watch, } from "@stencil/core";
 import { NavigationTabsOrientations, NavigationTabsSizes, } from "../../../../beans";
 import { icons } from "../../../icons/icons";
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
- * @slot icon - Tab icon. If no extra customization is needed, use the `icon` prop passing the icon's name.
  */
 export class ZNavigationTabLink {
   constructor() {
@@ -24,19 +23,21 @@ export class ZNavigationTabLink {
      */
     this.size = NavigationTabsSizes.big;
   }
-  onFocus() {
-    this.host.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "nearest",
-    });
+  /**
+   * Scroll into view to center the tab.
+   */
+  scrollToTab({ target: button }) {
+    const scrollOptions = this.orientation === NavigationTabsOrientations.horizontal ?
+      { block: "nearest", inline: "center" } :
+      { block: "center", inline: "nearest" };
+    button.scrollIntoView(Object.assign({ behavior: "smooth" }, scrollOptions));
   }
   onClick() {
     this.selected = true;
   }
   onSelected() {
     if (this.selected) {
-      this.emitSelected.emit();
+      this.selectedEvent.emit();
     }
   }
   /**
@@ -53,12 +54,11 @@ export class ZNavigationTabLink {
     return h("z-icon", { name: icon });
   }
   render() {
-    return (h("a", { role: "tab", href: !this.disabled && this.href, title: this.htmlTitle, target: this.target },
-      h("slot", { name: "icon" }, this.icon && this.renderIcon()),
+    return (h("a", { role: "tab", href: !this.disabled && this.href, title: this.htmlTitle, target: this.target, onFocus: this.scrollToTab.bind(this) },
+      this.icon && this.renderIcon(),
       this.orientation === "horizontal" && this.label));
   }
   static get is() { return "z-navigation-tab-link"; }
-  static get encapsulation() { return "shadow"; }
   static get originalStyleUrls() { return {
     "$": ["../navigation-tab.css"]
   }; }
@@ -211,7 +211,7 @@ export class ZNavigationTabLink {
       "optional": false,
       "docs": {
         "tags": [],
-        "text": "Name of the icon to use. Use the slot `icon` for extra customization.\nThe `filled` version will be automatically used (if found) when the tab is `selected`."
+        "text": "Name of the icon to use.\nThe `filled` version will be automatically used (if found) when the tab is `selected`."
       },
       "attribute": "icon",
       "reflect": false
@@ -235,7 +235,7 @@ export class ZNavigationTabLink {
     }
   }; }
   static get events() { return [{
-      "method": "emitSelected",
+      "method": "selectedEvent",
       "name": "selected",
       "bubbles": true,
       "cancelable": true,
@@ -250,18 +250,11 @@ export class ZNavigationTabLink {
         "references": {}
       }
     }]; }
-  static get elementRef() { return "host"; }
   static get watchers() { return [{
       "propName": "selected",
       "methodName": "onSelected"
     }]; }
   static get listeners() { return [{
-      "name": "focus",
-      "method": "onFocus",
-      "target": undefined,
-      "capture": false,
-      "passive": false
-    }, {
       "name": "click",
       "method": "onClick",
       "target": undefined,
