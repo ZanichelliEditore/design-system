@@ -15,7 +15,7 @@ import {
   InputStatusBean,
   SelectItemBean,
 } from "../../../beans";
-import { randomId } from "../../../utils/utils";
+import { handleKeyboardSubmit, randomId } from "../../../utils/utils";
 
 @Component({
   tag: "z-input",
@@ -295,16 +295,34 @@ export class ZInput {
         class="resetIcon"
         name="multiply"
         onClick={(e: any) => this.emitInputChange("", e.keyCode)}
+        onKeyUp={(e: KeyboardEvent) =>
+          handleKeyboardSubmit(
+            e,
+            this.emitInputChange.bind(this),
+            "",
+            e.keyCode
+          )
+        }
+        role="button"
+        tabIndex={0}
+        aria-label="cancella il contenuto dell'input"
       />
     );
   }
 
   renderShowHidePassword() {
+    const togglePassword = () => (this.passwordHidden = !this.passwordHidden);
     return (
       <z-icon
         class="showHidePasswordIcon"
         name={this.passwordHidden ? "view-filled" : "view-off-filled"}
-        onClick={() => (this.passwordHidden = !this.passwordHidden)}
+        onClick={() => togglePassword()}
+        onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, togglePassword)}
+        role="button"
+        tabIndex={this.disabled ? -1 : 0}
+        aria-label={
+          this.passwordHidden ? "mostra password" : "nascondi password"
+        }
       />
     );
   }

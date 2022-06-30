@@ -38,7 +38,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input aria-label="label" class="input_default filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="iconsWrapper">
-                <z-icon name="multiply" class="resetIcon"></z-icon>
+                <z-icon name="multiply" class="resetIcon" role="button" tabindex="0" aria-label="cancella il contenuto dell'input"></z-icon>
               </span>
             </div>
           </div>
@@ -100,7 +100,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper">
-                <z-icon name="multiply" class="resetIcon"></z-icon>
+                <z-icon name="multiply" class="resetIcon" role="button" tabindex="0" aria-label="cancella il contenuto dell'input"></z-icon>
               </span>
             </div>
             <z-input-message message="helper message"></z-input-message>
@@ -123,7 +123,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input class="filled input_success hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper">
-                <z-icon name="multiply" class="resetIcon"></z-icon>
+                <z-icon name="multiply" class="resetIcon" role="button" tabindex="0" aria-label="cancella il contenuto dell'input"></z-icon>
               </span>
             </div>
             <z-input-message message="success message" status="success"></z-input-message>
@@ -157,7 +157,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default hasClearIcon hasIcon" type="password" />
               <span class="iconsWrapper">
-                <z-icon name="view-filled" class="showHidePasswordIcon"></z-icon>
+                <z-icon name="view-filled" class="showHidePasswordIcon" role="button" tabindex="0" aria-label="mostra password"></z-icon>
               </span>
             </div>
           </div>
@@ -180,7 +180,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default hasClearIcon hasIcon" type="text" />
               <span class="iconsWrapper">
-                <z-icon name="view-off-filled" class="showHidePasswordIcon"></z-icon>
+                <z-icon name="view-off-filled" class="showHidePasswordIcon" role="button" tabindex="0" aria-label="nascondi password"></z-icon>
               </span>
             </div>
           </div>
