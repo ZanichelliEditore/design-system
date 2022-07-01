@@ -21,7 +21,7 @@ header {
   grid-template-rows: 1fr;
   grid-template-areas: "logo link-int link-ext login";
   grid-area: main-header;
-  grid-column-gap: calc(var(--space-unit) * .5);
+  grid-column-gap: calc(var(--space-unit) * 0.5);
   align-items: center;
   background-color: var(--bg-grey-900);
   height: auto;
@@ -79,7 +79,7 @@ z-logo {
   line-height: 32px;
   text-decoration: none;
   margin: var(--space-unit);
-  padding-bottom: calc(var(--space-unit) * .5);
+  padding-bottom: calc(var(--space-unit) * 0.5);
 }
 
 .dropdown-links > li > a:hover,
@@ -110,7 +110,7 @@ z-logo {
   background-color: var(--bg-white);
 }
 
-.mobile-header > z-button {
+.mobile-header > z-button-deprecated {
   margin: 0 calc(var(--space-unit) * 2);
 }
 
@@ -236,12 +236,12 @@ hr {
   padding: 0 calc(var(--space-unit) * 2);
 }
 
-.login > z-button {
+.login > z-button-deprecated {
   color: var(--bg-white);
   fill: var(--bg-white);
 }
 
-.booktab-button > z-button {
+.booktab-button > z-button-deprecated {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -270,7 +270,7 @@ hr {
 .link-ext-span {
   display: inline-block;
   width: 100%;
-  margin: calc(var(--space-unit) * .5) auto;
+  margin: calc(var(--space-unit) * 0.5) auto;
   box-sizing: border-box;
   margin: 0px auto 0px auto;
   padding: 0px calc(var(--space-unit) * 4) 0px calc(var(--space-unit) * 4);
@@ -520,7 +520,7 @@ hr {
     align-items: center;
     align-content: center;
     max-height: 46px;
-    margin-top: calc(var(--space-unit) * .5);
+    margin-top: calc(var(--space-unit) * 0.5);
   }
 
   .link-int > span {
@@ -582,7 +582,7 @@ hr {
     width: auto;
     line-height: 14px;
     margin: var(--space-unit);
-    padding: calc(var(--space-unit) * .5) var(--space-unit);
+    padding: calc(var(--space-unit) * 0.5) var(--space-unit);
   }
 }
 

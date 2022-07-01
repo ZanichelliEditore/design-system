@@ -153,24 +153,24 @@ export class ZTable {
                 subtitle={this.subtitle}
               >
                 {!!this.callToActionLabel && (
-                  <z-button
+                  <z-button-deprecated
                     slot="cta1"
                     variant={ButtonVariantEnum.tertiary}
                     onClick={() => this.callToAction.emit()}
                     size={buttonSize}
                   >
                     {this.callToActionLabel}
-                  </z-button>
+                  </z-button-deprecated>
                 )}
                 {!!this.callToActionTwoLabel && (
-                  <z-button
+                  <z-button-deprecated
                     slot="cta2"
                     variant={ButtonVariantEnum.tertiary}
                     onClick={() => this.callToActionTwo.emit()}
                     size={buttonSize}
                   >
                     {this.callToActionTwoLabel}
-                  </z-button>
+                  </z-button-deprecated>
                 )}
               </z-table-empty-box>
             </div>
@@ -190,24 +190,24 @@ export class ZTable {
           subtitle={this.subtitle}
         >
           {!!this.callToActionLabel && (
-            <z-button
+            <z-button-deprecated
               slot="cta1"
               variant={ButtonVariantEnum.tertiary}
               onClick={() => this.callToAction.emit()}
               size={buttonSize}
             >
               {this.callToActionLabel}
-            </z-button>
+            </z-button-deprecated>
           )}
           {!!this.callToActionTwoLabel && (
-            <z-button
+            <z-button-deprecated
               slot="cta2"
               variant={ButtonVariantEnum.tertiary}
               onClick={() => this.callToActionTwo.emit()}
               size={buttonSize}
             >
               {this.callToActionTwoLabel}
-            </z-button>
+            </z-button-deprecated>
           )}
         </z-table-empty-box>
       </Host>

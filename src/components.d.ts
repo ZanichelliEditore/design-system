@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -97,6 +97,48 @@ export namespace Components {
         "variant": "regular" | "semibold";
     }
     interface ZButton {
+        /**
+          * defines a string value that labels an interactive element, used for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * HTML button disabled attribute.
+         */
+        "disabled"?: boolean;
+        /**
+          * HTML a href attribute. If it is set, it renders an HTML a tag.
+         */
+        "href"?: string;
+        /**
+          * Identifier, should be unique.
+         */
+        "htmlid"?: string;
+        /**
+          * `z-icon` name to use (optional).
+         */
+        "icon"?: string;
+        /**
+          * HTML button name attribute.
+         */
+        "name"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ButtonSizeEnum;
+        /**
+          * HTML a target attribute.
+         */
+        "target"?: string;
+        /**
+          * HTML button type attribute.
+         */
+        "type"?: HTMLButtonElement["type"];
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+         */
+        "variant"?: ButtonVariantBean;
+    }
+    interface ZButtonDeprecated {
         /**
           * HTML button disabled attribute.
          */
@@ -398,7 +440,7 @@ export namespace Components {
          */
         "data"?: string;
         /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event'
+          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
          */
         "productCreditsLink"?: string;
         /**
@@ -1087,7 +1129,7 @@ export namespace Components {
          */
         "htmlTitle": string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon": string;
         /**
@@ -1121,7 +1163,7 @@ export namespace Components {
          */
         "htmlTitle": string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon": string;
         /**
@@ -1436,6 +1478,16 @@ export namespace Components {
           * the input status (optional): available for text, password, number, email, textarea, select
          */
         "status"?: InputStatusBean;
+    }
+    interface ZSkipToContent {
+        /**
+          * Array to fill link into skip-content
+         */
+        "links": string | SkipToContentLink[];
+        /**
+          * Graphical variant: `dark`, `light`.
+         */
+        "variant"?: ThemeVariant;
     }
     interface ZSlideshow {
         /**
@@ -1781,6 +1833,12 @@ declare global {
     var HTMLZButtonElement: {
         prototype: HTMLZButtonElement;
         new (): HTMLZButtonElement;
+    };
+    interface HTMLZButtonDeprecatedElement extends Components.ZButtonDeprecated, HTMLStencilElement {
+    }
+    var HTMLZButtonDeprecatedElement: {
+        prototype: HTMLZButtonDeprecatedElement;
+        new (): HTMLZButtonDeprecatedElement;
     };
     interface HTMLZButtonFilterElement extends Components.ZButtonFilter, HTMLStencilElement {
     }
@@ -2190,6 +2248,12 @@ declare global {
         prototype: HTMLZSelectElement;
         new (): HTMLZSelectElement;
     };
+    interface HTMLZSkipToContentElement extends Components.ZSkipToContent, HTMLStencilElement {
+    }
+    var HTMLZSkipToContentElement: {
+        prototype: HTMLZSkipToContentElement;
+        new (): HTMLZSkipToContentElement;
+    };
     interface HTMLZSlideshowElement extends Components.ZSlideshow, HTMLStencilElement {
     }
     var HTMLZSlideshowElement: {
@@ -2343,6 +2407,7 @@ declare global {
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
+        "z-button-deprecated": HTMLZButtonDeprecatedElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
@@ -2411,6 +2476,7 @@ declare global {
         "z-popover": HTMLZPopoverElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
+        "z-skip-to-content": HTMLZSkipToContentElement;
         "z-slideshow": HTMLZSlideshowElement;
         "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
@@ -2533,6 +2599,48 @@ declare namespace LocalJSX {
         "variant"?: "regular" | "semibold";
     }
     interface ZButton {
+        /**
+          * defines a string value that labels an interactive element, used for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * HTML button disabled attribute.
+         */
+        "disabled"?: boolean;
+        /**
+          * HTML a href attribute. If it is set, it renders an HTML a tag.
+         */
+        "href"?: string;
+        /**
+          * Identifier, should be unique.
+         */
+        "htmlid"?: string;
+        /**
+          * `z-icon` name to use (optional).
+         */
+        "icon"?: string;
+        /**
+          * HTML button name attribute.
+         */
+        "name"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ButtonSizeEnum;
+        /**
+          * HTML a target attribute.
+         */
+        "target"?: string;
+        /**
+          * HTML button type attribute.
+         */
+        "type"?: HTMLButtonElement["type"];
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+         */
+        "variant"?: ButtonVariantBean;
+    }
+    interface ZButtonDeprecated {
         /**
           * HTML button disabled attribute.
          */
@@ -2886,7 +2994,7 @@ declare namespace LocalJSX {
          */
         "onReportAProblemButtonClick"?: (event: CustomEvent<any>) => void;
         /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event'
+          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
          */
         "productCreditsLink"?: string;
         /**
@@ -3663,7 +3771,7 @@ declare namespace LocalJSX {
          */
         "htmlTitle"?: string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon"?: string;
         /**
@@ -3698,7 +3806,7 @@ declare namespace LocalJSX {
          */
         "htmlTitle"?: string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon"?: string;
         /**
@@ -4040,6 +4148,16 @@ declare namespace LocalJSX {
          */
         "status"?: InputStatusBean;
     }
+    interface ZSkipToContent {
+        /**
+          * Array to fill link into skip-content
+         */
+        "links"?: string | SkipToContentLink[];
+        /**
+          * Graphical variant: `dark`, `light`.
+         */
+        "variant"?: ThemeVariant;
+    }
     interface ZSlideshow {
         /**
           * array or JSON stringified images urls
@@ -4378,6 +4496,7 @@ declare namespace LocalJSX {
         "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
+        "z-button-deprecated": ZButtonDeprecated;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
@@ -4446,6 +4565,7 @@ declare namespace LocalJSX {
         "z-popover": ZPopover;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
+        "z-skip-to-content": ZSkipToContent;
         "z-slideshow": ZSlideshow;
         "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
@@ -4484,6 +4604,7 @@ declare module "@stencil/core" {
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
+            "z-button-deprecated": LocalJSX.ZButtonDeprecated & JSXBase.HTMLAttributes<HTMLZButtonDeprecatedElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
@@ -4552,6 +4673,7 @@ declare module "@stencil/core" {
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
+            "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
             "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;

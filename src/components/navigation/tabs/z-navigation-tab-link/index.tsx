@@ -2,7 +2,6 @@ import {
   Component,
   Prop,
   h,
-  Element,
   Listen,
   Event,
   EventEmitter,
@@ -18,16 +17,12 @@ import { icons } from "../../../icons/icons";
 
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
- * @slot icon - Tab icon. If no extra customization is needed, use the `icon` prop passing the icon's name.
  */
 @Component({
   tag: "z-navigation-tab-link",
   styleUrl: "../navigation-tab.css",
-  shadow: true,
 })
 export class ZNavigationTabLink {
-  @Element() host: HTMLElement;
-
   /**
    * Whether the tab is selected.
    */
@@ -65,7 +60,7 @@ export class ZNavigationTabLink {
   @Prop() href: string;
 
   /**
-   * Name of the icon to use. Use the slot `icon` for extra customization.
+   * Name of the icon to use.
    * The `filled` version will be automatically used (if found) when the tab is `selected`.
    */
   @Prop() icon: string;
@@ -76,14 +71,19 @@ export class ZNavigationTabLink {
   @Prop() label: string;
 
   @Event({ eventName: "selected" })
-  private emitSelected: EventEmitter;
+  private selectedEvent: EventEmitter;
 
-  @Listen("focus")
-  onFocus() {
-    this.host.scrollIntoView({
+  /**
+   * Scroll into view to center the tab.
+   */
+  scrollToTab({ target: button }) {
+    const scrollOptions = this.orientation === NavigationTabsOrientations.horizontal ?
+      { block: "nearest", inline: "center" } as ScrollIntoViewOptions :
+      { block: "center", inline: "nearest" } as ScrollIntoViewOptions;
+
+    button.scrollIntoView({
       behavior: "smooth",
-      block: "nearest",
-      inline: "nearest",
+      ...scrollOptions,
     });
   }
 
@@ -95,7 +95,7 @@ export class ZNavigationTabLink {
   @Watch("selected")
   onSelected() {
     if (this.selected) {
-      this.emitSelected.emit();
+      this.selectedEvent.emit();
     }
   }
 
@@ -122,8 +122,9 @@ export class ZNavigationTabLink {
         href={!this.disabled && this.href}
         title={this.htmlTitle}
         target={this.target}
+        onFocus={this.scrollToTab.bind(this)}
       >
-        <slot name="icon">{this.icon && this.renderIcon()}</slot>
+        {this.icon && this.renderIcon()}
         {this.orientation === "horizontal" && this.label}
       </a>
     );

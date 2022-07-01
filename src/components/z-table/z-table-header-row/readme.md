@@ -24,8 +24,8 @@ graph TD;
   z-table-header-row --> z-table-header
   z-table-header --> z-icon
   z-table-header --> z-popover
-  z-table-header --> z-button
-  z-button --> z-icon
+  z-table-header --> z-button-deprecated
+  z-button-deprecated --> z-icon
   style z-table-header-row fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
