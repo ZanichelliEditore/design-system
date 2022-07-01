@@ -4,12 +4,11 @@ import { ZCookiebar } from "./index";
 
 describe("Suite test ZCookiebar", () => {
   it("Test render ZCookiebar base", async () => {
-
     const page = await newSpecPage({
       components: [ZCookiebar],
       html: `  <z-cookiebar
                   cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
-                  hide="false"></z-cookiebar>`
+                  hide="false"></z-cookiebar>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -27,21 +26,20 @@ describe("Suite test ZCookiebar", () => {
                   </p>
                 </div>
               </div>
-              <z-button variant="primary">ACCETTA</z-button>
+              <z-button-deprecated variant="primary">ACCETTA</z-button-deprecated>
             </div>
           </z-candybar>
         </mock:shadow-root>
       </z-cookiebar>
-    `)
+    `);
   });
 
   it("Test render ZCookiebar nascosto", async () => {
-
     const page = await newSpecPage({
       components: [ZCookiebar],
       html: `  <z-cookiebar
                   cookiepolicyurl="https://my.zanichelli.it/privacy#Cookie"
-                  hide="true"></z-cookiebar>`
+                  hide="true"></z-cookiebar>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -59,11 +57,11 @@ describe("Suite test ZCookiebar", () => {
                   </p>
                 </div>
               </div>
-              <z-button variant="primary">ACCETTA</z-button>
+              <z-button-deprecated variant="primary">ACCETTA</z-button-deprecated>
             </div>
           </z-candybar>
         </mock:shadow-root>
       </z-cookiebar>
-    `)
+    `);
   });
 });

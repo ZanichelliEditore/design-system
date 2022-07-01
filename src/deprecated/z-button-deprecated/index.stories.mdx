@@ -1,0 +1,206 @@
+import { html } from "lit-html";
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import { ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum } from "../../beans";
+import "./index";
+
+<Meta
+  title="Deprecated/Buttons/ZButtonDeprecated"
+  component="z-button-deprecated"
+  argTypes={{
+    variant: {
+      options: Object.values(ButtonVariantEnum),
+      control: { type: "radio" },
+    },
+    size: {
+      options: Object.values(ButtonSizeEnum),
+      control: { type: "radio" },
+    },
+  }}
+/>
+
+# ZButtonDeprecated
+
+<Canvas>
+  <Story
+    name="Default button"
+    args={{
+      variant: ButtonVariantEnum.primary,
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "download",
+    }}
+  >
+    {(args) => html`
+      <z-button-deprecated
+        variant=${args.variant}
+        size=${args.size}
+        disabled=${args.disabled}
+        icon=${args.icon}
+        >Click me</z-button-deprecated
+      >
+    `}
+  </Story>
+</Canvas>
+
+## Dark Background
+
+<Canvas>
+  <Story
+    name="Dark Background"
+    args={{
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "download",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["variant"],
+      },
+    }}
+  >
+    {(args) => html`
+      <div style="background: var(--gray800); padding: 8px;">
+        <z-button-deprecated
+          variant=${ButtonVariantEnum["dark-bg"]}
+          size=${args.size}
+          disabled=${args.disabled}
+          icon=${args.icon}
+          >Click me</z-button-deprecated
+        >
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+## Ocher Background, slotted label span
+
+<Canvas>
+  <Story
+    name="Ocher Background"
+    args={{
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "download",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["variant", "icon"],
+      },
+    }}
+  >
+    {(args) => html`
+      <div style="background: var(--yellow500); padding: 8px">
+        <z-button-deprecated
+          variant=${ButtonVariantEnum["dark-bg"]}
+          size=${args.size}
+          disabled=${args.disabled}
+        >
+          <span style="color: var(--gray800);">
+            <z-icon name="${args.icon}"></z-icon>
+            button
+          </span>
+        </z-button-deprecated>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+## Icon only
+
+In this special case we need to override `min-width` (achieved with additional `square` prop). **Note:** `z-icon` drops its spacing accordingly.
+
+| Prop name | Prop value                                                |
+| --------- | --------------------------------------------------------- |
+| icon      | Any `z-icon` name                                         |
+| square    | Attribute should be set without value (`true` not needed) |
+
+<Canvas>
+  <Story
+    name="Icon only"
+    args={{
+      variant: ButtonVariantEnum.primary,
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "download",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["square"],
+      },
+    }}
+  >
+    {(args) => html`
+      <z-button-deprecated
+        variant="${args.variant}"
+        size="${args.size}"
+        disabled="${args.disabled}"
+        icon="${args.icon}"
+        square
+      ></z-button-deprecated>
+    `}
+  </Story>
+</Canvas>
+
+## Named slotted elements
+
+For further customization and DOM handling is possible to pass the content of a button as named slot named `element`.
+
+> **Inversion of control:** in this case any layout spacing responsibility (aka. icon spacing et similia) is delegated to app's integrators.
+
+**Note:** for backwards compatibility reasons, if present in the slotted hierarchy, `z-icon` will have a right margin.
+
+<Canvas>
+  <Story
+    name="With named slot"
+    args={{
+      variant: ButtonVariantEnum.primary,
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "arrow-quad-north-east",
+    }}
+  >
+    {(args) => html`
+      <z-button-deprecated
+        variant="${args.variant}"
+        size="${args.size}"
+        disabled="${args.disabled}"
+      >
+        <a slot="element" href="https://wikipedia.com" target="_blank">
+          <z-icon name="${args.icon}"></z-icon>
+          Go to Wikipedia
+        </a>
+      </z-button-deprecated>
+    `}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="With named slot icon only"
+    args={{
+      variant: ButtonVariantEnum.primary,
+      size: ButtonSizeEnum.big,
+      disabled: false,
+      icon: "link",
+    }}
+  >
+    {(args) => html`
+      <z-button-deprecated
+        variant="${args.variant}"
+        size="${args.size}"
+        disabled="${args.disabled}"
+        square
+      >
+        <button slot="element">
+          <z-icon name="${args.icon}"></z-icon>
+        </button>
+      </z-button-deprecated>
+    `}
+  </Story>
+</Canvas>
+
+## Deprecation
+
+Props `issmall` is deprecated, use `size` instead.
+
+<ArgsTable of="z-button-deprecated" />

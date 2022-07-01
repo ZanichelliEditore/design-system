@@ -19,7 +19,7 @@ export class ZFooter {
   /** The product version to be displayed on the top panel of the footer */
   @Prop() productVersion?: string;
   /** 'undefined' or 'null' means 'don't show Credits',
-   * empty string means 'emit creditsLinkClick event', 
+   * empty string means 'emit creditsLinkClick event',
    * not empty string means 'open the url and emit creditsLinkClick event' */
   @Prop() productCreditsLink?: string;
   /** True if the product must display a "Report a problem" button on the top panel of the footer */
@@ -32,12 +32,15 @@ export class ZFooter {
   creditsLinkId = "creditsLinkId";
 
   constructor() {
-    this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
+    this.emitReportAProblemButtonClick =
+      this.emitReportAProblemButtonClick.bind(this);
   }
 
   componentWillLoad() {
     if (this.data) {
-      console.warn("z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead.");
+      console.warn(
+        "z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead."
+      );
       this.jsonData = JSON.parse(this.data);
     }
   }
@@ -126,7 +129,12 @@ export class ZFooter {
   renderFooterBottom(): HTMLElement {
     return (
       <section id="bottom">
-        <div class={{ "limited-width": !!this.contentMaxWidth }} style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
+        <div
+          class={{ "limited-width": !!this.contentMaxWidth }}
+          style={
+            this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}
+          }
+        >
           <div class="item logo">
             {this.renderZLogo()}
             {this.renderCopyright()}
@@ -145,7 +153,12 @@ export class ZFooter {
   renderFooterTop(): HTMLElement {
     return (
       <section id="top">
-        <div class={{ "limited-width": !!this.contentMaxWidth }} style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
+        <div
+          class={{ "limited-width": !!this.contentMaxWidth }}
+          style={
+            this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}
+          }
+        >
           <slot />
           {this.renderFooterTopJsonData()}
         </div>
@@ -154,36 +167,65 @@ export class ZFooter {
   }
 
   renderFooterProductInfo(): HTMLElement {
-    if (this.productName || this.productVersion || this.productCreditsLink != null || this.showReportAProblemButton) {
-      const versionString = `${this.productName ? ' versione' : 'Versione'} ${this.productVersion}`;
+    if (
+      this.productName ||
+      this.productVersion ||
+      this.productCreditsLink != null ||
+      this.showReportAProblemButton
+    ) {
+      const versionString = `${this.productName ? " versione" : "Versione"} ${
+        this.productVersion
+      }`;
 
-      const creditsObject = <z-body level={5}>
-        {(this.productName || this.productVersion) && ' - '}
-        <z-link htmlid={this.creditsLinkId} href={this.productCreditsLink?.trim()} target="_blank" textcolor="white">Credits</z-link>
-      </z-body>;
+      const creditsObject = (
+        <z-body level={5}>
+          {(this.productName || this.productVersion) && " - "}
+          <z-link
+            htmlid={this.creditsLinkId}
+            href={this.productCreditsLink?.trim()}
+            target="_blank"
+            textcolor="white"
+          >
+            Credits
+          </z-link>
+        </z-body>
+      );
 
       return (
         <div id="extension">
-          <div class={{ "limited-width": !!this.contentMaxWidth }} style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
+          <div
+            class={{ "limited-width": !!this.contentMaxWidth }}
+            style={
+              this.contentMaxWidth
+                ? { "--mw": `${this.contentMaxWidth}px` }
+                : {}
+            }
+          >
             <span>
-              {this.productName && <z-body level={5} variant="semibold">{this.productName}</z-body>}
-              {this.productVersion && <z-body level={5}>{versionString}</z-body>}
+              {this.productName && (
+                <z-body level={5} variant="semibold">
+                  {this.productName}
+                </z-body>
+              )}
+              {this.productVersion && (
+                <z-body level={5}>{versionString}</z-body>
+              )}
               {this.productCreditsLink != null && creditsObject}
             </span>
-            {this.showReportAProblemButton &&
+            {this.showReportAProblemButton && (
               <div>
                 <z-body level={5}>Hai bisogno di aiuto?</z-body>
-                <z-button
+                <z-button-deprecated
                   variant={ButtonVariantEnum["dark-bg"]}
                   size={ButtonSizeEnum.small}
                   onClick={this.emitReportAProblemButtonClick}
                 >
                   SEGNALA UN PROBLEMA
-                </z-button>
+                </z-button-deprecated>
               </div>
-            }
+            )}
             <z-divider color="gray500" />
-           </div>
+          </div>
         </div>
       );
     }

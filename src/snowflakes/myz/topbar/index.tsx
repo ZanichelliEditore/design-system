@@ -245,26 +245,24 @@ export class ZMyzTopbar {
 
     return (
       <div id="link-ext" class="link-ext">
-        {menuItems.map(
-          (menuItem: MenuItem): HTMLSpanElement => {
-            const { id, label, link, icon } = menuItem;
-            return (
-              <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
-                <z-link
-                  id={id}
-                  htmlid={id}
-                  href={link}
-                  iswhite={!!this.ismyz}
-                  target="_blank"
-                  htmltabindex={10}
-                  {...this.renderExtLinksIcons(icon)}
-                >
-                  {label}
-                </z-link>
-              </span>
-            );
-          }
-        )}
+        {menuItems.map((menuItem: MenuItem): HTMLSpanElement => {
+          const { id, label, link, icon } = menuItem;
+          return (
+            <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
+              <z-link
+                id={id}
+                htmlid={id}
+                href={link}
+                iswhite={!!this.ismyz}
+                target="_blank"
+                htmltabindex={10}
+                {...this.renderExtLinksIcons(icon)}
+              >
+                {label}
+              </z-link>
+            </span>
+          );
+        })}
       </div>
     );
   }
@@ -290,7 +288,7 @@ export class ZMyzTopbar {
     }
 
     return (
-      <z-button
+      <z-button-deprecated
         htmlid="login-button"
         variant={
           this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary
@@ -299,7 +297,7 @@ export class ZMyzTopbar {
         issmall={true}
       >
         entra
-      </z-button>
+      </z-button-deprecated>
     );
   }
 

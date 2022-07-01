@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/ZanichelliEditore/design-system/compare/v2.48.1...v3.0.0) (2022-06-30)
+
+
+### Bug Fixes
+
+* fix ([a7f015a](https://github.com/ZanichelliEditore/design-system/commit/a7f015ae05a7957672a8935d1efc3f7acfb96f71))
+* fix storybook ([b736e7f](https://github.com/ZanichelliEditore/design-system/commit/b736e7f6ede85e8a772e521e9d0476bde1414a89))
+* remove width 100% ([e275d30](https://github.com/ZanichelliEditore/design-system/commit/e275d302987eeeede3e4e8257d8bf09edd29c193))
+
 ### [2.48.1](https://github.com/ZanichelliEditore/design-system/compare/v2.48.0...v2.48.1) (2022-06-30)
 
 ## [2.48.0](https://github.com/ZanichelliEditore/design-system/compare/v2.47.3...v2.48.0) (2022-06-30)

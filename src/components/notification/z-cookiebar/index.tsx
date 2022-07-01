@@ -4,7 +4,7 @@ import { ButtonVariantEnum } from "../../../beans";
 @Component({
   tag: "z-cookiebar",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZCookiebar {
   /** cookie policy link url  */
@@ -17,14 +17,12 @@ export class ZCookiebar {
   /** emitted on ACCETTA button click, returns event */
   @Event() accept: EventEmitter;
   emitAccept(ev: MouseEvent | KeyboardEvent) {
-    this.accept.emit({ev});
+    this.accept.emit({ ev });
   }
 
   handleOkButtonClick(ev: MouseEvent) {
     this.emitAccept(ev);
-    if (
-      typeof this.callback === "function"
-    ) {
+    if (typeof this.callback === "function") {
       this.callback();
     }
   }
@@ -57,17 +55,21 @@ export class ZCookiebar {
             </p>
           </div>
         </div>
-        <z-button
+        <z-button-deprecated
           variant={ButtonVariantEnum.primary}
           onClick={(ev: MouseEvent) => this.handleOkButtonClick(ev)}
           onKeyUp={(ev: KeyboardEvent) => this.handleOkButtonKeyUp(ev)}
         >
           ACCETTA
-        </z-button>
+        </z-button-deprecated>
       </div>
     );
   }
   render() {
-    return <z-candybar class={`${this.hide ? "hidden" : ""}`}>{this.renderContentSlot()}</z-candybar>;
+    return (
+      <z-candybar class={`${this.hide ? "hidden" : ""}`}>
+        {this.renderContentSlot()}
+      </z-candybar>
+    );
   }
 }
