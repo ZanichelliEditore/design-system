@@ -81,6 +81,7 @@ export class ZDatePicker {
             );
           });
 
+          //Force check of the current day
           Array.from(months).forEach((element, index) => {
             let curMonth = new Date().getMonth();
             let curYear = new Date().getFullYear();
