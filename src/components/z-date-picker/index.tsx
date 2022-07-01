@@ -46,13 +46,16 @@ export class ZDatePicker {
 
   @Listen("keydown", { target: "body", capture: true })
   handleKeyDown(ev: KeyboardEvent) {
-    if (ev.key === "Enter") {
+    if (ev.key === "Enter" || ev.key === " ") {
       let isPrevArrowEntered = document.activeElement.classList.contains(
         "flatpickr-prev-month"
       );
       let isNextArrowEntered = document.activeElement.classList.contains(
         "flatpickr-next-month"
       );
+      let arrowPressed = isPrevArrowEntered || isNextArrowEntered;
+
+      arrowPressed && ev.key === " " && ev.preventDefault();
 
       if (this.mode === ZDatePickerMode.months) {
         isPrevArrowEntered &&
@@ -64,7 +67,8 @@ export class ZDatePicker {
           this.flatpickrInstance.changeYear(
             this.flatpickrInstance.currentYear + 1
           );
-        if (isPrevArrowEntered || isNextArrowEntered) {
+
+        if (arrowPressed) {
           let calendar =
             this.element.getElementsByClassName("flatpickr-calendar")[0];
           let months = calendar.querySelectorAll(
@@ -75,6 +79,22 @@ export class ZDatePicker {
               "aria-label",
               `${element.innerHTML} ${this.flatpickrInstance.currentYear}`
             );
+          });
+
+          Array.from(months).forEach((element, index) => {
+            let curMonth = new Date().getMonth();
+            let curYear = new Date().getFullYear();
+
+            if (index === curMonth) {
+              if (this.flatpickrInstance.currentYear === curYear) {
+                element.setAttribute(
+                  "class",
+                  "flatpickr-monthSelect-month today"
+                );
+              } else {
+                element.setAttribute("class", "flatpickr-monthSelect-month");
+              }
+            }
           });
         }
       } else {
