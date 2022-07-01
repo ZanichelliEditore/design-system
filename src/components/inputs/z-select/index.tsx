@@ -64,7 +64,7 @@ export class ZSelect {
   @Prop() noresultslabel?: string = "Nessun risultato";
 
   @State() isOpen: boolean = false;
-  @State() selectedItems: SelectItemBean[];
+  @State() selectedItem: null | SelectItemBean = null;
   @State() searchString: null | string;
 
   private itemsList: SelectItemBean[] = [];
@@ -78,21 +78,21 @@ export class ZSelect {
   @Watch("items")
   watchItems() {
     this.itemsList = this.getInitialItemsArray();
-    this.selectedItems = this.itemsList.filter(
+    this.selectedItem = this.itemsList.find(
       (item: SelectItemBean) => item.selected
     );
   }
 
   /** get the input selected options */
   @Method()
-  async getSelectedItems(): Promise<SelectItemBean[]> {
-    return this.selectedItems;
+  async getSelectedItem(): Promise<SelectItemBean> {
+    return this.selectedItem;
   }
 
   /** get the input value */
   @Method()
-  async getValue(): Promise<string | string[]> {
-    return this.getSelectedValues();
+  async getValue(): Promise<string> {
+    return this.getSelectedValue();
   }
 
   /** set the input value */
@@ -105,17 +105,17 @@ export class ZSelect {
       values = value;
     }
 
-    this.selectedItems = this.itemsList.filter((item: SelectItemBean) =>
+    this.selectedItem = this.itemsList.find((item: SelectItemBean) =>
       values.includes(item.id)
     );
   }
 
-  /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
+  /** Emitted on select option selection, returns select id, selected item id */
   @Event() optionSelect: EventEmitter;
   emitOptionSelect() {
     this.optionSelect.emit({
       id: this.htmlid,
-      selected: this.getSelectedValues(),
+      selected: this.getSelectedValue(),
     });
   }
 
@@ -131,31 +131,20 @@ export class ZSelect {
     return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
   }
 
-  mapSelectedItemsToItemsArray() {
+  mapSelectedItemToItemsArray() {
     const initialItemsList = this.getInitialItemsArray();
     return initialItemsList.map((item: SelectItemBean) => {
-      const found = this.selectedItems.find(
-        (selected: SelectItemBean) => selected.id === item.id
-      );
-      item.selected = !!found;
+      item.selected = item.id === this.selectedItem?.id;
       return item;
     });
   }
 
-  getSelectedValues() {
-    if (this.multiple) {
-      return this.selectedItems.map((item: SelectItemBean) => item.id);
-    }
-
-    if (!this.multiple && this.selectedItems.length) {
-      return this.selectedItems[0].id;
-    }
-
-    return null;
+  getSelectedValue() {
+    return this.selectedItem?.id;
   }
 
   filterItems(searchString: string) {
-    const prevList = this.mapSelectedItemsToItemsArray();
+    const prevList = this.mapSelectedItemToItemsArray();
     if (!searchString?.length) {
       this.itemsList = prevList;
     } else {
@@ -190,14 +179,14 @@ export class ZSelect {
   selectItem(item: null | SelectItemBean, selected: boolean) {
     if (item && item.disabled) return;
 
-    this.itemsList = this.mapSelectedItemsToItemsArray();
+    this.itemsList = this.mapSelectedItemToItemsArray();
     this.itemsList = this.itemsList.map((i: SelectItemBean) => {
-      if (!this.multiple) i.selected = false;
+      i.selected = false;
       if (i.id === (item ? item.id : null)) i.selected = selected;
       return i;
     });
 
-    this.selectedItems = this.itemsList.filter(
+    this.selectedItem = this.itemsList.find(
       (item: SelectItemBean) => item.selected
     );
 
@@ -283,11 +272,8 @@ export class ZSelect {
     const tree = getElementTree(getClickedElement());
     const parent = tree.find((elem: any) => {
       return (
-        (elem.nodeName.toLowerCase() === "z-input" &&
-          elem.id === `${this.htmlid}_input`) ||
-        (this.multiple &&
-          elem.nodeName.toLowerCase() === "ul" &&
-          elem.id === this.htmlid)
+        elem.nodeName.toLowerCase() === "z-input" &&
+        elem.id === `${this.htmlid}_input`
       );
     });
 
@@ -310,8 +296,8 @@ export class ZSelect {
         htmlid={`${this.htmlid}_input`}
         placeholder={this.placeholder}
         value={
-          !this.isOpen && !this.multiple && this.selectedItems.length
-            ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
+          !this.isOpen && this.selectedItem
+            ? this.selectedItem.name.replace(/<[^>]+>/g, "")
             : null
         }
         label={this.label}
@@ -332,9 +318,7 @@ export class ZSelect {
         onKeyDown={(e: KeyboardEvent) => {
           return this.arrowsSelectNav(
             e,
-            this.selectedItems.length
-              ? this.itemsList.indexOf(this.selectedItems[0])
-              : -1
+            this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1
           );
         }}
         onInputChange={(e: CustomEvent) => {
@@ -350,23 +334,6 @@ export class ZSelect {
     );
   }
 
-  renderChips() {
-    if (!this.multiple || !this.selectedItems.length) return;
-
-    return (
-      <div class={`chipsWrapper ${this.isOpen ? "open" : ""}`}>
-        {this.selectedItems.map((item: SelectItemBean) => (
-          <z-button-filter
-            filterid={item.id}
-            filtername={item.name.replace(/<[^>]+>/g, "")}
-            issmall={true}
-            onRemovefilter={() => this.selectItem(item, false)}
-          />
-        ))}
-      </div>
-    );
-  }
-
   renderSelectUl() {
     return (
       <div class={this.isOpen ? "open" : "closed"} tabindex="-1">
@@ -375,12 +342,8 @@ export class ZSelect {
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
             id={this.htmlid}
-            aria-activedescendant={
-              !this.multiple && this.selectedItems.length
-                ? this.selectedItems[0].id
-                : null
-            }
-            aria-multiselectable={!!this.multiple}
+            aria-activedescendant={this.selectedItem?.id}
+            aria-multiselectable={false}
             class={`
               ${this.disabled ? " disabled" : ""}
               ${this.readonly ? " readonly" : ""}
@@ -389,7 +352,7 @@ export class ZSelect {
                   ? " input_" + this.status
                   : " input_default"
               }
-              ${this.selectedItems.length ? " filled" : ""}
+              ${this.selectedItem ? " filled" : ""}
             `}
           >
             {this.renderSelectUlItems()}
@@ -440,7 +403,6 @@ export class ZSelect {
   render() {
     return (
       <div class="selectWrapper">
-        {this.renderChips()}
         {this.renderInput()}
         {this.renderSelectUl()}
         {this.renderMessage()}

@@ -1363,11 +1363,11 @@ export namespace Components {
         /**
           * get the input selected options
          */
-        "getSelectedItems": () => Promise<SelectItemBean[]>;
+        "getSelectedItem": () => Promise<SelectItemBean>;
         /**
           * get the input value
          */
-        "getValue": () => Promise<string | string[]>;
+        "getValue": () => Promise<string>;
         /**
           * show input helper message (optional): available for text, password, number, email, textarea, select
          */
@@ -4005,7 +4005,7 @@ declare namespace LocalJSX {
          */
         "noresultslabel"?: string;
         /**
-          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
+          * Emitted on select option selection, returns select id, selected item id
          */
         "onOptionSelect"?: (event: CustomEvent<any>) => void;
         /**
