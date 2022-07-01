@@ -309,10 +309,12 @@ export enum ExpandableListButtonAlign {
   left = "left",
 }
 
-export enum ZtoggleSwitchPositionEnum {
+export enum LabelPositionEnum {
   right = "right",
   left = "left",
 }
+export type LabelPositionType = keyof typeof LabelPositionEnum;
+
 export enum ListDividerType {
   none = "none",
   header = "header",

@@ -113,7 +113,7 @@ export class ZDatePicker {
         type="text"
         name="datepicker"
         icon="event"
-        hasmessage={false}
+        message={false}
       ></z-input>
     );
   }

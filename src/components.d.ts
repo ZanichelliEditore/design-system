@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPositionType, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -489,7 +489,7 @@ export namespace Components {
         /**
           * the input has autocomplete option (optional): available for input
          */
-        "autocomplete"?: boolean | string;
+        "autocomplete"?: string;
         /**
           * checked: available for checkbox, radio
          */
@@ -501,15 +501,11 @@ export namespace Components {
         /**
           * get the input value
          */
-        "getValue": () => Promise<string | string[]>;
+        "getValue": () => Promise<string>;
         /**
           * render clear icon when typing (optional): available for text
          */
         "hasclearicon"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea
-         */
-        "hasmessage"?: boolean;
         /**
           * the id of the input element
          */
@@ -533,11 +529,11 @@ export namespace Components {
         /**
           * the input label position: available for checkbox, radio
          */
-        "labelafter"?: boolean;
+        "labelPosition"?: LabelPositionType;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea
+          * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
          */
-        "message"?: string;
+        "message"?: string | boolean;
         /**
           * the input name
          */
@@ -557,7 +553,7 @@ export namespace Components {
         /**
           * set the input value
          */
-        "setValue": (value: string | string[]) => Promise<void>;
+        "setValue": (value: string) => Promise<void>;
         /**
           * the input status (optional): available for text, password, number, email, textarea
          */
@@ -566,10 +562,6 @@ export namespace Components {
           * input types
          */
         "type": InputTypeBean;
-        /**
-          * timeout setting before trigger `inputChange` event (optional): available for text, textarea
-         */
-        "typingtimeout"?: number;
         /**
           * the input value
          */
@@ -1684,7 +1676,7 @@ export namespace Components {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid": string;
-        "labelPosition"?: ZtoggleSwitchPositionEnum;
+        "labelPosition"?: LabelPositionType;
     }
     interface ZTooltip {
         /**
@@ -2990,7 +2982,7 @@ declare namespace LocalJSX {
         /**
           * the input has autocomplete option (optional): available for input
          */
-        "autocomplete"?: boolean | string;
+        "autocomplete"?: string;
         /**
           * checked: available for checkbox, radio
          */
@@ -3003,10 +2995,6 @@ declare namespace LocalJSX {
           * render clear icon when typing (optional): available for text
          */
         "hasclearicon"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea
-         */
-        "hasmessage"?: boolean;
         /**
           * the id of the input element
          */
@@ -3026,17 +3014,17 @@ declare namespace LocalJSX {
         /**
           * the input label position: available for checkbox, radio
          */
-        "labelafter"?: boolean;
+        "labelPosition"?: LabelPositionType;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea
+          * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
          */
-        "message"?: string;
+        "message"?: string | boolean;
         /**
           * the input name
          */
         "name"?: string;
         /**
-          * Emitted on input value change, returns value, keycode, validity
+          * Emitted on input value change, returns value, validity
          */
         "onInputChange"?: (event: CustomEvent<any>) => void;
         /**
@@ -3071,10 +3059,6 @@ declare namespace LocalJSX {
           * input types
          */
         "type"?: InputTypeBean;
-        /**
-          * timeout setting before trigger `inputChange` event (optional): available for text, textarea
-         */
-        "typingtimeout"?: number;
         /**
           * the input value
          */
@@ -4313,7 +4297,7 @@ declare namespace LocalJSX {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid"?: string;
-        "labelPosition"?: ZtoggleSwitchPositionEnum;
+        "labelPosition"?: LabelPositionType;
         "onToggleClick"?: (event: CustomEvent<any>) => void;
     }
     interface ZTooltip {

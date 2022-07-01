@@ -33,6 +33,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-select](../../components/inputs/z-select)
+
 ### Depends on
 
 - [z-icon](../../components/icons/z-icon)
@@ -41,6 +45,7 @@
 ```mermaid
 graph TD;
   z-button-filter --> z-icon
+  z-select --> z-button-filter
   style z-button-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

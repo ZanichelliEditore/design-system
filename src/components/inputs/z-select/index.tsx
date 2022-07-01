@@ -20,6 +20,7 @@ import {
   handleKeyboardSubmit,
   getClickedElement,
   getElementTree,
+  boolean,
 } from "../../../utils/utils";
 
 @Component({
@@ -177,12 +178,8 @@ export class ZSelect {
     }
   }
 
-  hasAutcomplete() {
-    return (
-      this.autocomplete === true ||
-      this.autocomplete === "true" ||
-      this.autocomplete === "on"
-    );
+  hasAutocomplete() {
+    return boolean(this.autocomplete) === true;
   }
 
   handleInputChange(e: CustomEvent) {
@@ -320,10 +317,10 @@ export class ZSelect {
         label={this.label}
         aria-label={this.ariaLabel}
         icon={this.isOpen ? "caret-up" : "caret-down"}
-        hasclearicon={this.hasAutcomplete()}
-        hasmessage={false}
+        hasclearicon={this.hasAutocomplete()}
+        message={false}
         disabled={this.disabled}
-        readonly={this.readonly || (!this.hasAutcomplete() && this.isOpen)}
+        readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
         status={this.isOpen ? InputStatusEnum.selecting : this.status}
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
@@ -344,7 +341,7 @@ export class ZSelect {
           this.handleInputChange(e);
         }}
         onKeyPress={(e: KeyboardEvent) => {
-          if (!this.hasAutcomplete()) {
+          if (!this.hasAutocomplete()) {
             e.preventDefault();
             this.scrollToLetter(String.fromCharCode(e.keyCode));
           }

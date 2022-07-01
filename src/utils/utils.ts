@@ -7,6 +7,31 @@ export function format(first: string, middle: string, last: string): string {
   );
 }
 
+/**
+ * Return boolean value for passed value if a boolean corresponding value is found
+ * Return passed value otherwise
+ */
+export function boolean(value: any): boolean | string {
+  switch (value) {
+    case true:
+    case "true":
+    case 1:
+    case "1":
+    case "on":
+    case "yes":
+      return true;
+    case false:
+    case "false":
+    case 0:
+    case "0":
+    case "off":
+    case "no":
+      return false;
+    default:
+      return value;
+  }
+}
+
 export function retrieveAsset(assetName: string): string {
   return assetName && "assets/images/png/" + assetName;
 }
