@@ -433,6 +433,11 @@ export enum StatusTagStatus {
   default = "default",
 }
 
+export enum ZDatePickerType {
+  date = "date",
+  range = "range",
+}
+
 export enum ZDatePickerMode {
   date = "date",
   dateTime = "date-time",
@@ -448,6 +453,10 @@ export enum ZDatePickerModeValues {
 export enum ZDatePickerPosition {
   top = "top",
   bottom = "bottom",
+}
+export enum RangePickerInputSelected {
+  startInput = "start-input",
+  endInput = "end-input",
 }
 
 export type ZSectionTitleDividerPosition =

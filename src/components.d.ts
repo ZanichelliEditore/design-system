@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZDatePickerType, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -342,6 +342,10 @@ export namespace Components {
           * [Optional] datepicker mode: date, datetime, only months
          */
         "mode": ZDatePickerMode;
+        /**
+          * [Optional] datepicker type: date or range
+         */
+        "type": ZDatePickerType;
     }
     interface ZDivider {
         /**
@@ -2810,6 +2814,10 @@ declare namespace LocalJSX {
           * emitted when date changes, returns selected date
          */
         "onDateSelect"?: (event: CustomEvent<any>) => void;
+        /**
+          * [Optional] datepicker type: date or range
+         */
+        "type"?: ZDatePickerType;
     }
     interface ZDivider {
         /**

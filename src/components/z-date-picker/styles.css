@@ -44,7 +44,7 @@ z-date-picker > div > * {
 
   padding-top: calc(var(--space-unit) * 2);
 
-  left: 0 !important;
+  left: 233px !important;
   top: var(--toggle-height) !important;
 }
 
@@ -58,6 +58,14 @@ z-date-picker > div > * {
 
 .date-time.top > .flatpickr-calendar {
   top: -523px !important;
+}
+
+.start-input > .flatpickr-calendar {
+  left: 0 !important;
+}
+
+.end-input > .flatpickr-calendar {
+  left: 233px !important;
 }
 
 .flatpickr-calendar,
@@ -415,4 +423,9 @@ z-date-picker > div > * {
 
 .flatpickr-range.second-input {
   cursor: pointer;
+}
+
+.range-picker-container {
+  display: flex;
+  gap: 16px;
 }
