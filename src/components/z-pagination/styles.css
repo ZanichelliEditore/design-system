@@ -53,12 +53,12 @@ z-icon {
 }
 
 .pagination-bar .pagination-button {
+  padding: calc(var(--space-unit) * 2);
   text-transform: uppercase;
   font-weight: var(--font-sb);
   white-space: nowrap;
 }
 
-.pagination-bar .pagination-button,
 .pagination-bar .navigation-button {
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 1.5);
 }
@@ -79,7 +79,7 @@ z-icon {
 .pages-container {
   position: relative;
   display: inline-flex;
-  max-width: var(--z-pagination--pages-container-max-width);
+  max-width: 100%;
   overflow-x: auto;
   scroll-behavior: smooth;
 
@@ -135,8 +135,36 @@ z-icon {
   width: calc(var(--space-unit) * 11);
 }
 
-.go-to-page .inputs z-input input {
+.go-to-page .inputs z-input input,
+.mobile-go-to-page z-input input {
   padding: 0 calc(var(--space-unit) * 1.5) !important;
+}
+
+.mobile-go-to-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 auto;
+  background-color: var(--color-surface03);
+}
+
+.mobile-go-to-page z-input {
+  width: var(--z-pagination--page-button-width);
+  margin-right: var(--space-unit);
+}
+
+.mobile-go-to-page z-input input {
+  text-align: center;
+}
+
+.mobile-go-to-page z-input input::-webkit-outer-spin-button,
+.mobile-go-to-page z-input input::-webkit-inner-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.mobile-go-to-page > span {
+  font-size: var(--font-size-2);
 }
 
 @media (hover: hover) {
@@ -155,5 +183,9 @@ z-icon {
 
     flex-direction: row;
     align-items: flex-end;
+  }
+
+  .pages-container {
+    max-width: var(--z-pagination--pages-container-max-width);
   }
 }

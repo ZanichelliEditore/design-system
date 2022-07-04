@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Watch,
   State,
+  Listen,
 } from "@stencil/core";
 
 /**
@@ -31,7 +32,7 @@ export class ZPagination {
 
   /** Number of pages to skip. */
   @Prop()
-  skip: number;
+  skip: number = 0;
 
   /** Enable buttons to go to the first and last pages. */
   @Prop()
@@ -62,12 +63,13 @@ export class ZPagination {
   @State()
   private _visiblePages: number = this.visiblePages;
 
+  /** Used to hides/change some functionalities on smaller screen sizes */
+  @State()
+  isMobile: Boolean = false;
+
   /** Event emitted when the current page has changed. */
   @Event()
   pageChanged: EventEmitter;
-
-  /** Input element for "go to page". */
-  goToPageInput: HTMLZInputElement;
 
   /** Right split has been already added */
   splitRight: Boolean;
@@ -138,6 +140,14 @@ export class ZPagination {
   }
 
   /**
+   * Hide stuff if mobile.
+   */
+  @Listen("resize", { target: "window", passive: true })
+  checkScrollVisible() {
+    this.setMobile();
+  }
+
+  /**
    *
    * * @inheritdoc
    */
@@ -146,6 +156,16 @@ export class ZPagination {
       this._visiblePages = null;
       this.edges = false;
     }
+
+    this.setMobile();
+  }
+
+  /**
+   * Set functionalities according to screen size.
+   */
+  setMobile() {
+    const isMobileMediaQuery = "screen and (max-width: 768px)";
+    this.isMobile = window.matchMedia(isMobileMediaQuery).matches;
   }
 
   /**
@@ -156,7 +176,7 @@ export class ZPagination {
     // array of numbers from 1 to `totalPages`
     const pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
-    if (this.split) {
+    if (this.split || this.isMobile) {
       return [pages];
     }
 
@@ -178,17 +198,18 @@ export class ZPagination {
    * Scroll to the left the chunk of pages containing the current page.
    */
   scrollToPage() {
-    const pagesChunk = this.host.shadowRoot
-      .querySelector(`[data-page="${this.currentPage}"]`)
-      ?.closest(".pages-chunk") as HTMLElement;
-    if (!pagesChunk) {
+    const pageBtn = this.host.shadowRoot.querySelector(
+      `[data-page="${this.currentPage}"]`
+    ) as HTMLElement;
+
+    if (!pageBtn) {
       return;
     }
 
-    pagesChunk.scrollIntoView({
+    pageBtn.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
-      inline: "start",
+      inline: "center",
     });
   }
 
@@ -205,7 +226,8 @@ export class ZPagination {
    * Event handler for go to page button click.
    */
   onGoToPage() {
-    const newPage = Number(this.goToPageInput.value);
+    const target = this.host.shadowRoot.querySelector(".gotopage-input") as HTMLZInputElement;
+    const newPage = Number(target.value);
     if (newPage > 0) {
       this.selectPage(newPage);
     }
@@ -239,7 +261,7 @@ export class ZPagination {
    */
   renderSplitButton(page) {
     const sign = Math.sign(page - this.currentPage);
-    const splitPage = this.currentPage + (this.split * sign) + (1 * sign);
+    const splitPage = this.currentPage + this.split * sign + 1 * sign;
     const button = (
       <button
         class="split-button"
@@ -292,32 +314,89 @@ export class ZPagination {
     this.setVisiblePages();
   }
 
+  renderMobile() {
+    const pagesChunks = this.getPagesChunks();
+
+    return [
+      <div class="pagination-bar">
+        <button
+          class="navigation-button"
+          type="button"
+          title="Vai alla pagina precedente"
+          disabled={this.currentPage == 1}
+          onClick={() => this.selectPage(this.currentPage - 1)}
+        >
+          <z-icon name="chevron-left"></z-icon>
+        </button>
+
+        {!this.goToPage && (
+          <div class="pages-container" role="navigation" tabIndex={-1}>
+            {pagesChunks.length > 0 &&
+              pagesChunks.map((chunk) => (
+                <div class="pages-chunk">
+                  {chunk.map((page) => this.renderPage(page))}
+                </div>
+              ))}
+          </div>
+        )}
+
+        {this.goToPage && (
+          <div class="mobile-go-to-page">
+            <z-input
+              class="gotopage-input"
+              type="number"
+              hasmessage={false}
+              placeholder={`${this.currentPage}`}
+              hasclearicon={false}
+              onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage()}
+            ></z-input>
+            <span>{`/${this.totalPages}`}</span>
+          </div>
+        )}
+
+        <button
+          class="navigation-button"
+          type="button"
+          title="Vai alla prossima pagina"
+          disabled={this.currentPage == this.totalPages}
+          onClick={() => this.selectPage(this.currentPage + 1)}
+        >
+          <z-icon name="chevron-right"></z-icon>
+        </button>
+      </div>,
+    ];
+  }
+
   render() {
     const pagesChunks = this.getPagesChunks();
     this.splitRight = false;
     this.splitLeft = false;
 
+    if (this.isMobile) {
+      return this.renderMobile();
+    }
+
     return [
       <div class="pagination-bar">
         {this.edges && (
           <button
-              class="pagination-button"
-              type="button"
-              title="Vai alla pagina 1"
-              disabled={this.currentPage == 1}
-              onClick={() => this.selectPage(1)}
+            class="pagination-button"
+            type="button"
+            title="Vai alla pagina 1"
+            disabled={this.currentPage == 1}
+            onClick={() => this.selectPage(1)}
           >
             Pagina 1
           </button>
         )}
 
-        {(this.skip < this.totalPages) && (this.skip > 1) && (
+        {this.skip < this.totalPages && this.skip > 1 && (
           <button
-              class="pagination-button"
-              type="button"
-              title={`Vai alla pagina ${this.currentPage - this.skip}`}
-              disabled={this.currentPage <= this.skip}
-              onClick={() => this.selectPage(this.currentPage - this.skip)}
+            class="pagination-button"
+            type="button"
+            title={`Vai alla pagina ${this.currentPage - this.skip}`}
+            disabled={this.currentPage <= this.skip}
+            onClick={() => this.selectPage(this.currentPage - this.skip)}
           >
             -{this.skip}
           </button>
@@ -335,11 +414,7 @@ export class ZPagination {
           </button>
         )}
 
-        <div
-          class="pages-container"
-          role="navigation"
-          tabIndex={-1}
-        >
+        <div class="pages-container" role="navigation" tabIndex={-1}>
           {pagesChunks.length > 0 &&
             pagesChunks.map((chunk) => (
               <div class="pages-chunk">
@@ -360,12 +435,12 @@ export class ZPagination {
           </button>
         )}
 
-        {((this.skip < this.totalPages) && (this.skip > 1)) && (
+        {this.skip < this.totalPages && this.skip > 1 && (
           <button
             class="pagination-button"
             type="button"
             title={`Vai alla pagina ${this.currentPage + this.skip}`}
-            disabled={this.currentPage > (this.totalPages - this.skip)}
+            disabled={this.currentPage > this.totalPages - this.skip}
             onClick={() => this.selectPage(this.currentPage + this.skip)}
           >
             +{this.skip}
@@ -374,11 +449,11 @@ export class ZPagination {
 
         {this.edges && (
           <button
-              class="pagination-button"
-              type="button"
-              title={`Vai alla pagina ${this.totalPages}`}
-              disabled={this.currentPage == this.totalPages}
-              onClick={() => this.selectPage(this.totalPages)}
+            class="pagination-button"
+            type="button"
+            title={`Vai alla pagina ${this.totalPages}`}
+            disabled={this.currentPage == this.totalPages}
+            onClick={() => this.selectPage(this.totalPages)}
           >
             Pagina {this.totalPages}
           </button>
@@ -390,14 +465,19 @@ export class ZPagination {
           <span class="label">Vai a pagina:</span>
           <div class="inputs">
             <z-input
-              ref={(el) => (this.goToPageInput = el as HTMLZInputElement)}
               type="number"
+              class="gotopage-input"
               hasmessage={false}
-              placeholder={`${Math.round(this.totalPages / 2)}`}
+              placeholder={`${this.currentPage}`}
               hasclearicon={false}
-              onKeyPress={(ev) => ev.key === 'Enter' && this.onGoToPage()}
+              onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage()}
             ></z-input>
-            <z-button title="Vai alla pagina inserita" onClick={this.onGoToPage.bind(this)}>vai</z-button>
+            <z-button
+              title="Vai alla pagina inserita"
+              onClick={() => this.onGoToPage()}
+            >
+              vai
+            </z-button>
           </div>
         </div>
       ),
