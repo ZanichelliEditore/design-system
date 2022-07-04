@@ -474,7 +474,7 @@ export class ZPagination {
             ></z-input>
             <z-button
               title="Vai alla pagina inserita"
-              onClick={(ev) => this.onGoToPage()}
+              onClick={() => this.onGoToPage()}
             >
               vai
             </z-button>
