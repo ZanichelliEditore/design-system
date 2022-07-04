@@ -609,6 +609,108 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface ZInputDeprecated {
+        /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
+        /**
+          * the input has autocomplete option (optional): available for select, input
+         */
+        "autocomplete"?: boolean | string;
+        /**
+          * checked: available for checkbox, radio
+         */
+        "checked"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * get the input value
+         */
+        "getValue": () => Promise<string | string[]>;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
+        /**
+          * show input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "hasmessage"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid": string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * render icon (optional): available for text, select
+         */
+        "icon"?: string;
+        /**
+          * get checked status
+         */
+        "isChecked": () => Promise<boolean>;
+        /**
+          * items (optional): available for select
+         */
+        "items"?: SelectItemBean[] | string;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * the input label position: available for checkbox, radio
+         */
+        "labelafter"?: boolean;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "message"?: string;
+        /**
+          * multiple options can be selected (optional): available for select
+         */
+        "multiple"?: boolean;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
+        /**
+          * set the input value
+         */
+        "setValue": (value: string | string[]) => Promise<void>;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea, select
+         */
+        "status"?: InputStatusBean;
+        /**
+          * input types
+         */
+        "type": InputTypeBean;
+        /**
+          * timeout setting before trigger `inputChange` event (optional): available for text, textarea
+         */
+        "typingtimeout"?: number;
+        /**
+          * the input value
+         */
+        "value"?: string;
+    }
     interface ZInputLabel {
         /**
           * the label is disabled
@@ -1974,6 +2076,12 @@ declare global {
         prototype: HTMLZInputElement;
         new (): HTMLZInputElement;
     };
+    interface HTMLZInputDeprecatedElement extends Components.ZInputDeprecated, HTMLStencilElement {
+    }
+    var HTMLZInputDeprecatedElement: {
+        prototype: HTMLZInputDeprecatedElement;
+        new (): HTMLZInputDeprecatedElement;
+    };
     interface HTMLZInputLabelElement extends Components.ZInputLabel, HTMLStencilElement {
     }
     var HTMLZInputLabelElement: {
@@ -2417,6 +2525,7 @@ declare global {
         "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
         "z-input": HTMLZInputElement;
+        "z-input-deprecated": HTMLZInputDeprecatedElement;
         "z-input-label": HTMLZInputLabelElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
@@ -3150,6 +3259,116 @@ declare namespace LocalJSX {
           * input types
          */
         "type"?: InputTypeBean;
+        /**
+          * the input value
+         */
+        "value"?: string;
+    }
+    interface ZInputDeprecated {
+        /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
+        /**
+          * the input has autocomplete option (optional): available for select, input
+         */
+        "autocomplete"?: boolean | string;
+        /**
+          * checked: available for checkbox, radio
+         */
+        "checked"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
+        /**
+          * show input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "hasmessage"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid"?: string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * render icon (optional): available for text, select
+         */
+        "icon"?: string;
+        /**
+          * items (optional): available for select
+         */
+        "items"?: SelectItemBean[] | string;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * the input label position: available for checkbox, radio
+         */
+        "labelafter"?: boolean;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea, select
+         */
+        "message"?: string;
+        /**
+          * multiple options can be selected (optional): available for select
+         */
+        "multiple"?: boolean;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * Emitted on input value change, returns value, keycode, validity
+         */
+        "onInputChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
+         */
+        "onInputCheck"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
+         */
+        "onOptionSelect"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when user starts typing
+         */
+        "onStartTyping"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when user stops typing, returns value, validity
+         */
+        "onStopTyping"?: (event: CustomEvent<any>) => void;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea, select
+         */
+        "status"?: InputStatusBean;
+        /**
+          * input types
+         */
+        "type"?: InputTypeBean;
+        /**
+          * timeout setting before trigger `inputChange` event (optional): available for text, textarea
+         */
+        "typingtimeout"?: number;
         /**
           * the input value
          */
@@ -4486,6 +4705,7 @@ declare namespace LocalJSX {
         "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
         "z-input": ZInput;
+        "z-input-deprecated": ZInputDeprecated;
         "z-input-label": ZInputLabel;
         "z-input-message": ZInputMessage;
         "z-link": ZLink;
@@ -4594,6 +4814,7 @@ declare module "@stencil/core" {
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
+            "z-input-deprecated": LocalJSX.ZInputDeprecated & JSXBase.HTMLAttributes<HTMLZInputDeprecatedElement>;
             "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
