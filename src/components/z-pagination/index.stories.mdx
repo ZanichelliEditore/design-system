@@ -88,11 +88,12 @@ import "./index";
       visiblePages: 5,
       edges: true,
       goToPage: false,
+      skip: false,
       split: false,
     }}
     parameters={{
       controls: {
-        exclude: ["skip", "split"],
+        exclude: ["split"],
       }
     }}
   >
@@ -102,6 +103,7 @@ import "./index";
         .totalPages=${args.totalPages}
         .visiblePages=${args.visiblePages}
         .edges=${args.edges}
+        .skip=${args.skip}
         .goToPage=${args.goToPage}
       ></z-pagination>
     `}
