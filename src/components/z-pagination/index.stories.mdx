@@ -5,9 +5,9 @@ import "./index";
 <Meta title="ZPagination" component="z-pagination" argTypes={{
   navArrows: { control: { type: "boolean" } },
   totalPages: { control: { type: "number", min: 1 } },
-  visiblePages: { control: { type: "number", min: 1 } },
+  visiblePages: { control: { type: "number", min: 1 }, if: { arg: "split", truthy: false } },
   skip: { control: { type: "number", min: 1 } },
-  edges: { control: { type: "boolean" } },
+  edges: { control: { type: "boolean" }, if: { arg: "split", truthy: false } },
   goToPage: { control: { type: "boolean" } },
   split: { control: { type: "number", min: 1 } },
 }} />
@@ -22,10 +22,13 @@ import "./index";
       totalPages: 201,
       visiblePages: 5,
       goToPage: false,
+      split: false,
+      skip: false,
+      edges: false,
     }}
     parameters={{
       controls: {
-        exclude: ["skip", "edges", "split"],
+        exclude: ["split"],
       }
     }}
   >
@@ -34,7 +37,9 @@ import "./index";
         .navArrows=${args.navArrows}
         .totalPages=${args.totalPages}
         .visiblePages=${args.visiblePages}
+        .skip=${args.skip}
         .goToPage=${args.goToPage}
+        .edges=${args.edges}
       ></z-pagination>
     `}
   </Story>
@@ -42,7 +47,7 @@ import "./index";
 
 # ZPagination - split
 
-> Note that `visiblePages` and `split` are mutually exclusive.
+> Note that enabling `split` will shut off `visiblePages` and `edges`.
 
 <Canvas>
   <Story
@@ -51,11 +56,12 @@ import "./index";
       navArrows: true,
       totalPages: 201,
       split: 1,
+      skip: false,
       goToPage: false,
     }}
     parameters={{
       controls: {
-        exclude: ["skip", "edges", "visiblePages"],
+        exclude: ["edges", "visiblePages"],
       }
     }}
   >
@@ -64,6 +70,7 @@ import "./index";
         .navArrows=${args.navArrows}
         .totalPages=${args.totalPages}
         .split=${args.split}
+        .skip=${args.skip}
         .goToPage=${args.goToPage}
       ></z-pagination>
     `}
@@ -81,6 +88,7 @@ import "./index";
       visiblePages: 5,
       edges: true,
       goToPage: false,
+      split: false,
     }}
     parameters={{
       controls: {
@@ -111,11 +119,8 @@ import "./index";
       visiblePages: 5,
       skip: 10,
       goToPage: false,
-    }}
-    parameters={{
-      controls: {
-        exclude: ["edges", "split"],
-      }
+      edges: false,
+      split: false,
     }}
   >
     {(args) => html`
@@ -125,6 +130,8 @@ import "./index";
         .visiblePages=${args.visiblePages}
         .skip=${args.skip}
         .goToPage=${args.goToPage}
+        .edges=${args.edges}
+        .split=${args.split}
       ></z-pagination>
     `}
   </Story>
