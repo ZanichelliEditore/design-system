@@ -37,7 +37,7 @@
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../../components/icons/z-icon)
 - [z-pagination-page](../z-pagination-page)
 
 ### Graph

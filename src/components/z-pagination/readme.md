@@ -10,8 +10,10 @@
 | Property                  | Attribute       | Description                                                                               | Type      | Default     |
 | ------------------------- | --------------- | ----------------------------------------------------------------------------------------- | --------- | ----------- |
 | `currentPage`             | `current-page`  | Current page.                                                                             | `number`  | `1`         |
+| `edges`                   | `edges`         | Enable buttons to go to the first and last pages.                                         | `boolean` | `false`     |
 | `goToPage`                | --              | Whether to show "go to page" feature.                                                     | `Boolean` | `undefined` |
 | `navArrows`               | `nav-arrows`    | Enable navigation arrows.                                                                 | `boolean` | `true`      |
+| `skip`                    | `skip`          | Number of pages to skip.                                                                  | `number`  | `0`         |
 | `split`                   | `split`         | Number of pages to show left/right of the current, before showing "load more" symbol (…). | `number`  | `undefined` |
 | `totalPages` _(required)_ | `total-pages`   | Total number of pages. Required.                                                          | `number`  | `undefined` |
 | `visiblePages`            | `visible-pages` | Number of pages to show at a time. If not set, all pages will be shown.                   | `number`  | `undefined` |
