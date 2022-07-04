@@ -346,7 +346,7 @@ export class ZPagination {
               class="gotopage-input"
               type="number"
               hasmessage={false}
-              placeholder={`${Math.round(this.totalPages / 2)}`}
+              placeholder={`${this.currentPage}`}
               hasclearicon={false}
               onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage()}
             ></z-input>
@@ -468,7 +468,7 @@ export class ZPagination {
               type="number"
               class="gotopage-input"
               hasmessage={false}
-              placeholder={`${Math.round(this.totalPages / 2)}`}
+              placeholder={`${this.currentPage}`}
               hasclearicon={false}
               onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage()}
             ></z-input>
