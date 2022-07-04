@@ -21,7 +21,7 @@ describe("Suite test ZMenuDropdown", () => {
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
         <a role="button" tabindex="0">
-          <div class=\"container\">
+          <div class="container">
             <span class="user-wrapper">
               <z-icon name="user-avatar" width="14" height="14"></z-icon>
               <span class="user">
@@ -76,7 +76,7 @@ describe("Suite test ZMenuDropdown", () => {
     <z-menu-dropdown menucontent='[{"label":"Profilo", "link":"http://www.zanichelli.it"},{"label":"Esci", "link":"http://www.google.it"}]' nomeutente="Dario docente">
       <mock:shadow-root>
         <a class="menu-opened" role="button" tabindex="0">
-          <div class=\"container\">
+          <div class="container">
            <span class="user-wrapper">
               <z-icon height="14" name="user-avatar" width="14"></z-icon>
               <span class="user">
@@ -89,10 +89,10 @@ describe("Suite test ZMenuDropdown", () => {
           </div>
           <ul>
             <li>
-              <z-link href=\"http://www.zanichelli.it\">Profilo</z-link>
+              <z-link href="http://www.zanichelli.it">Profilo</z-link>
             </li>
             <li>
-              <z-link href=\"http://www.google.it\">Esci</z-link>
+              <z-link href="http://www.google.it">Esci</z-link>
             </li>
           </ul>
         </a>

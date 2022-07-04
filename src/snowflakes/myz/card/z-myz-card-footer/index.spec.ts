@@ -10,12 +10,12 @@ describe("Suite test ZMyzCardFooter", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-myz-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" isbn=\"123456\" titolo=\"titolo\">
+      <z-myz-card-footer anno="2019" autori="Mario Rossi, Paolo Bianchi" isbn="123456" titolo="titolo">
         <mock:shadow-root>
           <div class="wrapper">
             <footer>
-              <span class=\"toggle\">
-                <slot name=\"toggle\"></slot>
+              <span class="toggle">
+                <slot name="toggle"></slot>
               </span>
               <p>
                 titolo
@@ -28,7 +28,7 @@ describe("Suite test ZMyzCardFooter", () => {
                     </span></span>
                   </p>
                   <p class="year_isbn">
-                    <span class=\"isbn\">
+                    <span class="isbn">
                       <span><span class="bold">
                         123456
                       </span> (ed. cartacea)</span>
@@ -53,12 +53,12 @@ describe("Suite test ZMyzCardFooter", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-myz-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" titolo=\"titolo\">
+      <z-myz-card-footer anno="2019" autori="Mario Rossi, Paolo Bianchi" titolo="titolo">
         <mock:shadow-root>
           <div class="wrapper">
             <footer>
-              <span class=\"toggle\">
-                <slot name=\"toggle\"></slot>
+              <span class="toggle">
+                <slot name="toggle"></slot>
               </span>
               <p>
                 titolo
@@ -71,7 +71,7 @@ describe("Suite test ZMyzCardFooter", () => {
                     </span></span>
                   </p>
                   <p class="year_isbn">
-                    <span class=\"isbn\">
+                    <span class="isbn">
                       <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
@@ -98,8 +98,8 @@ describe("Suite test ZMyzCardFooter", () => {
         <mock:shadow-root>
           <div class="wrapper">
             <footer>
-              <span class=\"toggle\">
-                <slot name=\"toggle\"></slot>
+              <span class="toggle">
+                <slot name="toggle"></slot>
               </span>
               <div class="content">
                 <div>
@@ -107,7 +107,7 @@ describe("Suite test ZMyzCardFooter", () => {
                     <span><span class="bold"></span></span>
                   </p>
                   <p class="year_isbn">
-                    <span class=\"isbn\">
+                    <span class="isbn">
                       <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
@@ -131,12 +131,12 @@ describe("Suite test ZMyzCardFooter", () => {
     page.rootInstance.isOpen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-myz-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" titolo=\"titolo\">
+      <z-myz-card-footer anno="2019" autori="Mario Rossi, Paolo Bianchi" titolo="titolo">
         <mock:shadow-root>
           <div class="isopen wrapper">
             <footer class="isopen">
-              <span class=\"toggle\">
-                <slot name=\"toggle\"></slot>
+              <span class="toggle">
+                <slot name="toggle"></slot>
               </span>
               <p>
                 titolo
@@ -149,7 +149,7 @@ describe("Suite test ZMyzCardFooter", () => {
                     </span></span>
                   </p>
                   <p class="year_isbn">
-                    <span class=\"isbn\">
+                    <span class="isbn">
                       <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
@@ -171,12 +171,12 @@ describe("Suite test ZMyzCardFooter", () => {
       html: `<z-myz-card-footer titolo="titolo" autori="Mario Rossi, Paolo Bianchi" anno="2019" opened=true></z-myz-card-footer>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-myz-card-footer anno=\"2019\" autori=\"Mario Rossi, Paolo Bianchi\" titolo=\"titolo\" opened=true>
+      <z-myz-card-footer anno="2019" autori="Mario Rossi, Paolo Bianchi" titolo="titolo" opened=true>
         <mock:shadow-root>
           <div class="isopen wrapper">
             <footer class="isopen">
-              <span class=\"toggle\">
-                <slot name=\"toggle\"></slot>
+              <span class="toggle">
+                <slot name="toggle"></slot>
               </span>
               <p>
                 titolo
@@ -189,7 +189,7 @@ describe("Suite test ZMyzCardFooter", () => {
                     </span></span>
                   </p>
                   <p class="year_isbn">
-                    <span class=\"isbn\">
+                    <span class="isbn">
                       <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>

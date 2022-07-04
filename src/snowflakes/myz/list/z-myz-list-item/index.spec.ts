@@ -28,7 +28,7 @@ describe("Suite test z-myz-list-item", () => {
       html: `<z-myz-list-item text='testo'></z-myz-list-item>`
     });
     expect(page.root).toEqualHtml(`
-     <z-myz-list-item text=\"testo\">
+     <z-myz-list-item text="testo">
       <mock:shadow-root>
         <li role="button">
           <span class="border">
@@ -47,11 +47,11 @@ describe("Suite test z-myz-list-item", () => {
       html: `<z-myz-list-item text='testo' link =='http://www.google.it'></z-myz-list-item>`
     });
     expect(page.root).toEqualHtml(`
-     <z-myz-list-item link=\"='http://www.google.it'\" text=\"testo\">
+     <z-myz-list-item link="='http://www.google.it'" text="testo">
       <mock:shadow-root>
         <li role="button">
           <span class="border">
-            <a href=\"='http://www.google.it'\" target="_self" tabindex="0" role="link">
+            <a href="='http://www.google.it'" target="_self" tabindex="0" role="link">
               testo
             </a>
             <slot></slot>
