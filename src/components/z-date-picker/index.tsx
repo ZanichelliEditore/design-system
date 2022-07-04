@@ -171,46 +171,72 @@ export class ZDatePicker {
       .getElementsByClassName("cur-year")[0]
       .setAttribute("aria-label", "Anno");
 
-    if (this.mode === ZDatePickerMode.months) {
-      Array.from(
-        calendar.getElementsByClassName("flatpickr-monthSelect-months")
-      ).forEach((element) => element.setAttribute("tabindex", "-1"));
-
-      Array.from(
-        calendar.getElementsByClassName("flatpickr-monthSelect-month")
-      ).forEach((element) => element.setAttribute("role", "button"));
-
-      prevMonthArrow.setAttribute("aria-label", "Anno precedente");
-      nextMonthArrow.setAttribute("aria-label", "Anno successivo");
-    } else {
-      Array.from(calendar.getElementsByClassName("flatpickr-days")).forEach(
-        (element) => element.setAttribute("tabindex", "-1")
-      );
-
-      Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
-        (element) => element.setAttribute("role", "button")
-      );
-
-      calendar
-        .getElementsByClassName("flatpickr-monthDropdown-months")[0]
-        .setAttribute("aria-label", "Mese");
-
-      prevMonthArrow.setAttribute("aria-label", "Mese precedente");
-      nextMonthArrow.setAttribute("aria-label", "Mese successivo");
-
-      if (this.mode === ZDatePickerMode.dateTime) {
-        Array.from(calendar.getElementsByClassName("time24hr")).forEach(
-          (element) => element.setAttribute("tabindex", "-1")
-        );
-
-        calendar
-          .getElementsByClassName("flatpickr-hour")[0]
-          .setAttribute("aria-label", "Ora");
-        calendar
-          .getElementsByClassName("flatpickr-minute")[0]
-          .setAttribute("aria-label", "Minuti");
-      }
+    switch (this.mode) {
+      case ZDatePickerMode.months:
+        this.setMonthsAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
+      case ZDatePickerMode.date:
+        this.setDateAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
+      case ZDatePickerMode.dateTime:
+        this.setDateTimeAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
     }
+  }
+
+  setMonthsAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
+    Array.from(
+      calendar.getElementsByClassName("flatpickr-monthSelect-months")
+    ).forEach((element: HTMLElement) => element.setAttribute("tabindex", "-1"));
+
+    Array.from(
+      calendar.getElementsByClassName("flatpickr-monthSelect-month")
+    ).forEach((element: HTMLElement) => element.setAttribute("role", "button"));
+
+    prevMonthArrow.setAttribute("aria-label", "Anno precedente");
+    nextMonthArrow.setAttribute("aria-label", "Anno successivo");
+  }
+
+  setDateAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
+    Array.from(calendar.getElementsByClassName("flatpickr-days")).forEach(
+      (element: HTMLElement) => element.setAttribute("tabindex", "-1")
+    );
+
+    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
+      (element: HTMLElement) => element.setAttribute("role", "button")
+    );
+
+    calendar
+      .getElementsByClassName("flatpickr-monthDropdown-months")[0]
+      .setAttribute("aria-label", "Mese");
+
+    prevMonthArrow.setAttribute("aria-label", "Mese precedente");
+    nextMonthArrow.setAttribute("aria-label", "Mese successivo");
+  }
+
+  setDateTimeAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
+    Array.from(calendar.getElementsByClassName("flatpickr-days")).forEach(
+      (element: HTMLElement) => element.setAttribute("tabindex", "-1")
+    );
+
+    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
+      (element: HTMLElement) => element.setAttribute("role", "button")
+    );
+
+    calendar
+      .getElementsByClassName("flatpickr-monthDropdown-months")[0]
+      .setAttribute("aria-label", "Mese");
+
+    prevMonthArrow.setAttribute("aria-label", "Mese precedente");
+    nextMonthArrow.setAttribute("aria-label", "Mese successivo");
+
+    Array.from(calendar.getElementsByClassName("time24hr")).forEach(
+      (element: HTMLElement) => element.setAttribute("tabindex", "-1")
+    );
+
+    calendar
+      .getElementsByClassName("flatpickr-hour")[0]
+      .setAttribute("aria-label", "Ora");
+    calendar
+      .getElementsByClassName("flatpickr-minute")[0]
+      .setAttribute("aria-label", "Minuti");
   }
 
   setFlatpickrPosition() {

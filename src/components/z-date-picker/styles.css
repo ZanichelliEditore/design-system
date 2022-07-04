@@ -245,7 +245,8 @@ z-date-picker > div > * {
 .flatpickr-day:hover,
 .flatpickr-day.prevMonthDay:hover,
 .flatpickr-day.selected:hover,
-.flatpickr-monthSelect-month:hover {
+.flatpickr-monthSelect-month:hover,
+.flatpickr-monthSelect-month:focus {
   background-color: var(--myz-blue-dark) !important;
   border-color: var(--myz-blue-dark) !important;
   color: var(--color-white) !important;
