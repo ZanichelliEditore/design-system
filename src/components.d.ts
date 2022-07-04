@@ -1537,10 +1537,6 @@ export namespace Components {
          */
         "message"?: string;
         /**
-          * multiple options can be selected
-         */
-        "multiple"?: boolean;
-        /**
           * the input name
          */
         "name"?: string;
@@ -4302,10 +4298,6 @@ declare namespace LocalJSX {
           * input helper message (optional): available for text, password, number, email, textarea, select
          */
         "message"?: string;
-        /**
-          * multiple options can be selected
-         */
-        "multiple"?: boolean;
         /**
           * the input name
          */

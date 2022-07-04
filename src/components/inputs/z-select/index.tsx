@@ -58,8 +58,6 @@ export class ZSelect {
   @Prop() message?: string;
   /** the input has autocomplete option */
   @Prop() autocomplete?: boolean | string = false;
-  /** multiple options can be selected */
-  @Prop() multiple?: boolean = false;
   /** no result text message */
   @Prop() noresultslabel?: string = "Nessun risultato";
 

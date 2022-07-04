@@ -18,7 +18,6 @@
 | `items`          | `items`          | the input select options                                                                            | `SelectItemBean[] \| string`                       | `undefined`          |
 | `label`          | `label`          | the input label                                                                                     | `string`                                           | `undefined`          |
 | `message`        | `message`        | input helper message (optional): available for text, password, number, email, textarea, select      | `string`                                           | `undefined`          |
-| `multiple`       | `multiple`       | multiple options can be selected                                                                    | `boolean`                                          | `false`              |
 | `name`           | `name`           | the input name                                                                                      | `string`                                           | `undefined`          |
 | `noresultslabel` | `noresultslabel` | no result text message                                                                              | `string`                                           | `"Nessun risultato"` |
 | `placeholder`    | `placeholder`    | the input placeholder (optional)                                                                    | `string`                                           | `undefined`          |

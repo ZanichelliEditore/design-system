@@ -449,7 +449,6 @@ export class ZInputDeprecated {
         hasmessage={this.hasmessage}
         message={this.message}
         autocomplete={this.autocomplete}
-        multiple={this.multiple}
         ref={(el) => (this.selectElem = el as HTMLZSelectElement)}
       />
     );
