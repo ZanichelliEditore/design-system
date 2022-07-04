@@ -12,9 +12,9 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem>
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
-          <div class=\"panel-elem-link\">
-            <z-link htmlid=\"link_id\" target=\"_blank\"></z-link>
+          <div class="panel-elem-container">
+          <div class="panel-elem-link">
+            <z-link htmlid="link_id" target="_blank"></z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -31,9 +31,9 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
-          <div class=\"panel-elem-link\">
-            <z-link htmlid=\"link_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-container">
+          <div class="panel-elem-link">
+            <z-link htmlid="link_id" target="_blank" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -50,9 +50,9 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
-          <div class=\"panel-elem-link\">
-            <z-link htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-container">
+          <div class="panel-elem-link">
+            <z-link htmlid="examplelink_id" target="_blank" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -69,9 +69,9 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem isdisabled elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
-          <div class=\"panel-elem-link\">
-            <z-link isdisabled htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-container">
+          <div class="panel-elem-link">
+            <z-link isdisabled htmlid="examplelink_id" target="_blank" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -88,9 +88,9 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem target="_self" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
-          <div class=\"panel-elem-link\">
-            <z-link target="\_self\" htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-container">
+          <div class="panel-elem-link">
+            <z-link target="_self" htmlid="examplelink_id" target="_blank" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -107,9 +107,9 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
-          <div class=\"panel-elem-link\">
-            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-container">
+          <div class="panel-elem-link">
+            <z-link icon="example" htmlid="examplelink_id" target="_blank" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -126,14 +126,14 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem imgurl="exampleImgUrl" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
+          <div class="panel-elem-container">
           <div class="panel-elem-icon">
-            <a class="elem-icon" href=\"http://www.google.it\" target=\"_blank\">
+            <a class="elem-icon" href="http://www.google.it" target="_blank">
               <img src="exampleImgUrl" />
             </a>
           </div>
-          <div class=\"panel-elem-link\">
-            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-link">
+            <z-link icon="example" htmlid="examplelink_id" target="_blank" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -150,14 +150,14 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem imgurl="exampleImgUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
+          <div class="panel-elem-container">
           <div class="panel-elem-icon">
-            <a class="elem-icon" href=\"http://www.google.it\" target=\"_self\">
+            <a class="elem-icon" href="http://www.google.it" target="_self">
               <img src="exampleImgUrl" />
             </a>
           </div>
-          <div class=\"panel-elem-link\">
-            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_self\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-link">
+            <z-link icon="example" htmlid="examplelink_id" target="_self" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -174,14 +174,14 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem imgalt="exampleDesc" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
+          <div class="panel-elem-container">
           <div class="panel-elem-icon">
-            <a class="elem-icon" href=\"http://www.google.it\" target=\"_blank\">
+            <a class="elem-icon" href="http://www.google.it" target="_blank">
               <img alt="exampleDesc" />
             </a>
           </div>
-          <div class=\"panel-elem-link\">
-            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-link">
+            <z-link icon="example" htmlid="examplelink_id" target="_blank" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -198,14 +198,14 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem imgalt="exampleDesc" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
+          <div class="panel-elem-container">
           <div class="panel-elem-icon">
-            <a class="elem-icon" href=\"http://www.google.it\" target=\"_self\">
+            <a class="elem-icon" href="http://www.google.it" target="_self">
               <img alt="exampleDesc" />
             </a>
           </div>
-          <div class=\"panel-elem-link\">
-            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_self\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-link">
+            <z-link icon="example" htmlid="examplelink_id" target="_self" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -222,14 +222,14 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem descr_slot_name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
+          <div class="panel-elem-container">
           <div class="panel-elem-icon">
-            <a class="elem-icon" href=\"http://www.google.it\" target=\"_self\">
+            <a class="elem-icon" href="http://www.google.it" target="_self">
               <img src="exampleUrl" />
             </a>
           </div>
-          <div class=\"panel-elem-link\">
-            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_self\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-link">
+            <z-link icon="example" htmlid="examplelink_id" target="_self" href="http://www.google.it">label</z-link>
           </div>
           <div class="panel-elem-desc body-long-01">
             <slot name="slotname" />
@@ -249,21 +249,21 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem descr_slot_name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
+          <div class="panel-elem-container">
           <div class="panel-elem-icon">
-            <a class="elem-icon" href=\"http://www.google.it\" target=\"_self\">
+            <a class="elem-icon" href="http://www.google.it" target="_self">
               <img src="exampleUrl" />
             </a>
           </div>
-          <div class=\"panel-elem-link\">
-            <z-link icon="\example\" htmlid=\"examplelink_id\" target=\"_self\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-link">
+            <z-link icon="example" htmlid="examplelink_id" target="_self" href="http://www.google.it">label</z-link>
           </div>
           <div class="panel-elem-desc body-long-01">
-            <slot name=\"slotname\"></slot>
+            <slot name="slotname"></slot>
           </div>
         </div>
         </mock:shadow-root>
-        <span slot=\"slotname\">
+        <span slot="slotname">
         Full application description
       </span>
 
@@ -280,12 +280,12 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem isdisabled imgurl="exampleImgUrl" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
+          <div class="panel-elem-container">
           <div class="panel-elem-icon">
               <img src="exampleImgUrl" />
           </div>
-          <div class=\"panel-elem-link\">
-            <z-link isdisabled icon="\example\" htmlid=\"examplelink_id\" target=\"_blank\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-link">
+            <z-link isdisabled icon="example" htmlid="examplelink_id" target="_blank" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>
@@ -302,12 +302,12 @@ describe("Suite test ZPanelElem", () => {
     expect(page.root).toEqualHtml(`
       <z-panel-elem isdisabled imgalt="exampleAlt" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" target="_self">
         <mock:shadow-root>
-          <div class=\"panel-elem-container\">
+          <div class="panel-elem-container">
           <div class="panel-elem-icon">
               <img alt="exampleAlt" />
           </div>
-          <div class=\"panel-elem-link\">
-            <z-link isdisabled icon="\example\" htmlid=\"examplelink_id\" target=\"_self\" href=\"http://www.google.it\">label</z-link>
+          <div class="panel-elem-link">
+            <z-link isdisabled icon="example" htmlid="examplelink_id" target="_self" href="http://www.google.it">label</z-link>
           </div>
         </div>
         </mock:shadow-root>

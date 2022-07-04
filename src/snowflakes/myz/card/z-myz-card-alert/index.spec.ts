@@ -10,7 +10,7 @@ describe("Suite test ZMyzCardAlert", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-myz-card-alert actiontext=\"Annulla\" contenttext=\"Libro aggiunto ai miei libri\" iconname=\"circle-check" slot=\"alert\" type=\"add\">
+    <z-myz-card-alert actiontext="Annulla" contenttext="Libro aggiunto ai miei libri" iconname="circle-check" slot="alert" type="add">
       <mock:shadow-root>
         <div class="addAlert alert-external-wrapper">
             <z-alert type="success">
@@ -65,7 +65,7 @@ describe("Suite test ZMyzCardAlert", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-myz-card-alert contenttext=\"Libro aggiunto ai miei libri\" iconname=\"circle-check\" slot=\"alert\" type=\"add\">
+    <z-myz-card-alert contenttext="Libro aggiunto ai miei libri" iconname="circle-check" slot="alert" type="add">
       <mock:shadow-root>
         <div class="addAlert alert-external-wrapper">
             <z-alert type="success">
@@ -90,7 +90,7 @@ describe("Suite test ZMyzCardAlert", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-myz-card-alert actiontext=\"Annulla\" contenttext=\"Libro rimosso dai miei libri\" iconname=\"circle-check\" slot=\"alert\" type=\"remove\">
+    <z-myz-card-alert actiontext="Annulla" contenttext="Libro rimosso dai miei libri" iconname="circle-check" slot="alert" type="remove">
       <mock:shadow-root>
         <div class="removeAlert alert-external-wrapper">
             <z-alert type="warning">
@@ -118,7 +118,7 @@ describe("Suite test ZMyzCardAlert", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-myz-card-alert contenttext=\"Libro rimosso dai miei libri\" iconname=\"circle-check\" slot=\"alert\" type=\"remove\">
+    <z-myz-card-alert contenttext="Libro rimosso dai miei libri" iconname="circle-check" slot="alert" type="remove">
       <mock:shadow-root>
         <div class="removeAlert alert-external-wrapper">
             <z-alert type="warning">
