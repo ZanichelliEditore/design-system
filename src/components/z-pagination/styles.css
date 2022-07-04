@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
   font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
+  font-weight: var(--font-sb);
 }
 
 :host,
@@ -55,7 +55,6 @@ z-icon {
 .pagination-bar .pagination-button {
   padding: calc(var(--space-unit) * 2);
   text-transform: uppercase;
-  font-weight: var(--font-sb);
   white-space: nowrap;
 }
 
@@ -99,7 +98,6 @@ z-icon {
 .pagination-bar .page-button {
   border-bottom: var(--border-size-large) solid transparent;
   font-size: var(--font-size-2);
-  font-weight: var(--font-sb);
 }
 
 .pagination-bar .page-button:focus-visible {
@@ -119,7 +117,6 @@ z-icon {
 
 .go-to-page .label {
   font-size: var(--font-size-1);
-  font-weight: var(--font-sb);
   color: var(--color-text02);
   line-height: 1.33;
   letter-spacing: 0.32px;
