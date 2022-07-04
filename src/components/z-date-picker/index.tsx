@@ -171,13 +171,14 @@ export class ZDatePicker {
       .getElementsByClassName("cur-year")[0]
       .setAttribute("aria-label", "Anno");
 
-    switch (this.mode) {
-      case ZDatePickerMode.months:
-        this.setMonthsAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
-      case ZDatePickerMode.date:
-        this.setDateAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
-      case ZDatePickerMode.dateTime:
-        this.setDateTimeAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
+    if (this.mode === ZDatePickerMode.months) {
+      this.setMonthsAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
+    }
+    if (this.mode === ZDatePickerMode.date) {
+      this.setDateAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
+    }
+    if (this.mode === ZDatePickerMode.dateTime) {
+      this.setDateTimeAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
     }
   }
 
