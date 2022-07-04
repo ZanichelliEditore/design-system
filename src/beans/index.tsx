@@ -191,6 +191,17 @@ export enum keybordKeyCodeEnum {
   DELETE = 46,
 }
 
+export enum keybordCodeEnum {
+  TAB = "Tab",
+  SPACE = "Space",
+  ESC = "Escape",
+  ENTER = "Enter",
+  ARROW_UP = "ArrowUp",
+  ARROW_DOWN = "ArrowDown",
+  BACKSPACE = "Backspace",
+  DELETE = "Delete",
+}
+
 export enum KeyboardKeys {
   ARROW_DOWN = "ArrowDown",
   ARROW_UP = "ArrowUp",
@@ -425,13 +436,8 @@ export enum ZSectionTitleDividerPositions {
   after = "after",
 }
 
-export enum StatusTagStatus {
-  warning = "warning",
-  error = "error",
-  success = "success",
-  neutral = "neutral",
-  default = "default",
-}
+export type ZSectionTitleDividerPosition =
+  keyof typeof ZSectionTitleDividerPositions;
 
 export enum ZDatePickerMode {
   date = "date",
@@ -450,5 +456,16 @@ export enum ZDatePickerPosition {
   bottom = "bottom",
 }
 
-export type ZSectionTitleDividerPosition =
-  keyof typeof ZSectionTitleDividerPositions;
+export declare type SkipToContentLink = {
+  label: string;
+  href: string;
+  ariaLabel?: string;
+};
+
+export enum StatusTagStatus {
+  warning = "warning",
+  error = "error",
+  success = "success",
+  neutral = "neutral",
+  default = "default",
+}

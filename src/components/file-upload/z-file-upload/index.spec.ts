@@ -29,9 +29,9 @@ describe("Suite test ZFileUpload", () => {
            Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.
          </z-body>
          <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="fileElem" multiple="" type="file">
-         <z-button icon="upload" id="fileSelect">
+         <z-button-deprecated icon="upload" id="fileSelect">
            Allega
-         </z-button>
+         </z-button-deprecated>
        </div>
       </z-file-upload>`);
   });
@@ -47,7 +47,8 @@ describe("Suite test ZFileUpload", () => {
              </z-file-upload>`,
     });
 
-    expect(page.root).toEqualHtml(`     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" main-title="Allega un file" type="dragdrop">
+    expect(page.root)
+      .toEqualHtml(`     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" main-title="Allega un file" type="dragdrop">
        &gt;
        <div class="container dragdrop" tabindex="0">
          <z-heading id="title" level="2" variant="semibold">
@@ -74,5 +75,4 @@ describe("Suite test ZFileUpload", () => {
        </div>
       </z-file-upload>`);
   });
-
 });

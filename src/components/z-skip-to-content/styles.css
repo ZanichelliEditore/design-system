@@ -1,0 +1,84 @@
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+  position: absolute;
+  left: -100%;
+  background-color: #24f4ff;
+  padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 3);
+  height: 60px;
+  box-sizing: border-box;
+}
+
+:host.skip-to-content-visible,
+:host:focus {
+  position: static;
+  display: block;
+}
+
+:host > z-link {
+  display: block;
+  text-align: center;
+}
+
+:host > z-link.link-invisible {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+:host > z-link.link-visible {
+  height: initial;
+  width: initial;
+}
+
+:host.dark {
+  background-color: var(--bg-grey-800);
+  color: var(--color-white);
+}
+
+:host.light {
+  background-color: var(--bg-white);
+  color: var(--text-grey-800);
+  border: 2px solid var(--text-grey-800);
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+  :host > z-link {
+    text-align: left;
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1152px) {
+  :host > z-link {
+    display: inline-block;
+    padding: 0 calc(var(--space-unit) * 3);
+    border-right: 1px solid var(--bg-grey-800);
+  }
+
+  :host > z-link.link-invisible {
+    height: initial;
+    width: initial;
+    overflow: initial;
+  }
+
+  :host > z-link:first-child {
+    padding-left: 0;
+  }
+
+  :host > z-link:last-child,
+  :host.dark > z-link:last-child,
+  :host.light > z-link:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  :host.dark > z-link {
+    border-right: 1px solid var(--bg-white);
+  }
+}
+
+/* Wide breakpoint */
+@media (min-width: 1366px) {
+}

@@ -1,7 +1,6 @@
 import { newE2EPage } from "@stencil/core/testing";
 
 describe("z-file-upload test end2end", () => {
-
   it("Test z-file-upload -> add z-file by click", async () => {
     const page = await newE2EPage();
 
@@ -16,21 +15,27 @@ describe("z-file-upload test end2end", () => {
   `);
     const zfu = await page.find("z-file-upload");
 
-    await zfu.setProperty("acceptedFormat",".md")
+    await zfu.setProperty("acceptedFormat", ".md");
     await page.waitForChanges();
 
     // simulate upload of file
     const [fileChooser] = await Promise.all([
       page.waitForFileChooser(),
-      page.evaluate(() => (document.querySelector('z-file-upload div z-button') as HTMLElement).click())
-      ]);
+      page.evaluate(() =>
+        (
+          document.querySelector(
+            "z-file-upload div z-button-deprecated"
+          ) as HTMLElement
+        ).click()
+      ),
+    ]);
 
-    const fileInputEvent = await zfu.spyOnEvent('fileInput');
+    const fileInputEvent = await zfu.spyOnEvent("fileInput");
 
-    await fileChooser.accept(['./readme.md']);
+    await fileChooser.accept(["./readme.md"]);
     await page.waitForChanges();
 
-    expect(fileInputEvent).toHaveReceivedEvent()
+    expect(fileInputEvent).toHaveReceivedEvent();
   });
 
   it("Test z-file-upload -> add z-file by click ERROR: wrong file type", async () => {
@@ -50,22 +55,27 @@ describe("z-file-upload test end2end", () => {
     // simulate upload of file
     const [fileChooser] = await Promise.all([
       page.waitForFileChooser(),
-      page.evaluate(() => (document.querySelector('z-file-upload div z-button') as HTMLElement).click())
-      ]);
+      page.evaluate(() =>
+        (
+          document.querySelector(
+            "z-file-upload div z-button-deprecated"
+          ) as HTMLElement
+        ).click()
+      ),
+    ]);
 
-    const fileInputEvent = await zfu.spyOnEvent('fileInput');
+    const fileInputEvent = await zfu.spyOnEvent("fileInput");
 
-    await fileChooser.accept(['./readme.md']);
+    await fileChooser.accept(["./readme.md"]);
     await page.waitForChanges();
 
-    expect(fileInputEvent).not.toHaveReceivedEvent()
+    expect(fileInputEvent).not.toHaveReceivedEvent();
 
     const errorModal = await page.find("z-file-upload z-modal");
     expect(errorModal).not.toBeNull();
   });
 
   it("Test z-file-upload -> remove z-file", async () => {
-
     const page = await newE2EPage();
 
     await page.setContent(`
@@ -83,7 +93,13 @@ describe("z-file-upload test end2end", () => {
 
     expect(zf).not.toBeNull();
 
-    page.evaluate(() => (document.querySelector('z-file-upload z-file z-chip z-icon') as HTMLElement).click())
+    page.evaluate(() =>
+      (
+        document.querySelector(
+          "z-file-upload z-file z-chip z-icon"
+        ) as HTMLElement
+      ).click()
+    );
     await page.waitForChanges();
     const zfCheck = await page.find("z-file-upload z-file");
 

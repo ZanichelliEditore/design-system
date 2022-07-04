@@ -31,7 +31,7 @@
 - [z-heading](../../typography/z-heading)
 - [z-body](../../typography/z-body)
 - [z-divider](../../z-divider)
-- [z-button](../../buttons/z-button)
+- [z-button-deprecated](../../../deprecated/z-button-deprecated)
 - [z-dragdrop-area](../z-dragdrop-area)
 - [z-modal](../../modal/z-modal)
 
@@ -41,12 +41,12 @@ graph TD;
   z-file-upload --> z-heading
   z-file-upload --> z-body
   z-file-upload --> z-divider
-  z-file-upload --> z-button
+  z-file-upload --> z-button-deprecated
   z-file-upload --> z-dragdrop-area
   z-file-upload --> z-modal
   z-heading --> z-typography
   z-body --> z-typography
-  z-button --> z-icon
+  z-button-deprecated --> z-icon
   z-dragdrop-area --> z-body
   z-modal --> z-icon
   style z-file-upload fill:#f9f,stroke:#333,stroke-width:4px
