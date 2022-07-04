@@ -8,7 +8,7 @@ import { ButtonVariantEnum } from "../../../../beans";
 @Component({
   tag: "z-myz-card-dictionary",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardDictionary {
   /** card title */
@@ -51,7 +51,7 @@ export class ZMyzCardDictionary {
                   faded={this.disabled}
                 />
               </z-myz-card-body>
-              <z-button
+              <z-button-deprecated
                 class={this.hideinfobtn ? "hideInfo" : ""}
                 variant={ButtonVariantEnum.secondary}
                 icon="informationsource"
@@ -60,7 +60,7 @@ export class ZMyzCardDictionary {
                 disabled={this.flipped}
               >
                 {this.flipbuttonlabel}
-              </z-button>
+              </z-button-deprecated>
             </div>
             <div class="back">
               <slot name="info" />

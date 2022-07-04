@@ -1,40 +1,34 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean } from '@storybook/addon-knobs';
+import { text, boolean } from "@storybook/addon-knobs";
 import "./index";
 
 <Meta title="Notification/ZCandybar" component="z-candybar" />
 
-  # ZCandybar
+# ZCandybar
 
 <Preview>
-  <Story name="z-candybar-empty">
+  <Story name="z-candybar-empty">{html` <z-candybar></z-candybar> `}</Story>
+  <Story name="z-candybar-full">
     {html`
-    <z-candybar></z-candybar>
-    `}
-  </Story>
-    <Story name="z-candybar-full">
-    {html`
-    <z-candybar>
-      <div class="content" slot="content">
-        <div>
-          <h2>Titolo</h2>
+      <z-candybar>
+        <div class="content" slot="content">
           <div>
-            <p>
-              Se continui a navigare ci permetti di farlo secondo le regole
-              spiegate nella nostra informativa sulla privacy relativa ai
-              &nbsp;
-              <a href="#" target="_blank">cookie</a>.
-            </p>
+            <h2>Titolo</h2>
+            <div>
+              <p>
+                Se continui a navigare ci permetti di farlo secondo le regole
+                spiegate nella nostra informativa sulla privacy relativa ai
+                &nbsp;
+                <a href="#" target="_blank">cookie</a>.
+              </p>
+            </div>
           </div>
+          <z-button-deprecated variant="primary">OK</z-button-deprecated>
         </div>
-        <z-button variant="primary">OK</z-button>
-      </div>
-    </z-candybar>
+      </z-candybar>
     `}
   </Story>
 </Preview>
 
 <Props of="z-candybar" />
-
-

@@ -10,8 +10,7 @@ describe("Suite test ZTable", () => {
       <img src="./assets/images/png/zanichelli-error-image.png" slot="error-image" />
       </z-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-table error=\"true\" role=\"table\">
+    expect(page.root).toEqualHtml(`<z-table error=\"true\" role=\"table\">
     <div class=\"table\"></div>
     <z-table-error>
       <div class=\"error-content\" style=\"min-height: auto;\">
@@ -31,8 +30,7 @@ describe("Suite test ZTable", () => {
       components: [ZTable],
       html: `<z-table error="true"></z-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-table error=\"true\" role=\"table\">
+    expect(page.root).toEqualHtml(`<z-table error=\"true\" role=\"table\">
     <div class=\"table\"></div>
     <z-table-error>
       <div class=\"error-content\" style=\"min-height: auto;\">
@@ -59,8 +57,7 @@ describe("Suite test ZTable", () => {
         </z-table-head>
       </z-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-table error=\"true\" role=\"table\">
+    expect(page.root).toEqualHtml(`<z-table error=\"true\" role=\"table\">
     <div class=\"table\">
       <z-table-head slot=\"table-header\">
         <z-table-header-row>
@@ -89,8 +86,7 @@ describe("Suite test ZTable", () => {
       components: [ZTable],
       html: `<z-table empty="true"></z-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-table empty=\"true\" role=\"table\">
+    expect(page.root).toEqualHtml(`<z-table empty=\"true\" role=\"table\">
     <div class=\"table table-empty\"></div>
     <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\"></z-table-empty-box>
   </z-table>`);
@@ -157,9 +153,9 @@ describe("Suite test ZTable", () => {
       .toEqualHtml(`<z-table call-to-action-label=\"Call To Action\" empty=\"true\" role=\"table\">
     <div class=\"table table-empty\"></div>
     <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">
-      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+      <z-button-deprecated size=\"big\" slot=\"cta1\" variant=\"tertiary\">
         Call To Action
-      </z-button>
+      </z-button-deprecated>
     </z-table-empty-box>
   </z-table>`);
   });
@@ -173,12 +169,12 @@ describe("Suite test ZTable", () => {
       .toEqualHtml(`<z-table call-to-action-label=\"Call To Action\" call-to-action-two-label=\"Call To Action 2\" empty=\"true\" role=\"table\">
     <div class=\"table table-empty\"></div>
     <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">
-      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+      <z-button-deprecated size=\"big\" slot=\"cta1\" variant=\"tertiary\">
         Call To Action
-      </z-button>
-      <z-button size=\"big\" slot=\"cta2\" variant=\"tertiary\">
+      </z-button-deprecated>
+      <z-button-deprecated size=\"big\" slot=\"cta2\" variant=\"tertiary\">
         Call To Action 2
-      </z-button>
+      </z-button-deprecated>
     </z-table-empty-box>
   </z-table>`);
   });
@@ -240,9 +236,9 @@ describe("Suite test ZTable", () => {
       </z-table-head>
     </div>
     <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare!\" subtitle=\"Eventuale testo\">
-      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+      <z-button-deprecated size=\"big\" slot=\"cta1\" variant=\"tertiary\">
         Call to action
-      </z-button>
+      </z-button-deprecated>
     </z-table-empty-box>
   </z-table>`);
   });
@@ -305,9 +301,9 @@ describe("Suite test ZTable", () => {
       </z-table-head>
     </div>
     <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare!\" subtitle=\"Eventuale testo\">
-      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+      <z-button-deprecated size=\"big\" slot=\"cta1\" variant=\"tertiary\">
         Call to action
-      </z-button>
+      </z-button-deprecated>
     </z-table-empty-box>
   </z-table>`);
   });

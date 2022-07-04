@@ -152,14 +152,14 @@ export class ZTableHeader {
               position={PopoverPosition["below-center"]}
               background-color={"gray200"}
             >
-              <z-button
+              <z-button-deprecated
                 icon="contextual-menu"
                 variant={ButtonVariantEnum["tertiary"]}
                 size={ButtonSizeEnum["x-small"]}
                 square
                 slot="trigger"
                 onClick={() => this.handleMenuClick()}
-              ></z-button>
+              ></z-button-deprecated>
 
               <div slot="popover">
                 <slot name="contextual-menu" />

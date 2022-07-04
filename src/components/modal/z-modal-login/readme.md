@@ -39,7 +39,7 @@
 
 ### Depends on
 
-- [z-button](../../buttons/z-button)
+- [z-button-deprecated](../../../deprecated/z-button-deprecated)
 - [z-modal](../z-modal)
 - [z-input](../../inputs/z-input)
 - [z-link](../../navigation/z-link)
@@ -48,12 +48,12 @@
 ### Graph
 ```mermaid
 graph TD;
-  z-modal-login --> z-button
+  z-modal-login --> z-button-deprecated
   z-modal-login --> z-modal
   z-modal-login --> z-input
   z-modal-login --> z-link
   z-modal-login --> z-body
-  z-button --> z-icon
+  z-button-deprecated --> z-icon
   z-modal --> z-icon
   z-input --> z-input-label
   z-input --> z-icon

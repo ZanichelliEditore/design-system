@@ -2,6 +2,53 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/ZanichelliEditore/design-system/compare/v2.48.1...v3.0.0) (2022-06-30)
+
+
+### Bug Fixes
+
+* fix ([a7f015a](https://github.com/ZanichelliEditore/design-system/commit/a7f015ae05a7957672a8935d1efc3f7acfb96f71))
+* fix storybook ([b736e7f](https://github.com/ZanichelliEditore/design-system/commit/b736e7f6ede85e8a772e521e9d0476bde1414a89))
+* remove width 100% ([e275d30](https://github.com/ZanichelliEditore/design-system/commit/e275d302987eeeede3e4e8257d8bf09edd29c193))
+
+### [2.48.1](https://github.com/ZanichelliEditore/design-system/compare/v2.48.0...v2.48.1) (2022-06-30)
+
+## [2.48.0](https://github.com/ZanichelliEditore/design-system/compare/v2.47.3...v2.48.0) (2022-06-30)
+
+
+### Features
+
+* add backtab navigation ([772c6eb](https://github.com/ZanichelliEditore/design-system/commit/772c6ebbd9f27f47c5ff6bd85ce131bf47aee922))
+* add bean keyboard code, fix css mobile breakpoint ([d94069d](https://github.com/ZanichelliEditore/design-system/commit/d94069d32f087c167d6e8ef2faca9828809304c5))
+* add border to host in variant light ([59d6855](https://github.com/ZanichelliEditore/design-system/commit/59d6855705b0a76b95f2585c09b7359f20dfa795))
+* add handleClickLink and add class to z-link ([60442d6](https://github.com/ZanichelliEditore/design-system/commit/60442d62970b240877324c8ff61179cdce644f97))
+* add listen "keyup" event to manage mobile ([73f7b39](https://github.com/ZanichelliEditore/design-system/commit/73f7b39490e00bfc9931669f972759f38befd501))
+* add prop links to manage z-link into skip-to-content ([0eb9d98](https://github.com/ZanichelliEditore/design-system/commit/0eb9d98d3c43b7a56788f9ce5902232622fb8eec))
+* add tests ([a5674c2](https://github.com/ZanichelliEditore/design-system/commit/a5674c2553e114fcfc15d92adc7798ea294195ad))
+* add theme variant ([fd3eb5d](https://github.com/ZanichelliEditore/design-system/commit/fd3eb5d01f10709050b78477798b6f6e96baba75))
+* border after slotted element ([3609b08](https://github.com/ZanichelliEditore/design-system/commit/3609b081f902e2a6488ba93b6dc1f0705668ad44))
+* clean ([24303ee](https://github.com/ZanichelliEditore/design-system/commit/24303ee215c2b1bdee2373ec9443a6ad23efb0ff))
+* fix ([4c676c1](https://github.com/ZanichelliEditore/design-system/commit/4c676c136d0b1c2ac12f140947ed3d14e1300746))
+* fix mobile css, add stories ([d33ec39](https://github.com/ZanichelliEditore/design-system/commit/d33ec39eb40d381575847b4c03c6809a6c6f2611))
+* fix naming type ([5220541](https://github.com/ZanichelliEditore/design-system/commit/522054165466432e5022e27b8032f481900830dd))
+* fix textcolor with themeVariant ([a699500](https://github.com/ZanichelliEditore/design-system/commit/a6995005b79725d324be23819a9521f403dda0c0))
+* fix vars css ([95645ff](https://github.com/ZanichelliEditore/design-system/commit/95645ff77c650aaf9ae5bd4080ddf9be5088fcef))
+* refactoring ♻️ ([5ee1e57](https://github.com/ZanichelliEditore/design-system/commit/5ee1e57354178a8552545fd01ae88685b22a0eb1))
+* rerefactoring :recycle: ([0f75a21](https://github.com/ZanichelliEditore/design-system/commit/0f75a215f65a36aafbce307bc85ec6eda6defcc1))
+* update utils handleKeyboardSubmit with ev.code, remove keyCode ([bb59a2d](https://github.com/ZanichelliEditore/design-system/commit/bb59a2db8b11823b441439a198f3d9703d348cb9))
+* wip ([04955a7](https://github.com/ZanichelliEditore/design-system/commit/04955a7ff301b5cd80d91708570fd21334a4578c))
+
+
+### Bug Fixes
+
+* added css variable ([aedff9e](https://github.com/ZanichelliEditore/design-system/commit/aedff9ef4f6ee76325824aca8527644e51979fc2))
+* fix and rebuild ([bf4953c](https://github.com/ZanichelliEditore/design-system/commit/bf4953c3b7a0de80c21e9f97e6b6a703d0e4cb3a))
+* fix css display and padding ([d5424ef](https://github.com/ZanichelliEditore/design-system/commit/d5424ef4c5aa44c4ea6ca7a437c24cc2d1fa6763))
+* fix overflow for z-myz-dictionary-card ([2492e8e](https://github.com/ZanichelliEditore/design-system/commit/2492e8e7067235cb17c3aa5db7f9beb6ae60cb59))
+* fix tests ([a3b10e0](https://github.com/ZanichelliEditore/design-system/commit/a3b10e0ac330bb22efd9af409d015f4ebf425348))
+* fixed storybook ([2633a36](https://github.com/ZanichelliEditore/design-system/commit/2633a36824384bee0fabda546dbe38eee16232d2))
+* tablet style ([c7f3b2b](https://github.com/ZanichelliEditore/design-system/commit/c7f3b2b4ee4748fad06dcbbc39e16b91bcfeae94))
+
 ### [2.47.3](https://github.com/ZanichelliEditore/design-system/compare/v2.47.2...v2.47.3) (2022-06-14)
 
 

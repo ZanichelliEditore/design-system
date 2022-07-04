@@ -567,7 +567,7 @@ describe("Suite test ZFooter", () => {
                   <span></span>
                   <div>
                     <z-body level="5">Hai bisogno di aiuto?</z-body>
-                    <z-button variant="dark-bg" size="small">SEGNALA UN PROBLEMA</z-button>
+                    <z-button-deprecated variant="dark-bg" size="small">SEGNALA UN PROBLEMA</z-button-deprecated>
                   </div>
                   <z-divider color="gray500"></z-divider>
                 </div>
@@ -635,7 +635,7 @@ describe("Suite test ZFooter", () => {
                   </span>
                   <div>
                     <z-body level="5">Hai bisogno di aiuto?</z-body>
-                    <z-button variant="dark-bg" size="small">SEGNALA UN PROBLEMA</z-button>
+                    <z-button-deprecated variant="dark-bg" size="small">SEGNALA UN PROBLEMA</z-button-deprecated>
                   </div>
                   <z-divider color="gray500"></z-divider>
                 </div>
