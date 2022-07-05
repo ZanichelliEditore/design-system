@@ -73,6 +73,8 @@ Type: `Promise<void>`
 ### Depends on
 
 - [z-input](../z-input)
+- [z-list](../../list/z-list)
+- [z-list-element](../../list/z-list-element)
 - [z-icon](../../icons/z-icon)
 - [z-input-message](../z-input-message)
 
@@ -80,11 +82,15 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   z-select --> z-input
+  z-select --> z-list
+  z-select --> z-list-element
   z-select --> z-icon
   z-select --> z-input-message
   z-input --> z-icon
   z-input --> z-input-message
   z-input-message --> z-icon
+  z-list-element --> z-icon
+  z-list-element --> z-divider
   z-input-deprecated --> z-select
   style z-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

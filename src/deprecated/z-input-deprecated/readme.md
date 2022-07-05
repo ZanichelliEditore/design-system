@@ -210,10 +210,14 @@ graph TD;
   z-input-deprecated --> z-select
   z-input-message --> z-icon
   z-select --> z-input
+  z-select --> z-list
+  z-select --> z-list-element
   z-select --> z-icon
   z-select --> z-input-message
   z-input --> z-icon
   z-input --> z-input-message
+  z-list-element --> z-icon
+  z-list-element --> z-divider
   style z-input-deprecated fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

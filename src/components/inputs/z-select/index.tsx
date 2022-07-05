@@ -12,7 +12,8 @@ import {
 import {
   InputStatusBean,
   SelectItemBean,
-  keybordKeyCodeEnum,
+  ListDividerType,
+  keybordCodeEnum,
 } from "../../../beans";
 import {
   randomId,
@@ -191,8 +192,8 @@ export class ZSelect {
   }
 
   arrowsSelectNav(e: KeyboardEvent, key: number) {
-    const arrows = [keybordKeyCodeEnum.ARROW_DOWN, keybordKeyCodeEnum.ARROW_UP];
-    if (!arrows.includes(e.keyCode)) return;
+    const arrows = [keybordCodeEnum.ARROW_DOWN, keybordCodeEnum.ARROW_UP];
+    if (!arrows.includes(e.key as keybordCodeEnum)) return;
 
     e.preventDefault();
     e.stopPropagation();
@@ -200,9 +201,9 @@ export class ZSelect {
     if (!this.isOpen) this.toggleSelectUl();
 
     let index: number;
-    if (e.keyCode === keybordKeyCodeEnum.ARROW_DOWN) {
+    if (e.key === keybordCodeEnum.ARROW_DOWN) {
       index = key + 1 === this.itemsList.length ? 0 : key + 1;
-    } else if (e.keyCode === keybordKeyCodeEnum.ARROW_UP) {
+    } else if (e.key === keybordCodeEnum.ARROW_UP) {
       index = key <= 0 ? this.itemsList.length - 1 : key - 1;
     }
 
@@ -251,15 +252,15 @@ export class ZSelect {
   }
 
   handleSelectFocus(e: MouseEvent | KeyboardEvent) {
-    if (e instanceof KeyboardEvent && e.keyCode === keybordKeyCodeEnum.ESC) {
+    if (e instanceof KeyboardEvent && e.key === keybordCodeEnum.ESC) {
       e.stopPropagation();
       return this.toggleSelectUl(true);
     }
 
     if (
       e instanceof KeyboardEvent &&
-      e.keyCode !== keybordKeyCodeEnum.TAB &&
-      e.keyCode !== keybordKeyCodeEnum.ENTER
+      e.key !== keybordCodeEnum.TAB &&
+      e.key !== keybordCodeEnum.ENTER
     ) {
       return;
     }
@@ -333,7 +334,7 @@ export class ZSelect {
     return (
       <div class={this.isOpen ? "open" : "closed"} tabindex="-1">
         <div class="ulScrollWrapper" tabindex="-1">
-          <ul
+          <z-list
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
             id={this.htmlid}
@@ -351,7 +352,7 @@ export class ZSelect {
             `}
           >
             {this.renderSelectUlItems()}
-          </ul>
+          </z-list>
         </div>
       </div>
     );
@@ -362,30 +363,29 @@ export class ZSelect {
 
     return this.itemsList.map((item: SelectItemBean, key) => {
       return (
-        <li
+        <z-list-element
+          clickable={!item.disabled}
+          disabled={item.disabled}
+          dividerType={ListDividerType.element}
           role="option"
           tabindex={item.disabled || !this.isOpen ? -1 : 0}
           aria-selected={!!item.selected}
-          class={item.disabled && "disabled"}
           id={`${this.htmlid}_${key}`}
-          onClick={() => this.selectItem(item, true)}
-          onKeyUp={(e: KeyboardEvent) =>
-            handleKeyboardSubmit(e, this.selectItem, item, true)
-          }
+          onClickItem={() => this.selectItem(item, true)}
           onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
         >
-          <span innerHTML={item.name} />
-        </li>
+          <span innerHTML={item.selected ? item.name.bold() : item.name} />
+        </z-list-element>
       );
     });
   }
 
   renderNoSearchResults() {
     return (
-      <li class="noResults">
-        <z-icon name="multiply-circle" />
+      <z-list-element color="blue500" class="noResults">
+        <z-icon name="multiply-circle" fill="blue500" />
         {this.noresultslabel}
-      </li>
+      </z-list-element>
     );
   }
 
