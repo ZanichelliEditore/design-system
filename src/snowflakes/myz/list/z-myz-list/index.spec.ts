@@ -64,7 +64,7 @@ describe("Suite test z-myz-list", () => {
               <mock:shadow-root>
                 <li role="button">
                   <span>
-                    <a href=\"http://www.google.it\" target="_self" role="link" tabindex="0"> elemento lista</a>
+                    <a href="http://www.google.it" target="_self" role="link" tabindex="0"> elemento lista</a>
                     <slot></slot>
                   </span>
                 </li>
@@ -83,7 +83,7 @@ describe("Suite test z-myz-list", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-myz-list inputrawdata=\"[{&quot;text&quot;:&quot;elemento lista&quot;},{&quot;text&quot;:&quot;link lista&quot;,&quot;link&quot;:&quot;http://www.google.it&quot;}]\">
+    <z-myz-list inputrawdata="[{&quot;text&quot;:&quot;elemento lista&quot;},{&quot;text&quot;:&quot;link lista&quot;,&quot;link&quot;:&quot;http://www.google.it&quot;}]">
       <mock:shadow-root>
         <ul>
           <z-myz-list-item>
@@ -100,7 +100,7 @@ describe("Suite test z-myz-list", () => {
             <mock:shadow-root>
               <li role="button">
                 <span>
-                  <a href=\"http://www.google.it\" tabindex="0" target="_self" role="link">
+                  <a href="http://www.google.it" tabindex="0" target="_self" role="link">
                     link lista
                   </a>
                   <slot></slot>

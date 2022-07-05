@@ -3,10 +3,9 @@ import { ZToastNotification } from "./index";
 
 describe("Suite test ZToastNotification", () => {
   it("Test render ZToastNotification vuoto", async () => {
-
     const page = await newSpecPage({
       components: [ZToastNotification],
-      html: `<z-toast-notification closebutton="true"></z-toast-notification>`
+      html: `<z-toast-notification closebutton="true"></z-toast-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -26,11 +25,10 @@ describe("Suite test ZToastNotification", () => {
         </div>
       </mock:shadow-root>
     </z-toast-notification>
-    `)
+    `);
   });
 
   it("Test render ZToastNotification con props e closebutton", async () => {
-
     const page = await newSpecPage({
       components: [ZToastNotification],
       html: `<z-toast-notification
@@ -40,7 +38,7 @@ describe("Suite test ZToastNotification", () => {
         closebutton="true"
         transition="slide-in-down"
         draggablepercentage="10"
-      ></z-toast-notification>`
+      ></z-toast-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -64,11 +62,10 @@ describe("Suite test ZToastNotification", () => {
         </div>
       </mock:shadow-root>
     </z-toast-notification>
-    `)
+    `);
   });
 
   it("Test render ZToastNotification con props e slot", async () => {
-
     const page = await newSpecPage({
       components: [ZToastNotification],
       html: `<z-toast-notification
@@ -79,8 +76,8 @@ describe("Suite test ZToastNotification", () => {
         transition="slide-in-down"
         draggablepercentage="10"
       >
-        <z-button variant="dark-bg" issmall slot="button">button</z-button>
-      </z-toast-notification>`
+        <z-button-deprecated variant="dark-bg" issmall slot="button">button</z-button-deprecated>
+      </z-toast-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -103,11 +100,10 @@ describe("Suite test ZToastNotification", () => {
           </div>
         </div>
       </mock:shadow-root>
-      <z-button issmall="" slot="button" variant="dark-bg">
+      <z-button-deprecated issmall="" slot="button" variant="dark-bg">
         button
-      </z-button>
+      </z-button-deprecated>
     </z-toast-notification>
-    `)
+    `);
   });
 });
-

@@ -6,7 +6,7 @@ describe("Suite test ZMessage", () => {
   it("Test render ZMessage", async () => {
     const page = await newSpecPage({
       components: [ZPocketMessage],
-      html: `<z-pocket-message></z-pocket-message>`
+      html: `<z-pocket-message></z-pocket-message>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -29,7 +29,7 @@ describe("Suite test ZMessage", () => {
   it("Test render ZMessage - with content", async () => {
     const page = await newSpecPage({
       components: [ZPocketMessage],
-      html: `<z-pocket-message>message content</z-pocket-message>`
+      html: `<z-pocket-message>message content</z-pocket-message>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -55,9 +55,9 @@ describe("Suite test ZMessage", () => {
       components: [ZPocketMessage],
       html: `<z-pocket-message>
         message content
-        <z-button slot="cta">cta 1</z-button>
-        <z-button slot="cta">cta 2</z-button>
-      </z-pocket-message>`
+        <z-button-deprecated slot="cta">cta 1</z-button-deprecated>
+        <z-button-deprecated slot="cta">cta 2</z-button-deprecated>
+      </z-pocket-message>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -74,8 +74,8 @@ describe("Suite test ZMessage", () => {
           </div>
         </mock:shadow-root>
         message content
-        <z-button slot="cta">cta 1</z-button>
-        <z-button slot="cta">cta 2</z-button>
+        <z-button-deprecated slot="cta">cta 1</z-button-deprecated>
+        <z-button-deprecated slot="cta">cta 2</z-button-deprecated>
       </z-pocket-message>
     `);
   });

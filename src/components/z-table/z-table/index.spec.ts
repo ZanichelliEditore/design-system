@@ -10,14 +10,13 @@ describe("Suite test ZTable", () => {
       <img src="./assets/images/png/zanichelli-error-image.png" slot="error-image" />
       </z-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-table error=\"true\" role=\"table\">
-    <div class=\"table\"></div>
+    expect(page.root).toEqualHtml(`<z-table error="true" role="table">
+    <div class="table"></div>
     <z-table-error>
-      <div class=\"error-content\" style=\"min-height: auto;\">
-        <img slot=\"error-image\" src=\"./assets/images/png/zanichelli-error-image.png\">
-        <div class=\"text\">
-          <z-body class=\"error-message\" level=\"3\" variant=\"semibold\">
+      <div class="error-content" style="min-height: auto;">
+        <img slot="error-image" src="./assets/images/png/zanichelli-error-image.png">
+        <div class="text">
+          <z-body class="error-message" level="3" variant="semibold">
             Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
           </z-body>
         </div>
@@ -31,13 +30,12 @@ describe("Suite test ZTable", () => {
       components: [ZTable],
       html: `<z-table error="true"></z-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-table error=\"true\" role=\"table\">
-    <div class=\"table\"></div>
+    expect(page.root).toEqualHtml(`<z-table error="true" role="table">
+    <div class="table"></div>
     <z-table-error>
-      <div class=\"error-content\" style=\"min-height: auto;\">
-        <div class=\"text\">
-          <z-body class=\"error-message\" level=\"3\" variant=\"semibold\">
+      <div class="error-content" style="min-height: auto;">
+        <div class="text">
+          <z-body class="error-message" level="3" variant="semibold">
             Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
           </z-body>
         </div>
@@ -59,10 +57,9 @@ describe("Suite test ZTable", () => {
         </z-table-head>
       </z-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-table error=\"true\" role=\"table\">
-    <div class=\"table\">
-      <z-table-head slot=\"table-header\">
+    expect(page.root).toEqualHtml(`<z-table error="true" role="table">
+    <div class="table">
+      <z-table-head slot="table-header">
         <z-table-header-row>
           <z-table-header>
             <span>
@@ -73,9 +70,9 @@ describe("Suite test ZTable", () => {
       </z-table-head>
     </div>
     <z-table-error>
-      <div class=\"error-content\" style=\"min-height: auto;\">
-        <div class=\"text\">
-          <z-body class=\"error-message\" level=\"3\" variant=\"semibold\">
+      <div class="error-content" style="min-height: auto;">
+        <div class="text">
+          <z-body class="error-message" level="3" variant="semibold">
             Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
           </z-body>
         </div>
@@ -89,10 +86,9 @@ describe("Suite test ZTable", () => {
       components: [ZTable],
       html: `<z-table empty="true"></z-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-table empty=\"true\" role=\"table\">
-    <div class=\"table table-empty\"></div>
-    <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\"></z-table-empty-box>
+    expect(page.root).toEqualHtml(`<z-table empty="true" role="table">
+    <div class="table table-empty"></div>
+    <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare" subtitle=""></z-table-empty-box>
   </z-table>`);
   });
 
@@ -118,8 +114,8 @@ describe("Suite test ZTable", () => {
     </z-table-head></z-table>`,
     });
     expect(page.root)
-      .toEqualHtml(`<z-table empty=\"true\" role=\"table\" slot=\"table-header\">
-    <z-table-head hidden=\"\">
+      .toEqualHtml(`<z-table empty="true" role="table" slot="table-header">
+    <z-table-head hidden="">
       <z-table-header-row>
         <z-table-header>
           <span>
@@ -143,8 +139,8 @@ describe("Suite test ZTable", () => {
         </z-table-header>
       </z-table-header-row>
     </z-table-head>
-    <div class=\"table table-empty\"></div>
-    <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\"></z-table-empty-box>
+    <div class="table table-empty"></div>
+    <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare" subtitle=""></z-table-empty-box>
   </z-table>`);
   });
 
@@ -154,12 +150,12 @@ describe("Suite test ZTable", () => {
       html: `<z-table empty="true" call-to-action-label="Call To Action"></z-table>`,
     });
     expect(page.root)
-      .toEqualHtml(`<z-table call-to-action-label=\"Call To Action\" empty=\"true\" role=\"table\">
-    <div class=\"table table-empty\"></div>
-    <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">
-      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+      .toEqualHtml(`<z-table call-to-action-label="Call To Action" empty="true" role="table">
+    <div class="table table-empty"></div>
+    <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare" subtitle="">
+      <z-button-deprecated size="big" slot="cta1" variant="tertiary">
         Call To Action
-      </z-button>
+      </z-button-deprecated>
     </z-table-empty-box>
   </z-table>`);
   });
@@ -170,15 +166,15 @@ describe("Suite test ZTable", () => {
       html: `<z-table empty="true" call-to-action-label="Call To Action" call-to-action-two-label="Call To Action 2" ></z-table>`,
     });
     expect(page.root)
-      .toEqualHtml(`<z-table call-to-action-label=\"Call To Action\" call-to-action-two-label=\"Call To Action 2\" empty=\"true\" role=\"table\">
-    <div class=\"table table-empty\"></div>
-    <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\" subtitle=\"\">
-      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+      .toEqualHtml(`<z-table call-to-action-label="Call To Action" call-to-action-two-label="Call To Action 2" empty="true" role="table">
+    <div class="table table-empty"></div>
+    <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare" subtitle="">
+      <z-button-deprecated size="big" slot="cta1" variant="tertiary">
         Call To Action
-      </z-button>
-      <z-button size=\"big\" slot=\"cta2\" variant=\"tertiary\">
+      </z-button-deprecated>
+      <z-button-deprecated size="big" slot="cta2" variant="tertiary">
         Call To Action 2
-      </z-button>
+      </z-button-deprecated>
     </z-table-empty-box>
   </z-table>`);
   });
@@ -212,9 +208,9 @@ describe("Suite test ZTable", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<z-table call-to-action-label=\"Call to action\" empty=\"true\" message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare!\" role=\"table\" subtitle=\"Eventuale testo\">
-    <div class=\"table table-empty\">
-      <z-table-head slot=\"table-header\">
+      .toEqualHtml(`<z-table call-to-action-label="Call to action" empty="true" message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!" role="table" subtitle="Eventuale testo">
+    <div class="table table-empty">
+      <z-table-head slot="table-header">
         <z-table-header-row>
           <z-table-header>
             <span>
@@ -239,10 +235,10 @@ describe("Suite test ZTable", () => {
         </z-table-header-row>
       </z-table-head>
     </div>
-    <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare!\" subtitle=\"Eventuale testo\">
-      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+    <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!" subtitle="Eventuale testo">
+      <z-button-deprecated size="big" slot="cta1" variant="tertiary">
         Call to action
-      </z-button>
+      </z-button-deprecated>
     </z-table-empty-box>
   </z-table>`);
   });
@@ -277,9 +273,9 @@ describe("Suite test ZTable", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<z-table call-to-action-label=\"Call to action\" empty=\"true\" message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare!\" role=\"table\" subtitle=\"Eventuale testo\">
-    <div class=\"table table-empty\">
-      <z-table-head slot=\"table-header\">
+      .toEqualHtml(`<z-table call-to-action-label="Call to action" empty="true" message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!" role="table" subtitle="Eventuale testo">
+    <div class="table table-empty">
+      <z-table-head slot="table-header">
         <z-table-header-row>
           <z-table-header>
             <span>
@@ -304,10 +300,10 @@ describe("Suite test ZTable", () => {
         </z-table-header-row>
       </z-table-head>
     </div>
-    <z-table-empty-box message=\"Siamo spiacenti, al momento non sono presenti dati da visualizzare!\" subtitle=\"Eventuale testo\">
-      <z-button size=\"big\" slot=\"cta1\" variant=\"tertiary\">
+    <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!" subtitle="Eventuale testo">
+      <z-button-deprecated size="big" slot="cta1" variant="tertiary">
         Call to action
-      </z-button>
+      </z-button-deprecated>
     </z-table-empty-box>
   </z-table>`);
   });

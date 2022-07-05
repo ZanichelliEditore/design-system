@@ -30,7 +30,7 @@ describe("Suite test ZTableCell", () => {
         <mock:shadow-root>
           <div class="button-container">
             <div class="button-content">
-              <z-button icon="contextual-menu" size="x-small" square="" variant="tertiary"></z-button>
+              <z-button-deprecated icon="contextual-menu" size="x-small" square="" variant="tertiary"></z-button-deprecated>
               <div class="contextual-menu-container">
                 <slot name="contextual-menu"></slot>
               </div>
