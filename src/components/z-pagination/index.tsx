@@ -16,7 +16,6 @@ import {
 @Component({
   tag: "z-pagination",
   styleUrl: "styles.css",
-  shadow: true,
 })
 export class ZPagination {
   @Element()
@@ -186,7 +185,7 @@ export class ZPagination {
    * Scroll to the left the chunk of pages containing the current page.
    */
   scrollToPage() {
-    const pageBtn = this.host.shadowRoot.querySelector(
+    const pageBtn = this.host.querySelector(
       `[data-page="${this.currentPage}"]`
     ) as HTMLElement;
 
@@ -214,7 +213,7 @@ export class ZPagination {
    * Event handler for go to page button click.
    */
   onGoToPage() {
-    const target = this.host.shadowRoot.querySelector(".gotopage-input") as HTMLZInputElement;
+    const target = this.host.querySelector(".go-to-page-input") as HTMLZInputElement;
     const newPage = Number(target.value);
     if (newPage > 0) {
       this.selectPage(newPage);
@@ -298,20 +297,40 @@ export class ZPagination {
     return this.renderSplitButton(page);
   }
 
+  renderBackButton() {
+    return (
+      <button
+        class="navigation-button"
+        type="button"
+        title="Vai alla pagina precedente"
+        disabled={this.currentPage === 1}
+        onClick={() => this.selectPage(this.currentPage - 1)}
+      >
+        <z-icon name="chevron-left"></z-icon>
+      </button>
+    );
+  }
+
+  renderForwardButton() {
+    return (
+      <button
+        class="navigation-button"
+        type="button"
+        title="Vai alla prossima pagina"
+        disabled={this.currentPage === this.totalPages}
+        onClick={() => this.selectPage(this.currentPage + 1)}
+      >
+        <z-icon name="chevron-right"></z-icon>
+      </button>
+    );
+  }
+
   renderMobile() {
     const pagesChunks = this.getPagesChunks();
 
     return [
       <div class="pagination-bar">
-        <button
-          class="navigation-button"
-          type="button"
-          title="Vai alla pagina precedente"
-          disabled={this.currentPage === 1}
-          onClick={() => this.selectPage(this.currentPage - 1)}
-        >
-          <z-icon name="chevron-left"></z-icon>
-        </button>
+        {this.renderBackButton()}
 
         {!this.goToPage && (
           <div class="pages-container" role="navigation" tabIndex={-1}>
@@ -327,7 +346,7 @@ export class ZPagination {
         {this.goToPage && (
           <div class="mobile-go-to-page">
             <z-input
-              class="gotopage-input"
+              class="go-to-page-input"
               type="number"
               hasmessage={false}
               placeholder={`${this.currentPage}`}
@@ -338,15 +357,7 @@ export class ZPagination {
           </div>
         )}
 
-        <button
-          class="navigation-button"
-          type="button"
-          title="Vai alla prossima pagina"
-          disabled={this.currentPage === this.totalPages}
-          onClick={() => this.selectPage(this.currentPage + 1)}
-        >
-          <z-icon name="chevron-right"></z-icon>
-        </button>
+        {this.renderForwardButton()}
       </div>,
     ];
   }
@@ -400,17 +411,7 @@ export class ZPagination {
           </button>
         )}
 
-        {this.navArrows && (
-          <button
-            class="navigation-button"
-            type="button"
-            title="Vai alla pagina precedente"
-            disabled={this.currentPage === 1}
-            onClick={() => this.selectPage(this.currentPage - 1)}
-          >
-            <z-icon name="chevron-left"></z-icon>
-          </button>
-        )}
+        {this.navArrows && this.renderBackButton()}
 
         <div class="pages-container" role="navigation" tabIndex={-1}>
           {pagesChunks.length > 0 &&
@@ -421,17 +422,7 @@ export class ZPagination {
             ))}
         </div>
 
-        {this.navArrows && (
-          <button
-            class="navigation-button"
-            type="button"
-            title="Vai alla prossima pagina"
-            disabled={this.currentPage === this.totalPages}
-            onClick={() => this.selectPage(this.currentPage + 1)}
-          >
-            <z-icon name="chevron-right"></z-icon>
-          </button>
-        )}
+        {this.navArrows && this.renderForwardButton()}
 
         {this.skip < this.totalPages && this.skip > 1 && (
           <button
@@ -460,11 +451,11 @@ export class ZPagination {
 
       this.goToPage && (
         <div class="go-to-page">
-          <span class="label">Vai a pagina:</span>
+          <span class="label body-5-sb">Vai a pagina:</span>
           <div class="inputs">
             <z-input
               type="number"
-              class="gotopage-input"
+              class="go-to-page-input"
               hasmessage={false}
               placeholder={`${this.currentPage}`}
               hasclearicon={false}
