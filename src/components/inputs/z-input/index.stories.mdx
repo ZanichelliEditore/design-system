@@ -1,0 +1,320 @@
+import { html } from "lit-html";
+import { Meta, Canvas, Story, Preview, Props } from "@storybook/addon-docs";
+import {
+  InputTypeEnum,
+  InputStatusEnum,
+  LabelPositionEnum,
+} from "../../../beans";
+import "./index";
+
+## Stories
+
+<Meta
+  title="Inputs/ZInput"
+  component="z-input"
+  argTypes={{
+    type: {
+      control: { type: "select" },
+      options: Object.values(InputTypeEnum),
+      defaultValue: "text",
+    },
+    typeText: {
+      control: { type: "select" },
+      options: ["text", "password", "number", "email"],
+      defaultValue: "text",
+    },
+    typeTextarea: {
+      control: { type: "select" },
+      options: ["textarea"],
+      defaultValue: "textarea",
+    },
+    typeCheckbox: {
+      control: { type: "select" },
+      options: ["checkbox"],
+      defaultValue: "checkbox",
+    },
+    typeRadio: {
+      control: { type: "select" },
+      options: ["radio"],
+      defaultValue: "radio",
+    },
+    label: {
+      control: { type: "text" },
+      defaultValue: "this is the input label",
+    },
+    ariaLabel: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    labelPosition: {
+      control: { type: "radio" },
+      options: Object.values(LabelPositionEnum),
+      defaultValue: LabelPositionEnum.right,
+    },
+    placeholder: {
+      control: { type: "text" },
+      defaultValue: "input placeholder text",
+    },
+    value: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    name: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    status: {
+      control: { type: "select" },
+      options: ["-", ...Object.values(InputStatusEnum)],
+      defaultValue: "-",
+    },
+    message: {
+      control: { type: "text" },
+      defaultValue: "helper text",
+    },
+    icon: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    disabled: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    readonly: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    required: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    checked: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    hasclearicon: {
+      control: { type: "boolean" },
+      defaultValue: true,
+    },
+    htmlid: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    htmltitle: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    autocomplete: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+  }}
+/>
+
+# ZInput
+
+<Canvas>
+  <Story
+    name="z-input - all props"
+    parameters={{
+      controls: {
+        exclude: ["typeText", "typeTextarea", "typeCheckbox", "typeRadio"],
+      },
+    }}
+  >
+    {(args) =>
+      html`
+        <z-input
+          type=${args.type}
+          label=${args.label}
+          aria-label=${args.ariaLabel}
+          label-position=${args.labelPosition}
+          placeholder=${args.placeholder}
+          value=${args.value}
+          name=${args.name}
+          status=${args.status}
+          message=${args.message}
+          icon=${args.icon}
+          disabled=${args.disabled}
+          readonly=${args.readonly}
+          required=${args.required}
+          checked=${args.checked}
+          hasclearicon=${args.hasclearicon}
+          htmlid=${args.htmlid}
+          htmltitle=${args.htmltitle}
+          autocomplete=${args.autocomplete}
+        ></z-input>
+      `
+    }
+  </Story>
+  <Story
+    name="z-input text"
+    parameters={{
+      controls: {
+        include: [
+          "typeText",
+          "label",
+          "ariaLabel",
+          "placeholder",
+          "value",
+          "name",
+          "status",
+          "message",
+          "icon",
+          "disabled",
+          "readonly",
+          "required",
+          "hasclearicon",
+          "htmlid",
+          "htmltitle",
+          "autocomplete",
+        ],
+      },
+    }}
+  >
+    {(args) =>
+      html`
+        <z-input
+          type=${args.typeText}
+          label=${args.label}
+          aria-label=${args.ariaLabel}
+          placeholder=${args.placeholder}
+          value=${args.value}
+          name=${args.name}
+          status=${args.status}
+          message=${args.message}
+          icon=${args.icon}
+          disabled=${args.disabled}
+          readonly=${args.readonly}
+          required=${args.required}
+          hasclearicon=${args.hasclearicon}
+          htmlid=${args.htmlid}
+          htmltitle=${args.htmltitle}
+          autocomplete=${args.autocomplete}
+        ></z-input>
+      `
+    }
+  </Story>
+  <Story
+    name="z-input textarea"
+    parameters={{
+      controls: {
+        include: [
+          "typeTextarea",
+          "label",
+          "ariaLabel",
+          "placeholder",
+          "value",
+          "name",
+          "status",
+          "message",
+          "disabled",
+          "readonly",
+          "required",
+          "htmlid",
+          "htmltitle",
+        ],
+      },
+    }}
+  >
+    {(args) =>
+      html`
+        <z-input
+          type=${args.typeTextarea}
+          label=${args.label}
+          aria-label=${args.ariaLabel}
+          placeholder=${args.placeholder}
+          value=${args.value}
+          name=${args.name}
+          status=${args.status}
+          message=${args.message}
+          disabled=${args.disabled}
+          readonly=${args.readonly}
+          required=${args.required}
+          htmlid=${args.htmlid}
+          htmltitle=${args.htmltitle}
+        ></z-input>
+      `
+    }
+  </Story>
+  <Story
+    name="z-input checkbox"
+    parameters={{
+      controls: {
+        include: [
+          "typeCheckbox",
+          "label",
+          "ariaLabel",
+          "labelPosition",
+          "name",
+          "disabled",
+          "readonly",
+          "required",
+          "checked",
+          "htmlid",
+          "htmltitle",
+        ],
+      },
+    }}
+  >
+    {(args) =>
+      html`
+        <z-input
+          type="${args.typeCheckbox}"
+          label=${args.label}
+          aria-label=${args.ariaLabel}
+          label-position=${args.labelPosition}
+          name=${args.name}
+          disabled=${args.disabled}
+          readonly=${args.readonly}
+          required=${args.required}
+          checked=${args.checked}
+          htmlid=${args.htmlid}
+          htmltitle=${args.htmltitle}
+        ></z-input>
+      `
+    }
+  </Story>
+  <Story
+    name="z-input radio"
+    parameters={{
+      controls: {
+        include: [
+          "typeRadio",
+          "label",
+          "ariaLabel",
+          "labelPosition",
+          "name",
+          "value",
+          "disabled",
+          "readonly",
+          "required",
+          "checked",
+          "htmlid",
+          "htmltitle",
+        ],
+      },
+    }}
+  >
+    {(args) =>
+      html`
+        <z-input
+          type=${args.typeRadio}
+          label=${args.label}
+          aria-label=${args.ariaLabel}
+          label-position=${args.labelPosition}
+          name=${args.name}
+          value=${args.value}
+          disabled=${args.disabled}
+          readonly=${args.readonly}
+          required=${args.required}
+          checked=${args.checked}
+          htmlid=${args.htmlid}
+          htmltitle=${args.htmltitle}
+        ></z-input>
+      `
+    }
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-input" />
