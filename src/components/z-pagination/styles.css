@@ -6,7 +6,7 @@ z-pagination {
   flex-direction: column;
   gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
   font-family: var(--font-family-sans);
-  font-weight: var(--font-sb);
+  font-weight: var(--font-rg);
 }
 
 z-pagination,
@@ -56,6 +56,7 @@ z-pagination .pagination-bar .pagination-button {
   padding: calc(var(--space-unit) * 2);
   text-transform: uppercase;
   white-space: nowrap;
+  font-weight: var(--font-sb);
 }
 
 z-pagination .pagination-bar .navigation-button {
@@ -99,6 +100,7 @@ z-pagination .pagination-bar .page-button {
   padding-top: var(--border-size-large) solid transparent;
   border-bottom: var(--border-size-large) solid transparent;
   font-size: var(--font-size-2);
+  font-weight: var(--font-sb);
 }
 
 z-pagination .pagination-bar .page-button:focus-visible {

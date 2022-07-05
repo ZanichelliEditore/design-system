@@ -60,7 +60,7 @@ export class ZPagination {
    * keeping original `visiblePages` value intact.
    */
   @State()
-  private _visiblePages: number = this.visiblePages;
+  private _visiblePages = this.visiblePages;
 
   /** Used to hides/change some functionalities on smaller screen sizes */
   @State()
@@ -129,7 +129,7 @@ export class ZPagination {
 
   /**
    * On split changed.
-   * Empty the `_visiblePages` value. The split feature wins over the pages chunks.
+   * Empty `_visiblePages` and `edges` value. The split feature wins over the pages chunks and edges.
    */
   @Watch("split")
   onSplitChanged() {
@@ -143,7 +143,7 @@ export class ZPagination {
    * Hide stuff on mobile.
    */
   @Listen("resize", { target: "window", passive: true })
-  checkScrollVisible() {
+  onResize() {
     this.setMobile();
   }
 
@@ -159,7 +159,7 @@ export class ZPagination {
    * Get a list of pages chunks, each of `visiblePages` length.
    * @returns {number[][]}
    */
-  private getPagesChunks() {
+  getPagesChunks() {
     // array of numbers from 1 to `totalPages`
     const pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
@@ -342,17 +342,19 @@ export class ZPagination {
         )}
 
         {this.goToPage && (
-          <div class="mobile-go-to-page">
+          <form
+            class="mobile-go-to-page"
+            onSubmit={(ev) => {ev.preventDefault(); this.onGoToPage()}}
+          >
             <z-input
               class="go-to-page-input"
               type="number"
               hasmessage={false}
-              placeholder="2"
+              placeholder={this.currentPage.toString()}
               hasclearicon={false}
-              onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage()}
             ></z-input>
             <span>{`/${this.totalPages}`}</span>
-          </div>
+          </form>
         )}
 
         {this.renderForwardButton()}
@@ -375,13 +377,13 @@ export class ZPagination {
   }
 
   render() {
-    const pagesChunks = this.getPagesChunks();
-    this.splitRight = false;
-    this.splitLeft = false;
-
     if (this.isMobile) {
       return this.renderMobile();
     }
+
+    const pagesChunks = this.getPagesChunks();
+    this.splitRight = false;
+    this.splitLeft = false;
 
     return [
       <div class="pagination-bar">
@@ -452,12 +454,12 @@ export class ZPagination {
           <span class="label body-5-sb">Vai a pagina:</span>
           <div class="inputs">
             <z-input
-              type="number"
               class="go-to-page-input"
+              type="number"
               hasmessage={false}
               placeholder="2"
               hasclearicon={false}
-              onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage()}
+              onKeyDown={(ev) => ev.key === "Enter" && this.onGoToPage()}
             ></z-input>
             <z-button
               title="Vai alla pagina inserita"

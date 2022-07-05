@@ -1255,7 +1255,7 @@ export namespace Components {
         /**
           * Whether to show "go to page" feature.
          */
-        "goToPage": Boolean;
+        "goToPage": boolean;
         /**
           * Enable navigation arrows.
          */
@@ -3953,7 +3953,7 @@ declare namespace LocalJSX {
         /**
           * Whether to show "go to page" feature.
          */
-        "goToPage"?: Boolean;
+        "goToPage"?: boolean;
         /**
           * Enable navigation arrows.
          */
