@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/ZanichelliEditore/design-system/compare/v3.0.0...v3.1.0) (2022-07-05)
+
+
+### Features
+
+* **z-date-picker-accessibility:** add aria-label to elements ([a0f7f43](https://github.com/ZanichelliEditore/design-system/commit/a0f7f43442b4528e8e078c8f6ff41c23b113ab1e))
+* **z-date-picker-accessibility:** add aria-label to flatpickr-hour element ([d130a71](https://github.com/ZanichelliEditore/design-system/commit/d130a71556b65df32e69d22ef875fde5faabc6e2))
+* **z-date-picker-accessibility:** add keyboard navigation to z-date-picker ([838583c](https://github.com/ZanichelliEditore/design-system/commit/838583cf6208f7e656869d087e0c9b30f0957cb8))
+* **z-range-picker:** graphic fix for months mode ([46dd422](https://github.com/ZanichelliEditore/design-system/commit/46dd422c21bf97471a7ac76fd172472841c3f622))
+
 ## [3.0.0](https://github.com/ZanichelliEditore/design-system/compare/v2.48.1...v3.0.0) (2022-06-30)
 
 
