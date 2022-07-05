@@ -49,9 +49,9 @@ export class ZSelect {
   @Prop() placeholder?: string;
   /** the input html title (optional) */
   @Prop() htmltitle?: string;
-  /** the input status (optional): available for text, password, number, email, textarea, select */
+  /** the input status (optional) */
   @Prop() status?: InputStatusBean;
-  /** input helper message (optional): available for text, password, number, email, textarea, select */
+  /** input helper message (optional) - if set to `false` message won't be displayed */
   @Prop() message?: string | boolean = true;
   /** the input has autocomplete option */
   @Prop() autocomplete?: boolean = false;
@@ -394,7 +394,7 @@ export class ZSelect {
 
     return (
       <z-input-message
-        message={boolean(this.message) === true ? "" : `${this.message}`}
+        message={boolean(this.message) === true ? undefined : `${this.message}`}
         status={this.status}
       />
     );

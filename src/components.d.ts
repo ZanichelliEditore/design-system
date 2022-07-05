@@ -1529,7 +1529,7 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
+          * input helper message (optional) - if set to `false` message won't be displayed
          */
         "message"?: string | boolean;
         /**
@@ -1553,7 +1553,7 @@ export namespace Components {
          */
         "setValue": (value: string | string[]) => Promise<void>;
         /**
-          * the input status (optional): available for text, password, number, email, textarea, select
+          * the input status (optional)
          */
         "status"?: InputStatusBean;
     }
@@ -4287,7 +4287,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
+          * input helper message (optional) - if set to `false` message won't be displayed
          */
         "message"?: string | boolean;
         /**
@@ -4311,7 +4311,7 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
-          * the input status (optional): available for text, password, number, email, textarea, select
+          * the input status (optional)
          */
         "status"?: InputStatusBean;
     }

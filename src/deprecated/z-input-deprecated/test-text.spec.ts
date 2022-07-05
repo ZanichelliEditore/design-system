@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZIcon } from "../../icons/z-icon";
+import { ZIcon } from "../../components/icons/z-icon";
 
 import { ZInputDeprecated } from "./index";
 

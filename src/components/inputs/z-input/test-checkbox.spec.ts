@@ -64,10 +64,10 @@ describe("Suite test ZInput - checkbox", () => {
   it("Test render ZInput label before", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input htmlid="checkid" type="checkbox" labelafter="false"></z-input>`,
+      html: `<z-input htmlid="checkid" type="checkbox" label-position="left"></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox" labelafter="false">
+      <z-input htmlid="checkid" type="checkbox" label-position="left">
 
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" />
