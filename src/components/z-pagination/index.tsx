@@ -140,7 +140,7 @@ export class ZPagination {
   }
 
   /**
-   * Hide stuff if mobile.
+   * Hide stuff on mobile.
    */
   @Listen("resize", { target: "window", passive: true })
   checkScrollVisible() {
@@ -248,7 +248,7 @@ export class ZPagination {
    */
   renderSplitButton(page) {
     const sign = Math.sign(page - this.currentPage);
-    const splitPage = this.currentPage + (this.split * sign) + (1 * sign);
+    const splitPage = this.currentPage + (this.split * sign) + sign;
     const button = (
       <button
         class="split-button"
@@ -349,7 +349,7 @@ export class ZPagination {
               class="go-to-page-input"
               type="number"
               hasmessage={false}
-              placeholder={`${this.currentPage}`}
+              placeholder="2"
               hasclearicon={false}
               onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage()}
             ></z-input>
@@ -457,7 +457,7 @@ export class ZPagination {
               type="number"
               class="go-to-page-input"
               hasmessage={false}
-              placeholder={`${this.currentPage}`}
+              placeholder="2"
               hasclearicon={false}
               onKeyPress={(ev) => ev.key === "Enter" && this.onGoToPage()}
             ></z-input>
