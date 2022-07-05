@@ -215,9 +215,7 @@ export class ZPagination {
   onGoToPage() {
     const target = this.host.querySelector(".go-to-page-input") as HTMLZInputElement;
     const newPage = Number(target.value);
-    if (newPage > 0) {
-      this.selectPage(newPage);
-    }
+    this.selectPage(newPage);
   }
 
   /**

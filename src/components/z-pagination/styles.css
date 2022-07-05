@@ -96,6 +96,7 @@ z-pagination .pages-chunk {
 }
 
 z-pagination .pagination-bar .page-button {
+  padding-top: var(--border-size-large) solid transparent;
   border-bottom: var(--border-size-large) solid transparent;
   font-size: var(--font-size-2);
 }
