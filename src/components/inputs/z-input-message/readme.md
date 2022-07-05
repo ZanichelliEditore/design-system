@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description             | Type                                               | Default     |
-| --------- | --------- | ----------------------- | -------------------------------------------------- | ----------- |
-| `message` | `message` | input helper message    | `string`                                           | `undefined` |
-| `status`  | `status`  | input status (optional) | `"error" \| "selecting" \| "success" \| "warning"` | `undefined` |
+| Property  | Attribute | Description             | Type                                | Default     |
+| --------- | --------- | ----------------------- | ----------------------------------- | ----------- |
+| `message` | `message` | input helper message    | `string`                            | `undefined` |
+| `status`  | `status`  | input status (optional) | `"error" \| "success" \| "warning"` | `undefined` |
 
 
 ## Dependencies

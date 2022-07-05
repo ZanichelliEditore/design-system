@@ -162,7 +162,6 @@ export enum InputStatusEnum {
   success = "success",
   error = "error",
   warning = "warning",
-  selecting = "selecting",
 }
 
 export type TooltipPositionBean = keyof typeof TooltipPosition;

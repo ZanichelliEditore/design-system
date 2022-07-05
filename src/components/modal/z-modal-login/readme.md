@@ -5,13 +5,13 @@
 
 ## Properties
 
-| Property            | Attribute             | Description                    | Type                                               | Default                   |
-| ------------------- | --------------------- | ------------------------------ | -------------------------------------------------- | ------------------------- |
-| `forgotPasswordUrl` | `forgot-password-url` | Forgot Password Url            | `string`                                           | `undefined`               |
-| `heading`           | `heading`             | Login modal title              | `string`                                           | `"Entra in MyZanichelli"` |
-| `message`           | `message`             | Username helper message        | `string`                                           | `undefined`               |
-| `pwdmessage`        | `pwdmessage`          | Password helper message        | `string`                                           | `undefined`               |
-| `status`            | `status`              | Username/password input status | `"error" \| "selecting" \| "success" \| "warning"` | `undefined`               |
+| Property            | Attribute             | Description                    | Type                                | Default                   |
+| ------------------- | --------------------- | ------------------------------ | ----------------------------------- | ------------------------- |
+| `forgotPasswordUrl` | `forgot-password-url` | Forgot Password Url            | `string`                            | `undefined`               |
+| `heading`           | `heading`             | Login modal title              | `string`                            | `"Entra in MyZanichelli"` |
+| `message`           | `message`             | Username helper message        | `string`                            | `undefined`               |
+| `pwdmessage`        | `pwdmessage`          | Password helper message        | `string`                            | `undefined`               |
+| `status`            | `status`              | Username/password input status | `"error" \| "success" \| "warning"` | `undefined`               |
 
 
 ## Events

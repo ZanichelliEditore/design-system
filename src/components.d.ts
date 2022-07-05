@@ -1499,7 +1499,7 @@ export namespace Components {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean | string;
+        "autocomplete"?: boolean;
         /**
           * the input is disabled
          */
@@ -1512,10 +1512,6 @@ export namespace Components {
           * get the input value
          */
         "getValue": () => Promise<string>;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
         /**
           * the id of the input element
          */
@@ -1535,7 +1531,7 @@ export namespace Components {
         /**
           * input helper message (optional): available for text, password, number, email, textarea, select
          */
-        "message"?: string;
+        "message"?: string | boolean;
         /**
           * the input name
          */
@@ -4269,15 +4265,11 @@ declare namespace LocalJSX {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean | string;
+        "autocomplete"?: boolean;
         /**
           * the input is disabled
          */
         "disabled"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
         /**
           * the id of the input element
          */
@@ -4297,7 +4289,7 @@ declare namespace LocalJSX {
         /**
           * input helper message (optional): available for text, password, number, email, textarea, select
          */
-        "message"?: string;
+        "message"?: string | boolean;
         /**
           * the input name
          */

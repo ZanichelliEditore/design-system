@@ -446,9 +446,8 @@ export class ZInputDeprecated {
         placeholder={this.placeholder}
         htmltitle={this.htmltitle}
         status={this.status}
-        hasmessage={this.hasmessage}
-        message={this.message}
-        autocomplete={this.autocomplete}
+        message={!this.hasmessage ? false : this.message}
+        autocomplete={this.autocomplete as boolean}
         ref={(el) => (this.selectElem = el as HTMLZSelectElement)}
       />
     );

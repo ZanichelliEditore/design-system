@@ -42,14 +42,6 @@ li[role="option"]:focus:focus-visible,
   border-color: var(--color-surface05);
 }
 
-/* TYPING */
-.istyping,
-.focus.istyping,
-.input_selecting {
-  border-color: var(--color-primary01);
-  color: var(--color-primary01);
-}
-
 /* STATUSES (success, warning, error) */
 .input_success,
 .input_success:hover,

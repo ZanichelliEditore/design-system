@@ -13,7 +13,6 @@ import {
   InputStatusBean,
   SelectItemBean,
   keybordKeyCodeEnum,
-  InputStatusEnum,
 } from "../../../beans";
 import {
   randomId,
@@ -52,12 +51,10 @@ export class ZSelect {
   @Prop() htmltitle?: string;
   /** the input status (optional): available for text, password, number, email, textarea, select */
   @Prop() status?: InputStatusBean;
-  /** show input helper message (optional): available for text, password, number, email, textarea, select */
-  @Prop() hasmessage?: boolean = true;
   /** input helper message (optional): available for text, password, number, email, textarea, select */
-  @Prop() message?: string;
+  @Prop() message?: string | boolean = true;
   /** the input has autocomplete option */
-  @Prop() autocomplete?: boolean | string = false;
+  @Prop() autocomplete?: boolean = false;
   /** no result text message */
   @Prop() noresultslabel?: string = "Nessun risultato";
 
@@ -305,7 +302,7 @@ export class ZSelect {
         message={false}
         disabled={this.disabled}
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
-        status={this.isOpen ? InputStatusEnum.selecting : this.status}
+        status={this.isOpen ? undefined : this.status}
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
         }}
@@ -393,9 +390,14 @@ export class ZSelect {
   }
 
   renderMessage() {
-    if (!this.hasmessage) return;
+    if (boolean(this.message) === false) return;
 
-    return <z-input-message message={this.message} status={this.status} />;
+    return (
+      <z-input-message
+        message={boolean(this.message) === true ? "" : `${this.message}`}
+        status={this.status}
+      />
+    );
   }
 
   render() {
