@@ -24,7 +24,7 @@ export class ZPagination {
 
   /** Enable navigation arrows. */
   @Prop()
-  navArrows: boolean = true;
+  navArrows = true;
 
   /** Total number of pages. Required. */
   @Prop()
@@ -32,11 +32,11 @@ export class ZPagination {
 
   /** Number of pages to skip. */
   @Prop()
-  skip: number = 0;
+  skip = 0;
 
   /** Enable buttons to go to the first and last pages. */
   @Prop()
-  edges: boolean = false;
+  edges = false;
 
   /** Number of pages to show left/right of the current, before showing "load more" symbol (…). */
   @Prop()
@@ -48,11 +48,11 @@ export class ZPagination {
 
   /** Current page. */
   @Prop({ mutable: true })
-  currentPage: number = 1;
+  currentPage = 1;
 
   /** Whether to show "go to page" feature. */
   @Prop()
-  goToPage: Boolean;
+  goToPage: boolean;
 
   /**
    * Internal visible pages variable.
@@ -65,17 +65,17 @@ export class ZPagination {
 
   /** Used to hides/change some functionalities on smaller screen sizes */
   @State()
-  isMobile: Boolean = false;
+  isMobile = false;
 
   /** Event emitted when the current page has changed. */
   @Event()
   pageChanged: EventEmitter;
 
   /** Right split has been already added */
-  splitRight: Boolean;
+  splitRight: boolean;
 
   /** Left split has been already added */
-  splitLeft: Boolean;
+  splitLeft: boolean;
 
   /**
    * Set the max width of the pages container.
@@ -87,6 +87,7 @@ export class ZPagination {
         "--z-pagination--pages-container-max-width",
         "100%"
       );
+
       return;
     }
 
@@ -148,24 +149,11 @@ export class ZPagination {
   }
 
   /**
-   *
-   * * @inheritdoc
-   */
-  componentDidRender() {
-    if (this.split) {
-      this._visiblePages = null;
-      this.edges = false;
-    }
-
-    this.setMobile();
-  }
-
-  /**
    * Set functionalities according to screen size.
    */
-  setMobile() {
-    const isMobileMediaQuery = "screen and (max-width: 768px)";
-    this.isMobile = window.matchMedia(isMobileMediaQuery).matches;
+  private setMobile() {
+    const mobileMediaQuery = "screen and (max-width: 767px)";
+    this.isMobile = window.matchMedia(mobileMediaQuery).matches;
   }
 
   /**
@@ -246,7 +234,7 @@ export class ZPagination {
         aria-current={this.currentPage === page ? "page" : "false"}
         title={`Vai alla pagina ${page}`}
         data-page={page}
-        data-current={this.currentPage == page}
+        data-current={this.currentPage === page}
         onClick={() => this.selectPage(page)}
       >
         {page}
@@ -261,7 +249,7 @@ export class ZPagination {
    */
   renderSplitButton(page) {
     const sign = Math.sign(page - this.currentPage);
-    const splitPage = this.currentPage + this.split * sign + 1 * sign;
+    const splitPage = this.currentPage + (this.split * sign) + (1 * sign);
     const button = (
       <button
         class="split-button"
@@ -297,21 +285,17 @@ export class ZPagination {
       !this.split ||
       // current, first and last pages always visible
       this.split > this.totalPages - 3 ||
-      page == 1 ||
-      page == this.totalPages ||
+      page === 1 ||
+      page === this.totalPages ||
       distanceFromCurrentPage <= this.split ||
       // show the page if split would hide only one page
-      (page == 2 && this.currentPage - this.split - 1 == page) ||
-      (page == this.totalPages - 1 && this.currentPage + this.split + 1 == page)
+      (page === 2 && this.currentPage - this.split - 1 === page) ||
+      (page === this.totalPages - 1 && this.currentPage + this.split + 1 === page)
     ) {
       return this.renderPage(page);
     }
 
     return this.renderSplitButton(page);
-  }
-
-  componentDidLoad() {
-    this.setVisiblePages();
   }
 
   renderMobile() {
@@ -323,7 +307,7 @@ export class ZPagination {
           class="navigation-button"
           type="button"
           title="Vai alla pagina precedente"
-          disabled={this.currentPage == 1}
+          disabled={this.currentPage === 1}
           onClick={() => this.selectPage(this.currentPage - 1)}
         >
           <z-icon name="chevron-left"></z-icon>
@@ -358,13 +342,27 @@ export class ZPagination {
           class="navigation-button"
           type="button"
           title="Vai alla prossima pagina"
-          disabled={this.currentPage == this.totalPages}
+          disabled={this.currentPage === this.totalPages}
           onClick={() => this.selectPage(this.currentPage + 1)}
         >
           <z-icon name="chevron-right"></z-icon>
         </button>
       </div>,
     ];
+  }
+
+  componentDidLoad() {
+    this.setVisiblePages();
+  }
+
+  componentDidRender() {
+    if (this.split) {
+      this._visiblePages = null;
+      this.edges = false;
+    }
+
+    this.setPagesContainerWidth();
+    this.setMobile();
   }
 
   render() {
@@ -383,7 +381,7 @@ export class ZPagination {
             class="pagination-button"
             type="button"
             title="Vai alla pagina 1"
-            disabled={this.currentPage == 1}
+            disabled={this.currentPage === 1}
             onClick={() => this.selectPage(1)}
           >
             Pagina 1
@@ -407,7 +405,7 @@ export class ZPagination {
             class="navigation-button"
             type="button"
             title="Vai alla pagina precedente"
-            disabled={this.currentPage == 1}
+            disabled={this.currentPage === 1}
             onClick={() => this.selectPage(this.currentPage - 1)}
           >
             <z-icon name="chevron-left"></z-icon>
@@ -428,7 +426,7 @@ export class ZPagination {
             class="navigation-button"
             type="button"
             title="Vai alla prossima pagina"
-            disabled={this.currentPage == this.totalPages}
+            disabled={this.currentPage === this.totalPages}
             onClick={() => this.selectPage(this.currentPage + 1)}
           >
             <z-icon name="chevron-right"></z-icon>
@@ -452,7 +450,7 @@ export class ZPagination {
             class="pagination-button"
             type="button"
             title={`Vai alla pagina ${this.totalPages}`}
-            disabled={this.currentPage == this.totalPages}
+            disabled={this.currentPage === this.totalPages}
             onClick={() => this.selectPage(this.totalPages)}
           >
             Pagina {this.totalPages}
