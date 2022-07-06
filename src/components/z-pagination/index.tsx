@@ -70,12 +70,6 @@ export class ZPagination {
   @Event()
   pageChanged: EventEmitter;
 
-  /** Right split has been already added */
-  splitRight: boolean;
-
-  /** Left split has been already added */
-  splitLeft: boolean;
-
   /**
    * Set the max width of the pages container.
    */
@@ -163,10 +157,6 @@ export class ZPagination {
     // array of numbers from 1 to `totalPages`
     const pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
-    if (this.split || this.isMobile) {
-      return [pages];
-    }
-
     let chunks = [];
     const chunksCount = Math.ceil(pages.length / this._visiblePages);
     for (let index = 0; index < chunksCount; index++) {
@@ -241,58 +231,88 @@ export class ZPagination {
 
   /**
    * Render split button.
-   * @param {number} page Page number
+   * @param {number} page Page to select on click.
    * @returns {HTMLButtonElement}
    */
-  renderSplitButton(page) {
-    const sign = Math.sign(page - this.currentPage);
-    const splitPage = this.currentPage + (this.split * sign) + sign;
-    const button = (
+  renderEllipsisButton(page) {
+    return (
       <button
         class="split-button"
         type="button"
-        title={`Vai alla pagina ${splitPage}`}
-        onClick={() => this.selectPage(splitPage)}
+        title={`Vai alla pagina ${page}`}
+        onClick={() => this.selectPage(page)}
       >
         …
       </button>
     );
-    if (!this.splitLeft && sign < 0) {
-      // left split has not been added yet
-      this.splitLeft = true;
-      return button;
-    }
-
-    if (!this.splitRight && sign > 0) {
-      // right split has not been added yet
-      this.splitRight = true;
-      return button;
-    }
   }
 
   /**
-   * Choose whether to render page or split button.
-   * @param {number} page Page number
-   * @returns {HTMLButtonElement}
+   * Render chunked page buttons.
+   * @returns {HTMLDivElement}
    */
-  renderButton(page) {
-    const distanceFromCurrentPage = Math.abs(page - this.currentPage);
-
-    if (
-      !this.split ||
-      // current, first and last pages always visible
-      this.split > this.totalPages - 3 ||
-      page === 1 ||
-      page === this.totalPages ||
-      distanceFromCurrentPage <= this.split ||
-      // show the page if split would hide only one page
-      (page === 2 && this.currentPage - this.split - 1 === page) ||
-      (page === this.totalPages - 1 && this.currentPage + this.split + 1 === page)
-    ) {
-      return this.renderPage(page);
+  renderPages() {
+    const pagesChunks = this.getPagesChunks();
+    if (pagesChunks.length <= 0) {
+      return;
     }
 
-    return this.renderSplitButton(page);
+    return pagesChunks.map((chunk) => (
+      <div class="pages-chunk">
+        {chunk.map((page) => this.renderPage(page))}
+      </div>
+    ));
+  }
+
+  /**
+   * Render page buttons when split feature is enabled.
+   * @returns {HTMLButtonElement[]}
+   */
+  renderSplitPages() {
+    // left and right split pages, current page, first and last page, left and right ellipsis button
+    if (this.totalPages <= this.split * 2 + 5) {
+      // Too few pages: ellipsis will never be rendered, so let's just render all pages and that's it.
+      return Array.from(
+        { length: this.totalPages },
+        (_, i) => this.renderPage(i + 1),
+      );
+    }
+
+    if (this.currentPage <= this.split * 2 + 2) {
+      // Render first (2 * split + 3) pages, ellipsis, then last page.
+      return [
+        ...Array.from(
+          { length: this.split * 2 + 3 },
+          (_, i) => this.renderPage(i + 1),
+        ),
+        this.renderEllipsisButton(this.split * 2 + 4),
+        this.renderPage(this.totalPages),
+      ];
+    }
+
+    if (this.currentPage > this.split * 2 + 2 && this.currentPage < this.totalPages - this.split * 2 - 1) {
+      // Render first page, ellipsis, current page surrounded by (split) pages both before and after, another ellipsis, then last page.
+      return [
+        this.renderPage(1),
+        this.renderEllipsisButton(this.currentPage - this.split - 1),
+        ...Array.from(
+          { length: this.split * 2 + 1 },
+          (_, i) => this.renderPage(this.currentPage - this.split + i),
+        ),
+        this.renderEllipsisButton(this.currentPage + this.split + 1),
+        this.renderPage(this.totalPages),
+      ];
+    }
+
+    // Render first page, ellipsis, then last (2 * split + 3) pages.
+    return [
+      this.renderPage(1),
+      this.renderEllipsisButton(this.totalPages - this.split * 2 - 3),
+      ...Array.from(
+        { length: this.split * 2 + 3 },
+        (_, i) => this.renderPage(this.totalPages - this.split * 2 - 2 + i),
+      ),
+    ];
   }
 
   renderBackButton() {
@@ -381,10 +401,6 @@ export class ZPagination {
       return this.renderMobile();
     }
 
-    const pagesChunks = this.getPagesChunks();
-    this.splitRight = false;
-    this.splitLeft = false;
-
     return [
       <div class="pagination-bar">
         {this.edges && (
@@ -414,12 +430,12 @@ export class ZPagination {
         {this.navArrows && this.renderBackButton()}
 
         <div class="pages-container" role="navigation" tabIndex={-1}>
-          {pagesChunks.length > 0 &&
-            pagesChunks.map((chunk) => (
-              <div class="pages-chunk">
-                {chunk.map((page) => this.renderButton(page))}
-              </div>
-            ))}
+          {this.split ?
+            <div class="pages-chunk">
+              {this.renderSplitPages()}
+            </div> :
+            this.renderPages()
+          }
         </div>
 
         {this.navArrows && this.renderForwardButton()}
