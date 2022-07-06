@@ -300,7 +300,9 @@ export class ZInput {
 
     return (
       <z-input-message
-        message={boolean(this.message) === true ? undefined : `${this.message}`}
+        message={
+          boolean(this.message) === true ? undefined : (this.message as string)
+        }
         status={this.status}
       />
     );
