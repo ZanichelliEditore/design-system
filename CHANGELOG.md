@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/ZanichelliEditore/design-system/compare/v3.1.0...v3.1.1) (2022-07-06)
+
+
+### Bug Fixes
+
+* fixed pointer-event also for custom element ([1cc955a](https://github.com/ZanichelliEditore/design-system/commit/1cc955a8e0389fdb06481a3fe359d226afc70fa9))
+* tests ([9954625](https://github.com/ZanichelliEditore/design-system/commit/9954625be6f612d631c474ae7caef78511225991))
+
 ## [3.1.0](https://github.com/ZanichelliEditore/design-system/compare/v3.0.0...v3.1.0) (2022-07-05)
 
 
