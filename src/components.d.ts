@@ -1257,6 +1257,10 @@ export namespace Components {
          */
         "goToPage": boolean;
         /**
+          * Pagination label placed before the bar.
+         */
+        "label"?: string;
+        /**
           * Enable navigation arrows.
          */
         "navArrows": boolean;
@@ -3954,6 +3958,10 @@ declare namespace LocalJSX {
           * Whether to show "go to page" feature.
          */
         "goToPage"?: boolean;
+        /**
+          * Pagination label placed before the bar.
+         */
+        "label"?: string;
         /**
           * Enable navigation arrows.
          */

@@ -12,6 +12,7 @@
 | `currentPage`             | `current-page`  | Current page.                                                                             | `number`  | `1`         |
 | `edges`                   | `edges`         | Enable buttons to go to the first and last pages.                                         | `boolean` | `false`     |
 | `goToPage`                | `go-to-page`    | Whether to show "go to page" feature.                                                     | `boolean` | `undefined` |
+| `label`                   | `label`         | Pagination label placed before the bar.                                                   | `string`  | `undefined` |
 | `navArrows`               | `nav-arrows`    | Enable navigation arrows.                                                                 | `boolean` | `true`      |
 | `skip`                    | `skip`          | Number of pages to skip.                                                                  | `number`  | `0`         |
 | `split`                   | `split`         | Number of pages to show left/right of the current, before showing "load more" symbol (…). | `number`  | `undefined` |
