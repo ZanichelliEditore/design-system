@@ -21,6 +21,10 @@ export class ZPagination {
   @Element()
   host: HTMLElement;
 
+  /** Pagination label placed before the bar. */
+  @Prop()
+  label?:string;
+
   /** Enable navigation arrows. */
   @Prop()
   navArrows = true;
@@ -232,7 +236,7 @@ export class ZPagination {
   renderEllipsisButton(page) {
     return (
       <button
-        class="split-button"
+        class="ellipsis-button"
         type="button"
         title={`Vai alla pagina ${page}`}
         onClick={() => this.selectPage(page)}
@@ -342,6 +346,8 @@ export class ZPagination {
     const pagesChunks = this.getPagesChunks();
 
     return [
+      this.label && <span class="page-label body-1-sb">{this.label}</span>,
+
       <div class="pagination-bar">
         {this.renderBackButton()}
 
@@ -397,6 +403,8 @@ export class ZPagination {
 
     return [
       <div class="pagination-bar">
+        {this.label && <span class="page-label body-1-sb">{this.label}</span>}
+
         {this.edges && (
           <button
             class="pagination-button"

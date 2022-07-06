@@ -3,6 +3,7 @@ import { html } from "lit-html";
 import "./index";
 
 <Meta title="ZPagination" component="z-pagination" argTypes={{
+  label: { control: { type: "text" } },
   navArrows: { control: { type: "boolean" } },
   totalPages: { control: { type: "number", min: 1 } },
   visiblePages: { control: { type: "number", min: 1 }, if: { arg: "split", truthy: false } },
@@ -18,6 +19,7 @@ import "./index";
   <Story
     name="ZPagination - visible pages"
     args={{
+      label: '',
       navArrows: true,
       totalPages: 201,
       visiblePages: 5,
@@ -34,6 +36,7 @@ import "./index";
   >
     {(args) => html`
       <z-pagination
+        .label=${args.label}
         .navArrows=${args.navArrows}
         .totalPages=${args.totalPages}
         .visiblePages=${args.visiblePages}
@@ -53,6 +56,7 @@ import "./index";
   <Story
     name="ZPagination - split"
     args={{
+      label: '',
       navArrows: true,
       totalPages: 201,
       split: 1,
@@ -67,6 +71,7 @@ import "./index";
   >
     {(args) => html`
       <z-pagination
+        .label=${args.label}
         .navArrows=${args.navArrows}
         .totalPages=${args.totalPages}
         .split=${args.split}
@@ -83,6 +88,7 @@ import "./index";
   <Story
     name="ZPagination - edges"
     args={{
+      label: '',
       navArrows: true,
       totalPages: 201,
       visiblePages: 5,
@@ -99,6 +105,7 @@ import "./index";
   >
     {(args) => html`
       <z-pagination
+        .label=${args.label}
         .navArrows=${args.navArrows}
         .totalPages=${args.totalPages}
         .visiblePages=${args.visiblePages}
@@ -116,6 +123,7 @@ import "./index";
   <Story
     name="ZPagination - skip"
     args={{
+      label: '',
       navArrows: true,
       totalPages: 201,
       visiblePages: 5,
@@ -127,6 +135,7 @@ import "./index";
   >
     {(args) => html`
       <z-pagination
+        .label=${args.label}
         .navArrows=${args.navArrows}
         .totalPages=${args.totalPages}
         .visiblePages=${args.visiblePages}

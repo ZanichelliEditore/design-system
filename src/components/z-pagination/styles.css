@@ -16,6 +16,10 @@ z-pagination * {
   box-sizing: border-box;
 }
 
+z-pagination button {
+  height: 100%;
+}
+
 z-pagination z-icon {
   fill: var(--color-icon01);
 }
@@ -24,8 +28,14 @@ z-pagination *:disabled z-icon {
   fill: var(--color-disabled02);
 }
 
+z-pagination .page-label {
+  margin-right: calc(var(--space-unit) * 3);
+  color: var(--color-text02);
+}
+
 z-pagination .pagination-bar {
   display: flex;
+  align-items: center;
   height: 48px;
   max-width: 100%;
 }
@@ -74,7 +84,7 @@ z-pagination .pagination-bar .navigation-button:disabled {
 }
 
 z-pagination .pagination-bar .page-button,
-z-pagination .pagination-bar .split-button {
+z-pagination .pagination-bar .ellipsis-button {
   width: var(--z-pagination--page-button-width);
 }
 
@@ -82,6 +92,7 @@ z-pagination .pages-container {
   position: relative;
   display: inline-flex;
   max-width: 100%;
+  height: 100%;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-align: center;
@@ -146,6 +157,7 @@ z-pagination .mobile-go-to-page {
   justify-content: center;
   align-items: center;
   flex: 1 auto;
+  height: 100%;
   background-color: var(--color-surface03);
 }
 
