@@ -20,16 +20,26 @@ describe("ZPagination test suite", () => {
     expect(zPagination.currentPage).toBe(5);
   });
 
-  it("should correctly extract pages chunks", () => {
+  it("should correctly extract page chunks", () => {
     const zPagination = new ZPagination();
     zPagination.totalPages = 10;
     zPagination.visiblePages = 4;
     zPagination.setVisiblePages();
 
     expect(zPagination.getPagesChunks().length).toBe(3);
+  });
 
-    // when split is active, there will be a single chunk
+  it("should render the correct number of page when split enabled", () => {
+    const zPagination = new ZPagination();
+    zPagination.totalPages = 15;
+    zPagination.split = 4;
+    let pages = zPagination.renderSplitPages();
+
+    expect(pages.length).toBe(zPagination.split * 2 + 5);
+
+    zPagination.currentPage = 7;
     zPagination.split = 2;
-    expect(zPagination.getPagesChunks().length).toBe(1);
+    pages = zPagination.renderSplitPages();
+    expect(pages.length).toBe(zPagination.split * 2 + 5);
   });
 });

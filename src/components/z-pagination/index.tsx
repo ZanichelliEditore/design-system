@@ -75,7 +75,7 @@ export class ZPagination {
    */
   @Watch("_visiblePages")
   setPagesContainerWidth() {
-    if (!this._visiblePages) {
+    if (!this._visiblePages || this.split) {
       this.host.style.setProperty(
         "--z-pagination--pages-container-max-width",
         "100%"
@@ -101,14 +101,10 @@ export class ZPagination {
    */
   @Watch("visiblePages")
   setVisiblePages() {
-    if (!this.split) {
-      this._visiblePages = Math.min(
-        this.visiblePages || this.totalPages,
-        this.totalPages
-      );
-    } else {
-      this._visiblePages = null;
-    }
+    this._visiblePages = Math.min(
+      this.visiblePages || this.totalPages,
+      this.totalPages
+    );
   }
 
   /**
@@ -123,12 +119,11 @@ export class ZPagination {
 
   /**
    * On split changed.
-   * Empty `_visiblePages` and `edges` value. The split feature wins over the pages chunks and edges.
+   * Empty `edges` value. The split feature wins over the pages chunks and edges.
    */
   @Watch("split")
   onSplitChanged() {
     if (this.split) {
-      this._visiblePages = null;
       this.edges = false;
     }
   }
@@ -388,7 +383,6 @@ export class ZPagination {
 
   componentDidRender() {
     if (this.split) {
-      this._visiblePages = null;
       this.edges = false;
     }
 
@@ -431,9 +425,7 @@ export class ZPagination {
 
         <div class="pages-container" role="navigation" tabIndex={-1}>
           {this.split ?
-            <div class="pages-chunk">
-              {this.renderSplitPages()}
-            </div> :
+            this.renderSplitPages() :
             this.renderPages()
           }
         </div>

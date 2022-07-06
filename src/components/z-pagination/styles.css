@@ -5,6 +5,8 @@ z-pagination {
   display: flex;
   flex-direction: column;
   gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
+  max-width: 100%;
+  flex-wrap: wrap;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
@@ -82,6 +84,7 @@ z-pagination .pages-container {
   max-width: 100%;
   overflow-x: auto;
   scroll-behavior: smooth;
+  scroll-snap-align: center;
 
   /* hide scrollbar in Firefox */
   scrollbar-width: none;
