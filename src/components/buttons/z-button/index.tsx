@@ -57,6 +57,10 @@ export class ZButton {
     }
   }
 
+  componentWillRender(){
+    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
+  }
+
   render() {
     if (this.href)
       return (
