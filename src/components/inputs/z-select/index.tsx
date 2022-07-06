@@ -155,7 +155,7 @@ export class ZSelect {
           const end = start + searchString.length;
           const newName =
             item.name.substring(0, start) +
-            item.name.substring(start, end).bold() +
+            `<b>${item.name.substring(start, end)}</b>` +
             item.name.substring(end, item.name.length);
           item.name = newName;
           return item;
@@ -374,7 +374,7 @@ export class ZSelect {
           onClickItem={() => this.selectItem(item, true)}
           onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
         >
-          <span innerHTML={item.selected ? item.name.bold() : item.name} />
+          <span class={{ selected: !!item.selected }} innerHTML={item.name} />
         </z-list-element>
       );
     });

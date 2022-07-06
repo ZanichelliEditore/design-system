@@ -80,6 +80,10 @@
   padding: 0 calc(var(--space-unit) * 1.5);
 }
 
+.selectWrapper .ulScrollWrapper z-list z-list-element span.selected {
+  font-weight: bold;
+}
+
 .selectWrapper .ulScrollWrapper .noResults z-icon {
   margin-right: var(--space-unit);
 }

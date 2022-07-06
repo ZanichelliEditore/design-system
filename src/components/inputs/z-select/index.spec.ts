@@ -148,7 +148,7 @@ describe("Suite test ZSelect", () => {
                     class=""
                     id="checkid_1"
                   >
-                    <span><b>primo elemento</b></span>
+                    <span class="selected">primo elemento</span>
                   </z-list-element>
                 </z-list>
               </div>
