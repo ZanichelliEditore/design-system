@@ -88,6 +88,9 @@ const ZButton = class {
       this.hostElement.classList.add("with-text");
     }
   }
+  componentWillRender() {
+    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
+  }
   render() {
     if (this.href)
       return (index.h("a", Object.assign({ href: this.href, target: this.target }, this.getAttributes()), this.icon && index.h("z-icon", { name: this.icon, width: 16, height: 16 }), index.h("slot", null)));

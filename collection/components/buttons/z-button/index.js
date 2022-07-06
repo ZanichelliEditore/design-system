@@ -27,6 +27,9 @@ export class ZButton {
       this.hostElement.classList.add("with-text");
     }
   }
+  componentWillRender() {
+    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
+  }
   render() {
     if (this.href)
       return (h("a", Object.assign({ href: this.href, target: this.target }, this.getAttributes()),

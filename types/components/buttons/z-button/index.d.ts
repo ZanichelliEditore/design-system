@@ -30,5 +30,6 @@ export declare class ZButton {
     "aria-label": string;
   };
   componentDidLoad(): void;
+  componentWillRender(): void;
   render(): any;
 }
