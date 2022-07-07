@@ -469,3 +469,12 @@ export enum StatusTagStatus {
   neutral = "neutral",
   default = "default",
 }
+
+export type InfoRevealPositionBean = keyof typeof InfoRevealPosition;
+
+export enum InfoRevealPosition {
+  TOP_RIGHT = "top_right",
+  TOP_LEFT = "top_left",
+  BOTTOM_RIGHT = "bottom_right",
+  BOTTOM_LEFT = "bottom_left",
+}

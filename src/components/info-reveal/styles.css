@@ -1,0 +1,9 @@
+z-info-reveal {
+  display: flex;
+}
+
+z-info-reveal span.text-04 {
+  min-width: 10rem;
+  min-height: 4rem;
+  background-color: red;
+}

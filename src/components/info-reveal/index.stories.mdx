@@ -1,0 +1,30 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import { InfoRevealPosition } from "../../beans";
+import { html } from "lit-html";
+import "./index";
+
+<Meta title="ZInfoReveal" component="z-info-reveal" argTypes={{
+  icon: { control: { type: "string" } },
+  label: { control: { type: "text" } },
+}} />
+
+# ZInfoReveal
+
+<Canvas>
+  <Story
+    name="ZInfoReveal"
+    args={{
+      label: '',
+      statements: ['Questo è un testo di prova', 'e questo il secondo che apparirà', 'e questo il terzo.']
+    }}
+  >
+    {(args) => html`
+      <z-info-reveal
+        .label=${args.label}
+        .statements=${args.statements}
+      ></z-info-reveal>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-info-reveal" />
