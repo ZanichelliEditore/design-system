@@ -70,6 +70,10 @@ export class ZPagination {
   @State()
   isMobile = false;
 
+  /** Value of the go to page input */
+  @State()
+  goToPageValue = null;
+
   /** Event emitted when the current page has changed. */
   @Event()
   pageChanged: EventEmitter;
@@ -196,15 +200,6 @@ export class ZPagination {
    */
   selectPage(page) {
     this.currentPage = Math.min(Math.max(page, 1), this.totalPages);
-  }
-
-  /**
-   * Event handler for go to page button click.
-   */
-  onGoToPage() {
-    const target = this.host.querySelector(".go-to-page-input") as HTMLZInputElement;
-    const newPage = Number(target.value);
-    this.selectPage(newPage);
   }
 
   /**
@@ -365,12 +360,16 @@ export class ZPagination {
         {this.goToPage && (
           <form
             class="mobile-go-to-page"
-            onSubmit={(ev) => {ev.preventDefault(); this.onGoToPage()}}
+            onSubmit={(ev) => {
+              ev.preventDefault();
+              this.selectPage(this.goToPageValue);
+            }}
           >
             <z-input
               class="go-to-page-input"
               type="number"
               hasmessage={false}
+              onInput={(ev) => { this.goToPageValue = (ev.target as HTMLZInputElement).value }}
               placeholder={this.currentPage.toString()}
               hasclearicon={false}
             ></z-input>
@@ -475,11 +474,13 @@ export class ZPagination {
               hasmessage={false}
               placeholder="2"
               hasclearicon={false}
-              onKeyDown={(ev) => ev.key === "Enter" && this.onGoToPage()}
+              onInput={(ev) => { this.goToPageValue = (ev.target as HTMLZInputElement).value }}
+              onKeyDown={(ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue)}
             ></z-input>
             <z-button
+              disabled={!this.goToPageValue}
               title="Vai alla pagina inserita"
-              onClick={() => this.onGoToPage()}
+              onClick={() => this.selectPage(this.goToPageValue)}
             >
               vai
             </z-button>
