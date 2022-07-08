@@ -4,6 +4,10 @@ export declare class ZDatePicker {
   element: HTMLElement;
   /** unique id */
   datepickerid: string;
+  /** z-input aria label */
+  ariaLabel?: string;
+  /** z-input label */
+  label?: string;
   /** [Optional] datepicker mode: date, datetime, only months */
   mode: ZDatePickerMode;
   flatpickrPosition: ZDatePickerPosition;

@@ -3092,7 +3092,7 @@ const ZDatePicker = class {
     return (index.h("div", null, index.h("input", { class: "hidden-input", "data-input": true }), index.h("slot", { name: "toggle" })));
   }
   renderZInput() {
-    return (index.h("z-input", { class: index$2.classnames(this.datepickerid), type: "text", icon: "event", hasmessage: false, tabindex: "0" }));
+    return (index.h("z-input", { ariaLabel: this.ariaLabel, label: this.label, class: index$2.classnames(this.datepickerid), type: "text", icon: "event", hasmessage: false, tabindex: "0" }));
   }
   render() {
     return (index.h("div", { class: index$2.classnames("flatpickr-toggle-container", this.hasChildren && this.datepickerid, this.flatpickrPosition, this.mode) }, this.hasChildren ? this.renderSlottedContent() : this.renderZInput()));

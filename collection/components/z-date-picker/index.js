@@ -166,7 +166,7 @@ export class ZDatePicker {
       h("slot", { name: "toggle" })));
   }
   renderZInput() {
-    return (h("z-input", { class: classNames(this.datepickerid), type: "text", icon: "event", hasmessage: false, tabindex: "0" }));
+    return (h("z-input", { ariaLabel: this.ariaLabel, label: this.label, class: classNames(this.datepickerid), type: "text", icon: "event", hasmessage: false, tabindex: "0" }));
   }
   render() {
     return (h("div", { class: classNames("flatpickr-toggle-container", this.hasChildren && this.datepickerid, this.flatpickrPosition, this.mode) }, this.hasChildren ? this.renderSlottedContent() : this.renderZInput()));
@@ -194,6 +194,40 @@ export class ZDatePicker {
         "text": "unique id"
       },
       "attribute": "datepickerid",
+      "reflect": false
+    },
+    "ariaLabel": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "z-input aria label"
+      },
+      "attribute": "aria-label",
+      "reflect": false
+    },
+    "label": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "z-input label"
+      },
+      "attribute": "label",
       "reflect": false
     },
     "mode": {
