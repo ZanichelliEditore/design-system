@@ -21,16 +21,17 @@
         "jsx-a11y"
     ],
     "rules": {
+      "no-duplicate-imports": "error",
+      "constructor-super": "off",
+      "no-fallthrough": "warn",
+      "no-self-compare": "error",
+      "no-unmodified-loop-condition": "error",
       "@typescript-eslint/no-unused-vars":[
         "warn",
         {"varsIgnorePattern": "h"}
       ],
-      "@typescript-eslint/no-inferrable-types": [
-        "warn"
-      ],
-      "@typescript-eslint/ban-ts-comment": [
-        "warn"
-      ],
+      "@typescript-eslint/no-inferrable-types": "warn",
+      "@typescript-eslint/ban-ts-comment": "warn",
       "@stencil/class-pattern": [
         "error",
         {"pattern": "^Z[A-Z].*$"}
@@ -39,8 +40,6 @@
         "error",
         ["z"]
       ],
-      "@stencil/required-jsdoc": [
-        "error"
-      ]
+      "@stencil/required-jsdoc": "error"
     }
 }
