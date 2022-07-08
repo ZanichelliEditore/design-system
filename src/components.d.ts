@@ -377,9 +377,17 @@ export namespace Components {
     }
     interface ZDatePicker {
         /**
+          * z-input aria label
+         */
+        "ariaLabel"?: string;
+        /**
           * unique id
          */
         "datepickerid": string;
+        /**
+          * z-input label
+         */
+        "label"?: string;
         /**
           * [Optional] datepicker mode: date, datetime, only months
          */
@@ -2952,9 +2960,17 @@ declare namespace LocalJSX {
     }
     interface ZDatePicker {
         /**
+          * z-input aria label
+         */
+        "ariaLabel"?: string;
+        /**
           * unique id
          */
         "datepickerid"?: string;
+        /**
+          * z-input label
+         */
+        "label"?: string;
         /**
           * [Optional] datepicker mode: date, datetime, only months
          */

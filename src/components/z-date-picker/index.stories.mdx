@@ -17,6 +17,12 @@ import "./styles.css";
     datepickerid: {
       control: "text",
     },
+    ariaLabel: {
+      control: "text",
+    },
+    label: {
+      control: "text",
+    },
   }}
 />
 
@@ -28,6 +34,8 @@ import "./styles.css";
     args={{
       mode: "date",
       datepickerid: "picker-01",
+      label: "ZDatePicker with date",
+      ariaLabel: "date-picker",
     }}
     height="180px"
   >
@@ -37,6 +45,8 @@ import "./styles.css";
           mode=${args.mode}
           datepickerid=${args.datepickerid}
           id=${args.datepickerid}
+          ariaLabel=${args.ariaLabel}
+          label=${args.label}
         ></z-date-picker>
       </div>
       <script>
@@ -55,6 +65,8 @@ import "./styles.css";
     args={{
       mode: "date-time",
       datepickerid: "picker-02",
+      label: "ZDatePicker with date and time",
+      ariaLabel: "date-picker",
     }}
   >
     {(args) => html`
@@ -63,6 +75,8 @@ import "./styles.css";
           mode=${args.mode}
           datepickerid=${args.datepickerid}
           id=${args.datepickerid}
+          ariaLabel=${args.ariaLabel}
+          label=${args.label}
         ></z-date-picker>
       </div>
       <script>
@@ -81,6 +95,8 @@ import "./styles.css";
     args={{
       mode: "months",
       datepickerid: "picker-03",
+      label: "ZDatePicker with only months",
+      ariaLabel: "date-picker",
     }}
   >
     {(args) => html`
@@ -89,6 +105,8 @@ import "./styles.css";
           mode=${args.mode}
           datepickerid=${args.datepickerid}
           id=${args.datepickerid}
+          ariaLabel=${args.ariaLabel}
+          label=${args.label}
         ></z-date-picker>
       </div>
       <script>
@@ -107,6 +125,8 @@ import "./styles.css";
     args={{
       mode: "date",
       datepickerid: "picker-04",
+      label: "date picker",
+      ariaLabel: "date-picker",
     }}
   >
     {(args) => html`
@@ -115,6 +135,8 @@ import "./styles.css";
           mode=${args.mode}
           datepickerid=${args.datepickerid}
           id=${args.datepickerid}
+          ariaLabel=${args.ariaLabel}
+          label=${args.label}
           ><z-button-deprecated slot="toggle"
             >Open ZDatePicker</z-button-deprecated
           ></z-date-picker
