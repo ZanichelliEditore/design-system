@@ -1,5 +1,7 @@
 # z-pagination-page
 
+# This component is deprecated and will be removed from the library starting 01 October 2022.
+
 <!-- readme-group="pagination" -->
 ```html
 <z-pagination-page pageId='10' value='10'></z-pagination-page>

@@ -34,14 +34,12 @@
 | ----------- | ------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
 | `ariaLabel` | `aria-label` | defines a string value that labels an interactive element, used for accessibility. | `string`                                                                                                                        | `undefined`                 |
 | `disabled`  | `disabled`   | HTML button disabled attribute.                                                    | `boolean`                                                                                                                       | `false`                     |
-| `href`      | `href`       | HTML a href attribute. If it is set, it renders an HTML a tag.                     | `string`                                                                                                                        | `""`                        |
+| `href`      | `href`       | HTML a href attribute. If it is set, it renders an HTML a tag.                     | `string`                                                                                                                        | `undefined`                 |
 | `htmlid`    | `htmlid`     | Identifier, should be unique.                                                      | `string`                                                                                                                        | `undefined`                 |
 | `icon`      | `icon`       | `z-icon` name to use (optional).                                                   | `string`                                                                                                                        | `undefined`                 |
 | `name`      | `name`       | HTML button name attribute.                                                        | `string`                                                                                                                        | `undefined`                 |
 | `size`      | `size`       | Available sizes: `big`, `small` and `x-small`. Defaults to `big`.                  | `ButtonSizeEnum.big \| ButtonSizeEnum.small \| typeof ButtonSizeEnum["x-small"]`                                                | `ButtonSizeEnum.big`        |
-| `square`    | `square`     | Spy to render square button.                                                       | `boolean`                                                                                                                       | `false`                     |
-| `target`    | `target`     | HTML a target attribute.                                                           | `string`                                                                                                                        | `"_blank"`                  |
-| `text`      | `text`       | set label text                                                                     | `string`                                                                                                                        | `""`                        |
+| `target`    | `target`     | HTML a target attribute.                                                           | `string`                                                                                                                        | `undefined`                 |
 | `type`      | `type`       | HTML button type attribute.                                                        | `string`                                                                                                                        | `ButtonTypeEnum.button`     |
 | `variant`   | `variant`    | Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.      | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary \| typeof ButtonVariantEnum["dark-bg"]` | `ButtonVariantEnum.primary` |
 
@@ -55,6 +53,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-pagination](../../z-pagination)
+
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
@@ -63,6 +65,7 @@
 ```mermaid
 graph TD;
   z-button --> z-icon
+  z-pagination --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
