@@ -58,7 +58,8 @@
  - [z-navigation-tab-link](../../navigation/tabs/z-navigation-tab-link)
  - [z-navigation-tabs](../../navigation/tabs/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
- - [z-pagination-bar](../../pagination/z-pagination-bar)
+ - [z-pagination](../../z-pagination)
+ - [z-pagination-bar](../../../deprecated/pagination/z-pagination-bar)
  - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
@@ -106,6 +107,7 @@ graph TD;
   z-navigation-tab-link --> z-icon
   z-navigation-tabs --> z-icon
   z-notification --> z-icon
+  z-pagination --> z-icon
   z-pagination-bar --> z-icon
   z-pocket-message --> z-icon
   z-select --> z-icon

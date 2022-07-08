@@ -53,6 +53,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-pagination](../../z-pagination)
+
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
@@ -61,6 +65,7 @@
 ```mermaid
 graph TD;
   z-button --> z-icon
+  z-pagination --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
