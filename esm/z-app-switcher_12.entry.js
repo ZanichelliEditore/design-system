@@ -2,7 +2,7 @@ import { r as registerInstance, c as createEvent, h, H as Host, g as getElement 
 import { T as ThemeVariant, a as DividerOrientation, B as ButtonTypeEnum, b as ButtonVariantEnum, c as ButtonSizeEnum, C as CardVariants, d as DividerSize, O as OffCanvasVariantsEnum, e as TransitionDirectionEnum } from './index-7424c64c.js';
 import { m as mobileBreakpoint } from './breakpoints-c386984e.js';
 import { c as classnames } from './index-abb47b30.js';
-import { i as icons } from './icons-d8a127bf.js';
+import { i as icons } from './icons-92a7dcde.js';
 import './_commonjsHelpers-9943807e.js';
 
 const stylesCss$b = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
