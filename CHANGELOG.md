@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/ZanichelliEditore/design-system/compare/v3.1.1...v3.2.0) (2022-07-08)
+
+
+### Features
+
+* add control for edges in pagination ([7d71695](https://github.com/ZanichelliEditore/design-system/commit/7d71695197ff4ca86e453a7a71e82dfa6cfc223d))
+* add label prop; fix some class name ([332831d](https://github.com/ZanichelliEditore/design-system/commit/332831d645b61311f914c0dce966d9cb8b7cee6f))
+* added control for skip pages in pagination ([2d2bc5f](https://github.com/ZanichelliEditore/design-system/commit/2d2bc5f3e5fd73bc862c6a475ff36fa63fbdf888))
+* added go to page prop and split prop ([8d80d97](https://github.com/ZanichelliEditore/design-system/commit/8d80d97d0434bcec3723ffaf1b7a8250ed6cd2dd))
+* alternative template for mobile ([e291264](https://github.com/ZanichelliEditore/design-system/commit/e2912643786f5c8c771789abbe49a03a2615a0e6))
+
+
+### Bug Fixes
+
+* added aria-current=page and handled invalid split value ([274ba11](https://github.com/ZanichelliEditore/design-system/commit/274ba111856d22af9cf0e2404d143f960ccbf566))
+* change to go page button disabled behaviour ([d891026](https://github.com/ZanichelliEditore/design-system/commit/d8910266465512a1e603d81c1041db11d07de0a3))
+* go to page not working on zbutton click ([daa2354](https://github.com/ZanichelliEditore/design-system/commit/daa2354b5c2a99056b4f9c39fcc3aae1c3171b04))
+* go to page on mobile ([90504f6](https://github.com/ZanichelliEditore/design-system/commit/90504f6eb470022b9efb88539b4452855f99d36b))
+* handle incorrect go to page number ([8d32880](https://github.com/ZanichelliEditore/design-system/commit/8d32880deb5622edcc518dfd9ebaf731bdcdc2db))
+* placeholder is current page on gotopage inputs ([b636702](https://github.com/ZanichelliEditore/design-system/commit/b636702c2f21d0f3275787b7e7db0afc0ab210f3))
+* prevent lose container ref on rerender ([ace2f39](https://github.com/ZanichelliEditore/design-system/commit/ace2f395605a60ecbaff7aad27342f288dfce4c9))
+* stories parameters ([376db00](https://github.com/ZanichelliEditore/design-system/commit/376db00de1f3f8fb9d0a3407c255b772831cd09a))
+* visible pages + split ([5502e87](https://github.com/ZanichelliEditore/design-system/commit/5502e87cd3c4706b980829a0df6639bd9e778d2b))
+
 ### [3.1.1](https://github.com/ZanichelliEditore/design-system/compare/v3.1.0...v3.1.1) (2022-07-06)
 
 
