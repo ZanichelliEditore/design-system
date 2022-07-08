@@ -1,9 +1,34 @@
 z-info-reveal {
   display: flex;
+  --color-primary01: #ffffff;
+  --color-background: #000000;
 }
 
-z-info-reveal span.text-04 {
+z-info-reveal .statement {
   min-width: 10rem;
   min-height: 4rem;
-  background-color: red;
+  color: var(--color-primary01);
+  background-color: var(--color-background);
+  padding: calc(var(--space-unit) / 2);
 }
+
+z-info-reveal button {
+  width: calc(var(--space-unit) * 4);
+  height: calc(var(--space-unit) * 4);
+  padding: calc(var(--space-unit) / 2);
+  box-shadow: var(--shadow-2);
+  background-color: var(--color-background);
+  cursor: pointer;
+  border: none;
+}
+
+z-info-reveal .z-info-reveal-label {
+  display: flex;
+  align-items: baseline;
+  padding: calc(var(--space-unit) / 2);
+  color: var(--color-primary01);
+  background-color: var(--color-background);
+}
+
+/* z-info-reveal[position=""]
+TODO */

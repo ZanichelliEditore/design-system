@@ -25,16 +25,16 @@ export class ZInfoReveal {
   @Element() el: HTMLElement;
 
   /** Name of the icon for the open button */
-  @Prop({ reflect: true }) icon?= 'informationsource';
+  @Prop() icon?= 'informationsource';
 
   /** Position of the panel. */
   @Prop({ reflect: true }) position?= InfoRevealPosition.TOP_RIGHT;
 
   /** Statements that appears when clicking on the reveal panel. */
-  @Prop({ reflect: true }) statements: Array<String>;
+  @Prop() statements: Array<String>;
 
   /** Text might appears on closed panel aside the open button. */
-  @Prop({ reflect: true }) label?: string;
+  @Prop() label?: string;
 
   /** Whether the info panel is open. */
   @State()
@@ -60,20 +60,24 @@ export class ZInfoReveal {
   render() {
     return [
       !this.open && [
-        <z-button icon={this.icon} onClick={(ev) => {
+        this.label && <span class="z-info-reveal-label">{this.label}</span>,
+        <button onClick={(ev) => {
           ev.stopPropagation();
           ev.preventDefault();
           this.open = true;
-        }}></z-button>,
-        this.label && <span class="z-info-reveal-label">{this.label}</span>
+        }}>
+          <z-icon fill="color-primary01" name={this.icon}></z-icon>
+        </button>,
       ],
       this.open && [
-        <z-button icon="close" onClick={(ev) => {
+        <button onClick={(ev) => {
           ev.stopPropagation();
           ev.preventDefault();
           this.open = false;
-        }}></z-button>,
-        <span class="text-04">
+        }}>
+          <z-icon fill="color-primary01" name="close"></z-icon>
+        </button>,
+        <span class="statement text-04">
           {this.statements[this.currentIndex]}
         </span>,
       ]
