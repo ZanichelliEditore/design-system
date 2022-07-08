@@ -30,6 +30,11 @@ export class ZDatePicker {
 
   /** unique id */
   @Prop() datepickerid: string;
+
+  /** z-input aria label */
+  @Prop() ariaLabel?: string;
+  /** z-input label */
+  @Prop() label?: string;
   /** [Optional] datepicker mode: date, datetime, only months */
   @Prop() mode: ZDatePickerMode = ZDatePickerMode.date;
 
@@ -274,6 +279,8 @@ export class ZDatePicker {
   renderZInput() {
     return (
       <z-input
+        ariaLabel={this.ariaLabel}
+        label={this.label}
         class={classNames(this.datepickerid)}
         type="text"
         icon="event"
