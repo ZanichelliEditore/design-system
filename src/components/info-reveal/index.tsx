@@ -3,22 +3,15 @@ import {
   h,
   Prop,
   State,
-  Event,
-  EventEmitter,
-  Listen,
+  Watch,
   Element,
-  Watch
 } from '@stencil/core';
 import { InfoRevealPosition } from "../../beans";
-
-/**
-  * TPDP
- */
 
 @Component({
   tag: 'z-info-reveal',
   styleUrl: 'styles.css',
-  shadow: false
+  shadow: true
 })
 
 export class ZInfoReveal {
@@ -28,10 +21,7 @@ export class ZInfoReveal {
   @Prop() icon?= 'informationsource';
 
   /** Position of the panel. */
-  @Prop({ reflect: true }) position?= InfoRevealPosition.TOP_RIGHT;
-
-  /** Statements that appears when clicking on the reveal panel. */
-  @Prop() statements: Array<String>;
+  @Prop({ reflect: true }) position?= InfoRevealPosition.BOTTOM_RIGHT;
 
   /** Text might appears on closed panel aside the open button. */
   @Prop() label?: string;
@@ -42,7 +32,18 @@ export class ZInfoReveal {
 
   /** Current index for the statements queue. */
   @State()
-  currentIndex: number = 0
+  currentIndex: number = null;
+
+  @Watch("currentIndex")
+  watchItems() {
+    Array.from(this.el.children).forEach((child, key) => {
+      if (this.currentIndex === key) {
+        child.classList.add('current');
+      } else {
+        child.classList.remove('current');
+      }
+    });
+  }
 
   /**
    * @inheritdoc
@@ -50,7 +51,8 @@ export class ZInfoReveal {
   connectedCallback() {
     this.el.addEventListener('click', () => {
       this.currentIndex = this.currentIndex + 1;
-      if (this.currentIndex === this.statements.length) {
+
+      if (this.currentIndex === this.el.children.length) {
         this.open = false;
         this.currentIndex = 0;
       }
@@ -65,21 +67,23 @@ export class ZInfoReveal {
           ev.stopPropagation();
           ev.preventDefault();
           this.open = true;
+          this.currentIndex = 0;
         }}>
           <z-icon fill="color-primary01" name={this.icon}></z-icon>
-        </button>,
+        </button>
       ],
       this.open && [
-        <button onClick={(ev) => {
-          ev.stopPropagation();
-          ev.preventDefault();
-          this.open = false;
-        }}>
-          <z-icon fill="color-primary01" name="close"></z-icon>
-        </button>,
-        <span class="statement text-04">
-          {this.statements[this.currentIndex]}
-        </span>,
+        <div
+          class="statements text-04">
+          <slot></slot>
+          <button class="close" onClick={(ev) => {
+            ev.stopPropagation();
+            ev.preventDefault();
+            this.open = false;
+          }}>
+            <z-icon fill="color-primary01" name="close"></z-icon>
+          </button>
+        </div>,
       ]
     ];
   }

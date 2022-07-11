@@ -1,10 +1,67 @@
-z-info-reveal {
-  display: flex;
+:host {
   --color-primary01: #ffffff;
   --color-background: #000000;
+  position: relative;
+  display: flex;
+  width: fit-content;
+  background-color: var(--color-background);
+  box-shadow: var(--shadow-2);
 }
 
-z-info-reveal .statement {
+:host .statements,
+:host .z-info-reveal-label,
+:host button.close {
+  position: absolute;
+}
+
+:host([position='top_right']) .z-info-reveal-label,
+:host([position='bottom_right']) .z-info-reveal-label {
+  left: calc(var(--space-unit) * -4);
+}
+
+:host([position='top_right']) .statements,
+:host([position='bottom_right']) .statements {
+  right: calc(var(--space-unit) * -4);
+  padding-right: calc(var(--space-unit) * 4);
+}
+
+:host([position='top_left']) .z-info-reveal-label,
+:host([position='bottom_left']) .z-info-reveal-label {
+  right: calc(var(--space-unit) * -4);
+}
+
+:host([position='top_left']) .statements,
+:host([position='bottom_left']) .statements {
+  left: -calc(var(--space-unit) * -4);
+  padding-left: calc(var(--space-unit) * 4);
+}
+
+:host([position='bottom_left']) .statements,
+:host([position='bottom_right']) .statements {
+  bottom: calc(var(--space-unit) * -4);
+}
+
+:host([position='top_right']) button.close {
+  top: 0;
+  right: 0;
+}
+
+:host([position='top_left']) button.close {
+  top: 0;
+  left: 0;
+}
+
+:host([position='bottom_right']) button.close {
+  bottom: 0;
+  right: 0;
+}
+
+:host([position='bottom_left']) button.close {
+  bottom: 0;
+  left: 0;
+}
+
+:host .statements {
   min-width: 10rem;
   min-height: 4rem;
   color: var(--color-primary01);
@@ -12,23 +69,28 @@ z-info-reveal .statement {
   padding: calc(var(--space-unit) / 2);
 }
 
-z-info-reveal button {
+::slotted(*) {
+  display: none;
+}
+
+::slotted(.current)  {
+  display: block;
+}
+
+:host button {
   width: calc(var(--space-unit) * 4);
   height: calc(var(--space-unit) * 4);
   padding: calc(var(--space-unit) / 2);
-  box-shadow: var(--shadow-2);
-  background-color: var(--color-background);
+  background-color: transparent;
   cursor: pointer;
   border: none;
 }
 
-z-info-reveal .z-info-reveal-label {
+:host .z-info-reveal-label {
   display: flex;
   align-items: baseline;
-  padding: calc(var(--space-unit) / 2);
+  padding: calc(var(--space-unit) / 1.45);
   color: var(--color-primary01);
   background-color: var(--color-background);
+  box-shadow: var(--shadow-2);
 }
-
-/* z-info-reveal[position=""]
-TODO */

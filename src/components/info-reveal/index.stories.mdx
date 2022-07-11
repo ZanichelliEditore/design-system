@@ -3,10 +3,16 @@ import { InfoRevealPosition } from "../../beans";
 import { html } from "lit-html";
 import "./index";
 
-<Meta title="ZInfoReveal" component="z-info-reveal" argTypes={{
-  icon: { control: { type: "string" } },
-  label: { control: { type: "text" } },
-}} />
+<Meta title="ZInfoReveal" component="z-info-reveal"
+  argTypes={{
+    icon: { control: { type: "text" } },
+    label: { control: { type: "text" } },
+    position: {
+      options: Object.values(InfoRevealPosition),
+      control: { type: "inline-radio" }
+    },
+  }}
+/>
 
 # ZInfoReveal
 
@@ -15,14 +21,29 @@ import "./index";
     name="ZInfoReveal"
     args={{
       label: '',
-      statements: ['Questo è un testo di prova', 'e questo il secondo che apparirà', 'e questo il terzo.']
+      icon: 'informationsource',
+      position: InfoRevealPosition.TOP_RIGHT,
     }}
   >
     {(args) => html`
+     <style>
+        z-info-reveal {
+          margin-left: 20vw;
+        }
+      </style>
       <z-info-reveal
+        .position=${args.position}
         .label=${args.label}
-        .statements=${args.statements}
-      ></z-info-reveal>
+        .icon=${args.icon}
+      >
+        <span style="font-style: italic;">Questo testo...</span>
+        <span style="font-style: italic;">..è...</span>
+        <span>
+            <a style="text-decoration: underline; color: inherit;"
+              href="https://letmegooglethat.com/?q=parlare+in+corsivo" target="_blank">
+            in cörsivœ
+        </a></span>
+      </z-info-reveal>
     `}
   </Story>
 </Canvas>
