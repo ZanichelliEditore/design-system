@@ -54,12 +54,10 @@
 
 ### Used by
 
- - [z-cookiebar](../../components/notification/z-cookiebar)
  - [z-file-upload](../../components/file-upload/z-file-upload)
  - [z-footer](../../components/footer/z-footer)
  - [z-modal-login](../../components/modal/z-modal-login)
  - [z-myz-card-dictionary](../../snowflakes/myz/card/z-myz-card-dictionary)
- - [z-myz-topbar](../../snowflakes/myz/topbar)
  - [z-table](../../components/z-table/z-table)
  - [z-table-cell](../../components/z-table/z-table-cell)
  - [z-table-header](../../components/z-table/z-table-header)
@@ -72,12 +70,10 @@
 ```mermaid
 graph TD;
   z-button-deprecated --> z-icon
-  z-cookiebar --> z-button-deprecated
   z-file-upload --> z-button-deprecated
   z-footer --> z-button-deprecated
   z-modal-login --> z-button-deprecated
   z-myz-card-dictionary --> z-button-deprecated
-  z-myz-topbar --> z-button-deprecated
   z-table --> z-button-deprecated
   z-table-cell --> z-button-deprecated
   z-table-header --> z-button-deprecated

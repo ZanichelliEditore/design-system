@@ -55,6 +55,8 @@
 
 ### Used by
 
+ - [z-cookiebar](../../notification/z-cookiebar)
+ - [z-myz-topbar](../../../snowflakes/myz/topbar)
  - [z-pagination](../../z-pagination)
 
 ### Depends on
@@ -65,6 +67,8 @@
 ```mermaid
 graph TD;
   z-button --> z-icon
+  z-cookiebar --> z-button
+  z-myz-topbar --> z-button
   z-pagination --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
