@@ -34,7 +34,6 @@ export class ZDragdropArea {
         ref={(val) => (this.dragDropContainer = val)}
         class="dragdrop"
         onDragOver={(e) => {
-          console.log(e)
           e.preventDefault();
           this.dragDropContainer.classList.add("dragover");
         }}
