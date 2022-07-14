@@ -106,7 +106,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * HTML a href attribute. If it is set, it renders an HTML a tag.
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
          */
         "href"?: string;
         /**
@@ -2661,7 +2661,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * HTML a href attribute. If it is set, it renders an HTML a tag.
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
          */
         "href"?: string;
         /**
