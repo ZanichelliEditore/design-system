@@ -3,21 +3,20 @@
   --z-icon-width: 16px;
   --z-icon-height: 16px;
   --z-icon-right-margin: 0;
-  --rgb-white: 240, 240, 240;
 }
 
-button:disabled,
-a:disabled {
+:host([disabled]:not([disabled="false"])) {
   pointer-events: none;
 }
 
-button,
-a {
+:host .container {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--dashboard-font);
+  width: 100%;
+  padding: 0;
+  font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
   font-size: 14px;
   line-height: 1;
@@ -28,124 +27,121 @@ a {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  width: 100%;
   white-space: nowrap;
   outline: none;
   fill: currentColor;
 }
 
-:host.with-text z-icon {
-  --z-icon-right-margin: var(--space-unit);
-}
-
-:host.with-text button,
-:host.with-text a {
+:host .container.has-text {
   min-width: calc(var(--space-unit) * 8);
   padding: 0 calc(var(--space-unit) * 2);
 }
 
-.big {
+:host .container.has-text z-icon {
+  --z-icon-right-margin: var(--space-unit);
+}
+
+:host .big {
   height: 44px;
   min-width: 44px;
 }
 
-.small {
+:host .small {
   height: 36px;
   min-width: 36px;
 }
 
-.x-small {
+:host .x-small {
   height: 32px;
   min-width: 32px;
 }
 
-.primary {
+:host .primary {
   background-color: var(--color-primary01);
   border-color: var(--color-primary01);
   color: var(--color-text-inverse);
 }
 
 @media (hover: hover) {
-  .primary:hover {
+  :host .primary:hover {
     background-color: var(--color-hover-primary);
     border-color: var(--color-hover-primary);
     color: var(--color-text-inverse);
   }
 }
 
-button:focus:focus-visible,
-a:focus:focus-visible {
+:host .container:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
 }
 
-.primary:active {
+:host .primary:active {
   background-color: var(--color-pressed-primary);
   border-color: var(--color-pressed-primary);
   color: var(--color-text-inverse);
   box-shadow: var(--shadow-2);
 }
 
-.primary:disabled {
+:host([disabled]:not([disabled="false"])) .primary {
   background-color: var(--color-disabled01);
   border-color: var(--color-disabled01);
   color: var(--color-disabled02);
 }
 
-.secondary {
+:host .secondary {
   background-color: var(--color-surface01);
   border-color: var(--color-primary01);
   color: var(--color-primary01);
 }
 
 @media (hover: hover) {
-  .secondary:hover {
+  :host .secondary:hover {
     background-color: var(--color-surface01);
     border-color: var(--color-hover-primary);
     color: var(--color-hover-primary);
   }
 }
 
-.secondary:active {
+:host .secondary:active {
   background-color: var(--color-surface01);
   border-color: var(--color-pressed-primary);
   color: var(--color-pressed-primary);
   box-shadow: var(--shadow-2);
 }
 
-.secondary:disabled {
+:host([disabled]:not([disabled="false"])) .secondary {
   background-color: var(--color-surface01);
   border-color: var(--color-disabled01);
   color: var(--color-disabled02);
 }
 
-.tertiary {
+:host .tertiary {
   background-color: transparent;
   border-color: transparent;
   color: var(--color-primary01);
 }
 
 @media (hover: hover) {
-  .tertiary:hover {
+  :host .tertiary:hover {
     background-color: var(--color-primary03);
     border-color: var(--color-primary03);
     color: var(--color-hover-primary);
   }
 }
 
-.tertiary:focus:focus-visible {
+:host .tertiary:focus:focus-visible {
   background-color: var(--color-surface01);
   border-color: var(--color-surface01);
   color: var(--color-primary01);
 }
 
-.tertiary:active {
+:host .tertiary:active {
   background-color: var(--color-surface01);
   border-color: var(--color-surface01);
   color: var(--color-primary01);
   box-shadow: var(--shadow-2);
 }
 
-.tertiary:disabled {
+:host([disabled]:not([disabled="false"])) .tertiary {
   background-color: transparent;
   border-color: transparent;
   color: var(--color-disabled02);
