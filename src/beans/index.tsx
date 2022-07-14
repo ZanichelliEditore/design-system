@@ -439,11 +439,6 @@ export enum ZSectionTitleDividerPositions {
 export type ZSectionTitleDividerPosition =
   keyof typeof ZSectionTitleDividerPositions;
 
-export enum ZDatePickerType {
-  date = "date",
-  range = "range",
-}
-
 export enum ZDatePickerMode {
   date = "date",
   dateTime = "date-time",
@@ -460,7 +455,7 @@ export enum ZDatePickerPosition {
   top = "top",
   bottom = "bottom",
 }
-export enum RangePickerInputSelected {
+export enum RangePickerActiveInput {
   startInput = "start-input",
   endInput = "end-input",
 }

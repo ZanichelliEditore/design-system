@@ -3,29 +3,26 @@ import {
   Prop,
   Element,
   h,
-  Listen,
   EventEmitter,
   Event,
+  Listen,
   State,
 } from "@stencil/core";
 
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
 import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
-import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 import classNames from "classnames";
 
 import {
   ZDatePickerMode,
   ZDatePickerModeValues,
   ZDatePickerPosition,
-  RangePickerInputSelected,
-  ZDatePickerType,
-} from "../../beans";
+} from "../../../beans";
 
 @Component({
   tag: "z-date-picker",
-  styleUrl: "styles.css",
+  styleUrl: "../styles.css",
   shadow: false,
 })
 export class ZDatePicker {
@@ -33,16 +30,15 @@ export class ZDatePicker {
 
   /** unique id */
   @Prop() datepickerid: string;
+
+  /** z-input aria label */
+  @Prop() ariaLabel?: string;
+  /** z-input label */
+  @Prop() label?: string;
   /** [Optional] datepicker mode: date, datetime, only months */
   @Prop() mode: ZDatePickerMode = ZDatePickerMode.date;
 
-  /** [Optional] datepicker type: date or range */
-  @Prop() type: ZDatePickerType = ZDatePickerType.date;
-
   @State() flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
-
-  @State() rangePickerInputSelected: RangePickerInputSelected =
-    RangePickerInputSelected.startInput;
 
   private flatpickrInstance;
   private hasChildren: boolean;
@@ -51,16 +47,6 @@ export class ZDatePicker {
   @Event() dateSelect: EventEmitter;
   emitDateSelect(date) {
     this.dateSelect.emit(date);
-  }
-
-  @Listen("click", { target: "body", capture: true })
-  handleClick() {
-    if (document.activeElement.classList.contains("first-input")) {
-      this.rangePickerInputSelected = RangePickerInputSelected.startInput;
-    }
-    if (document.activeElement.classList.contains("second-input")) {
-      this.rangePickerInputSelected = RangePickerInputSelected.endInput;
-    }
   }
 
   @Listen("keydown", { target: "body", capture: true })
@@ -132,7 +118,6 @@ export class ZDatePicker {
 
   componentDidLoad() {
     this.flatpickrInstance = flatpickr(`.${this.datepickerid}`, {
-      mode: this.type === ZDatePickerType.range ? "range" : "single",
       appendTo: this.element.children[0] as HTMLElement,
       enableTime: this.mode === ZDatePickerMode.dateTime,
       locale: Italian,
@@ -153,26 +138,12 @@ export class ZDatePicker {
         this.setAriaOptions();
       },
       wrap: this.hasChildren,
-      plugins:
-        this.mode === ZDatePickerMode.months &&
-        this.type === ZDatePickerType.range
-          ? [
-              monthSelectPlugin({
-                dateFormat: "m-Y",
-                altFormat: "m-Y",
-              }),
-              rangePlugin({ input: `.${this.datepickerid}-2` }),
-            ]
-          : this.mode === ZDatePickerMode.months
-          ? [
-              monthSelectPlugin({
-                dateFormat: "m-Y",
-                altFormat: "m-Y",
-              }),
-            ]
-          : this.type === ZDatePickerType.range
-          ? [rangePlugin({ input: `.${this.datepickerid}-2` })]
-          : [],
+      plugins: this.mode === ZDatePickerMode.months && [
+        monthSelectPlugin({
+          dateFormat: "m-Y",
+          altFormat: "m-Y",
+        }),
+      ],
     });
 
     this.element.querySelectorAll(".flatpickr-weekday").forEach((element) => {
@@ -308,6 +279,8 @@ export class ZDatePicker {
   renderZInput() {
     return (
       <z-input
+        ariaLabel={this.ariaLabel}
+        label={this.label}
         class={classNames(this.datepickerid)}
         type="text"
         icon="event"
@@ -317,38 +290,17 @@ export class ZDatePicker {
     );
   }
 
-  renderZRangeInput() {
-    return (
-      <div class="range-picker-container">
-        <z-input
-          class={`${this.datepickerid} first-input`}
-          type="text"
-          tabindex="0"
-        />
-        <z-input
-          class={`${this.datepickerid}-2 second-input`}
-          type="text"
-          tabindex="0"
-        />
-      </div>
-    );
-  }
-
   render() {
     return (
       <div
         class={classNames(
           "flatpickr-toggle-container",
           this.hasChildren && this.datepickerid,
-          this.mode,
-          this.rangePickerInputSelected
+          this.flatpickrPosition,
+          this.mode
         )}
       >
-        {this.type === ZDatePickerType.range
-          ? this.renderZRangeInput()
-          : this.hasChildren
-          ? this.renderSlottedContent()
-          : this.renderZInput()}
+        {this.hasChildren ? this.renderSlottedContent() : this.renderZInput()}
       </div>
     );
   }

@@ -11,6 +11,7 @@
 | -------------- | -------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------- |
 | `datepickerid` | `datepickerid` | unique id                                               | `string`                                                                     | `undefined`            |
 | `mode`         | `mode`         | [Optional] datepicker mode: date, datetime, only months | `ZDatePickerMode.date \| ZDatePickerMode.dateTime \| ZDatePickerMode.months` | `ZDatePickerMode.date` |
+| `type`         | `type`         | [Optional] datepicker type: date or range               | `ZDatePickerType.date \| ZDatePickerType.range`                              | `ZDatePickerType.date` |
 
 
 ## Events
@@ -24,12 +25,12 @@
 
 ### Depends on
 
-- [z-input](../inputs/z-input)
+- [z-input](../../inputs/z-input)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-date-picker --> z-input
+  z-range-picker --> z-input
   z-input --> z-input-label
   z-input --> z-icon
   z-input --> z-input-message
@@ -41,7 +42,7 @@ graph TD;
   z-select --> z-icon
   z-select --> z-input-message
   z-button-filter --> z-icon
-  style z-date-picker fill:#f9f,stroke:#333,stroke-width:4px
+  style z-range-picker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
