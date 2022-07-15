@@ -1,0 +1,22 @@
+z-popover .container z-button-deprecated:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+z-popover.dark {
+  --z-popover-theme--surface: var(--color-surface05);
+  --z-popover-theme--text: var(--color-text-inverse);
+}
+
+.popover-container {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+}
+
+.popover-container z-icon {
+  --z-icon-width: 32px;
+  --z-icon-height: 32px;
+}

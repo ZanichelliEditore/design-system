@@ -1,64 +1,36 @@
 import { html } from "lit-html";
-import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import {
-  PopoverPosition,
-  PopoverShadow,
-  PopoverBorderRadius,
-} from "../../beans";
-
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
+import { text, radios, boolean } from "@storybook/addon-knobs";
+import { PopoverPosition } from "../../beans";
+import "./index.stories.css";
 import "./index";
 
-<Meta
-  title="ZPopover"
-  component="z-popover"
-  argTypes={{
-    position: {
-      control: { type: "select" },
-      options: Object.values(PopoverPosition),
-    },
-    "show-arrow": { control: { type: "boolean" } },
-    "background-color": { control: { type: "text" } },
-    "box-shadow": {
-      control: { type: "select" },
-      options: Object.values(PopoverShadow),
-    },
-    "border-radius": {
-      control: { type: "inline-radio" },
-      options: Object.values(PopoverBorderRadius),
-    },
-  }}
-/>
+## Stories
+
+<Meta title="ZPopover" component="z-popover" />
 
 # ZPopover
 
-<Canvas>
-  <Story
-    name="ZPopover-sample"
-    args={{
-      position: "after-down",
-      "show-arrow": false,
-      "background-color": "color-white",
-      "box-shadow": "shadow-1",
-      "border-radius": "small",
-    }}
-  >
-    {(args) => html`<div
-      style="height: 200px; display: flex; align-items: center; justify-content: center"
-    >
-      <z-popover
-        position=${args.position}
-        show-arrow=${args["show-arrow"]}
-        background-color=${args["background-color"]}
-        box-shadow=${args["box-shadow"]}
-        border-radius=${args["border-radius"]}
-      >
-        <z-button-deprecated slot="trigger" icon="gear"
-          >Impostazioni</z-button-deprecated
+<Preview>
+  <Story name="buttons">
+    {(args) => html`
+      <div class="popover-container">
+        <z-popover
+          position="${radios("type", PopoverPosition, "top")}"
+          open="${boolean("open", true)}"
+          show-arrow="${boolean("show-arrow", false)}"
+          bind-to="#icon"
         >
-        <div slot="popover">Contenuto Popover</div>
-      </z-popover>
-    </div>`}
+          <div class="container">
+            <z-button-deprecated>Open</z-button-deprecated>
+            <z-button-deprecated>Save as</z-button-deprecated>
+            <z-button-deprecated>Share</z-button-deprecated>
+          </div>
+        </z-popover>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
+      </div>
+    `}
   </Story>
-</Canvas>
+</Preview>
 
-<ArgsTable of="z-popover" />
+<Props of="z-popover" />

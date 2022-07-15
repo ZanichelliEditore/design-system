@@ -1,27 +1,40 @@
 # z-popover
+Use the `bindTo` property (`bind-to` in HTML) to bind the tooltip to an element, so the tooltip knows where to place itself. Its value can be a CSS selector or an HTMLElement.
 
+You can use the `open` prop to show/hide the tooltip.
 
+Maybe you want to know where the tooltip goes when the `position` is set to `auto`, so the `positionChange` event is fired when it changes its position.
+
+To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
+
+<!-- readme-group="popover" -->
+### Usage
+```html
+<z-popover type="top" bind-to="#popover-btn" open>
+  <span>Tooltip text</span>
+</z-popover>
+<button id="popover-btn">Button</button>
+```
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property          | Attribute          | Description                                   | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Default                       |
-| ----------------- | ------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| `backgroundColor` | `background-color` | [optional] Background color token for popover | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `"color-white"`               |
-| `borderRadius`    | `border-radius`    | [optional] Border radius token for popover    | `PopoverBorderRadius.medium \| PopoverBorderRadius.none \| PopoverBorderRadius.small`                                                                                                                                                                                                                                                                                                                                                                                                                   | `PopoverBorderRadius.small`   |
-| `boxShadow`       | `box-shadow`       | [optional] Box shadow token for popover       | `typeof PopoverShadow["shadow-1"] \| typeof PopoverShadow["shadow-12"] \| typeof PopoverShadow["shadow-16"] \| typeof PopoverShadow["shadow-2"] \| typeof PopoverShadow["shadow-24"] \| typeof PopoverShadow["shadow-3"] \| typeof PopoverShadow["shadow-4"] \| typeof PopoverShadow["shadow-6"] \| typeof PopoverShadow["shadow-8"]`                                                                                                                                                                   | `PopoverShadow["shadow-1"]`   |
-| `padding`         | `padding`          | [optional] Sets padding for Popover container | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `"8px"`                       |
-| `position`        | `position`         | [optional] Popover position                   | `typeof PopoverPosition["above-center"] \| typeof PopoverPosition["above-left"] \| typeof PopoverPosition["above-right"] \| typeof PopoverPosition["after-center"] \| typeof PopoverPosition["after-down"] \| typeof PopoverPosition["after-up"] \| typeof PopoverPosition["before-center"] \| typeof PopoverPosition["before-down"] \| typeof PopoverPosition["before-up"] \| typeof PopoverPosition["below-center"] \| typeof PopoverPosition["below-left"] \| typeof PopoverPosition["below-right"]` | `PopoverPosition["after-up"]` |
-| `showArrow`       | `show-arrow`       | [optional] Show or hide arrow                 | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `false`                       |
+| Property    | Attribute    | Description                                         | Type                                                                                                                                                                                                                                             | Default                |
+| ----------- | ------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
+| `bindTo`    | `bind-to`    | The selector or the element bound with the popover. | `HTMLElement \| string`                                                                                                                                                                                                                          | `undefined`            |
+| `open`      | `open`       | The open state of the popover.                      | `boolean`                                                                                                                                                                                                                                        | `false`                |
+| `position`  | `position`   | Popover position.                                   | `PopoverPosition.AUTO \| PopoverPosition.BOTTOM \| PopoverPosition.BOTTOM_LEFT \| PopoverPosition.BOTTOM_RIGHT \| PopoverPosition.LEFT \| PopoverPosition.RIGHT \| PopoverPosition.TOP \| PopoverPosition.TOP_LEFT \| PopoverPosition.TOP_RIGHT` | `PopoverPosition.AUTO` |
+| `showArrow` | `show-arrow` | Whether to show arrow of popover.                   | `boolean`                                                                                                                                                                                                                                        | `false`                |
 
 
 ## Events
 
-| Event          | Description                                       | Type               |
-| -------------- | ------------------------------------------------- | ------------------ |
-| `triggerClick` | Emitted on popover click, returns isVisible state | `CustomEvent<any>` |
+| Event            | Description                                       | Type               |
+| ---------------- | ------------------------------------------------- | ------------------ |
+| `positionChange` | Position change event.                            | `CustomEvent<any>` |
+| `triggerClick`   | Emitted on popover click, returns isVisible state | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -29,12 +42,16 @@
 ### Used by
 
  - [z-contextual-menu](../z-contextual-menu)
+ - [z-file](../file-upload/z-file)
+ - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
  - [z-table-header](../z-table/z-table-header)
 
 ### Graph
 ```mermaid
 graph TD;
   z-contextual-menu --> z-popover
+  z-file --> z-popover
+  z-myz-card-info --> z-popover
   z-table-header --> z-popover
   style z-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```

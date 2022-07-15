@@ -1,11 +1,11 @@
 :host {
+  position: relative;
   display: table-cell;
   background-color: var(--gray50);
   border-bottom: var(--border-size-medium) solid var(--gray200);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   text-align: start;
-  position: relative;
 }
 
 .container {
@@ -52,6 +52,10 @@ Contextual menu
   top: var(--space-unit);
   right: var(--space-unit);
   display: none;
+}
+
+.popover-container z-popover {
+  position: relative;
 }
 
 .popover-container.visible {

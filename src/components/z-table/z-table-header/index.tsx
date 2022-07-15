@@ -149,8 +149,8 @@ export class ZTableHeader {
             })}
           >
             <z-popover
+              open={true}
               position={PopoverPosition["below-center"]}
-              background-color={"gray200"}
             >
               <z-button-deprecated
                 icon="contextual-menu"

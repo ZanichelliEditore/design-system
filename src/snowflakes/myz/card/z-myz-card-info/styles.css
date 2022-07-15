@@ -105,7 +105,7 @@
   font-weight: 600;
 }
 
-:host > div > div.content-wrapper > z-tooltip {
+:host > div > div.content-wrapper > z-popover {
   position: absolute;
   top: 0px;
   left: calc(var(--space-unit) * 4);

@@ -47,10 +47,7 @@ export class ZContextualMenu {
     return (
       <Host>
         <z-popover
-          background-color="color-background"
-          box-shadow="shadow-2"
           position={this.popoverPosition}
-          padding="0"
         >
           <z-icon
             aria-label="apri-menu-contestuale"
