@@ -212,34 +212,43 @@ export class ZRangePicker {
   }
 
   onDateSelect(selectedDates, instance) {
+    //Ordinamento array prima input: DESC ([5 maggio, 3 maggio])
+    //Ordinamento array seconda input: ASC ([3 maggio, 5 maggio])
+
     const firstInputElement = document.querySelectorAll("z-input")[0];
     const secondInputElement = document.querySelectorAll("z-input")[1];
 
     //If range is already set, clicking another date it will update it
     if (selectedDates.length === 3) {
       this.activeInput === RangePickerActiveInput.startInput
-        ? instance.setDate([selectedDates[1], selectedDates[2]])
+        ? instance.setDate([selectedDates[0], selectedDates[2]])
         : instance.setDate([selectedDates[0], selectedDates[2]]);
     }
 
     //Order the selected dates ASC and update the two flatpickers
     if (instance.selectedDates.length > 1) {
-      let orderedDates = instance.selectedDates.sort((a, b) => a - b);
-      instance.setDate([...orderedDates]);
-
       if (this.activeInput === RangePickerActiveInput.startInput) {
+        //First Flatpickr selection
+        let orderedDates = instance.selectedDates.sort((a, b) => b - a);
+        instance.setDate([...orderedDates]);
         this.flatpickrInstance2.setDate([
-          instance.selectedDates[0],
           instance.selectedDates[1],
+          instance.selectedDates[0],
         ]);
       } else {
+        //Second Flatpickr selection
+        let orderedDates = instance.selectedDates.sort((a, b) => a - b);
+        instance.setDate([...orderedDates]);
         this.flatpickrInstance.setDate([
-          instance.selectedDates[0],
           instance.selectedDates[1],
+          instance.selectedDates[0],
         ]);
+        this.flatpickrInstance.setDate(
+          this.flatpickrInstance.selectedDates.sort((a, b) => b - a)
+        );
       }
     }
-    /* 
+    /*
     this.emitDateSelect([
       instance.formatDate(instance.selectedDates[0], "d-m-Y"),
       instance.formatDate(instance.selectedDates[1], "d-m-Y"),
@@ -247,12 +256,19 @@ export class ZRangePicker {
 
     //If exists, set first date value into first input
     if (this.mode === ZDatePickerMode.date) {
+      let index = instance.selectedDates.length - 1;
+
+      let iminfirstInput =
+        this.activeInput === RangePickerActiveInput.startInput;
+
       instance.selectedDates[0] &&
         firstInputElement.setValue(
           String(
-            `${instance.selectedDates[0].getDate()}-${
-              instance.selectedDates[0].getMonth() + 1
-            }-${instance.selectedDates[0].getFullYear()}`
+            `${instance.selectedDates[iminfirstInput ? index : 0].getDate()}-${
+              instance.selectedDates[iminfirstInput ? index : 0].getMonth() + 1
+            }-${instance.selectedDates[
+              iminfirstInput ? index : 0
+            ].getFullYear()}`
           )
         );
 
@@ -260,9 +276,11 @@ export class ZRangePicker {
       instance.selectedDates[1] &&
         secondInputElement.setValue(
           String(
-            `${instance.selectedDates[1].getDate()}-${
-              instance.selectedDates[1].getMonth() + 1
-            }-${instance.selectedDates[1].getFullYear()}`
+            `${instance.selectedDates[iminfirstInput ? 0 : index].getDate()}-${
+              instance.selectedDates[iminfirstInput ? 0 : index].getMonth() + 1
+            }-${instance.selectedDates[
+              iminfirstInput ? 0 : index
+            ].getFullYear()}`
           )
         );
     }
@@ -479,8 +497,8 @@ export class ZRangePicker {
 
         if (selectedDatesCount === 2) {
           let date = this.parseDate(element.ariaLabel);
-          let firstDate = this.flatpickrInstance.selectedDates[0];
-          let secondDate = this.flatpickrInstance.selectedDates[1];
+          let firstDate = this.flatpickrInstance.selectedDates[1];
+          let secondDate = this.flatpickrInstance.selectedDates[0];
           let alreadyOnRange = element.className.includes("inRange");
           let selected = element.className.includes("selected");
 
