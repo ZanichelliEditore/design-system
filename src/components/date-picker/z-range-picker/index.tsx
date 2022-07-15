@@ -255,12 +255,10 @@ export class ZRangePicker {
     ]); */
 
     //If exists, set first date value into first input
+    let iminfirstInput = this.activeInput === RangePickerActiveInput.startInput;
+    let index = instance.selectedDates.length - 1;
+
     if (this.mode === ZDatePickerMode.date) {
-      let index = instance.selectedDates.length - 1;
-
-      let iminfirstInput =
-        this.activeInput === RangePickerActiveInput.startInput;
-
       instance.selectedDates[0] &&
         firstInputElement.setValue(
           String(
@@ -285,13 +283,19 @@ export class ZRangePicker {
         );
     }
 
-    /*     if (this.mode === ZDatePickerMode.dateTime) {
+    if (this.mode === ZDatePickerMode.dateTime) {
       instance.selectedDates[0] &&
         firstInputElement.setValue(
           String(
-            `${instance.selectedDates[0].getDate()}-${
-              instance.selectedDates[0].getMonth() + 1
-            }-${instance.selectedDates[0].getFullYear()} - ${instance.selectedDates[0].getHours()}:${instance.selectedDates[0].getMinutes()}`
+            `${instance.selectedDates[iminfirstInput ? index : 0].getDate()}-${
+              instance.selectedDates[iminfirstInput ? index : 0].getMonth() + 1
+            }-${instance.selectedDates[
+              iminfirstInput ? index : 0
+            ].getFullYear()} - ${instance.selectedDates[
+              iminfirstInput ? index : 0
+            ].getHours()}:${instance.selectedDates[
+              iminfirstInput ? index : 0
+            ].getMinutes()}`
           )
         );
 
@@ -299,15 +303,19 @@ export class ZRangePicker {
       instance.selectedDates[1] &&
         secondInputElement.setValue(
           String(
-            `${instance.selectedDates[1].getDate()}-${
-              instance.selectedDates[1].getMonth() + 1
-            }-${instance.selectedDates[1].getFullYear()} - ${instance.selectedDates[1].getHours()}:${instance.selectedDates[1].getMinutes()}`
+            `${instance.selectedDates[iminfirstInput ? 0 : index].getDate()}-${
+              instance.selectedDates[iminfirstInput ? 0 : index].getMonth() + 1
+            }-${instance.selectedDates[
+              iminfirstInput ? 0 : index
+            ].getFullYear()} - ${instance.selectedDates[
+              iminfirstInput ? 0 : index
+            ].getHours()}:${instance.selectedDates[
+              iminfirstInput ? 0 : index
+            ].getMinutes()}`
           )
         );
-    } */
+    }
   }
-
-  updateMinutes(selectedDates, instance) {}
 
   setAriaOptions() {
     let calendar = this.element.getElementsByClassName("flatpickr-calendar");
@@ -578,7 +586,7 @@ export class ZRangePicker {
               if (text === "") {
                 this.flatpickrInstance.setDate([
                   null,
-                  this.flatpickrInstance.selectedDates[1],
+                  this.flatpickrInstance.selectedDates[0],
                 ]);
                 this.flatpickrInstance2.setDate([
                   null,
@@ -588,8 +596,8 @@ export class ZRangePicker {
                 //If the value inserted is a correct date, update the first input value
                 if (!Number.isNaN(isDate)) {
                   this.flatpickrInstance.setDate([
+                    this.flatpickrInstance.selectedDates[0],
                     text,
-                    this.flatpickrInstance.selectedDates[1],
                   ]);
                   this.flatpickrInstance2.setDate([
                     text,
@@ -617,10 +625,16 @@ export class ZRangePicker {
               let englishParsedData = `${englishData[1]}-${englishData[0]}-${englishData[2]}`;
               let isDate = Date.parse(englishParsedData);
 
+              //PRIMO TEXT: 3 maggio
+              //SECON TEXT: 8 maggio
+
+              //PRIMO: [5 maggio, 3 maggio]
+              //SECON: [3 maggio, 5 maggio]
+
               //Remove second value from either the flatpickers if input is cleared
               if (text === "") {
                 this.flatpickrInstance.setDate([
-                  this.flatpickrInstance.selectedDates[0],
+                  this.flatpickrInstance.selectedDates[1],
                 ]);
                 this.flatpickrInstance2.setDate([
                   this.flatpickrInstance2.selectedDates[0],
@@ -629,8 +643,8 @@ export class ZRangePicker {
                 //If the value inserted is a correct date, update the second input value
                 if (!Number.isNaN(isDate)) {
                   this.flatpickrInstance.setDate([
-                    this.flatpickrInstance.selectedDates[0],
                     text,
+                    this.flatpickrInstance.selectedDates[1],
                   ]);
                   this.flatpickrInstance2.setDate([
                     this.flatpickrInstance2.selectedDates[0],
