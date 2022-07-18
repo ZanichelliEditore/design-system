@@ -7,11 +7,25 @@
   box-shadow: var(--shadow-focus-primary);
 }
 
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+z-popover {
+  --z-popover-shadow: var(--shadow-2);
+  padding: 0;
+}
+
 .popover-content-container {
+  position: relative;
   min-width: 112px;
   max-width: 280px;
   white-space: nowrap;
   padding: calc(var(--space-unit) / 2) 0;
+  background-color: var(--gray50);
 }
 
 .element-container:hover {

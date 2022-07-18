@@ -55,6 +55,10 @@ Contextual menu
 }
 
 .popover-container z-popover {
+  --z-popover-theme--surface: var(--gray200);
+}
+
+.popover-container z-popover {
   position: relative;
 }
 

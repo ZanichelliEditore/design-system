@@ -23,6 +23,8 @@ export class ZFile {
 
   private ellipsis?: HTMLSpanElement;
 
+  private chip?: HTMLZChipElement;
+
   @Prop() fileNumber: number;
 
   @State() allowPopover: boolean = false;
@@ -55,6 +57,7 @@ export class ZFile {
 
   componentDidLoad() {
     if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) {
+      this.allowPopover = true;
     }
 
     this.icon?.focus?.();
@@ -71,7 +74,7 @@ export class ZFile {
           <z-popover
             open={this.popoverVisible}
             position={PopoverPosition.AUTO}
-            bindTo={`#chip-${this.fileNumber}`}
+            bindTo={this.chip}
           >
             <span class="body-5 tooltip-content">
               {this.ellipsis.innerText}
@@ -79,6 +82,7 @@ export class ZFile {
           </z-popover>
         )}
         <z-chip
+          ref={(el) => (this.chip = el as HTMLZChipElement)}
           id={`chip-${this.fileNumber}`}
           interactiveIcon="multiply-circled"
           type={ZChipType.default}

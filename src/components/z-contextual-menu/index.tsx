@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
+import { Component, Event, State, EventEmitter, Host, Prop, h } from "@stencil/core";
 import { PopoverPosition } from "../../beans";
 
 @Component({
@@ -20,7 +20,12 @@ export class ZContextualMenu {
   /**
    * [optional] Sets the position of the popover
    */
-  @Prop() popoverPosition?: PopoverPosition = PopoverPosition["after-down"];
+  @Prop() popoverPosition?: PopoverPosition = PopoverPosition.BOTTOM_RIGHT;
+
+  @State()
+  private popoverOpen: boolean = false;
+
+  private triggerButton?: HTMLButtonElement;
 
   /** remove filter click event, returns filterid */
   @Event({
@@ -43,20 +48,30 @@ export class ZContextualMenu {
     return !this.jsonElements.some((element) => !element.icon);
   }
 
+  togglePopover() {
+    this.popoverOpen = !this.popoverOpen
+  }
+
   render() {
     return (
       <Host>
-        <z-popover
-          position={this.popoverPosition}
+        <button
+          ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
+          aria-label="apri menu contestuale"
+          onClick={() => this.togglePopover()}
         >
           <z-icon
-            aria-label="apri-menu-contestuale"
-            slot="trigger"
             name="contextual-menu"
             fill={this.color}
-            style={{ cursor: "pointer" }}
           />
-          <div class="popover-content-container" slot="popover">
+        </button>
+
+        <z-popover
+          open={this.popoverOpen}
+          position={this.popoverPosition}
+          bindTo={this.triggerButton as HTMLElement}
+        >
+          <div class="popover-content-container">
             <z-list>
               <z-list-group divider-type="element">
                 {this.jsonElements?.map((element, index) => (

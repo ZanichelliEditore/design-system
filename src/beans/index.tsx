@@ -178,6 +178,10 @@ export enum PopoverPosition {
   TOP_LEFT = "top_left",
   BOTTOM_RIGHT = "bottom_right",
   BOTTOM_LEFT = "bottom_left",
+  RIGHT_TOP = "right_top",
+  RIGHT_BOTTOM = "right_bottom",
+  LEFT_TOP = "left_top",
+  LEFT_BOTTOM = "left_bottom",
 }
 
 export enum keybordKeyCodeEnum {
