@@ -1,7 +1,5 @@
 # z-toggle-switch
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -12,7 +10,7 @@
 | `checked`       | `checked`        |             | `boolean`           | `false`                            |
 | `disabled`      | `disabled`       |             | `boolean`           | `false`                            |
 | `htmlid`        | `htmlid`         |             | `string`            | ``toggle-switch-id-${randomId()}`` |
-| `labelPosition` | `label-position` |             | `"left" \| "right"` | `LabelPositionEnum.left`           |
+| `labelPosition` | `label-position` |             | `"left" \| "right"` | `LabelPositions.left`              |
 
 
 ## Events

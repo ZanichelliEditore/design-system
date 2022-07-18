@@ -12,11 +12,11 @@
 
 .textWrapper > div > input.hasIcon,
 .textWrapper > div > input.hasClearIcon {
-  padding-right: calc(var(--space-unit) * 4);
+  padding-right: calc(var(--space-unit) * 5.25);
 }
 
 .textWrapper > div > input.hasIcon.hasClearIcon {
-  padding-right: calc(var(--space-unit) * 7);
+  padding-right: calc(var(--space-unit) * 8);
 }
 
 .textWrapper > div {
@@ -26,25 +26,37 @@
 
 .textWrapper .iconsWrapper {
   position: absolute;
-  bottom: calc(var(--space-unit) * 1.5);
   right: calc(var(--space-unit) * 1.5);
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   z-index: 2;
   pointer-events: none;
 }
 
-.textWrapper .iconsWrapper > z-icon {
+.textWrapper .iconsWrapper > button.iconButton {
+  background: none;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  pointer-events: initial;
+}
+
+.textWrapper .iconsWrapper > button.iconButton + button.iconButton {
+  margin-left: calc(var(--space-unit) * 0.5);
+}
+
+.textWrapper .iconsWrapper > button.iconButton.resetIcon,
+.textWrapper .iconsWrapper > button.iconButton.showHidePasswordIcon {
+  cursor: pointer;
+}
+
+.textWrapper .iconsWrapper > button.iconButton > z-icon {
   --z-icon-width: 18px;
   --z-icon-height: 18px;
 
   display: block;
-  margin-left: calc(var(--space-unit) * 0.5);
-}
-
-.textWrapper .iconsWrapper > z-icon.resetIcon,
-.textWrapper .iconsWrapper > z-icon.showHidePasswordIcon {
-  pointer-events: initial;
-  cursor: pointer;
 }
 
 /* Disable background color webkit */

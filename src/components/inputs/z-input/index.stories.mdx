@@ -1,10 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Canvas, Story, Preview, Props } from "@storybook/addon-docs";
-import {
-  InputTypeEnum,
-  InputStatusEnum,
-  LabelPositionEnum,
-} from "../../../beans";
+import { InputTypeEnum, InputStatusEnum, LabelPositions } from "../../../beans";
 import "./index";
 
 ## Stories
@@ -14,29 +10,9 @@ import "./index";
   component="z-input"
   argTypes={{
     type: {
-      control: { type: "select" },
+      control: { type: "inline-radio" },
       options: Object.values(InputTypeEnum),
       defaultValue: "text",
-    },
-    typeText: {
-      control: { type: "select" },
-      options: ["text", "password", "number", "email"],
-      defaultValue: "text",
-    },
-    typeTextarea: {
-      control: { type: "select" },
-      options: ["textarea"],
-      defaultValue: "textarea",
-    },
-    typeCheckbox: {
-      control: { type: "select" },
-      options: ["checkbox"],
-      defaultValue: "checkbox",
-    },
-    typeRadio: {
-      control: { type: "select" },
-      options: ["radio"],
-      defaultValue: "radio",
     },
     label: {
       control: { type: "text" },
@@ -47,9 +23,9 @@ import "./index";
       defaultValue: "",
     },
     labelPosition: {
-      control: { type: "radio" },
-      options: Object.values(LabelPositionEnum),
-      defaultValue: LabelPositionEnum.right,
+      control: { type: "inline-radio" },
+      options: Object.values(LabelPositions),
+      defaultValue: LabelPositions.right,
     },
     placeholder: {
       control: { type: "text" },
@@ -64,9 +40,9 @@ import "./index";
       defaultValue: "",
     },
     status: {
-      control: { type: "select" },
-      options: ["-", ...Object.values(InputStatusEnum)],
-      defaultValue: "-",
+      control: { type: "inline-radio" },
+      options: ["default", ...Object.values(InputStatusEnum)],
+      defaultValue: "default",
     },
     message: {
       control: { type: "text" },
@@ -98,7 +74,7 @@ import "./index";
     },
     htmlid: {
       control: { type: "text" },
-      defaultValue: "",
+      defaultValue: "input-id",
     },
     htmltitle: {
       control: { type: "text" },
@@ -114,14 +90,7 @@ import "./index";
 # ZInput
 
 <Canvas>
-  <Story
-    name="z-input - all props"
-    parameters={{
-      controls: {
-        exclude: ["typeText", "typeTextarea", "typeCheckbox", "typeRadio"],
-      },
-    }}
-  >
+  <Story name="z-input - all props">
     {(args) =>
       html`
         <z-input
@@ -152,7 +121,7 @@ import "./index";
     parameters={{
       controls: {
         include: [
-          "typeText",
+          "type",
           "label",
           "ariaLabel",
           "placeholder",
@@ -171,11 +140,16 @@ import "./index";
         ],
       },
     }}
+    argTypes={{
+      type: {
+        options: ["text", "password", "number", "email"],
+      },
+    }}
   >
     {(args) =>
       html`
         <z-input
-          type=${args.typeText}
+          type=${args.type}
           label=${args.label}
           aria-label=${args.ariaLabel}
           placeholder=${args.placeholder}
@@ -200,7 +174,7 @@ import "./index";
     parameters={{
       controls: {
         include: [
-          "typeTextarea",
+          "type",
           "label",
           "ariaLabel",
           "placeholder",
@@ -216,11 +190,17 @@ import "./index";
         ],
       },
     }}
+    argTypes={{
+      type: {
+        options: ["textarea"],
+        defaultValue: "textarea",
+      },
+    }}
   >
     {(args) =>
       html`
         <z-input
-          type=${args.typeTextarea}
+          type=${args.type}
           label=${args.label}
           aria-label=${args.ariaLabel}
           placeholder=${args.placeholder}
@@ -242,7 +222,7 @@ import "./index";
     parameters={{
       controls: {
         include: [
-          "typeCheckbox",
+          "type",
           "label",
           "ariaLabel",
           "labelPosition",
@@ -256,11 +236,17 @@ import "./index";
         ],
       },
     }}
+    argTypes={{
+      type: {
+        options: ["checkbox"],
+        defaultValue: "checkbox",
+      },
+    }}
   >
     {(args) =>
       html`
         <z-input
-          type="${args.typeCheckbox}"
+          type="${args.type}"
           label=${args.label}
           aria-label=${args.ariaLabel}
           label-position=${args.labelPosition}
@@ -280,7 +266,7 @@ import "./index";
     parameters={{
       controls: {
         include: [
-          "typeRadio",
+          "type",
           "label",
           "ariaLabel",
           "labelPosition",
@@ -295,11 +281,17 @@ import "./index";
         ],
       },
     }}
+    argTypes={{
+      type: {
+        options: ["radio"],
+        defaultValue: "radio",
+      },
+    }}
   >
     {(args) =>
       html`
         <z-input
-          type=${args.typeRadio}
+          type=${args.type}
           label=${args.label}
           aria-label=${args.ariaLabel}
           label-position=${args.labelPosition}

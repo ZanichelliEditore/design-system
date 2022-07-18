@@ -13,10 +13,10 @@ import {
   InputTypeBean,
   InputTypeEnum,
   InputStatusBean,
-  LabelPositionType,
-  LabelPositionEnum,
+  LabelPosition,
+  LabelPositions,
 } from "../../../beans";
-import { boolean, handleKeyboardSubmit, randomId } from "../../../utils/utils";
+import { boolean, randomId } from "../../../utils/utils";
 
 @Component({
   tag: "z-input",
@@ -40,7 +40,7 @@ export class ZInput {
   /** the input value */
   @Prop({ mutable: true }) value?: string;
   /** the input is disabled */
-  @Prop() disabled?: boolean = false;
+  @Prop({ reflect: true }) disabled?: boolean = false;
   /** the input is readonly */
   @Prop() readonly?: boolean = false;
   /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
@@ -56,8 +56,8 @@ export class ZInput {
   /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
   @Prop() message?: string | boolean = true;
   /** the input label position: available for checkbox, radio */
-  @Prop() labelPosition?: LabelPositionType = LabelPositionEnum.right;
-  /** the input has autocomplete option (optional): available for input */
+  @Prop() labelPosition?: LabelPosition = LabelPositions.right;
+  /** the input has autocomplete option (optional): available for text, password, number, email */
   @Prop() autocomplete?: string;
   /** render clear icon when typing (optional): available for text */
   @Prop() hasclearicon?: boolean = true;
@@ -66,7 +66,6 @@ export class ZInput {
 
   @State() isTyping: boolean = false;
   @State() textareaWrapperHover: string = "";
-  @State() textareaWrapperFocus: string = "";
   @State() passwordHidden: boolean = true;
 
   private timer;
@@ -93,12 +92,6 @@ export class ZInput {
   @Method()
   async getValue(): Promise<string> {
     return this.value;
-  }
-
-  /** set the input value */
-  @Method()
-  async setValue(value: string): Promise<void> {
-    this.value = value;
   }
 
   /** get checked status */
@@ -183,9 +176,10 @@ export class ZInput {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
-      class: [`input_${this.status || "default"}`, this.value && "filled"]
-        .filter(Boolean)
-        .join(" "),
+      class: {
+        [`input_${this.status || "default"}`]: true,
+        filled: !!this.value,
+      },
       autocomplete: this.autocomplete,
       onInput: (e: any) => this.emitInputChange(e.target.value),
     };
@@ -194,10 +188,10 @@ export class ZInput {
   renderInputText(type: InputTypeBean = InputTypeEnum.text) {
     const attr = this.getTextAttributes();
     if (this.icon || type === InputTypeEnum.password) {
-      attr.class += " hasIcon";
+      attr.class = { ...attr.class, hasIcon: true };
     }
     if (this.hasclearicon) {
-      attr.class += " hasClearIcon";
+      attr.class = { ...attr.class, hasClearIcon: true };
     }
 
     return (
@@ -225,7 +219,7 @@ export class ZInput {
 
     return (
       <label
-        class={{ inputLabel: true, disabled: this.disabled }}
+        class="inputLabel body-5-sb"
         id={`${this.htmlid}_label`}
         htmlFor={this.htmlid}
         aria-label={this.label}
@@ -237,12 +231,7 @@ export class ZInput {
 
   renderIcons() {
     return (
-      <span
-        class={{
-          iconsWrapper: true,
-          disabled: this.disabled,
-        }}
-      >
+      <span class="iconsWrapper">
         {this.renderResetIcon()}
         {this.renderIcon()}
       </span>
@@ -256,7 +245,11 @@ export class ZInput {
 
     if (!this.icon) return;
 
-    return <z-icon class="inputIcon" name={this.icon} />;
+    return (
+      <button class="iconButton inputIcon" tabIndex={-1}>
+        <z-icon name={this.icon} />
+      </button>
+    );
   }
 
   renderResetIcon() {
@@ -264,34 +257,30 @@ export class ZInput {
       return;
 
     return (
-      <z-icon
-        class="resetIcon"
-        name="multiply"
-        onClick={() => this.emitInputChange("")}
-        onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(e, this.emitInputChange.bind(this), "")
-        }
-        role="button"
-        tabIndex={0}
+      <button
+        class="iconButton resetIcon"
         aria-label="cancella il contenuto dell'input"
-      />
+        onClick={() => this.emitInputChange("")}
+      >
+        <z-icon name="multiply" />
+      </button>
     );
   }
 
   renderShowHidePassword() {
-    const togglePassword = () => (this.passwordHidden = !this.passwordHidden);
     return (
-      <z-icon
-        class="showHidePasswordIcon"
-        name={this.passwordHidden ? "view-filled" : "view-off-filled"}
-        onClick={() => togglePassword()}
-        onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, togglePassword)}
-        role="button"
-        tabIndex={this.disabled ? -1 : 0}
+      <button
+        class="iconButton showHidePasswordIcon"
+        disabled={this.disabled}
         aria-label={
           this.passwordHidden ? "mostra password" : "nascondi password"
         }
-      />
+        onClick={() => (this.passwordHidden = !this.passwordHidden)}
+      >
+        <z-icon
+          name={this.passwordHidden ? "view-filled" : "view-off-filled"}
+        />
+      </button>
     );
   }
 
@@ -319,21 +308,15 @@ export class ZInput {
       <div class="textWrapper">
         {this.renderLabel()}
         <div
-          class={[
-            "textareaWrapper",
-            attributes.class,
-            attributes.disabled && "disabled",
-            attributes.readonly && "readonly",
-            this.textareaWrapperFocus,
-            this.textareaWrapperHover,
-          ]
-            .filter(Boolean)
-            .join(" ")}
+          class={{
+            ...attributes.class,
+            textareaWrapper: true,
+            readonly: attributes.readonly,
+            [this.textareaWrapperHover]: true,
+          }}
         >
           <textarea
             {...attributes}
-            onFocus={() => (this.textareaWrapperFocus = "focus")}
-            onBlur={() => (this.textareaWrapperFocus = "")}
             onMouseOver={() => (this.textareaWrapperHover = "hover")}
             onMouseOut={() => (this.textareaWrapperHover = "")}
             aria-label={this.ariaLabel || this.label}
@@ -371,8 +354,8 @@ export class ZInput {
           htmlFor={this.htmlid}
           class={{
             checkboxLabel: true,
-            after: this.labelPosition === LabelPositionEnum.right,
-            before: this.labelPosition === LabelPositionEnum.left,
+            after: this.labelPosition === LabelPositions.right,
+            before: this.labelPosition === LabelPositions.left,
           }}
         >
           <z-icon
@@ -406,8 +389,8 @@ export class ZInput {
           htmlFor={this.htmlid}
           class={{
             radioLabel: true,
-            after: this.labelPosition === LabelPositionEnum.right,
-            before: this.labelPosition === LabelPositionEnum.left,
+            after: this.labelPosition === LabelPositions.right,
+            before: this.labelPosition === LabelPositions.left,
           }}
         >
           <z-icon

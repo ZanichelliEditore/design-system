@@ -11,7 +11,7 @@ describe("Suite test ZInput - textarea", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label">
         <div class="textWrapper">
-          <label class="inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+          <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
           <div class="textareaWrapper filled input_default">
             <textarea aria-label="label" class="filled input_default" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
@@ -28,8 +28,8 @@ describe("Suite test ZInput - textarea", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label" disabled readonly>
         <div class="textWrapper">
-          <label class="inputLabel disabled" aria-label="label" htmlfor="test" id="test_label">label</label>
-          <div class="textareaWrapper filled input_default disabled readonly">
+          <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+          <div class="textareaWrapper filled input_default readonly">
             <textarea aria-label="label" disabled readonly class="filled input_default" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
         </div>
@@ -45,7 +45,7 @@ describe("Suite test ZInput - textarea", () => {
     expect(page.root).toEqualHtml(`
       <z-input type="textarea" htmlid="test" placeholder="placeholder" label="label" status="error" message="error message" value="value">
         <div class="textWrapper">
-          <label class="inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+          <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
           <div class="textareaWrapper filled input_error">
             <textarea aria-label="label" class="filled input_error" id="test" placeholder="placeholder" value="value"></textarea>
           </div>

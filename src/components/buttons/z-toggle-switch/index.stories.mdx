@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { Meta, Canvas, Story, Preview, Props } from "@storybook/addon-docs";
-import { LabelPositionEnum } from "../../../beans";
+import { LabelPositions } from "../../../beans";
 import "./index";
 
 <Meta
@@ -8,7 +8,7 @@ import "./index";
   component="z-toggle-switch"
   argTypes={{
     labelPosition: {
-      options: Object.values(LabelPositionEnum),
+      options: Object.values(LabelPositions),
       control: { type: "radio" },
     },
   }}
@@ -20,7 +20,7 @@ import "./index";
   <Story
     name="z-toggle-switch"
     args={{
-      labelPosition: LabelPositionEnum.left,
+      labelPosition: LabelPositions.left,
       disabled: false,
     }}
   >

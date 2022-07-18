@@ -178,7 +178,7 @@ export enum TooltipPosition {
   BOTTOM_LEFT = "bottom_left",
 }
 
-export enum keybordKeyCodeEnum {
+export enum KeyboardKeyCodeEnum {
   TAB = 9,
   SPACE = 32,
   ESC = 27,
@@ -189,7 +189,7 @@ export enum keybordKeyCodeEnum {
   DELETE = 46,
 }
 
-export enum keybordCodeEnum {
+export enum KeyboardCodeEnum {
   TAB = "Tab",
   SPACE = "Space",
   ESC = "Escape",
@@ -308,11 +308,11 @@ export enum ExpandableListButtonAlign {
   left = "left",
 }
 
-export enum LabelPositionEnum {
+export enum LabelPositions {
   right = "right",
   left = "left",
 }
-export type LabelPositionType = keyof typeof LabelPositionEnum;
+export type LabelPosition = keyof typeof LabelPositions;
 
 export enum ListDividerType {
   none = "none",

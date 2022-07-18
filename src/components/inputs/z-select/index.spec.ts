@@ -397,9 +397,9 @@ describe("Suite test ZSelect", () => {
                  <z-list-element clickable="" dividertype="element" id="checkid_0" role="option" tabindex="0">
                    <span>
                      SELECT HERE questa
-                     <b>
+                     <strong>
                        opzione
-                     </b>
+                     </strong>
                      con etichetta lunga lunghissima
                    </span>
                  </z-list-element>

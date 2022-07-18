@@ -31,11 +31,13 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label'>
           <div class="textWrapper">
-            <label class="inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
             <div>
               <input aria-label="label" class="input_default filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="iconsWrapper">
-                <z-icon name="multiply" class="resetIcon" role="button" tabindex="0" aria-label="cancella il contenuto dell'input"></z-icon>
+                <button class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+                  <z-icon name="multiply"></z-icon>
+                </button>
               </span>
             </div>
           </div>
@@ -51,10 +53,10 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled>
           <div class="textWrapper">
-            <label class="inputLabel disabled" aria-label="label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
             <div>
               <input disabled class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
-              <span class="iconsWrapper disabled"></span>
+              <span class="iconsWrapper"></span>
             </div>
           </div>
       </z-input>
@@ -69,7 +71,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' readonly>
           <div class="textWrapper">
-            <label class="inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
             <div>
               <input readonly class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper"></span>
@@ -87,11 +89,13 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' message='helper message'>
           <div class="textWrapper">
-            <label class="inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
             <div>
               <input class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper">
-                <z-icon name="multiply" class="resetIcon" role="button" tabindex="0" aria-label="cancella il contenuto dell'input"></z-icon>
+                <button class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+                  <z-icon name="multiply"></z-icon>
+                </button>
               </span>
             </div>
             <z-input-message message="helper message"></z-input-message>
@@ -108,11 +112,13 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' status='success' message='success message'>
           <div class="textWrapper">
-            <label class="inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
             <div>
               <input class="filled input_success hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper">
-                <z-icon name="multiply" class="resetIcon" role="button" tabindex="0" aria-label="cancella il contenuto dell'input"></z-icon>
+                <button class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+                  <z-icon name="multiply"></z-icon>
+                </button>
               </span>
             </div>
             <z-input-message message="success message" status="success"></z-input-message>
@@ -144,7 +150,9 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default hasClearIcon hasIcon" type="password" />
               <span class="iconsWrapper">
-                <z-icon name="view-filled" class="showHidePasswordIcon" role="button" tabindex="0" aria-label="mostra password"></z-icon>
+                <button class="iconButton showHidePasswordIcon" aria-label="mostra password">
+                  <z-icon name="view-filled"></z-icon>
+                </button>
               </span>
             </div>
           </div>
@@ -165,7 +173,9 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default hasClearIcon hasIcon" type="text" />
               <span class="iconsWrapper">
-                <z-icon name="view-off-filled" class="showHidePasswordIcon" role="button" tabindex="0" aria-label="nascondi password"></z-icon>
+                <button class="iconButton showHidePasswordIcon" aria-label="nascondi password">
+                  <z-icon name="view-off-filled"></z-icon>
+                </button>
               </span>
             </div>
           </div>
@@ -186,7 +196,9 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default filled hasClearIcon" type="text" value="value" />
               <span class="iconsWrapper">
-                <z-icon name="multiply" class="resetIcon" role="button" tabindex="0" aria-label="cancella il contenuto dell'input"></z-icon>
+                <button class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+                  <z-icon name="multiply"></z-icon>
+                </button>
               </span>
             </div>
             <z-input-message></z-input-message>
@@ -228,7 +240,9 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default hasIcon hasClearIcon" type="text" />
               <span class="iconsWrapper">
-                <z-icon name="pdf" class="inputIcon"></z-icon>
+                <button class="iconButton inputIcon" tabindex="-1">
+                  <z-icon name="pdf"></z-icon>
+                </button>
               </span>
             </div>
             <z-input-message></z-input-message>

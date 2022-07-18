@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPositionType, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -537,7 +537,7 @@ export namespace Components {
          */
         "ariaLabel"?: string;
         /**
-          * the input has autocomplete option (optional): available for input
+          * the input has autocomplete option (optional): available for text, password, number, email
          */
         "autocomplete"?: string;
         /**
@@ -579,7 +579,7 @@ export namespace Components {
         /**
           * the input label position: available for checkbox, radio
          */
-        "labelPosition"?: LabelPositionType;
+        "labelPosition"?: LabelPosition;
         /**
           * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
          */
@@ -600,10 +600,6 @@ export namespace Components {
           * the input is required (optional): available for text, password, number, email, textarea, checkbox
          */
         "required"?: boolean;
-        /**
-          * set the input value
-         */
-        "setValue": (value: string) => Promise<void>;
         /**
           * the input status (optional): available for text, password, number, email, textarea
          */
@@ -1858,7 +1854,7 @@ export namespace Components {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid": string;
-        "labelPosition"?: LabelPositionType;
+        "labelPosition"?: LabelPosition;
     }
     interface ZTooltip {
         /**
@@ -3233,7 +3229,7 @@ declare namespace LocalJSX {
          */
         "ariaLabel"?: string;
         /**
-          * the input has autocomplete option (optional): available for input
+          * the input has autocomplete option (optional): available for text, password, number, email
          */
         "autocomplete"?: string;
         /**
@@ -3267,7 +3263,7 @@ declare namespace LocalJSX {
         /**
           * the input label position: available for checkbox, radio
          */
-        "labelPosition"?: LabelPositionType;
+        "labelPosition"?: LabelPosition;
         /**
           * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
          */
@@ -4694,7 +4690,7 @@ declare namespace LocalJSX {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid"?: string;
-        "labelPosition"?: LabelPositionType;
+        "labelPosition"?: LabelPosition;
         "onToggleClick"?: (event: CustomEvent<any>) => void;
     }
     interface ZTooltip {

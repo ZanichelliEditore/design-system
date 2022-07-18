@@ -13,7 +13,7 @@ import {
   InputStatusBean,
   SelectItemBean,
   ListDividerType,
-  keybordCodeEnum,
+  KeyboardCodeEnum,
 } from "../../../beans";
 import {
   randomId,
@@ -155,7 +155,7 @@ export class ZSelect {
           const end = start + searchString.length;
           const newName =
             item.name.substring(0, start) +
-            `<b>${item.name.substring(start, end)}</b>` +
+            `<strong>${item.name.substring(start, end)}</strong>` +
             item.name.substring(end, item.name.length);
           item.name = newName;
           return item;
@@ -192,8 +192,8 @@ export class ZSelect {
   }
 
   arrowsSelectNav(e: KeyboardEvent, key: number) {
-    const arrows = [keybordCodeEnum.ARROW_DOWN, keybordCodeEnum.ARROW_UP];
-    if (!arrows.includes(e.key as keybordCodeEnum)) return;
+    const arrows = [KeyboardCodeEnum.ARROW_DOWN, KeyboardCodeEnum.ARROW_UP];
+    if (!arrows.includes(e.key as KeyboardCodeEnum)) return;
 
     e.preventDefault();
     e.stopPropagation();
@@ -201,9 +201,9 @@ export class ZSelect {
     if (!this.isOpen) this.toggleSelectUl();
 
     let index: number;
-    if (e.key === keybordCodeEnum.ARROW_DOWN) {
+    if (e.key === KeyboardCodeEnum.ARROW_DOWN) {
       index = key + 1 === this.itemsList.length ? 0 : key + 1;
-    } else if (e.key === keybordCodeEnum.ARROW_UP) {
+    } else if (e.key === KeyboardCodeEnum.ARROW_UP) {
       index = key <= 0 ? this.itemsList.length - 1 : key - 1;
     }
 
@@ -252,15 +252,15 @@ export class ZSelect {
   }
 
   handleSelectFocus(e: MouseEvent | KeyboardEvent) {
-    if (e instanceof KeyboardEvent && e.key === keybordCodeEnum.ESC) {
+    if (e instanceof KeyboardEvent && e.key === KeyboardCodeEnum.ESC) {
       e.stopPropagation();
       return this.toggleSelectUl(true);
     }
 
     if (
       e instanceof KeyboardEvent &&
-      e.key !== keybordCodeEnum.TAB &&
-      e.key !== keybordCodeEnum.ENTER
+      e.key !== KeyboardCodeEnum.TAB &&
+      e.key !== KeyboardCodeEnum.ENTER
     ) {
       return;
     }
@@ -340,16 +340,13 @@ export class ZSelect {
             id={this.htmlid}
             aria-activedescendant={this.selectedItem?.id}
             aria-multiselectable={false}
-            class={`
-              ${this.disabled ? " disabled" : ""}
-              ${this.readonly ? " readonly" : ""}
-              ${
-                !this.isOpen && this.status
-                  ? " input_" + this.status
-                  : " input_default"
-              }
-              ${this.selectedItem ? " filled" : ""}
-            `}
+            class={{
+              disabled: this.disabled,
+              readonly: this.readonly,
+              filled: !!this.selectedItem,
+              [`input_${this.status}`]: !this.isOpen && !!this.status,
+              input_default: this.isOpen || !this.status,
+            }}
           >
             {this.renderSelectUlItems()}
           </z-list>

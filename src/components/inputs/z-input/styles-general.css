@@ -32,14 +32,12 @@ ul[role="listbox"] {
 
 /* FOCUS */
 input:focus:focus-visible,
-li[role="option"]:focus:focus-visible,
-.focus {
+.textareaWrapper:focus-within {
   box-shadow: var(--shadow-focus-primary);
 }
 
 input:focus:focus-visible,
-li[role="option"]:focus:focus-visible,
-.focus textarea {
+textarea:focus:focus-visible {
   color: var(--color-primary01);
 }
 
@@ -50,7 +48,6 @@ li[role="option"]:focus:focus-visible,
 
 /* STATUSES (success, warning, error) */
 .input_success,
-.input_success:hover,
 .input_success.hover {
   background: var(--color-success-inverse);
   border-color: var(--color-success01);
@@ -58,7 +55,6 @@ li[role="option"]:focus:focus-visible,
 }
 
 .input_error,
-.input_error:hover,
 .input_error.hover {
   background: var(--color-error-inverse);
   border-color: var(--color-error01);
@@ -66,11 +62,16 @@ li[role="option"]:focus:focus-visible,
 }
 
 .input_warning,
-.input_warning:hover,
 .input_warning.hover {
   background: var(--color-warning-inverse);
   border-color: var(--color-warning01);
   fill: var(--color-warning01);
+}
+
+/* HOVER */
+input:hover,
+.hover {
+  border-width: var(--border-size-medium);
 }
 
 /* READONLY */
@@ -82,14 +83,18 @@ input[readonly],
 }
 
 /* DISABLED */
-input:disabled,
-.disabled,
-.filled:disabled {
+:host([disabled]:not([disabled="false"])) input,
+:host([disabled]:not([disabled="false"])) .textareaWrapper,
+:host([disabled]:not([disabled="false"])) z-icon {
   border-color: var(--color-disabled01);
   color: var(--color-disabled02);
   fill: var(--color-disabled01);
   pointer-events: none;
   box-shadow: none;
+}
+
+:host([disabled]:not([disabled="false"])) input:hover {
+  border-width: var(--border-size-small);
 }
 
 /* PLACEHOLDER */
@@ -119,17 +124,13 @@ textarea::placeholder {
 /* LABEL */
 label.inputLabel {
   display: block;
-  margin: var(--space-unit) 0;
+  margin-bottom: var(--space-unit);
   color: var(--color-text02);
   font-family: var(--font-family-sans);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-sb);
-  line-height: 1.33;
-  letter-spacing: 0.32px;
   text-transform: uppercase;
   text-align: left;
 }
 
-label.inputLabel.disabled {
+:host([disabled]:not([disabled="false"])) label.inputLabel {
   color: var(--color-disabled02);
 }
