@@ -1,12 +1,11 @@
 :host {
   --z-popover-theme--surface: var(--color-surface01);
   --z-popover-theme--text: var(--color-text01);
-  --z-popover-shadow: var(--shadow-1);
   --arrow-size: 6px;
   --edge-offset: calc(-1 * (var(--arrow-size) + calc(var(--space-unit) * 2)));
 
   position: relative;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--space-unit);
@@ -18,9 +17,7 @@
   text-align: center;
   border-radius: var(--border-radius-small);
   background: var(--z-popover-theme--surface);
-  box-shadow: var(--z-popover-shadow);
-  will-change: filter;
-  overflow: hidden;
+  filter: drop-shadow(0 1px 2px var(--shadow-color-base));
 }
 
 :host([position])::before {
@@ -33,21 +30,27 @@
   position: absolute;
   width: var(--arrow-size);
   height: var(--arrow-size);
-  background: inherit;
+  background: var(--z-popover-theme--surface);
   transform: rotate(45deg);
 }
 
-:host([open]) {
+:host([show-arrow=false])::before,
+:host(:not([show-arrow]))::before {
+  display: none;
+}
+
+:host(:not([open])),
+:host([open="false"]) {
   display: flex;
 }
 
-:host([center][\:position='top']),
-:host([center][\:position='bottom']) {
+:host([center][position='top']),
+:host([center][position='bottom']) {
   transform: translateX(-50%);
 }
 
-:host([center][\:position='right']),
-:host([center][\:position='left']) {
+:host([center][position='right']),
+:host([center][position='left']) {
   transform: translateY(-50%);
 }
 
@@ -75,18 +78,32 @@
   right: var(--arrow-center-y-offset);
 }
 
-:host([position='top_right'])::before,
-:host([position='bottom_right'])::before {
-  right: var(--arrow-edge-offset);
-}
-
 :host([position='left'])::before {
   left: var(--arrow-center-y-offset);
 }
 
+:host([position='top_right'])::before,
+:host([position='bottom_right'])::before {
+  right: calc(var(--arrow-edge-offset) + var(--arrow-size));
+}
+
+:host([position='top_right']:not([center]))::before,
+:host([position='bottom_right']:not([center]))::before,
+:host([position='top_right'][center="false"])::before,
+:host([position='bottom_right'][center="false"])::before {
+  right: calc(var(--arrow-edge-offset) - var(--arrow-size) + 1px);
+}
+
 :host([position='top_left'])::before,
 :host([position='bottom_left'])::before {
-  left: var(--arrow-edge-offset);
+  left: calc(var(--arrow-edge-offset) + var(--arrow-size));
+}
+
+:host([position='top_left']:not([center]))::before,
+:host([position='bottom_left']:not([center]))::before,
+:host([position='top_left'][center="false"])::before,
+:host([position='bottom_left'][center="false"])::before {
+  left: calc(var(--arrow-edge-offset) - var(--arrow-size) + 1px);
 }
 
 ::slotted(*) {
