@@ -65,7 +65,6 @@ export class ZInput {
   @Prop() icon?: string;
 
   @State() isTyping: boolean = false;
-  @State() textareaWrapperHover: string = "";
   @State() passwordHidden: boolean = true;
 
   private timer;
@@ -312,13 +311,10 @@ export class ZInput {
             ...attributes.class,
             textareaWrapper: true,
             readonly: attributes.readonly,
-            [this.textareaWrapperHover]: true,
           }}
         >
           <textarea
             {...attributes}
-            onMouseOver={() => (this.textareaWrapperHover = "hover")}
-            onMouseOut={() => (this.textareaWrapperHover = "")}
             aria-label={this.ariaLabel || this.label}
           ></textarea>
         </div>

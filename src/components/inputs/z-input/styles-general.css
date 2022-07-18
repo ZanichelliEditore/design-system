@@ -16,8 +16,7 @@ input::-ms-reveal {
 
 input,
 textarea,
-.textareaWrapper,
-ul[role="listbox"] {
+.textareaWrapper {
   background: var(--color-input-field01);
   border-radius: var(--border-radius-small);
   border: var(--border-size-small) solid var(--color-surface04);
@@ -47,22 +46,19 @@ textarea:focus:focus-visible {
 }
 
 /* STATUSES (success, warning, error) */
-.input_success,
-.input_success.hover {
+.input_success {
   background: var(--color-success-inverse);
   border-color: var(--color-success01);
   fill: var(--color-success01);
 }
 
-.input_error,
-.input_error.hover {
+.input_error {
   background: var(--color-error-inverse);
   border-color: var(--color-error01);
   fill: var(--color-error01);
 }
 
-.input_warning,
-.input_warning.hover {
+.input_warning {
   background: var(--color-warning-inverse);
   border-color: var(--color-warning01);
   fill: var(--color-warning01);
@@ -70,7 +66,7 @@ textarea:focus:focus-visible {
 
 /* HOVER */
 input:hover,
-.hover {
+.textareaWrapper:hover {
   border-width: var(--border-size-medium);
 }
 
