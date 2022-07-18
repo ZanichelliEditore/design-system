@@ -9,7 +9,9 @@
 
 | Property       | Attribute      | Description                                             | Type                                                                         | Default                |
 | -------------- | -------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------- |
+| `ariaLabel`    | `aria-label`   | z-input aria label                                      | `string`                                                                     | `undefined`            |
 | `datepickerid` | `datepickerid` | unique id                                               | `string`                                                                     | `undefined`            |
+| `label`        | `label`        | z-input label                                           | `string`                                                                     | `undefined`            |
 | `mode`         | `mode`         | [Optional] datepicker mode: date, datetime, only months | `ZDatePickerMode.date \| ZDatePickerMode.dateTime \| ZDatePickerMode.months` | `ZDatePickerMode.date` |
 
 

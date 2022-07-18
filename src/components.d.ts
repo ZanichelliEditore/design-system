@@ -106,7 +106,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * HTML a href attribute. If it is set, it renders an HTML a tag.
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
          */
         "href"?: string;
         /**
@@ -377,9 +377,17 @@ export namespace Components {
     }
     interface ZDatePicker {
         /**
+          * z-input aria label
+         */
+        "ariaLabel"?: string;
+        /**
           * unique id
          */
         "datepickerid": string;
+        /**
+          * z-input label
+         */
+        "label"?: string;
         /**
           * [Optional] datepicker mode: date, datetime, only months
          */
@@ -2738,7 +2746,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * HTML a href attribute. If it is set, it renders an HTML a tag.
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
          */
         "href"?: string;
         /**
@@ -3037,9 +3045,17 @@ declare namespace LocalJSX {
     }
     interface ZDatePicker {
         /**
+          * z-input aria label
+         */
+        "ariaLabel"?: string;
+        /**
           * unique id
          */
         "datepickerid"?: string;
+        /**
+          * z-input label
+         */
+        "label"?: string;
         /**
           * [Optional] datepicker mode: date, datetime, only months
          */

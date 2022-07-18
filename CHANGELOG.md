@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.2](https://github.com/ZanichelliEditore/design-system/compare/v3.2.1...v3.2.2) (2022-07-14)
+
+
+### Bug Fixes
+
+* text content check; scoped style ([c5bb0da](https://github.com/ZanichelliEditore/design-system/commit/c5bb0da70429fc50094177c9f4300629b4a5e251))
+
+### [3.2.1](https://github.com/ZanichelliEditore/design-system/compare/v3.2.0...v3.2.1) (2022-07-08)
+
 ## [3.2.0](https://github.com/ZanichelliEditore/design-system/compare/v3.1.1...v3.2.0) (2022-07-08)
 
 
