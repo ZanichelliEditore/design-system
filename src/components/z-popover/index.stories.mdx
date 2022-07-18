@@ -12,14 +12,39 @@ import "./index";
 # ZPopover
 
 <Preview>
-  <Story name="buttons">
+  <Story name="contextual-menu-like">
+    {(args) => html`
+      <div class="popover-container">
+        <z-popover
+          position="${radios("type", PopoverPosition, "right_bottom")}"
+          open="${boolean("open", true)}"
+          center="${boolean("center", false)}"
+          show-arrow="${boolean("show-arrow", false)}"
+          bind-to="#icon"
+        >
+          <div class="container">
+            <z-button-deprecated>Open</z-button-deprecated>
+            <z-button-deprecated>Save as</z-button-deprecated>
+            <z-button-deprecated>Share</z-button-deprecated>
+          </div>
+        </z-popover>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+# ZPopover as ZTooltip
+
+<Preview>
+  <Story name="tooltip">
     {(args) => html`
       <div class="popover-container">
         <z-popover
           position="${radios("type", PopoverPosition, "top")}"
-          open="${boolean("open", true)}"
-          center="${boolean("center", false)}"
-          show-arrow="${boolean("show-arrow", false)}"
+          open=${true}
+          center=${true}
+          show-arrow=${true}
           bind-to="#icon"
         >
           <div class="container">

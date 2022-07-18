@@ -1,6 +1,7 @@
 :host {
   --z-popover-theme--surface: var(--color-surface01);
   --z-popover-theme--text: var(--color-text01);
+  --z-popover-shadow-filter: drop-shadow(0 1px 2px var(--shadow-color-base));
   --arrow-size: 6px;
   --edge-offset: calc(-1 * (var(--arrow-size) + calc(var(--space-unit) * 2)));
 
@@ -17,7 +18,7 @@
   text-align: center;
   border-radius: var(--border-radius-small);
   background: var(--z-popover-theme--surface);
-  filter: drop-shadow(0 1px 2px var(--shadow-color-base));
+  filter: var(--z-popover-shadow-filter);
 }
 
 :host([position])::before {
@@ -41,7 +42,7 @@
 
 :host(:not([open])),
 :host([open="false"]) {
-  display: flex;
+  display: none;
 }
 
 :host([center][position='top']),
@@ -104,6 +105,26 @@
 :host([position='top_left'][center="false"])::before,
 :host([position='bottom_left'][center="false"])::before {
   left: calc(var(--arrow-edge-offset) - var(--arrow-size) + 1px);
+}
+
+:host([position='right_top'])::before,
+:host([position='left_top'])::before {
+  bottom: var(--arrow-size);
+}
+
+:host([position='right_top'])::before,
+:host([position='right_bottom'])::before {
+  right: var(--arrow-center-y-offset);
+}
+
+:host([position='left_top'])::before,
+:host([position='left_bottom'])::before {
+  left: var(--arrow-center-y-offset);
+}
+
+:host([position='right_bottom'])::before,
+:host([position='left_bottom'])::before {
+  top: var(--arrow-size);
 }
 
 ::slotted(*) {

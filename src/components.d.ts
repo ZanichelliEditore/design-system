@@ -1421,6 +1421,10 @@ export namespace Components {
          */
         "bindTo"?: string | HTMLElement;
         /**
+          * Whether center the popup on the main side.
+         */
+        "center": boolean;
+        /**
           * The open state of the popover.
          */
         "open": boolean;
@@ -4116,6 +4120,10 @@ declare namespace LocalJSX {
           * The selector or the element bound with the popover.
          */
         "bindTo"?: string | HTMLElement;
+        /**
+          * Whether center the popup on the main side.
+         */
+        "center"?: boolean;
         /**
           * Position change event.
          */

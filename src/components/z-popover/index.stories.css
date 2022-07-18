@@ -1,12 +1,6 @@
 z-popover .container z-button-deprecated:not(:last-child) {
   margin-right: 0.5rem;
 }
-
-z-popover.dark {
-  --z-popover-theme--surface: var(--color-surface05);
-  --z-popover-theme--text: var(--color-text-inverse);
-}
-
 .popover-container {
   position: relative;
   display: inline-flex;
@@ -19,4 +13,15 @@ z-popover.dark {
 .popover-container z-icon {
   --z-icon-width: 32px;
   --z-icon-height: 32px;
+}
+
+/* margins needed to have the z-tooltip design */
+z-popover[position*='top'],
+z-popover[position*='bottom'] {
+  margin: 0.5rem 0;
+}
+
+z-popover[position*='left'],
+z-popover[position*='right'] {
+  margin: 0 0.5rem;
 }

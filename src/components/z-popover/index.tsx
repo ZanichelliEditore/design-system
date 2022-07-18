@@ -145,14 +145,14 @@ export class ZPopover {
   @Prop() bindTo?: string | HTMLElement;
 
   /**
-   * Whether to show arrow of popover.
+   * Whether to show popover's arrow.
    */
   @Prop({ reflect: true }) showArrow: boolean = false;
 
   /**
-   * Whether center the popup on the main side.
+   * Whether center the popup on the main side - according to "position".
    */
-   @Prop({ reflect: true }) center: boolean = false;
+  @Prop({ reflect: true }) center: boolean = false;
 
   /**
    * The current position of the popover.
@@ -171,6 +171,11 @@ export class ZPopover {
    * Position change event.
    */
   @Event() positionChange: EventEmitter;
+
+  /**
+   * Open change event.
+   */
+  @Event() openChange: EventEmitter;
 
   @Element() host: HTMLElement;
 
@@ -203,15 +208,7 @@ export class ZPopover {
     ) {
       this.position = PopoverPosition.AUTO;
     }
-  }
-
-  @Watch("position")
-  onPositionChange() {
     this.positionChange.emit({ position: this.currentPosition });
-  }
-
-  disconnectedCallback() {
-    cancelAnimationFrame(this.animationFrameRequestId);
   }
 
   /**
@@ -239,6 +236,13 @@ export class ZPopover {
       style.removeProperty("max-height");
       this.currentPosition = undefined;
     }
+
+    console.log("sparo open", this.open);
+    this.openChange.emit({ open: this.open });
+  }
+
+  disconnectedCallback() {
+    cancelAnimationFrame(this.animationFrameRequestId);
   }
 
   /**
@@ -327,7 +331,9 @@ export class ZPopover {
       position = positions.join("_") as PopoverPosition;
     }
 
-    const available = Object.keys(PopoverPosition).map((key) => PopoverPosition[key]);
+    const available = Object.keys(PopoverPosition).map(
+      (key) => PopoverPosition[key]
+    );
     if (available.indexOf(position) === -1) {
       // normalize direction to closest available
       if (position === PopoverPosition.TOP_RIGHT) {
@@ -377,68 +383,92 @@ export class ZPopover {
     const offsetModifier = this.center ? 0.5 : 0;
     const sizeModifier = this.center ? 0.5 : 0;
 
-    if (position === PopoverPosition.TOP || position === PopoverPosition.TOP_RIGHT) {
-      style.top = 'auto';
-      style.right = 'auto';
+    if (
+      position === PopoverPosition.TOP ||
+      position === PopoverPosition.TOP_RIGHT
+    ) {
+      style.top = "auto";
+      style.right = "auto";
       style.bottom = `${offsetBottom + boundingRect.height}px`;
 
-      style.left = `${offsetLeft + (boundingRect.width * offsetModifier)}px`;
+      style.left = `${offsetLeft + boundingRect.width * offsetModifier}px`;
       style.maxHeight = `${availableTop}px`;
       if (position === PopoverPosition.TOP_RIGHT) {
-          style.maxWidth = `${availableRight + (boundingRect.width * sizeModifier)}px`;
+        style.maxWidth = `${
+          availableRight + boundingRect.width * sizeModifier
+        }px`;
       }
-  } else if (position === PopoverPosition.TOP_LEFT) {
-      style.top = 'auto';
-      style.right = `${offsetRight + (boundingRect.width * offsetModifier)}px`;
+    } else if (position === PopoverPosition.TOP_LEFT) {
+      style.top = "auto";
+      style.right = `${offsetRight + boundingRect.width * offsetModifier}px`;
       style.bottom = `${offsetBottom + boundingRect.height}px`;
-      style.left = 'auto';
+      style.left = "auto";
       style.maxWidth = `${availableLeft}px`;
       style.maxHeight = `${availableTop}px`;
-  } else if (position === PopoverPosition.BOTTOM || position === PopoverPosition.BOTTOM_RIGHT) {
+    } else if (
+      position === PopoverPosition.BOTTOM ||
+      position === PopoverPosition.BOTTOM_RIGHT
+    ) {
       style.top = `${offsetTop + boundingRect.height}px`;
-      style.right = 'auto';
-      style.bottom = 'auto';
-      style.left = `${offsetLeft + (boundingRect.width * offsetModifier)}px`;
+      style.right = "auto";
+      style.bottom = "auto";
+      style.left = `${offsetLeft + boundingRect.width * offsetModifier}px`;
       style.maxHeight = `${availableBottom}px`;
       if (position === PopoverPosition.BOTTOM_RIGHT) {
-          style.maxWidth = `${availableRight + (boundingRect.width * sizeModifier)}px`;
+        style.maxWidth = `${
+          availableRight + boundingRect.width * sizeModifier
+        }px`;
       }
-  } else if (position === PopoverPosition.BOTTOM_LEFT) {
+    } else if (position === PopoverPosition.BOTTOM_LEFT) {
       style.top = `${offsetTop + boundingRect.height}px`;
-      style.right = `${offsetRight + (boundingRect.width * offsetModifier)}px`;
-      style.bottom = 'auto';
-      style.left = 'auto';
+      style.right = `${offsetRight + boundingRect.width * offsetModifier}px`;
+      style.bottom = "auto";
+      style.left = "auto";
       style.maxWidth = `${availableLeft}px`;
       style.maxHeight = `${availableBottom}px`;
-  } else if (position === PopoverPosition.RIGHT || position === PopoverPosition.RIGHT_BOTTOM) {
-      style.top = `${offsetTop + (boundingRect.height * offsetModifier)}px`;
-      style.right = 'auto';
-      style.bottom = 'auto';
+    } else if (
+      position === PopoverPosition.RIGHT ||
+      position === PopoverPosition.RIGHT_BOTTOM
+    ) {
+      style.top = `${offsetTop + boundingRect.height * offsetModifier}px`;
+      style.right = "auto";
+      style.bottom = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
       style.maxWidth = `${availableRight}px`;
-      style.maxHeight = `${availableBottom + (boundingRect.height * sizeModifier)}px`;
-  } else if (position === PopoverPosition.RIGHT_TOP) {
-      style.top = 'auto';
-      style.right = 'auto';
-      style.bottom = `${offsetBottom + (boundingRect.height * offsetModifier)}px`;
+      style.maxHeight = `${
+        availableBottom + boundingRect.height * sizeModifier
+      }px`;
+    } else if (position === PopoverPosition.RIGHT_TOP) {
+      style.top = "auto";
+      style.right = "auto";
+      style.bottom = `${offsetBottom + boundingRect.height * offsetModifier}px`;
       style.left = `${offsetLeft + boundingRect.width}px`;
       style.maxWidth = `${availableRight}px`;
-      style.maxHeight = `${availableTop + (boundingRect.height * sizeModifier)}px`;
-  } else if (position === PopoverPosition.LEFT || position === PopoverPosition.LEFT_BOTTOM) {
-      style.top = `${offsetTop + (boundingRect.height * offsetModifier)}px`;
+      style.maxHeight = `${
+        availableTop + boundingRect.height * sizeModifier
+      }px`;
+    } else if (
+      position === PopoverPosition.LEFT ||
+      position === PopoverPosition.LEFT_BOTTOM
+    ) {
+      style.top = `${offsetTop + boundingRect.height * offsetModifier}px`;
       style.right = `${offsetRight + boundingRect.width}px`;
-      style.bottom = 'auto';
-      style.left = 'auto';
+      style.bottom = "auto";
+      style.left = "auto";
       style.maxWidth = `${availableLeft}px`;
-      style.maxHeight = `${availableBottom + (boundingRect.height * sizeModifier)}px`;
-  } else if (position === PopoverPosition.LEFT_TOP) {
-      style.top = 'auto';
+      style.maxHeight = `${
+        availableBottom + boundingRect.height * sizeModifier
+      }px`;
+    } else if (position === PopoverPosition.LEFT_TOP) {
+      style.top = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
-      style.bottom = `${offsetBottom + (boundingRect.height * offsetModifier)}px`;
-      style.left = 'auto';
+      style.bottom = `${offsetBottom + boundingRect.height * offsetModifier}px`;
+      style.left = "auto";
       style.maxWidth = `${availableLeft}px`;
-      style.maxHeight = `${availableTop + (boundingRect.height * sizeModifier)}px`;
-  }
+      style.maxHeight = `${
+        availableTop + boundingRect.height * sizeModifier
+      }px`;
+    }
 
     this.currentPosition = position;
   }
