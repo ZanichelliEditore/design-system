@@ -59,6 +59,7 @@ export class ZRangePicker {
 
   @Listen("keydown", { target: "body", capture: true })
   handleKeyDown(ev: KeyboardEvent) {
+    this.getFocusedInput();
     if (ev.key === "Enter" || ev.key === " ") {
       if (this.activeInput === RangePickerActiveInput.startInput) {
         this.flatpickrInstance.open();
@@ -209,12 +210,25 @@ export class ZRangePicker {
     this.element.querySelectorAll(".flatpickr-weekday").forEach((element) => {
       element.innerHTML = element.innerHTML.trim().charAt(0);
     });
+
+    let firstInputElement =
+      document.querySelectorAll("z-input")[0].children[0].children[0]
+        .children[0];
+    let secondInputElement =
+      document.querySelectorAll("z-input")[1].children[0].children[0]
+        .children[0];
+
+    firstInputElement.setAttribute(
+      "class",
+      `${firstInputElement.className} ${RangePickerActiveInput.startInput}`
+    );
+    secondInputElement.setAttribute(
+      "class",
+      `${secondInputElement.className}  ${RangePickerActiveInput.endInput}`
+    );
   }
 
   onDateSelect(selectedDates, instance) {
-    //Ordinamento array prima input: DESC ([5 maggio, 3 maggio])
-    //Ordinamento array seconda input: ASC ([3 maggio, 5 maggio])
-
     const firstInputElement = document.querySelectorAll("z-input")[0];
     const secondInputElement = document.querySelectorAll("z-input")[1];
 
@@ -464,13 +478,21 @@ export class ZRangePicker {
 
   //Get the current focused input, first or last
   getFocusedInput() {
-    document.activeElement?.parentElement?.parentElement?.parentElement?.classList.contains(
-      "first-input"
-    ) && (this.activeInput = RangePickerActiveInput.startInput);
+    if (
+      document.activeElement.classList.contains(
+        `${RangePickerActiveInput.startInput}`
+      )
+    ) {
+      this.activeInput = RangePickerActiveInput.startInput;
+    }
 
-    document.activeElement?.parentElement?.parentElement?.parentElement?.classList.contains(
-      "second-input"
-    ) && (this.activeInput = RangePickerActiveInput.endInput);
+    if (
+      document.activeElement.classList.contains(
+        `${RangePickerActiveInput.endInput}`
+      )
+    ) {
+      this.activeInput = RangePickerActiveInput.endInput;
+    }
   }
 
   //Set current month after flatpickr openedx
@@ -570,7 +592,7 @@ export class ZRangePicker {
         <div class={classNames(this.datepickerid)}>
           <input class="hidden-input" data-input></input>
           <z-input
-            class="first-input"
+            class="start-input"
             type="text"
             icon="event"
             hasmessage={false}
@@ -613,7 +635,7 @@ export class ZRangePicker {
         <div class={classNames(`${this.datepickerid}-2`)}>
           <input class="hidden-input" data-input></input>
           <z-input
-            class="second-input"
+            class="end-input"
             type="text"
             icon="event"
             hasmessage={false}
