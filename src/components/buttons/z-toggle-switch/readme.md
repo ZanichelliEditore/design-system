@@ -1,18 +1,16 @@
 # z-toggle-switch
 
-
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property        | Attribute        | Description | Type                                                                | Default                            |
-| --------------- | ---------------- | ----------- | ------------------------------------------------------------------- | ---------------------------------- |
-| `checked`       | `checked`        |             | `boolean`                                                           | `false`                            |
-| `disabled`      | `disabled`       |             | `boolean`                                                           | `false`                            |
-| `htmlid`        | `htmlid`         |             | `string`                                                            | ``toggle-switch-id-${randomId()}`` |
-| `labelPosition` | `label-position` |             | `ZtoggleSwitchPositionEnum.left \| ZtoggleSwitchPositionEnum.right` | `ZtoggleSwitchPositionEnum.left`   |
+| Property        | Attribute        | Description | Type                | Default                            |
+| --------------- | ---------------- | ----------- | ------------------- | ---------------------------------- |
+| `checked`       | `checked`        |             | `boolean`           | `false`                            |
+| `disabled`      | `disabled`       |             | `boolean`           | `false`                            |
+| `htmlid`        | `htmlid`         |             | `string`            | ``toggle-switch-id-${randomId()}`` |
+| `labelPosition` | `label-position` |             | `"left" \| "right"` | `LabelPositions.left`              |
 
 
 ## Events

@@ -12,21 +12,22 @@ import {
 import {
   InputStatusBean,
   SelectItemBean,
-  keybordKeyCodeEnum,
-  InputStatusEnum,
+  ListDividerType,
+  KeyboardCodeEnum,
 } from "../../../beans";
 import {
   randomId,
   handleKeyboardSubmit,
   getClickedElement,
   getElementTree,
+  boolean,
 } from "../../../utils/utils";
 
 @Component({
   tag: "z-select",
   styleUrl: "styles.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class ZSelect {
   @Element() element: HTMLElement;
@@ -49,21 +50,17 @@ export class ZSelect {
   @Prop() placeholder?: string;
   /** the input html title (optional) */
   @Prop() htmltitle?: string;
-  /** the input status (optional): available for text, password, number, email, textarea, select */
+  /** the input status (optional) */
   @Prop() status?: InputStatusBean;
-  /** show input helper message (optional): available for text, password, number, email, textarea, select */
-  @Prop() hasmessage?: boolean = true;
-  /** input helper message (optional): available for text, password, number, email, textarea, select */
-  @Prop() message?: string;
+  /** input helper message (optional) - if set to `false` message won't be displayed */
+  @Prop() message?: string | boolean = true;
   /** the input has autocomplete option */
-  @Prop() autocomplete?: boolean | string = false;
-  /** multiple options can be selected */
-  @Prop() multiple?: boolean = false;
+  @Prop() autocomplete?: boolean = false;
   /** no result text message */
   @Prop() noresultslabel?: string = "Nessun risultato";
 
   @State() isOpen: boolean = false;
-  @State() selectedItems: SelectItemBean[];
+  @State() selectedItem: null | SelectItemBean = null;
   @State() searchString: null | string;
 
   private itemsList: SelectItemBean[] = [];
@@ -77,21 +74,21 @@ export class ZSelect {
   @Watch("items")
   watchItems() {
     this.itemsList = this.getInitialItemsArray();
-    this.selectedItems = this.itemsList.filter(
+    this.selectedItem = this.itemsList.find(
       (item: SelectItemBean) => item.selected
     );
   }
 
   /** get the input selected options */
   @Method()
-  async getSelectedItems(): Promise<SelectItemBean[]> {
-    return this.selectedItems;
+  async getSelectedItem(): Promise<SelectItemBean> {
+    return this.selectedItem;
   }
 
   /** get the input value */
   @Method()
-  async getValue(): Promise<string | string[]> {
-    return this.getSelectedValues();
+  async getValue(): Promise<string> {
+    return this.getSelectedValue();
   }
 
   /** set the input value */
@@ -104,17 +101,17 @@ export class ZSelect {
       values = value;
     }
 
-    this.selectedItems = this.itemsList.filter((item: SelectItemBean) =>
+    this.selectedItem = this.itemsList.find((item: SelectItemBean) =>
       values.includes(item.id)
     );
   }
 
-  /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
+  /** Emitted on select option selection, returns select id, selected item id */
   @Event() optionSelect: EventEmitter;
   emitOptionSelect() {
     this.optionSelect.emit({
       id: this.htmlid,
-      selected: this.getSelectedValues(),
+      selected: this.getSelectedValue(),
     });
   }
 
@@ -130,31 +127,20 @@ export class ZSelect {
     return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
   }
 
-  mapSelectedItemsToItemsArray() {
+  mapSelectedItemToItemsArray() {
     const initialItemsList = this.getInitialItemsArray();
     return initialItemsList.map((item: SelectItemBean) => {
-      const found = this.selectedItems.find(
-        (selected: SelectItemBean) => selected.id === item.id
-      );
-      item.selected = !!found;
+      item.selected = item.id === this.selectedItem?.id;
       return item;
     });
   }
 
-  getSelectedValues() {
-    if (this.multiple) {
-      return this.selectedItems.map((item: SelectItemBean) => item.id);
-    }
-
-    if (!this.multiple && this.selectedItems.length) {
-      return this.selectedItems[0].id;
-    }
-
-    return null;
+  getSelectedValue() {
+    return this.selectedItem?.id;
   }
 
   filterItems(searchString: string) {
-    const prevList = this.mapSelectedItemsToItemsArray();
+    const prevList = this.mapSelectedItemToItemsArray();
     if (!searchString?.length) {
       this.itemsList = prevList;
     } else {
@@ -169,7 +155,7 @@ export class ZSelect {
           const end = start + searchString.length;
           const newName =
             item.name.substring(0, start) +
-            item.name.substring(start, end).bold() +
+            `<strong>${item.name.substring(start, end)}</strong>` +
             item.name.substring(end, item.name.length);
           item.name = newName;
           return item;
@@ -177,12 +163,8 @@ export class ZSelect {
     }
   }
 
-  hasAutcomplete() {
-    return (
-      this.autocomplete === true ||
-      this.autocomplete === "true" ||
-      this.autocomplete === "on"
-    );
+  hasAutocomplete() {
+    return boolean(this.autocomplete) === true;
   }
 
   handleInputChange(e: CustomEvent) {
@@ -193,14 +175,14 @@ export class ZSelect {
   selectItem(item: null | SelectItemBean, selected: boolean) {
     if (item && item.disabled) return;
 
-    this.itemsList = this.mapSelectedItemsToItemsArray();
+    this.itemsList = this.mapSelectedItemToItemsArray();
     this.itemsList = this.itemsList.map((i: SelectItemBean) => {
-      if (!this.multiple) i.selected = false;
+      i.selected = false;
       if (i.id === (item ? item.id : null)) i.selected = selected;
       return i;
     });
 
-    this.selectedItems = this.itemsList.filter(
+    this.selectedItem = this.itemsList.find(
       (item: SelectItemBean) => item.selected
     );
 
@@ -210,8 +192,8 @@ export class ZSelect {
   }
 
   arrowsSelectNav(e: KeyboardEvent, key: number) {
-    const arrows = [keybordKeyCodeEnum.ARROW_DOWN, keybordKeyCodeEnum.ARROW_UP];
-    if (!arrows.includes(e.keyCode)) return;
+    const arrows = [KeyboardCodeEnum.ARROW_DOWN, KeyboardCodeEnum.ARROW_UP];
+    if (!arrows.includes(e.key as KeyboardCodeEnum)) return;
 
     e.preventDefault();
     e.stopPropagation();
@@ -219,9 +201,9 @@ export class ZSelect {
     if (!this.isOpen) this.toggleSelectUl();
 
     let index: number;
-    if (e.keyCode === keybordKeyCodeEnum.ARROW_DOWN) {
+    if (e.key === KeyboardCodeEnum.ARROW_DOWN) {
       index = key + 1 === this.itemsList.length ? 0 : key + 1;
-    } else if (e.keyCode === keybordKeyCodeEnum.ARROW_UP) {
+    } else if (e.key === KeyboardCodeEnum.ARROW_UP) {
       index = key <= 0 ? this.itemsList.length - 1 : key - 1;
     }
 
@@ -245,9 +227,11 @@ export class ZSelect {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        (this.element
-          .querySelector(`#${this.htmlid}_input`) as HTMLInputElement)
-          .focus();
+        (
+          this.element.querySelector(
+            `#${this.htmlid}_input`
+          ) as HTMLInputElement
+        ).focus();
       }
     }
 
@@ -268,15 +252,15 @@ export class ZSelect {
   }
 
   handleSelectFocus(e: MouseEvent | KeyboardEvent) {
-    if (e instanceof KeyboardEvent && e.keyCode === keybordKeyCodeEnum.ESC) {
+    if (e instanceof KeyboardEvent && e.key === KeyboardCodeEnum.ESC) {
       e.stopPropagation();
       return this.toggleSelectUl(true);
     }
 
     if (
       e instanceof KeyboardEvent &&
-      e.keyCode !== keybordKeyCodeEnum.TAB &&
-      e.keyCode !== keybordKeyCodeEnum.ENTER
+      e.key !== KeyboardCodeEnum.TAB &&
+      e.key !== KeyboardCodeEnum.ENTER
     ) {
       return;
     }
@@ -284,11 +268,8 @@ export class ZSelect {
     const tree = getElementTree(getClickedElement());
     const parent = tree.find((elem: any) => {
       return (
-        (elem.nodeName.toLowerCase() === "z-input" &&
-          elem.id === `${this.htmlid}_input`) ||
-        (this.multiple &&
-          elem.nodeName.toLowerCase() === "ul" &&
-          elem.id === this.htmlid)
+        elem.nodeName.toLowerCase() === "z-input" &&
+        elem.id === `${this.htmlid}_input`
       );
     });
 
@@ -304,20 +285,6 @@ export class ZSelect {
     if (foundItem) this.focusSelectItem(this.itemsList.indexOf(foundItem));
   }
 
-  renderLabel() {
-    if (!this.label) return;
-
-    return (
-      <z-input-label
-        htmlfor={this.htmlid}
-        value={this.label}
-        disabled={this.disabled}
-        aria-label={this.label}
-        id={`${this.htmlid}_input_label`}
-      />
-    );
-  }
-
   renderInput() {
     return (
       <z-input
@@ -325,17 +292,18 @@ export class ZSelect {
         htmlid={`${this.htmlid}_input`}
         placeholder={this.placeholder}
         value={
-          !this.isOpen && !this.multiple && this.selectedItems.length
-            ? this.selectedItems[0].name.replace(/<[^>]+>/g, "")
+          !this.isOpen && this.selectedItem
+            ? this.selectedItem.name.replace(/<[^>]+>/g, "")
             : null
         }
+        label={this.label}
         aria-label={this.ariaLabel}
         icon={this.isOpen ? "caret-up" : "caret-down"}
-        hasclearicon={this.hasAutcomplete()}
-        hasmessage={false}
+        hasclearicon={this.hasAutocomplete()}
+        message={false}
         disabled={this.disabled}
-        readonly={this.readonly || (!this.hasAutcomplete() && this.isOpen)}
-        status={this.isOpen ? InputStatusEnum.selecting : this.status}
+        readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
+        status={this.isOpen ? undefined : this.status}
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
         }}
@@ -343,20 +311,17 @@ export class ZSelect {
           if (e.keyCode !== 13) e.preventDefault();
           handleKeyboardSubmit(e, this.toggleSelectUl);
         }}
-        onKeyDown={(e: KeyboardEvent) =>  {
+        onKeyDown={(e: KeyboardEvent) => {
           return this.arrowsSelectNav(
             e,
-            this.selectedItems.length
-            ? this.itemsList.indexOf(this.selectedItems[0])
-            : -1
-            )
-          }
-        }
+            this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1
+          );
+        }}
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);
         }}
         onKeyPress={(e: KeyboardEvent) => {
-          if (!this.hasAutcomplete()) {
+          if (!this.hasAutocomplete()) {
             e.preventDefault();
             this.scrollToLetter(String.fromCharCode(e.keyCode));
           }
@@ -365,50 +330,26 @@ export class ZSelect {
     );
   }
 
-  renderChips() {
-    if (!this.multiple || !this.selectedItems.length) return;
-
-    return (
-      <div class={`chipsWrapper ${this.isOpen ? "open" : ""}`}>
-        {this.selectedItems.map((item: SelectItemBean) => (
-          <z-button-filter
-            filterid={item.id}
-            filtername={item.name.replace(/<[^>]+>/g, "")}
-            issmall={true}
-            onRemovefilter={() => this.selectItem(item, false)}
-          />
-        ))}
-      </div>
-    );
-  }
-
   renderSelectUl() {
     return (
       <div class={this.isOpen ? "open" : "closed"} tabindex="-1">
         <div class="ulScrollWrapper" tabindex="-1">
-          <ul
+          <z-list
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
             id={this.htmlid}
-            aria-activedescendant={
-              !this.multiple && this.selectedItems.length
-                ? this.selectedItems[0].id
-                : null
-            }
-            aria-multiselectable={!!this.multiple}
-            class={`
-              ${this.disabled ? " disabled" : ""}
-              ${this.readonly ? " readonly" : ""}
-              ${
-                !this.isOpen && this.status
-                  ? " input_" + this.status
-                  : " input_default"
-              }
-              ${this.selectedItems.length ? " filled" : ""}
-            `}
+            aria-activedescendant={this.selectedItem?.id}
+            aria-multiselectable={false}
+            class={{
+              disabled: this.disabled,
+              readonly: this.readonly,
+              filled: !!this.selectedItem,
+              [`input_${this.status}`]: !this.isOpen && !!this.status,
+              input_default: this.isOpen || !this.status,
+            }}
           >
             {this.renderSelectUlItems()}
-          </ul>
+          </z-list>
         </div>
       </div>
     );
@@ -419,44 +360,48 @@ export class ZSelect {
 
     return this.itemsList.map((item: SelectItemBean, key) => {
       return (
-        <li
+        <z-list-element
+          clickable={!item.disabled}
+          disabled={item.disabled}
+          dividerType={ListDividerType.element}
           role="option"
           tabindex={item.disabled || !this.isOpen ? -1 : 0}
           aria-selected={!!item.selected}
-          class={item.disabled && "disabled"}
           id={`${this.htmlid}_${key}`}
-          onClick={() => this.selectItem(item, true)}
-          onKeyUp={(e: KeyboardEvent) =>
-            handleKeyboardSubmit(e, this.selectItem, item, true)
-          }
+          onClickItem={() => this.selectItem(item, true)}
           onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
         >
-          <span innerHTML={item.name} />
-        </li>
+          <span class={{ selected: !!item.selected }} innerHTML={item.name} />
+        </z-list-element>
       );
     });
   }
 
   renderNoSearchResults() {
     return (
-      <li class="noResults">
-        <z-icon name="multiply-circle" />
+      <z-list-element color="blue500" class="noResults">
+        <z-icon name="multiply-circle" fill="blue500" />
         {this.noresultslabel}
-      </li>
+      </z-list-element>
     );
   }
 
   renderMessage() {
-    if (!this.hasmessage) return;
+    if (boolean(this.message) === false) return;
 
-    return <z-input-message message={this.message} status={this.status} />;
+    return (
+      <z-input-message
+        message={
+          boolean(this.message) === true ? undefined : (this.message as string)
+        }
+        status={this.status}
+      />
+    );
   }
 
   render() {
     return (
       <div class="selectWrapper">
-        {this.renderLabel()}
-        {this.renderChips()}
         {this.renderInput()}
         {this.renderSelectUl()}
         {this.renderMessage()}

@@ -1,6 +1,6 @@
 import { newE2EPage } from "@stencil/core/testing";
 
-import { icons } from "../../icons/icons";
+import { icons } from "../../components/icons/icons";
 
 type CustomWindow = Window &
   typeof globalThis & {
@@ -8,7 +8,7 @@ type CustomWindow = Window &
     onInputCheck: (a) => unknown;
   };
 
-it("Test ZInput should emit inputChange event", async () => {
+it("Test ZInputDeprecated should emit inputChange event", async () => {
   const page = await newE2EPage();
 
   // Define a window.onCustomEvent function on the page.
@@ -25,8 +25,8 @@ it("Test ZInput should emit inputChange event", async () => {
     });
   }, type);
 
-  await page.setContent(`<z-input></z-input>`);
-  const input = await page.find("z-input div input");
+  await page.setContent(`<z-input-deprecated></z-input-deprecated>`);
+  const input = await page.find("z-input-deprecated div input");
 
   expect(inputValue).toEqual("");
 
@@ -39,7 +39,7 @@ it("Test ZInput should emit inputChange event", async () => {
   expect(inputValue).toEqual("AB");
 });
 
-it("Test disabled ZInput should not change / emit inputChange event", async () => {
+it("Test disabled ZInputDeprecated should not change / emit inputChange event", async () => {
   const page = await newE2EPage();
 
   // Define a window.onCustomEvent function on the page.
@@ -56,8 +56,8 @@ it("Test disabled ZInput should not change / emit inputChange event", async () =
     });
   }, type);
 
-  await page.setContent(`<z-input disabled></z-input>`);
-  const input = await page.find("z-input div input");
+  await page.setContent(`<z-input-deprecated disabled></z-input-deprecated>`);
+  const input = await page.find("z-input-deprecated div input");
 
   expect(inputValue).toEqual("");
 
@@ -70,30 +70,52 @@ it("Test disabled ZInput should not change / emit inputChange event", async () =
   expect(inputValue).toEqual("");
 });
 
-it("Test ZInput - input password - change hide/show icon on click", async () => {
+it("Test ZInputDeprecated typing state", async () => {
+  const page = await newE2EPage();
+
+  await page.setContent(
+    `<z-input-deprecated typingtimeout="1000"></z-input-deprecated>`
+  );
+  const input = await page.find("z-input-deprecated div input");
+
+  expect(input).not.toHaveClass("istyping");
+
+  await input.press("A");
+  await page.waitForChanges();
+  expect(input).toHaveClass("istyping");
+
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  await page.waitForChanges();
+  expect(input).not.toHaveClass("istyping");
+});
+
+it("Test ZInputDeprecated - input password - change hide/show icon on click", async () => {
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
-  await page.setContent(`<z-input htmlid="checkid" type="password"></z-input>`);
-  const iconButton = await page.find("z-input button.showHidePasswordIcon");
-  const icon = await page.find("z-input button.showHidePasswordIcon z-icon");
+  await page.setContent(
+    `<z-input-deprecated htmlid="checkid" type="password"></z-input-deprecated>`
+  );
+  const icon = await page.find(
+    "z-input-deprecated z-icon.showHidePasswordIcon"
+  );
   //icon will be an open eye on first click
-  await iconButton.click();
+  await icon.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated sc-z-input">
+    `<z-icon class="hydrated showHidePasswordIcon sc-z-input-deprecated">
       <mock:shadow-root>
-      <svg  fill="" viewBox="0 0 1000 1000">
-      <path d="${icons["view-off-filled"]}"></path>
-      </svg>
+        <svg  fill="" viewBox="0 0 1000 1000">
+            <path d="${icons["view-off-filled"]}"></path>
+        </svg>
       </mock:shadow-root>
     </z-icon>`
   );
 
   //icon will be a closed eye on second click
-  await iconButton.click();
+  await icon.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated sc-z-input">
+    `<z-icon class="hydrated showHidePasswordIcon sc-z-input-deprecated">
       <mock:shadow-root>
         <svg  fill="" viewBox="0 0 1000 1000">
           <path d="${icons["view-filled"]}"></path>
@@ -103,25 +125,28 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
   );
 });
 
-it("Test ZInput - input password - change input type on icon click to show/hide password", async () => {
+it("Test ZInputDeprecated - input password - change input type on icon click to show/hide password", async () => {
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
-  await page.setContent(`<z-input htmlid="checkid" type="password"></z-input>`);
-  const input = await page.find("z-input div.textWrapper div input");
-  const iconButton = await page.find("z-input button.showHidePasswordIcon");
-  console.log(iconButton);
+  await page.setContent(
+    `<z-input-deprecated htmlid="checkid" type="password"></z-input-deprecated>`
+  );
+  const input = await page.find("z-input-deprecated div.textWrapper div input");
+  const icon = await page.find(
+    "z-input-deprecated z-icon.showHidePasswordIcon"
+  );
 
   //input will be type text after first click on icon
-  await iconButton.click();
+  await icon.click();
   await page.waitForChanges();
   expect(input).toEqualAttribute("type", "text");
   //input will be type password after second click on icon
-  await iconButton.click();
+  await icon.click();
   await page.waitForChanges();
   expect(input).toEqualAttribute("type", "password");
 });
 
-it("Test ZInput checkbox should emit inputCheck event", async () => {
+it("Test ZInputDeprecated checkbox should emit inputCheck event", async () => {
   const page = await newE2EPage();
 
   // Define a window.onCustomEvent function on the page.
@@ -141,8 +166,10 @@ it("Test ZInput checkbox should emit inputCheck event", async () => {
     });
   }, type);
 
-  await page.setContent(`<z-input type="checkbox"></z-input>`);
-  const input_checkbox = await page.find("z-input div input");
+  await page.setContent(
+    `<z-input-deprecated type="checkbox"></z-input-deprecated>`
+  );
+  const input_checkbox = await page.find("z-input-deprecated div input");
 
   expect(checked).toEqual(false);
 
@@ -155,7 +182,7 @@ it("Test ZInput checkbox should emit inputCheck event", async () => {
   expect(checked).toEqual(false);
 });
 
-it("Test disabled ZInput checkbox should not emit inputCheck event", async () => {
+it("Test disabled ZInputDeprecated checkbox should not emit inputCheck event", async () => {
   const page = await newE2EPage();
 
   // Define a window.onCustomEvent function on the page.
@@ -175,15 +202,19 @@ it("Test disabled ZInput checkbox should not emit inputCheck event", async () =>
     });
   }, type);
 
-  await page.setContent(`<z-input type="checkbox" disabled></z-input>`);
-  const input_checkbox_unchecked = await page.find("z-input div input");
+  await page.setContent(
+    `<z-input-deprecated type="checkbox" disabled></z-input-deprecated>`
+  );
+  const input_checkbox_unchecked = await page.find(
+    "z-input-deprecated div input"
+  );
   expect(checked).toEqual(false);
   await input_checkbox_unchecked.click();
   await page.waitForChanges();
   expect(checked).toEqual(false);
 });
 
-it("Test ZInput radio should emit inputCheck event", async () => {
+it("Test ZInputDeprecated radio should emit inputCheck event", async () => {
   const page = await newE2EPage();
 
   // Define a window.onCustomEvent function on the page.
@@ -203,8 +234,10 @@ it("Test ZInput radio should emit inputCheck event", async () => {
     });
   }, type);
 
-  await page.setContent(`<z-input id="radio_1" type="radio"></z-input>`);
-  const input_radio = await page.find("z-input div input");
+  await page.setContent(
+    `<z-input-deprecated id="radio_1" type="radio"></z-input-deprecated>`
+  );
+  const input_radio = await page.find("z-input-deprecated div input");
 
   expect(checked).toEqual(false);
   await input_radio.click();
@@ -215,7 +248,7 @@ it("Test ZInput radio should emit inputCheck event", async () => {
   expect(checked).toEqual(true);
 });
 
-it("Test disabled ZInput radio should not emit inputCheck event", async () => {
+it("Test disabled ZInputDeprecated radio should not emit inputCheck event", async () => {
   const page = await newE2EPage();
 
   // Define a window.onCustomEvent function on the page.
@@ -235,8 +268,10 @@ it("Test disabled ZInput radio should not emit inputCheck event", async () => {
     });
   }, type);
 
-  await page.setContent(`<z-input type="radio" disabled></z-input>`);
-  const input_radio_unchecked = await page.find("z-input div input");
+  await page.setContent(
+    `<z-input-deprecated type="radio" disabled></z-input-deprecated>`
+  );
+  const input_radio_unchecked = await page.find("z-input-deprecated div input");
   expect(checked).toEqual(false);
   await input_radio_unchecked.click();
   await page.waitForChanges();

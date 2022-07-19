@@ -1,10 +1,35 @@
-import { keybordCodeEnum, DeviceEnum } from "../beans/index";
+import { KeyboardCodeEnum, DeviceEnum } from "../beans/index";
 import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 
 export function format(first: string, middle: string, last: string): string {
   return (
     (first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : "")
   );
+}
+
+/**
+ * Return boolean value for passed value if a boolean corresponding value is found
+ * Return passed value otherwise
+ */
+export function boolean(value: any): boolean | string {
+  switch (value) {
+    case true:
+    case "true":
+    case 1:
+    case "1":
+    case "on":
+    case "yes":
+      return true;
+    case false:
+    case "false":
+    case 0:
+    case "0":
+    case "off":
+    case "no":
+      return false;
+    default:
+      return value;
+  }
 }
 
 export function retrieveAsset(assetName: string): string {
@@ -20,7 +45,10 @@ export function handleKeyboardSubmit(
   callback: Function,
   ...args: any[]
 ) {
-  if (ev.code === keybordCodeEnum.ENTER || ev.code === keybordCodeEnum.SPACE) {
+  if (
+    ev.code === KeyboardCodeEnum.ENTER ||
+    ev.code === KeyboardCodeEnum.SPACE
+  ) {
     ev.preventDefault();
     callback(...args);
   }

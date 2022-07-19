@@ -368,7 +368,7 @@ export class ZPagination {
             <z-input
               class="go-to-page-input"
               type="number"
-              hasmessage={false}
+              message={false}
               onInput={(ev) => { this.goToPageValue = (ev.target as HTMLZInputElement).value }}
               placeholder={this.currentPage.toString()}
               hasclearicon={false}
@@ -471,7 +471,7 @@ export class ZPagination {
             <z-input
               class="go-to-page-input"
               type="number"
-              hasmessage={false}
+              message={false}
               placeholder="2"
               hasclearicon={false}
               onInput={(ev) => { this.goToPageValue = (ev.target as HTMLZInputElement).value }}
