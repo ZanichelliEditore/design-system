@@ -21,7 +21,24 @@
   filter: var(--z-popover-shadow-filter);
 }
 
-:host([position])::before {
+:host(:not([open])),
+:host([open="false"]) {
+  display: none;
+}
+
+:host([center][current-position='top']),
+:host([center][current-position='bottom']) {
+  transform: translateX(-50%);
+}
+
+:host([center][current-position='right']),
+:host([center][current-position='left']) {
+  transform: translateY(-50%);
+}
+
+/* Arrow style */
+
+:host([current-position])::before {
   --arrow-edge-offset: calc(100% - var(--arrow-size) - var(--space-unit));
   --arrow-center-x-offset: calc(50% - calc(var(--arrow-size) / 2));
   --arrow-center-y-offset: calc(100% - calc(var(--arrow-size) / 2));
@@ -40,90 +57,73 @@
   display: none;
 }
 
-:host(:not([open])),
-:host([open="false"]) {
-  display: none;
-}
-
-:host([center][position='top']),
-:host([center][position='bottom']) {
-  transform: translateX(-50%);
-}
-
-:host([center][position='right']),
-:host([center][position='left']) {
-  transform: translateY(-50%);
-}
-
-/* Arrow style */
-
-:host([position^='top'])::before {
+:host([current-position^='top'])::before {
   top: var(--arrow-center-y-offset);
 }
 
-:host([position^='bottom'])::before {
+:host([current-position^='bottom'])::before {
   bottom: var(--arrow-center-y-offset);
 }
 
-:host([position='top'])::before,
-:host([position='bottom'])::before {
+:host([current-position='top'])::before,
+:host([current-position='bottom'])::before {
   left: var(--arrow-center-x-offset);
 }
 
-:host([position='right'])::before,
-:host([position='left'])::before {
+:host([current-position='right'])::before,
+:host([current-position='left'])::before {
   top: var(--arrow-center-x-offset);
 }
 
-:host([position='right'])::before {
+:host([current-position='right'])::before {
   right: var(--arrow-center-y-offset);
 }
 
-:host([position='left'])::before {
+:host([current-position='left'])::before {
   left: var(--arrow-center-y-offset);
 }
 
-:host([position='top_right'])::before,
-:host([position='bottom_right'])::before {
+:host([current-position='top_right'])::before,
+:host([current-position='bottom_right'])::before {
   right: calc(var(--arrow-edge-offset) + var(--arrow-size));
 }
 
-:host([position='top_right']:not([center]))::before,
-:host([position='bottom_right']:not([center]))::before,
-:host([position='top_right'][center="false"])::before,
-:host([position='bottom_right'][center="false"])::before {
+:host([current-position='top_right']:not([center]))::before,
+:host([current-position='bottom_right']:not([center]))::before,
+:host([current-position='top_right'][center="false"])::before,
+:host([current-position='bottom_right'][center="false"])::before {
   right: calc(var(--arrow-edge-offset) - var(--arrow-size) + 1px);
 }
 
-:host([position='top_left'])::before,
-:host([position='bottom_left'])::before {
+:host([current-position='top_left'])::before,
+:host([current-position='bottom_left'])::before {
   left: calc(var(--arrow-edge-offset) + var(--arrow-size));
 }
 
-:host([position='top_left']:not([center]))::before,
-:host([position='bottom_left']:not([center]))::before,
-:host([position='top_left'][center="false"])::before,
-:host([position='bottom_left'][center="false"])::before {
+:host([current-position='top_left']:not([center]))::before,
+:host([current-position='bottom_left']:not([center]))::before,
+:host([current-position='top_left'][center="false"])::before,
+:host([current-position='bottom_left'][center="false"])::before {
   left: calc(var(--arrow-edge-offset) - var(--arrow-size) + 1px);
 }
 
-:host([position='right_top'])::before,
-:host([position='left_top'])::before {
+:host([current-position='right_top'])::before,
+:host([current-position='left_top'])::before {
   bottom: var(--arrow-size);
 }
 
-:host([position='right_top'])::before,
-:host([position='right_bottom'])::before {
+:host([current-position='right_top'])::before,
+:host([current-position='right_bottom'])::before {
   right: var(--arrow-center-y-offset);
 }
 
-:host([position='left_top'])::before,
-:host([position='left_bottom'])::before {
+:host([current-position='left_top'])::before,
+:host([current-position='left_bottom'])::before {
   left: var(--arrow-center-y-offset);
 }
 
-:host([position='right_bottom'])::before,
-:host([position='left_bottom'])::before {
+:host([current-position='right_bottom'])::before,
+:host([current-position='left_bottom'])::before {
   top: var(--arrow-size);
 }
 

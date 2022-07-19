@@ -237,7 +237,6 @@ export class ZPopover {
       this.currentPosition = undefined;
     }
 
-    console.log("sparo open", this.open);
     this.openChange.emit({ open: this.open });
   }
 
@@ -471,6 +470,7 @@ export class ZPopover {
     }
 
     this.currentPosition = position;
+    this.host.setAttribute('current-position', this.currentPosition);
   }
 
   componentWillLoad() {
