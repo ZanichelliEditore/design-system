@@ -12,14 +12,16 @@ describe("Suite test ZContextualMenu", () => {
     expect(page.root).toEqualHtml(`
       <z-contextual-menu>
         <mock:shadow-root>
-        <z-popover background-color="color-background" box-shadow="shadow-2" padding="0" position="after-down">
-               <z-icon aria-label="apri-menu-contestuale" fill="color-primary01" name="contextual-menu" slot="trigger" style="cursor: pointer;"></z-icon>
-               <div class="popover-content-container" slot="popover">
-                 <z-list>
-                   <z-list-group divider-type="element"></z-list-group>
-                 </z-list>
-              </div>
-            </z-popover>
+          <button aria-label="apri menu contestuale">
+            <z-icon fill="color-primary01" name="contextual-menu"></z-icon>
+          </button>
+          <z-popover position="bottom_right">
+            <div class="popover-content-container">
+              <z-list>
+                <z-list-group divider-type="element"></z-list-group>
+              </z-list>
+            </div>
+          </z-popover>
         </mock:shadow-root>
       </z-contextual-menu>
     `);
@@ -33,9 +35,11 @@ describe("Suite test ZContextualMenu", () => {
     expect(page.root).toEqualHtml(`
       <z-contextual-menu '="" elements='[{"icon":"share","text":"Element 1","key": "0"},{"icon":"delete","text":"Elemento 2","key": "1"}]'>
         <mock:shadow-root>
-         <z-popover background-color="color-background" box-shadow="shadow-2" padding="0" position="after-down">
-                 <z-icon aria-label="apri-menu-contestuale" fill="color-primary01" name="contextual-menu" slot="trigger" style="cursor: pointer;"></z-icon>
-                 <div class="popover-content-container" slot="popover">
+            <button aria-label="apri menu contestuale">
+              <z-icon fill="color-primary01" name="contextual-menu"></z-icon>
+            </button>
+            <z-popover position="bottom_right">
+                 <div class="popover-content-container">
                    <z-list>
                      <z-list-group divider-type="element">
                        <z-list-element align-button="left" class="my-z-list-element" clickable="" color="color-primary01" expandable-style="accordion" iscontextualmenu="" listelementid="0">

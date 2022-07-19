@@ -357,6 +357,10 @@ export namespace Components {
          */
         "elements"?: string;
         /**
+          * [optional] Sets the centering of the popover
+         */
+        "popoverCenter"?: boolean;
+        /**
           * [optional] Sets the position of the popover
          */
         "popoverPosition"?: PopoverPosition;
@@ -1421,7 +1425,7 @@ export namespace Components {
          */
         "bindTo"?: string | HTMLElement;
         /**
-          * Whether center the popup on the main side.
+          * Whether center the popup on the main side - according to "position".
          */
         "center": boolean;
         /**
@@ -1433,7 +1437,7 @@ export namespace Components {
          */
         "position": PopoverPosition;
         /**
-          * Whether to show arrow of popover.
+          * Whether to show popover's arrow.
          */
         "showArrow": boolean;
     }
@@ -2906,6 +2910,10 @@ declare namespace LocalJSX {
          */
         "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
         /**
+          * [optional] Sets the centering of the popover
+         */
+        "popoverCenter"?: boolean;
+        /**
           * [optional] Sets the position of the popover
          */
         "popoverPosition"?: PopoverPosition;
@@ -4121,9 +4129,13 @@ declare namespace LocalJSX {
          */
         "bindTo"?: string | HTMLElement;
         /**
-          * Whether center the popup on the main side.
+          * Whether center the popup on the main side - according to "position".
          */
         "center"?: boolean;
+        /**
+          * Open change event.
+         */
+        "onOpenChange"?: (event: CustomEvent<any>) => void;
         /**
           * Position change event.
          */
@@ -4141,7 +4153,7 @@ declare namespace LocalJSX {
          */
         "position"?: PopoverPosition;
         /**
-          * Whether to show arrow of popover.
+          * Whether to show popover's arrow.
          */
         "showArrow"?: boolean;
     }
