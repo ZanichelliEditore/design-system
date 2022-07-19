@@ -87,12 +87,6 @@ export class ZInput {
     }
   }
 
-  /** get the input value */
-  @Method()
-  async getValue(): Promise<string> {
-    return this.value;
-  }
-
   /** get checked status */
   @Method()
   async isChecked(): Promise<boolean> {

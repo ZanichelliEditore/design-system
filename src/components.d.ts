@@ -549,10 +549,6 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * get the input value
-         */
-        "getValue": () => Promise<string>;
-        /**
           * render clear icon when typing (optional): available for text
          */
         "hasclearicon"?: boolean;

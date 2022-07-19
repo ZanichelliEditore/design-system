@@ -156,16 +156,6 @@
 
 ## Methods
 
-### `getValue() => Promise<string>`
-
-get the input value
-
-#### Returns
-
-Type: `Promise<string>`
-
-
-
 ### `isChecked() => Promise<boolean>`
 
 get checked status
