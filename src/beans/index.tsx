@@ -154,7 +154,6 @@ export enum InputTypeEnum {
   textarea = "textarea",
   checkbox = "checkbox",
   radio = "radio",
-  select = "select",
 }
 
 export type InputStatusBean = keyof typeof InputStatusEnum;
@@ -163,7 +162,6 @@ export enum InputStatusEnum {
   success = "success",
   error = "error",
   warning = "warning",
-  selecting = "selecting",
 }
 
 export type PopoverPositionBean = keyof typeof PopoverPositions;
@@ -184,7 +182,7 @@ export enum PopoverPositions {
   LEFT_BOTTOM = "left_bottom",
 }
 
-export enum keybordKeyCodeEnum {
+export enum KeyboardKeyCodeEnum {
   TAB = 9,
   SPACE = 32,
   ESC = 27,
@@ -195,7 +193,7 @@ export enum keybordKeyCodeEnum {
   DELETE = 46,
 }
 
-export enum keybordCodeEnum {
+export enum KeyboardCodeEnum {
   TAB = "Tab",
   SPACE = "Space",
   ESC = "Escape",
@@ -278,10 +276,12 @@ export enum ExpandableListButtonAlign {
   left = "left",
 }
 
-export enum ZtoggleSwitchPositionEnum {
+export enum LabelPositions {
   right = "right",
   left = "left",
 }
+export type LabelPosition = keyof typeof LabelPositions;
+
 export enum ListDividerType {
   none = "none",
   header = "header",

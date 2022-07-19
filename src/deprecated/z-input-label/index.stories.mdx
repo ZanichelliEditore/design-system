@@ -1,0 +1,22 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
+import { text, boolean } from "@storybook/addon-knobs";
+import "./index";
+
+<Meta title="Deprecated/ZInputLabel" component="z-input-label" />
+
+## This component is deprecated and will be removed from the library starting October 1st 2022, please use a simple html tag instead.
+
+# ZInputLabel
+
+<Preview>
+  <Story name="ZInputLabel-sample">
+    {html`<z-input-label
+      htmlfor="${text("htmlfor", "input-id")}"
+      value="${text("value", "Messaggio")}"
+      disabled="${boolean("disabled", false)}"
+    ></z-input-label>`}
+  </Story>
+</Preview>
+
+<Props of="z-input-label" />

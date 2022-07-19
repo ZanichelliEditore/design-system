@@ -1,29 +1,116 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean, select } from '@storybook/addon-knobs';
+import { Meta, Canvas, Story, Preview, Props } from "@storybook/addon-docs";
 import { InputStatusEnum } from "../../../beans";
 import "./index";
 
-<Meta title="Inputs/ZSelect" component="z-input-select" />
+## Stories
 
-# ZSelect
+<Meta
+  title="Inputs/ZSelect"
+  component="z-select"
+  argTypes={{
+    items: {
+      control: { type: "object" },
+      defaultValue: [
+        {
+          id: "item_1",
+          name: "first item",
+          selected: false,
+        },
+        {
+          id: "item_2",
+          name: "second item",
+          selected: true,
+        },
+        {
+          id: "item_3",
+          name: "disabled item",
+          selected: false,
+          disabled: true,
+        },
+        {
+          id: "item_4",
+          name: "fourth item",
+          selected: false,
+        },
+      ],
+    },
+    label: {
+      control: { type: "text" },
+      defaultValue: "this is the label",
+    },
+    ariaLabel: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    placeholder: {
+      control: { type: "text" },
+      defaultValue: "select placeholder",
+    },
+    name: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    status: {
+      control: { type: "select" },
+      options: ["-", ...Object.values(InputStatusEnum)],
+      defaultValue: "-",
+    },
+    message: {
+      control: { type: "text" },
+      defaultValue: "helper text",
+    },
+    disabled: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    readonly: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    htmlid: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    htmltitle: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
+    autocomplete: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    noresultslabel: {
+      control: { type: "text" },
+      defaultValue: "Nessun risultato",
+    },
+  }}
+/>
 
-<Preview>
+# ZInput
+
+<Canvas>
   <Story name="z-select">
-    {html`<z-select
-      label="Label"
-      placeholder="Placeholder"
-      disabled="${boolean('disabled', false)}"
-      readonly="${boolean('readonly', false)}"
-      status="${select('status', ['default', ...Object.keys(InputStatusEnum)], 'default')}"
-      message="${text('message', 'Helper text')}"
-      hasmessage="${boolean('hasmessage', true)}"
-      autocomplete="${boolean('autocomplete', true)}"
-      multiple="${boolean('multiple', false)}"
-      noresultslabel="${text('noresultslabel', 'Nessun risultato')}"
-      items='[{"id":"item_1","name":"First Item","selected":false},{"id":"item_2","name":"Second Item","selected":false},{"id":"item_3","name":"Third Item","selected":false}]'
-    ></z-select>`}
+    {(args) =>
+      html`
+        <z-select
+          items=${JSON.stringify(args.items)}
+          label=${args.label}
+          aria-label=${args.ariaLabel}
+          placeholder=${args.placeholder}
+          name=${args.name}
+          status=${args.status}
+          message=${args.message}
+          autocomplete=${args.autocomplete}
+          noresultslabel=${args.noresultslabel}
+          disabled=${args.disabled}
+          readonly=${args.readonly}
+          htmlid=${args.htmlid}
+          htmltitle=${args.htmltitle}
+        ></z-select>
+      `
+    }
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-select" />
+<ArgsTable of="z-select" />

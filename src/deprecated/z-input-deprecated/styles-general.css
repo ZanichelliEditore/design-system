@@ -16,7 +16,8 @@ input::-ms-reveal {
 
 input,
 textarea,
-.textareaWrapper {
+.textareaWrapper,
+ul[role="listbox"] {
   background: var(--color-input-field01);
   border-radius: var(--border-radius-small);
   border: var(--border-size-small) solid var(--color-surface04);
@@ -31,13 +32,9 @@ textarea,
 
 /* FOCUS */
 input:focus:focus-visible,
-.textareaWrapper:focus-within {
+li[role="option"]:focus:focus-visible,
+.focus {
   box-shadow: var(--shadow-focus-primary);
-}
-
-input:focus:focus-visible,
-textarea:focus:focus-visible {
-  color: var(--color-primary01);
 }
 
 /* FILLED */
@@ -46,28 +43,28 @@ textarea:focus:focus-visible {
 }
 
 /* STATUSES (success, warning, error) */
-.input_success {
+.input_success,
+.input_success:hover,
+.input_success.hover {
   background: var(--color-success-inverse);
   border-color: var(--color-success01);
   fill: var(--color-success01);
 }
 
-.input_error {
+.input_error,
+.input_error:hover,
+.input_error.hover {
   background: var(--color-error-inverse);
   border-color: var(--color-error01);
   fill: var(--color-error01);
 }
 
-.input_warning {
+.input_warning,
+.input_warning:hover,
+.input_warning.hover {
   background: var(--color-warning-inverse);
   border-color: var(--color-warning01);
   fill: var(--color-warning01);
-}
-
-/* HOVER */
-input:hover,
-.textareaWrapper:hover {
-  border-width: var(--border-size-medium);
 }
 
 /* READONLY */
@@ -79,18 +76,14 @@ input[readonly],
 }
 
 /* DISABLED */
-:host([disabled]:not([disabled="false"])) input,
-:host([disabled]:not([disabled="false"])) .textareaWrapper,
-:host([disabled]:not([disabled="false"])) z-icon {
+input:disabled,
+.disabled,
+.filled:disabled {
   border-color: var(--color-disabled01);
   color: var(--color-disabled02);
   fill: var(--color-disabled01);
   pointer-events: none;
   box-shadow: none;
-}
-
-:host([disabled]:not([disabled="false"])) input:hover {
-  border-width: var(--border-size-small);
 }
 
 /* PLACEHOLDER */
@@ -115,18 +108,4 @@ textarea::placeholder {
 
 :-moz-placeholder {
   color: var(--color-text05);
-}
-
-/* LABEL */
-label.inputLabel {
-  display: block;
-  margin-bottom: var(--space-unit);
-  color: var(--color-text02);
-  font-family: var(--font-family-sans);
-  text-transform: uppercase;
-  text-align: left;
-}
-
-:host([disabled]:not([disabled="false"])) label.inputLabel {
-  color: var(--color-disabled02);
 }

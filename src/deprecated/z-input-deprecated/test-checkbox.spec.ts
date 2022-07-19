@@ -1,15 +1,15 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { ZInput } from "./index";
+import { ZInputDeprecated } from "./index";
 
-describe("Suite test ZInput - checkbox", () => {
-  it("Test render ZInput vuoto", async () => {
+describe("Suite test ZInputDeprecated - checkbox", () => {
+  it("Test render ZInputDeprecated vuoto", async () => {
     const page = await newSpecPage({
-      components: [ZInput],
-      html: `<z-input htmlid="checkid" type="checkbox"></z-input>`,
+      components: [ZInputDeprecated],
+      html: `<z-input-deprecated htmlid="checkid" type="checkbox"></z-input-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox">
+      <z-input-deprecated htmlid="checkid" type="checkbox">
 
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" />
@@ -18,17 +18,17 @@ describe("Suite test ZInput - checkbox", () => {
             </label>
           </div>
 
-      </z-input>
+      </z-input-deprecated>
     `);
   });
 
-  it("Test render ZInput with attributes", async () => {
+  it("Test render ZInputDeprecated with attributes", async () => {
     const page = await newSpecPage({
-      components: [ZInput],
-      html: `<z-input htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value"></z-input>`,
+      components: [ZInputDeprecated],
+      html: `<z-input-deprecated htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value"></z-input-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value">
+      <z-input-deprecated htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value">
 
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" name="name" value="value" />
@@ -38,17 +38,17 @@ describe("Suite test ZInput - checkbox", () => {
             </label>
           </div>
 
-      </z-input>
+      </z-input-deprecated>
     `);
   });
 
-  it("Test render ZInput checked", async () => {
+  it("Test render ZInputDeprecated checked", async () => {
     const page = await newSpecPage({
-      components: [ZInput],
-      html: `<z-input htmlid="checkid" type="checkbox" checked></z-input>`,
+      components: [ZInputDeprecated],
+      html: `<z-input-deprecated htmlid="checkid" type="checkbox" checked></z-input-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox" checked>
+      <z-input-deprecated htmlid="checkid" type="checkbox" checked>
 
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" checked />
@@ -57,17 +57,17 @@ describe("Suite test ZInput - checkbox", () => {
             </label>
           </div>
 
-      </z-input>
+      </z-input-deprecated>
     `);
   });
 
-  it("Test render ZInput label before", async () => {
+  it("Test render ZInputDeprecated label before", async () => {
     const page = await newSpecPage({
-      components: [ZInput],
-      html: `<z-input htmlid="checkid" type="checkbox" label-position="left"></z-input>`,
+      components: [ZInputDeprecated],
+      html: `<z-input-deprecated htmlid="checkid" type="checkbox" labelafter="false"></z-input-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox" label-position="left">
+      <z-input-deprecated htmlid="checkid" type="checkbox" labelafter="false">
 
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" />
@@ -76,17 +76,17 @@ describe("Suite test ZInput - checkbox", () => {
             </label>
           </div>
 
-      </z-input>
+      </z-input-deprecated>
     `);
   });
 
-  it("Test render ZInput disabled", async () => {
+  it("Test render ZInputDeprecated disabled", async () => {
     const page = await newSpecPage({
-      components: [ZInput],
-      html: `<z-input htmlid="checkid" type="checkbox" disabled></z-input>`,
+      components: [ZInputDeprecated],
+      html: `<z-input-deprecated htmlid="checkid" type="checkbox" disabled></z-input-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox" disabled>
+      <z-input-deprecated htmlid="checkid" type="checkbox" disabled>
 
           <div class="checkboxWrapper">
             <input id="checkid" type="checkbox" disabled />
@@ -95,17 +95,17 @@ describe("Suite test ZInput - checkbox", () => {
             </label>
           </div>
 
-      </z-input>
+      </z-input-deprecated>
     `);
   });
 
-  it("Test render ZInput readonly", async () => {
+  it("Test render ZInputDeprecated readonly", async () => {
     const page = await newSpecPage({
-      components: [ZInput],
-      html: `<z-input htmlid="checkid" type="checkbox" readonly></z-input>`,
+      components: [ZInputDeprecated],
+      html: `<z-input-deprecated htmlid="checkid" type="checkbox" readonly></z-input-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-        <z-input htmlid="checkid" type="checkbox" readonly>
+        <z-input-deprecated htmlid="checkid" type="checkbox" readonly>
 
             <div class="checkboxWrapper">
               <input id="checkid" type="checkbox" readonly />
@@ -114,7 +114,7 @@ describe("Suite test ZInput - checkbox", () => {
               </label>
             </div>
 
-        </z-input>
+        </z-input-deprecated>
       `);
   });
 });
