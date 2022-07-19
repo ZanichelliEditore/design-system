@@ -9,7 +9,7 @@ import {
   Listen,
   Prop,
 } from "@stencil/core";
-import { PopoverPosition, ZChipType } from "../../../beans";
+import { PopoverPositions, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
 
 @Component({
@@ -73,7 +73,7 @@ export class ZFile {
         {this.allowPopover && (
           <z-popover
             open={this.popoverVisible}
-            position={PopoverPosition.AUTO}
+            position={PopoverPositions.AUTO}
             bindTo={this.chip}
           >
             <span class="body-5 tooltip-content">

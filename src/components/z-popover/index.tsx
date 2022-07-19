@@ -9,7 +9,7 @@ import {
   Event,
   EventEmitter,
 } from "@stencil/core";
-import { PopoverPosition, KeyboardKeys } from "../../beans";
+import { PopoverPositions, KeyboardKeys } from "../../beans";
 import { getElementTree } from "../../utils/utils";
 
 const documentElement = document.documentElement;
@@ -131,8 +131,8 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
 })
 export class ZPopover {
   /** Popover position. */
-  @Prop({ reflect: true, mutable: true }) position: PopoverPosition =
-    PopoverPosition.AUTO;
+  @Prop({ reflect: true, mutable: true }) position: PopoverPositions =
+    PopoverPositions.AUTO;
 
   /**
    * The open state of the popover.
@@ -157,7 +157,7 @@ export class ZPopover {
   /**
    * The current position of the popover.
    */
-  @State() currentPosition?: PopoverPosition;
+  @State() currentPosition?: PopoverPositions;
 
   /** Emitted on popover click, returns isVisible state */
   @Event() triggerClick: EventEmitter;
@@ -204,9 +204,9 @@ export class ZPopover {
   validatePosition(newValue) {
     if (
       newValue &&
-      Object.values(PopoverPosition).every((position) => newValue !== position)
+      Object.values(PopoverPositions).every((position) => newValue !== position)
     ) {
-      this.position = PopoverPosition.AUTO;
+      this.position = PopoverPositions.AUTO;
     }
     this.positionChange.emit({ position: this.currentPosition });
   }
@@ -305,70 +305,70 @@ export class ZPopover {
     const availableWidth = availableLeft + availableRight + boundingRect.width;
 
     let position = this.position;
-    const positions: PopoverPosition[] = [];
-    if (position === PopoverPosition.AUTO) {
+    const positions: PopoverPositions[] = [];
+    if (position === PopoverPositions.AUTO) {
       /**
        * The `AUTO` position tries to place the popover in the 'safest' area,
        * where there's more space available.
        */
       if (availableLeft / availableWidth > 0.6) {
-        positions.push(PopoverPosition.LEFT);
+        positions.push(PopoverPositions.LEFT);
       } else if (availableLeft / availableWidth < 0.4) {
-        positions.push(PopoverPosition.RIGHT);
+        positions.push(PopoverPositions.RIGHT);
       }
 
       if (availableTop / availableHeight > 0.9) {
-        positions.unshift(PopoverPosition.TOP);
+        positions.unshift(PopoverPositions.TOP);
       } else if (availableTop / availableHeight > 0.6) {
-        positions.push(PopoverPosition.TOP);
+        positions.push(PopoverPositions.TOP);
       } else if (availableTop / availableHeight < 0.1) {
-        positions.unshift(PopoverPosition.BOTTOM);
+        positions.unshift(PopoverPositions.BOTTOM);
       } else {
-        positions.push(PopoverPosition.BOTTOM);
+        positions.push(PopoverPositions.BOTTOM);
       }
 
-      position = positions.join("_") as PopoverPosition;
+      position = positions.join("_") as PopoverPositions;
     }
 
-    const available = Object.keys(PopoverPosition).map(
-      (key) => PopoverPosition[key]
+    const available = Object.keys(PopoverPositions).map(
+      (key) => PopoverPositions[key]
     );
     if (available.indexOf(position) === -1) {
       // normalize direction to closest available
-      if (position === PopoverPosition.TOP_RIGHT) {
-        if (available.indexOf(PopoverPosition.TOP) !== -1) {
-          position = PopoverPosition.TOP;
-        } else if (available.indexOf(PopoverPosition.RIGHT) !== -1) {
-          position = PopoverPosition.RIGHT;
+      if (position === PopoverPositions.TOP_RIGHT) {
+        if (available.indexOf(PopoverPositions.TOP) !== -1) {
+          position = PopoverPositions.TOP;
+        } else if (available.indexOf(PopoverPositions.RIGHT) !== -1) {
+          position = PopoverPositions.RIGHT;
         } else {
-          position = PopoverPosition.BOTTOM;
+          position = PopoverPositions.BOTTOM;
         }
-      } else if (position === PopoverPosition.TOP_LEFT) {
-        if (available.indexOf(PopoverPosition.TOP) !== -1) {
-          position = PopoverPosition.TOP;
-        } else if (available.indexOf(PopoverPosition.LEFT) !== -1) {
-          position = PopoverPosition.LEFT;
+      } else if (position === PopoverPositions.TOP_LEFT) {
+        if (available.indexOf(PopoverPositions.TOP) !== -1) {
+          position = PopoverPositions.TOP;
+        } else if (available.indexOf(PopoverPositions.LEFT) !== -1) {
+          position = PopoverPositions.LEFT;
         } else {
-          position = PopoverPosition.BOTTOM;
+          position = PopoverPositions.BOTTOM;
         }
-      } else if (position === PopoverPosition.RIGHT_TOP) {
-        if (available.indexOf(PopoverPosition.RIGHT) !== -1) {
-          position = PopoverPosition.RIGHT;
-        } else if (available.indexOf(PopoverPosition.TOP) !== -1) {
-          position = PopoverPosition.TOP;
+      } else if (position === PopoverPositions.RIGHT_TOP) {
+        if (available.indexOf(PopoverPositions.RIGHT) !== -1) {
+          position = PopoverPositions.RIGHT;
+        } else if (available.indexOf(PopoverPositions.TOP) !== -1) {
+          position = PopoverPositions.TOP;
         } else {
-          position = PopoverPosition.BOTTOM;
+          position = PopoverPositions.BOTTOM;
         }
-      } else if (position === PopoverPosition.LEFT_TOP) {
-        if (available.indexOf(PopoverPosition.LEFT) !== -1) {
-          position = PopoverPosition.LEFT;
-        } else if (available.indexOf(PopoverPosition.TOP) !== -1) {
-          position = PopoverPosition.TOP;
+      } else if (position === PopoverPositions.LEFT_TOP) {
+        if (available.indexOf(PopoverPositions.LEFT) !== -1) {
+          position = PopoverPositions.LEFT;
+        } else if (available.indexOf(PopoverPositions.TOP) !== -1) {
+          position = PopoverPositions.TOP;
         } else {
-          position = PopoverPosition.BOTTOM;
+          position = PopoverPositions.BOTTOM;
         }
       } else {
-        position = PopoverPosition.BOTTOM;
+        position = PopoverPositions.BOTTOM;
       }
     }
 
@@ -383,8 +383,8 @@ export class ZPopover {
     const sizeModifier = this.center ? 0.5 : 0;
 
     if (
-      position === PopoverPosition.TOP ||
-      position === PopoverPosition.TOP_RIGHT
+      position === PopoverPositions.TOP ||
+      position === PopoverPositions.TOP_RIGHT
     ) {
       style.top = "auto";
       style.right = "auto";
@@ -392,12 +392,12 @@ export class ZPopover {
 
       style.left = `${offsetLeft + boundingRect.width * offsetModifier}px`;
       style.maxHeight = `${availableTop}px`;
-      if (position === PopoverPosition.TOP_RIGHT) {
+      if (position === PopoverPositions.TOP_RIGHT) {
         style.maxWidth = `${
           availableRight + boundingRect.width * sizeModifier
         }px`;
       }
-    } else if (position === PopoverPosition.TOP_LEFT) {
+    } else if (position === PopoverPositions.TOP_LEFT) {
       style.top = "auto";
       style.right = `${offsetRight + boundingRect.width * offsetModifier}px`;
       style.bottom = `${offsetBottom + boundingRect.height}px`;
@@ -405,20 +405,20 @@ export class ZPopover {
       style.maxWidth = `${availableLeft}px`;
       style.maxHeight = `${availableTop}px`;
     } else if (
-      position === PopoverPosition.BOTTOM ||
-      position === PopoverPosition.BOTTOM_RIGHT
+      position === PopoverPositions.BOTTOM ||
+      position === PopoverPositions.BOTTOM_RIGHT
     ) {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.right = "auto";
       style.bottom = "auto";
       style.left = `${offsetLeft + boundingRect.width * offsetModifier}px`;
       style.maxHeight = `${availableBottom}px`;
-      if (position === PopoverPosition.BOTTOM_RIGHT) {
+      if (position === PopoverPositions.BOTTOM_RIGHT) {
         style.maxWidth = `${
           availableRight + boundingRect.width * sizeModifier
         }px`;
       }
-    } else if (position === PopoverPosition.BOTTOM_LEFT) {
+    } else if (position === PopoverPositions.BOTTOM_LEFT) {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.right = `${offsetRight + boundingRect.width * offsetModifier}px`;
       style.bottom = "auto";
@@ -426,8 +426,8 @@ export class ZPopover {
       style.maxWidth = `${availableLeft}px`;
       style.maxHeight = `${availableBottom}px`;
     } else if (
-      position === PopoverPosition.RIGHT ||
-      position === PopoverPosition.RIGHT_BOTTOM
+      position === PopoverPositions.RIGHT ||
+      position === PopoverPositions.RIGHT_BOTTOM
     ) {
       style.top = `${offsetTop + boundingRect.height * offsetModifier}px`;
       style.right = "auto";
@@ -437,7 +437,7 @@ export class ZPopover {
       style.maxHeight = `${
         availableBottom + boundingRect.height * sizeModifier
       }px`;
-    } else if (position === PopoverPosition.RIGHT_TOP) {
+    } else if (position === PopoverPositions.RIGHT_TOP) {
       style.top = "auto";
       style.right = "auto";
       style.bottom = `${offsetBottom + boundingRect.height * offsetModifier}px`;
@@ -447,8 +447,8 @@ export class ZPopover {
         availableTop + boundingRect.height * sizeModifier
       }px`;
     } else if (
-      position === PopoverPosition.LEFT ||
-      position === PopoverPosition.LEFT_BOTTOM
+      position === PopoverPositions.LEFT ||
+      position === PopoverPositions.LEFT_BOTTOM
     ) {
       style.top = `${offsetTop + boundingRect.height * offsetModifier}px`;
       style.right = `${offsetRight + boundingRect.width}px`;
@@ -458,7 +458,7 @@ export class ZPopover {
       style.maxHeight = `${
         availableBottom + boundingRect.height * sizeModifier
       }px`;
-    } else if (position === PopoverPosition.LEFT_TOP) {
+    } else if (position === PopoverPositions.LEFT_TOP) {
       style.top = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
       style.bottom = `${offsetBottom + boundingRect.height * offsetModifier}px`;

@@ -12,7 +12,7 @@ import classNames from "classnames";
 import {
   ButtonSizeEnum,
   ButtonVariantEnum,
-  PopoverPosition,
+  PopoverPositions,
   Size,
   SortDirection,
   SortDirectionEnum,
@@ -158,7 +158,7 @@ export class ZTableHeader {
 
             <z-popover
               ref={(el) => (this.popover = el as HTMLZPopoverElement) }
-              position={PopoverPosition.BOTTOM}
+              position={PopoverPositions.BOTTOM}
               center={true}
               bindTo={this.triggerButton}
             >

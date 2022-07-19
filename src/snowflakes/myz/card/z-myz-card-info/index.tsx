@@ -1,5 +1,5 @@
 import { Component, Prop, h, Event, EventEmitter, State } from "@stencil/core";
-import { DictionaryData, PopoverPosition } from "../../../../beans";
+import { DictionaryData, PopoverPositions } from "../../../../beans";
 import { handleKeyboardSubmit } from "../../../../utils/utils";
 
 /**
@@ -143,7 +143,7 @@ export class ZMyzCardInfo {
 
     return (
       <z-popover
-        position={PopoverPosition.RIGHT}
+        position={PopoverPositions.RIGHT}
         onClick={() => (this.tooltip = false)}
       >
         {`${title} ${year} ${author} ${description}`}

@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPosition as PopoverPosition1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverPosition, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverPositions, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -349,6 +349,10 @@ export namespace Components {
     }
     interface ZContextualMenu {
         /**
+          * [optional] Sets the position of the popover
+         */
+        "PopoverPositions"?: PopoverPositions;
+        /**
           * [optional] Sets text color of ZContextualMenu's content
          */
         "color"?: string;
@@ -360,10 +364,6 @@ export namespace Components {
           * [optional] Sets the centering of the popover
          */
         "popoverCenter"?: boolean;
-        /**
-          * [optional] Sets the position of the popover
-         */
-        "popoverPosition"?: PopoverPosition;
     }
     interface ZCookiebar {
         /**
@@ -1435,7 +1435,7 @@ export namespace Components {
         /**
           * Popover position.
          */
-        "position": PopoverPosition;
+        "position": PopoverPositions;
         /**
           * Whether to show popover's arrow.
          */
@@ -1799,7 +1799,7 @@ export namespace Components {
         /**
           * Tooltip position.
          */
-        "type": PopoverPosition1;
+        "type": PopoverPositions1;
     }
     interface ZTypography {
         "component": string;
@@ -2924,6 +2924,10 @@ declare namespace LocalJSX {
     }
     interface ZContextualMenu {
         /**
+          * [optional] Sets the position of the popover
+         */
+        "PopoverPositions"?: PopoverPositions;
+        /**
           * [optional] Sets text color of ZContextualMenu's content
          */
         "color"?: string;
@@ -2939,10 +2943,6 @@ declare namespace LocalJSX {
           * [optional] Sets the centering of the popover
          */
         "popoverCenter"?: boolean;
-        /**
-          * [optional] Sets the position of the popover
-         */
-        "popoverPosition"?: PopoverPosition;
     }
     interface ZCookiebar {
         /**
@@ -4177,7 +4177,7 @@ declare namespace LocalJSX {
         /**
           * Popover position.
          */
-        "position"?: PopoverPosition;
+        "position"?: PopoverPositions;
         /**
           * Whether to show popover's arrow.
          */
@@ -4559,7 +4559,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip position.
          */
-        "type"?: PopoverPosition1;
+        "type"?: PopoverPositions1;
     }
     interface ZTypography {
         "component"?: string;

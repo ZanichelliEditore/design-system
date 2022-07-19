@@ -1,7 +1,7 @@
 import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
 import { text, select, radios, boolean } from "@storybook/addon-knobs";
-import { PopoverPosition } from '../../beans';
+import { PopoverPositions } from '../../beans';
 import "./index";
 
 <Meta title="ZContextualMenu" component="contextual-menu" />
@@ -22,7 +22,7 @@ import "./index";
         )}"
         color="${text("color", "color-primary01")}"
         popover-center="${boolean("popover-center", false)}"
-        popover-position="${radios("popover-position", PopoverPosition, "right_bottom")}"
+        popover-position="${radios("popover-position", PopoverPositions, "right_bottom")}"
       >
       </z-contextual-menu>
     </div>`}
@@ -42,7 +42,7 @@ import "./index";
         )}"
         color="${text("color", "color-primary01")}"
         popover-center="${boolean("popover-center", false)}"
-        popover-position="${radios("popover-position", PopoverPosition, "right_bottom")}"
+        popover-position="${radios("popover-position", PopoverPositions, "right_bottom")}"
       >
       </z-contextual-menu>
     </div>`}
@@ -62,7 +62,7 @@ import "./index";
         )}"
         color="${text("color", "color-primary01")}"
         popover-center="${boolean("popover-center", false)}"
-        popover-position="${radios("popover-position", PopoverPosition, "right_bottom")}"
+        popover-position="${radios("popover-position", PopoverPositions, "right_bottom")}"
       >
       </z-contextual-menu>
     </div>`}

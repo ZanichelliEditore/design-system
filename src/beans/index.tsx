@@ -166,9 +166,9 @@ export enum InputStatusEnum {
   selecting = "selecting",
 }
 
-export type PopoverPositionBean = keyof typeof PopoverPosition;
+export type PopoverPositionBean = keyof typeof PopoverPositions;
 
-export enum PopoverPosition {
+export enum PopoverPositions {
   AUTO = "auto",
   TOP = "top",
   RIGHT = "right",
