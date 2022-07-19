@@ -1405,13 +1405,13 @@ export namespace Components {
     }
     interface ZRangePicker {
         /**
-          * unique id
-         */
-        "datepickerid": string;
-        /**
           * [Optional] datepicker mode: date, datetime, only months
          */
         "mode": ZDatePickerMode;
+        /**
+          * unique id
+         */
+        "rangepickerid": string;
     }
     interface ZSectionTitle {
         /**
@@ -4107,10 +4107,6 @@ declare namespace LocalJSX {
     }
     interface ZRangePicker {
         /**
-          * unique id
-         */
-        "datepickerid"?: string;
-        /**
           * [Optional] datepicker mode: date, datetime, only months
          */
         "mode"?: ZDatePickerMode;
@@ -4118,6 +4114,10 @@ declare namespace LocalJSX {
           * emitted when date changes, returns selected date
          */
         "onDateSelect"?: (event: CustomEvent<any>) => void;
+        /**
+          * unique id
+         */
+        "rangepickerid"?: string;
     }
     interface ZSectionTitle {
         /**

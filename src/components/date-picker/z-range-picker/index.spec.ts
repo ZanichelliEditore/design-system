@@ -2,39 +2,26 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { ZRangePicker } from "./index";
 
-describe("Suite test ZDatePicker", () => {
-  it("Test render ZDatePicker", async () => {
+describe("Suite test ZRangePicker", () => {
+  it("Test render ZRangePicker", async () => {
     const page = await newSpecPage({
       components: [ZRangePicker],
-      html: `<z-date-picker datepickerid="picker-01"></z-date-picker>`,
+      html: `<z-range-picker rangepickerid="picker-01"></z-range-picker>`,
     });
 
-    expect(page.root).toEqualHtml(`<z-date-picker datepickerid="picker-01">
-      <div class="bottom date flatpickr-toggle-container">
-        <z-input class="picker-01" icon="event" tabindex="0" type="text"></z-input>
-      </div>
-    </z-date-picker>`);
-  });
-
-  it("Test render ZDatePicker with custom toggle", async () => {
-    const page = await newSpecPage({
-      components: [ZRangePicker],
-      html: `<z-date-picker datepickerid="picker-02">
-        <z-button-deprecated slot="toggle">
-          Open z-date-picker
-        </z-button-deprecated>
-      </z-date-picker>`,
-    });
-
-    expect(page.root).toEqualHtml(`<z-date-picker datepickerid="picker-02">
-      <div class="bottom date flatpickr-toggle-container picker-02">
-        <div>
-          <input class="hidden-input" data-input>
-          <z-button-deprecated data-toggle="data-toggle" slot="toggle">
-            Open z-date-picker
-          </z-button-deprecated>
+    expect(page.root).toEqualHtml(`<z-range-picker rangepickerid="picker-01">
+      <div class="date flatpickr-toggle-container start-input">
+        <div class="range-picker-container">
+          <div class="picker-01-container">
+            <input class="hidden-input" data-input>
+            <z-input class="picker-01 start-input" data-toggle icon="event" tabindex="0" type="text"></z-input>
+          </div>
+          <div class="picker-01-container-2">
+            <input class="hidden-input" data-input>
+            <z-input class="end-input picker-01-2" data-toggle icon="event" tabindex="0" type="text"></z-input>
+          </div>
         </div>
       </div>
-    </z-date-picker>`);
+    </z-range-picker>`);
   });
 });

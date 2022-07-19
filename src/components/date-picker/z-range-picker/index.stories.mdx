@@ -7,14 +7,14 @@ import "./index";
 import "./styles.css";
 
 <Meta
-  title="ZDatePicker"
-  component="z-date-picker"
+  title="DatePicker/ZRangePicker"
+  component="z-range-picker"
   argTypes={{
     mode: {
       options: Object.values(ZDatePickerMode),
       control: { type: "radio" },
     },
-    datepickerid: {
+    rangepickerid: {
       control: "text",
     },
   }}
@@ -27,20 +27,20 @@ import "./styles.css";
     name="ZDatePicker with date"
     args={{
       mode: "date",
-      datepickerid: "picker-01",
+      rangepickerid: "picker-01",
     }}
     height="180px"
   >
     {(args) => html`
       <div style="height:300px; padding-top:40px">
-        <z-date-picker
+        <z-range-picker
           mode=${args.mode}
-          datepickerid=${args.datepickerid}
-          id=${args.datepickerid}
-        ></z-date-picker>
+          rangepickerid=${args.rangepickerid}
+          id=${args.rangepickerid}
+        ></z-range-picker>
       </div>
       <script>
-        const picker1 = document.getElementById("${args.datepickerid}");
+        const picker1 = document.getElementById("${args.rangepickerid}");
         picker1.addEventListener("dateSelect", (e) => alert(e.detail));
       </script>
     `}
@@ -54,84 +54,27 @@ import "./styles.css";
     name="ZDatePicker with date and time"
     args={{
       mode: "date-time",
-      datepickerid: "picker-02",
+      rangepickerid: "picker-02",
     }}
   >
     {(args) => html`
       <div style="height:300px; padding-top:40px">
-        <z-date-picker
+        <z-range-picker
           mode=${args.mode}
-          datepickerid=${args.datepickerid}
-          id=${args.datepickerid}
-        ></z-date-picker>
+          rangepickerid=${args.rangepickerid}
+          id=${args.rangepickerid}
+        ></z-range-picker>
       </div>
       <script>
-        const picker2 = document.getElementById("${args.datepickerid}");
+        const picker2 = document.getElementById("${args.rangepickerid}");
         picker2.addEventListener("dateSelect", (e) => alert(e.detail));
       </script>
     `}
   </Story>
 </Canvas>
 
-# ZDatePicker with only months
-
-<Canvas>
-  <Story
-    name="ZDatePicker with only months"
-    args={{
-      mode: "months",
-      datepickerid: "picker-03",
-    }}
-  >
-    {(args) => html`
-      <div style="height:300px; padding-top:40px">
-        <z-date-picker
-          mode=${args.mode}
-          datepickerid=${args.datepickerid}
-          id=${args.datepickerid}
-        ></z-date-picker>
-      </div>
-      <script>
-        const picker3 = document.getElementById("${args.datepickerid}");
-        picker3.addEventListener("dateSelect", (e) => alert(e.detail));
-      </script>
-    `}
-  </Story>
-</Canvas>
-
-# ZDatePicker with custom toggle
-
-<Canvas>
-  <Story
-    name="ZDatePicker with custom toggle"
-    args={{
-      mode: "date",
-      datepickerid: "picker-04",
-    }}
-  >
-    {(args) => html`
-      <div style="height:300px; padding-top:40px">
-        <z-date-picker
-          mode=${args.mode}
-          datepickerid=${args.datepickerid}
-          id=${args.datepickerid}
-          ><z-button-deprecated slot="toggle"
-            >Open ZDatePicker</z-button-deprecated
-          ></z-date-picker
-        >
-      </div>
-      <script>
-        const picker4 = document.getElementById("${args.datepickerid}");
-        picker4.addEventListener("dateSelect", (e) => alert(e.detail));
-      </script>
-    `}
-  </Story>
-</Canvas>
-
-<ArgsTable of="z-date-picker" />
-
 ## Usage
 
-In order to avoid conflits between datepickers, pass a unique id as `datepickerid` prop.
+In order to avoid conflits between datepickers, pass a unique id as `rangepickerid` prop.
 
 This component has a callback function `dateSelect` that returns the selected date.

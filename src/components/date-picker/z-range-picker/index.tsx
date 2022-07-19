@@ -29,7 +29,7 @@ export class ZRangePicker {
   @Element() element: HTMLElement;
 
   /** unique id */
-  @Prop() datepickerid: string;
+  @Prop() rangepickerid: string;
   /** [Optional] datepicker mode: date, datetime, only months */
   @Prop() mode: ZDatePickerMode = ZDatePickerMode.date;
 
@@ -69,8 +69,8 @@ export class ZRangePicker {
     if (ev.key === "Enter" || ev.key === " ") {
       console.log("isCalendarOpened", isCalendarOpened);
       if (
-        document.activeElement.classList.contains(`${this.datepickerid}`) ||
-        document.activeElement.classList.contains(`${this.datepickerid}-2`)
+        document.activeElement.classList.contains(`${this.rangepickerid}`) ||
+        document.activeElement.classList.contains(`${this.rangepickerid}-2`)
       ) {
         !isCalendarOpened && this.currentInputState.picker.open();
       }
@@ -140,12 +140,12 @@ export class ZRangePicker {
       wrap: true,
     };
 
-    this.flatpickrInstance = flatpickr(`.${this.datepickerid}-container`, {
+    this.flatpickrInstance = flatpickr(`.${this.rangepickerid}-container`, {
       ...config,
       mode: "multiple",
       appendTo: this.element.children[0].children[0].children[0] as HTMLElement,
     });
-    this.flatpickrInstance2 = flatpickr(`.${this.datepickerid}-container-2`, {
+    this.flatpickrInstance2 = flatpickr(`.${this.rangepickerid}-container-2`, {
       ...config,
       mode: "multiple",
       appendTo: this.element.children[0].children[0].children[1] as HTMLElement,
@@ -156,19 +156,19 @@ export class ZRangePicker {
     });
 
     let firstInputElement =
-      this.element.querySelectorAll("z-input")[0].children[0].children[0]
-        .children[0];
+      this.element.querySelectorAll("z-input")[0].children[0]?.children[0]
+        ?.children[0];
     let secondInputElement =
-      this.element.querySelectorAll("z-input")[1].children[0].children[0]
-        .children[0];
+      this.element.querySelectorAll("z-input")[1].children[0]?.children[0]
+        ?.children[0];
 
-    firstInputElement.setAttribute(
+    firstInputElement?.setAttribute(
       "class",
-      `${firstInputElement.className} ${RangePickerActiveInput.startInput} ${this.datepickerid}`
+      `${firstInputElement.className} ${RangePickerActiveInput.startInput} ${this.rangepickerid}`
     );
-    secondInputElement.setAttribute(
+    secondInputElement?.setAttribute(
       "class",
-      `${secondInputElement.className} ${RangePickerActiveInput.endInput} ${this.datepickerid}-2`
+      `${secondInputElement.className} ${RangePickerActiveInput.endInput} ${this.rangepickerid}-2`
     );
   }
 
@@ -384,7 +384,7 @@ export class ZRangePicker {
   getFocusedInput() {
     if (
       document.activeElement.matches(
-        `.${RangePickerActiveInput.startInput}.${this.datepickerid}`
+        `.${RangePickerActiveInput.startInput}.${this.rangepickerid}`
       )
     ) {
       this.activeInput = RangePickerActiveInput.startInput;
@@ -394,7 +394,7 @@ export class ZRangePicker {
 
     if (
       document.activeElement.matches(
-        `.${RangePickerActiveInput.endInput}.${this.datepickerid}-2`
+        `.${RangePickerActiveInput.endInput}.${this.rangepickerid}-2`
       )
     ) {
       this.activeInput = RangePickerActiveInput.endInput;
@@ -493,10 +493,10 @@ export class ZRangePicker {
   renderZRangeInput() {
     return (
       <div class="range-picker-container">
-        <div class={`${classNames(this.datepickerid)}-container`}>
+        <div class={`${classNames(this.rangepickerid)}-container`}>
           <input class="hidden-input" data-input></input>
           <z-input
-            class={`${RangePickerActiveInput.startInput} ${this.datepickerid}`}
+            class={`${RangePickerActiveInput.startInput} ${this.rangepickerid}`}
             type="text"
             icon="event"
             hasmessage={false}
@@ -511,11 +511,9 @@ export class ZRangePicker {
               //Remove second value from either the flatpickers if input is cleared
               if (text === "") {
                 this.flatpickrInstance.setDate([
-                  null,
                   this.flatpickrInstance.selectedDates[0],
                 ]);
                 this.flatpickrInstance2.setDate([
-                  null,
                   this.flatpickrInstance2.selectedDates[1],
                 ]);
               } else {
@@ -542,10 +540,10 @@ export class ZRangePicker {
             }}
           />
         </div>
-        <div class={`${classNames(this.datepickerid)}-container-2`}>
+        <div class={`${classNames(this.rangepickerid)}-container-2`}>
           <input class="hidden-input" data-input></input>
           <z-input
-            class={`${RangePickerActiveInput.endInput} ${this.datepickerid}-2`}
+            class={`${RangePickerActiveInput.endInput} ${this.rangepickerid}-2`}
             type="text"
             icon="event"
             hasmessage={false}
@@ -598,7 +596,7 @@ export class ZRangePicker {
       <div
         class={classNames(
           "flatpickr-toggle-container",
-          this.hasChildren && this.datepickerid,
+          this.hasChildren && this.rangepickerid,
           this.mode,
           this.activeInput
         )}
