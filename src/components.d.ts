@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1 } from "./beans/index";
+import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPosition as PopoverPosition1 } from "./beans/index";
 import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverPosition, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -1782,6 +1782,25 @@ export namespace Components {
         "htmlid": string;
         "labelPosition"?: ZtoggleSwitchPositionEnum;
     }
+    interface ZTooltip {
+        /**
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Content text.
+          * @deprecated
+         */
+        "content": string;
+        /**
+          * The open state of the tooltip.
+         */
+        "open": boolean;
+        /**
+          * Tooltip position.
+         */
+        "type": PopoverPosition1;
+    }
     interface ZTypography {
         "component": string;
         "level": ZTypographyLevels;
@@ -2407,6 +2426,12 @@ declare global {
         prototype: HTMLZToggleSwitchElement;
         new (): HTMLZToggleSwitchElement;
     };
+    interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
+    }
+    var HTMLZTooltipElement: {
+        prototype: HTMLZTooltipElement;
+        new (): HTMLZTooltipElement;
+    };
     interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
     }
     var HTMLZTypographyElement: {
@@ -2525,6 +2550,7 @@ declare global {
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
+        "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
@@ -4512,6 +4538,29 @@ declare namespace LocalJSX {
         "labelPosition"?: ZtoggleSwitchPositionEnum;
         "onToggleClick"?: (event: CustomEvent<any>) => void;
     }
+    interface ZTooltip {
+        /**
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Content text.
+          * @deprecated
+         */
+        "content"?: string;
+        /**
+          * Position change event.
+         */
+        "onPositionChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The open state of the tooltip.
+         */
+        "open"?: boolean;
+        /**
+          * Tooltip position.
+         */
+        "type"?: PopoverPosition1;
+    }
     interface ZTypography {
         "component"?: string;
         "level"?: ZTypographyLevels;
@@ -4649,6 +4698,7 @@ declare namespace LocalJSX {
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
+        "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
         "z-visually-hidden": ZVisuallyHidden;
@@ -4757,6 +4807,7 @@ declare module "@stencil/core" {
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
+            "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
