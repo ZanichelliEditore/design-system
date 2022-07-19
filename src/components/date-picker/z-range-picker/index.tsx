@@ -222,64 +222,27 @@ export class ZRangePicker {
       }
     }
 
-    //If exists, set first date value into first input
     let index = instance.selectedDates.length - 1;
-    let firstInputBoxValueIndex = firstInputActive ? index : 0;
-    let secondInputBoxValueIndex = firstInputActive ? 0 : index;
+    let formattingToken =
+      this.mode === ZDatePickerMode.date ? "d-m-Y" : "d-m-Y - H:i";
 
-    if (this.mode === ZDatePickerMode.date) {
-      instance.selectedDates[0] &&
-        firstInputElement.setValue(
-          String(
-            `${instance.selectedDates[firstInputBoxValueIndex].getDate()}-${
-              instance.selectedDates[firstInputBoxValueIndex].getMonth() + 1
-            }-${instance.selectedDates[firstInputBoxValueIndex].getFullYear()}`
-          )
-        );
+    //If exists, set second date value into first input
+    instance.selectedDates[0] &&
+      firstInputElement.setValue(
+        flatpickr.formatDate(
+          instance.selectedDates[firstInputActive ? index : 0],
+          formattingToken
+        )
+      );
 
-      //If exists, set second date value into second input
-      instance.selectedDates[1] &&
-        secondInputElement.setValue(
-          String(
-            `${instance.selectedDates[secondInputBoxValueIndex].getDate()}-${
-              instance.selectedDates[secondInputBoxValueIndex].getMonth() + 1
-            }-${instance.selectedDates[secondInputBoxValueIndex].getFullYear()}`
-          )
-        );
-    }
-
-    if (this.mode === ZDatePickerMode.dateTime) {
-      instance.selectedDates[0] &&
-        firstInputElement.setValue(
-          String(
-            `${instance.selectedDates[firstInputBoxValueIndex].getDate()}-${
-              instance.selectedDates[firstInputBoxValueIndex].getMonth() + 1
-            }-${instance.selectedDates[
-              firstInputBoxValueIndex
-            ].getFullYear()} - ${instance.selectedDates[
-              firstInputBoxValueIndex
-            ].getHours()}:${instance.selectedDates[
-              firstInputBoxValueIndex
-            ].getMinutes()}`
-          )
-        );
-
-      //If exists, set second date value into second input
-      instance.selectedDates[1] &&
-        secondInputElement.setValue(
-          String(
-            `${instance.selectedDates[secondInputBoxValueIndex].getDate()}-${
-              instance.selectedDates[secondInputBoxValueIndex].getMonth() + 1
-            }-${instance.selectedDates[
-              secondInputBoxValueIndex
-            ].getFullYear()} - ${instance.selectedDates[
-              secondInputBoxValueIndex
-            ].getHours()}:${instance.selectedDates[
-              secondInputBoxValueIndex
-            ].getMinutes()}`
-          )
-        );
-    }
+    //If exists, set second date value into second input
+    instance.selectedDates[1] &&
+      secondInputElement.setValue(
+        flatpickr.formatDate(
+          instance.selectedDates[firstInputActive ? 0 : index],
+          formattingToken
+        )
+      );
   }
 
   getDate(date) {
