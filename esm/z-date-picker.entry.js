@@ -1,7 +1,7 @@
 import { r as registerInstance, c as createEvent, h, g as getElement } from './index-90e18641.js';
 import { c as createCommonjsModule, a as commonjsGlobal } from './_commonjsHelpers-9943807e.js';
 import { c as classnames } from './index-abb47b30.js';
-import { g as ZDatePickerMode, h as ZDatePickerPosition, i as ZDatePickerModeValues } from './index-7424c64c.js';
+import { g as ZDatePickerMode, h as ZDatePickerPosition, i as ZDatePickerModeValues } from './index-46ca649a.js';
 
 var HOOKS = [
     "onChange",
@@ -3088,7 +3088,7 @@ const ZDatePicker = class {
     return (h("div", null, h("input", { class: "hidden-input", "data-input": true }), h("slot", { name: "toggle" })));
   }
   renderZInput() {
-    return (h("z-input", { ariaLabel: this.ariaLabel, label: this.label, class: classnames(this.datepickerid), type: "text", icon: "event", hasmessage: false, tabindex: "0" }));
+    return (h("z-input", { ariaLabel: this.ariaLabel, label: this.label, class: classnames(this.datepickerid), type: "text", icon: "event", message: false, tabindex: "0" }));
   }
   render() {
     return (h("div", { class: classnames("flatpickr-toggle-container", this.hasChildren && this.datepickerid, this.flatpickrPosition, this.mode) }, this.hasChildren ? this.renderSlottedContent() : this.renderZInput()));

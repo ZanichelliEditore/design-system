@@ -1,8 +1,8 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { ZtoggleSwitchPositionEnum } from "../../../beans";
+import { LabelPosition } from "../../../beans";
 export declare class ZToggleSwitch {
   disabled?: boolean;
-  labelPosition?: ZtoggleSwitchPositionEnum;
+  labelPosition?: LabelPosition;
   checked?: boolean;
   htmlid: string;
   toggleClick: EventEmitter;

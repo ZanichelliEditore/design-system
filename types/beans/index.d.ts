@@ -130,15 +130,13 @@ export declare enum InputTypeEnum {
   email = "email",
   textarea = "textarea",
   checkbox = "checkbox",
-  radio = "radio",
-  select = "select"
+  radio = "radio"
 }
 export declare type InputStatusBean = keyof typeof InputStatusEnum;
 export declare enum InputStatusEnum {
   success = "success",
   error = "error",
-  warning = "warning",
-  selecting = "selecting"
+  warning = "warning"
 }
 export declare type TooltipPositionBean = keyof typeof TooltipPosition;
 export declare enum TooltipPosition {
@@ -152,7 +150,7 @@ export declare enum TooltipPosition {
   BOTTOM_RIGHT = "bottom_right",
   BOTTOM_LEFT = "bottom_left"
 }
-export declare enum keybordKeyCodeEnum {
+export declare enum KeyboardKeyCodeEnum {
   TAB = 9,
   SPACE = 32,
   ESC = 27,
@@ -162,7 +160,7 @@ export declare enum keybordKeyCodeEnum {
   BACKSPACE = 8,
   DELETE = 46
 }
-export declare enum keybordCodeEnum {
+export declare enum KeyboardCodeEnum {
   TAB = "Tab",
   SPACE = "Space",
   ESC = "Escape",
@@ -261,10 +259,11 @@ export declare enum ExpandableListButtonAlign {
   right = "right",
   left = "left"
 }
-export declare enum ZtoggleSwitchPositionEnum {
+export declare enum LabelPositions {
   right = "right",
   left = "left"
 }
+export declare type LabelPosition = keyof typeof LabelPositions;
 export declare enum ListDividerType {
   none = "none",
   header = "header",

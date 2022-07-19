@@ -16,8 +16,7 @@ input::-ms-reveal {
 
 input,
 textarea,
-.textareaWrapper,
-ul[role="listbox"] {
+.textareaWrapper {
   background: var(--color-input-field01);
   border-radius: var(--border-radius-small);
   border: var(--border-size-small) solid var(--color-surface04);
@@ -32,9 +31,13 @@ ul[role="listbox"] {
 
 /* FOCUS */
 input:focus:focus-visible,
-li[role="option"]:focus:focus-visible,
-.focus {
+.textareaWrapper:focus-within {
   box-shadow: var(--shadow-focus-primary);
+}
+
+input:focus:focus-visible,
+textarea:focus:focus-visible {
+  color: var(--color-primary01);
 }
 
 /* FILLED */
@@ -42,37 +45,29 @@ li[role="option"]:focus:focus-visible,
   border-color: var(--color-surface05);
 }
 
-/* TYPING */
-.istyping,
-.focus.istyping,
-.input_selecting {
-  border-color: var(--color-primary01);
-  color: var(--color-primary01);
-}
-
 /* STATUSES (success, warning, error) */
-.input_success,
-.input_success:hover,
-.input_success.hover {
+.input_success {
   background: var(--color-success-inverse);
   border-color: var(--color-success01);
   fill: var(--color-success01);
 }
 
-.input_error,
-.input_error:hover,
-.input_error.hover {
+.input_error {
   background: var(--color-error-inverse);
   border-color: var(--color-error01);
   fill: var(--color-error01);
 }
 
-.input_warning,
-.input_warning:hover,
-.input_warning.hover {
+.input_warning {
   background: var(--color-warning-inverse);
   border-color: var(--color-warning01);
   fill: var(--color-warning01);
+}
+
+/* HOVER */
+input:hover,
+.textareaWrapper:hover {
+  border-width: var(--border-size-medium);
 }
 
 /* READONLY */
@@ -84,14 +79,18 @@ input[readonly],
 }
 
 /* DISABLED */
-input:disabled,
-.disabled,
-.filled:disabled {
+:host([disabled]:not([disabled="false"])) input,
+:host([disabled]:not([disabled="false"])) .textareaWrapper,
+:host([disabled]:not([disabled="false"])) z-icon {
   border-color: var(--color-disabled01);
   color: var(--color-disabled02);
   fill: var(--color-disabled01);
   pointer-events: none;
   box-shadow: none;
+}
+
+:host([disabled]:not([disabled="false"])) input:hover {
+  border-width: var(--border-size-small);
 }
 
 /* PLACEHOLDER */
@@ -118,6 +117,20 @@ textarea::placeholder {
   color: var(--color-text05);
 }
 
+/* LABEL */
+label.inputLabel {
+  display: block;
+  margin-bottom: var(--space-unit);
+  color: var(--color-text02);
+  font-family: var(--font-family-sans);
+  text-transform: uppercase;
+  text-align: left;
+}
+
+:host([disabled]:not([disabled="false"])) label.inputLabel {
+  color: var(--color-disabled02);
+}
+
 .textWrapper > div {
   fill: var(--color-icon02);
 }
@@ -126,17 +139,17 @@ textarea::placeholder {
   width: 100%;
   height: calc(var(--space-unit) * 5.5);
   margin: 0;
-  padding: 0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);
+  padding: 0 calc(var(--space-unit) * 1.5);
   box-sizing: border-box;
 }
 
 .textWrapper > div > input.hasIcon,
 .textWrapper > div > input.hasClearIcon {
-  padding-right: calc(var(--space-unit) * 4);
+  padding-right: calc(var(--space-unit) * 5.25);
 }
 
 .textWrapper > div > input.hasIcon.hasClearIcon {
-  padding-right: calc(var(--space-unit) * 7);
+  padding-right: calc(var(--space-unit) * 8);
 }
 
 .textWrapper > div {
@@ -146,23 +159,37 @@ textarea::placeholder {
 
 .textWrapper .iconsWrapper {
   position: absolute;
-  bottom: calc(var(--space-unit) * 1.5);
   right: calc(var(--space-unit) * 1.5);
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   z-index: 2;
+  pointer-events: none;
 }
 
-.textWrapper .iconsWrapper > z-icon {
+.textWrapper .iconsWrapper > button.iconButton {
+  background: none;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  pointer-events: initial;
+}
+
+.textWrapper .iconsWrapper > button.iconButton + button.iconButton {
+  margin-left: calc(var(--space-unit) * 0.5);
+}
+
+.textWrapper .iconsWrapper > button.iconButton.resetIcon,
+.textWrapper .iconsWrapper > button.iconButton.showHidePasswordIcon {
+  cursor: pointer;
+}
+
+.textWrapper .iconsWrapper > button.iconButton > z-icon {
   --z-icon-width: 18px;
   --z-icon-height: 18px;
 
   display: block;
-  margin-left: calc(var(--space-unit) * 0.5);
-}
-
-.textWrapper .iconsWrapper > z-icon.resetIcon,
-.textWrapper .iconsWrapper > z-icon.showHidePasswordIcon {
-  cursor: pointer;
 }
 
 /* Disable background color webkit */

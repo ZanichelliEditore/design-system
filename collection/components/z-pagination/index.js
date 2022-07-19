@@ -192,7 +192,7 @@ export class ZPagination {
             ev.preventDefault();
             this.selectPage(this.goToPageValue);
           } },
-          h("z-input", { class: "go-to-page-input", type: "number", hasmessage: false, onInput: (ev) => { this.goToPageValue = ev.target.value; }, placeholder: this.currentPage.toString(), hasclearicon: false }),
+          h("z-input", { class: "go-to-page-input", type: "number", message: false, onInput: (ev) => { this.goToPageValue = ev.target.value; }, placeholder: this.currentPage.toString(), hasclearicon: false }),
           h("span", null, `/${this.totalPages}`))),
         this.renderForwardButton()),
     ];
@@ -232,7 +232,7 @@ export class ZPagination {
       this.goToPage && (h("div", { class: "go-to-page" },
         h("span", { class: "label body-5-sb" }, "Vai a pagina:"),
         h("div", { class: "inputs" },
-          h("z-input", { class: "go-to-page-input", type: "number", hasmessage: false, placeholder: "2", hasclearicon: false, onInput: (ev) => { this.goToPageValue = ev.target.value; }, onKeyDown: (ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue) }),
+          h("z-input", { class: "go-to-page-input", type: "number", message: false, placeholder: "2", hasclearicon: false, onInput: (ev) => { this.goToPageValue = ev.target.value; }, onKeyDown: (ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue) }),
           h("z-button", { disabled: !this.goToPageValue, title: "Vai alla pagina inserita", onClick: () => this.selectPage(this.goToPageValue) }, "vai")))),
     ];
   }

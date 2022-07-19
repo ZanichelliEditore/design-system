@@ -27,7 +27,6 @@ export class ZFile {
     (_b = (_a = this.icon) === null || _a === void 0 ? void 0 : _a.focus) === null || _b === void 0 ? void 0 : _b.call(_a);
   }
   elementHasEllipsis() {
-    console.log(this.ellipsis, this.ellipsis.offsetWidth, this.ellipsis.scrollWidth);
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
   render() {

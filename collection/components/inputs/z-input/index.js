@@ -1,6 +1,6 @@
 import { Component, Prop, State, h, Method, Event, Element, Listen, } from "@stencil/core";
-import { InputTypeEnum, } from "../../../beans";
-import { randomId } from "../../../utils/utils";
+import { InputTypeEnum, LabelPositions, } from "../../../beans";
+import { boolean, randomId } from "../../../utils/utils";
 export class ZInput {
   constructor() {
     /** the id of the input element */
@@ -13,20 +13,15 @@ export class ZInput {
     this.required = false;
     /** checked: available for checkbox, radio */
     this.checked = false;
-    /** show input helper message (optional): available for text, password, number, email, textarea, select */
-    this.hasmessage = true;
+    /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
+    this.message = true;
     /** the input label position: available for checkbox, radio */
-    this.labelafter = true;
-    /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
-    this.typingtimeout = 300;
-    /** multiple options can be selected (optional): available for select */
-    this.multiple = false;
+    this.labelPosition = LabelPositions.right;
     /** render clear icon when typing (optional): available for text */
     this.hasclearicon = true;
     this.isTyping = false;
-    this.textareaWrapperHover = "";
-    this.textareaWrapperFocus = "";
     this.passwordHidden = true;
+    this.typingtimeout = 300;
   }
   inputCheckListener(e) {
     const data = e.detail;
@@ -41,27 +36,6 @@ export class ZInput {
         return;
     }
   }
-  /** get the input value */
-  async getValue() {
-    switch (this.type) {
-      case InputTypeEnum.select:
-        return this.selectElem.getValue();
-      default:
-        return this.value;
-    }
-  }
-  /** set the input value */
-  async setValue(value) {
-    switch (this.type) {
-      case InputTypeEnum.select:
-        this.selectElem.setValue(value);
-        break;
-      default:
-        if (typeof value === "string")
-          this.value = value;
-        break;
-    }
-  }
   /** get checked status */
   async isChecked() {
     switch (this.type) {
@@ -69,13 +43,13 @@ export class ZInput {
       case InputTypeEnum.radio:
         return this.checked;
       default:
+        console.warn("`isChecked` method is only available for type `checkbox` and `radio`");
         return false;
     }
   }
-  emitInputChange(value, keycode) {
-    if (!this.isTyping) {
+  emitInputChange(value) {
+    if (!this.isTyping)
       this.emitStartTyping();
-    }
     let validity = {};
     if (this.type === InputTypeEnum.textarea) {
       validity = this.getValidity("textarea");
@@ -84,7 +58,7 @@ export class ZInput {
       validity = this.getValidity("input");
     }
     this.value = value;
-    this.inputChange.emit({ value, keycode, validity });
+    this.inputChange.emit({ value, validity });
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
       this.emitStopTyping(this.value, validity);
@@ -117,7 +91,7 @@ export class ZInput {
   }
   /* START text/password/email/number */
   getTextAttributes() {
-    const attr = {
+    return {
       id: this.htmlid,
       name: this.name,
       placeholder: this.placeholder,
@@ -126,27 +100,21 @@ export class ZInput {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
-      class: [
-        `input_${this.status || "default"}`,
-        this.isTyping && "istyping",
-        !this.isTyping && this.value && "filled",
-      ]
-        .filter(Boolean)
-        .join(" "),
-      onInput: (e) => this.emitInputChange(e.target.value, e.keyCode),
+      class: {
+        [`input_${this.status || "default"}`]: true,
+        filled: !!this.value,
+      },
+      autocomplete: this.autocomplete,
+      onInput: (e) => this.emitInputChange(e.target.value),
     };
-    if (this.autocomplete) {
-      attr["autocomplete"] = this.autocomplete;
-    }
-    return attr;
   }
   renderInputText(type = InputTypeEnum.text) {
     const attr = this.getTextAttributes();
     if (this.icon || type === InputTypeEnum.password) {
-      attr.class += " hasIcon";
+      attr.class = Object.assign(Object.assign({}, attr.class), { hasIcon: true });
     }
     if (this.hasclearicon) {
-      attr.class += " hasClearIcon";
+      attr.class = Object.assign(Object.assign({}, attr.class), { hasClearIcon: true });
     }
     return (h("div", { class: "textWrapper" },
       this.renderLabel(),
@@ -160,13 +128,10 @@ export class ZInput {
   renderLabel() {
     if (!this.label)
       return;
-    return (h("z-input-label", { htmlfor: this.htmlid, value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_label` }));
+    return (h("label", { class: "inputLabel body-5-sb", id: `${this.htmlid}_label`, htmlFor: this.htmlid, "aria-label": this.label }, this.label));
   }
   renderIcons() {
-    return (h("span", { class: {
-        iconsWrapper: true,
-        disabled: this.disabled,
-      } },
+    return (h("span", { class: "iconsWrapper" },
       this.renderResetIcon(),
       this.renderIcon()));
   }
@@ -176,20 +141,23 @@ export class ZInput {
     }
     if (!this.icon)
       return;
-    return h("z-icon", { class: "inputIcon", name: this.icon });
+    return (h("button", { class: "iconButton inputIcon", tabIndex: -1 },
+      h("z-icon", { name: this.icon })));
   }
   renderResetIcon() {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
       return;
-    return (h("z-icon", { class: "resetIcon", name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
+    return (h("button", { class: "iconButton resetIcon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") },
+      h("z-icon", { name: "multiply" })));
   }
   renderShowHidePassword() {
-    return (h("z-icon", { class: "showHidePasswordIcon", name: this.passwordHidden ? "view-filled" : "view-off-filled", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
+    return (h("button", { class: "iconButton showHidePasswordIcon", disabled: this.disabled, "aria-label": this.passwordHidden ? "mostra password" : "nascondi password", onClick: () => (this.passwordHidden = !this.passwordHidden) },
+      h("z-icon", { name: this.passwordHidden ? "view-filled" : "view-off-filled" })));
   }
   renderMessage() {
-    if (!this.hasmessage)
+    if (boolean(this.message) === false)
       return;
-    return h("z-input-message", { message: this.message, status: this.status });
+    return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status }));
   }
   /* END text/password/email/number */
   /* START textarea */
@@ -197,18 +165,8 @@ export class ZInput {
     const attributes = this.getTextAttributes();
     return (h("div", { class: "textWrapper" },
       this.renderLabel(),
-      h("div", { class: [
-          "textareaWrapper",
-          attributes.class,
-          attributes.disabled && "disabled",
-          attributes.readonly && "readonly",
-          this.isTyping && "istyping",
-          this.textareaWrapperFocus,
-          this.textareaWrapperHover,
-        ]
-          .filter(Boolean)
-          .join(" ") },
-        h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-label": this.ariaLabel || this.label }))),
+      h("div", { class: Object.assign(Object.assign({}, attributes.class), { textareaWrapper: true, readonly: attributes.readonly }) },
+        h("textarea", Object.assign({}, attributes, { "aria-label": this.ariaLabel || this.label }))),
       this.renderMessage()));
   }
   /* END textarea */
@@ -222,8 +180,8 @@ export class ZInput {
       h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }),
       h("label", { htmlFor: this.htmlid, class: {
           checkboxLabel: true,
-          after: this.labelafter,
-          before: !this.labelafter,
+          after: this.labelPosition === LabelPositions.right,
+          before: this.labelPosition === LabelPositions.left,
         } },
         h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": "true" }),
         this.label && h("span", { innerHTML: this.label }))));
@@ -235,35 +193,23 @@ export class ZInput {
       h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }),
       h("label", { htmlFor: this.htmlid, class: {
           radioLabel: true,
-          after: this.labelafter,
-          before: !this.labelafter,
+          after: this.labelPosition === LabelPositions.right,
+          before: this.labelPosition === LabelPositions.left,
         } },
         h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": "true" }),
         this.label && h("span", { innerHTML: this.label }))));
   }
   /* END radio */
-  /* START select */
-  renderSelect() {
-    return (h("z-select", { htmlid: this.htmlid, items: this.items, name: this.name, label: this.label, "aria-label": this.ariaLabel, disabled: this.disabled, readonly: this.readonly, placeholder: this.placeholder, htmltitle: this.htmltitle, status: this.status, hasmessage: this.hasmessage, message: this.message, autocomplete: this.autocomplete, multiple: this.multiple, ref: (el) => (this.selectElem = el) }));
-  }
-  /* END select */
   render() {
     switch (this.type) {
-      case InputTypeEnum.text:
-      case InputTypeEnum.password:
-      case InputTypeEnum.number:
-      case InputTypeEnum.email:
-        return this.renderInputText(this.type);
       case InputTypeEnum.textarea:
         return this.renderTextarea();
       case InputTypeEnum.checkbox:
         return this.renderCheckbox();
       case InputTypeEnum.radio:
         return this.renderRadio();
-      case InputTypeEnum.select:
-        return this.renderSelect();
       default:
-        return this.renderInputText();
+        return this.renderInputText(this.type);
     }
   }
   static get is() { return "z-input"; }
@@ -298,7 +244,7 @@ export class ZInput {
       "mutable": false,
       "complexType": {
         "original": "InputTypeBean",
-        "resolved": "\"checkbox\" | \"email\" | \"number\" | \"password\" | \"radio\" | \"select\" | \"text\" | \"textarea\"",
+        "resolved": "\"checkbox\" | \"email\" | \"number\" | \"password\" | \"radio\" | \"text\" | \"textarea\"",
         "references": {
           "InputTypeBean": {
             "location": "import",
@@ -398,7 +344,7 @@ export class ZInput {
         "text": "the input is disabled"
       },
       "attribute": "disabled",
-      "reflect": false,
+      "reflect": true,
       "defaultValue": "false"
     },
     "readonly": {
@@ -494,7 +440,7 @@ export class ZInput {
       "mutable": false,
       "complexType": {
         "original": "InputStatusBean",
-        "resolved": "\"error\" | \"selecting\" | \"success\" | \"warning\"",
+        "resolved": "\"error\" | \"success\" | \"warning\"",
         "references": {
           "InputStatusBean": {
             "location": "import",
@@ -506,30 +452,53 @@ export class ZInput {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "the input status (optional): available for text, password, number, email, textarea, select"
+        "text": "the input status (optional): available for text, password, number, email, textarea"
       },
       "attribute": "status",
       "reflect": false
     },
-    "hasmessage": {
-      "type": "boolean",
+    "message": {
+      "type": "any",
       "mutable": false,
       "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
+        "original": "string | boolean",
+        "resolved": "boolean | string",
         "references": {}
       },
       "required": false,
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "show input helper message (optional): available for text, password, number, email, textarea, select"
+        "text": "input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed"
       },
-      "attribute": "hasmessage",
+      "attribute": "message",
       "reflect": false,
       "defaultValue": "true"
     },
-    "message": {
+    "labelPosition": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "LabelPosition",
+        "resolved": "\"left\" | \"right\"",
+        "references": {
+          "LabelPosition": {
+            "location": "import",
+            "path": "../../../beans"
+          }
+        }
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "the input label position: available for checkbox, radio"
+      },
+      "attribute": "label-position",
+      "reflect": false,
+      "defaultValue": "LabelPositions.right"
+    },
+    "autocomplete": {
       "type": "string",
       "mutable": false,
       "complexType": {
@@ -541,103 +510,10 @@ export class ZInput {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "input helper message (optional): available for text, password, number, email, textarea, select"
-      },
-      "attribute": "message",
-      "reflect": false
-    },
-    "labelafter": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input label position: available for checkbox, radio"
-      },
-      "attribute": "labelafter",
-      "reflect": false,
-      "defaultValue": "true"
-    },
-    "typingtimeout": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "timeout setting before trigger `inputChange` event (optional): available for text, textarea"
-      },
-      "attribute": "typingtimeout",
-      "reflect": false,
-      "defaultValue": "300"
-    },
-    "items": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "SelectItemBean[] | string",
-        "resolved": "SelectItemBean[] | string",
-        "references": {
-          "SelectItemBean": {
-            "location": "import",
-            "path": "../../../beans"
-          }
-        }
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "items (optional): available for select"
-      },
-      "attribute": "items",
-      "reflect": false
-    },
-    "autocomplete": {
-      "type": "any",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean | string",
-        "resolved": "boolean | string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input has autocomplete option (optional): available for select, input"
+        "text": "the input has autocomplete option (optional): available for text, password, number, email"
       },
       "attribute": "autocomplete",
       "reflect": false
-    },
-    "multiple": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "multiple options can be selected (optional): available for select"
-      },
-      "attribute": "multiple",
-      "reflect": false,
-      "defaultValue": "false"
     },
     "hasclearicon": {
       "type": "boolean",
@@ -669,7 +545,7 @@ export class ZInput {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "render icon (optional): available for text, select"
+        "text": "render icon (optional): available for text"
       },
       "attribute": "icon",
       "reflect": false
@@ -677,8 +553,6 @@ export class ZInput {
   }; }
   static get states() { return {
     "isTyping": {},
-    "textareaWrapperHover": {},
-    "textareaWrapperFocus": {},
     "passwordHidden": {}
   }; }
   static get events() { return [{
@@ -689,7 +563,7 @@ export class ZInput {
       "composed": true,
       "docs": {
         "tags": [],
-        "text": "Emitted on input value change, returns value, keycode, validity"
+        "text": "Emitted on input value change, returns value, validity"
       },
       "complexType": {
         "original": "any",
@@ -741,58 +615,8 @@ export class ZInput {
         "resolved": "any",
         "references": {}
       }
-    }, {
-      "method": "optionSelect",
-      "name": "optionSelect",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      }
     }]; }
   static get methods() { return {
-    "getValue": {
-      "complexType": {
-        "signature": "() => Promise<string | string[]>",
-        "parameters": [],
-        "references": {
-          "Promise": {
-            "location": "global"
-          }
-        },
-        "return": "Promise<string | string[]>"
-      },
-      "docs": {
-        "text": "get the input value",
-        "tags": []
-      }
-    },
-    "setValue": {
-      "complexType": {
-        "signature": "(value: string | string[]) => Promise<void>",
-        "parameters": [{
-            "tags": [],
-            "text": ""
-          }],
-        "references": {
-          "Promise": {
-            "location": "global"
-          }
-        },
-        "return": "Promise<void>"
-      },
-      "docs": {
-        "text": "set the input value",
-        "tags": []
-      }
-    },
     "isChecked": {
       "complexType": {
         "signature": "() => Promise<boolean>",

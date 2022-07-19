@@ -153,7 +153,7 @@ export class zModalLogin {
       "mutable": true,
       "complexType": {
         "original": "InputStatusBean",
-        "resolved": "\"error\" | \"selecting\" | \"success\" | \"warning\"",
+        "resolved": "\"error\" | \"success\" | \"warning\"",
         "references": {
           "InputStatusBean": {
             "location": "import",

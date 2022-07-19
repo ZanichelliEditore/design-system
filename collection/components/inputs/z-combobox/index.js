@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Listen, Watch, Event, } from "@stencil/core";
-import { InputTypeEnum, keybordKeyCodeEnum, } from "../../../beans";
+import { InputTypeEnum, KeyboardKeyCodeEnum, } from "../../../beans";
 import { handleKeyboardSubmit } from "../../../utils/utils";
 export class ZCombobox {
   constructor() {
@@ -101,7 +101,7 @@ export class ZCombobox {
   }
   renderHeader() {
     return (h("div", { class: "header", onClick: () => this.toggleComboBox(), onKeyDown: (ev) => {
-        if (ev.keyCode === keybordKeyCodeEnum.SPACE)
+        if (ev.keyCode === KeyboardKeyCodeEnum.SPACE)
           ev.preventDefault();
       }, onKeyUp: (ev) => handleKeyboardSubmit(ev, this.toggleComboBox), role: "button", tabindex: 0 },
       h("z-body", { level: 3, component: "p" },
@@ -147,7 +147,7 @@ export class ZCombobox {
   renderSearchInput() {
     if (!this.isopen)
       return;
-    return (h("z-input", { htmlid: `${this.inputid}_search`, label: this.searchlabel, placeholder: this.searchplaceholder, htmltitle: this.searchtitle, type: this.inputType, value: this.searchValue, hasmessage: false, onInputChange: (e) => {
+    return (h("z-input", { htmlid: `${this.inputid}_search`, label: this.searchlabel, placeholder: this.searchplaceholder, htmltitle: this.searchtitle, type: this.inputType, value: this.searchValue, message: false, onInputChange: (e) => {
         if (e.detail.keycode === 27)
           return this.closeFilterItems();
         this.filterItems(e.detail.value);
@@ -162,7 +162,7 @@ export class ZCombobox {
           this.maxcheckableitems < this.itemsList.length })));
   }
   render() {
-    return (h("div", { "data-action": `combo-${this.inputid}`, class: `${this.isopen ? "open" : ""} ${this.isfixed ? "fixed" : ""}`, id: this.inputid },
+    return (h("div", { "data-action": `combo-${this.inputid}`, class: { open: this.isopen, fixed: this.isfixed }, id: this.inputid },
       this.renderHeader(),
       this.renderContent()));
   }

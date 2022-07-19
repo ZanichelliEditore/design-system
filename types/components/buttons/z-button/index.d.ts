@@ -6,7 +6,7 @@ export declare class ZButton {
   hostElement: HTMLElement;
   /** defines a string value that labels an interactive element, used for accessibility. */
   ariaLabel?: string;
-  /** HTML a href attribute. If it is set, it renders an HTML a tag. */
+  /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
   href?: string;
   /** HTML a target attribute. */
   target?: string;
@@ -26,10 +26,12 @@ export declare class ZButton {
   size?: ButtonSizeEnum;
   getAttributes(): {
     id: string;
-    class: string;
     "aria-label": string;
+    class: {
+      [x: string]: boolean;
+      container: boolean;
+      "has-text": boolean;
+    };
   };
-  componentDidLoad(): void;
-  componentWillRender(): void;
   render(): any;
 }

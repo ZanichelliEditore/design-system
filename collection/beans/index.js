@@ -50,14 +50,12 @@ export var InputTypeEnum;
   InputTypeEnum["textarea"] = "textarea";
   InputTypeEnum["checkbox"] = "checkbox";
   InputTypeEnum["radio"] = "radio";
-  InputTypeEnum["select"] = "select";
 })(InputTypeEnum || (InputTypeEnum = {}));
 export var InputStatusEnum;
 (function (InputStatusEnum) {
   InputStatusEnum["success"] = "success";
   InputStatusEnum["error"] = "error";
   InputStatusEnum["warning"] = "warning";
-  InputStatusEnum["selecting"] = "selecting";
 })(InputStatusEnum || (InputStatusEnum = {}));
 export var TooltipPosition;
 (function (TooltipPosition) {
@@ -71,28 +69,28 @@ export var TooltipPosition;
   TooltipPosition["BOTTOM_RIGHT"] = "bottom_right";
   TooltipPosition["BOTTOM_LEFT"] = "bottom_left";
 })(TooltipPosition || (TooltipPosition = {}));
-export var keybordKeyCodeEnum;
-(function (keybordKeyCodeEnum) {
-  keybordKeyCodeEnum[keybordKeyCodeEnum["TAB"] = 9] = "TAB";
-  keybordKeyCodeEnum[keybordKeyCodeEnum["SPACE"] = 32] = "SPACE";
-  keybordKeyCodeEnum[keybordKeyCodeEnum["ESC"] = 27] = "ESC";
-  keybordKeyCodeEnum[keybordKeyCodeEnum["ENTER"] = 13] = "ENTER";
-  keybordKeyCodeEnum[keybordKeyCodeEnum["ARROW_UP"] = 38] = "ARROW_UP";
-  keybordKeyCodeEnum[keybordKeyCodeEnum["ARROW_DOWN"] = 40] = "ARROW_DOWN";
-  keybordKeyCodeEnum[keybordKeyCodeEnum["BACKSPACE"] = 8] = "BACKSPACE";
-  keybordKeyCodeEnum[keybordKeyCodeEnum["DELETE"] = 46] = "DELETE";
-})(keybordKeyCodeEnum || (keybordKeyCodeEnum = {}));
-export var keybordCodeEnum;
-(function (keybordCodeEnum) {
-  keybordCodeEnum["TAB"] = "Tab";
-  keybordCodeEnum["SPACE"] = "Space";
-  keybordCodeEnum["ESC"] = "Escape";
-  keybordCodeEnum["ENTER"] = "Enter";
-  keybordCodeEnum["ARROW_UP"] = "ArrowUp";
-  keybordCodeEnum["ARROW_DOWN"] = "ArrowDown";
-  keybordCodeEnum["BACKSPACE"] = "Backspace";
-  keybordCodeEnum["DELETE"] = "Delete";
-})(keybordCodeEnum || (keybordCodeEnum = {}));
+export var KeyboardKeyCodeEnum;
+(function (KeyboardKeyCodeEnum) {
+  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["TAB"] = 9] = "TAB";
+  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["SPACE"] = 32] = "SPACE";
+  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["ESC"] = 27] = "ESC";
+  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["ENTER"] = 13] = "ENTER";
+  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["ARROW_UP"] = 38] = "ARROW_UP";
+  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["ARROW_DOWN"] = 40] = "ARROW_DOWN";
+  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["BACKSPACE"] = 8] = "BACKSPACE";
+  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["DELETE"] = 46] = "DELETE";
+})(KeyboardKeyCodeEnum || (KeyboardKeyCodeEnum = {}));
+export var KeyboardCodeEnum;
+(function (KeyboardCodeEnum) {
+  KeyboardCodeEnum["TAB"] = "Tab";
+  KeyboardCodeEnum["SPACE"] = "Space";
+  KeyboardCodeEnum["ESC"] = "Escape";
+  KeyboardCodeEnum["ENTER"] = "Enter";
+  KeyboardCodeEnum["ARROW_UP"] = "ArrowUp";
+  KeyboardCodeEnum["ARROW_DOWN"] = "ArrowDown";
+  KeyboardCodeEnum["BACKSPACE"] = "Backspace";
+  KeyboardCodeEnum["DELETE"] = "Delete";
+})(KeyboardCodeEnum || (KeyboardCodeEnum = {}));
 export var KeyboardKeys;
 (function (KeyboardKeys) {
   KeyboardKeys["ARROW_DOWN"] = "ArrowDown";
@@ -187,11 +185,11 @@ export var ExpandableListButtonAlign;
   ExpandableListButtonAlign["right"] = "right";
   ExpandableListButtonAlign["left"] = "left";
 })(ExpandableListButtonAlign || (ExpandableListButtonAlign = {}));
-export var ZtoggleSwitchPositionEnum;
-(function (ZtoggleSwitchPositionEnum) {
-  ZtoggleSwitchPositionEnum["right"] = "right";
-  ZtoggleSwitchPositionEnum["left"] = "left";
-})(ZtoggleSwitchPositionEnum || (ZtoggleSwitchPositionEnum = {}));
+export var LabelPositions;
+(function (LabelPositions) {
+  LabelPositions["right"] = "right";
+  LabelPositions["left"] = "left";
+})(LabelPositions || (LabelPositions = {}));
 export var ListDividerType;
 (function (ListDividerType) {
   ListDividerType["none"] = "none";

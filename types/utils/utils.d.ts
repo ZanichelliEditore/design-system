@@ -1,5 +1,10 @@
 import { DeviceEnum } from "../beans/index";
 export declare function format(first: string, middle: string, last: string): string;
+/**
+ * Return boolean value for passed value if a boolean corresponding value is found
+ * Return passed value otherwise
+ */
+export declare function boolean(value: any): boolean | string;
 export declare function retrieveAsset(assetName: string): string;
 export declare function randomId(): string;
 export declare function handleKeyboardSubmit(ev: KeyboardEvent, callback: Function, ...args: any[]): void;

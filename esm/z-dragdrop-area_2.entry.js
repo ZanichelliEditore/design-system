@@ -15,7 +15,6 @@ const ZDragdropArea = class {
   }
   render() {
     return (h("div", { tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
-        console.log(e);
         e.preventDefault();
         this.dragDropContainer.classList.add("dragover");
       }, onDragLeave: () => {

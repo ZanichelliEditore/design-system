@@ -1,6 +1,6 @@
 import { Component, Prop, h, State } from "@stencil/core";
-import { keybordKeyCodeEnum } from "../../../beans/index";
-import { handleKeyboardSubmit, getClickedElement, getElementTree } from "../../../utils/utils";
+import { KeyboardKeyCodeEnum } from "../../../beans/index";
+import { handleKeyboardSubmit, getClickedElement, getElementTree, } from "../../../utils/utils";
 export class ZMenuDropdown {
   constructor() {
     this.ismenuopen = false;
@@ -15,7 +15,7 @@ export class ZMenuDropdown {
   }
   renderMenuOpen() {
     if (this.ismenuopen) {
-      return (h("ul", null, this.linkarray.map(bean => (h("li", null,
+      return (h("ul", null, this.linkarray.map((bean) => (h("li", null,
         h("z-link", { htmlid: bean.id, href: bean.link, icon: bean.icon }, bean.label))))));
     }
   }
@@ -31,7 +31,7 @@ export class ZMenuDropdown {
     this.ismenuopen = !this.ismenuopen;
   }
   handleFocus(e) {
-    if (e instanceof KeyboardEvent && e.keyCode !== keybordKeyCodeEnum.TAB)
+    if (e instanceof KeyboardEvent && e.keyCode !== KeyboardKeyCodeEnum.TAB)
       return;
     const tree = getElementTree(getClickedElement());
     const menuParent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-menu-dropdown");

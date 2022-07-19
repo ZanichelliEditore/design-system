@@ -1,10 +1,10 @@
 import { Component, Prop, h, Event } from "@stencil/core";
 import { randomId } from "../../../utils/utils";
-import { ZtoggleSwitchPositionEnum } from "../../../beans";
+import { LabelPositions } from "../../../beans";
 export class ZToggleSwitch {
   constructor() {
     this.disabled = false;
-    this.labelPosition = ZtoggleSwitchPositionEnum.left;
+    this.labelPosition = LabelPositions.left;
     this.checked = false;
     this.htmlid = `toggle-switch-id-${randomId()}`;
   }
@@ -68,10 +68,10 @@ export class ZToggleSwitch {
       "type": "string",
       "mutable": false,
       "complexType": {
-        "original": "ZtoggleSwitchPositionEnum",
-        "resolved": "ZtoggleSwitchPositionEnum.left | ZtoggleSwitchPositionEnum.right",
+        "original": "LabelPosition",
+        "resolved": "\"left\" | \"right\"",
         "references": {
-          "ZtoggleSwitchPositionEnum": {
+          "LabelPosition": {
             "location": "import",
             "path": "../../../beans"
           }
@@ -85,7 +85,7 @@ export class ZToggleSwitch {
       },
       "attribute": "label-position",
       "reflect": true,
-      "defaultValue": "ZtoggleSwitchPositionEnum.left"
+      "defaultValue": "LabelPositions.left"
     },
     "checked": {
       "type": "boolean",

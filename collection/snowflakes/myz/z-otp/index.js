@@ -60,7 +60,7 @@ export class ZOtp {
       "mutable": false,
       "complexType": {
         "original": "InputStatusBean",
-        "resolved": "\"error\" | \"selecting\" | \"success\" | \"warning\"",
+        "resolved": "\"error\" | \"success\" | \"warning\"",
         "references": {
           "InputStatusBean": {
             "location": "import",

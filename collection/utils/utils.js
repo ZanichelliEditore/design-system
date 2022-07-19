@@ -1,7 +1,31 @@
-import { keybordCodeEnum, DeviceEnum } from "../beans/index";
+import { KeyboardCodeEnum, DeviceEnum } from "../beans/index";
 import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 export function format(first, middle, last) {
   return ((first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : ""));
+}
+/**
+ * Return boolean value for passed value if a boolean corresponding value is found
+ * Return passed value otherwise
+ */
+export function boolean(value) {
+  switch (value) {
+    case true:
+    case "true":
+    case 1:
+    case "1":
+    case "on":
+    case "yes":
+      return true;
+    case false:
+    case "false":
+    case 0:
+    case "0":
+    case "off":
+    case "no":
+      return false;
+    default:
+      return value;
+  }
 }
 export function retrieveAsset(assetName) {
   return assetName && "assets/images/png/" + assetName;
@@ -10,7 +34,8 @@ export function randomId() {
   return Math.random().toString(36).replace("0.", "");
 }
 export function handleKeyboardSubmit(ev, callback, ...args) {
-  if (ev.code === keybordCodeEnum.ENTER || ev.code === keybordCodeEnum.SPACE) {
+  if (ev.code === KeyboardCodeEnum.ENTER ||
+    ev.code === KeyboardCodeEnum.SPACE) {
     ev.preventDefault();
     callback(...args);
   }

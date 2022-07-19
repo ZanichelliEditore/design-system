@@ -43,7 +43,7 @@ export class ZInputMessage {
       "mutable": false,
       "complexType": {
         "original": "InputStatusBean",
-        "resolved": "\"error\" | \"selecting\" | \"success\" | \"warning\"",
+        "resolved": "\"error\" | \"success\" | \"warning\"",
         "references": {
           "InputStatusBean": {
             "location": "import",

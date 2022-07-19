@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { InputTypeBean, InputStatusBean, SelectItemBean } from "../../../beans";
+import { InputTypeBean, InputStatusBean, LabelPosition } from "../../../beans";
 export declare class ZInput {
   hostElement: HTMLElement;
   /** the id of the input element */
@@ -26,42 +26,28 @@ export declare class ZInput {
   placeholder?: string;
   /** the input html title (optional) */
   htmltitle?: string;
-  /** the input status (optional): available for text, password, number, email, textarea, select */
+  /** the input status (optional): available for text, password, number, email, textarea */
   status?: InputStatusBean;
-  /** show input helper message (optional): available for text, password, number, email, textarea, select */
-  hasmessage?: boolean;
-  /** input helper message (optional): available for text, password, number, email, textarea, select */
-  message?: string;
+  /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
+  message?: string | boolean;
   /** the input label position: available for checkbox, radio */
-  labelafter?: boolean;
-  /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
-  typingtimeout?: number;
-  /** items (optional): available for select */
-  items?: SelectItemBean[] | string;
-  /** the input has autocomplete option (optional): available for select, input */
-  autocomplete?: boolean | string;
-  /** multiple options can be selected (optional): available for select */
-  multiple?: boolean;
+  labelPosition?: LabelPosition;
+  /** the input has autocomplete option (optional): available for text, password, number, email */
+  autocomplete?: string;
   /** render clear icon when typing (optional): available for text */
   hasclearicon?: boolean;
-  /** render icon (optional): available for text, select */
+  /** render icon (optional): available for text */
   icon?: string;
   isTyping: boolean;
-  textareaWrapperHover: string;
-  textareaWrapperFocus: string;
   passwordHidden: boolean;
   private timer;
-  private selectElem;
+  private typingtimeout;
   inputCheckListener(e: CustomEvent): void;
-  /** get the input value */
-  getValue(): Promise<string | string[]>;
-  /** set the input value */
-  setValue(value: string | string[]): Promise<void>;
   /** get checked status */
   isChecked(): Promise<boolean>;
-  /** Emitted on input value change, returns value, keycode, validity */
+  /** Emitted on input value change, returns value, validity */
   inputChange: EventEmitter;
-  emitInputChange(value: string, keycode: number): void;
+  emitInputChange(value: string): void;
   /** Emitted when user starts typing */
   startTyping: EventEmitter;
   emitStartTyping(): void;
@@ -71,8 +57,6 @@ export declare class ZInput {
   /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
   inputCheck: EventEmitter;
   emitInputCheck(checked: boolean): void;
-  /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
-  optionSelect: EventEmitter;
   getValidity(type: string): ValidityState;
   getTextAttributes(): {
     id: string;
@@ -83,7 +67,11 @@ export declare class ZInput {
     readonly: boolean;
     required: boolean;
     title: string;
-    class: string;
+    class: {
+      [x: string]: boolean;
+      filled: boolean;
+    };
+    autocomplete: string;
     onInput: (e: any) => void;
   };
   renderInputText(type?: InputTypeBean): any;
@@ -97,6 +85,5 @@ export declare class ZInput {
   handleCheck(ev: any): void;
   renderCheckbox(): any;
   renderRadio(): any;
-  renderSelect(): any;
   render(): any;
 }

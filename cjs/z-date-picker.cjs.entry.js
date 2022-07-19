@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const index = require('./index-84b7063a.js');
 const _commonjsHelpers = require('./_commonjsHelpers-537d719a.js');
 const index$2 = require('./index-1fda0714.js');
-const index$1 = require('./index-b1289f95.js');
+const index$1 = require('./index-6b6a3299.js');
 
 var HOOKS = [
     "onChange",
@@ -3092,7 +3092,7 @@ const ZDatePicker = class {
     return (index.h("div", null, index.h("input", { class: "hidden-input", "data-input": true }), index.h("slot", { name: "toggle" })));
   }
   renderZInput() {
-    return (index.h("z-input", { ariaLabel: this.ariaLabel, label: this.label, class: index$2.classnames(this.datepickerid), type: "text", icon: "event", hasmessage: false, tabindex: "0" }));
+    return (index.h("z-input", { ariaLabel: this.ariaLabel, label: this.label, class: index$2.classnames(this.datepickerid), type: "text", icon: "event", message: false, tabindex: "0" }));
   }
   render() {
     return (index.h("div", { class: index$2.classnames("flatpickr-toggle-container", this.hasChildren && this.datepickerid, this.flatpickrPosition, this.mode) }, this.hasChildren ? this.renderSlottedContent() : this.renderZInput()));

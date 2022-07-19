@@ -188,7 +188,7 @@ const ZPagination = class {
         pagesChunks.map((chunk) => (h("div", { class: "pages-chunk" }, chunk.map((page) => this.renderPage(page))))))), this.goToPage && (h("form", { class: "mobile-go-to-page", onSubmit: (ev) => {
           ev.preventDefault();
           this.selectPage(this.goToPageValue);
-        } }, h("z-input", { class: "go-to-page-input", type: "number", hasmessage: false, onInput: (ev) => { this.goToPageValue = ev.target.value; }, placeholder: this.currentPage.toString(), hasclearicon: false }), h("span", null, `/${this.totalPages}`))), this.renderForwardButton()),
+        } }, h("z-input", { class: "go-to-page-input", type: "number", message: false, onInput: (ev) => { this.goToPageValue = ev.target.value; }, placeholder: this.currentPage.toString(), hasclearicon: false }), h("span", null, `/${this.totalPages}`))), this.renderForwardButton()),
     ];
   }
   componentDidLoad() {
@@ -209,7 +209,7 @@ const ZPagination = class {
       h("div", { class: "pagination-bar" }, this.label && h("span", { class: "page-label body-1-sb" }, this.label), this.edges && (h("button", { class: "pagination-button", type: "button", title: "Vai alla pagina 1", disabled: this.currentPage === 1, onClick: () => this.selectPage(1) }, "Pagina 1")), this.skip < this.totalPages && this.skip > 1 && (h("button", { class: "pagination-button", type: "button", title: `Vai alla pagina ${this.currentPage - this.skip}`, disabled: this.currentPage <= this.skip, onClick: () => this.selectPage(this.currentPage - this.skip) }, "-", this.skip)), this.navArrows && this.renderBackButton(), h("div", { class: "pages-container", role: "navigation", tabIndex: -1 }, this.split ?
         this.renderSplitPages() :
         this.renderPages()), this.navArrows && this.renderForwardButton(), this.skip < this.totalPages && this.skip > 1 && (h("button", { class: "pagination-button", type: "button", title: `Vai alla pagina ${this.currentPage + this.skip}`, disabled: this.currentPage > this.totalPages - this.skip, onClick: () => this.selectPage(this.currentPage + this.skip) }, "+", this.skip)), this.edges && (h("button", { class: "pagination-button", type: "button", title: `Vai alla pagina ${this.totalPages}`, disabled: this.currentPage === this.totalPages, onClick: () => this.selectPage(this.totalPages) }, "Pagina ", this.totalPages))),
-      this.goToPage && (h("div", { class: "go-to-page" }, h("span", { class: "label body-5-sb" }, "Vai a pagina:"), h("div", { class: "inputs" }, h("z-input", { class: "go-to-page-input", type: "number", hasmessage: false, placeholder: "2", hasclearicon: false, onInput: (ev) => { this.goToPageValue = ev.target.value; }, onKeyDown: (ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue) }), h("z-button", { disabled: !this.goToPageValue, title: "Vai alla pagina inserita", onClick: () => this.selectPage(this.goToPageValue) }, "vai")))),
+      this.goToPage && (h("div", { class: "go-to-page" }, h("span", { class: "label body-5-sb" }, "Vai a pagina:"), h("div", { class: "inputs" }, h("z-input", { class: "go-to-page-input", type: "number", message: false, placeholder: "2", hasclearicon: false, onInput: (ev) => { this.goToPageValue = ev.target.value; }, onKeyDown: (ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue) }), h("z-button", { disabled: !this.goToPageValue, title: "Vai alla pagina inserita", onClick: () => this.selectPage(this.goToPageValue) }, "vai")))),
     ];
   }
   get host() { return getElement(this); }

@@ -1,5 +1,4 @@
 import { Component, Prop, h, Element } from "@stencil/core";
-import classNames from "classnames";
 import { ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum, } from "../../../beans";
 /**
  * @slot - button label
@@ -18,24 +17,22 @@ export class ZButton {
   getAttributes() {
     return {
       id: this.htmlid,
-      class: classNames(this.variant, this.size),
       "aria-label": this.ariaLabel,
+      class: {
+        container: true,
+        [this.variant]: true,
+        [this.size]: true,
+        "has-text": !!this.hostElement.textContent
+      }
     };
   }
-  componentDidLoad() {
-    if (this.hostElement.innerText) {
-      this.hostElement.classList.add("with-text");
-    }
-  }
-  componentWillRender() {
-    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
-  }
   render() {
-    if (this.href)
-      return (h("a", Object.assign({ href: this.href, target: this.target }, this.getAttributes()),
+    if (this.href) {
+      return (h("a", Object.assign({}, this.getAttributes(), { href: this.href, target: this.target }),
         this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }),
         h("slot", null)));
-    return (h("button", Object.assign({ name: this.name, type: this.type, disabled: this.disabled }, this.getAttributes()),
+    }
+    return (h("button", Object.assign({}, this.getAttributes(), { name: this.name, type: this.type, disabled: this.disabled }),
       this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }),
       h("slot", null)));
   }
@@ -77,7 +74,7 @@ export class ZButton {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "HTML a href attribute. If it is set, it renders an HTML a tag."
+        "text": "HTML <a> href attribute. If it is set, it renders an HTML <a> tag."
       },
       "attribute": "href",
       "reflect": true
@@ -211,7 +208,7 @@ export class ZButton {
         "text": "`z-icon` name to use (optional)."
       },
       "attribute": "icon",
-      "reflect": false
+      "reflect": true
     },
     "size": {
       "type": "string",
