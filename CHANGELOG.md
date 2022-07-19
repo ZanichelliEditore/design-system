@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.0](https://github.com/ZanichelliEditore/design-system/compare/v3.2.2...v4.0.0) (2022-07-19)
+
+
+### Bug Fixes
+
+* input padding without icons ([ef68fda](https://github.com/ZanichelliEditore/design-system/commit/ef68fda8549ad55c7d893560383cc66fe6f24511))
+* message casting ([313cf63](https://github.com/ZanichelliEditore/design-system/commit/313cf6353ffbef9516a60a8b3c2eeb17a9795c09))
+* pr fixes ([2b32667](https://github.com/ZanichelliEditore/design-system/commit/2b3266751497e7546086c8c033d8c91f04976b83))
+* removed getValue() method ([fbe79d3](https://github.com/ZanichelliEditore/design-system/commit/fbe79d3b93068789e19a44bd4870052848cfceb7))
+* textarea hover css ([3741c09](https://github.com/ZanichelliEditore/design-system/commit/3741c09faf029560d509512b77264aabdb989699))
+* z-button tests; remove console logs ([df13014](https://github.com/ZanichelliEditore/design-system/commit/df13014d69d2986382f089a96cec0acfbf27e576))
+
 ### [3.2.2](https://github.com/ZanichelliEditore/design-system/compare/v3.2.1...v3.2.2) (2022-07-14)
 
 
