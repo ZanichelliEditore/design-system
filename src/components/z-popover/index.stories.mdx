@@ -1,25 +1,58 @@
 import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, radios, boolean } from "@storybook/addon-knobs";
+import { Meta, Story, Preview, Props, ArgsTable } from "@storybook/addon-docs";
 import { PopoverPosition } from "../../beans";
+import { getColorTokens } from "../../utils/storybook-utils";
 import "./index.stories.css";
 import "./index";
 
 ## Stories
 
-<Meta title="ZPopover" component="z-popover" />
+<Meta
+  title="ZPopover"
+  component="z-popover"
+  argTypes={{
+    position: {
+      options: Object.values(PopoverPosition),
+      control: { type: "inline-radio"},
+    },
+    open: {
+      control: { type: "boolean"},
+    },
+    center: {
+      control: { type: "boolean"},
+    },
+    showArrow: {
+      control: { type: "boolean"},
+    },
+    "--z-popover-theme--surface": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
+    "--z-popover-theme--text": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
+  }}
+/>
 
 # ZPopover
 
 <Preview>
-  <Story name="contextual-menu-like">
-    {(args) => html`
+  <Story name="contextual-menu-like" args={{
+    position: PopoverPosition.right_bottom,
+    open: true,
+  }}>
+  {(args) => html`
       <div class="popover-container">
         <z-popover
-          position="${radios("type", PopoverPosition, "right_bottom")}"
-          open="${boolean("open", true)}"
-          center="${boolean("center", false)}"
-          show-arrow="${boolean("show-arrow", false)}"
+          .position=${args.position}
+          .open=${args.open}
+          .center=${args.center}
+          .showArrow=${args.showArrow}
           bind-to="#icon"
         >
           <div class="container">
@@ -37,14 +70,19 @@ import "./index";
 # ZPopover as ZTooltip
 
 <Preview>
-  <Story name="tooltip">
+  <Story name="tooltip" args={{
+    position: PopoverPosition.top,
+    open: true,
+    center: true,
+    showArrow: true,
+  }}>
     {(args) => html`
       <div class="popover-container">
         <z-popover
-          position="${radios("type", PopoverPosition, "top")}"
-          open=${true}
-          center=${true}
-          show-arrow=${true}
+          .position=${args.position}
+          .open=${args.open}
+          .center=${args.center}
+          .showArrow=${args.showArrow}
           bind-to="#icon"
         >
           <div class="container">
