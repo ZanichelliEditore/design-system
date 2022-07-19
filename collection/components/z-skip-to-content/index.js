@@ -52,7 +52,7 @@ export class ZSkipToContent {
   render() {
     return (h(Host, { class: `${this.variant} ${this.visible && "skip-to-content-visible"} `, ref: (el) => el }, this.links.map((link, i) => {
       const id = `skip-to-content-${i}`;
-      return (h("z-link", { id: id, underline: true, "aria-label": link.ariaLabel || link.label, class: `t-weight-sb ${id == this.visibleLink ? "link-visible" : "link-invisible"}`, href: link.href, textcolor: this.variant === ThemeVariant.dark ? "white" : "black", onFocus: () => (this.visibleLink = id), onClick: () => this.handleLinkClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.handleLinkClick.bind(this)) }, link.label));
+      return (h("z-link", { id: id, underline: true, "aria-label": link.ariaLabel || link.label, class: `body-1-sb ${id == this.visibleLink ? "link-visible" : "link-invisible"}`, href: link.href, textcolor: this.variant === ThemeVariant.dark ? "white" : "black", onFocus: () => (this.visibleLink = id), onClick: () => this.handleLinkClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.handleLinkClick.bind(this)) }, link.label));
     })));
   }
   static get is() { return "z-skip-to-content"; }
