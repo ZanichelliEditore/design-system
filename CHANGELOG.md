@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/ZanichelliEditore/design-system/compare/v4.0.0...v4.0.1) (2022-07-19)
+
+
+### Bug Fixes
+
+* update font-size ([bbfd83a](https://github.com/ZanichelliEditore/design-system/commit/bbfd83a2a6214b6f69147fe74fe224deff980d7e))
+* update padding ([5a132ca](https://github.com/ZanichelliEditore/design-system/commit/5a132cad16de9f0c798ff155d6d0406ced12dc11))
+* update test ([43460ea](https://github.com/ZanichelliEditore/design-system/commit/43460eaf66a2d24fe669b2a4a1da17fb3f8fa130))
+
 ### [4.0.0](https://github.com/ZanichelliEditore/design-system/compare/v3.2.2...v4.0.0) (2022-07-19)
 
 
