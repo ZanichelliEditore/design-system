@@ -159,14 +159,6 @@ export class ZPopover {
    */
   @State() currentPosition?: PopoverPositions;
 
-  /** Emitted on popover click, returns isVisible state */
-  @Event() triggerClick: EventEmitter;
-  emitTriggerClick() {
-    this.triggerClick.emit({
-      isVisible: this.open,
-    });
-  }
-
   /**
    * Position change event.
    */
