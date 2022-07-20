@@ -4334,10 +4334,6 @@ declare namespace LocalJSX {
          */
         "onPositionChange"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted on popover click, returns isVisible state
-         */
-        "onTriggerClick"?: (event: CustomEvent<any>) => void;
-        /**
           * The open state of the popover.
          */
         "open"?: boolean;

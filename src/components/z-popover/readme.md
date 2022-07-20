@@ -32,11 +32,10 @@ To be sure the algorithm finds the right container, when calculating the positio
 
 ## Events
 
-| Event            | Description                                       | Type               |
-| ---------------- | ------------------------------------------------- | ------------------ |
-| `openChange`     | Open change event.                                | `CustomEvent<any>` |
-| `positionChange` | Position change event.                            | `CustomEvent<any>` |
-| `triggerClick`   | Emitted on popover click, returns isVisible state | `CustomEvent<any>` |
+| Event            | Description            | Type               |
+| ---------------- | ---------------------- | ------------------ |
+| `openChange`     | Open change event.     | `CustomEvent<any>` |
+| `positionChange` | Position change event. | `CustomEvent<any>` |
 
 
 ## Dependencies
