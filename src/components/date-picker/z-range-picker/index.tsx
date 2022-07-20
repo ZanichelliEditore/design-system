@@ -41,25 +41,25 @@ export class ZRangePicker {
   private flatpickrInstance2 = null;
   private hasChildren: boolean;
 
-  @State() currentInputState =
-    this.activeInput === RangePickerActiveInput.startInput
-      ? { picker: this.flatpickrInstance, index: 0 }
-      : { picker: this.flatpickrInstance2, index: 1 };
-
   /** emitted when date changes, returns selected date */
   @Event() dateSelect: EventEmitter;
   emitDateSelect(date) {
     this.dateSelect.emit(date);
-    console.log("date", date);
   }
 
   @Listen("click", { target: "body", capture: true })
   handleClick() {
     this.getFocusedInput();
+    this.AddClassToInput();
   }
 
   @Listen("keydown", { target: "body", capture: true })
   handleKeyDown(ev: KeyboardEvent) {
+    let currentInputState =
+      this.activeInput === RangePickerActiveInput.startInput
+        ? { picker: this.flatpickrInstance, index: 0 }
+        : { picker: this.flatpickrInstance2, index: 1 };
+
     let isCalendarOpened = document.activeElement.closest(
       ".flatpickr-calendar"
     );
@@ -67,12 +67,11 @@ export class ZRangePicker {
     if (ev.key === "Tab") {
     }
     if (ev.key === "Enter" || ev.key === " ") {
-      console.log("isCalendarOpened", isCalendarOpened);
       if (
         document.activeElement.classList.contains(`${this.rangepickerid}`) ||
         document.activeElement.classList.contains(`${this.rangepickerid}-2`)
       ) {
-        !isCalendarOpened && this.currentInputState.picker.open();
+        !isCalendarOpened && currentInputState.picker.open();
       }
 
       let isPrevArrowEntered = document.activeElement.classList.contains(
@@ -85,19 +84,24 @@ export class ZRangePicker {
 
       arrowPressed && ev.key === " " && ev.preventDefault();
 
-      isPrevArrowEntered && this.currentInputState.picker.changeMonth(-1);
-      isNextArrowEntered && this.currentInputState.picker.changeMonth(1);
+      isPrevArrowEntered && currentInputState.picker.changeMonth(-1);
+      isNextArrowEntered && currentInputState.picker.changeMonth(1);
     }
   }
 
   //Set background color before or after first selected date, before selecting the second one
   @Listen("mouseover")
   onMouseOver(e: CustomEvent) {
+    let currentInputState =
+      this.activeInput === RangePickerActiveInput.startInput
+        ? { picker: this.flatpickrInstance, index: 0 }
+        : { picker: this.flatpickrInstance2, index: 1 };
+
     this.setRangeHoverStyle(
       e,
-      this.currentInputState.picker,
+      currentInputState.picker,
       this.element.getElementsByClassName("flatpickr-calendar")[
-        this.currentInputState.index
+        currentInputState.index
       ]
     );
   }
@@ -154,12 +158,14 @@ export class ZRangePicker {
     this.element.querySelectorAll(".flatpickr-weekday").forEach((element) => {
       element.innerHTML = element.innerHTML.trim().charAt(0);
     });
+  }
 
+  AddClassToInput() {
     let firstInputElement =
-      this.element.querySelectorAll("z-input")[0].children[0]?.children[0]
+      this.element.querySelectorAll("z-input")[0]?.children[0]?.children[0]
         ?.children[0];
     let secondInputElement =
-      this.element.querySelectorAll("z-input")[1].children[0]?.children[0]
+      this.element.querySelectorAll("z-input")[1]?.children[0]?.children[0]
         ?.children[0];
 
     firstInputElement?.setAttribute(
@@ -382,14 +388,18 @@ export class ZRangePicker {
 
   //Get the current focused input, first or last
   getFocusedInput() {
+    let currentInputState =
+      this.activeInput === RangePickerActiveInput.startInput
+        ? { picker: this.flatpickrInstance, index: 0 }
+        : { picker: this.flatpickrInstance2, index: 1 };
     if (
       document.activeElement.matches(
         `.${RangePickerActiveInput.startInput}.${this.rangepickerid}`
       )
     ) {
       this.activeInput = RangePickerActiveInput.startInput;
-      this.currentInputState.picker = this.flatpickrInstance;
-      this.currentInputState.index = 0;
+      currentInputState.picker = this.flatpickrInstance;
+      currentInputState.index = 0;
     }
 
     if (
@@ -398,31 +408,41 @@ export class ZRangePicker {
       )
     ) {
       this.activeInput = RangePickerActiveInput.endInput;
-      this.currentInputState.picker = this.flatpickrInstance2;
-      this.currentInputState.index = 1;
+      currentInputState.picker = this.flatpickrInstance2;
+      currentInputState.index = 1;
     }
   }
 
   //Set current month after flatpickr opened
   getCurrentMonth() {
-    let length = this.currentInputState.picker.selectedDates.length;
+    let currentInputState =
+      this.activeInput === RangePickerActiveInput.startInput
+        ? { picker: this.flatpickrInstance, index: 0 }
+        : { picker: this.flatpickrInstance2, index: 1 };
 
-    if (length > this.currentInputState.index) {
+    let length = currentInputState.picker.selectedDates.length;
+
+    if (length > currentInputState.index) {
       let dateMonth =
-        this.currentInputState.picker.selectedDates[length - 1].getMonth();
+        currentInputState.picker.selectedDates[length - 1].getMonth();
       let dateYear =
-        this.currentInputState.picker.selectedDates[length - 1].getFullYear();
+        currentInputState.picker.selectedDates[length - 1].getFullYear();
 
-      this.currentInputState.picker.changeMonth(dateMonth, false);
-      this.currentInputState.picker.changeYear(dateYear, false);
+      currentInputState.picker.changeMonth(dateMonth, false);
+      currentInputState.picker.changeYear(dateYear, false);
     }
   }
 
   //Set style of the days between the two selected dates
   setRangeStyle() {
+    let currentInputState =
+      this.activeInput === RangePickerActiveInput.startInput
+        ? { picker: this.flatpickrInstance, index: 0 }
+        : { picker: this.flatpickrInstance2, index: 1 };
+
     let calendar =
       this.element.getElementsByClassName("flatpickr-calendar")[
-        this.currentInputState.index
+        currentInputState.index
       ];
 
     Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(

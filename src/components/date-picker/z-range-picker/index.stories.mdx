@@ -1,10 +1,10 @@
 import { html } from "lit-html";
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
-import { ZDatePickerMode } from "../../beans";
+import { ZDatePickerMode } from "../../../beans";
 
 import "./index";
-import "./styles.css";
+import "../styles.css";
 
 <Meta
   title="DatePicker/ZRangePicker"
@@ -41,7 +41,7 @@ import "./styles.css";
       </div>
       <script>
         const picker1 = document.getElementById("${args.rangepickerid}");
-        picker1.addEventListener("dateSelect", (e) => alert(e.detail));
+        picker1.addEventListener("dateSelect", (e) => console.log(e.detail));
       </script>
     `}
   </Story>
@@ -67,7 +67,7 @@ import "./styles.css";
       </div>
       <script>
         const picker2 = document.getElementById("${args.rangepickerid}");
-        picker2.addEventListener("dateSelect", (e) => alert(e.detail));
+        picker2.addEventListener("dateSelect", (e) => console.log(e.detail));
       </script>
     `}
   </Story>
