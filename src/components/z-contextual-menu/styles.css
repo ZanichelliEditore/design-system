@@ -4,10 +4,6 @@
   font-weight: var(--font-rg);
 }
 
-:host(:focus-within) > z-popover {
-  box-shadow: var(--shadow-focus-primary);
-}
-
 button {
   border: none;
   background: transparent;
@@ -17,7 +13,7 @@ button {
 
 z-popover {
   --z-popover-shadow-filter: none;
-  padding: 0;
+  --z-popover-padding: 0 var(--space-unit);
 }
 
 .popover-content-container {

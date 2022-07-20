@@ -1,11 +1,9 @@
 import {
   Component,
   Event,
-  State,
   EventEmitter,
   Prop,
   h,
-  Listen,
 } from "@stencil/core";
 import { PopoverPositions } from "../../beans";
 
@@ -28,15 +26,7 @@ export class ZContextualMenu {
   /**
    * [optional] Sets the position of the popover
    */
-  @Prop() PopoverPositions?: PopoverPositions = PopoverPositions.BOTTOM_RIGHT;
-
-  /**
-   * [optional] Sets the centering of the popover
-   */
-  @Prop() popoverCenter?: boolean = false;
-
-  @State()
-  private popoverOpen: boolean = false;
+  @Prop({ reflect: true }) popoverPosition?: PopoverPositions = PopoverPositions.BOTTOM_RIGHT;
 
   private triggerButton?: HTMLButtonElement;
 
@@ -51,13 +41,6 @@ export class ZContextualMenu {
   })
   clickContextualMenu: EventEmitter;
 
-  @Listen("openChange")
-  listenOpen(ev) {
-    if (ev?.target?.popover === this.popover) {
-      this.popoverOpen = ev.detail.open;
-    }
-  }
-
   private jsonElements;
 
   componentWillRender() {
@@ -66,29 +49,32 @@ export class ZContextualMenu {
     }
   }
 
+  componentDidLoad() {
+    this.popover.bindTo = this.triggerButton;
+  }
+
   showIcon() {
     return !this.jsonElements.some((element) => !element.icon);
   }
 
   togglePopover() {
-    this.popoverOpen = !this.popoverOpen;
+    if (!this.popover.open) {
+      this.popover.open = true;
+    }
   }
 
   render() {
     return [
       <button
         ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
-        aria-label={this.popoverOpen ? "chiudi menu contestuale" : "apri menu contestuale"}
+        aria-label={this.popover?.open ? "chiudi menu contestuale" : "apri menu contestuale"}
         onClick={() => this.togglePopover()}
       >
         <z-icon name="contextual-menu" fill={this.color} />
       </button>,
       <z-popover
         ref={(el) => (this.popover = el as HTMLZPopoverElement)}
-        open={this.popoverOpen}
-        position={this.PopoverPositions}
-        center={this.popoverCenter}
-        bindTo={this.triggerButton as HTMLElement}
+        position={this.popoverPosition}
       >
         <div class="popover-content-container">
           <z-list>

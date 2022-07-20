@@ -349,10 +349,6 @@ export namespace Components {
     }
     interface ZContextualMenu {
         /**
-          * [optional] Sets the position of the popover
-         */
-        "PopoverPositions"?: PopoverPositions;
-        /**
           * [optional] Sets text color of ZContextualMenu's content
          */
         "color"?: string;
@@ -361,9 +357,9 @@ export namespace Components {
          */
         "elements"?: string;
         /**
-          * [optional] Sets the centering of the popover
+          * [optional] Sets the position of the popover
          */
-        "popoverCenter"?: boolean;
+        "popoverPosition"?: PopoverPositions;
     }
     interface ZCookiebar {
         /**
@@ -3001,10 +2997,6 @@ declare namespace LocalJSX {
     }
     interface ZContextualMenu {
         /**
-          * [optional] Sets the position of the popover
-         */
-        "PopoverPositions"?: PopoverPositions;
-        /**
           * [optional] Sets text color of ZContextualMenu's content
          */
         "color"?: string;
@@ -3017,9 +3009,9 @@ declare namespace LocalJSX {
          */
         "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
         /**
-          * [optional] Sets the centering of the popover
+          * [optional] Sets the position of the popover
          */
-        "popoverCenter"?: boolean;
+        "popoverPosition"?: PopoverPositions;
     }
     interface ZCookiebar {
         /**

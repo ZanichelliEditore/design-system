@@ -189,6 +189,7 @@ export class ZPopover {
 
     if (!parent) {
       this.open = false;
+      this.positionChange.emit({ position: this.currentPosition });
     }
   }
 
@@ -200,6 +201,8 @@ export class ZPopover {
     ) {
       this.position = PopoverPositions.AUTO;
     }
+
+    this.currentPosition = this.position;
     this.positionChange.emit({ position: this.currentPosition });
   }
 
@@ -296,9 +299,9 @@ export class ZPopover {
       availableTop + availableBottom + boundingRect.height;
     const availableWidth = availableLeft + availableRight + boundingRect.width;
 
-    let position = this.position;
+    let position = this.currentPosition;
     const positions: PopoverPositions[] = [];
-    if (position === PopoverPositions.AUTO) {
+    if (this.position === PopoverPositions.AUTO) {
       /**
        * The `AUTO` position tries to place the popover in the 'safest' area,
        * where there's more space available.

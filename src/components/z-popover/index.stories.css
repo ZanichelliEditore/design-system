@@ -1,6 +1,7 @@
 z-popover .container z-button-deprecated:not(:last-child) {
   margin-right: 0.5rem;
 }
+
 .popover-container {
   position: relative;
   display: inline-flex;

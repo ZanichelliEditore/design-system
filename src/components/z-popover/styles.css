@@ -1,6 +1,7 @@
 :host {
   --z-popover-theme--surface: var(--color-surface01);
   --z-popover-theme--text: var(--color-text01);
+  --z-popover-padding: var(--space-unit);
   --z-popover-shadow-filter: drop-shadow(0 1px 2px var(--shadow-color-base));
   --arrow-size: 6px;
   --edge-offset: calc(-1 * (var(--arrow-size) + calc(var(--space-unit) * 2)));
@@ -9,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-unit);
+  padding: var(--z-popover-padding);
   min-width: calc(var(--space-unit) * 8);
   min-height: calc(var(--space-unit) * 4);
   color: var(--z-popover-theme--text);

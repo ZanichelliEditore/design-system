@@ -2,6 +2,7 @@ import { html } from "lit-html";
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
 import { text, select, radios, boolean } from "@storybook/addon-knobs";
 import { PopoverPositions } from '../../beans';
+import "./index.stories.css";
 import "./index";
 
 <Meta title="ZContextualMenu" component="contextual-menu" />
@@ -10,9 +11,7 @@ import "./index";
 
 <Preview>
   <Story name="ZContextualMenu with icons">
-    {html` <div
-      style="height: 300px; display: flex; align-items: center; justify-content: center; padding-top: 50px;"
-    >
+    {html`<div class="ctx-menu-popover-container">
       <z-contextual-menu
         id="contextual-menu-1"
         elements="${text(
@@ -21,7 +20,6 @@ import "./index";
           {"icon": "delete", "text": "Elemento 3", "disabled": "true"}, {"icon": "delete", "text": "Elemento 4"}]`
         )}"
         color="${text("color", "color-primary01")}"
-        popover-center="${boolean("popover-center", false)}"
         popover-position="${radios("popover-position", PopoverPositions, "right_bottom")}"
       >
       </z-contextual-menu>
@@ -31,9 +29,7 @@ import "./index";
 
 <Preview>
   <Story name="ZContextualMenu without icons">
-    {html` <div
-      style="height: 300px; display: flex; align-items: center; justify-content: center; padding-top: 50px;"
-    >
+    {html`<div class="ctx-menu-popover-container">
       <z-contextual-menu
         id="contextual-menu-2"
         elements="${text(
@@ -41,7 +37,6 @@ import "./index";
           `[{ "text": "Elemento 1"}, { "text": "Elemento 2"}, { "text": "Elemento 4", "disabled": "true"}, { "text": "Elemento 3"}]`
         )}"
         color="${text("color", "color-primary01")}"
-        popover-center="${boolean("popover-center", false)}"
         popover-position="${radios("popover-position", PopoverPositions, "right_bottom")}"
       >
       </z-contextual-menu>
@@ -51,9 +46,7 @@ import "./index";
 
 <Preview>
   <Story name="ZContextualMenu with icons and long text">
-    {html` <div
-      style="height: 300px; display: flex; align-items: center; justify-content: center; padding-top: 50px;"
-    >
+    {html`<div class="ctx-menu-popover-container">
       <z-contextual-menu
         id="contextual-menu-1"
         elements="${text(
@@ -61,7 +54,6 @@ import "./index";
           `[{"icon": "share", "text": "ElementoConTestoLungoElementoConTestoLungo"}, {"icon": "delete", "text": "ElementoConTestoLungo ElementoConTestoLungo ElementoConTestoLungo"}]`
         )}"
         color="${text("color", "color-primary01")}"
-        popover-center="${boolean("popover-center", false)}"
         popover-position="${radios("popover-position", PopoverPositions, "right_bottom")}"
       >
       </z-contextual-menu>
