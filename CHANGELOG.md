@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.2](https://github.com/ZanichelliEditore/design-system/compare/v4.0.1...v4.0.2) (2022-07-21)
+
+
+### Bug Fixes
+
+* added type button to icon buttons to prevent form submit ([35e911a](https://github.com/ZanichelliEditore/design-system/commit/35e911a066e73c44d6837fc682cb827fe7f64592))
+
 ### [4.0.1](https://github.com/ZanichelliEditore/design-system/compare/v4.0.0...v4.0.1) (2022-07-19)
 
 
