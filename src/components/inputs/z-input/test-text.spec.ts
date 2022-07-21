@@ -35,7 +35,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input aria-label="label" class="input_default filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="iconsWrapper">
-                <button class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+                <button type="button" class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
                 </button>
               </span>
@@ -93,7 +93,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input class="filled input_default hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper">
-                <button class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+                <button type="button" class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
                 </button>
               </span>
@@ -116,7 +116,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input class="filled input_success hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="iconsWrapper">
-                <button class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+                <button type="button" class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
                 </button>
               </span>
@@ -150,7 +150,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default hasClearIcon hasIcon" type="password" />
               <span class="iconsWrapper">
-                <button class="iconButton showHidePasswordIcon" aria-label="mostra password">
+                <button type="button" class="iconButton showHidePasswordIcon" aria-label="mostra password">
                   <z-icon name="view-filled"></z-icon>
                 </button>
               </span>
@@ -173,7 +173,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default hasClearIcon hasIcon" type="text" />
               <span class="iconsWrapper">
-                <button class="iconButton showHidePasswordIcon" aria-label="nascondi password">
+                <button type="button" class="iconButton showHidePasswordIcon" aria-label="nascondi password">
                   <z-icon name="view-off-filled"></z-icon>
                 </button>
               </span>
@@ -196,7 +196,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default filled hasClearIcon" type="text" value="value" />
               <span class="iconsWrapper">
-                <button class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+                <button type="button" class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
                 </button>
               </span>
@@ -240,7 +240,7 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="input_default hasIcon hasClearIcon" type="text" />
               <span class="iconsWrapper">
-                <button class="iconButton inputIcon" tabindex="-1">
+                <button type="button" class="iconButton inputIcon" tabindex="-1">
                   <z-icon name="pdf"></z-icon>
                 </button>
               </span>
