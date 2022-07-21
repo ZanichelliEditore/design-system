@@ -143,15 +143,15 @@ const ZInput = class {
     }
     if (!this.icon)
       return;
-    return (h("button", { class: "iconButton inputIcon", tabIndex: -1 }, h("z-icon", { name: this.icon })));
+    return (h("button", { type: "button", class: "iconButton inputIcon", tabIndex: -1 }, h("z-icon", { name: this.icon })));
   }
   renderResetIcon() {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
       return;
-    return (h("button", { class: "iconButton resetIcon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, h("z-icon", { name: "multiply" })));
+    return (h("button", { type: "button", class: "iconButton resetIcon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, h("z-icon", { name: "multiply" })));
   }
   renderShowHidePassword() {
-    return (h("button", { class: "iconButton showHidePasswordIcon", disabled: this.disabled, "aria-label": this.passwordHidden ? "mostra password" : "nascondi password", onClick: () => (this.passwordHidden = !this.passwordHidden) }, h("z-icon", { name: this.passwordHidden ? "view-filled" : "view-off-filled" })));
+    return (h("button", { type: "button", class: "iconButton showHidePasswordIcon", disabled: this.disabled, "aria-label": this.passwordHidden ? "mostra password" : "nascondi password", onClick: () => (this.passwordHidden = !this.passwordHidden) }, h("z-icon", { name: this.passwordHidden ? "view-filled" : "view-off-filled" })));
   }
   renderMessage() {
     if (boolean(this.message) === false)
