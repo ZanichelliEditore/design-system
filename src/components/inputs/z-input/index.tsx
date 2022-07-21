@@ -239,7 +239,7 @@ export class ZInput {
     if (!this.icon) return;
 
     return (
-      <button class="iconButton inputIcon" tabIndex={-1}>
+      <button type="button" class="iconButton inputIcon" tabIndex={-1}>
         <z-icon name={this.icon} />
       </button>
     );
@@ -251,6 +251,7 @@ export class ZInput {
 
     return (
       <button
+        type="button"
         class="iconButton resetIcon"
         aria-label="cancella il contenuto dell'input"
         onClick={() => this.emitInputChange("")}
@@ -263,6 +264,7 @@ export class ZInput {
   renderShowHidePassword() {
     return (
       <button
+        type="button"
         class="iconButton showHidePasswordIcon"
         disabled={this.disabled}
         aria-label={
