@@ -3,6 +3,10 @@
   font-weight: var(--font-rg);
 }
 
+:host z-myz-card {
+  --card-overflow: visible;
+}
+
 :host > div {
   position: relative;
   height: 522px;
@@ -49,7 +53,7 @@
   transform: rotateY(0deg);
 }
 
-:host > div .front z-button {
+:host > div .front z-button-deprecated {
   position: absolute;
   z-index: 3;
   top: calc(var(--space-unit) * 0.5);

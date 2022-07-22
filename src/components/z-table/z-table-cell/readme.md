@@ -21,13 +21,13 @@
 
 ### Depends on
 
-- [z-button](../../buttons/z-button)
+- [z-button-deprecated](../../../deprecated/z-button-deprecated)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-table-cell --> z-button
-  z-button --> z-icon
+  z-table-cell --> z-button-deprecated
+  z-button-deprecated --> z-icon
   z-table-row --> z-table-cell
   style z-table-cell fill:#f9f,stroke:#333,stroke-width:4px
 ```

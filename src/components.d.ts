@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -97,6 +97,48 @@ export namespace Components {
         "variant": "regular" | "semibold";
     }
     interface ZButton {
+        /**
+          * defines a string value that labels an interactive element, used for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * HTML button disabled attribute.
+         */
+        "disabled"?: boolean;
+        /**
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
+         */
+        "href"?: string;
+        /**
+          * Identifier, should be unique.
+         */
+        "htmlid"?: string;
+        /**
+          * `z-icon` name to use (optional).
+         */
+        "icon"?: string;
+        /**
+          * HTML button name attribute.
+         */
+        "name"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ButtonSizeEnum;
+        /**
+          * HTML a target attribute.
+         */
+        "target"?: string;
+        /**
+          * HTML button type attribute.
+         */
+        "type"?: HTMLButtonElement["type"];
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+         */
+        "variant"?: ButtonVariantBean;
+    }
+    interface ZButtonDeprecated {
         /**
           * HTML button disabled attribute.
          */
@@ -335,9 +377,17 @@ export namespace Components {
     }
     interface ZDatePicker {
         /**
+          * z-input aria label
+         */
+        "ariaLabel"?: string;
+        /**
           * unique id
          */
         "datepickerid": string;
+        /**
+          * z-input label
+         */
+        "label"?: string;
         /**
           * [Optional] datepicker mode: date, datetime, only months
          */
@@ -406,7 +456,7 @@ export namespace Components {
          */
         "data"?: string;
         /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event'
+          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
          */
         "productCreditsLink"?: string;
         /**
@@ -490,6 +540,84 @@ export namespace Components {
         "isclosable": boolean;
     }
     interface ZInput {
+        /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
+        /**
+          * the input has autocomplete option (optional): available for text, password, number, email
+         */
+        "autocomplete"?: string;
+        /**
+          * checked: available for checkbox, radio
+         */
+        "checked"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid": string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * render icon (optional): available for text
+         */
+        "icon"?: string;
+        /**
+          * get checked status
+         */
+        "isChecked": () => Promise<boolean>;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * the input label position: available for checkbox, radio
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
+         */
+        "message"?: string | boolean;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea
+         */
+        "status"?: InputStatusBean;
+        /**
+          * input types
+         */
+        "type": InputTypeBean;
+        /**
+          * the input value
+         */
+        "value"?: string;
+    }
+    interface ZInputDeprecated {
         /**
           * the input aria-label
          */
@@ -1095,7 +1223,7 @@ export namespace Components {
          */
         "htmlTitle": string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon": string;
         /**
@@ -1129,7 +1257,7 @@ export namespace Components {
          */
         "htmlTitle": string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon": string;
         /**
@@ -1208,6 +1336,44 @@ export namespace Components {
         "inputNum"?: number;
         "message"?: string;
         "status"?: InputStatusBean;
+    }
+    interface ZPagination {
+        /**
+          * Current page.
+         */
+        "currentPage": number;
+        /**
+          * Enable buttons to go to the first and last pages.
+         */
+        "edges": boolean;
+        /**
+          * Whether to show "go to page" feature.
+         */
+        "goToPage": boolean;
+        /**
+          * Pagination label placed before the bar.
+         */
+        "label"?: string;
+        /**
+          * Enable navigation arrows.
+         */
+        "navArrows": boolean;
+        /**
+          * Number of pages to skip.
+         */
+        "skip": number;
+        /**
+          * Number of pages to show left/right of the current, before showing "load more" symbol (…).
+         */
+        "split"?: number;
+        /**
+          * Total number of pages. Required.
+         */
+        "totalPages": number;
+        /**
+          * Number of pages to show at a time. If not set, all pages will be shown.
+         */
+        "visiblePages"?: number;
     }
     interface ZPaginationBar {
         /**
@@ -1379,7 +1545,7 @@ export namespace Components {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean | string;
+        "autocomplete"?: boolean;
         /**
           * the input is disabled
          */
@@ -1387,15 +1553,11 @@ export namespace Components {
         /**
           * get the input selected options
          */
-        "getSelectedItems": () => Promise<SelectItemBean[]>;
+        "getSelectedItem": () => Promise<SelectItemBean>;
         /**
           * get the input value
          */
-        "getValue": () => Promise<string | string[]>;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
+        "getValue": () => Promise<string>;
         /**
           * the id of the input element
          */
@@ -1413,13 +1575,9 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
+          * input helper message (optional) - if set to `false` message won't be displayed
          */
-        "message"?: string;
-        /**
-          * multiple options can be selected
-         */
-        "multiple"?: boolean;
+        "message"?: string | boolean;
         /**
           * the input name
          */
@@ -1441,9 +1599,19 @@ export namespace Components {
          */
         "setValue": (value: string | string[]) => Promise<void>;
         /**
-          * the input status (optional): available for text, password, number, email, textarea, select
+          * the input status (optional)
          */
         "status"?: InputStatusBean;
+    }
+    interface ZSkipToContent {
+        /**
+          * Array to fill link into skip-content
+         */
+        "links": string | SkipToContentLink[];
+        /**
+          * Graphical variant: `dark`, `light`.
+         */
+        "variant"?: ThemeVariant;
     }
     interface ZSlideshow {
         /**
@@ -1690,7 +1858,7 @@ export namespace Components {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid": string;
-        "labelPosition"?: ZtoggleSwitchPositionEnum;
+        "labelPosition"?: LabelPosition;
     }
     interface ZTooltip {
         /**
@@ -1789,6 +1957,12 @@ declare global {
     var HTMLZButtonElement: {
         prototype: HTMLZButtonElement;
         new (): HTMLZButtonElement;
+    };
+    interface HTMLZButtonDeprecatedElement extends Components.ZButtonDeprecated, HTMLStencilElement {
+    }
+    var HTMLZButtonDeprecatedElement: {
+        prototype: HTMLZButtonDeprecatedElement;
+        new (): HTMLZButtonDeprecatedElement;
     };
     interface HTMLZButtonFilterElement extends Components.ZButtonFilter, HTMLStencilElement {
     }
@@ -1939,6 +2113,12 @@ declare global {
     var HTMLZInputElement: {
         prototype: HTMLZInputElement;
         new (): HTMLZInputElement;
+    };
+    interface HTMLZInputDeprecatedElement extends Components.ZInputDeprecated, HTMLStencilElement {
+    }
+    var HTMLZInputDeprecatedElement: {
+        prototype: HTMLZInputDeprecatedElement;
+        new (): HTMLZInputDeprecatedElement;
     };
     interface HTMLZInputLabelElement extends Components.ZInputLabel, HTMLStencilElement {
     }
@@ -2138,6 +2318,12 @@ declare global {
         prototype: HTMLZOtpElement;
         new (): HTMLZOtpElement;
     };
+    interface HTMLZPaginationElement extends Components.ZPagination, HTMLStencilElement {
+    }
+    var HTMLZPaginationElement: {
+        prototype: HTMLZPaginationElement;
+        new (): HTMLZPaginationElement;
+    };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
     var HTMLZPaginationBarElement: {
@@ -2197,6 +2383,12 @@ declare global {
     var HTMLZSelectElement: {
         prototype: HTMLZSelectElement;
         new (): HTMLZSelectElement;
+    };
+    interface HTMLZSkipToContentElement extends Components.ZSkipToContent, HTMLStencilElement {
+    }
+    var HTMLZSkipToContentElement: {
+        prototype: HTMLZSkipToContentElement;
+        new (): HTMLZSkipToContentElement;
     };
     interface HTMLZSlideshowElement extends Components.ZSlideshow, HTMLStencilElement {
     }
@@ -2351,6 +2543,7 @@ declare global {
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
+        "z-button-deprecated": HTMLZButtonDeprecatedElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-candybar": HTMLZCandybarElement;
@@ -2376,6 +2569,7 @@ declare global {
         "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
         "z-input": HTMLZInputElement;
+        "z-input-deprecated": HTMLZInputDeprecatedElement;
         "z-input-label": HTMLZInputLabelElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
@@ -2409,6 +2603,7 @@ declare global {
         "z-notification": HTMLZNotificationElement;
         "z-offcanvas": HTMLZOffcanvasElement;
         "z-otp": HTMLZOtpElement;
+        "z-pagination": HTMLZPaginationElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
@@ -2419,6 +2614,7 @@ declare global {
         "z-popover": HTMLZPopoverElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
+        "z-skip-to-content": HTMLZSkipToContentElement;
         "z-slideshow": HTMLZSlideshowElement;
         "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
@@ -2541,6 +2737,48 @@ declare namespace LocalJSX {
         "variant"?: "regular" | "semibold";
     }
     interface ZButton {
+        /**
+          * defines a string value that labels an interactive element, used for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * HTML button disabled attribute.
+         */
+        "disabled"?: boolean;
+        /**
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
+         */
+        "href"?: string;
+        /**
+          * Identifier, should be unique.
+         */
+        "htmlid"?: string;
+        /**
+          * `z-icon` name to use (optional).
+         */
+        "icon"?: string;
+        /**
+          * HTML button name attribute.
+         */
+        "name"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ButtonSizeEnum;
+        /**
+          * HTML a target attribute.
+         */
+        "target"?: string;
+        /**
+          * HTML button type attribute.
+         */
+        "type"?: HTMLButtonElement["type"];
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+         */
+        "variant"?: ButtonVariantBean;
+    }
+    interface ZButtonDeprecated {
         /**
           * HTML button disabled attribute.
          */
@@ -2807,9 +3045,17 @@ declare namespace LocalJSX {
     }
     interface ZDatePicker {
         /**
+          * z-input aria label
+         */
+        "ariaLabel"?: string;
+        /**
           * unique id
          */
         "datepickerid"?: string;
+        /**
+          * z-input label
+         */
+        "label"?: string;
         /**
           * [Optional] datepicker mode: date, datetime, only months
          */
@@ -2898,7 +3144,7 @@ declare namespace LocalJSX {
          */
         "onReportAProblemButtonClick"?: (event: CustomEvent<any>) => void;
         /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event',  not empty string means 'open the url and emit creditsLinkClick event'
+          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
          */
         "productCreditsLink"?: string;
         /**
@@ -2986,6 +3232,96 @@ declare namespace LocalJSX {
         "onInfoBoxClose"?: (event: CustomEvent<any>) => void;
     }
     interface ZInput {
+        /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
+        /**
+          * the input has autocomplete option (optional): available for text, password, number, email
+         */
+        "autocomplete"?: string;
+        /**
+          * checked: available for checkbox, radio
+         */
+        "checked"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid"?: string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * render icon (optional): available for text
+         */
+        "icon"?: string;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * the input label position: available for checkbox, radio
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
+         */
+        "message"?: string | boolean;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * Emitted on input value change, returns value, validity
+         */
+        "onInputChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
+         */
+        "onInputCheck"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when user starts typing
+         */
+        "onStartTyping"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when user stops typing, returns value, validity
+         */
+        "onStopTyping"?: (event: CustomEvent<any>) => void;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea
+         */
+        "status"?: InputStatusBean;
+        /**
+          * input types
+         */
+        "type"?: InputTypeBean;
+        /**
+          * the input value
+         */
+        "value"?: string;
+    }
+    interface ZInputDeprecated {
         /**
           * the input aria-label
          */
@@ -3675,7 +4011,7 @@ declare namespace LocalJSX {
          */
         "htmlTitle"?: string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon"?: string;
         /**
@@ -3710,7 +4046,7 @@ declare namespace LocalJSX {
          */
         "htmlTitle"?: string;
         /**
-          * Name of the icon to use. Use the slot `icon` for extra customization. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
          */
         "icon"?: string;
         /**
@@ -3803,6 +4139,48 @@ declare namespace LocalJSX {
         "message"?: string;
         "onOtpChange"?: (event: CustomEvent<any>) => void;
         "status"?: InputStatusBean;
+    }
+    interface ZPagination {
+        /**
+          * Current page.
+         */
+        "currentPage"?: number;
+        /**
+          * Enable buttons to go to the first and last pages.
+         */
+        "edges"?: boolean;
+        /**
+          * Whether to show "go to page" feature.
+         */
+        "goToPage"?: boolean;
+        /**
+          * Pagination label placed before the bar.
+         */
+        "label"?: string;
+        /**
+          * Enable navigation arrows.
+         */
+        "navArrows"?: boolean;
+        /**
+          * Event emitted when the current page has changed.
+         */
+        "onPageChanged"?: (event: CustomEvent<any>) => void;
+        /**
+          * Number of pages to skip.
+         */
+        "skip"?: number;
+        /**
+          * Number of pages to show left/right of the current, before showing "load more" symbol (…).
+         */
+        "split"?: number;
+        /**
+          * Total number of pages. Required.
+         */
+        "totalPages": number;
+        /**
+          * Number of pages to show at a time. If not set, all pages will be shown.
+         */
+        "visiblePages"?: number;
     }
     interface ZPaginationBar {
         /**
@@ -3960,6 +4338,10 @@ declare namespace LocalJSX {
          */
         "boxShadow"?: PopoverShadow;
         /**
+          * Emitted on popover click, returns isVisible state
+         */
+        "onTriggerClick"?: (event: CustomEvent<any>) => void;
+        /**
           * [optional] Sets padding for Popover container
          */
         "padding"?: string;
@@ -3990,15 +4372,11 @@ declare namespace LocalJSX {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean | string;
+        "autocomplete"?: boolean;
         /**
           * the input is disabled
          */
         "disabled"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
         /**
           * the id of the input element
          */
@@ -4016,13 +4394,9 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
+          * input helper message (optional) - if set to `false` message won't be displayed
          */
-        "message"?: string;
-        /**
-          * multiple options can be selected
-         */
-        "multiple"?: boolean;
+        "message"?: string | boolean;
         /**
           * the input name
          */
@@ -4032,7 +4406,7 @@ declare namespace LocalJSX {
          */
         "noresultslabel"?: string;
         /**
-          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
+          * Emitted on select option selection, returns select id, selected item id
          */
         "onOptionSelect"?: (event: CustomEvent<any>) => void;
         /**
@@ -4044,9 +4418,19 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
-          * the input status (optional): available for text, password, number, email, textarea, select
+          * the input status (optional)
          */
         "status"?: InputStatusBean;
+    }
+    interface ZSkipToContent {
+        /**
+          * Array to fill link into skip-content
+         */
+        "links"?: string | SkipToContentLink[];
+        /**
+          * Graphical variant: `dark`, `light`.
+         */
+        "variant"?: ThemeVariant;
     }
     interface ZSlideshow {
         /**
@@ -4314,7 +4698,7 @@ declare namespace LocalJSX {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid"?: string;
-        "labelPosition"?: ZtoggleSwitchPositionEnum;
+        "labelPosition"?: LabelPosition;
         "onToggleClick"?: (event: CustomEvent<any>) => void;
     }
     interface ZTooltip {
@@ -4386,6 +4770,7 @@ declare namespace LocalJSX {
         "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
+        "z-button-deprecated": ZButtonDeprecated;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-candybar": ZCandybar;
@@ -4411,6 +4796,7 @@ declare namespace LocalJSX {
         "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
         "z-input": ZInput;
+        "z-input-deprecated": ZInputDeprecated;
         "z-input-label": ZInputLabel;
         "z-input-message": ZInputMessage;
         "z-link": ZLink;
@@ -4444,6 +4830,7 @@ declare namespace LocalJSX {
         "z-notification": ZNotification;
         "z-offcanvas": ZOffcanvas;
         "z-otp": ZOtp;
+        "z-pagination": ZPagination;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
@@ -4454,6 +4841,7 @@ declare namespace LocalJSX {
         "z-popover": ZPopover;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
+        "z-skip-to-content": ZSkipToContent;
         "z-slideshow": ZSlideshow;
         "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
@@ -4492,6 +4880,7 @@ declare module "@stencil/core" {
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
+            "z-button-deprecated": LocalJSX.ZButtonDeprecated & JSXBase.HTMLAttributes<HTMLZButtonDeprecatedElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
@@ -4517,6 +4906,7 @@ declare module "@stencil/core" {
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
+            "z-input-deprecated": LocalJSX.ZInputDeprecated & JSXBase.HTMLAttributes<HTMLZInputDeprecatedElement>;
             "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
@@ -4550,6 +4940,7 @@ declare module "@stencil/core" {
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
+            "z-pagination": LocalJSX.ZPagination & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
@@ -4560,6 +4951,7 @@ declare module "@stencil/core" {
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
+            "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
             "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;

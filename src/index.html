@@ -42,11 +42,12 @@
         <z-app-switcher id="myappswitcher" slot="login" />
       </z-app-topbar>
     </header>
+
     <div class="body" style="display: flex; height: calc(100vh - 48px)">
       <z-offcanvas id="mycanvas" transitiondirection="right" variant="overlay">
         <div slot="canvasContent">
           <div>
-            <z-button id="canvas-button">chiudi</z-button>
+            <z-button-deprecated id="canvas-button">chiudi</z-button-deprecated>
           </div>
           <span>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non
@@ -459,6 +460,21 @@
         </li>
       </z-carousel>
     </div>
+    <section>
+      <h4>z-button</h4>
+      <div>
+        <z-button
+          htmlid="123"
+          variant="primary"
+          size="big"
+          disabled="false"
+          icon="download"
+          aria-label="click"
+        >
+          click me
+        </z-button>
+      </div>
+    </section>
   </body>
 </html>
 <script>

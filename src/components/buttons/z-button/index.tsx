@@ -1,5 +1,4 @@
 import { Component, Prop, h, Element } from "@stencil/core";
-import classNames from "classnames";
 import {
   ButtonVariantBean,
   ButtonVariantEnum,
@@ -13,55 +12,79 @@ import {
 @Component({
   tag: "z-button",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZButton {
   @Element() hostElement: HTMLElement;
-
+  /** defines a string value that labels an interactive element, used for accessibility. */
+  @Prop({ reflect: true })
+  ariaLabel?: string;
+  /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
+  @Prop({ reflect: true })
+  href?: string;
+  /** HTML a target attribute. */
+  @Prop({ reflect: true })
+  target?: string;
   /** Identifier, should be unique. */
-  @Prop() htmlid?: string;
+  @Prop()
+  htmlid?: string;
   /** HTML button name attribute. */
-  @Prop() name?: string;
+  @Prop()
+  name?: string;
   /** HTML button disabled attribute. */
-  @Prop({ reflect: true }) disabled?: boolean = false;
+  @Prop({ reflect: true })
+  disabled?: boolean = false;
   /** HTML button type attribute. */
-  @Prop() type?: HTMLButtonElement["type"] = ButtonTypeEnum.button;
-  /** Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`. */
-  @Prop({ reflect: true }) variant?: ButtonVariantBean = ButtonVariantEnum.primary;
+  @Prop()
+  type?: HTMLButtonElement["type"] = ButtonTypeEnum.button;
+  /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
+  @Prop({ reflect: true })
+  variant?: ButtonVariantBean = ButtonVariantEnum.primary;
   /** `z-icon` name to use (optional). */
-  @Prop() icon?: string;
+  @Prop({ reflect: true })
+  icon?: string;
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
   @Prop({ reflect: true })
   size?: ButtonSizeEnum = ButtonSizeEnum.big;
-  /** Reduce button size (deprecated).
-   * @deprecated Use `size` prop.
-   */
-  @Prop({ reflect: true }) issmall?: boolean = false;
-  /** Spy to render square button. */
-  @Prop({ reflect: true })
-  square?: boolean = false;
+
+  getAttributes() {
+    return {
+      id: this.htmlid,
+      "aria-label": this.ariaLabel,
+      class: {
+        container: true,
+        [this.variant]: true,
+        [this.size]: true,
+        "has-text": !!this.hostElement.textContent
+      }
+    };
+  }
 
   render() {
-    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
-
-    return (
-      <slot name="element">
-        <button
-          id={this.htmlid}
-          name={this.name}
-          type={this.type}
-          disabled={this.disabled}
-          class={classNames(
-            this.variant,
-            this.size,
-            { issmall: this.issmall },
-            { square: this.square }
-          )}
+    if (this.href) {
+      return (
+        <a
+          {...this.getAttributes()}
+          href={this.href}
+          target={this.target}
         >
           {this.icon && <z-icon name={this.icon} width={16} height={16} />}
           <slot />
-        </button>
-      </slot>
+        </a>
+      );
+    }
+
+    return (
+      <button
+        {...this.getAttributes()}
+        name={this.name}
+        type={this.type}
+        disabled={this.disabled}
+      >
+        {this.icon && <z-icon name={this.icon} width={16} height={16} />}
+        <slot />
+      </button>
     );
   }
 }

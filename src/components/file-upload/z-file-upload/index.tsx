@@ -114,11 +114,15 @@ export class ZFileUpload {
     return this.files;
   }
 
-  handleAccessibility(){
-    if(this.files.length > 0) {
-      (this.el.querySelector('z-file:last-child z-chip button') as HTMLElement).focus();
-    }else {
-      this.type === ZFileUploadTypeEnum.default ? this.button.shadowRoot.querySelector('button').focus() : this.uploadLink.focus();
+  handleAccessibility() {
+    if (this.files.length > 0) {
+      (
+        this.el.querySelector("z-file:last-child z-chip button") as HTMLElement
+      ).focus();
+    } else {
+      this.type === ZFileUploadTypeEnum.default
+        ? this.button.shadowRoot.querySelector("button").focus()
+        : this.uploadLink.focus();
     }
   }
 
@@ -223,7 +227,7 @@ export class ZFileUpload {
   renderUploadButton() {
     return [
       this.renderInput(),
-      <z-button
+      <z-button-deprecated
         onClick={() => this.input.click()}
         onKeyPress={(e) => {
           if (e.code == "Space" || e.code == "Enter") {
@@ -237,7 +241,7 @@ export class ZFileUpload {
         ref={(val) => (this.button = val)}
       >
         Allega
-      </z-button>,
+      </z-button-deprecated>,
     ];
   }
 

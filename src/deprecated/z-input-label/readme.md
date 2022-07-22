@@ -18,14 +18,12 @@
 
 ### Used by
 
- - [z-input](../z-input)
- - [z-select](../z-select)
+ - [z-input-deprecated](../z-input-deprecated)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-input --> z-input-label
-  z-select --> z-input-label
+  z-input-deprecated --> z-input-label
   style z-input-label fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

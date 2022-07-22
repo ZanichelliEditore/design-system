@@ -10,11 +10,11 @@ describe("Suite test ZMyzCardIcon", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-myz-card-icon icon=\"icon\">
+    <z-myz-card-icon icon="icon">
       <mock:shadow-root>
         <button>
           <span>
-            <z-icon height=\"16\" name=\"icon\" width=\"16\"></z-icon>
+            <z-icon height="16" name="icon" width="16"></z-icon>
           </span>
         </button>
       </mock:shadow-root>
@@ -28,11 +28,11 @@ describe("Suite test ZMyzCardIcon", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-myz-card-icon icon=\"icon\" aria-label=\"test label\">
+    <z-myz-card-icon icon="icon" aria-label="test label">
       <mock:shadow-root>
-        <button aria-label=\"test label\">
+        <button aria-label="test label">
           <span>
-            <z-icon height=\"16\" name=\"icon\" width=\"16\"></z-icon>
+            <z-icon height="16" name="icon" width="16"></z-icon>
           </span>
         </button>
       </mock:shadow-root>
@@ -46,11 +46,11 @@ describe("Suite test ZMyzCardIcon", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-myz-card-icon icon=\"icon\" isdisabled>
+    <z-myz-card-icon icon="icon" isdisabled>
       <mock:shadow-root>
         <button disabled>
           <span>
-            <z-icon height=\"16\" name=\"icon\" width=\"16\"></z-icon>
+            <z-icon height="16" name="icon" width="16"></z-icon>
           </span>
         </button>
       </mock:shadow-root>

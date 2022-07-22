@@ -13,8 +13,8 @@ describe("Suite test ZMyzCardBody", () => {
     <z-myz-card-body>
       <mock:shadow-root>
         <div>
-          <slot name=\"alert\"></slot>
-          <slot name=\"cover\"></slot>
+          <slot name="alert"></slot>
+          <slot name="cover"></slot>
         </div>
       </mock:shadow-root>
     </z-myz-card-body>

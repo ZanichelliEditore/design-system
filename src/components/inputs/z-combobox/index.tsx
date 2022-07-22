@@ -12,7 +12,7 @@ import {
   ComboItemBean,
   InputTypeBean,
   InputTypeEnum,
-  keybordKeyCodeEnum,
+  KeyboardKeyCodeEnum,
 } from "../../../beans";
 import { ZInput } from "../z-input";
 import { handleKeyboardSubmit } from "../../../utils/utils";
@@ -166,7 +166,7 @@ export class ZCombobox {
         class="header"
         onClick={() => this.toggleComboBox()}
         onKeyDown={(ev: KeyboardEvent) => {
-          if (ev.keyCode === keybordKeyCodeEnum.SPACE) ev.preventDefault();
+          if (ev.keyCode === KeyboardKeyCodeEnum.SPACE) ev.preventDefault();
         }}
         onKeyUp={(ev: KeyboardEvent) =>
           handleKeyboardSubmit(ev, this.toggleComboBox)
@@ -281,7 +281,7 @@ export class ZCombobox {
         htmltitle={this.searchtitle}
         type={this.inputType}
         value={this.searchValue}
-        hasmessage={false}
+        message={false}
         onInputChange={(e: CustomEvent) => {
           if (e.detail.keycode === 27) return this.closeFilterItems();
           this.filterItems(e.detail.value);
@@ -314,7 +314,7 @@ export class ZCombobox {
     return (
       <div
         data-action={`combo-${this.inputid}`}
-        class={`${this.isopen ? "open" : ""} ${this.isfixed ? "fixed": ""}`}
+        class={{ open: this.isopen, fixed: this.isfixed }}
         id={this.inputid}
       >
         {this.renderHeader()}

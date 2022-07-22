@@ -5,6 +5,7 @@ import {
   h,
   EventEmitter,
   Event,
+  Listen,
   State,
 } from "@stencil/core";
 
@@ -29,17 +30,84 @@ export class ZDatePicker {
 
   /** unique id */
   @Prop() datepickerid: string;
+
+  /** z-input aria label */
+  @Prop() ariaLabel?: string;
+  /** z-input label */
+  @Prop() label?: string;
   /** [Optional] datepicker mode: date, datetime, only months */
   @Prop() mode: ZDatePickerMode = ZDatePickerMode.date;
 
   @State() flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
 
+  private flatpickrInstance;
   private hasChildren: boolean;
 
   /** emitted when date changes, returns selected date */
   @Event() dateSelect: EventEmitter;
   emitDateSelect(date) {
     this.dateSelect.emit(date);
+  }
+
+  @Listen("keydown", { target: "body", capture: true })
+  handleKeyDown(ev: KeyboardEvent) {
+    if (ev.key === "Enter" || ev.key === " ") {
+      let isPrevArrowEntered = document.activeElement.classList.contains(
+        "flatpickr-prev-month"
+      );
+      let isNextArrowEntered = document.activeElement.classList.contains(
+        "flatpickr-next-month"
+      );
+      let arrowPressed = isPrevArrowEntered || isNextArrowEntered;
+
+      arrowPressed && ev.key === " " && ev.preventDefault();
+
+      if (this.mode === ZDatePickerMode.months) {
+        isPrevArrowEntered &&
+          this.flatpickrInstance.changeYear(
+            this.flatpickrInstance.currentYear - 1
+          );
+
+        isNextArrowEntered &&
+          this.flatpickrInstance.changeYear(
+            this.flatpickrInstance.currentYear + 1
+          );
+
+        if (arrowPressed) {
+          let calendar =
+            this.element.getElementsByClassName("flatpickr-calendar")[0];
+          let months = calendar.querySelectorAll(
+            ".flatpickr-monthSelect-month"
+          );
+          months.forEach((element) => {
+            element.setAttribute(
+              "aria-label",
+              `${element.innerHTML} ${this.flatpickrInstance.currentYear}`
+            );
+          });
+
+          //Force check of the current day
+          Array.from(months).forEach((element, index) => {
+            let curMonth = new Date().getMonth();
+            let curYear = new Date().getFullYear();
+
+            if (index === curMonth) {
+              if (this.flatpickrInstance.currentYear === curYear) {
+                element.setAttribute(
+                  "class",
+                  "flatpickr-monthSelect-month today"
+                );
+              } else {
+                element.setAttribute("class", "flatpickr-monthSelect-month");
+              }
+            }
+          });
+        }
+      } else {
+        isPrevArrowEntered && this.flatpickrInstance.changeMonth(-1);
+        isNextArrowEntered && this.flatpickrInstance.changeMonth(1);
+      }
+    }
   }
 
   componentWillLoad() {
@@ -49,10 +117,11 @@ export class ZDatePicker {
   }
 
   componentDidLoad() {
-    flatpickr(`.${this.datepickerid}`, {
+    this.flatpickrInstance = flatpickr(`.${this.datepickerid}`, {
       appendTo: this.element.children[0] as HTMLElement,
       enableTime: this.mode === ZDatePickerMode.dateTime,
       locale: Italian,
+      allowInput: true,
       dateFormat:
         this.mode === ZDatePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: this.mode === ZDatePickerMode.months ? "F Y" : "d F Y",
@@ -60,6 +129,13 @@ export class ZDatePicker {
       time_24hr: true,
       onChange: (_selectedDates, dateStr) => {
         this.emitDateSelect(dateStr);
+      },
+      onOpen: () => {
+        this.setAriaOptions();
+        this.setFlatpickrPosition();
+      },
+      onKeyDown: () => {
+        this.setAriaOptions();
       },
       wrap: this.hasChildren,
       plugins: this.mode === ZDatePickerMode.months && [
@@ -73,6 +149,100 @@ export class ZDatePicker {
     this.element.querySelectorAll(".flatpickr-weekday").forEach((element) => {
       element.innerHTML = element.innerHTML.trim().charAt(0);
     });
+  }
+
+  setAriaOptions() {
+    let calendar = this.element.getElementsByClassName("flatpickr-calendar")[0];
+
+    let prevMonthArrow = calendar.getElementsByClassName(
+      "flatpickr-prev-month"
+    )[0];
+    let nextMonthArrow = calendar.getElementsByClassName(
+      "flatpickr-next-month"
+    )[0];
+
+    let tabindexElements = calendar.querySelectorAll('[tabindex = "-1"]');
+    tabindexElements.forEach((element) =>
+      element.setAttribute("tabindex", "0")
+    );
+
+    prevMonthArrow.setAttribute("tabindex", "0");
+    nextMonthArrow.setAttribute("tabindex", "0");
+
+    prevMonthArrow.setAttribute("role", "button");
+    nextMonthArrow.setAttribute("role", "button");
+
+    calendar
+      .getElementsByClassName("cur-year")[0]
+      .setAttribute("aria-label", "Anno");
+
+    if (this.mode === ZDatePickerMode.months) {
+      this.setMonthsAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
+    }
+    if (this.mode === ZDatePickerMode.date) {
+      this.setDateAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
+    }
+    if (this.mode === ZDatePickerMode.dateTime) {
+      this.setDateTimeAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
+    }
+  }
+
+  setMonthsAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
+    Array.from(
+      calendar.getElementsByClassName("flatpickr-monthSelect-months")
+    ).forEach((element: HTMLElement) => element.setAttribute("tabindex", "-1"));
+
+    Array.from(
+      calendar.getElementsByClassName("flatpickr-monthSelect-month")
+    ).forEach((element: HTMLElement) => element.setAttribute("role", "button"));
+
+    prevMonthArrow.setAttribute("aria-label", "Anno precedente");
+    nextMonthArrow.setAttribute("aria-label", "Anno successivo");
+  }
+
+  setDateAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
+    Array.from(calendar.getElementsByClassName("flatpickr-days")).forEach(
+      (element: HTMLElement) => element.setAttribute("tabindex", "-1")
+    );
+
+    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
+      (element: HTMLElement) => element.setAttribute("role", "button")
+    );
+
+    calendar
+      .getElementsByClassName("flatpickr-monthDropdown-months")[0]
+      .setAttribute("aria-label", "Mese");
+
+    prevMonthArrow.setAttribute("aria-label", "Mese precedente");
+    nextMonthArrow.setAttribute("aria-label", "Mese successivo");
+  }
+
+  setDateTimeAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
+    Array.from(calendar.getElementsByClassName("flatpickr-days")).forEach(
+      (element: HTMLElement) => element.setAttribute("tabindex", "-1")
+    );
+
+    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
+      (element: HTMLElement) => element.setAttribute("role", "button")
+    );
+
+    calendar
+      .getElementsByClassName("flatpickr-monthDropdown-months")[0]
+      .setAttribute("aria-label", "Mese");
+
+    prevMonthArrow.setAttribute("aria-label", "Mese precedente");
+    nextMonthArrow.setAttribute("aria-label", "Mese successivo");
+
+    Array.from(calendar.getElementsByClassName("time24hr")).forEach(
+      (element: HTMLElement) => element.setAttribute("tabindex", "-1")
+    );
+
+    calendar
+      .getElementsByClassName("flatpickr-hour")[0]
+      .setAttribute("aria-label", "Ora");
+    calendar
+      .getElementsByClassName("flatpickr-minute")[0]
+      .setAttribute("aria-label", "Minuti");
   }
 
   setFlatpickrPosition() {
@@ -109,11 +279,13 @@ export class ZDatePicker {
   renderZInput() {
     return (
       <z-input
+        ariaLabel={this.ariaLabel}
+        label={this.label}
         class={classNames(this.datepickerid)}
         type="text"
-        name="datepicker"
         icon="event"
-        hasmessage={false}
+        message={false}
+        tabindex="0"
       ></z-input>
     );
   }
@@ -127,7 +299,6 @@ export class ZDatePicker {
           this.flatpickrPosition,
           this.mode
         )}
-        onClick={() => this.setFlatpickrPosition()}
       >
         {this.hasChildren ? this.renderSlottedContent() : this.renderZInput()}
       </div>

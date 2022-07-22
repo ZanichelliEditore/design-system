@@ -154,7 +154,6 @@ export enum InputTypeEnum {
   textarea = "textarea",
   checkbox = "checkbox",
   radio = "radio",
-  select = "select",
 }
 
 export type InputStatusBean = keyof typeof InputStatusEnum;
@@ -163,7 +162,6 @@ export enum InputStatusEnum {
   success = "success",
   error = "error",
   warning = "warning",
-  selecting = "selecting",
 }
 
 export type TooltipPositionBean = keyof typeof TooltipPosition;
@@ -180,7 +178,7 @@ export enum TooltipPosition {
   BOTTOM_LEFT = "bottom_left",
 }
 
-export enum keybordKeyCodeEnum {
+export enum KeyboardKeyCodeEnum {
   TAB = 9,
   SPACE = 32,
   ESC = 27,
@@ -189,6 +187,17 @@ export enum keybordKeyCodeEnum {
   ARROW_DOWN = 40,
   BACKSPACE = 8,
   DELETE = 46,
+}
+
+export enum KeyboardCodeEnum {
+  TAB = "Tab",
+  SPACE = "Space",
+  ESC = "Escape",
+  ENTER = "Enter",
+  ARROW_UP = "ArrowUp",
+  ARROW_DOWN = "ArrowDown",
+  BACKSPACE = "Backspace",
+  DELETE = "Delete",
 }
 
 export enum KeyboardKeys {
@@ -299,10 +308,12 @@ export enum ExpandableListButtonAlign {
   left = "left",
 }
 
-export enum ZtoggleSwitchPositionEnum {
+export enum LabelPositions {
   right = "right",
   left = "left",
 }
+export type LabelPosition = keyof typeof LabelPositions;
+
 export enum ListDividerType {
   none = "none",
   header = "header",
@@ -425,13 +436,8 @@ export enum ZSectionTitleDividerPositions {
   after = "after",
 }
 
-export enum StatusTagStatus {
-  warning = "warning",
-  error = "error",
-  success = "success",
-  neutral = "neutral",
-  default = "default",
-}
+export type ZSectionTitleDividerPosition =
+  keyof typeof ZSectionTitleDividerPositions;
 
 export enum ZDatePickerMode {
   date = "date",
@@ -450,5 +456,16 @@ export enum ZDatePickerPosition {
   bottom = "bottom",
 }
 
-export type ZSectionTitleDividerPosition =
-  keyof typeof ZSectionTitleDividerPositions;
+export declare type SkipToContentLink = {
+  label: string;
+  href: string;
+  ariaLabel?: string;
+};
+
+export enum StatusTagStatus {
+  warning = "warning",
+  error = "error",
+  success = "success",
+  neutral = "neutral",
+  default = "default",
+}

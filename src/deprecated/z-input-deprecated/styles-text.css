@@ -1,0 +1,54 @@
+.textWrapper > div {
+  fill: var(--color-icon02);
+}
+
+.textWrapper > div > input {
+  width: 100%;
+  height: calc(var(--space-unit) * 5.5);
+  margin: 0;
+  padding: 0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);
+  box-sizing: border-box;
+}
+
+.textWrapper > div > input.hasIcon,
+.textWrapper > div > input.hasClearIcon {
+  padding-right: calc(var(--space-unit) * 4);
+}
+
+.textWrapper > div > input.hasIcon.hasClearIcon {
+  padding-right: calc(var(--space-unit) * 7);
+}
+
+.textWrapper > div {
+  position: relative;
+  z-index: 1;
+}
+
+.textWrapper .iconsWrapper {
+  position: absolute;
+  bottom: calc(var(--space-unit) * 1.5);
+  right: calc(var(--space-unit) * 1.5);
+  display: flex;
+  z-index: 2;
+}
+
+.textWrapper .iconsWrapper > z-icon {
+  --z-icon-width: 18px;
+  --z-icon-height: 18px;
+
+  display: block;
+  margin-left: calc(var(--space-unit) * 0.5);
+}
+
+.textWrapper .iconsWrapper > z-icon.resetIcon,
+.textWrapper .iconsWrapper > z-icon.showHidePasswordIcon {
+  cursor: pointer;
+}
+
+/* Disable background color webkit */
+.textWrapper > div > input:-webkit-autofill,
+.textWrapper > div > input:-webkit-autofill:hover,
+.textWrapper > div > input:-webkit-autofill:focus,
+.textWrapper > div > input:-webkit-autofill:active {
+  -webkit-background-clip: text !important;
+}
