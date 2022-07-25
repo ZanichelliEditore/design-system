@@ -284,7 +284,7 @@ export class ZDatePicker {
         class={classNames(this.datepickerid)}
         type="text"
         icon="event"
-        hasmessage={false}
+        message={false}
         tabindex="0"
       ></z-input>
     );

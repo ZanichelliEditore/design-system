@@ -7,51 +7,49 @@
 
 ## Properties
 
-| Property         | Attribute        | Description                                                                                         | Type                                               | Default              |
-| ---------------- | ---------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------- | -------------------- |
-| `ariaLabel`      | `aria-label`     | the input aria-label                                                                                | `string`                                           | `undefined`          |
-| `autocomplete`   | `autocomplete`   | the input has autocomplete option                                                                   | `boolean \| string`                                | `false`              |
-| `disabled`       | `disabled`       | the input is disabled                                                                               | `boolean`                                          | `false`              |
-| `hasmessage`     | `hasmessage`     | show input helper message (optional): available for text, password, number, email, textarea, select | `boolean`                                          | `true`               |
-| `htmlid`         | `htmlid`         | the id of the input element                                                                         | `string`                                           | ``id-${randomId()}`` |
-| `htmltitle`      | `htmltitle`      | the input html title (optional)                                                                     | `string`                                           | `undefined`          |
-| `items`          | `items`          | the input select options                                                                            | `SelectItemBean[] \| string`                       | `undefined`          |
-| `label`          | `label`          | the input label                                                                                     | `string`                                           | `undefined`          |
-| `message`        | `message`        | input helper message (optional): available for text, password, number, email, textarea, select      | `string`                                           | `undefined`          |
-| `multiple`       | `multiple`       | multiple options can be selected                                                                    | `boolean`                                          | `false`              |
-| `name`           | `name`           | the input name                                                                                      | `string`                                           | `undefined`          |
-| `noresultslabel` | `noresultslabel` | no result text message                                                                              | `string`                                           | `"Nessun risultato"` |
-| `placeholder`    | `placeholder`    | the input placeholder (optional)                                                                    | `string`                                           | `undefined`          |
-| `readonly`       | `readonly`       | the input is readonly                                                                               | `boolean`                                          | `false`              |
-| `status`         | `status`         | the input status (optional): available for text, password, number, email, textarea, select          | `"error" \| "selecting" \| "success" \| "warning"` | `undefined`          |
+| Property         | Attribute        | Description                                                                    | Type                                | Default              |
+| ---------------- | ---------------- | ------------------------------------------------------------------------------ | ----------------------------------- | -------------------- |
+| `ariaLabel`      | `aria-label`     | the input aria-label                                                           | `string`                            | `undefined`          |
+| `autocomplete`   | `autocomplete`   | the input has autocomplete option                                              | `boolean`                           | `false`              |
+| `disabled`       | `disabled`       | the input is disabled                                                          | `boolean`                           | `false`              |
+| `htmlid`         | `htmlid`         | the id of the input element                                                    | `string`                            | ``id-${randomId()}`` |
+| `htmltitle`      | `htmltitle`      | the input html title (optional)                                                | `string`                            | `undefined`          |
+| `items`          | `items`          | the input select options                                                       | `SelectItemBean[] \| string`        | `undefined`          |
+| `label`          | `label`          | the input label                                                                | `string`                            | `undefined`          |
+| `message`        | `message`        | input helper message (optional) - if set to `false` message won't be displayed | `boolean \| string`                 | `true`               |
+| `name`           | `name`           | the input name                                                                 | `string`                            | `undefined`          |
+| `noresultslabel` | `noresultslabel` | no result text message                                                         | `string`                            | `"Nessun risultato"` |
+| `placeholder`    | `placeholder`    | the input placeholder (optional)                                               | `string`                            | `undefined`          |
+| `readonly`       | `readonly`       | the input is readonly                                                          | `boolean`                           | `false`              |
+| `status`         | `status`         | the input status (optional)                                                    | `"error" \| "success" \| "warning"` | `undefined`          |
 
 
 ## Events
 
-| Event          | Description                                                                                                          | Type               |
-| -------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `optionSelect` | Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) | `CustomEvent<any>` |
+| Event          | Description                                                             | Type               |
+| -------------- | ----------------------------------------------------------------------- | ------------------ |
+| `optionSelect` | Emitted on select option selection, returns select id, selected item id | `CustomEvent<any>` |
 
 
 ## Methods
 
-### `getSelectedItems() => Promise<SelectItemBean[]>`
+### `getSelectedItem() => Promise<SelectItemBean>`
 
 get the input selected options
 
 #### Returns
 
-Type: `Promise<SelectItemBean[]>`
+Type: `Promise<SelectItemBean>`
 
 
 
-### `getValue() => Promise<string | string[]>`
+### `getValue() => Promise<string>`
 
 get the input value
 
 #### Returns
 
-Type: `Promise<string | string[]>`
+Type: `Promise<string>`
 
 
 
@@ -70,27 +68,30 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [z-input](../z-input)
+ - [z-input-deprecated](../../../deprecated/z-input-deprecated)
 
 ### Depends on
 
-- [z-input-label](../z-input-label)
 - [z-input](../z-input)
-- [z-button-filter](../../../deprecated/z-button-filter)
+- [z-list](../../list/z-list)
+- [z-list-element](../../list/z-list-element)
 - [z-icon](../../icons/z-icon)
 - [z-input-message](../z-input-message)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-select --> z-input-label
   z-select --> z-input
-  z-select --> z-button-filter
+  z-select --> z-list
+  z-select --> z-list-element
   z-select --> z-icon
   z-select --> z-input-message
-  z-input --> z-select
+  z-input --> z-icon
+  z-input --> z-input-message
   z-input-message --> z-icon
-  z-button-filter --> z-icon
+  z-list-element --> z-icon
+  z-list-element --> z-divider
+  z-input-deprecated --> z-select
   style z-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -63,7 +63,6 @@ export class ZFile {
   }
 
   elementHasEllipsis(): boolean {
-    console.log(this.ellipsis, this.ellipsis.offsetWidth, this.ellipsis.scrollWidth);
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 

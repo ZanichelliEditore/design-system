@@ -88,7 +88,7 @@ export class ZSkipToContent {
               id={id}
               underline={true}
               aria-label={link.ariaLabel || link.label}
-              class={`t-weight-sb ${
+              class={`body-1-sb ${
                 id == this.visibleLink ? "link-visible" : "link-invisible"
               }`}
               href={link.href}

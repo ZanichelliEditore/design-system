@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.2](https://github.com/ZanichelliEditore/design-system/compare/v4.0.1...v4.0.2) (2022-07-21)
+
+
+### Bug Fixes
+
+* added type button to icon buttons to prevent form submit ([35e911a](https://github.com/ZanichelliEditore/design-system/commit/35e911a066e73c44d6837fc682cb827fe7f64592))
+
+### [4.0.1](https://github.com/ZanichelliEditore/design-system/compare/v4.0.0...v4.0.1) (2022-07-19)
+
+
+### Bug Fixes
+
+* update font-size ([bbfd83a](https://github.com/ZanichelliEditore/design-system/commit/bbfd83a2a6214b6f69147fe74fe224deff980d7e))
+* update padding ([5a132ca](https://github.com/ZanichelliEditore/design-system/commit/5a132cad16de9f0c798ff155d6d0406ced12dc11))
+* update test ([43460ea](https://github.com/ZanichelliEditore/design-system/commit/43460eaf66a2d24fe669b2a4a1da17fb3f8fa130))
+
+### [4.0.0](https://github.com/ZanichelliEditore/design-system/compare/v3.2.2...v4.0.0) (2022-07-19)
+
+
+### Bug Fixes
+
+* input padding without icons ([ef68fda](https://github.com/ZanichelliEditore/design-system/commit/ef68fda8549ad55c7d893560383cc66fe6f24511))
+* message casting ([313cf63](https://github.com/ZanichelliEditore/design-system/commit/313cf6353ffbef9516a60a8b3c2eeb17a9795c09))
+* pr fixes ([2b32667](https://github.com/ZanichelliEditore/design-system/commit/2b3266751497e7546086c8c033d8c91f04976b83))
+* removed getValue() method ([fbe79d3](https://github.com/ZanichelliEditore/design-system/commit/fbe79d3b93068789e19a44bd4870052848cfceb7))
+* textarea hover css ([3741c09](https://github.com/ZanichelliEditore/design-system/commit/3741c09faf029560d509512b77264aabdb989699))
+* z-button tests; remove console logs ([df13014](https://github.com/ZanichelliEditore/design-system/commit/df13014d69d2986382f089a96cec0acfbf27e576))
+
+### [3.2.2](https://github.com/ZanichelliEditore/design-system/compare/v3.2.1...v3.2.2) (2022-07-14)
+
+
+### Bug Fixes
+
+* text content check; scoped style ([c5bb0da](https://github.com/ZanichelliEditore/design-system/commit/c5bb0da70429fc50094177c9f4300629b4a5e251))
+
 ### [3.2.1](https://github.com/ZanichelliEditore/design-system/compare/v3.2.0...v3.2.1) (2022-07-08)
 
 ## [3.2.0](https://github.com/ZanichelliEditore/design-system/compare/v3.1.1...v3.2.0) (2022-07-08)
