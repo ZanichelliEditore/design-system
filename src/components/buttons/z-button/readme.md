@@ -57,6 +57,7 @@
 
  - [z-cookiebar](../../notification/z-cookiebar)
  - [z-file-upload](../../file-upload/z-file-upload)
+ - [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
  - [z-myz-topbar](../../../snowflakes/myz/topbar)
  - [z-pagination](../../z-pagination)
  - [z-table](../../z-table/z-table)
@@ -73,6 +74,7 @@ graph TD;
   z-button --> z-icon
   z-cookiebar --> z-button
   z-file-upload --> z-button
+  z-myz-card-dictionary --> z-button
   z-myz-topbar --> z-button
   z-pagination --> z-button
   z-table --> z-button
