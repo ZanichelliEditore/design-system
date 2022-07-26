@@ -158,6 +158,10 @@ import "./index";
           background: aliceblue;
           margin: 40px;
         }
+        z-button {
+          --color-primary01: rgba(var(--rgb-white), 0.2);
+          --color-hover-primary: rgba(var(--rgb-white), 0.2);
+        }
       </style>
       <div class="toast-container">
         <z-toast-notification
@@ -179,9 +183,7 @@ import "./index";
             "slide-in-down"
           )}"
         >
-          <z-button-deprecated slot="button" variant="dark-bg" size="small"
-            >button</z-button-deprecated
-          >
+          <z-button slot="button" size="small">button</z-button>
         </z-toast-notification>
       </div>`}
   </Story>
