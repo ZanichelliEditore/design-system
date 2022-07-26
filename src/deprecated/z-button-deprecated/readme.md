@@ -57,9 +57,6 @@
  - [z-footer](../../components/footer/z-footer)
  - [z-modal-login](../../components/modal/z-modal-login)
  - [z-myz-card-dictionary](../../snowflakes/myz/card/z-myz-card-dictionary)
- - [z-table](../../components/z-table/z-table)
- - [z-table-cell](../../components/z-table/z-table-cell)
- - [z-table-header](../../components/z-table/z-table-header)
 
 ### Depends on
 
@@ -72,9 +69,6 @@ graph TD;
   z-footer --> z-button-deprecated
   z-modal-login --> z-button-deprecated
   z-myz-card-dictionary --> z-button-deprecated
-  z-table --> z-button-deprecated
-  z-table-cell --> z-button-deprecated
-  z-table-header --> z-button-deprecated
   style z-button-deprecated fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
