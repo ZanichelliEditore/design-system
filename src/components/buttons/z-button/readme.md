@@ -56,6 +56,7 @@
 ### Used by
 
  - [z-cookiebar](../../notification/z-cookiebar)
+ - [z-file-upload](../../file-upload/z-file-upload)
  - [z-myz-topbar](../../../snowflakes/myz/topbar)
  - [z-pagination](../../z-pagination)
 
@@ -68,6 +69,7 @@
 graph TD;
   z-button --> z-icon
   z-cookiebar --> z-button
+  z-file-upload --> z-button
   z-myz-topbar --> z-button
   z-pagination --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px

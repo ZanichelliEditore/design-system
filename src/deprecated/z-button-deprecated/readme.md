@@ -54,7 +54,6 @@
 
 ### Used by
 
- - [z-file-upload](../../components/file-upload/z-file-upload)
  - [z-footer](../../components/footer/z-footer)
  - [z-modal-login](../../components/modal/z-modal-login)
  - [z-myz-card-dictionary](../../snowflakes/myz/card/z-myz-card-dictionary)
@@ -70,7 +69,6 @@
 ```mermaid
 graph TD;
   z-button-deprecated --> z-icon
-  z-file-upload --> z-button-deprecated
   z-footer --> z-button-deprecated
   z-modal-login --> z-button-deprecated
   z-myz-card-dictionary --> z-button-deprecated
