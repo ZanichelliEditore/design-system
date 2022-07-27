@@ -103,7 +103,7 @@ footer > section > div {
   margin-top: var(--space-unit);
 }
 
-#extension z-button-deprecated {
+#extension z-button {
   margin-left: var(--space-unit);
 }
 

@@ -52,11 +52,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [z-footer](../../components/footer/z-footer)
- - [z-modal-login](../../components/modal/z-modal-login)
-
 ### Depends on
 
 - [z-icon](../../components/icons/z-icon)
@@ -65,8 +60,6 @@
 ```mermaid
 graph TD;
   z-button-deprecated --> z-icon
-  z-footer --> z-button-deprecated
-  z-modal-login --> z-button-deprecated
   style z-button-deprecated fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
