@@ -325,48 +325,6 @@ export class ZPopover {
       position = positions.join("_") as PopoverPositions;
     }
 
-    const available = Object.keys(PopoverPositions).map(
-      (key) => PopoverPositions[key]
-    );
-    if (available.indexOf(position) === -1) {
-      // normalize direction to closest available
-      if (position === PopoverPositions.TOP_RIGHT) {
-        if (available.indexOf(PopoverPositions.TOP) !== -1) {
-          position = PopoverPositions.TOP;
-        } else if (available.indexOf(PopoverPositions.RIGHT) !== -1) {
-          position = PopoverPositions.RIGHT;
-        } else {
-          position = PopoverPositions.BOTTOM;
-        }
-      } else if (position === PopoverPositions.TOP_LEFT) {
-        if (available.indexOf(PopoverPositions.TOP) !== -1) {
-          position = PopoverPositions.TOP;
-        } else if (available.indexOf(PopoverPositions.LEFT) !== -1) {
-          position = PopoverPositions.LEFT;
-        } else {
-          position = PopoverPositions.BOTTOM;
-        }
-      } else if (position === PopoverPositions.RIGHT_TOP) {
-        if (available.indexOf(PopoverPositions.RIGHT) !== -1) {
-          position = PopoverPositions.RIGHT;
-        } else if (available.indexOf(PopoverPositions.TOP) !== -1) {
-          position = PopoverPositions.TOP;
-        } else {
-          position = PopoverPositions.BOTTOM;
-        }
-      } else if (position === PopoverPositions.LEFT_TOP) {
-        if (available.indexOf(PopoverPositions.LEFT) !== -1) {
-          position = PopoverPositions.LEFT;
-        } else if (available.indexOf(PopoverPositions.TOP) !== -1) {
-          position = PopoverPositions.TOP;
-        } else {
-          position = PopoverPositions.BOTTOM;
-        }
-      } else {
-        position = PopoverPositions.BOTTOM;
-      }
-    }
-
     const style = this.host.style;
     style.position = "absolute";
 
@@ -464,7 +422,7 @@ export class ZPopover {
       }px`;
     }
 
-    this.currentPosition = position;
+    this.currentPosition = position || this.position;
     this.host.setAttribute('current-position', this.currentPosition);
   }
 
