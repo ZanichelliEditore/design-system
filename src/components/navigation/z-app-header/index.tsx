@@ -82,13 +82,11 @@ export class ZAppHeader {
   constructor() {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
-    this.setStuckPosition = this.setStuckPosition.bind(this);
   }
 
   componentDidLoad() {
     this.collectMenuElements();
     this.onStuckMode();
-    this.setStuckPosition();
   }
 
   private get title() {
@@ -112,15 +110,6 @@ export class ZAppHeader {
     const menuElements = this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]');
     this.menuLength = menuElements.length;
     this.setMenuFloatingMode();
-  }
-
-  /**
-   * Set `z-app-topbar`'s height as stucked header top offset.
-   */
-  private setStuckPosition() {
-    const topbar = this.hostElement.ownerDocument.querySelector('z-app-topbar');
-    const top = topbar ? topbar.clientHeight : 0;
-    this.hostElement.style.setProperty('--app-header-top-offset', `${top}px`);
   }
 
   @Watch('stuck')
@@ -152,12 +141,6 @@ export class ZAppHeader {
       return;
     }
     this.emitStickingEvent();
-    if (this.stucked) {
-      this.setStuckPosition();
-      scrollParent.addEventListener('scroll', this.setStuckPosition);
-    } else {
-      scrollParent.removeEventListener('scroll', this.setStuckPosition);
-    }
   }
 
   @Watch('drawerOpen')
