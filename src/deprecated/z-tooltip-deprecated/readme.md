@@ -1,4 +1,4 @@
-# z-tooltip
+# z-tooltip-deprecated
 
 # This component is deprecated and will be removed from the library starting 15 October 2022.
 
@@ -13,18 +13,18 @@ To be sure the algorithm finds the right container, when calculating the positio
 <!-- readme-group="tootlip" -->
 ### Usage
 ```html
-<z-tooltip type="top" bind-to="#tooltip-btn" open>
+<z-tooltip-deprecated type="top" bind-to="#tooltip-btn" open>
   <span>Tooltip text</span>
-</z-tooltip>
+</z-tooltip-deprecated>
 <button id="tooltip-btn">Button</button>
 ```
 
 ### Legacy version
 ```html
-<z-tooltip content="Aggiungi libro" type="top"></z-tooltip>
-<z-tooltip content="Aggiungi libro" type="bottom"></z-tooltip>
-<z-tooltip content="Rimuovi libro" type="left"></z-tooltip>
-<z-tooltip content="Rimuovi libro" type="right"></z-tooltip>
+<z-tooltip-deprecated content="Aggiungi libro" type="top"></z-tooltip-deprecated>
+<z-tooltip-deprecated content="Aggiungi libro" type="bottom"></z-tooltip-deprecated>
+<z-tooltip-deprecated content="Rimuovi libro" type="left"></z-tooltip-deprecated>
+<z-tooltip-deprecated content="Rimuovi libro" type="right"></z-tooltip>
 ```
 
 

@@ -102,11 +102,11 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
 }
 
 @Component({
-  tag: "z-tooltip",
+  tag: "z-tooltip-deprecated",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZTooltip {
+export class ZTooltipDeprecated {
   /** Content text.
    * @deprecated
    */

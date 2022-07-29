@@ -7,16 +7,16 @@ import "./index";
 
 ## Stories
 
-<Meta title="ZTooltip" component="z-tooltip" />
+<Meta title="ZTooltip-deprecated" component="z-tooltip-deprecated" />
 
-# ZTooltip
+# ZTooltip Deprecated
 ## This component is deprecated and will be removed from the library starting 15 October 2022.
 
 <Preview>
   <Story name="buttons">
     {(args) => html`
       <div class="tooltip-container">
-        <z-tooltip
+        <z-tooltip-deprecated
           type="${radios("type", PopoverPositions, "top")}"
           open="${boolean("open", true)}"
           bind-to="#icon"
@@ -26,7 +26,7 @@ import "./index";
             <z-button-deprecated>Save as</z-button-deprecated>
             <z-button-deprecated>Share</z-button-deprecated>
           </div>
-        </z-tooltip>
+        </z-tooltip-deprecated>
         <z-icon id="icon" name="plus-square-filled"></z-icon>
       </div>
     `}
@@ -37,14 +37,14 @@ import "./index";
   <Story name="Bound to an element">
     {() => html`
       <div class="tooltip-container">
-        <z-tooltip
+        <z-tooltip-deprecated
           class="dark"
           bind-to="#icon"
           type="${radios("type", PopoverPositions, "bottom")}"
           open="${boolean("open", true)}"
         >
           <span>Open</span>
-        </z-tooltip>
+        </z-tooltip-deprecated>
         <z-icon id="icon" name="informationsource"></z-icon>
       </div>
     `}
@@ -53,23 +53,22 @@ import "./index";
 
 <Preview>
   <Story name="legacy">
-    {(args) => html` <z-tooltip
+    {(args) => html` <z-tooltip-deprecated
       content="${text("content", "Aggiungi libro")}"
       type="${radios("type", PopoverPositions, "top")}"
-    ></z-tooltip>`}
+    ></z-tooltip-deprecated>`}
   </Story>
 </Preview>
 
 <Preview>
   <Story name="legacy dark mode">
     {html`
-      <z-tooltip
+      <z-tooltip-deprecated
         class="dark"
         content="${text("content", "Aggiungi libro")}"
-        type="${radios("type", PopoverPositions, "top")}"
-      ></z-tooltip>
+        type="${ra-deprecated>
     `}
   </Story>
 </Preview>
 
-<Props of="z-tooltip" />
+<Props of="z-tooltip-deprecated" />

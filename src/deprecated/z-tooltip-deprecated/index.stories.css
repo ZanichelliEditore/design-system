@@ -1,8 +1,8 @@
-z-tooltip .container z-button-deprecated:not(:last-child) {
+z-tooltip-deprecated .container z-button-deprecated:not(:last-child) {
   margin-right: 0.5rem;
 }
 
-z-tooltip.dark {
+z-tooltip-deprecated.dark {
   --z-tooltip-theme--surface: var(--color-surface05);
   --z-tooltip-theme--text: var(--color-text-inverse);
 }
