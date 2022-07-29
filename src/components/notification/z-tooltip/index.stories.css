@@ -1,8 +1,4 @@
-z-popover .container z-button-deprecated:not(:last-child) {
-  margin-right: 0.5rem;
-}
-
-.popover-container {
+.tooltip-container {
   position: relative;
   display: inline-flex;
   justify-content: center;
@@ -11,7 +7,7 @@ z-popover .container z-button-deprecated:not(:last-child) {
   height: 200px;
 }
 
-.popover-container z-icon {
+.tooltip-container z-icon {
   --z-icon-width: 32px;
   --z-icon-height: 32px;
 }

@@ -1,0 +1,67 @@
+import { html } from "lit-html";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { PopoverPositions } from "../../../beans";
+import { getColorTokens } from "../../../utils/storybook-utils";
+import "./index.stories.css";
+import "./index";
+
+## Stories
+
+To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
+
+On the following Story, the "position" prop can be set only for the original positions of the `z-tooltip` by design.
+
+<Meta
+  title="Notification/ZTooltip"
+  component="z-tooltip"
+  argTypes={{
+    position: {
+      options: [PopoverPositions.AUTO, PopoverPositions.TOP, PopoverPositions.BOTTOM, PopoverPositions.LEFT, PopoverPositions.RIGHT
+        PopoverPositions.TOP_LEFT, PopoverPositions.TOP_RIGHT, PopoverPositions.BOTTOM_LEFT, PopoverPositions.BOTTOM_RIGHT],
+      control: { type: "inline-radio"},
+    },
+    open: {
+      control: { type: "boolean"},
+    },
+    "--z-popover-theme--surface": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
+    "--z-popover-theme--text": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
+  }}
+/>
+
+# ZTooltip
+
+<Canvas>
+  <Story name="z-tooltip" args={{
+    position: PopoverPositions.LEFT,
+    open: true,
+  }}>
+  {(args) => html`
+      <div class="tooltip-container">
+        <z-tooltip
+          .position=${args.position}
+          .open=${args.open}
+          bind-to="#icon"
+        >
+          <div class="container">
+            <z-button-deprecated>Open</z-button-deprecated>
+            <z-button-deprecated>Save as</z-button-deprecated>
+            <z-button-deprecated>Share</z-button-deprecated>
+          </div>
+        </z-tooltip>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-tooltip" />

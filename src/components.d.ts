@@ -1848,6 +1848,20 @@ export namespace Components {
         "htmlid": string;
         "labelPosition"?: LabelPosition;
     }
+    interface ZTooltip {
+        /**
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * The open state of the tooltip.
+         */
+        "open": boolean;
+        /**
+          * Tooltip position.
+         */
+        "position": PopoverPositions;
+    }
     interface ZTooltipDeprecated {
         /**
           * The selector or the element bound with the tooltip.
@@ -2498,6 +2512,12 @@ declare global {
         prototype: HTMLZToggleSwitchElement;
         new (): HTMLZToggleSwitchElement;
     };
+    interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
+    }
+    var HTMLZTooltipElement: {
+        prototype: HTMLZTooltipElement;
+        new (): HTMLZTooltipElement;
+    };
     interface HTMLZTooltipDeprecatedElement extends Components.ZTooltipDeprecated, HTMLStencilElement {
     }
     var HTMLZTooltipDeprecatedElement: {
@@ -2623,6 +2643,7 @@ declare global {
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
+        "z-tooltip": HTMLZTooltipElement;
         "z-tooltip-deprecated": HTMLZTooltipDeprecatedElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
@@ -4685,6 +4706,20 @@ declare namespace LocalJSX {
         "labelPosition"?: LabelPosition;
         "onToggleClick"?: (event: CustomEvent<any>) => void;
     }
+    interface ZTooltip {
+        /**
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * The open state of the tooltip.
+         */
+        "open"?: boolean;
+        /**
+          * Tooltip position.
+         */
+        "position"?: PopoverPositions;
+    }
     interface ZTooltipDeprecated {
         /**
           * The selector or the element bound with the tooltip.
@@ -4846,6 +4881,7 @@ declare namespace LocalJSX {
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
+        "z-tooltip": ZTooltip;
         "z-tooltip-deprecated": ZTooltipDeprecated;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
@@ -4956,6 +4992,7 @@ declare module "@stencil/core" {
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
+            "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-tooltip-deprecated": LocalJSX.ZTooltipDeprecated & JSXBase.HTMLAttributes<HTMLZTooltipDeprecatedElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
