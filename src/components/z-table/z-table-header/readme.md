@@ -34,15 +34,15 @@
 
 - [z-icon](../../icons/z-icon)
 - [z-popover](../../z-popover)
-- [z-button-deprecated](../../../deprecated/z-button-deprecated)
+- [z-button](../../buttons/z-button)
 
 ### Graph
 ```mermaid
 graph TD;
   z-table-header --> z-icon
   z-table-header --> z-popover
-  z-table-header --> z-button-deprecated
-  z-button-deprecated --> z-icon
+  z-table-header --> z-button
+  z-button --> z-icon
   z-table-header-row --> z-table-header
   style z-table-header fill:#f9f,stroke:#333,stroke-width:4px
 ```

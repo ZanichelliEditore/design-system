@@ -55,8 +55,8 @@ describe("Suite test ZMessage", () => {
       components: [ZPocketMessage],
       html: `<z-pocket-message>
         message content
-        <z-button-deprecated slot="cta">cta 1</z-button-deprecated>
-        <z-button-deprecated slot="cta">cta 2</z-button-deprecated>
+        <z-button slot="cta">cta 1</z-button>
+        <z-button slot="cta">cta 2</z-button>
       </z-pocket-message>`,
     });
 
@@ -74,8 +74,8 @@ describe("Suite test ZMessage", () => {
           </div>
         </mock:shadow-root>
         message content
-        <z-button-deprecated slot="cta">cta 1</z-button-deprecated>
-        <z-button-deprecated slot="cta">cta 2</z-button-deprecated>
+        <z-button slot="cta">cta 1</z-button>
+        <z-button slot="cta">cta 2</z-button>
       </z-pocket-message>
     `);
   });

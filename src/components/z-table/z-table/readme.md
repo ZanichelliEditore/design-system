@@ -45,17 +45,17 @@
 
 - [z-body](../../typography/z-body)
 - [z-table-empty-box](../z-table-empty-box)
-- [z-button-deprecated](../../../deprecated/z-button-deprecated)
+- [z-button](../../buttons/z-button)
 
 ### Graph
 ```mermaid
 graph TD;
   z-table --> z-body
   z-table --> z-table-empty-box
-  z-table --> z-button-deprecated
+  z-table --> z-button
   z-body --> z-typography
   z-table-empty-box --> z-body
-  z-button-deprecated --> z-icon
+  z-button --> z-icon
   style z-table fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

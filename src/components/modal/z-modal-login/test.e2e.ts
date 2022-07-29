@@ -24,9 +24,7 @@ it("Test signup z-button should emit signupClick event", async () => {
   }, type);
 
   await page.setContent(`<z-modal-login></z-modal-login>`);
-  const button = await page.find(
-    "z-modal-login div.signup z-button-deprecated"
-  );
+  const button = await page.find("z-modal-login div.signup z-button");
 
   expect(counter).toEqual(0);
   await button.click();
@@ -56,7 +54,7 @@ it("Test zaino digitale z-button should emit zainoDigitaleClick event", async ()
 
   await page.setContent(`<z-modal-login></z-modal-login>`);
   const button = await page.find(
-    "z-modal-login div.providers z-button-deprecated.zainoDigitale"
+    "z-modal-login div.providers z-button.zainoDigitale"
   );
 
   expect(counter).toEqual(0);
@@ -88,7 +86,7 @@ it("Test login form should emit loginSubmit event", async () => {
   await page.setContent(`<z-modal-login></z-modal-login>`);
   const username = await page.find("z-modal-login div.username z-input input");
   const password = await page.find("z-modal-login div.password z-input input");
-  const button = await page.find("z-modal-login div.login z-button-deprecated");
+  const button = await page.find("z-modal-login div.login z-button");
 
   expect(loginData).toEqual(null);
 
@@ -143,7 +141,7 @@ it("Test username cleaning before emitting loginSubmit event", async () => {
   await page.setContent(`<z-modal-login></z-modal-login>`);
   const username = await page.find("z-modal-login div.username z-input input");
   const password = await page.find("z-modal-login div.password z-input input");
-  const button = await page.find("z-modal-login div.login z-button-deprecated");
+  const button = await page.find("z-modal-login div.login z-button");
 
   await password.focus();
   await page.keyboard.type("password");

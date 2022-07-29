@@ -18,9 +18,7 @@ it("Test OK button should emit okButtonClick event", async () => {
   }, type);
 
   await page.setContent(`<z-cookiebar></z-cookiebar>`);
-  const button = await page.find(
-    "z-cookiebar >>> z-candybar > div > z-button-deprecated"
-  );
+  const button = await page.find("z-cookiebar >>> z-candybar > div > z-button");
 
   expect(clicked).toEqual(false);
 

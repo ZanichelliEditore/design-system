@@ -153,9 +153,9 @@ describe("Suite test ZTable", () => {
       .toEqualHtml(`<z-table call-to-action-label="Call To Action" empty="true" role="table">
     <div class="table table-empty"></div>
     <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare" subtitle="">
-      <z-button-deprecated size="big" slot="cta1" variant="tertiary">
+      <z-button size="big" slot="cta1" variant="tertiary">
         Call To Action
-      </z-button-deprecated>
+      </z-button>
     </z-table-empty-box>
   </z-table>`);
   });
@@ -169,12 +169,12 @@ describe("Suite test ZTable", () => {
       .toEqualHtml(`<z-table call-to-action-label="Call To Action" call-to-action-two-label="Call To Action 2" empty="true" role="table">
     <div class="table table-empty"></div>
     <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare" subtitle="">
-      <z-button-deprecated size="big" slot="cta1" variant="tertiary">
+      <z-button size="big" slot="cta1" variant="tertiary">
         Call To Action
-      </z-button-deprecated>
-      <z-button-deprecated size="big" slot="cta2" variant="tertiary">
+      </z-button>
+      <z-button size="big" slot="cta2" variant="tertiary">
         Call To Action 2
-      </z-button-deprecated>
+      </z-button>
     </z-table-empty-box>
   </z-table>`);
   });
@@ -236,9 +236,9 @@ describe("Suite test ZTable", () => {
       </z-table-head>
     </div>
     <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!" subtitle="Eventuale testo">
-      <z-button-deprecated size="big" slot="cta1" variant="tertiary">
+      <z-button size="big" slot="cta1" variant="tertiary">
         Call to action
-      </z-button-deprecated>
+      </z-button>
     </z-table-empty-box>
   </z-table>`);
   });
@@ -301,9 +301,9 @@ describe("Suite test ZTable", () => {
       </z-table-head>
     </div>
     <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare!" subtitle="Eventuale testo">
-      <z-button-deprecated size="big" slot="cta1" variant="tertiary">
+      <z-button size="big" slot="cta1" variant="tertiary">
         Call to action
-      </z-button-deprecated>
+      </z-button>
     </z-table-empty-box>
   </z-table>`);
   });

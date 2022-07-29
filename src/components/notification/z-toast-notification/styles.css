@@ -172,10 +172,7 @@
   font-weight: 600;
 }
 
-:host
-  > #external-container.mobile-wrapped
-  #button
-  ::slotted(z-button-deprecated) {
+:host > #external-container.mobile-wrapped #button ::slotted(z-button) {
   margin-top: calc(var(--space-unit) * 2);
 }
 
