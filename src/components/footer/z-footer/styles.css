@@ -112,6 +112,11 @@ div.limited-width {
   max-width: var(--mw);
 }
 
+z-button {
+  --color-primary01: var(--gray600);
+  --color-hover-primary: var(--gray700);
+}
+
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   footer {
