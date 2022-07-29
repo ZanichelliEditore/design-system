@@ -1,5 +1,7 @@
 # z-button
 
+# This component is deprecated and will be removed from the library starting 01 October 2022, please use z-button component instead.
+
 <!-- readme-group="buttons" -->
 
 ```html
