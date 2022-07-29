@@ -1,22 +1,16 @@
-'use strict';
+import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-90e18641.js';
+import { T as ThemeVariant, a as DividerOrientation, B as ButtonTypeEnum, b as ButtonVariantEnum, c as ButtonSizeEnum, C as CardVariants, d as DividerSize, O as OffCanvasVariantsEnum, e as TransitionDirectionEnum } from './index-46ca649a.js';
+import { m as mobileBreakpoint } from './breakpoints-c386984e.js';
+import { i as icons } from './icons-92a7dcde.js';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
-const index = require('./index-84b7063a.js');
-const index$1 = require('./index-6b6a3299.js');
-const breakpoints = require('./breakpoints-88c4fd6c.js');
-const index$2 = require('./index-1fda0714.js');
-const icons = require('./icons-9fc3ff30.js');
-require('./_commonjsHelpers-537d719a.js');
-
-const stylesCss$b = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
+const stylesCss$a = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
 
 const ZAppSwitcher = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-    this.appButtonClick = index.createEvent(this, "appButtonClick", 7);
+    registerInstance(this, hostRef);
+    this.appButtonClick = createEvent(this, "appButtonClick", 7);
     /** theme variant, default 'dark' */
-    this.theme = index$1.ThemeVariant.dark;
+    this.theme = ThemeVariant.dark;
     this.isopen = false;
     this.emitAppButtonClick = this.emitAppButtonClick.bind(this);
   }
@@ -25,25 +19,25 @@ const ZAppSwitcher = class {
     this.appButtonClick.emit({ isopen: this.isopen });
   }
   render() {
-    return (index.h("button", { title: "app-switcher", onClick: () => this.emitAppButtonClick() }, index.h("z-icon", { name: "app-switcher", class: this.theme })));
+    return (h("button", { title: "app-switcher", onClick: () => this.emitAppButtonClick() }, h("z-icon", { name: "app-switcher", class: this.theme })));
   }
 };
-ZAppSwitcher.style = stylesCss$b;
+ZAppSwitcher.style = stylesCss$a;
 
-const stylesCss$a = ":host{display:block;position:sticky;box-sizing:border-box;top:0;height:calc(var(--space-unit) * 6);padding:calc(var(--space-unit) / 2) calc(var(--space-unit) * 2);border-radius:var(--border-no-radius);background-color:var(--gray900);z-index:99}:host(.light){background-color:var(--color-white)}:host>div{display:flex;justify-content:space-between;align-items:center}:host(.limited-width) #content-container{margin:auto;max-width:var(--mw)}.content-panel{display:flex;align-items:center}.content-panel>:not(:last-child){margin-right:calc(var(--space-unit) * 2)}#divider-container{display:none}z-link{font-family:var(--font-family-sans);font-weight:var(--font-sb);font-size:14px;line-height:20px;letter-spacing:0.3px}@media only screen and (min-width: 768px){:host{padding:var(--space-unit) calc(var(--space-unit) * 2) var(--space-unit) var(--space-unit)}:host(.limited-width){padding:var(--space-unit)}#divider-container{display:block;height:calc(var(--space-unit) * 3)}}";
+const stylesCss$9 = ":host{display:block;position:sticky;box-sizing:border-box;top:0;height:calc(var(--space-unit) * 6);padding:calc(var(--space-unit) / 2) calc(var(--space-unit) * 2);border-radius:var(--border-no-radius);background-color:var(--gray900);z-index:99}:host(.light){background-color:var(--color-white)}:host>div{display:flex;justify-content:space-between;align-items:center}:host(.limited-width) #content-container{margin:auto;max-width:var(--mw)}.content-panel{display:flex;align-items:center}.content-panel>:not(:last-child){margin-right:calc(var(--space-unit) * 2)}#divider-container{display:none}z-link{font-family:var(--font-family-sans);font-weight:var(--font-sb);font-size:14px;line-height:20px;letter-spacing:0.3px}@media only screen and (min-width: 768px){:host{padding:var(--space-unit) calc(var(--space-unit) * 2) var(--space-unit) var(--space-unit)}:host(.limited-width){padding:var(--space-unit)}#divider-container{display:block;height:calc(var(--space-unit) * 3)}}";
 
 const ZAppTopbar = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
+    registerInstance(this, hostRef);
     /** theme variant, default 'dark' */
-    this.theme = index$1.ThemeVariant.dark;
+    this.theme = ThemeVariant.dark;
     this.topbarLinks = [];
   }
   handleResize() {
-    this.isMobile = window.innerWidth <= breakpoints.mobileBreakpoint;
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
   componentWillLoad() {
-    this.isMobile = window.screen.width <= breakpoints.mobileBreakpoint || window.innerWidth <= breakpoints.mobileBreakpoint;
+    this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
   }
   componentWillRender() {
     if (this.topbarContent) {
@@ -51,30 +45,30 @@ const ZAppTopbar = class {
     }
   }
   renderTopbarLinks() {
-    return this.topbarLinks.map((link) => index.h("z-link", { htmlid: link.id, textcolor: this.theme === index$1.ThemeVariant.light ? "black" : "white", href: link.link, target: link.target, icon: this.isMobile ? link.icon : undefined }, !this.isMobile && link.label));
+    return this.topbarLinks.map((link) => h("z-link", { htmlid: link.id, textcolor: this.theme === ThemeVariant.light ? "black" : "white", href: link.link, target: link.target, icon: this.isMobile ? link.icon : undefined }, !this.isMobile && link.label));
   }
   render() {
-    return (index.h(index.Host, { class: {
+    return (h(Host, { class: {
         [this.theme]: true,
         "limited-width": !!this.contentMaxWidth
-      } }, index.h("div", { id: "content-container", style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} }, index.h("div", { id: "left-panel", class: "content-panel" }, index.h("z-logo", { mobileLogo: this.isMobile, width: this.isMobile ? 32 : 128, height: this.isMobile ? 40 : 32, imageAlt: "zanichelli-logo", link: this.logoLink, targetBlank: true }), this.isMobile && this.renderTopbarLinks()), index.h("div", { id: "right-panel", class: "content-panel" }, !this.isMobile && this.renderTopbarLinks(), this.showAppSwitcher && index.h("z-app-switcher", { theme: this.theme }), index.h("div", { id: "divider-container" }, index.h("z-divider", { orientation: index$1.DividerOrientation.vertical, color: this.theme === index$1.ThemeVariant.light ? "gray800" : "color-white" })), index.h("slot", { name: "login" })))));
+      } }, h("div", { id: "content-container", style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} }, h("div", { id: "left-panel", class: "content-panel" }, h("z-logo", { mobileLogo: this.isMobile, width: this.isMobile ? 32 : 128, height: this.isMobile ? 40 : 32, imageAlt: "zanichelli-logo", link: this.logoLink, targetBlank: true }), this.isMobile && this.renderTopbarLinks()), h("div", { id: "right-panel", class: "content-panel" }, !this.isMobile && this.renderTopbarLinks(), this.showAppSwitcher && h("z-app-switcher", { theme: this.theme }), h("div", { id: "divider-container" }, h("z-divider", { orientation: DividerOrientation.vertical, color: this.theme === ThemeVariant.light ? "gray800" : "color-white" })), h("slot", { name: "login" })))));
   }
 };
-ZAppTopbar.style = stylesCss$a;
+ZAppTopbar.style = stylesCss$9;
 
-const stylesCss$9 = ".sc-z-button-h{display:inline-block;--z-icon-width:16px;--z-icon-height:16px;--z-icon-right-margin:0}[disabled].sc-z-button-h:not([disabled=\"false\"]){pointer-events:none}.sc-z-button-h .container.sc-z-button{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;width:100%;padding:0;font-family:var(--font-family-sans);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;fill:currentColor}.sc-z-button-h .container.has-text.sc-z-button{min-width:calc(var(--space-unit) * 8);padding:0 calc(var(--space-unit) * 2)}.sc-z-button-h .container.has-text.sc-z-button z-icon.sc-z-button{--z-icon-right-margin:var(--space-unit)}.sc-z-button-h .big.sc-z-button{height:44px;min-width:44px}.sc-z-button-h .small.sc-z-button{height:36px;min-width:36px}.sc-z-button-h .x-small.sc-z-button{height:32px;min-width:32px}.sc-z-button-h .primary.sc-z-button{background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse)}@media (hover: hover){.sc-z-button-h .primary.sc-z-button:hover{background-color:var(--color-hover-primary);border-color:var(--color-hover-primary);color:var(--color-text-inverse)}}.sc-z-button-h .container.sc-z-button:focus:focus-visible{box-shadow:var(--shadow-focus-primary)}.sc-z-button-h .primary.sc-z-button:active{background-color:var(--color-pressed-primary);border-color:var(--color-pressed-primary);color:var(--color-text-inverse);box-shadow:var(--shadow-2)}[disabled].sc-z-button-h:not([disabled=\"false\"]) .primary.sc-z-button{background-color:var(--color-disabled01);border-color:var(--color-disabled01);color:var(--color-disabled02)}.sc-z-button-h .secondary.sc-z-button{background-color:var(--color-surface01);border-color:var(--color-primary01);color:var(--color-primary01)}@media (hover: hover){.sc-z-button-h .secondary.sc-z-button:hover{background-color:var(--color-surface01);border-color:var(--color-hover-primary);color:var(--color-hover-primary)}}.sc-z-button-h .secondary.sc-z-button:active{background-color:var(--color-surface01);border-color:var(--color-pressed-primary);color:var(--color-pressed-primary);box-shadow:var(--shadow-2)}[disabled].sc-z-button-h:not([disabled=\"false\"]) .secondary.sc-z-button{background-color:var(--color-surface01);border-color:var(--color-disabled01);color:var(--color-disabled02)}.sc-z-button-h .tertiary.sc-z-button{background-color:transparent;border-color:transparent;color:var(--color-primary01)}@media (hover: hover){.sc-z-button-h .tertiary.sc-z-button:hover{background-color:var(--color-primary03);border-color:var(--color-primary03);color:var(--color-hover-primary)}}.sc-z-button-h .tertiary.sc-z-button:focus:focus-visible{background-color:var(--color-surface01);border-color:var(--color-surface01);color:var(--color-primary01)}.sc-z-button-h .tertiary.sc-z-button:active{background-color:var(--color-surface01);border-color:var(--color-surface01);color:var(--color-primary01);box-shadow:var(--shadow-2)}[disabled].sc-z-button-h:not([disabled=\"false\"]) .tertiary.sc-z-button{background-color:transparent;border-color:transparent;color:var(--color-disabled02)}";
+const stylesCss$8 = ".sc-z-button-h{display:inline-block;--z-icon-width:16px;--z-icon-height:16px;--z-icon-right-margin:0}[disabled].sc-z-button-h:not([disabled=\"false\"]){pointer-events:none}.sc-z-button-h .container.sc-z-button{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;width:100%;padding:0;font-family:var(--font-family-sans);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;fill:currentColor}.sc-z-button-h .container.has-text.sc-z-button{min-width:calc(var(--space-unit) * 8);padding:0 calc(var(--space-unit) * 2)}.sc-z-button-h .container.has-text.sc-z-button z-icon.sc-z-button{--z-icon-right-margin:var(--space-unit)}.sc-z-button-h .big.sc-z-button{height:44px;min-width:44px}.sc-z-button-h .small.sc-z-button{height:36px;min-width:36px}.sc-z-button-h .x-small.sc-z-button{height:32px;min-width:32px}.sc-z-button-h .primary.sc-z-button{background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse)}@media (hover: hover){.sc-z-button-h .primary.sc-z-button:hover{background-color:var(--color-hover-primary);border-color:var(--color-hover-primary);color:var(--color-text-inverse)}}.sc-z-button-h .container.sc-z-button:focus:focus-visible{box-shadow:var(--shadow-focus-primary)}.sc-z-button-h .primary.sc-z-button:active{background-color:var(--color-pressed-primary);border-color:var(--color-pressed-primary);color:var(--color-text-inverse);box-shadow:var(--shadow-2)}[disabled].sc-z-button-h:not([disabled=\"false\"]) .primary.sc-z-button{background-color:var(--color-disabled01);border-color:var(--color-disabled01);color:var(--color-disabled02)}.sc-z-button-h .secondary.sc-z-button{background-color:var(--color-surface01);border-color:var(--color-primary01);color:var(--color-primary01)}@media (hover: hover){.sc-z-button-h .secondary.sc-z-button:hover{background-color:var(--color-surface01);border-color:var(--color-hover-primary);color:var(--color-hover-primary)}}.sc-z-button-h .secondary.sc-z-button:active{background-color:var(--color-surface01);border-color:var(--color-pressed-primary);color:var(--color-pressed-primary);box-shadow:var(--shadow-2)}[disabled].sc-z-button-h:not([disabled=\"false\"]) .secondary.sc-z-button{background-color:var(--color-surface01);border-color:var(--color-disabled01);color:var(--color-disabled02)}.sc-z-button-h .tertiary.sc-z-button{background-color:transparent;border-color:transparent;color:var(--color-primary01)}@media (hover: hover){.sc-z-button-h .tertiary.sc-z-button:hover{background-color:var(--color-primary03);border-color:var(--color-primary03);color:var(--color-hover-primary)}}.sc-z-button-h .tertiary.sc-z-button:focus:focus-visible{background-color:var(--color-surface01);border-color:var(--color-surface01);color:var(--color-primary01)}.sc-z-button-h .tertiary.sc-z-button:active{background-color:var(--color-surface01);border-color:var(--color-surface01);color:var(--color-primary01);box-shadow:var(--shadow-2)}[disabled].sc-z-button-h:not([disabled=\"false\"]) .tertiary.sc-z-button{background-color:transparent;border-color:transparent;color:var(--color-disabled02)}";
 
 const ZButton = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
+    registerInstance(this, hostRef);
     /** HTML button disabled attribute. */
     this.disabled = false;
     /** HTML button type attribute. */
-    this.type = index$1.ButtonTypeEnum.button;
+    this.type = ButtonTypeEnum.button;
     /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
-    this.variant = index$1.ButtonVariantEnum.primary;
+    this.variant = ButtonVariantEnum.primary;
     /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-    this.size = index$1.ButtonSizeEnum.big;
+    this.size = ButtonSizeEnum.big;
   }
   getAttributes() {
     return {
@@ -90,48 +84,20 @@ const ZButton = class {
   }
   render() {
     if (this.href) {
-      return (index.h("a", Object.assign({}, this.getAttributes(), { href: this.href, target: this.target }), this.icon && index.h("z-icon", { name: this.icon, width: 16, height: 16 }), index.h("slot", null)));
+      return (h("a", Object.assign({}, this.getAttributes(), { href: this.href, target: this.target }), this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }), h("slot", null)));
     }
-    return (index.h("button", Object.assign({}, this.getAttributes(), { name: this.name, type: this.type, disabled: this.disabled }), this.icon && index.h("z-icon", { name: this.icon, width: 16, height: 16 }), index.h("slot", null)));
+    return (h("button", Object.assign({}, this.getAttributes(), { name: this.name, type: this.type, disabled: this.disabled }), this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }), h("slot", null)));
   }
-  get hostElement() { return index.getElement(this); }
+  get hostElement() { return getElement(this); }
 };
-ZButton.style = stylesCss$9;
-
-const stylesCss$8 = ":host{display:inline-block;--z-icon-width:16px;--z-icon-height:16px;--z-icon-right-margin:var(--space-unit);--rgb-white:240, 240, 240}button:disabled,::slotted(button:disabled){pointer-events:none}button,::slotted(button),::slotted(a){box-sizing:border-box;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;width:100%;font-family:var(--dashboard-font);font-weight:var(--font-sb);font-size:14px;line-height:1;letter-spacing:0.3px;border-width:var(--border-size-medium);border-style:solid;border-radius:var(--border-radius);vertical-align:middle;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;outline:none;fill:currentColor}button.big,:host([size=\"big\"]) ::slotted(button),:host([size=\"big\"]) ::slotted(a){height:44px;min-width:44px}button.small,:host([size=\"small\"]) ::slotted(button),:host([size=\"small\"]) ::slotted(a){height:36px;min-width:36px}button.issmall,:host([issmall]) ::slotted(button),:host([issmall]) ::slotted(a){height:36px;min-width:36px}button.x-small,:host([size=\"x-small\"]) ::slotted(button),:host([size=\"x-small\"]) ::slotted(a){height:32px;min-width:32px}button:not(.square),:host(:not([square])) ::slotted(button),:host(:not([square])) ::slotted(a){min-width:calc(var(--space-unit) * 8);padding:0 calc(var(--space-unit) * 2)}button.square,:host([square]){--z-icon-right-margin:0}button.primary,:host([variant=\"primary\"]) ::slotted(button),:host([variant=\"primary\"]) ::slotted(a){background-color:var(--color-primary01);border-color:var(--color-primary01);color:var(--color-text-inverse)}@media (hover: hover){button.primary:hover,:host([variant=\"primary\"]) ::slotted(button:hover),:host([variant=\"primary\"]) ::slotted(a:hover){background-color:var(--color-hover-primary);border-color:var(--color-hover-primary);color:var(--color-text-inverse)}}button:focus:focus-visible,::slotted(button:focus:focus-visible),::slotted(a:focus:focus-visible){box-shadow:var(--shadow-focus-primary)}button.primary:active,:host([variant=\"primary\"]) ::slotted(button:active),:host([variant=\"primary\"]) ::slotted(a:active){background-color:var(--color-pressed-primary);border-color:var(--color-pressed-primary);color:var(--color-text-inverse);box-shadow:var(--shadow-2)}button.primary:disabled,:host([variant=\"primary\"]) ::slotted(button:disabled){background-color:var(--color-disabled01);border-color:var(--color-disabled01);color:var(--color-disabled02)}button.secondary,:host([variant=\"secondary\"]) ::slotted(button),:host([variant=\"secondary\"]) ::slotted(a){background-color:var(--color-surface01);border-color:var(--color-primary01);color:var(--color-primary01)}@media (hover: hover){button.secondary:hover,:host([variant=\"secondary\"]) ::slotted(button:hover),:host([variant=\"secondary\"]) ::slotted(a:hover){background-color:var(--color-surface01);border-color:var(--color-hover-primary);color:var(--color-hover-primary)}}button.secondary:active,:host([variant=\"secondary\"]) ::slotted(button:active),:host([variant=\"secondary\"]) ::slotted(a:active){background-color:var(--color-surface01);border-color:var(--color-pressed-primary);color:var(--color-pressed-primary);box-shadow:var(--shadow-2)}button.secondary:disabled,:host([variant=\"secondary\"]) ::slotted(button:disabled){background-color:var(--color-surface01);border-color:var(--color-disabled01);color:var(--color-disabled02)}button.tertiary,:host([variant=\"tertiary\"]) ::slotted(button),:host([variant=\"tertiary\"]) ::slotted(a){background-color:transparent;border-color:transparent;color:var(--color-primary01)}button.tertiary.hasContent{padding:0 var(--space-unit)}@media (hover: hover){button.tertiary:hover,:host([variant=\"tertiary\"]) ::slotted(button:hover),:host([variant=\"tertiary\"]) ::slotted(a:hover){background-color:var(--color-primary03);border-color:var(--color-primary03);color:var(--color-hover-primary)}}button.tertiary:focus:focus-visible,:host([variant=\"tertiary\"]) ::slotted(button:focus:focus-visible),:host([variant=\"tertiary\"]) ::slotted(a:focus:focus-visible){background-color:var(--color-surface01);border-color:var(--color-surface01);color:var(--color-primary01)}button.tertiary:active,:host([variant=\"tertiary\"]) ::slotted(button:active),:host([variant=\"tertiary\"]) ::slotted(a:active){background-color:var(--color-surface01);border-color:var(--color-surface01);color:var(--color-primary01);box-shadow:var(--shadow-2)}button.tertiary:disabled,:host([variant=\"tertiary\"]) ::slotted(button:disabled){background-color:transparent;border-color:transparent;color:var(--color-disabled02)}button.dark-bg,:host([variant=\"dark-bg\"]) ::slotted(button),:host([variant=\"dark-bg\"]) ::slotted(a){background-color:rgba(var(--rgb-white), 0.2);border-color:transparent;color:var(--color-text04)}button.dark-bg.hasContent{padding:0 var(--space-unit)}@media (hover: hover){button.dark-bg:hover,:host([variant=\"dark-bg\"]) ::slotted(button:hover),:host([variant=\"dark-bg\"]) ::slotted(a:hover){background-color:rgba(var(--rgb-white), 0.1)}}button.dark-bg:active,:host([variant=\"dark-bg\"]) ::slotted(button:active),:host([variant=\"dark-bg\"]) ::slotted(a:active){background-color:rgba(var(--rgb-white), 0.3)}button.dark-bg:disabled,:host([variant=\"dark-bg\"]) ::slotted(button:disabled){color:var(--color-disabled03);background-color:rgba(var(--rgb-white), 0.05)}";
-
-const ZButtonDeprecated = class {
-  constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-    /** HTML button disabled attribute. */
-    this.disabled = false;
-    /** HTML button type attribute. */
-    this.type = index$1.ButtonTypeEnum.button;
-    /** Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`. */
-    this.variant = index$1.ButtonVariantEnum.primary;
-    /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-    this.size = index$1.ButtonSizeEnum.big;
-    /** Reduce button size (deprecated).
-     * @deprecated Use `size` prop.
-     */
-    this.issmall = false;
-    /** Spy to render square button. */
-    this.square = false;
-  }
-  render() {
-    this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
-    return (index.h("slot", { name: "element" }, index.h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: index$2.classnames(this.variant, this.size, { issmall: this.issmall }, { square: this.square }) }, this.icon && index.h("z-icon", { name: this.icon, width: 16, height: 16 }), index.h("slot", null))));
-  }
-  get hostElement() { return index.getElement(this); }
-};
-ZButtonDeprecated.style = stylesCss$8;
+ZButton.style = stylesCss$8;
 
 const stylesCss$7 = ":host{--aspect-ratio:1.62;--z-card--border-color:var(--gray200);--z-card--color-cover-background:var(--color-surface01);--z-card--text-background:var(--color-surface01);--z-card--text-border-radius:none;--z-card--text-border:none;position:relative;display:flex;flex-direction:column;font-family:var(--font-family-sans);font-weight:var(--font-rg)}*,::slotted(*){box-sizing:border-box}:host(:not([variant='overlay'])) .cover-container{position:relative;width:100%}.cover-container{padding-bottom:calc(100% / var(--aspect-ratio))}::slotted([slot='cover']),.color-cover{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center}.cover-container>z-icon{--z-icon-width:calc(var(--space-unit) * 11);--z-icon-height:var(--z-icon-width);position:absolute;top:calc(50% - calc(var(--z-icon-height) / 2));left:calc(50% - calc(var(--z-icon-width) / 2));fill:var(--color-primary01)}.color-cover{background-color:var(--z-card--color-cover-background)}.content{display:flex;flex-direction:column;padding-top:var(--space-unit)}.color-cover .cover-content{display:flex;flex-direction:column;justify-content:flex-end;height:100%;padding:var(--space-unit)}::slotted([slot='metadata']),::slotted([slot='title']),::slotted([slot='text']){display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}::slotted([slot='title']:not(:last-child)),::slotted([slot='text']:not(:last-child)){margin-bottom:var(--space-unit)}::slotted([slot='text']),::slotted([slot='actions']){margin:0}::slotted([slot='metadata']:not(:last-child)){margin:0 0 calc(var(--space-unit) * 0.25);-webkit-line-clamp:1;text-transform:uppercase}::slotted([slot='title']){margin:0;font-weight:var(--font-sb);-webkit-line-clamp:2}::slotted([slot='text']){-webkit-line-clamp:3}.actions{display:flex;flex-direction:row;align-items:center}::slotted([slot='action']:not(:last-child)){margin-right:calc(var(--space-unit) * 1.5)}:host([clickable]){cursor:pointer}:host([clickable]:focus:focus-visible){outline:none}:host(:not([variant])[clickable]:focus:focus-visible){padding:calc(var(--space-unit) * 0.5);box-shadow:var(--shadow-focus-primary)}:host([variant='text']){background-color:var(--z-card--text-background);border:var(--z-card--text-border);border-radius:var(--z-card--text-border-radius)}:host([showshadow])>.content,:host([variant='border'])>.content,:host([variant='shadow'])>.content{height:100%;padding:var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2)}:host([variant='text'])>.content{padding:calc(var(--space-unit) * 2) var(--space-unit)}:host([variant='border']) .actions,:host([variant='shadow']) .actions{margin-top:auto}:host([variant='border']){border:var(--border-size-small) solid var(--z-card--border-color)}:host([variant='border'][clickable]:hover)>.content{background:var(--color-background)}:host([variant='border'][clickable]:focus:focus-visible){box-shadow:var(--shadow-focus-primary)}:host([variant='border'][clickable]:active){border-color:transparent}:host([variant='shadow']),:host([showshadow]){box-shadow:var(--shadow-2)}:host([variant='shadow'][clickable]:hover),:host([clickable][showshadow]:hover){box-shadow:var(--shadow-4)}:host([variant='shadow'][clickable]:focus:focus-visible),:host([clickable][showshadow]:focus:focus-visible){box-shadow:var(--shadow-4)}:host([variant='shadow'][clickable]:active),:host([clickable][showshadow]:active){box-shadow:none}:host([variant='overlay']) .content{position:absolute;top:0;right:0;bottom:0;left:0;justify-content:flex-end;padding:var(--space-unit);background-image:linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));color:var(--color-text-inverse);fill:var(--color-text-inverse)}";
 
 const ZCard = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-    this.cardClicked = index.createEvent(this, "cardClicked", 7);
+    registerInstance(this, hostRef);
+    this.cardClicked = createEvent(this, "cardClicked", 7);
     /** Enable click interactions on the card. Default: false */
     this.clickable = false;
     /** Enable shadow. Default: false. */
@@ -158,32 +124,32 @@ const ZCard = class {
    */
   renderColorCoverCard() {
     return [
-      index.h("div", { class: "cover-container" }, index.h("div", { class: "color-cover" }, index.h("div", { class: "cover-content" }, index.h("slot", { name: "metadata" }), index.h("slot", { name: "title" })))),
-      index.h("div", { class: "content" }, index.h("slot", { name: "text" }), index.h("div", { class: "actions" }, index.h("slot", { name: "action" })))
+      h("div", { class: "cover-container" }, h("div", { class: "color-cover" }, h("div", { class: "cover-content" }, h("slot", { name: "metadata" }), h("slot", { name: "title" })))),
+      h("div", { class: "content" }, h("slot", { name: "text" }), h("div", { class: "actions" }, h("slot", { name: "action" })))
     ];
   }
   /**
   * Template for the content div.
   */
   renderContentDiv() {
-    return (index.h("div", { class: "content" }, index.h("slot", { name: "metadata" }), index.h("slot", { name: "title" }), index.h("slot", { name: "text" }), index.h("div", { class: "actions" }, index.h("slot", { name: "action" }))));
+    return (h("div", { class: "content" }, h("slot", { name: "metadata" }), h("slot", { name: "title" }), h("slot", { name: "text" }), h("div", { class: "actions" }, h("slot", { name: "action" }))));
   }
   render() {
-    if (this.variant === index$1.CardVariants.text) {
+    if (this.variant === CardVariants.text) {
       return this.renderContentDiv();
     }
-    if (this.variant === index$1.CardVariants.overlay || this.hasCoverImage) {
+    if (this.variant === CardVariants.overlay || this.hasCoverImage) {
       return [
-        index.h("div", { class: "cover-container" }, this.hasCoverImage && [
-          index.h("slot", { name: "cover" }),
-          (this.variant !== index$1.CardVariants.overlay) && this.coverIcon && index.h("z-icon", { name: this.coverIcon })
-        ], !this.hasCoverImage && index.h("div", { class: "color-cover" })),
+        h("div", { class: "cover-container" }, this.hasCoverImage && [
+          h("slot", { name: "cover" }),
+          (this.variant !== CardVariants.overlay) && this.coverIcon && h("z-icon", { name: this.coverIcon })
+        ], !this.hasCoverImage && h("div", { class: "color-cover" })),
         this.renderContentDiv()
       ];
     }
     return this.renderColorCoverCard();
   }
-  get host() { return index.getElement(this); }
+  get host() { return getElement(this); }
 };
 ZCard.style = stylesCss$7;
 
@@ -191,15 +157,15 @@ const stylesCss$6 = ":host{font-family:var(--font-family-sans);font-weight:var(-
 
 const ZCarousel = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
+    registerInstance(this, hostRef);
     /** sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
     this.ghostLoadingHeight = 100;
   }
   render() {
     if (this.isLoading) {
-      return (index.h("div", { style: { height: `${this.ghostLoadingHeight}px` } }, index.h("z-ghost-loading", null), index.h("div", { style: { display: "none" } }, index.h("slot", null))));
+      return (h("div", { style: { height: `${this.ghostLoadingHeight}px` } }, h("z-ghost-loading", null), h("div", { style: { display: "none" } }, h("slot", null))));
     }
-    return (index.h("ul", { class: "z-carousel-items-container" }, index.h("slot", null)));
+    return (h("ul", { class: "z-carousel-items-container" }, h("slot", null)));
   }
 };
 ZCarousel.style = stylesCss$6;
@@ -208,16 +174,16 @@ const stylesCss$5 = ".sc-z-divider-h{display:block;padding:0;margin:0}.divider-h
 
 const ZDivider = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
+    registerInstance(this, hostRef);
     /** [optional] Divider size */
-    this.size = index$1.DividerSize.small;
+    this.size = DividerSize.small;
     /** [optional] Divider color */
     this.color = "gray200";
     /** [optional] Divider orintation */
-    this.orientation = index$1.DividerOrientation.horizontal;
+    this.orientation = DividerOrientation.horizontal;
   }
   render() {
-    return (index.h(index.Host, { class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
+    return (h(Host, { class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
   }
 };
 ZDivider.style = stylesCss$5;
@@ -226,10 +192,10 @@ const stylesCss$4 = ":host{display:inline-block;width:100%;height:100%;backgroun
 
 const ZGhostLoading = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
+    registerInstance(this, hostRef);
   }
   render() {
-    return (index.h(index.Host, null));
+    return (h(Host, null));
   }
 };
 ZGhostLoading.style = stylesCss$4;
@@ -238,18 +204,18 @@ const stylesCss$3 = ":host{line-height:0;vertical-align:middle;margin-right:var(
 
 const ZIcon = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
+    registerInstance(this, hostRef);
   }
   selectPathOrPolygon(iconName) {
     if (iconName && iconName.startsWith("M")) {
-      return index.h("path", { d: icons.icons[this.name] });
+      return h("path", { d: icons[this.name] });
     }
     else {
-      return index.h("polygon", { points: icons.icons[this.name] });
+      return h("polygon", { points: icons[this.name] });
     }
   }
   render() {
-    return (index.h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid, fill: this.fill ? `var(--${this.fill})` : "" }, this.selectPathOrPolygon(icons.icons[this.name])));
+    return (h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid, fill: this.fill ? `var(--${this.fill})` : "" }, this.selectPathOrPolygon(icons[this.name])));
   }
 };
 ZIcon.style = stylesCss$3;
@@ -258,8 +224,8 @@ const stylesCss$2 = ":host{--font-size-link:inherit;--font-weight-link:inherit}:
 
 const ZLink = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-    this.zLinkClick = index.createEvent(this, "zLinkClick", 7);
+    registerInstance(this, hostRef);
+    this.zLinkClick = createEvent(this, "zLinkClick", 7);
     /** link target (optional) */
     this.target = "_self";
     /** tabindex link attribute (optional) */
@@ -307,14 +273,14 @@ const ZLink = class {
   }
   render() {
     const style = this.big ? { "--font-size-link": "16px", "--font-weight-link": "600" } : {};
-    return (index.h(index.Host, { style: style }, index.h("a", { id: this.htmlid, href: this.href ? this.href : null, class: `${this.isdisabled ? "disabled" : ""}
+    return (h(Host, { style: style }, h("a", { id: this.htmlid, href: this.href ? this.href : null, class: `${this.isdisabled ? "disabled" : ""}
             ${this.isactive ? "active" : ""}
             ${this.textcolor}
             ${this.iswhite ? "white" : ""}
-            ${this.underline ? "underline" : ""}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.isdisabled ? -1 : this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) }, this.iconposition === "right" && index.h("slot", null), this.icon &&
-      index.h("z-icon", { style: { "--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString() }, name: this.icon, height: this.iconSize, width: this.iconSize }), this.iconposition === "left" && index.h("slot", null))));
+            ${this.underline ? "underline" : ""}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.isdisabled ? -1 : this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) }, this.iconposition === "right" && h("slot", null), this.icon &&
+      h("z-icon", { style: { "--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString() }, name: this.icon, height: this.iconSize, width: this.iconSize }), this.iconposition === "left" && h("slot", null))));
   }
-  get hostElement() { return index.getElement(this); }
+  get hostElement() { return getElement(this); }
 };
 ZLink.style = stylesCss$2;
 
@@ -322,7 +288,7 @@ const stylesCss$1 = ":host{display:inline-block;vertical-align:top;width:255px;h
 
 const ZLogo = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
+    registerInstance(this, hostRef);
   }
   render() {
     const style = {};
@@ -332,9 +298,9 @@ const ZLogo = class {
     if (this.height) {
       style["height"] = style["max-height"] = `${this.height}px`;
     }
-    return (index.h(index.Host, { style: style, class: { "mobile": !!this.mobileLogo } }, this.link ?
-      index.h("a", { href: this.link, target: this.targetBlank ? "_blank" : "_self" }, index.h("img", { alt: this.imageAlt })) :
-      index.h("img", { alt: this.imageAlt })));
+    return (h(Host, { style: style, class: { "mobile": !!this.mobileLogo } }, this.link ?
+      h("a", { href: this.link, target: this.targetBlank ? "_blank" : "_self" }, h("img", { alt: this.imageAlt })) :
+      h("img", { alt: this.imageAlt })));
   }
 };
 ZLogo.style = stylesCss$1;
@@ -343,18 +309,18 @@ const stylesCss = ".sc-z-offcanvas-h{--z-offcanvas--container-width:375px;--z-of
 
 const ZOffcanvas = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-    this.canvasOpenStatusChanged = index.createEvent(this, "canvasOpenStatusChanged", 7);
+    registerInstance(this, hostRef);
+    this.canvasOpenStatusChanged = createEvent(this, "canvasOpenStatusChanged", 7);
     /**
     * Offcanvas variant.
     * Can be one of "overlay", "pushcontent"
     * Default variant: pushcontent
     */
-    this.variant = index$1.OffCanvasVariantsEnum.pushcontent;
+    this.variant = OffCanvasVariantsEnum.pushcontent;
     /** open component. Default: false */
     this.open = false;
     /** open content transitioning in a specified direction left | right. Default: left */
-    this.transitiondirection = index$1.TransitionDirectionEnum.left;
+    this.transitiondirection = TransitionDirectionEnum.left;
   }
   componentWillLoad() {
     this.handleOpenStatus();
@@ -367,7 +333,7 @@ const ZOffcanvas = class {
     if (this.open) {
       this.hostElement.style.display = "flex";
     }
-    else if (this.variant === index$1.OffCanvasVariantsEnum.pushcontent) {
+    else if (this.variant === OffCanvasVariantsEnum.pushcontent) {
       this.hostElement.style.display = "none";
       document.body.style.overflowX = "hidden";
     }
@@ -376,33 +342,22 @@ const ZOffcanvas = class {
     if (this.hostElement.hasAttribute("open")) {
       this.hostElement.querySelector(`.canvas-content`).focus();
     }
-    else if (this.variant === index$1.OffCanvasVariantsEnum.overlay) {
+    else if (this.variant === OffCanvasVariantsEnum.overlay) {
       this.hostElement.style.display = "none";
       document.body.style.overflowX = "initial";
     }
   }
   render() {
     return [
-      index.h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd() }, index.h("div", { class: "canvas-content", tabindex: "0" }, index.h("slot", { name: "canvasContent" }))),
-      index.h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => this.open = false })
+      h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd() }, h("div", { class: "canvas-content", tabindex: "0" }, h("slot", { name: "canvasContent" }))),
+      h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => this.open = false })
     ];
   }
-  get hostElement() { return index.getElement(this); }
+  get hostElement() { return getElement(this); }
   static get watchers() { return {
     "open": ["onOpenChanged"]
   }; }
 };
 ZOffcanvas.style = stylesCss;
 
-exports.z_app_switcher = ZAppSwitcher;
-exports.z_app_topbar = ZAppTopbar;
-exports.z_button = ZButton;
-exports.z_button_deprecated = ZButtonDeprecated;
-exports.z_card = ZCard;
-exports.z_carousel = ZCarousel;
-exports.z_divider = ZDivider;
-exports.z_ghost_loading = ZGhostLoading;
-exports.z_icon = ZIcon;
-exports.z_link = ZLink;
-exports.z_logo = ZLogo;
-exports.z_offcanvas = ZOffcanvas;
+export { ZAppSwitcher as z_app_switcher, ZAppTopbar as z_app_topbar, ZButton as z_button, ZCard as z_card, ZCarousel as z_carousel, ZDivider as z_divider, ZGhostLoading as z_ghost_loading, ZIcon as z_icon, ZLink as z_link, ZLogo as z_logo, ZOffcanvas as z_offcanvas };

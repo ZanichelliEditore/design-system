@@ -108,7 +108,7 @@ export class ZFileUpload {
   renderUploadButton() {
     return [
       this.renderInput(),
-      h("z-button-deprecated", { onClick: () => this.input.click(), onKeyPress: (e) => {
+      h("z-button", { onClick: () => this.input.click(), onKeyPress: (e) => {
           if (e.code == "Space" || e.code == "Enter") {
             e.preventDefault();
             this.input.click();

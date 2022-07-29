@@ -25,7 +25,7 @@ const ZTableCell = class {
   render() {
     return (index.h(index.Host, null, this.showButton && (index.h("div", { class: index$2.classnames("button-container", {
         visible: this.isMenuOpened,
-      }) }, index.h("div", { class: "button-content" }, index.h("z-button-deprecated", { icon: "contextual-menu", variant: index$1.ButtonVariantEnum.tertiary, size: index$1.ButtonSizeEnum["x-small"], onClick: () => this.handleMenu(), square: true }), index.h("div", { class: index$2.classnames("contextual-menu-container", {
+      }) }, index.h("div", { class: "button-content" }, index.h("z-button", { icon: "contextual-menu", variant: index$1.ButtonVariantEnum.tertiary, size: index$1.ButtonSizeEnum["x-small"], onClick: () => this.handleMenu() }), index.h("div", { class: index$2.classnames("contextual-menu-container", {
         visible: this.isMenuOpened,
       }) }, index.h("slot", { name: "contextual-menu" }))))), index.h("slot", null)));
   }

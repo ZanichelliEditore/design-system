@@ -1,5 +1,5 @@
 import { Component, Prop, h, Listen, Event } from "@stencil/core";
-import { ButtonVariantEnum } from "../../../../beans";
+import { ButtonSizeEnum, ButtonVariantEnum } from "../../../../beans";
 /**
  * @slot  - generic card slot
  * @slot info - flipped card info
@@ -30,7 +30,7 @@ export class ZMyzCardDictionary {
           h("div", { class: "front" },
             h("z-myz-card-body", null,
               h("z-myz-card-cover", { slot: "cover", titolo: this.name, img: this.cover, faded: this.disabled })),
-            h("z-button-deprecated", { class: this.hideinfobtn ? "hideInfo" : "", variant: ButtonVariantEnum.secondary, icon: "informationsource", issmall: true, onClick: () => this.flipCard(true), disabled: this.flipped }, this.flipbuttonlabel)),
+            h("z-button", { class: this.hideinfobtn ? "hideInfo" : "", variant: ButtonVariantEnum.secondary, icon: "informationsource", size: ButtonSizeEnum["x-small"], onClick: () => this.flipCard(true), disabled: this.flipped }, this.flipbuttonlabel)),
           h("div", { class: "back" },
             h("slot", { name: "info" }))),
         h("slot", null))));

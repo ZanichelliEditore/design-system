@@ -1,5 +1,5 @@
 import { Component, h, Prop, Event, Listen } from "@stencil/core";
-import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
+import { ButtonSizeEnum } from "../../../beans";
 /**
  * @slot - main navigation
  * @slot links - bottom navigation
@@ -100,7 +100,7 @@ export class ZFooter {
             this.productCreditsLink != null && creditsObject),
           this.showReportAProblemButton && (h("div", null,
             h("z-body", { level: 5 }, "Hai bisogno di aiuto?"),
-            h("z-button-deprecated", { variant: ButtonVariantEnum["dark-bg"], size: ButtonSizeEnum.small, onClick: this.emitReportAProblemButtonClick }, "SEGNALA UN PROBLEMA"))),
+            h("z-button", { size: ButtonSizeEnum.small, onClick: this.emitReportAProblemButtonClick }, "SEGNALA UN PROBLEMA"))),
           h("z-divider", { color: "gray500" }))));
     }
   }

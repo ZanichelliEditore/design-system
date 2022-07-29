@@ -28,7 +28,7 @@ export class ZCookiebar {
             "Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla privacy relativa ai \u00A0",
             h("a", { href: this.cookiepolicyurl, target: "_blank" }, "cookie"),
             "."))),
-      h("z-button-deprecated", { variant: ButtonVariantEnum.primary, onClick: (ev) => this.handleOkButtonClick(ev), onKeyUp: (ev) => this.handleOkButtonKeyUp(ev) }, "ACCETTA")));
+      h("z-button", { variant: ButtonVariantEnum.primary, onClick: (ev) => this.handleOkButtonClick(ev), onKeyUp: (ev) => this.handleOkButtonKeyUp(ev) }, "ACCETTA")));
   }
   render() {
     return (h("z-candybar", { class: `${this.hide ? "hidden" : ""}` }, this.renderContentSlot()));

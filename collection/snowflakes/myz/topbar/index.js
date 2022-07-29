@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Element, Listen, Watch, } from "@stencil/core";
-import { ButtonVariantEnum, } from "../../../beans";
+import { ButtonVariantEnum, ButtonSizeEnum, } from "../../../beans";
 import { mobileBreakpoint, tabletBreakpoint, } from "../../../constants/breakpoints";
 /**
  * @slot editors - top menu editors images bar (only with ismyz prop === true)
@@ -138,7 +138,7 @@ export class ZMyzTopbar {
     if (this.hideloginbutton) {
       return;
     }
-    return (h("z-button-deprecated", { htmlid: "login-button", variant: this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary, icon: "login", issmall: true }, "entra"));
+    return (h("z-button", { htmlid: "login-button", variant: this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary, icon: "login", size: ButtonSizeEnum.small }, "entra"));
   }
   renderMobileLoginDiv(userData) {
     return (h("div", { id: "mobile-login", class: "mobile-login" },
