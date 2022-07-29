@@ -66,7 +66,8 @@ import "./index";
       <z-tooltip-deprecated
         class="dark"
         content="${text("content", "Aggiungi libro")}"
-        type="${ra-deprecated>
+        type="${radios("type", PopoverPositions, "top")}"
+      ></z-tooltip>
     `}
   </Story>
 </Preview>
