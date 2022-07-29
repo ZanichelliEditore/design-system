@@ -11,7 +11,10 @@ module.exports = {
   stories: ["../**/*.stories.mdx"],
   addons: [
     "storybook-addon-stencil",
-    "@storybook/addon-docs",
+    {
+      name: "@storybook/addon-docs",
+      options: { transcludeMarkdown: true },
+    },
     "@storybook/addon-controls",
     "@storybook/addon-viewport",
     "@storybook/addon-knobs",
