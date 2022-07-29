@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.3](https://github.com/ZanichelliEditore/design-system/compare/v4.0.2...v4.0.3) (2022-07-29)
+
+
+### Bug Fixes
+
+* storybook component deadline ([203f72a](https://github.com/ZanichelliEditore/design-system/commit/203f72a761d42ee7c6d57acf9e0efe9e36f8af88))
+
 ### [4.0.2](https://github.com/ZanichelliEditore/design-system/compare/v4.0.1...v4.0.2) (2022-07-21)
 
 
