@@ -6,11 +6,11 @@ describe("Suite test ZContextualMenu", () => {
   it("Test render ZContextualMenu vuoto", async () => {
     const page = await newSpecPage({
       components: [ZContextualMenu],
-      html: `<z-contextual-menu></z-contextual-menu>`,
+      html: `<z-contextual-menu popover-position="bottom_right"></z-contextual-menu>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-contextual-menu>
+      <z-contextual-menu popover-position="bottom_right">
         <mock:shadow-root>
           <button aria-label="apri menu contestuale">
             <z-icon fill="color-primary01" name="contextual-menu"></z-icon>
@@ -30,10 +30,10 @@ describe("Suite test ZContextualMenu", () => {
   it("Test render ZContextualMenu elements prop", async () => {
     const page = await newSpecPage({
       components: [ZContextualMenu],
-      html: `<z-contextual-menu elements='[{"icon":"share","text":"Element 1","key": "0"},{"icon":"delete","text":"Elemento 2","key": "1"}]''></z-contextual-menu>`,
+      html: `<z-contextual-menu popover-position="bottom_right" elements='[{"icon":"share","text":"Element 1","key": "0"},{"icon":"delete","text":"Elemento 2","key": "1"}]''></z-contextual-menu>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-contextual-menu '="" elements='[{"icon":"share","text":"Element 1","key": "0"},{"icon":"delete","text":"Elemento 2","key": "1"}]'>
+      <z-contextual-menu '="" elements='[{"icon":"share","text":"Element 1","key": "0"},{"icon":"delete","text":"Elemento 2","key": "1"}]' popover-position="bottom_right">
         <mock:shadow-root>
             <button aria-label="apri menu contestuale">
               <z-icon fill="color-primary01" name="contextual-menu"></z-icon>
