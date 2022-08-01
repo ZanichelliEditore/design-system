@@ -478,6 +478,75 @@ export class ZRangePicker {
     }
   }
 
+  onStopTyping(value) {
+    let text = value.detail.value;
+    let englishData = text.split("-");
+    let englishParsedData = `${englishData[1]}-${englishData[0]}-${englishData[2]}`;
+    let isDate = Date.parse(englishParsedData);
+
+    if (this.activeInput === RangePickerActiveInput.startInput) {
+      /** Remove second value from either the flatpickers if input is cleared */
+      if (text === "") {
+        this.flatpickrInstance.setDate([
+          this.flatpickrInstance.selectedDates[0],
+        ]);
+        this.flatpickrInstance2.setDate([
+          this.flatpickrInstance2.selectedDates[1],
+        ]);
+      } else {
+        /** If the value inserted is a correct date, update the first input value */
+        if (!Number.isNaN(isDate)) {
+          this.flatpickrInstance.setDate([
+            this.flatpickrInstance.selectedDates[0],
+            text,
+          ]);
+          this.flatpickrInstance2.setDate([
+            text,
+            this.flatpickrInstance2.selectedDates[1],
+          ]);
+          if (this.flatpickrInstance.selectedDates.length > 1) {
+            this.emitDateSelect(
+              `${text} - ${this.getDate(
+                this.flatpickrInstance.selectedDates[0]
+              )}`
+            );
+          }
+          this.setRangeStyle();
+        }
+      }
+    } else {
+      /** Remove second value from either the flatpickers if input is cleared */
+      if (text === "") {
+        this.flatpickrInstance.setDate([
+          this.flatpickrInstance.selectedDates[1],
+        ]);
+        this.flatpickrInstance2.setDate([
+          this.flatpickrInstance2.selectedDates[0],
+        ]);
+      } else {
+        /** If the value inserted is a correct date, update the second input value */
+        if (!Number.isNaN(isDate)) {
+          this.flatpickrInstance.setDate([
+            text,
+            this.flatpickrInstance.selectedDates[1],
+          ]);
+          this.flatpickrInstance2.setDate([
+            this.flatpickrInstance2.selectedDates[0],
+            text,
+          ]);
+          if (this.flatpickrInstance2.selectedDates.length > 1) {
+            this.emitDateSelect(
+              `${this.getDate(
+                this.flatpickrInstance2.selectedDates[0]
+              )} - ${text}`
+            );
+          }
+          this.setRangeStyle();
+        }
+      }
+    }
+  }
+
   renderZRangeInput() {
     return (
       <div class="range-picker-container">
@@ -489,41 +558,8 @@ export class ZRangePicker {
             icon="event"
             tabindex="0"
             data-toggle
-            onInputChange={(value) => {
-              let text = value.detail.value;
-              let englishData = text.split("-");
-              let englishParsedData = `${englishData[1]}-${englishData[0]}-${englishData[2]}`;
-              let isDate = Date.parse(englishParsedData);
-
-              /** Remove second value from either the flatpickers if input is cleared */
-              if (text === "") {
-                this.flatpickrInstance.setDate([
-                  this.flatpickrInstance.selectedDates[0],
-                ]);
-                this.flatpickrInstance2.setDate([
-                  this.flatpickrInstance2.selectedDates[1],
-                ]);
-              } else {
-                /** If the value inserted is a correct date, update the first input value */
-                if (!Number.isNaN(isDate)) {
-                  this.flatpickrInstance.setDate([
-                    this.flatpickrInstance.selectedDates[0],
-                    text,
-                  ]);
-                  this.flatpickrInstance2.setDate([
-                    text,
-                    this.flatpickrInstance2.selectedDates[1],
-                  ]);
-                  if (this.flatpickrInstance.selectedDates.length > 1) {
-                    this.emitDateSelect(
-                      `${text} - ${this.getDate(
-                        this.flatpickrInstance.selectedDates[0]
-                      )}`
-                    );
-                  }
-                  this.setRangeStyle();
-                }
-              }
+            onStopTyping={(value) => {
+              this.onStopTyping(value);
             }}
           />
         </div>
@@ -536,40 +572,7 @@ export class ZRangePicker {
             tabindex="0"
             data-toggle
             onStopTyping={(value) => {
-              let text = value.detail.value;
-              let englishData = text.split("-");
-              let englishParsedData = `${englishData[1]}-${englishData[0]}-${englishData[2]}`;
-              let isDate = Date.parse(englishParsedData);
-
-              /** Remove second value from either the flatpickers if input is cleared */
-              if (text === "") {
-                this.flatpickrInstance.setDate([
-                  this.flatpickrInstance.selectedDates[1],
-                ]);
-                this.flatpickrInstance2.setDate([
-                  this.flatpickrInstance2.selectedDates[0],
-                ]);
-              } else {
-                /** If the value inserted is a correct date, update the second input value */
-                if (!Number.isNaN(isDate)) {
-                  this.flatpickrInstance.setDate([
-                    text,
-                    this.flatpickrInstance.selectedDates[1],
-                  ]);
-                  this.flatpickrInstance2.setDate([
-                    this.flatpickrInstance2.selectedDates[0],
-                    text,
-                  ]);
-                  if (this.flatpickrInstance2.selectedDates.length > 1) {
-                    this.emitDateSelect(
-                      `${this.getDate(
-                        this.flatpickrInstance2.selectedDates[0]
-                      )} - ${text}`
-                    );
-                  }
-                  this.setRangeStyle();
-                }
-              }
+              this.onStopTyping(value);
             }}
           />
         </div>
