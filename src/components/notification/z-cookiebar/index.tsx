@@ -55,13 +55,13 @@ export class ZCookiebar {
             </p>
           </div>
         </div>
-        <z-button-deprecated
+        <z-button
           variant={ButtonVariantEnum.primary}
           onClick={(ev: MouseEvent) => this.handleOkButtonClick(ev)}
           onKeyUp={(ev: KeyboardEvent) => this.handleOkButtonKeyUp(ev)}
         >
           ACCETTA
-        </z-button-deprecated>
+        </z-button>
       </div>
     );
   }

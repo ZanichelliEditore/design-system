@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -106,7 +106,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * HTML a href attribute. If it is set, it renders an HTML a tag.
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
          */
         "href"?: string;
         /**
@@ -532,6 +532,84 @@ export namespace Components {
         "isclosable": boolean;
     }
     interface ZInput {
+        /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
+        /**
+          * the input has autocomplete option (optional): available for text, password, number, email
+         */
+        "autocomplete"?: string;
+        /**
+          * checked: available for checkbox, radio
+         */
+        "checked"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid": string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * render icon (optional): available for text
+         */
+        "icon"?: string;
+        /**
+          * get checked status
+         */
+        "isChecked": () => Promise<boolean>;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * the input label position: available for checkbox, radio
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
+         */
+        "message"?: string | boolean;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea
+         */
+        "status"?: InputStatusBean;
+        /**
+          * input types
+         */
+        "type": InputTypeBean;
+        /**
+          * the input value
+         */
+        "value"?: string;
+    }
+    interface ZInputDeprecated {
         /**
           * the input aria-label
          */
@@ -1251,6 +1329,44 @@ export namespace Components {
         "message"?: string;
         "status"?: InputStatusBean;
     }
+    interface ZPagination {
+        /**
+          * Current page.
+         */
+        "currentPage": number;
+        /**
+          * Enable buttons to go to the first and last pages.
+         */
+        "edges": boolean;
+        /**
+          * Whether to show "go to page" feature.
+         */
+        "goToPage": boolean;
+        /**
+          * Pagination label placed before the bar.
+         */
+        "label"?: string;
+        /**
+          * Enable navigation arrows.
+         */
+        "navArrows": boolean;
+        /**
+          * Number of pages to skip.
+         */
+        "skip": number;
+        /**
+          * Number of pages to show left/right of the current, before showing "load more" symbol (…).
+         */
+        "split"?: number;
+        /**
+          * Total number of pages. Required.
+         */
+        "totalPages": number;
+        /**
+          * Number of pages to show at a time. If not set, all pages will be shown.
+         */
+        "visiblePages"?: number;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -1431,7 +1547,7 @@ export namespace Components {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean | string;
+        "autocomplete"?: boolean;
         /**
           * the input is disabled
          */
@@ -1439,15 +1555,11 @@ export namespace Components {
         /**
           * get the input selected options
          */
-        "getSelectedItems": () => Promise<SelectItemBean[]>;
+        "getSelectedItem": () => Promise<SelectItemBean>;
         /**
           * get the input value
          */
-        "getValue": () => Promise<string | string[]>;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
+        "getValue": () => Promise<string>;
         /**
           * the id of the input element
          */
@@ -1465,13 +1577,9 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
+          * input helper message (optional) - if set to `false` message won't be displayed
          */
-        "message"?: string;
-        /**
-          * multiple options can be selected
-         */
-        "multiple"?: boolean;
+        "message"?: string | boolean;
         /**
           * the input name
          */
@@ -1493,7 +1601,7 @@ export namespace Components {
          */
         "setValue": (value: string | string[]) => Promise<void>;
         /**
-          * the input status (optional): available for text, password, number, email, textarea, select
+          * the input status (optional)
          */
         "status"?: InputStatusBean;
     }
@@ -1752,7 +1860,7 @@ export namespace Components {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid": string;
-        "labelPosition"?: ZtoggleSwitchPositionEnum;
+        "labelPosition"?: LabelPosition;
     }
     interface ZTooltip {
         /**
@@ -2008,6 +2116,12 @@ declare global {
         prototype: HTMLZInputElement;
         new (): HTMLZInputElement;
     };
+    interface HTMLZInputDeprecatedElement extends Components.ZInputDeprecated, HTMLStencilElement {
+    }
+    var HTMLZInputDeprecatedElement: {
+        prototype: HTMLZInputDeprecatedElement;
+        new (): HTMLZInputDeprecatedElement;
+    };
     interface HTMLZInputLabelElement extends Components.ZInputLabel, HTMLStencilElement {
     }
     var HTMLZInputLabelElement: {
@@ -2205,6 +2319,12 @@ declare global {
     var HTMLZOtpElement: {
         prototype: HTMLZOtpElement;
         new (): HTMLZOtpElement;
+    };
+    interface HTMLZPaginationElement extends Components.ZPagination, HTMLStencilElement {
+    }
+    var HTMLZPaginationElement: {
+        prototype: HTMLZPaginationElement;
+        new (): HTMLZPaginationElement;
     };
     interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
     }
@@ -2457,6 +2577,7 @@ declare global {
         "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
         "z-input": HTMLZInputElement;
+        "z-input-deprecated": HTMLZInputDeprecatedElement;
         "z-input-label": HTMLZInputLabelElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
@@ -2490,6 +2611,7 @@ declare global {
         "z-notification": HTMLZNotificationElement;
         "z-offcanvas": HTMLZOffcanvasElement;
         "z-otp": HTMLZOtpElement;
+        "z-pagination": HTMLZPaginationElement;
         "z-pagination-bar": HTMLZPaginationBarElement;
         "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
@@ -2633,7 +2755,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * HTML a href attribute. If it is set, it renders an HTML a tag.
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
          */
         "href"?: string;
         /**
@@ -3115,6 +3237,96 @@ declare namespace LocalJSX {
         "onInfoBoxClose"?: (event: CustomEvent<any>) => void;
     }
     interface ZInput {
+        /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
+        /**
+          * the input has autocomplete option (optional): available for text, password, number, email
+         */
+        "autocomplete"?: string;
+        /**
+          * checked: available for checkbox, radio
+         */
+        "checked"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid"?: string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * render icon (optional): available for text
+         */
+        "icon"?: string;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * the input label position: available for checkbox, radio
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
+         */
+        "message"?: string | boolean;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * Emitted on input value change, returns value, validity
+         */
+        "onInputChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
+         */
+        "onInputCheck"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when user starts typing
+         */
+        "onStartTyping"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when user stops typing, returns value, validity
+         */
+        "onStopTyping"?: (event: CustomEvent<any>) => void;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea
+         */
+        "status"?: InputStatusBean;
+        /**
+          * input types
+         */
+        "type"?: InputTypeBean;
+        /**
+          * the input value
+         */
+        "value"?: string;
+    }
+    interface ZInputDeprecated {
         /**
           * the input aria-label
          */
@@ -3933,6 +4145,48 @@ declare namespace LocalJSX {
         "onOtpChange"?: (event: CustomEvent<any>) => void;
         "status"?: InputStatusBean;
     }
+    interface ZPagination {
+        /**
+          * Current page.
+         */
+        "currentPage"?: number;
+        /**
+          * Enable buttons to go to the first and last pages.
+         */
+        "edges"?: boolean;
+        /**
+          * Whether to show "go to page" feature.
+         */
+        "goToPage"?: boolean;
+        /**
+          * Pagination label placed before the bar.
+         */
+        "label"?: string;
+        /**
+          * Enable navigation arrows.
+         */
+        "navArrows"?: boolean;
+        /**
+          * Event emitted when the current page has changed.
+         */
+        "onPageChanged"?: (event: CustomEvent<any>) => void;
+        /**
+          * Number of pages to skip.
+         */
+        "skip"?: number;
+        /**
+          * Number of pages to show left/right of the current, before showing "load more" symbol (…).
+         */
+        "split"?: number;
+        /**
+          * Total number of pages. Required.
+         */
+        "totalPages": number;
+        /**
+          * Number of pages to show at a time. If not set, all pages will be shown.
+         */
+        "visiblePages"?: number;
+    }
     interface ZPaginationBar {
         /**
           * current displayed page (mutable)
@@ -4137,15 +4391,11 @@ declare namespace LocalJSX {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean | string;
+        "autocomplete"?: boolean;
         /**
           * the input is disabled
          */
         "disabled"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
         /**
           * the id of the input element
          */
@@ -4163,13 +4413,9 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
+          * input helper message (optional) - if set to `false` message won't be displayed
          */
-        "message"?: string;
-        /**
-          * multiple options can be selected
-         */
-        "multiple"?: boolean;
+        "message"?: string | boolean;
         /**
           * the input name
          */
@@ -4179,7 +4425,7 @@ declare namespace LocalJSX {
          */
         "noresultslabel"?: string;
         /**
-          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
+          * Emitted on select option selection, returns select id, selected item id
          */
         "onOptionSelect"?: (event: CustomEvent<any>) => void;
         /**
@@ -4191,7 +4437,7 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
-          * the input status (optional): available for text, password, number, email, textarea, select
+          * the input status (optional)
          */
         "status"?: InputStatusBean;
     }
@@ -4471,7 +4717,7 @@ declare namespace LocalJSX {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid"?: string;
-        "labelPosition"?: ZtoggleSwitchPositionEnum;
+        "labelPosition"?: LabelPosition;
         "onToggleClick"?: (event: CustomEvent<any>) => void;
     }
     interface ZTooltip {
@@ -4569,6 +4815,7 @@ declare namespace LocalJSX {
         "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
         "z-input": ZInput;
+        "z-input-deprecated": ZInputDeprecated;
         "z-input-label": ZInputLabel;
         "z-input-message": ZInputMessage;
         "z-link": ZLink;
@@ -4602,6 +4849,7 @@ declare namespace LocalJSX {
         "z-notification": ZNotification;
         "z-offcanvas": ZOffcanvas;
         "z-otp": ZOtp;
+        "z-pagination": ZPagination;
         "z-pagination-bar": ZPaginationBar;
         "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
@@ -4678,6 +4926,7 @@ declare module "@stencil/core" {
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
+            "z-input-deprecated": LocalJSX.ZInputDeprecated & JSXBase.HTMLAttributes<HTMLZInputDeprecatedElement>;
             "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
@@ -4711,6 +4960,7 @@ declare module "@stencil/core" {
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
+            "z-pagination": LocalJSX.ZPagination & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
             "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
             "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;

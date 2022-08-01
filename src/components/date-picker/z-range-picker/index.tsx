@@ -225,21 +225,17 @@ export class ZRangePicker {
 
     /** If exists, set second date value into first input */
     instance.selectedDates[0] &&
-      firstInputElement.setValue(
-        flatpickr.formatDate(
-          instance.selectedDates[firstInputActive ? index : 0],
-          formattingToken
-        )
-      );
+      (firstInputElement.value = flatpickr.formatDate(
+        instance.selectedDates[firstInputActive ? index : 0],
+        formattingToken
+      ));
 
     /** If exists, set second date value into second input */
     instance.selectedDates[1] &&
-      secondInputElement.setValue(
-        flatpickr.formatDate(
-          instance.selectedDates[firstInputActive ? 0 : index],
-          formattingToken
-        )
-      );
+      (secondInputElement.value = flatpickr.formatDate(
+        instance.selectedDates[firstInputActive ? 0 : index],
+        formattingToken
+      ));
   }
 
   getDate(date) {
@@ -491,7 +487,6 @@ export class ZRangePicker {
             class={`${RangePickerActiveInput.startInput} ${this.rangePickerId}`}
             type="text"
             icon="event"
-            hasmessage={false}
             tabindex="0"
             data-toggle
             onInputChange={(value) => {
@@ -538,7 +533,6 @@ export class ZRangePicker {
             class={`${RangePickerActiveInput.endInput} ${this.rangePickerId}-2`}
             type="text"
             icon="event"
-            hasmessage={false}
             tabindex="0"
             data-toggle
             onStopTyping={(value) => {

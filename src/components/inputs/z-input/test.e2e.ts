@@ -70,46 +70,30 @@ it("Test disabled ZInput should not change / emit inputChange event", async () =
   expect(inputValue).toEqual("");
 });
 
-it("Test ZInput typing state", async () => {
-  const page = await newE2EPage();
-
-  await page.setContent(`<z-input typingtimeout="1000"></z-input>`);
-  const input = await page.find("z-input div input");
-
-  expect(input).not.toHaveClass("istyping");
-
-  await input.press("A");
-  await page.waitForChanges();
-  expect(input).toHaveClass("istyping");
-
-  await new Promise((resolve) => setTimeout(resolve, 1500));
-  await page.waitForChanges();
-  expect(input).not.toHaveClass("istyping");
-});
-
 it("Test ZInput - input password - change hide/show icon on click", async () => {
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
   await page.setContent(`<z-input htmlid="checkid" type="password"></z-input>`);
-  const icon = await page.find("z-input z-icon.showHidePasswordIcon");
+  const iconButton = await page.find("z-input button.showHidePasswordIcon");
+  const icon = await page.find("z-input button.showHidePasswordIcon z-icon");
   //icon will be an open eye on first click
-  await icon.click();
+  await iconButton.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated showHidePasswordIcon sc-z-input">
+    `<z-icon class="hydrated sc-z-input">
       <mock:shadow-root>
-        <svg  fill="" viewBox="0 0 1000 1000">
-            <path d="${icons["view-off-filled"]}"></path>
-        </svg>
+      <svg  fill="" viewBox="0 0 1000 1000">
+      <path d="${icons["view-off-filled"]}"></path>
+      </svg>
       </mock:shadow-root>
     </z-icon>`
   );
 
   //icon will be a closed eye on second click
-  await icon.click();
+  await iconButton.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated showHidePasswordIcon sc-z-input">
+    `<z-icon class="hydrated sc-z-input">
       <mock:shadow-root>
         <svg  fill="" viewBox="0 0 1000 1000">
           <path d="${icons["view-filled"]}"></path>
@@ -124,14 +108,15 @@ it("Test ZInput - input password - change input type on icon click to show/hide 
   // Define a window.onCustomEvent function on the page.
   await page.setContent(`<z-input htmlid="checkid" type="password"></z-input>`);
   const input = await page.find("z-input div.textWrapper div input");
-  const icon = await page.find("z-input z-icon.showHidePasswordIcon");
+  const iconButton = await page.find("z-input button.showHidePasswordIcon");
+  console.log(iconButton);
 
   //input will be type text after first click on icon
-  await icon.click();
+  await iconButton.click();
   await page.waitForChanges();
   expect(input).toEqualAttribute("type", "text");
   //input will be type password after second click on icon
-  await icon.click();
+  await iconButton.click();
   await page.waitForChanges();
   expect(input).toEqualAttribute("type", "password");
 });

@@ -9,8 +9,8 @@ describe("Suite test ZButton", () => {
       html: `<z-button></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-    <z-button size="big" variant="primary">
-      <button class="big primary" type="button"></button>
+      <z-button size="big" variant="primary">
+        <button class="container big primary" type="button"></button>
       </z-button>
     `);
   });
@@ -21,11 +21,11 @@ describe("Suite test ZButton", () => {
       html: `<z-button aria-label="Open">text</z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button  aria-label="Open" class="with-text" size="big" variant="primary">
-          <button aria-label="Open" type="button" class="big primary">
+      <z-button aria-label="Open" size="big" variant="primary">
+        <button aria-label="Open" type="button" class="container big primary has-text">
           text
-          </button>
-     </z-button>
+        </button>
+      </z-button>
     `);
   });
 
@@ -36,9 +36,9 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button size="big" variant="primary" icon="icon">
-          <button type="button" class="big primary">
-            <z-icon name="icon" height="16" width="16"></z-icon>
-          </button>
+        <button type="button" class="container big primary">
+          <z-icon name="icon" height="16" width="16"></z-icon>
+        </button>
       </z-button>
     `);
   });
@@ -50,8 +50,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button size="big" variant="secondary">
-          <button type="button" class="big secondary">       
-          </button>
+        <button type="button" class="container big secondary"></button>
       </z-button>
     `);
   });
@@ -62,9 +61,8 @@ describe("Suite test ZButton", () => {
       html: `<z-button size="small"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="small" variant="primary" >
-          <button type="button" class="small  primary">
-          </button>
+      <z-button size="small" variant="primary">
+        <button type="button" class="container small primary"></button>
       </z-button>
     `);
   });
@@ -76,8 +74,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button size="big" variant="primary" disabled>
-          <button type="button" class="big primary" disabled>
-          </button>
+        <button type="button" class="container big primary" disabled></button>
       </z-button>
     `);
   });
@@ -89,11 +86,10 @@ describe("Suite test ZButton", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-button class="with-text" size="big" variant="primary"  href="https://wikipedia.com">
-            <a href="https://wikipedia.com" class="big primary">
-                  link
-          </a>
-            </button>
+      <z-button size="big" variant="primary" href="https://wikipedia.com">
+        <a href="https://wikipedia.com" class="container big primary has-text">
+          link
+        </a>
       </z-button>
     `);
   });

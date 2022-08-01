@@ -36,7 +36,7 @@ describe("Suite test ZCandybar", () => {
                       </p>
                     </div>
                   </div>
-                  <z-button-deprecated variant="primary" style="pointer-events: auto;">OK</z-button-deprecated>
+                  <z-button variant="primary" style="pointer-events: auto;">OK</z-button>
                 </div>
               </z-candybar>`,
     });
@@ -57,7 +57,7 @@ describe("Suite test ZCandybar", () => {
             </p>
           </div>
         </div>
-        <z-button-deprecated variant="primary" style="pointer-events: auto;">OK</z-button-deprecated>
+        <z-button variant="primary" style="pointer-events: auto;">OK</z-button>
       </div>
     </z-candybar>
     `);

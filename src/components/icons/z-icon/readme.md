@@ -40,6 +40,7 @@
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
  - [z-input](../../inputs/z-input)
+ - [z-input-deprecated](../../../deprecated/z-input-deprecated)
  - [z-input-message](../../inputs/z-input-message)
  - [z-link](../../navigation/z-link)
  - [z-list-element](../../list/z-list-element)
@@ -57,7 +58,8 @@
  - [z-navigation-tab-link](../../navigation/tabs/z-navigation-tab-link)
  - [z-navigation-tabs](../../navigation/tabs/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
- - [z-pagination-bar](../../pagination/z-pagination-bar)
+ - [z-pagination](../../z-pagination)
+ - [z-pagination-bar](../../../deprecated/pagination/z-pagination-bar)
  - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
@@ -87,6 +89,7 @@ graph TD;
   z-icon-package --> z-icon
   z-info-box --> z-icon
   z-input --> z-icon
+  z-input-deprecated --> z-icon
   z-input-message --> z-icon
   z-link --> z-icon
   z-list-element --> z-icon
@@ -104,6 +107,7 @@ graph TD;
   z-navigation-tab-link --> z-icon
   z-navigation-tabs --> z-icon
   z-notification --> z-icon
+  z-pagination --> z-icon
   z-pagination-bar --> z-icon
   z-pocket-message --> z-icon
   z-select --> z-icon

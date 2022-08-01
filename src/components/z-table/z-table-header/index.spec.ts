@@ -63,7 +63,7 @@ describe("Suite test ZTableHeader", () => {
           </div>
           <div class="popover-container">
             <z-popover background-color= "gray200" position="below-center">
-              <z-button-deprecated icon="contextual-menu" size="x-small" slot="trigger" square="" variant="tertiary"></z-button-deprecated>
+              <z-button icon="contextual-menu" size="x-small" slot="trigger" variant="tertiary"></z-button>
               <div slot="popover">
                 <slot name="contextual-menu"></slot>
               </div>

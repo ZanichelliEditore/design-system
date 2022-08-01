@@ -1,5 +1,7 @@
 # z-pagination-bar
 
+# This component is deprecated and will be removed from the library starting 01 October 2022.
+
 <!-- readme-group="pagination" -->
 ```html
 <z-pagination-bar pages="20" visiblepages="5" currentpage="2"></z-pagination-bar>
@@ -35,7 +37,7 @@
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../../components/icons/z-icon)
 - [z-pagination-page](../z-pagination-page)
 
 ### Graph
