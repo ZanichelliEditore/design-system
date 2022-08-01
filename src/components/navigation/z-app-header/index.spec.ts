@@ -6,11 +6,11 @@ describe("Suite test ZAppHeader", () => {
   it("Test render empty ZAppHeader", async () => {
     const page = await newSpecPage({
       components: [ZAppHeader],
-      html: `<z-app-header></z-app-header>`
+      html: `<z-app-header></z-app-header>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header menu-length="0" flow="auto" style="--app-header-top-offset: 0px;">
+      <z-app-header menu-length="0" flow="auto">
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="hero-container">
@@ -40,7 +40,7 @@ describe("Suite test ZAppHeader", () => {
           </div>
         </mock:shadow-root>
       </z-app-header>
-    `)
+    `);
   });
 
   it("Test render ZAppHeader with title", async () => {
@@ -48,11 +48,11 @@ describe("Suite test ZAppHeader", () => {
       components: [ZAppHeader],
       html: `<z-app-header>
         <h1 slot="title">Titolo di test</h1>
-      </z-app-header>`
+      </z-app-header>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header menu-length="0" flow="auto" style="--app-header-top-offset: 0px;">
+      <z-app-header menu-length="0" flow="auto">
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="hero-container">
@@ -92,11 +92,11 @@ describe("Suite test ZAppHeader", () => {
       html: `<z-app-header>
         <h1 slot="title">Titolo di test</h1>
         <h2 slot="subtitle">Sottotitolo di test</h2>
-      </z-app-header>`
+      </z-app-header>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header menu-length="0" flow="auto" style="--app-header-top-offset: 0px;">
+      <z-app-header menu-length="0" flow="auto">
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="hero-container">
@@ -137,11 +137,11 @@ describe("Suite test ZAppHeader", () => {
       components: [ZAppHeader],
       html: `<z-app-header drawer>
         <h1 slot="title">Titolo di test</h1>
-      </z-app-header>`
+      </z-app-header>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header menu-length="0" flow="auto" drawer style="--app-header-top-offset: 0px;">
+      <z-app-header menu-length="0" flow="auto" drawer>
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="hero-container">
@@ -179,11 +179,11 @@ describe("Suite test ZAppHeader", () => {
       components: [ZAppHeader],
       html: `<z-app-header stuck>
         <h1 slot="title">Titolo di test</h1>
-      </z-app-header>`
+      </z-app-header>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header menu-length="0" flow="auto" stuck style="--app-header-top-offset: 0px;">
+      <z-app-header menu-length="0" flow="auto" stuck>
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="hero-container">
@@ -216,4 +216,3 @@ describe("Suite test ZAppHeader", () => {
     `);
   });
 });
-
