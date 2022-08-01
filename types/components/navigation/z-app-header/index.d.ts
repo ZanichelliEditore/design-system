@@ -58,10 +58,6 @@ export declare class ZAppHeader {
   private get title();
   private get scrollParent();
   private collectMenuElements;
-  /**
-   * Set `z-app-topbar`'s height as stucked header top offset.
-   */
-  private setStuckPosition;
   onStuckMode(): void;
   enableStuckObserver(): void;
   disableStuckMode(): void;

@@ -43,7 +43,6 @@ export class ZAppHeader {
     });
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
-    this.setStuckPosition = this.setStuckPosition.bind(this);
   }
   emitStickingEvent() {
     this.sticking.emit(this.stucked);
@@ -51,7 +50,6 @@ export class ZAppHeader {
   componentDidLoad() {
     this.collectMenuElements();
     this.onStuckMode();
-    this.setStuckPosition();
   }
   get title() {
     const titleElement = this.hostElement.querySelector('[slot="title"]');
@@ -71,14 +69,6 @@ export class ZAppHeader {
     const menuElements = this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]');
     this.menuLength = menuElements.length;
     this.setMenuFloatingMode();
-  }
-  /**
-   * Set `z-app-topbar`'s height as stucked header top offset.
-   */
-  setStuckPosition() {
-    const topbar = this.hostElement.ownerDocument.querySelector('z-app-topbar');
-    const top = topbar ? topbar.clientHeight : 0;
-    this.hostElement.style.setProperty('--app-header-top-offset', `${top}px`);
   }
   onStuckMode() {
     if (this.stuck) {
@@ -105,13 +95,6 @@ export class ZAppHeader {
       return;
     }
     this.emitStickingEvent();
-    if (this.stucked) {
-      this.setStuckPosition();
-      scrollParent.addEventListener('scroll', this.setStuckPosition);
-    }
-    else {
-      scrollParent.removeEventListener('scroll', this.setStuckPosition);
-    }
   }
   setMenuFloatingMode() {
     if (!this.menuElements) {
