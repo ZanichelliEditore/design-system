@@ -152,21 +152,16 @@ export class ZRangePicker {
   }
 
   addClassToInput() {
-    let firstInputElement =
-      this.element.querySelectorAll("z-input")[0]?.children[0]?.children[0]
-        ?.children[0];
-    let secondInputElement =
-      this.element.querySelectorAll("z-input")[1]?.children[0]?.children[0]
-        ?.children[0];
+    this.element
+      .querySelector(`#input-${this.rangePickerId}`)
+      .classList.add(RangePickerActiveInput.startInput, this.rangePickerId);
 
-    firstInputElement?.classList.add(
-      RangePickerActiveInput.startInput,
-      this.rangePickerId
-    );
-    secondInputElement?.classList.add(
-      RangePickerActiveInput.endInput,
-      `${this.rangePickerId}-2`
-    );
+    this.element
+      .querySelector(`#input-${this.rangePickerId}-2`)
+      .classList.add(
+        RangePickerActiveInput.endInput,
+        `${this.rangePickerId}-2`
+      );
   }
 
   onDateSelect(selectedDates, instance) {
@@ -553,10 +548,12 @@ export class ZRangePicker {
         <div class={`${this.rangePickerId}-container`}>
           <input class="hidden-input" data-input></input>
           <z-input
+            htmlid={`input-${this.rangePickerId}`}
             class={`${RangePickerActiveInput.startInput} ${this.rangePickerId}`}
             type="text"
             icon="event"
             tabindex="0"
+            message={false}
             data-toggle
             onStopTyping={(value) => {
               this.onStopTyping(value);
@@ -566,10 +563,12 @@ export class ZRangePicker {
         <div class={`${this.rangePickerId}-container-2`}>
           <input class="hidden-input" data-input></input>
           <z-input
+            htmlid={`input-${this.rangePickerId}-2`}
             class={`${RangePickerActiveInput.endInput} ${this.rangePickerId}-2`}
             type="text"
             icon="event"
             tabindex="0"
+            message={false}
             data-toggle
             onStopTyping={(value) => {
               this.onStopTyping(value);
