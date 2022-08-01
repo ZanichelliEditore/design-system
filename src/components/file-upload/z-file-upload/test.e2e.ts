@@ -23,9 +23,7 @@ describe("z-file-upload test end2end", () => {
       page.waitForFileChooser(),
       page.evaluate(() =>
         (
-          document.querySelector(
-            "z-file-upload div z-button-deprecated"
-          ) as HTMLElement
+          document.querySelector("z-file-upload div z-button") as HTMLElement
         ).click()
       ),
     ]);
@@ -57,9 +55,7 @@ describe("z-file-upload test end2end", () => {
       page.waitForFileChooser(),
       page.evaluate(() =>
         (
-          document.querySelector(
-            "z-file-upload div z-button-deprecated"
-          ) as HTMLElement
+          document.querySelector("z-file-upload div z-button") as HTMLElement
         ).click()
       ),
     ]);

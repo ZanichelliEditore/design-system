@@ -1,4 +1,4 @@
-z-tooltip .container z-button-deprecated:not(:last-child) {
+z-tooltip .container z-button:not(:last-child) {
   margin-right: 0.5rem;
 }
 
