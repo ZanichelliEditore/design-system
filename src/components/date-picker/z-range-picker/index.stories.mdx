@@ -14,7 +14,7 @@ import "../styles.css";
       options: Object.values(ZDatePickerMode),
       control: { type: "radio" },
     },
-    rangepickerid: {
+    rangePickerId: {
       control: "text",
     },
   }}
@@ -27,7 +27,7 @@ import "../styles.css";
     name="ZDatePicker with date"
     args={{
       mode: "date",
-      rangepickerid: "picker-01",
+      rangePickerId: "picker-01",
     }}
     height="180px"
   >
@@ -35,12 +35,12 @@ import "../styles.css";
       <div style="height:300px; padding-top:40px">
         <z-range-picker
           mode=${args.mode}
-          rangepickerid=${args.rangepickerid}
-          id=${args.rangepickerid}
+          rangePickerId=${args.rangePickerId}
+          id=${args.rangePickerId}
         ></z-range-picker>
       </div>
       <script>
-        const picker1 = document.getElementById("${args.rangepickerid}");
+        const picker1 = document.getElementById("${args.rangePickerId}");
         picker1.addEventListener("dateSelect", (e) => console.log(e.detail));
       </script>
     `}
@@ -54,19 +54,19 @@ import "../styles.css";
     name="ZDatePicker with date and time"
     args={{
       mode: "date-time",
-      rangepickerid: "picker-02",
+      rangePickerId: "picker-02",
     }}
   >
     {(args) => html`
       <div style="height:300px; padding-top:40px">
         <z-range-picker
           mode=${args.mode}
-          rangepickerid=${args.rangepickerid}
-          id=${args.rangepickerid}
+          rangePickerId=${args.rangePickerId}
+          id=${args.rangePickerId}
         ></z-range-picker>
       </div>
       <script>
-        const picker2 = document.getElementById("${args.rangepickerid}");
+        const picker2 = document.getElementById("${args.rangePickerId}");
         picker2.addEventListener("dateSelect", (e) => console.log(e.detail));
       </script>
     `}
@@ -75,6 +75,6 @@ import "../styles.css";
 
 ## Usage
 
-In order to avoid conflits between datepickers, pass a unique id as `rangepickerid` prop.
+In order to avoid conflits between datepickers, pass a unique id as `rangePickerId` prop.
 
 This component has a callback function `dateSelect` that returns the selected date.

@@ -43,35 +43,22 @@
       </z-app-topbar>
     </header>
     <div style="padding: 300px">
-      <z-range-picker mode="date" rangepickerid="dp1" id="dp1"></z-range-picker>
+      <z-range-picker
+        mode="date"
+        rangePickerId="dp1"
+        id="dp123456"
+      ></z-range-picker>
     </div>
   </body>
 </html>
 <script>
-  const mycard = document.getElementById("mycard");
-  console.log(mycard);
-  mycard.addEventListener("cardClicked", () =>
-    console.log("mycard was clicked ")
-  );
-
-  const canvasbutton = document.getElementById("canvas-button");
-  canvasbutton.addEventListener("click", () => {
-    console.log("canvasbutton button clicked ");
-    const canvas = document.getElementById("mycanvas");
-    canvas.removeAttribute("open");
-  });
-
-  window.addEventListener("appButtonClick", () => {
-    console.log("appswitcher button clicked ");
-    const canvas = document.getElementById("mycanvas");
-    canvas.setAttribute("open", "");
-  });
-
   function dateselect(e) {
     console.log(e.detail);
   }
-  const picker = document.getElementById("dp1");
-  picker.addEventListener("dateSelect", (e) => dateselect(e));
+  const picker = document.getElementById("dp123456");
+  picker.addEventListener("dateSelect", (e) => {
+    dateselect(e);
+  });
 </script>
 <style>
   .z-cards {

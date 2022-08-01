@@ -1411,7 +1411,7 @@ export namespace Components {
         /**
           * unique id
          */
-        "rangepickerid": string;
+        "rangePickerId": string;
     }
     interface ZSectionTitle {
         /**
@@ -4117,7 +4117,7 @@ declare namespace LocalJSX {
         /**
           * unique id
          */
-        "rangepickerid"?: string;
+        "rangePickerId"?: string;
     }
     interface ZSectionTitle {
         /**

@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property        | Attribute       | Description                                             | Type                                                                         | Default                |
-| --------------- | --------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------- |
-| `mode`          | `mode`          | [Optional] datepicker mode: date, datetime, only months | `ZDatePickerMode.date \| ZDatePickerMode.dateTime \| ZDatePickerMode.months` | `ZDatePickerMode.date` |
-| `rangepickerid` | `rangepickerid` | unique id                                               | `string`                                                                     | `undefined`            |
+| Property        | Attribute         | Description                                             | Type                                                                         | Default                |
+| --------------- | ----------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------- |
+| `mode`          | `mode`            | [Optional] datepicker mode: date, datetime, only months | `ZDatePickerMode.date \| ZDatePickerMode.dateTime \| ZDatePickerMode.months` | `ZDatePickerMode.date` |
+| `rangePickerId` | `range-picker-id` | unique id                                               | `string`                                                                     | `undefined`            |
 
 
 ## Events

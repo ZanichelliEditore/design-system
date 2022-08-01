@@ -6,10 +6,10 @@ describe("Suite test ZRangePicker", () => {
   it("Test render ZRangePicker", async () => {
     const page = await newSpecPage({
       components: [ZRangePicker],
-      html: `<z-range-picker rangepickerid="picker-01"></z-range-picker>`,
+      html: `<z-range-picker rangePickerId="picker-01"></z-range-picker>`,
     });
 
-    expect(page.root).toEqualHtml(`<z-range-picker rangepickerid="picker-01">
+    expect(page.root).toEqualHtml(`<z-range-picker rangePickerId="picker-01">
       <div class="date flatpickr-toggle-container start-input">
         <div class="range-picker-container">
           <div class="picker-01-container">

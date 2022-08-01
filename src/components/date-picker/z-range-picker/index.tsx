@@ -11,7 +11,6 @@ import {
 
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
-import classNames from "classnames";
 
 import {
   ZDatePickerMode,
@@ -29,7 +28,7 @@ export class ZRangePicker {
   @Element() element: HTMLElement;
 
   /** unique id */
-  @Prop() rangepickerid: string;
+  @Prop() rangePickerId: string;
   /** [Optional] datepicker mode: date, datetime, only months */
   @Prop() mode: ZDatePickerMode = ZDatePickerMode.date;
 
@@ -39,7 +38,6 @@ export class ZRangePicker {
 
   private flatpickrInstance = null;
   private flatpickrInstance2 = null;
-  private hasChildren: boolean;
 
   /** emitted when date changes, returns selected date */
   @Event() dateSelect: EventEmitter;
@@ -50,7 +48,7 @@ export class ZRangePicker {
   @Listen("click", { target: "body", capture: true })
   handleClick() {
     this.getFocusedInput();
-    this.AddClassToInput();
+    this.addClassToInput();
   }
 
   @Listen("keydown", { target: "body", capture: true })
@@ -64,12 +62,11 @@ export class ZRangePicker {
       ".flatpickr-calendar"
     );
     this.getFocusedInput();
-    if (ev.key === "Tab") {
-    }
+
     if (ev.key === "Enter" || ev.key === " ") {
       if (
-        document.activeElement.classList.contains(`${this.rangepickerid}`) ||
-        document.activeElement.classList.contains(`${this.rangepickerid}-2`)
+        document.activeElement.classList.contains(`${this.rangePickerId}`) ||
+        document.activeElement.classList.contains(`${this.rangePickerId}-2`)
       ) {
         !isCalendarOpened && currentInputState.picker.open();
       }
@@ -89,7 +86,7 @@ export class ZRangePicker {
     }
   }
 
-  //Set background color before or after first selected date, before selecting the second one
+  /** Set background color before or after first selected date, before selecting the second one */
   @Listen("mouseover")
   onMouseOver(e: CustomEvent) {
     let currentInputState =
@@ -104,12 +101,6 @@ export class ZRangePicker {
         currentInputState.index
       ]
     );
-  }
-
-  componentWillLoad() {
-    let customToggle = this.element.querySelector("[slot=toggle]");
-    this.hasChildren = !!customToggle;
-    this.hasChildren && customToggle.setAttribute("data-toggle", "data-toggle");
   }
 
   componentDidLoad() {
@@ -144,12 +135,12 @@ export class ZRangePicker {
       wrap: true,
     };
 
-    this.flatpickrInstance = flatpickr(`.${this.rangepickerid}-container`, {
+    this.flatpickrInstance = flatpickr(`.${this.rangePickerId}-container`, {
       ...config,
       mode: "multiple",
       appendTo: this.element.children[0].children[0].children[0] as HTMLElement,
     });
-    this.flatpickrInstance2 = flatpickr(`.${this.rangepickerid}-container-2`, {
+    this.flatpickrInstance2 = flatpickr(`.${this.rangePickerId}-container-2`, {
       ...config,
       mode: "multiple",
       appendTo: this.element.children[0].children[0].children[1] as HTMLElement,
@@ -160,7 +151,7 @@ export class ZRangePicker {
     });
   }
 
-  AddClassToInput() {
+  addClassToInput() {
     let firstInputElement =
       this.element.querySelectorAll("z-input")[0]?.children[0]?.children[0]
         ?.children[0];
@@ -168,13 +159,13 @@ export class ZRangePicker {
       this.element.querySelectorAll("z-input")[1]?.children[0]?.children[0]
         ?.children[0];
 
-    firstInputElement?.setAttribute(
-      "class",
-      `${firstInputElement.className} ${RangePickerActiveInput.startInput} ${this.rangepickerid}`
+    firstInputElement?.classList.add(
+      RangePickerActiveInput.startInput,
+      this.rangePickerId
     );
-    secondInputElement?.setAttribute(
-      "class",
-      `${secondInputElement.className} ${RangePickerActiveInput.endInput} ${this.rangepickerid}-2`
+    secondInputElement?.classList.add(
+      RangePickerActiveInput.endInput,
+      `${this.rangePickerId}-2`
     );
   }
 
@@ -185,15 +176,15 @@ export class ZRangePicker {
     let firstInputActive =
       this.activeInput === RangePickerActiveInput.startInput;
 
-    //If range is already set, clicking another date it will update it
+    /** If range is already set, clicking another date it will update it */
     if (selectedDates.length === 3) {
       instance.setDate([selectedDates[0], selectedDates[2]]);
     }
 
-    //Order the selected dates ASC and update the two flatpickers
+    /** Order the selected dates ASC and update the two flatpickers */
     if (instance.selectedDates.length > 1) {
       if (firstInputActive) {
-        //First Flatpickr selection
+        /** First Flatpickr selection */
         let orderedDates = instance.selectedDates.sort((a, b) => b - a);
         instance.setDate([...orderedDates]);
         this.flatpickrInstance2.setDate([
@@ -201,7 +192,7 @@ export class ZRangePicker {
           instance.selectedDates[0],
         ]);
       } else {
-        //Second Flatpickr selection
+        /** Second Flatpickr selection */
         let orderedDates = instance.selectedDates.sort((a, b) => a - b);
         instance.setDate([...orderedDates]);
         this.flatpickrInstance.setDate([
@@ -232,7 +223,7 @@ export class ZRangePicker {
     let formattingToken =
       this.mode === ZDatePickerMode.date ? "d-m-Y" : "d-m-Y - H:i";
 
-    //If exists, set second date value into first input
+    /** If exists, set second date value into first input */
     instance.selectedDates[0] &&
       firstInputElement.setValue(
         flatpickr.formatDate(
@@ -241,7 +232,7 @@ export class ZRangePicker {
         )
       );
 
-    //If exists, set second date value into second input
+    /** If exists, set second date value into second input */
     instance.selectedDates[1] &&
       secondInputElement.setValue(
         flatpickr.formatDate(
@@ -360,7 +351,7 @@ export class ZRangePicker {
     }
   }
 
-  //Replace month word to month number
+  /** Replace month word to month number */
   parseDate(date) {
     const month = date.split(" ")[1];
     const months = {
@@ -386,34 +377,26 @@ export class ZRangePicker {
     );
   }
 
-  //Get the current focused input, first or last
+  /** Get the current focused input, first or last */
   getFocusedInput() {
-    let currentInputState =
-      this.activeInput === RangePickerActiveInput.startInput
-        ? { picker: this.flatpickrInstance, index: 0 }
-        : { picker: this.flatpickrInstance2, index: 1 };
     if (
       document.activeElement.matches(
-        `.${RangePickerActiveInput.startInput}.${this.rangepickerid}`
+        `.${RangePickerActiveInput.startInput}.${this.rangePickerId}`
       )
     ) {
       this.activeInput = RangePickerActiveInput.startInput;
-      currentInputState.picker = this.flatpickrInstance;
-      currentInputState.index = 0;
     }
 
     if (
       document.activeElement.matches(
-        `.${RangePickerActiveInput.endInput}.${this.rangepickerid}-2`
+        `.${RangePickerActiveInput.endInput}.${this.rangePickerId}-2`
       )
     ) {
       this.activeInput = RangePickerActiveInput.endInput;
-      currentInputState.picker = this.flatpickrInstance2;
-      currentInputState.index = 1;
     }
   }
 
-  //Set current month after flatpickr opened
+  /** Set current month after flatpickr opened */
   getCurrentMonth() {
     let currentInputState =
       this.activeInput === RangePickerActiveInput.startInput
@@ -422,7 +405,7 @@ export class ZRangePicker {
 
     let length = currentInputState.picker.selectedDates.length;
 
-    if (length > currentInputState.index) {
+    if (length > 0) {
       let dateMonth =
         currentInputState.picker.selectedDates[length - 1].getMonth();
       let dateYear =
@@ -433,7 +416,7 @@ export class ZRangePicker {
     }
   }
 
-  //Set style of the days between the two selected dates
+  /** Set style of the days between the two selected dates */
   setRangeStyle() {
     let currentInputState =
       this.activeInput === RangePickerActiveInput.startInput
@@ -453,21 +436,17 @@ export class ZRangePicker {
           let date = this.parseDate(element.ariaLabel);
           let firstDate = this.flatpickrInstance.selectedDates[1];
           let secondDate = this.flatpickrInstance.selectedDates[0];
-          let alreadyOnRange = element.className.includes("inRange");
           let selected = element.className.includes("selected");
 
           if (date > firstDate && date < secondDate && !selected) {
-            element.setAttribute(
-              "class",
-              `${element.className} ${alreadyOnRange ? "" : "inRange"}`
-            );
+            element.classList.toggle("inRange", true);
           }
         }
       }
     );
   }
 
-  //Set style of the days between first selected date and hovered date
+  /** Set style of the days between first selected date and hovered date */
   setRangeHoverStyle(e, flatpickr, calendar) {
     const isDay = (e.target as HTMLElement).classList.contains("flatpickr-day");
     if (isDay) {
@@ -485,7 +464,6 @@ export class ZRangePicker {
           let before = firstDate && hoveredDate < firstDate;
           let after = firstDate && hoveredDate > firstDate;
 
-          let alreadyOnRange = element.className.includes("inRange");
           let selected = element.className.includes("selected");
 
           if (
@@ -493,15 +471,9 @@ export class ZRangePicker {
             ((before && date > hoveredDate && date < firstDate && !selected) ||
               (after && date < hoveredDate && date > firstDate && !selected))
           ) {
-            element.setAttribute(
-              "class",
-              `${element.className} ${alreadyOnRange ? "" : "inRange"}`
-            );
+            element.classList.toggle("inRange", true);
           } else {
-            element.setAttribute(
-              "class",
-              `${element.className.replace(" inRange", "")}`
-            );
+            element.classList.remove("inRange");
           }
 
           this.setRangeStyle();
@@ -513,10 +485,10 @@ export class ZRangePicker {
   renderZRangeInput() {
     return (
       <div class="range-picker-container">
-        <div class={`${classNames(this.rangepickerid)}-container`}>
+        <div class={`${this.rangePickerId}-container`}>
           <input class="hidden-input" data-input></input>
           <z-input
-            class={`${RangePickerActiveInput.startInput} ${this.rangepickerid}`}
+            class={`${RangePickerActiveInput.startInput} ${this.rangePickerId}`}
             type="text"
             icon="event"
             hasmessage={false}
@@ -528,7 +500,7 @@ export class ZRangePicker {
               let englishParsedData = `${englishData[1]}-${englishData[0]}-${englishData[2]}`;
               let isDate = Date.parse(englishParsedData);
 
-              //Remove second value from either the flatpickers if input is cleared
+              /** Remove second value from either the flatpickers if input is cleared */
               if (text === "") {
                 this.flatpickrInstance.setDate([
                   this.flatpickrInstance.selectedDates[0],
@@ -537,7 +509,7 @@ export class ZRangePicker {
                   this.flatpickrInstance2.selectedDates[1],
                 ]);
               } else {
-                //If the value inserted is a correct date, update the first input value
+                /** If the value inserted is a correct date, update the first input value */
                 if (!Number.isNaN(isDate)) {
                   this.flatpickrInstance.setDate([
                     this.flatpickrInstance.selectedDates[0],
@@ -549,7 +521,7 @@ export class ZRangePicker {
                   ]);
                   if (this.flatpickrInstance.selectedDates.length > 1) {
                     this.emitDateSelect(
-                      ` ${text} - ${this.getDate(
+                      `${text} - ${this.getDate(
                         this.flatpickrInstance.selectedDates[0]
                       )}`
                     );
@@ -560,10 +532,10 @@ export class ZRangePicker {
             }}
           />
         </div>
-        <div class={`${classNames(this.rangepickerid)}-container-2`}>
+        <div class={`${this.rangePickerId}-container-2`}>
           <input class="hidden-input" data-input></input>
           <z-input
-            class={`${RangePickerActiveInput.endInput} ${this.rangepickerid}-2`}
+            class={`${RangePickerActiveInput.endInput} ${this.rangePickerId}-2`}
             type="text"
             icon="event"
             hasmessage={false}
@@ -575,7 +547,7 @@ export class ZRangePicker {
               let englishParsedData = `${englishData[1]}-${englishData[0]}-${englishData[2]}`;
               let isDate = Date.parse(englishParsedData);
 
-              //Remove second value from either the flatpickers if input is cleared
+              /** Remove second value from either the flatpickers if input is cleared */
               if (text === "") {
                 this.flatpickrInstance.setDate([
                   this.flatpickrInstance.selectedDates[1],
@@ -584,7 +556,7 @@ export class ZRangePicker {
                   this.flatpickrInstance2.selectedDates[0],
                 ]);
               } else {
-                //If the value inserted is a correct date, update the second input value
+                /** If the value inserted is a correct date, update the second input value */
                 if (!Number.isNaN(isDate)) {
                   this.flatpickrInstance.setDate([
                     text,
@@ -614,12 +586,11 @@ export class ZRangePicker {
   render() {
     return (
       <div
-        class={classNames(
-          "flatpickr-toggle-container",
-          this.hasChildren && this.rangepickerid,
-          this.mode,
-          this.activeInput
-        )}
+        class={{
+          "flatpickr-toggle-container": true,
+          [this.mode]: true,
+          [this.activeInput]: true,
+        }}
       >
         {this.renderZRangeInput()}
       </div>

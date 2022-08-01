@@ -20,12 +20,13 @@ z-range-picker {
   position: relative;
 }
 
-z-range-picker > div > * {
-  cursor: pointer !important;
-}
-
 .flatpickr-toggle-container {
   width: fit-content;
+}
+
+.range-picker-container > div {
+  cursor: pointer !important;
+  position: relative;
 }
 
 .hidden-input {
@@ -48,11 +49,11 @@ z-range-picker > div > * {
   position: absolute !important;
 
   border-radius: 2px;
-  box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.4);
+  box-shadow: 0 2px 4px 0 rgba(66, 69, 72, 0.4);
 
   padding-top: calc(var(--space-unit) * 2);
 
-  left: 0px !important;
+  left: 0 !important;
   top: var(--toggle-height) !important;
 }
 
@@ -68,12 +69,9 @@ z-range-picker > div > * {
   top: -523px !important;
 }
 
-.start-input > div > div > .flatpickr-calendar {
-  left: 0 !important;
-}
-
+.start-input > div > div > .flatpickr-calendar,
 .end-input > div > div > .flatpickr-calendar {
-  left: 258px !important;
+  left: 0 !important;
 }
 
 .flatpickr-calendar,
