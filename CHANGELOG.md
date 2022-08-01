@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.4](https://github.com/ZanichelliEditore/design-system/compare/v4.0.3...v4.0.4) (2022-08-01)
+
+
+### Bug Fixes
+
+* removed offset setting ([720b026](https://github.com/ZanichelliEditore/design-system/commit/720b026394be815846df4b30c100d2c32ff2855d))
+
 ### [4.0.3](https://github.com/ZanichelliEditore/design-system/compare/v4.0.2...v4.0.3) (2022-07-29)
 
 
