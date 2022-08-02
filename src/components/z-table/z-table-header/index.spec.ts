@@ -62,7 +62,7 @@ describe("Suite test ZTableHeader", () => {
             <slot></slot>
           </div>
           <div class="popover-container">
-          <z-button-deprecated class="contextual-popover-button" icon="contextual-menu" size="x-small" square="" variant="tertiary"></z-button-deprecated>
+          <z-button class="contextual-popover-button" icon="contextual-menu" size="x-small" variant="tertiary"></z-button>
           <z-popover center="" position="bottom">
             <div>
               <slot name="contextual-menu"></slot>

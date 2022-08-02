@@ -20,9 +20,9 @@ describe("Suite test ZDatePicker", () => {
     const page = await newSpecPage({
       components: [ZDatePicker],
       html: `<z-date-picker datepickerid="picker-02">
-        <z-button-deprecated slot="toggle">
+        <z-button slot="toggle">
           Open z-date-picker
-        </z-button-deprecated>
+        </z-button>
       </z-date-picker>`,
     });
 
@@ -30,9 +30,9 @@ describe("Suite test ZDatePicker", () => {
       <div class="bottom date flatpickr-toggle-container picker-02">
         <div>
           <input class="hidden-input" data-input>
-          <z-button-deprecated data-toggle="data-toggle" slot="toggle">
+          <z-button data-toggle="data-toggle" slot="toggle">
             Open z-date-picker
-          </z-button-deprecated>
+          </z-button>
         </div>
       </div>
     </z-date-picker>`);

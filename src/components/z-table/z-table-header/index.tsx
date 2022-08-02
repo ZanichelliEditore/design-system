@@ -146,15 +146,14 @@ export class ZTableHeader {
         {this.showButton && (
           <div class='popover-container'
           >
-            <z-button-deprecated
+            <z-button
               ref={(el) => (this.triggerButton = el as HTMLZPopoverElement) }
               class="contextual-popover-button"
               icon="contextual-menu"
               variant={ButtonVariantEnum["tertiary"]}
               size={ButtonSizeEnum["x-small"]}
-              square
               onClick={() => this.handleMenuClick()}
-            ></z-button-deprecated>
+            ></z-button>
 
             <z-popover
               ref={(el) => (this.popover = el as HTMLZPopoverElement) }

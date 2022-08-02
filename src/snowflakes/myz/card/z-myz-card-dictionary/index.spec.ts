@@ -19,7 +19,7 @@ describe("Suite test ZMyzCardDictionary", () => {
                   <z-myz-card-body>
                     <z-myz-card-cover slot="cover"></z-myz-card-cover>
                   </z-myz-card-body>
-                  <z-button-deprecated variant="secondary" icon="informationsource" issmall="">INFO</z-button-deprecated>
+                  <z-button variant="secondary" icon="informationsource" size="x-small">INFO</z-button>
                 </div>
                 <div class="back">
                   <slot name="info"></slot>
@@ -49,7 +49,7 @@ describe("Suite test ZMyzCardDictionary", () => {
                   <z-myz-card-body>
                     <z-myz-card-cover titolo="title" img="img-url" slot="cover" faded=""></z-myz-card-cover>
                   </z-myz-card-body>
-                  <z-button-deprecated variant="secondary" icon="informationsource" issmall="">INFO</z-button-deprecated>
+                  <z-button variant="secondary" icon="informationsource" size="x-small">INFO</z-button>
                 </div>
                 <div class="back">
                   <slot name="info"></slot>
@@ -79,7 +79,7 @@ describe("Suite test ZMyzCardDictionary", () => {
                   <z-myz-card-body>
                     <z-myz-card-cover titolo="title" img="img-url" slot="cover"></z-myz-card-cover>
                   </z-myz-card-body>
-                  <z-button-deprecated disabled variant="secondary" icon="informationsource" issmall="">INFO</z-button-deprecated>
+                  <z-button disabled variant="secondary" icon="informationsource" size="x-small">INFO</z-button>
                 </div>
                 <div class="back">
                   <slot name="info"></slot>
@@ -109,7 +109,7 @@ describe("Suite test ZMyzCardDictionary", () => {
                   <z-myz-card-body>
                     <z-myz-card-cover titolo="title" img="img-url" slot="cover" faded=""></z-myz-card-cover>
                   </z-myz-card-body>
-                  <z-button-deprecated class="hideInfo" variant="secondary" icon="informationsource" issmall="">INFO</z-button-deprecated>
+                  <z-button class="hideInfo" variant="secondary" icon="informationsource" size="x-small">INFO</z-button>
                 </div>
                 <div class="back">
                   <slot name="info"></slot>

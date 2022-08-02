@@ -103,13 +103,18 @@ footer > section > div {
   margin-top: var(--space-unit);
 }
 
-#extension z-button-deprecated {
+#extension z-button {
   margin-left: var(--space-unit);
 }
 
 div.limited-width {
   margin: auto;
   max-width: var(--mw);
+}
+
+z-button {
+  --color-primary01: var(--gray600);
+  --color-hover-primary: var(--gray700);
 }
 
 /* Tablet breakpoint */

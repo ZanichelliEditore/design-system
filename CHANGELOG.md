@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.4](https://github.com/ZanichelliEditore/design-system/compare/v4.0.3...v4.0.4) (2022-08-01)
+
+
+### Bug Fixes
+
+* removed offset setting ([720b026](https://github.com/ZanichelliEditore/design-system/commit/720b026394be815846df4b30c100d2c32ff2855d))
+
+### [4.0.3](https://github.com/ZanichelliEditore/design-system/compare/v4.0.2...v4.0.3) (2022-07-29)
+
+
+### Bug Fixes
+
+* storybook component deadline ([203f72a](https://github.com/ZanichelliEditore/design-system/commit/203f72a761d42ee7c6d57acf9e0efe9e36f8af88))
+
+### [4.0.2](https://github.com/ZanichelliEditore/design-system/compare/v4.0.1...v4.0.2) (2022-07-21)
+
+
+### Bug Fixes
+
+* added type button to icon buttons to prevent form submit ([35e911a](https://github.com/ZanichelliEditore/design-system/commit/35e911a066e73c44d6837fc682cb827fe7f64592))
+
+### [4.0.1](https://github.com/ZanichelliEditore/design-system/compare/v4.0.0...v4.0.1) (2022-07-19)
+
+
+### Bug Fixes
+
+* update font-size ([bbfd83a](https://github.com/ZanichelliEditore/design-system/commit/bbfd83a2a6214b6f69147fe74fe224deff980d7e))
+* update padding ([5a132ca](https://github.com/ZanichelliEditore/design-system/commit/5a132cad16de9f0c798ff155d6d0406ced12dc11))
+* update test ([43460ea](https://github.com/ZanichelliEditore/design-system/commit/43460eaf66a2d24fe669b2a4a1da17fb3f8fa130))
+
 ### [4.0.0](https://github.com/ZanichelliEditore/design-system/compare/v3.2.2...v4.0.0) (2022-07-19)
 
 
