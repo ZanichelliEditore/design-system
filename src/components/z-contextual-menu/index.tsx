@@ -14,7 +14,7 @@ import { PopoverPositions } from "../../beans";
 })
 export class ZContextualMenu {
   /**
-   *  elements of ZContextualMenu
+   * Elements of ZContextualMenu
    */
   @Prop() elements?: string;
 

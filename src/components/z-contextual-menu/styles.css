@@ -1,4 +1,5 @@
 :host {
+  display: flex;
   position: relative;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
@@ -12,8 +13,7 @@ button {
 }
 
 z-popover {
-  --z-popover-shadow-filter: none;
-  --z-popover-padding: 0 var(--space-unit);
+  overflow: hidden;
 }
 
 .popover-content-container {
@@ -21,14 +21,13 @@ z-popover {
   min-width: 112px;
   max-width: 280px;
   white-space: nowrap;
-  padding: calc(var(--space-unit) / 2) 0;
-  background-color: var(--gray50);
+  background-color: var(--color-surface02);
   box-shadow: var(--shadow-2);
 }
 
 .element-container:hover {
-  color: var(--myz-blue-dark);
-  fill: var(--myz-blue-dark);
+  color: var(--color-hover-primary);
+  fill: var(--color-hover-primary);
 }
 
 .element-text {
