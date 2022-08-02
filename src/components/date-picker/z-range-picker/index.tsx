@@ -46,7 +46,6 @@ export class ZRangePicker {
   @Listen("click", { target: "body", capture: true })
   handleClick() {
     this.getFocusedInput();
-    this.addClassToInput();
   }
 
   @Listen("keydown", { target: "body", capture: true })
@@ -136,27 +135,19 @@ export class ZRangePicker {
     this.flatpickrInstance = flatpickr(`.${this.rangePickerId}-container`, {
       ...config,
       mode: "multiple",
-      appendTo: this.element.children[0].children[0].children[0] as HTMLElement,
+      appendTo: this.element.querySelector(`.${this.rangePickerId}-container`),
     });
     this.flatpickrInstance2 = flatpickr(`.${this.rangePickerId}-container-2`, {
       ...config,
       mode: "multiple",
-      appendTo: this.element.children[0].children[0].children[1] as HTMLElement,
+      appendTo: this.element.querySelector(
+        `.${this.rangePickerId}-container-2`
+      ),
     });
 
     this.element.querySelectorAll(".flatpickr-weekday").forEach((element) => {
       element.innerHTML = element.innerHTML.trim().charAt(0);
     });
-  }
-
-  addClassToInput() {
-    this.element
-      .querySelector(`#input-${this.rangePickerId}`)
-      .classList.add("start-input", this.rangePickerId);
-
-    this.element
-      .querySelector(`#input-${this.rangePickerId}-2`)
-      .classList.add("end-input", `${this.rangePickerId}-2`);
   }
 
   onDateSelect(selectedDates, instance) {
@@ -364,11 +355,14 @@ export class ZRangePicker {
 
   /** Get the current focused input, first or last */
   getFocusedInput() {
-    if (document.activeElement.matches(`.start-input.${this.rangePickerId}`)) {
-      this.activeInput = "start-input";
+    const focusedZInput = document.activeElement.closest("z-input");
+    if (!focusedZInput) {
+      return;
     }
 
-    if (document.activeElement.matches(`.end-input.${this.rangePickerId}-2`)) {
+    if (focusedZInput?.classList.contains("start-input")) {
+      this.activeInput = "start-input";
+    } else if (focusedZInput.classList.contains("end-input")) {
       this.activeInput = "end-input";
     }
   }
@@ -534,7 +528,6 @@ export class ZRangePicker {
         <div class={`${this.rangePickerId}-container`}>
           <input class="hidden-input" data-input></input>
           <z-input
-            htmlid={`input-${this.rangePickerId}`}
             class={`start-input ${this.rangePickerId}`}
             type="text"
             icon="event"
@@ -549,7 +542,6 @@ export class ZRangePicker {
         <div class={`${this.rangePickerId}-container-2`}>
           <input class="hidden-input" data-input></input>
           <z-input
-            htmlid={`input-${this.rangePickerId}-2`}
             class={`end-input ${this.rangePickerId}-2`}
             type="text"
             icon="event"
