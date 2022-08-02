@@ -1,0 +1,17 @@
+z-popover-deprecated .container z-button-deprecated:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.popover-container {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+}
+
+.popover-container z-icon {
+  --z-icon-width: 32px;
+  --z-icon-height: 32px;
+}

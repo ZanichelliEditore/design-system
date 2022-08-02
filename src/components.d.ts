@@ -1515,6 +1515,28 @@ export namespace Components {
          */
         "showArrow": boolean;
     }
+    interface ZPopoverDeprecated {
+        /**
+          * The selector or the element bound with the popover.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Whether center the popup on the main side - according to "position".
+         */
+        "center": boolean;
+        /**
+          * The open state of the popover.
+         */
+        "open": boolean;
+        /**
+          * Popover position.
+         */
+        "position": PopoverPositions;
+        /**
+          * Whether to show popover's arrow.
+         */
+        "showArrow": boolean;
+    }
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
@@ -2374,6 +2396,12 @@ declare global {
         prototype: HTMLZPopoverElement;
         new (): HTMLZPopoverElement;
     };
+    interface HTMLZPopoverDeprecatedElement extends Components.ZPopoverDeprecated, HTMLStencilElement {
+    }
+    var HTMLZPopoverDeprecatedElement: {
+        prototype: HTMLZPopoverDeprecatedElement;
+        new (): HTMLZPopoverDeprecatedElement;
+    };
     interface HTMLZSectionTitleElement extends Components.ZSectionTitle, HTMLStencilElement {
     }
     var HTMLZSectionTitleElement: {
@@ -2620,6 +2648,7 @@ declare global {
         "z-pocket-header": HTMLZPocketHeaderElement;
         "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
+        "z-popover-deprecated": HTMLZPopoverDeprecatedElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
@@ -4359,6 +4388,36 @@ declare namespace LocalJSX {
          */
         "showArrow"?: boolean;
     }
+    interface ZPopoverDeprecated {
+        /**
+          * The selector or the element bound with the popover.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Whether center the popup on the main side - according to "position".
+         */
+        "center"?: boolean;
+        /**
+          * Open change event.
+         */
+        "onOpenChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Position change event.
+         */
+        "onPositionChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The open state of the popover.
+         */
+        "open"?: boolean;
+        /**
+          * Popover position.
+         */
+        "position"?: PopoverPositions;
+        /**
+          * Whether to show popover's arrow.
+         */
+        "showArrow"?: boolean;
+    }
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
@@ -4858,6 +4917,7 @@ declare namespace LocalJSX {
         "z-pocket-header": ZPocketHeader;
         "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
+        "z-popover-deprecated": ZPopoverDeprecated;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
         "z-skip-to-content": ZSkipToContent;
@@ -4969,6 +5029,7 @@ declare module "@stencil/core" {
             "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
+            "z-popover-deprecated": LocalJSX.ZPopoverDeprecated & JSXBase.HTMLAttributes<HTMLZPopoverDeprecatedElement>;
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
