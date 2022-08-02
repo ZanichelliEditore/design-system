@@ -358,12 +358,17 @@ export class ZRangePicker {
     if (this.activeInput === "start-input") {
       /** Remove second value from either the flatpickers if input is cleared */
       if (text === "") {
-        this.flatpickrInstance.setDate([
-          this.flatpickrInstance.selectedDates[0],
-        ]);
-        this.flatpickrInstance2.setDate([
-          this.flatpickrInstance2.selectedDates[1],
-        ]);
+        if (this.flatpickrInstance.selectedDates.length === 1) {
+          this.flatpickrInstance.setDate([]);
+          this.flatpickrInstance2.setDate([]);
+        } else {
+          this.flatpickrInstance.setDate([
+            this.flatpickrInstance.selectedDates[0],
+          ]);
+          this.flatpickrInstance2.setDate([
+            this.flatpickrInstance2.selectedDates[1],
+          ]);
+        }
       } else {
         /** If the value inserted is a correct date, update the first input value */
         if (!Number.isNaN(isDate)) {
@@ -388,12 +393,17 @@ export class ZRangePicker {
     } else {
       /** Remove second value from either the flatpickers if input is cleared */
       if (text === "") {
-        this.flatpickrInstance.setDate([
-          this.flatpickrInstance.selectedDates[1],
-        ]);
-        this.flatpickrInstance2.setDate([
-          this.flatpickrInstance2.selectedDates[0],
-        ]);
+        if (this.flatpickrInstance2.selectedDates.length === 1) {
+          this.flatpickrInstance.setDate([]);
+          this.flatpickrInstance2.setDate([]);
+        } else {
+          this.flatpickrInstance.setDate([
+            this.flatpickrInstance.selectedDates[1],
+          ]);
+          this.flatpickrInstance2.setDate([
+            this.flatpickrInstance2.selectedDates[0],
+          ]);
+        }
       } else {
         /** If the value inserted is a correct date, update the second input value */
         if (!Number.isNaN(isDate)) {
@@ -418,9 +428,16 @@ export class ZRangePicker {
     }
   }
 
-  renderZRangeInput() {
+  render() {
     return (
-      <div class="range-picker-container">
+      <div
+        class={{
+          ["range-picker-container"]: true,
+          [this.mode]: true,
+          [this.activeInput]: true,
+          [this.flatpickrPosition]: true,
+        }}
+      >
         <div class={`${this.rangePickerId}-container`}>
           <input class="hidden-input" data-input></input>
           <z-input
@@ -449,19 +466,6 @@ export class ZRangePicker {
             }}
           />
         </div>
-      </div>
-    );
-  }
-
-  render() {
-    return (
-      <div
-        class={{
-          [this.mode]: true,
-          [this.activeInput]: true,
-        }}
-      >
-        {this.renderZRangeInput()}
       </div>
     );
   }

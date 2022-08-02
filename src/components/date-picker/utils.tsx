@@ -25,6 +25,9 @@ export function setFlatpickrPosition(
   const overflowBottom = bottom + flatpickrHeight > window.innerHeight;
   const overflowTop = bottom - flatpickrHeight - toggleHeight < 0;
 
+  console.log("overflowTop", overflowTop);
+  console.log("overflowBottom", overflowBottom);
+
   if (!overflowTop && overflowBottom) {
     return ZDatePickerPosition.top;
   } else {

@@ -61,11 +61,13 @@ z-range-picker {
   top: -288px !important;
 }
 
-.date.top > .flatpickr-calendar {
+.date.top > .flatpickr-calendar,
+.date.top > div > .flatpickr-calendar {
   top: -401px !important;
 }
 
-.date-time.top > .flatpickr-calendar {
+.date-time.top > .flatpickr-calendar,
+.date-time.top > div > .flatpickr-calendar {
   top: -523px !important;
 }
 
