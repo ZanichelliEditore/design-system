@@ -455,10 +455,6 @@ export enum ZDatePickerPosition {
   top = "top",
   bottom = "bottom",
 }
-export enum RangePickerActiveInput {
-  startInput = "start-input",
-  endInput = "end-input",
-}
 
 export declare type SkipToContentLink = {
   label: string;

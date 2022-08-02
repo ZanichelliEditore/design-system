@@ -261,14 +261,14 @@ z-range-picker {
 .flatpickr-day.selected:hover,
 .flatpickr-monthSelect-month:hover,
 .flatpickr-monthSelect-month:focus {
-  background-color: var(--myz-blue-dark) !important;
-  border-color: var(--myz-blue-dark) !important;
+  background-color: var(--color-hover-primary) !important;
+  border-color: var(--color-hover-primary) !important;
   color: var(--color-white) !important;
 }
 
 .flatpickr-day.today,
 .flatpickr-monthSelect-month.today {
-  border: 2px solid var(--myz-blue-dark) !important;
+  border: 2px solid var(--color-hover-primary) !important;
 }
 
 .flatpickr-day.selected,
@@ -415,30 +415,30 @@ z-range-picker {
 .flatpickr-day.today.inRange,
 .flatpickr-day.prevMonthDay.inRange,
 .flatpickr-monthSelect-month.inRange {
-  background-color: var(--myz-blue-lighter) !important;
-  border-color: var(--myz-blue-lighter) !important;
+  background-color: var(--color-primary03) !important;
+  border-color: var(--color-primary03) !important;
 }
 
 .flatpickr-day.inRange:hover,
 .flatpickr-day.today.inRange:hover,
 .flatpickr-day.prevMonthDay.inRange:hover,
 .flatpickr-monthSelect-month.inRange:hover {
-  background-color: var(--myz-blue-dark) !important;
-  border-color: var(--myz-blue-dark) !important;
+  background-color: var(--color-hover-primary) !important;
+  border-color: var(--color-hover-primary) !important;
 }
 
 .flatpickr-day.startRange,
 .flatpickr-day.endRange,
 .flatpickr-monthSelect-month.startRange,
 .flatpickr-monthSelect-month.endRange {
-  background-color: var(--myz-blue) !important;
-  border-color: var(--myz-blue) !important;
+  background-color: var(--color-primary01) !important;
+  border-color: var(--color-primary01) !important;
 }
 
 .flatpickr-day.prevMonthDay.selected.startRange,
 .flatpickr-day.prevMonthDay.selected.endRange {
-  background-color: var(--myz-blue) !important;
-  border-color: var(--myz-blue) !important;
+  background-color: var(--color-primary01) !important;
+  border-color: var(--color-primary01) !important;
 }
 
 .flatpickr-range.second-input {
