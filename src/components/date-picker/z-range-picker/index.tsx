@@ -12,12 +12,8 @@ import {
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
 
-import {
-  ZDatePickerMode,
-  ZDatePickerModeValues,
-  ZDatePickerPosition,
-} from "../../../beans";
-import { setAriaOptions } from "../utils";
+import { ZDatePickerMode, ZDatePickerPosition } from "../../../beans";
+import { setAriaOptions, setFlatpickrPosition } from "../utils";
 
 @Component({
   tag: "z-range-picker",
@@ -116,7 +112,7 @@ export class ZRangePicker {
       },
       onOpen: () => {
         setAriaOptions(this.element, this.mode);
-        this.setFlatpickrPosition();
+        this.flatpickrPosition = setFlatpickrPosition(this.element, this.mode);
         this.setRangeStyle();
         this.getFocusedInput();
         this.getCurrentMonth();
@@ -224,29 +220,6 @@ export class ZRangePicker {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
     } else {
       return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
-    }
-  }
-
-  setFlatpickrPosition() {
-    const toggleHeight = this.element.children[0].clientHeight;
-    this.element.style.setProperty(
-      "--z-range-picker--toggle-height",
-      `${toggleHeight}px`
-    );
-
-    const flatpickrHeight =
-      this.mode === ZDatePickerMode.dateTime
-        ? ZDatePickerModeValues.DATETIME
-        : ZDatePickerModeValues.DATE;
-
-    const bottom = this.element.getBoundingClientRect().bottom;
-    const overflowBottom = bottom + flatpickrHeight > window.innerHeight;
-    const overflowTop = bottom - flatpickrHeight - toggleHeight < 0;
-
-    if (!overflowTop && overflowBottom) {
-      this.flatpickrPosition = ZDatePickerPosition.top;
-    } else {
-      this.flatpickrPosition = ZDatePickerPosition.bottom;
     }
   }
 
