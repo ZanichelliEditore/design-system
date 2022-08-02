@@ -26,7 +26,7 @@ export class ZDatePicker {
   @Element() element: HTMLElement;
 
   /** unique id */
-  @Prop() datepickerid: string;
+  @Prop() datePickerId: string;
 
   /** z-input aria label */
   @Prop() ariaLabel?: string;
@@ -114,7 +114,7 @@ export class ZDatePicker {
   }
 
   componentDidLoad() {
-    this.flatpickrInstance = flatpickr(`.${this.datepickerid}`, {
+    this.flatpickrInstance = flatpickr(`.${this.datePickerId}`, {
       appendTo: this.element.children[0] as HTMLElement,
       enableTime: this.mode === ZDatePickerMode.dateTime,
       locale: Italian,
@@ -162,7 +162,7 @@ export class ZDatePicker {
       <z-input
         ariaLabel={this.ariaLabel}
         label={this.label}
-        class={classNames(this.datepickerid)}
+        class={classNames(this.datePickerId)}
         type="text"
         icon="event"
         message={false}
@@ -176,7 +176,7 @@ export class ZDatePicker {
       <div
         class={classNames(
           "flatpickr-toggle-container",
-          this.hasChildren && this.datepickerid,
+          this.hasChildren && this.datePickerId,
           this.flatpickrPosition,
           this.mode
         )}

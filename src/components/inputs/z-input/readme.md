@@ -119,6 +119,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute        | Description                                                                                                                           | Type                                                                                 | Default                |
@@ -128,7 +129,7 @@
 | `checked`       | `checked`        | checked: available for checkbox, radio                                                                                                | `boolean`                                                                            | `false`                |
 | `disabled`      | `disabled`       | the input is disabled                                                                                                                 | `boolean`                                                                            | `false`                |
 | `hasclearicon`  | `hasclearicon`   | render clear icon when typing (optional): available for text                                                                          | `boolean`                                                                            | `true`                 |
-| `htmlid`        | `htmlid`         | the id of the input element                                                                                                           | `string`                                                                             | `id-${randomId()}`     |
+| `htmlid`        | `htmlid`         | the id of the input element                                                                                                           | `string`                                                                             | ``id-${randomId()}``   |
 | `htmltitle`     | `htmltitle`      | the input html title (optional)                                                                                                       | `string`                                                                             | `undefined`            |
 | `icon`          | `icon`           | render icon (optional): available for text                                                                                            | `string`                                                                             | `undefined`            |
 | `label`         | `label`          | the input label                                                                                                                       | `string`                                                                             | `undefined`            |
@@ -142,6 +143,7 @@
 | `type`          | `type`           | input types                                                                                                                           | `"checkbox" \| "email" \| "number" \| "password" \| "radio" \| "text" \| "textarea"` | `undefined`            |
 | `value`         | `value`          | the input value                                                                                                                       | `string`                                                                             | `undefined`            |
 
+
 ## Events
 
 | Event         | Description                                                                         | Type               |
@@ -150,6 +152,7 @@
 | `inputCheck`  | Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity | `CustomEvent<any>` |
 | `startTyping` | Emitted when user starts typing                                                     | `CustomEvent<any>` |
 | `stopTyping`  | Emitted when user stops typing, returns value, validity                             | `CustomEvent<any>` |
+
 
 ## Methods
 
@@ -161,16 +164,19 @@ get checked status
 
 Type: `Promise<boolean>`
 
+
+
+
 ## Dependencies
 
 ### Used by
 
-- [z-combobox](../z-combobox)
-- [z-date-picker](../../date-picker/z-date-picker)
-- [z-modal-login](../../modal/z-modal-login)
-- [z-range-picker](../../date-picker/z-range-picker)
-- [z-pagination](../../z-pagination)
-- [z-select](../z-select)
+ - [z-combobox](../z-combobox)
+ - [z-date-picker](../../date-picker/z-date-picker)
+ - [z-modal-login](../../modal/z-modal-login)
+ - [z-pagination](../../z-pagination)
+ - [z-range-picker](../../date-picker/z-range-picker)
+ - [z-select](../z-select)
 
 ### Depends on
 
@@ -178,7 +184,6 @@ Type: `Promise<boolean>`
 - [z-input-message](../z-input-message)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-input --> z-icon
@@ -187,12 +192,12 @@ graph TD;
   z-combobox --> z-input
   z-date-picker --> z-input
   z-modal-login --> z-input
-  z-range-picker --> z-input
   z-pagination --> z-input
+  z-range-picker --> z-input
   z-select --> z-input
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

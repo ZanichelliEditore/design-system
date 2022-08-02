@@ -383,7 +383,7 @@ export namespace Components {
         /**
           * unique id
          */
-        "datepickerid": string;
+        "datePickerId": string;
         /**
           * z-input label
          */
@@ -3060,7 +3060,7 @@ declare namespace LocalJSX {
         /**
           * unique id
          */
-        "datepickerid"?: string;
+        "datePickerId"?: string;
         /**
           * z-input label
          */

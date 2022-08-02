@@ -27,6 +27,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute    | Description                                                                        | Type                                                                                                                            | Default                     |
@@ -42,33 +43,34 @@
 | `type`      | `type`       | HTML button type attribute.                                                        | `string`                                                                                                                        | `ButtonTypeEnum.button`     |
 | `variant`   | `variant`    | Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.      | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary \| typeof ButtonVariantEnum["dark-bg"]` | `ButtonVariantEnum.primary` |
 
+
 ## Slots
 
 | Slot | Description  |
 | ---- | ------------ |
 |      | button label |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-cookiebar](../../notification/z-cookiebar)
-- [z-file-upload](../../file-upload/z-file-upload)
-- [z-footer](../../footer/z-footer)
-- [z-modal-login](../../modal/z-modal-login)
-- [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
-- [z-myz-topbar](../../../snowflakes/myz/topbar)
-- [z-pagination](../../z-pagination)
-- [z-table](../../z-table/z-table)
-- [z-table-cell](../../z-table/z-table-cell)
-- [z-table-header](../../z-table/z-table-header)
+ - [z-cookiebar](../../notification/z-cookiebar)
+ - [z-file-upload](../../file-upload/z-file-upload)
+ - [z-footer](../../footer/z-footer)
+ - [z-modal-login](../../modal/z-modal-login)
+ - [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
+ - [z-myz-topbar](../../../snowflakes/myz/topbar)
+ - [z-pagination](../../z-pagination)
+ - [z-table](../../z-table/z-table)
+ - [z-table-cell](../../z-table/z-table-cell)
+ - [z-table-header](../../z-table/z-table-header)
 
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-button --> z-icon
@@ -85,6 +87,6 @@ graph TD;
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
