@@ -20,20 +20,24 @@ import { PopoverPositions } from "../../../beans";
 })
 export class ZTooltip {
   /** Tooltip position. */
-  @Prop({ reflect: true, mutable: true }) position: PopoverPositions = PopoverPositions.AUTO;
+  @Prop({ reflect: true, mutable: true })
+  position: PopoverPositions = PopoverPositions.AUTO;
 
   /** Enable tooltip dark mode. */
-  @Prop({ reflect: true }) dark = false;
+  @Prop({ reflect: true })
+  dark = false;
 
   /**
    * The open state of the tooltip.
    */
-  @Prop({ reflect: true, mutable: true }) open: boolean = false;
+  @Prop({ reflect: true, mutable: true })
+  open: boolean = false;
 
   /**
    * The selector or the element bound with the tooltip.
    */
-  @Prop() bindTo?: string | HTMLElement;
+  @Prop()
+  bindTo?: string | HTMLElement;
 
   render() {
     return <z-popover

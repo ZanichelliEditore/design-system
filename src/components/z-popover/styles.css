@@ -3,7 +3,6 @@
   --z-popover-theme--text: var(--color-text01);
   --z-popover-padding: var(--space-unit);
   --z-popover-shadow-filter: drop-shadow(0 1px 2px var(--shadow-color-base));
-  --arrow-size: 6px;
 
   position: relative;
   display: flex;
@@ -36,7 +35,6 @@
   transform: translateY(-50%);
 }
 
-
 :host([current-position^="top"]) {
   margin: 0 0 var(--space-unit);
 }
@@ -56,22 +54,21 @@
 /* Arrow style */
 
 :host([current-position])::before {
-  /* last calculus is the arrow diagonal (the arrow is a square) */
-  --arrow-diagonal: calc(var(--arrow-size) * 1.414);
-  --arrow-edge-offset: calc(100% - var(--space-unit) - var(--arrow-diagonal));
-  --arrow-center-x-offset: calc(50% - (var(--arrow-diagonal) / 2));
-  --arrow-center-y-offset: calc(100% - (var(--arrow-diagonal) / 2));
+  --arrow-size: 6px;
+  --arrow-edge-offset: calc(100% - var(--space-unit) - (var(--arrow-size) / 2));
+  --arrow-center-x-offset: calc(50% - (var(--arrow-size) / 2));
+  --arrow-center-y-offset: calc(100% - (var(--arrow-size) / 2));
 
   display: block;
   content: "";
   position: absolute;
-  width: var(--arrow-diagonal);
-  height: var(--arrow-diagonal);
+  width: var(--arrow-size);
+  height: var(--arrow-size);
   background: var(--z-popover-theme--surface);
-  transform: rotate(45deg) scale(0.707);
+  transform: rotate(45deg);
 }
 
-:host([show-arrow=false])::before,
+:host([show-arrow="false"])::before,
 :host(:not([show-arrow]))::before {
   display: none;
 }
@@ -86,12 +83,12 @@
 
 :host([current-position="top"])::before,
 :host([current-position="bottom"])::before {
-  left: var(--arrow-center-x-offset);
+  right: var(--arrow-edge-offset);
 }
 
 :host([current-position="right"])::before,
 :host([current-position="left"])::before {
-  top: var(--arrow-center-x-offset);
+  bottom: var(--arrow-edge-offset);
 }
 
 :host([current-position="right"])::before {
@@ -114,7 +111,7 @@
 
 :host([current-position="right_top"])::before,
 :host([current-position="left_top"])::before {
-  bottom: var(--arrow-diagonal);
+  top: var(--arrow-edge-offset);
 }
 
 :host([current-position="right_top"])::before,
@@ -129,7 +126,19 @@
 
 :host([current-position="right_bottom"])::before,
 :host([current-position="left_bottom"])::before {
-  top: var(--arrow-diagonal);
+  bottom: var(--arrow-edge-offset);
+}
+
+:host([center][current-position="top"])::before,
+:host([center][current-position="bottom"])::before {
+  right: auto;
+  left: var(--arrow-center-x-offset);
+}
+
+:host([center][current-position="right"])::before,
+:host([center][current-position="left"])::before {
+  top: var(--arrow-center-x-offset);
+  bottom: auto;
 }
 
 ::slotted(*) {
