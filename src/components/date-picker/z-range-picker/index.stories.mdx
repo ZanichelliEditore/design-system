@@ -32,17 +32,29 @@ import "../styles.css";
     height="180px"
   >
     {(args) => html`
-      <div style="height:300px; padding-top:40px">
-        <z-range-picker
-          mode=${args.mode}
-          rangePickerId=${args.rangePickerId}
-          id=${args.rangePickerId}
-        ></z-range-picker>
-      </div>
       <script>
         const picker1 = document.getElementById("${args.rangePickerId}");
-        picker1.addEventListener("dateSelect", (e) => console.log(e.detail));
+        picker1.addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = e.detail;
+        });
       </script>
+      <div style="display:flex">
+        <div style="height:300px; padding-top:40px">
+          <z-range-picker
+            mode=${args.mode}
+            rangePickerId=${args.rangePickerId}
+            id=${args.rangePickerId}
+          ></z-range-picker>
+        </div>
+        <div
+          style="display:flex; flex-direction: column; margin-left: 100px; border:1px solid black; width:400px; margin-top:40px; height:80px"
+        >
+          <span>OUTPUT:</span>
+          <br />
+          <span id="output" />
+        </div>
+      </div>
     `}
   </Story>
 </Canvas>

@@ -5,7 +5,7 @@
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 
-  --toggle-height: 0;
+  --z-range-picker--toggle-height: 0;
 }
 
 z-date-picker {
@@ -54,7 +54,7 @@ z-range-picker {
   padding-top: calc(var(--space-unit) * 2);
 
   left: 0 !important;
-  top: var(--toggle-height) !important;
+  top: var(--z-range-picker--toggle-height) !important;
 }
 
 .months.top > .flatpickr-calendar {

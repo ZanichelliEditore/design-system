@@ -309,7 +309,10 @@ export class ZRangePicker {
 
   setFlatpickrPosition() {
     const toggleHeight = this.element.children[0].clientHeight;
-    this.element.style.setProperty("--toggle-height", `${toggleHeight}px`);
+    this.element.style.setProperty(
+      "--z-range-picker--toggle-height",
+      `${toggleHeight}px`
+    );
 
     const flatpickrHeight =
       this.mode === ZDatePickerMode.dateTime
@@ -561,7 +564,6 @@ export class ZRangePicker {
     return (
       <div
         class={{
-          "flatpickr-toggle-container": true,
           [this.mode]: true,
           [this.activeInput]: true,
         }}
