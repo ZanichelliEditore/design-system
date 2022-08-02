@@ -132,45 +132,53 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
 })
 export class ZPopover {
   /** Popover position. */
-  @Prop({ reflect: true, mutable: true }) position: PopoverPositions =
-    PopoverPositions.AUTO;
+  @Prop({ reflect: true, mutable: true })
+  position: PopoverPositions = PopoverPositions.AUTO;
 
   /**
    * The open state of the popover.
    */
-  @Prop({ reflect: true, mutable: true }) open: boolean = false;
+  @Prop({ reflect: true, mutable: true })
+  open: false;
 
   /**
    * The selector or the element bound with the popover.
    */
-  @Prop() bindTo?: string | HTMLElement;
+  @Prop()
+  bindTo?: string | HTMLElement;
 
   /**
    * Whether to show popover's arrow.
    */
-  @Prop({ reflect: true }) showArrow: boolean = false;
+  @Prop({ reflect: true })
+  showArrow: false;
 
   /**
    * Whether to center the popup on the main side (according to "position").
    */
-  @Prop({ reflect: true }) center: boolean = false;
+  @Prop({ reflect: true })
+  center: false;
 
   /**
    * The current position of the popover.
    */
-  @State() currentPosition?: PopoverPositions;
+  @State()
+  currentPosition?: PopoverPositions;
 
   /**
    * Position change event.
    */
-  @Event() positionChange: EventEmitter;
+  @Event()
+  positionChange: EventEmitter;
 
   /**
    * Open change event.
    */
-  @Event() openChange: EventEmitter;
+  @Event()
+  openChange: EventEmitter;
 
-  @Element() host: HTMLElement;
+  @Element()
+  host: HTMLElement;
 
   private animationFrameRequestId?: number;
 

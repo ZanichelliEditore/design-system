@@ -26,30 +26,49 @@
   display: none;
 }
 
-:host([center][current-position='top']),
-:host([center][current-position='bottom']) {
+:host([center][current-position="top"]),
+:host([center][current-position="bottom"]) {
   transform: translateX(-50%);
 }
 
-:host([center][current-position='right']),
-:host([center][current-position='left']) {
+:host([center][current-position="right"]),
+:host([center][current-position="left"]) {
   transform: translateY(-50%);
+}
+
+
+:host([current-position^="top"]) {
+  margin: 0 0 var(--space-unit);
+}
+
+:host([current-position^="bottom"]) {
+  margin: var(--space-unit) 0 0;
+}
+
+:host([current-position^="left"]) {
+  margin: 0 var(--space-unit) 0 0;
+}
+
+:host([current-position^="right"]) {
+  margin: 0 0 0 var(--space-unit);
 }
 
 /* Arrow style */
 
 :host([current-position])::before {
-  --arrow-edge-offset: calc(100% - var(--arrow-size) - var(--space-unit));
-  --arrow-center-x-offset: calc(50% - calc(var(--arrow-size) / 2));
-  --arrow-center-y-offset: calc(100% - calc(var(--arrow-size) / 2));
+  /* last calculus is the arrow diagonal (the arrow is a square) */
+  --arrow-diagonal: calc(var(--arrow-size) * 1.414);
+  --arrow-edge-offset: calc(100% - var(--space-unit) - var(--arrow-diagonal));
+  --arrow-center-x-offset: calc(50% - (var(--arrow-diagonal) / 2));
+  --arrow-center-y-offset: calc(100% - (var(--arrow-diagonal) / 2));
 
   display: block;
-  content: '';
+  content: "";
   position: absolute;
-  width: var(--arrow-size);
-  height: var(--arrow-size);
+  width: var(--arrow-diagonal);
+  height: var(--arrow-diagonal);
   background: var(--z-popover-theme--surface);
-  transform: rotate(45deg);
+  transform: rotate(45deg) scale(0.707);
 }
 
 :host([show-arrow=false])::before,
@@ -57,74 +76,60 @@
   display: none;
 }
 
-:host([current-position^='top'])::before {
+:host([current-position^="top"])::before {
   top: var(--arrow-center-y-offset);
 }
 
-:host([current-position^='bottom'])::before {
+:host([current-position^="bottom"])::before {
   bottom: var(--arrow-center-y-offset);
 }
 
-:host([current-position='top'])::before,
-:host([current-position='bottom'])::before {
+:host([current-position="top"])::before,
+:host([current-position="bottom"])::before {
   left: var(--arrow-center-x-offset);
 }
 
-:host([current-position='right'])::before,
-:host([current-position='left'])::before {
+:host([current-position="right"])::before,
+:host([current-position="left"])::before {
   top: var(--arrow-center-x-offset);
 }
 
-:host([current-position='right'])::before {
+:host([current-position="right"])::before {
   right: var(--arrow-center-y-offset);
 }
 
-:host([current-position='left'])::before {
+:host([current-position="left"])::before {
   left: var(--arrow-center-y-offset);
 }
 
-:host([current-position='top_right'])::before,
-:host([current-position='bottom_right'])::before {
-  right: calc(var(--arrow-edge-offset) + var(--arrow-size));
+:host([current-position="top_right"])::before,
+:host([current-position="bottom_right"])::before {
+  right: var(--arrow-edge-offset);
 }
 
-:host([current-position='top_right']:not([center]))::before,
-:host([current-position='bottom_right']:not([center]))::before,
-:host([current-position='top_right'][center="false"])::before,
-:host([current-position='bottom_right'][center="false"])::before {
-  right: calc(var(--arrow-edge-offset) - var(--arrow-size) + 1px);
+:host([current-position="top_left"])::before,
+:host([current-position="bottom_left"])::before {
+  left: var(--arrow-edge-offset);
 }
 
-:host([current-position='top_left'])::before,
-:host([current-position='bottom_left'])::before {
-  left: calc(var(--arrow-edge-offset) + var(--arrow-size));
+:host([current-position="right_top"])::before,
+:host([current-position="left_top"])::before {
+  bottom: var(--arrow-diagonal);
 }
 
-:host([current-position='top_left']:not([center]))::before,
-:host([current-position='bottom_left']:not([center]))::before,
-:host([current-position='top_left'][center="false"])::before,
-:host([current-position='bottom_left'][center="false"])::before {
-  left: calc(var(--arrow-edge-offset) - var(--arrow-size) + 1px);
-}
-
-:host([current-position='right_top'])::before,
-:host([current-position='left_top'])::before {
-  bottom: var(--arrow-size);
-}
-
-:host([current-position='right_top'])::before,
-:host([current-position='right_bottom'])::before {
+:host([current-position="right_top"])::before,
+:host([current-position="right_bottom"])::before {
   right: var(--arrow-center-y-offset);
 }
 
-:host([current-position='left_top'])::before,
-:host([current-position='left_bottom'])::before {
+:host([current-position="left_top"])::before,
+:host([current-position="left_bottom"])::before {
   left: var(--arrow-center-y-offset);
 }
 
-:host([current-position='right_bottom'])::before,
-:host([current-position='left_bottom'])::before {
-  top: var(--arrow-size);
+:host([current-position="right_bottom"])::before,
+:host([current-position="left_bottom"])::before {
+  top: var(--arrow-diagonal);
 }
 
 ::slotted(*) {

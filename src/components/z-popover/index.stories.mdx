@@ -5,9 +5,9 @@ import { getColorTokens } from "../../utils/storybook-utils";
 import "./index.stories.css";
 import "./index";
 
-## Stories
+## ZPopover
 
-To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
+To be sure the AUTO algorithm finds the right container when calculating the position, set its container's position to `position: relative;`
 
 <Meta
   title="ZPopover"
@@ -15,28 +15,28 @@ To be sure the algorithm finds the right container, when calculating the positio
   argTypes={{
     position: {
       options: Object.values(PopoverPositions),
-      control: { type: "inline-radio"},
+      control: { type: "select" },
     },
     open: {
-      control: { type: "boolean"},
+      control: { type: "boolean" },
     },
     center: {
-      control: { type: "boolean"},
+      control: { type: "boolean" },
     },
     showArrow: {
-      control: { type: "boolean"},
+      control: { type: "boolean" },
     },
     "--z-popover-theme--surface": {
       options: getColorTokens(),
       control: {
         type: "select",
-      }
+      },
     },
     "--z-popover-theme--text": {
       options: getColorTokens(),
       control: {
         type: "select",
-      }
+      },
     },
   }}
 />
@@ -44,40 +44,15 @@ To be sure the algorithm finds the right container, when calculating the positio
 # ZPopover
 
 <Canvas>
-  <Story name="contextual-menu-like" args={{
-    position: PopoverPositions.RIGHT_BOTTOM,
-    open: true,
-  }}>
-  {(args) => html`
-      <div class="popover-container">
-        <z-popover
-          .position=${args.position}
-          .open=${args.open}
-          .center=${args.center}
-          .showArrow=${args.showArrow}
-          bind-to="#icon"
-        >
-          <div class="container">
-            <z-button slot="trigger" icon="gear">
-              Impostazioni
-            </z-button>
-          </div>
-        </z-popover>
-        <z-icon id="icon" name="plus-square-filled"></z-icon>
-      </div>
-    `}
-  </Story>
-</Canvas>
-
-# ZPopover as ZTooltip
-
-<Canvas>
-  <Story name="tooltip" args={{
-    position: PopoverPositions.AUTO,
-    open: true,
-    center: true,
-    showArrow: true,
-  }}>
+  <Story
+    name="contextual-menu-like"
+    args={{
+      position: PopoverPositions.RIGHT_BOTTOM,
+      open: true,
+      "--z-popover-theme--surface": "var(--color-surface01)",
+      "--z-popover-theme--text": "var(--color-text01)",
+    }}
+  >
     {(args) => html`
       <div class="popover-container">
         <z-popover
@@ -86,6 +61,8 @@ To be sure the algorithm finds the right container, when calculating the positio
           .center=${args.center}
           .showArrow=${args.showArrow}
           bind-to="#icon"
+          style="--z-popover-theme--surface: var(${args["--z-popover-theme--surface"]})
+          --z-popover-theme--text: var(${args["--z-popover-theme--text"]})"
         >
           <div class="container">
             <z-button slot="trigger" icon="gear">

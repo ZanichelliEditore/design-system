@@ -14,13 +14,3 @@ z-popover {
   --z-popover-theme--text: var(--z-tooltip-theme--text);
   --z-popover-shadow-filter: var(--z-tooltip-shadow-filter);
 }
-
-z-popover[current-position*='top'],
-z-popover[current-position*='bottom'] {
-  margin: 0.5rem 0;
-}
-
-z-popover[current-position*='left'],
-z-popover[current-position*='right'] {
-  margin: 0 0.5rem;
-}
