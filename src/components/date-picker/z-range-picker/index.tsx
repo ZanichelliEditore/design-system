@@ -17,6 +17,7 @@ import {
   ZDatePickerModeValues,
   ZDatePickerPosition,
 } from "../../../beans";
+import { setAriaOptions } from "../utils";
 
 @Component({
   tag: "z-range-picker",
@@ -114,7 +115,7 @@ export class ZRangePicker {
         this.onDateSelect(selectedDates, instance);
       },
       onOpen: () => {
-        this.setAriaOptions();
+        setAriaOptions(this.element, this.mode);
         this.setFlatpickrPosition();
         this.setRangeStyle();
         this.getFocusedInput();
@@ -127,7 +128,7 @@ export class ZRangePicker {
         this.setRangeStyle();
       },
       onKeyDown: () => {
-        this.setAriaOptions();
+        setAriaOptions(this.element, this.mode);
       },
       wrap: true,
     };
@@ -224,87 +225,6 @@ export class ZRangePicker {
     } else {
       return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
     }
-  }
-
-  setAriaOptions() {
-    let calendar = this.element.getElementsByClassName("flatpickr-calendar");
-
-    Array.from(calendar).forEach((element) => {
-      element.setAttribute("tabindex", "0");
-      let prevMonthArrow = element.getElementsByClassName(
-        "flatpickr-prev-month"
-      )[0];
-      let nextMonthArrow = element.getElementsByClassName(
-        "flatpickr-next-month"
-      )[0];
-
-      let tabindexElements = element.querySelectorAll('[tabindex = "-1"]');
-      tabindexElements.forEach((element) =>
-        element.setAttribute("tabindex", "0")
-      );
-
-      prevMonthArrow.setAttribute("tabindex", "0");
-      nextMonthArrow.setAttribute("tabindex", "0");
-
-      prevMonthArrow.setAttribute("role", "button");
-      nextMonthArrow.setAttribute("role", "button");
-
-      element
-        .getElementsByClassName("cur-year")[0]
-        .setAttribute("aria-label", "Anno");
-
-      if (this.mode === ZDatePickerMode.date) {
-        this.setDateAriaOptions(element, prevMonthArrow, nextMonthArrow);
-      }
-      if (this.mode === ZDatePickerMode.dateTime) {
-        this.setDateTimeAriaOptions(element, prevMonthArrow, nextMonthArrow);
-      }
-    });
-  }
-
-  setDateAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
-    Array.from(calendar.getElementsByClassName("flatpickr-days")).forEach(
-      (element: HTMLElement) => element.setAttribute("tabindex", "-1")
-    );
-
-    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
-      (element: HTMLElement) => element.setAttribute("role", "button")
-    );
-
-    calendar
-      .getElementsByClassName("flatpickr-monthDropdown-months")[0]
-      .setAttribute("aria-label", "Mese");
-
-    prevMonthArrow.setAttribute("aria-label", "Mese precedente");
-    nextMonthArrow.setAttribute("aria-label", "Mese successivo");
-  }
-
-  setDateTimeAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
-    Array.from(calendar.getElementsByClassName("flatpickr-days")).forEach(
-      (element: HTMLElement) => element.setAttribute("tabindex", "-1")
-    );
-
-    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
-      (element: HTMLElement) => element.setAttribute("role", "button")
-    );
-
-    calendar
-      .getElementsByClassName("flatpickr-monthDropdown-months")[0]
-      .setAttribute("aria-label", "Mese");
-
-    prevMonthArrow.setAttribute("aria-label", "Mese precedente");
-    nextMonthArrow.setAttribute("aria-label", "Mese successivo");
-
-    Array.from(calendar.getElementsByClassName("time24hr")).forEach(
-      (element: HTMLElement) => element.setAttribute("tabindex", "-1")
-    );
-
-    calendar
-      .getElementsByClassName("flatpickr-hour")[0]
-      .setAttribute("aria-label", "Ora");
-    calendar
-      .getElementsByClassName("flatpickr-minute")[0]
-      .setAttribute("aria-label", "Minuti");
   }
 
   setFlatpickrPosition() {
