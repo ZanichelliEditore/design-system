@@ -5,7 +5,7 @@ import { getColorTokens } from "../../../utils/storybook-utils";
 import "./index.stories.css";
 import "./index";
 
-## Stories
+## ZTooltip
 
 To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
 
@@ -16,41 +16,48 @@ On the following Story, the "position" prop can be set only for the original pos
   component="z-tooltip"
   argTypes={{
     position: {
-      options: [PopoverPositions.AUTO, PopoverPositions.TOP, PopoverPositions.BOTTOM, PopoverPositions.LEFT, PopoverPositions.RIGHT
-        PopoverPositions.TOP_LEFT, PopoverPositions.TOP_RIGHT, PopoverPositions.BOTTOM_LEFT, PopoverPositions.BOTTOM_RIGHT],
-      control: { type: "inline-radio"},
+      options: [
+        PopoverPositions.AUTO,
+        PopoverPositions.TOP,
+        PopoverPositions.BOTTOM,
+        PopoverPositions.LEFT,
+        PopoverPositions.RIGHT,
+        PopoverPositions.TOP_LEFT,
+        PopoverPositions.TOP_RIGHT,
+        PopoverPositions.BOTTOM_LEFT,
+        PopoverPositions.BOTTOM_RIGHT
+      ],
+      control: { type: "select" },
     },
     open: {
-      control: { type: "boolean"},
+      control: { type: "boolean" },
     },
-    "--z-popover-theme--surface": {
-      options: getColorTokens(),
-      control: {
-        type: "select",
-      }
+    dark: {
+      control: { type: "boolean" },
     },
-    "--z-popover-theme--text": {
+    "--z-tooltip-theme--surface": {
       options: getColorTokens(),
-      control: {
-        type: "select",
-      }
+      control: { type: "select" },
     },
   }}
 />
-
-# ZTooltip
 
 <Canvas>
   <Story name="z-tooltip" args={{
     position: PopoverPositions.LEFT,
     open: true,
+    dark: false,
+    "--z-tooltip-theme--surface": "var(--color-surface01)"
   }}>
-  {(args) => html`
+    {(args) => html`
       <div class="tooltip-container">
+        <z-button id="trigger" size="small" icon="plus-filled"></z-button>
         <z-tooltip
           .position=${args.position}
           .open=${args.open}
-          bind-to="#icon"
+          .dark=${args.dark}
+          bind-to="#trigger"
+          style="--z-tooltip-theme--surface: var(${args['--z-tooltip-theme--surface']})"
         >
           <div class="container">
             <z-button>Open</z-button>
@@ -58,7 +65,6 @@ On the following Story, the "position" prop can be set only for the original pos
             <z-button>Share</z-button>
           </div>
         </z-tooltip>
-        <z-icon id="icon" name="plus-square-filled"></z-icon>
       </div>
     `}
   </Story>

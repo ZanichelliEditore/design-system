@@ -122,7 +122,8 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
  *
  * @cssprop --z-popover-theme--surface - background color of the popover.
  * @cssprop --z-popover-theme--text - foreground color of the popover.
- * @cssprop --z-popover-shadow - shadow of the popover.
+ * @cssprop --z-popover-padding - padding of the popover.
+ * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
  */
 @Component({
   tag: "z-popover",
@@ -150,7 +151,7 @@ export class ZPopover {
   @Prop({ reflect: true }) showArrow: boolean = false;
 
   /**
-   * Whether center the popup on the main side - according to "position".
+   * Whether to center the popup on the main side (according to "position").
    */
   @Prop({ reflect: true }) center: boolean = false;
 
@@ -174,7 +175,7 @@ export class ZPopover {
   private animationFrameRequestId?: number;
 
   @Listen("keyup", { target: "window" })
-  closePopoverWithKeyboard(e: any) {
+  closePopoverWithKeyboard(e: KeyboardEvent) {
     if (e.key === KeyboardKeys.ESC) {
       this.open = false;
     }

@@ -9,9 +9,9 @@ import { PopoverPositions } from "../../../beans";
  * Tooltip component.
  * It is basically a wrapper for the `<z-popover>` component with custom configuration.
  *
- * @cssprop --z-popover-theme--surface - background color of the popover/tooltip.
- * @cssprop --z-popover-theme--text - foreground color of the popover/tooltip.
- * @cssprop --z-popover-shadow - shadow of the popover/tooltip.
+ * @cssprop --z-popover-theme--surface - background color of the popover.
+ * @cssprop --z-popover-theme--text - foreground color of the popover.
+ * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover.
  */
 @Component({
   tag: "z-tooltip",
@@ -21,6 +21,9 @@ import { PopoverPositions } from "../../../beans";
 export class ZTooltip {
   /** Tooltip position. */
   @Prop({ reflect: true, mutable: true }) position: PopoverPositions = PopoverPositions.AUTO;
+
+  /** Enable tooltip dark mode. */
+  @Prop({ reflect: true }) dark = false;
 
   /**
    * The open state of the tooltip.

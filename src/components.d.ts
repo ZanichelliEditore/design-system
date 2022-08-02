@@ -1499,7 +1499,7 @@ export namespace Components {
          */
         "bindTo"?: string | HTMLElement;
         /**
-          * Whether center the popup on the main side - according to "position".
+          * Whether to center the popup on the main side (according to "position").
          */
         "center": boolean;
         /**
@@ -1875,6 +1875,10 @@ export namespace Components {
           * The selector or the element bound with the tooltip.
          */
         "bindTo"?: string | HTMLElement;
+        /**
+          * Enable tooltip dark mode.
+         */
+        "dark": boolean;
         /**
           * The open state of the tooltip.
          */
@@ -4364,7 +4368,7 @@ declare namespace LocalJSX {
          */
         "bindTo"?: string | HTMLElement;
         /**
-          * Whether center the popup on the main side - according to "position".
+          * Whether to center the popup on the main side (according to "position").
          */
         "center"?: boolean;
         /**
@@ -4770,6 +4774,10 @@ declare namespace LocalJSX {
           * The selector or the element bound with the tooltip.
          */
         "bindTo"?: string | HTMLElement;
+        /**
+          * Enable tooltip dark mode.
+         */
+        "dark"?: boolean;
         /**
           * The open state of the tooltip.
          */
