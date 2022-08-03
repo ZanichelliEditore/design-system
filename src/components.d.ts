@@ -1503,6 +1503,10 @@ export namespace Components {
          */
         "center": boolean;
         /**
+          * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
+         */
+        "closable": boolean;
+        /**
           * The open state of the popover.
          */
         "open": boolean;
@@ -4371,6 +4375,10 @@ declare namespace LocalJSX {
           * Whether to center the popup on the main side (according to "position").
          */
         "center"?: boolean;
+        /**
+          * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
+         */
+        "closable"?: boolean;
         /**
           * Open change event.
          */

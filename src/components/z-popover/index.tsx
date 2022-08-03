@@ -160,6 +160,12 @@ export class ZPopover {
   center: boolean = false;
 
   /**
+   * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
+   */
+   @Prop()
+  closable: boolean = true;
+
+  /**
    * The current position of the popover.
    */
   @State()
@@ -184,13 +190,17 @@ export class ZPopover {
 
   @Listen("keyup", { target: "window" })
   closePopoverWithKeyboard(e: KeyboardEvent) {
-    if (e.key === KeyboardKeys.ESC) {
+    if (this.closable && e.key === KeyboardKeys.ESC) {
       this.open = false;
     }
   }
 
   @Listen("click", { target: "body", capture: true })
   handleOutsideClick(e: any) {
+    if (!this.closable) {
+      return;
+    }
+
     const tree = getElementTree(e.target);
     const parent = tree.find(
       (elem: Element) => elem.nodeName.toLowerCase() === "z-popover"
