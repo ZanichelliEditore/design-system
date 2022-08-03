@@ -20,12 +20,6 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
     open: {
       control: { type: "boolean" },
     },
-    center: {
-      control: { type: "boolean" },
-    },
-    showArrow: {
-      control: { type: "boolean" },
-    },
     "--z-popover-theme--surface": {
       options: getColorTokens(),
       control: {
@@ -58,8 +52,6 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
         <z-popover
           .position=${args.position}
           .open=${args.open}
-          .center=${args.center}
-          .showArrow=${args.showArrow}
           bind-to="#icon"
           style="--z-popover-theme--surface: var(${args["--z-popover-theme--surface"]})
           --z-popover-theme--text: var(${args["--z-popover-theme--text"]})"
@@ -73,6 +65,39 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
         <z-icon id="icon" name="plus-square-filled"></z-icon>
       </div>
     `}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+      name="tooltip-like"
+      args={{
+        position: PopoverPositions.RIGHT,
+        open: true,
+        "--z-popover-theme--surface": "var(--color-surface01)",
+        "--z-popover-theme--text": "var(--color-text01)",
+      }}
+    >
+      {(args) => html`
+        <div class="popover-container popover-container-tooltip">
+          <z-popover
+            .position=${args.position}
+            .open=${args.open}
+            center
+            show-arrow
+            bind-to="#icon"
+            style="--z-popover-theme--surface: var(${args["--z-popover-theme--surface"]})
+            --z-popover-theme--text: var(${args["--z-popover-theme--text"]})"
+          >
+            <div class="container">
+              <z-button slot="trigger" icon="gear">
+                Impostazioni
+              </z-button>
+            </div>
+          </z-popover>
+          <z-icon id="icon" name="plus-square-filled"></z-icon>
+        </div>
+      `}
   </Story>
 </Canvas>
 

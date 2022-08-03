@@ -7,6 +7,10 @@
   height: 200px;
 }
 
+.popover-container-tooltip z-popover {
+  --z-popover-padding: var(--space-unit);
+}
+
 .popover-container z-icon {
   --z-icon-width: 32px;
   --z-icon-height: 32px;
