@@ -34,7 +34,6 @@ export function setFlatpickrPosition(
 
 export function setAriaOptions(element: HTMLElement, mode: ZDatePickerMode) {
   let calendar = element.getElementsByClassName("flatpickr-calendar");
-  console.log("calencar", calendar);
 
   Array.from(calendar).forEach((element) => {
     element.setAttribute("tabindex", "0");
