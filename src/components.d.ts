@@ -353,7 +353,7 @@ export namespace Components {
          */
         "color"?: string;
         /**
-          * elements of ZContextualMenu
+          * Elements of ZContextualMenu
          */
         "elements"?: string;
         /**
@@ -3055,7 +3055,7 @@ declare namespace LocalJSX {
          */
         "color"?: string;
         /**
-          * elements of ZContextualMenu
+          * Elements of ZContextualMenu
          */
         "elements"?: string;
         /**

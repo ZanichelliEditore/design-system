@@ -139,7 +139,7 @@ export class ZPopover {
    * The open state of the popover.
    */
   @Prop({ reflect: true, mutable: true })
-  open: false;
+  open: boolean = false;
 
   /**
    * The selector or the element bound with the popover.
@@ -151,13 +151,13 @@ export class ZPopover {
    * Whether to show popover's arrow.
    */
   @Prop({ reflect: true })
-  showArrow: false;
+  showArrow: boolean = false;
 
   /**
    * Whether to center the popup on the main side (according to "position").
    */
   @Prop({ reflect: true })
-  center: false;
+  center: boolean = false;
 
   /**
    * The current position of the popover.
