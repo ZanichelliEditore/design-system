@@ -58,10 +58,21 @@
         "error",
         {"pattern": "^Z[A-Z].*$"}
       ],
+      "@stencil/decorators-style": [
+        "error",
+        {
+          "prop": "multiline",
+          "state": "multiline",
+          "element": "inline",
+          "event": "multiline",
+          "method": "multiline",
+          "watch": "multiline",
+          "listen": "multiline"
+        }
+      ],
       "@stencil/required-prefix":[
         "error",
         ["z"]
-      ],
-      "@stencil/required-jsdoc": "error"
+      ]
     }
 }
