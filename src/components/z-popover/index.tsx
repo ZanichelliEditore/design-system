@@ -280,6 +280,7 @@ export class ZPopover {
     const scrollContainer = findScrollableParent(element) as HTMLElement;
     const scrollingBoundingRect = scrollContainer.getBoundingClientRect();
     const offsetContainer = this.host.offsetParent as HTMLElement;
+
     const relativeBoundingRect = offsetContainer
       ? computeOffset(offsetContainer, scrollContainer)
       : { top: 0, right: 0, bottom: 0, left: 0 };

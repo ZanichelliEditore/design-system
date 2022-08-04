@@ -50,9 +50,9 @@ export class ZTooltip {
   render() {
     return <z-popover
       ref={(el) => (this.popover = el as HTMLZPopoverElement)}
+      bindTo={this.bindTo}
       open={this.open}
       position={this.position}
-      bindTo={this.bindTo}
       center
       showArrow
     >

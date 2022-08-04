@@ -6,6 +6,7 @@
 
   position: relative;
   display: flex;
+  visibility: visible;
   align-items: center;
   justify-content: center;
   padding: var(--z-popover-padding);
@@ -22,7 +23,7 @@
 
 :host(:not([open])),
 :host([open="false"]) {
-  display: none;
+  visibility: hidden;
 }
 
 :host([center][current-position="top"]),
