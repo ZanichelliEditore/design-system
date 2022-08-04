@@ -103,12 +103,12 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
         </div>
         <script>
         const icon = document.querySelector("#icon");
-        const popover = document.querySelector("z-popover");
+        const popoverEl = document.querySelector("z-popover");
         icon.addEventListener("click", () => {
-          if (popover.open) {
-            popover.open = false;
+          if (popoverEl.open) {
+            popoverEl.open = false;
           } else {
-            popover.open = true;
+            popoverEl.open = true;
           }
         });
       </script>
