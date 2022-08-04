@@ -2,6 +2,7 @@ import {
   Component,
   Prop,
   h,
+  Listen,
 } from "@stencil/core";
 import { PopoverPositions } from "../../../beans";
 
@@ -39,14 +40,22 @@ export class ZTooltip {
   @Prop()
   bindTo?: string | HTMLElement;
 
+  popover: HTMLZPopoverElement;
+
+  @Listen('openChange')
+  onPopoverOpenChange() {
+    this.open = this.popover.open;
+  }
+
   render() {
     return <z-popover
-        open={this.open}
-        position={this.position}
-        bindTo={this.bindTo}
-        center
-        showArrow
-      >
+      ref={(el) => (this.popover = el as HTMLZPopoverElement)}
+      open={this.open}
+      position={this.position}
+      bindTo={this.bindTo}
+      center
+      showArrow
+    >
       <slot></slot>
     </z-popover>
   }
