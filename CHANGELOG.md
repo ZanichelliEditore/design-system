@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/ZanichelliEditore/design-system/compare/v4.0.5...v4.1.0) (2022-08-04)
+
+
+### Features
+
+* add breaking changes for v4.x ([f44c3e1](https://github.com/ZanichelliEditore/design-system/commit/f44c3e1b625f799efdaa88b7ffd16fb76e9ca537))
+* add migration guide doc and Storybook page ([d60376f](https://github.com/ZanichelliEditore/design-system/commit/d60376f83cbe244a3489ce27aeb68ce861a5819f))
+* list more breaking changes ([9d389a9](https://github.com/ZanichelliEditore/design-system/commit/9d389a9216655b5a0012afbd734555fc3ee927ad))
+
 ### [4.0.5](https://github.com/ZanichelliEditore/design-system/compare/v4.0.4...v4.0.5) (2022-08-02)
 
 
