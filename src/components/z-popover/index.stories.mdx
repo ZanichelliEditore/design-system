@@ -48,22 +48,26 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
     }}
   >
     {(args) => html`
-      <div class="popover-container">
-        <z-popover
-          .position=${args.position}
-          .open=${args.open}
-          bind-to="#icon"
-          style="--z-popover-theme--surface: var(${args["--z-popover-theme--surface"]})
-          --z-popover-theme--text: var(${args["--z-popover-theme--text"]})"
-        >
-          <div class="container">
-            <z-button slot="trigger" icon="gear">
-              Impostazioni
-            </z-button>
-          </div>
-        </z-popover>
-        <z-icon id="icon" name="plus-square-filled"></z-icon>
-      </div>
+      <div style="height: 350px; width: 200px; background-color: cornflowerblue; position: relative; margin: 100px;">
+      <p>POPOVER</p>
+      <z-popover bind-to="#icon">
+        <div class="container">
+          <p>PROVA POPOVER!!</p>
+        </div>
+      </z-popover>
+      <z-icon style="position: absolute; top: 20px; right: 20px;" id="icon" name="plus-square-filled"></z-icon>
+    </div>
+    <script>
+      const icon1 = document.getElementById("icon");
+      const tooltip = document.querySelector("z-popover");
+      icon1.addEventListener("click", () => {
+        if (tooltip.open) {
+          tooltip.open = false;
+        } else {
+          tooltip.open = true;
+        }
+      });
+    </script>
     `}
   </Story>
 </Canvas>

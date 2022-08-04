@@ -23,7 +23,7 @@
 
 :host(:not([open])),
 :host([open="false"]) {
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 :host([center][current-position="top"]),
