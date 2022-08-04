@@ -171,10 +171,10 @@ z-range-picker {
 
 /* Months dropdown selectors */
 .flatpickr-monthDropdown-months {
-  background: white !important;
+  background: var(--color-surface01) !important;
   font-size: var(--font-size-3) !important;
   font-weight: var(--font-rg) !important;
-  color: var(--text-grey-800) !important;
+  color: var(--color-text02) !important;
   outline: 1px solid black !important;
 
   width: 108px !important;
@@ -190,8 +190,8 @@ z-range-picker {
 /* Year toggle selectors */
 .flatpickr-current-month > .numInputWrapper {
   display: flex;
-  background: white !important;
-  color: var(--text-grey-800);
+  background: var(--color-surface01) !important;
+  color: var(--color-text02);
   outline: 1px solid black !important;
 
   height: calc(var(--space-unit) * 5.5) !important;
@@ -214,7 +214,7 @@ z-range-picker {
 /* Weekdays selectors */
 .flatpickr-weekdays {
   height: calc(var(--space-unit) * 6);
-  border-bottom: 1px solid var(--gray200);
+  border-bottom: 1px solid var(--color-surface03);
 }
 
 .flatpickr-weekday {
@@ -250,7 +250,7 @@ z-range-picker {
   padding: 0 !important;
 
   line-height: calc(var(--space-unit) * 5) !important;
-  border: 2px solid white !important;
+  border: 2px solid var(--color-surface01) !important;
 }
 
 .flatpickr-day:hover,
@@ -260,7 +260,7 @@ z-range-picker {
 .flatpickr-monthSelect-month:focus {
   background-color: var(--color-hover-primary) !important;
   border-color: var(--color-hover-primary) !important;
-  color: var(--color-white) !important;
+  color: var(--color-text04) !important;
 }
 
 .flatpickr-day.today,
@@ -296,7 +296,7 @@ z-range-picker {
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
   text-transform: uppercase;
-  color: var(--text-grey-800) !important;
+  color: var(--color-text02) !important;
 
   width: 100%;
   padding-left: var(--space-unit);
@@ -309,7 +309,7 @@ z-range-picker {
 .flatpickr-time.time24hr > .numInputWrapper > input:hover,
 .flatpickr-time.time24hr > .numInputWrapper > input:focus,
 .flatpickr-time.time24hr > .numInputWrapper:hover {
-  background-color: white !important;
+  background-color: var(--color-surface01) !important;
 }
 
 .flatpickr-time.time24hr > div {

@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event        | Description                                      | Type               |
-| ------------ | ------------------------------------------------ | ------------------ |
-| `dateSelect` | emitted when date changes, returns selected date | `CustomEvent<any>` |
+| Event        | Description                                                             | Type               |
+| ------------ | ----------------------------------------------------------------------- | ------------------ |
+| `dateSelect` | emitted when date changes, returns an array with the two selected dates | `CustomEvent<any>` |
 
 
 ## Dependencies

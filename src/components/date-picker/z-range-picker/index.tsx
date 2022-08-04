@@ -34,7 +34,7 @@ export class ZRangePicker {
   private flatpickrInstance = null;
   private flatpickrInstance2 = null;
 
-  /** emitted when date changes, returns selected date */
+  /** emitted when date changes, returns an array with the two selected dates */
   @Event() dateSelect: EventEmitter;
 
   @Listen("click", { target: "body", capture: true })

@@ -4365,7 +4365,7 @@ declare namespace LocalJSX {
          */
         "mode"?: ZDatePickerMode;
         /**
-          * emitted when date changes, returns selected date
+          * emitted when date changes, returns an array with the two selected dates
          */
         "onDateSelect"?: (event: CustomEvent<any>) => void;
         /**
