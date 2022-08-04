@@ -36,9 +36,6 @@ export class ZRangePicker {
 
   /** emitted when date changes, returns selected date */
   @Event() dateSelect: EventEmitter;
-  emitDateSelect(date) {
-    this.dateSelect.emit(date);
-  }
 
   @Listen("click", { target: "body", capture: true })
   handleClick() {
@@ -182,13 +179,13 @@ export class ZRangePicker {
       }
 
       if (firstInputActive) {
-        this.emitDateSelect(
+        this.dateSelect.emit(
           `${this.getDate(instance.selectedDates[1])} - ${this.getDate(
             instance.selectedDates[0]
           )}`
         );
       } else {
-        this.emitDateSelect(
+        this.dateSelect.emit(
           `${this.getDate(instance.selectedDates[0])} - ${this.getDate(
             instance.selectedDates[1]
           )}`
@@ -201,18 +198,20 @@ export class ZRangePicker {
       this.mode === ZDatePickerMode.date ? "d-m-Y" : "d-m-Y - H:i";
 
     /** If exists, set second date value into first input */
-    instance.selectedDates[0] &&
-      (firstInputElement.value = flatpickr.formatDate(
+    if (instance.selectedDates[0]) {
+      firstInputElement.value = flatpickr.formatDate(
         instance.selectedDates[firstInputActive ? index : 0],
         formattingToken
-      ));
+      );
+    }
 
     /** If exists, set second date value into second input */
-    instance.selectedDates[1] &&
-      (secondInputElement.value = flatpickr.formatDate(
+    if (instance.selectedDates[1]) {
+      secondInputElement.value = flatpickr.formatDate(
         instance.selectedDates[firstInputActive ? 0 : index],
         formattingToken
-      ));
+      );
+    }
   }
 
   getDate(date) {
@@ -381,7 +380,7 @@ export class ZRangePicker {
             this.flatpickrInstance2.selectedDates[1],
           ]);
           if (this.flatpickrInstance.selectedDates.length > 1) {
-            this.emitDateSelect(
+            this.dateSelect.emit(
               `${text} - ${this.getDate(
                 this.flatpickrInstance.selectedDates[0]
               )}`
@@ -416,7 +415,7 @@ export class ZRangePicker {
             text,
           ]);
           if (this.flatpickrInstance2.selectedDates.length > 1) {
-            this.emitDateSelect(
+            this.dateSelect.emit(
               `${this.getDate(
                 this.flatpickrInstance2.selectedDates[0]
               )} - ${text}`
