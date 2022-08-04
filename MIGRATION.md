@@ -6,8 +6,9 @@ Quando si passa da una versione **major** a un'altra, è bene fare attenzione a 
 Ogni volta che viene implementato un **breaking change** su un componente, la sua vecchia versione viene mantenuta attiva sotto la cartella `deprecated` per qualche mese (di solito 2) e il componente viene rinominato con il suffisso `-deprecated` (es. `z-button` --> `z-button-deprecated`). Quando invece un componente legacy viene deprecato, il suffisso viene omesso ma il componente viene comunque spostato nella cartella `deprecated` e rimosso dopo qualche mese.
 
 ## Breaking changes
+Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
-- [Dalla versione 3.x alla 4.x](#dalla-versione-2x-alla-3x)
+- [v4.0.0](#v400)
   - [ZInput](#zinput)
     - [Rimozione della prop `hasmessage`](#rimozione-della-prop-hasmessage)
     - [Rimozione del type "select"](#rimozione-del-type-select)
@@ -17,14 +18,20 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
     - [Rimozione della prop `hasmessage`](#rimozione-della-prop-hasmessage-1)
     - [Rimozione della prop `multiple`](#rimozione-della-prop-multiple)
     - [Metodo `getSelectedItems()` diventa `getSelectedItem()`](#metodo-getselecteditems-diventa-getselecteditem)
-- [Dalla versione 2.x alla 3.x](#dalla-versione-2x-alla-3x)
-  - [ZButton](#ZButton)
+- [v3.0.0](#v300)
+  - [ZButton](#zbutton)
     - [Rimozione della prop `square`](#rimozione-della-prop-square)
     - [Rimozione dello slot "element"](#rimozione-dello-slot-element)
     - [Rimozione della variante `dark-bg`](#rimozione-della-variante-dark-bg)
     - [Rimozione della prop deprecata `issmall`](#rimozione-della-prop-deprecata-issmall)
+- [v2.48.0](#v2480)
+  - [ZPaginationBar (deprecato)](#zpaginationbar-deprecato)
+- [v2.47.0](#v2470)
+  - [ZStatusTag (deprecato)](#zstatustag-deprecato)
+  - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
+  - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
 
-## Dalla versione 3.x alla 4.x
+## v4.0.0
 ### ZInput
 #### Rimozione della prop `hasmessage`
 Lo `ZInputMessage` adesso è gestito solo dalla prop `message`. Per rimuovere l'ingombro del messaggio basta settare un valore *falsy*. Il comportamento di default rimane invariato (ingombro visibile).
@@ -63,7 +70,7 @@ Rimossa la prop `multiple` e tutta la gestione con le chip. È possibile utilizz
 #### Metodo `getSelectedItems()` diventa `getSelectedItem()`
 Come conseguenza della [rimozione della prop `multiple`](#rimozione-della-prop-multiple), adesso con la `ZSelect` è possibile selezionare un solo elemento, quindi non ci sono più *items* ma un solo *item*.
 
-## Dalla versione 2.x alla 3.x
+## v3.0.0
 ### ZButton
 #### Rimozione della prop `square`
 La prop `square` è stata rimossa e la forma quadrata del button, quando contiene solo l'icona, viene gestita automaticamente tramite CSS.
@@ -87,3 +94,17 @@ Es.
 
 #### Rimozione della prop deprecata `issmall`
 Usare la prop `size` con valore `small`
+
+## v2.48.0
+### ZPaginationBar (deprecato)
+Il componente `ZPaginationBar` è stato deprecato in favore del nuovo componente `ZPagination`. Di conseguenza anche il relativo componente interno `ZPaginationPage` è stato deprecato.
+
+## v2.47.0
+### ZStatusTag (deprecato)
+Il componente `ZStatusTag` è stato deprecato in favore del nuovo componente generico `ZTag`. Per evidenziare graficamente uno "status", settare da prodotto i colori di testo e sfondo, usando le apposite CSS custom prop `--z-tag-text-color` e `--z-tag-bg`.
+
+### ZButtonFilter (deprecato)
+Il componente `ZButtonFilter` è stato deprecato. Al suo posto usare il componente `ZChip` in versione "interactive"; quest'ultima si ottiene valorizzando la prop `interactiveIcon` con il `name` di una `z-icon`.
+
+### ZChip (rifattorizzato)
+Il componente `ZChip` è stato completamente rifattorizzato. La vecchia versione è stata trasferita nella cartella dei `deprecated` e rinominata a `ZChipDeprecated`. Per passare dalla vecchia alla nuova versione, consultare la documentazione del componente.
