@@ -29,9 +29,6 @@ On the following Story, the "position" prop can be set only for the original pos
       ],
       control: { type: "select" },
     },
-    open: {
-      control: { type: "boolean" },
-    },
     dark: {
       control: { type: "boolean" },
     },
@@ -45,7 +42,6 @@ On the following Story, the "position" prop can be set only for the original pos
 <Canvas>
   <Story name="z-tooltip" args={{
     position: PopoverPositions.LEFT,
-    open: true,
     dark: false,
     "--z-tooltip-theme--surface": "var(--color-surface01)"
   }}>
@@ -54,7 +50,6 @@ On the following Story, the "position" prop can be set only for the original pos
         <z-button id="trigger" size="small" icon="plus-filled"></z-button>
         <z-tooltip
           .position=${args.position}
-          .open=${args.open}
           .dark=${args.dark}
           bind-to="#trigger"
           style="--z-tooltip-theme--surface: var(${args['--z-tooltip-theme--surface']})"
@@ -66,6 +61,17 @@ On the following Story, the "position" prop can be set only for the original pos
           </div>
         </z-tooltip>
       </div>
+      <script>
+        const iconTooltip = document.querySelector("#trigger");
+        const tooltip = document.querySelector("z-tooltip");
+        iconTooltip.addEventListener("click", () => {
+          if (tooltip.open) {
+            tooltip.open = false;
+          } else {
+            tooltip.open = true;
+          }
+        });
+      </script>
     `}
   </Story>
 </Canvas>

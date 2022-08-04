@@ -17,9 +17,6 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
       options: Object.values(PopoverPositions),
       control: { type: "select" },
     },
-    open: {
-      control: { type: "boolean" },
-    },
     "--z-popover-theme--surface": {
       options: getColorTokens(),
       control: {
@@ -42,32 +39,37 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
     name="contextual-menu-like"
     args={{
       position: PopoverPositions.RIGHT_BOTTOM,
-      open: true,
       "--z-popover-theme--surface": "var(--color-surface01)",
       "--z-popover-theme--text": "var(--color-text01)",
     }}
   >
     {(args) => html`
-      <div style="height: 350px; width: 200px; background-color: cornflowerblue; position: relative; margin: 100px;">
-      <p>POPOVER</p>
-      <z-popover bind-to="#icon">
-        <div class="container">
-          <p>PROVA POPOVER!!</p>
-        </div>
-      </z-popover>
-      <z-icon style="position: absolute; top: 20px; right: 20px;" id="icon" name="plus-square-filled"></z-icon>
-    </div>
-    <script>
-      const icon1 = document.getElementById("icon");
-      const tooltip = document.querySelector("z-popover");
-      icon1.addEventListener("click", () => {
-        if (tooltip.open) {
-          tooltip.open = false;
-        } else {
-          tooltip.open = true;
-        }
-      });
-    </script>
+      <div class="popover-container">
+        <z-popover
+          .position=${args.position}
+          bind-to="#icon"
+          style="--z-popover-theme--surface: var(${args["--z-popover-theme--surface"]})
+          --z-popover-theme--text: var(${args["--z-popover-theme--text"]})"
+        >
+          <div class="container">
+            <z-button slot="trigger" icon="gear">
+              Impostazioni
+            </z-button>
+          </div>
+        </z-popover>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
+      </div>
+      <script>
+        var iconTrigger = document.querySelector("#icon");
+        var popover = document.querySelector("z-popover");
+        iconTrigger.addEventListener("click", () => {
+          if (popover.open) {
+            popover.open = false;
+          } else {
+            popover.open = true;
+          }
+        });
+      </script>
     `}
   </Story>
 </Canvas>
@@ -77,7 +79,6 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
       name="tooltip-like"
       args={{
         position: PopoverPositions.RIGHT,
-        open: true,
         "--z-popover-theme--surface": "var(--color-surface01)",
         "--z-popover-theme--text": "var(--color-text01)",
       }}
@@ -86,7 +87,6 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
         <div class="popover-container popover-container-tooltip">
           <z-popover
             .position=${args.position}
-            .open=${args.open}
             center
             show-arrow
             bind-to="#icon"
@@ -101,6 +101,17 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
           </z-popover>
           <z-icon id="icon" name="plus-square-filled"></z-icon>
         </div>
+        <script>
+        const icon = document.querySelector("#icon");
+        const popover = document.querySelector("z-popover");
+        icon.addEventListener("click", () => {
+          if (popover.open) {
+            popover.open = false;
+          } else {
+            popover.open = true;
+          }
+        });
+      </script>
       `}
   </Story>
 </Canvas>
