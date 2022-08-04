@@ -12,7 +12,11 @@ import {
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
 
-import { ZDatePickerMode, ZDatePickerPosition } from "../../../beans";
+import {
+  ZDatePickerMode,
+  ZDatePickerPosition,
+  InputTypeEnum,
+} from "../../../beans";
 import { setAriaOptions, setFlatpickrPosition } from "../utils";
 
 @Component({
@@ -426,6 +430,16 @@ export class ZRangePicker {
   }
 
   render() {
+    const zInputProps = {
+      type: InputTypeEnum.text,
+      icon: "event",
+      tabindex: "0",
+      message: false,
+      onStopTyping: (value) => {
+        this.onStopTyping(value);
+      },
+    };
+
     return (
       <div
         class={{
@@ -438,29 +452,17 @@ export class ZRangePicker {
         <div class={`${this.rangePickerId}-container`}>
           <input class="hidden-input" data-input></input>
           <z-input
+            {...zInputProps}
             class={`start-input ${this.rangePickerId}`}
-            type="text"
-            icon="event"
-            tabindex="0"
-            message={false}
             data-toggle
-            onStopTyping={(value) => {
-              this.onStopTyping(value);
-            }}
           />
         </div>
         <div class={`${this.rangePickerId}-container-2`}>
           <input class="hidden-input" data-input></input>
           <z-input
+            {...zInputProps}
             class={`end-input ${this.rangePickerId}-2`}
-            type="text"
-            icon="event"
-            tabindex="0"
-            message={false}
             data-toggle
-            onStopTyping={(value) => {
-              this.onStopTyping(value);
-            }}
           />
         </div>
       </div>
