@@ -29,6 +29,10 @@ import "./index.stories.css";
     args={{
       mode: "date",
       rangePickerId: "picker-01",
+      firstLabel: "Start date",
+      firstAriaLabel: "start-date",
+      secondLabel: "End date",
+      secondAriaLabel: "end-date",
     }}
     height="180px"
   >
@@ -46,6 +50,10 @@ import "./index.stories.css";
             mode=${args.mode}
             range-picker-id=${args.rangePickerId}
             id=${args.rangePickerId}
+            first-aria-label=${args.firstAriaLabel}
+            first-label=${args.firstLabel}
+            second-aria-label=${args.secondAriaLabel}
+            second-label=${args.secondLabel}
           ></z-range-picker>
         </div>
         <div class="story-output-container">
@@ -66,6 +74,10 @@ import "./index.stories.css";
     args={{
       mode: "date-time",
       rangePickerId: "picker-02",
+      firstLabel: "Start date",
+      firstAriaLabel: "start-date",
+      secondLabel: "End date",
+      secondAriaLabel: "end-date",
     }}
   >
     {(args) => html`
@@ -82,6 +94,10 @@ import "./index.stories.css";
             mode=${args.mode}
             range-picker-id=${args.rangePickerId}
             id=${args.rangePickerId}
+            first-aria-label=${args.firstAriaLabel}
+            first-label=${args.firstLabel}
+            second-aria-label=${args.secondAriaLabel}
+            second-label=${args.secondLabel}
           ></z-range-picker>
         </div>
         <div class="story-output-container">

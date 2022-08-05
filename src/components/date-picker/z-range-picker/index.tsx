@@ -29,6 +29,14 @@ export class ZRangePicker {
 
   /** unique id */
   @Prop() rangePickerId: string;
+  /** first z-input aria label */
+  @Prop() firstAriaLabel?: string;
+  /** first z-input label */
+  @Prop() firstLabel?: string;
+  /** second z-input aria label */
+  @Prop() secondAriaLabel?: string;
+  /** second z-input label */
+  @Prop() secondLabel?: string;
   /** [Optional] datepicker mode: date, datetime, only months */
   @Prop() mode: ZDatePickerMode = ZDatePickerMode.date;
 
@@ -454,6 +462,8 @@ export class ZRangePicker {
           <z-input
             {...zInputProps}
             class={`start-input ${this.rangePickerId}`}
+            ariaLabel={this.firstAriaLabel}
+            label={this.firstLabel}
             data-toggle
           />
         </div>
@@ -462,6 +472,8 @@ export class ZRangePicker {
           <z-input
             {...zInputProps}
             class={`end-input ${this.rangePickerId}-2`}
+            ariaLabel={this.secondAriaLabel}
+            label={this.secondLabel}
             data-toggle
           />
         </div>
