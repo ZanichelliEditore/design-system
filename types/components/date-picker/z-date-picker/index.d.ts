@@ -1,0 +1,25 @@
+import { EventEmitter } from "../../../stencil-public-runtime";
+import { ZDatePickerMode, ZDatePickerPosition } from "../../../beans";
+export declare class ZDatePicker {
+  element: HTMLElement;
+  /** unique id */
+  datePickerId: string;
+  /** z-input aria label */
+  ariaLabel?: string;
+  /** z-input label */
+  label?: string;
+  /** [Optional] datepicker mode: date, datetime, only months */
+  mode: ZDatePickerMode;
+  flatpickrPosition: ZDatePickerPosition;
+  private flatpickrInstance;
+  private hasChildren;
+  /** emitted when date changes, returns selected date */
+  dateSelect: EventEmitter;
+  emitDateSelect(date: any): void;
+  handleKeyDown(ev: KeyboardEvent): void;
+  componentWillLoad(): void;
+  componentDidLoad(): void;
+  renderSlottedContent(): any;
+  renderZInput(): any;
+  render(): any;
+}

@@ -13,7 +13,8 @@ export declare class ZTableHeader {
   /** [Optional] Default sort order */
   defaultSortDirection?: SortDirection;
   sortDirection: SortDirection;
-  isMenuOpened: boolean;
+  private popover?;
+  private triggerButton?;
   constructor();
   /** [Optional] callback for sorting */
   sort: EventEmitter;

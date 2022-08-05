@@ -1,6 +1,6 @@
-import { Component, Element, Event, h, Host, Listen, Prop, State, } from "@stencil/core";
+import { Component, Element, Event, h, Host, Listen, Prop, } from "@stencil/core";
 import classNames from "classnames";
-import { ButtonSizeEnum, ButtonVariantEnum, PopoverPosition, Size, SortDirectionEnum, } from "../../../beans";
+import { ButtonSizeEnum, ButtonVariantEnum, PopoverPositions, Size, SortDirectionEnum, } from "../../../beans";
 import { getElementTree } from "../../../utils/utils";
 export class ZTableHeader {
   constructor() {
@@ -9,7 +9,6 @@ export class ZTableHeader {
     /** [Optional] Default sort order */
     this.defaultSortDirection = SortDirectionEnum.asc;
     this.sortDirection = SortDirectionEnum.none;
-    this.isMenuOpened = false;
     this.emitOnSort = this.emitOnSort.bind(this);
   }
   emitOnSort() {
@@ -37,13 +36,13 @@ export class ZTableHeader {
     this.emitOnSort();
   }
   handleMenuClick() {
-    this.isMenuOpened = !this.isMenuOpened;
+    this.popover.open = !this.popover.open;
   }
   handleOutsideClick(e) {
     const tree = getElementTree(e.target);
     const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-popover");
-    if (!parent) {
-      this.isMenuOpened = false;
+    if (!parent && this.popover) {
+      this.popover.open = false;
     }
   }
   handleClickHeaders(e) {
@@ -65,17 +64,15 @@ export class ZTableHeader {
     return (h(Host, { class: classNames({
         sortable: this.sortable,
       }), onClick: () => this.handleSort() },
-      h("div", { class: classNames("container") },
+      h("div", { class: 'container' },
         h("slot", null),
         this.sortable && this.sortDirection !== SortDirectionEnum.none && (h("z-icon", { name: this.sortDirection === SortDirectionEnum.asc
             ? "arrow-up"
             : "arrow-down", class: "arrow" }))),
-      this.showButton && (h("div", { class: classNames("popover-container", {
-          visible: this.isMenuOpened,
-        }) },
-        h("z-popover", { position: PopoverPosition["below-center"], "background-color": "gray200" },
-          h("z-button", { icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], slot: "trigger", onClick: () => this.handleMenuClick() }),
-          h("div", { slot: "popover" },
+      this.showButton && (h("div", { class: 'popover-container' },
+        h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenuClick() }),
+        h("z-popover", { ref: (el) => (this.popover = el), position: PopoverPositions.BOTTOM, center: true, bindTo: this.triggerButton },
+          h("div", null,
             h("slot", { name: "contextual-menu" })))))));
   }
   static get is() { return "z-table-header"; }
@@ -207,9 +204,6 @@ export class ZTableHeader {
       "reflect": false,
       "defaultValue": "SortDirectionEnum.none"
     }
-  }; }
-  static get states() { return {
-    "isMenuOpened": {}
   }; }
   static get events() { return [{
       "method": "sort",

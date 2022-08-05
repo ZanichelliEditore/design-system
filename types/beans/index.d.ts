@@ -138,8 +138,8 @@ export declare enum InputStatusEnum {
   error = "error",
   warning = "warning"
 }
-export declare type TooltipPositionBean = keyof typeof TooltipPosition;
-export declare enum TooltipPosition {
+export declare type PopoverPositionBean = keyof typeof PopoverPositions;
+export declare enum PopoverPositions {
   AUTO = "auto",
   TOP = "top",
   RIGHT = "right",
@@ -148,7 +148,11 @@ export declare enum TooltipPosition {
   TOP_RIGHT = "top_right",
   TOP_LEFT = "top_left",
   BOTTOM_RIGHT = "bottom_right",
-  BOTTOM_LEFT = "bottom_left"
+  BOTTOM_LEFT = "bottom_left",
+  RIGHT_TOP = "right_top",
+  RIGHT_BOTTOM = "right_bottom",
+  LEFT_TOP = "left_top",
+  LEFT_BOTTOM = "left_bottom"
 }
 export declare enum KeyboardKeyCodeEnum {
   TAB = 9,
@@ -187,36 +191,6 @@ export declare type ThemeVariantBean = keyof typeof ThemeVariant;
 export declare enum ThemeVariant {
   dark = "dark",
   light = "light"
-}
-export declare enum PopoverPosition {
-  "after-down" = "after-down",
-  "after-center" = "after-center",
-  "after-up" = "after-up",
-  "below-right" = "below-right",
-  "below-center" = "below-center",
-  "below-left" = "below-left",
-  "before-down" = "before-down",
-  "before-center" = "before-center",
-  "before-up" = "before-up",
-  "above-right" = "above-right",
-  "above-center" = "above-center",
-  "above-left" = "above-left"
-}
-export declare enum PopoverBorderRadius {
-  "none" = "none",
-  small = "small",
-  medium = "medium"
-}
-export declare enum PopoverShadow {
-  "shadow-1" = "shadow-1",
-  "shadow-2" = "shadow-2",
-  "shadow-3" = "shadow-3",
-  "shadow-4" = "shadow-4",
-  "shadow-6" = "shadow-6",
-  "shadow-8" = "shadow-8",
-  "shadow-12" = "shadow-12",
-  "shadow-16" = "shadow-16",
-  "shadow-24" = "shadow-24"
 }
 export declare enum DividerSize {
   small = "small",

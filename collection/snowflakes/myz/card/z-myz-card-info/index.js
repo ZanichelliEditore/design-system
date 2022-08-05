@@ -1,5 +1,5 @@
 import { Component, Prop, h, Event, State } from "@stencil/core";
-import { TooltipPosition } from "../../../../beans";
+import { PopoverPositions } from "../../../../beans";
 import { handleKeyboardSubmit } from "../../../../utils/utils";
 /**
  * @slot  - content
@@ -90,7 +90,7 @@ export class ZMyzCardInfo {
     if (!this.cardData)
       return;
     const { title, year, author, description } = this.cardData;
-    return (h("z-tooltip", { content: `${title} ${year} ${author} ${description}`, type: TooltipPosition.RIGHT, onClick: () => (this.tooltip = false) }));
+    return (h("z-popover", { position: PopoverPositions.RIGHT, onClick: () => (this.tooltip = false) }, `${title} ${year} ${author} ${description}`));
   }
   setExpirationLicenseMessage(type) {
     if ((type === "online" && this.cardData.onlineLicense.expired) ||

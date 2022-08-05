@@ -1,258 +1,30 @@
-import { Component, Prop, h, Host, Watch, Element, State, Event, } from "@stencil/core";
-import { TooltipPosition } from "../../../beans/index";
-const documentElement = document.documentElement;
+import { Component, Prop, h, Listen, } from "@stencil/core";
+import { PopoverPositions } from "../../../beans";
 /**
- * Find the closest scrollable parent of a node.
+ * Tooltip component.
+ * It is basically a wrapper for the `<z-popover>` component with custom configuration.
  *
- * @param {Element} element The node
+ * @cssprop --z-popover-theme--surface - background color of the popover.
+ * @cssprop --z-popover-theme--text - foreground color of the popover.
+ * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover.
  */
-function findScrollableParent(element) {
-  let parent = element.parentNode;
-  while (parent && parent !== documentElement) {
-    const { overflow, overflowX, overflowY } = window.getComputedStyle(parent);
-    if (overflow === 'hidden' ||
-      overflowY === 'hidden' ||
-      overflowX === 'hidden') {
-      return parent;
-    }
-    if ((parent.scrollHeight > parent.clientHeight && overflow !== 'visible' && overflowY !== 'visible') ||
-      (parent.scrollWidth > parent.clientWidth && overflow !== 'visible' && overflowX !== 'visible')) {
-      return parent;
-    }
-    parent = parent.parentNode;
-  }
-  return documentElement;
-}
-/**
- * Calculate computed offset.
- * It includes matrix transformations.
- * @param element The target element.
- * @param targetParentOffset The relative offset parent.
- * @return A client rect object.
- */
-function computeOffset(element, targetParentOffset) {
-  const rect = element.getBoundingClientRect();
-  const width = rect.width;
-  const height = rect.height;
-  let top = 0;
-  let left = 0;
-  let offsetParent = element;
-  while (offsetParent && offsetParent != targetParentOffset) {
-    left += offsetParent.offsetLeft;
-    // document.body sometimes has offsetTop == 0 but still has an
-    // offset because of children margins!
-    if (offsetParent === document.body) {
-      top += offsetParent.getBoundingClientRect().top + window.scrollY;
-    }
-    else {
-      top += offsetParent.offsetTop;
-    }
-    if (window.DOMMatrix) {
-      const style = window.getComputedStyle(offsetParent);
-      const transform = style.transform || style.webkitTransform;
-      const domMatrix = new DOMMatrix(transform);
-      if (domMatrix) {
-        left += domMatrix.m41;
-        if (offsetParent !== document.body) {
-          top += domMatrix.m42;
-        }
-      }
-    }
-    if (!offsetParent.offsetParent) {
-      break;
-    }
-    offsetParent = offsetParent.offsetParent;
-  }
-  let parentWidth;
-  let parentHeight;
-  if (offsetParent === document.body) {
-    parentWidth = window.innerWidth;
-    parentHeight = window.innerHeight;
-  }
-  else {
-    parentWidth = offsetParent.offsetWidth;
-    parentHeight = offsetParent.offsetHeight;
-  }
-  const right = parentWidth - left - rect.width;
-  const bottom = parentHeight - top - rect.height;
-  return { top, right, bottom, left, width, height };
-}
 export class ZTooltip {
   constructor() {
     /** Tooltip position. */
-    this.type = TooltipPosition.AUTO;
+    this.position = PopoverPositions.AUTO;
+    /** Enable tooltip dark mode. */
+    this.dark = false;
     /**
      * The open state of the tooltip.
      */
     this.open = false;
   }
-  validateType(newValue) {
-    if (newValue &&
-      Object
-        .values(TooltipPosition)
-        .every((position) => newValue !== position)) {
-      this.type = TooltipPosition.AUTO;
-    }
-  }
-  onPositionChange() {
-    this.positionChange.emit({ position: this.position });
-  }
-  disconnectedCallback() {
-    cancelAnimationFrame(this.animationFrameRequestId);
-  }
-  /**
-   * Setup tooltip behaviors on opening.
-   */
-  onOpen() {
-    cancelAnimationFrame(this.animationFrameRequestId);
-    if (this.content) {
-      return;
-    }
-    if (this.open) {
-      const setPosition = () => {
-        if (this.open) {
-          this.setPosition();
-          this.animationFrameRequestId = requestAnimationFrame(setPosition);
-        }
-      };
-      setPosition();
-    }
-    else {
-      const style = this.host.style;
-      style.removeProperty("top");
-      style.removeProperty("right");
-      style.removeProperty("bottom");
-      style.removeProperty("left");
-    }
-  }
-  /**
-   * Set the position of the tooltip.
-   */
-  setPosition() {
-    let element;
-    if (typeof this.bindTo === "string") {
-      element = this.host.ownerDocument.querySelector(this.bindTo);
-    }
-    else if (this.bindTo) {
-      element = this.bindTo;
-    }
-    else {
-      element = this.host.parentElement;
-    }
-    if (!element) {
-      return;
-    }
-    const scrollContainer = findScrollableParent(element);
-    const scrollingBoundingRect = scrollContainer.getBoundingClientRect();
-    const offsetContainer = this.host.offsetParent;
-    const relativeBoundingRect = offsetContainer ? computeOffset(offsetContainer, scrollContainer) : { top: 0, right: 0, bottom: 0, left: 0 };
-    const boundingRect = computeOffset(element, scrollContainer);
-    const top = boundingRect.top - scrollContainer.scrollTop;
-    const bottom = scrollingBoundingRect.height - (boundingRect.top + boundingRect.height) + scrollContainer.scrollTop;
-    const left = boundingRect.left - scrollContainer.scrollLeft;
-    const right = scrollingBoundingRect.width - (boundingRect.left + boundingRect.width) + scrollContainer.scrollLeft;
-    const overflowBottom = Math.max(0, scrollingBoundingRect.top + scrollingBoundingRect.height - window.innerHeight);
-    const overflowRight = Math.max(0, scrollingBoundingRect.left + scrollingBoundingRect.width - window.innerWidth);
-    const availableTop = Math.min(top, top + scrollingBoundingRect.top);
-    const availableBottom = Math.min(bottom, bottom - overflowBottom);
-    const availableLeft = Math.min(left, left + scrollingBoundingRect.left);
-    const availableRight = Math.min(right, right - overflowRight);
-    const availableHeight = availableTop + availableBottom + boundingRect.height;
-    const availableWidth = availableLeft + availableRight + boundingRect.width;
-    let position = this.type;
-    if (position === TooltipPosition.AUTO) {
-      /**
-       * The `AUTO` position tries to place the tooltip in the "safest" area,
-       * where there's more space available.
-       */
-      const positions = [];
-      if (availableTop / availableHeight > 0.9) {
-        positions.unshift(TooltipPosition.TOP);
-      }
-      else if (availableTop / availableHeight > 0.6) {
-        positions.push(TooltipPosition.TOP);
-      }
-      else if (availableTop / availableHeight < 0.1) {
-        positions.unshift(TooltipPosition.BOTTOM);
-      }
-      else {
-        positions.push(TooltipPosition.BOTTOM);
-      }
-      if (availableLeft / availableWidth > 0.6) {
-        positions.push(TooltipPosition.LEFT);
-      }
-      else if (availableLeft / availableWidth < 0.4) {
-        positions.push(TooltipPosition.RIGHT);
-      }
-      position = positions.join("_");
-    }
-    const style = this.host.style;
-    if (!this.content) {
-      style.position = "absolute";
-    }
-    const offsetTop = boundingRect.top - relativeBoundingRect.top;
-    const offsetRight = boundingRect.right - relativeBoundingRect.right;
-    const offsetBottom = boundingRect.bottom - relativeBoundingRect.bottom;
-    const offsetLeft = boundingRect.left - relativeBoundingRect.left;
-    if (position === TooltipPosition.TOP ||
-      position === TooltipPosition.TOP_RIGHT ||
-      position === TooltipPosition.TOP_LEFT) {
-      style.top = "auto";
-      style.bottom = `${offsetBottom + boundingRect.height}px`;
-    }
-    if (position === TooltipPosition.BOTTOM ||
-      position === TooltipPosition.BOTTOM_RIGHT ||
-      position === TooltipPosition.BOTTOM_LEFT) {
-      style.top = `${offsetTop + boundingRect.height}px`;
-      style.bottom = "auto";
-    }
-    if (position === TooltipPosition.TOP ||
-      position === TooltipPosition.BOTTOM) {
-      style.left = `${offsetLeft +
-        (boundingRect.width / 2) -
-        (this.host.clientWidth / 2)}px`;
-    }
-    if (position === TooltipPosition.TOP_RIGHT ||
-      position === TooltipPosition.BOTTOM_RIGHT) {
-      style.right = "auto";
-      style.left = `${offsetLeft + boundingRect.width}px`;
-    }
-    if (position === TooltipPosition.TOP_LEFT ||
-      position === TooltipPosition.BOTTOM_LEFT) {
-      style.left = "auto";
-      style.right = `${offsetRight + boundingRect.width}px`;
-    }
-    if (position === TooltipPosition.RIGHT ||
-      position === TooltipPosition.LEFT) {
-      style.top = `${offsetTop +
-        (boundingRect.height / 2) -
-        (this.host.clientHeight / 2)}px`;
-      style.bottom = "auto";
-    }
-    if (position === TooltipPosition.RIGHT) {
-      style.right = "auto";
-      style.left = `${offsetLeft + boundingRect.width}px`;
-    }
-    if (position === TooltipPosition.LEFT) {
-      style.left = "auto";
-      style.right = `${offsetRight + boundingRect.width}px`;
-    }
-    this.position = position;
-  }
-  componentWillLoad() {
-    // Keep backward compatibility
-    if (this.content) {
-      this.open = true;
-    }
-    this.validateType(this.type);
-    this.onOpen();
+  onPopoverOpenChange() {
+    this.open = this.popover.open;
   }
   render() {
-    if (this.content) {
-      return (h(Host, { class: "legacy", position: this.type }, this.content));
-    }
-    return (h(Host, { position: this.position },
-      h("slot", null)));
+    return h("z-popover", { ref: (el) => (this.popover = el), bindTo: this.bindTo, open: this.open, position: this.position, center: true, showArrow: true },
+      h("slot", null));
   }
   static get is() { return "z-tooltip"; }
   static get encapsulation() { return "shadow"; }
@@ -263,36 +35,16 @@ export class ZTooltip {
     "$": ["styles.css"]
   }; }
   static get properties() { return {
-    "content": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [{
-            "name": "deprecated",
-            "text": undefined
-          }],
-        "text": "Content text."
-      },
-      "attribute": "content",
-      "reflect": false
-    },
-    "type": {
+    "position": {
       "type": "string",
       "mutable": true,
       "complexType": {
-        "original": "TooltipPosition",
-        "resolved": "TooltipPosition.AUTO | TooltipPosition.BOTTOM | TooltipPosition.BOTTOM_LEFT | TooltipPosition.BOTTOM_RIGHT | TooltipPosition.LEFT | TooltipPosition.RIGHT | TooltipPosition.TOP | TooltipPosition.TOP_LEFT | TooltipPosition.TOP_RIGHT",
+        "original": "PopoverPositions",
+        "resolved": "PopoverPositions.AUTO | PopoverPositions.BOTTOM | PopoverPositions.BOTTOM_LEFT | PopoverPositions.BOTTOM_RIGHT | PopoverPositions.LEFT | PopoverPositions.LEFT_BOTTOM | PopoverPositions.LEFT_TOP | PopoverPositions.RIGHT | PopoverPositions.RIGHT_BOTTOM | PopoverPositions.RIGHT_TOP | PopoverPositions.TOP | PopoverPositions.TOP_LEFT | PopoverPositions.TOP_RIGHT",
         "references": {
-          "TooltipPosition": {
+          "PopoverPositions": {
             "location": "import",
-            "path": "../../../beans/index"
+            "path": "../../../beans"
           }
         }
       },
@@ -302,9 +54,27 @@ export class ZTooltip {
         "tags": [],
         "text": "Tooltip position."
       },
-      "attribute": "type",
-      "reflect": false,
-      "defaultValue": "TooltipPosition.AUTO"
+      "attribute": "position",
+      "reflect": true,
+      "defaultValue": "PopoverPositions.AUTO"
+    },
+    "dark": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Enable tooltip dark mode."
+      },
+      "attribute": "dark",
+      "reflect": true,
+      "defaultValue": "false"
     },
     "open": {
       "type": "boolean",
@@ -346,34 +116,11 @@ export class ZTooltip {
       "reflect": false
     }
   }; }
-  static get states() { return {
-    "position": {}
-  }; }
-  static get events() { return [{
-      "method": "positionChange",
-      "name": "positionChange",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "Position change event."
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      }
-    }]; }
-  static get elementRef() { return "host"; }
-  static get watchers() { return [{
-      "propName": "type",
-      "methodName": "validateType"
-    }, {
-      "propName": "position",
-      "methodName": "onPositionChange"
-    }, {
-      "propName": "open",
-      "methodName": "onOpen"
+  static get listeners() { return [{
+      "name": "openChange",
+      "method": "onPopoverOpenChange",
+      "target": undefined,
+      "capture": false,
+      "passive": false
     }]; }
 }

@@ -57,18 +57,22 @@ export var InputStatusEnum;
   InputStatusEnum["error"] = "error";
   InputStatusEnum["warning"] = "warning";
 })(InputStatusEnum || (InputStatusEnum = {}));
-export var TooltipPosition;
-(function (TooltipPosition) {
-  TooltipPosition["AUTO"] = "auto";
-  TooltipPosition["TOP"] = "top";
-  TooltipPosition["RIGHT"] = "right";
-  TooltipPosition["BOTTOM"] = "bottom";
-  TooltipPosition["LEFT"] = "left";
-  TooltipPosition["TOP_RIGHT"] = "top_right";
-  TooltipPosition["TOP_LEFT"] = "top_left";
-  TooltipPosition["BOTTOM_RIGHT"] = "bottom_right";
-  TooltipPosition["BOTTOM_LEFT"] = "bottom_left";
-})(TooltipPosition || (TooltipPosition = {}));
+export var PopoverPositions;
+(function (PopoverPositions) {
+  PopoverPositions["AUTO"] = "auto";
+  PopoverPositions["TOP"] = "top";
+  PopoverPositions["RIGHT"] = "right";
+  PopoverPositions["BOTTOM"] = "bottom";
+  PopoverPositions["LEFT"] = "left";
+  PopoverPositions["TOP_RIGHT"] = "top_right";
+  PopoverPositions["TOP_LEFT"] = "top_left";
+  PopoverPositions["BOTTOM_RIGHT"] = "bottom_right";
+  PopoverPositions["BOTTOM_LEFT"] = "bottom_left";
+  PopoverPositions["RIGHT_TOP"] = "right_top";
+  PopoverPositions["RIGHT_BOTTOM"] = "right_bottom";
+  PopoverPositions["LEFT_TOP"] = "left_top";
+  PopoverPositions["LEFT_BOTTOM"] = "left_bottom";
+})(PopoverPositions || (PopoverPositions = {}));
 export var KeyboardKeyCodeEnum;
 (function (KeyboardKeyCodeEnum) {
   KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["TAB"] = 9] = "TAB";
@@ -104,39 +108,6 @@ export var ThemeVariant;
   ThemeVariant["dark"] = "dark";
   ThemeVariant["light"] = "light";
 })(ThemeVariant || (ThemeVariant = {}));
-export var PopoverPosition;
-(function (PopoverPosition) {
-  PopoverPosition["after-down"] = "after-down";
-  PopoverPosition["after-center"] = "after-center";
-  PopoverPosition["after-up"] = "after-up";
-  PopoverPosition["below-right"] = "below-right";
-  PopoverPosition["below-center"] = "below-center";
-  PopoverPosition["below-left"] = "below-left";
-  PopoverPosition["before-down"] = "before-down";
-  PopoverPosition["before-center"] = "before-center";
-  PopoverPosition["before-up"] = "before-up";
-  PopoverPosition["above-right"] = "above-right";
-  PopoverPosition["above-center"] = "above-center";
-  PopoverPosition["above-left"] = "above-left";
-})(PopoverPosition || (PopoverPosition = {}));
-export var PopoverBorderRadius;
-(function (PopoverBorderRadius) {
-  PopoverBorderRadius["none"] = "none";
-  PopoverBorderRadius["small"] = "small";
-  PopoverBorderRadius["medium"] = "medium";
-})(PopoverBorderRadius || (PopoverBorderRadius = {}));
-export var PopoverShadow;
-(function (PopoverShadow) {
-  PopoverShadow["shadow-1"] = "shadow-1";
-  PopoverShadow["shadow-2"] = "shadow-2";
-  PopoverShadow["shadow-3"] = "shadow-3";
-  PopoverShadow["shadow-4"] = "shadow-4";
-  PopoverShadow["shadow-6"] = "shadow-6";
-  PopoverShadow["shadow-8"] = "shadow-8";
-  PopoverShadow["shadow-12"] = "shadow-12";
-  PopoverShadow["shadow-16"] = "shadow-16";
-  PopoverShadow["shadow-24"] = "shadow-24";
-})(PopoverShadow || (PopoverShadow = {}));
 export var DividerSize;
 (function (DividerSize) {
   DividerSize["small"] = "small";

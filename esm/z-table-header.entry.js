@@ -1,11 +1,11 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-90e18641.js';
 import { c as classnames } from './index-abb47b30.js';
-import { x as Size, y as SortDirectionEnum, P as PopoverPosition, b as ButtonVariantEnum, c as ButtonSizeEnum } from './index-46ca649a.js';
-import { a as getElementTree } from './utils-5d5963ef.js';
+import { x as Size, y as SortDirectionEnum, f as ButtonVariantEnum, g as ButtonSizeEnum, P as PopoverPositions } from './index-c1ce8cab.js';
+import { a as getElementTree } from './utils-99c70c57.js';
 import './_commonjsHelpers-9943807e.js';
 import './breakpoints-c386984e.js';
 
-const stylesCss = ":host{display:table-cell;background-color:var(--gray50);border-bottom:var(--border-size-medium) solid var(--gray200);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start;position:relative}.container{display:flex;align-items:flex-end}:host(.sortable){cursor:pointer}:host([padding=\"x-small\"]){padding:calc(var(--space-unit) * 0.5)}:host([padding=\"small\"]){padding:calc(var(--space-unit))}:host([padding=\"medium\"]){padding:calc(var(--space-unit) * 2)}:host([padding=\"large\"]){padding:calc(var(--space-unit) * 2.5)}:host([padding=\"special\"]){padding:0}.arrow{opacity:1;padding-left:var(--space-unit)}.popover-container{position:absolute;top:var(--space-unit);right:var(--space-unit);display:none}.popover-container.visible{display:block}:host(:hover) .popover-container{display:block}";
+const stylesCss = ":host{position:relative;display:table-cell;background-color:var(--gray50);border-bottom:var(--border-size-medium) solid var(--gray200);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start}.container{display:flex;align-items:flex-end}:host(.sortable){cursor:pointer}:host([padding=\"x-small\"]){padding:calc(var(--space-unit) * 0.5)}:host([padding=\"small\"]){padding:calc(var(--space-unit))}:host([padding=\"medium\"]){padding:calc(var(--space-unit) * 2)}:host([padding=\"large\"]){padding:calc(var(--space-unit) * 2.5)}:host([padding=\"special\"]){padding:0}.arrow{opacity:1;padding-left:var(--space-unit)}.popover-container{position:absolute;top:var(--space-unit);right:var(--space-unit);display:none}.popover-container z-popover{--z-popover-theme--surface:var(--gray200);position:relative;z-index:1}.popover-container.visible{display:block}:host(:hover) .popover-container{display:block}";
 
 const ZTableHeader = class {
   constructor(hostRef) {
@@ -16,7 +16,6 @@ const ZTableHeader = class {
     /** [Optional] Default sort order */
     this.defaultSortDirection = SortDirectionEnum.asc;
     this.sortDirection = SortDirectionEnum.none;
-    this.isMenuOpened = false;
     this.emitOnSort = this.emitOnSort.bind(this);
   }
   emitOnSort() {
@@ -44,13 +43,13 @@ const ZTableHeader = class {
     this.emitOnSort();
   }
   handleMenuClick() {
-    this.isMenuOpened = !this.isMenuOpened;
+    this.popover.open = !this.popover.open;
   }
   handleOutsideClick(e) {
     const tree = getElementTree(e.target);
     const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-popover");
-    if (!parent) {
-      this.isMenuOpened = false;
+    if (!parent && this.popover) {
+      this.popover.open = false;
     }
   }
   handleClickHeaders(e) {
@@ -71,11 +70,9 @@ const ZTableHeader = class {
   render() {
     return (h(Host, { class: classnames({
         sortable: this.sortable,
-      }), onClick: () => this.handleSort() }, h("div", { class: classnames("container") }, h("slot", null), this.sortable && this.sortDirection !== SortDirectionEnum.none && (h("z-icon", { name: this.sortDirection === SortDirectionEnum.asc
+      }), onClick: () => this.handleSort() }, h("div", { class: 'container' }, h("slot", null), this.sortable && this.sortDirection !== SortDirectionEnum.none && (h("z-icon", { name: this.sortDirection === SortDirectionEnum.asc
         ? "arrow-up"
-        : "arrow-down", class: "arrow" }))), this.showButton && (h("div", { class: classnames("popover-container", {
-        visible: this.isMenuOpened,
-      }) }, h("z-popover", { position: PopoverPosition["below-center"], "background-color": "gray200" }, h("z-button", { icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], slot: "trigger", onClick: () => this.handleMenuClick() }), h("div", { slot: "popover" }, h("slot", { name: "contextual-menu" })))))));
+        : "arrow-down", class: "arrow" }))), this.showButton && (h("div", { class: 'popover-container' }, h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenuClick() }), h("z-popover", { ref: (el) => (this.popover = el), position: PopoverPositions.BOTTOM, center: true, bindTo: this.triggerButton }, h("div", null, h("slot", { name: "contextual-menu" })))))));
   }
   get host() { return getElement(this); }
 };

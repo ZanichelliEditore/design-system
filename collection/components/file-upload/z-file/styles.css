@@ -4,11 +4,11 @@
   position: relative;
 }
 
-:host > z-tooltip {
+:host > z-popover {
   z-index: 10;
 }
 
-:host > z-tooltip > .tootip-content {
+:host > z-popover > .tooltip-content {
   white-space: nowrap;
 }
 

@@ -1,29 +1,29 @@
 import { Component, h, Event, Element, Host, State, Listen, Prop, } from "@stencil/core";
-import { TooltipPosition, ZChipType } from "../../../beans";
+import { PopoverPositions, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
-import "./index";
 export class ZFile {
   constructor() {
-    this.allowTooltip = false;
-    this.tooltipVisible = false;
+    this.allowPopover = false;
+    this.popoverVisible = false;
   }
   removeFileHandler() {
     this.removeFile.emit();
     this.el.remove();
   }
   onMouseOver() {
-    this.tooltipVisible = true;
+    this.popoverVisible = true;
   }
   onMouseLeave() {
-    this.tooltipVisible = false;
+    this.popoverVisible = false;
   }
   onInteractiveIconClick() {
     this.removeFileHandler();
   }
   componentDidLoad() {
     var _a, _b;
-    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
-      this.allowTooltip = true;
+    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) {
+      this.allowPopover = true;
+    }
     (_b = (_a = this.icon) === null || _a === void 0 ? void 0 : _a.focus) === null || _b === void 0 ? void 0 : _b.call(_a);
   }
   elementHasEllipsis() {
@@ -31,9 +31,9 @@ export class ZFile {
   }
   render() {
     return (h(Host, null,
-      this.allowTooltip && (h("z-tooltip", { open: this.tooltipVisible, type: TooltipPosition.AUTO, "bind-to": `#chip-${this.fileNumber}` },
-        h("span", { class: "body-5 tootip-content" }, this.ellipsis.innerText))),
-      h("z-chip", { id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.default },
+      this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPositions.AUTO, bindTo: this.chip },
+        h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))),
+      h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.default },
         h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 },
           h("slot", null)))));
   }
@@ -65,8 +65,8 @@ export class ZFile {
     }
   }; }
   static get states() { return {
-    "allowTooltip": {},
-    "tooltipVisible": {}
+    "allowPopover": {},
+    "popoverVisible": {}
   }; }
   static get events() { return [{
       "method": "removeFile",
