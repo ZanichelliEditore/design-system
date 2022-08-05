@@ -62,12 +62,11 @@ On the following Story, the "position" prop can be set only for the original pos
         </z-tooltip>
       </div>
       <script>
-        const tooltip = document.querySelector("z-tooltip");
         document.querySelector("#trigger").addEventListener("click", () => {
-          if (tooltip.open) {
-            tooltip.open = false;
+          if (document.querySelector("z-tooltip").open) {
+            document.querySelector("z-tooltip").open = false;
           } else {
-            tooltip.open = true;
+            document.querySelector("z-tooltip").open = true;
           }
         });
       </script>
