@@ -1,0 +1,105 @@
+import { html } from "lit-html";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { PopoverPositions } from "../../beans";
+import { getColorTokens } from "../../utils/storybook-utils";
+import "./index.stories.css";
+import "./index";
+
+# ZPopover Deprecated
+## This component is deprecated and will be removed from the library starting 15 October 2022.
+
+## Stories
+
+To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
+
+<Meta
+  title="Deprecated/ZPopoverDeprecated"
+  component="z-popover-deprecated"
+  argTypes={{
+    position: {
+      options: Object.values(PopoverPositions),
+      control: { type: "inline-radio"},
+    },
+    open: {
+      control: { type: "boolean"},
+    },
+    center: {
+      control: { type: "boolean"},
+    },
+    showArrow: {
+      control: { type: "boolean"},
+    },
+    "--z-popover-theme--surface": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
+    "--z-popover-theme--text": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      }
+    },
+  }}
+/>
+
+# ZPopoverDeprecated
+
+<Canvas>
+  <Story name="contextual-menu-like" args={{
+    position: PopoverPositions.RIGHT_BOTTOM,
+    open: true,
+  }}>
+  {(args) => html`
+      <div class="popover-container">
+        <z-popover-deprecated
+          .position=${args.position}
+          .open=${args.open}
+          .center=${args.center}
+          .showArrow=${args.showArrow}
+          bind-to="#icon"
+        >
+          <div class="container">
+            <z-button-deprecated>Open</z-button-deprecated>
+            <z-button-deprecated>Save as</z-button-deprecated>
+            <z-button-deprecated>Share</z-button-deprecated>
+          </div>
+        </z-popover-deprecated>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+# ZPopoverDeprecated as ZTooltip
+
+<Canvas>
+  <Story name="tooltip-deprecated" args={{
+    position: PopoverPositions.AUTO,
+    open: true,
+    center: true,
+    showArrow: true,
+  }}>
+    {(args) => html`
+      <div class="popover-container">
+        <z-popover-deprecated
+          .position=${args.position}
+          .open=${args.open}
+          .center=${args.center}
+          .showArrow=${args.showArrow}
+          bind-to="#icon"
+        >
+          <div class="container">
+            <z-button-deprecated>Open</z-button-deprecated>
+            <z-button-deprecated>Save as</z-button-deprecated>
+            <z-button-deprecated>Share</z-button-deprecated>
+          </div>
+        </z-popover-deprecated>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-popover-deprecated" />

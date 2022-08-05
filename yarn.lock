@@ -2659,9 +2659,9 @@
     form-data "^3.0.0"
 
 "@types/node@*":
-  version "17.0.35"
-  resolved "https://registry.npmjs.org/@types/node/-/node-17.0.35.tgz#635b7586086d51fb40de0a2ec9d1014a5283ba4a"
-  integrity sha512-vu1SrqBjbbZ3J6vwY17jBs8Sr/BKA+/a/WtjRG+whKg1iuLFOosq872EXS0eXWILdO36DHQQeku/ZcL6hz2fpg==
+  version "18.0.6"
+  resolved "https://registry.npmjs.org/@types/node/-/node-18.0.6.tgz#0ba49ac517ad69abe7a1508bc9b3a5483df9d5d7"
+  integrity sha512-/xUq6H2aQm261exT6iZTMifUySEt4GR5KX8eYyY+C4MSNPqSh9oNIP7tz2GLKTlFaiBbgZNxffoR3CVRG+cljw==
 
 "@types/node@^14.0.10 || ^16.0.0", "@types/node@^14.14.20 || ^16.0.0":
   version "16.11.36"
@@ -2766,9 +2766,9 @@
     "@types/node" "*"
 
 "@types/uglify-js@*":
-  version "3.13.2"
-  resolved "https://registry.npmjs.org/@types/uglify-js/-/uglify-js-3.13.2.tgz#1044c1713fb81cb1ceef29ad8a9ee1ce08d690ef"
-  integrity sha512-/xFrPIo+4zOeNGtVMbf9rUm0N+i4pDf1ynExomqtokIJmVzR3962lJ1UE+MmexMkA0cmN9oTzg5Xcbwge0Ij2Q==
+  version "3.16.0"
+  resolved "https://registry.npmjs.org/@types/uglify-js/-/uglify-js-3.16.0.tgz#2cf74a0e6ebb6cd54c0d48e509d5bd91160a9602"
+  integrity sha512-0yeUr92L3r0GLRnBOvtYK1v2SjqMIqQDHMl7GLb+l2L8+6LSFWEEWEIgVsPdMn5ImLM8qzWT8xFPtQYpp8co0g==
   dependencies:
     source-map "^0.6.1"
 
@@ -10962,9 +10962,9 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
 source-map@^0.7.3:
-  version "0.7.3"
-  resolved "https://registry.npmjs.org/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
-  integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
+  version "0.7.4"
+  resolved "https://registry.npmjs.org/source-map/-/source-map-0.7.4.tgz#a9bbe705c9d8846f4e08ff6765acf0f1b0898656"
+  integrity sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==
 
 source-map@~0.8.0-beta.0:
   version "0.8.0-beta.0"
@@ -11100,9 +11100,9 @@ store2@^2.12.0:
   integrity sha512-CMtO2Uneg3SAz/d6fZ/6qbqqQHi2ynq6/KzMD/26gTkiEShCcpqFfTHgOxsE0egAq6SX3FmN4CeSqn8BzXQkJg==
 
 storybook-addon-stencil@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.npmjs.org/storybook-addon-stencil/-/storybook-addon-stencil-0.1.8.tgz#547205acf66a76f7cab6f8ae8a7b0d14aeae9b56"
-  integrity sha512-/uqC5zFlREqHzzHzFdHy6oxPRJDVZEStSYLH9x9vGHYQBJNtj+NfXERc4qsoGMYaZ/vGmnu49D7RGL09nWOnWA==
+  version "0.1.9"
+  resolved "https://registry.npmjs.org/storybook-addon-stencil/-/storybook-addon-stencil-0.1.9.tgz#843c44c939f779fde37d25707e575e16d8b1dc34"
+  integrity sha512-boBC5RH2j2BiqOxVbAtTW5YoFE8J9cNXrM0JlHS+Rh0XIauAC2mTERTH5btP5CgsP04THVwPptDV6bqZXTMiJg==
   dependencies:
     "@types/loader-utils" "^2.0.3"
     custom-elements-manifest "^1.0.0"

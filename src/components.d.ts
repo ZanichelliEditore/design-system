@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverPositions, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -353,13 +353,13 @@ export namespace Components {
          */
         "color"?: string;
         /**
-          * elements of ZContextualMenu
+          * Elements of ZContextualMenu
          */
         "elements"?: string;
         /**
           * [optional] Sets the position of the popover
          */
-        "popoverPosition"?: PopoverPosition;
+        "popoverPosition"?: PopoverPositions;
     }
     interface ZCookiebar {
         /**
@@ -1495,29 +1495,51 @@ export namespace Components {
     }
     interface ZPopover {
         /**
-          * [optional] Background color token for popover
+          * The selector or the element bound with the popover.
          */
-        "backgroundColor"?: string;
+        "bindTo"?: string | HTMLElement;
         /**
-          * [optional] Border radius token for popover
+          * Whether to center the popup on the main side (according to "position").
          */
-        "borderRadius"?: PopoverBorderRadius;
+        "center": boolean;
         /**
-          * [optional] Box shadow token for popover
+          * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
          */
-        "boxShadow"?: PopoverShadow;
+        "closable": boolean;
         /**
-          * [optional] Sets padding for Popover container
+          * The open state of the popover.
          */
-        "padding"?: string;
+        "open": boolean;
         /**
-          * [optional] Popover position
+          * Popover position.
          */
-        "position"?: PopoverPosition;
+        "position": PopoverPositions;
         /**
-          * [optional] Show or hide arrow
+          * Whether to show popover's arrow.
          */
-        "showArrow"?: boolean;
+        "showArrow": boolean;
+    }
+    interface ZPopoverDeprecated {
+        /**
+          * The selector or the element bound with the popover.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Whether center the popup on the main side - according to "position".
+         */
+        "center": boolean;
+        /**
+          * The open state of the popover.
+         */
+        "open": boolean;
+        /**
+          * Popover position.
+         */
+        "position": PopoverPositions;
+        /**
+          * Whether to show popover's arrow.
+         */
+        "showArrow": boolean;
     }
     interface ZSectionTitle {
         /**
@@ -1858,6 +1880,24 @@ export namespace Components {
          */
         "bindTo"?: string | HTMLElement;
         /**
+          * Enable tooltip dark mode.
+         */
+        "dark": boolean;
+        /**
+          * The open state of the tooltip.
+         */
+        "open": boolean;
+        /**
+          * Tooltip position.
+         */
+        "position": PopoverPositions;
+    }
+    interface ZTooltipDeprecated {
+        /**
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
           * Content text.
           * @deprecated
          */
@@ -1869,7 +1909,7 @@ export namespace Components {
         /**
           * Tooltip position.
          */
-        "type": TooltipPosition;
+        "type": PopoverPositions1;
     }
     interface ZTypography {
         "component": string;
@@ -2364,6 +2404,12 @@ declare global {
         prototype: HTMLZPopoverElement;
         new (): HTMLZPopoverElement;
     };
+    interface HTMLZPopoverDeprecatedElement extends Components.ZPopoverDeprecated, HTMLStencilElement {
+    }
+    var HTMLZPopoverDeprecatedElement: {
+        prototype: HTMLZPopoverDeprecatedElement;
+        new (): HTMLZPopoverDeprecatedElement;
+    };
     interface HTMLZSectionTitleElement extends Components.ZSectionTitle, HTMLStencilElement {
     }
     var HTMLZSectionTitleElement: {
@@ -2508,6 +2554,12 @@ declare global {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
+    interface HTMLZTooltipDeprecatedElement extends Components.ZTooltipDeprecated, HTMLStencilElement {
+    }
+    var HTMLZTooltipDeprecatedElement: {
+        prototype: HTMLZTooltipDeprecatedElement;
+        new (): HTMLZTooltipDeprecatedElement;
+    };
     interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
     }
     var HTMLZTypographyElement: {
@@ -2604,6 +2656,7 @@ declare global {
         "z-pocket-header": HTMLZPocketHeaderElement;
         "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
+        "z-popover-deprecated": HTMLZPopoverDeprecatedElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
@@ -2628,6 +2681,7 @@ declare global {
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
+        "z-tooltip-deprecated": HTMLZTooltipDeprecatedElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
@@ -3005,7 +3059,7 @@ declare namespace LocalJSX {
          */
         "color"?: string;
         /**
-          * elements of ZContextualMenu
+          * Elements of ZContextualMenu
          */
         "elements"?: string;
         /**
@@ -3015,7 +3069,7 @@ declare namespace LocalJSX {
         /**
           * [optional] Sets the position of the popover
          */
-        "popoverPosition"?: PopoverPosition;
+        "popoverPosition"?: PopoverPositions;
     }
     interface ZCookiebar {
         /**
@@ -4314,31 +4368,65 @@ declare namespace LocalJSX {
     }
     interface ZPopover {
         /**
-          * [optional] Background color token for popover
+          * The selector or the element bound with the popover.
          */
-        "backgroundColor"?: string;
+        "bindTo"?: string | HTMLElement;
         /**
-          * [optional] Border radius token for popover
+          * Whether to center the popup on the main side (according to "position").
          */
-        "borderRadius"?: PopoverBorderRadius;
+        "center"?: boolean;
         /**
-          * [optional] Box shadow token for popover
+          * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
          */
-        "boxShadow"?: PopoverShadow;
+        "closable"?: boolean;
         /**
-          * Emitted on popover click, returns isVisible state
+          * Open change event.
          */
-        "onTriggerClick"?: (event: CustomEvent<any>) => void;
+        "onOpenChange"?: (event: CustomEvent<any>) => void;
         /**
-          * [optional] Sets padding for Popover container
+          * Position change event.
          */
-        "padding"?: string;
+        "onPositionChange"?: (event: CustomEvent<any>) => void;
         /**
-          * [optional] Popover position
+          * The open state of the popover.
          */
-        "position"?: PopoverPosition;
+        "open"?: boolean;
         /**
-          * [optional] Show or hide arrow
+          * Popover position.
+         */
+        "position"?: PopoverPositions;
+        /**
+          * Whether to show popover's arrow.
+         */
+        "showArrow"?: boolean;
+    }
+    interface ZPopoverDeprecated {
+        /**
+          * The selector or the element bound with the popover.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Whether center the popup on the main side - according to "position".
+         */
+        "center"?: boolean;
+        /**
+          * Open change event.
+         */
+        "onOpenChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Position change event.
+         */
+        "onPositionChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The open state of the popover.
+         */
+        "open"?: boolean;
+        /**
+          * Popover position.
+         */
+        "position"?: PopoverPositions;
+        /**
+          * Whether to show popover's arrow.
          */
         "showArrow"?: boolean;
     }
@@ -4695,6 +4783,24 @@ declare namespace LocalJSX {
          */
         "bindTo"?: string | HTMLElement;
         /**
+          * Enable tooltip dark mode.
+         */
+        "dark"?: boolean;
+        /**
+          * The open state of the tooltip.
+         */
+        "open"?: boolean;
+        /**
+          * Tooltip position.
+         */
+        "position"?: PopoverPositions;
+    }
+    interface ZTooltipDeprecated {
+        /**
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
           * Content text.
           * @deprecated
          */
@@ -4710,7 +4816,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip position.
          */
-        "type"?: TooltipPosition;
+        "type"?: PopoverPositions1;
     }
     interface ZTypography {
         "component"?: string;
@@ -4827,6 +4933,7 @@ declare namespace LocalJSX {
         "z-pocket-header": ZPocketHeader;
         "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
+        "z-popover-deprecated": ZPopoverDeprecated;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
         "z-skip-to-content": ZSkipToContent;
@@ -4851,6 +4958,7 @@ declare namespace LocalJSX {
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
+        "z-tooltip-deprecated": ZTooltipDeprecated;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
         "z-visually-hidden": ZVisuallyHidden;
@@ -4937,6 +5045,7 @@ declare module "@stencil/core" {
             "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
+            "z-popover-deprecated": LocalJSX.ZPopoverDeprecated & JSXBase.HTMLAttributes<HTMLZPopoverDeprecatedElement>;
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
@@ -4961,6 +5070,7 @@ declare module "@stencil/core" {
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
+            "z-tooltip-deprecated": LocalJSX.ZTooltipDeprecated & JSXBase.HTMLAttributes<HTMLZTooltipDeprecatedElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
