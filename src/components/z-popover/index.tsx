@@ -162,7 +162,7 @@ export class ZPopover {
   /**
    * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
    */
-   @Prop()
+  @Prop()
   closable: boolean = true;
 
   /**
