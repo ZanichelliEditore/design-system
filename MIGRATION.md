@@ -9,7 +9,8 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
 - [v5.0.0](#v500)
-  - [Z-Popover](#z-popover)
+  - [ZPopover](#zpopover)
+  - [ZTooltip](#ztooltip)
 
 - [v4.0.0](#v400)
   - [ZInput](#zinput)
@@ -36,8 +37,11 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 ## v5.0.0
 ### ZPopover
-#### 
+Lo `ZPopover` è strutturalmente cambiato: il contenuto è completamente slottato, l'elemento che funge da "trigger" per l'apertura va aggiunto *fuori* al componente.
+Le proprietà legate allo stile (`backgroundColor`, `borderRadius`, ecc.) sono scomparse in favore di variabili CSS.
 
+## ZTooltip
+La proprietà `type` ora si chiama `position`. Per avere il tooltip in versione "dark" non si usa più una classe CSS ma la proprietà `dark` settata a `true`.
 
 ## v4.0.0
 ### ZInput
