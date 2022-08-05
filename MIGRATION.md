@@ -8,6 +8,9 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 ## Breaking changes
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v5.0.0](#v500)
+  - [Z-Popover](#z-popover)
+
 - [v4.0.0](#v400)
   - [ZInput](#zinput)
     - [Rimozione della prop `hasmessage`](#rimozione-della-prop-hasmessage)
@@ -30,6 +33,11 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v5.0.0
+### ZPopover
+#### 
+
 
 ## v4.0.0
 ### ZInput
