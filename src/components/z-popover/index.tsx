@@ -240,14 +240,8 @@ export class ZPopover {
       };
 
       setPosition();
-    } else {
-      const style = this.host.style;
-      style.removeProperty("top");
-      style.removeProperty("right");
-      style.removeProperty("bottom");
-      style.removeProperty("left");
-      style.removeProperty("max-width");
-      style.removeProperty("max-height");
+    } else if (this.host.hasAttribute('current-position')) {
+      this.host.removeAttribute('current-position');
       this.currentPosition = undefined;
     }
 
