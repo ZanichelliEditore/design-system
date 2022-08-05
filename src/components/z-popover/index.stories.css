@@ -1,4 +1,4 @@
-.tooltip-container {
+.popover-container {
   position: relative;
   display: inline-flex;
   justify-content: center;
@@ -7,7 +7,11 @@
   height: 200px;
 }
 
-.tooltip-container z-button z-icon {
+.popover-container-tooltip z-popover {
+  --z-popover-padding: var(--space-unit);
+}
+
+.popover-container z-icon {
   --z-icon-width: 32px;
   --z-icon-height: 32px;
 }

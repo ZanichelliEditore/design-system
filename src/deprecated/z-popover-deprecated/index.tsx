@@ -122,85 +122,66 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
  *
  * @cssprop --z-popover-theme--surface - background color of the popover.
  * @cssprop --z-popover-theme--text - foreground color of the popover.
- * @cssprop --z-popover-padding - padding of the popover.
- * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
+ * @cssprop --z-popover-shadow - shadow of the popover.
  */
 @Component({
-  tag: "z-popover",
+  tag: "z-popover-deprecated",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZPopover {
+export class ZPopoverDeprecated {
   /** Popover position. */
-  @Prop({ reflect: true, mutable: true })
-  position: PopoverPositions = PopoverPositions.AUTO;
+  @Prop({ reflect: true, mutable: true }) position: PopoverPositions =
+    PopoverPositions.AUTO;
 
   /**
    * The open state of the popover.
    */
-  @Prop({ reflect: true, mutable: true })
-  open: boolean = false;
+  @Prop({ reflect: true, mutable: true }) open: boolean = false;
 
   /**
    * The selector or the element bound with the popover.
    */
-  @Prop()
-  bindTo?: string | HTMLElement;
+  @Prop() bindTo?: string | HTMLElement;
 
   /**
    * Whether to show popover's arrow.
    */
-  @Prop({ reflect: true })
-  showArrow: boolean = false;
+  @Prop({ reflect: true }) showArrow: boolean = false;
 
   /**
-   * Whether to center the popup on the main side (according to "position").
+   * Whether center the popup on the main side - according to "position".
    */
-  @Prop({ reflect: true })
-  center: boolean = false;
-
-  /**
-   * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
-   */
-  @Prop()
-  closable: boolean = true;
+  @Prop({ reflect: true }) center: boolean = false;
 
   /**
    * The current position of the popover.
    */
-  @State()
-  currentPosition?: PopoverPositions;
+  @State() currentPosition?: PopoverPositions;
 
   /**
    * Position change event.
    */
-  @Event()
-  positionChange: EventEmitter;
+  @Event() positionChange: EventEmitter;
 
   /**
    * Open change event.
    */
-  @Event()
-  openChange: EventEmitter;
+  @Event() openChange: EventEmitter;
 
-  @Element()
-  host: HTMLElement;
+  @Element() host: HTMLElement;
 
   private animationFrameRequestId?: number;
 
   @Listen("keyup", { target: "window" })
-  closePopoverWithKeyboard(e: KeyboardEvent) {
-    if (this.closable && e.key === KeyboardKeys.ESC) {
+  closePopoverWithKeyboard(e: any) {
+    if (e.key === KeyboardKeys.ESC) {
       this.open = false;
     }
   }
 
   @Listen("click", { target: "body", capture: true })
   handleOutsideClick(e: any) {
-    if (!this.closable) {
-      return;
-    }
-
     const tree = getElementTree(e.target);
     const parent = tree.find(
       (elem: Element) => elem.nodeName.toLowerCase() === "z-popover"
@@ -240,8 +221,14 @@ export class ZPopover {
       };
 
       setPosition();
-    } else if (this.host.hasAttribute('current-position')) {
-      this.host.removeAttribute('current-position');
+    } else {
+      const style = this.host.style;
+      style.removeProperty("top");
+      style.removeProperty("right");
+      style.removeProperty("bottom");
+      style.removeProperty("left");
+      style.removeProperty("max-width");
+      style.removeProperty("max-height");
       this.currentPosition = undefined;
     }
 
@@ -274,7 +261,6 @@ export class ZPopover {
     const scrollContainer = findScrollableParent(element) as HTMLElement;
     const scrollingBoundingRect = scrollContainer.getBoundingClientRect();
     const offsetContainer = this.host.offsetParent as HTMLElement;
-
     const relativeBoundingRect = offsetContainer
       ? computeOffset(offsetContainer, scrollContainer)
       : { top: 0, right: 0, bottom: 0, left: 0 };

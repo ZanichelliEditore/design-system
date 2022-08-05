@@ -1,236 +1,147 @@
 :host {
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
+  --z-popover-theme--surface: var(--color-surface01);
+  --z-popover-theme--text: var(--color-text01);
+  --z-popover-padding: 0;
+  --z-popover-shadow-filter: drop-shadow(0 1px 2px var(--shadow-color-base));
 
   position: relative;
-  display: inline-block;
-
-  --shadow-arrow-color: rgba(66, 69, 72, 0.2);
-  --shadow-arrow-below-color: rgba(66, 69, 72, 0.1);
-}
-
-.popover-content-container {
-  box-sizing: border-box;
-  visibility: hidden;
-  position: absolute;
-  min-width: 64px;
-  min-height: 32px;
-  z-index: 999;
-}
-
-.popover-content-container.visible {
-  visibility: visible;
-}
-
-/** Border-radius */
-
-.popover-content-container.border-radius-none {
-  border-radius: 0;
-}
-
-.popover-content-container.border-radius-small {
-  border-radius: var(--border-radius-small);
-}
-
-.popover-content-container.border-radius-medium {
-  border-radius: var(--border-radius);
-}
-
-/*
-Box-shadow
-*/
-
-.popover-content-container.shadow-1 {
-  box-shadow: var(--shadow-1);
-}
-
-.popover-content-container.shadow-2 {
-  box-shadow: var(--shadow-2);
-}
-
-.popover-content-container.shadow-3 {
-  box-shadow: var(--shadow-3);
-}
-
-.popover-content-container.shadow-4 {
-  box-shadow: var(--shadow-4);
-}
-
-.popover-content-container.shadow-6 {
-  box-shadow: var(--shadow-6);
-}
-
-.popover-content-container.shadow-8 {
-  box-shadow: var(--shadow-8);
-}
-
-.popover-content-container.shadow-12 {
-  box-shadow: var(--shadow-12);
-}
-
-.popover-content-container.shadow-16 {
-  box-shadow: var(--shadow-16);
-}
-
-.popover-content-container.shadow-24 {
-  box-shadow: var(--shadow-24);
-}
-
-/*
-Popover-positions
-*/
-
-.popover-content-container.after-down {
-  top: 0;
-  left: calc(100% + var(--space-unit));
-}
-
-.popover-content-container.after-center {
-  top: 50%;
-  left: calc(100% + var(--space-unit));
-  transform: translateY(-50%);
-}
-
-.popover-content-container.after-up {
-  bottom: 0;
-  left: calc(100% + var(--space-unit));
-}
-
-.popover-content-container.below-right {
-  left: 0;
-  top: calc(100% + var(--space-unit));
-}
-
-.popover-content-container.below-center {
-  left: 50%;
-  top: calc(100% + var(--space-unit));
-  transform: translateX(-50%);
-}
-
-.popover-content-container.below-left {
-  right: 0;
-  top: calc(100% + var(--space-unit));
-}
-
-.popover-content-container.before-down {
-  top: 0;
-  right: calc(100% + var(--space-unit));
-}
-
-.popover-content-container.before-center {
-  top: 50%;
-  right: calc(100% + var(--space-unit));
-  transform: translateY(-50%);
-}
-
-.popover-content-container.before-up {
-  bottom: 0;
-  right: calc(100% + var(--space-unit));
-}
-
-.popover-content-container.above-right {
-  left: 0;
-  bottom: calc(100% + var(--space-unit));
-}
-
-.popover-content-container.above-center {
-  left: 50%;
-  bottom: calc(100% + var(--space-unit));
-  transform: translateX(-50%);
-}
-
-.popover-content-container.above-left {
-  right: 0;
-  bottom: calc(100% + var(--space-unit));
-}
-
-/*
-Arrows
-*/
-.popover-content-container:before {
   display: none;
-  position: absolute;
+  align-items: center;
+  justify-content: center;
+  padding: var(--z-popover-padding);
+  min-width: calc(var(--space-unit) * 8);
+  min-height: calc(var(--space-unit) * 4);
+  color: var(--z-popover-theme--text);
+  fill: currentColor;
+  font-family: var(--font-family-sans);
+  text-align: center;
+  border-radius: var(--border-radius-small);
+  background: var(--z-popover-theme--surface);
+  filter: var(--z-popover-shadow-filter);
+}
+
+:host([open][current-position]),
+:host([open="true"][current-position]) {
+  display: flex;
+}
+
+:host([center][current-position="top"]),
+:host([center][current-position="bottom"]) {
+  transform: translateX(-50%);
+}
+
+:host([center][current-position="right"]),
+:host([center][current-position="left"]) {
+  transform: translateY(-50%);
+}
+
+:host([current-position^="top"]) {
+  margin: 0 0 var(--space-unit);
+}
+
+:host([current-position^="bottom"]) {
+  margin: var(--space-unit) 0 0;
+}
+
+:host([current-position^="left"]) {
+  margin: 0 var(--space-unit) 0 0;
+}
+
+:host([current-position^="right"]) {
+  margin: 0 0 0 var(--space-unit);
+}
+
+/* Arrow style */
+
+:host([current-position])::before {
+  --arrow-size: 6px;
+  --arrow-edge-offset: calc(100% - var(--space-unit) - (var(--arrow-size) / 2));
+  --arrow-center-x-offset: calc(50% - (var(--arrow-size) / 2));
+  --arrow-center-y-offset: calc(100% - (var(--arrow-size) / 2));
+
+  display: block;
   content: "";
-  width: 8px;
-  height: 8px;
-  z-index: -1;
-  background-color: inherit;
+  position: absolute;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  background: var(--z-popover-theme--surface);
   transform: rotate(45deg);
 }
 
-.popover-content-container.after-down:before {
-  top: 12px;
-  left: -4px;
-  box-shadow: -1px 1px 1.5px var(--shadow-arrow-color);
+:host([show-arrow="false"])::before,
+:host(:not([show-arrow]))::before {
+  display: none;
 }
 
-.popover-content-container.after-center:before {
-  top: calc(50% - 4px);
-  left: -4px;
-  box-shadow: -1px 1px 1.5px var(--shadow-arrow-color);
+:host([current-position^="top"])::before {
+  top: var(--arrow-center-y-offset);
 }
 
-.popover-content-container.after-up:before {
-  bottom: 12px;
-  left: -4px;
-  box-shadow: -1px 1px 1.5px var(--shadow-arrow-color);
+:host([current-position^="bottom"])::before {
+  bottom: var(--arrow-center-y-offset);
 }
 
-.popover-content-container.below-right:before {
-  left: 12px;
-  top: -4px;
-  box-shadow: -1px -1px 2px var(--shadow-arrow-below-color);
+:host([current-position="top"])::before,
+:host([current-position="bottom"])::before {
+  right: var(--arrow-edge-offset);
 }
 
-.popover-content-container.below-center:before {
-  left: calc(50% - 4px);
-  top: -4px;
-  box-shadow: -1px -1px 2px var(--shadow-arrow-below-color);
+:host([current-position="right"])::before,
+:host([current-position="left"])::before {
+  bottom: var(--arrow-edge-offset);
 }
 
-.popover-content-container.below-left:before {
-  right: 12px;
-  top: -4px;
-  box-shadow: -1px -1px 2px var(--shadow-arrow-below-color);
+:host([current-position="right"])::before {
+  right: var(--arrow-center-y-offset);
 }
 
-.popover-content-container.before-down:before {
-  top: 12px;
-  right: -4px;
-  box-shadow: 1px -1px 1.5px var(--shadow-arrow-color);
+:host([current-position="left"])::before {
+  left: var(--arrow-center-y-offset);
 }
 
-.popover-content-container.before-center:before {
-  top: calc(50% - 4px);
-  right: -4px;
-  box-shadow: 1px -1px 1.5px var(--shadow-arrow-color);
+:host([current-position="top_right"])::before,
+:host([current-position="bottom_right"])::before {
+  right: var(--arrow-edge-offset);
 }
 
-.popover-content-container.before-up:before {
-  bottom: 12px;
-  right: -4px;
-  box-shadow: 1px -1px 1.5px var(--shadow-arrow-color);
+:host([current-position="top_left"])::before,
+:host([current-position="bottom_left"])::before {
+  left: var(--arrow-edge-offset);
 }
 
-.popover-content-container.above-right:before {
-  left: 12px;
-  bottom: -4px;
-  box-shadow: 1px 1px 1.5px var(--shadow-arrow-color);
+:host([current-position="right_top"])::before,
+:host([current-position="left_top"])::before {
+  top: var(--arrow-edge-offset);
 }
 
-.popover-content-container.above-center:before {
-  left: calc(50% - 4px);
-  bottom: -4px;
-  box-shadow: 1px 1px 1.5px var(--shadow-arrow-color);
+:host([current-position="right_top"])::before,
+:host([current-position="right_bottom"])::before {
+  right: var(--arrow-center-y-offset);
 }
 
-.popover-content-container.above-left:before {
-  right: 12px;
-  bottom: -4px;
-  box-shadow: 1px 1px 1.5px var(--shadow-arrow-color);
+:host([current-position="left_top"])::before,
+:host([current-position="left_bottom"])::before {
+  left: var(--arrow-center-y-offset);
 }
 
-/** Show/Hide arrow */
-.popover-content-container.show-arrow:before {
-  display: block;
+:host([current-position="right_bottom"])::before,
+:host([current-position="left_bottom"])::before {
+  bottom: var(--arrow-edge-offset);
+}
+
+:host([center][current-position="top"])::before,
+:host([center][current-position="bottom"])::before {
+  right: auto;
+  left: var(--arrow-center-x-offset);
+}
+
+:host([center][current-position="right"])::before,
+:host([center][current-position="left"])::before {
+  top: var(--arrow-center-x-offset);
+  bottom: auto;
+}
+
+::slotted(*) {
+  flex: 1 auto;
+  overflow: auto;
 }
