@@ -7,10 +7,14 @@
 
 ## Properties
 
-| Property        | Attribute         | Description                                             | Type                                                                         | Default                |
-| --------------- | ----------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------- |
-| `mode`          | `mode`            | [Optional] datepicker mode: date, datetime, only months | `ZDatePickerMode.date \| ZDatePickerMode.dateTime \| ZDatePickerMode.months` | `ZDatePickerMode.date` |
-| `rangePickerId` | `range-picker-id` | unique id                                               | `string`                                                                     | `undefined`            |
+| Property          | Attribute           | Description                                             | Type                                                                         | Default                |
+| ----------------- | ------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------- |
+| `firstAriaLabel`  | `first-aria-label`  | first z-input aria label                                | `string`                                                                     | `undefined`            |
+| `firstLabel`      | `first-label`       | first z-input label                                     | `string`                                                                     | `undefined`            |
+| `mode`            | `mode`              | [Optional] datepicker mode: date, datetime, only months | `ZDatePickerMode.date \| ZDatePickerMode.dateTime \| ZDatePickerMode.months` | `ZDatePickerMode.date` |
+| `rangePickerId`   | `range-picker-id`   | unique id                                               | `string`                                                                     | `undefined`            |
+| `secondAriaLabel` | `second-aria-label` | second z-input aria label                               | `string`                                                                     | `undefined`            |
+| `secondLabel`     | `second-label`      | second z-input label                                    | `string`                                                                     | `undefined`            |
 
 
 ## Events

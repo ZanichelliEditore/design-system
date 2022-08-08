@@ -8,6 +8,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 ## Breaking changes
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v5.0.0](#v500)
+  - [ZPopover](#zpopover)
+  - [ZTooltip](#ztooltip)
+
 - [v4.0.0](#v400)
   - [ZInput](#zinput)
     - [Rimozione della prop `hasmessage`](#rimozione-della-prop-hasmessage)
@@ -30,6 +34,16 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v5.0.0
+### ZPopover
+Lo `ZPopover` è strutturalmente cambiato: il contenuto è completamente slottato, l'elemento che funge da "trigger" per l'apertura va aggiunto *fuori* al componente. La proprietà "bindTo" permette di specificare l'elemento (con referenza o stringa selettore) rispetto a cui il popover deve essere posizionato, e generalmente rappresenta l'elemento "trigger" stesso.
+Le nuove "posizioni" utilizzabili sono cambiate e sono disponibili nell'enum "PopoverPositions".
+Le proprietà legate allo stile (`backgroundColor`, `borderRadius`, ecc.) sono scomparse in favore di variabili CSS.
+Anche le shadow sono settate tramite variabile CSS `--z-popover-shadow-filter`, di tipo "filter".
+
+## ZTooltip
+La proprietà `type` ora si chiama `position`. Per avere il tooltip in versione "dark" c'è una nuova proprietà `dark` da settare a `true`.
 
 ## v4.0.0
 ### ZInput

@@ -1,104 +1,64 @@
 import { html } from "lit-html";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import { PopoverPositions } from "../../beans";
-import { getColorTokens } from "../../utils/storybook-utils";
-import "./index.stories.css";
+import {
+  PopoverPosition,
+  PopoverShadow,
+  PopoverBorderRadius,
+} from "../../beans";
+
 import "./index";
 
 # ZPopover Deprecated
 ## This component is deprecated and will be removed from the library starting 15 October 2022.
 
-## Stories
-
-To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
-
 <Meta
-  title="Deprecated/ZPopoverDeprecated"
+  title="ZPopoverDeprecated"
   component="z-popover-deprecated"
   argTypes={{
     position: {
-      options: Object.values(PopoverPositions),
-      control: { type: "inline-radio"},
+      control: { type: "select" },
+      options: Object.values(PopoverPosition),
     },
-    open: {
-      control: { type: "boolean"},
+    "show-arrow": { control: { type: "boolean" } },
+    "background-color": { control: { type: "text" } },
+    "box-shadow": {
+      control: { type: "select" },
+      options: Object.values(PopoverShadow),
     },
-    center: {
-      control: { type: "boolean"},
-    },
-    showArrow: {
-      control: { type: "boolean"},
-    },
-    "--z-popover-theme--surface": {
-      options: getColorTokens(),
-      control: {
-        type: "select",
-      }
-    },
-    "--z-popover-theme--text": {
-      options: getColorTokens(),
-      control: {
-        type: "select",
-      }
+    "border-radius": {
+      control: { type: "inline-radio" },
+      options: Object.values(PopoverBorderRadius),
     },
   }}
 />
 
-# ZPopoverDeprecated
+# ZPopover
 
 <Canvas>
-  <Story name="contextual-menu-like" args={{
-    position: PopoverPositions.RIGHT_BOTTOM,
-    open: true,
-  }}>
-  {(args) => html`
-      <div class="popover-container">
-        <z-popover-deprecated
-          .position=${args.position}
-          .open=${args.open}
-          .center=${args.center}
-          .showArrow=${args.showArrow}
-          bind-to="#icon"
-        >
-          <div class="container">
-            <z-button-deprecated>Open</z-button-deprecated>
-            <z-button-deprecated>Save as</z-button-deprecated>
-            <z-button-deprecated>Share</z-button-deprecated>
-          </div>
-        </z-popover-deprecated>
-        <z-icon id="icon" name="plus-square-filled"></z-icon>
-      </div>
-    `}
-  </Story>
-</Canvas>
-
-# ZPopoverDeprecated as ZTooltip
-
-<Canvas>
-  <Story name="tooltip-deprecated" args={{
-    position: PopoverPositions.AUTO,
-    open: true,
-    center: true,
-    showArrow: true,
-  }}>
-    {(args) => html`
-      <div class="popover-container">
-        <z-popover-deprecated
-          .position=${args.position}
-          .open=${args.open}
-          .center=${args.center}
-          .showArrow=${args.showArrow}
-          bind-to="#icon"
-        >
-          <div class="container">
-            <z-button-deprecated>Open</z-button-deprecated>
-            <z-button-deprecated>Save as</z-button-deprecated>
-            <z-button-deprecated>Share</z-button-deprecated>
-          </div>
-        </z-popover-deprecated>
-        <z-icon id="icon" name="plus-square-filled"></z-icon>
-      </div>
-    `}
+  <Story
+    name="ZPopoverDeprecated-sample"
+    args={{
+      position: "after-down",
+      "show-arrow": false,
+      "background-color": "color-white",
+      "box-shadow": "shadow-1",
+      "border-radius": "small",
+    }}
+  >
+    {(args) => html`<div
+      style="height: 200px; display: flex; align-items: center; justify-content: center"
+    >
+      <z-popover-deprecated
+        position=${args.position}
+        show-arrow=${args["show-arrow"]}
+        background-color=${args["background-color"]}
+        box-shadow=${args["box-shadow"]}
+        border-radius=${args["border-radius"]}
+      >
+        <z-button slot="trigger" icon="gear">Impostazioni</z-button>
+        <div slot="popover">Contenuto Popover</div>
+      </z-popover-deprecated>
+    </div>`}
   </Story>
 </Canvas>
 
