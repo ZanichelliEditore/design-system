@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/ZanichelliEditore/design-system/compare/v4.2.0...v5.0.0) (2022-08-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* migration guide for zpopover and ztooltip breaking
+
+### Bug Fixes
+
+* fix deprecated popover ([8526329](https://github.com/ZanichelliEditore/design-system/commit/85263290d1328622b84a33bd975b939d84c5cc6a))
+
+
+* migration guide for zpopover and ztooltip breaking ([3ec540b](https://github.com/ZanichelliEditore/design-system/commit/3ec540bf3d24e1c7b2f88b5290923c94b85d0129))
+
 ## [4.2.0](https://github.com/ZanichelliEditore/design-system/compare/v4.1.0...v4.2.0) (2022-08-05)
 
 
