@@ -383,7 +383,7 @@ export namespace Components {
         /**
           * unique id
          */
-        "datepickerid": string;
+        "datePickerId": string;
         /**
           * z-input label
          */
@@ -1545,6 +1545,32 @@ export namespace Components {
          */
         "showArrow"?: boolean;
     }
+    interface ZRangePicker {
+        /**
+          * first z-input aria label
+         */
+        "firstAriaLabel"?: string;
+        /**
+          * first z-input label
+         */
+        "firstLabel"?: string;
+        /**
+          * [Optional] datepicker mode: date, datetime, only months
+         */
+        "mode": ZDatePickerMode;
+        /**
+          * unique id
+         */
+        "rangePickerId": string;
+        /**
+          * second z-input aria label
+         */
+        "secondAriaLabel"?: string;
+        /**
+          * second z-input label
+         */
+        "secondLabel"?: string;
+    }
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
@@ -2414,6 +2440,12 @@ declare global {
         prototype: HTMLZPopoverDeprecatedElement;
         new (): HTMLZPopoverDeprecatedElement;
     };
+    interface HTMLZRangePickerElement extends Components.ZRangePicker, HTMLStencilElement {
+    }
+    var HTMLZRangePickerElement: {
+        prototype: HTMLZRangePickerElement;
+        new (): HTMLZRangePickerElement;
+    };
     interface HTMLZSectionTitleElement extends Components.ZSectionTitle, HTMLStencilElement {
     }
     var HTMLZSectionTitleElement: {
@@ -2661,6 +2693,7 @@ declare global {
         "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
         "z-popover-deprecated": HTMLZPopoverDeprecatedElement;
+        "z-range-picker": HTMLZRangePickerElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
@@ -3101,7 +3134,7 @@ declare namespace LocalJSX {
         /**
           * unique id
          */
-        "datepickerid"?: string;
+        "datePickerId"?: string;
         /**
           * z-input label
          */
@@ -4434,6 +4467,36 @@ declare namespace LocalJSX {
          */
         "showArrow"?: boolean;
     }
+    interface ZRangePicker {
+        /**
+          * first z-input aria label
+         */
+        "firstAriaLabel"?: string;
+        /**
+          * first z-input label
+         */
+        "firstLabel"?: string;
+        /**
+          * [Optional] datepicker mode: date, datetime, only months
+         */
+        "mode"?: ZDatePickerMode;
+        /**
+          * emitted when date changes, returns an array with the two selected dates
+         */
+        "onDateSelect"?: (event: CustomEvent<any>) => void;
+        /**
+          * unique id
+         */
+        "rangePickerId"?: string;
+        /**
+          * second z-input aria label
+         */
+        "secondAriaLabel"?: string;
+        /**
+          * second z-input label
+         */
+        "secondLabel"?: string;
+    }
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
@@ -4938,6 +5001,7 @@ declare namespace LocalJSX {
         "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
         "z-popover-deprecated": ZPopoverDeprecated;
+        "z-range-picker": ZRangePicker;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
         "z-skip-to-content": ZSkipToContent;
@@ -5050,6 +5114,7 @@ declare module "@stencil/core" {
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-popover-deprecated": LocalJSX.ZPopoverDeprecated & JSXBase.HTMLAttributes<HTMLZPopoverDeprecatedElement>;
+            "z-range-picker": LocalJSX.ZRangePicker & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
