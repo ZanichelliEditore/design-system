@@ -73,6 +73,39 @@ export var PopoverPositions;
   PopoverPositions["LEFT_TOP"] = "left_top";
   PopoverPositions["LEFT_BOTTOM"] = "left_bottom";
 })(PopoverPositions || (PopoverPositions = {}));
+export var PopoverPosition;
+(function (PopoverPosition) {
+  PopoverPosition["after-down"] = "after-down";
+  PopoverPosition["after-center"] = "after-center";
+  PopoverPosition["after-up"] = "after-up";
+  PopoverPosition["below-right"] = "below-right";
+  PopoverPosition["below-center"] = "below-center";
+  PopoverPosition["below-left"] = "below-left";
+  PopoverPosition["before-down"] = "before-down";
+  PopoverPosition["before-center"] = "before-center";
+  PopoverPosition["before-up"] = "before-up";
+  PopoverPosition["above-right"] = "above-right";
+  PopoverPosition["above-center"] = "above-center";
+  PopoverPosition["above-left"] = "above-left";
+})(PopoverPosition || (PopoverPosition = {}));
+export var PopoverBorderRadius;
+(function (PopoverBorderRadius) {
+  PopoverBorderRadius["none"] = "none";
+  PopoverBorderRadius["small"] = "small";
+  PopoverBorderRadius["medium"] = "medium";
+})(PopoverBorderRadius || (PopoverBorderRadius = {}));
+export var PopoverShadow;
+(function (PopoverShadow) {
+  PopoverShadow["shadow-1"] = "shadow-1";
+  PopoverShadow["shadow-2"] = "shadow-2";
+  PopoverShadow["shadow-3"] = "shadow-3";
+  PopoverShadow["shadow-4"] = "shadow-4";
+  PopoverShadow["shadow-6"] = "shadow-6";
+  PopoverShadow["shadow-8"] = "shadow-8";
+  PopoverShadow["shadow-12"] = "shadow-12";
+  PopoverShadow["shadow-16"] = "shadow-16";
+  PopoverShadow["shadow-24"] = "shadow-24";
+})(PopoverShadow || (PopoverShadow = {}));
 export var KeyboardKeyCodeEnum;
 (function (KeyboardKeyCodeEnum) {
   KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["TAB"] = 9] = "TAB";

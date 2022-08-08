@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverPositions, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1521,25 +1521,29 @@ export namespace Components {
     }
     interface ZPopoverDeprecated {
         /**
-          * The selector or the element bound with the popover.
+          * [optional] Background color token for popover
          */
-        "bindTo"?: string | HTMLElement;
+        "backgroundColor"?: string;
         /**
-          * Whether center the popup on the main side - according to "position".
+          * [optional] Border radius token for popover
          */
-        "center": boolean;
+        "borderRadius"?: PopoverBorderRadius;
         /**
-          * The open state of the popover.
+          * [optional] Box shadow token for popover
          */
-        "open": boolean;
+        "boxShadow"?: PopoverShadow;
         /**
-          * Popover position.
+          * [optional] Sets padding for Popover container
          */
-        "position": PopoverPositions;
+        "padding"?: string;
         /**
-          * Whether to show popover's arrow.
+          * [optional] Popover position
          */
-        "showArrow": boolean;
+        "position"?: PopoverPosition;
+        /**
+          * [optional] Show or hide arrow
+         */
+        "showArrow"?: boolean;
     }
     interface ZRangePicker {
         /**
@@ -4435,31 +4439,31 @@ declare namespace LocalJSX {
     }
     interface ZPopoverDeprecated {
         /**
-          * The selector or the element bound with the popover.
+          * [optional] Background color token for popover
          */
-        "bindTo"?: string | HTMLElement;
+        "backgroundColor"?: string;
         /**
-          * Whether center the popup on the main side - according to "position".
+          * [optional] Border radius token for popover
          */
-        "center"?: boolean;
+        "borderRadius"?: PopoverBorderRadius;
         /**
-          * Open change event.
+          * [optional] Box shadow token for popover
          */
-        "onOpenChange"?: (event: CustomEvent<any>) => void;
+        "boxShadow"?: PopoverShadow;
         /**
-          * Position change event.
+          * Emitted on popover click, returns isVisible state
          */
-        "onPositionChange"?: (event: CustomEvent<any>) => void;
+        "onTriggerClick"?: (event: CustomEvent<any>) => void;
         /**
-          * The open state of the popover.
+          * [optional] Sets padding for Popover container
          */
-        "open"?: boolean;
+        "padding"?: string;
         /**
-          * Popover position.
+          * [optional] Popover position
          */
-        "position"?: PopoverPositions;
+        "position"?: PopoverPosition;
         /**
-          * Whether to show popover's arrow.
+          * [optional] Show or hide arrow
          */
         "showArrow"?: boolean;
     }

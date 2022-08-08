@@ -1,57 +1,33 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { PopoverPositions } from "../../beans";
-/**
- * Popover component.
- *
- * @cssprop --z-popover-theme--surface - background color of the popover.
- * @cssprop --z-popover-theme--text - foreground color of the popover.
- * @cssprop --z-popover-shadow - shadow of the popover.
- */
+import { PopoverPosition, PopoverBorderRadius, PopoverShadow } from "../../beans";
 export declare class ZPopoverDeprecated {
-  /** Popover position. */
-  position: PopoverPositions;
+  /** [optional] Popover position */
+  position?: PopoverPosition;
+  /** [optional] Background color token for popover */
+  backgroundColor?: string;
+  /** [optional] Border radius token for popover */
+  borderRadius?: PopoverBorderRadius;
+  /** [optional] Box shadow token for popover */
+  boxShadow?: PopoverShadow;
+  /** [optional] Show or hide arrow */
+  showArrow?: boolean;
+  /** [optional] Sets padding for Popover container */
+  padding?: string;
+  isVisible: boolean;
+  popoverPosition: PopoverPosition;
+  /** Emitted on popover click, returns isVisible state */
+  triggerClick: EventEmitter;
+  emitTriggerClick(): void;
+  private popoverElem;
   /**
-   * The open state of the popover.
+   * Constructor.
    */
-  open: boolean;
-  /**
-   * The selector or the element bound with the popover.
-   */
-  bindTo?: string | HTMLElement;
-  /**
-   * Whether to show popover's arrow.
-   */
-  showArrow: boolean;
-  /**
-   * Whether center the popup on the main side - according to "position".
-   */
-  center: boolean;
-  /**
-   * The current position of the popover.
-   */
-  currentPosition?: PopoverPositions;
-  /**
-   * Position change event.
-   */
-  positionChange: EventEmitter;
-  /**
-   * Open change event.
-   */
-  openChange: EventEmitter;
-  host: HTMLElement;
-  private animationFrameRequestId?;
+  constructor();
+  openPopover(): void;
+  closePopover(): void;
   closePopoverWithKeyboard(e: any): void;
+  handleClick(event: any): void;
+  handleKeyDown(event: any): void;
   handleOutsideClick(e: any): void;
-  validatePosition(newValue: any): void;
-  /**
-   * Setup popover behaviors on opening.
-   */
-  onOpen(): void;
-  disconnectedCallback(): void;
-  /**
-   * Set the position of the popover.
-   */
-  private setPosition;
-  componentWillLoad(): void;
   render(): any;
 }
