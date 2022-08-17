@@ -54,7 +54,7 @@ export class ZRangePicker {
     this.getFocusedInput();
   }
 
-  @Listen("keydown", { target: "body", capture: true })
+  @Listen("keyup", { target: "body", capture: true })
   handleKeyDown(ev: KeyboardEvent) {
     let currentInputState =
       this.activeInput === "start-input"
@@ -89,23 +89,6 @@ export class ZRangePicker {
     }
   }
 
-  /** Set background color before or after first selected date, before selecting the second one */
-  @Listen("mouseover")
-  onMouseOver(e: CustomEvent) {
-    let currentInputState =
-      this.activeInput === "start-input"
-        ? { picker: this.flatpickrInstance, index: 0 }
-        : { picker: this.flatpickrInstance2, index: 1 };
-
-    this.setRangeHoverStyle(
-      e,
-      currentInputState.picker,
-      this.element.getElementsByClassName("flatpickr-calendar")[
-        currentInputState.index
-      ]
-    );
-  }
-
   componentDidLoad() {
     let config = {
       enableTime: this.mode === ZDatePickerMode.dateTime,
@@ -116,15 +99,14 @@ export class ZRangePicker {
       ariaDateFormat: "d F Y",
       minuteIncrement: 1,
       time_24hr: true,
-      onChange: (selectedDates, _dateStr, instance) => {
-        this.onDateSelect(selectedDates, instance);
+      onChange: () => {
+        this.onDateSelect();
       },
       onOpen: () => {
         setAriaOptions(this.element, this.mode);
         this.flatpickrPosition = setFlatpickrPosition(this.element, this.mode);
         this.setRangeStyle();
         this.getFocusedInput();
-        this.getCurrentMonth();
       },
       onYearChange: () => {
         this.setRangeStyle();
@@ -135,17 +117,16 @@ export class ZRangePicker {
       onKeyDown: () => {
         setAriaOptions(this.element, this.mode);
       },
-      wrap: true,
     };
 
     this.flatpickrInstance = flatpickr(`.${this.rangePickerId}-container`, {
       ...config,
-      mode: "multiple",
+      mode: "single",
       appendTo: this.element.querySelector(`.${this.rangePickerId}-container`),
     });
     this.flatpickrInstance2 = flatpickr(`.${this.rangePickerId}-container-2`, {
       ...config,
-      mode: "multiple",
+      mode: "single",
       appendTo: this.element.querySelector(
         `.${this.rangePickerId}-container-2`
       ),
@@ -156,58 +137,52 @@ export class ZRangePicker {
     });
   }
 
-  onDateSelect(selectedDates, instance) {
+  onDateSelect() {
     const firstInputElement = this.element.querySelectorAll("z-input")[0];
     const secondInputElement = this.element.querySelectorAll("z-input")[1];
+    let firstDate = this.flatpickrInstance.selectedDates[0];
+    let secondDate = this.flatpickrInstance2.selectedDates[0];
 
-    let firstInputActive = this.activeInput === "start-input";
-
-    /** If range is already set, clicking another date it will update it */
-    if (selectedDates.length === 3) {
-      instance.setDate([selectedDates[0], selectedDates[2]]);
+    if (firstDate) {
+      firstInputElement.value = this.getDate(firstDate);
     }
 
-    /** Order the selected dates ASC and update the two flatpickers */
-    if (instance.selectedDates.length > 1) {
-      if (firstInputActive) {
-        /** First Flatpickr selection */
-        let orderedDates = instance.selectedDates.sort((a, b) => b - a);
-        instance.setDate([...orderedDates]);
-        this.flatpickrInstance2.setDate([
-          instance.selectedDates[1],
-          instance.selectedDates[0],
-        ]);
-      } else {
-        /** Second Flatpickr selection */
-        let orderedDates = instance.selectedDates.sort((a, b) => a - b);
-        instance.setDate([...orderedDates]);
-        this.flatpickrInstance.setDate([
-          instance.selectedDates[1],
-          instance.selectedDates[0],
-        ]);
-        this.flatpickrInstance.setDate(
-          this.flatpickrInstance.selectedDates.sort((a, b) => b - a)
+    if (secondDate) {
+      secondInputElement.value = this.getDate(secondDate);
+    }
+
+    if (firstDate && secondDate) {
+      this.printDate(firstDate, secondDate);
+    }
+
+    this.setRangeStyle();
+  }
+
+  disableDates(date) {
+    let index = this.activeInput === "start-input" ? 0 : 1;
+
+    let calendar =
+      this.element.getElementsByClassName("flatpickr-calendar")[index];
+
+    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
+      (element: HTMLElement) => {
+        let calendarDate = this.getDateWithoutTime(
+          this.parseDate(element.ariaLabel, null)
         );
+        let breakpoint = this.getDateWithoutTime(date);
+
+        if (index === 0) {
+          if (calendarDate > breakpoint) {
+            element.classList.toggle("flatpickr-disabled", true);
+          }
+        } else {
+          if (calendarDate < breakpoint) {
+            element.classList.toggle("flatpickr-disabled", true);
+          }
+        }
       }
-
-      this.printDate(instance.selectedDates[0], instance.selectedDates[1]);
-    }
-
-    let index = instance.selectedDates.length - 1;
-
-    /** If exists, set second date value into first input */
-    if (instance.selectedDates[0]) {
-      firstInputElement.value = this.getDate(
-        instance.selectedDates[firstInputActive ? index : 0]
-      );
-    }
-
-    /** If exists, set second date value into second input */
-    if (instance.selectedDates[1]) {
-      secondInputElement.value = this.getDate(
-        instance.selectedDates[firstInputActive ? 0 : index]
-      );
-    }
+    );
+    setAriaOptions(this.element, this.mode);
   }
 
   getDate(date) {
@@ -227,8 +202,35 @@ export class ZRangePicker {
     ]);
   }
 
+  getTime() {
+    let hour = (
+      this.element.getElementsByClassName(
+        "flatpickr-hour"
+      )[0] as HTMLInputElement
+    ).value;
+
+    let minutes = (
+      this.element.getElementsByClassName(
+        "flatpickr-minute"
+      )[0] as HTMLInputElement
+    ).value;
+
+    return `${hour}:${minutes}`;
+  }
+
+  getDateWithoutTime(date) {
+    let newDate = new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+      0,
+      0
+    );
+    return newDate;
+  }
+
   /** Replace month word to month number */
-  parseDate(date) {
+  parseDate(date, time) {
     const month = date.split(" ")[1];
     const months = {
       Gennaio: "01",
@@ -246,10 +248,13 @@ export class ZRangePicker {
     };
 
     const pieces = date.replace(month, months[month]).split(" ");
+
     return new Date(
       parseInt(pieces[2]),
       parseInt(pieces[1]) - 1,
-      parseInt(pieces[0])
+      parseInt(pieces[0]),
+      time ? parseInt(time.split(":")[0]) : 0,
+      time ? parseInt(time.split(":")[1]) : 0
     );
   }
 
@@ -267,174 +272,109 @@ export class ZRangePicker {
     }
   }
 
-  /** Set current month after flatpickr opened */
-  getCurrentMonth() {
-    let currentInputState =
-      this.activeInput === "start-input"
-        ? { picker: this.flatpickrInstance, index: 0 }
-        : { picker: this.flatpickrInstance2, index: 1 };
-
-    let length = currentInputState.picker.selectedDates.length;
-
-    if (length > 0) {
-      let dateMonth =
-        currentInputState.picker.selectedDates[length - 1].getMonth();
-      let dateYear =
-        currentInputState.picker.selectedDates[length - 1].getFullYear();
-
-      currentInputState.picker.changeMonth(dateMonth, false);
-      currentInputState.picker.changeYear(dateYear, false);
-    }
-  }
-
   /** Set style of the days between the two selected dates */
   setRangeStyle() {
-    let currentInputState =
-      this.activeInput === "start-input"
-        ? { picker: this.flatpickrInstance, index: 0 }
-        : { picker: this.flatpickrInstance2, index: 1 };
+    let index = this.activeInput === "start-input" ? 0 : 1;
 
     let calendar =
-      this.element.getElementsByClassName("flatpickr-calendar")[
-        currentInputState.index
-      ];
+      this.element.getElementsByClassName("flatpickr-calendar")[index];
 
     Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
       (element: HTMLElement) => {
-        let selectedDatesCount = this.flatpickrInstance.selectedDates.length;
+        let hasFirstDate = this.flatpickrInstance.selectedDates.length === 1;
+        let hasSecondDate = this.flatpickrInstance2.selectedDates.length === 1;
+        let firstDate;
+        let secondDate;
+        let date = this.getDateWithoutTime(
+          this.parseDate(element.ariaLabel, null)
+        );
 
-        if (selectedDatesCount === 2) {
-          let date = this.parseDate(element.ariaLabel);
-          let firstDate = this.flatpickrInstance.selectedDates[1];
-          let secondDate = this.flatpickrInstance.selectedDates[0];
-          let selected = element.className.includes("selected");
+        if (hasFirstDate) {
+          firstDate = this.getDateWithoutTime(
+            this.flatpickrInstance.selectedDates[0]
+          );
+          if (+date === +firstDate) {
+            element.classList.toggle("startRange", true);
+          }
+        }
 
-          if (date > firstDate && date < secondDate && !selected) {
+        if (hasSecondDate) {
+          secondDate = this.getDateWithoutTime(
+            this.flatpickrInstance2.selectedDates[0]
+          );
+          if (+date === +secondDate) {
+            element.classList.toggle("endRange", true);
+          }
+        }
+
+        if (hasFirstDate && hasSecondDate) {
+          if (date > firstDate && date < secondDate) {
             element.classList.toggle("inRange", true);
           }
+        }
+
+        if (index === 0 && hasSecondDate) {
+          this.disableDates(this.flatpickrInstance2.selectedDates[0]);
+        }
+        if (index === 1 && hasFirstDate) {
+          this.disableDates(this.flatpickrInstance.selectedDates[0]);
         }
       }
     );
   }
 
-  /** Set style of the days between first selected date and hovered date */
-  setRangeHoverStyle(e, flatpickr, calendar) {
-    const isDay = (e.target as HTMLElement).classList.contains("flatpickr-day");
-    if (isDay) {
-      let calendarDate = (e.target as HTMLElement).ariaLabel;
-      let hoveredDate = this.parseDate(calendarDate);
-
-      Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
-        (element: HTMLElement) => {
-          let date = this.parseDate(element.ariaLabel);
-          let selectedDatesCount = flatpickr.selectedDates.length;
-
-          let firstDate =
-            selectedDatesCount === 1 ? flatpickr.selectedDates[0] : null;
-
-          let before = firstDate && hoveredDate < firstDate;
-          let after = firstDate && hoveredDate > firstDate;
-
-          let selected = element.className.includes("selected");
-
-          if (
-            firstDate &&
-            ((before && date > hoveredDate && date < firstDate && !selected) ||
-              (after && date < hoveredDate && date > firstDate && !selected))
-          ) {
-            element.classList.toggle("inRange", true);
-          } else {
-            element.classList.remove("inRange");
-          }
-
-          this.setRangeStyle();
-        }
-      );
-    }
-  }
-
   onStopTyping(value) {
     let text = value.detail.value;
     let englishData = text.split("-");
-
     let time =
-      this.mode === ZDatePickerMode.dateTime ? `${englishData[3]}:00` : "";
+      this.mode === ZDatePickerMode.dateTime ? `T${englishData[3]}:00` : "";
     let englishParsedData =
-      `${englishData[2]}-${englishData[1]}-${englishData[0]}T${time}`
+      `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`
         .split(" ")
         .join("");
 
-    let isDate = Date.parse(englishParsedData);
+    let isDate = !Number.isNaN(Date.parse(englishParsedData));
+    let date = Date.parse(englishParsedData).toString();
 
     if (this.activeInput === "start-input") {
-      /** Remove second value from either the flatpickers if input is cleared */
-      if (text === "") {
-        if (this.flatpickrInstance.selectedDates.length === 1) {
-          this.flatpickrInstance.setDate([]);
-          this.flatpickrInstance2.setDate([]);
-        } else {
-          this.flatpickrInstance.setDate([
-            this.flatpickrInstance.selectedDates[0],
-          ]);
-          this.flatpickrInstance2.setDate([
-            this.flatpickrInstance2.selectedDates[1],
-          ]);
-        }
+      if (text === "" || !isDate) {
+        this.flatpickrInstance.setDate([]);
       } else {
-        /** If the value inserted is a correct date, update the first input value */
-        if (!Number.isNaN(isDate)) {
-          this.flatpickrInstance.setDate([
-            this.flatpickrInstance.selectedDates[0],
-            text,
-          ]);
-          this.flatpickrInstance2.setDate([
-            text,
-            this.flatpickrInstance2.selectedDates[1],
-          ]);
-          if (this.flatpickrInstance.selectedDates.length > 1) {
-            this.printDate(
-              new Date(englishParsedData),
-              this.flatpickrInstance.selectedDates[0]
-            );
+        if (isDate) {
+          if (this.flatpickrInstance2.selectedDates.length === 1) {
+            if (date <= this.flatpickrInstance2.selectedDates[0]) {
+              this.flatpickrInstance.setDate([text]);
+              this.printDate(
+                new Date(englishParsedData),
+                this.flatpickrInstance2.selectedDates[0]
+              );
+            } else {
+              this.flatpickrInstance.setDate([]);
+            }
           }
-          this.setRangeStyle();
         }
       }
     } else {
-      /** Remove second value from either the flatpickers if input is cleared */
-      if (text === "") {
-        if (this.flatpickrInstance2.selectedDates.length === 1) {
-          this.flatpickrInstance.setDate([]);
-          this.flatpickrInstance2.setDate([]);
-        } else {
-          this.flatpickrInstance.setDate([
-            this.flatpickrInstance.selectedDates[1],
-          ]);
-          this.flatpickrInstance2.setDate([
-            this.flatpickrInstance2.selectedDates[0],
-          ]);
-        }
+      if (text === "" || !isDate) {
+        this.flatpickrInstance2.setDate([]);
       } else {
-        /** If the value inserted is a correct date, update the second input value */
-        if (!Number.isNaN(isDate)) {
-          this.flatpickrInstance.setDate([
-            text,
-            this.flatpickrInstance.selectedDates[1],
-          ]);
-          this.flatpickrInstance2.setDate([
-            this.flatpickrInstance2.selectedDates[0],
-            text,
-          ]);
-          if (this.flatpickrInstance2.selectedDates.length > 1) {
-            this.printDate(
-              new Date(englishParsedData),
-              this.flatpickrInstance2.selectedDates[0]
-            );
+        if (isDate) {
+          if (this.flatpickrInstance.selectedDates.length === 1) {
+            if (date >= this.flatpickrInstance.selectedDates[0]) {
+              this.flatpickrInstance2.setDate([text]);
+              this.printDate(
+                this.flatpickrInstance.selectedDates[0],
+                new Date(englishParsedData)
+              );
+            } else {
+              this.flatpickrInstance2.setDate([]);
+            }
           }
-          this.setRangeStyle();
         }
       }
     }
+
+    this.setRangeStyle();
   }
 
   render() {
@@ -458,23 +398,19 @@ export class ZRangePicker {
         }}
       >
         <div class={`${this.rangePickerId}-container`}>
-          <input class="hidden-input" data-input></input>
           <z-input
             {...zInputProps}
             class={`start-input ${this.rangePickerId}`}
             ariaLabel={this.firstAriaLabel}
             label={this.firstLabel}
-            data-toggle
           />
         </div>
         <div class={`${this.rangePickerId}-container-2`}>
-          <input class="hidden-input" data-input></input>
           <z-input
             {...zInputProps}
             class={`end-input ${this.rangePickerId}-2`}
             ariaLabel={this.secondAriaLabel}
             label={this.secondLabel}
-            data-toggle
           />
         </div>
       </div>

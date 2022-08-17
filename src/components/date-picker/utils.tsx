@@ -49,6 +49,15 @@ export function setAriaOptions(element: HTMLElement, mode: ZDatePickerMode) {
       element.setAttribute("tabindex", "0")
     );
 
+    Array.from(element.getElementsByClassName("flatpickr-day")).forEach(
+      (date: HTMLElement) => {
+        console.log(date);
+        if (date.classList.contains("flatpickr-disabled")) {
+          date.setAttribute("tabindex", "-1");
+        }
+      }
+    );
+
     prevMonthArrow.setAttribute("tabindex", "0");
     nextMonthArrow.setAttribute("tabindex", "0");
 
