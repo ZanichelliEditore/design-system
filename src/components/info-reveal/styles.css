@@ -2,7 +2,8 @@
   --z-info-reveal-theme--surface: var(--color-black);
   --z-info-reveal-theme--text: var(--color-white);
   --z-info-reveal-shadow: var(--shadow-2);
-  --color-primary01: var(--z-info-reveal-theme--text);
+  --color-primary01: var(--z-info-reveal-theme--text);  /* used to override z-icon fill */
+
   position: relative;
   display: flex;
   width: fit-content;
@@ -21,7 +22,7 @@
 
 :host([position='top_right']) .statements,
 :host([position='bottom_right']) .statements {
-  right: calc(var(--space-unit) * -7);
+  right: calc(var(--space-unit) * -7.5);
   padding-right: calc(var(--space-unit) * 4);
 }
 

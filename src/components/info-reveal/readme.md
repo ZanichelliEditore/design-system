@@ -1,6 +1,7 @@
 # z-info-reveal
 
-
+Interactive info panel used to show short sentences, one at a time. Might contain a label and a custom icon when closed.
+All the inner content is provided from the product using the component.
 
 <!-- Auto Generated Below -->
 

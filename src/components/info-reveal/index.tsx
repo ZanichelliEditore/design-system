@@ -52,29 +52,14 @@ export class ZInfoReveal {
     });
   }
 
-  /**
-   * @inheritdoc
-   */
-  connectedCallback() {
-    this.el.addEventListener('click', () => {
-      this.currentIndex = this.currentIndex + 1;
-
-      if (this.currentIndex === this.el.children.length) {
-        this.open = false;
-        this.currentIndex = 0;
-      }
-    });
-  }
-
   isRightAligned() {
-    return this.position === InfoRevealPosition.BOTTOM_RIGHT || this.position === InfoRevealPosition.TOP_RIGHT;
+    return this.position === InfoRevealPosition.BOTTOM_RIGHT ||
+      this.position === InfoRevealPosition.TOP_RIGHT;
   }
 
   render() {
     return [
-      !this.open && <button class="closed-info-reveal" onClick={(ev) => {
-        ev.stopPropagation();
-        ev.preventDefault();
+      !this.open && <button class="closed-info-reveal" onClick={() => {
         this.open = true;
         this.currentIndex = 0;
       }}>
@@ -84,11 +69,16 @@ export class ZInfoReveal {
       </button>,
       this.open && [
         <div
-          class="statements text-04">
+          class="statements text-04"
+          onClick={() => {
+            this.currentIndex = this.currentIndex + 1;
+            if (this.currentIndex === this.el.children.length) {
+              this.open = false;
+              this.currentIndex = 0;
+            }
+          }}>
           <slot></slot>
-          <button class="close" onClick={(ev) => {
-            ev.stopPropagation();
-            ev.preventDefault();
+          <button class="close" onClick={() => {
             this.open = false;
           }}>
             <z-icon fill="color-primary01" name="close"></z-icon>
