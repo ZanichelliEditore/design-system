@@ -1,0 +1,87 @@
+.radioWrapper,
+.checkboxWrapper {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: var(--font-family-sans);
+  position: relative;
+  color: var(--color-text01);
+  fill: var(--color-primary01);
+}
+
+.radioWrapper:hover,
+.checkboxWrapper:hover {
+  color: var(--color-hover-primary);
+  fill: currentColor;
+}
+
+.radioWrapper > input,
+.checkboxWrapper > input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.radioWrapper .radioLabel,
+.checkboxWrapper .checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  line-height: 1;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+}
+
+.radioWrapper input:not(:disabled) + .radioLabel,
+.checkboxWrapper input:not(:disabled) + .checkboxLabel {
+  cursor: pointer;
+}
+
+.radioWrapper .radioLabel z-icon,
+.checkboxWrapper .checkboxLabel z-icon {
+  fill: inherit;
+  cursor: pointer;
+}
+
+.radioWrapper .radioLabel.after,
+.checkboxWrapper .checkboxLabel.after {
+  flex-direction: row;
+}
+
+.radioWrapper .radioLabel.before,
+.checkboxWrapper .checkboxLabel.before {
+  flex-direction: row-reverse;
+}
+
+.radioWrapper .radioLabel.after > span,
+.checkboxWrapper .checkboxLabel.after > span {
+  margin-left: var(--space-unit);
+}
+
+.radioWrapper .radioLabel.before > span,
+.checkboxWrapper .checkboxLabel.before > span {
+  margin-right: var(--space-unit);
+}
+
+/* focus */
+.radioWrapper > input:focus:focus-visible + .radioLabel > z-icon,
+.checkboxWrapper > input:focus:focus-visible + .checkboxLabel > z-icon {
+  box-shadow: var(--shadow-focus-primary);
+  border-radius: var(--border-radius-small);
+}
+
+/* disabled */
+.radioWrapper > input:disabled + .radioLabel,
+.checkboxWrapper > input:disabled + .checkboxLabel {
+  color: var(--color-disabled02);
+}
+
+.radioWrapper > input:disabled + .radioLabel > z-icon,
+.checkboxWrapper > input:disabled + .checkboxLabel > z-icon {
+  fill: var(--color-disabled01);
+  cursor: default;
+}

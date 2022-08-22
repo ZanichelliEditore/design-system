@@ -1,12 +1,3 @@
-z-tooltip .container z-button-deprecated:not(:last-child) {
-  margin-right: 0.5rem;
-}
-
-z-tooltip.dark {
-  --z-tooltip-theme--surface: var(--color-surface05);
-  --z-tooltip-theme--text: var(--color-text-inverse);
-}
-
 .tooltip-container {
   position: relative;
   display: inline-flex;
@@ -16,7 +7,7 @@ z-tooltip.dark {
   height: 200px;
 }
 
-.tooltip-container z-icon {
+.tooltip-container z-button z-icon {
   --z-icon-width: 32px;
   --z-icon-height: 32px;
 }

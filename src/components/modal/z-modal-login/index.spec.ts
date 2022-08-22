@@ -85,9 +85,9 @@ describe("Suite test zModalLogin", () => {
       html: `<z-modal-login forgot-password-url="https://my.zanichelli.it">
         <z-input type="text" slot="username">slotted username input</z-input>
         <z-input type="password" slot="password">slotted password input</z-input>
-        <z-button-deprecated slot="login">slotted login button</z-button-deprecated>
-        <z-button-deprecated slot="signup">slotted signup button</z-button-deprecated>
-        <z-button-deprecated slot="provider">slotted provider button</z-button-deprecated>
+        <z-button slot="login">slotted login button</z-button>
+        <z-button slot="signup">slotted signup button</z-button>
+        <z-button slot="provider">slotted provider button</z-button>
       </z-modal-login>`,
     });
     expect(page.root).toEqualHtml(`
@@ -105,14 +105,14 @@ describe("Suite test zModalLogin", () => {
               </div>
               ${renderForgottenPwd()}
               <div class="login">
-                <z-button-deprecated slot="login">slotted login button</z-button-deprecated>
+                <z-button slot="login">slotted login button</z-button>
                 ${renderLogin(true)}
               </div>
             </form>
             <hr />
             ${renderSignupBody()}
             <div class="signup">
-              <z-button-deprecated slot="signup">slotted signup button</z-button-deprecated>
+              <z-button slot="signup">slotted signup button</z-button>
               ${renderSignup(true)}
             </div>
           </div>
@@ -157,7 +157,7 @@ const renderForgottenPwd = () =>
 
 const renderLogin = (hidden = false) =>
   `<slot-fb name="login" ${hidden ? `hidden` : ``}>
-    <z-button-deprecated variant="primary">Accedi</z-button-deprecated>
+    <z-button variant="primary">Accedi</z-button>
   </slot-fb>`;
 
 const renderSignupBody = () =>
@@ -167,7 +167,7 @@ const renderSignupBody = () =>
 
 const renderSignup = (hidden = false) =>
   `<slot-fb name="signup" ${hidden ? `hidden` : ``}>
-    <z-button-deprecated variant="secondary">Registrati</z-button-deprecated>
+    <z-button variant="secondary">Registrati</z-button>
   </slot-fb>`;
 
 const renderProvidersHeading = () =>
@@ -182,7 +182,7 @@ const renderProviders = (hidden = false) =>
   </slot-fb>`;
 
 const renderZainoDigitale = () =>
-  `<z-button-deprecated variant="secondary" class="zainoDigitale">
+  `<z-button variant="secondary" class="zainoDigitale">
     <div class="zd">
       <svg width="18px" height="24px" viewBox="0 0 18 24">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -203,7 +203,7 @@ const renderZainoDigitale = () =>
       </svg>
       <span>ZAINO DIGITALE</span>
     </div>
-  </z-button-deprecated>`;
+  </z-button>`;
 
 const renderZainoDigitaleLink = () =>
   `<z-link icon="informationsource" href="https://www.zainodigitale.it/#/landing">

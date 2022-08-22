@@ -15,9 +15,9 @@
   align-items: stretch;
 }
 
-z-button-deprecated,
+z-button,
 z-input,
-::slotted(z-button-deprecated),
+::slotted(z-button),
 ::slotted(z-input) {
   display: inline-block;
   width: 100%;
@@ -48,8 +48,8 @@ div.wrapper > form > div.password::slotted(z-input),
   align-self: flex-end;
 }
 
-div.wrapper > form > div.login::slotted(z-button-deprecated),
-:host div.wrapper > form > div.login z-button-deprecated {
+div.wrapper > form > div.login::slotted(z-button),
+:host div.wrapper > form > div.login z-button {
   margin: calc(var(--space-unit) * 3) 0;
   align-self: flex-start;
 }
@@ -62,8 +62,8 @@ div.wrapper > form > div.login::slotted(z-button-deprecated),
   margin-block-start: unset;
 }
 
-div.wrapper > div.signup::slotted(z-button-deprecated),
-:host div.wrapper > div.signup z-button-deprecated {
+div.wrapper > div.signup::slotted(z-button),
+:host div.wrapper > div.signup z-button {
   display: inline-block;
   margin: calc(var(--space-unit) * 2) 0;
 }
@@ -101,8 +101,8 @@ slot-fb[name="provider"] {
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-  z-button-deprecated,
-  ::slotted(z-button-deprecated) {
+  z-button,
+  ::slotted(z-button) {
     width: initial;
   }
 

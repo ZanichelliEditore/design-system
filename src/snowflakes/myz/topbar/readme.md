@@ -98,7 +98,7 @@
 - [z-myz-list](../list/z-myz-list)
 - [z-link](../../../components/navigation/z-link)
 - [z-menu-dropdown](../../../components/navigation/z-menu-dropdown)
-- [z-button-deprecated](../../../deprecated/z-button-deprecated)
+- [z-button](../../../components/buttons/z-button)
 - [z-icon](../../../components/icons/z-icon)
 
 ### Graph
@@ -108,14 +108,14 @@ graph TD;
   z-myz-topbar --> z-myz-list
   z-myz-topbar --> z-link
   z-myz-topbar --> z-menu-dropdown
-  z-myz-topbar --> z-button-deprecated
+  z-myz-topbar --> z-button
   z-myz-topbar --> z-icon
   z-myz-list --> z-myz-list-item
   z-myz-list-item --> z-icon
   z-link --> z-icon
   z-menu-dropdown --> z-link
   z-menu-dropdown --> z-icon
-  z-button-deprecated --> z-icon
+  z-button --> z-icon
   style z-myz-topbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

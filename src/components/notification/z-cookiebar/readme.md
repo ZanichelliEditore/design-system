@@ -25,15 +25,15 @@
 
 ### Depends on
 
-- [z-button-deprecated](../../../deprecated/z-button-deprecated)
+- [z-button](../../buttons/z-button)
 - [z-candybar](../z-candybar)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-cookiebar --> z-button-deprecated
+  z-cookiebar --> z-button
   z-cookiebar --> z-candybar
-  z-button-deprecated --> z-icon
+  z-button --> z-icon
   style z-cookiebar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

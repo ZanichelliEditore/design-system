@@ -30,13 +30,13 @@
 ### Depends on
 
 - [z-icon](../../../../components/icons/z-icon)
-- [z-tooltip](../../../../components/notification/z-tooltip)
+- [z-popover](../../../../components/z-popover)
 
 ### Graph
 ```mermaid
 graph TD;
   z-myz-card-info --> z-icon
-  z-myz-card-info --> z-tooltip
+  z-myz-card-info --> z-popover
   style z-myz-card-info fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

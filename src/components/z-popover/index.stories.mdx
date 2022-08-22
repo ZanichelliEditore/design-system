@@ -1,30 +1,34 @@
 import { html } from "lit-html";
+import { styleMap } from 'lit-html/directives/style-map.js';
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import {
-  PopoverPosition,
-  PopoverShadow,
-  PopoverBorderRadius,
-} from "../../beans";
-
+import { PopoverPositions } from "../../beans";
+import { getColorTokens } from "../../utils/storybook-utils";
+import "./index.stories.css";
 import "./index";
+
+## ZPopover
+
+To be sure the AUTO algorithm finds the right container when calculating the position, set its container's position to `position: relative;`
 
 <Meta
   title="ZPopover"
   component="z-popover"
   argTypes={{
     position: {
+      options: Object.values(PopoverPositions),
       control: { type: "select" },
-      options: Object.values(PopoverPosition),
     },
-    "show-arrow": { control: { type: "boolean" } },
-    "background-color": { control: { type: "text" } },
-    "box-shadow": {
-      control: { type: "select" },
-      options: Object.values(PopoverShadow),
+    "--z-popover-theme--surface": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      },
     },
-    "border-radius": {
-      control: { type: "inline-radio" },
-      options: Object.values(PopoverBorderRadius),
+    "--z-popover-theme--text": {
+      options: getColorTokens(),
+      control: {
+        type: "select",
+      },
     },
   }}
 />
@@ -33,31 +37,85 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZPopover-sample"
+    name="contextual-menu-like"
     args={{
-      position: "after-down",
-      "show-arrow": false,
-      "background-color": "color-white",
-      "box-shadow": "shadow-1",
-      "border-radius": "small",
+      position: PopoverPositions.RIGHT_BOTTOM,
+      "--z-popover-theme--surface": "var(--color-surface01)",
+      "--z-popover-theme--text": "var(--color-text01)",
     }}
   >
-    {(args) => html`<div
-      style="height: 200px; display: flex; align-items: center; justify-content: center"
-    >
-      <z-popover
-        position=${args.position}
-        show-arrow=${args["show-arrow"]}
-        background-color=${args["background-color"]}
-        box-shadow=${args["box-shadow"]}
-        border-radius=${args["border-radius"]}
-      >
-        <z-button-deprecated slot="trigger" icon="gear"
-          >Impostazioni</z-button-deprecated
+    {(args) => html`
+      <div class="popover-container">
+        <z-popover
+          .position=${args.position}
+          bind-to="#icon"
+          style=${styleMap({
+            "--z-popover-theme--surface": `var(${args["--z-popover-theme--surface"]})`,
+            "--z-popover-theme--text": `var(${args["--z-popover-theme--text"]})`
+          })}
         >
-        <div slot="popover">Contenuto Popover</div>
-      </z-popover>
-    </div>`}
+          <div class="container">
+            <z-button slot="trigger" icon="gear">
+              Impostazioni
+            </z-button>
+          </div>
+        </z-popover>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
+      </div>
+      <script>
+        var iconTrigger = document.querySelector("#icon");
+        var popover = document.querySelector("z-popover");
+        iconTrigger.addEventListener("click", () => {
+          if (popover.open) {
+            popover.open = false;
+          } else {
+            popover.open = true;
+          }
+        });
+      </script>
+    `}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+      name="tooltip-like"
+      args={{
+        position: PopoverPositions.RIGHT,
+        "--z-popover-theme--surface": "var(--color-surface01)",
+        "--z-popover-theme--text": "var(--color-text01)",
+      }}
+    >
+      {(args) => html`
+        <div class="popover-container popover-container-tooltip">
+          <z-popover
+            .position=${args.position}
+            center
+            show-arrow
+            bind-to="#icon"
+            style=${styleMap({
+              "--z-popover-theme--surface": `var(${args["--z-popover-theme--surface"]})`,
+              "--z-popover-theme--text": `var(${args["--z-popover-theme--text"]})`,
+            })}
+          >
+            <div class="container">
+              <z-button slot="trigger" icon="gear">
+                Impostazioni
+              </z-button>
+            </div>
+          </z-popover>
+          <z-icon id="icon" name="plus-square-filled"></z-icon>
+        </div>
+        <script>
+          document.querySelector("#icon").addEventListener("click", () => {
+          if (document.querySelector("z-popover").open) {
+            document.querySelector("z-popover").open = false;
+          } else {
+            document.querySelector("z-popover").open = true;
+          }
+        });
+      </script>
+      `}
   </Story>
 </Canvas>
 

@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, TooltipPosition } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType, ZtoggleSwitchPositionEnum } from "./beans";
+import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -106,7 +106,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * HTML a href attribute. If it is set, it renders an HTML a tag.
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
          */
         "href"?: string;
         /**
@@ -353,13 +353,13 @@ export namespace Components {
          */
         "color"?: string;
         /**
-          * elements of ZContextualMenu
+          * Elements of ZContextualMenu
          */
         "elements"?: string;
         /**
           * [optional] Sets the position of the popover
          */
-        "popoverPosition"?: PopoverPosition;
+        "popoverPosition"?: PopoverPositions;
     }
     interface ZCookiebar {
         /**
@@ -377,9 +377,17 @@ export namespace Components {
     }
     interface ZDatePicker {
         /**
+          * z-input aria label
+         */
+        "ariaLabel"?: string;
+        /**
           * unique id
          */
-        "datepickerid": string;
+        "datePickerId": string;
+        /**
+          * z-input label
+         */
+        "label"?: string;
         /**
           * [Optional] datepicker mode: date, datetime, only months
          */
@@ -524,6 +532,84 @@ export namespace Components {
         "isclosable": boolean;
     }
     interface ZInput {
+        /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
+        /**
+          * the input has autocomplete option (optional): available for text, password, number, email
+         */
+        "autocomplete"?: string;
+        /**
+          * checked: available for checkbox, radio
+         */
+        "checked"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid": string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * render icon (optional): available for text
+         */
+        "icon"?: string;
+        /**
+          * get checked status
+         */
+        "isChecked": () => Promise<boolean>;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * the input label position: available for checkbox, radio
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
+         */
+        "message"?: string | boolean;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea
+         */
+        "status"?: InputStatusBean;
+        /**
+          * input types
+         */
+        "type": InputTypeBean;
+        /**
+          * the input value
+         */
+        "value"?: string;
+    }
+    interface ZInputDeprecated {
         /**
           * the input aria-label
          */
@@ -1409,6 +1495,32 @@ export namespace Components {
     }
     interface ZPopover {
         /**
+          * The selector or the element bound with the popover.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Whether to center the popup on the main side (according to "position").
+         */
+        "center": boolean;
+        /**
+          * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
+         */
+        "closable": boolean;
+        /**
+          * The open state of the popover.
+         */
+        "open": boolean;
+        /**
+          * Popover position.
+         */
+        "position": PopoverPositions;
+        /**
+          * Whether to show popover's arrow.
+         */
+        "showArrow": boolean;
+    }
+    interface ZPopoverDeprecated {
+        /**
           * [optional] Background color token for popover
          */
         "backgroundColor"?: string;
@@ -1433,6 +1545,32 @@ export namespace Components {
          */
         "showArrow"?: boolean;
     }
+    interface ZRangePicker {
+        /**
+          * first z-input aria label
+         */
+        "firstAriaLabel"?: string;
+        /**
+          * first z-input label
+         */
+        "firstLabel"?: string;
+        /**
+          * [Optional] datepicker mode: date, datetime, only months
+         */
+        "mode": ZDatePickerMode;
+        /**
+          * unique id
+         */
+        "rangePickerId": string;
+        /**
+          * second z-input aria label
+         */
+        "secondAriaLabel"?: string;
+        /**
+          * second z-input label
+         */
+        "secondLabel"?: string;
+    }
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
@@ -1451,7 +1589,7 @@ export namespace Components {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean | string;
+        "autocomplete"?: boolean;
         /**
           * the input is disabled
          */
@@ -1459,15 +1597,11 @@ export namespace Components {
         /**
           * get the input selected options
          */
-        "getSelectedItems": () => Promise<SelectItemBean[]>;
+        "getSelectedItem": () => Promise<SelectItemBean>;
         /**
           * get the input value
          */
-        "getValue": () => Promise<string | string[]>;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
+        "getValue": () => Promise<string>;
         /**
           * the id of the input element
          */
@@ -1485,13 +1619,9 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
+          * input helper message (optional) - if set to `false` message won't be displayed
          */
-        "message"?: string;
-        /**
-          * multiple options can be selected
-         */
-        "multiple"?: boolean;
+        "message"?: string | boolean;
         /**
           * the input name
          */
@@ -1513,7 +1643,7 @@ export namespace Components {
          */
         "setValue": (value: string | string[]) => Promise<void>;
         /**
-          * the input status (optional): available for text, password, number, email, textarea, select
+          * the input status (optional)
          */
         "status"?: InputStatusBean;
     }
@@ -1772,9 +1902,27 @@ export namespace Components {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid": string;
-        "labelPosition"?: ZtoggleSwitchPositionEnum;
+        "labelPosition"?: LabelPosition;
     }
     interface ZTooltip {
+        /**
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Enable tooltip dark mode.
+         */
+        "dark": boolean;
+        /**
+          * The open state of the tooltip.
+         */
+        "open": boolean;
+        /**
+          * Tooltip position.
+         */
+        "position": PopoverPositions;
+    }
+    interface ZTooltipDeprecated {
         /**
           * The selector or the element bound with the tooltip.
          */
@@ -1791,7 +1939,7 @@ export namespace Components {
         /**
           * Tooltip position.
          */
-        "type": TooltipPosition;
+        "type": PopoverPositions1;
     }
     interface ZTypography {
         "component": string;
@@ -2027,6 +2175,12 @@ declare global {
     var HTMLZInputElement: {
         prototype: HTMLZInputElement;
         new (): HTMLZInputElement;
+    };
+    interface HTMLZInputDeprecatedElement extends Components.ZInputDeprecated, HTMLStencilElement {
+    }
+    var HTMLZInputDeprecatedElement: {
+        prototype: HTMLZInputDeprecatedElement;
+        new (): HTMLZInputDeprecatedElement;
     };
     interface HTMLZInputLabelElement extends Components.ZInputLabel, HTMLStencilElement {
     }
@@ -2280,6 +2434,18 @@ declare global {
         prototype: HTMLZPopoverElement;
         new (): HTMLZPopoverElement;
     };
+    interface HTMLZPopoverDeprecatedElement extends Components.ZPopoverDeprecated, HTMLStencilElement {
+    }
+    var HTMLZPopoverDeprecatedElement: {
+        prototype: HTMLZPopoverDeprecatedElement;
+        new (): HTMLZPopoverDeprecatedElement;
+    };
+    interface HTMLZRangePickerElement extends Components.ZRangePicker, HTMLStencilElement {
+    }
+    var HTMLZRangePickerElement: {
+        prototype: HTMLZRangePickerElement;
+        new (): HTMLZRangePickerElement;
+    };
     interface HTMLZSectionTitleElement extends Components.ZSectionTitle, HTMLStencilElement {
     }
     var HTMLZSectionTitleElement: {
@@ -2424,6 +2590,12 @@ declare global {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
+    interface HTMLZTooltipDeprecatedElement extends Components.ZTooltipDeprecated, HTMLStencilElement {
+    }
+    var HTMLZTooltipDeprecatedElement: {
+        prototype: HTMLZTooltipDeprecatedElement;
+        new (): HTMLZTooltipDeprecatedElement;
+    };
     interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
     }
     var HTMLZTypographyElement: {
@@ -2477,6 +2649,7 @@ declare global {
         "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
         "z-input": HTMLZInputElement;
+        "z-input-deprecated": HTMLZInputDeprecatedElement;
         "z-input-label": HTMLZInputLabelElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
@@ -2519,6 +2692,8 @@ declare global {
         "z-pocket-header": HTMLZPocketHeaderElement;
         "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
+        "z-popover-deprecated": HTMLZPopoverDeprecatedElement;
+        "z-range-picker": HTMLZRangePickerElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
@@ -2543,6 +2718,7 @@ declare global {
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
+        "z-tooltip-deprecated": HTMLZTooltipDeprecatedElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
@@ -2653,7 +2829,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * HTML a href attribute. If it is set, it renders an HTML a tag.
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
          */
         "href"?: string;
         /**
@@ -2920,7 +3096,7 @@ declare namespace LocalJSX {
          */
         "color"?: string;
         /**
-          * elements of ZContextualMenu
+          * Elements of ZContextualMenu
          */
         "elements"?: string;
         /**
@@ -2930,7 +3106,7 @@ declare namespace LocalJSX {
         /**
           * [optional] Sets the position of the popover
          */
-        "popoverPosition"?: PopoverPosition;
+        "popoverPosition"?: PopoverPositions;
     }
     interface ZCookiebar {
         /**
@@ -2952,9 +3128,17 @@ declare namespace LocalJSX {
     }
     interface ZDatePicker {
         /**
+          * z-input aria label
+         */
+        "ariaLabel"?: string;
+        /**
           * unique id
          */
-        "datepickerid"?: string;
+        "datePickerId"?: string;
+        /**
+          * z-input label
+         */
+        "label"?: string;
         /**
           * [Optional] datepicker mode: date, datetime, only months
          */
@@ -3127,6 +3311,96 @@ declare namespace LocalJSX {
         "onInfoBoxClose"?: (event: CustomEvent<any>) => void;
     }
     interface ZInput {
+        /**
+          * the input aria-label
+         */
+        "ariaLabel"?: string;
+        /**
+          * the input has autocomplete option (optional): available for text, password, number, email
+         */
+        "autocomplete"?: string;
+        /**
+          * checked: available for checkbox, radio
+         */
+        "checked"?: boolean;
+        /**
+          * the input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * render clear icon when typing (optional): available for text
+         */
+        "hasclearicon"?: boolean;
+        /**
+          * the id of the input element
+         */
+        "htmlid"?: string;
+        /**
+          * the input html title (optional)
+         */
+        "htmltitle"?: string;
+        /**
+          * render icon (optional): available for text
+         */
+        "icon"?: string;
+        /**
+          * the input label
+         */
+        "label"?: string;
+        /**
+          * the input label position: available for checkbox, radio
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
+         */
+        "message"?: string | boolean;
+        /**
+          * the input name
+         */
+        "name"?: string;
+        /**
+          * Emitted on input value change, returns value, validity
+         */
+        "onInputChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
+         */
+        "onInputCheck"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when user starts typing
+         */
+        "onStartTyping"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when user stops typing, returns value, validity
+         */
+        "onStopTyping"?: (event: CustomEvent<any>) => void;
+        /**
+          * the input placeholder (optional)
+         */
+        "placeholder"?: string;
+        /**
+          * the input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * the input is required (optional): available for text, password, number, email, textarea, checkbox
+         */
+        "required"?: boolean;
+        /**
+          * the input status (optional): available for text, password, number, email, textarea
+         */
+        "status"?: InputStatusBean;
+        /**
+          * input types
+         */
+        "type"?: InputTypeBean;
+        /**
+          * the input value
+         */
+        "value"?: string;
+    }
+    interface ZInputDeprecated {
         /**
           * the input aria-label
          */
@@ -4131,6 +4405,40 @@ declare namespace LocalJSX {
     }
     interface ZPopover {
         /**
+          * The selector or the element bound with the popover.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Whether to center the popup on the main side (according to "position").
+         */
+        "center"?: boolean;
+        /**
+          * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
+         */
+        "closable"?: boolean;
+        /**
+          * Open change event.
+         */
+        "onOpenChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Position change event.
+         */
+        "onPositionChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The open state of the popover.
+         */
+        "open"?: boolean;
+        /**
+          * Popover position.
+         */
+        "position"?: PopoverPositions;
+        /**
+          * Whether to show popover's arrow.
+         */
+        "showArrow"?: boolean;
+    }
+    interface ZPopoverDeprecated {
+        /**
           * [optional] Background color token for popover
          */
         "backgroundColor"?: string;
@@ -4159,6 +4467,36 @@ declare namespace LocalJSX {
          */
         "showArrow"?: boolean;
     }
+    interface ZRangePicker {
+        /**
+          * first z-input aria label
+         */
+        "firstAriaLabel"?: string;
+        /**
+          * first z-input label
+         */
+        "firstLabel"?: string;
+        /**
+          * [Optional] datepicker mode: date, datetime, only months
+         */
+        "mode"?: ZDatePickerMode;
+        /**
+          * emitted when date changes, returns an array with the two selected dates
+         */
+        "onDateSelect"?: (event: CustomEvent<any>) => void;
+        /**
+          * unique id
+         */
+        "rangePickerId"?: string;
+        /**
+          * second z-input aria label
+         */
+        "secondAriaLabel"?: string;
+        /**
+          * second z-input label
+         */
+        "secondLabel"?: string;
+    }
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
@@ -4177,15 +4515,11 @@ declare namespace LocalJSX {
         /**
           * the input has autocomplete option
          */
-        "autocomplete"?: boolean | string;
+        "autocomplete"?: boolean;
         /**
           * the input is disabled
          */
         "disabled"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
         /**
           * the id of the input element
          */
@@ -4203,13 +4537,9 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
+          * input helper message (optional) - if set to `false` message won't be displayed
          */
-        "message"?: string;
-        /**
-          * multiple options can be selected
-         */
-        "multiple"?: boolean;
+        "message"?: string | boolean;
         /**
           * the input name
          */
@@ -4219,7 +4549,7 @@ declare namespace LocalJSX {
          */
         "noresultslabel"?: string;
         /**
-          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
+          * Emitted on select option selection, returns select id, selected item id
          */
         "onOptionSelect"?: (event: CustomEvent<any>) => void;
         /**
@@ -4231,7 +4561,7 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
-          * the input status (optional): available for text, password, number, email, textarea, select
+          * the input status (optional)
          */
         "status"?: InputStatusBean;
     }
@@ -4511,10 +4841,28 @@ declare namespace LocalJSX {
         "checked"?: boolean;
         "disabled"?: boolean;
         "htmlid"?: string;
-        "labelPosition"?: ZtoggleSwitchPositionEnum;
+        "labelPosition"?: LabelPosition;
         "onToggleClick"?: (event: CustomEvent<any>) => void;
     }
     interface ZTooltip {
+        /**
+          * The selector or the element bound with the tooltip.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Enable tooltip dark mode.
+         */
+        "dark"?: boolean;
+        /**
+          * The open state of the tooltip.
+         */
+        "open"?: boolean;
+        /**
+          * Tooltip position.
+         */
+        "position"?: PopoverPositions;
+    }
+    interface ZTooltipDeprecated {
         /**
           * The selector or the element bound with the tooltip.
          */
@@ -4535,7 +4883,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip position.
          */
-        "type"?: TooltipPosition;
+        "type"?: PopoverPositions1;
     }
     interface ZTypography {
         "component"?: string;
@@ -4609,6 +4957,7 @@ declare namespace LocalJSX {
         "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
         "z-input": ZInput;
+        "z-input-deprecated": ZInputDeprecated;
         "z-input-label": ZInputLabel;
         "z-input-message": ZInputMessage;
         "z-link": ZLink;
@@ -4651,6 +5000,8 @@ declare namespace LocalJSX {
         "z-pocket-header": ZPocketHeader;
         "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
+        "z-popover-deprecated": ZPopoverDeprecated;
+        "z-range-picker": ZRangePicker;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
         "z-skip-to-content": ZSkipToContent;
@@ -4675,6 +5026,7 @@ declare namespace LocalJSX {
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
+        "z-tooltip-deprecated": ZTooltipDeprecated;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
         "z-visually-hidden": ZVisuallyHidden;
@@ -4718,6 +5070,7 @@ declare module "@stencil/core" {
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
+            "z-input-deprecated": LocalJSX.ZInputDeprecated & JSXBase.HTMLAttributes<HTMLZInputDeprecatedElement>;
             "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
@@ -4760,6 +5113,8 @@ declare module "@stencil/core" {
             "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
+            "z-popover-deprecated": LocalJSX.ZPopoverDeprecated & JSXBase.HTMLAttributes<HTMLZPopoverDeprecatedElement>;
+            "z-range-picker": LocalJSX.ZRangePicker & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
@@ -4784,6 +5139,7 @@ declare module "@stencil/core" {
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
+            "z-tooltip-deprecated": LocalJSX.ZTooltipDeprecated & JSXBase.HTMLAttributes<HTMLZTooltipDeprecatedElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;

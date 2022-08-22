@@ -1,0 +1,75 @@
+import { html } from "lit-html";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
+import { text, radios, boolean } from "@storybook/addon-knobs";
+import { PopoverPositions } from "../../beans/index";
+import "./index.stories.css";
+import "./index";
+
+## Stories
+
+<Meta title="Deprecated/ZTooltipDeprecated" component="z-tooltip-deprecated" />
+
+# ZTooltip Deprecated
+## This component is deprecated and will be removed from the library starting 15 October 2022.
+
+<Preview>
+  <Story name="buttons">
+    {(args) => html`
+      <div class="tooltip-container">
+        <z-tooltip-deprecated
+          type="${radios("type", PopoverPositions, "top")}"
+          open="${boolean("open", true)}"
+          bind-to="#icon"
+        >
+          <div class="container">
+            <z-button-deprecated>Open</z-button-deprecated>
+            <z-button-deprecated>Save as</z-button-deprecated>
+            <z-button-deprecated>Share</z-button-deprecated>
+          </div>
+        </z-tooltip-deprecated>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Bound to an element">
+    {() => html`
+      <div class="tooltip-container">
+        <z-tooltip-deprecated
+          class="dark"
+          bind-to="#icon"
+          type="${radios("type", PopoverPositions, "bottom")}"
+          open="${boolean("open", true)}"
+        >
+          <span>Open</span>
+        </z-tooltip-deprecated>
+        <z-icon id="icon" name="informationsource"></z-icon>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="legacy">
+    {(args) => html` <z-tooltip-deprecated
+      content="${text("content", "Aggiungi libro")}"
+      type="${radios("type", PopoverPositions, "top")}"
+    ></z-tooltip-deprecated>`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="legacy dark mode">
+    {html`
+      <z-tooltip-deprecated
+        class="dark"
+        content="${text("content", "Aggiungi libro")}"
+        type="${radios("type", PopoverPositions, "top")}"
+      ></z-tooltip>
+    `}
+  </Story>
+</Preview>
+
+<Props of="z-tooltip-deprecated" />

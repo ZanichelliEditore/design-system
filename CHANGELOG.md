@@ -2,6 +2,161 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/ZanichelliEditore/design-system/compare/v4.2.0...v5.0.0) (2022-08-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* migration guide for zpopover and ztooltip breaking
+
+### Bug Fixes
+
+* fix deprecated popover ([8526329](https://github.com/ZanichelliEditore/design-system/commit/85263290d1328622b84a33bd975b939d84c5cc6a))
+
+
+* migration guide for zpopover and ztooltip breaking ([3ec540b](https://github.com/ZanichelliEditore/design-system/commit/3ec540bf3d24e1c7b2f88b5290923c94b85d0129))
+
+## [4.2.0](https://github.com/ZanichelliEditore/design-system/compare/v4.1.0...v4.2.0) (2022-08-05)
+
+
+### Features
+
+* refactor zpopover as tooltip ([4086957](https://github.com/ZanichelliEditore/design-system/commit/4086957bf2879435d63e407a290abbbccd298905))
+* **z-range-picker:** add label and fix test ([39373da](https://github.com/ZanichelliEditore/design-system/commit/39373da43cf2cfbbda366541e436fbf63caf4cce))
+* **z-range-picker:** add test and storybook ([1c41fd5](https://github.com/ZanichelliEditore/design-system/commit/1c41fd50947dfac352d4f0e0ffdba52b93e28087))
+* **z-range-picker:** clean code ([9ed6ffe](https://github.com/ZanichelliEditore/design-system/commit/9ed6ffe1993b3732df7e7c592b80b8c1c77f83ae))
+* **z-range-picker:** fix after pr review ([979df3e](https://github.com/ZanichelliEditore/design-system/commit/979df3e895ead4f692f780dc800b03a00412bc90))
+* **z-range-picker:** fix after pr review ([afec394](https://github.com/ZanichelliEditore/design-system/commit/afec394372539317a067912a61a25f8cc6338226))
+* **z-range-picker:** fix after pr review ([7c41835](https://github.com/ZanichelliEditore/design-system/commit/7c418354db2ecde32782c97dea80b47037b12ec9))
+* **z-range-picker:** fix after pr review ([1c02437](https://github.com/ZanichelliEditore/design-system/commit/1c0243775a3a89350d91803b029d6488f938ab93))
+* **z-range-picker:** fix after pr review ([6064a64](https://github.com/ZanichelliEditore/design-system/commit/6064a64703f7657780fda6e4bb942ae59d62b0ac))
+* **z-range-picker:** fix after pr review ([879b78b](https://github.com/ZanichelliEditore/design-system/commit/879b78bde35d24eb3adc8149465e66a44e46353d))
+* **z-range-picker:** fix bug removing a date and positioning bug ([e411b42](https://github.com/ZanichelliEditore/design-system/commit/e411b4281ad64b55ad44b123e6799a5b774edca6))
+* **z-range-picker:** fix for pr ([b31507c](https://github.com/ZanichelliEditore/design-system/commit/b31507c6c284283bacdfcc6c73a8a16172f47005))
+* **z-range-picker:** fix for pr ([a79b8e5](https://github.com/ZanichelliEditore/design-system/commit/a79b8e5382cedbcd81f99877a39332955993203e))
+* **z-range-picker:** fix for storybook ([1b64966](https://github.com/ZanichelliEditore/design-system/commit/1b64966698ae478d31da24924acdf3484f0be7ef))
+* **z-range-picker:** fix prop name of date-picker ([060b5b2](https://github.com/ZanichelliEditore/design-system/commit/060b5b27567402c57352505942454099f542964d))
+* **z-range-picker:** fix returning date format ([1649113](https://github.com/ZanichelliEditore/design-system/commit/1649113ed82fd92e011ddb1fc844cc80fdd013ac))
+* **z-range-picker:** fixes for pr ([1903bdb](https://github.com/ZanichelliEditore/design-system/commit/1903bdb79dd9d35ba2ba11c3d150753d6986cf04))
+* **z-range-picker:** initialize range-picker ([7c229d5](https://github.com/ZanichelliEditore/design-system/commit/7c229d549f8078882dfe3d0585edf2b1dc3cabc0))
+* **z-range-picker:** merge with master ([4dcf21a](https://github.com/ZanichelliEditore/design-system/commit/4dcf21a332a0059adb5b234ee73d2ff0de8daf70))
+* **z-range-picker:** move functions to utils.tsx ([d597b00](https://github.com/ZanichelliEditore/design-system/commit/d597b00b7e5055bd2e6bd36675a44451ed44aadb))
+* **z-range-picker:** move functions to utils.tsx ([0e71bdb](https://github.com/ZanichelliEditore/design-system/commit/0e71bdb4deba272c49e393e277a69baf7db45798))
+* **z-range-picker:** refactor ([74f2da6](https://github.com/ZanichelliEditore/design-system/commit/74f2da63f7c073dddf983352ce4684f32e3959e4))
+* **z-range-picker:** remove log ([d404d1a](https://github.com/ZanichelliEditore/design-system/commit/d404d1a3f270918dd09028a7ddaceeea45b79785))
+* **z-range-picker:** remove log ([6f67692](https://github.com/ZanichelliEditore/design-system/commit/6f676925ac17ca616bf458bcb283e74917445c0f))
+
+
+### Bug Fixes
+
+* added all positions ([d7f8cdd](https://github.com/ZanichelliEditore/design-system/commit/d7f8cdd918a465830fa45413863f95738baf2001))
+* auto position ([e4a01c2](https://github.com/ZanichelliEditore/design-system/commit/e4a01c25c16b36941f217229ca227f0083b2a283))
+* avoid rendering in wrong position when bindTo is still not set ([2e57f96](https://github.com/ZanichelliEditore/design-system/commit/2e57f96136d9889bbbb6b8523b07ed7d0adeca17))
+* contextual menu ([5e955e9](https://github.com/ZanichelliEditore/design-system/commit/5e955e96a93a3737678708b19e642bb1bec5fd65))
+* contextual-menu tests ([6c92f23](https://github.com/ZanichelliEditore/design-system/commit/6c92f23412eae2cfb436fb66d6fc7a799eb748f5))
+* enhance stories ([a17aedb](https://github.com/ZanichelliEditore/design-system/commit/a17aedbad65c1b0e002f37f6affee1b25363db8a))
+* enhanced stories. do not use visibility, use a strongest css rule with display none ([e021836](https://github.com/ZanichelliEditore/design-system/commit/e021836fe703ce6f8a125b318dcdfc0aa6c2c1e5))
+* handle open attribute when set at runtime for zpopover ([2bbba68](https://github.com/ZanichelliEditore/design-system/commit/2bbba6814735306f25aceb280aa055d007f3a3ec))
+* import ztooltip story ([2b697d3](https://github.com/ZanichelliEditore/design-system/commit/2b697d3688cc1a7897fa039e53b4ee1bd6c820c1))
+* popover arrow ([0d34492](https://github.com/ZanichelliEditore/design-system/commit/0d34492fc74c62179284785fdabe80dacd48831f))
+* popover story and clean console log ([eb174d3](https://github.com/ZanichelliEditore/design-system/commit/eb174d32424d7df5bbf7a5504deddae2fcd3438d))
+* prevent reset position at initialization ([e645ec2](https://github.com/ZanichelliEditore/design-system/commit/e645ec24a32aceb1836463f72f65550ed8ea5bd8))
+* some style and stories ([48bead5](https://github.com/ZanichelliEditore/design-system/commit/48bead5043b55dada8c16547c50256c089fcb8d5))
+* tooltip arrow position and some docs ([a97c4b4](https://github.com/ZanichelliEditore/design-system/commit/a97c4b4eef4c36395e9e304fd1bd56199f6127d9))
+* tooltip style and stories ([2ed9780](https://github.com/ZanichelliEditore/design-system/commit/2ed9780ff33b42711e6e43b5667457eef7463c38))
+* wrong replace ([af12af8](https://github.com/ZanichelliEditore/design-system/commit/af12af8feb62831a8de1aa4baa2225c0897d9fb5))
+
+## [4.1.0](https://github.com/ZanichelliEditore/design-system/compare/v4.0.5...v4.1.0) (2022-08-04)
+
+
+### Features
+
+* add breaking changes for v4.x ([f44c3e1](https://github.com/ZanichelliEditore/design-system/commit/f44c3e1b625f799efdaa88b7ffd16fb76e9ca537))
+* add migration guide doc and Storybook page ([d60376f](https://github.com/ZanichelliEditore/design-system/commit/d60376f83cbe244a3489ce27aeb68ce861a5819f))
+* list more breaking changes ([9d389a9](https://github.com/ZanichelliEditore/design-system/commit/9d389a9216655b5a0012afbd734555fc3ee927ad))
+
+### [4.0.5](https://github.com/ZanichelliEditore/design-system/compare/v4.0.4...v4.0.5) (2022-08-02)
+
+
+### Bug Fixes
+
+* added input label size and weight ([17866e9](https://github.com/ZanichelliEditore/design-system/commit/17866e98c9f1a092ccfd069e36b3359d78f25cb3))
+
+### [4.0.4](https://github.com/ZanichelliEditore/design-system/compare/v4.0.3...v4.0.4) (2022-08-01)
+
+
+### Bug Fixes
+
+* removed offset setting ([720b026](https://github.com/ZanichelliEditore/design-system/commit/720b026394be815846df4b30c100d2c32ff2855d))
+
+### [4.0.3](https://github.com/ZanichelliEditore/design-system/compare/v4.0.2...v4.0.3) (2022-07-29)
+
+
+### Bug Fixes
+
+* storybook component deadline ([203f72a](https://github.com/ZanichelliEditore/design-system/commit/203f72a761d42ee7c6d57acf9e0efe9e36f8af88))
+
+### [4.0.2](https://github.com/ZanichelliEditore/design-system/compare/v4.0.1...v4.0.2) (2022-07-21)
+
+
+### Bug Fixes
+
+* added type button to icon buttons to prevent form submit ([35e911a](https://github.com/ZanichelliEditore/design-system/commit/35e911a066e73c44d6837fc682cb827fe7f64592))
+
+### [4.0.1](https://github.com/ZanichelliEditore/design-system/compare/v4.0.0...v4.0.1) (2022-07-19)
+
+
+### Bug Fixes
+
+* update font-size ([bbfd83a](https://github.com/ZanichelliEditore/design-system/commit/bbfd83a2a6214b6f69147fe74fe224deff980d7e))
+* update padding ([5a132ca](https://github.com/ZanichelliEditore/design-system/commit/5a132cad16de9f0c798ff155d6d0406ced12dc11))
+* update test ([43460ea](https://github.com/ZanichelliEditore/design-system/commit/43460eaf66a2d24fe669b2a4a1da17fb3f8fa130))
+
+### [4.0.0](https://github.com/ZanichelliEditore/design-system/compare/v3.2.2...v4.0.0) (2022-07-19)
+
+
+### Bug Fixes
+
+* input padding without icons ([ef68fda](https://github.com/ZanichelliEditore/design-system/commit/ef68fda8549ad55c7d893560383cc66fe6f24511))
+* message casting ([313cf63](https://github.com/ZanichelliEditore/design-system/commit/313cf6353ffbef9516a60a8b3c2eeb17a9795c09))
+* pr fixes ([2b32667](https://github.com/ZanichelliEditore/design-system/commit/2b3266751497e7546086c8c033d8c91f04976b83))
+* removed getValue() method ([fbe79d3](https://github.com/ZanichelliEditore/design-system/commit/fbe79d3b93068789e19a44bd4870052848cfceb7))
+* textarea hover css ([3741c09](https://github.com/ZanichelliEditore/design-system/commit/3741c09faf029560d509512b77264aabdb989699))
+* z-button tests; remove console logs ([df13014](https://github.com/ZanichelliEditore/design-system/commit/df13014d69d2986382f089a96cec0acfbf27e576))
+
+### [3.2.2](https://github.com/ZanichelliEditore/design-system/compare/v3.2.1...v3.2.2) (2022-07-14)
+
+
+### Bug Fixes
+
+* text content check; scoped style ([c5bb0da](https://github.com/ZanichelliEditore/design-system/commit/c5bb0da70429fc50094177c9f4300629b4a5e251))
+
+### [3.2.1](https://github.com/ZanichelliEditore/design-system/compare/v3.2.0...v3.2.1) (2022-07-08)
+
+## [3.2.0](https://github.com/ZanichelliEditore/design-system/compare/v3.1.1...v3.2.0) (2022-07-08)
+
+
+### Features
+
+* add control for edges in pagination ([7d71695](https://github.com/ZanichelliEditore/design-system/commit/7d71695197ff4ca86e453a7a71e82dfa6cfc223d))
+* add label prop; fix some class name ([332831d](https://github.com/ZanichelliEditore/design-system/commit/332831d645b61311f914c0dce966d9cb8b7cee6f))
+* added control for skip pages in pagination ([2d2bc5f](https://github.com/ZanichelliEditore/design-system/commit/2d2bc5f3e5fd73bc862c6a475ff36fa63fbdf888))
+* added go to page prop and split prop ([8d80d97](https://github.com/ZanichelliEditore/design-system/commit/8d80d97d0434bcec3723ffaf1b7a8250ed6cd2dd))
+* alternative template for mobile ([e291264](https://github.com/ZanichelliEditore/design-system/commit/e2912643786f5c8c771789abbe49a03a2615a0e6))
+
+
+### Bug Fixes
+
+* added aria-current=page and handled invalid split value ([274ba11](https://github.com/ZanichelliEditore/design-system/commit/274ba111856d22af9cf0e2404d143f960ccbf566))
+* change to go page button disabled behaviour ([d891026](https://github.com/ZanichelliEditore/design-system/commit/d8910266465512a1e603d81c1041db11d07de0a3))
+* go to page not working on zbutton click ([daa2354](https://github.com/ZanichelliEditore/design-system/commit/daa2354b5c2a99056b4f9c39fcc3aae1c3171b04))
+* go to page on mobile ([90504f6](https://github.com/ZanichelliEditore/design-system/commit/90504f6eb470022b9efb88539b4452855f99d36b))
+* handle incorrect go to page number ([8d32880](https://github.com/ZanichelliEditore/design-system/commit/8d32880deb5622edcc518dfd9ebaf731bdcdc2db))
+* placeholder is current page on gotopage inputs ([b636702](https://github.com/ZanichelliEditore/design-system/commit/b636702c2f21d0f3275787b7e7db0afc0ab210f3))
+* prevent lose container ref on rerender ([ace2f39](https://github.com/ZanichelliEditore/design-system/commit/ace2f395605a60ecbaff7aad27342f288dfce4c9))
+* stories parameters ([376db00](https://github.com/ZanichelliEditore/design-system/commit/376db00de1f3f8fb9d0a3407c255b772831cd09a))
+* visible pages + split ([5502e87](https://github.com/ZanichelliEditore/design-system/commit/5502e87cd3c4706b980829a0df6639bd9e778d2b))
+
 ### [3.1.1](https://github.com/ZanichelliEditore/design-system/compare/v3.1.0...v3.1.1) (2022-07-06)
 
 

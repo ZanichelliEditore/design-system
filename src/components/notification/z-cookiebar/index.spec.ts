@@ -26,7 +26,7 @@ describe("Suite test ZCookiebar", () => {
                   </p>
                 </div>
               </div>
-              <z-button-deprecated variant="primary">ACCETTA</z-button-deprecated>
+              <z-button variant="primary">ACCETTA</z-button>
             </div>
           </z-candybar>
         </mock:shadow-root>
@@ -57,7 +57,7 @@ describe("Suite test ZCookiebar", () => {
                   </p>
                 </div>
               </div>
-              <z-button-deprecated variant="primary">ACCETTA</z-button-deprecated>
+              <z-button variant="primary">ACCETTA</z-button>
             </div>
           </z-candybar>
         </mock:shadow-root>

@@ -7,13 +7,12 @@ import {
   Host,
   Listen,
   Prop,
-  State,
 } from "@stencil/core";
 import classNames from "classnames";
 import {
   ButtonSizeEnum,
   ButtonVariantEnum,
-  PopoverPosition,
+  PopoverPositions,
   Size,
   SortDirection,
   SortDirectionEnum,
@@ -45,7 +44,9 @@ export class ZTableHeader {
   @Prop({ mutable: true }) sortDirection: SortDirection =
     SortDirectionEnum.none;
 
-  @State() isMenuOpened: boolean = false;
+  private popover?: HTMLZPopoverElement;
+
+  private triggerButton?: HTMLZButtonDeprecatedElement;
 
   constructor() {
     this.emitOnSort = this.emitOnSort.bind(this);
@@ -82,7 +83,7 @@ export class ZTableHeader {
   }
 
   handleMenuClick() {
-    this.isMenuOpened = !this.isMenuOpened;
+    this.popover.open = !this.popover.open;
   }
 
   @Listen("click", { target: "body", capture: true })
@@ -92,8 +93,8 @@ export class ZTableHeader {
       (elem: any) => elem.nodeName.toLowerCase() === "z-popover"
     );
 
-    if (!parent) {
-      this.isMenuOpened = false;
+    if (!parent && this.popover) {
+      this.popover.open = false;
     }
   }
 
@@ -128,7 +129,7 @@ export class ZTableHeader {
         })}
         onClick={() => this.handleSort()}
       >
-        <div class={classNames("container")}>
+        <div class='container'>
           <slot />
           {this.sortable && this.sortDirection !== SortDirectionEnum.none && (
             <z-icon
@@ -143,25 +144,24 @@ export class ZTableHeader {
         </div>
 
         {this.showButton && (
-          <div
-            class={classNames("popover-container", {
-              visible: this.isMenuOpened,
-            })}
+          <div class='popover-container'
           >
-            <z-popover
-              position={PopoverPosition["below-center"]}
-              background-color={"gray200"}
-            >
-              <z-button-deprecated
-                icon="contextual-menu"
-                variant={ButtonVariantEnum["tertiary"]}
-                size={ButtonSizeEnum["x-small"]}
-                square
-                slot="trigger"
-                onClick={() => this.handleMenuClick()}
-              ></z-button-deprecated>
+            <z-button
+              ref={(el) => (this.triggerButton = el as HTMLZPopoverElement) }
+              class="contextual-popover-button"
+              icon="contextual-menu"
+              variant={ButtonVariantEnum["tertiary"]}
+              size={ButtonSizeEnum["x-small"]}
+              onClick={() => this.handleMenuClick()}
+            ></z-button>
 
-              <div slot="popover">
+            <z-popover
+              ref={(el) => (this.popover = el as HTMLZPopoverElement) }
+              position={PopoverPositions.BOTTOM}
+              center={true}
+              bindTo={this.triggerButton}
+            >
+              <div>
                 <slot name="contextual-menu" />
               </div>
             </z-popover>

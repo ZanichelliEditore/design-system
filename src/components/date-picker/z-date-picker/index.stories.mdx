@@ -1,20 +1,26 @@
 import { html } from "lit-html";
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
-import { ZDatePickerMode } from "../../beans";
+import { ZDatePickerMode } from "../../../beans";
 
 import "./index";
-import "./styles.css";
+import "../styles.css";
 
 <Meta
-  title="ZDatePicker"
+  title="DatePicker/ZDatePicker"
   component="z-date-picker"
   argTypes={{
     mode: {
       options: Object.values(ZDatePickerMode),
       control: { type: "radio" },
     },
-    datepickerid: {
+    datePickerId: {
+      control: "text",
+    },
+    ariaLabel: {
+      control: "text",
+    },
+    label: {
       control: "text",
     },
   }}
@@ -27,7 +33,9 @@ import "./styles.css";
     name="ZDatePicker with date"
     args={{
       mode: "date",
-      datepickerid: "picker-01",
+      datePickerId: "picker-01",
+      label: "ZDatePicker with date",
+      ariaLabel: "date-picker",
     }}
     height="180px"
   >
@@ -35,12 +43,14 @@ import "./styles.css";
       <div style="height:300px; padding-top:40px">
         <z-date-picker
           mode=${args.mode}
-          datepickerid=${args.datepickerid}
-          id=${args.datepickerid}
+          date-picker-id=${args.datePickerId}
+          id=${args.datePickerId}
+          ariaLabel=${args.ariaLabel}
+          label=${args.label}
         ></z-date-picker>
       </div>
       <script>
-        const picker1 = document.getElementById("${args.datepickerid}");
+        const picker1 = document.getElementById("${args.datePickerId}");
         picker1.addEventListener("dateSelect", (e) => alert(e.detail));
       </script>
     `}
@@ -54,19 +64,23 @@ import "./styles.css";
     name="ZDatePicker with date and time"
     args={{
       mode: "date-time",
-      datepickerid: "picker-02",
+      datePickerId: "picker-02",
+      label: "ZDatePicker with date and time",
+      ariaLabel: "date-picker",
     }}
   >
     {(args) => html`
       <div style="height:300px; padding-top:40px">
         <z-date-picker
           mode=${args.mode}
-          datepickerid=${args.datepickerid}
-          id=${args.datepickerid}
+          date-picker-id=${args.datePickerId}
+          id=${args.datePickerId}
+          ariaLabel=${args.ariaLabel}
+          label=${args.label}
         ></z-date-picker>
       </div>
       <script>
-        const picker2 = document.getElementById("${args.datepickerid}");
+        const picker2 = document.getElementById("${args.datePickerId}");
         picker2.addEventListener("dateSelect", (e) => alert(e.detail));
       </script>
     `}
@@ -80,19 +94,23 @@ import "./styles.css";
     name="ZDatePicker with only months"
     args={{
       mode: "months",
-      datepickerid: "picker-03",
+      datePickerId: "picker-03",
+      label: "ZDatePicker with only months",
+      ariaLabel: "date-picker",
     }}
   >
     {(args) => html`
       <div style="height:300px; padding-top:40px">
         <z-date-picker
           mode=${args.mode}
-          datepickerid=${args.datepickerid}
-          id=${args.datepickerid}
+          date-picker-id=${args.datePickerId}
+          id=${args.datePickerId}
+          ariaLabel=${args.ariaLabel}
+          label=${args.label}
         ></z-date-picker>
       </div>
       <script>
-        const picker3 = document.getElementById("${args.datepickerid}");
+        const picker3 = document.getElementById("${args.datePickerId}");
         picker3.addEventListener("dateSelect", (e) => alert(e.detail));
       </script>
     `}
@@ -106,22 +124,24 @@ import "./styles.css";
     name="ZDatePicker with custom toggle"
     args={{
       mode: "date",
-      datepickerid: "picker-04",
+      datePickerId: "picker-04",
+      label: "date picker",
+      ariaLabel: "date-picker",
     }}
   >
     {(args) => html`
       <div style="height:300px; padding-top:40px">
         <z-date-picker
           mode=${args.mode}
-          datepickerid=${args.datepickerid}
-          id=${args.datepickerid}
-          ><z-button-deprecated slot="toggle"
-            >Open ZDatePicker</z-button-deprecated
-          ></z-date-picker
+          date-picker-id=${args.datePickerId}
+          id=${args.datePickerId}
+          ariaLabel=${args.ariaLabel}
+          label=${args.label}
+          ><z-button slot="toggle">Open ZDatePicker</z-button></z-date-picker
         >
       </div>
       <script>
-        const picker4 = document.getElementById("${args.datepickerid}");
+        const picker4 = document.getElementById("${args.datePickerId}");
         picker4.addEventListener("dateSelect", (e) => alert(e.detail));
       </script>
     `}
@@ -132,6 +152,6 @@ import "./styles.css";
 
 ## Usage
 
-In order to avoid conflits between datepickers, pass a unique id as `datepickerid` prop.
+In order to avoid conflits between datepickers, pass a unique id as `datePickerId` prop.
 
-This component has a callback function `dateSelect` that returns the selected date.
+This component emits an event called `dateSelect` with the value of the selected date.

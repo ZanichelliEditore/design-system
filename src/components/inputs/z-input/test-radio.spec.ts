@@ -64,10 +64,10 @@ describe("Suite test ZInput - radio", () => {
   it("Test render ZInput label before", async () => {
     const page = await newSpecPage({
       components: [ZInput],
-      html: `<z-input htmlid="radioid" type="radio" labelafter="false"></z-input>`,
+      html: `<z-input htmlid="radioid" type="radio" label-position="left"></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="radioid" type="radio" labelafter="false">
+      <z-input htmlid="radioid" type="radio" label-position="left">
 
           <div class="radioWrapper">
             <input id="radioid" type="radio" />
