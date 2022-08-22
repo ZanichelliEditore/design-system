@@ -1,4 +1,5 @@
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import { styleMap } from 'lit-html/directives/style-map.js';
 import { InfoRevealPosition } from "../../beans";
 import { html } from "lit-html";
 import "./index";
@@ -28,6 +29,7 @@ import "./index";
     {(args) => html`
      <style>
         z-info-reveal {
+          margin-top: 20vw;
           margin-left: 20vw;
         }
       </style>
@@ -35,13 +37,17 @@ import "./index";
         .position=${args.position}
         .label=${args.label}
         .icon=${args.icon}
+        style=${styleMap({
+          "--z-info-reveal-theme--surface": `var(${args["--z-info-reveal-theme--surface"]})`,
+          "--z-info-reveal-theme--text": `var(${args["--z-info-reveal-theme--text"]})`,
+        })}
       >
-        <span style="font-style: italic;">Questo testo...</span>
-        <span style="font-style: italic;">..è...</span>
+        <span style="font-style: italic;">Prima frase.</span>
+        <span style="font-style: italic;">Seconda frase</span>
         <span>
             <a style="text-decoration: underline; color: inherit;"
-              href="https://letmegooglethat.com/?q=parlare+in+corsivo" target="_blank">
-            in cörsivœ
+              href="https://google.com" target="_blank">
+            terza frase che è un link
         </a></span>
       </z-info-reveal>
     `}

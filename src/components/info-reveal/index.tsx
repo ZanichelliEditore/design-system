@@ -14,6 +14,13 @@ import { InfoRevealPosition } from "../../beans";
   shadow: true
 })
 
+/**
+ * Info reveal component.
+ *
+ * @cssprop --z-info-reveal-theme--surface - background color of the info reveal panel.
+ * @cssprop --z-info-reveal-theme--text - foreground color of the info reveal panel.
+ * @cssprop --z-info-reveal-shadow - shadow of the info reveal panel.
+ */
 export class ZInfoReveal {
   @Element() el: HTMLElement;
 
@@ -23,7 +30,7 @@ export class ZInfoReveal {
   /** Position of the panel. */
   @Prop({ reflect: true }) position?= InfoRevealPosition.BOTTOM_RIGHT;
 
-  /** Text might appears on closed panel aside the open button. */
+  /** Text that appears on closed panel aside the open button. */
   @Prop() label?: string;
 
   /** Whether the info panel is open. */
@@ -59,19 +66,22 @@ export class ZInfoReveal {
     });
   }
 
+  isRightAligned() {
+    return this.position === InfoRevealPosition.BOTTOM_RIGHT || this.position === InfoRevealPosition.TOP_RIGHT;
+  }
+
   render() {
     return [
-      !this.open && [
-        this.label && <span class="z-info-reveal-label">{this.label}</span>,
-        <button onClick={(ev) => {
-          ev.stopPropagation();
-          ev.preventDefault();
-          this.open = true;
-          this.currentIndex = 0;
-        }}>
-          <z-icon fill="color-primary01" name={this.icon}></z-icon>
-        </button>
-      ],
+      !this.open && <button class="closed-info-reveal" onClick={(ev) => {
+        ev.stopPropagation();
+        ev.preventDefault();
+        this.open = true;
+        this.currentIndex = 0;
+      }}>
+        {this.label && this.isRightAligned() && <span class="z-info-reveal-label">{this.label}</span>}
+        <z-icon fill="color-primary01" name={this.icon}></z-icon>
+        {this.label && !this.isRightAligned() && <span class="z-info-reveal-label">{this.label}</span>}
+      </button>,
       this.open && [
         <div
           class="statements text-04">
@@ -84,7 +94,7 @@ export class ZInfoReveal {
             <z-icon fill="color-primary01" name="close"></z-icon>
           </button>
         </div>,
-      ]
+      ],
     ];
   }
 }

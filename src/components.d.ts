@@ -531,6 +531,20 @@ export namespace Components {
          */
         "isclosable": boolean;
     }
+    interface ZInfoReveal {
+        /**
+          * Name of the icon for the open button
+         */
+        "icon"?: string;
+        /**
+          * Text that appears on closed panel aside the open button.
+         */
+        "label"?: string;
+        /**
+          * Position of the panel.
+         */
+        "position"?: InfoRevealPosition;
+    }
     interface ZInput {
         /**
           * the input aria-label
@@ -2170,6 +2184,12 @@ declare global {
         prototype: HTMLZInfoBoxElement;
         new (): HTMLZInfoBoxElement;
     };
+    interface HTMLZInfoRevealElement extends Components.ZInfoReveal, HTMLStencilElement {
+    }
+    var HTMLZInfoRevealElement: {
+        prototype: HTMLZInfoRevealElement;
+        new (): HTMLZInfoRevealElement;
+    };
     interface HTMLZInputElement extends Components.ZInput, HTMLStencilElement {
     }
     var HTMLZInputElement: {
@@ -2648,6 +2668,7 @@ declare global {
         "z-icon": HTMLZIconElement;
         "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
+        "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
         "z-input-deprecated": HTMLZInputDeprecatedElement;
         "z-input-label": HTMLZInputLabelElement;
@@ -3309,6 +3330,20 @@ declare namespace LocalJSX {
           * emitted on close icon click
          */
         "onInfoBoxClose"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZInfoReveal {
+        /**
+          * Name of the icon for the open button
+         */
+        "icon"?: string;
+        /**
+          * Text that appears on closed panel aside the open button.
+         */
+        "label"?: string;
+        /**
+          * Position of the panel.
+         */
+        "position"?: InfoRevealPosition;
     }
     interface ZInput {
         /**
@@ -4956,6 +4991,7 @@ declare namespace LocalJSX {
         "z-icon": ZIcon;
         "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
+        "z-info-reveal": ZInfoReveal;
         "z-input": ZInput;
         "z-input-deprecated": ZInputDeprecated;
         "z-input-label": ZInputLabel;
@@ -5069,6 +5105,7 @@ declare module "@stencil/core" {
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
+            "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
             "z-input-deprecated": LocalJSX.ZInputDeprecated & JSXBase.HTMLAttributes<HTMLZInputDeprecatedElement>;
             "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
