@@ -51,7 +51,6 @@ export function setAriaOptions(element: HTMLElement, mode: ZDatePickerMode) {
 
     Array.from(element.getElementsByClassName("flatpickr-day")).forEach(
       (date: HTMLElement) => {
-        console.log(date);
         if (date.classList.contains("flatpickr-disabled")) {
           date.setAttribute("tabindex", "-1");
         }

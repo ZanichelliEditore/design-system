@@ -169,16 +169,15 @@ export class ZRangePicker {
         let calendarDate = this.getDateWithoutTime(
           this.parseDate(element.ariaLabel, null)
         );
-        let breakpoint = this.getDateWithoutTime(date);
 
-        if (index === 0) {
-          if (calendarDate > breakpoint) {
-            element.classList.toggle("flatpickr-disabled", true);
-          }
+        let breakpoint = this.getDateWithoutTime(date);
+        let inRange =
+          index === 0 ? calendarDate > breakpoint : calendarDate < breakpoint;
+
+        if (inRange) {
+          element.classList.toggle("flatpickr-disabled", true);
         } else {
-          if (calendarDate < breakpoint) {
-            element.classList.toggle("flatpickr-disabled", true);
-          }
+          element.classList.toggle("flatpickr-disabled", false);
         }
       }
     );
@@ -295,6 +294,8 @@ export class ZRangePicker {
           );
           if (+date === +firstDate) {
             element.classList.toggle("startRange", true);
+          } else {
+            element.classList.toggle("startRange", false);
           }
         }
 
@@ -304,12 +305,16 @@ export class ZRangePicker {
           );
           if (+date === +secondDate) {
             element.classList.toggle("endRange", true);
+          } else {
+            element.classList.toggle("endRange", false);
           }
         }
 
         if (hasFirstDate && hasSecondDate) {
           if (date > firstDate && date < secondDate) {
             element.classList.toggle("inRange", true);
+          } else {
+            element.classList.toggle("inRange", false);
           }
         }
 
