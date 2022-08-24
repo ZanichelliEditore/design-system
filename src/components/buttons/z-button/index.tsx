@@ -21,10 +21,10 @@ export class ZButton {
   @Prop({ reflect: true })
   ariaLabel?: string;
   /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
-  @Prop({ reflect: true })
+  @Prop()
   href?: string;
   /** HTML a target attribute. */
-  @Prop({ reflect: true })
+  @Prop()
   target?: string;
   /** Identifier, should be unique. */
   @Prop()
@@ -42,7 +42,7 @@ export class ZButton {
   @Prop({ reflect: true })
   variant?: ButtonVariantBean = ButtonVariantEnum.primary;
   /** `z-icon` name to use (optional). */
-  @Prop({ reflect: true })
+  @Prop()
   icon?: string;
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
   @Prop({ reflect: true })
@@ -53,10 +53,8 @@ export class ZButton {
       id: this.htmlid,
       "aria-label": this.ariaLabel,
       class: {
-        container: true,
-        [this.variant]: true,
-        [this.size]: true,
-        "has-text": !!this.hostElement.textContent
+        "z-button--container": true,
+        "z-button--has-text": !!this.hostElement.textContent.trim()
       }
     };
   }
