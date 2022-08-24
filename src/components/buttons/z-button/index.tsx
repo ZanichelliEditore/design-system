@@ -54,7 +54,7 @@ export class ZButton {
       "aria-label": this.ariaLabel,
       class: {
         "z-button--container": true,
-        "z-button--has-text": !!this.hostElement.textContent
+        "z-button--has-text": !!this.hostElement.textContent.trim()
       }
     };
   }
