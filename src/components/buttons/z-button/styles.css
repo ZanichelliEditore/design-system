@@ -9,7 +9,7 @@
   pointer-events: none;
 }
 
-:host .container {
+:host .z-button--container {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
@@ -32,116 +32,116 @@
   fill: currentColor;
 }
 
-:host .container.has-text {
+:host .z-button--container:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+}
+
+:host .z-button--container.z-button--has-text {
   min-width: calc(var(--space-unit) * 8);
   padding: 0 calc(var(--space-unit) * 2);
 }
 
-:host .container.has-text z-icon {
+:host .z-button--container.z-button--has-text z-icon {
   --z-icon-right-margin: var(--space-unit);
 }
 
-:host .big {
+:host([size="big"]) .z-button--container {
   height: 44px;
   min-width: 44px;
 }
 
-:host .small {
+:host([size="small"]) .z-button--container {
   height: 36px;
   min-width: 36px;
 }
 
-:host .x-small {
+:host([size="x-small"]) .z-button--container {
   height: 32px;
   min-width: 32px;
 }
 
-:host .primary {
+:host([variant="primary"]) .z-button--container {
   background-color: var(--color-primary01);
   border-color: var(--color-primary01);
   color: var(--color-text-inverse);
 }
 
 @media (hover: hover) {
-  :host .primary:hover {
+  :host([variant="primary"]) .z-button--container:hover {
     background-color: var(--color-hover-primary);
     border-color: var(--color-hover-primary);
     color: var(--color-text-inverse);
   }
 }
 
-:host .container:focus:focus-visible {
-  box-shadow: var(--shadow-focus-primary);
-}
-
-:host .primary:active {
+:host([variant="primary"]) .z-button--container:active {
   background-color: var(--color-pressed-primary);
   border-color: var(--color-pressed-primary);
   color: var(--color-text-inverse);
   box-shadow: var(--shadow-2);
 }
 
-:host([disabled]:not([disabled="false"])) .primary {
+:host([variant="primary"][disabled]:not([disabled="false"])) .z-button--container {
   background-color: var(--color-disabled01);
   border-color: var(--color-disabled01);
   color: var(--color-disabled02);
 }
 
-:host .secondary {
+:host([variant="secondary"]) .z-button--container {
   background-color: var(--color-surface01);
   border-color: var(--color-primary01);
   color: var(--color-primary01);
 }
 
 @media (hover: hover) {
-  :host .secondary:hover {
+  :host([variant="secondary"]) .z-button--container:hover {
     background-color: var(--color-surface01);
     border-color: var(--color-hover-primary);
     color: var(--color-hover-primary);
   }
 }
 
-:host .secondary:active {
+:host([variant="secondary"]) .z-button--container:active {
   background-color: var(--color-surface01);
   border-color: var(--color-pressed-primary);
   color: var(--color-pressed-primary);
   box-shadow: var(--shadow-2);
 }
 
-:host([disabled]:not([disabled="false"])) .secondary {
+:host([variant="secondary"][disabled]:not([disabled="false"])) .z-button--container {
   background-color: var(--color-surface01);
   border-color: var(--color-disabled01);
   color: var(--color-disabled02);
 }
 
-:host .tertiary {
+:host([variant="tertiary"]) .z-button--container {
   background-color: transparent;
   border-color: transparent;
   color: var(--color-primary01);
 }
 
 @media (hover: hover) {
-  :host .tertiary:hover {
+  :host([variant="tertiary"]) .z-button--container:hover {
     background-color: var(--color-primary03);
     border-color: var(--color-primary03);
     color: var(--color-hover-primary);
   }
 }
 
-:host .tertiary:focus:focus-visible {
+:host([variant="tertiary"]) .z-button--container:focus:focus-visible {
   background-color: var(--color-surface01);
   border-color: var(--color-surface01);
   color: var(--color-primary01);
 }
 
-:host .tertiary:active {
+:host([variant="tertiary"]) .z-button--container:active {
   background-color: var(--color-surface01);
   border-color: var(--color-surface01);
   color: var(--color-primary01);
   box-shadow: var(--shadow-2);
 }
 
-:host([disabled]:not([disabled="false"])) .tertiary {
+:host([variant="tertiary"][disabled]:not([disabled="false"])) .z-button--container {
   background-color: transparent;
   border-color: transparent;
   color: var(--color-disabled02);
