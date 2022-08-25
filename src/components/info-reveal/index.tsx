@@ -18,11 +18,12 @@ import { InfoRevealPosition } from "../../beans";
 /**
  * Info reveal component.
  *
- * @slot - infos to display in the info box. If more than one element has been slotted, the infos can be navigated by clicking on them.
+ * @slot - info to display in the info box. If more than one element has been slotted,
+ * by clicking on the panel it switches to the next info element.
  * @cssprop --z-info-reveal-theme--surface - background color of the info reveal panel.
  * @cssprop --z-info-reveal-theme--text - foreground color of the info reveal panel.
  * @cssprop --z-info-reveal-shadow - shadow of the info reveal panel.
- * @cssprop --z-info-reveal-max-width - max width of the info reveal panel. Defaults to 375px.
+ * @cssprop --z-info-reveal-max-width - max width of the info reveal panel.
  */
 export class ZInfoReveal {
   @Element() el: HTMLElement;
@@ -30,7 +31,7 @@ export class ZInfoReveal {
   /** Name of the icon for the open button */
   @Prop() icon?= 'informationsource';
 
-  /** Position of the panel. */
+  /** Position of the open/close button on the panel. */
   @Prop({ reflect: true }) position?= InfoRevealPosition.BOTTOM_RIGHT;
 
   /** Text that appears on closed panel aside the open button. */
@@ -71,8 +72,8 @@ export class ZInfoReveal {
   }
 
   /**
-   * Navigate slotted infos.
-   * Close the info box after the last info has been navigated.
+   * Navigate slotted info.
+   * It closes the info box after the last info has been navigated.
    */
   next() {
     this.currentIndex = this.currentIndex + 1;

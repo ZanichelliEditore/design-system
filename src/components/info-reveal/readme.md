@@ -1,7 +1,7 @@
 # z-info-reveal
 
-Interactive info panel used to show short sentences, one at a time. Might contain a label and a custom icon when closed.
-All the inner content is provided from the product using the component.
+Interactive info panel used to show short sentences, one at a time. Might contain a label and a custom icon on initial, closed state.
+All the inner content is provided from the product.
 
 <!-- Auto Generated Below -->
 
@@ -12,7 +12,7 @@ All the inner content is provided from the product using the component.
 | ---------- | ---------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
 | `icon`     | `icon`     | Name of the icon for the open button                     | `string`                                                                                                                           | `'informationsource'`             |
 | `label`    | `label`    | Text that appears on closed panel aside the open button. | `string`                                                                                                                           | `undefined`                       |
-| `position` | `position` | Position of the panel.                                   | `InfoRevealPosition.BOTTOM_LEFT \| InfoRevealPosition.BOTTOM_RIGHT \| InfoRevealPosition.TOP_LEFT \| InfoRevealPosition.TOP_RIGHT` | `InfoRevealPosition.BOTTOM_RIGHT` |
+| `position` | `position` | Position of the open/close button on the panel.          | `InfoRevealPosition.BOTTOM_LEFT \| InfoRevealPosition.BOTTOM_RIGHT \| InfoRevealPosition.TOP_LEFT \| InfoRevealPosition.TOP_RIGHT` | `InfoRevealPosition.BOTTOM_RIGHT` |
 
 
 ## Dependencies

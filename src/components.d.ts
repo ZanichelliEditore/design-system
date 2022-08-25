@@ -541,7 +541,7 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * Position of the panel.
+          * Position of the open/close button on the panel.
          */
         "position"?: InfoRevealPosition;
     }
@@ -3341,7 +3341,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * Position of the panel.
+          * Position of the open/close button on the panel.
          */
         "position"?: InfoRevealPosition;
     }
