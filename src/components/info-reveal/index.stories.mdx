@@ -27,29 +27,33 @@ import "./index";
     }}
   >
     {(args) => html`
-     <style>
+      <style>
         z-info-reveal {
           margin-top: 20vw;
           margin-left: 20vw;
         }
       </style>
-      <z-info-reveal
-        .position=${args.position}
-        .label=${args.label}
-        .icon=${args.icon}
-        style=${styleMap({
-          "--z-info-reveal-theme--surface": `var(${args["--z-info-reveal-theme--surface"]})`,
-          "--z-info-reveal-theme--text": `var(${args["--z-info-reveal-theme--text"]})`,
-        })}
-      >
-        <span style="font-style: italic;">Prima frase.</span>
-        <span style="font-style: italic;">Seconda frase</span>
-        <span>
-            <a style="text-decoration: underline; color: inherit;"
-              href="https://google.com" target="_blank">
-            terza frase che è un link
-        </a></span>
-      </z-info-reveal>
+      <div style="background: red">
+        <z-info-reveal
+          .position=${args.position}
+          .label=${args.label}
+          .icon=${args.icon}
+          style=${styleMap({
+            "--z-info-reveal-theme--surface": `var(${args["--z-info-reveal-theme--surface"]})`,
+            "--z-info-reveal-theme--text": `var(${args["--z-info-reveal-theme--text"]})`,
+          })}
+        >
+          <span style="font-style: italic;">Prima frase.</span>
+          <span style="font-style: italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit?</span>
+          <span>
+            <a style="color: inherit;"
+              href="https://google.com" target="_blank"
+            >
+              terza frase che è un link
+            </a>
+          </span>
+        </z-info-reveal>
+      </div>
     `}
   </Story>
 </Canvas>
