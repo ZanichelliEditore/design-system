@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/ZanichelliEditore/design-system/compare/v5.0.0...v5.0.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* z-button unsafe css classes; z-contextual-menu style ([e96c346](https://github.com/ZanichelliEditore/design-system/commit/e96c3465d4c1383bc649e30ec2f4c5b0de3e17a3))
+
 ## [5.0.0](https://github.com/ZanichelliEditore/design-system/compare/v4.2.0...v5.0.0) (2022-08-08)
 
 
