@@ -19,10 +19,8 @@ export class ZButton {
       id: this.htmlid,
       "aria-label": this.ariaLabel,
       class: {
-        container: true,
-        [this.variant]: true,
-        [this.size]: true,
-        "has-text": !!this.hostElement.textContent
+        "z-button--container": true,
+        "z-button--has-text": !!this.hostElement.textContent.trim()
       }
     };
   }
@@ -77,7 +75,7 @@ export class ZButton {
         "text": "HTML <a> href attribute. If it is set, it renders an HTML <a> tag."
       },
       "attribute": "href",
-      "reflect": true
+      "reflect": false
     },
     "target": {
       "type": "string",
@@ -94,7 +92,7 @@ export class ZButton {
         "text": "HTML a target attribute."
       },
       "attribute": "target",
-      "reflect": true
+      "reflect": false
     },
     "htmlid": {
       "type": "string",
@@ -208,7 +206,7 @@ export class ZButton {
         "text": "`z-icon` name to use (optional)."
       },
       "attribute": "icon",
-      "reflect": true
+      "reflect": false
     },
     "size": {
       "type": "string",

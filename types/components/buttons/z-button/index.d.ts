@@ -28,9 +28,8 @@ export declare class ZButton {
     id: string;
     "aria-label": string;
     class: {
-      [x: string]: boolean;
-      container: boolean;
-      "has-text": boolean;
+      "z-button--container": boolean;
+      "z-button--has-text": boolean;
     };
   };
   render(): any;
