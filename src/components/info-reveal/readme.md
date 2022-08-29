@@ -1,6 +1,7 @@
 # z-info-reveal
 
-Interactive info panel used to show short sentences, one at a time. Might contain a label and a custom icon on initial, closed state.
+Interactive info panel used to show short sentences, one at a time. The initial (closed) state always displays a custom icon and may contain a text label.
+
 All the inner content is provided from the product.
 
 <!-- Auto Generated Below -->

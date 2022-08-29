@@ -34,7 +34,7 @@ export class ZInfoReveal {
   /** Position of the open/close button on the panel. */
   @Prop({ reflect: true }) position?= InfoRevealPosition.BOTTOM_RIGHT;
 
-  /** Text that appears on closed panel aside the open button. */
+  /** Text that appears on closed panel next to the open button. */
   @Prop() label?: string;
 
   /** Whether the info panel is open. */
