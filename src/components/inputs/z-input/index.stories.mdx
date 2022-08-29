@@ -84,6 +84,15 @@ import "./index";
       control: { type: "text" },
       defaultValue: "",
     },
+    min: {
+      control: { type: "number" },
+    },
+    max: {
+      control: { type: "number" },
+    },
+    step: {
+      control: { type: "number" },
+    },
   }}
 />
 
@@ -303,6 +312,44 @@ import "./index";
           checked=${args.checked}
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
+        ></z-input>
+      `
+    }
+  </Story>
+  <Story
+    name="z-input number"
+    parameters={{
+      controls: {
+        include: ["type", "min", "max", "step", "value"],
+      },
+    }}
+    argTypes={{
+      type: {
+        options: ["number"],
+        defaultValue: "number",
+      },
+      min: {
+        defaultValue: 1,
+      },
+      max: {
+        defaultValue: 10,
+      },
+      step: {
+        defaultValue: 1,
+      },
+      value: {
+        defaultValue: 1,
+      },
+    }}
+  >
+    {(args) =>
+      html`
+        <z-input
+          type=${args.type}
+          value=${args.value}
+          min=${args.min}
+          max=${args.max}
+          step=${args.step}
         ></z-input>
       `
     }
