@@ -52,6 +52,10 @@ z-icon {
   flex-direction: row-reverse;
 }
 
+:host([open]) {
+  box-shadow: none;
+}
+
 .info-box {
   position: absolute;
   display: flex;
@@ -59,6 +63,7 @@ z-icon {
   column-gap: calc(var(--space-unit) / 2);
   padding: calc(var(--space-unit) / 2);
   background-color: var(--z-info-reveal-theme--surface);
+  box-shadow: var(--z-info-reveal-shadow);
   cursor: pointer;
 }
 

@@ -537,7 +537,7 @@ export namespace Components {
          */
         "icon"?: string;
         /**
-          * Text that appears on closed panel aside the open button.
+          * Text that appears on closed panel next to the open button.
          */
         "label"?: string;
         /**
@@ -3337,7 +3337,7 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * Text that appears on closed panel aside the open button.
+          * Text that appears on closed panel next to the open button.
          */
         "label"?: string;
         /**

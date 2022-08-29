@@ -39,7 +39,7 @@
  - [z-footer-section](../../footer/z-footer-section)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
- - [z-info-reveal](../../info-reveal)
+ - [z-info-reveal](../../z-info-reveal)
  - [z-input](../../inputs/z-input)
  - [z-input-deprecated](../../../deprecated/z-input-deprecated)
  - [z-input-message](../../inputs/z-input-message)
