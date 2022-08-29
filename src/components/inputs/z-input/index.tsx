@@ -63,6 +63,14 @@ export class ZInput {
   @Prop() hasclearicon?: boolean = true;
   /** render icon (optional): available for text */
   @Prop() icon?: string;
+  /** min page number value (optional): available for number */
+  @Prop() min?: number;
+  /** max page number value (optional): available for number */
+  @Prop() max?: number;
+  /** step number value (optional): available for number */
+  @Prop() step?: number;
+  /** pattern value (optional): available for tel */
+  @Prop() pattern?: string;
 
   @State() isTyping: boolean = false;
   @State() passwordHidden: boolean = true;
@@ -178,8 +186,28 @@ export class ZInput {
     };
   }
 
+  getNumberAttributes() {
+    if (this.type != InputTypeEnum.number) return;
+    return {
+      min: this.min,
+      max: this.max,
+      step: this.step,
+    };
+  }
+
+  getTelAttributes() {
+    if (this.type != InputTypeEnum.tel) return;
+    return {
+      pattern: this.pattern,
+    };
+  }
+
   renderInputText(type: InputTypeBean = InputTypeEnum.text) {
-    const attr = this.getTextAttributes();
+    const attr = {
+      ...this.getTextAttributes(),
+      ...this.getNumberAttributes(),
+      ...this.getTelAttributes(),
+    };
     if (this.icon || type === InputTypeEnum.password) {
       attr.class = { ...attr.class, hasIcon: true };
     }

@@ -577,13 +577,25 @@ export namespace Components {
          */
         "labelPosition"?: LabelPosition;
         /**
+          * max page number value (optional): available for number
+         */
+        "max"?: number;
+        /**
           * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
          */
         "message"?: string | boolean;
         /**
+          * min page number value (optional): available for number
+         */
+        "min"?: number;
+        /**
           * the input name
          */
         "name"?: string;
+        /**
+          * pattern value (optional): available for tel
+         */
+        "pattern"?: string;
         /**
           * the input placeholder (optional)
          */
@@ -600,6 +612,10 @@ export namespace Components {
           * the input status (optional): available for text, password, number, email, textarea
          */
         "status"?: InputStatusBean;
+        /**
+          * step number value (optional): available for number
+         */
+        "step"?: number;
         /**
           * input types
          */
@@ -3352,9 +3368,17 @@ declare namespace LocalJSX {
          */
         "labelPosition"?: LabelPosition;
         /**
+          * max page number value (optional): available for number
+         */
+        "max"?: number;
+        /**
           * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
          */
         "message"?: string | boolean;
+        /**
+          * min page number value (optional): available for number
+         */
+        "min"?: number;
         /**
           * the input name
          */
@@ -3376,6 +3400,10 @@ declare namespace LocalJSX {
          */
         "onStopTyping"?: (event: CustomEvent<any>) => void;
         /**
+          * pattern value (optional): available for tel
+         */
+        "pattern"?: string;
+        /**
           * the input placeholder (optional)
          */
         "placeholder"?: string;
@@ -3391,6 +3419,10 @@ declare namespace LocalJSX {
           * the input status (optional): available for text, password, number, email, textarea
          */
         "status"?: InputStatusBean;
+        /**
+          * step number value (optional): available for number
+         */
+        "step"?: number;
         /**
           * input types
          */
