@@ -320,7 +320,7 @@ import "./index";
     name="z-input number"
     parameters={{
       controls: {
-        include: ["type", "min", "max", "step", "value"],
+        include: ["type", "min", "max", "step", "value", "hasclearicon"],
       },
     }}
     argTypes={{
@@ -340,6 +340,9 @@ import "./index";
       value: {
         defaultValue: 1,
       },
+      hasclearicon: {
+        defaultValue: false,
+      },
     }}
   >
     {(args) =>
@@ -350,6 +353,7 @@ import "./index";
           min=${args.min}
           max=${args.max}
           step=${args.step}
+          hasclearicon=${args.hasclearicon}
         ></z-input>
       `
     }
