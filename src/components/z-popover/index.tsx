@@ -9,7 +9,7 @@ import {
   Event,
   EventEmitter,
 } from "@stencil/core";
-import { PopoverPositions, KeyboardKeys } from "../../beans";
+import { PopoverPositions, PopoverPositionBean, KeyboardKeys } from "../../beans";
 import { getElementTree } from "../../utils/utils";
 
 const documentElement = document.documentElement;
@@ -132,8 +132,7 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
 })
 export class ZPopover {
   /** Popover position. */
-  @Prop({ reflect: true, mutable: true })
-  position: PopoverPositions = PopoverPositions.auto;
+  @Prop({ reflect: true }) position: PopoverPositionBean = PopoverPositions.auto
 
   /**
    * The open state of the popover.
@@ -169,7 +168,7 @@ export class ZPopover {
    * The current position of the popover.
    */
   @State()
-  currentPosition?: PopoverPositions;
+  currentPosition?: PopoverPositionBean;
 
   /**
    * Position change event.

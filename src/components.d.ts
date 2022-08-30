@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPositionBean, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositionBean, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -540,10 +540,7 @@ export namespace Components {
           * Text that appears on closed panel next to the open button.
          */
         "label"?: string;
-        /**
-          * Position of the open/close button on the panel.
-         */
-        "position"?: InfoRevealPosition;
+        "position"?: InfoRevealPositionBean;
     }
     interface ZInput {
         /**
@@ -1527,7 +1524,7 @@ export namespace Components {
         /**
           * Popover position.
          */
-        "position": PopoverPositions;
+        "position": PopoverPositionBean;
         /**
           * Whether to show popover's arrow.
          */
@@ -3340,10 +3337,7 @@ declare namespace LocalJSX {
           * Text that appears on closed panel next to the open button.
          */
         "label"?: string;
-        /**
-          * Position of the open/close button on the panel.
-         */
-        "position"?: InfoRevealPosition;
+        "position"?: InfoRevealPositionBean;
     }
     interface ZInput {
         /**
@@ -4466,7 +4460,7 @@ declare namespace LocalJSX {
         /**
           * Popover position.
          */
-        "position"?: PopoverPositions;
+        "position"?: PopoverPositionBean;
         /**
           * Whether to show popover's arrow.
          */

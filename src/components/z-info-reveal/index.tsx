@@ -7,7 +7,7 @@ import {
   Element,
   Host,
 } from '@stencil/core';
-import { InfoRevealPosition } from "../../beans";
+import { InfoRevealPosition, InfoRevealPositionBean } from "../../beans";
 
 @Component({
   tag: 'z-info-reveal',
@@ -31,8 +31,7 @@ export class ZInfoReveal {
   /** Name of the icon for the open button */
   @Prop() icon?= 'informationsource';
 
-  /** Position of the open/close button on the panel. */
-  @Prop({ reflect: true }) position?= InfoRevealPosition.bottom_right;
+  @Prop({ reflect: true }) position?: InfoRevealPositionBean = InfoRevealPosition.bottom_right;
 
   /** Text that appears on closed panel next to the open button. */
   @Prop() label?: string;
