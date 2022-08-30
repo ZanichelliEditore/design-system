@@ -32,7 +32,7 @@ export class ZInfoReveal {
   @Prop() icon?= 'informationsource';
 
   /** Position of the open/close button on the panel. */
-  @Prop({ reflect: true }) position?= InfoRevealPosition.BOTTOM_RIGHT;
+  @Prop({ reflect: true }) position?= InfoRevealPosition.bottom_right;
 
   /** Text that appears on closed panel next to the open button. */
   @Prop() label?: string;

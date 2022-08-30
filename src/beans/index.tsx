@@ -167,19 +167,19 @@ export enum InputStatusEnum {
 export type PopoverPositionBean = keyof typeof PopoverPositions;
 
 export enum PopoverPositions {
-  AUTO = "AUTO",
-  TOP = "TOP",
-  RIGHT = "RIGHT",
-  BOTTOM = "BOTTOM",
-  LEFT = "LEFT",
-  TOP_RIGHT = "TOP_RIGHT",
-  TOP_LEFT = "TOP_LEFT",
-  BOTTOM_RIGHT = "BOTTOM_RIGHT",
-  BOTTOM_LEFT = "BOTTOM_LEFT",
-  RIGHT_TOP = "RIGHT_TOP",
-  RIGHT_BOTTOM = "RIGHT_BOTTOM",
-  LEFT_TOP = "LEFT_TOP",
-  LEFT_BOTTOM = "LEFT_BOTTOM",
+  auto = "auto",
+  top = "top",
+  right = "right",
+  bottom = "bottom",
+  left = "left",
+  top_right = "top_right",
+  top_left = "top_left",
+  bottom_right = "bottom_right",
+  bottom_left = "bottom_left",
+  right_top = "right_top",
+  right_bottom = "right_bottom",
+  left_top = "left_top",
+  left_bottom = "left_bottom",
 }
 
 export enum PopoverPosition {
@@ -477,8 +477,8 @@ export enum StatusTagStatus {
 export type InfoRevealPositionBean = keyof typeof InfoRevealPosition;
 
 export enum InfoRevealPosition {
-  TOP_RIGHT = "TOP_RIGHT",
-  TOP_LEFT = "TOP_LEFT",
-  BOTTOM_RIGHT = "BOTTOM_RIGHT",
-  BOTTOM_LEFT = "BOTTOM_LEFT",
+  top_right = "top_right",
+  top_left = "top_left",
+  bottom_right = "bottom_right",
+  bottom_left = "bottom_left",
 }

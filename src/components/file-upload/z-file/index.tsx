@@ -73,7 +73,7 @@ export class ZFile {
         {this.allowPopover && (
           <z-popover
             open={this.popoverVisible}
-            position={PopoverPositions.AUTO}
+            position={PopoverPositions.auto}
             bindTo={this.chip}
           >
             <span class="body-5 tooltip-content">

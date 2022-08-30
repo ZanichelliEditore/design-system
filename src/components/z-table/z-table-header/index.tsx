@@ -157,7 +157,7 @@ export class ZTableHeader {
 
             <z-popover
               ref={(el) => (this.popover = el as HTMLZPopoverElement) }
-              position={PopoverPositions.BOTTOM}
+              position={PopoverPositions.bottom}
               center={true}
               bindTo={this.triggerButton}
             >
