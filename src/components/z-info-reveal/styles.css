@@ -44,6 +44,7 @@ z-icon {
   column-gap: calc(var(--space-unit) / 2);
   padding: calc(var(--space-unit) / 2);
   background-color: var(--z-info-reveal-theme--surface);
+  box-shadow: var(--z-info-reveal-shadow);
 }
 
 :host([position="top_left"]) .z-info-reveal-trigger,
@@ -51,7 +52,7 @@ z-icon {
   flex-direction: row-reverse;
 }
 
-:host([open]) {
+:host([open]) .z-info-reveal-trigger {
   box-shadow: none;
 }
 
