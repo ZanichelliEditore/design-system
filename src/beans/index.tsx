@@ -156,6 +156,7 @@ export enum InputTypeEnum {
   radio = "radio",
   tel = "tel",
   url = "url",
+  search = "search",
 }
 
 export type InputStatusBean = keyof typeof InputStatusEnum;
