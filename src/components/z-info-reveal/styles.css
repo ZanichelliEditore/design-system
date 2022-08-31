@@ -7,7 +7,7 @@
   position: relative;
   display: flex;
   width: fit-content;
-  padding: calc(var(--space-unit) / 2);
+  background-color: var(--z-info-reveal-theme--surface);
   color: var(--z-info-reveal-theme--text);
   font-size: var(--font-size-3);
   font-weight: var(--font-rg);
@@ -43,7 +43,6 @@ z-icon {
   height: 100%;
   column-gap: calc(var(--space-unit) / 2);
   padding: calc(var(--space-unit) / 2);
-  background-color: var(--z-info-reveal-theme--surface);
   box-shadow: var(--z-info-reveal-shadow);
 }
 
