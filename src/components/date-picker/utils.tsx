@@ -4,10 +4,7 @@ import {
   ZDatePickerPosition,
 } from "../../beans";
 
-export function setFlatpickrPosition(
-  element: HTMLElement,
-  mode: ZDatePickerMode
-) {
+export function setFlatpickrPosition(element: HTMLElement, mode) {
   const toggleHeight = element.children[0].clientHeight;
   element.style.setProperty(
     "--z-range-picker--toggle-height",
@@ -32,7 +29,7 @@ export function setFlatpickrPosition(
   }
 }
 
-export function setAriaOptions(element: HTMLElement, mode: ZDatePickerMode) {
+export function setAriaOptions(element: HTMLElement, mode) {
   let calendar = element.getElementsByClassName("flatpickr-calendar");
 
   Array.from(calendar).forEach((element) => {
@@ -74,7 +71,7 @@ export function setAriaOptions(element: HTMLElement, mode: ZDatePickerMode) {
       setDateTimeAriaOptions(element, prevMonthArrow, nextMonthArrow);
     }
     if (mode === ZDatePickerMode.months) {
-      setMonthsAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
+      setMonthsAriaOptions(element, prevMonthArrow, nextMonthArrow);
     }
   });
 }

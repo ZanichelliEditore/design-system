@@ -255,6 +255,7 @@ z-range-picker {
 
 .flatpickr-day:hover,
 .flatpickr-day:active,
+.flatpickr-day:focus,
 .flatpickr-day.prevMonthDay:hover,
 .flatpickr-day.selected:hover,
 .flatpickr-monthSelect-month:hover,

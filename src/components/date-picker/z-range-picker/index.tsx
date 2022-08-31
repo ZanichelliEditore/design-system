@@ -13,7 +13,7 @@ import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
 
 import {
-  ZDatePickerMode,
+  ZRangePickerMode,
   ZDatePickerPosition,
   InputTypeEnum,
 } from "../../../beans";
@@ -38,7 +38,7 @@ export class ZRangePicker {
   /** second z-input label */
   @Prop() secondLabel?: string;
   /** [Optional] datepicker mode: date, datetime, only months */
-  @Prop() mode: ZDatePickerMode = ZDatePickerMode.date;
+  @Prop() mode: ZRangePickerMode = ZRangePickerMode.date;
 
   @State() flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
   @State() activeInput = "start-input";
@@ -91,11 +91,11 @@ export class ZRangePicker {
 
   componentDidLoad() {
     let config = {
-      enableTime: this.mode === ZDatePickerMode.dateTime,
+      enableTime: this.mode === ZRangePickerMode.dateTime,
       locale: Italian,
       allowInput: true,
       dateFormat:
-        this.mode === ZDatePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
+        this.mode === ZRangePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: "d F Y",
       minuteIncrement: 1,
       time_24hr: true,
@@ -151,9 +151,7 @@ export class ZRangePicker {
       secondInputElement.value = this.getDate(secondDate);
     }
 
-    if (firstDate && secondDate) {
-      this.printDate(firstDate, secondDate);
-    }
+    this.printDate(firstDate || null, secondDate || null);
 
     this.setRangeStyle();
   }
@@ -185,7 +183,7 @@ export class ZRangePicker {
   }
 
   getDate(date) {
-    if (this.mode === ZDatePickerMode.date) {
+    if (this.mode === ZRangePickerMode.date) {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
     } else {
       return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
@@ -193,12 +191,10 @@ export class ZRangePicker {
   }
 
   printDate(firstDate, lastDate) {
-    let orderedDates = [firstDate, lastDate].sort((a, b) => a - b);
+    let firstDateString = firstDate ? this.getDate(firstDate) : null;
+    let lastDateString = lastDate ? this.getDate(lastDate) : null;
 
-    this.dateSelect.emit([
-      this.getDate(orderedDates[0]),
-      this.getDate(orderedDates[1]),
-    ]);
+    this.dateSelect.emit([firstDateString, lastDateString]);
   }
 
   getTime() {
@@ -327,53 +323,73 @@ export class ZRangePicker {
       }
     );
   }
+  validateDate(dateStr, hasTime = false) {
+    const regex = hasTime
+      ? /^\d{4}-\d{2}-\d{2} - \d{2}:\d{2}$/
+      : /^\d{4}-\d{2}-\d{2}$/;
+
+    if (dateStr.match(regex) === null) {
+      return false;
+    }
+
+    const date = new Date(dateStr);
+    const timestamp = date.getTime();
+
+    if (typeof timestamp !== "number" || Number.isNaN(timestamp)) {
+      return false;
+    }
+
+    return date.toISOString().startsWith(dateStr);
+  }
 
   onStopTyping(value) {
     let text = value.detail.value;
     let englishData = text.split("-");
     let time =
-      this.mode === ZDatePickerMode.dateTime ? `T${englishData[3]}:00` : "";
+      this.mode === ZRangePickerMode.dateTime ? `T${englishData[3]}:00` : "";
     let englishParsedData =
       `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`
         .split(" ")
         .join("");
 
-    let isDate = !Number.isNaN(Date.parse(englishParsedData));
+    let isValidDate = this.validateDate(
+      englishParsedData,
+      this.mode === ZRangePickerMode.dateTime
+    );
+
     let date = Date.parse(englishParsedData).toString();
 
     if (this.activeInput === "start-input") {
-      if (text === "" || !isDate) {
+      if (text === "" || !isValidDate) {
         this.flatpickrInstance.setDate([]);
-      } else {
-        if (isDate) {
-          if (this.flatpickrInstance2.selectedDates.length === 1) {
-            if (date <= this.flatpickrInstance2.selectedDates[0]) {
-              this.flatpickrInstance.setDate([text]);
-              this.printDate(
-                new Date(englishParsedData),
-                this.flatpickrInstance2.selectedDates[0]
-              );
-            } else {
-              this.flatpickrInstance.setDate([]);
-            }
+        this.printDate(null, this.flatpickrInstance2.selectedDates[0] || null);
+      } else if (isValidDate) {
+        this.flatpickrInstance.setDate([text]);
+        if (this.flatpickrInstance2.selectedDates.length === 1) {
+          if (date <= this.flatpickrInstance2.selectedDates[0]) {
+            this.printDate(
+              new Date(englishParsedData),
+              this.flatpickrInstance2.selectedDates[0]
+            );
+          } else {
+            this.flatpickrInstance.setDate([]);
           }
         }
       }
     } else {
-      if (text === "" || !isDate) {
+      if (text === "" || !isValidDate) {
         this.flatpickrInstance2.setDate([]);
-      } else {
-        if (isDate) {
-          if (this.flatpickrInstance.selectedDates.length === 1) {
-            if (date >= this.flatpickrInstance.selectedDates[0]) {
-              this.flatpickrInstance2.setDate([text]);
-              this.printDate(
-                this.flatpickrInstance.selectedDates[0],
-                new Date(englishParsedData)
-              );
-            } else {
-              this.flatpickrInstance2.setDate([]);
-            }
+        this.printDate(this.flatpickrInstance.selectedDates[0] || null, null);
+      } else if (isValidDate) {
+        this.flatpickrInstance2.setDate([text]);
+        if (this.flatpickrInstance.selectedDates.length === 1) {
+          if (date >= this.flatpickrInstance.selectedDates[0]) {
+            this.printDate(
+              this.flatpickrInstance.selectedDates[0],
+              new Date(englishParsedData)
+            );
+          } else {
+            this.flatpickrInstance2.setDate([]);
           }
         }
       }
