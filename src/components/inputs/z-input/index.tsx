@@ -63,13 +63,13 @@ export class ZInput {
   @Prop() hasclearicon?: boolean = true;
   /** render icon (optional): available for text */
   @Prop() icon?: string;
-  /** min page number value (optional): available for number */
+  /** min number value (optional): available for number */
   @Prop() min?: number;
-  /** max page number value (optional): available for number */
+  /** max number value (optional): available for number */
   @Prop() max?: number;
   /** step number value (optional): available for number */
   @Prop() step?: number;
-  /** pattern value (optional): available for tel */
+  /** pattern value (optional): available for tel, text, search, url, email, password*/
   @Prop() pattern?: string;
 
   @State() isTyping: boolean = false;
@@ -186,8 +186,8 @@ export class ZInput {
     };
   }
 
-  getNumberAttributes() {
-    if (this.type != InputTypeEnum.number) return;
+  getNumberAttributes(type: InputTypeBean) {
+    if (type != InputTypeEnum.number) return;
     return {
       min: this.min,
       max: this.max,
@@ -195,8 +195,16 @@ export class ZInput {
     };
   }
 
-  getTelAttributes() {
-    if (this.type != InputTypeEnum.tel) return;
+  getPatternAttribute(type: InputTypeBean) {
+    if (
+      type != InputTypeEnum.password &&
+      type != InputTypeEnum.text &&
+      type != InputTypeEnum.tel &&
+      type != InputTypeEnum.search &&
+      type != InputTypeEnum.url &&
+      type != InputTypeEnum.email
+    )
+      return;
     return {
       pattern: this.pattern,
     };
@@ -205,8 +213,8 @@ export class ZInput {
   renderInputText(type: InputTypeBean = InputTypeEnum.text) {
     const attr = {
       ...this.getTextAttributes(),
-      ...this.getNumberAttributes(),
-      ...this.getTelAttributes(),
+      ...this.getNumberAttributes(type),
+      ...this.getPatternAttribute(type),
     };
     if (this.icon || type === InputTypeEnum.password) {
       attr.class = { ...attr.class, hasIcon: true };

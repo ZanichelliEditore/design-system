@@ -577,7 +577,7 @@ export namespace Components {
          */
         "labelPosition"?: LabelPosition;
         /**
-          * max page number value (optional): available for number
+          * max number value (optional): available for number
          */
         "max"?: number;
         /**
@@ -585,7 +585,7 @@ export namespace Components {
          */
         "message"?: string | boolean;
         /**
-          * min page number value (optional): available for number
+          * min number value (optional): available for number
          */
         "min"?: number;
         /**
@@ -593,7 +593,7 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * pattern value (optional): available for tel
+          * pattern value (optional): available for tel, text, search, url, email, password
          */
         "pattern"?: string;
         /**
@@ -3368,7 +3368,7 @@ declare namespace LocalJSX {
          */
         "labelPosition"?: LabelPosition;
         /**
-          * max page number value (optional): available for number
+          * max number value (optional): available for number
          */
         "max"?: number;
         /**
@@ -3376,7 +3376,7 @@ declare namespace LocalJSX {
          */
         "message"?: string | boolean;
         /**
-          * min page number value (optional): available for number
+          * min number value (optional): available for number
          */
         "min"?: number;
         /**
@@ -3400,7 +3400,7 @@ declare namespace LocalJSX {
          */
         "onStopTyping"?: (event: CustomEvent<any>) => void;
         /**
-          * pattern value (optional): available for tel
+          * pattern value (optional): available for tel, text, search, url, email, password
          */
         "pattern"?: string;
         /**
