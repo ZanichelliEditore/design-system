@@ -7,6 +7,7 @@ import {
   Event,
   Listen,
   State,
+  Watch,
 } from "@stencil/core";
 
 import flatpickr from "flatpickr";
@@ -39,6 +40,11 @@ export class ZDatePicker {
 
   private flatpickrInstance;
   private hasChildren: boolean;
+
+  @Watch("mode")
+  watchMode() {
+    this.setupPickers();
+  }
 
   /** emitted when date changes, returns selected date */
   @Event() dateSelect: EventEmitter;
@@ -114,6 +120,10 @@ export class ZDatePicker {
   }
 
   componentDidLoad() {
+    this.setupPickers();
+  }
+
+  setupPickers() {
     this.flatpickrInstance = flatpickr(`.${this.datePickerId}`, {
       appendTo: this.element.children[0] as HTMLElement,
       enableTime: this.mode === ZDatePickerMode.dateTime,

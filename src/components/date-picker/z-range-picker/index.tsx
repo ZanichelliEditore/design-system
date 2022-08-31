@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Event,
   State,
+  Watch,
 } from "@stencil/core";
 
 import flatpickr from "flatpickr";
@@ -49,6 +50,11 @@ export class ZRangePicker {
   /** emitted when date changes, returns an array with the two selected dates */
   @Event() dateSelect: EventEmitter;
 
+  @Watch("mode")
+  watchMode() {
+    this.setupPickers();
+  }
+
   @Listen("click", { target: "body", capture: true })
   handleClick() {
     this.getFocusedInput();
@@ -90,6 +96,10 @@ export class ZRangePicker {
   }
 
   componentDidLoad() {
+    this.setupPickers();
+  }
+
+  setupPickers() {
     let config = {
       enableTime: this.mode === ZRangePickerMode.dateTime,
       locale: Italian,
@@ -323,6 +333,7 @@ export class ZRangePicker {
       }
     );
   }
+
   validateDate(dateStr, hasTime = false) {
     const regex = hasTime
       ? /^\d{4}-\d{2}-\d{2} - \d{2}:\d{2}$/
