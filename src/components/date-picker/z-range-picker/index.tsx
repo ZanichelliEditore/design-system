@@ -62,10 +62,10 @@ export class ZRangePicker {
 
   @Listen("keyup", { target: "body", capture: true })
   handleKeyDown(ev: KeyboardEvent) {
-    let currentInputState =
+    let currentPicker =
       this.activeInput === "start-input"
-        ? { picker: this.flatpickrInstance, index: 0 }
-        : { picker: this.flatpickrInstance2, index: 1 };
+        ? this.flatpickrInstance
+        : this.flatpickrInstance2;
 
     let isCalendarOpened = document.activeElement.closest(
       ".flatpickr-calendar"
@@ -77,7 +77,7 @@ export class ZRangePicker {
         document.activeElement.classList.contains(`${this.rangePickerId}`) ||
         document.activeElement.classList.contains(`${this.rangePickerId}-2`)
       ) {
-        !isCalendarOpened && currentInputState.picker.open();
+        !isCalendarOpened && currentPicker?.open();
       }
 
       let isPrevArrowEntered = document.activeElement.classList.contains(
@@ -90,8 +90,8 @@ export class ZRangePicker {
 
       arrowPressed && ev.key === " " && ev.preventDefault();
 
-      isPrevArrowEntered && currentInputState.picker.changeMonth(-1);
-      isNextArrowEntered && currentInputState.picker.changeMonth(1);
+      isPrevArrowEntered && currentPicker?.changeMonth(-1);
+      isNextArrowEntered && currentPicker?.changeMonth(1);
     }
   }
 
@@ -336,7 +336,7 @@ export class ZRangePicker {
 
   validateDate(dateStr, hasTime = false) {
     const regex = hasTime
-      ? /^\d{4}-\d{2}-\d{2} - \d{2}:\d{2}$/
+      ? /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:00$/
       : /^\d{4}-\d{2}-\d{2}$/;
 
     if (dateStr.match(regex) === null) {
@@ -350,7 +350,7 @@ export class ZRangePicker {
       return false;
     }
 
-    return date.toISOString().startsWith(dateStr);
+    return true;
   }
 
   onStopTyping(value) {
@@ -377,14 +377,17 @@ export class ZRangePicker {
       } else if (isValidDate) {
         this.flatpickrInstance.setDate([text]);
         if (this.flatpickrInstance2.selectedDates.length === 1) {
-          if (date <= this.flatpickrInstance2.selectedDates[0]) {
+          if (+date <= +this.flatpickrInstance2.selectedDates[0]) {
             this.printDate(
               new Date(englishParsedData),
               this.flatpickrInstance2.selectedDates[0]
             );
           } else {
             this.flatpickrInstance.setDate([]);
+            this.printDate(null, this.flatpickrInstance2.selectedDates[0]);
           }
+        } else {
+          this.printDate(new Date(englishParsedData), null);
         }
       }
     } else {
@@ -394,14 +397,17 @@ export class ZRangePicker {
       } else if (isValidDate) {
         this.flatpickrInstance2.setDate([text]);
         if (this.flatpickrInstance.selectedDates.length === 1) {
-          if (date >= this.flatpickrInstance.selectedDates[0]) {
+          if (+date >= +this.flatpickrInstance.selectedDates[0]) {
             this.printDate(
               this.flatpickrInstance.selectedDates[0],
               new Date(englishParsedData)
             );
           } else {
             this.flatpickrInstance2.setDate([]);
+            this.printDate(this.flatpickrInstance.selectedDates[0], null);
           }
+        } else {
+          this.printDate(null, new Date(englishParsedData));
         }
       }
     }

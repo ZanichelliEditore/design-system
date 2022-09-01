@@ -1555,7 +1555,7 @@ export namespace Components {
          */
         "firstLabel"?: string;
         /**
-          * [Optional] datepicker mode: date, datetime, only months
+          * [Optional] datepicker mode: date or datetime
          */
         "mode": ZRangePickerMode;
         /**
@@ -4477,7 +4477,7 @@ declare namespace LocalJSX {
          */
         "firstLabel"?: string;
         /**
-          * [Optional] datepicker mode: date, datetime, only months
+          * [Optional] datepicker mode: date or datetime
          */
         "mode"?: ZRangePickerMode;
         /**

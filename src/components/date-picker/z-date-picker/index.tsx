@@ -107,8 +107,8 @@ export class ZDatePicker {
           });
         }
       } else {
-        isPrevArrowEntered && this.flatpickrInstance.changeMonth(-1);
-        isNextArrowEntered && this.flatpickrInstance.changeMonth(1);
+        isPrevArrowEntered && this.flatpickrInstance?.changeMonth(-1);
+        isNextArrowEntered && this.flatpickrInstance?.changeMonth(1);
       }
     }
   }
