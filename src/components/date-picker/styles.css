@@ -253,12 +253,17 @@ z-range-picker {
   border: 2px solid var(--color-surface01) !important;
 }
 
-.flatpickr-day:hover,
-.flatpickr-day:active,
-.flatpickr-day:focus,
-.flatpickr-day.prevMonthDay:hover,
-.flatpickr-day.selected:hover,
+.flatpickr-day:not(.flatpickr-disabled):hover,
+.flatpickr-day:not(.flatpickr-disabled):active,
+.flatpickr-day:not(.flatpickr-disabled):focus,
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay:hover,
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay:active,
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay:focus,
+.flatpickr-day:not(.flatpickr-disabled).selected:hover,
+.flatpickr-day:not(.flatpickr-disabled).selected:active,
+.flatpickr-day:not(.flatpickr-disabled).selected:focus,
 .flatpickr-monthSelect-month:hover,
+.flatpickr-monthSelect-month:active,
 .flatpickr-monthSelect-month:focus {
   background-color: var(--color-hover-primary) !important;
   border-color: var(--color-hover-primary) !important;
