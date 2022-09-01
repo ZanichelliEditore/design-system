@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/ZanichelliEditore/design-system/compare/v5.0.1...v5.1.0) (2022-09-01)
+
+
+### Features
+
+* handle style for position ([261b662](https://github.com/ZanichelliEditore/design-system/commit/261b662240b036bfc4cd14cef29fd0a768b6c2be))
+* setup new info reveal component ([6a18de9](https://github.com/ZanichelliEditore/design-system/commit/6a18de971e507b74b9634aefee64c96838af914d))
+
+
+### Bug Fixes
+
+* larger interactive area ([6d11532](https://github.com/ZanichelliEditore/design-system/commit/6d115329960812439900bae1c980374f6a2a576a))
+* popover outside click handler ([6814eb5](https://github.com/ZanichelliEditore/design-system/commit/6814eb5159bc0a04db8f281ded9d591f70fa1e3c))
+* revert interactive area fix. will discuss this in the future ([6e6627e](https://github.com/ZanichelliEditore/design-system/commit/6e6627ed6763afec93dd2658d01b9220ba110832))
+* shadows on info-reveal ([ff7c071](https://github.com/ZanichelliEditore/design-system/commit/ff7c071c19c730e66a91a9a3967c7383f0e3c169))
+* style and shadow, aligned doc ([13bc9e6](https://github.com/ZanichelliEditore/design-system/commit/13bc9e680e64d30fec6e6bbf143ede7b24718552))
+* test for z-button after refactor ([f109c4b](https://github.com/ZanichelliEditore/design-system/commit/f109c4b846babbf89ba8a111cebbcf4113ea556e))
+* test for z-button after refactor ([3273cc7](https://github.com/ZanichelliEditore/design-system/commit/3273cc7cf0421f088659d5bf4fa802c637a4a86b))
+
 ### [5.0.1](https://github.com/ZanichelliEditore/design-system/compare/v5.0.0...v5.0.1) (2022-08-25)
 
 
