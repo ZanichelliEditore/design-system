@@ -10,7 +10,6 @@ import {
   EventEmitter,
 } from "@stencil/core";
 import { PopoverPositions, PopoverPositionBean, KeyboardKeys } from "../../beans";
-import { getElementTree } from "../../utils/utils";
 
 const documentElement = document.documentElement;
 
@@ -200,10 +199,7 @@ export class ZPopover {
       return;
     }
 
-    const tree = getElementTree(e.target);
-    const parent = tree.find(
-      (elem: Element) => elem.nodeName.toLowerCase() === "z-popover"
-    );
+    const parent = e.path.find((elem) => elem === this.host);
 
     if (!parent) {
       this.open = false;
@@ -215,7 +211,7 @@ export class ZPopover {
   validatePosition(newValue) {
     if (
       newValue &&
-      Object.values(PopoverPositions).every((position) => newValue !== position)
+      !Object.values(PopoverPositions).includes(newValue)
     ) {
       this.position = PopoverPositions.auto;
     }
