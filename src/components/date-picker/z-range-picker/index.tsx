@@ -38,7 +38,7 @@ export class ZRangePicker {
   @Prop() secondAriaLabel?: string;
   /** second z-input label */
   @Prop() secondLabel?: string;
-  /** [Optional] datepicker mode: date, datetime, only months */
+  /** [Optional] datepicker mode: date or datetime */
   @Prop() mode: ZRangePickerMode = ZRangePickerMode.date;
 
   @State() flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
