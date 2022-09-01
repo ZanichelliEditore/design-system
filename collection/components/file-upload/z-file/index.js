@@ -31,7 +31,7 @@ export class ZFile {
   }
   render() {
     return (h(Host, null,
-      this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPositions.AUTO, bindTo: this.chip },
+      this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPositions.auto, bindTo: this.chip },
         h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))),
       h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.default },
         h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 },

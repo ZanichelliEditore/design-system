@@ -11,7 +11,7 @@ import { PopoverPositions } from "../../../beans";
 export class ZTooltip {
   constructor() {
     /** Tooltip position. */
-    this.position = PopoverPositions.AUTO;
+    this.position = PopoverPositions.auto;
     /** Enable tooltip dark mode. */
     this.dark = false;
     /**
@@ -40,7 +40,7 @@ export class ZTooltip {
       "mutable": true,
       "complexType": {
         "original": "PopoverPositions",
-        "resolved": "PopoverPositions.AUTO | PopoverPositions.BOTTOM | PopoverPositions.BOTTOM_LEFT | PopoverPositions.BOTTOM_RIGHT | PopoverPositions.LEFT | PopoverPositions.LEFT_BOTTOM | PopoverPositions.LEFT_TOP | PopoverPositions.RIGHT | PopoverPositions.RIGHT_BOTTOM | PopoverPositions.RIGHT_TOP | PopoverPositions.TOP | PopoverPositions.TOP_LEFT | PopoverPositions.TOP_RIGHT",
+        "resolved": "PopoverPositions.auto | PopoverPositions.bottom | PopoverPositions.bottom_left | PopoverPositions.bottom_right | PopoverPositions.left | PopoverPositions.left_bottom | PopoverPositions.left_top | PopoverPositions.right | PopoverPositions.right_bottom | PopoverPositions.right_top | PopoverPositions.top | PopoverPositions.top_left | PopoverPositions.top_right",
         "references": {
           "PopoverPositions": {
             "location": "import",
@@ -56,7 +56,7 @@ export class ZTooltip {
       },
       "attribute": "position",
       "reflect": true,
-      "defaultValue": "PopoverPositions.AUTO"
+      "defaultValue": "PopoverPositions.auto"
     },
     "dark": {
       "type": "boolean",

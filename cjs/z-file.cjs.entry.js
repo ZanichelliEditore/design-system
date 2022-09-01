@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-84b7063a.js');
-const index$1 = require('./index-5c16dc2b.js');
+const index$1 = require('./index-bc9a5c2b.js');
 const breakpoints = require('./breakpoints-88c4fd6c.js');
 
 const stylesCss = ".sc-z-file-h{font-family:var(--font-family-sans);font-weight:var(--font-rg);position:relative}.sc-z-file-h>z-popover.sc-z-file{z-index:10}.sc-z-file-h>z-popover.sc-z-file>.tooltip-content.sc-z-file{white-space:nowrap}.sc-z-file-h>z-chip.sc-z-file span.sc-z-file{max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.33;letter-spacing:0.32px;display:block}";
@@ -39,7 +39,7 @@ const ZFile = class {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
   render() {
-    return (index.h(index.Host, null, this.allowPopover && (index.h("z-popover", { open: this.popoverVisible, position: index$1.PopoverPositions.AUTO, bindTo: this.chip }, index.h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), index.h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: index$1.ZChipType.default }, index.h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 }, index.h("slot", null)))));
+    return (index.h(index.Host, null, this.allowPopover && (index.h("z-popover", { open: this.popoverVisible, position: index$1.PopoverPositions.auto, bindTo: this.chip }, index.h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), index.h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: index$1.ZChipType.default }, index.h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 }, index.h("slot", null)))));
   }
   get el() { return index.getElement(this); }
 };

@@ -1,5 +1,5 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-90e18641.js';
-import { P as PopoverPositions } from './index-3786a7ff.js';
+import { P as PopoverPositions } from './index-e3640537.js';
 
 const stylesCss = ":host{--z-tooltip-theme--surface:var(--color-surface01);--z-tooltip-theme--text:var(--color-text01);--arrow-size:6px;--edge-offset:calc(-1 * (var(--arrow-size) + calc(var(--space-unit) * 2)));position:relative;display:none;align-items:center;justify-content:center;padding:var(--space-unit);min-width:calc(var(--space-unit) * 8);min-height:calc(var(--space-unit) * 4);color:var(--z-tooltip-theme--text);fill:currentColor;font-family:var(--font-family-sans);text-align:center;border-radius:var(--border-radius-small);background:var(--z-tooltip-theme--surface);filter:drop-shadow(0 4px 8px var(--shadow-color-base));will-change:filter}:host(.legacy){display:inline-flex;padding:calc(var(--space-unit) * 2);min-width:auto;min-height:auto;max-width:200px;font-style:italic;line-height:16px;letter-spacing:0.32px;font-size:12px;border:var(--border-size-small) solid var(--gray200);border-radius:var(--border-radius);filter:drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.08))}:host(.legacy)::before{--arrow-size:14px}:host([position])::before{--arrow-edge-offset:calc(100% - var(--arrow-size) - var(--space-unit));--arrow-center-x-offset:calc(50% - calc(var(--arrow-size) / 2));--arrow-center-y-offset:calc(100% - calc(var(--arrow-size) / 2));content:'';position:absolute;width:var(--arrow-size);height:var(--arrow-size);background:inherit;transform:rotate(45deg)}:host([open][style*='top:']),:host([open][style*='inset:']){display:inline-flex}:host([position^='top']){margin-bottom:var(--space-unit)}:host([position='right']){margin-left:var(--space-unit)}:host([position='top_right']),:host([position='bottom_right']){margin-left:var(--edge-offset)}:host([position^='bottom']){margin-top:var(--space-unit)}:host([position='left']){margin-right:var(--space-unit)}:host([position='top_left']),:host([position='bottom_left']){margin-right:var(--edge-offset)}:host([position^='top'])::before{top:var(--arrow-center-y-offset)}:host([position^='bottom'])::before{bottom:var(--arrow-center-y-offset)}:host([position='top'])::before,:host([position='bottom'])::before{left:var(--arrow-center-x-offset)}:host([position='right'])::before,:host([position='left'])::before{top:var(--arrow-center-x-offset)}:host([position='right'])::before{right:var(--arrow-center-y-offset)}:host([position='top_right'])::before,:host([position='bottom_right'])::before{right:var(--arrow-edge-offset)}:host([position='left'])::before{left:var(--arrow-center-y-offset)}:host([position='top_left'])::before,:host([position='bottom_left'])::before{left:var(--arrow-edge-offset)}::slotted(*){flex:1 auto;overflow:auto}";
 
@@ -85,7 +85,7 @@ const ZTooltipDeprecated = class {
     registerInstance(this, hostRef);
     this.positionChange = createEvent(this, "positionChange", 7);
     /** Tooltip position. */
-    this.type = PopoverPositions.AUTO;
+    this.type = PopoverPositions.auto;
     /**
      * The open state of the tooltip.
      */
@@ -96,7 +96,7 @@ const ZTooltipDeprecated = class {
       Object
         .values(PopoverPositions)
         .every((position) => newValue !== position)) {
-      this.type = PopoverPositions.AUTO;
+      this.type = PopoverPositions.auto;
     }
   }
   onPositionChange() {
@@ -165,29 +165,29 @@ const ZTooltipDeprecated = class {
     const availableHeight = availableTop + availableBottom + boundingRect.height;
     const availableWidth = availableLeft + availableRight + boundingRect.width;
     let position = this.type;
-    if (position === PopoverPositions.AUTO) {
+    if (position === PopoverPositions.auto) {
       /**
        * The `AUTO` position tries to place the tooltip in the "safest" area,
        * where there's more space available.
        */
       const positions = [];
       if (availableTop / availableHeight > 0.9) {
-        positions.unshift(PopoverPositions.TOP);
+        positions.unshift(PopoverPositions.top);
       }
       else if (availableTop / availableHeight > 0.6) {
-        positions.push(PopoverPositions.TOP);
+        positions.push(PopoverPositions.top);
       }
       else if (availableTop / availableHeight < 0.1) {
-        positions.unshift(PopoverPositions.BOTTOM);
+        positions.unshift(PopoverPositions.bottom);
       }
       else {
-        positions.push(PopoverPositions.BOTTOM);
+        positions.push(PopoverPositions.bottom);
       }
       if (availableLeft / availableWidth > 0.6) {
-        positions.push(PopoverPositions.LEFT);
+        positions.push(PopoverPositions.left);
       }
       else if (availableLeft / availableWidth < 0.4) {
-        positions.push(PopoverPositions.RIGHT);
+        positions.push(PopoverPositions.right);
       }
       position = positions.join("_");
     }
@@ -199,46 +199,46 @@ const ZTooltipDeprecated = class {
     const offsetRight = boundingRect.right - relativeBoundingRect.right;
     const offsetBottom = boundingRect.bottom - relativeBoundingRect.bottom;
     const offsetLeft = boundingRect.left - relativeBoundingRect.left;
-    if (position === PopoverPositions.TOP ||
-      position === PopoverPositions.TOP_RIGHT ||
-      position === PopoverPositions.TOP_LEFT) {
+    if (position === PopoverPositions.top ||
+      position === PopoverPositions.top_right ||
+      position === PopoverPositions.top_left) {
       style.top = "auto";
       style.bottom = `${offsetBottom + boundingRect.height}px`;
     }
-    if (position === PopoverPositions.BOTTOM ||
-      position === PopoverPositions.BOTTOM_RIGHT ||
-      position === PopoverPositions.BOTTOM_LEFT) {
+    if (position === PopoverPositions.bottom ||
+      position === PopoverPositions.bottom_right ||
+      position === PopoverPositions.bottom_left) {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.bottom = "auto";
     }
-    if (position === PopoverPositions.TOP ||
-      position === PopoverPositions.BOTTOM) {
+    if (position === PopoverPositions.top ||
+      position === PopoverPositions.bottom) {
       style.left = `${offsetLeft +
         (boundingRect.width / 2) -
         (this.host.clientWidth / 2)}px`;
     }
-    if (position === PopoverPositions.TOP_RIGHT ||
-      position === PopoverPositions.BOTTOM_RIGHT) {
+    if (position === PopoverPositions.top_right ||
+      position === PopoverPositions.bottom_right) {
       style.right = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.TOP_LEFT ||
-      position === PopoverPositions.BOTTOM_LEFT) {
+    if (position === PopoverPositions.top_left ||
+      position === PopoverPositions.bottom_left) {
       style.left = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.RIGHT ||
-      position === PopoverPositions.LEFT) {
+    if (position === PopoverPositions.right ||
+      position === PopoverPositions.left) {
       style.top = `${offsetTop +
         (boundingRect.height / 2) -
         (this.host.clientHeight / 2)}px`;
       style.bottom = "auto";
     }
-    if (position === PopoverPositions.RIGHT) {
+    if (position === PopoverPositions.right) {
       style.right = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.LEFT) {
+    if (position === PopoverPositions.left) {
       style.left = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
     }

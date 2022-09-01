@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPositionBean, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositionBean, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -530,6 +530,17 @@ export namespace Components {
           * render close icon flag
          */
         "isclosable": boolean;
+    }
+    interface ZInfoReveal {
+        /**
+          * Name of the icon for the open button
+         */
+        "icon"?: string;
+        /**
+          * Text that appears on closed panel next to the open button.
+         */
+        "label"?: string;
+        "position"?: InfoRevealPositionBean;
     }
     interface ZInput {
         /**
@@ -1513,7 +1524,7 @@ export namespace Components {
         /**
           * Popover position.
          */
-        "position": PopoverPositions;
+        "position": PopoverPositionBean;
         /**
           * Whether to show popover's arrow.
          */
@@ -2170,6 +2181,12 @@ declare global {
         prototype: HTMLZInfoBoxElement;
         new (): HTMLZInfoBoxElement;
     };
+    interface HTMLZInfoRevealElement extends Components.ZInfoReveal, HTMLStencilElement {
+    }
+    var HTMLZInfoRevealElement: {
+        prototype: HTMLZInfoRevealElement;
+        new (): HTMLZInfoRevealElement;
+    };
     interface HTMLZInputElement extends Components.ZInput, HTMLStencilElement {
     }
     var HTMLZInputElement: {
@@ -2648,6 +2665,7 @@ declare global {
         "z-icon": HTMLZIconElement;
         "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
+        "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
         "z-input-deprecated": HTMLZInputDeprecatedElement;
         "z-input-label": HTMLZInputLabelElement;
@@ -3309,6 +3327,17 @@ declare namespace LocalJSX {
           * emitted on close icon click
          */
         "onInfoBoxClose"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZInfoReveal {
+        /**
+          * Name of the icon for the open button
+         */
+        "icon"?: string;
+        /**
+          * Text that appears on closed panel next to the open button.
+         */
+        "label"?: string;
+        "position"?: InfoRevealPositionBean;
     }
     interface ZInput {
         /**
@@ -4431,7 +4460,7 @@ declare namespace LocalJSX {
         /**
           * Popover position.
          */
-        "position"?: PopoverPositions;
+        "position"?: PopoverPositionBean;
         /**
           * Whether to show popover's arrow.
          */
@@ -4956,6 +4985,7 @@ declare namespace LocalJSX {
         "z-icon": ZIcon;
         "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
+        "z-info-reveal": ZInfoReveal;
         "z-input": ZInput;
         "z-input-deprecated": ZInputDeprecated;
         "z-input-label": ZInputLabel;
@@ -5069,6 +5099,7 @@ declare module "@stencil/core" {
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
+            "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
             "z-input-deprecated": LocalJSX.ZInputDeprecated & JSXBase.HTMLAttributes<HTMLZInputDeprecatedElement>;
             "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;

@@ -9,7 +9,7 @@ export class ZContextualMenu {
     /**
      * [optional] Sets the position of the popover
      */
-    this.popoverPosition = PopoverPositions.BOTTOM_RIGHT;
+    this.popoverPosition = PopoverPositions.bottom_right;
   }
   componentWillRender() {
     if (this.elements) {
@@ -94,7 +94,7 @@ export class ZContextualMenu {
       "mutable": false,
       "complexType": {
         "original": "PopoverPositions",
-        "resolved": "PopoverPositions.AUTO | PopoverPositions.BOTTOM | PopoverPositions.BOTTOM_LEFT | PopoverPositions.BOTTOM_RIGHT | PopoverPositions.LEFT | PopoverPositions.LEFT_BOTTOM | PopoverPositions.LEFT_TOP | PopoverPositions.RIGHT | PopoverPositions.RIGHT_BOTTOM | PopoverPositions.RIGHT_TOP | PopoverPositions.TOP | PopoverPositions.TOP_LEFT | PopoverPositions.TOP_RIGHT",
+        "resolved": "PopoverPositions.auto | PopoverPositions.bottom | PopoverPositions.bottom_left | PopoverPositions.bottom_right | PopoverPositions.left | PopoverPositions.left_bottom | PopoverPositions.left_top | PopoverPositions.right | PopoverPositions.right_bottom | PopoverPositions.right_top | PopoverPositions.top | PopoverPositions.top_left | PopoverPositions.top_right",
         "references": {
           "PopoverPositions": {
             "location": "import",
@@ -110,7 +110,7 @@ export class ZContextualMenu {
       },
       "attribute": "popover-position",
       "reflect": true,
-      "defaultValue": "PopoverPositions.BOTTOM_RIGHT"
+      "defaultValue": "PopoverPositions.bottom_right"
     }
   }; }
   static get events() { return [{

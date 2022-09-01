@@ -90,7 +90,7 @@ export class ZMyzCardInfo {
     if (!this.cardData)
       return;
     const { title, year, author, description } = this.cardData;
-    return (h("z-popover", { position: PopoverPositions.RIGHT, onClick: () => (this.tooltip = false) }, `${title} ${year} ${author} ${description}`));
+    return (h("z-popover", { position: PopoverPositions.right, onClick: () => (this.tooltip = false) }, `${title} ${year} ${author} ${description}`));
   }
   setExpirationLicenseMessage(type) {
     if ((type === "online" && this.cardData.onlineLicense.expired) ||

@@ -71,7 +71,7 @@ export class ZTableHeader {
             : "arrow-down", class: "arrow" }))),
       this.showButton && (h("div", { class: 'popover-container' },
         h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenuClick() }),
-        h("z-popover", { ref: (el) => (this.popover = el), position: PopoverPositions.BOTTOM, center: true, bindTo: this.triggerButton },
+        h("z-popover", { ref: (el) => (this.popover = el), position: PopoverPositions.bottom, center: true, bindTo: this.triggerButton },
           h("div", null,
             h("slot", { name: "contextual-menu" })))))));
   }

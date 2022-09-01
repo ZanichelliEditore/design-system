@@ -4,8 +4,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-84b7063a.js');
 const index$2 = require('./index-1fda0714.js');
-const index$1 = require('./index-5c16dc2b.js');
-const utils = require('./utils-15c8b978.js');
+const index$1 = require('./index-bc9a5c2b.js');
+const utils = require('./utils-2fa62b67.js');
 require('./_commonjsHelpers-537d719a.js');
 require('./breakpoints-88c4fd6c.js');
 
@@ -76,7 +76,7 @@ const ZTableHeader = class {
         sortable: this.sortable,
       }), onClick: () => this.handleSort() }, index.h("div", { class: 'container' }, index.h("slot", null), this.sortable && this.sortDirection !== index$1.SortDirectionEnum.none && (index.h("z-icon", { name: this.sortDirection === index$1.SortDirectionEnum.asc
         ? "arrow-up"
-        : "arrow-down", class: "arrow" }))), this.showButton && (index.h("div", { class: 'popover-container' }, index.h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: index$1.ButtonVariantEnum["tertiary"], size: index$1.ButtonSizeEnum["x-small"], onClick: () => this.handleMenuClick() }), index.h("z-popover", { ref: (el) => (this.popover = el), position: index$1.PopoverPositions.BOTTOM, center: true, bindTo: this.triggerButton }, index.h("div", null, index.h("slot", { name: "contextual-menu" })))))));
+        : "arrow-down", class: "arrow" }))), this.showButton && (index.h("div", { class: 'popover-container' }, index.h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: index$1.ButtonVariantEnum["tertiary"], size: index$1.ButtonSizeEnum["x-small"], onClick: () => this.handleMenuClick() }), index.h("z-popover", { ref: (el) => (this.popover = el), position: index$1.PopoverPositions.bottom, center: true, bindTo: this.triggerButton }, index.h("div", null, index.h("slot", { name: "contextual-menu" })))))));
   }
   get host() { return index.getElement(this); }
 };

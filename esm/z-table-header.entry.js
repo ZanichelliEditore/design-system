@@ -1,7 +1,7 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-90e18641.js';
 import { c as classnames } from './index-abb47b30.js';
-import { E as Size, F as SortDirectionEnum, f as ButtonVariantEnum, g as ButtonSizeEnum, P as PopoverPositions } from './index-3786a7ff.js';
-import { a as getElementTree } from './utils-d49ae9f0.js';
+import { F as Size, G as SortDirectionEnum, f as ButtonVariantEnum, g as ButtonSizeEnum, P as PopoverPositions } from './index-e3640537.js';
+import { a as getElementTree } from './utils-f3d44cb3.js';
 import './_commonjsHelpers-9943807e.js';
 import './breakpoints-c386984e.js';
 
@@ -72,7 +72,7 @@ const ZTableHeader = class {
         sortable: this.sortable,
       }), onClick: () => this.handleSort() }, h("div", { class: 'container' }, h("slot", null), this.sortable && this.sortDirection !== SortDirectionEnum.none && (h("z-icon", { name: this.sortDirection === SortDirectionEnum.asc
         ? "arrow-up"
-        : "arrow-down", class: "arrow" }))), this.showButton && (h("div", { class: 'popover-container' }, h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenuClick() }), h("z-popover", { ref: (el) => (this.popover = el), position: PopoverPositions.BOTTOM, center: true, bindTo: this.triggerButton }, h("div", null, h("slot", { name: "contextual-menu" })))))));
+        : "arrow-down", class: "arrow" }))), this.showButton && (h("div", { class: 'popover-container' }, h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenuClick() }), h("z-popover", { ref: (el) => (this.popover = el), position: PopoverPositions.bottom, center: true, bindTo: this.triggerButton }, h("div", null, h("slot", { name: "contextual-menu" })))))));
   }
   get host() { return getElement(this); }
 };
