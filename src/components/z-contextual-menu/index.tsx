@@ -26,7 +26,7 @@ export class ZContextualMenu {
   /**
    * [optional] Sets the position of the popover
    */
-  @Prop({ reflect: true }) popoverPosition?: PopoverPositions = PopoverPositions.BOTTOM_RIGHT;
+  @Prop({ reflect: true }) popoverPosition?: PopoverPositions = PopoverPositions.bottom_right;
 
   private triggerButton?: HTMLButtonElement;
 
