@@ -385,7 +385,7 @@ export class ZRangePicker {
   }
 
   onStopTyping(value) {
-    let text = value.detail.value;
+    let text = value.detail.value.replace("/", "-");
     let englishData = text.split("-");
     let time =
       this.mode === ZRangePickerMode.dateTime ? `T${englishData[3]}:00` : "";
