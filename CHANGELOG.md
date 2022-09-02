@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/ZanichelliEditore/design-system/compare/v5.1.0...v5.2.0) (2022-09-02)
+
+
+### Features
+
+* add hasclearicon storybook control ([fe4df14](https://github.com/ZanichelliEditore/design-system/commit/fe4df14716f6b171c7bcd636633ab1b804d9b93b))
+* add render test ([ee869d6](https://github.com/ZanichelliEditore/design-system/commit/ee869d609eba82e2820eb041b956cd6a1091c197))
+* add search type ([0780c7e](https://github.com/ZanichelliEditore/design-system/commit/0780c7eb3de5d633e50a8c476cb43a29dd5493fd))
+* add story for type number ([b1a7fe7](https://github.com/ZanichelliEditore/design-system/commit/b1a7fe7ed0be6e26f929e2ae5e2ab4f04eb0343c))
+* handle min, max, step in z-input type number ([c72716a](https://github.com/ZanichelliEditore/design-system/commit/c72716a994a473a559c28a15d9221f5f7127ded1))
+* remove test html tags ([2643c4f](https://github.com/ZanichelliEditore/design-system/commit/2643c4f054d8ebaac530084de17e36bfa0517bd0))
+
+
+### Bug Fixes
+
+* based on pr comments ([b2ddb92](https://github.com/ZanichelliEditore/design-system/commit/b2ddb92ac11f55b5bb12105e6b69935c4c4e173e))
+* hide clear icon for type number ([efee314](https://github.com/ZanichelliEditore/design-system/commit/efee314ba777e1868128a1515daf2cf548b1fd74))
+* storybook ([6015c75](https://github.com/ZanichelliEditore/design-system/commit/6015c7578fc8af95d82d2c258dcb873cc0642fdc))
+* unit render test ([664c7f6](https://github.com/ZanichelliEditore/design-system/commit/664c7f62038211c45b4429962099080447bc4bcc))
+* update storybook ([ab753ce](https://github.com/ZanichelliEditore/design-system/commit/ab753ce75915a1669cdf049f51c046fef315781e))
+* update storybook ([8111155](https://github.com/ZanichelliEditore/design-system/commit/8111155d58019bdcb128492182845b4eba03bc13))
+
 ## [5.1.0](https://github.com/ZanichelliEditore/design-system/compare/v5.0.1...v5.1.0) (2022-09-01)
 
 
