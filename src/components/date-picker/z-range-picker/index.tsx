@@ -182,10 +182,23 @@ export class ZRangePicker {
   }
 
   onDateSelect() {
+    let firstInputActive = this.activeInput === "start-input";
     let firstDate = this.firstPicker.selectedDates[0];
     let lastDate = this.lastPicker.selectedDates[0];
 
-    this.printDate(firstDate || null, lastDate || null);
+    if (+firstDate > +lastDate) {
+      if (firstInputActive) {
+        this.firstInputError = true;
+        this.printDate(null, lastDate || null);
+      } else {
+        this.lastInputError = true;
+        this.printDate(firstDate || null, null);
+      }
+    } else {
+      this.lastInputError = false;
+      this.firstInputError = false;
+      this.printDate(firstDate || null, lastDate || null);
+    }
   }
 
   disableDates(date, index) {
