@@ -1,3 +1,5 @@
+import flatpickr from "flatpickr";
+
 import {
   ZDatePickerMode,
   ZDatePickerModeValues,
@@ -5,19 +7,22 @@ import {
 } from "../../beans";
 
 export function validateDate(dateStr, hasTime = false) {
+  console.log("dateStr", dateStr);
   const regex = hasTime
-    ? /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:00$/
-    : /^\d{4}-\d{2}-\d{2}$/;
+    ? /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4} - \d{2}:\d{2}$/
+    : /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4}$/;
 
   if (dateStr.match(regex) === null) {
+    console.log("regex");
     return false;
   }
 
-  const date = new Date(dateStr);
-  const timestamp = date.getTime();
+  let date;
 
-  if (typeof timestamp !== "number" || Number.isNaN(timestamp)) {
-    return false;
+  if (hasTime) {
+    date = flatpickr.parseDate(dateStr, "d-m-Y");
+  } else {
+    date = flatpickr.parseDate(dateStr, "d-m-Y - H:i");
   }
 
   return true;

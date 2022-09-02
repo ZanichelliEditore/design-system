@@ -274,8 +274,8 @@ z-range-picker {
   border: 2px solid var(--color-hover-primary) !important;
 }
 
-.flatpickr-day.selected,
-.flatpickr-monthSelect-month.selected {
+.flatpickr-day.selected:not(.flatpickr-disabled),
+.flatpickr-monthSelect-month.selected:not(.flatpickr-disabled) {
   background-color: var(--color-primary01) !important;
   border-color: var(--color-primary01) !important;
 }
@@ -414,32 +414,32 @@ z-range-picker {
 
 /* range-date-picker selectors */
 
-.flatpickr-day.inRange,
-.flatpickr-day.today.inRange,
-.flatpickr-day.prevMonthDay.inRange,
-.flatpickr-monthSelect-month.inRange {
-  background-color: var(--color-primary03) !important;
-  border-color: var(--color-primary03) !important;
-}
-
-.flatpickr-day.inRange:hover,
-.flatpickr-day.today.inRange:hover,
-.flatpickr-day.prevMonthDay.inRange:hover,
-.flatpickr-monthSelect-month.inRange:hover {
+.flatpickr-day:not(.flatpickr-disabled).inRange:hover,
+.flatpickr-day:not(.flatpickr-disabled).today.inRange:hover,
+.flatpickr-day.prevMonthDay:not(.flatpickr-disabled).inRange:hover,
+.flatpickr-monthSelect-month:not(.flatpickr-disabled).inRange:hover {
   background-color: var(--color-hover-primary) !important;
   border-color: var(--color-hover-primary) !important;
 }
 
-.flatpickr-day.startRange,
-.flatpickr-day.endRange,
-.flatpickr-monthSelect-month.startRange,
-.flatpickr-monthSelect-month.endRange {
+.flatpickr-day:not(.flatpickr-disabled).inRange,
+.flatpickr-day:not(.flatpickr-disabled).today.inRange,
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay.inRange,
+.flatpickr-monthSelect-month:not(.flatpickr-disabled).inRange {
+  background-color: var(--color-primary03);
+  border-color: var(--color-primary03);
+}
+
+.flatpickr-day:not(.flatpickr-disabled).startRange,
+.flatpickr-day:not(.flatpickr-disabled).endRange,
+.flatpickr-monthSelect-month:not(.flatpickr-disabled).startRange,
+.flatpickr-monthSelect-month:not(.flatpickr-disabled).endRange {
   background-color: var(--color-primary01) !important;
   border-color: var(--color-primary01) !important;
 }
 
-.flatpickr-day.prevMonthDay.selected.startRange,
-.flatpickr-day.prevMonthDay.selected.endRange {
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay.selected.startRange,
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay.selected.endRange {
   background-color: var(--color-primary01) !important;
   border-color: var(--color-primary01) !important;
 }

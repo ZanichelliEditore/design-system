@@ -93,12 +93,12 @@ export class ZRangePicker {
       if (isCrossIconEntered) {
         if (this.activeInput === "start-input") {
           this.firstInputError = false;
-          this.firstPicker?.setDate([]);
+          this.firstPicker?.clear();
           this.printDate(null, this.lastPicker?.selectedDates[0] || null);
         }
         if (this.activeInput === "end-input") {
           this.lastInputError = false;
-          this.lastPicker?.setDate([]);
+          this.firstPicker?.clear();
           this.printDate(this.firstPicker?.selectedDates[0] || null, null);
         }
       }
@@ -133,6 +133,27 @@ export class ZRangePicker {
       ariaDateFormat: "d F Y",
       minuteIncrement: 1,
       time_24hr: true,
+      onValueUpdate: (_selectedDates, _dateStr, _instance) => {
+        let firstInputActive = this.activeInput === "start-input";
+        let firstDate = this.firstPicker.selectedDates[0];
+        let lastDate = this.lastPicker.selectedDates[0];
+
+        if (+firstDate > +lastDate) {
+          if (firstInputActive) {
+            this.firstInputError = true;
+            this.printDate(null, lastDate || null);
+          } else {
+            this.lastInputError = true;
+            this.printDate(firstDate || null, null);
+          }
+        } else {
+          this.lastInputError = false;
+          this.firstInputError = false;
+          this.printDate(firstDate || null, lastDate || null);
+        }
+        this.setRangeStyle(0);
+        this.setRangeStyle(1);
+      },
       onChange: (_selectedDates, _dateStr, instance) => {
         this.onDateSelect();
         this.setRangeStyle(
@@ -205,7 +226,7 @@ export class ZRangePicker {
     Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach(
       (element: HTMLElement) => {
         let calendarDate = this.getDateWithoutTime(
-          this.parseDate(element.ariaLabel, null)
+          this.replaceMonths(element.ariaLabel, null)
         );
 
         let breakpoint = this.getDateWithoutTime(date);
@@ -265,7 +286,7 @@ export class ZRangePicker {
   }
 
   /** Replace month word to month number */
-  parseDate(date, time) {
+  replaceMonths(date, time) {
     const month = date.split(" ")[1];
     const months = {
       Gennaio: "01",
@@ -319,7 +340,7 @@ export class ZRangePicker {
           let firstDate;
           let lastDate;
           let date = this.getDateWithoutTime(
-            this.parseDate(element.ariaLabel, null)
+            this.replaceMonths(element.ariaLabel, null)
           );
 
           if (hasFirstDate) {
@@ -374,7 +395,7 @@ export class ZRangePicker {
         .join("");
 
     let isValidDate = validateDate(
-      englishParsedData,
+      text,
       this.mode === ZRangePickerMode.dateTime
     );
 
