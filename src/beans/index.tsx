@@ -154,6 +154,9 @@ export enum InputTypeEnum {
   textarea = "textarea",
   checkbox = "checkbox",
   radio = "radio",
+  tel = "tel",
+  url = "url",
+  search = "search",
 }
 
 export type InputStatusBean = keyof typeof InputStatusEnum;

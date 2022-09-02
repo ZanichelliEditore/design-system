@@ -23,7 +23,7 @@ export class ZPagination {
 
   /** Pagination label placed before the bar. */
   @Prop()
-  label?:string;
+  label?: string;
 
   /** Enable navigation arrows. */
   @Prop()
@@ -266,32 +266,32 @@ export class ZPagination {
     // left and right split pages, current page, first and last page, left and right ellipsis button
     if (this.totalPages <= this.split * 2 + 5) {
       // Too few pages: ellipsis will never be rendered, so let's just render all pages and that's it.
-      return Array.from(
-        { length: this.totalPages },
-        (_, i) => this.renderPage(i + 1),
+      return Array.from({ length: this.totalPages }, (_, i) =>
+        this.renderPage(i + 1)
       );
     }
 
     if (this.currentPage <= this.split * 2 + 2) {
       // Render first (2 * split + 3) pages, ellipsis, then last page.
       return [
-        ...Array.from(
-          { length: this.split * 2 + 3 },
-          (_, i) => this.renderPage(i + 1),
+        ...Array.from({ length: this.split * 2 + 3 }, (_, i) =>
+          this.renderPage(i + 1)
         ),
         this.renderEllipsisButton(this.split * 2 + 4),
         this.renderPage(this.totalPages),
       ];
     }
 
-    if (this.currentPage > this.split * 2 + 2 && this.currentPage < this.totalPages - this.split * 2 - 1) {
+    if (
+      this.currentPage > this.split * 2 + 2 &&
+      this.currentPage < this.totalPages - this.split * 2 - 1
+    ) {
       // Render first page, ellipsis, current page surrounded by (split) pages both before and after, another ellipsis, then last page.
       return [
         this.renderPage(1),
         this.renderEllipsisButton(this.currentPage - this.split - 1),
-        ...Array.from(
-          { length: this.split * 2 + 1 },
-          (_, i) => this.renderPage(this.currentPage - this.split + i),
+        ...Array.from({ length: this.split * 2 + 1 }, (_, i) =>
+          this.renderPage(this.currentPage - this.split + i)
         ),
         this.renderEllipsisButton(this.currentPage + this.split + 1),
         this.renderPage(this.totalPages),
@@ -302,9 +302,8 @@ export class ZPagination {
     return [
       this.renderPage(1),
       this.renderEllipsisButton(this.totalPages - this.split * 2 - 3),
-      ...Array.from(
-        { length: this.split * 2 + 3 },
-        (_, i) => this.renderPage(this.totalPages - this.split * 2 - 2 + i),
+      ...Array.from({ length: this.split * 2 + 3 }, (_, i) =>
+        this.renderPage(this.totalPages - this.split * 2 - 2 + i)
       ),
     ];
   }
@@ -368,8 +367,12 @@ export class ZPagination {
             <z-input
               class="go-to-page-input"
               type="number"
+              min={1}
+              max={this.totalPages}
               message={false}
-              onInput={(ev) => { this.goToPageValue = (ev.target as HTMLZInputElement).value }}
+              onInput={(ev) => {
+                this.goToPageValue = (ev.target as HTMLZInputElement).value;
+              }}
               placeholder={this.currentPage.toString()}
               hasclearicon={false}
             ></z-input>
@@ -431,10 +434,7 @@ export class ZPagination {
         {this.navArrows && this.renderBackButton()}
 
         <div class="pages-container" role="navigation" tabIndex={-1}>
-          {this.split ?
-            this.renderSplitPages() :
-            this.renderPages()
-          }
+          {this.split ? this.renderSplitPages() : this.renderPages()}
         </div>
 
         {this.navArrows && this.renderForwardButton()}
@@ -471,11 +471,17 @@ export class ZPagination {
             <z-input
               class="go-to-page-input"
               type="number"
+              min={1}
+              max={this.totalPages}
               message={false}
               placeholder="2"
               hasclearicon={false}
-              onInput={(ev) => { this.goToPageValue = (ev.target as HTMLZInputElement).value }}
-              onKeyDown={(ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue)}
+              onInput={(ev) => {
+                this.goToPageValue = (ev.target as HTMLZInputElement).value;
+              }}
+              onKeyDown={(ev) =>
+                ev.key === "Enter" && this.selectPage(this.goToPageValue)
+              }
             ></z-input>
             <z-button
               disabled={!this.goToPageValue}

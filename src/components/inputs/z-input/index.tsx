@@ -63,6 +63,14 @@ export class ZInput {
   @Prop() hasclearicon?: boolean = true;
   /** render icon (optional): available for text */
   @Prop() icon?: string;
+  /** min number value (optional): available for number */
+  @Prop() min?: number;
+  /** max number value (optional): available for number */
+  @Prop() max?: number;
+  /** step number value (optional): available for number */
+  @Prop() step?: number;
+  /** pattern value (optional): available for tel, text, search, url, email, password*/
+  @Prop() pattern?: string;
 
   @State() isTyping: boolean = false;
   @State() passwordHidden: boolean = true;
@@ -178,12 +186,40 @@ export class ZInput {
     };
   }
 
+  getNumberAttributes(type: InputTypeBean) {
+    if (type != InputTypeEnum.number) return;
+    return {
+      min: this.min,
+      max: this.max,
+      step: this.step,
+    };
+  }
+
+  getPatternAttribute(type: InputTypeBean) {
+    if (
+      type != InputTypeEnum.password &&
+      type != InputTypeEnum.text &&
+      type != InputTypeEnum.tel &&
+      type != InputTypeEnum.search &&
+      type != InputTypeEnum.url &&
+      type != InputTypeEnum.email
+    )
+      return;
+    return {
+      pattern: this.pattern,
+    };
+  }
+
   renderInputText(type: InputTypeBean = InputTypeEnum.text) {
-    const attr = this.getTextAttributes();
+    const attr = {
+      ...this.getTextAttributes(),
+      ...this.getNumberAttributes(type),
+      ...this.getPatternAttribute(type),
+    };
     if (this.icon || type === InputTypeEnum.password) {
       attr.class = { ...attr.class, hasIcon: true };
     }
-    if (this.hasclearicon) {
+    if (this.hasclearicon && type != InputTypeEnum.number) {
       attr.class = { ...attr.class, hasClearIcon: true };
     }
 
@@ -246,7 +282,13 @@ export class ZInput {
   }
 
   renderResetIcon() {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
+    if (
+      !this.hasclearicon ||
+      !this.value ||
+      this.disabled ||
+      this.readonly ||
+      this.type == InputTypeEnum.number
+    )
       return;
 
     return (
