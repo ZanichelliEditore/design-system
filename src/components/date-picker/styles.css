@@ -25,7 +25,6 @@ z-range-picker {
 }
 
 .range-pickers-container > div {
-  cursor: pointer !important;
   position: relative;
 }
 
