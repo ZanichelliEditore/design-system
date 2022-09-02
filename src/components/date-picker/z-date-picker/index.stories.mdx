@@ -42,11 +42,12 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        const picker1 = document.getElementById("${args.datePickerId}");
-        picker1.addEventListener("dateSelect", (e) => {
-          const input = document.getElementById("output");
-          input.innerHTML = "[" + e.detail + "]";
-        });
+        document
+          .getElementById("${args.datePickerId}")
+          .addEventListener("dateSelect", (e) => {
+            const input = document.getElementById("output");
+            input.innerHTML = "[" + e.detail + "]";
+          });
       </script>
       <div class="story-container">
         <div class="story-picker-container">
@@ -82,11 +83,12 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        const picker1 = document.getElementById("${args.datePickerId}");
-        picker1.addEventListener("dateSelect", (e) => {
-          const input = document.getElementById("output");
-          input.innerHTML = "[" + e.detail + "]";
-        });
+        document
+          .getElementById("${args.datePickerId}")
+          .addEventListener("dateSelect", (e) => {
+            const input = document.getElementById("output");
+            input.innerHTML = "[" + e.detail + "]";
+          });
       </script>
       <div class="story-container">
         <div class="story-picker-container">
@@ -122,11 +124,12 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        const picker1 = document.getElementById("${args.datePickerId}");
-        picker1.addEventListener("dateSelect", (e) => {
-          const input = document.getElementById("output");
-          input.innerHTML = "[" + e.detail + "]";
-        });
+        document
+          .getElementById("${args.datePickerId}")
+          .addEventListener("dateSelect", (e) => {
+            const input = document.getElementById("output");
+            input.innerHTML = "[" + e.detail + "]";
+          });
       </script>
       <div class="story-container">
         <div class="story-picker-container">
@@ -162,11 +165,12 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        const picker1 = document.getElementById("${args.datePickerId}");
-        picker1.addEventListener("dateSelect", (e) => {
-          const input = document.getElementById("output");
-          input.innerHTML = "[" + e.detail + "]";
-        });
+        document
+          .getElementById("${args.datePickerId}")
+          .addEventListener("dateSelect", (e) => {
+            const input = document.getElementById("output");
+            input.innerHTML = "[" + e.detail + "]";
+          });
       </script>
       <div class="story-container">
         <div class="story-picker-container">

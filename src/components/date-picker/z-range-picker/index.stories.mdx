@@ -38,11 +38,12 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        const picker1 = document.getElementById("${args.rangePickerId}");
-        picker1.addEventListener("dateSelect", (e) => {
-          const input = document.getElementById("output");
-          input.innerHTML = "[" + e.detail[0] + ", " + e.detail[1] + "]";
-        });
+        document
+          .getElementById("${args.rangePickerId}")
+          .addEventListener("dateSelect", (e) => {
+            const input = document.getElementById("output");
+            input.innerHTML = "[" + e.detail[0] + ", " + e.detail[1] + "]";
+          });
       </script>
       <div class="story-container">
         <div class="story-picker-container">
@@ -82,11 +83,12 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        const picker2 = document.getElementById("${args.rangePickerId}");
-        picker2.addEventListener("dateSelect", (e) => {
-          const input = document.getElementById("output");
-          input.innerHTML = "[" + e.detail[0] + ", " + e.detail[1] + "]";
-        });
+        document
+          .getElementById("${args.rangePickerId}")
+          .addEventListener("dateSelect", (e) => {
+            const input = document.getElementById("output");
+            input.innerHTML = "[" + e.detail[0] + ", " + e.detail[1] + "]";
+          });
       </script>
       <div class="story-container">
         <div class="story-picker-container">
