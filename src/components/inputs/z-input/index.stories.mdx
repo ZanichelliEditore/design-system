@@ -93,6 +93,10 @@ import "./index";
     step: {
       control: { type: "number" },
     },
+    pattern: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
   }}
 />
 
@@ -121,6 +125,10 @@ import "./index";
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
           autocomplete=${args.autocomplete}
+          min=${args.min}
+          max=${args.max}
+          step=${args.step}
+          pattern=${args.pattern}
         ></z-input>
       `
     }
@@ -338,7 +346,7 @@ import "./index";
         defaultValue: 1,
       },
       value: {
-        defaultValue: 1,
+        defaultValue: "1",
       },
       hasclearicon: {
         defaultValue: false,
