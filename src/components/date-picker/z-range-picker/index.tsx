@@ -127,6 +127,7 @@ export class ZRangePicker {
       enableTime: this.mode === ZRangePickerMode.dateTime,
       locale: Italian,
       allowInput: true,
+      wrap: true,
       dateFormat:
         this.mode === ZRangePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: "d F Y",
@@ -161,14 +162,14 @@ export class ZRangePicker {
       },
     };
 
-    this.firstPicker = flatpickr(`.${this.rangePickerId}-1`, {
+    this.firstPicker = flatpickr(`.${this.rangePickerId}-1-container`, {
       ...config,
       mode: "single",
       appendTo: this.element.querySelector(
         `.${this.rangePickerId}-1-container`
       ),
     });
-    this.lastPicker = flatpickr(`.${this.rangePickerId}-2`, {
+    this.lastPicker = flatpickr(`.${this.rangePickerId}-2-container`, {
       ...config,
       mode: "single",
       appendTo: this.element.querySelector(
@@ -466,6 +467,7 @@ export class ZRangePicker {
         <div class={`${this.rangePickerId}-1-container`}>
           <z-input
             {...zInputProps}
+            data-input="data-input"
             class={`start-input ${this.rangePickerId}-1`}
             ariaLabel={this.firstAriaLabel}
             label={this.firstLabel}
@@ -478,6 +480,7 @@ export class ZRangePicker {
         <div class={`${this.rangePickerId}-2-container`}>
           <z-input
             {...zInputProps}
+            data-input="data-input"
             class={`end-input ${this.rangePickerId}-2`}
             ariaLabel={this.secondAriaLabel}
             label={this.secondLabel}

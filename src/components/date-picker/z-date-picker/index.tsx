@@ -148,7 +148,7 @@ export class ZDatePicker {
   setupPickers() {
     const classToAppend = this.hasChildren
       ? `${this.datePickerId}-hidden`
-      : this.datePickerId;
+      : `${this.datePickerId}-container`;
 
     this.picker = flatpickr(`.${classToAppend}`, {
       appendTo: this.element.children[0] as HTMLElement,
@@ -170,7 +170,7 @@ export class ZDatePicker {
       onKeyDown: () => {
         setAriaOptions(this.element, this.mode);
       },
-      wrap: this.hasChildren,
+      wrap: true,
       plugins: this.mode === ZDatePickerMode.months && [
         monthSelectPlugin({
           dateFormat: "m-Y",
@@ -187,6 +187,8 @@ export class ZDatePicker {
   formatDate(date) {
     if (this.mode === ZDatePickerMode.date) {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
+    } else if (this.mode === ZDatePickerMode.months) {
+      return `${flatpickr.formatDate(date, "m-Y")}`;
     } else {
       return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
     }
@@ -194,6 +196,11 @@ export class ZDatePicker {
 
   onStopTyping(value) {
     let text = value.detail.value;
+
+    if (this.mode === ZDatePickerMode.months) {
+      text = "01-".concat(value.detail.value);
+    }
+
     let englishData = text.split("-");
     let time =
       this.mode === ZDatePickerMode.dateTime ? `T${englishData[3]}:00` : "";
@@ -216,7 +223,7 @@ export class ZDatePicker {
       this.dateSelect.emit(null);
     } else if (isValidDate) {
       this.inputError = false;
-      this.picker.setDate([text]);
+      this.picker.setDate([value.detail.value]);
       this.dateSelect.emit(this.formatDate(new Date(englishParsedData)));
     }
   }
@@ -232,8 +239,9 @@ export class ZDatePicker {
 
   renderZInput() {
     return (
-      <div class={classNames("flatpickr-toggle-container")}>
+      <div class={`${this.datePickerId}-container`}>
         <z-input
+          data-input="data-input"
           ariaLabel={this.ariaLabel}
           label={this.label}
           class={classNames(this.datePickerId)}
